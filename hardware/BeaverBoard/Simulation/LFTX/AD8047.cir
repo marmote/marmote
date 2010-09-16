@@ -1,0 +1,110 @@
+
+* AD8047 SPICE Macro-model Rev. 1 11/97
+*              JCH / ADI
+*
+* Copyright 1997 by Analog Devices
+*
+* Refer to "README.DOC" file for License Statement.  Use of
+* this model indicates your acceptance of the terms and pro-
+* visions in the License Statement.
+*
+* CAUTION: NOISE PERFORMANCE IS NOT INCLUDED IN THIS MODEL.  NOISE
+* MODELING WILL BE INCLUDED IN A LATER REVISION.
+*
+* Node assignments
+*               non-inverting input
+*               |  inverting input
+*               |  |  positive supply
+*               |  |  |  negative supply
+*               |  |  |  |  output
+*               |  |  |  |  |
+.SUBCKT AD8047  3  1  99 50 44
+*
+* INPUT STAGE AND POLE AT 800MHZ
+*
+I1   8    50   1E-3
+Q1   4    1    6    QN
+Q2   5    2    7    QN
+R1   99   4    862
+R2   99   5    862
+C1   4    5    0.116p
+R3   6    8    810.5
+R4   7    8    810.5
+RCM1 1    20   5G
+RCM2 3    20   5G
+IOS  1    3    3u
+EOS  3    2    POLY(1) (16,98) 1E-3 1
+CIN1 1   99    1.5PF
+CIN2 2   99    1.5PF
+*
+* GAIN STAGE AND DOMINANT POLE AT 110KHZ
+*
+EREF 98   0    POLY(2) (99,0) (50,0) 0 0.5 0.5
+G1   98   9    (4,5) 1.16E-3
+R5   9    98   1.085E6
+C2   9    98   1.333E-12
+D1   9    10   DX
+D2   11   9    DX
+H1   99   10   POLY(1) Vout 1.87  37.9 -3.94E2  2.44E3
+H2   11   50   POLY(1) Vout 1.93 -40.3 -4.51E2 -2.70E3
+*
+*POLE AT 1.1GHZ
+*
+GP1  98   12    (9,98) 1
+RP1  98   12    1
+CP1  98   12    0.14N
+*
+*POLE AT 1.1GHZ
+*
+GP2  98   13    (12,98) 1
+RP2  98   13    1
+CP2  98   13    0.14N
+*
+*POLE AT 1.1GHZ
+*
+GP3  98   14    (13,98) 1
+RP3  98   14    1
+CP3  98   14    0.14N
+*
+*POLE AT 1.3GHZ
+*
+GP4  98   17    (14,98) 1
+RP4  98   17    1
+CP4  98   17    0.12N
+*
+*COMMON-MODE ZERO AT 113KHZ
+*
+GCM1 98   15    20 98 1E-10
+RCM3 15   16    1MEG
+LCM1 16   98    1.4
+*
+* BUFFER TO OUTPUT STAGE
+*
+GB11  98   40   (14,98) 200m
+RB11  98   40   5
+*
+* OUTPUT STAGE
+*
+RO1  99   45   0.4
+RO2  45   50   0.4
+G7   45   99   (99,40) 2.5
+G8   50   45   (40,50) 2.5
+G9   98   60   (45,40) 2.5
+D7   60   61   DX
+D8   62   60   DX
+V7   61   98   DC 0
+V8   98   62   DC 0
+FSY  99   50   POLY(2) V7 V8 4E-3  1  1
+D9   41   45   DX
+D10  45   42   DX
+V5   40   41   0.68
+V6   42   40   0.68
+Vout 45   46   0
+LO   46   44   .06E-9
+*
+* MODELS USED
+*
+.MODEL DX D
+.MODEL QN NPN(BF=500)
+.ENDS AD8047
+
