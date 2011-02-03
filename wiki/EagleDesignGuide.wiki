@@ -1,0 +1,98 @@
+#summary EAGLE Design Guide.
+#labels Phase-Implementation
+
+The Marmote project uses a multi-board platform. The printed circuit boards (PCBs) are created in [http://www.cadsoftusa.com/ CadSoft EAGLE] according the following rules:
+
+<wiki:toc max_depth="1" />
+
+= Library Components =
+
+== Package ==
+
+  # Create new package (package names should come from the datasheet or follow standard naming, e.g. IPC)
+  # Set the grid based on the pin pitch of the device
+  # Set pad dimensions and place the pads on the top layer (the roundness can be changed later with the DRC)
+  # Make sure that the names of the pads are in order (1, 2, etc.)
+  # Draw essential information (pin,,1,, designator) on tPlace using 8 mil or 4 mil thickness (Do not cover areas on the silkscreen that are to be soldered!)
+  # Draw additional information on tDocu (not on silkscreen)
+  # Place '>NAME' label on tNames using proportional font, 16 mil height, 8% width (will not be on silkscreen, but assembly drawing)
+  #Place '>VALUE' label on tValues using vector font, 16 mil height, 8% width (will not be on silkscreen)
+  # OPTIONAL layers:
+    * Holes:       mounting holes
+    *tRestrict: define area (RECT) without tracks (copper), e.g. around mounting holes, underneath metalic components, etc.
+    *tKeepout:  define area (RECT) as big as the physical component (prevent overlapping components)
+  # Add description:
+{{{
+<b>FOOTPRINT NAME</b>
+<p>
+Textual description
+<p>
+Source: URL
+}}}
+
+== Symbol ==
+
+  # Create new symbol (symbol name can be the same as device/part name)
+  # Use 100 mil grid
+  # Place pins: length short, visible both, function as desired
+|| *Name* || *Description* || *ERC* ||
+|| NC  || Not connected || A not connected pin ||
+|| In || Input || A net connected to this pin and not only In pins connected to this net ||
+|| Out || Output || Not only Out pins connected to the net, no Sup or OC pin at the same net ||
+|| I/O || Input/output || No checks ||
+|| OC  || Open Collector or Open Drain || No Out pin at the same net ||
+|| Hiz || High impedance output || No checks ||
+|| Pas || Passive (resistors, etc.) || No checks ||
+|| Pwr || Power pin (power supply input) || A Sup pin set for this net ||
+|| Sup || Power supply output for ground and supply symbols || ? ||
+
+  # Add pin names    
+  # Use WIRE on the Symbols layer to draw circuit symbol
+  # Place '>NAME' label on Names using proportional font, 70 mil height, 10% width
+  # Place '>VALUE' label on Values using proportional font, 70 mil height, 10% width
+
+== Device ==
+
+  # Create new device (same as device/part name)
+  # Add symbol
+  # Make sure Addlevel=Next and a Swaplevel=0 (unless...)
+  # Select package and SPECIFY VARIANT NAME (will become part name suffix). 
+  # OPTIONAL: you can specify technologies (per variants). These will become part of the part number (no other effect)
+  # Connect pins and pads
+  # Specify prefix (U for ICs, R, C, L, B (beads), D (diodes), X (quartz), J (connectors), JP (jumpers), TP (test points))
+  # Value
+   * editable: ON (resistors, capacitors, inductors) or 
+   * non-editable: OFF(part name + tech name will be the value)
+  # Add descritpion:
+{{{
+<b>DEVICE NAME</b>
+<p>
+Textual description
+<p>
+Source: url
+}}}
+
+= Schematic =
+
+TBD
+
+= Layout =
+
+== Silk screen ==
+|| small labels (refdes) || vector, 40mil, 8% ||
+|| large labels (conns) ||  vector, 70 mil, 10% ||
+|| very large labels || inverse text with bold fonts and capitals (looks nice) ||
+
+== Layers ==
+
+[TBD]
+
+== General PCB design notes ==
+
+  * http://www.sparkfun.com/tutorials
+  * http://www.sparkfun.com/tutorials/115
+  * http://www.sparkfun.com/tutorial/Eagle-DFM/Eagle%20Rules.pdf
+  * http://www.opencircuits.com/SFE_Footprint_Library_Eagle
+  * http://www.alternatezone.com/electronics/files/PCBDesignTutorialRevA.pdf
+  * http://www.youtube.com/watch?v=VXE_dh38HjU
+  * Complete PCB design using OrCAD Capture and PCB editor / Kraig Mitzner (Ch1, Ch5, Ch6)
