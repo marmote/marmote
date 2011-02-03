@@ -15,6 +15,7 @@ PowerBoard/
     [FabName].dru
     PowerBoard.Gxx   <TBD: xx>
     PowerBoard.Dxx   <TBD: xx>
+    PowerBoard_RevB.xy 
     ReadMe.txt
   Datasheet/
   Document/
@@ -24,13 +25,14 @@ PowerBoard/
   Misc/
   Photo/ 
   Simulation/
+  eagle.epf
   Notes.txt
   PowerBoard.brd
   PowerBoard.lbr
   PowerBoard.sch
 }}}
 
-== Revisions ==
+== Creating Revisions ==
 
 Major revisions are stored as SVN branches under `/trunk/hardware/`. The 'ProjectName' in the directory and file names are suffixed with `_RevX`, where X is an uppercase letter. That is for a project called 'PowerBoard' that has two major revision the directory structure should follow the pattern below:
 {{{
@@ -41,7 +43,7 @@ trunk/
     PowerBoard_RevB/
 }}}
 
-File names should be adjusted accordingly. That is the directory containing Rev B:
+File names should be adjusted accordingly. That is for a project called 'PowerBoard' the directory containing Rev B:
 {{{
 PowerBoard_RevB/
   CAM/
@@ -49,6 +51,7 @@ PowerBoard_RevB/
     [FabName].dru
     PowerBoard_RevB.Gxx   <TBD: xx>
     PowerBoard_RevB.Dxx   <TBD: xx>
+    PowerBoard_RevB.xy (pick and place)
     ReadMe.txt
   Datasheet/
   Document/
@@ -58,11 +61,16 @@ PowerBoard_RevB/
   Misc/
   Photo/ 
   Simulation/
+  eagle.epf
   Notes.txt
   PowerBoard_RevB.brd
   PowerBoard_RevB.lbr
   PowerBoard_RevB.sch
-}}}  
+}}}
+
+`Document` directory
+|| `PowerBoard_RevB_Sch.pdf` || `File > Print`, then set printer to `Print to File (PDF)` ||
+|| `PowerBoard_RevB_Asy.pdf` ||  Create a two-page (top and bottom) document with the following layers:<p>  `tPlace, tNames, tDocu, tStop, Dimension, Document`<br>  `bPlace, bNames, bDocu, bStop, Dimension, Document` ||
 
 = Library Components =
 
