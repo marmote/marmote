@@ -5,6 +5,16 @@ The Marmote project uses a multi-board platform. The printed circuit boards (PCB
 
 <wiki:toc max_depth="1" />
 
+= File Names =
+
+File naming conventions follow the [http://www.sparkfun.com/tutorial/Eagle-DFM/Eagle%20Rules.pdf SparkFun] rules:
+
+  # Directory names will be: 'PowerBoard' (no version number or product variation like 'PowerBoard with BNC connectors')
+  # File names are: PowerBoard-v10.brd
+  # Panel names are: PowerBoard-Panel-v10.brd
+  # Minor versions will be PowerBoard-v11, v12, v13
+  # Major will be v20, v30
+
 = Library Components =
 
 == Package ==
