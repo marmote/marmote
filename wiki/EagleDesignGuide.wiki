@@ -7,6 +7,8 @@ The Marmote project uses a multi-board platform. The printed circuit boards (PCB
 
 = Directory and File Names =
 
+== Head version ==
+
 The PCB related directories and files are stored under `/trunk/hardware/`. Names should use CamelCase. For a project named 'PowerBoard' the main directory should be named simply `PowerBoard`, without any version number or product variation like `PowerBoard with BNC connectors`. '[[FabName]]' should refer to the corresponding fab. Thus, the directory structure should look like as follows:
 {{{
 PowerBoard/
@@ -67,6 +69,8 @@ PowerBoard_RevB/
   PowerBoard_RevB.lbr
   PowerBoard_RevB.sch
 }}}
+
+== Directory and File Description ==
 
 `Document` directory
 || `PowerBoard_RevB_Sch.pdf` || `File > Print`, then set printer to `Print to File (PDF)` ||
