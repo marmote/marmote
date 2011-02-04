@@ -1,0 +1,20 @@
+[Eagle]
+Version="05 11 00"
+Platform="Windows"
+Serial="6E20A1E4F4-LSR-WLM-3ES"
+Globals="Globals"
+Desktop="Desktop"
+
+[Globals]
+AutoSaveProject=1
+UsedLibrary="powerboard.lbr"
+
+[Win_1]
+Type="Control Panel"
+Loc="75 75 674 474"
+State=1
+Number=0
+
+[Desktop]
+Screen="2880 1200"
+Window="Win_1"
