@@ -11,6 +11,13 @@ Zener diode (5.6V) | 0603 | 641-1030-1-ND | CZRU52C5V6 | http://search.digikey.c
 
 Battery
 NTC (100kohm 1% 1%) | 0603 | 445-2556-6-ND | http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=445-2556-6-ND
+R (1%) | 0603 | | |
+
+LDO
+
+R (1.02M 1%) | 0603 |
+R (324k 1%) | 0603 |
+
 
 IC
 LT3677-3 | | | |
@@ -23,6 +30,7 @@ LT3677-3 | | | |
 --------------------------------------------------------------------------------
 
 Project specific components
+---------------------------
 
 Package
 
@@ -38,23 +46,19 @@ MAX9938
 LTC3677
 LTC2942
 
+--------------------------------------------------------------------------------
+--									 Notes
+--------------------------------------------------------------------------------
 
-LTC3677
--------
+-------------
+-- Battery --
+-------------
 
-Power-Up sequence depends on:
+Q: NTC pin filtering (10 us)?
 
-- V_INxx feedbacks
-- DV_CC feedback of PWR_ON controller
-- On power-on: LDO2 -> Buck1 -> Buck 2
-
-
-
-== Questions ==
-
-----------
--- General
-----------
+-------------
+-- LTC3677 --
+-------------
 
 OVGATE nFET source connected to V_BUS (page 16)
 - Why V_BUS?
@@ -67,13 +71,15 @@ I_LIM1, I_LIM0 (I_VBUS current limit)
 - Fixed or uC programmable? (Running low on GPIOs)
 - Is it I2C programmable?
 
-Capacitor + series resistor (Battery Charger Stability Considerations
-Paragraph 2 on p23)
+Power-Up sequence depends on:
 
+- V_INxx feedbacks
+- DV_CC feedback of PWR_ON controller
+- On power-on: LDO2 -> Buck1 -> Buck2
 
--------------------
--- Current Monitors
--------------------
+----------------------
+-- Current Monitors --
+----------------------
 
 Placement
 
@@ -111,5 +117,9 @@ RST (OK, that might not be a GPIO pin)
 -- TODO
 --------------------------------------------------------------------------------
 
-Touch-up transistor symbols
- - gate connector to middle
+Touch-up transistor symbols (gate connector to middle)
+Touch-up NTC symbol
+Compare the new DFN-6 package with the existing one
+
+Check how reverse voltage protection works
+Rename XVYD
