@@ -22,9 +22,12 @@ R (510k 1%) | 0603 |
 R (160k 1%) | 0603 |
 R (140k 1%) | 0603 |
 R (       )
-L (4.7uH) | 
-L (3.3uH) | 
+L (4.7uH) | 445-3174-1-ND | VLCF4018T-4R7N1R0-2 | http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=445-3174-1-ND
+L (3.3uH) | 445-3173-1-ND | VLCF4018T-3R3N1R2-2 | http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=445-3173-1-ND
+
 Digital potentiometer
+MAX5419 | DFN8 | MAX5418LETA+TCT-ND| http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=MAX5418LETA%2BTCT-ND
+http://datasheets.maxim-ic.com/en/ds/MAX5417-MAX5419.pdf
 
 
 
@@ -81,6 +84,12 @@ Power-Up sequence depends on:
 - DV_CC feedback of PWR_ON controller
 - On power-on: LDO2 -> Buck1 -> Buck2
 
+
+Power-down:
+
+- LDO1 input power from another BUCK?
+  -> LDO1 should produce lower voltage
+
 ----------------------
 -- Current Monitors --
 ----------------------
@@ -124,6 +133,7 @@ RST (OK, that might not be a GPIO pin)
 Touch-up transistor symbols (gate connector to middle)
 Touch-up NTC symbol
 Compare the new DFN-6 package with the existing one
+Touch-up incutor footprint
 
 Check how reverse voltage protection works
 Rename XVYD
