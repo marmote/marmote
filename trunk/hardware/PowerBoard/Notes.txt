@@ -119,9 +119,10 @@ Placement
 --									  Misc                                    --
 --------------------------------------------------------------------------------
 
-GPIO pin requests
------------------
+STM32F10X GPIO pin requests
+---------------------------
 
+LTC3577
 -#CHRG (available via I2C)
 +I_LIM0
 +I_LIM1
@@ -131,6 +132,9 @@ GPIO pin requests
 +PWR_ON
 -PGOOD (available via I2C)
 -#ACPR
+
+LTC2942
+-#AL/CC
 
 
 --------------------------------------------------------------------------------
@@ -142,6 +146,7 @@ Touch-up NTC symbol
 Compare the new DFN-6 package with the existing one
 Touch-up inductor footprint
 Rename XVYD
+Redraw DFN6 package
 
 Check if LDO1 and LDO2 are swapped (rotated instead of mirrored)
 
