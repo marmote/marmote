@@ -82,16 +82,25 @@ PowerBoard_RevB/
 
   # Create new package (package names should come from the datasheet or follow standard naming, e.g. IPC)
   # Set the grid based on the pin pitch of the device
-  # Set pad dimensions and place the pads on the top layer (the roundness can be changed later with the DRC)
+  # Set pad dimensions (the roundness can be changed later with the DRC)
+  # Calculate pad center coordinates X and Y
+  # Place the pads in sequence on the top layer using the console command `(X Y)`
+  # In the _Options > Set > Misc_ menu select _Display pad name_
   # Make sure that the names of the pads are in order (1, 2, etc.)
   # Draw essential information (pin,,1,, designator) on tPlace using 8 mil or 4 mil thickness (Do not cover areas on the silkscreen that are to be soldered!)
   # Draw additional information on tDocu (not on silkscreen)
   # Place '>NAME' label on tNames using proportional font, 16 mil height, 8% width (will not be on silkscreen, but assembly drawing)
-  #Place '>VALUE' label on tValues using vector font, 16 mil height, 8% width (will not be on silkscreen)
+  # Place '>VALUE' label on tValues using vector font, 16 mil height, 8% width (will not be on silkscreen)
   # OPTIONAL layers:
+    * tPlace
+      # Mark pin #1 with a dot (circle)
+      # Optionally draw package outline that doesn't cross metallic parts
+    * tDocu (optional)
+      # Chip outline
+      # Pins
     * Holes:       mounting holes
-    *tRestrict: define area (RECT) without tracks (copper), e.g. around mounting holes, underneath metalic components, etc.
-    *tKeepout:  define area (RECT) as big as the physical component (prevent overlapping components)
+    * tRestrict: define area (RECT) without tracks (copper), e.g. around mounting holes, underneath metalic components, etc.
+    * tKeepout:  define area (RECT) as big as the physical component (prevent overlapping components)
   # Add description:
 {{{
 <b>FOOTPRINT NAME</b>
@@ -100,6 +109,9 @@ Textual description
 <p>
 Source: URL
 }}}
+
+Optional layers
+
 
 == Symbol ==
 
