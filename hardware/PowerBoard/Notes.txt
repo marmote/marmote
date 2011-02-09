@@ -29,7 +29,7 @@ Digital potentiometer
 MAX5419 | DFN8 | MAX5418LETA+TCT-ND| http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=MAX5418LETA%2BTCT-ND
 http://datasheets.maxim-ic.com/en/ds/MAX5417-MAX5419.pdf
 
-
+XC6210 LDO
 
 
 --------------------------------------------------------------------------------
@@ -90,6 +90,13 @@ Power-down:
 - LDO1 input power from another BUCK?
   -> LDO1 should produce lower voltage
 
+
+----------
+--Reset --
+----------
+
+Pushbutton -> LTC3677 and/or STM32
+
 ----------------------
 -- Current Monitors --
 ----------------------
@@ -108,39 +115,33 @@ Placement
 
 *Where to measure V_OUT? (Between V_IN and uC VDD junctions)
 
-Should #CHRG be connected to a GPIO pin?
-
--------
--- Misc
--------
+--------------------------------------------------------------------------------
+--									  Misc                                    --
+--------------------------------------------------------------------------------
 
 GPIO pin requests
-#CHRG (vs. I_BAT)
-I_LIM0
-I_LIM1
-EN3
-#EXTPWR
-PTSTAT (?)
-PWR_ON (?)
-RST (OK, that might not be a GPIO pin)
-#ACPR
+-----------------
+
+-#CHRG (available via I2C)
++I_LIM0
++I_LIM1
+-EN3 (?)
++#EXTPWR
+-PBSTAT (?)
++PWR_ON
+-PGOOD (available via I2C)
+-#ACPR
 
 
 --------------------------------------------------------------------------------
--- TODO
+--									  TODO                                    --
 --------------------------------------------------------------------------------
 
 Touch-up transistor symbols (gate connector to middle)
 Touch-up NTC symbol
 Compare the new DFN-6 package with the existing one
-Touch-up incutor footprint
-
-Check how reverse voltage protection works
+Touch-up inductor footprint
 Rename XVYD
 
+Check if LDO1 and LDO2 are swapped (rotated instead of mirrored)
 
-
-
-Footprints
-
-1.)
