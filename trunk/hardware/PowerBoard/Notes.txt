@@ -21,7 +21,7 @@ LT3677-3 LDO & BUCK
 R (510k 1%) | 0603 |
 R (160k 1%) | 0603 |
 R (140k 1%) | 0603 |
-R (       )
+R ( 36k 1%) | 0603 |
 L (4.7uH) | 445-3174-1-ND | VLCF4018T-4R7N1R0-2 | http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=445-3174-1-ND
 L (3.3uH) | 445-3173-1-ND | VLCF4018T-3R3N1R2-2 | http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=445-3173-1-ND
 
@@ -137,3 +137,10 @@ Touch-up incutor footprint
 
 Check how reverse voltage protection works
 Rename XVYD
+
+
+
+
+Footprints
+
+1.)
