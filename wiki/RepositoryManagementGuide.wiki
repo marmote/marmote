@@ -1,7 +1,7 @@
 #summary SVN repository management guideline
 #labels Phase-Implementation
 
-= Directory and File Names =
+= Directory and File Structure =
 
 == Head Revision ==
 
@@ -30,7 +30,7 @@ PowerBoard/
   PowerBoard.sch
 }}}
 
-== Creating Revisions ==
+== Creating a New Revision ==
 
 Major revisions are stored as SVN branches under `/trunk/hardware/`. The 'ProjectName' in the directory and file names are suffixed with `_RevX`, where X is an uppercase letter. That is for a project called 'PowerBoard' that has two major revision the directory structure should follow the pattern below:
 {{{
@@ -66,7 +66,7 @@ PowerBoard_RevB/
   PowerBoard_RevB.sch
 }}}
 
-== Directory and File Description ==
+== Directory and File Details ==
 
 `Document` directory
 || `PowerBoard_RevB_Sch.pdf` || `File > Print`, then set printer to `Print to File (PDF)` ||
