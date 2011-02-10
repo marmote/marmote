@@ -30,6 +30,7 @@ The Marmote project uses a multi-board platform. The printed circuit boards (PCB
     * Holes:       mounting holes
     * tRestrict: define area (RECT) without tracks (copper), e.g. around mounting holes, underneath metalic components, etc.
     * tKeepout:  define area (RECT) as big as the physical component (prevent overlapping components)
+  # In case of exposed pads under the chip, reduce the solder paste area
   # Add description:
 {{{
 <b>FOOTPRINT NAME</b>
