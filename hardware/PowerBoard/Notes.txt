@@ -29,7 +29,13 @@ Digital potentiometer
 MAX5419 | DFN8 | MAX5418LETA+TCT-ND| http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=MAX5418LETA%2BTCT-ND
 http://datasheets.maxim-ic.com/en/ds/MAX5417-MAX5419.pdf
 
-XC6210 LDO
+XC6210 LDO | SOT-25 |
+
+Current Monitors
+----------------
+LTC2942-1 Battery Gas Gauge
+MAX9938 Current sense amplifier
+
 
 
 --------------------------------------------------------------------------------
@@ -56,12 +62,6 @@ LTC2942
 --------------------------------------------------------------------------------
 --									 Notes
 --------------------------------------------------------------------------------
-
--------------
--- Battery --
--------------
-
-Q: NTC pin filtering (10 us)?
 
 -------------
 -- LTC3677 --
@@ -97,34 +97,61 @@ Power-down:
 
 Pushbutton -> LTC3677 and/or STM32
 
+-------------
+-- Battery --
+-------------
+
+-Maximum charging current is selected to be 1000 mA (RPROG = 1k)
+-Battery capacity is expected to be in the range of 4000-6000 mAh
+
 ----------------------
 -- Current Monitors --
 ----------------------
 
-Placement
+I_BUS and I_WALL are not subject to be monitored
+All current monitors use MAX9938 (G=50 V/V) except for the one on I_BAT
+All current monitors use R_SENSE = 50 mohm
+  -I_MAX = 1000 mA, U_REF = 3.3V (1.5V), G = 50 V/V, U_OUT,MAX = 3V
+  -U_R,SENSE = R_SENSE x I_MAX < U_OUT,MAX / G
+                       R_SENSE < 60 mohm
+					   -----------------
+					   R_SENSE = 50 mohm
 
-  + I_LDO1
-  + I_LDO2
-  + I_BUCK1
-  + I_BUCK2
-  + I_BUCK3
-  + I_OUT*
-  - I_BAT ('out' and/or via V_PROG)
-  - I_BUS
-  - I_WALL
+I_LDO1
+I_LDO2
+I_BUCK1
+I_BUCK2
+I_BUCK3
+I_VOUT
+  -Should not include PMIC and uC current
+I_BAT
+  -Measured with battery gas gauge
+  -R_SENSE = 50 mohm seems to be adequate
+    -1000 mA maximum charge/discharge current
+	-using large capacity (4000-6000 mAh) battery register overflow is expected
+	(to be handled from SW in uC)
+  -50 mohm R_SENSE is available as INTERNAL resistor in LTC2942-2
 
-*Where to measure V_OUT? (Between V_IN and uC VDD junctions)
 
---------------------------------------------------------------------------------
---									  Misc                                    --
---------------------------------------------------------------------------------
 
-STM32F10X GPIO pin requests
----------------------------
+-------------------
+-- I2C Addresses --
+-------------------
 
-LTC3577
+LTC3677 | 0001001
+LTC2942 | 1100100
+MAX5419 | 010101A
+MAX5419 | 010110A
+MAX5419 | 010111A
+
+
+---------------------------------
+-- STM32F10X GPIO pin requests --
+---------------------------------
+
+LTC3677
 -#CHRG (available via I2C)
-+I_LIM0
++I_LIM0 (if I_LIM0 and I_LIM1 are connected, 1x and 5x modes are available)
 +I_LIM1
 -EN3 (?)
 +#EXTPWR
@@ -134,19 +161,52 @@ LTC3577
 -#ACPR
 
 LTC2942
--#AL/CC
++#AL/CC (sacrificable: alert -> polling, CC -> reg C,D I2C rewrite)
 
 
 --------------------------------------------------------------------------------
 --									  TODO                                    --
 --------------------------------------------------------------------------------
 
+---------------
+-- Component --
+---------------
+
 Touch-up transistor symbols (gate connector to middle)
 Touch-up NTC symbol
-Compare the new DFN-6 package with the existing one
 Touch-up inductor footprint
-Rename XVYD
-Redraw DFN6 package
+Add recommended layout to DFN6 package documentation layer
 
-Check if LDO1 and LDO2 are swapped (rotated instead of mirrored)
+---------------
+-- Schematic --
+---------------
 
+-NTC pin filtering (10 us)?
+-Rename XVYD
+-Check if LDO1 and LDO2 are swapped (rotated instead of mirrored)
+-I2C pull-up resistors
+-Check all bypass capacitors
+-Check all grounds (AGND vs. DGND)
+ -WALL GND
+ -USB GND
+ -STM32 LDO GND
+ -PMIC GND
+ -PMIC LDO/BUCK VIN GNDs
+ -Battery GND
+ -Currents Sense GNDs
+-When I2C buses are selected, rename I2CA and I2CB to I2C1 and I2C2 properly
+
+-------------
+-- Routing --
+-------------
+
+LTC2942
+
+-Place LTC2942 on a well exposed part of the board
+-Place the NTC close to the battery
+-Connect pin 2 directly to the negative battery terminal
+-For R_SENSE and C placement refer to LTC2942 datasheet Figure 11
+
+General
+
+-Check all bypass capacitors
