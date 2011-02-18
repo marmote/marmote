@@ -42,6 +42,7 @@ PowerBoard/
 || .GBP || Bottom Paste (bCream) ||
 || .GBO || Bottom Silkscreen (bPlace, _bNames_) ||
 || .GML || Board Outline (Dimension) ||
+|| .GPI || Gerber Report (only on the last file) ||
 || .DRD || NC Drill (Drills, Holes) ||
 || .DRI || NC Drill Report ||
 
