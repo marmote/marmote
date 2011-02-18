@@ -11,8 +11,8 @@ PowerBoard/
   CAM/
     [FabName].cam
     [FabName].dru
-    PowerBoard.Gxx   <TBD: xx>
-    PowerBoard.Dxx   <TBD: xx>
+    PowerBoard.Gxx   (*1)
+    PowerBoard.Dxx   (*1)
     PowerBoard.xy 
     ReadMe.txt
   Datasheet/
@@ -29,6 +29,23 @@ PowerBoard/
   PowerBoard.lbr
   PowerBoard.sch
 }}}
+
+(`*`1) Gerber Files
+|| .GTO || Top Silkscreen (tPlace, _tNames_) ||
+|| .GTP || Top Paste (tCream) ||
+|| .GTS || Top Soldermask (tStop) ||
+|| .GTL || Top Copper (Top, Pads, Vias) ||
+|| .GP1 || Ground Plane (Route2, Pads, Vias) ||
+|| .GP2 || Ground Plane (Route3, Pads, Vias) ||
+|| .GBL || Bottom Copper (Bottom, Pads, Vias) ||
+|| .GBS || Bottom Soldermask (bStop) ||
+|| .GBP || Bottom Paste (bCream) ||
+|| .GBO || Bottom Silkscreen (bPlace, _bNames_) ||
+|| .GDIM || Board Outline (Dimension) ||
+|| .DRL || NC Drill (Drills, Holes) ||
+
+For all gerber files, use `pos. Coord` and `Optimize` (and nothing else). All signal layers (inner layers too) will have positive polarity. 
+NC Drill files are in `1.4, Abs, inches, leading zero supress, quad` format.
 
 == Creating a New Revision ==
 
