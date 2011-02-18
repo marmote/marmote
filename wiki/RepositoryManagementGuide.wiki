@@ -16,8 +16,6 @@ PowerBoard/
     PowerBoard.xy 
     ReadMe.txt
   Datasheet/
-  Document/
-    
   Misc/
   Photo/ 
   Simulation/
@@ -68,15 +66,11 @@ PowerBoard_RevB/
   CAM/
     [FabName].cam
     [FabName].dru
-    PowerBoard_RevB.Gxx   <TBD: xx>
-    PowerBoard_RevB.Dxx   <TBD: xx>
-    PowerBoard_RevB.xy (pick and place)
+    PowerBoard_RevB.Gxx
+    PowerBoard_RevB.Dxx
+    PowerBoard_RevB.xy 
     ReadMe.txt
   Datasheet/
-  Document/
-    PowerBoard_RevB_Sch.pdf
-    PowerBoard_RevB_Asy.pdf
-    PowerBoard_RevB_BOM.xlsx
   Misc/
   Photo/ 
   Simulation/
@@ -85,6 +79,9 @@ PowerBoard_RevB/
   PowerBoard_RevB.brd
   PowerBoard_RevB.lbr
   PowerBoard_RevB.sch
+  PowerBoard_RevB_Sch.pdf
+  PowerBoard_RevB_Asy.pdf
+  PowerBoard_RevB_BOM.xlsx
 }}}
 
 == Directory and File Details ==
