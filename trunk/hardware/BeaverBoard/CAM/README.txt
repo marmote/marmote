@@ -30,12 +30,12 @@ BeaverBoard_RevA.GBS - Bottom Solder stop mask (solder side)
 BeaverBoard_RevA.GBP - Bottom Solder paste (cream stencil, solder side)
 BeaverBoard_RevA.GBO - Bottom Silk Screen (solder side)
 BeaverBoard_RevA.GML - Board outline
-BeaverBoard_RevA.GPI - Gerber Report 
+BeaverBoard_RevA.gpi - Gerber Report 
 
 BeaverBoard_RevA.DRD - NC Drill : 1.4, Abs, inches, leading zero supress, quad
-BeaverBoard_RevA.DRI - NC Drill Report
+BeaverBoard_RevA.dri - NC Drill Report
 
-BeaverBoard_RevA.GWK - GraphiCode GC-Prevue Project File (Gerbers and drill)
+BeaverBoard_RevA.gwk - GraphiCode GC-Prevue Project File (Gerbers and drill)
 
 BeaverBoard_RevA.xy  - Centroid data for SMD components
    
