@@ -43,6 +43,7 @@ PowerBoard/
 || .GBO || Bottom Silkscreen (bPlace, _bNames_) ||
 || .GDIM || Board Outline (Dimension) ||
 || .DRL || NC Drill (Drills, Holes) ||
+|| .DRI || NC Drill Report ||
 
 For all gerber files, use `pos. Coord` and `Optimize` (and nothing else). All signal layers (inner layers too) will have positive polarity. 
 NC Drill files are in `1.4, Abs, inches, leading zero supress, quad` format.
