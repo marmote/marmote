@@ -47,7 +47,7 @@ PowerBoard/
 For all gerber files, use `pos. Coord` and `Optimize` (and nothing else). All signal layers (inner layers too) will have positive polarity. 
 NC Drill files are in `1.4, Abs, inches, leading zero supress, quad` format.
 
-(*2) Note: these files typically generated only for finished board (see revisions)
+(`*`2) Note: these files typically generated only for finished board (see revisions)
 
 == Creating a New Revision ==
 
