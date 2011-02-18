@@ -13,7 +13,7 @@ PowerBoard/
     [FabName].dru
     PowerBoard.Gxx   <TBD: xx>
     PowerBoard.Dxx   <TBD: xx>
-    PowerBoard_RevB.xy 
+    PowerBoard.xy 
     ReadMe.txt
   Datasheet/
   Document/
