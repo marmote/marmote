@@ -35,6 +35,8 @@ BeaverBoard_RevA.GPI - Gerber Report
 BeaverBoard_RevA.DRD - NC Drill : 1.4, Abs, inches, leading zero supress, quad
 BeaverBoard_RevA.DRI - NC Drill Report
 
+BeaverBoard_RevA.GWK - GraphiCode GC-Prevue Project File (Gerbers and drill)
+
 BeaverBoard_RevA.xy  - Centroid data for SMD components
    
 BeaverBoard_RevA_BOM.xls	- Bill of materials
