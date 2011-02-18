@@ -17,9 +17,7 @@ PowerBoard/
     ReadMe.txt
   Datasheet/
   Document/
-    PowerBoard_Sch.pdf
-    PowerBoard_Asy.pdf
-    PowerBoard_BOM.xlsx
+    
   Misc/
   Photo/ 
   Simulation/
@@ -28,6 +26,9 @@ PowerBoard/
   PowerBoard.brd
   PowerBoard.lbr
   PowerBoard.sch
+  PowerBoard_Sch.pdf (*2)
+  PowerBoard_Asy.pdf (*2)
+  PowerBoard_BOM.xlsx (*2)
 }}}
 
 (`*`1) Gerber Files
@@ -45,9 +46,10 @@ PowerBoard/
 || .GPI || Gerber Report (only on the last file) ||
 || .DRD || NC Drill (Drills, Holes) ||
 || .DRI || NC Drill Report ||
-
 For all gerber files, use `pos. Coord` and `Optimize` (and nothing else). All signal layers (inner layers too) will have positive polarity. 
 NC Drill files are in `1.4, Abs, inches, leading zero supress, quad` format.
+
+(*2) Note: these files typically generated only for finished board (see revisions)
 
 == Creating a New Revision ==
 
