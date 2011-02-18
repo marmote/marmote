@@ -41,7 +41,7 @@ PowerBoard/
 || .GBS || Bottom Soldermask (bStop) ||
 || .GBP || Bottom Paste (bCream) ||
 || .GBO || Bottom Silkscreen (bPlace, _bNames_) ||
-|| .GDIM || Board Outline (Dimension) ||
+|| .GML || Board Outline (Dimension) ||
 || .DRL || NC Drill (Drills, Holes) ||
 || .DRI || NC Drill Report ||
 
