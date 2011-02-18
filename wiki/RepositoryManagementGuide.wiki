@@ -36,7 +36,7 @@ PowerBoard/
 || .GTS || Top Soldermask (tStop) ||
 || .GTL || Top Copper (Top, Pads, Vias) ||
 || .GP1 || Ground Plane (Route2, Pads, Vias) ||
-|| .GP2 || Ground Plane (Route3, Pads, Vias) ||
+|| .GP2 || Power Plane (Route3, Pads, Vias) ||
 || .GBL || Bottom Copper (Bottom, Pads, Vias) ||
 || .GBS || Bottom Soldermask (bStop) ||
 || .GBP || Bottom Paste (bCream) ||
