@@ -42,7 +42,7 @@ PowerBoard/
 || .GBP || Bottom Paste (bCream) ||
 || .GBO || Bottom Silkscreen (bPlace, _bNames_) ||
 || .GML || Board Outline (Dimension) ||
-|| .DRL || NC Drill (Drills, Holes) ||
+|| .DRD || NC Drill (Drills, Holes) ||
 || .DRI || NC Drill Report ||
 
 For all gerber files, use `pos. Coord` and `Optimize` (and nothing else). All signal layers (inner layers too) will have positive polarity. 
