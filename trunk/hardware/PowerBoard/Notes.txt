@@ -211,6 +211,8 @@ Add recommended layout to DFN6 package documentation layer
 -When SPI buses are selected, rename SPIA and SPI2 to SPI1 and SPI2 properly
 -Current monitor output filter capacitors (MAX9938 page 7)
 -LTC3677 EN3 pin
+-Create PIN list (PIN | IC name | Board signal name) - also serves as checklist
+
 
 -------------
 -- Routing --
