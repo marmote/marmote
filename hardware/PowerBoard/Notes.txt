@@ -95,6 +95,13 @@ Power-down:
   -> LDO1 should produce lower voltage
 
 
+-----------
+-- Clock --
+-----------
+
+Crystals:
+GND pin connections (DGND?, pin visibility) connect to DGND (also on schematic)
+
 ----------
 --Reset --
 ----------
