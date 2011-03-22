@@ -237,6 +237,8 @@ General
 
 -Check all bypass capacitors
 
+-Check power jack pin connections in the device
+
 
 Questions
 
