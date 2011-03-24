@@ -220,6 +220,7 @@ Add recommended layout to DFN6 package documentation layer
 -LTC3677 EN3 pin
 -Create PIN list (PIN | IC name | Board signal name) - also serves as checklist
 
+-CHECK IF WALL IS LIMITED TO <5.5V!!! (MIC94040)
 
 -------------
 -- Routing --
@@ -244,3 +245,5 @@ Questions
 
 -Purpose of the second I2C interface
 -JTAG/SW (some JTAG pins as GPIO?)
+
+
