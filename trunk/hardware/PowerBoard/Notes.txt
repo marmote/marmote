@@ -221,7 +221,8 @@ Add recommended layout to DFN6 package documentation layer
 -Create PIN list (PIN | IC name | Board signal name) - also serves as checklist
 
 -Canvas: designer name
--CHECK IF POWER SEQUENCE UP IS STILL FINE (if not, move the master switch)
+-CHECK IF POWER SEQUENCE UP IS STILL FINE (if not, move the master switch or
+replace BUCK1 with BUCK3)
 
 -------------
 -- Routing --
