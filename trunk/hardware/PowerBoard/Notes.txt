@@ -223,6 +223,7 @@ Add recommended layout to DFN6 package documentation layer
 -Canvas: designer name
 -CHECK IF POWER SEQUENCE UP IS STILL FINE (if not, move the master switch or
 replace BUCK1 with BUCK3)
+-CHECK: reverse board-mount protection
 
 -------------
 -- Routing --
