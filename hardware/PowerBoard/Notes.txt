@@ -224,6 +224,8 @@ Add recommended layout to DFN6 package documentation layer
 -CHECK IF POWER SEQUENCE UP IS STILL FINE (if not, move the master switch or
 replace BUCK1 with BUCK3)
 -CHECK: reverse board-mount protection
+-M-4-40 screws
+-CHECK if battery connector is fine (standing/sideways)
 
 -------------
 -- Routing --
