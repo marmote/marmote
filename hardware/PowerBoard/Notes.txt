@@ -226,6 +226,7 @@ replace BUCK1 with BUCK3)
 -CHECK: reverse board-mount protection
 -M-4-40 screws
 -CHECK if battery connector is fine (standing/sideways)
+-PJ-014D Drill or Hole?
 
 -------------
 -- Routing --
