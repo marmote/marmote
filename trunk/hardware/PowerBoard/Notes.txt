@@ -253,3 +253,14 @@ Questions
 -JTAG/SW (some JTAG pins as GPIO?)
 
 
+-------------
+-- TESTING --
+-------------
+
+PWR_ON
+------
+
+Test for the best PWR_ON connection before attaching the Li-Ion battery, as the
+corresponding DNP and R = 0 components are placed on the bottom side.
+
+
