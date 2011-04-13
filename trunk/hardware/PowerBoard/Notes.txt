@@ -276,7 +276,7 @@ Board
   * Is NTC pin filtering (10 us) necessary? (LTC3677-3 page 24, currently not
     implemented)
   * LED positions (should it be moved towards the side of the board?)
-  * Power-up sequence
+  * Is the power-up sequence acceptable?
 
 
 --------------------------------------------------------------------------------
@@ -288,5 +288,5 @@ List of functionalities to test upon the reception of the manufactured board.
   * Test for the best PWR_ON connection before attaching the Li-Ion battery, as
     the corresponding DNP and R = 0 components are placed on the bottom side
 	(Note: DNP marked components are generally placed on the top side).
-
   * Power on sequence
+  * Power line voltages
