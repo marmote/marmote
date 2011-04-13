@@ -1,4 +1,75 @@
- 
+------------------------------------------------------------------------------
+-- MODULE: Power Board - Power management module for the Marmote platform
+-- PROJECT: Marmote
+-- AUTHORS: Sandor Szilvasi
+-- AUTHOR CONTACT INFO.: Sandor Szilvasi <sandor.szilvasi@vanderbilt.edu>
+-- TOOL VERSIONS: Eagle 5.11.0
+--   
+-- Copyright (c) 2006-2011, Vanderbilt University
+-- All rights reserved.
+--
+-- Permission to use, copy, modify, and distribute this hardware design and its
+-- documentation for any purpose, without fee, and without written agreement is
+-- hereby granted, provided that the above copyright notice, the following
+-- two paragraphs and the author appear in all copies of this software.
+--
+-- IN NO EVENT SHALL THE VANDERBILT UNIVERSITY BE LIABLE TO ANY PARTY FOR
+-- DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING OUT
+-- OF THE USE OF THIS SOFTWARE AND ITS DOCUMENTATION, EVEN IF THE VANDERBILT
+-- UNIVERSITY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+--
+-- THE VANDERBILT UNIVERSITY SPECIFICALLY DISCLAIMS ANY WARRANTIES,
+-- INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY
+-- AND FITNESS FOR A PARTICULAR PURPOSE.  THE SOFTWARE PROVIDED HEREUNDER IS
+-- ON AN "AS IS" BASIS, AND THE VANDERBILT UNIVERSITY HAS NO OBLIGATION TO
+-- PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
+------------------------------------------------------------------------------
+
+Power Board - Power management module for the Marmote platform
+http://code.google.com/p/marmote
+
+Eagle design guidelines: http://code.google.com/p/marmote/wiki/EagleDesignGuide
+
+--------------------------------------------------------------------------------
+								  Power Supply
+--------------------------------------------------------------------------------
+
+Power Sources
+-------------
+
+Power Rails
+-----------
+
+Notes
+-----
+
+[Known Bugs]
+
+
+--------------------------------------------------------------------------------
+								 Power Monitor
+--------------------------------------------------------------------------------
+
+Current Senses
+--------------
+
+Microcontroller
+---------------
+
+-Clocks (16MHz, 32kHz*)
+
+
+--------------------------------------------------------------------------------
+								  Programming
+--------------------------------------------------------------------------------
+
+Microcontroller
+-SWD
+-JTAG*
+-USB
+SmartFusion
+
+
 
 --------------------------------------------------------------------------------
 -- Parts
@@ -146,121 +217,109 @@ I_BAT
 
 
 
--------------------
--- I2C Addresses --
--------------------
-
-LTC3677 | 0001001
-LTC2942 | 1100100
-MAX5419 | 010101A
-MAX5419 | 010110A
-MAX5419 | 010111A
 
 
 ---------------------------------
 -- STM32F10X GPIO pin requests --
 ---------------------------------
 
-LTC3677
--#CHRG (available via I2C)
-+I_LIM0 (if I_LIM0 and I_LIM1 are connected, 1x and 5x modes are available)
-+I_LIM1
--EN3 (?)
-+#EXTPWR
--PBSTAT (?)
-+PWR_ON
--PGOOD (available via I2C)
--#ACPR
+  * LTC3677
 
-LTC2942
-+#AL/CC (sacrificable: alert -> polling, CC -> reg C,D I2C rewrite)
+    - #CHRG (available via I2C)
+    + I_LIM0 (if I_LIM0 and I_LIM1 are connected, 1x and 5x modes are available)
+    + I_LIM1
+    - EN3 (became always on via pull-up)
+    + #EXTPWR
+    - PBSTAT (left open)
+    + PWR_ON (shared with main power switch, other options are always on
+	  (pull-up) and another pin)
+    - PGOOD (available via I2C)
+    - #ACPR (#EXTPWR is already available)
+
+  * LTC2942
+
+    + #AL/CC
 
 ----------------------------------------
 -- STM32F10X communication interfaces --
 ----------------------------------------
 
-I2C1: LTC3677, LTC2942
-I2C2:
-SPI1:
-SPI2:
+Connections
+-----------
+
+  * I2C1: SmartFusion board
+  * I2C2: LTC3677, LTC2942
+  * SPI1: SmartFusion Board
+  * SPI2: uSD card
+
+
+I2C Addresses
+-------------
+
+  * LTC3677 | 0001001
+  * LTC2942 | 1100100
+  * MAX5419 | 010101A
+  * MAX5419 | 010110A
+  * MAX5419 | 010111A
+
+
 
 --------------------------------------------------------------------------------
---									  TODO                                    --
+								   Todo List
 --------------------------------------------------------------------------------
 
----------------
--- Component --
----------------
+Library
+-------
 
-Touch-up transistor symbols (gate connector to middle)
-Touch-up NTC symbol
-Touch-up inductor footprint
-Add recommended layout to DFN6 package documentation layer
-
----------------
--- Schematic --
----------------
-
--NTC pin filtering (10 us)?
--Rename XVYD
--Check if LDO1 and LDO2 are swapped (rotated instead of mirrored)
--I2C pull-up resistors
--Check all bypass capacitors
--Check all grounds (AGND vs. DGND)
- -WALL GND
- -USB GND
- -STM32 LDO GND
- -PMIC GND
- -PMIC LDO/BUCK VIN GNDs
- -Battery GND
- -Currents Sense GNDs
--When I2C buses are selected, rename I2CA and I2CB to I2C1 and I2C2 properly
--When SPI buses are selected, rename SPIA and SPI2 to SPI1 and SPI2 properly
--Current monitor output filter capacitors (MAX9938 page 7)
--LTC3677 EN3 pin
--Create PIN list (PIN | IC name | Board signal name) - also serves as checklist
-
--Canvas: designer name
--CHECK IF POWER SEQUENCE UP IS STILL FINE (if not, move the master switch or
-replace BUCK1 with BUCK3)
--CHECK: reverse board-mount protection
--M-4-40 screws
--CHECK if battery connector is fine (standing/sideways)
--PJ-014D Drill or Hole?
-
--------------
--- Routing --
--------------
-
-LTC2942
-
--Place LTC2942 on a well exposed part of the board
--Place the NTC close to the battery
--Connect pin 2 directly to the negative battery terminal
--For R_SENSE and C placement refer to LTC2942 datasheet Figure 11 (4-wire
-Kelvin)
-
-General
-
--Check all bypass capacitors
-
--Check power jack pin connections in the device
+  * Touch-up transistor symbols (gate connector to middle)
+  * Fix all designator prefixes
+  * Add recommended layout to DFN6 package documentation layer
 
 
-Questions
+Schematic
+---------
 
--Purpose of the second I2C interface
--JTAG/SW (some JTAG pins as GPIO?)
+  * LTC3677 EN3 pin (currently simple pull-up)
+
+  * CHECK IF POWER SEQUENCE UP IS STILL FINE (if not, move the master switch or
+    replace BUCK1 with BUCK3)
+
+  * Check if reverse board-mount protection is adequate (currently shifted
+    connectors and screws only)
+  * Check if battery connector orientation (standing/sideways)
+  * PJ-014D Drill or Hole?
+
+  * Replace USB ESD diodes with ST USBLC6-2 SOT-23 IC
 
 
--------------
--- TESTING --
--------------
+Board
+-----
 
-PWR_ON
-------
+  * Connect LTC2942-2 pin 2 directly to the negative battery terminal
+  * Check power jack pin connections in the device
+  * Add fiducials
+  * Add M-4-40 screws for the Base Board (similar to that of the USRP)
+  * Add bottom silicon stands (~SmartFusion Eval Board)
 
-Test for the best PWR_ON connection before attaching the Li-Ion battery, as the
-corresponding DNP and R = 0 components are placed on the bottom side.
+
+--------------------------------------------------------------------------------
+								   Questions
+--------------------------------------------------------------------------------
+
+  * Is NTC pin filtering (10 us) necessary? (LTC3677-3 page 24, currently not
+    implemented)
+  * LED positions (should it be moved towards the side of the board?)
+  * Power-up sequence
 
 
+--------------------------------------------------------------------------------
+									Testing
+--------------------------------------------------------------------------------
+
+List of functionalities to test upon the reception of the manufactured board.
+
+  * Test for the best PWR_ON connection before attaching the Li-Ion battery, as
+    the corresponding DNP and R = 0 components are placed on the bottom side
+	(Note: DNP marked components are generally placed on the top side).
+
+  * Power on sequence
