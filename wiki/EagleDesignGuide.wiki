@@ -85,6 +85,30 @@ Textual description
 Source: url
 }}}
 
+  # Reference designator prefixes
+
+|| *Prefix* || *Device type* ||
+|| C   || Capacitor ||
+|| J   || Connector ||
+|| X   || Crystal or crystal oscillator ||
+|| D   || Diode ||
+|| S   || ESD discharge strip ||
+|| F   || Fuse ||
+|| GP  || Ground test point ||
+|| L   || Inductor ||
+|| U   || Integrated circuit ||
+|| JP  || Jumper ||
+|| M   || Mechanical mounting hole ||
+|| SW  || Mechanical switch ||
+|| R   || Resistor ||
+|| RP or R || Resistor pack/network ||
+|| TP  || Test point ||
+|| TF  || Transformer ||
+|| Q   || Transistor ||
+|| LED || Led ||
+|| B   || Ferrite bead ||
+
+
 = Schematic =
 
 TBD
