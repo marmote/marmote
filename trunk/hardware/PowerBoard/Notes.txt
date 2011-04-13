@@ -31,13 +31,39 @@ http://code.google.com/p/marmote
 Eagle design guidelines: http://code.google.com/p/marmote/wiki/EagleDesignGuide
 
 --------------------------------------------------------------------------------
-								  Power Supply
+				  Power Supply
 --------------------------------------------------------------------------------
+
+
+-------------
+-- LTC3677 --
+-------------
+
+OVGATE nFET source connected to V_BUS (page 16)
+- Why V_BUS?
+
+V_INLDO2 feedback difference between p42 and p44
+- Buck 1 feeds LDO2, which is a reverse sequence of the default power-on
+  sequence (LOD2 -> Buck1 -> Buck 2)
+
+Power-Up sequence depends on:
+
+- V_INxx feedbacks
+- DV_CC feedback of PWR_ON controller
+- Power-up sequence: LDO2 -> Buck1 -> Buck2
+
+
+-------------
+-- Battery --
+-------------
+
+-Maximum charging current is selected to be 1000 mA (RPROG = 1k)
+-Battery capacity is expected to be in the range of 4000-6000 mAh
 
 Power Sources
 -------------
 
-Power Rails
+Power Rails (Outputs)
 -----------
 
 Notes
@@ -47,32 +73,118 @@ Notes
 
 
 --------------------------------------------------------------------------------
-								 Power Monitor
+				 Power Monitor
 --------------------------------------------------------------------------------
+
 
 Current Senses
 --------------
 
-Microcontroller
----------------
+  * Digital 3.3V (D3V3 from BUCK1)
+  * Digital 1.5V (D1V5 from BUCK2)
+  * Digital X.YV where the X.Y value is programmable via a digital potentiometer
+    (DXVY from BUCK3)
+  * Analog 3.3V (A3V3 from LDO1)
+  * Analog 1.5V (A1V5 from LDO2)
+  * Highest available source (VOUT)
+    - only the current portion flowing through the East and West bridges is
+      measured (that is it does not include include local board consumption)
+  * BAT
+    - Measured with battery gas gauge LTC2942-2
+    - R_SENSE = 50 mohm seems to be adequate (see notes)
+      - 1000 mA maximum charge/discharge current
+      - using large capacity (4000-6000 mAh) battery register overflow is expected
+        (to be handled from SW in the microcontroller)
+    -50 mohm R_SENSE is available as INTERNAL resistor in LTC2942-2
 
--Clocks (16MHz, 32kHz*)
+Notes
+-----
+
+  * The current of the power lines from the USB (VBUS) and the wall adapter
+    (WALL) is not monitored
+
+  * The voltage of VOUT is not measured, thus the power consumption on this
+    line can only be estimated when it is operated from a battery (battery
+    gas gauge voltage measurement)
+
+  * All current monitors use AGND as reference except for the battery line,
+    which uses DGND
+
+  * All power rails are monitored with MAX9938 (G=50 V/V) current sense
+    amplifier except for the one on the battery line
+
+  * All current monitors use R_SENSE = 50 mohm
+
+    - I_MAX = 1000 mA, U_REF = 3.3V (1.5V), G = 50 V/V, U_OUT,MAX = 3V
+    - U_R, SENSE = R_SENSE x I_MAX < U_OUT,MAX / G
+
+		   R_SENSE < 60 mohm
+		   -----------------
+		   R_SENSE = 50 mohm
+
 
 
 --------------------------------------------------------------------------------
-								  Programming
+				Microcontroller
 --------------------------------------------------------------------------------
 
-Microcontroller
--SWD
--JTAG*
--USB
-SmartFusion
+  * STM32F102B ARM Cortex-M3 based microcontroller
+
+  * Power sources
+
+    - D3V3_STM always on digital 3.3V
+
+  * Clock sources
+
+    - 16 MHz external crystal (HSE, USB)
+	- 32.768 kHz external crystal (LSE, not pupulated by default)
+
+  * Reset signal
+
+    - External reset via jumper
+
+  * Programmer interfaces
+
+	- SWD:  primary progammer interface, w/ SWTRACE (Programmer connector)
+	- JTAG: secondary programmer interface, TDI and RESET are not connected by
+	  default (Programmer connector)
+	- USB:  USB programming is NOT supported (USB connector)
+
+	- SmartFusion: the microcontroller may be capable of program the SmartFusion
+	  MSS and FPGA fabric via emulating JTAG on its GPIO pins (West bridge)
+
+  * Communication interfaces
+
+    - I2C1: SmartFusion board
+    - I2C2: LTC3677 (0001001), LTC2942 (1100100), MAX5419L (0101000)
+    - SPI1: SmartFusion Board
+    - SPI2: microSD card
+
+  * GPIO pin requests
+
+    Note: '+' before the pin name means it is connected (available),
+	      '-' means the IC pin is not connected (unavailable) to the
+		  microcontroller
+
+	- LTC3677
+	  - #CHRG (available via I2C)
+	  + I_LIM0 (if I_LIM0 and I_LIM1 are connected, 1x and 5x modes are available)
+	  + I_LIM1
+	  - EN3 (became always on via pull-up)
+	  + #EXTPWR
+	  - PBSTAT (left open)
+	  + PWR_ON (shared with main power switch, other options are always on
+	    (pull-up) and another pin)
+	  - PGOOD (available via I2C)
+	  - #ACPR (#EXTPWR is already available)
+
+	- LTC2942
+	  + #AL/CC
 
 
 
 --------------------------------------------------------------------------------
--- Parts
+				     Parts
 --------------------------------------------------------------------------------
 
 Reverse voltage/overvoltage protection
@@ -92,7 +204,6 @@ R (1%) | 0603 | | |
 
 LT3677-3 LDO & BUCK
 -------------------
-
 R (510k 1%) | 0603 |
 R (160k 1%) | 0603 |
 R (140k 1%) | 0603 |
@@ -101,171 +212,27 @@ L (4.7uH) | 445-3174-1-ND | VLCF4018T-4R7N1R0-2 | http://search.digikey.com/scri
 L (3.3uH) | 445-3173-1-ND | VLCF4018T-3R3N1R2-2 | http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=445-3173-1-ND
 
 Digital potentiometer
-MAX5419 | DFN8 | MAX5418LETA+TCT-ND| http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=MAX5418LETA%2BTCT-ND
+MAX5419 | DFN-8 | MAX5418LETA+TCT-ND| http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=MAX5418LETA%2BTCT-ND
 http://datasheets.maxim-ic.com/en/ds/MAX5417-MAX5419.pdf
 
 XC6210 LDO | SOT-25 |
 
+Microcontroller
+---------------
+STM32F102CBT6 | LQFP-48 | STM32F102CBT6 | http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=497-8308-ND
+
 Current Monitors
 ----------------
-LTC2942-1 Battery Gas Gauge
-MAX9938 Current sense amplifier
+LTC2942-2 | DFN-6    | 
+MAX9938   | SOT-23-5 |
+
+Passives
+--------
 
 
 
 --------------------------------------------------------------------------------
--- Eagle library
---------------------------------------------------------------------------------
-
-Project specific components
----------------------------
-
-Package
-
-TQFP48
-STO23-5L
-QFN44-4X7
-DFN6-2X3
-
-Device
-
-STM32F10XCXT6
-MAX9938
-LTC3677
-LTC2942
-
---------------------------------------------------------------------------------
---									 Notes
---------------------------------------------------------------------------------
-
--------------
--- LTC3677 --
--------------
-
-OVGATE nFET source connected to V_BUS (page 16)
-- Why V_BUS?
-
-V_INLDO2 feedback difference between p42 and p44
-- Buck 1 feeds LDO2, which is a reverse sequence of the default power-on
-  sequence (LOD2 -> Buck1 -> Buck 2)
-
-I_LIM1, I_LIM0 (I_VBUS current limit)
-- Fixed or uC programmable? (Running low on GPIOs)
-- Is it I2C programmable?
-
-Power-Up sequence depends on:
-
-- V_INxx feedbacks
-- DV_CC feedback of PWR_ON controller
-- On power-on: LDO2 -> Buck1 -> Buck2
-
-
-Power-down:
-
-- LDO1 input power from another BUCK?
-  -> LDO1 should produce lower voltage
-
-
------------
--- Clock --
------------
-
-Crystals:
-GND pin connections (DGND?, pin visibility) connect to DGND (also on schematic)
-
-----------
---Reset --
-----------
-
-Pushbutton -> LTC3677 and/or STM32
-
--------------
--- Battery --
--------------
-
--Maximum charging current is selected to be 1000 mA (RPROG = 1k)
--Battery capacity is expected to be in the range of 4000-6000 mAh
-
-----------------------
--- Current Monitors --
-----------------------
-
-I_BUS and I_WALL are not subject to be monitored
-All current monitors use MAX9938 (G=50 V/V) except for the one on I_BAT
-All current monitors use R_SENSE = 50 mohm
-  -I_MAX = 1000 mA, U_REF = 3.3V (1.5V), G = 50 V/V, U_OUT,MAX = 3V
-  -U_R,SENSE = R_SENSE x I_MAX < U_OUT,MAX / G
-                       R_SENSE < 60 mohm
-					   -----------------
-					   R_SENSE = 50 mohm
-All current monitors use AGND as reference except for the one on I_BAT
-
-I_LDO1
-I_LDO2
-I_BUCK1
-I_BUCK2
-I_BUCK3
-I_VOUT
-  -Should not include PMIC and uC current
-I_BAT
-  -Measured with battery gas gauge
-  -R_SENSE = 50 mohm seems to be adequate
-    -1000 mA maximum charge/discharge current
-	-using large capacity (4000-6000 mAh) battery register overflow is expected
-	(to be handled from SW in uC)
-  -50 mohm R_SENSE is available as INTERNAL resistor in LTC2942-2
-
-
-
-
-
----------------------------------
--- STM32F10X GPIO pin requests --
----------------------------------
-
-  * LTC3677
-
-    - #CHRG (available via I2C)
-    + I_LIM0 (if I_LIM0 and I_LIM1 are connected, 1x and 5x modes are available)
-    + I_LIM1
-    - EN3 (became always on via pull-up)
-    + #EXTPWR
-    - PBSTAT (left open)
-    + PWR_ON (shared with main power switch, other options are always on
-	  (pull-up) and another pin)
-    - PGOOD (available via I2C)
-    - #ACPR (#EXTPWR is already available)
-
-  * LTC2942
-
-    + #AL/CC
-
-----------------------------------------
--- STM32F10X communication interfaces --
-----------------------------------------
-
-Connections
------------
-
-  * I2C1: SmartFusion board
-  * I2C2: LTC3677, LTC2942
-  * SPI1: SmartFusion Board
-  * SPI2: uSD card
-
-
-I2C Addresses
--------------
-
-  * LTC3677 | 0001001
-  * LTC2942 | 1100100
-  * MAX5419 | 010101A
-  * MAX5419 | 010110A
-  * MAX5419 | 010111A
-
-
-
---------------------------------------------------------------------------------
-								   Todo List
+				   Todo List
 --------------------------------------------------------------------------------
 
 Library
@@ -303,7 +270,7 @@ Board
 
 
 --------------------------------------------------------------------------------
-								   Questions
+				   Questions
 --------------------------------------------------------------------------------
 
   * Is NTC pin filtering (10 us) necessary? (LTC3677-3 page 24, currently not
@@ -313,7 +280,7 @@ Board
 
 
 --------------------------------------------------------------------------------
-									Testing
+				    Testing
 --------------------------------------------------------------------------------
 
 List of functionalities to test upon the reception of the manufactured board.
