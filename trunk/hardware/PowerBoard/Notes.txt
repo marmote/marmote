@@ -40,7 +40,7 @@ Eagle design guidelines: http://code.google.com/p/marmote/wiki/EagleDesignGuide
 -------------
 
 OVGATE nFET source connected to V_BUS (page 16)
-- Why V_BUS?
+- Why V_BUS? (PV: must be a typo in the datasheet, nFET source should act as the source of the PMIC external input)
 
 V_INLDO2 feedback difference between p42 and p44
 - Buck 1 feeds LDO2, which is a reverse sequence of the default power-on
@@ -258,7 +258,7 @@ Schematic
   * Check if reverse board-mount protection is adequate (currently shifted
     connectors and screws only)
   * Check if battery connector orientation (standing/sideways)
-  * PJ-014D Drill or Hole?
+  * PJ-014D Drill or Hole? (PV: these should be "Hole"-s. There are two types of holes on the PCB: "plated hole" (="via" or "pad" in Eagle) and "non-plated hole" (="hole" in Eagle). All three will generate "drill"-s automatically.)
 
   * Replace USB ESD diodes with ST USBLC6-2 SOT-23 IC
 
@@ -279,9 +279,9 @@ Board
 --------------------------------------------------------------------------------
 
   * Is NTC pin filtering (10 us) necessary? (LTC3677-3 page 24, currently not
-    implemented)
-  * LED positions (should it be moved towards the side of the board?)
-  * Is the power-up sequence acceptable?
+    implemented) (PV: No.)
+  * LED positions (should it be moved towards the side of the board?) (PV: yes, this is a good idea. I did the same on Earwig. Motes also follow this pattern for a reason)
+  * Is the power-up sequence acceptable? (PV: Hmmm, this is probably the only issue I don't like (i.e. that the regulators are not completely independent). However, I cannot see any practical limitation.)
   * Unused connector pins -> DGND or open?
   * Current placement of the inter-board connectors does not allow for
     interchangeable separated sensor boards (mirrored layout for East and West
