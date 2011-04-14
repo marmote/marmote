@@ -187,6 +187,11 @@ Notes
 				     Parts
 --------------------------------------------------------------------------------
 
+Power managment IC
+------------------
+LTC3677-3 | WFQFN-44 | LTC3677EUFF-3#PBF-ND | LTC3677EUFF-3#PBF | http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=LTC3677EUFF-3%23PBF-ND
+XC6210 LDO | SOT-25 | 893-1075-1-ND | XC6210B332MR-ND | http://search.digikey.com/scripts/DkSearch/dksus.dll?vendor=0&keywords=xc6210
+
 Reverse voltage/overvoltage protection
 --------------------------------------
 pFET | SOT-23-3 | SI2333DS-T1-E3 | | http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=SI2333DS-T1-E3CT-ND
@@ -215,7 +220,6 @@ Digital potentiometer
 MAX5419 | DFN-8 | MAX5418LETA+TCT-ND| http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=MAX5418LETA%2BTCT-ND
 http://datasheets.maxim-ic.com/en/ds/MAX5417-MAX5419.pdf
 
-XC6210 LDO | SOT-25 |
 
 Microcontroller
 ---------------
@@ -269,6 +273,7 @@ Board
   * Add bottom silicon stands (~SmartFusion Eval Board)
 
 
+
 --------------------------------------------------------------------------------
 				   Questions
 --------------------------------------------------------------------------------
@@ -277,6 +282,11 @@ Board
     implemented)
   * LED positions (should it be moved towards the side of the board?)
   * Is the power-up sequence acceptable?
+  * Unused connector pins -> DGND or open?
+  * Current placement of the inter-board connectors does not allow for
+    interchangeable separated sensor boards (mirrored layout for East and West
+	side boards)
+
 
 
 --------------------------------------------------------------------------------
