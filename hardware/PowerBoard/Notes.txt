@@ -278,8 +278,6 @@ Board
 				   Questions
 --------------------------------------------------------------------------------
 
-  * Is NTC pin filtering (10 us) necessary? (LTC3677-3 page 24, currently not
-    implemented) (PV: No.)
   * LED positions (should it be moved towards the side of the board?) (PV: yes, this is a good idea. I did the same on Earwig. Motes also follow this pattern for a reason)
   * Is the power-up sequence acceptable? (PV: Hmmm, this is probably the only issue I don't like (i.e. that the regulators are not completely independent). However, I cannot see any practical limitation.)
   * Unused connector pins -> DGND or open?
