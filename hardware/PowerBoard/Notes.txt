@@ -279,12 +279,11 @@ Board
 --------------------------------------------------------------------------------
 
   * LED positions (should it be moved towards the side of the board?) (PV: yes, this is a good idea. I did the same on Earwig. Motes also follow this pattern for a reason)
-  * Is the power-up sequence acceptable? (PV: Hmmm, this is probably the only issue I don't like (i.e. that the regulators are not completely independent). However, I cannot see any practical limitation.)
-  * Unused connector pins -> DGND or open?
   * Current placement of the inter-board connectors does not allow for
     interchangeable separated sensor boards (mirrored layout for East and West
 	side boards)
 
+  * Are bypass capacitors needed on the WALL line in between the transistors?
 
 
 --------------------------------------------------------------------------------
