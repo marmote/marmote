@@ -271,19 +271,21 @@ Board
   * Add fiducials
   * Add M-4-40 screws for the Base Board (similar to that of the USRP)
   * Add bottom silicon stands (~SmartFusion Eval Board)
-
+  * LEDs should be moved towards the side of the board
 
 
 --------------------------------------------------------------------------------
 				   Questions
 --------------------------------------------------------------------------------
 
-  * LED positions (should it be moved towards the side of the board?) (PV: yes, this is a good idea. I did the same on Earwig. Motes also follow this pattern for a reason)
   * Current placement of the inter-board connectors does not allow for
     interchangeable separated sensor boards (mirrored layout for East and West
 	side boards)
 
   * Are bypass capacitors needed on the WALL line in between the transistors?
+  * Is the transistor on #ACPR and WALL really necessary? (e.g. is the one on
+    LTC4361 GATEP enough or can the two be combined together?)
+  * LTC4351-1 or -2?
 
 
 --------------------------------------------------------------------------------
