@@ -200,7 +200,7 @@ Zener diode (5.6V) | 0603 | 641-1030-1-ND | CZRU52C5V6 | http://search.digikey.c
 
 Analog power
 ------------
-Ferrite bead | 0603 | 490-5208-6-ND | http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=490-5208-2-ND
+Ferrite bead | 0603 | 490-5224-1-ND | BLM18SG700TN1D
 
 Battery
 -------
