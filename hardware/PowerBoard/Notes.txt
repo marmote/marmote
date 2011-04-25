@@ -205,6 +205,7 @@ Ferrite bead | 0603 | 490-5208-6-ND | http://search.digikey.com/scripts/DkSearch
 Battery
 -------
 NTC (100kohm 1% 1%) | 0603 | 445-2556-6-ND | http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=445-2556-6-ND
+NTC (10kohm 5% 3%)  | 0603 | 541-1107-1-ND | NTHS0603N02N1002JE | 
 R (1%) | 0603 | | |
 
 LT3677-3 LDO & BUCK
