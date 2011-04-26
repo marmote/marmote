@@ -247,28 +247,18 @@ Library
   * Check battery and jack connectors
 
 
-
 Schematic
 ---------
 
-  * LTC3677 EN3 pin (currently simple pull-up)
-
-  * CHECK IF POWER SEQUENCE UP IS STILL FINE (if not, move the master switch or
-    replace BUCK1 with BUCK3)
-
-  * Check if reverse board-mount protection is adequate (currently shifted
-    connectors and screws only)
-  * Check if battery connector orientation (standing/sideways)
-  * PJ-014D Drill or Hole? (PV: these should be "Hole"-s. There are two types of holes on the PCB: "plated hole" (="via" or "pad" in Eagle) and "non-plated hole" (="hole" in Eagle). All three will generate "drill"-s automatically.)
-
   * Replace USB ESD diodes with ST USBLC6-2 SOT-23 IC
-  * Place DNA pull-downs on HPRW and SUSP
-  * VOUT -> VSUP
-
 
 Board
 -----
 
+  * PJ-014D Drill or Hole? (PV: these should be "Hole"-s. There are two types of holes on the PCB: "plated hole" (="via" or "pad" in Eagle) and "non-plated hole" (="hole" in Eagle). All three will generate "drill"-s automatically.)
+  * Check if reverse board-mount protection is adequate (currently shifted
+    connectors and screws only)
+  * Check if battery connector orientation (standing/sideways)
   * Connect LTC2942-2 pin 2 directly to the negative battery terminal
   * Check power jack pin connections in the device
   * Add fiducials
@@ -287,11 +277,7 @@ Board
   * Current placement of the inter-board connectors does not allow for
     interchangeable separated sensor boards (mirrored layout for East and West
 	side boards)
-
   * Are bypass capacitors needed on the WALL line in between the transistors?
-  * Is the transistor on #ACPR and WALL really necessary? (e.g. is the one on
-    LTC4361 GATEP enough or can the two be combined together?)
-  * LTC4351-1 or -2?
 
 
 --------------------------------------------------------------------------------
@@ -303,5 +289,4 @@ List of functionalities to test upon the reception of the manufactured board.
   * Test for the best PWR_ON connection before attaching the Li-Ion battery, as
     the corresponding DNP and R = 0 components are placed on the bottom side
 	(Note: DNP marked components are generally placed on the top side).
-  * Power on sequence
-  * Power line voltages
+  * Power on sequenc Power line voltages
