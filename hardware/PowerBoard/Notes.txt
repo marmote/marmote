@@ -262,6 +262,8 @@ Schematic
   * PJ-014D Drill or Hole? (PV: these should be "Hole"-s. There are two types of holes on the PCB: "plated hole" (="via" or "pad" in Eagle) and "non-plated hole" (="hole" in Eagle). All three will generate "drill"-s automatically.)
 
   * Replace USB ESD diodes with ST USBLC6-2 SOT-23 IC
+  * Place DNA pull-downs on HPRW and SUSP
+  * VOUT -> VSUP
 
 
 Board
@@ -272,9 +274,10 @@ Board
   * Add fiducials
   * Add M-4-40 screws for the Base Board (similar to that of the USRP)
   * Add bottom silicon stands (~SmartFusion Eval Board)
-  * LEDs should be moved towards the side of the board
   * ECX-31 capacitor/resistor (R=0) placement
   * Jumper and LED labels
+  * Place LEDs near board edges (right angle SMT), small holes will be drilled on enclosure
+  * External power switch (panel mount, snap-in)  
 
 
 --------------------------------------------------------------------------------
