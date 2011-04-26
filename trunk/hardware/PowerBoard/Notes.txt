@@ -243,9 +243,9 @@ Passives
 Library
 -------
 
-  * Fix all designator prefixes
   * Add recommended layout to DFN6 package documentation layer
-  * Add Mezzanine connector part number
+  * Check battery and jack connectors
+
 
 
 Schematic
