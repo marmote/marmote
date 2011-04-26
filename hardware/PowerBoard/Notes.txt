@@ -273,6 +273,8 @@ Board
   * Add M-4-40 screws for the Base Board (similar to that of the USRP)
   * Add bottom silicon stands (~SmartFusion Eval Board)
   * LEDs should be moved towards the side of the board
+  * ECX-31 capacitor/resistor (R=0) placement
+  * Jumper and LED labels
 
 
 --------------------------------------------------------------------------------
