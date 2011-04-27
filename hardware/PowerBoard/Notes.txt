@@ -250,7 +250,6 @@ Library
 Schematic
 ---------
 
-  * Replace USB ESD diodes with ST USBLC6-2 SOT-23 IC
 
 Board
 -----
