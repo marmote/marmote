@@ -1,0 +1,16 @@
+#summary Requirement for the enclosure of the Marmote hardware platform
+#labels Phase-Requirements
+
+= Introduction =
+
+The EnclosureRequirement page intends to capture the high level requirement for the enclosure design from all possible aspects. That includes mechanical properties as well as certain functionality of the enclosure.
+
+_Note:_ This pages is far away from being finished yet. Project collaborators are highly encouraged to add or modify items and to leave comments.
+
+= Dimensions =
+
+= Connectors =
+
+= Switches =
+
+= LEDs =
