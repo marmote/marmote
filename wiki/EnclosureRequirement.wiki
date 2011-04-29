@@ -9,8 +9,32 @@ _Note:_ This pages is far away from being finished yet. Project collaborators ar
 
 = Dimensions =
 
+  # The external dimensions of the enclosure should be kept below 100mm x 70mm x 35mm.
+
+_Note:_ This is a first, rough estimate and is subject to be further shrunk down.
+
 = Connectors =
 
+  # All connectors, with the possible exception of the antenna connector, should be placed on the front panel of the enclosure.
+
+== 5V External Supply ==
+
+== USB ==
+
+== microSD Card ==
+
+== Antenna ==
+
+  # The external antenna connector should be prepared for either direct-PCB-mounted or cable-extended SMA connector(s). (TBD)
+  # The antenna connector(s) should be placed either on the front or the top panel of the enclosure. (TBD)
+  # There should be either a single or two separate external antenna connectors. (TBD)
+
 = Switches =
+
+  # The enclosure should be equipped with an external toggle switch to power off the board.
+
+_Note:_ The precise definition of power off can be found on the Power Supply Requirement page. (TBD)
+
+
 
 = LEDs =
