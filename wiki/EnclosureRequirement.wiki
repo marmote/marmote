@@ -21,6 +21,10 @@ _Note:_ This is a first, rough estimate and is subject to be further shrunk down
 
 == USB ==
 
+== Ethernet ==
+
+  # The enclosure should be designed accounting for a future Power Supply Board level Ethernet connector.
+
 == microSD Card ==
 
 == Antenna ==
