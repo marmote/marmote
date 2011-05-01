@@ -1,4 +1,4 @@
-#summary Requirement for the Main Board hosting the SmartFusion device.
+#summary Requirement for the Main Board hosting the SmartFusion device
 #labels Phase-Requirements
 
 = Introduction =
