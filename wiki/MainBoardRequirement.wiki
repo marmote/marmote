@@ -16,4 +16,12 @@ Used power rails, etc. (TBD)
 
 ADC, DAC signal levels, etc. (TBD)
 
+== Connectors ==
+
+External clock sync connector
+
 = Functionality =
+
+== External Clock Synchronization ==
+
+  * Multiple nodes should be able to synchronize their SmartFusion clock(s) to each other
