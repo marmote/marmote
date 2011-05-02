@@ -262,22 +262,45 @@ Board
   * Check power jack pin connections in the device
   * Add fiducials
   * Add M-4-40 screws for the Base Board (similar to that of the USRP)
-  * Add bottom silicon stands (~SmartFusion Eval Board)
+  * Mounting holes (enclosure) should be at least 450 mil (500 mil preferred)
+    away from the sides
+  * Upper layer mounting holes should be placed as close to the corners as
+    possible
   * ECX-31 capacitor/resistor (R=0) placement
   * Jumper and LED labels
   * Place LEDs near board edges (right angle SMT), small holes will be drilled on enclosure
   * External power switch (panel mount, snap-in)  
 
+Enclosure
+---------
+  * Add bottom silicon stands (~SmartFusion Eval Board)
 
 --------------------------------------------------------------------------------
 				   Questions
 --------------------------------------------------------------------------------
 
+Schematic
+---------
+  
+  * Do we want any additional memory (PSRAM) on the SmartFusion board (e.g.
+    recording)? Because it might require additional power rails (1.8V)
+  * Switching regulator instead of the 1.5V LDO? The SmartFusion has an internal
+    1.5V LDO anyways.
+	-LTC 3444 http://www.linear.com/product/LTC3444
+	-TOREX XCL201 (XCL201B151BR-G) (Not available at DigiKey or Mouser)
+	-TOREX XC9235/6/7
+
+  * Are bypass capacitors needed on the WALL line in between the transistors?
+
+Board
+-----
+
   * Current placement of the inter-board connectors does not allow for
     interchangeable separated sensor boards (mirrored layout for East and West
 	side boards)
-  * Are bypass capacitors needed on the WALL line in between the transistors?
-
+  * Antenna placement (top/side)? If side, both at the front and the back?
+  * Should the PJ-014D part be replaced with PJ-102AH (This part is found on the
+    SmartFusion Dev-Kit and has a larger center pin diameter)
 
 --------------------------------------------------------------------------------
 				    Testing
