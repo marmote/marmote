@@ -1,0 +1,63 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../lwip/core/dhcp.c \
+../lwip/core/dns.c \
+../lwip/core/init.c \
+../lwip/core/mem.c \
+../lwip/core/memp.c \
+../lwip/core/netif.c \
+../lwip/core/pbuf.c \
+../lwip/core/raw.c \
+../lwip/core/stats.c \
+../lwip/core/sys.c \
+../lwip/core/tcp.c \
+../lwip/core/tcp_in.c \
+../lwip/core/tcp_out.c \
+../lwip/core/udp.c 
+
+OBJS += \
+./lwip/core/dhcp.o \
+./lwip/core/dns.o \
+./lwip/core/init.o \
+./lwip/core/mem.o \
+./lwip/core/memp.o \
+./lwip/core/netif.o \
+./lwip/core/pbuf.o \
+./lwip/core/raw.o \
+./lwip/core/stats.o \
+./lwip/core/sys.o \
+./lwip/core/tcp.o \
+./lwip/core/tcp_in.o \
+./lwip/core/tcp_out.o \
+./lwip/core/udp.o 
+
+C_DEPS += \
+./lwip/core/dhcp.d \
+./lwip/core/dns.d \
+./lwip/core/init.d \
+./lwip/core/mem.d \
+./lwip/core/memp.d \
+./lwip/core/netif.d \
+./lwip/core/pbuf.d \
+./lwip/core/raw.d \
+./lwip/core/stats.d \
+./lwip/core/sys.d \
+./lwip/core/tcp.d \
+./lwip/core/tcp_in.d \
+./lwip/core/tcp_out.d \
+./lwip/core/udp.d 
+
+
+# Each subdirectory must supply rules for building sources it contributes
+lwip/core/%.o: ../lwip/core/%.c
+	@echo 'Building file: $<'
+	@echo 'Invoking: GNU C Compiler'
+	arm-none-eabi-gcc -mthumb -mcpu=cortex-m3 -I"..\lwip\include" -I"..\drivers\mss_ethernet_mac" -I"..\lwip" -I"..\lwip\include\ipv4" -I"..\port_config" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+
