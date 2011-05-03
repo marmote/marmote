@@ -263,7 +263,7 @@ Board
   * Add fiducials
   * Add M-4-40 screws for the Base Board (similar to that of the USRP)
   * Mounting holes (enclosure) should be at least 450 mil (500 mil preferred)
-    away from the sides
+    away from the front side and at least 5mm from the other sides
   * Upper layer mounting holes should be placed as close to the corners as
     possible
   * ECX-31 capacitor/resistor (R=0) placement
