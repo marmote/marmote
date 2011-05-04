@@ -235,6 +235,27 @@ Passives
 --------
 
 
+--------------------------------------------------------------------------------
+				   Misc
+--------------------------------------------------------------------------------
+
+Pre-set finish drill sizes: .008, .016, .020, .025, .029, .033, .036, .040,
+.043, .046, .053, .061, .067, .080, .087, .093, .100, .110, .125, .141, .151,
+.167, .193, .251 (.008 available for 4-6 layers only).
+
+http://www.sunstone.com/products-services/quickturn-proto-boards/drill-file-pad-clearance-setup.aspx
+http://www.sunstone.com/pcb-capabilities/manufacturing-capabilities.aspx
+
+Standoff sizes (Keystone)
+-------------------------
+
+.375 |  9.5mm
+.500 | 12.7mm +
+.600 | 15.3mm (PC/104)
+.625 | 15.9mm
+
+http://www.keyelco.com/products/specs/spec11.asp
+
 
 --------------------------------------------------------------------------------
 				   Todo List
@@ -245,10 +266,15 @@ Library
 
   * Add recommended layout to DFN6 package documentation layer
   * Check battery and jack connectors
+  * Add slide switch
+  * Add rocker switch (footprint)
 
 
 Schematic
 ---------
+
+  * Add external switch
+  * Check for right angle FTSH connector
 
 
 Board
@@ -273,10 +299,12 @@ Board
   * Account for a low-profile (11.3mm) RJ-45 connector -> Check Mezzazine
     connector board-to-board distance
     (http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=380-1110-ND)
+  * Battery tape strip (?)
 
 Enclosure
 ---------
   * Add bottom silicon stands (~SmartFusion Eval Board)
+  * Ethernet / DC switch cutout
 
 --------------------------------------------------------------------------------
 				   Questions
@@ -297,6 +325,8 @@ Schematic
     SmartFusion Dev-Kit and has a larger center pin diameter)
 	 - PJ-051A(H)
 	 - PJ-063A(H)
+  * Is the charge LED sufficient or ACPR should be added as well? (To show ACPR
+    while in power off state)
 
 Board
 -----
