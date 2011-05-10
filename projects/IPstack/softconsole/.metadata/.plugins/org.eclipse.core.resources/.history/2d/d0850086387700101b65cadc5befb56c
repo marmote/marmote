@@ -1,0 +1,780 @@
+#include "lwip/stats.h"
+#include "httpd.h"
+#include "lwip/tcp.h"
+
+#include <string.h>
+#include <stdio.h>
+
+
+#define SERVER_PORT 6000
+
+struct server_state {
+//    struct fs_file *handle;
+    char *file;                     /* Pointer to first unsent byte in buf. */
+    char *buf;                                          /* File read buffer */
+
+    u32_t left;                           /* Number of unsent bytes in buf. */
+    int buf_len;                          /* Size of file read buffer, buf. */
+    u8_t retries;
+};
+
+
+/*..........................................................................*/
+static void conn_err(void *arg, err_t err) {
+    struct server_state *hs;
+
+    LWIP_UNUSED_ARG(err);
+
+    if (arg) {
+        hs = arg;
+/*
+        if (hs->handle) {
+            fs_close(hs->handle);
+            hs->handle = NULL;
+        }
+*/
+        if (hs->buf) {
+            mem_free(hs->buf);
+        }
+        mem_free(hs);
+    }
+}
+
+
+/*..........................................................................*/
+static void close_conn(struct tcp_pcb *pcb, struct server_state *hs) {
+    err_t err;
+//    DEBUG_PRINT("Closing connection 0x%08x\n", pcb);
+
+    tcp_arg(pcb, NULL);
+    tcp_sent(pcb, NULL);
+    tcp_recv(pcb, NULL);
+/*
+    if (hs->handle) {
+        fs_close(hs->handle);
+        hs->handle = NULL;
+    }
+*/
+    if (hs->buf) {
+        mem_free(hs->buf);
+    }
+    mem_free(hs);
+    err = tcp_close(pcb);
+    if (err != ERR_OK) {
+//        DEBUG_PRINT("Error %d closing 0x%08x\n", err, pcb);
+    }
+}
+
+
+/*..........................................................................*/
+static void send_data(struct tcp_pcb *pcb, struct server_state *hs) {
+    err_t err;
+    u16_t len;
+    u8_t data_to_send = FALSE;
+#ifdef DYNAMIC_HTTP_HEADERS
+    u16_t hdrlen, sendlen;
+
+    /* Assume no error until we find otherwise */
+    err = ERR_OK;
+
+    /* Do we have any more header data to send for this file? */
+    if (hs->hdr_index < NUM_FILE_HDR_STRINGS) {
+        /* How much data can we send? */
+        len = tcp_sndbuf(pcb);
+        sendlen = len;
+
+        while (len && (hs->hdr_index < NUM_FILE_HDR_STRINGS) && sendlen) {
+            /* How much do we have to send from the current header? */
+            hdrlen = strlen(hs->hdrs[hs->hdr_index]);
+
+            /* How much of this can we send? */
+            sendlen = (len < (hdrlen - hs->hdr_pos)) ? len
+                                                     : (hdrlen - hs->hdr_pos);
+
+            /* Send this amount of data or as much as we can given memory
+            * constraints. */
+            do {
+                err = tcp_write(pcb, (const void *)(hs->hdrs[hs->hdr_index] +
+                                hs->hdr_pos), sendlen, 0);
+                if (err == ERR_MEM) {
+                    sendlen /= 2;
+                }
+            } while ((err == ERR_MEM) && (sendlen > 1));
+
+            /* Fix up the header position for the next time round. */
+            hs->hdr_pos += sendlen;
+            len -= sendlen;
+
+            /* Have we finished sending this string? */
+            if (hs->hdr_pos == hdrlen) {
+                /* Yes - move on to the next one */
+                hs->hdr_index++;
+                hs->hdr_pos = 0;
+            }
+        }
+
+        if (err == ERR_OK) {
+            data_to_send = TRUE;
+        }
+
+        /* If we get here and there are still header bytes to send, we send
+        * the header information we just wrote immediately.  If there are no
+        * more headers to send, but we do have file data to send, drop through
+        * to try to send some file data too.
+        */
+        if ((hs->hdr_index < NUM_FILE_HDR_STRINGS) || !hs->file) {
+            DEBUG_PRINT("tcp_output\n");
+            tcp_output(pcb);
+            return;
+        }
+    }
+#else
+    /* Assume no error until we find otherwise */
+    err = ERR_OK;
+#endif
+
+    /* Have we run out of file data to send? If so, we need to read the next
+    * block from the file.
+    */
+    if (hs->left == 0) {
+        int count;
+
+        /* Do we already have a send buffer allocated? */
+        if (hs->buf) {
+            /* Yes - get the length of the buffer */
+            count = hs->buf_len;
+        }
+        else {
+            /* We don't have a send buffer so allocate one up to 2mss long */
+            count = 2 * pcb->mss;
+            do {
+                hs->buf = mem_malloc(count);
+                if (hs->buf) {
+                    hs->buf_len = count;
+                    break;
+                }
+                count = count / 2;
+            } while (count > 100);
+
+            /* Did we get a send buffer? If not, return immediately. */
+            if (hs->buf == NULL) {
+                DEBUG_PRINT("No buff\n");
+                return;
+            }
+        }
+
+        /* Do we have a valid file handle? */
+        if (hs->handle == NULL) {
+            //
+            // No - close the connection.
+            //
+            close_conn(pcb, hs);
+            return;
+        }
+
+        /* Read a block of data from the file. */
+        DEBUG_PRINT("Trying to read %d bytes.\n", count);
+
+        count = fs_read(hs->handle, hs->buf, count);
+        if (count < 0) {
+            /* We reached the end of the file so this request is done */
+            DEBUG_PRINT("End of file.\n");
+            fs_close(hs->handle);
+            hs->handle = NULL;
+            close_conn(pcb, hs);
+            return;
+        }
+
+        /* Set up to send the block of data we just read */
+        DEBUG_PRINT("Read %d bytes.\n", count);
+        hs->left = count;
+        hs->file = hs->buf;
+#ifdef INCLUDE_HTTPD_SSI
+        hs->parse_left = count;
+        hs->parsed = hs->buf;
+#endif
+    }
+
+#ifdef INCLUDE_HTTPD_SSI
+    if (!hs->tag_check) {
+#endif
+        /* We are not processing a SHTML file so no tag checking is necessary.
+        * Just send the data as we received it from the file.
+        */
+
+        /* We cannot send more data than space available in the send buffer */
+        if (tcp_sndbuf(pcb) < hs->left) {
+            len = tcp_sndbuf(pcb);
+        }
+        else {
+            len = hs->left;
+            LWIP_ASSERT("hs->left did not fit into u16_t!",
+                        (len == hs->left));
+        }
+        if (len > (2*pcb->mss)) {
+            len = 2*pcb->mss;
+        }
+
+        do {
+            DEBUG_PRINT("Sending %d bytes\n", len);
+
+            /* If the data is being read from a buffer in RAM, we need to copy
+            * it into the PCB. If it's in flash, however, we can avoid the
+            * copy since the data is obviously not going to be overwritten
+            * during the life of the connection.
+            */
+            err = tcp_write(pcb, hs->file, len,
+                (hs->file < (char *)0x20000000) ? 0 : 1);
+            if (err == ERR_MEM) {
+                len /= 2;
+            }
+        } while (err == ERR_MEM && len > 1);
+
+        if (err == ERR_OK) {
+            data_to_send = TRUE;
+            hs->file += len;
+            hs->left -= len;
+        }
+#ifdef INCLUDE_HTTPD_SSI
+    }
+    else {
+        /* We are processing an SHTML file so need to scan for tags and
+        * replace them with insert strings. We need to be careful here since
+        * a tag may straddle the boundary of two blocks read from the file
+        * and we may also have to split the insert string between two
+        * tcp_write operations.
+        */
+
+        /* How much data could we send? */
+        len = tcp_sndbuf(pcb);
+
+        /* Do we have remaining data to send before parsing more? */
+        if (hs->parsed > hs->file) {
+            /* We cannot send more data than space available in the send
+            buffer. */
+            if (tcp_sndbuf(pcb) < (hs->parsed - hs->file)) {
+                len = tcp_sndbuf(pcb);
+            }
+            else {
+                len = (hs->parsed - hs->file);
+                LWIP_ASSERT("Data size did not fit into u16_t!",
+                    (hs->parsed - hs->file));
+            }
+            if (len > (2*pcb->mss)) {
+                len = 2*pcb->mss;
+            }
+
+            do {
+                DEBUG_PRINT("Sending %d bytes\n", len);
+                err = tcp_write(pcb, hs->file, len, 0);
+                if (err == ERR_MEM) {
+                    len /= 2;
+                }
+            } while (err == ERR_MEM && len > 1);
+
+            if (err == ERR_OK) {
+                data_to_send = TRUE;
+                hs->file += len;
+                hs->left -= len;
+            }
+
+            /* If the send buffer is full, return now */
+            if (tcp_sndbuf(pcb) == 0) {
+                if (data_to_send) {
+                    tcp_output(pcb);
+                    DEBUG_PRINT("Output\n");
+                }
+                return;
+            }
+        }
+
+        DEBUG_PRINT("State %d, %d left\n", hs->tag_state, hs->parse_left);
+
+        /* We have sent all the data that was already parsed so continue
+        * parsing the buffer contents looking for SSI tags.
+        */
+        while ((hs->parse_left) && (err == ERR_OK)) {
+            switch (hs->tag_state) {
+                case TAG_NONE:
+                    /* We are not currently processing an SSI tag so scan for
+                    * the start of the lead-in marker.
+                    */
+                    if (*hs->parsed == g_pcTagLeadIn[0]) {
+                        /* We found what could be the lead-in for a new tag
+                        * so change state appropriately.
+                        */
+                        hs->tag_state = TAG_LEADIN;
+                        hs->tag_index = 1;
+                    }
+
+                    /* Move on to the next character in the buffer */
+                    hs->parse_left--;
+                    hs->parsed++;
+                    break;
+
+                case TAG_LEADIN:
+                    /* We are processing the lead-in marker, looking for the
+                    * start of the tag name.
+                    */
+
+                    /* Have we reached the end of the leadin? */
+                    if (hs->tag_index == LEN_TAG_LEAD_IN) {
+                        hs->tag_index = 0;
+                        hs->tag_state = TAG_FOUND;
+                    }
+                    else {
+                        /* Have we found the next character we expect for the
+                        * tag lead-in?
+                        */
+                        if (*hs->parsed == g_pcTagLeadIn[hs->tag_index]) {
+                            /* Yes - move to the next one unless we have
+                            * found the complete lead-in, in which case we
+                            * start looking for the tag itself
+                            */
+                            hs->tag_index++;
+                        }
+                        else {
+                            /* We found an unexpected character so this is
+                            * not a tag. Move back to idle state.
+                            */
+                            hs->tag_state = TAG_NONE;
+                        }
+
+                        /* Move on to the next character in the buffer */
+                        hs->parse_left--;
+                        hs->parsed++;
+                    }
+                    break;
+
+                case TAG_FOUND:
+                    /* We are reading the tag name, looking for the start of
+                    * the lead-out marker and removing any whitespace found.
+                    */
+
+                    /* Remove leading whitespace between the tag leading and
+                    * the first tag name character.
+                    */
+                    if ((hs->tag_index == 0) && ((*hs->parsed == ' ') ||
+                        (*hs->parsed == '\t') || (*hs->parsed == '\n') ||
+                        (*hs->parsed == '\r'))) {
+                        /* Move on to the next character in the buffer */
+                        hs->parse_left--;
+                        hs->parsed++;
+                        break;
+                    }
+
+                    /* Have we found the end of the tag name? This is
+                    * signalled by us finding the first leadout character or
+                    * whitespace
+                    */
+                    if ((*hs->parsed == g_pcTagLeadOut[0]) ||
+                        (*hs->parsed == ' ') || (*hs->parsed == '\t') ||
+                        (*hs->parsed == '\n')  || (*hs->parsed == '\r')) {
+
+                        if (hs->tag_index == 0) {
+                            /* We read a zero length tag so ignore it. */
+                            hs->tag_state = TAG_NONE;
+                        }
+                        else {
+                            /* We read a non-empty tag so go ahead and look
+                            * for the lead-out string.
+                            */
+                            hs->tag_state = TAG_LEADOUT;
+                            hs->tag_name_len = hs->tag_index;
+                            hs->tag_name[hs->tag_index] = '\0';
+                            if (*hs->parsed == g_pcTagLeadOut[0]) {
+                                hs->tag_index = 1;
+                            }
+                            else {
+                                hs->tag_index = 0;
+                            }
+                        }
+                    }
+                    else {
+                        /* This char is part of the tag name so save it */
+                        if (hs->tag_index < MAX_TAG_NAME_LEN) {
+                            hs->tag_name[hs->tag_index++] = *hs->parsed;
+                        }
+                        else {
+                            /* The tag was too long so ignore it. */
+                            hs->tag_state = TAG_NONE;
+                        }
+                    }
+
+                    /* Move on to the next character in the buffer */
+                    hs->parse_left--;
+                    hs->parsed++;
+
+                    break;
+
+                /*
+                * We are looking for the end of the lead-out marker.
+                */
+                case TAG_LEADOUT:
+                    /* Remove leading whitespace between the tag leading and
+                    * the first tag lead-out character.
+                    */
+                    if ((hs->tag_index == 0) && ((*hs->parsed == ' ') ||
+                        (*hs->parsed == '\t') || (*hs->parsed == '\n') ||
+                        (*hs->parsed == '\r'))) {
+                        /* Move on to the next character in the buffer */
+                        hs->parse_left--;
+                        hs->parsed++;
+                        break;
+                    }
+
+                    /* Have we found the next character we expect for the tag
+                    * lead-out?
+                    */
+                    if (*hs->parsed == g_pcTagLeadOut[hs->tag_index]) {
+                        /* Yes - move to the next one unless we have found
+                        * the complete lead-out, in which case we need to
+                        * call the client to process the tag.
+                        */
+
+                        /* Move on to the next character in the buffer */
+                        hs->parse_left--;
+                        hs->parsed++;
+
+                        if (hs->tag_index == (LEN_TAG_LEAD_OUT - 1)) {
+                            /* Call the client to ask for the insert string
+                            * for the tag we just found.
+                            */
+                            get_tag_insert(hs);
+
+                            /* Next time through, we are going to be sending
+                            * data immediately, either the end of the block
+                            * we start sending here or the insert string.
+                            */
+                            hs->tag_index = 0;
+                            hs->tag_state = TAG_SENDING;
+                            hs->tag_end = hs->parsed;
+
+                            /* If there is any unsent data in the buffer
+                            * prior to the tag, we need to send it now.
+                            */
+                            if (hs->tag_end > hs->file) {
+                                /* How much of the data can we send? */
+                                if (len > hs->tag_end - hs->file) {
+                                    len = hs->tag_end - hs->file;
+                                }
+
+                                do {
+                                    DEBUG_PRINT("Sending %d bytes\n", len);
+                                    err = tcp_write(pcb, hs->file, len, 0);
+                                    if (err == ERR_MEM) {
+                                        len /= 2;
+                                    }
+                                } while (err == ERR_MEM && (len > 1));
+
+                                if (err == ERR_OK) {
+                                    data_to_send = TRUE;
+                                    hs->file += len;
+                                    hs->left -= len;
+                                }
+                            }
+                        }
+                        else {
+                            hs->tag_index++;
+                        }
+                    }
+                    else {
+                        /* We found an unexpected character so this is not
+                        * a tag. Move back to idle state.
+                        */
+                        hs->parse_left--;
+                        hs->parsed++;
+                        hs->tag_state = TAG_NONE;
+                    }
+                    break;
+
+                /*
+                * We have found a valid tag and are in the process of sending
+                * data as a result of that discovery. We send either remaining
+                * data from the file prior to the insert point or the insert
+                * string itself.
+                */
+                case TAG_SENDING:
+                    /* Do we have any remaining file data to send from the
+                    * buffer prior to the tag?
+                    */
+                    if (hs->tag_end > hs->file) {
+                        /* How much of the data can we send? */
+                        if (len > hs->tag_end - hs->file) {
+                            len = hs->tag_end - hs->file;
+                        }
+
+                        do {
+                            DEBUG_PRINT("Sending %d bytes\n", len);
+                            err = tcp_write(pcb, hs->file, len, 0);
+                            if (err == ERR_MEM) {
+                                len /= 2;
+                            }
+                        } while (err == ERR_MEM && (len > 1));
+
+                        if (err == ERR_OK) {
+                            data_to_send = TRUE;
+                            hs->file += len;
+                            hs->left -= len;
+                        }
+                    }
+                    else {
+                        /* Do we still have insert data left to send? */
+                        if (hs->tag_index < hs->tag_insert_len) {
+                            /* We are sending the insert string itself. How
+                            * much of the insert can we send? */
+                            if (len > (hs->tag_insert_len - hs->tag_index)) {
+                                len = (hs->tag_insert_len - hs->tag_index);
+                            }
+
+                            do {
+                                DEBUG_PRINT("Sending %d bytes\n", len);
+                                /* Note that we set the copy flag here since
+                                * we only have a single tag insert buffer per
+                                * connection. If we don't do this, insert
+                                * corruption can occur if more than one insert
+                                * is processed before we call tcp_output.
+                                */
+                                err = tcp_write(pcb,
+                                    &(hs->tag_insert[hs->tag_index]), len, 1);
+                                if (err == ERR_MEM) {
+                                    len /= 2;
+                                }
+                            } while (err == ERR_MEM && (len > 1));
+
+                            if (err == ERR_OK) {
+                                data_to_send = TRUE;
+                                hs->tag_index += len;
+                                return;
+                            }
+                        }
+                        else {
+                            /* We have sent all the insert data so go back to
+                            * looking for a new tag.
+                            */
+                            DEBUG_PRINT("Everything sent.\n");
+                            hs->tag_index = 0;
+                            hs->tag_state = TAG_NONE;
+                        }
+                    }
+                    break;
+            }
+        }
+
+        /*
+        * If we drop out of the end of the for loop, this implies we must have
+        * file data to send, so send it now. In TAG_SENDING state, we've
+        * already handled this so skip the send if that's the case.
+        */
+        if ((hs->tag_state != TAG_SENDING) && (hs->parsed > hs->file)) {
+            /* We cannot send more data than space available in the send
+            buffer. */
+            if (tcp_sndbuf(pcb) < (hs->parsed - hs->file)) {
+                len = tcp_sndbuf(pcb);
+            }
+            else {
+                len = (hs->parsed - hs->file);
+                LWIP_ASSERT("Data size did not fit into u16_t!",
+                    (hs->parsed - hs->file));
+            }
+            if (len > (2*pcb->mss)) {
+                len = 2*pcb->mss;
+            }
+
+            do {
+                DEBUG_PRINT("Sending %d bytes\n", len);
+                err = tcp_write(pcb, hs->file, len, 0);
+                if (err == ERR_MEM) {
+                    len /= 2;
+                }
+            } while (err == ERR_MEM && len > 1);
+
+            if (err == ERR_OK) {
+                data_to_send = TRUE;
+                hs->file += len;
+                hs->left -= len;
+            }
+        }
+    }
+#endif /* INCLUDE_HTTPD_SSI */
+
+    /* If we wrote anything to be sent, go ahead and send it now. */
+    if (data_to_send) {
+        DEBUG_PRINT("tcp_output\n");
+        tcp_output(pcb);
+    }
+
+    DEBUG_PRINT("send_data end.\n");
+}
+
+
+/*..........................................................................*/
+static err_t server_poll(void *arg, struct tcp_pcb *pcb) {
+    struct server_state *hs = arg;
+
+//    DEBUG_PRINT("server_poll 0x%08x\n", pcb);
+
+    /*  printf("Polll\n");*/
+    if (hs == NULL) {
+        /*    printf("Null, close\n");*/
+        tcp_abort(pcb);
+        return ERR_ABRT;
+    }
+    else {
+        ++hs->retries;
+        if (hs->retries == 4) {
+            tcp_abort(pcb);
+            return ERR_ABRT;
+        }
+
+        /* If this connection has a file open, try to send some more data. If
+        * it has not yet received a GET request, don't do this since it will
+        * cause the connection to close immediately. */
+//        if (hs->handle) {
+            send_data(pcb, hs);
+//        }
+    }
+
+    return ERR_OK;
+}
+
+
+/*..........................................................................*/
+static err_t server_sent(void *arg, struct tcp_pcb *pcb, u16_t len) {
+    struct server_state *hs;
+
+//    DEBUG_PRINT("server_sent 0x%08x\n", pcb);
+
+    LWIP_UNUSED_ARG(len);
+
+    if (arg == NULL) {
+        return ERR_OK;
+    }
+
+    hs = arg;
+
+    hs->retries = 0;
+
+    /* Temporarily disable send notifications */
+    tcp_sent(pcb, NULL);
+
+    send_data(pcb, hs);
+
+    /* Reenable notifications. */
+    tcp_sent(pcb, server_sent);
+
+    return ERR_OK;
+}
+
+
+/*..........................................................................*/
+static err_t server_recv(void *arg, struct tcp_pcb *pcb,
+                       struct pbuf *p, err_t err)
+{
+    int i;
+    int loop;
+    char *data;
+    struct server_state *hs = arg;
+
+//    DEBUG_PRINT("server_recv 0x%08x\n", pcb);
+
+    if (err != ERR_OK)
+        return ERR_OK; //TODO: is this return value OK?
+
+    if (p == NULL) {
+    	//TODO: is this OK?
+        close_conn(pcb, hs);
+        return ERR_OK;
+    }
+
+    /* Inform TCP that we have taken the data. */
+    tcp_recved(pcb, p->tot_len);
+
+    data = p->payload;
+/*
+                if (file) {
+                    hs->file = file->data;
+                    LWIP_ASSERT("File length must be positive!",
+                                (file->len >= 0));
+                    hs->left = file->len;
+                    hs->retries = 0;
+                    pbuf_free(p);
+                }
+                else {
+                    hs->file = NULL;
+                    hs->left = 0;
+                    hs->retries = 0;
+                }
+*/
+
+	/*Tell TCP that we wish be to informed of data that has been
+	* successfully sent by a call to the server_sent() function.
+	*/
+//	tcp_sent(pcb, server_sent);
+
+    /* Start sending the headers and file data. */
+//	send_data(pcb, hs);
+
+    pbuf_free(p);
+
+// If you wanna close the connection
+//    close_conn(pcb, hs);
+
+    return ERR_OK;
+}
+
+
+/*..........................................................................*/
+static err_t server_accept(void *arg, struct tcp_pcb *pcb, err_t err) {
+    struct server_state *hs;
+
+    LWIP_UNUSED_ARG(arg);
+    LWIP_UNUSED_ARG(err);
+
+//    DEBUG_PRINT("server_accept 0x%08x\n", pcb);
+
+    /* Allocate memory for the structure that holds the state of the
+    connection. */
+    hs = (struct server_state *)mem_malloc(sizeof(struct server_state));
+
+    if (hs == NULL) {
+//        DEBUG_PRINT("server_accept: Out of memory\n");
+        return ERR_MEM;
+    }
+
+    /* Initialize the structure. */
+//    hs->handle = NULL;
+    hs->file = NULL;
+    hs->buf = NULL;
+    hs->buf_len = 0;
+    hs->left = 0;
+    hs->retries = 0;
+
+
+    /* Tell TCP that this is the structure we wish to be passed for our
+    callbacks. */
+    tcp_arg(pcb, hs);
+
+    /* Tell TCP that we wish to be informed of incoming data by a call
+    to the server_recv() function. */
+    tcp_recv(pcb, server_recv);
+
+    tcp_err(pcb, conn_err);
+
+    tcp_poll(pcb, server_poll, 4);
+
+    return ERR_OK;
+}
+
+
+/*..........................................................................*/
+void server_init(void) {
+    struct tcp_pcb *pcb;
+
+//    DEBUG_PRINT("server_init\n");
+
+    pcb = tcp_new();
+    tcp_bind(pcb, IP_ADDR_ANY, SERVER_PORT);
+    pcb = tcp_listen(pcb);
+    tcp_accept(pcb, server_accept);
+}

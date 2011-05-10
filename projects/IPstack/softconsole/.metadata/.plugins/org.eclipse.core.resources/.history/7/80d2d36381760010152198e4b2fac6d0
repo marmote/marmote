@@ -1,0 +1,33 @@
+#ifndef __LWIPOPTS_H__
+#define __LWIPOPTS_H__
+
+//See src/include/lwip/opt.h for default define values
+
+/**
+ * NO_SYS==1: Provides VERY minimal functionality. Otherwise,
+ * use lwIP facilities.
+ */
+#define NO_SYS                          1
+
+/**
+ * LWIP_DHCP==1: Enable DHCP module.
+ */
+#define LWIP_DHCP                       0
+
+/**
+ * LWIP_UDP==1: Turn on UDP.
+ */
+#define LWIP_UDP                        0
+
+/**
+ * LWIP_NETCONN==1: Enable Netconn API (require to use api_lib.c)
+ */
+#define LWIP_NETCONN                    0
+
+/**
+ * LWIP_SOCKET==1: Enable Socket API (require to use sockets.c)
+ */
+#define LWIP_SOCKET                     0
+
+
+#endif /* __LWIPOPTS_H__ */

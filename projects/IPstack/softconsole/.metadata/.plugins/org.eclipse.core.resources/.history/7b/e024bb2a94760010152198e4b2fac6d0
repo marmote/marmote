@@ -1,0 +1,57 @@
+#ifndef __LWIPOPTS_H__
+#define __LWIPOPTS_H__
+
+//****************************************************************************
+//
+// -------------- Static IPv4 addresses  ----------------
+// (relevant only when DHCP or AUTOIP are NOT configured
+//
+//****************************************************************************
+                                      // the default IP address of the host...
+#define STATIC_IPADDR0                  192
+#define STATIC_IPADDR1                  168
+#define STATIC_IPADDR2                  0
+#define STATIC_IPADDR3                  100
+                                                // the default network mask...
+#define STATIC_NET_MASK0                255
+#define STATIC_NET_MASK1                255
+#define STATIC_NET_MASK2                255
+#define STATIC_NET_MASK3                0
+                                          // the default gateway IP address...
+#define STATIC_GW_IPADDR0               0
+#define STATIC_GW_IPADDR1               0
+#define STATIC_GW_IPADDR2               0
+#define STATIC_GW_IPADDR3               0
+
+
+//See src/include/lwip/opt.h for default define values
+
+
+/**
+ * NO_SYS==1: Provides VERY minimal functionality. Otherwise,
+ * use lwIP facilities.
+ */
+#define NO_SYS                          1
+
+/**
+ * LWIP_DHCP==1: Enable DHCP module.
+ */
+#define LWIP_DHCP                       1
+
+/**
+ * LWIP_UDP==1: Turn on UDP.
+ */
+//#define LWIP_UDP                        0
+
+/**
+ * LWIP_NETCONN==1: Enable Netconn API (require to use api_lib.c)
+ */
+#define LWIP_NETCONN                    0
+
+/**
+ * LWIP_SOCKET==1: Enable Socket API (require to use sockets.c)
+ */
+#define LWIP_SOCKET                     0
+
+
+#endif /* __LWIPOPTS_H__ */
