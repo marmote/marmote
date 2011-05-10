@@ -1,0 +1,9 @@
+!SESSION 2011-05-10 16:15:40.300 -----------------------------------------------
+eclipse.buildId=M20101209-1200
+java.version=1.6.0_22
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86 -data D:\Work\marmote\projects\ADC_SPI_test\softconsole
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-05-10 16:17:58.826
+!MESSAGE Indexed 'ADC_SPI_test' (0 sources, 21 headers) in 0.39 sec: 137 declarations; 309 references; 3 unresolved inclusions; 0 syntax errors; 1 unresolved names (0.22%)
