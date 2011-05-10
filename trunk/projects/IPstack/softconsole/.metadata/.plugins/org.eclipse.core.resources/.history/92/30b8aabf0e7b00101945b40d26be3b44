@@ -1,0 +1,96 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+-include ../makefile.init
+
+RM := rm -rf
+
+# All of the sources participating in the build are defined here
+-include sources.mk
+-include subdir.mk
+-include lwip-1.4.0.rc2/src/netif/subdir.mk
+-include lwip-1.4.0.rc2/src/netif/ppp/subdir.mk
+-include lwip-1.4.0.rc2/src/core/subdir.mk
+-include lwip-1.4.0.rc2/src/core/snmp/subdir.mk
+-include lwip-1.4.0.rc2/src/core/ipv4/subdir.mk
+-include lwip-1.4.0.rc2/src/api/subdir.mk
+-include drivers/mss_gpio/subdir.mk
+-include drivers/mss_ethernet_mac/subdir.mk
+-include arch/subdir.mk
+-include CMSIS/subdir.mk
+-include CMSIS/startup_gcc/subdir.mk
+-include objects.mk
+
+ifneq ($(MAKECMDGOALS),clean)
+ifneq ($(strip $(C_DEPS)),)
+-include $(C_DEPS)
+endif
+endif
+
+-include ../makefile.defs
+
+# Add inputs and outputs from these tool invocations to the build variables 
+MEMORYMAP += \
+memory-map.xml \
+memory-map.xml \
+
+IHEXFILES += \
+IPstack-lwip1.4.0.hex \
+IPstack-lwip1.4.0.hex \
+
+SRECFILES += \
+IPstack-lwip1.4.0.srec \
+IPstack-lwip1.4.0.srec \
+
+LISTINGS += \
+IPstack-lwip1.4.0.lst \
+IPstack-lwip1.4.0.lst \
+
+
+# All Target
+all: IPstack-lwip1.4.0 secondary-outputs
+
+# Tool invocations
+IPstack-lwip1.4.0: $(OBJS) $(USER_OBJS)
+	@echo 'Building target: $@'
+	@echo 'Invoking: GNU C Linker'
+	arm-none-eabi-gcc -mthumb -mcpu=cortex-m3 -specs=bare.specs -T../CMSIS/startup_gcc/debug-in-actel-smartfusion-envm.ld -Wl,-Map=$(EXECUTABLE).map -o"IPstack-lwip1.4.0" $(OBJS) $(USER_OBJS) $(LIBS)
+	@echo 'Finished building target: $@'
+	@echo ' '
+
+memory-map.xml: $(EXECUTABLE)
+	@echo 'Invoking: Memory map generator'
+	actel-map -o "memory-map.xml" $(EXECUTABLE) $(BUILDCMD)
+	@echo 'Finished building: $@'
+	@echo ' '
+
+IPstack-lwip1.4.0.hex: $(EXECUTABLE)
+	@echo 'Invoking: GNU Intel Hex File Generator'
+	arm-none-eabi-objcopy -O ihex $(EXECUTABLE) "IPstack-lwip1.4.0.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+IPstack-lwip1.4.0.srec: $(EXECUTABLE)
+	@echo 'Invoking: GNU S-Record Generator'
+	arm-none-eabi-objcopy -O srec $(EXECUTABLE) "IPstack-lwip1.4.0.srec"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+IPstack-lwip1.4.0.lst: $(EXECUTABLE)
+	@echo 'Invoking: GNU Listing Generator'
+	arm-none-eabi-objdump -h -S $(EXECUTABLE) > "IPstack-lwip1.4.0.lst"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+# Other Targets
+clean::
+	-$(RM) $(MEMORYMAP)$(OBJS)$(C_DEPS)$(SRECFILES)$(IHEXFILES)$(LISTINGS)$(EXECUTABLE) IPstack-lwip1.4.0
+	-@echo ' '
+
+secondary-outputs: $(MEMORYMAP) $(IHEXFILES) $(SRECFILES) $(LISTINGS)
+
+.PHONY: all clean dependents
+.SECONDARY:
+
+-include ../makefile.targets

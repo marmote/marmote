@@ -1,0 +1,233 @@
+// **************************************************************************
+// Standard Includes */
+// **************************************************************************
+
+//#include <stdio.h>
+//#include <stdlib.h>
+
+// **************************************************************************
+// Firmware Includes
+// **************************************************************************
+
+#include "CMSIS/a2fxxxm3.h"
+
+#include "./drivers/mss_ethernet_mac/mss_ethernet_mac.h"
+#include "./drivers/mss_timer/mss_timer.h"
+
+#include "lwip/opt.h"
+#include "lwip/sys.h"
+#include "lwip/mem.h"
+#include "lwip/memp.h"
+#include "lwip/ip.h"
+#include "lwip/udp.h"
+#include "lwip/tcp_impl.h"
+#include "lwip/dhcp.h"
+#include "lwip/init.h"
+#include "netif/etharp.h"
+
+#include "sampleserver.h"
+
+
+// **************************************************************************
+// Preprocessor Macros
+// **************************************************************************
+
+static uint64_t System_ticks = 0;
+
+// Simple periodic polling function
+#define PERIODIC(var,time,function) \
+    if((System_ticks - var) > time) \
+    {                               \
+        var += time;                \
+        function;                   \
+    }                               \
+
+/*
+// **************************************************************************
+// Declaration of global variables
+// **************************************************************************
+// *************************************************************************
+// Extern Declarations
+// **************************************************************************
+*/
+// Returns the current time in milliseconds,
+// may be the same as sys_jiffies or at least based on it.
+u32_t sys_now(void)
+{
+	return (u32_t) System_ticks;
+}
+
+// **************************************************************************
+// Functions for Interrupt Handlers
+// **************************************************************************
+
+void Timer1_IRQHandler( void )
+{
+    System_ticks++;
+    MSS_TIM1_clear_irq();
+}
+
+
+void init_system()
+{
+    SystemCoreClockUpdate();
+
+//    timer1_load_value = g_FrequencyPCLK0/10000;
+    MSS_TIM1_init( MSS_TIMER_PERIODIC_MODE );
+    MSS_TIM1_load_immediate( (uint32_t) (g_FrequencyPCLK0/1000) ); //Divide by 1000 means an interrupt at every 1/1000 sec = 1 msec
+    MSS_TIM1_start();
+    MSS_TIM1_enable_irq();
+}
+
+/*
+static struct netif l_netif;                // the single network interface
+
+// **************************************************************************
+// Function to Initialize the MAC, setting the MAC address and
+// **************************************************************************
+err_t ethernetif_init(struct netif *netif)
+{
+//Smartfusion part starts here
+    MSS_MAC_init(  MSS_PHY_ADDRESS_AUTO_DETECT );
+    // Configure the MAC.
+
+    int32_t mac_cfg;
+    mac_cfg = MSS_MAC_get_configuration();
+
+    mac_cfg &= ~( MSS_MAC_CFG_STORE_AND_FORWARD | MSS_MAC_CFG_PASS_BAD_FRAMES );
+    mac_cfg |=
+    		MSS_MAC_CFG_RECEIVE_ALL |
+    		MSS_MAC_CFG_PROMISCUOUS_MODE |
+    		MSS_MAC_CFG_FULL_DUPLEX_MODE |
+    		MSS_MAC_CFG_TRANSMIT_THRESHOLD_MODE |
+    		MSS_MAC_CFG_THRESHOLD_CONTROL_00;
+
+    MSS_MAC_configure( mac_cfg );
+    MSS_MAC_set_mac_address( (uint8_t *) &l_netif.hwaddr[0] );
+//Smartfusion part ends here
+
+
+    netif->mtu = 1500;                             // maximum transfer unit
+
+                                                 // set device capabilities
+    netif->flags = NETIF_FLAG_BROADCAST | NETIF_FLAG_ETHARP | NETIF_FLAG_LINK_UP;
+
+    return ERR_OK;
+}
+
+err_t ethernetif_output(struct netif *netif, struct pbuf *p)
+{
+	//TODO
+	return 0;
+}
+
+
+void init_if()
+{
+    // set MAC address in the network interface...
+	l_netif.hwaddr_len = NETIF_MAX_HWADDR_LEN;
+
+	l_netif.hwaddr[0] = STATIC_MACADDR0;
+	l_netif.hwaddr[1] = STATIC_MACADDR1;
+	l_netif.hwaddr[2] = STATIC_MACADDR2;
+	l_netif.hwaddr[3] = STATIC_MACADDR3;
+	l_netif.hwaddr[4] = STATIC_MACADDR4;
+	l_netif.hwaddr[5] = STATIC_MACADDR5;
+
+
+#if LWIP_NETIF_HOSTNAME
+    l_netif.hostname = "lwIP";             // initialize interface hostname
+#endif
+    l_netif.name[0] = 'Q';
+    l_netif.name[1] = 'P';
+
+    // SNMP is turned off in opt.h, but I left it here anyway
+    //
+    // Initialize the snmp variables and counters inside the struct netif.
+    // The last argument should be replaced with your link speed, in units
+    // of bits per second.
+
+    NETIF_INIT_SNMP(&l_netif, snmp_ifType_ethernet_csmacd, 1000000);
+
+    // We directly use etharp_output() here to save a function call.
+    // You can instead declare your own function an call etharp_output()
+    // from it if you have to do some checks before sending (e.g. if link
+    // is available...)
+    l_netif.output     = &etharp_output;
+
+    l_netif.linkoutput = &ethernetif_output;
+
+    struct ip_addr ipaddr;
+    struct ip_addr netmask;
+    struct ip_addr gw;
+
+#if (LWIP_DHCP == 0)
+          // No mechanism of obtaining IP address specified, use static IP:
+    IP4_ADDR(&ipaddr,  STATIC_IPADDR0,    STATIC_IPADDR1,
+                       STATIC_IPADDR2,    STATIC_IPADDR3);
+    IP4_ADDR(&netmask, STATIC_NET_MASK0,  STATIC_NET_MASK1,
+                       STATIC_NET_MASK2,  STATIC_NET_MASK3);
+    IP4_ADDR(&gwaddr,  STATIC_GW_IPADDR0, STATIC_GW_IPADDR1,
+                       STATIC_GW_IPADDR2, STATIC_GW_IPADDR3);
+#else
+     // either DHCP or AUTOIP are configured, start with zero IP addresses:
+    IP4_ADDR(&ipaddr,  0, 0, 0, 0);
+    IP4_ADDR(&netmask, 0, 0, 0, 0);
+    IP4_ADDR(&gw,      0, 0, 0, 0);
+#endif
+
+          // add and configure the Ethernet interface with default settings
+    netif_add(&l_netif,
+              &ipaddr, &netmask, &gw,            // configured IP addresses
+              NULL,   // opaque data // use this active object as the state
+              &ethernetif_init,        // Ethernet interface initialization
+              &ip_input);                   // standard IP input processing
+
+    netif_set_default(&l_netif);
+
+    netif_set_up(&l_netif);                       // bring the interface up
+
+#if (LWIP_DHCP != 0)
+    dhcp_start(&l_netif);         // start DHCP if configured in lwipopts.h
+#endif
+
+}
+*/
+
+// ****************************************************************
+// Entry to Main form user boot code
+// ****************************************************************
+int main()
+{
+    uint64_t arp_timer = 0;
+    uint64_t tcp_timer = 0;
+    uint64_t dhcp_fine_timer = 0;
+    uint64_t dhcp_coarse_timer = 0;
+
+    // Initialization all necessary hardware components
+    init_system();
+/*
+    lwip_init();                                // Initialize the lwIP stack
+
+    init_if();
+*/
+    server_init(6000);         			// initialize the simple server
+
+    while (1)
+    {
+#if LWIP_TCP
+        PERIODIC(tcp_timer, TCP_TMR_INTERVAL, tcp_tmr());
+#endif
+#if LWIP_ARP
+        PERIODIC(arp_timer, ARP_TMR_INTERVAL, etharp_tmr());
+#endif
+#if LWIP_DHCP
+        PERIODIC(dhcp_fine_timer, DHCP_FINE_TIMER_MSECS, dhcp_fine_tmr());
+        PERIODIC(dhcp_coarse_timer, DHCP_COARSE_TIMER_MSECS, dhcp_coarse_tmr());
+#endif
+
+//        ethernetif_input(NULL);
+    }
+
+    return 0;
+}
