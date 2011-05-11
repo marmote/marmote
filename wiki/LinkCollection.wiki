@@ -48,6 +48,12 @@ Specification
  * Easy guideline for the selection of suitable crystal and external components
  * Some recommended crystals for STM32™ microcontrollers
 
+== PCB Layout ==
+
+_Note:_ Several PCB layout guidelines can be found in other sections such as ADC, Oscillator, etc.
+
+[http://www.pcbexpress.com/technical/faq.php Drill Sizes] - List of available drills at Screaming Circuits (Sunstone)
+
 = External Collections =
 
 [http://ics.nxp.com/support/documents/?type=appnote NXP Application Notes]
