@@ -5,6 +5,11 @@
 
 == ADC ==
 
+*[http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/APPLICATION_NOTE/CD00211314.pdf ST AN2834] - How to get the best ADC accuracy in STM32F10xxx devices*
+
+ * Different ADC Errors
+ * How To Get The Best ADC Accuracy
+
 [http://ics.nxp.com/support/documents/microcontrollers/zip/an11031.zip NXP AN11031] - PCB layout and ADC circuit recommendations for LPC1100 and LPC1300
 
   * PCB Optimizations of the ADC
@@ -32,14 +37,10 @@ Specification
  * PCB Layout Recommendations
  * How Power Saving Modes Affect The ADC
 
-[http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/APPLICATION_NOTE/CD00211314.pdf ST AN2834] - How to get the best ADC accuracy in STM32F10xxx devices
-
- * Different ADC Errors
- * How To Get The Best ADC Accuracy
 
 == Oscillator ==
 
-[http://www.st.com/stonline/products/literature/an/15287.pdf ST AN2867] - Oscillator design guide for ST microcontrollers
+*[http://www.st.com/stonline/products/literature/an/15287.pdf ST AN2867] - Oscillator design guide for ST microcontrollers*
 
  * Quartz crystal properties and model
  * Oscillator theory
