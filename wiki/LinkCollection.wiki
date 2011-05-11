@@ -37,6 +37,17 @@ Specification
  * Different ADC Errors
  * How To Get The Best ADC Accuracy
 
+== Oscillator ==
+
+[http://www.st.com/stonline/products/literature/an/15287.pdf ST AN2867] - Oscillator design guide for ST microcontrollers
+
+ * Quartz crystal properties and model
+ * Oscillator theory
+ * Pierce oscillator
+ * Pierce oscillator design
+ * Easy guideline for the selection of suitable crystal and external components
+ * Some recommended crystals for STM32™ microcontrollers
+
 = External Collections =
 
 [http://ics.nxp.com/support/documents/?type=appnote NXP Application Notes]
