@@ -1,0 +1,44 @@
+#summary Collection of useful links related to hardware and software aspects of the Marmote project.
+#labels Phase-Design,Phase-Implementation
+
+= Application Notes by Category =
+
+== ADC ==
+
+[http://ics.nxp.com/support/documents/microcontrollers/zip/an11031.zip NXP AN11031] - PCB layout and ADC circuit recommendations for LPC1100 and LPC1300
+
+  * PCB Optimizations of the ADC
+  * Test software for optimizing the hardware of the ADC
+
+[http://www.atmel.com/dyn/resources/prod_documents/doc4278.pdf Atmel DOC4278] - Guidelines to Keep ADC Resolution within
+Specification
+
+ * ADC Resolution
+ * Noise Sources and Coupling Mechanisms
+ * Noise Optimization
+
+[http://www.atmel.com/dyn/resources/prod_documents/doc8003.pdf Atmel AVR121] - Enhancing ADC resolution by oversampling
+
+ * Oversampling and Decimation
+ * Noise
+ * Averaging
+
+[www.st.com/stonline/books/pdf/docs/9593.pdf ST AN1636] - Understanding and Minimising ADC Conversion Errors]
+
+ * ADC Block Description
+ * ADC Terminology
+ * Sources of Error
+ * Different Types of A/D Converter Errors
+ * PCB Layout Recommendations
+ * How Power Saving Modes Affect The ADC
+
+[http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/APPLICATION_NOTE/CD00211314.pdf ST AN2834] - How to get the best ADC accuracy in STM32F10xxx devices
+
+ * Different ADC Errors
+ * How To Get The Best ADC Accuracy
+
+= External Collections =
+
+[http://ics.nxp.com/support/documents/?type=appnote NXP Application Notes]
+
+[http://www.st.com/stonline/stappl/resourceSelector/app?page=fullResourceSelector&doctype=APPLICATION_NOTE STMicroelectronics]
