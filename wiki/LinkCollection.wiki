@@ -54,6 +54,16 @@ _Note:_ Several PCB layout guidelines can be found in other sections such as ADC
 
 [http://www.pcbexpress.com/technical/faq.php Drill Sizes] - List of available drills at Screaming Circuits (Sunstone)
 
+== EMC ==
+
+[http://www.freescale.com/files/microcontrollers/doc/app_note/AN2321.pdf Freescale AN2321] - Designing for Board Level Electromagnetic Compatibility
+
+[http://www.analog.com/library/analogdialogue/archives/39-09/layout.pdf Analog Devices Analog Dialogue Volume 39] - A Practical Guide to High-Speed Printed-Circuit-Board Layout
+
+[http://www.atmel.com/dyn/resources/prod_documents/doc4279.pdf Atmel DOC4279] - EMC Improvement Guidelines
+
+[www.st.com/stonline/books/pdf/docs/4967.pdf ST AN901] - EMC guidelines for microcontroller-based applications
+
 = External Collections =
 
 [http://ics.nxp.com/support/documents/?type=appnote NXP Application Notes]
