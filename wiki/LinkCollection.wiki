@@ -23,7 +23,7 @@ Specification
  * Noise
  * Averaging
 
-[www.st.com/stonline/books/pdf/docs/9593.pdf ST AN1636] - Understanding and Minimising ADC Conversion Errors]
+[http://www.st.com/stonline/books/pdf/docs/9593.pdf ST AN1636] - Understanding and Minimising ADC Conversion Errors]
 
  * ADC Block Description
  * ADC Terminology
