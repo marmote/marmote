@@ -63,7 +63,7 @@ _Note:_ Several PCB layout guidelines can be found in other sections such as ADC
 
 [http://www.atmel.com/dyn/resources/prod_documents/doc4279.pdf Atmel DOC4279] - EMC Improvement Guidelines
 
-[www.st.com/stonline/books/pdf/docs/4967.pdf ST AN901] - EMC guidelines for microcontroller-based applications
+[http://www.st.com/stonline/books/pdf/docs/4967.pdf ST AN901] - EMC guidelines for microcontroller-based applications
 
 = External Collections =
 
