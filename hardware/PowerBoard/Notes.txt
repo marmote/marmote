@@ -348,3 +348,12 @@ List of functionalities to test upon the reception of the manufactured board.
 	(Note: DNP marked components are generally placed on the top side).
   * Power on sequenc Power line voltages
   * ADC dynamic ranges (Adjust R_SENSE if necessary)
+  * MAX9938 operation on 1.5V rails
+
+--------------------------------------------------------------------------------
+				    Known issues
+--------------------------------------------------------------------------------
+
+  * MAX9938 input supply voltage should be 'Input Common Mode: +1.6V to +28V'
+    according to the datasheet, whereas it is used to measure the current on the
+	1.5V rail
