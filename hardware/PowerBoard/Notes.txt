@@ -301,6 +301,7 @@ Board
     (http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=380-1110-ND)
   * Battery tape strip (?)
   * WALL TPs at raster distance
+  * Recommended snap in panel switch: Cherry SRB22A2EWWNN
 
 Enclosure
 ---------
