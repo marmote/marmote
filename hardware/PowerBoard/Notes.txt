@@ -298,6 +298,11 @@ Board
   * Battery tape strip (?)
   * WALL TPs at raster distance
   * Recommended snap in panel switch: Cherry SRB22A2EWWNN
+  * Check the placement of the following labels (after placing the logos):
+    - WALL + DGND
+	- VOUT_R
+	- AGND
+	- A3V3 (?)
 
 Enclosure
 ---------
