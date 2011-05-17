@@ -36,24 +36,6 @@ Eagle design guidelines: http://code.google.com/p/marmote/wiki/EagleDesignGuide
 
 
 -------------
--- LTC3677 --
--------------
-
-OVGATE nFET source connected to V_BUS (page 16)
-- Why V_BUS? (PV: must be a typo in the datasheet, nFET source should act as the source of the PMIC external input)
-
-V_INLDO2 feedback difference between p42 and p44
-- Buck 1 feeds LDO2, which is a reverse sequence of the default power-on
-  sequence (LOD2 -> Buck1 -> Buck 2)
-
-Power-Up sequence depends on:
-
-- V_INxx feedbacks
-- DV_CC feedback of PWR_ON controller
-- Power-up sequence: LDO2 -> Buck1 -> Buck2
-
-
--------------
 -- Battery --
 -------------
 
@@ -80,15 +62,14 @@ Notes
 Current Senses
 --------------
 
-  * Digital 3.3V (D3V3 from BUCK1)
-  * Digital 1.5V (D1V5 from BUCK2)
-  * Digital X.YV where the X.Y value is programmable via a digital potentiometer
-    (DXVY from BUCK3)
-  * Analog 3.3V (A3V3 from LDO1)
-  * Analog 1.5V (A1V5 from LDO2)
-  * Highest available source (VOUT)
-    - only the current portion flowing through the East and West bridges is
-      measured (that is it does not include include local board consumption)
+  * Digital 3.3V STM (D3V3_STM from XC6220)
+  * Digital 3.3V (D3V3 from XC6220')
+  * Digital 1.5V (D1V5 from XC9236)
+  * Analog 3.3V (A3V3 from XC6220' through bead)
+  * Analog 1.5V (A1V5 from XC9236 through bead)
+  * Highest available source (VSUP)
+    - only the current portion flowing through the West bridge is measured (that
+	  is it does not include include local board consumption)
   * BAT
     - Measured with battery gas gauge LTC2942-2
     - R_SENSE = 50 mohm seems to be adequate (see notes)
@@ -103,7 +84,7 @@ Notes
   * The current of the power lines from the USB (VBUS) and the wall adapter
     (WALL) is not monitored
 
-  * The voltage of VOUT is not measured, thus the power consumption on this
+  * The voltage of VSUP is not measured, thus the power consumption on this
     line can only be estimated when it is operated from a battery (battery
     gas gauge voltage measurement)
 
@@ -146,17 +127,17 @@ Notes
   * Programmer interfaces
 
 	- SWD:  primary progammer interface, w/ SWTRACE (Programmer connector)
-	- JTAG: secondary programmer interface, TDI and RESET are not connected by
-	  default (Programmer connector)
-	- USB:  USB programming is NOT supported (USB connector)
+	- JTAG: secondary programmer interface, TDI and RESET are not connected to
+	  the programmer header by default
+	- USB:  programming is NOT supported through the USB connector
 
-	- SmartFusion: the microcontroller may be capable of program the SmartFusion
+	- SmartFusion: the microcontroller should be capable of programming the SmartFusion
 	  MSS and FPGA fabric via emulating JTAG on its GPIO pins (West bridge)
 
   * Communication interfaces
 
     - I2C1: SmartFusion board
-    - I2C2: LTC3677 (0001001), LTC2942 (1100100), MAX5419L (0101000)
+    - I2C2: LTC2942 (1100100)
     - SPI1: SmartFusion Board
     - SPI2: microSD card
 
@@ -166,17 +147,16 @@ Notes
 	      '-' means the IC pin is not connected (unavailable) to the
 		  microcontroller
 
-	- LTC3677
-	  - #CHRG (available via I2C)
-	  + I_LIM0 (if I_LIM0 and I_LIM1 are connected, 1x and 5x modes are available)
-	  + I_LIM1
-	  - EN3 (became always on via pull-up)
-	  + #EXTPWR
-	  - PBSTAT (left open)
-	  + PWR_ON (shared with main power switch, other options are always on
-	    (pull-up) and another pin)
-	  - PGOOD (available via I2C)
-	  - #ACPR (#EXTPWR is already available)
+	- LTC4361
+	  + #PWRGD
+	  - ON
+
+	- LTC4085
+	  - #ACPR (#PWRGD is used instead)
+	  - WALL (#PWRGD is used instead)
+	  - #CHRG (connected to LED only)
+	  + HPWR
+	  + SUSP
 
 	- LTC2942
 	  + #AL/CC
@@ -189,14 +169,20 @@ Notes
 
 Power managment IC
 ------------------
-LTC3677-3 | WFQFN-44 | LTC3677EUFF-3#PBF-ND | LTC3677EUFF-3#PBF | http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=LTC3677EUFF-3%23PBF-ND
-XC6210 LDO | SOT-25 | 893-1075-1-ND | XC6210B332MR-ND | http://search.digikey.com/scripts/DkSearch/dksus.dll?vendor=0&keywords=xc6210
+LTC4361    | DFN-8  | LTC4361IDC-1#TRMPBFCT-ND | LTC4361-2DC
+LTC4085    | DFN-14 | LTC4085EDE#PBF-ND | LTC4085EDE#PBF
+XC6220 LDO | SOT-25 | 893-1133-1-ND | XC6220B331MR-G
+XC6220 LDO | SOT-25 | 893-1133-1-ND | XC6220B331MR-G
+XC9236 LDO | SOT-25 | 893-1120-1-ND | XC9236A15DMR-G
+MIC94043   | MLF-4  | 576-3228-1-ND | MIC94043YFL TR
+
 
 Reverse voltage/overvoltage protection
 --------------------------------------
-pFET | SOT-23-3 | SI2333DS-T1-E3 | | http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=SI2333DS-T1-E3CT-ND
-nFET | SOT-23-3 | SI2306BDS-T1-GE3 | | http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=SI2306BDS-T1-GE3CT-ND
-Zener diode (5.6V) | 0603 | 641-1030-1-ND | CZRU52C5V6 | http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=641-1030-1-ND
+pFET | SOT-23-3 | SI2323CDS
+pFET | SOT-23-3 | SI2333CDS
+nFET | SOT-23-3 | SI2312CDS
+
 
 Analog power
 ------------
@@ -204,27 +190,22 @@ Ferrite bead | 0603 | 490-5224-1-ND | BLM18SG700TN1D
 
 Battery
 -------
-NTC (100kohm 1% 1%) | 0603 | 445-2556-6-ND | http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=445-2556-6-ND
 NTC (10kohm 5% 3%)  | 0603 | 541-1107-1-ND | NTHS0603N02N1002JE | 
 R (1%) | 0603 | | |
 
 XC9236
 -------------------
-L (1.6uH) | 445-3171-1-ND | VLCF4018T-1R6N1R7-2 | http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=445-3171-1-ND
-
-Digital potentiometer
-MAX5419 | DFN-8 | MAX5418LETA+TCT-ND| http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=MAX5418LETA%2BTCT-ND
-http://datasheets.maxim-ic.com/en/ds/MAX5417-MAX5419.pdf
+L (1.6uH) | 445-3171-1-ND | VLCF4018T-1R6N1R7-2
 
 
 Microcontroller
 ---------------
-STM32F102CBT6 | LQFP-48 | STM32F102CBT6 | http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=497-8308-ND
+STM32F102CBT6 | LQFP-48 | STM32F102CBT6
 
 Current Monitors
 ----------------
-LTC2942-2 | DFN-6    | 
-MAX9938   | SOT-23-5 |
+LTC2942-1 | DFN-6    | LTC2942IDCB-1#TRMPBFCT-ND | LTC2942IDCB-1#TRMPBF
+MAX9938   | SOT-23-5 | MAX9938FEUK+TCT-ND | MAX9938FEUK+T
 
 Passives
 --------
@@ -252,6 +233,7 @@ Standoff sizes (Keystone)
 
 http://www.keyelco.com/products/specs/spec11.asp
 
+Note: Digi-Key has several other variants
 
 --------------------------------------------------------------------------------
 				   Todo List
@@ -260,17 +242,9 @@ http://www.keyelco.com/products/specs/spec11.asp
 Library
 -------
 
-  * Add recommended layout to DFN6 package documentation layer
-  * Check battery and jack connectors
-  * Add slide switch
-  * Add rocker switch (footprint)
-
 
 Schematic
 ---------
-
-  * Add external switch
-  * Check for right angle FTSH connector
 
 
 Board
@@ -333,6 +307,8 @@ Schematic
 	 - PJ-063A(H)
   * Is the charge LED sufficient or ACPR should be added as well? (To show ACPR
     while in power off state)
+  * The only feedback on the charging process is through the battery gauge and
+    the LTC4361 #PWRGD pin. Is that fine?
 
 Board
 -----
