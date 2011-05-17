@@ -303,6 +303,9 @@ Board
 	- VOUT_R
 	- AGND
 	- A3V3 (?)
+	- BATTERY
+	- POWER SW
+  * Are there any fiducials needed?
 
 Enclosure
 ---------
