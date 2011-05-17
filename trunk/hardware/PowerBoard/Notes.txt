@@ -236,42 +236,38 @@ http://www.keyelco.com/products/specs/spec11.asp
 Note: Digi-Key has several other variants
 
 --------------------------------------------------------------------------------
-				   Todo List
+				   Check List
 --------------------------------------------------------------------------------
 
 Library
 -------
 
+  * LTC4085 thremals
+  * LTC4361 thermals
+
 
 Schematic
 ---------
+
+  * Battery capacity
+    - Charge time (capacitor)
+	- Charge current
 
 
 Board
 -----
 
-  * PJ-014D Drill or Hole? (PV: these should be "Hole"-s. There are two types of holes on the PCB: "plated hole" (="via" or "pad" in Eagle) and "non-plated hole" (="hole" in Eagle). All three will generate "drill"-s automatically.)
-  * Check if reverse board-mount protection is adequate (currently shifted
-    connectors and screws only)
-  * Check if battery connector orientation (standing/sideways)
-  * Connect LTC2942-2 pin 2 directly to the negative battery terminal
-  * Check power jack pin connections in the device
   * Add fiducials
-  * Add M-4-40 screws for the Base Board (similar to that of the USRP)
-  * Mounting holes (enclosure) should be at least 450 mil (500 mil preferred)
+  + Mounting holes (enclosure) should be at least 450 mil (500 mil preferred)
     away from the front side and at least 5mm from the other sides
-  * Upper layer mounting holes should be placed as close to the corners as
-    possible
-  * ECX-31 capacitor/resistor (R=0) placement
-  * Jumper and LED labels
-  * Place LEDs near board edges (right angle SMT), small holes will be drilled on enclosure
-  * External power switch (panel mount, snap-in)  
-  * Account for a low-profile (11.3mm) RJ-45 connector -> Check Mezzazine
+  + Jumper and LED labels
+  + Place LEDs near board edges (right angle SMT), small holes will be drilled on enclosure
+  + External power switch (panel mount, snap-in)  
+    - Recommended snap-in panel switch: Cherry SRB22A2EWWNN
+  + Account for a low-profile (11.3mm) RJ-45 connector -> Check Mezzazine
     connector board-to-board distance
-    (http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=380-1110-ND)
-  * Battery tape strip (?)
+  + Battery tape strip
   * WALL TPs at raster distance
-  * Recommended snap in panel switch: Cherry SRB22A2EWWNN
   * Check the placement of the following labels (after placing the logos):
     - WALL + DGND
 	- VOUT_R
@@ -279,7 +275,7 @@ Board
 	- A3V3 (?)
 	- BATTERY
 	- POWER SW
-  * Are there any fiducials needed?
+  * USBLC6 datasheet Figure 7
 
 Enclosure
 ---------
@@ -295,28 +291,22 @@ Schematic
   
   * Do we want any additional memory (PSRAM) on the SmartFusion board (e.g.
     recording)? Because it might require additional power rails (1.8V)
-  * Switching regulator instead of the 1.5V LDO? The SmartFusion has an internal
+  + Switching regulator instead of the 1.5V LDO? The SmartFusion has an internal
     1.5V LDO anyways.
 	 - LTC 3444 http://www.linear.com/product/LTC3444
 	 - TOREX XCL201 (XCL201B151BR-G) (Not available at DigiKey or Mouser)
 	 - TOREX XC9235/6/7
   * Are bypass capacitors needed on the WALL line in between the transistors?
-  * Should the PJ-014D part be replaced with PJ-102AH (This part is found on the
-    SmartFusion Dev-Kit and has a larger center pin diameter)
-	 - PJ-051A(H)
-	 - PJ-063A(H)
-  * Is the charge LED sufficient or ACPR should be added as well? (To show ACPR
-    while in power off state)
   * The only feedback on the charging process is through the battery gauge and
     the LTC4361 #PWRGD pin. Is that fine?
+  * Are ADC filter capacitors needed?
 
 Board
 -----
 
-  * Current placement of the inter-board connectors does not allow for
-    interchangeable separated sensor boards (mirrored layout for East and West
-	side boards)
+  * Should different net classes be defined (Default, power, analog)?
   * Antenna placement (top/side)? If side, both at the front and the back?
+  * Is 4-wire 
 
 --------------------------------------------------------------------------------
 				    Testing
@@ -324,10 +314,8 @@ Board
 
 List of functionalities to test upon the reception of the manufactured board.
 
-  * Test for the best PWR_ON connection before attaching the Li-Ion battery, as
-    the corresponding DNP and R = 0 components are placed on the bottom side
-	(Note: DNP marked components are generally placed on the top side).
-  * Power on sequenc Power line voltages
+  * Power on sequence
+  * Power line voltages
   * ADC dynamic ranges (Adjust R_SENSE if necessary)
   * MAX9938 operation on 1.5V rails
 
