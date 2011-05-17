@@ -1,0 +1,17 @@
+
+AMBA BFM Compiler (BETA Version 2.1.107 04Feb09) 
+  Reading
+   Processing ./coreapb3_usertb_apb_master.bfm
+   Processing coreapb3_usertb_include.bfm
+  Enumerating
+  Assigning
+  Checking
+   Checking Complete
+   53 Global  localconstants Defined
+   20 Global  localvariables Defined
+  Writing Vectors ./coreapb3_usertb_apb_master.vec
+   Commands Generated 307
+   Vectors Generated 1815
+   Vector CheckSum 6043f932
+
+BFM Compiler Completed Okay

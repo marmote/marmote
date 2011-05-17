@@ -1,5 +1,5 @@
 KEY LIBERO "9.1"
-KEY CAPTURE "9.1.0.22"
+KEY CAPTURE "9.1.1.7"
 KEY DEFAULT_IMPORT_LOC "D:\Work\Actelprj\HW\SPI_test\hdl"
 KEY DEFAULT_OPEN_LOC "D:\Work\Actelprj\HW\2.INTtest"
 KEY ProjectID "90b3a9cb-8c9d-41bf-b602-36a4998c8a18"
@@ -7,13 +7,14 @@ KEY HDLTechnology "VHDL"
 KEY VendorTechnology_Family "SmartFusion"
 KEY VendorTechnology_Die "IP4X3M1"
 KEY VendorTechnology_Package "fg484"
-KEY ProjectLocation "D:\Work\Actelprj\HW\ADC_SPI_test"
+KEY ProjectLocation "D:\Work\marmote\projects\ADC_SPI_test"
 KEY SimulationType "VHDL"
 KEY Vendor "Actel"
 KEY ActiveRoot "top::work"
 LIST REVISIONS
 VALUE="Impl1",NUM=1
-CURREV=1
+VALUE="Impl2",NUM=2
+CURREV=2
 ENDLIST
 LIST LIBRARIES
 MSS_BFM_LIB
@@ -284,21 +285,6 @@ SIZE="33556"
 PARENT="<project>\component\work\uC\uC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
-VALUE "<project>\designer\impl1\top.adb,adb"
-STATE="utd"
-TIME="1301524705"
-SIZE="473600"
-ENDFILE
-VALUE "<project>\designer\impl1\top.fdb,fdb"
-STATE="utd"
-TIME="1301524675"
-SIZE="51123"
-ENDFILE
-VALUE "<project>\designer\impl1\top_fp\top.pro,pro"
-STATE="utd"
-TIME="1301524769"
-SIZE="1934"
-ENDFILE
 VALUE "<project>\hdl\APB_SPI.vhd,hdl"
 STATE="utd"
 TIME="1301524586"
@@ -351,21 +337,6 @@ TIME="1301085787"
 SIZE="670"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
-VALUE "<project>\synthesis\top.edn,syn_edn"
-STATE="utd"
-TIME="1301524619"
-SIZE="298684"
-ENDFILE
-VALUE "<project>\synthesis\top_drc.rpt,log"
-STATE="utd"
-TIME="1301524629"
-SIZE="26099"
-ENDFILE
-VALUE "<project>\synthesis\top_sdc.sdc,syn_sdc"
-STATE="utd"
-TIME="1301524618"
-SIZE="310"
-ENDFILE
 ENDLIST
 LIST UsedFile
 ENDLIST
@@ -382,9 +353,15 @@ VALUE "<project>\component\work\top\testbench.vhd,tb_hdl"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
-LiberoState=Post_Layout
-ideDESIGNER(<project>\designer\impl1\top.adb,adb)=StateSuccess
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -418,6 +395,15 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
+LIST Impl2
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 ENDLIST
 LIST "CoreAPB3::COREAPB3_LIB::components"
@@ -436,6 +422,15 @@ VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -550,9 +545,15 @@ ENDLIST
 LIST ProjectState5.1
 LIST "top::work"
 LIST Impl1
-LiberoState=Post_Layout
-ideDESIGNER(<project>\designer\impl1\top.adb,adb)=StateSuccess
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -572,9 +573,27 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
+LIST Impl2
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 LIST "CoreAPB3::COREAPB3_LIB::components"
 LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -600,5 +619,5 @@ DESIGNFLOW:
 SD:top::work
 FILE:<project>\hdl\APB_SPI.vhd,hdl
 FILE:<project>\hdl\common.vhd,hdl
-ACTIVE_VIEW:0
+ACTIVE_VIEW:2
 ENDLIST

@@ -1,0 +1,40 @@
+library verilog;
+use verilog.vl_types.all;
+entity F2DSS_ACE_PPE_DPRAM_CTRL is
+    port(
+        PCLK            : in     vl_logic;
+        PRESETN         : in     vl_logic;
+        PADDR           : in     vl_logic_vector(12 downto 0);
+        PSEL            : in     vl_logic;
+        PENABLE         : in     vl_logic;
+        PWRITE          : in     vl_logic;
+        PWDATA          : in     vl_logic_vector(31 downto 0);
+        PREADY_DPRAM_CTRL: out    vl_logic;
+        xfer_din_mux_not_from_RAM: in     vl_logic_vector(31 downto 0);
+        keep_bits_31_24 : in     vl_logic;
+        keep_bits_7_0   : in     vl_logic;
+        RAM_WR_B        : in     vl_logic;
+        RAM_RD_A        : in     vl_logic;
+        RAM_RD_B        : in     vl_logic;
+        RAM_RD_B_hold_en: in     vl_logic;
+        RAM_ADDR_A      : in     vl_logic_vector(8 downto 0);
+        RAM_ADDR_B      : in     vl_logic_vector(8 downto 0);
+        RAM_ADDRESSES_EQUAL: out    vl_logic;
+        RAM_DO_A        : out    vl_logic_vector(31 downto 0);
+        RAM_DO_B        : out    vl_logic_vector(31 downto 0);
+        RAM_DO_B_rdhold : out    vl_logic_vector(31 downto 0);
+        RAM_RD_B_apbrd_pre: out    vl_logic;
+        TEST_MODE       : in     vl_logic;
+        RB_TEST         : in     vl_logic;
+        RB_CSBA         : in     vl_logic;
+        RB_CSBB         : in     vl_logic;
+        RB_RWBA         : in     vl_logic;
+        RB_RWBB         : in     vl_logic;
+        RB_ADA          : in     vl_logic_vector(8 downto 0);
+        RB_ADB          : in     vl_logic_vector(8 downto 0);
+        RB_WDA          : in     vl_logic_vector(31 downto 0);
+        RB_WDB          : in     vl_logic_vector(31 downto 0);
+        RB_RDA          : out    vl_logic_vector(31 downto 0);
+        RB_RDB          : out    vl_logic_vector(31 downto 0)
+    );
+end F2DSS_ACE_PPE_DPRAM_CTRL;
