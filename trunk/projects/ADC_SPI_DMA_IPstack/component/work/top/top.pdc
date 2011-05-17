@@ -1,0 +1,211 @@
+# Actel Physical design constraints file
+# Generated file
+
+# Version: 9.1 SP1 9.1.1.7
+# Family: SmartFusion , Die: A2F200M3F , Package: 484 FBGA
+# Date generated: Thu May 12 09:07:56 2011 
+
+
+# 
+# IO banks setting
+# 
+
+
+# 
+# User Groups
+# 
+
+define_group -name MAC_0_RMII_PHY_MGMT_PADs
+
+define_group -name MAC_0_RMII_DATA_PADs
+
+
+# 
+# I/O constraints
+# 
+
+set_io GLC             \
+    -pinname F2        \
+    -fixed yes         \
+    -DIRECTION Output
+
+
+set_io IO_5_PADOUT     \
+    -pinname U2        \
+    -fixed yes         \
+    -iostd LVTTL       \
+    -OUT_LOAD 35       \
+    -RES_PULL None     \
+    -SKEW Off          \
+    -SLEW High         \
+    -DIRECTION Output
+
+
+set_io IO_6_PADIN         \
+    -pinname V2           \
+    -fixed yes            \
+    -iostd LVTTL          \
+    -RES_PULL None        \
+    -SCHMITT_TRIGGER Off  \
+    -DIRECTION Input
+
+
+set_io IO_7_PADIN         \
+    -pinname W2           \
+    -fixed yes            \
+    -iostd LVTTL          \
+    -RES_PULL None        \
+    -SCHMITT_TRIGGER Off  \
+    -DIRECTION Input
+
+
+set_io IO_8_PADOUT     \
+    -pinname T3        \
+    -fixed yes         \
+    -iostd LVTTL       \
+    -OUT_LOAD 35       \
+    -RES_PULL None     \
+    -SKEW Off          \
+    -SLEW High         \
+    -DIRECTION Output
+
+
+set_io MSS_RESET_N        \
+    -pinname R1           \
+    -fixed yes            \
+    -iostd LVTTL          \
+    -RES_PULL None        \
+    -SCHMITT_TRIGGER Off  \
+    -DIRECTION Input
+
+
+# User Group MAC_0_RMII_DATA_PADs
+
+set_io MAC_0_CRSDV                    \
+    -pinname W4                       \
+    -fixed yes                        \
+    -iostd LVTTL                      \
+    -RES_PULL None                    \
+    -SCHMITT_TRIGGER Off              \
+    -GROUP_NAME MAC_0_RMII_DATA_PADs  \
+    -DIRECTION Input
+
+
+set_io {MAC_0_RXD[0]}                 \
+    -pinname V5                       \
+    -fixed yes                        \
+    -iostd LVTTL                      \
+    -RES_PULL None                    \
+    -SCHMITT_TRIGGER Off              \
+    -GROUP_NAME MAC_0_RMII_DATA_PADs  \
+    -DIRECTION Input
+
+
+set_io {MAC_0_RXD[1]}                 \
+    -pinname U5                       \
+    -fixed yes                        \
+    -iostd LVTTL                      \
+    -RES_PULL None                    \
+    -SCHMITT_TRIGGER Off              \
+    -GROUP_NAME MAC_0_RMII_DATA_PADs  \
+    -DIRECTION Input
+
+
+set_io MAC_0_RXER                     \
+    -pinname AA4                      \
+    -fixed yes                        \
+    -iostd LVTTL                      \
+    -RES_PULL None                    \
+    -SCHMITT_TRIGGER Off              \
+    -GROUP_NAME MAC_0_RMII_DATA_PADs  \
+    -DIRECTION Input
+
+
+set_io {MAC_0_TXD[0]}                 \
+    -pinname AA5                      \
+    -fixed yes                        \
+    -iostd LVTTL                      \
+    -OUT_LOAD 35                      \
+    -RES_PULL None                    \
+    -SKEW Off                         \
+    -SLEW High                        \
+    -GROUP_NAME MAC_0_RMII_DATA_PADs  \
+    -DIRECTION Output
+
+
+set_io {MAC_0_TXD[1]}                 \
+    -pinname W5                       \
+    -fixed yes                        \
+    -iostd LVTTL                      \
+    -OUT_LOAD 35                      \
+    -RES_PULL None                    \
+    -SKEW Off                         \
+    -SLEW High                        \
+    -GROUP_NAME MAC_0_RMII_DATA_PADs  \
+    -DIRECTION Output
+
+
+set_io MAC_0_TXEN                     \
+    -pinname Y4                       \
+    -fixed yes                        \
+    -iostd LVTTL                      \
+    -OUT_LOAD 35                      \
+    -RES_PULL None                    \
+    -SKEW Off                         \
+    -SLEW High                        \
+    -GROUP_NAME MAC_0_RMII_DATA_PADs  \
+    -DIRECTION Output
+
+
+# User Group MAC_0_RMII_PHY_MGMT_PADs
+
+set_io MAC_0_MDC                          \
+    -pinname AA3                          \
+    -fixed yes                            \
+    -iostd LVTTL                          \
+    -OUT_LOAD 35                          \
+    -RES_PULL None                        \
+    -SKEW Off                             \
+    -SLEW High                            \
+    -GROUP_NAME MAC_0_RMII_PHY_MGMT_PADs  \
+    -DIRECTION Output
+
+
+set_io MAC_0_MDIO                         \
+    -pinname V4                           \
+    -fixed yes                            \
+    -iostd LVTTL                          \
+    -OUT_LOAD 35                          \
+    -RES_PULL None                        \
+    -SCHMITT_TRIGGER Off                  \
+    -SKEW Off                             \
+    -SLEW High                            \
+    -GROUP_NAME MAC_0_RMII_PHY_MGMT_PADs  \
+    -DIRECTION Inout
+
+
+
+#
+# Non IO constraints
+#
+
+
+#
+# Old IO constraints, commented out for reference
+#
+
+# set_io GLC -pinname F2 -fixed yes -DIRECTION Output 
+# set_io IO_5_PADOUT -pinname U2 -fixed yes -iostd LVTTL -OUT_LOAD 35 -RES_PULL None -SKEW Off -SLEW High -DIRECTION Output 
+# set_io IO_6_PADIN -pinname V2 -fixed yes -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -DIRECTION Input 
+# set_io IO_7_PADIN -pinname W2 -fixed yes -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -DIRECTION Input 
+# set_io IO_8_PADOUT -pinname T3 -fixed yes -iostd LVTTL -OUT_LOAD 35 -RES_PULL None -SKEW Off -SLEW High -DIRECTION Output 
+# set_io MSS_RESET_N -pinname R1 -fixed yes -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -DIRECTION Input 
+# set_io MAC_0_CRSDV -pinname W4 -fixed yes -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -GROUP_NAME MAC_0_RMII_DATA_PADs -DIRECTION Input 
+# set_io {MAC_0_RXD[0]} -pinname V5 -fixed yes -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -GROUP_NAME MAC_0_RMII_DATA_PADs -DIRECTION Input 
+# set_io {MAC_0_RXD[1]} -pinname U5 -fixed yes -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -GROUP_NAME MAC_0_RMII_DATA_PADs -DIRECTION Input 
+# set_io MAC_0_RXER -pinname AA4 -fixed yes -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -GROUP_NAME MAC_0_RMII_DATA_PADs -DIRECTION Input 
+# set_io {MAC_0_TXD[0]} -pinname AA5 -fixed yes -iostd LVTTL -OUT_LOAD 35 -RES_PULL None -SKEW Off -SLEW High -GROUP_NAME MAC_0_RMII_DATA_PADs -DIRECTION Output 
+# set_io {MAC_0_TXD[1]} -pinname W5 -fixed yes -iostd LVTTL -OUT_LOAD 35 -RES_PULL None -SKEW Off -SLEW High -GROUP_NAME MAC_0_RMII_DATA_PADs -DIRECTION Output 
+# set_io MAC_0_TXEN -pinname Y4 -fixed yes -iostd LVTTL -OUT_LOAD 35 -RES_PULL None -SKEW Off -SLEW High -GROUP_NAME MAC_0_RMII_DATA_PADs -DIRECTION Output 
+# set_io MAC_0_MDC -pinname AA3 -fixed yes -iostd LVTTL -OUT_LOAD 35 -RES_PULL None -SKEW Off -SLEW High -GROUP_NAME MAC_0_RMII_PHY_MGMT_PADs -DIRECTION Output 
+# set_io MAC_0_MDIO -pinname V4 -fixed yes -iostd LVTTL -OUT_LOAD 35 -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -SLEW High -GROUP_NAME MAC_0_RMII_PHY_MGMT_PADs -DIRECTION Inout 
