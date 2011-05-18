@@ -64,7 +64,7 @@ while (1)
     plot(time*1e6, chunk1, 'b.-');
     plot(time*1e6, chunk2, 'r.-');
     xlim([0 N*T*1e6]);
-    ylim([0 Full_Scale]);
+    ylim([0 Full_Scale/4]);
     xlabel('time [usec]');
     ylabel('Sample []');
     hold off;
@@ -75,7 +75,7 @@ while (1)
     plot(time*1e6, log10(chunk1), 'b.-');
     plot(time*1e6, log10(chunk2), 'r.-');
     xlim([0 N*T*1e6]);
-%    ylim([0 Full_Scale]);
+    ylim([0 10]);
     xlabel('time [usec]');
     ylabel('Log10 sample []');
     hold off;    

@@ -128,7 +128,8 @@ begin
             if PWRITE = '0' and PSEL = '1' then
                 case PADDR(7 downto 0) is
                     when c_ADDR_DATA =>
-                        PRDATA <= samples(1) & samples(2);
+--                        PRDATA <= samples(1) & samples(2);
+                        PRDATA <= samples(1)(7 downto 0) & samples(1)(15 downto 8) & samples(2)(7 downto 0) & samples(2)(15 downto 8);
                     when c_ADDR_COUNTER =>
                         PRDATA <= counter & reverse_vector(counter);
                     when others =>
@@ -190,11 +191,15 @@ begin
         -- Sampling
         process(PCLK)
         begin
-            if rising_edge(PCLK) then
+            if falling_edge(PCLK) then
                 if shift_en = '1' then
                     shift_regs(i) <= shift_regs(i)(14 downto 0) & SDATA(i);
                 end if;
 
+
+            end if;
+
+            if rising_edge(PCLK) then
                 if prog(0) = '1' then
                     samples(i) <= shift_regs(i);
                 end if;
