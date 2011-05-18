@@ -1,0 +1,5 @@
+#summary A step-by-step guide on creating the Gerbers from an Eagle project.
+
+= External links =
+
+  * [http://www.sunstone.com/pcb-resources/Downloads.aspx Eagle CAD design rule files for SunStone PCB fabrication]
