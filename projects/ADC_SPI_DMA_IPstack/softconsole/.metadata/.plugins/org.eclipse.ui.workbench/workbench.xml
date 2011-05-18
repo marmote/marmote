@@ -341,27 +341,6 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ADC_SPI_DMA_IPstack/lwipopts.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ADC_SPI_DMA_IPstack/sampleserver.h"/>
 </editors>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="5518" y="0"/>
-</item>
-<item historyLabel="lwipopts.h" index="3">
-<position info="not_deleted" x="2094" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="5374" y="0"/>
-</item>
-<item historyLabel="lwipopts.h" index="3">
-<position info="not_deleted" x="13151" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="5374" y="0"/>
-</item>
-<item historyLabel="lwipopts.h" index="3">
-<position info="not_deleted" x="9436" y="0"/>
-</item>
-<item historyLabel="opt.h" index="2">
-<position info="not_deleted" x="31529" y="0"/>
-</item>
 <item historyLabel="lwipopts.h" index="3">
 <position info="not_deleted" x="9542" y="0"/>
 </item>
@@ -460,6 +439,39 @@
 </item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="1498" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="5371" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="5371" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="5371" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="5371" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="4704" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="5371" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="5371" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="5371" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="5371" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="5371" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="5371" y="0"/>
