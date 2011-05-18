@@ -40,8 +40,9 @@ Textual description
 Source: URL
 }}}
 
-Optional layers
+External links:
 
+  * [http://i.screamingcircuits.com/docs/QFN%20Layout%20Guidelines.pdf QFN and DFN Layout Guidelines]
 
 == Symbol ==
 
