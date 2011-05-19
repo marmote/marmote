@@ -7,6 +7,10 @@ Gerber RS274X is the recommended Gerber format. Use the `IES.cam` CAM job file, 
 
 _Note: See the External Links section for more information on Gerber file format(s)._
 
+= Generating a Pick and Place File =
+
+Use the `IES-pick-place.ulp` scrip in the CAM directory to generate the `.xy` pick and place file.
+
 = Exporting Assembly Drawings =
 
 When printing the board assembly layout into PDF, include the following layers:
