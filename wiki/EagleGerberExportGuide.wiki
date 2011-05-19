@@ -1,6 +1,12 @@
 #summary A step-by-step guide on creating the Gerbers from an Eagle project.
 #labels Phase-Design
 
+= Generating Gerber Files =
+
+Gerber RS274X is the recommended Gerber format. Use the `IES.cam` CAM job file, found under the CAM directory, to automatically generate the necessary Gerber files.
+
+_Note: See the External Links section for more information on Gerber file format(s)._
+
 = Exporting Assembly Drawings =
 
 When printing the board assembly layout into PDF, include the following layers:
