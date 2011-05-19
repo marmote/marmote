@@ -282,6 +282,7 @@ Enclosure
   * Add bottom silicon stands (~SmartFusion Eval Board)
   * Ethernet / DC switch cutout
 
+
 --------------------------------------------------------------------------------
 				   Questions
 --------------------------------------------------------------------------------
@@ -289,24 +290,10 @@ Enclosure
 Schematic
 ---------
   
-  * Do we want any additional memory (PSRAM) on the SmartFusion board (e.g.
-    recording)? Because it might require additional power rails (1.8V)
-  + Switching regulator instead of the 1.5V LDO? The SmartFusion has an internal
-    1.5V LDO anyways.
-	 - LTC 3444 http://www.linear.com/product/LTC3444
-	 - TOREX XCL201 (XCL201B151BR-G) (Not available at DigiKey or Mouser)
-	 - TOREX XC9235/6/7
-  * Are bypass capacitors needed on the WALL line in between the transistors?
-  * The only feedback on the charging process is through the battery gauge and
-    the LTC4361 #PWRGD pin. Is that fine?
-  * Are ADC filter capacitors needed?
 
 Board
 -----
 
-  * Should different net classes be defined (Default, power, analog)?
-  * Antenna placement (top/side)? If side, both at the front and the back?
-  * Is 4-wire 
 
 --------------------------------------------------------------------------------
 				    Testing
@@ -318,6 +305,7 @@ List of functionalities to test upon the reception of the manufactured board.
   * Power line voltages
   * ADC dynamic ranges (Adjust R_SENSE if necessary)
   * MAX9938 operation on 1.5V rails
+
 
 --------------------------------------------------------------------------------
 				    Known issues
