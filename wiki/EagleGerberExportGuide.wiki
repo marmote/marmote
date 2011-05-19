@@ -1,4 +1,33 @@
 #summary A step-by-step guide on creating the Gerbers from an Eagle project.
+#labels Phase-Design
+
+= Exporting Assembly Drawings =
+
+When printing the board assembly layout into PDF, include the following layers:
+
+== Top view ==
+{{{
+  * tPlace
+  * tNames
+  * tDocu
+  * tStop
+  * Pads
+  * Vias
+}}}
+_Note: Top side silk screen texts and graphics are assumed to reside in the {{{tPlace}}} layer._
+
+== Bottom view ==
+{{{
+  * bPlace
+  * bNames
+  * bDocu
+  * bStop
+  * Pads
+  * Vias
+}}}
+_Note: Bottom side silk screen texts and graphics are assumed to reside in the {{{bPlace}}} layer._
+
+Either combine the two PDFs into `<ProjectName>_Asy.pdf`, or simply name them `<ProjectName>_AsyT.pdf` and `<ProjectName>_AsyB.pdf` respectively.
 
 = External links =
 
