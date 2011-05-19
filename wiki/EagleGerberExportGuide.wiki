@@ -3,3 +3,6 @@
 = External links =
 
   * [http://www.sunstone.com/pcb-resources/Downloads.aspx Eagle CAD design rule files for SunStone PCB fabrication]
+
+  * [http://www.artwork.com/gerber/274x/rs274x.htm What's All This About RS274X Anyway?]
+  * [http://www.artwork.com/gerber/appl2.htm D-codes, Apertures & Gerber Plot Files]
