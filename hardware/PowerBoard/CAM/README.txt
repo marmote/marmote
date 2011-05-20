@@ -2,14 +2,6 @@ PowerBoard Revision A
 
 PCB DECRIPTION: 90mm x 56mm 
                 4 LAYER PCB (.062 inches thickness) FR4
-                Controlled impedances based on the followin 4 layer stackup:
-                
-                -------------H oz plating to 1 oz finished
-                  7630 (8 MIL)
-                ======== .039 1/1 oz core
-                  7630 (8 MIL)
-                --------------H oz plating to 1 oz finished
-
                 Smallest line width and spacing 4/4
                 Smallest standard drill hole 8 mils
                 Components/Silkscreen on both sides
