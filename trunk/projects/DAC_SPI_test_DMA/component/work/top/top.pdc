@@ -1,0 +1,73 @@
+# Actel Physical design constraints file
+# Generated file
+
+# Version: 9.1 SP1 9.1.1.7
+# Family: SmartFusion , Die: A2F200M3F , Package: 484 FBGA
+# Date generated: Thu May 26 07:34:36 2011 
+
+
+# 
+# IO banks setting
+# 
+
+
+# 
+# I/O constraints
+# 
+
+set_io IO_10_PADOUT    \
+    -pinname U3        \
+    -fixed yes         \
+    -iostd LVTTL       \
+    -OUT_LOAD 35       \
+    -RES_PULL None     \
+    -SKEW Off          \
+    -SLEW High         \
+    -DIRECTION Output
+
+
+set_io IO_11_PADOUT    \
+    -pinname T4        \
+    -fixed yes         \
+    -iostd LVTTL       \
+    -OUT_LOAD 35       \
+    -RES_PULL None     \
+    -SKEW Off          \
+    -SLEW High         \
+    -DIRECTION Output
+
+
+set_io IO_9_PADOUT     \
+    -pinname V3        \
+    -fixed yes         \
+    -iostd LVTTL       \
+    -OUT_LOAD 35       \
+    -RES_PULL None     \
+    -SKEW Off          \
+    -SLEW High         \
+    -DIRECTION Output
+
+
+set_io MSS_RESET_N        \
+    -pinname R1           \
+    -fixed yes            \
+    -iostd LVTTL          \
+    -RES_PULL None        \
+    -SCHMITT_TRIGGER Off  \
+    -DIRECTION Input
+
+
+
+#
+# Non IO constraints
+#
+
+
+#
+# Old IO constraints, commented out for reference
+#
+
+# set_io IO_10_PADOUT -pinname U3 -fixed yes -DIRECTION Output 
+# set_io IO_11_PADOUT -pinname T4 -fixed yes -DIRECTION Output 
+# set_io IO_9_PADOUT -pinname V3 -fixed yes -DIRECTION Output 
+# set_io MSS_RESET_N -pinname R1 -fixed yes -DIRECTION Input 
