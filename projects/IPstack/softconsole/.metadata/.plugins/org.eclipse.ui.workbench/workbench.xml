@@ -33,18 +33,13 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
-<part id="1"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
 <editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="D:/Work/marmote/projects/IPstack/softconsole/IPstack-lwip1.4.0/main.c" title="main.c" tooltip="IPstack-lwip1.4.0/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/IPstack-lwip1.4.0/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2817" selectionTopPixel="1428"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="lwipopts.h" partName="lwipopts.h" path="D:/Work/marmote/projects/IPstack/softconsole/IPstack-lwip1.4.0/lwipopts.h" title="lwipopts.h" tooltip="IPstack-lwip1.4.0/lwipopts.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/IPstack-lwip1.4.0/lwipopts.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1814" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -125,7 +120,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.ui.navigator.ProjectExplorer" activePerspective="org.eclipse.cdt.ui.CPerspective">
+<perspectives activePart="org.eclipse.cdt.ui.editor.CEditor" activePerspective="org.eclipse.cdt.ui.CPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.cdt.internal.ui.CPerspectiveFactory" id="org.eclipse.cdt.ui.CPerspective" label="C/C++"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -341,162 +336,10 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/IPstack/port_config/conf_eth.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/IPstack/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/IPstack/lwip/netif/ethernetif.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/IPstack/sampleserver.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/IPstack/lwip/netif/ethernet.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/IPstack/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/IPstack-lwip1.4.0/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/IPstack-lwip1.4.0/lwipopts.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/IPstack-lwip1.4.0/main.c"/>
 </editors>
-<item historyLabel="main.c" index="1">
-<position/>
-</item>
-<item historyLabel="conf_eth.h" index="0">
-<position info="not_deleted" x="2163" y="0"/>
-</item>
-<item historyLabel="ethernetif.c" index="2">
-<position info="not_deleted" x="774" y="0"/>
-</item>
-<item historyLabel="sampleserver.c" index="3">
-<position info="not_deleted" x="458" y="0"/>
-</item>
-<item historyLabel="ethernetif.c" index="2">
-<position info="not_deleted" x="774" y="0"/>
-</item>
-<item historyLabel="conf_eth.h" index="0">
-<position info="not_deleted" x="2163" y="0"/>
-</item>
-<item historyLabel="ethernetif.c" index="2">
-<position info="not_deleted" x="774" y="0"/>
-</item>
-<item historyLabel="ethernet.c" index="4">
-<position info="not_deleted" x="1944" y="0"/>
-</item>
-<item historyLabel="conf_eth.h" index="0">
-<position info="not_deleted" x="1813" y="22"/>
-</item>
-<item historyLabel="sampleserver.c" index="3">
-<position info="not_deleted" x="1727" y="0"/>
-</item>
-<item historyLabel="ethernet.c" index="4">
-<position info="not_deleted" x="1959" y="0"/>
-</item>
-<item historyLabel="conf_eth.h" index="0">
-<position info="not_deleted" x="1813" y="22"/>
-</item>
-<item historyLabel="ethernet.c" index="4">
-<position info="not_deleted" x="1959" y="0"/>
-</item>
-<item historyLabel="conf_eth.h" index="0">
-<position info="not_deleted" x="1813" y="22"/>
-</item>
-<item historyLabel="ethernet.c" index="4">
-<position info="not_deleted" x="2288" y="0"/>
-</item>
-<item historyLabel="ethernetif.c" index="2">
-<position info="not_deleted" x="774" y="0"/>
-</item>
-<item historyLabel="ethernet.c" index="4">
-<position info="not_deleted" x="2288" y="0"/>
-</item>
-<item historyLabel="ethernetif.c" index="2">
-<position info="not_deleted" x="774" y="0"/>
-</item>
-<item historyLabel="ethernet.c" index="4">
-<position info="not_deleted" x="2288" y="0"/>
-</item>
-<item historyLabel="ethernetif.c" index="2">
-<position info="not_deleted" x="774" y="0"/>
-</item>
-<item historyLabel="ethernet.c" index="4">
-<position info="not_deleted" x="2288" y="0"/>
-</item>
-<item historyLabel="ethernetif.c" index="2">
-<position info="not_deleted" x="2566" y="0"/>
-</item>
-<item historyLabel="conf_eth.h" index="0">
-<position info="not_deleted" x="1813" y="22"/>
-</item>
-<item historyLabel="main.c" index="1">
-<position/>
-</item>
-<item historyLabel="main.c" index="1">
-<position/>
-</item>
-<item historyLabel="main.c" index="1">
-<position/>
-</item>
-<item historyLabel="main.c" index="1">
-<position/>
-</item>
-<item historyLabel="main.c" index="1">
-<position info="not_deleted" x="5535" y="0"/>
-</item>
-<item historyLabel="ethernet.c" index="4">
-<position info="not_deleted" x="3201" y="0"/>
-</item>
-<item historyLabel="main.c" index="1">
-<position info="not_deleted" x="6503" y="0"/>
-</item>
-<item historyLabel="ethernet.c" index="4">
-<position info="not_deleted" x="3199" y="0"/>
-</item>
-<item historyLabel="main.c" index="5">
-<position/>
-</item>
-<item historyLabel="ethernet.c" index="4">
-<position info="not_deleted" x="3215" y="0"/>
-</item>
-<item historyLabel="sampleserver.c" index="3">
-<position info="not_deleted" x="3136" y="0"/>
-</item>
-<item historyLabel="main.c" index="5">
-<position/>
-</item>
-<item historyLabel="main.c" index="5">
-<position/>
-</item>
-<item historyLabel="ethernet.c" index="4">
-<position info="not_deleted" x="3190" y="0"/>
-</item>
-<item historyLabel="main.c" index="5">
-<position/>
-</item>
-<item historyLabel="main.c" index="5">
-<position info="not_deleted" x="5391" y="0"/>
-</item>
-<item historyLabel="ethernet.c" index="4">
-<position info="not_deleted" x="3190" y="0"/>
-</item>
-<item historyLabel="main.c" index="5">
-<position info="not_deleted" x="5736" y="0"/>
-</item>
-<item historyLabel="main.c" index="6">
-<position info="not_deleted" x="2817" y="0"/>
-</item>
-<item historyLabel="main.c" index="6">
-<position info="not_deleted" x="3059" y="0"/>
-</item>
-<item historyLabel="lwipopts.h" index="7">
+<item active="true" historyLabel="main.c" index="0">
 <position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="main.c" index="8">
-<position info="not_deleted" x="3059" y="0"/>
-</item>
-<item historyLabel="main.c" index="8">
-<position info="not_deleted" x="2817" y="0"/>
-</item>
-<item historyLabel="main.c" index="8">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="main.c" index="8">
-<position info="not_deleted" x="2817" y="0"/>
-</item>
-<item active="true" historyLabel="main.c" index="8">
-<position info="not_deleted" x="2817" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -515,11 +358,11 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="lwipopts.h" tooltip="IPstack-lwip1.4.0/lwipopts.h">
-<persistable path="/IPstack-lwip1.4.0/lwipopts.h"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="IPstack-lwip1.4.0/main.c">
 <persistable path="/IPstack-lwip1.4.0/main.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="lwipopts.h" tooltip="IPstack-lwip1.4.0/lwipopts.h">
+<persistable path="/IPstack-lwip1.4.0/lwipopts.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="IPstack/main.c">
 <persistable path="/IPstack/main.c"/>

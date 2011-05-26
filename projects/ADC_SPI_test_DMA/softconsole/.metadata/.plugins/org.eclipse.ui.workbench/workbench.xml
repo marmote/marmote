@@ -38,7 +38,7 @@
 </editorArea>
 <editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="D:/Work/marmote/projects/ADC_SPI_test_DMA/softconsole/ADC_SPI_test_DMA/main.c" title="main.c" tooltip="ADC_SPI_test_DMA/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ADC_SPI_test_DMA/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="35" selectionOffset="2179" selectionTopPixel="1300"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -139,7 +139,7 @@
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.15547945" ratioLeft="227" ratioRight="1233" relationship="2" relative="topLeft"/>
-<info folder="true" part="bottom" ratio="0.7496136" ratioLeft="485" ratioRight="162" relationship="4" relative="org.eclipse.ui.editorss">
+<info folder="true" part="bottom" ratio="0.7264249" ratioLeft="701" ratioRight="264" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.views.ProblemView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
@@ -170,11 +170,9 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.internal.dialogs.WelcomeEditorInputFactory" featureId="com.actel.softconsole.ide:" id="org.eclipse.ui.internal.ide.dialogs.WelcomeEditor"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ADC_SPI_test_DMA/main.c"/>
 </editors>
-<item historyLabel="Welcome" index="0"/>
-<item active="true" historyLabel="main.c" index="1">
+<item active="true" historyLabel="main.c" index="0">
 <position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
