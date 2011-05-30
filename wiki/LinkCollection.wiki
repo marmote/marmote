@@ -1,7 +1,7 @@
 #summary Collection of useful links related to hardware and software aspects of the Marmote project.
 #labels Phase-Design,Phase-Implementation
 
-= Application Notes by Category =
+= Hardware =
 
 == ADC ==
 
@@ -70,3 +70,13 @@ _Note:_ Several PCB layout guidelines can be found in other sections such as ADC
 [http://ics.nxp.com/support/documents/?type=appnote NXP Application Notes]
 
 [http://www.st.com/stonline/stappl/resourceSelector/app?page=fullResourceSelector&doctype=APPLICATION_NOTE STMicroelectronics]
+
+= Protocols =
+
+== USB ==
+
+[http://www.beyondlogic.org/usbnutshell/usb1.shtml Beyond Logic - USB in a NutShell]
+
+[http://www.usbmadesimple.co.uk/ USB Made Simple]
+
+[http://www.usb.org/developers/docs/ USB Specification]
