@@ -27,9 +27,10 @@ architecture bench of SPI_APB_DAC_tb is
           PRDATA      : out   std_logic_vector(31 downto 0);
           PSLVERR     : out   std_logic;
           SCLK        : out   std_logic;
-          CSn         : out   std_logic;
-          SDATA       : in    std_logic_vector(1 to 2);
-          --samples_out : out   sample_vector(1 to 2); -- Parallel sample data out debug
+          SYNCn       : out   std_logic;
+          SDIN        : out   std_logic;
+          --Debug
+          samples_out : out   std_logic_vector(31 downto 0);
           sample_rdy  : out   std_logic
            );
   end component;
@@ -45,18 +46,16 @@ architecture bench of SPI_APB_DAC_tb is
   signal PRDATA: std_logic_vector(31 downto 0);
   signal PSLVERR: std_logic;
   signal SCLK: std_logic;
-  signal CSn: std_logic;
-  signal SDATA: std_logic_vector(1 to 2);
-  --signal samples_out: sample_vector(1 to 2); -- Parallel sample data out debug
+  signal SYNCn: std_logic;
+  signal SDIN: std_logic;
+  --Debug
+  signal samples_out: std_logic_vector(31 downto 0);
   signal sample_rdy: std_logic ;
 
 -- BB begin
-  signal prog         : std_logic_vector(15 downto 0); 
-
-  constant clock_period: time := 20 ns;
+  constant clock_period: time := 10 ns; -- 100 MHz
 -- BB end
 
---  constant clock_period: time := 10 ns;
   signal stop_the_clock: boolean;
 
 begin
@@ -72,10 +71,10 @@ begin
                               PRDATA     => PRDATA,
                               PSLVERR    => PSLVERR,
                               SCLK       => SCLK,
-                              CSn        => CSn,
-                              SDATA      => SDATA,
+                              SYNCn      => SYNCn,
+                              SDIN       => SDIN,
                               --Debug
-                              --samples_out => samples_out,
+                              samples_out => samples_out,
                               sample_rdy => sample_rdy );
 
   stimulus: process
@@ -91,7 +90,7 @@ begin
     -- Put test bench stimulus code here
 
 -- BB begin
-    wait for 1 us;    
+    wait for 2 us;    
 -- BB end
 
     stop_the_clock <= true;
@@ -109,37 +108,38 @@ begin
 
 
 -- BB begin
-
+    -- Sampling
     process(PRESETn, PCLK)
     begin
         if PRESETn = '0' then
-            prog <=  x"0001";
-        elsif falling_edge(PCLK) then
-            if CSn = '0' or sample_rdy = '1' then
-                prog <= prog(0) & prog(15 downto 1);
+            PADDR <= x"00000000";
+            PWDATA <= x"00000000";
+            PSEL <= '0';
+            PENABLE <= '0';
+            PWRITE <= '0';
+        elsif rising_edge(PCLK) then
+            if sample_rdy = '1' then
+                PADDR <= x"00000000";
+                PWRITE <= '1';
+                PSEL <= '1';
+                PENABLE <= '0';
+                PWDATA <= x"A5A5A5A5";
+            end if;
+
+            if PSEL = '1' then
+                PENABLE <= '1';
+            end if;
+
+            if PENABLE = '1' then
+                PADDR <= x"00000000";
+                PWRITE <= '0';
+                PSEL <= '0';
+                PENABLE <= '0';
+                PWDATA <= x"00000000";
             end if;
         end if;
     end process;
 
-
-
-    OUTPUTS: for i in 1 to 2 generate
-        -- Sampling
-        process(PRESETn, PCLK)
-        begin
-            if PRESETn = '0' then
-                SDATA(i) <= '0';
-            elsif falling_edge(PCLK) then
-                if CSn = '0' then
-                    SDATA(i) <= prog(0);
-                end if;
-            end if;
-        end process;
-
-        -- resize
---        samples(i) <= not std_logic_vector(unsigned(shift_regs(i))) when mics_enable(i) = '1'
---                      else ADC_ZERO_LEVEL;
-    end generate;
 
 -- BB end
 

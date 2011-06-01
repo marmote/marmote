@@ -13,7 +13,8 @@ KEY Vendor "Actel"
 KEY ActiveRoot "top::work"
 LIST REVISIONS
 VALUE="Impl1",NUM=1
-CURREV=1
+VALUE="Impl2",NUM=2
+CURREV=2
 ENDLIST
 LIST LIBRARIES
 MSS_BFM_LIB
@@ -35,13 +36,13 @@ ENDLIST
 LIST FileManager
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf,actgen_cxf"
 STATE="utd"
-TIME="1306413279"
+TIME="1306788371"
 SIZE="2407"
 PARENT="<project>\component\work\top\top.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
 STATE="utd"
-TIME="1306413279"
+TIME="1306788371"
 SIZE="1242"
 LIBRARY="COREAPB3_LIB"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
@@ -49,14 +50,14 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\scripts\wave_user.do,do"
 STATE="utd"
-TIME="1306413277"
+TIME="1306788369"
 SIZE="912"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\components.vhd,hdl"
 STATE="utd"
-TIME="1306413279"
+TIME="1306788371"
 SIZE="5084"
 LIBRARY="COREAPB3_LIB"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
@@ -64,7 +65,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
 STATE="utd"
-TIME="1306413279"
+TIME="1306788371"
 SIZE="25656"
 LIBRARY="COREAPB3_LIB"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
@@ -72,7 +73,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3_muxptob3.vhd,hdl"
 STATE="utd"
-TIME="1306413279"
+TIME="1306788371"
 SIZE="6608"
 LIBRARY="COREAPB3_LIB"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
@@ -80,7 +81,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1306413277"
+TIME="1306788369"
 SIZE="21192"
 LIBRARY="COREAPB3_LIB"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
@@ -88,94 +89,15 @@ MODULE_UNDER_TEST="testbench"
 SIMULATION_TIME="-all"
 IS_READONLY="TRUE"
 ENDFILE
-VALUE "<project>\component\Actel\DirectCore\CORESPI\3.0.156\coreparameters.vhd,tb_hdl"
-STATE="utd"
-TIME="1306413280"
-SIZE="507"
-LIBRARY="CORESPI_LIB"
-PARENT="<project>\component\Actel\DirectCore\CORESPI\3.0.156\CORESPI.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\Actel\DirectCore\CORESPI\3.0.156\CORESPI.cxf,actgen_cxf"
-STATE="utd"
-TIME="1306413280"
-SIZE="2206"
-PARENT="<project>\component\work\top\top.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\DirectCore\CORESPI\3.0.156\mti\scripts\wave_usertb_vhdl.do,do"
-STATE="utd"
-TIME="1306413280"
-SIZE="631"
-PARENT="<project>\component\Actel\DirectCore\CORESPI\3.0.156\CORESPI.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\Actel\DirectCore\CORESPI\3.0.156\rtl\vhdl\core_obfuscated\components.vhd,hdl"
-STATE="utd"
-TIME="1306413280"
-SIZE="2044"
-LIBRARY="CORESPI_LIB"
-PARENT="<project>\component\Actel\DirectCore\CORESPI\3.0.156\CORESPI.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\Actel\DirectCore\CORESPI\3.0.156\rtl\vhdl\core_obfuscated\corespi.vhd,hdl"
-STATE="utd"
-TIME="1306413280"
-SIZE="2396"
-LIBRARY="CORESPI_LIB"
-PARENT="<project>\component\Actel\DirectCore\CORESPI\3.0.156\CORESPI.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\Actel\DirectCore\CORESPI\3.0.156\rtl\vhdl\core_obfuscated\corespi_sfr.vhd,hdl"
-STATE="utd"
-TIME="1306413280"
-SIZE="8036"
-LIBRARY="CORESPI_LIB"
-PARENT="<project>\component\Actel\DirectCore\CORESPI\3.0.156\CORESPI.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\Actel\DirectCore\CORESPI\3.0.156\rtl\vhdl\core_obfuscated\spi_master.vhd,hdl"
-STATE="utd"
-TIME="1306413280"
-SIZE="7223"
-LIBRARY="CORESPI_LIB"
-PARENT="<project>\component\Actel\DirectCore\CORESPI\3.0.156\CORESPI.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\Actel\DirectCore\CORESPI\3.0.156\rtl\vhdl\core_obfuscated\spi_slave.vhd,hdl"
-STATE="utd"
-TIME="1306413280"
-SIZE="3465"
-LIBRARY="CORESPI_LIB"
-PARENT="<project>\component\Actel\DirectCore\CORESPI\3.0.156\CORESPI.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\Actel\DirectCore\CORESPI\3.0.156\rtl\vhdl\test\user\corespi_pkg.vhd,tb_hdl"
-STATE="utd"
-TIME="1306413280"
-SIZE="35234"
-LIBRARY="CORESPI_LIB"
-PARENT="<project>\component\Actel\DirectCore\CORESPI\3.0.156\CORESPI.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\Actel\DirectCore\CORESPI\3.0.156\rtl\vhdl\test\user\tb_user_corespi.vhd,tb_hdl"
-STATE="utd"
-TIME="1306413280"
-SIZE="18492"
-LIBRARY="CORESPI_LIB"
-PARENT="<project>\component\Actel\DirectCore\CORESPI\3.0.156\CORESPI.cxf"
-MODULE_UNDER_TEST="tb_vhdl"
-SIMULATION_TIME="-all"
-IS_READONLY="TRUE"
-ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS\2.4.105\MSS.cxf,actgen_cxf"
 STATE="utd"
-TIME="1306413207"
+TIME="1306788317"
 SIZE="944"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS\2.4.105\mss_comps.vhd,hdl"
 STATE="utd"
-TIME="1306413207"
+TIME="1306788317"
 SIZE="17580"
 PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.4.105\MSS.cxf"
 BEGIN_USE_CONSTRAINT
@@ -187,98 +109,98 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_CCC\2.0.106\MSS_CCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1306413197"
+TIME="1306788307"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_CM3\1.0.101\MSS_CM3.cxf,actgen_cxf"
 STATE="utd"
-TIME="1306413197"
+TIME="1306788307"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_COM\1.0.102\MSS_COM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1306413197"
+TIME="1306788307"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_DMA\1.0.101\MSS_DMA.cxf,actgen_cxf"
 STATE="utd"
-TIME="1306413197"
+TIME="1306788307"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_ENVM\2.2.104\MSS_ENVM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1306413198"
+TIME="1306788308"
 SIZE="253"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_FIC\1.0.101\MSS_FIC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1306413198"
+TIME="1306788308"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_FIO\1.0.203\MSS_FIO.cxf,actgen_cxf"
 STATE="utd"
-TIME="1306413198"
+TIME="1306788308"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_GPIO\1.0.101\MSS_GPIO.cxf,actgen_cxf"
 STATE="utd"
-TIME="1306413198"
+TIME="1306788308"
 SIZE="253"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_INTR\1.0.101\MSS_INTR.cxf,actgen_cxf"
 STATE="utd"
-TIME="1306413198"
+TIME="1306788308"
 SIZE="253"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_RESET\1.0.101\MSS_RESET.cxf,actgen_cxf"
 STATE="utd"
-TIME="1306413198"
+TIME="1306788308"
 SIZE="254"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_RTC\1.0.100\MSS_RTC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1306413198"
+TIME="1306788308"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_TIMER\1.0.100\MSS_TIMER.cxf,actgen_cxf"
 STATE="utd"
-TIME="1306413198"
+TIME="1306788308"
 SIZE="254"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_UFROM\1.0.100\MSS_UFROM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1306413198"
+TIME="1306788308"
 SIZE="254"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\work\top\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1306413281"
+TIME="1306788372"
 SIZE="1886"
 PARENT="<project>\component\work\top\top.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\top\top.cxf,actgen_cxf"
 STATE="utd"
-TIME="1306413281"
-SIZE="3466"
+TIME="1306788372"
+SIZE="3365"
 ENDFILE
 VALUE "<project>\component\work\top\top.pdc,pdc"
 STATE="utd"
-TIME="1306413276"
-SIZE="1515"
+TIME="1306788368"
+SIZE="1750"
 PARENT="<project>\component\work\top\top.cxf"
 BEGIN_USE_CONSTRAINT
 TOOL_CONSTRAINT_TYPE="ideDESIGNER"
@@ -288,34 +210,34 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\top\top.vhd,hdl"
 STATE="utd"
-TIME="1306413280"
-SIZE="49928"
+TIME="1306788371"
+SIZE="54642"
 PARENT="<project>\component\work\top\top.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\MSS_CCC_0\uC_tmp_MSS_CCC_0_MSS_CCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1306413197"
+TIME="1306788307"
 SIZE="470"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\work\uC\MSS_CCC_0\uC_tmp_MSS_CCC_0_MSS_CCC.vhd,hdl"
 STATE="utd"
-TIME="1306413197"
-SIZE="6976"
+TIME="1306788307"
+SIZE="6977"
 PARENT="<project>\component\work\uC\MSS_CCC_0\uC_tmp_MSS_CCC_0_MSS_CCC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\MSS_ENVM_0\MSS_ENVM_0.efc,efc"
 STATE="utd"
-TIME="1306413198"
+TIME="1306788308"
 SIZE="15873"
 PARENT="<project>\component\work\uC\uC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\mss_tshell.vhd,hdl"
 STATE="utd"
-TIME="1306413199"
+TIME="1306788309"
 SIZE="22849"
 PARENT="<project>\component\work\uC\uC.cxf"
 BEGIN_USE_CONSTRAINT
@@ -327,19 +249,19 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1306413207"
+TIME="1306788318"
 SIZE="2964"
 PARENT="<project>\component\work\uC\uC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\uC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1306413207"
-SIZE="12278"
+TIME="1306788318"
+SIZE="12276"
 ENDFILE
 VALUE "<project>\component\work\uC\uC.pdc,pdc"
 STATE="utd"
-TIME="1306413195"
+TIME="1306788305"
 SIZE="1283"
 PARENT="<project>\component\work\uC\uC.cxf"
 BEGIN_USE_CONSTRAINT
@@ -350,69 +272,79 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\uC.vhd,hdl"
 STATE="utd"
-TIME="1306413207"
-SIZE="33421"
+TIME="1306788318"
+SIZE="33422"
 PARENT="<project>\component\work\uC\uC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
-VALUE "<project>\designer\impl1\top.adb,adb"
+VALUE "<project>\designer\impl2\top.adb,adb"
 STATE="utd"
-TIME="1306413347"
-SIZE="134144"
+TIME="1306788536"
+SIZE="493056"
 ENDFILE
-VALUE "<project>\designer\impl1\top.fdb,fdb"
+VALUE "<project>\designer\impl2\top.fdb,fdb"
 STATE="utd"
-TIME="1306413435"
-SIZE="53680"
+TIME="1306788526"
+SIZE="54704"
 ENDFILE
-VALUE "<project>\designer\impl1\top_fp\top.pro,pro"
+VALUE "<project>\designer\impl2\top_fp\top.pro,pro"
 STATE="utd"
-TIME="1306413487"
-SIZE="1799"
+TIME="1306788628"
+SIZE="1961"
 ENDFILE
 VALUE "<project>\hdl\APB_SPI.vhd,hdl"
 STATE="utd"
-TIME="1306263430"
-SIZE="7160"
+TIME="1306528465"
+SIZE="7618"
 ENDFILE
 VALUE "<project>\hdl\common.vhd,hdl"
 STATE="utd"
-TIME="1305908832"
-SIZE="2470"
+TIME="1306516817"
+SIZE="2474"
+ENDFILE
+VALUE "<project>\simulation\bfmtovec_compile.log,log"
+STATE="utd"
+TIME="1306527107"
+SIZE="459"
 ENDFILE
 VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
 STATE="utd"
-TIME="1306413281"
+TIME="1306788372"
 SIZE="1237"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
 ENDFILE
 VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
 STATE="utd"
-TIME="1306413209"
+TIME="1306788319"
 SIZE="41"
 PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.4.105\MSS.cxf"
 ENDFILE
 VALUE "<project>\simulation\coreapb3_usertb_apb_master.bfm,sim"
 STATE="utd"
-TIME="1306413281"
+TIME="1306788372"
 SIZE="10524"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
 ENDFILE
 VALUE "<project>\simulation\coreapb3_usertb_include.bfm,sim"
 STATE="utd"
-TIME="1306413281"
+TIME="1306788372"
 SIZE="3992"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
 ENDFILE
+VALUE "<project>\simulation\run.do,do"
+STATE="utd"
+TIME="1306526355"
+SIZE="2293"
+ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
-TIME="1306413281"
-SIZE="628"
+TIME="1306788372"
+SIZE="632"
 PARENT="<project>\component\work\top\top.cxf"
 ENDFILE
 VALUE "<project>\simulation\test.bfm,sim"
 STATE="utd"
-TIME="1306413208"
+TIME="1306788319"
 SIZE="5460"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
@@ -424,17 +356,27 @@ PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\stimulus\mytestbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1305834558"
-SIZE="4145"
+TIME="1306526960"
+SIZE="4011"
 ENDFILE
 VALUE "<project>\synthesis\top.edn,syn_edn"
 STATE="utd"
-TIME="1306413303"
-SIZE="224796"
+TIME="1306788424"
+SIZE="223629"
+ENDFILE
+VALUE "<project>\synthesis\top.vhd,syn_hdl"
+STATE="ood"
+TIME="1306517406"
+SIZE="124166"
+ENDFILE
+VALUE "<project>\synthesis\top_drc.rpt,log"
+STATE="utd"
+TIME="1306788434"
+SIZE="23375"
 ENDFILE
 VALUE "<project>\synthesis\top_sdc.sdc,syn_sdc"
 STATE="utd"
-TIME="1306413303"
+TIME="1306788424"
 SIZE="310"
 ENDFILE
 ENDLIST
@@ -449,14 +391,26 @@ VALUE "<project>\component\work\top\testbench.vhd,tb_hdl"
 VALUE "<project>\component\work\top\top.pdc,pdc"
 ENDLIST
 LIST AssociatedStimulus
+VALUE "<project>\stimulus\mytestbench.vhd,tb_hdl"
 VALUE "<project>\component\work\top\testbench.vhd,tb_hdl"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
-LiberoState=Post_Layout
-ideDESIGNER(<project>\designer\impl1\top.adb,adb)=StateSuccess
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+LiberoState=Post_Layout
+ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
+ideDESIGNER(<project>\designer\impl2\top.adb,adb)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -481,6 +435,15 @@ VALUE "<project>\component\work\uC\testbench.vhd,tb_hdl"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -515,23 +478,7 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
-ENDLIST
-ENDLIST
-LIST "cORESPI::CORESPI_LIB::components"
-FILE "<project>\component\Actel\DirectCore\CORESPI\3.0.156\rtl\vhdl\core_obfuscated\corespi.vhd,hdl"
-LIST Other_Association
-VALUE "<project>\component\Actel\DirectCore\CORESPI\3.0.156\coreparameters.vhd,tb_hdl"
-VALUE "<project>\component\Actel\DirectCore\CORESPI\3.0.156\rtl\vhdl\test\user\corespi_pkg.vhd,tb_hdl"
-VALUE "<project>\component\Actel\DirectCore\CORESPI\3.0.156\rtl\vhdl\test\user\tb_user_corespi.vhd,tb_hdl"
-VALUE "<project>\component\Actel\DirectCore\CORESPI\3.0.156\mti\scripts\wave_usertb_vhdl.do,do"
-ENDLIST
-LIST AssociatedStimulus
-VALUE "<project>\component\Actel\DirectCore\CORESPI\3.0.156\coreparameters.vhd,tb_hdl"
-VALUE "<project>\component\Actel\DirectCore\CORESPI\3.0.156\rtl\vhdl\test\user\corespi_pkg.vhd,tb_hdl"
-VALUE "<project>\component\Actel\DirectCore\CORESPI\3.0.156\rtl\vhdl\test\user\tb_user_corespi.vhd,tb_hdl"
-ENDLIST
-LIST ProjectState5.1
-LIST Impl1
+LIST Impl2
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -545,6 +492,7 @@ ENDLIST
 ENDLIST
 LIST AssociatedStimulus
 LIST top
+VALUE "<project>\stimulus\mytestbench.vhd,tb_hdl"
 VALUE "<project>\component\work\top\testbench.vhd,tb_hdl"
 ENDLIST
 LIST uC
@@ -553,11 +501,6 @@ ENDLIST
 LIST CoreAPB3
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
-ENDLIST
-LIST cORESPI
-VALUE "<project>\component\Actel\DirectCore\CORESPI\3.0.156\coreparameters.vhd,tb_hdl"
-VALUE "<project>\component\Actel\DirectCore\CORESPI\3.0.156\rtl\vhdl\test\user\corespi_pkg.vhd,tb_hdl"
-VALUE "<project>\component\Actel\DirectCore\CORESPI\3.0.156\rtl\vhdl\test\user\tb_user_corespi.vhd,tb_hdl"
 ENDLIST
 ENDLIST
 LIST Other_Association
@@ -582,22 +525,16 @@ VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\scripts\wave_user.do,do"
 ENDLIST
-LIST cORESPI
-VALUE "<project>\component\Actel\DirectCore\CORESPI\3.0.156\coreparameters.vhd,tb_hdl"
-VALUE "<project>\component\Actel\DirectCore\CORESPI\3.0.156\rtl\vhdl\test\user\corespi_pkg.vhd,tb_hdl"
-VALUE "<project>\component\Actel\DirectCore\CORESPI\3.0.156\rtl\vhdl\test\user\tb_user_corespi.vhd,tb_hdl"
-VALUE "<project>\component\Actel\DirectCore\CORESPI\3.0.156\mti\scripts\wave_usertb_vhdl.do,do"
-ENDLIST
 ENDLIST
 LIST SimulationOptions
 UseAutomaticDoFile=true
 IncludeWaveDo=false
 Type=max
-RunTime=1000ns
+RunTime=2000ns
 Resolution=1ps
 VsimOpt=
-EntityName=testbench
-TopInstanceName=<top>_0
+EntityName=SPI_APB_DAC_tb
+TopInstanceName=uut
 DoFileName=
 DoFileName2=wave.do
 DoFileParams=
@@ -608,7 +545,7 @@ VCDFileName=power.vcd
 ENDLIST
 LIST ModelSimLibPath
 UseCustomPath=FALSE
-LibraryPath=
+LibraryPath=C:/Actel/Libero_v9.1/Designer/lib/modelsim/precompiled/vhdl/smartfusion
 ENDLIST
 LIST GlobalFlowOptions
 GenerateHDLAfterSynthesis=FALSE
@@ -657,10 +594,21 @@ ENDLIST
 LIST ProjectState5.1
 LIST "top::work"
 LIST Impl1
-LiberoState=Post_Layout
-ideDESIGNER(<project>\designer\impl1\top.adb,adb)=StateSuccess
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+LiberoState=Post_Layout
+ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
+ideDESIGNER(<project>\designer\impl2\top.adb,adb)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -671,6 +619,15 @@ ENDLIST
 ENDLIST
 LIST "uC::work"
 LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -690,9 +647,7 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
-ENDLIST
-LIST "cORESPI::CORESPI_LIB::components"
-LIST Impl1
+LIST Impl2
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -718,5 +673,6 @@ DESIGNFLOW:
 SD:top::work
 FILE:<project>\hdl\APB_SPI.vhd,hdl
 FILE:<project>\hdl\common.vhd,hdl
+FILE:<project>\stimulus\mytestbench.vhd,tb_hdl
 ACTIVE_VIEW:0
 ENDLIST

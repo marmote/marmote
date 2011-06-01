@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="19" version="2.0">
 <workbenchAdvisor/>
-<window height="987" width="1447" x="-1547" y="100">
+<window height="987" width="1447" x="-1530" y="75">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="258"/>
@@ -32,13 +32,18 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="top_hw_platform.h" partName="top_hw_platform.h" path="D:/Work/marmote/projects/ADC_SPI_DMA_IPstack/softconsole/ADC_SPI_DMA_IPstack/top_hw_platform.h" title="top_hw_platform.h" tooltip="ADC_SPI_DMA_IPstack/top_hw_platform.h" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="top_hw_platform.h" partName="top_hw_platform.h" path="D:/Work/marmote/projects/ADC_SPI_DMA_IPstack/softconsole/ADC_SPI_DMA_IPstack/top_hw_platform.h" title="top_hw_platform.h" tooltip="ADC_SPI_DMA_IPstack/top_hw_platform.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ADC_SPI_DMA_IPstack/top_hw_platform.h"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="D:/Work/marmote/projects/ADC_SPI_DMA_IPstack/softconsole/ADC_SPI_DMA_IPstack/main.c" title="main.c" tooltip="ADC_SPI_DMA_IPstack/main.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ADC_SPI_DMA_IPstack/main.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="36" selectionOffset="2317" selectionTopPixel="2445"/>
 </editor>
 </editors>
 <views>
@@ -178,7 +183,7 @@
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.25" ratioLeft="250" ratioRight="750" relationship="2" relative="topLeft"/>
+<info part="org.eclipse.ui.editorss" ratio="0.18169014" ratioLeft="258" ratioRight="1162" relationship="2" relative="topLeft"/>
 <info folder="true" part="bottom" ratio="0.7019563" ratioLeft="610" ratioRight="259" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
@@ -318,9 +323,19 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ADC_SPI_DMA_IPstack/top_hw_platform.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ADC_SPI_DMA_IPstack/main.c"/>
 </editors>
-<item active="true" historyLabel="top_hw_platform.h" index="0">
+<item historyLabel="top_hw_platform.h" index="0">
 <position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="main.c" index="1">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="main.c" index="1">
+<position info="not_deleted" x="7161" y="0"/>
+</item>
+<item active="true" historyLabel="main.c" index="1">
+<position info="not_deleted" x="2331" y="17"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -339,6 +354,9 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="ADC_SPI_DMA_IPstack/main.c">
+<persistable path="/ADC_SPI_DMA_IPstack/main.c"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="top_hw_platform.h" tooltip="ADC_SPI_DMA_IPstack/top_hw_platform.h">
 <persistable path="/ADC_SPI_DMA_IPstack/top_hw_platform.h"/>
 </file>

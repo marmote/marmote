@@ -116,7 +116,7 @@ begin
     N_VCC <= VCC_power_net1;
 
     I_MSSCCC : MSS_CCC
-      generic map(VCOFREQUENCY => 50.000)
+      generic map(VCOFREQUENCY => 100.000)
 
       port map(CLKA => N_CLKA_XTLOSC, EXTFB => N_GND, GLA => 
         FAB_CLK, GLAMSS => GLA0, LOCK => FAB_LOCK, LOCKMSS => 
@@ -146,8 +146,8 @@ begin
          => N_GND, FINDIV(4) => N_GND, FINDIV(3) => N_GND, 
         FINDIV(2) => N_GND, FINDIV(1) => N_VCC, FINDIV(0) => 
         N_VCC, FBDIV(6) => N_GND, FBDIV(5) => N_GND, FBDIV(4) => 
-        N_GND, FBDIV(3) => N_VCC, FBDIV(2) => N_GND, FBDIV(1) => 
-        N_GND, FBDIV(0) => N_VCC, FBDLY(4) => N_GND, FBDLY(3) => 
+        N_VCC, FBDIV(3) => N_GND, FBDIV(2) => N_GND, FBDIV(1) => 
+        N_VCC, FBDIV(0) => N_VCC, FBDLY(4) => N_GND, FBDLY(3) => 
         N_GND, FBDLY(2) => N_GND, FBDLY(1) => N_GND, FBDLY(0) => 
         N_VCC, FBSEL(1) => N_GND, FBSEL(0) => N_VCC, XDLYSEL => 
         N_GND, GLMUXSEL(1) => N_GND, GLMUXSEL(0) => N_GND, 
