@@ -6,8 +6,6 @@ library smartfusion;
 use smartfusion.all;
 library COREAPB3_LIB;
 use COREAPB3_LIB.all;
-library CORESPI_LIB;
-use CORESPI_LIB.all;
 
 entity top is
 
@@ -152,34 +150,6 @@ architecture DEF_ARCH of top is
         );
   end component;
 
-  component CORESPI
-    generic (FAMILY:integer := 0; USE_MASTER:integer := 0; 
-        USE_SLAVE:integer := 0);
-
-    port( PCLK          : in    std_logic := 'U';
-          PENABLE       : in    std_logic := 'U';
-          PRESETN       : in    std_logic := 'U';
-          PSEL          : in    std_logic := 'U';
-          PWRITE        : in    std_logic := 'U';
-          enable_master : out   std_logic;
-          enable_slave  : out   std_logic;
-          interrupt     : out   std_logic;
-          m_miso        : in    std_logic := 'U';
-          m_mosi        : out   std_logic;
-          m_sck         : out   std_logic;
-          rx_data_ready : out   std_logic;
-          s_miso        : out   std_logic;
-          s_mosi        : in    std_logic := 'U';
-          s_sck         : in    std_logic := 'U';
-          s_ss          : in    std_logic := 'U';
-          tx_reg_empty  : out   std_logic;
-          PADDR         : in    std_logic_vector(3 downto 0) := (others => 'U');
-          PRDATA        : out   std_logic_vector(7 downto 0);
-          PWDATA        : in    std_logic_vector(7 downto 0) := (others => 'U');
-          m_ss          : out   std_logic_vector(7 downto 0)
-        );
-  end component;
-
     signal \CoreAPB3_0_APBmslave0_PADDR_[0]\, 
         \CoreAPB3_0_APBmslave0_PADDR_[1]\, 
         \CoreAPB3_0_APBmslave0_PADDR_[2]\, 
@@ -213,7 +183,32 @@ architecture DEF_ARCH of top is
         \CoreAPB3_0_APBmslave0_PRDATA_[5]\, 
         \CoreAPB3_0_APBmslave0_PRDATA_[6]\, 
         \CoreAPB3_0_APBmslave0_PRDATA_[7]\, 
-        CoreAPB3_0_APBmslave0_PSELx, 
+        \CoreAPB3_0_APBmslave0_PRDATA_[8]\, 
+        \CoreAPB3_0_APBmslave0_PRDATA_[9]\, 
+        \CoreAPB3_0_APBmslave0_PRDATA_[10]\, 
+        \CoreAPB3_0_APBmslave0_PRDATA_[11]\, 
+        \CoreAPB3_0_APBmslave0_PRDATA_[12]\, 
+        \CoreAPB3_0_APBmslave0_PRDATA_[13]\, 
+        \CoreAPB3_0_APBmslave0_PRDATA_[14]\, 
+        \CoreAPB3_0_APBmslave0_PRDATA_[15]\, 
+        \CoreAPB3_0_APBmslave0_PRDATA_[16]\, 
+        \CoreAPB3_0_APBmslave0_PRDATA_[17]\, 
+        \CoreAPB3_0_APBmslave0_PRDATA_[18]\, 
+        \CoreAPB3_0_APBmslave0_PRDATA_[19]\, 
+        \CoreAPB3_0_APBmslave0_PRDATA_[20]\, 
+        \CoreAPB3_0_APBmslave0_PRDATA_[21]\, 
+        \CoreAPB3_0_APBmslave0_PRDATA_[22]\, 
+        \CoreAPB3_0_APBmslave0_PRDATA_[23]\, 
+        \CoreAPB3_0_APBmslave0_PRDATA_[24]\, 
+        \CoreAPB3_0_APBmslave0_PRDATA_[25]\, 
+        \CoreAPB3_0_APBmslave0_PRDATA_[26]\, 
+        \CoreAPB3_0_APBmslave0_PRDATA_[27]\, 
+        \CoreAPB3_0_APBmslave0_PRDATA_[28]\, 
+        \CoreAPB3_0_APBmslave0_PRDATA_[29]\, 
+        \CoreAPB3_0_APBmslave0_PRDATA_[30]\, 
+        \CoreAPB3_0_APBmslave0_PRDATA_[31]\, 
+        CoreAPB3_0_APBmslave0_PREADY, CoreAPB3_0_APBmslave0_PSELx, 
+        CoreAPB3_0_APBmslave0_PSLVERR, 
         \CoreAPB3_0_APBmslave0_PWDATA_[0]\, 
         \CoreAPB3_0_APBmslave0_PWDATA_[1]\, 
         \CoreAPB3_0_APBmslave0_PWDATA_[2]\, 
@@ -246,9 +241,9 @@ architecture DEF_ARCH of top is
         \CoreAPB3_0_APBmslave0_PWDATA_[29]\, 
         \CoreAPB3_0_APBmslave0_PWDATA_[30]\, 
         \CoreAPB3_0_APBmslave0_PWDATA_[31]\, 
-        CoreAPB3_0_APBmslave0_PWRITE, CORESPI_0_m_mosi, 
-        CORESPI_0_m_sck, CORESPI_0_m_ss0to0, 
-        CORESPI_0_tx_reg_empty, uC_0_FAB_CLK_0, uC_0_M2F_RESET_N, 
+        CoreAPB3_0_APBmslave0_PWRITE, SPI_APB_DAC_0_sample_rdy, 
+        SPI_APB_DAC_0_SCLK, SPI_APB_DAC_0_SDIN, 
+        SPI_APB_DAC_0_SYNCn, uC_0_FAB_CLK_1, uC_0_M2F_RESET_N, 
         \uC_0_MSS_MASTER_APB_PADDR_[0]\, 
         \uC_0_MSS_MASTER_APB_PADDR_[1]\, 
         \uC_0_MSS_MASTER_APB_PADDR_[2]\, 
@@ -337,14 +332,114 @@ architecture DEF_ARCH of top is
         \uC_0_MSS_MASTER_APB_PWDATA_[30]\, 
         \uC_0_MSS_MASTER_APB_PWDATA_[31]\, 
         uC_0_MSS_MASTER_APB_PWRITE, GND_net, VCC_net : std_logic;
-    signal nc24, nc1, nc8, nc13, nc30, nc16, nc19, nc25, nc20, 
-        nc27, nc9, nc31, nc22, nc28, nc14, nc5, nc21, nc15, nc3, 
-        nc10, nc7, nc17, nc4, nc12, nc2, nc23, nc18, nc26, nc6, 
-        nc29, nc11 : std_logic;
+    signal nc24, nc1, nc8, nc13, nc16, nc19, nc20, nc9, nc22, 
+        nc14, nc5, nc21, nc15, nc3, nc10, nc7, nc17, nc4, nc12, 
+        nc2, nc23, nc18, nc6, nc11 : std_logic;
 
 begin 
 
 
+    SPI_APB_DAC_0 : entity work.SPI_APB_DAC
+      port map(PCLK => uC_0_FAB_CLK_1, PRESETn => 
+        uC_0_M2F_RESET_N, PSEL => CoreAPB3_0_APBmslave0_PSELx, 
+        PENABLE => CoreAPB3_0_APBmslave0_PENABLE, PWRITE => 
+        CoreAPB3_0_APBmslave0_PWRITE, PREADY => 
+        CoreAPB3_0_APBmslave0_PREADY, PSLVERR => 
+        CoreAPB3_0_APBmslave0_PSLVERR, SCLK => SPI_APB_DAC_0_SCLK, 
+        SYNCn => SPI_APB_DAC_0_SYNCn, SDIN => SPI_APB_DAC_0_SDIN, 
+        sample_rdy => SPI_APB_DAC_0_sample_rdy, PADDR(31) => 
+        GND_net, PADDR(30) => GND_net, PADDR(29) => GND_net, 
+        PADDR(28) => GND_net, PADDR(27) => GND_net, PADDR(26) => 
+        GND_net, PADDR(25) => GND_net, PADDR(24) => GND_net, 
+        PADDR(23) => \CoreAPB3_0_APBmslave0_PADDR_[23]\, 
+        PADDR(22) => \CoreAPB3_0_APBmslave0_PADDR_[22]\, 
+        PADDR(21) => \CoreAPB3_0_APBmslave0_PADDR_[21]\, 
+        PADDR(20) => \CoreAPB3_0_APBmslave0_PADDR_[20]\, 
+        PADDR(19) => \CoreAPB3_0_APBmslave0_PADDR_[19]\, 
+        PADDR(18) => \CoreAPB3_0_APBmslave0_PADDR_[18]\, 
+        PADDR(17) => \CoreAPB3_0_APBmslave0_PADDR_[17]\, 
+        PADDR(16) => \CoreAPB3_0_APBmslave0_PADDR_[16]\, 
+        PADDR(15) => \CoreAPB3_0_APBmslave0_PADDR_[15]\, 
+        PADDR(14) => \CoreAPB3_0_APBmslave0_PADDR_[14]\, 
+        PADDR(13) => \CoreAPB3_0_APBmslave0_PADDR_[13]\, 
+        PADDR(12) => \CoreAPB3_0_APBmslave0_PADDR_[12]\, 
+        PADDR(11) => \CoreAPB3_0_APBmslave0_PADDR_[11]\, 
+        PADDR(10) => \CoreAPB3_0_APBmslave0_PADDR_[10]\, PADDR(9)
+         => \CoreAPB3_0_APBmslave0_PADDR_[9]\, PADDR(8) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[8]\, PADDR(7) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[7]\, PADDR(6) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[6]\, PADDR(5) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[5]\, PADDR(4) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[4]\, PADDR(3) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[3]\, PADDR(2) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[2]\, PADDR(1) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[1]\, PADDR(0) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[0]\, PWDATA(31) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[31]\, PWDATA(30) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[30]\, PWDATA(29) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[29]\, PWDATA(28) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[28]\, PWDATA(27) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[27]\, PWDATA(26) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[26]\, PWDATA(25) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[25]\, PWDATA(24) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[24]\, PWDATA(23) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[23]\, PWDATA(22) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[22]\, PWDATA(21) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[21]\, PWDATA(20) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[20]\, PWDATA(19) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[19]\, PWDATA(18) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[18]\, PWDATA(17) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[17]\, PWDATA(16) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[16]\, PWDATA(15) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[15]\, PWDATA(14) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[14]\, PWDATA(13) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[13]\, PWDATA(12) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[12]\, PWDATA(11) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[11]\, PWDATA(10) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[10]\, PWDATA(9) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[9]\, PWDATA(8) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[8]\, PWDATA(7) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[7]\, PWDATA(6) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[6]\, PWDATA(5) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[5]\, PWDATA(4) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[4]\, PWDATA(3) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[3]\, PWDATA(2) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[2]\, PWDATA(1) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[1]\, PWDATA(0) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[0]\, PRDATA(31) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[31]\, PRDATA(30) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[30]\, PRDATA(29) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[29]\, PRDATA(28) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[28]\, PRDATA(27) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[27]\, PRDATA(26) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[26]\, PRDATA(25) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[25]\, PRDATA(24) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[24]\, PRDATA(23) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[23]\, PRDATA(22) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[22]\, PRDATA(21) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[21]\, PRDATA(20) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[20]\, PRDATA(19) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[19]\, PRDATA(18) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[18]\, PRDATA(17) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[17]\, PRDATA(16) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[16]\, PRDATA(15) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[15]\, PRDATA(14) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[14]\, PRDATA(13) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[13]\, PRDATA(12) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[12]\, PRDATA(11) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[11]\, PRDATA(10) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[10]\, PRDATA(9) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[9]\, PRDATA(8) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[8]\, PRDATA(7) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[7]\, PRDATA(6) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[6]\, PRDATA(5) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[5]\, PRDATA(4) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[4]\, PRDATA(3) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[3]\, PRDATA(2) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[2]\, PRDATA(1) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[1]\, PRDATA(0) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[0]\);
+    
     CoreAPB3_0 : CoreAPB3
       generic map(APBSLOT0ENABLE => 1, APBSLOT10ENABLE => 0,
          APBSLOT11ENABLE => 0, APBSLOT12ENABLE => 0,
@@ -364,28 +459,30 @@ begin
         uC_0_MSS_MASTER_APB_PSLVERR, PWRITES => 
         CoreAPB3_0_APBmslave0_PWRITE, PENABLES => 
         CoreAPB3_0_APBmslave0_PENABLE, PSELS0 => 
-        CoreAPB3_0_APBmslave0_PSELx, PREADYS0 => VCC_net, 
-        PSLVERRS0 => GND_net, PSELS1 => OPEN, PREADYS1 => VCC_net, 
-        PSLVERRS1 => GND_net, PSELS2 => OPEN, PREADYS2 => VCC_net, 
-        PSLVERRS2 => GND_net, PSELS3 => OPEN, PREADYS3 => VCC_net, 
-        PSLVERRS3 => GND_net, PSELS4 => OPEN, PREADYS4 => VCC_net, 
-        PSLVERRS4 => GND_net, PSELS5 => OPEN, PREADYS5 => VCC_net, 
-        PSLVERRS5 => GND_net, PSELS6 => OPEN, PREADYS6 => VCC_net, 
-        PSLVERRS6 => GND_net, PSELS7 => OPEN, PREADYS7 => VCC_net, 
-        PSLVERRS7 => GND_net, PSELS8 => OPEN, PREADYS8 => VCC_net, 
-        PSLVERRS8 => GND_net, PSELS9 => OPEN, PREADYS9 => VCC_net, 
-        PSLVERRS9 => GND_net, PSELS10 => OPEN, PREADYS10 => 
-        VCC_net, PSLVERRS10 => GND_net, PSELS11 => OPEN, 
-        PREADYS11 => VCC_net, PSLVERRS11 => GND_net, PSELS12 => 
-        OPEN, PREADYS12 => VCC_net, PSLVERRS12 => GND_net, 
-        PSELS13 => OPEN, PREADYS13 => VCC_net, PSLVERRS13 => 
-        GND_net, PSELS14 => OPEN, PREADYS14 => VCC_net, 
-        PSLVERRS14 => GND_net, PSELS15 => OPEN, PREADYS15 => 
-        VCC_net, PSLVERRS15 => GND_net, PADDR(23) => GND_net, 
-        PADDR(22) => GND_net, PADDR(21) => GND_net, PADDR(20) => 
-        GND_net, PADDR(19) => \uC_0_MSS_MASTER_APB_PADDR_[19]\, 
-        PADDR(18) => \uC_0_MSS_MASTER_APB_PADDR_[18]\, PADDR(17)
-         => \uC_0_MSS_MASTER_APB_PADDR_[17]\, PADDR(16) => 
+        CoreAPB3_0_APBmslave0_PSELx, PREADYS0 => 
+        CoreAPB3_0_APBmslave0_PREADY, PSLVERRS0 => 
+        CoreAPB3_0_APBmslave0_PSLVERR, PSELS1 => OPEN, PREADYS1
+         => VCC_net, PSLVERRS1 => GND_net, PSELS2 => OPEN, 
+        PREADYS2 => VCC_net, PSLVERRS2 => GND_net, PSELS3 => OPEN, 
+        PREADYS3 => VCC_net, PSLVERRS3 => GND_net, PSELS4 => OPEN, 
+        PREADYS4 => VCC_net, PSLVERRS4 => GND_net, PSELS5 => OPEN, 
+        PREADYS5 => VCC_net, PSLVERRS5 => GND_net, PSELS6 => OPEN, 
+        PREADYS6 => VCC_net, PSLVERRS6 => GND_net, PSELS7 => OPEN, 
+        PREADYS7 => VCC_net, PSLVERRS7 => GND_net, PSELS8 => OPEN, 
+        PREADYS8 => VCC_net, PSLVERRS8 => GND_net, PSELS9 => OPEN, 
+        PREADYS9 => VCC_net, PSLVERRS9 => GND_net, PSELS10 => 
+        OPEN, PREADYS10 => VCC_net, PSLVERRS10 => GND_net, 
+        PSELS11 => OPEN, PREADYS11 => VCC_net, PSLVERRS11 => 
+        GND_net, PSELS12 => OPEN, PREADYS12 => VCC_net, 
+        PSLVERRS12 => GND_net, PSELS13 => OPEN, PREADYS13 => 
+        VCC_net, PSLVERRS13 => GND_net, PSELS14 => OPEN, 
+        PREADYS14 => VCC_net, PSLVERRS14 => GND_net, PSELS15 => 
+        OPEN, PREADYS15 => VCC_net, PSLVERRS15 => GND_net, 
+        PADDR(23) => GND_net, PADDR(22) => GND_net, PADDR(21) => 
+        GND_net, PADDR(20) => GND_net, PADDR(19) => 
+        \uC_0_MSS_MASTER_APB_PADDR_[19]\, PADDR(18) => 
+        \uC_0_MSS_MASTER_APB_PADDR_[18]\, PADDR(17) => 
+        \uC_0_MSS_MASTER_APB_PADDR_[17]\, PADDR(16) => 
         \uC_0_MSS_MASTER_APB_PADDR_[16]\, PADDR(15) => 
         \uC_0_MSS_MASTER_APB_PADDR_[15]\, PADDR(14) => 
         \uC_0_MSS_MASTER_APB_PADDR_[14]\, PADDR(13) => 
@@ -468,13 +565,13 @@ begin
         \uC_0_MSS_MASTER_APB_PRDATA_[1]\, PRDATA(0) => 
         \uC_0_MSS_MASTER_APB_PRDATA_[0]\, PADDRS(23) => nc24, 
         PADDRS(22) => nc1, PADDRS(21) => nc8, PADDRS(20) => nc13, 
-        PADDRS(19) => nc30, PADDRS(18) => nc16, PADDRS(17) => 
-        nc19, PADDRS(16) => nc25, PADDRS(15) => nc20, PADDRS(14)
-         => nc27, PADDRS(13) => nc9, PADDRS(12) => nc31, 
-        PADDRS(11) => nc22, PADDRS(10) => nc28, PADDRS(9) => nc14, 
-        PADDRS(8) => nc5, PADDRS(7) => nc21, PADDRS(6) => nc15, 
-        PADDRS(5) => nc3, PADDRS(4) => nc10, PADDRS(3) => nc7, 
-        PADDRS(2) => nc17, PADDRS(1) => nc4, PADDRS(0) => nc12, 
+        PADDRS(19) => nc16, PADDRS(18) => nc19, PADDRS(17) => 
+        nc20, PADDRS(16) => nc9, PADDRS(15) => nc22, PADDRS(14)
+         => nc14, PADDRS(13) => nc5, PADDRS(12) => nc21, 
+        PADDRS(11) => nc15, PADDRS(10) => nc3, PADDRS(9) => nc10, 
+        PADDRS(8) => nc7, PADDRS(7) => nc17, PADDRS(6) => nc4, 
+        PADDRS(5) => nc12, PADDRS(4) => nc2, PADDRS(3) => nc23, 
+        PADDRS(2) => nc18, PADDRS(1) => nc6, PADDRS(0) => nc11, 
         PADDRS0(23) => \CoreAPB3_0_APBmslave0_PADDR_[23]\, 
         PADDRS0(22) => \CoreAPB3_0_APBmslave0_PADDR_[22]\, 
         PADDRS0(21) => \CoreAPB3_0_APBmslave0_PADDR_[21]\, 
@@ -531,18 +628,30 @@ begin
         PWDATAS(2) => \CoreAPB3_0_APBmslave0_PWDATA_[2]\, 
         PWDATAS(1) => \CoreAPB3_0_APBmslave0_PWDATA_[1]\, 
         PWDATAS(0) => \CoreAPB3_0_APBmslave0_PWDATA_[0]\, 
-        PRDATAS0(31) => GND_net, PRDATAS0(30) => GND_net, 
-        PRDATAS0(29) => GND_net, PRDATAS0(28) => GND_net, 
-        PRDATAS0(27) => GND_net, PRDATAS0(26) => GND_net, 
-        PRDATAS0(25) => GND_net, PRDATAS0(24) => GND_net, 
-        PRDATAS0(23) => GND_net, PRDATAS0(22) => GND_net, 
-        PRDATAS0(21) => GND_net, PRDATAS0(20) => GND_net, 
-        PRDATAS0(19) => GND_net, PRDATAS0(18) => GND_net, 
-        PRDATAS0(17) => GND_net, PRDATAS0(16) => GND_net, 
-        PRDATAS0(15) => GND_net, PRDATAS0(14) => GND_net, 
-        PRDATAS0(13) => GND_net, PRDATAS0(12) => GND_net, 
-        PRDATAS0(11) => GND_net, PRDATAS0(10) => GND_net, 
-        PRDATAS0(9) => GND_net, PRDATAS0(8) => GND_net, 
+        PRDATAS0(31) => \CoreAPB3_0_APBmslave0_PRDATA_[31]\, 
+        PRDATAS0(30) => \CoreAPB3_0_APBmslave0_PRDATA_[30]\, 
+        PRDATAS0(29) => \CoreAPB3_0_APBmslave0_PRDATA_[29]\, 
+        PRDATAS0(28) => \CoreAPB3_0_APBmslave0_PRDATA_[28]\, 
+        PRDATAS0(27) => \CoreAPB3_0_APBmslave0_PRDATA_[27]\, 
+        PRDATAS0(26) => \CoreAPB3_0_APBmslave0_PRDATA_[26]\, 
+        PRDATAS0(25) => \CoreAPB3_0_APBmslave0_PRDATA_[25]\, 
+        PRDATAS0(24) => \CoreAPB3_0_APBmslave0_PRDATA_[24]\, 
+        PRDATAS0(23) => \CoreAPB3_0_APBmslave0_PRDATA_[23]\, 
+        PRDATAS0(22) => \CoreAPB3_0_APBmslave0_PRDATA_[22]\, 
+        PRDATAS0(21) => \CoreAPB3_0_APBmslave0_PRDATA_[21]\, 
+        PRDATAS0(20) => \CoreAPB3_0_APBmslave0_PRDATA_[20]\, 
+        PRDATAS0(19) => \CoreAPB3_0_APBmslave0_PRDATA_[19]\, 
+        PRDATAS0(18) => \CoreAPB3_0_APBmslave0_PRDATA_[18]\, 
+        PRDATAS0(17) => \CoreAPB3_0_APBmslave0_PRDATA_[17]\, 
+        PRDATAS0(16) => \CoreAPB3_0_APBmslave0_PRDATA_[16]\, 
+        PRDATAS0(15) => \CoreAPB3_0_APBmslave0_PRDATA_[15]\, 
+        PRDATAS0(14) => \CoreAPB3_0_APBmslave0_PRDATA_[14]\, 
+        PRDATAS0(13) => \CoreAPB3_0_APBmslave0_PRDATA_[13]\, 
+        PRDATAS0(12) => \CoreAPB3_0_APBmslave0_PRDATA_[12]\, 
+        PRDATAS0(11) => \CoreAPB3_0_APBmslave0_PRDATA_[11]\, 
+        PRDATAS0(10) => \CoreAPB3_0_APBmslave0_PRDATA_[10]\, 
+        PRDATAS0(9) => \CoreAPB3_0_APBmslave0_PRDATA_[9]\, 
+        PRDATAS0(8) => \CoreAPB3_0_APBmslave0_PRDATA_[8]\, 
         PRDATAS0(7) => \CoreAPB3_0_APBmslave0_PRDATA_[7]\, 
         PRDATAS0(6) => \CoreAPB3_0_APBmslave0_PRDATA_[6]\, 
         PRDATAS0(5) => \CoreAPB3_0_APBmslave0_PRDATA_[5]\, 
@@ -803,11 +912,11 @@ begin
         uC_0_MSS_MASTER_APB_PREADY, MSSPSLVERR => 
         uC_0_MSS_MASTER_APB_PSLVERR, M2F_RESET_N => 
         uC_0_M2F_RESET_N, IO_11_PADOUT => IO_11_PADOUT, IO_11_D
-         => CORESPI_0_m_sck, IO_10_PADOUT => IO_10_PADOUT, 
-        IO_10_D => CORESPI_0_m_mosi, IO_9_PADOUT => IO_9_PADOUT, 
-        IO_9_D => CORESPI_0_m_ss0to0, FAB_CLK => uC_0_FAB_CLK_0, 
+         => SPI_APB_DAC_0_SCLK, IO_10_PADOUT => IO_10_PADOUT, 
+        IO_10_D => SPI_APB_DAC_0_SDIN, IO_9_PADOUT => IO_9_PADOUT, 
+        IO_9_D => SPI_APB_DAC_0_SYNCn, FAB_CLK => uC_0_FAB_CLK_1, 
         DMAREADY(1) => GND_net, DMAREADY(0) => 
-        CORESPI_0_tx_reg_empty, MSSPADDR(19) => 
+        SPI_APB_DAC_0_sample_rdy, MSSPADDR(19) => 
         \uC_0_MSS_MASTER_APB_PADDR_[19]\, MSSPADDR(18) => 
         \uC_0_MSS_MASTER_APB_PADDR_[18]\, MSSPADDR(17) => 
         \uC_0_MSS_MASTER_APB_PADDR_[17]\, MSSPADDR(16) => 
@@ -895,42 +1004,6 @@ begin
     
     \GND\ : GND
       port map(Y => GND_net);
-    
-    CORESPI_0 : CORESPI
-      generic map(FAMILY => 15, USE_MASTER => 1, USE_SLAVE => 0)
-
-      port map(PCLK => uC_0_FAB_CLK_0, PENABLE => 
-        CoreAPB3_0_APBmslave0_PENABLE, PRESETN => 
-        uC_0_M2F_RESET_N, PSEL => CoreAPB3_0_APBmslave0_PSELx, 
-        PWRITE => CoreAPB3_0_APBmslave0_PWRITE, enable_master => 
-        OPEN, enable_slave => OPEN, interrupt => OPEN, m_miso => 
-        GND_net, m_mosi => CORESPI_0_m_mosi, m_sck => 
-        CORESPI_0_m_sck, rx_data_ready => OPEN, s_miso => OPEN, 
-        s_mosi => GND_net, s_sck => GND_net, s_ss => GND_net, 
-        tx_reg_empty => CORESPI_0_tx_reg_empty, PADDR(3) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[3]\, PADDR(2) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[2]\, PADDR(1) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[1]\, PADDR(0) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[0]\, PRDATA(7) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[7]\, PRDATA(6) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[6]\, PRDATA(5) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[5]\, PRDATA(4) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[4]\, PRDATA(3) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[3]\, PRDATA(2) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[2]\, PRDATA(1) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[1]\, PRDATA(0) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[0]\, PWDATA(7) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[7]\, PWDATA(6) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[6]\, PWDATA(5) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[5]\, PWDATA(4) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[4]\, PWDATA(3) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[3]\, PWDATA(2) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[2]\, PWDATA(1) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[1]\, PWDATA(0) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[0]\, m_ss(7) => nc2, 
-        m_ss(6) => nc23, m_ss(5) => nc18, m_ss(4) => nc26, 
-        m_ss(3) => nc6, m_ss(2) => nc29, m_ss(1) => nc11, m_ss(0)
-         => CORESPI_0_m_ss0to0);
     
 
 end DEF_ARCH; 

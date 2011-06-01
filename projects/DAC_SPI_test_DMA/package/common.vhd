@@ -23,7 +23,7 @@ package COMMON is
 --          Common Constants           --
 -----------------------------------------
     constant SAMPLE_WIDTH : integer := sample_type'length;   
-    constant ADC_ZERO_LEVEL : sample_type := x"0080"; --128   
+    constant ADC_ZERO_LEVEL : sample_type := x"00000080"; --128   
 
     -- FPGA system clock frequency
     constant c_FAB_CLK : integer := 40000000;
