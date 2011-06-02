@@ -19,10 +19,10 @@
 	<section name="CleanDialogSettings">
 		<item value="500" key="DIALOG_WIDTH"/>
 		<item value="true" key="BUILD_NOW"/>
-		<item value="false" key="BUILD_ALL"/>
 		<item value="231" key="DIALOG_Y_ORIGIN"/>
-		<item value="440" key="DIALOG_HEIGHT"/>
+		<item value="false" key="BUILD_ALL"/>
 		<item value="522" key="DIALOG_X_ORIGIN"/>
+		<item value="440" key="DIALOG_HEIGHT"/>
 		<item value="true" key="TOGGLE_SELECTED"/>
 	</section>
 </section>
