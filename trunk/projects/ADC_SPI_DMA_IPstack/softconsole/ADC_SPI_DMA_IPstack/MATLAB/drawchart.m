@@ -1,4 +1,4 @@
-function [ ] = drawchart( Fs, F_offset, Resolution, N, chunk1, chunk2, chunk1fft, chunk2fft )
+function [ ] = drawchart( TIME_STAMP, TS, Fs, F_offset, Resolution, N, chunk1, chunk2, chunk1fft, chunk2fft )
 
     F = Fs / N;
     T = 1/Fs;
@@ -17,8 +17,21 @@ function [ ] = drawchart( Fs, F_offset, Resolution, N, chunk1, chunk2, chunk1fft
 
     clf;
     
+if TIME_STAMP == 1
+    subplot(3,1,1);
+    hold on;
+    TSD = TS(2:end) - TS(1:end-1);
+    plot(TSD, '.-');
+    xlim([0 length(TSD)+1]);
+end
+    
+    
 %time
+if TIME_STAMP == 1
+    subplot(3,1,2);
+else
     subplot(2,1,1);
+end
     hold on;
     plot(time*1e6, chunk1, 'b.-');
     plot(time*1e6, chunk2, 'r.-');
@@ -40,8 +53,12 @@ function [ ] = drawchart( Fs, F_offset, Resolution, N, chunk1, chunk2, chunk1fft
 %     ylabel('Log10 sample []');
 %     hold off;    
     
-%frequency    
+%frequency  
+if TIME_STAMP == 1
+    subplot(3,1,3);
+else
     subplot(2,1,2);
+end
     hold on;
     plot(freq/1e6, chunk1fft, 'b');
     plot(freq/1e6, chunk2fft, 'r');

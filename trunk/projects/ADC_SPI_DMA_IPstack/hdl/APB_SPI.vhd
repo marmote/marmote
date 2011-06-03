@@ -66,8 +66,7 @@ architecture Behavioral of SPI_APB_ADC is
 
 
 -- SPI inteface
---    signal samples      : sample_vector(1 to 2);    -- Parallel sample data out
-    signal samples      : std_logic_vector(31 downto 0);
+    signal samples      : sample_vector(1 to 2);    -- Parallel sample data out
 
 
     type byte_vector is array ( natural range <> ) of std_logic_vector(15 downto 0);
@@ -78,6 +77,7 @@ architecture Behavioral of SPI_APB_ADC is
     signal shift_en     : std_logic;
 
     signal counter      : std_logic_vector(15 downto 0);
+    signal rev_counter      : std_logic_vector(15 downto 0);
 
 
     signal sample_rdy_int   : std_logic;
@@ -131,10 +131,10 @@ begin
                 case PADDR(7 downto 0) is
                     when c_ADDR_DATA =>
 --                        PRDATA <= samples(1) & samples(2);
---                        PRDATA <= samples(1)(7 downto 0) & samples(1)(15 downto 8) & samples(2)(7 downto 0) & samples(2)(15 downto 8);
-                        PRDATA <= samples;
+                        PRDATA <= samples(1)(7 downto 0) & samples(1)(15 downto 8) & samples(2)(7 downto 0) & samples(2)(15 downto 8);
                     when c_ADDR_COUNTER =>
-                        PRDATA <= counter & reverse_vector(counter);
+--                        PRDATA <= counter & reverse_vector(counter);
+                        PRDATA <= counter(7 downto 0) & counter(15 downto 8) & rev_counter(7 downto 0) & rev_counter(15 downto 8);
                     when others =>
                         PRDATA <= std_logic_vector(c_WRONGADDRESS_DATA);
                 end case;
@@ -202,22 +202,13 @@ begin
 
             end if;
 
---            if rising_edge(PCLK) then
---                if prog(0) = '1' then
---                    samples(i) <= shift_regs(i);
---                end if;
---            end if;
+            if rising_edge(PCLK) then
+                if prog(0) = '1' then
+                    samples(i) <= shift_regs(i);
+                end if;
+            end if;
         end process;
     end generate;
-
-    process(PCLK)
-    begin
-        if rising_edge(PCLK) then
-            if prog(0) = '1' then
-                samples <= shift_regs(1)(7 downto 0) & shift_regs(1)(15 downto 8) & shift_regs(1)(7 downto 0) & shift_regs(1)(15 downto 8);
-            end if;
-        end if;
-    end process;
 
 
     --Debug
@@ -247,5 +238,7 @@ begin
             counter <= counter(14 downto 0) & counter(15);
         end if;
     end process;
+
+    rev_counter <= reverse_vector(counter);
 
 end Behavioral;
