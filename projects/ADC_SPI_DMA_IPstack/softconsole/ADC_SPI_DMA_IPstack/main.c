@@ -1,5 +1,6 @@
 #define NETWORKING_ENABLED
 #define ADC_ENABLED
+#define TIME_STAMP
 
 
 // **************************************************************************
@@ -52,7 +53,7 @@
 #ifdef ADC_ENABLED
 #  define ADC_MEM_ADDRESS_DATA		(0x00+SPI_APB_ADC_0)
 #  define ADC_MEM_ADDRESS_COUNTER	(0x04+SPI_APB_ADC_0)
-#  define ADC_MEM_ADDRESS			ADC_MEM_ADDRESS_DATA
+#  define ADC_MEM_ADDRESS			ADC_MEM_ADDRESS_COUNTER
 #endif
 
 #ifdef NETWORKING_ENABLED
@@ -68,6 +69,7 @@
 #endif
 
 #define BUFF_LENGTH				TCP_SND_BUF/sizeof(uint32_t)
+
 //#define BUFF_LENGTH				49
 #define NB_OF_SAMPLE_BUFFERS	3 //MIN 3 !!!!!!!
 
@@ -82,13 +84,17 @@ static uint64_t System_ticks = 0;
 static struct netif l_netif;                // the single network interface
 struct tcp_pcb *pcb;
 
-unsigned char last_data_written = 1;
+unsigned char still_working_on_last_data = 0;
 #endif
 
 uint8_t		DMA_buf = 0;
 uint8_t		next_DMA_buf = 1;
 uint8_t		NET_buf = 0;
 uint32_t	buffer[NB_OF_SAMPLE_BUFFERS][BUFF_LENGTH];
+
+#ifdef TIME_STAMP
+uint32_t counter = 0;
+#endif
 
 
 
@@ -121,11 +127,14 @@ unsigned long sys_now(void)
 void next_DMA_transfer()
 {
 	PDMA_load_next_buffer(PDMA_CHANNEL_0,
-            /* Read PPE_PDMA_DOUT */
 			(uint32_t) ADC_MEM_ADDRESS,
-            /* This is in MSS ESRAM */
+#ifdef TIME_STAMP
+            (uint32_t) &(buffer[next_DMA_buf][1]),
+            BUFF_LENGTH-1);
+#else
             (uint32_t) &(buffer[next_DMA_buf][0]),
             BUFF_LENGTH);
+#endif
 }
 #endif
 
@@ -140,6 +149,10 @@ void pdma_handler( void )
 {
 //	PDMA_disable_irq( PDMA_CHANNEL_0 );
 
+#ifdef TIME_STAMP
+	uint8_t temp = DMA_buf;
+#endif
+
 	DMA_buf = next_DMA_buf;
 
 	uint8_t next_buf = (next_DMA_buf + 1) % NB_OF_SAMPLE_BUFFERS;
@@ -148,6 +161,21 @@ void pdma_handler( void )
 
 	next_DMA_transfer();
 
+#ifdef TIME_STAMP
+  	buffer[temp][0] = //counter;
+        	((counter & 0xFF000000) >> 24)
+			|
+           	((counter & 0x00FF0000) >> 8)
+           	|
+           	((counter & 0x0000FF00) << 8)
+           	|
+           	((counter & 0x000000FF) << 24);
+
+
+	counter++;
+#endif
+
+
 //    PDMA_enable_irq( PDMA_CHANNEL_0 );
 }
 #endif
@@ -155,10 +183,10 @@ void pdma_handler( void )
 #ifdef NETWORKING_ENABLED
 void data_sent_callback_fn()
 {
-	if (last_data_written)
+	if (!still_working_on_last_data)
 		return;
 
-	last_data_written = 1;
+	still_working_on_last_data = 0;
 	NET_buf = (NET_buf + 1) % NB_OF_SAMPLE_BUFFERS;
 }
 
@@ -247,11 +275,14 @@ int main()
 
 #ifdef ADC_ENABLED
 	PDMA_start(PDMA_CHANNEL_0,
-            /* Read PPE_PDMA_DOUT */
 			(uint32_t) ADC_MEM_ADDRESS,
-            /* This is in MSS ESRAM */
+#ifdef TIME_STAMP
+            (uint32_t) &(buffer[DMA_buf][1]),
+            BUFF_LENGTH-1);
+#else
             (uint32_t) &(buffer[DMA_buf][0]),
             BUFF_LENGTH);
+#endif
 
 	next_DMA_transfer();
 #endif
@@ -275,14 +306,14 @@ int main()
 #endif
 
         // if we have stuff to write AND last data is already sent AND we have a live connection
-        if ( (NET_buf != DMA_buf) && last_data_written && pcb->callback_arg)
+        if ( (NET_buf != DMA_buf) && !still_working_on_last_data && pcb->callback_arg)
         {
         	//buffer[NET_buf][0] = 0xFFFFFFFF;
         	//buffer[NET_buf][BUFF_LENGTH/4-1] = 0xFFFFFFFF;
         	//buffer[NET_buf][BUFF_LENGTH/2-1] = 0xFFFFFFFF;
         	//buffer[NET_buf][BUFF_LENGTH*3/4-1] = 0xFFFFFFFF;
         	//buffer[NET_buf][BUFF_LENGTH-1] = 0xFFFFFFFF;
-        	last_data_written = 0;
+        	still_working_on_last_data = 1;
         	send_buffer(pcb, &(buffer[NET_buf][0]), BUFF_LENGTH*sizeof(uint32_t));
         }
 

@@ -1,45 +1,56 @@
-BUFF_LENGTH = 256;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Initial variables
+TIME_STAMP = 1;
+BUFF_MULTIPLIER = 16; % How many buffers would you like to read from network?
 
-Fs = 10e6 / 18; % [Hz] = 2.778 MHz
+BUFF_LENGTH = 64; % in samples for a single channel
+
+Fs = 50e6 / 18; % [Hz] = 2.778 MHz
 F_offset = 0; % [Hz]
 Resolution = 14; % bits
 
-N = BUFF_LENGTH;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Variables
+if TIME_STAMP == 1
+    N = (BUFF_LENGTH-1)*BUFF_MULTIPLIER;
+else
+    N = BUFF_LENGTH*BUFF_MULTIPLIER;
+end
 %F = Fs / N;
-T = 1/Fs;
+%T = 1/Fs;
 
 Full_Scale = 2^Resolution - 1;
-%Full_Scale_dB = 20 * log10(Full_Scale);
+%Full_Scale_dB = 10 * log10(Full_Scale);
 
-%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 gen_f = 15e4; % 0.1 MHz
 gen_A = 1; %
 gen_phi = 0; % [rad]
 
-t = 0:T:T*(BUFF_LENGTH-1);
+t = 0:T:T*(N-1);
 
-chunk1 = gen_A*sin(2*pi()*gen_f*t + gen_phi);
+c1 = gen_A*sin(2*pi()*gen_f*t + gen_phi);
 %chunk2 = -chunk1/Full_Scale; 
-chunk2 = -chunk1/2; 
+c2 = -c1/2; 
 
-chunk1 = ( chunk1 +1 ) * Full_Scale/2;
-chunk2 = ( chunk2 +1 ) * Full_Scale/2;
-%%%%%%%%%%%%%%%%%%%%%%%%
+c1 = ( c1 +1 ) * Full_Scale/2;
+c2 = ( c2 +1 ) * Full_Scale/2;
 
+c = fix(c1) * 2^16 + fix(c2);
 
-chunk1 = chunk1/(Full_Scale/2) - 1;
-chunk2 = chunk2/(Full_Scale/2) - 1;
-   
-chunk1fft = 2*abs(fft(chunk1));
-chunk2fft = 2*abs(fft(chunk2));
+chunk = c;
+if TIME_STAMP == 1
+    TS_tmp = 1:BUFF_MULTIPLIER;
 
-chunk1fft(end/2:end) = [];
-chunk2fft(end/2:end) = [];
+    c_tmp = [];
+    for ii=1:BUFF_MULTIPLIER
+        c_tmp = [c_tmp ii c((ii-1)*(BUFF_LENGTH-1)+1:ii*(BUFF_LENGTH-1))];
+    end
     
-chunk1fft = chunk1fft / N;
-chunk2fft = chunk2fft / N;
+    chunk = c_tmp;
+end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-chunk1fft = 20 * log10(chunk1fft);
-chunk2fft = 20 * log10(chunk2fft);
+[ TS, chunk1, chunk2, chunk1fft, chunk2fft ] = processing( TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, Resolution, chunk );
 
-drawchart(Fs, F_offset, Resolution, N, chunk1, chunk2, chunk1fft, chunk2fft);
+drawchart(TIME_STAMP, TS, Fs, F_offset, Resolution, N, chunk1, chunk2, chunk1fft, chunk2fft);
