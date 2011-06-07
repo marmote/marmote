@@ -1,13 +1,4 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Initial variables
-TIME_STAMP = 1;
-BUFF_MULTIPLIER = 16; % How many buffers would you like to read from network?
-
-BUFF_LENGTH = 64; % in samples for a single channel
-
-Fs = 50e6 / 18; % [Hz] = 2.778 MHz
-F_offset = 0; % [Hz]
-Resolution = 14; % bits
+setvariables();
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Variables
@@ -17,7 +8,7 @@ else
     N = BUFF_LENGTH*BUFF_MULTIPLIER;
 end
 %F = Fs / N;
-%T = 1/Fs;
+T = 1/Fs;
 
 Full_Scale = 2^Resolution - 1;
 %Full_Scale_dB = 10 * log10(Full_Scale);
@@ -53,4 +44,4 @@ end
 
 [ TS, chunk1, chunk2, chunk1fft, chunk2fft ] = processing( TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, Resolution, chunk );
 
-drawchart(TIME_STAMP, TS, Fs, F_offset, Resolution, N, chunk1, chunk2, chunk1fft, chunk2fft);
+drawchart(TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, TS, Fs, F_offset, Resolution, N, chunk1, chunk2, chunk1fft, chunk2fft);

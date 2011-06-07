@@ -53,7 +53,7 @@
 #ifdef ADC_ENABLED
 #  define ADC_MEM_ADDRESS_DATA		(0x00+SPI_APB_ADC_0)
 #  define ADC_MEM_ADDRESS_COUNTER	(0x04+SPI_APB_ADC_0)
-#  define ADC_MEM_ADDRESS			ADC_MEM_ADDRESS_COUNTER
+#  define ADC_MEM_ADDRESS			ADC_MEM_ADDRESS_DATA
 #endif
 
 #ifdef NETWORKING_ENABLED
@@ -68,9 +68,9 @@
 
 #endif
 
-#define BUFF_LENGTH				TCP_SND_BUF/sizeof(uint32_t)
+//#define BUFF_LENGTH				TCP_SND_BUF/sizeof(uint32_t)
 
-//#define BUFF_LENGTH				49
+#define BUFF_LENGTH				64
 #define NB_OF_SAMPLE_BUFFERS	3 //MIN 3 !!!!!!!
 
 
@@ -124,17 +124,39 @@ unsigned long sys_now(void)
 // **************************************************************************
 
 #ifdef ADC_ENABLED
+#	ifdef TIME_STAMP
+void set_time_stamp(uint8_t buf_num)
+{
+
+    buffer[buf_num][0] = //counter;
+        	((counter & 0xFF000000) >> 24)
+			|
+           	((counter & 0x00FF0000) >> 8)
+           	|
+           	((counter & 0x0000FF00) << 8)
+           	|
+           	((counter & 0x000000FF) << 24);
+
+    counter++;
+}
+#	endif
+
 void next_DMA_transfer()
 {
+#	ifdef TIME_STAMP
+	set_time_stamp(next_DMA_buf);
+
 	PDMA_load_next_buffer(PDMA_CHANNEL_0,
 			(uint32_t) ADC_MEM_ADDRESS,
-#ifdef TIME_STAMP
             (uint32_t) &(buffer[next_DMA_buf][1]),
             BUFF_LENGTH-1);
-#else
+
+#	else
+	PDMA_load_next_buffer(PDMA_CHANNEL_0,
+			(uint32_t) ADC_MEM_ADDRESS,
             (uint32_t) &(buffer[next_DMA_buf][0]),
             BUFF_LENGTH);
-#endif
+#	endif
 }
 #endif
 
@@ -149,10 +171,6 @@ void pdma_handler( void )
 {
 //	PDMA_disable_irq( PDMA_CHANNEL_0 );
 
-#ifdef TIME_STAMP
-	uint8_t temp = DMA_buf;
-#endif
-
 	DMA_buf = next_DMA_buf;
 
 	uint8_t next_buf = (next_DMA_buf + 1) % NB_OF_SAMPLE_BUFFERS;
@@ -160,21 +178,6 @@ void pdma_handler( void )
 		next_DMA_buf = next_buf;
 
 	next_DMA_transfer();
-
-#ifdef TIME_STAMP
-  	buffer[temp][0] = //counter;
-        	((counter & 0xFF000000) >> 24)
-			|
-           	((counter & 0x00FF0000) >> 8)
-           	|
-           	((counter & 0x0000FF00) << 8)
-           	|
-           	((counter & 0x000000FF) << 24);
-
-
-	counter++;
-#endif
-
 
 //    PDMA_enable_irq( PDMA_CHANNEL_0 );
 }
@@ -274,15 +277,20 @@ int main()
 #endif
 
 #ifdef ADC_ENABLED
+#	ifdef TIME_STAMP
+    set_time_stamp(DMA_buf);
+
 	PDMA_start(PDMA_CHANNEL_0,
 			(uint32_t) ADC_MEM_ADDRESS,
-#ifdef TIME_STAMP
             (uint32_t) &(buffer[DMA_buf][1]),
             BUFF_LENGTH-1);
-#else
+#	else
+
+	PDMA_start(PDMA_CHANNEL_0,
+			(uint32_t) ADC_MEM_ADDRESS,
             (uint32_t) &(buffer[DMA_buf][0]),
             BUFF_LENGTH);
-#endif
+#	endif
 
 	next_DMA_transfer();
 #endif
