@@ -30,8 +30,8 @@ function [ TS, chunk1, chunk2, chunk1fft, chunk2fft ] = processing( TIME_STAMP, 
     chunk1fft = 2*abs(fft(chunk1));
     chunk2fft = 2*abs(fft(chunk2));
 
-    chunk1fft(end/2:end) = [];
-    chunk2fft(end/2:end) = [];
+    chunk1fft(ceil(end/2):end) = [];
+    chunk2fft(ceil(end/2):end) = [];
     
     chunk1fft = chunk1fft / N;
     chunk2fft = chunk2fft / N;

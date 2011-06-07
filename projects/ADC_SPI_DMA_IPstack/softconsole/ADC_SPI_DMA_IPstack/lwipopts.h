@@ -244,7 +244,7 @@
 //#define TCP_MSS                         1024 // default 536
 //#define TCP_CALCULATE_EFF_SEND_MSS      1
 //#define TCP_SND_BUF                     256
-//#define TCP_SND_BUF                     700 // 256
+#define TCP_SND_BUF                     1024 // 256
 //#define TCP_SND_QUEUELEN                ((4 * (TCP_SND_BUF) + (TCP_MSS - 1))/(TCP_MSS))
 //#define TCP_SNDLOWAT                    ((TCP_SND_BUF)/2)
 //#define TCP_SNDQUEUELOWAT               ((TCP_SND_QUEUELEN)/2)
