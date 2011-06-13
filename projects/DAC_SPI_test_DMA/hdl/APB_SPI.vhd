@@ -158,7 +158,31 @@ begin
 
 
     -- Clock
-    SCLK <= div_clk;
+--    SCLK <= div_clk;
+    process(PRESETn, PCLK)
+    begin
+        if PRESETn = '0' then
+            SCLK <=  '0';
+        elsif rising_edge(PCLK) then
+            if (    ( div_clk = '0' and prog(17) = '1' ) 
+                    or 
+                    prog(18) = '1' 
+                    or 
+                    ( div_clk = '1' and prog(19) = '1' )
+                     
+                    or
+                     
+                    ( div_clk = '0' and prog(35) = '1' ) 
+                    or 
+                    prog(0) = '1' 
+                    or 
+                    ( div_clk = '1' and prog(1) = '1' )  ) then
+                SCLK <=  '0';
+            else
+                SCLK <= not div_clk;
+            end if;
+        end if;
+    end process;
 
 
     -- Program stepping

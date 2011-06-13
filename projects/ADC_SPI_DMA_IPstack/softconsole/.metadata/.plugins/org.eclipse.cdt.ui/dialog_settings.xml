@@ -2,13 +2,6 @@
 <section name="Workbench">
 	<section name="completion_proposal_size">
 	</section>
-	<section name="PDOMSearchPage">
-		<item value="227191" key="searchFlags"/>
-		<item value="false" key="caseSensitive"/>
-		<list key="previousPatterns">
-			<item value="50000000"/>
-		</list>
-	</section>
 	<section name="org.eclipse.cdt.internal.ui.typehierarchy.OpenTypeInHierarchyActionSettings">
 		<item value="true" key="show_structs"/>
 		<item value="true" key="show_lowlevel"/>
@@ -24,6 +17,13 @@
 		<item value="true" key="show_unions"/>
 		<item value="85" key="y"/>
 		<item value="539" key="x"/>
+	</section>
+	<section name="PDOMSearchPage">
+		<item value="227191" key="searchFlags"/>
+		<item value="false" key="caseSensitive"/>
+		<list key="previousPatterns">
+			<item value="50000000"/>
+		</list>
 	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
 	</section>
