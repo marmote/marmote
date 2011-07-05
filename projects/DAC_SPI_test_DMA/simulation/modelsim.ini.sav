@@ -27,6 +27,7 @@ postsynth = postsynth
 
 
 
+
 syncad_vhdl_lib = C:\Actel\Libero_v9.1\Designer/lib/actel/syncad_vhdl_lib
 
 [vcom]
