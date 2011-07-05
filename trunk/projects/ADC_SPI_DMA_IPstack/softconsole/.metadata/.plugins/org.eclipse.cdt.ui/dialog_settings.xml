@@ -22,6 +22,7 @@
 		<item value="227191" key="searchFlags"/>
 		<item value="false" key="caseSensitive"/>
 		<list key="previousPatterns">
+			<item value="callback_arg"/>
 			<item value="50000000"/>
 		</list>
 	</section>

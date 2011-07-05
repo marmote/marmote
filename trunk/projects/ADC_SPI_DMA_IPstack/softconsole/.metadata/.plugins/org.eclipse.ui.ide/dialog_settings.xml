@@ -20,9 +20,9 @@
 		<item value="500" key="DIALOG_WIDTH"/>
 		<item value="true" key="BUILD_NOW"/>
 		<item value="false" key="BUILD_ALL"/>
-		<item value="268" key="DIALOG_Y_ORIGIN"/>
+		<item value="208" key="DIALOG_Y_ORIGIN"/>
 		<item value="440" key="DIALOG_HEIGHT"/>
-		<item value="-1170" key="DIALOG_X_ORIGIN"/>
+		<item value="276" key="DIALOG_X_ORIGIN"/>
 		<item value="true" key="TOGGLE_SELECTED"/>
 	</section>
 </section>
