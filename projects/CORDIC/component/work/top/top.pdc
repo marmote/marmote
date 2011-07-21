@@ -1,0 +1,37 @@
+# Actel Physical design constraints file
+# Generated file
+
+# Version: 9.1 SP1 9.1.1.7
+# Family: SmartFusion , Die: A2F200M3F , Package: 484 FBGA
+# Date generated: Tue Jul 19 14:45:06 2011 
+
+
+# 
+# IO banks setting
+# 
+
+
+# 
+# I/O constraints
+# 
+
+set_io MSS_RESET_N    \
+    -pinname R1       \
+    -fixed yes        \
+    -DIRECTION Input
+
+
+
+#
+# Non IO constraints
+#
+
+
+#
+# Old IO constraints, commented out for reference
+#
+
+# set_io MSS_RESET_N -pinname R1 -fixed yes -DIRECTION Input 
+# set_io UART_0_RXD -pinname U18 -fixed yes -DIRECTION Input 
+# set_io UART_0_TXD -pinname Y22 -fixed yes -DIRECTION Output 
+# set_io MSS_RESET_N -pinname R1 -fixed yes -DIRECTION Input 
