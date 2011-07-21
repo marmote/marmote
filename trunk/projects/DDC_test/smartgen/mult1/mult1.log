@@ -1,0 +1,54 @@
+ ** Message System Log
+ ** Database: 
+ ** Date:   Wed Jul 20 12:18:50 2011
+
+
+****************
+Macro Parameters
+****************
+
+Name                            : mult1
+Family                          : SmartFusion
+Output Format                   : VHDL
+Type                            : Multiplier
+Variation                       : Booth Advanced Options
+Clock                           : Rising
+DataA Width                     : 16
+DataB Width                     : 16
+Representation                  : Signed
+Final Adder                     : Instantiate
+Pipeline Stages                 : 0
+Summation Network               : Wallace
+Max PGen Width                  : 0
+Final Adder Speed               : Sklansky
+Hybrid Val                      : 0
+Insert Pad                      : No
+Insert I/O Reg                  : No
+DebugLevel                      : 0
+
+**************
+Compile Report
+**************
+
+
+Netlist Resource Report
+=======================
+
+    Microcontroller Subsystem  Used:      0  Total:      1   (0.00%)
+    Fabric                     Used:   1026  Total:   4608   (22.27%)
+    Fabric IO (W/ clocks)      Used:      0  Total:     94   (0.00%)
+    Fabric Differential IO     Used:      0  Total:     47   (0.00%)
+    Dedicated Analog IO        Used:      0  Total:     32   (0.00%)
+    Dedicated MSS IO           Used:      0  Total:     43   (0.00%)
+    GLOBAL (Chip+Quadrant)     Used:      0  Total:     15   (0.00%)
+    MSS GLOBAL                 Used:      0  Total:      3   (0.00%)
+    On-chip RC oscillator      Used:      0  Total:      1   (0.00%)
+    Main Crystal oscillator    Used:      0  Total:      1   (0.00%)
+    32 KHz Crystal oscillator  Used:      0  Total:      1   (0.00%)
+    RAM/FIFO                   Used:      0  Total:      8   (0.00%)
+    User JTAG                  Used:      0  Total:      1   (0.00%)
+
+Wrote VHDL netlist to D:/Work/TEMPORARY/DDC_test/smartgen\mult1\mult1.vhd.
+
+ ** Log Ended:   Wed Jul 20 12:18:52 2011
+
