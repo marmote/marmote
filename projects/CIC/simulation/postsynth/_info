@@ -1,0 +1,90 @@
+m255
+K3
+13
+cModel Technology
+Z0 dD:\Work\marmote\projects\CIC\simulation
+Ecic
+Z1 w1313772658
+Z2 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
+Z3 dD:\Work\marmote\projects\CIC\simulation
+Z4 8D:/Work/marmote/projects/CIC/synthesis/CIC.vhd
+Z5 FD:/Work/marmote/projects/CIC/synthesis/CIC.vhd
+l0
+L8
+VLKJWdoC588FjFFKX73FFG3
+Z6 OW;C;6.6d;45
+31
+Z7 o-93 -explicit -work postsynth -O0
+!s100 fgdO;>]cS=DDYOCNI^HH]1
+Adef_arch
+R2
+DEx4 work 3 cic 0 22 LKJWdoC588FjFFKX73FFG3
+l2486
+L19
+VoLG1o`omFOBIde?zMnFDY3
+R6
+31
+Z8 Mx1 4 ieee 14 std_logic_1164
+R7
+!s100 nIQ5IZl7RX^LdHRo[d8m]0
+Ecic_tb
+Z9 w1313771148
+Z10 DPx4 work 6 common 0 22 EH6U[RK82XAl0Lzjei^[`3
+Z11 DPx4 ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
+R2
+R3
+Z12 8D:/Work/marmote/projects/CIC/stimulus/mytestbench_CIC.vhd
+Z13 FD:/Work/marmote/projects/CIC/stimulus/mytestbench_CIC.vhd
+l0
+L13
+V9II9B;2M0;_D6Ta0>Foii1
+!s100 7nXnbWEdG^mCPCBZDXzUa1
+R6
+31
+R7
+Abench
+R10
+R11
+R2
+DEx4 work 6 cic_tb 0 22 9II9B;2M0;_D6Ta0>Foii1
+l47
+L22
+VOODi^cFik6Whz65l_D0h]2
+!s100 l5SBPEFEXFN:6Z?A^G1M90
+R6
+31
+Z14 Mx3 4 ieee 14 std_logic_1164
+Mx2 4 ieee 11 numeric_std
+Mx1 4 work 6 common
+R7
+Pcommon
+R11
+R2
+Z15 w1313770613
+R3
+Z16 8D:/Work/marmote/projects/CIC/hdl/common.vhd
+Z17 FD:/Work/marmote/projects/CIC/hdl/common.vhd
+l0
+L13
+VEH6U[RK82XAl0Lzjei^[`3
+R6
+31
+b1
+Z18 Mx2 4 ieee 14 std_logic_1164
+Z19 Mx1 4 ieee 11 numeric_std
+R7
+!s100 WXgl8DhLWiL8YCU@?3UBo3
+Bbody
+DBx4 work 6 common 0 22 EH6U[RK82XAl0Lzjei^[`3
+R11
+R2
+l0
+L65
+Vb60F=1?md[Zo_Ih4A[ZA;0
+R6
+31
+R18
+R19
+R7
+nbody
+!s100 >@]8UY4[MAYCPgb762PND0
