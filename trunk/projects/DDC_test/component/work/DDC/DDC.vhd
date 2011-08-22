@@ -1,4 +1,4 @@
--- Version: 9.1 SP1 9.1.1.7
+-- Version: 9.1 SP2 9.1.2.16
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -9,9 +9,11 @@ entity DDC is
 
     port( RST   : in    std_logic;
           CLK   : in    std_logic;
-          SDATA : in    std_logic_vector(1 to 2);
           SCLK  : out   std_logic;
-          CSn   : out   std_logic
+          CSn   : out   std_logic;
+          SDATA : in    std_logic_vector(1 to 2);
+          CH1   : out   std_logic_vector(15 downto 0);
+          CH2   : out   std_logic_vector(15 downto 0)
         );
 
 end DDC;
@@ -34,8 +36,8 @@ architecture DEF_ARCH of DDC is
     port( RST       : in    std_logic := 'U';
           CLK       : in    std_logic := 'U';
           DPHASE_EN : in    std_logic := 'U';
-          DPHASE    : in    std_logic_vector(15 downto 0) := (others => 'U');
           RDYOUT    : out   std_logic;
+          DPHASE    : in    std_logic_vector(15 downto 0) := (others => 'U');
           COS_OUT   : out   std_logic_vector(15 downto 0);
           SIN_OUT   : out   std_logic_vector(15 downto 0)
         );
@@ -53,22 +55,13 @@ architecture DEF_ARCH of DDC is
         );
   end component;
 
-    signal \ADC_SPI_0_CH1_[15]\, \ADC_SPI_0_CH1_[14]\, 
-        \ADC_SPI_0_CH1_[13]\, \ADC_SPI_0_CH1_[12]\, 
-        \ADC_SPI_0_CH1_[11]\, \ADC_SPI_0_CH1_[10]\, 
-        \ADC_SPI_0_CH1_[9]\, \ADC_SPI_0_CH1_[8]\, 
-        \ADC_SPI_0_CH1_[7]\, \ADC_SPI_0_CH1_[6]\, 
-        \ADC_SPI_0_CH1_[5]\, \ADC_SPI_0_CH1_[4]\, 
-        \ADC_SPI_0_CH1_[3]\, \ADC_SPI_0_CH1_[2]\, 
-        \ADC_SPI_0_CH1_[1]\, \ADC_SPI_0_CH1_[0]\, 
-        \ADC_SPI_0_CH2_[15]\, \ADC_SPI_0_CH2_[14]\, 
-        \ADC_SPI_0_CH2_[13]\, \ADC_SPI_0_CH2_[12]\, 
-        \ADC_SPI_0_CH2_[11]\, \ADC_SPI_0_CH2_[10]\, 
-        \ADC_SPI_0_CH2_[9]\, \ADC_SPI_0_CH2_[8]\, 
-        \ADC_SPI_0_CH2_[7]\, \ADC_SPI_0_CH2_[6]\, 
-        \ADC_SPI_0_CH2_[5]\, \ADC_SPI_0_CH2_[4]\, 
-        \ADC_SPI_0_CH2_[3]\, \ADC_SPI_0_CH2_[2]\, 
-        \ADC_SPI_0_CH2_[1]\, \ADC_SPI_0_CH2_[0]\, 
+    signal \CH1_[15]\, \CH1_[14]\, \CH1_[13]\, \CH1_[12]\, 
+        \CH1_[11]\, \CH1_[10]\, \CH1_[9]\, \CH1_[8]\, \CH1_[7]\, 
+        \CH1_[6]\, \CH1_[5]\, \CH1_[4]\, \CH1_[3]\, \CH1_[2]\, 
+        \CH1_[1]\, \CH1_[0]\, \CH2_[15]\, \CH2_[14]\, \CH2_[13]\, 
+        \CH2_[12]\, \CH2_[11]\, \CH2_[10]\, \CH2_[9]\, \CH2_[8]\, 
+        \CH2_[7]\, \CH2_[6]\, \CH2_[5]\, \CH2_[4]\, \CH2_[3]\, 
+        \CH2_[2]\, \CH2_[1]\, \CH2_[0]\, 
         \sincos_gen_0_COS_OUT_[15]\, \sincos_gen_0_COS_OUT_[14]\, 
         \sincos_gen_0_COS_OUT_[13]\, \sincos_gen_0_COS_OUT_[12]\, 
         \sincos_gen_0_COS_OUT_[11]\, \sincos_gen_0_COS_OUT_[10]\, 
@@ -104,24 +97,52 @@ architecture DEF_ARCH of DDC is
 
 begin 
 
+    CH1(15) <= \CH1_[15]\;
+    CH1(14) <= \CH1_[14]\;
+    CH1(13) <= \CH1_[13]\;
+    CH1(12) <= \CH1_[12]\;
+    CH1(11) <= \CH1_[11]\;
+    CH1(10) <= \CH1_[10]\;
+    CH1(9) <= \CH1_[9]\;
+    CH1(8) <= \CH1_[8]\;
+    CH1(7) <= \CH1_[7]\;
+    CH1(6) <= \CH1_[6]\;
+    CH1(5) <= \CH1_[5]\;
+    CH1(4) <= \CH1_[4]\;
+    CH1(3) <= \CH1_[3]\;
+    CH1(2) <= \CH1_[2]\;
+    CH1(1) <= \CH1_[1]\;
+    CH1(0) <= \CH1_[0]\;
+    CH2(15) <= \CH2_[15]\;
+    CH2(14) <= \CH2_[14]\;
+    CH2(13) <= \CH2_[13]\;
+    CH2(12) <= \CH2_[12]\;
+    CH2(11) <= \CH2_[11]\;
+    CH2(10) <= \CH2_[10]\;
+    CH2(9) <= \CH2_[9]\;
+    CH2(8) <= \CH2_[8]\;
+    CH2(7) <= \CH2_[7]\;
+    CH2(6) <= \CH2_[6]\;
+    CH2(5) <= \CH2_[5]\;
+    CH2(4) <= \CH2_[4]\;
+    CH2(3) <= \CH2_[3]\;
+    CH2(2) <= \CH2_[2]\;
+    CH2(1) <= \CH2_[1]\;
+    CH2(0) <= \CH2_[0]\;
 
     \VCC\ : VCC
       port map(Y => VCC_net);
     
     mult2_1 : mult2
-      port map(DataA(15) => \ADC_SPI_0_CH2_[15]\, DataA(14) => 
-        \ADC_SPI_0_CH2_[14]\, DataA(13) => \ADC_SPI_0_CH2_[13]\, 
-        DataA(12) => \ADC_SPI_0_CH2_[12]\, DataA(11) => 
-        \ADC_SPI_0_CH2_[11]\, DataA(10) => \ADC_SPI_0_CH2_[10]\, 
-        DataA(9) => \ADC_SPI_0_CH2_[9]\, DataA(8) => 
-        \ADC_SPI_0_CH2_[8]\, DataA(7) => \ADC_SPI_0_CH2_[7]\, 
-        DataA(6) => \ADC_SPI_0_CH2_[6]\, DataA(5) => 
-        \ADC_SPI_0_CH2_[5]\, DataA(4) => \ADC_SPI_0_CH2_[4]\, 
-        DataA(3) => \ADC_SPI_0_CH2_[3]\, DataA(2) => 
-        \ADC_SPI_0_CH2_[2]\, DataA(1) => \ADC_SPI_0_CH2_[1]\, 
-        DataA(0) => \ADC_SPI_0_CH2_[0]\, DataB(15) => 
-        \sincos_gen_0_SIN_OUT_[15]\, DataB(14) => 
-        \sincos_gen_0_SIN_OUT_[14]\, DataB(13) => 
+      port map(DataA(15) => \CH2_[15]\, DataA(14) => \CH2_[14]\, 
+        DataA(13) => \CH2_[13]\, DataA(12) => \CH2_[12]\, 
+        DataA(11) => \CH2_[11]\, DataA(10) => \CH2_[10]\, 
+        DataA(9) => \CH2_[9]\, DataA(8) => \CH2_[8]\, DataA(7)
+         => \CH2_[7]\, DataA(6) => \CH2_[6]\, DataA(5) => 
+        \CH2_[5]\, DataA(4) => \CH2_[4]\, DataA(3) => \CH2_[3]\, 
+        DataA(2) => \CH2_[2]\, DataA(1) => \CH2_[1]\, DataA(0)
+         => \CH2_[0]\, DataB(15) => \sincos_gen_0_SIN_OUT_[15]\, 
+        DataB(14) => \sincos_gen_0_SIN_OUT_[14]\, DataB(13) => 
         \sincos_gen_0_SIN_OUT_[13]\, DataB(12) => 
         \sincos_gen_0_SIN_OUT_[12]\, DataB(11) => 
         \sincos_gen_0_SIN_OUT_[11]\, DataB(10) => 
@@ -148,19 +169,15 @@ begin
         Mult(2) => nc58, Mult(1) => nc63, Mult(0) => nc27);
     
     mult2_0 : mult2
-      port map(DataA(15) => \ADC_SPI_0_CH2_[15]\, DataA(14) => 
-        \ADC_SPI_0_CH2_[14]\, DataA(13) => \ADC_SPI_0_CH2_[13]\, 
-        DataA(12) => \ADC_SPI_0_CH2_[12]\, DataA(11) => 
-        \ADC_SPI_0_CH2_[11]\, DataA(10) => \ADC_SPI_0_CH2_[10]\, 
-        DataA(9) => \ADC_SPI_0_CH2_[9]\, DataA(8) => 
-        \ADC_SPI_0_CH2_[8]\, DataA(7) => \ADC_SPI_0_CH2_[7]\, 
-        DataA(6) => \ADC_SPI_0_CH2_[6]\, DataA(5) => 
-        \ADC_SPI_0_CH2_[5]\, DataA(4) => \ADC_SPI_0_CH2_[4]\, 
-        DataA(3) => \ADC_SPI_0_CH2_[3]\, DataA(2) => 
-        \ADC_SPI_0_CH2_[2]\, DataA(1) => \ADC_SPI_0_CH2_[1]\, 
-        DataA(0) => \ADC_SPI_0_CH2_[0]\, DataB(15) => 
-        \sincos_gen_0_COS_OUT_[15]\, DataB(14) => 
-        \sincos_gen_0_COS_OUT_[14]\, DataB(13) => 
+      port map(DataA(15) => \CH2_[15]\, DataA(14) => \CH2_[14]\, 
+        DataA(13) => \CH2_[13]\, DataA(12) => \CH2_[12]\, 
+        DataA(11) => \CH2_[11]\, DataA(10) => \CH2_[10]\, 
+        DataA(9) => \CH2_[9]\, DataA(8) => \CH2_[8]\, DataA(7)
+         => \CH2_[7]\, DataA(6) => \CH2_[6]\, DataA(5) => 
+        \CH2_[5]\, DataA(4) => \CH2_[4]\, DataA(3) => \CH2_[3]\, 
+        DataA(2) => \CH2_[2]\, DataA(1) => \CH2_[1]\, DataA(0)
+         => \CH2_[0]\, DataB(15) => \sincos_gen_0_COS_OUT_[15]\, 
+        DataB(14) => \sincos_gen_0_COS_OUT_[14]\, DataB(13) => 
         \sincos_gen_0_COS_OUT_[13]\, DataB(12) => 
         \sincos_gen_0_COS_OUT_[12]\, DataB(11) => 
         \sincos_gen_0_COS_OUT_[11]\, DataB(10) => 
@@ -188,14 +205,14 @@ begin
     
     sincos_gen_0 : sincos_gen
       port map(RST => RST, CLK => CLK, DPHASE_EN => VCC_net, 
-        DPHASE(15) => GND_net, DPHASE(14) => GND_net, DPHASE(13)
-         => GND_net, DPHASE(12) => GND_net, DPHASE(11) => GND_net, 
-        DPHASE(10) => GND_net, DPHASE(9) => GND_net, DPHASE(8)
-         => VCC_net, DPHASE(7) => GND_net, DPHASE(6) => GND_net, 
-        DPHASE(5) => GND_net, DPHASE(4) => GND_net, DPHASE(3) => 
-        GND_net, DPHASE(2) => GND_net, DPHASE(1) => GND_net, 
-        DPHASE(0) => GND_net, RDYOUT => OPEN, COS_OUT(15) => 
-        \sincos_gen_0_COS_OUT_[15]\, COS_OUT(14) => 
+        RDYOUT => OPEN, DPHASE(15) => GND_net, DPHASE(14) => 
+        GND_net, DPHASE(13) => GND_net, DPHASE(12) => GND_net, 
+        DPHASE(11) => GND_net, DPHASE(10) => GND_net, DPHASE(9)
+         => GND_net, DPHASE(8) => VCC_net, DPHASE(7) => GND_net, 
+        DPHASE(6) => GND_net, DPHASE(5) => GND_net, DPHASE(4) => 
+        GND_net, DPHASE(3) => GND_net, DPHASE(2) => GND_net, 
+        DPHASE(1) => GND_net, DPHASE(0) => GND_net, COS_OUT(15)
+         => \sincos_gen_0_COS_OUT_[15]\, COS_OUT(14) => 
         \sincos_gen_0_COS_OUT_[14]\, COS_OUT(13) => 
         \sincos_gen_0_COS_OUT_[13]\, COS_OUT(12) => 
         \sincos_gen_0_COS_OUT_[12]\, COS_OUT(11) => 
@@ -229,19 +246,15 @@ begin
         \sincos_gen_0_SIN_OUT_[0]\);
     
     mult1_1 : mult1
-      port map(DataA(15) => \ADC_SPI_0_CH1_[15]\, DataA(14) => 
-        \ADC_SPI_0_CH1_[14]\, DataA(13) => \ADC_SPI_0_CH1_[13]\, 
-        DataA(12) => \ADC_SPI_0_CH1_[12]\, DataA(11) => 
-        \ADC_SPI_0_CH1_[11]\, DataA(10) => \ADC_SPI_0_CH1_[10]\, 
-        DataA(9) => \ADC_SPI_0_CH1_[9]\, DataA(8) => 
-        \ADC_SPI_0_CH1_[8]\, DataA(7) => \ADC_SPI_0_CH1_[7]\, 
-        DataA(6) => \ADC_SPI_0_CH1_[6]\, DataA(5) => 
-        \ADC_SPI_0_CH1_[5]\, DataA(4) => \ADC_SPI_0_CH1_[4]\, 
-        DataA(3) => \ADC_SPI_0_CH1_[3]\, DataA(2) => 
-        \ADC_SPI_0_CH1_[2]\, DataA(1) => \ADC_SPI_0_CH1_[1]\, 
-        DataA(0) => \ADC_SPI_0_CH1_[0]\, DataB(15) => 
-        \sincos_gen_0_SIN_OUT_[15]\, DataB(14) => 
-        \sincos_gen_0_SIN_OUT_[14]\, DataB(13) => 
+      port map(DataA(15) => \CH1_[15]\, DataA(14) => \CH1_[14]\, 
+        DataA(13) => \CH1_[13]\, DataA(12) => \CH1_[12]\, 
+        DataA(11) => \CH1_[11]\, DataA(10) => \CH1_[10]\, 
+        DataA(9) => \CH1_[9]\, DataA(8) => \CH1_[8]\, DataA(7)
+         => \CH1_[7]\, DataA(6) => \CH1_[6]\, DataA(5) => 
+        \CH1_[5]\, DataA(4) => \CH1_[4]\, DataA(3) => \CH1_[3]\, 
+        DataA(2) => \CH1_[2]\, DataA(1) => \CH1_[1]\, DataA(0)
+         => \CH1_[0]\, DataB(15) => \sincos_gen_0_SIN_OUT_[15]\, 
+        DataB(14) => \sincos_gen_0_SIN_OUT_[14]\, DataB(13) => 
         \sincos_gen_0_SIN_OUT_[13]\, DataB(12) => 
         \sincos_gen_0_SIN_OUT_[12]\, DataB(11) => 
         \sincos_gen_0_SIN_OUT_[11]\, DataB(10) => 
@@ -268,19 +281,15 @@ begin
         nc31, Mult(1) => nc96, Mult(0) => nc44);
     
     mult1_0 : mult1
-      port map(DataA(15) => \ADC_SPI_0_CH1_[15]\, DataA(14) => 
-        \ADC_SPI_0_CH1_[14]\, DataA(13) => \ADC_SPI_0_CH1_[13]\, 
-        DataA(12) => \ADC_SPI_0_CH1_[12]\, DataA(11) => 
-        \ADC_SPI_0_CH1_[11]\, DataA(10) => \ADC_SPI_0_CH1_[10]\, 
-        DataA(9) => \ADC_SPI_0_CH1_[9]\, DataA(8) => 
-        \ADC_SPI_0_CH1_[8]\, DataA(7) => \ADC_SPI_0_CH1_[7]\, 
-        DataA(6) => \ADC_SPI_0_CH1_[6]\, DataA(5) => 
-        \ADC_SPI_0_CH1_[5]\, DataA(4) => \ADC_SPI_0_CH1_[4]\, 
-        DataA(3) => \ADC_SPI_0_CH1_[3]\, DataA(2) => 
-        \ADC_SPI_0_CH1_[2]\, DataA(1) => \ADC_SPI_0_CH1_[1]\, 
-        DataA(0) => \ADC_SPI_0_CH1_[0]\, DataB(15) => 
-        \sincos_gen_0_COS_OUT_[15]\, DataB(14) => 
-        \sincos_gen_0_COS_OUT_[14]\, DataB(13) => 
+      port map(DataA(15) => \CH1_[15]\, DataA(14) => \CH1_[14]\, 
+        DataA(13) => \CH1_[13]\, DataA(12) => \CH1_[12]\, 
+        DataA(11) => \CH1_[11]\, DataA(10) => \CH1_[10]\, 
+        DataA(9) => \CH1_[9]\, DataA(8) => \CH1_[8]\, DataA(7)
+         => \CH1_[7]\, DataA(6) => \CH1_[6]\, DataA(5) => 
+        \CH1_[5]\, DataA(4) => \CH1_[4]\, DataA(3) => \CH1_[3]\, 
+        DataA(2) => \CH1_[2]\, DataA(1) => \CH1_[1]\, DataA(0)
+         => \CH1_[0]\, DataB(15) => \sincos_gen_0_COS_OUT_[15]\, 
+        DataB(14) => \sincos_gen_0_COS_OUT_[14]\, DataB(13) => 
         \sincos_gen_0_COS_OUT_[13]\, DataB(12) => 
         \sincos_gen_0_COS_OUT_[12]\, DataB(11) => 
         \sincos_gen_0_COS_OUT_[11]\, DataB(10) => 
@@ -310,30 +319,22 @@ begin
       port map(Y => GND_net);
     
     ADC_SPI_0 : entity work.ADC_SPI
-      port map(PCLK => CLK, PRESETn => RST, CH1(15) => 
-        \ADC_SPI_0_CH1_[15]\, CH1(14) => \ADC_SPI_0_CH1_[14]\, 
-        CH1(13) => \ADC_SPI_0_CH1_[13]\, CH1(12) => 
-        \ADC_SPI_0_CH1_[12]\, CH1(11) => \ADC_SPI_0_CH1_[11]\, 
-        CH1(10) => \ADC_SPI_0_CH1_[10]\, CH1(9) => 
-        \ADC_SPI_0_CH1_[9]\, CH1(8) => \ADC_SPI_0_CH1_[8]\, 
-        CH1(7) => \ADC_SPI_0_CH1_[7]\, CH1(6) => 
-        \ADC_SPI_0_CH1_[6]\, CH1(5) => \ADC_SPI_0_CH1_[5]\, 
-        CH1(4) => \ADC_SPI_0_CH1_[4]\, CH1(3) => 
-        \ADC_SPI_0_CH1_[3]\, CH1(2) => \ADC_SPI_0_CH1_[2]\, 
-        CH1(1) => \ADC_SPI_0_CH1_[1]\, CH1(0) => 
-        \ADC_SPI_0_CH1_[0]\, CH2(15) => \ADC_SPI_0_CH2_[15]\, 
-        CH2(14) => \ADC_SPI_0_CH2_[14]\, CH2(13) => 
-        \ADC_SPI_0_CH2_[13]\, CH2(12) => \ADC_SPI_0_CH2_[12]\, 
-        CH2(11) => \ADC_SPI_0_CH2_[11]\, CH2(10) => 
-        \ADC_SPI_0_CH2_[10]\, CH2(9) => \ADC_SPI_0_CH2_[9]\, 
-        CH2(8) => \ADC_SPI_0_CH2_[8]\, CH2(7) => 
-        \ADC_SPI_0_CH2_[7]\, CH2(6) => \ADC_SPI_0_CH2_[6]\, 
-        CH2(5) => \ADC_SPI_0_CH2_[5]\, CH2(4) => 
-        \ADC_SPI_0_CH2_[4]\, CH2(3) => \ADC_SPI_0_CH2_[3]\, 
-        CH2(2) => \ADC_SPI_0_CH2_[2]\, CH2(1) => 
-        \ADC_SPI_0_CH2_[1]\, CH2(0) => \ADC_SPI_0_CH2_[0]\, SCLK
-         => SCLK, CSn => CSn, SDATA(1) => SDATA(1), SDATA(2) => 
-        SDATA(2), sample_rdy => OPEN);
+      port map(PCLK => CLK, PRESETn => RST, SCLK => SCLK, CSn => 
+        CSn, sample_rdy => OPEN, CH1(15) => \CH1_[15]\, CH1(14)
+         => \CH1_[14]\, CH1(13) => \CH1_[13]\, CH1(12) => 
+        \CH1_[12]\, CH1(11) => \CH1_[11]\, CH1(10) => \CH1_[10]\, 
+        CH1(9) => \CH1_[9]\, CH1(8) => \CH1_[8]\, CH1(7) => 
+        \CH1_[7]\, CH1(6) => \CH1_[6]\, CH1(5) => \CH1_[5]\, 
+        CH1(4) => \CH1_[4]\, CH1(3) => \CH1_[3]\, CH1(2) => 
+        \CH1_[2]\, CH1(1) => \CH1_[1]\, CH1(0) => \CH1_[0]\, 
+        CH2(15) => \CH2_[15]\, CH2(14) => \CH2_[14]\, CH2(13) => 
+        \CH2_[13]\, CH2(12) => \CH2_[12]\, CH2(11) => \CH2_[11]\, 
+        CH2(10) => \CH2_[10]\, CH2(9) => \CH2_[9]\, CH2(8) => 
+        \CH2_[8]\, CH2(7) => \CH2_[7]\, CH2(6) => \CH2_[6]\, 
+        CH2(5) => \CH2_[5]\, CH2(4) => \CH2_[4]\, CH2(3) => 
+        \CH2_[3]\, CH2(2) => \CH2_[2]\, CH2(1) => \CH2_[1]\, 
+        CH2(0) => \CH2_[0]\, SDATA(1) => SDATA(1), SDATA(2) => 
+        SDATA(2));
     
 
 end DEF_ARCH; 
