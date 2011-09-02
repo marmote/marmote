@@ -15,23 +15,23 @@ package COMMON is
 -----------------------------------------
 --            Common Types             --
 -----------------------------------------
-    subtype sample_type is std_logic_vector(15 downto 0);
-    type sample_vector is array ( natural range <> ) of sample_type;
 
 
 -----------------------------------------
 --          Common Constants           --
 -----------------------------------------
-    constant SAMPLE_WIDTH : integer := sample_type'length;   
-    constant ADC_ZERO_LEVEL : sample_type := x"0080"; --128   
-
     -- FPGA system clock frequency
-    constant c_FAB_CLK : integer := 50000000;
+    constant c_FAB_CLK : integer    := 50000000;
 
+    constant SAMPLE_WIDTH : integer := 14;  -- Has got to be less then or equal to 16 
+ --   constant ADC_ZERO_LEVEL : sample_type := x"0080"; --128   
 
+    constant c_CIC_WIDTH            : integer := 22;
+    constant c_CIC_ORDER            : integer := 4;
 
-	constant c_CORDIC_WIDTH     : integer := 16;
-	constant c_COUNTER_WIDTH    : integer := 5; 
+    constant c_CORDIC_WIDTH         : integer := 16;
+--    constant c_COUNTER_WIDTH    : integer := 5; -- 2^c_COUNTER_WIDTH > c_CORDIC_WIDTH+2
+    constant c_CORDIC_OUTPUT_WIDTH  : integer := 8;
 -----------------------------------------
 --   Common Functions and Procedures   --
 -----------------------------------------
@@ -42,6 +42,8 @@ package COMMON is
     ---
     function log2_ceil(constant s: integer) return integer;
 
+
+    function pow2(constant s: integer) return integer;
 
     ---
     --- Reverse a vector
@@ -61,12 +63,25 @@ end COMMON;
 ------------------------------------------------------------------------------
 package body COMMON is
 
+     function pow2(constant s: integer) return integer is
+        variable m, n : integer;
+    begin
+        m := 0;
+        n := 1;
+        while (m < s)  loop
+            m := m + 1;
+            n := n*2;
+        end loop;
+        return n;
+    end function;
+
+
     function log2_ceil(constant s: integer) return integer is
         variable m, n : integer;
     begin
         m := 0;
         n := 1;  
-        while (n <= s)  loop        
+        while (n < s)  loop        
             m := m + 1;
             n := n*2;    
         end loop;  

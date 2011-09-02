@@ -22,8 +22,8 @@ entity SIGN_CORRECTOR is
   		COS_IN    : in  std_logic_vector(c_CORDIC_WIDTH-1 downto 0);
 		SIN_IN    : in  std_logic_vector(c_CORDIC_WIDTH-1 downto 0);
 
-		COS_OUT   : out std_logic_vector(c_CORDIC_WIDTH-1 downto 0);
-		SIN_OUT   : out std_logic_vector(c_CORDIC_WIDTH-1 downto 0);
+		COS_OUT   : out std_logic_vector(c_CORDIC_OUTPUT_WIDTH-1 downto 0);
+		SIN_OUT   : out std_logic_vector(c_CORDIC_OUTPUT_WIDTH-1 downto 0);
         RDYOUT    : out std_logic
 	);
 end entity; 
@@ -42,13 +42,15 @@ architecture Behavioral of SIGN_CORRECTOR is
 --		to_signed(0, c_CORDIC_WIDTH);
 
     signal s_RDY_IN         : std_logic;
+    signal COS              : std_logic_vector(c_CORDIC_WIDTH-1 downto 0);
+    signal SIN              : std_logic_vector(c_CORDIC_WIDTH-1 downto 0);
 
 begin
 	invert_sincos : process (rst, clk)
 	begin
 		if rst = '1' then
-			COS_OUT <= (others => '0');
-			SIN_OUT <= (others => '0');
+			COS <= (others => '0');
+			SIN <= (others => '0');
             RDYOUT <= '0';
 
 		elsif rising_edge(clk) then
@@ -57,14 +59,18 @@ begin
 
             if s_RDY_IN = '1' then
                 if INV_EN = '1' then
-                    COS_OUT <= std_logic_vector(to_signed(0, c_CORDIC_WIDTH) - signed(COS_IN));
-                    SIN_OUT <= std_logic_vector(to_signed(0, c_CORDIC_WIDTH) - signed(SIN_IN));
+                    COS <= std_logic_vector(to_signed(0, c_CORDIC_WIDTH) - signed(COS_IN));
+                    SIN <= std_logic_vector(to_signed(0, c_CORDIC_WIDTH) - signed(SIN_IN));
                 else
-                    COS_OUT <= COS_IN;
-                    SIN_OUT <= SIN_IN;
+                    COS <= COS_IN;
+                    SIN <= SIN_IN;
                 end if;
 			end if;
 		end if;
 	end process invert_sincos;
+
+    COS_OUT <= COS(c_CORDIC_WIDTH-1 downto c_CORDIC_WIDTH-c_CORDIC_OUTPUT_WIDTH);
+    SIN_OUT <= SIN(c_CORDIC_WIDTH-1 downto c_CORDIC_WIDTH-c_CORDIC_OUTPUT_WIDTH);
+
 
 end Behavioral;

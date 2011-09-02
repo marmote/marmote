@@ -209,7 +209,7 @@ PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf"
 ENDFILE
 VALUE "<project>\simulation\run.do,do"
 STATE="utd"
-TIME="1313781190"
+TIME="1314025751"
 SIZE="935"
 ENDFILE
 VALUE "<project>\simulation\test.bfm,sim"
@@ -226,13 +226,13 @@ PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\stimulus\mytestbench_CIC.vhd,tb_hdl"
 STATE="utd"
-TIME="1313779944"
-SIZE="2705"
+TIME="1314025181"
+SIZE="2711"
 ENDFILE
 VALUE "<project>\synthesis\CIC.edn,syn_edn"
 STATE="ood"
-TIME="1313772616"
-SIZE="1936277"
+TIME="1314028872"
+SIZE="1071237"
 ENDFILE
 VALUE "<project>\synthesis\CIC.vhd,syn_hdl"
 STATE="ood"
@@ -241,12 +241,12 @@ SIZE="867957"
 ENDFILE
 VALUE "<project>\synthesis\CIC_drc.rpt,log"
 STATE="utd"
-TIME="1313772625"
-SIZE="6921"
+TIME="1314028881"
+SIZE="6732"
 ENDFILE
 VALUE "<project>\synthesis\CIC_sdc.sdc,syn_sdc"
 STATE="ood"
-TIME="1313772616"
+TIME="1314028872"
 SIZE="376"
 ENDFILE
 ENDLIST
@@ -298,11 +298,11 @@ ENDLIST
 ENDLIST
 ENDLIST
 LIST AssociatedStimulus
-LIST uC
-VALUE "<project>\component\work\uC\testbench.vhd,tb_hdl"
+LIST CIC
 VALUE "<project>\stimulus\mytestbench_CIC.vhd,tb_hdl"
 ENDLIST
-LIST CIC
+LIST uC
+VALUE "<project>\component\work\uC\testbench.vhd,tb_hdl"
 VALUE "<project>\stimulus\mytestbench_CIC.vhd,tb_hdl"
 ENDLIST
 ENDLIST
