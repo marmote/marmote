@@ -20,8 +20,8 @@ entity ADC_SPI is
 
 
 -- parallel output
-        CH1         : out   std_logic_vector(15 downto 0);
-        CH2         : out   std_logic_vector(15 downto 0);
+        CH1         : out   std_logic_vector(SAMPLE_WIDTH-1 downto 0);
+        CH2         : out   std_logic_vector(SAMPLE_WIDTH-1 downto 0);
 
 
 -- SPI interface
@@ -47,18 +47,21 @@ end entity;
 ------------------------------------------------------------------------------
 architecture Behavioral of ADC_SPI is
 
+    type sample_vector  is array ( natural range <> ) of std_logic_vector(SAMPLE_WIDTH-1 downto 0);
+    type byte_vector    is array ( natural range <> ) of std_logic_vector(15 downto 0);
+
+
+-- Parallel out
+    signal samples          : sample_vector(1 to 2);    -- Parallel sample data out
+
+
 -- SPI inteface
-    signal samples      : sample_vector(1 to 2);    -- Parallel sample data out
-
-
-    type byte_vector is array ( natural range <> ) of std_logic_vector(15 downto 0);
-
-    signal prog         : std_logic_vector(17 downto 0);
+    signal prog             : std_logic_vector(17 downto 0);
 --    signal shift_regs   : byte_vector(samples'range);
-    signal shift_regs   : byte_vector(1 to 2);
-    signal shift_en     : std_logic;
+    signal shift_regs       : byte_vector(1 to 2);
+    signal shift_en         : std_logic;
 
-    signal counter      : std_logic_vector(15 downto 0);
+    signal counter          : std_logic_vector(15 downto 0);
     signal rev_counter      : std_logic_vector(15 downto 0);
 
 
@@ -129,7 +132,7 @@ begin
 
             if rising_edge(PCLK) then
                 if prog(0) = '1' then
-                    samples(i) <= shift_regs(i);
+                    samples(i) <= shift_regs(i)(SAMPLE_WIDTH-1 downto 0);
                 end if;
             end if;
         end process;

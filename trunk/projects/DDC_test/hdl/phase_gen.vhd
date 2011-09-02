@@ -13,6 +13,11 @@ use work.common.all;
 --
 ------------------------------------------------------------------------------
 entity PHASE_GEN is
+
+    generic (
+        c_COUNTER_WIDTH   : integer := log2_ceil(c_CORDIC_WIDTH+2)
+    );
+
 	port (
 		CLK       : in  std_logic;
 		RST       : in  std_logic;

@@ -1,6 +1,6 @@
  ** Message System Log
  ** Database: 
- ** Date:   Wed Jul 20 12:22:49 2011
+ ** Date:   Tue Aug 23 11:42:03 2011
 
 
 ****************
@@ -13,8 +13,8 @@ Output Format                   : VHDL
 Type                            : Multiplier
 Variation                       : Booth Advanced Options
 Clock                           : Rising
-DataA Width                     : 16
-DataB Width                     : 16
+DataA Width                     : 14
+DataB Width                     : 8
 Representation                  : Signed
 Final Adder                     : Instantiate
 Pipeline Stages                 : 0
@@ -35,7 +35,7 @@ Netlist Resource Report
 =======================
 
     Microcontroller Subsystem  Used:      0  Total:      1   (0.00%)
-    Fabric                     Used:   1026  Total:   4608   (22.27%)
+    Fabric                     Used:    473  Total:   4608   (10.26%)
     Fabric IO (W/ clocks)      Used:      0  Total:     94   (0.00%)
     Fabric Differential IO     Used:      0  Total:     47   (0.00%)
     Dedicated Analog IO        Used:      0  Total:     32   (0.00%)
@@ -48,7 +48,8 @@ Netlist Resource Report
     RAM/FIFO                   Used:      0  Total:      8   (0.00%)
     User JTAG                  Used:      0  Total:      1   (0.00%)
 
-Wrote VHDL netlist to D:/Work/TEMPORARY/DDC_test/smartgen\mult2\mult2.vhd.
+Wrote VHDL netlist to
+D:/Work/marmote/projects/DDC_test/smartgen\mult2\mult2.vhd.
 
- ** Log Ended:   Wed Jul 20 12:22:51 2011
+ ** Log Ended:   Tue Aug 23 11:42:04 2011
 
