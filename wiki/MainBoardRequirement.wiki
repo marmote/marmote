@@ -8,13 +8,19 @@ Add your content here.
 
 = Interfaces =
 
-== Power Supply Board ==
+== Power Supply ==
 
-Used power rails, etc. (TBD)
+The FPGA should use the power rails from the Power Board
+The FPGA may have a button-battery for RTC
 
 == Analog Front-End / Sensor Board ==
 
-ADC, DAC signal levels, etc. (TBD)
+Should support 4 ADCs with at least 1 MSPS for sensor hookup
+Should have a ADC with at least 4 MSPS (?) for RF RX
+Should have a DAC with at least 4 MSPS for RF TX
+The ADCs should use differential analog signals
+
+Note: The maximum SmartFusion processable sampling rate should be determined prior to selecting the ADCs and DAC(s).
 
 == Connectors ==
 
@@ -22,6 +28,9 @@ External clock sync connector
 
 = Functionality =
 
-== External Clock Synchronization ==
+== Clock Subsystem ==
 
-  * Multiple nodes should be able to synchronize their SmartFusion clock(s) to each other
+ * External clock synchronization Multiple nodes should be able to synchronize their FPGA clock(s) to each other
+ * A TCVCXO should be available to provide clock for the FPGA
+ * A ~50-100 MHz crystal oscillator should be available for the FPGA
+ * RTC
