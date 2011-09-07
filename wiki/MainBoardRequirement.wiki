@@ -1,17 +1,23 @@
-#summary Requirement for the Main Board hosting the SmartFusion device
 #labels Phase-Requirements
 
-= Introduction =
-
-Add your content here.
-
-
-= Interfaces =
-
-== Power Supply ==
+= Power Supply =
 
 The FPGA should use the power rails from the Power Board
 The FPGA may have a button-battery for RTC
+
+
+= Clock Subsystem =
+
+ * External clock synchronization Multiple nodes should be able to synchronize their FPGA clock(s) to each other
+ * A TCVCXO should be available to provide clock for the FPGA
+ * A ~50-100 MHz crystal oscillator should be available for the FPGA
+ * RTC
+
+
+= Reset Logic =
+
+
+= Interfaces =
 
 == Analog Front-End / Sensor Board ==
 
@@ -23,15 +29,7 @@ The FPGA may have a button-battery for RTC
 
 Note: The maximum SmartFusion processable sampling rate should be determined prior to selecting the ADCs and DAC(s).
 
-== Connectors ==
+
+= Connectors =
 
 External clock sync connector
-
-= Functionality =
-
-== Clock Subsystem ==
-
- * External clock synchronization Multiple nodes should be able to synchronize their FPGA clock(s) to each other
- * A TCVCXO should be available to provide clock for the FPGA
- * A ~50-100 MHz crystal oscillator should be available for the FPGA
- * RTC
