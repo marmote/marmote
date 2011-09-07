@@ -15,10 +15,11 @@ The FPGA may have a button-battery for RTC
 
 == Analog Front-End / Sensor Board ==
 
-Should support 4 ADCs with at least 1 MSPS for sensor hookup
-Should have a ADC with at least 4 MSPS (?) for RF RX
-Should have a DAC with at least 4 MSPS for RF TX
-The ADCs should use differential analog signals
+ * Should support 4 ADCs with at least 1 MSPS for sensor hookup
+ * Should have a ADC with at least 4 MSPS (?) for RF RX
+ * Should have a DAC with at least 4 MSPS for RF TX
+ * The RF RX and sensor ADCs may be shared
+ * The ADCs and DAC(s) should use differential analog signals
 
 Note: The maximum SmartFusion processable sampling rate should be determined prior to selecting the ADCs and DAC(s).
 
