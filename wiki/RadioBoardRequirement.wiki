@@ -1,0 +1,9 @@
+#labels Phase-Requirements
+= Introduction =
+
+Requirement for the analog radio front-end board.
+
+
+= Requirement =
+
+  * May support UWB time-sync/localization
