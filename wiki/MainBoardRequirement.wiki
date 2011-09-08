@@ -16,6 +16,7 @@ The FPGA may have a button-battery for RTC
 
  * The FPGA should be programmable by the PowerBoard
  * The FPGA should be programmable directly via JTAG
+ * The above two should not conflict
 
 = Reset Logic =
 
