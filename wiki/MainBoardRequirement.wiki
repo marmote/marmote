@@ -40,4 +40,4 @@ Note: The maximum SmartFusion processable sampling rate should be determined pri
 
 = Connectors =
 
-External clock sync connector
+ * External clock sync connector
