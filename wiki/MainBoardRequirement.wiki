@@ -12,9 +12,15 @@ The FPGA may have a button-battery for RTC
  * A ~50-100 MHz crystal oscillator should be available for the FPGA
  * RTC
 
+= Programmer logic =
+
+ * The FPGA should be programmable by the PowerBoard
+ * The FPGA should be programmable directly via JTAG
 
 = Reset Logic =
 
+ * The PowerBoard should be able to reset the FPGA
+ * The FPGA should have an external reset (e.g. push-button or jumper)
 
 = Interfaces =
 
