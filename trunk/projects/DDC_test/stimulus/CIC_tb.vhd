@@ -1,43 +1,30 @@
--- Testbench created online at:
---   www.doulos.com/knowhow/perl/testbench_creation/
--- Copyright Doulos Ltd
--- SD, 03 November 2002
-
 library IEEE;
 use IEEE.Std_logic_1164.all;
 use IEEE.Numeric_Std.all;
 
-use work.common.all;
 
 
 entity CIC_tb is
-
-    generic (
-        c_CIC_DECIMATION   : integer := pow2(c_CIC_ORDER);
-        c_CIC_INNER_WIDTH  : integer := c_CIC_WIDTH + c_CIC_ORDER * c_CIC_ORDER
-    );
-
 end;
 
 architecture bench of CIC_tb is
 
   component CIC
-  	port (
-  		CLK       : in  std_logic;
-  		RST       : in  std_logic;
-        --OUTDEBUG  : out std_logic_vector(c_CIC_WIDTH-1 downto 0);
-  		INPUT     : in  std_logic_vector(c_CIC_WIDTH-1 downto 0);
-        OUTPUT    : out std_logic_vector(c_CIC_WIDTH-1 downto 0)
-  	);
+    port (
+        CLK         : in  std_logic;
+        RST         : in  std_logic;
+        INPUT       : in  std_logic_vector(21 downto 0);
+        OUTPUT      : out std_logic_vector(46 downto 0)
+    );
   end component;
 
   signal CLK        : std_logic;
   signal RST        : std_logic;
-  --signal OUTDEBUG   : std_logic_vector(c_CIC_WIDTH-1 downto 0);
-  signal INPUT      : std_logic_vector(c_CIC_WIDTH-1 downto 0);
-  signal OUTPUT     : std_logic_vector(c_CIC_WIDTH-1 downto 0);
+  signal INPUT      : std_logic_vector(21 downto 0);
+  signal OUTPUT     : std_logic_vector(46 downto 0);
 
 -- BB begin
+  --signal prog         : std_logic_vector(15 downto 0); 
 
   constant clock_period: time := 20 ns;
 -- BB end
@@ -46,11 +33,10 @@ architecture bench of CIC_tb is
 
 begin
 
-  uut: CIC port map ( CLK      => CLK,
-                      RST      => RST,
-                      --OUTDEBUG => OUTDEBUG,
-                      INPUT    => INPUT,
-                      OUTPUT   => OUTPUT );
+  uut: CIC port map ( CLK        => CLK,
+                        RST         => RST,
+                        INPUT       => INPUT,
+                        OUTPUT      => OUTPUT );
 
   stimulus: process
   begin
@@ -58,7 +44,7 @@ begin
     -- Put initialisation code here
 
 -- BB begin
-    INPUT <= x"0001";
+    INPUT <= '0' & '0' & x"00001";
 -- BB end
 
     rst <= '1';
@@ -69,7 +55,7 @@ begin
     -- Put test bench stimulus code here
 
 -- BB begin
-    wait for 10000 ns;    
+    wait for 20000 ns;    
 -- BB end
 
     stop_the_clock <= true;

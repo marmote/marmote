@@ -100,9 +100,9 @@ begin
     
     SIGN_CORRECTOR_0 : entity work.SIGN_CORRECTOR
       port map(CLK => CLK, RST => RST, INV_EN => 
-        PHASE_GEN_0_INV_EN, RDY_IN => CORECORDIC_0_RDYOUT, 
-        COS_IN(15) => \CORECORDIC_0_XN_[15]\, COS_IN(14) => 
-        \CORECORDIC_0_XN_[14]\, COS_IN(13) => 
+        PHASE_GEN_0_INV_EN, RDY_IN => CORECORDIC_0_RDYOUT, RDYOUT
+         => RDYOUT, COS_IN(15) => \CORECORDIC_0_XN_[15]\, 
+        COS_IN(14) => \CORECORDIC_0_XN_[14]\, COS_IN(13) => 
         \CORECORDIC_0_XN_[13]\, COS_IN(12) => 
         \CORECORDIC_0_XN_[12]\, COS_IN(11) => 
         \CORECORDIC_0_XN_[11]\, COS_IN(10) => 
@@ -134,7 +134,7 @@ begin
         SIN_OUT(6) => SIN_OUT(6), SIN_OUT(5) => SIN_OUT(5), 
         SIN_OUT(4) => SIN_OUT(4), SIN_OUT(3) => SIN_OUT(3), 
         SIN_OUT(2) => SIN_OUT(2), SIN_OUT(1) => SIN_OUT(1), 
-        SIN_OUT(0) => SIN_OUT(0), RDYOUT => RDYOUT);
+        SIN_OUT(0) => SIN_OUT(0));
     
     \GND\ : GND
       port map(Y => GND_net);
