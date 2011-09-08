@@ -1,5 +1,4 @@
 #labels Phase-Requirements
-
 = Power Supply =
 
 The FPGA should use the power rails from the Power Board
@@ -26,6 +25,8 @@ The FPGA may have a button-battery for RTC
  * Should have a DAC with at least 4 MSPS for RF TX
  * The RF RX and sensor ADCs may be shared
  * The ADCs and DAC(s) should use differential analog signals
+ * ADCs and DACs should have power down mode
+ * ADCs and DACs should have adjustable clock rate (power consumption)
 
 Note: The maximum SmartFusion processable sampling rate should be determined prior to selecting the ADCs and DAC(s).
 
