@@ -6,4 +6,6 @@ Requirement for the analog radio front-end board.
 
 = Requirement =
 
-  * May support UWB time-sync/localization
+ * May support UWB time-sync/localization
+ * Should have a PLL to lock-on a carrier signal
+ * Should have a tunable LO (~CC1000)
