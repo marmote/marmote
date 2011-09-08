@@ -1,8 +1,8 @@
 #labels Phase-Requirements
 = Power Supply =
 
-The FPGA should use the power rails from the Power Board
-The FPGA may have a button-battery for RTC
+ * The FPGA should use the power rails from the Power Board
+ * The FPGA may have a button-battery for RTC
 
 
 = Clock Subsystem =
