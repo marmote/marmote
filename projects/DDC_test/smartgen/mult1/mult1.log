@@ -1,6 +1,6 @@
  ** Message System Log
  ** Database: 
- ** Date:   Tue Aug 23 11:41:42 2011
+ ** Date:   Fri Sep 02 14:04:18 2011
 
 
 ****************
@@ -15,7 +15,7 @@ Variation                       : Booth Advanced Options
 Clock                           : Rising
 DataA Width                     : 14
 DataB Width                     : 8
-Representation                  : Signed
+Representation                  : Unsigned
 Final Adder                     : Instantiate
 Pipeline Stages                 : 0
 Summation Network               : Wallace
@@ -35,7 +35,7 @@ Netlist Resource Report
 =======================
 
     Microcontroller Subsystem  Used:      0  Total:      1   (0.00%)
-    Fabric                     Used:    473  Total:   4608   (10.26%)
+    Fabric                     Used:    502  Total:   4608   (10.89%)
     Fabric IO (W/ clocks)      Used:      0  Total:     94   (0.00%)
     Fabric Differential IO     Used:      0  Total:     47   (0.00%)
     Dedicated Analog IO        Used:      0  Total:     32   (0.00%)
@@ -51,5 +51,5 @@ Netlist Resource Report
 Wrote VHDL netlist to
 D:/Work/marmote/projects/DDC_test/smartgen\mult1\mult1.vhd.
 
- ** Log Ended:   Tue Aug 23 11:41:44 2011
+ ** Log Ended:   Fri Sep 02 14:04:19 2011
 

@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------
--- Created by Actel SmartDesign Tue Sep 06 14:28:03 2011
+-- Created by Actel SmartDesign Tue Sep 06 09:02:10 2011
 -- Testbench Template
 -- This is a basic testbench that instantiates your design with basic 
 -- clock and reset pins connected.  If your design has special
@@ -20,19 +20,16 @@ architecture behavioral of testbench is
     signal SYSCLK : std_logic := '0';
     signal NSYSRESET : std_logic := '0';
 
-    component sincos_gen
+    component CIC
         -- ports
         port( 
             -- Inputs
-            RST : in std_logic;
             CLK : in std_logic;
-            DPHASE_EN : in std_logic;
-            DPHASE : in std_logic_vector(15 downto 0);
+            RST : in std_logic;
+            INPUT : in std_logic_vector(21 downto 0);
 
             -- Outputs
-            RDYOUT : out std_logic;
-            COS_OUT : out std_logic_vector(7 downto 0);
-            SIN_OUT : out std_logic_vector(7 downto 0)
+            OUTPUT : out std_logic_vector(37 downto 0)
 
             -- Inouts
 
@@ -58,20 +55,17 @@ begin
     -- 10MHz Clock Driver
     SYSCLK <= not SYSCLK after (SYSCLK_PERIOD / 2.0 );
 
-    -- Instantiate Unit Under Test:  sincos_gen
-    sincos_gen_0 : sincos_gen
+    -- Instantiate Unit Under Test:  CIC
+    CIC_0 : CIC
         -- port map
         port map( 
             -- Inputs
-            RST => NSYSRESET,
             CLK => SYSCLK,
-            DPHASE_EN => '0',
-            DPHASE => (others=> '0'),
+            RST => NSYSRESET,
+            INPUT => (others=> '0'),
 
             -- Outputs
-            RDYOUT =>  open,
-            COS_OUT => open,
-            SIN_OUT => open
+            OUTPUT => open
 
             -- Inouts
 

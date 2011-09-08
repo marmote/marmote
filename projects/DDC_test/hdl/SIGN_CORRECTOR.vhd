@@ -69,8 +69,8 @@ begin
 		end if;
 	end process invert_sincos;
 
-    COS_OUT <= COS(c_CORDIC_WIDTH-1 downto c_CORDIC_WIDTH-c_CORDIC_OUTPUT_WIDTH);
-    SIN_OUT <= SIN(c_CORDIC_WIDTH-1 downto c_CORDIC_WIDTH-c_CORDIC_OUTPUT_WIDTH);
+    COS_OUT <= (not COS(c_CORDIC_WIDTH-1)) & COS(c_CORDIC_WIDTH-2 downto c_CORDIC_WIDTH-c_CORDIC_OUTPUT_WIDTH);
+    SIN_OUT <= (not SIN(c_CORDIC_WIDTH-1)) & SIN(c_CORDIC_WIDTH-2 downto c_CORDIC_WIDTH-c_CORDIC_OUTPUT_WIDTH);
 
 
 end Behavioral;
