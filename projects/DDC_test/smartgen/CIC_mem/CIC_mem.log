@@ -1,6 +1,6 @@
  ** Message System Log
  ** Database: 
- ** Date:   Tue Sep 06 09:02:03 2011
+ ** Date:   Thu Sep 08 08:53:48 2011
 
 
 ****************
@@ -18,10 +18,10 @@ LP                              : None
 FF                              : None
 Read Clock                      : Rising
 Write Clock                     : Rising
-Write Depth                     : 9
-Write Width                     : 38
-Read Depth                      : 9
-Read Width                      : 38
+Write Depth                     : 10
+Write Width                     : 47
+Read Depth                      : 10
+Read Width                      : 47
 RAM Type                        : Dual Port
 Clocks                          : Single Read/Write Clock
 Write Mode A                    : Hold Data
@@ -59,7 +59,7 @@ Cascade Configuration:
      Port A configuration       : 512x8
      Port B configuration       : 512x8
      Number of blocks depth wise: 1
-     Number of blocks width wise: 5
+     Number of blocks width wise: 6
 
 **************
 Compile Report
@@ -80,11 +80,11 @@ Netlist Resource Report
     On-chip RC oscillator      Used:      0  Total:      1   (0.00%)
     Main Crystal oscillator    Used:      0  Total:      1   (0.00%)
     32 KHz Crystal oscillator  Used:      0  Total:      1   (0.00%)
-    RAM/FIFO                   Used:      5  Total:      8   (62.50%)
+    RAM/FIFO                   Used:      6  Total:      8   (75.00%)
     User JTAG                  Used:      0  Total:      1   (0.00%)
 
 Wrote VHDL netlist to
 D:/Work/marmote/projects/DDC_test/smartgen\CIC_mem\CIC_mem.vhd.
 
- ** Log Ended:   Tue Sep 06 09:02:04 2011
+ ** Log Ended:   Thu Sep 08 08:53:49 2011
 

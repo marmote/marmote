@@ -6,10 +6,10 @@ library smartfusion;
 use smartfusion.all;
 
 entity CIC_mem is 
-    port( DINA : in std_logic_vector(37 downto 0); DOUTA : out 
-        std_logic_vector(37 downto 0); DINB : in 
-        std_logic_vector(37 downto 0); DOUTB : out 
-        std_logic_vector(37 downto 0); ADDRA : in 
+    port( DINA : in std_logic_vector(46 downto 0); DOUTA : out 
+        std_logic_vector(46 downto 0); DINB : in 
+        std_logic_vector(46 downto 0); DOUTB : out 
+        std_logic_vector(46 downto 0); ADDRA : in 
         std_logic_vector(3 downto 0); ADDRB : in 
         std_logic_vector(3 downto 0);RWA, RWB, BLKA, BLKB, CLKAB, 
         RESET : in std_logic) ;
@@ -112,6 +112,35 @@ architecture DEF_ARCH of  CIC_mem is
         DOUTB(6), DOUTB5 => DOUTB(5), DOUTB4 => DOUTB(4), 
         DOUTB3 => DOUTB(3), DOUTB2 => DOUTB(2), DOUTB1 => 
         DOUTB(1), DOUTB0 => DOUTB(0));
+    CIC_mem_R0C5 : RAM4K9
+      port map(ADDRA11 => GND_1_net, ADDRA10 => GND_1_net, 
+        ADDRA9 => GND_1_net, ADDRA8 => GND_1_net, ADDRA7 => 
+        GND_1_net, ADDRA6 => GND_1_net, ADDRA5 => GND_1_net, 
+        ADDRA4 => GND_1_net, ADDRA3 => ADDRA(3), ADDRA2 => 
+        ADDRA(2), ADDRA1 => ADDRA(1), ADDRA0 => ADDRA(0), 
+        ADDRB11 => GND_1_net, ADDRB10 => GND_1_net, ADDRB9 => 
+        GND_1_net, ADDRB8 => GND_1_net, ADDRB7 => GND_1_net, 
+        ADDRB6 => GND_1_net, ADDRB5 => GND_1_net, ADDRB4 => 
+        GND_1_net, ADDRB3 => ADDRB(3), ADDRB2 => ADDRB(2), 
+        ADDRB1 => ADDRB(1), ADDRB0 => ADDRB(0), DINA8 => 
+        GND_1_net, DINA7 => GND_1_net, DINA6 => DINA(46), 
+        DINA5 => DINA(45), DINA4 => DINA(44), DINA3 => DINA(43), 
+        DINA2 => DINA(42), DINA1 => DINA(41), DINA0 => DINA(40), 
+        DINB8 => GND_1_net, DINB7 => GND_1_net, DINB6 => DINB(46), 
+        DINB5 => DINB(45), DINB4 => DINB(44), DINB3 => DINB(43), 
+        DINB2 => DINB(42), DINB1 => DINB(41), DINB0 => DINB(40), 
+        WIDTHA0 => VCC_1_net, WIDTHA1 => VCC_1_net, WIDTHB0 => 
+        VCC_1_net, WIDTHB1 => VCC_1_net, PIPEA => GND_1_net, 
+        PIPEB => GND_1_net, WMODEA => GND_1_net, WMODEB => 
+        GND_1_net, BLKA => BLKA, BLKB => BLKB, WENA => RWA, 
+        WENB => RWB, CLKA => CLKAB, CLKB => CLKAB, RESET => 
+        RESETP, DOUTA8 => OPEN , DOUTA7 => OPEN , DOUTA6 => 
+        DOUTA(46), DOUTA5 => DOUTA(45), DOUTA4 => DOUTA(44), 
+        DOUTA3 => DOUTA(43), DOUTA2 => DOUTA(42), DOUTA1 => 
+        DOUTA(41), DOUTA0 => DOUTA(40), DOUTB8 => OPEN , 
+        DOUTB7 => OPEN , DOUTB6 => DOUTB(46), DOUTB5 => DOUTB(45), 
+        DOUTB4 => DOUTB(44), DOUTB3 => DOUTB(43), DOUTB2 => 
+        DOUTB(42), DOUTB1 => DOUTB(41), DOUTB0 => DOUTB(40));
     CIC_mem_R0C4 : RAM4K9
       port map(ADDRA11 => GND_1_net, ADDRA10 => GND_1_net, 
         ADDRA9 => GND_1_net, ADDRA8 => GND_1_net, ADDRA7 => 
@@ -123,24 +152,25 @@ architecture DEF_ARCH of  CIC_mem is
         ADDRB6 => GND_1_net, ADDRB5 => GND_1_net, ADDRB4 => 
         GND_1_net, ADDRB3 => ADDRB(3), ADDRB2 => ADDRB(2), 
         ADDRB1 => ADDRB(1), ADDRB0 => ADDRB(0), DINA8 => 
-        GND_1_net, DINA7 => GND_1_net, DINA6 => GND_1_net, 
-        DINA5 => DINA(37), DINA4 => DINA(36), DINA3 => DINA(35), 
-        DINA2 => DINA(34), DINA1 => DINA(33), DINA0 => DINA(32), 
-        DINB8 => GND_1_net, DINB7 => GND_1_net, DINB6 => 
-        GND_1_net, DINB5 => DINB(37), DINB4 => DINB(36), DINB3 => 
-        DINB(35), DINB2 => DINB(34), DINB1 => DINB(33), DINB0 => 
-        DINB(32), WIDTHA0 => VCC_1_net, WIDTHA1 => VCC_1_net, 
-        WIDTHB0 => VCC_1_net, WIDTHB1 => VCC_1_net, PIPEA => 
-        GND_1_net, PIPEB => GND_1_net, WMODEA => GND_1_net, 
-        WMODEB => GND_1_net, BLKA => BLKA, BLKB => BLKB, WENA => 
-        RWA, WENB => RWB, CLKA => CLKAB, CLKB => CLKAB, RESET => 
-        RESETP, DOUTA8 => OPEN , DOUTA7 => OPEN , DOUTA6 => OPEN , 
-        DOUTA5 => DOUTA(37), DOUTA4 => DOUTA(36), DOUTA3 => 
-        DOUTA(35), DOUTA2 => DOUTA(34), DOUTA1 => DOUTA(33), 
-        DOUTA0 => DOUTA(32), DOUTB8 => OPEN , DOUTB7 => OPEN , 
-        DOUTB6 => OPEN , DOUTB5 => DOUTB(37), DOUTB4 => DOUTB(36), 
-        DOUTB3 => DOUTB(35), DOUTB2 => DOUTB(34), DOUTB1 => 
-        DOUTB(33), DOUTB0 => DOUTB(32));
+        GND_1_net, DINA7 => DINA(39), DINA6 => DINA(38), DINA5 => 
+        DINA(37), DINA4 => DINA(36), DINA3 => DINA(35), DINA2 => 
+        DINA(34), DINA1 => DINA(33), DINA0 => DINA(32), DINB8 => 
+        GND_1_net, DINB7 => DINB(39), DINB6 => DINB(38), DINB5 => 
+        DINB(37), DINB4 => DINB(36), DINB3 => DINB(35), DINB2 => 
+        DINB(34), DINB1 => DINB(33), DINB0 => DINB(32), 
+        WIDTHA0 => VCC_1_net, WIDTHA1 => VCC_1_net, WIDTHB0 => 
+        VCC_1_net, WIDTHB1 => VCC_1_net, PIPEA => GND_1_net, 
+        PIPEB => GND_1_net, WMODEA => GND_1_net, WMODEB => 
+        GND_1_net, BLKA => BLKA, BLKB => BLKB, WENA => RWA, 
+        WENB => RWB, CLKA => CLKAB, CLKB => CLKAB, RESET => 
+        RESETP, DOUTA8 => OPEN , DOUTA7 => DOUTA(39), DOUTA6 => 
+        DOUTA(38), DOUTA5 => DOUTA(37), DOUTA4 => DOUTA(36), 
+        DOUTA3 => DOUTA(35), DOUTA2 => DOUTA(34), DOUTA1 => 
+        DOUTA(33), DOUTA0 => DOUTA(32), DOUTB8 => OPEN , 
+        DOUTB7 => DOUTB(39), DOUTB6 => DOUTB(38), DOUTB5 => 
+        DOUTB(37), DOUTB4 => DOUTB(36), DOUTB3 => DOUTB(35), 
+        DOUTB2 => DOUTB(34), DOUTB1 => DOUTB(33), DOUTB0 => 
+        DOUTB(32));
     CIC_mem_R0C2 : RAM4K9
       port map(ADDRA11 => GND_1_net, ADDRA10 => GND_1_net, 
         ADDRA9 => GND_1_net, ADDRA8 => GND_1_net, ADDRA7 => 
@@ -225,16 +255,16 @@ end DEF_ARCH;
 -- SMARTGEN_DIE:IP4X3M1
 -- SMARTGEN_PACKAGE:fg484
 -- AGENIII_IS_SUBPROJECT_LIBERO:T
--- WWIDTH:38
--- WDEPTH:9
--- RWIDTH:38
--- RDEPTH:9
+-- WWIDTH:47
+-- WDEPTH:10
+-- RWIDTH:47
+-- RDEPTH:10
 -- CLKS:1
 -- CLOCK_PN:CLKAB
 -- RESET_PN:RESET
 -- RESET_POLARITY:1
 -- INIT_RAM:F
--- DEFAULT_WORD:0x0000000000
+-- DEFAULT_WORD:0x000000000000
 -- CASCADE:1
 -- WCLK_EDGE:RISE
 -- WMODE1:0

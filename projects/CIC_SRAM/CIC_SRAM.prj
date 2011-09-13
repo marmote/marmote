@@ -7,7 +7,7 @@ KEY HDLTechnology "VHDL"
 KEY VendorTechnology_Family "SmartFusion"
 KEY VendorTechnology_Die "IP4X3M1"
 KEY VendorTechnology_Package "fg484"
-KEY ProjectLocation "C:\Users\babjak\Desktop\CIC_SRAM"
+KEY ProjectLocation "D:\Work\marmote\projects\CIC_SRAM"
 KEY SimulationType "VHDL"
 KEY Vendor "Actel"
 KEY ActiveRoot "CIC::work"
@@ -233,8 +233,8 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\hdl\CIC_control.vhd,hdl"
 STATE="utd"
-TIME="1314988194"
-SIZE="10874"
+TIME="1315577624"
+SIZE="10910"
 ENDFILE
 VALUE "<project>\hdl\common.vhd,hdl"
 STATE="utd"
@@ -249,7 +249,7 @@ PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf"
 ENDFILE
 VALUE "<project>\simulation\run.do,do"
 STATE="utd"
-TIME="1314881331"
+TIME="1314977201"
 SIZE="1185"
 ENDFILE
 VALUE "<project>\simulation\test.bfm,sim"
@@ -334,13 +334,13 @@ PARENT="<project>\smartgen\CIC_regs\CIC_regs.cxf"
 ENDFILE
 VALUE "<project>\stimulus\CIC_tb.vhd,tb_hdl"
 STATE="utd"
-TIME="1314821382"
+TIME="1314977050"
 SIZE="2266"
 ENDFILE
 VALUE "<project>\synthesis\CIC.edn,syn_edn"
 STATE="ood"
-TIME="1314901682"
-SIZE="728031"
+TIME="1314987359"
+SIZE="890563"
 ENDFILE
 VALUE "<project>\synthesis\CIC.vhd,syn_hdl"
 STATE="ood"
@@ -349,12 +349,12 @@ SIZE="377199"
 ENDFILE
 VALUE "<project>\synthesis\CIC_drc.rpt,log"
 STATE="utd"
-TIME="1314977126"
+TIME="1314987390"
 SIZE="8773"
 ENDFILE
 VALUE "<project>\synthesis\CIC_sdc.sdc,syn_sdc"
 STATE="ood"
-TIME="1314901682"
+TIME="1314987359"
 SIZE="376"
 ENDFILE
 VALUE "<project>\synthesis\uC.edn,syn_edn"
@@ -606,5 +606,5 @@ SD:CIC::work
 FILE:<project>\hdl\CIC_control.vhd,hdl
 FILE:<project>\hdl\common.vhd,hdl
 FILE:<project>\stimulus\CIC_tb.vhd,tb_hdl
-ACTIVE_VIEW:3
+ACTIVE_VIEW:2
 ENDLIST

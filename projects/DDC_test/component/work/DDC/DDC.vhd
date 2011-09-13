@@ -12,10 +12,10 @@ entity DDC is
           SCLK     : out   std_logic;
           CSn      : out   std_logic;
           SDATA    : in    std_logic_vector(1 to 2);
-          OUTPUT_0 : out   std_logic_vector(37 downto 0);
-          OUTPUT_1 : out   std_logic_vector(37 downto 0);
           CH1      : out   std_logic_vector(13 downto 0);
-          CH2      : out   std_logic_vector(13 downto 0)
+          CH2      : out   std_logic_vector(13 downto 0);
+          OUTPUT_0 : out   std_logic_vector(46 downto 0);
+          OUTPUT_1 : out   std_logic_vector(46 downto 0)
         );
 
 end DDC;
@@ -31,7 +31,7 @@ architecture DEF_ARCH of DDC is
     port( CLK    : in    std_logic := 'U';
           RST    : in    std_logic := 'U';
           INPUT  : in    std_logic_vector(21 downto 0) := (others => 'U');
-          OUTPUT : out   std_logic_vector(37 downto 0)
+          OUTPUT : out   std_logic_vector(46 downto 0)
         );
   end component;
 
@@ -137,26 +137,30 @@ begin
         INPUT(4) => \mult1_1_Mult_0_[4]\, INPUT(3) => 
         \mult1_1_Mult_0_[3]\, INPUT(2) => \mult1_1_Mult_0_[2]\, 
         INPUT(1) => \mult1_1_Mult_0_[1]\, INPUT(0) => 
-        \mult1_1_Mult_0_[0]\, OUTPUT(37) => OUTPUT_1(37), 
-        OUTPUT(36) => OUTPUT_1(36), OUTPUT(35) => OUTPUT_1(35), 
-        OUTPUT(34) => OUTPUT_1(34), OUTPUT(33) => OUTPUT_1(33), 
-        OUTPUT(32) => OUTPUT_1(32), OUTPUT(31) => OUTPUT_1(31), 
-        OUTPUT(30) => OUTPUT_1(30), OUTPUT(29) => OUTPUT_1(29), 
-        OUTPUT(28) => OUTPUT_1(28), OUTPUT(27) => OUTPUT_1(27), 
-        OUTPUT(26) => OUTPUT_1(26), OUTPUT(25) => OUTPUT_1(25), 
-        OUTPUT(24) => OUTPUT_1(24), OUTPUT(23) => OUTPUT_1(23), 
-        OUTPUT(22) => OUTPUT_1(22), OUTPUT(21) => OUTPUT_1(21), 
-        OUTPUT(20) => OUTPUT_1(20), OUTPUT(19) => OUTPUT_1(19), 
-        OUTPUT(18) => OUTPUT_1(18), OUTPUT(17) => OUTPUT_1(17), 
-        OUTPUT(16) => OUTPUT_1(16), OUTPUT(15) => OUTPUT_1(15), 
-        OUTPUT(14) => OUTPUT_1(14), OUTPUT(13) => OUTPUT_1(13), 
-        OUTPUT(12) => OUTPUT_1(12), OUTPUT(11) => OUTPUT_1(11), 
-        OUTPUT(10) => OUTPUT_1(10), OUTPUT(9) => OUTPUT_1(9), 
-        OUTPUT(8) => OUTPUT_1(8), OUTPUT(7) => OUTPUT_1(7), 
-        OUTPUT(6) => OUTPUT_1(6), OUTPUT(5) => OUTPUT_1(5), 
-        OUTPUT(4) => OUTPUT_1(4), OUTPUT(3) => OUTPUT_1(3), 
-        OUTPUT(2) => OUTPUT_1(2), OUTPUT(1) => OUTPUT_1(1), 
-        OUTPUT(0) => OUTPUT_1(0));
+        \mult1_1_Mult_0_[0]\, OUTPUT(46) => OUTPUT_1(46), 
+        OUTPUT(45) => OUTPUT_1(45), OUTPUT(44) => OUTPUT_1(44), 
+        OUTPUT(43) => OUTPUT_1(43), OUTPUT(42) => OUTPUT_1(42), 
+        OUTPUT(41) => OUTPUT_1(41), OUTPUT(40) => OUTPUT_1(40), 
+        OUTPUT(39) => OUTPUT_1(39), OUTPUT(38) => OUTPUT_1(38), 
+        OUTPUT(37) => OUTPUT_1(37), OUTPUT(36) => OUTPUT_1(36), 
+        OUTPUT(35) => OUTPUT_1(35), OUTPUT(34) => OUTPUT_1(34), 
+        OUTPUT(33) => OUTPUT_1(33), OUTPUT(32) => OUTPUT_1(32), 
+        OUTPUT(31) => OUTPUT_1(31), OUTPUT(30) => OUTPUT_1(30), 
+        OUTPUT(29) => OUTPUT_1(29), OUTPUT(28) => OUTPUT_1(28), 
+        OUTPUT(27) => OUTPUT_1(27), OUTPUT(26) => OUTPUT_1(26), 
+        OUTPUT(25) => OUTPUT_1(25), OUTPUT(24) => OUTPUT_1(24), 
+        OUTPUT(23) => OUTPUT_1(23), OUTPUT(22) => OUTPUT_1(22), 
+        OUTPUT(21) => OUTPUT_1(21), OUTPUT(20) => OUTPUT_1(20), 
+        OUTPUT(19) => OUTPUT_1(19), OUTPUT(18) => OUTPUT_1(18), 
+        OUTPUT(17) => OUTPUT_1(17), OUTPUT(16) => OUTPUT_1(16), 
+        OUTPUT(15) => OUTPUT_1(15), OUTPUT(14) => OUTPUT_1(14), 
+        OUTPUT(13) => OUTPUT_1(13), OUTPUT(12) => OUTPUT_1(12), 
+        OUTPUT(11) => OUTPUT_1(11), OUTPUT(10) => OUTPUT_1(10), 
+        OUTPUT(9) => OUTPUT_1(9), OUTPUT(8) => OUTPUT_1(8), 
+        OUTPUT(7) => OUTPUT_1(7), OUTPUT(6) => OUTPUT_1(6), 
+        OUTPUT(5) => OUTPUT_1(5), OUTPUT(4) => OUTPUT_1(4), 
+        OUTPUT(3) => OUTPUT_1(3), OUTPUT(2) => OUTPUT_1(2), 
+        OUTPUT(1) => OUTPUT_1(1), OUTPUT(0) => OUTPUT_1(0));
     
     sincos_gen_0 : sincos_gen
       port map(RST => RST, CLK => CLK, DPHASE_EN => VCC_net, 
@@ -265,26 +269,30 @@ begin
         INPUT(4) => \mult1_0_Mult_0_[4]\, INPUT(3) => 
         \mult1_0_Mult_0_[3]\, INPUT(2) => \mult1_0_Mult_0_[2]\, 
         INPUT(1) => \mult1_0_Mult_0_[1]\, INPUT(0) => 
-        \mult1_0_Mult_0_[0]\, OUTPUT(37) => OUTPUT_0(37), 
-        OUTPUT(36) => OUTPUT_0(36), OUTPUT(35) => OUTPUT_0(35), 
-        OUTPUT(34) => OUTPUT_0(34), OUTPUT(33) => OUTPUT_0(33), 
-        OUTPUT(32) => OUTPUT_0(32), OUTPUT(31) => OUTPUT_0(31), 
-        OUTPUT(30) => OUTPUT_0(30), OUTPUT(29) => OUTPUT_0(29), 
-        OUTPUT(28) => OUTPUT_0(28), OUTPUT(27) => OUTPUT_0(27), 
-        OUTPUT(26) => OUTPUT_0(26), OUTPUT(25) => OUTPUT_0(25), 
-        OUTPUT(24) => OUTPUT_0(24), OUTPUT(23) => OUTPUT_0(23), 
-        OUTPUT(22) => OUTPUT_0(22), OUTPUT(21) => OUTPUT_0(21), 
-        OUTPUT(20) => OUTPUT_0(20), OUTPUT(19) => OUTPUT_0(19), 
-        OUTPUT(18) => OUTPUT_0(18), OUTPUT(17) => OUTPUT_0(17), 
-        OUTPUT(16) => OUTPUT_0(16), OUTPUT(15) => OUTPUT_0(15), 
-        OUTPUT(14) => OUTPUT_0(14), OUTPUT(13) => OUTPUT_0(13), 
-        OUTPUT(12) => OUTPUT_0(12), OUTPUT(11) => OUTPUT_0(11), 
-        OUTPUT(10) => OUTPUT_0(10), OUTPUT(9) => OUTPUT_0(9), 
-        OUTPUT(8) => OUTPUT_0(8), OUTPUT(7) => OUTPUT_0(7), 
-        OUTPUT(6) => OUTPUT_0(6), OUTPUT(5) => OUTPUT_0(5), 
-        OUTPUT(4) => OUTPUT_0(4), OUTPUT(3) => OUTPUT_0(3), 
-        OUTPUT(2) => OUTPUT_0(2), OUTPUT(1) => OUTPUT_0(1), 
-        OUTPUT(0) => OUTPUT_0(0));
+        \mult1_0_Mult_0_[0]\, OUTPUT(46) => OUTPUT_0(46), 
+        OUTPUT(45) => OUTPUT_0(45), OUTPUT(44) => OUTPUT_0(44), 
+        OUTPUT(43) => OUTPUT_0(43), OUTPUT(42) => OUTPUT_0(42), 
+        OUTPUT(41) => OUTPUT_0(41), OUTPUT(40) => OUTPUT_0(40), 
+        OUTPUT(39) => OUTPUT_0(39), OUTPUT(38) => OUTPUT_0(38), 
+        OUTPUT(37) => OUTPUT_0(37), OUTPUT(36) => OUTPUT_0(36), 
+        OUTPUT(35) => OUTPUT_0(35), OUTPUT(34) => OUTPUT_0(34), 
+        OUTPUT(33) => OUTPUT_0(33), OUTPUT(32) => OUTPUT_0(32), 
+        OUTPUT(31) => OUTPUT_0(31), OUTPUT(30) => OUTPUT_0(30), 
+        OUTPUT(29) => OUTPUT_0(29), OUTPUT(28) => OUTPUT_0(28), 
+        OUTPUT(27) => OUTPUT_0(27), OUTPUT(26) => OUTPUT_0(26), 
+        OUTPUT(25) => OUTPUT_0(25), OUTPUT(24) => OUTPUT_0(24), 
+        OUTPUT(23) => OUTPUT_0(23), OUTPUT(22) => OUTPUT_0(22), 
+        OUTPUT(21) => OUTPUT_0(21), OUTPUT(20) => OUTPUT_0(20), 
+        OUTPUT(19) => OUTPUT_0(19), OUTPUT(18) => OUTPUT_0(18), 
+        OUTPUT(17) => OUTPUT_0(17), OUTPUT(16) => OUTPUT_0(16), 
+        OUTPUT(15) => OUTPUT_0(15), OUTPUT(14) => OUTPUT_0(14), 
+        OUTPUT(13) => OUTPUT_0(13), OUTPUT(12) => OUTPUT_0(12), 
+        OUTPUT(11) => OUTPUT_0(11), OUTPUT(10) => OUTPUT_0(10), 
+        OUTPUT(9) => OUTPUT_0(9), OUTPUT(8) => OUTPUT_0(8), 
+        OUTPUT(7) => OUTPUT_0(7), OUTPUT(6) => OUTPUT_0(6), 
+        OUTPUT(5) => OUTPUT_0(5), OUTPUT(4) => OUTPUT_0(4), 
+        OUTPUT(3) => OUTPUT_0(3), OUTPUT(2) => OUTPUT_0(2), 
+        OUTPUT(1) => OUTPUT_0(1), OUTPUT(0) => OUTPUT_0(0));
     
     ADC_SPI_0 : entity work.ADC_SPI
       port map(PCLK => CLK, PRESETn => RST, SCLK => SCLK, CSn => 

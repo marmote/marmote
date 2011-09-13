@@ -1,0 +1,185 @@
+# Actel Physical design constraints file
+# Generated file
+
+# Version: 9.1 SP2 9.1.2.16
+# Family: SmartFusion , Die: A2F200M3F , Package: 484 FBGA
+# Date generated: Tue Sep 06 16:22:54 2011 
+
+
+# 
+# IO banks setting
+# 
+
+
+# 
+# I/O constraints
+# 
+
+set_io MSS_RESET_N    \
+    -pinname R1       \
+    -fixed yes        \
+    -DIRECTION Input
+
+
+
+#
+# Non IO constraints
+#
+
+
+#
+# Old IO constraints, commented out for reference
+#
+
+# set_io {EMC_AB[0]} -pinname A8 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[1]} -pinname A9 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[2]} -pinname B10 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[3]} -pinname B11 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[4]} -pinname E11 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[5]} -pinname E12 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[6]} -pinname B12 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[7]} -pinname A12 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[8]} -pinname C13 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[9]} -pinname D13 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[10]} -pinname D11 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[11]} -pinname D12 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[12]} -pinname A14 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[13]} -pinname A15 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[14]} -pinname B13 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[15]} -pinname B14 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[16]} -pinname C14 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[17]} -pinname C15 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[18]} -pinname B16 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[19]} -pinname B17 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[20]} -pinname F13 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[21]} -pinname F14 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[22]} -pinname C17 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[23]} -pinname C18 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[24]} -pinname C16 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[25]} -pinname D16 -fixed yes -DIRECTION Output 
+# set_io {EMC_BYTEN[0]} -pinname B9 -fixed yes -DIRECTION Output 
+# set_io {EMC_BYTEN[1]} -pinname C9 -fixed yes -DIRECTION Output 
+# set_io EMC_CLK -pinname C6 -fixed yes -DIRECTION Output 
+# set_io EMC_CS0_N -pinname A5 -fixed yes -DIRECTION Output 
+# set_io EMC_CS1_N -pinname A6 -fixed yes -DIRECTION Output 
+# set_io {EMC_DB[0]} -pinname K2 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[1]} -pinname K3 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[2]} -pinname K5 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[3]} -pinname J4 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[4]} -pinname J3 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[5]} -pinname J2 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[6]} -pinname J1 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[7]} -pinname H1 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[8]} -pinname H3 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[9]} -pinname G3 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[10]} -pinname F4 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[11]} -pinname G5 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[12]} -pinname D2 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[13]} -pinname D3 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[14]} -pinname C1 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[15]} -pinname B1 -fixed yes -DIRECTION Inout 
+# set_io EMC_OEN0_N -pinname D10 -fixed yes -DIRECTION Output 
+# set_io EMC_OEN1_N -pinname C10 -fixed yes -DIRECTION Output 
+# set_io EMC_RW_N -pinname B6 -fixed yes -DIRECTION Output 
+# set_io I2C_0_SCL -pinname U21 -fixed yes -DIRECTION Inout 
+# set_io I2C_0_SDA -pinname V21 -fixed yes -DIRECTION Inout 
+# set_io I2C_1_SCL -pinname U20 -fixed yes -DIRECTION Inout 
+# set_io I2C_1_SDA -pinname V22 -fixed yes -DIRECTION Inout 
+# set_io MAC_CRSDV -pinname W4 -fixed yes -DIRECTION Input 
+# set_io MAC_MDC -pinname AA3 -fixed yes -DIRECTION Output 
+# set_io MAC_MDIO -pinname V4 -fixed yes -DIRECTION Inout 
+# set_io {MAC_RXD[0]} -pinname V5 -fixed yes -DIRECTION Input 
+# set_io {MAC_RXD[1]} -pinname U5 -fixed yes -DIRECTION Input 
+# set_io MAC_RXER -pinname AA4 -fixed yes -DIRECTION Input 
+# set_io {MAC_TXD[0]} -pinname AA5 -fixed yes -DIRECTION Output 
+# set_io {MAC_TXD[1]} -pinname W5 -fixed yes -DIRECTION Output 
+# set_io MAC_TXEN -pinname Y4 -fixed yes -DIRECTION Output 
+# set_io MSS_RESET_N -pinname R1 -fixed yes -DIRECTION Input 
+# set_io SPI_0_CLK -pinname W19 -fixed yes -DIRECTION Inout 
+# set_io SPI_0_DI -pinname V18 -fixed yes -DIRECTION Input 
+# set_io SPI_0_DO -pinname U17 -fixed yes -DIRECTION Output 
+# set_io SPI_0_SS -pinname Y20 -fixed yes -DIRECTION Inout 
+# set_io SPI_1_CLK -pinname AA22 -fixed yes -DIRECTION Inout 
+# set_io SPI_1_DI -pinname V19 -fixed yes -DIRECTION Input 
+# set_io SPI_1_DO -pinname T17 -fixed yes -DIRECTION Output 
+# set_io SPI_1_SS -pinname W21 -fixed yes -DIRECTION Inout 
+# set_io UART_0_RXD -pinname U18 -fixed yes -DIRECTION Input 
+# set_io UART_0_TXD -pinname Y22 -fixed yes -DIRECTION Output 
+# set_io UART_1_RXD -pinname W22 -fixed yes -DIRECTION Input 
+# set_io UART_1_TXD -pinname V20 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[0]} -pinname A8 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[1]} -pinname A9 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[2]} -pinname B10 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[3]} -pinname B11 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[4]} -pinname E11 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[5]} -pinname E12 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[6]} -pinname B12 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[7]} -pinname A12 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[8]} -pinname C13 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[9]} -pinname D13 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[10]} -pinname D11 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[11]} -pinname D12 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[12]} -pinname A14 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[13]} -pinname A15 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[14]} -pinname B13 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[15]} -pinname B14 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[16]} -pinname C14 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[17]} -pinname C15 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[18]} -pinname B16 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[19]} -pinname B17 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[20]} -pinname F13 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[21]} -pinname F14 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[22]} -pinname C17 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[23]} -pinname C18 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[24]} -pinname C16 -fixed yes -DIRECTION Output 
+# set_io {EMC_AB[25]} -pinname D16 -fixed yes -DIRECTION Output 
+# set_io {EMC_BYTEN[0]} -pinname B9 -fixed yes -DIRECTION Output 
+# set_io {EMC_BYTEN[1]} -pinname C9 -fixed yes -DIRECTION Output 
+# set_io EMC_CLK -pinname C6 -fixed yes -DIRECTION Output 
+# set_io EMC_CS0_N -pinname A5 -fixed yes -DIRECTION Output 
+# set_io EMC_CS1_N -pinname A6 -fixed yes -DIRECTION Output 
+# set_io {EMC_DB[0]} -pinname K2 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[1]} -pinname K3 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[2]} -pinname K5 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[3]} -pinname J4 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[4]} -pinname J3 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[5]} -pinname J2 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[6]} -pinname J1 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[7]} -pinname H1 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[8]} -pinname H3 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[9]} -pinname G3 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[10]} -pinname F4 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[11]} -pinname G5 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[12]} -pinname D2 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[13]} -pinname D3 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[14]} -pinname C1 -fixed yes -DIRECTION Inout 
+# set_io {EMC_DB[15]} -pinname B1 -fixed yes -DIRECTION Inout 
+# set_io EMC_OEN0_N -pinname D10 -fixed yes -DIRECTION Output 
+# set_io EMC_OEN1_N -pinname C10 -fixed yes -DIRECTION Output 
+# set_io EMC_RW_N -pinname B6 -fixed yes -DIRECTION Output 
+# set_io I2C_0_SCL -pinname U21 -fixed yes -DIRECTION Inout 
+# set_io I2C_0_SDA -pinname V21 -fixed yes -DIRECTION Inout 
+# set_io I2C_1_SCL -pinname U20 -fixed yes -DIRECTION Inout 
+# set_io I2C_1_SDA -pinname V22 -fixed yes -DIRECTION Inout 
+# set_io MAC_CRSDV -pinname W4 -fixed yes -DIRECTION Input 
+# set_io MAC_MDC -pinname AA3 -fixed yes -DIRECTION Output 
+# set_io MAC_MDIO -pinname V4 -fixed yes -DIRECTION Inout 
+# set_io {MAC_RXD[0]} -pinname V5 -fixed yes -DIRECTION Input 
+# set_io {MAC_RXD[1]} -pinname U5 -fixed yes -DIRECTION Input 
+# set_io MAC_RXER -pinname AA4 -fixed yes -DIRECTION Input 
+# set_io {MAC_TXD[0]} -pinname AA5 -fixed yes -DIRECTION Output 
+# set_io {MAC_TXD[1]} -pinname W5 -fixed yes -DIRECTION Output 
+# set_io MAC_TXEN -pinname Y4 -fixed yes -DIRECTION Output 
+# set_io MSS_RESET_N -pinname R1 -fixed yes -DIRECTION Input 
+# set_io SPI_0_CLK -pinname W19 -fixed yes -DIRECTION Inout 
+# set_io SPI_0_DI -pinname V18 -fixed yes -DIRECTION Input 
+# set_io SPI_0_DO -pinname U17 -fixed yes -DIRECTION Output 
+# set_io SPI_0_SS -pinname Y20 -fixed yes -DIRECTION Inout 
+# set_io SPI_1_CLK -pinname AA22 -fixed yes -DIRECTION Inout 
+# set_io SPI_1_DI -pinname V19 -fixed yes -DIRECTION Input 
+# set_io SPI_1_DO -pinname T17 -fixed yes -DIRECTION Output 
+# set_io SPI_1_SS -pinname W21 -fixed yes -DIRECTION Inout 
+# set_io UART_0_RXD -pinname U18 -fixed yes -DIRECTION Input 
+# set_io UART_0_TXD -pinname Y22 -fixed yes -DIRECTION Output 
+# set_io UART_1_RXD -pinname W22 -fixed yes -DIRECTION Input 
+# set_io UART_1_TXD -pinname V20 -fixed yes -DIRECTION Output 

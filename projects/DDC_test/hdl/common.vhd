@@ -27,7 +27,7 @@ package COMMON is
  --   constant ADC_ZERO_LEVEL : sample_type := x"0080"; --128   
 
     constant c_CIC_WIDTH            : integer := 22;
-    constant c_CIC_ORDER            : integer := 4;
+    constant c_CIC_ORDER            : integer := 5;
 
     constant c_CORDIC_WIDTH         : integer := 16;
 --    constant c_COUNTER_WIDTH    : integer := 5; -- 2^c_COUNTER_WIDTH > c_CORDIC_WIDTH+2
