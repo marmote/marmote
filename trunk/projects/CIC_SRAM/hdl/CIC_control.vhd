@@ -24,9 +24,9 @@ entity CIC_control is
 
     );
 
-   	port (
-		CLK         : in  std_logic;
-		RST         : in  std_logic;
+    port (
+        CLK         : in  std_logic;
+        RST         : in  std_logic;
 
         DINA        : out  unsigned(c_CIC_REG_WIDTH-1 downto 0);
         DINB        : out  unsigned(c_CIC_REG_WIDTH-1 downto 0);
@@ -44,9 +44,9 @@ entity CIC_control is
 -- DEBUG
         --OUTDEBUG  : out std_logic_vector(c_CIC_WIDTH-1 downto 0);
 
-		INPUT     : in  unsigned(c_CIC_WIDTH-1 downto 0);
+        INPUT     : in  unsigned(c_CIC_WIDTH-1 downto 0);
         OUTPUT    : out std_logic_vector(c_CIC_INNER_WIDTH-1 downto 0)
-	);
+    );
 end entity; 
 
 
@@ -217,7 +217,7 @@ begin
     ----------------------------------------------------
     -- COMB STAGE
 
-    -- moving memory value to reg 
+    -- moving value from register to memory input
     process(rst, clk)
     begin
         if rst = '1' then

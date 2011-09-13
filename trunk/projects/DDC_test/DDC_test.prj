@@ -187,38 +187,38 @@ PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\work\CIC\CIC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1315317730"
-SIZE="2048"
+TIME="1315840929"
+SIZE="2056"
 ENDFILE
 VALUE "<project>\component\work\CIC\CIC.vhd,hdl"
 STATE="utd"
-TIME="1315317730"
-SIZE="24689"
+TIME="1315840929"
+SIZE="11552"
 PARENT="<project>\component\work\CIC\CIC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\CIC\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1315317731"
+TIME="1315840930"
 SIZE="1809"
 PARENT="<project>\component\work\CIC\CIC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\DDC\DDC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1315317738"
+TIME="1315490165"
 SIZE="3058"
 ENDFILE
 VALUE "<project>\component\work\DDC\DDC.vhd,hdl"
 STATE="utd"
-TIME="1315317738"
-SIZE="14547"
+TIME="1315490165"
+SIZE="15131"
 PARENT="<project>\component\work\DDC\DDC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\DDC\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1315317738"
+TIME="1315490165"
 SIZE="2186"
 PARENT="<project>\component\work\DDC\DDC.cxf"
 IS_READONLY="TRUE"
@@ -244,19 +244,19 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\top\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1315317748"
+TIME="1315840935"
 SIZE="2289"
 PARENT="<project>\component\work\top\top.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\top\top.cxf,actgen_cxf"
 STATE="utd"
-TIME="1315317748"
+TIME="1315840934"
 SIZE="3722"
 ENDFILE
 VALUE "<project>\component\work\top\top.pdc,pdc"
 STATE="utd"
-TIME="1315317747"
+TIME="1315840934"
 SIZE="2010"
 PARENT="<project>\component\work\top\top.cxf"
 BEGIN_USE_CONSTRAINT
@@ -267,8 +267,8 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\top\top.vhd,hdl"
 STATE="utd"
-TIME="1315317748"
-SIZE="6149"
+TIME="1315840934"
+SIZE="6799"
 PARENT="<project>\component\work\top\top.cxf"
 IS_READONLY="TRUE"
 ENDFILE
@@ -351,12 +351,12 @@ SIZE="4912"
 ENDFILE
 VALUE "<project>\hdl\CIC_control.vhd,hdl"
 STATE="utd"
-TIME="1315317164"
-SIZE="10874"
+TIME="1315840924"
+SIZE="8949"
 ENDFILE
 VALUE "<project>\hdl\common.vhd,hdl"
 STATE="utd"
-TIME="1315339145"
+TIME="1315489974"
 SIZE="3011"
 ENDFILE
 VALUE "<project>\hdl\phase_gen.vhd,hdl"
@@ -366,8 +366,8 @@ SIZE="3076"
 ENDFILE
 VALUE "<project>\hdl\SIGN_CORRECTOR.vhd,hdl"
 STATE="utd"
-TIME="1315337310"
-SIZE="2581"
+TIME="1315493085"
+SIZE="2696"
 ENDFILE
 VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
 STATE="utd"
@@ -396,65 +396,103 @@ PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\smartgen\CIC_mem\CIC_mem.cxf,actgen_cxf"
 STATE="utd"
-TIME="1315317725"
+TIME="1315490029"
 SIZE="3571"
 ENDFILE
 VALUE "<project>\smartgen\CIC_mem\CIC_mem.gen,gen"
 STATE="utd"
-TIME="1315317723"
-SIZE="773"
+TIME="1315490028"
+SIZE="777"
 PARENT="<project>\smartgen\CIC_mem\CIC_mem.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\CIC_mem\CIC_mem.log,log"
 STATE="utd"
-TIME="1315317724"
-SIZE="3352"
+TIME="1315490029"
+SIZE="3354"
 PARENT="<project>\smartgen\CIC_mem\CIC_mem.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\CIC_mem\CIC_mem.vhd,hdl"
 STATE="utd"
-TIME="1315317725"
-SIZE="11923"
+TIME="1315490029"
+SIZE="13742"
 PARENT="<project>\smartgen\CIC_mem\CIC_mem.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C0.mem,sim"
 STATE="utd"
-TIME="1315317725"
-SIZE="99"
+TIME="1315490029"
+SIZE="110"
 PARENT="<project>\smartgen\CIC_mem\CIC_mem.cxf"
 ENDFILE
 VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C1.mem,sim"
 STATE="utd"
-TIME="1315317725"
-SIZE="99"
+TIME="1315490029"
+SIZE="110"
 PARENT="<project>\smartgen\CIC_mem\CIC_mem.cxf"
 ENDFILE
 VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C2.mem,sim"
 STATE="utd"
-TIME="1315317725"
-SIZE="99"
+TIME="1315490029"
+SIZE="110"
 PARENT="<project>\smartgen\CIC_mem\CIC_mem.cxf"
 ENDFILE
 VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C3.mem,sim"
 STATE="utd"
-TIME="1315317725"
-SIZE="99"
+TIME="1315490029"
+SIZE="110"
 PARENT="<project>\smartgen\CIC_mem\CIC_mem.cxf"
 ENDFILE
 VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C4.mem,sim"
 STATE="utd"
-TIME="1315317725"
-SIZE="99"
+TIME="1315490029"
+SIZE="110"
 PARENT="<project>\smartgen\CIC_mem\CIC_mem.cxf"
 ENDFILE
 VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C5.mem,sim"
 STATE="utd"
-TIME="1315313134"
-SIZE="165"
+TIME="1315490029"
+SIZE="110"
 PARENT="<project>\smartgen\CIC_mem\CIC_mem.cxf"
+ENDFILE
+VALUE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.cxf,actgen_cxf"
+STATE="utd"
+TIME="1315575405"
+SIZE="2613"
+ENDFILE
+VALUE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.gen,gen"
+STATE="utd"
+TIME="1315575404"
+SIZE="674"
+PARENT="<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.log,log"
+STATE="utd"
+TIME="1315575405"
+SIZE="3357"
+PARENT="<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.vhd,hdl"
+STATE="utd"
+TIME="1315575405"
+SIZE="5480"
+PARENT="<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem_R0C0.mem,sim"
+STATE="utd"
+TIME="1315575405"
+SIZE="440"
+PARENT="<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.cxf"
+ENDFILE
+VALUE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem_R0C1.mem,sim"
+STATE="utd"
+TIME="1315575405"
+SIZE="440"
+PARENT="<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.cxf"
 ENDFILE
 VALUE "<project>\smartgen\mult1\mult1.cxf,actgen_cxf"
 STATE="utd"
@@ -529,9 +567,9 @@ TIME="1311104422"
 SIZE="3689"
 ENDFILE
 VALUE "<project>\synthesis\top.edn,syn_edn"
-STATE="ood"
-TIME="1315317771"
-SIZE="2323500"
+STATE="utd"
+TIME="1315840970"
+SIZE="3014319"
 ENDFILE
 VALUE "<project>\synthesis\top_drc.rpt,log"
 STATE="utd"
@@ -539,8 +577,8 @@ TIME="1314992044"
 SIZE="28325"
 ENDFILE
 VALUE "<project>\synthesis\top_sdc.sdc,syn_sdc"
-STATE="ood"
-TIME="1315317771"
+STATE="utd"
+TIME="1315840970"
 SIZE="310"
 ENDFILE
 ENDLIST
@@ -585,6 +623,13 @@ VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C2.mem,sim"
 VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C3.mem,sim"
 VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C4.mem,sim"
 VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C5.mem,sim"
+ENDLIST
+ENDLIST
+LIST "CIC_twoport_mem::work"
+FILE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.vhd,hdl"
+LIST Other_Association
+VALUE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem_R0C0.mem,sim"
+VALUE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem_R0C1.mem,sim"
 ENDLIST
 ENDLIST
 LIST "DDC::work"
@@ -656,7 +701,9 @@ VALUE "<project>\component\work\top\testbench.vhd,tb_hdl"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -665,7 +712,9 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl2
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -778,13 +827,9 @@ ENDLIST
 LIST CIC
 VALUE "<project>\component\work\CIC\testbench.vhd,tb_hdl"
 ENDLIST
-LIST CIC_mem
-VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C0.mem,sim"
-VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C1.mem,sim"
-VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C2.mem,sim"
-VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C3.mem,sim"
-VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C4.mem,sim"
-VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C5.mem,sim"
+LIST CIC_twoport_mem
+VALUE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem_R0C0.mem,sim"
+VALUE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem_R0C1.mem,sim"
 ENDLIST
 LIST sincos_gen
 VALUE "<project>\component\work\sincos_gen\testbench.vhd,tb_hdl"
@@ -803,6 +848,14 @@ VALUE "<project>\component\work\uC\testbench.vhd,tb_hdl"
 VALUE "<project>\component\work\uC\uC.pdc,pdc"
 VALUE "<project>\component\work\uC\MSS_ENVM_0\MSS_ENVM_0.efc,efc"
 VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
+ENDLIST
+LIST CIC_mem
+VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C0.mem,sim"
+VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C1.mem,sim"
+VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C2.mem,sim"
+VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C3.mem,sim"
+VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C4.mem,sim"
+VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C5.mem,sim"
 ENDLIST
 ENDLIST
 LIST SimulationOptions
@@ -933,7 +986,9 @@ ENDLIST
 ENDLIST
 LIST "top::work"
 LIST Impl1
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -942,7 +997,9 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl2
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1005,14 +1062,7 @@ ENDLIST
 LIST OpenedFileList
 DESIGNFLOW:
 SD:top::work
-FILE:<project>\hdl\common.vhd,hdl
-FILE:<project>\hdl\phase_gen.vhd,hdl
 SD:DDC::work
-FILE:<project>\hdl\SIGN_CORRECTOR.vhd,hdl
-FILE:<project>\designer\impl2\designer_synth_check.log,???
-FILE:<project>\hdl\ADC_SPI.vhd,hdl
-SD:sincos_gen::work
 SD:CIC::work
-FILE:<project>\hdl\CIC_control.vhd,hdl
-ACTIVE_VIEW:9
+ACTIVE_VIEW:3
 ENDLIST
