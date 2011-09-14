@@ -1,0 +1,7 @@
+#labels Phase-Requirements
+
+= Power Rails =
+
+Should provide 1.5 V power rail for the FPGA
+Should provide 3.3 V power rail for the FPGA
+May provide 1.8 V power rail for the SRAM, radio chip and/or other peripherals
