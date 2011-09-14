@@ -3,6 +3,7 @@
 
  * The FPGA should use the power rails from the Power Board
  * The FPGA may have a button-battery for RTC
+ * Should assume 1.8 V on the reserved power rail and bypass it to the sensor board
 
 
 = Clock Subsystem =
