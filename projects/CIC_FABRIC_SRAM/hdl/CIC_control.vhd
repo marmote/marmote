@@ -240,7 +240,6 @@ begin
     -- reading and writing memory
     process(rst, clk)
         variable i      : integer :=0;
-        variable j      : integer :=0;
         variable k      : integer :=0;
 
 
