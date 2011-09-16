@@ -231,8 +231,8 @@ SIZE="244224"
 ENDFILE
 VALUE "<project>\hdl\CIC_control.vhd,hdl"
 STATE="utd"
-TIME="1315919187"
-SIZE="8949"
+TIME="1316100074"
+SIZE="8909"
 ENDFILE
 VALUE "<project>\hdl\common.vhd,hdl"
 STATE="utd"
@@ -363,17 +363,17 @@ PARENT="<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.cxf"
 ENDFILE
 VALUE "<project>\synthesis\uC.edn,syn_edn"
 STATE="utd"
-TIME="1315488224"
-SIZE="88062"
+TIME="1315919048"
+SIZE="88061"
 ENDFILE
 VALUE "<project>\synthesis\uC_drc.rpt,log"
 STATE="utd"
-TIME="1315488242"
+TIME="1315919059"
 SIZE="21557"
 ENDFILE
 VALUE "<project>\synthesis\uC_sdc.sdc,syn_sdc"
 STATE="utd"
-TIME="1315488224"
+TIME="1315919048"
 SIZE="310"
 ENDFILE
 ENDLIST
