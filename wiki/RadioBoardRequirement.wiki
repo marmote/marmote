@@ -1,12 +1,11 @@
 #labels Phase-Requirements
-= Introduction =
-
-Requirement for the analog radio front-end board.
-
-
 = Requirement =
 
  * May support UWB time-sync/localization
  * Should have a PLL to lock-on a carrier signal
  * Should have a fine tunable LO (say in < 50 Hz steps)
  * Should operate in the 433 MHz and/or 2.4 GHz band
+
+= Misc = 
+
+ * May have a microphone and a speaker (footprint)
