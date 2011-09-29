@@ -85,6 +85,15 @@ static struct netif l_netif;                // the single network interface
 struct udp_pcb *pcb;
 
 unsigned char still_working_on_last_data = 0;
+
+
+const uint8_t		ethheader[]={0x00, 0x48, 0x54, 0x8D, 0xC4, 0xA9, 0x00, 0x00, 0x23, 0x10, 0x20, 0x30, 0x08, 0x00};
+const uint8_t		IPheader[]={0x45, 0x00, 0x01, 0x1C, 0x00, 0x00, 0x00, 0x00, 0xFF, 0x11, 0x00, 0x00, 0xC0, 0xA8, 0x01, 0x02, 0xC0, 0xA8, 0x01, 0x01};
+//4,5 -> ID
+//10,11 -> Checksum
+const uint8_t		UDPheader[]={0xBF, 0xFF, 0xFB, 0x07, 0x01, 0x08, 0x00, 0x00};
+//6,7 -> Checksum
+
 #endif
 
 uint8_t		DMA_buf = 0;
@@ -332,13 +341,30 @@ int main()
         // if we have stuff to write AND last data is already sent AND we have a live connection
         if ( (NET_buf != DMA_buf) && !still_working_on_last_data && pcb->remote_port)
         {
+
         	//buffer[NET_buf][0] = 0xFFFFFFFF;
         	//buffer[NET_buf][BUFF_LENGTH/4-1] = 0xFFFFFFFF;
         	//buffer[NET_buf][BUFF_LENGTH/2-1] = 0xFFFFFFFF;
         	//buffer[NET_buf][BUFF_LENGTH*3/4-1] = 0xFFFFFFFF;
         	//buffer[NET_buf][BUFF_LENGTH-1] = 0xFFFFFFFF;
         	still_working_on_last_data = 1;
-        	send_buffer(pcb, &(buffer[NET_buf][0]), BUFF_LENGTH*sizeof(uint32_t));
+//        	send_buffer(pcb, &(buffer[NET_buf][0]), BUFF_LENGTH*sizeof(uint32_t));
+
+//        	while(1)
+        	{
+        		uint8_t eth_pkt[sizeof(ethheader)+sizeof(IPheader)+sizeof(UDPheader)+BUFF_LENGTH*sizeof(uint32_t)];
+        		uint16_t pkt_idx = 0;
+        		memcpy(eth_pkt, ethheader, sizeof(ethheader));
+        		pkt_idx += sizeof(ethheader);
+        		memcpy(eth_pkt + pkt_idx, IPheader, sizeof(IPheader));
+        		pkt_idx += sizeof(IPheader);
+        		memcpy(eth_pkt + pkt_idx, UDPheader, sizeof(UDPheader));
+        		pkt_idx += sizeof(UDPheader);
+        		memcpy(eth_pkt + pkt_idx, &(buffer[NET_buf][0]), BUFF_LENGTH*sizeof(uint32_t));
+
+        		while(1)
+        			MSS_MAC_tx_packet( eth_pkt, sizeof(eth_pkt), MSS_MAC_NONBLOCKING);
+        	}
 
         	data_sent_callback_fn();
         }

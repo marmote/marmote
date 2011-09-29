@@ -38,7 +38,7 @@ entity CIC_control is
 
 
 		INPUT       : in  unsigned(c_CIC_WIDTH-1 downto 0);
-        OUTPUT      : out std_logic_vector(c_CIC_INNER_WIDTH-1 downto 0)  
+        OUTPUT      : out std_logic_vector(46 downto 0)  
 	);
 end entity; 
 
@@ -57,12 +57,19 @@ architecture Behavioral of CIC_control is
 	-- Signals
     signal int              : unsigned(c_CIC_INNER_WIDTH-1 downto 0);   
     signal int_vec          : sample_vector(1 to c_CIC_ORDER);
+
     signal comb             : unsigned(c_CIC_INNER_WIDTH-1 downto 0);  
 
     signal clk_counter      : unsigned(log2_ceil(c_ADC_SAMPLING) downto 1);  
     signal prog             : unsigned(log2_ceil(c_CIC_DECIMATION) downto 1); 
     signal oddeven          : std_logic;      
     signal clk_counter2     : unsigned(log2_ceil(c_ADC_SAMPLING) downto 1);  
+
+
+    signal add_timer        : unsigned(log2_ceil(c_ADC_SAMPLING) downto 2);  
+    signal w_timer          : unsigned(log2_ceil(c_ADC_SAMPLING) downto 1);
+    signal r_timer          : unsigned(log2_ceil(c_ADC_SAMPLING) downto 2);
+    signal addr_counter     : unsigned(c_CIC_REG_ADDR_WIDTH-1 downto 2);
 
 begin
 
@@ -85,7 +92,7 @@ begin
     begin
         if rst = '1' then
             clk_counter2 <= (others => '0');
-        elsif rising_edge(clk) and (prog = (prog'range => '0') or clk_counter2 /= 0)then
+        elsif rising_edge(clk) and (prog = 0 or clk_counter2 /= 0)then
             if clk_counter2 >= c_CIC_COMB_CYCLES-1 then
                 clk_counter2 <= (others => '0');
             else
@@ -137,6 +144,7 @@ begin
             end if;
 
         end if;
+   
         
     end process;
 
@@ -187,39 +195,36 @@ begin
 
     -- adding reg to next memory AND taking care of input
     process(rst, clk)
-        variable i      : integer :=0;
-
     begin
         if rst = '1' then
-
+            
+            add_timer <= (2 => '1', 3 => '1', others => '0'); -- that's 3 right there
             comb <= (others => '0');
 
-        elsif rising_edge(clk) and (prog = (prog'range => '0') or clk_counter2 /= 0) then
+        elsif rising_edge(clk) then
+        
+            if (prog = 0 or clk_counter2 /= 0) then
+        
+                -- Get the newest sample form integrator
+                if clk_counter2 = c_CIC_INPUT_CYCLE then
 
-            -- Get the newest sample form integrator
-            if clk_counter2 = c_CIC_INPUT_CYCLE then
-
-                comb <= int;
-
-            end if;
-
-
-            -- Take care of the addition
-            for i in 1 to c_CIC_ORDER loop
-
-                if clk_counter2 = 6*i then
-
-                    --LOW 
-                    comb <= comb + RD;
-
-                elsif clk_counter2 = 6*i + 1 then
-
-                    --HIGH
-                    comb(c_CIC_INNER_WIDTH - 1 downto c_CIC_REG_WIDTH) <= comb(c_CIC_INNER_WIDTH - 1 downto c_CIC_REG_WIDTH) + RD(c_CIC_INNER_WIDTH - c_CIC_REG_WIDTH - 1 downto 0);
+                    comb <= int;
 
                 end if;
 
-            end loop;
+            end if;
+
+            if clk_counter2(log2_ceil(c_ADC_SAMPLING) downto 2) = add_timer then
+                if  clk_counter2(1) = '0' then
+                    --LOW 
+                    comb <= comb + RD;
+                else
+                    --HIGH
+                    comb(c_CIC_INNER_WIDTH - 1 downto c_CIC_REG_WIDTH) <= comb(c_CIC_INNER_WIDTH - 1 downto c_CIC_REG_WIDTH) + RD(c_CIC_INNER_WIDTH - c_CIC_REG_WIDTH - 1 downto 0);
+
+                    add_timer <= add_timer + 3;
+                end if;
+            end if;
 
         end if;
 
@@ -231,7 +236,7 @@ begin
         if rst = '1' then
             oddeven <= '0';
         elsif rising_edge(clk) and prog = c_CIC_DECIMATION-1 and clk_counter = c_ADC_SAMPLING-1 then
-             oddeven <= not oddeven;
+            oddeven <= not oddeven;
         end if;
 
     end process;
@@ -239,76 +244,55 @@ begin
 
     -- reading and writing memory
     process(rst, clk)
-        variable i      : integer :=0;
-        variable k      : integer :=0;
-
-
     begin
         if rst = '1' then
 
-        elsif rising_edge(clk) and (prog = (prog'range => '0') or clk_counter2 /= 0) then
+            r_timer <= (2 => '0', 3 => '1', others => '0'); -- that's 2 right there
+            w_timer <= (1 => '1', others => '0'); -- that's 1 right there
+            addr_counter <= (others => '0');
 
-            if oddeven = '0' then
-                k := 1;
-            else
-                k := -1;
-            end if;
-
+        elsif rising_edge(clk) and clk_counter2 /= 0 then
 
             -- reading
             REN <= '0';
 
-            for i in 1 to c_CIC_ORDER loop
+            if clk_counter2(log2_ceil(c_ADC_SAMPLING) downto 2) = r_timer then
 
-                if clk_counter2 = 6*i-2 then
+                REN     <= '1';
+                RADDR   <= std_logic_vector(addr_counter) & not oddeven & clk_counter2(1);
 
-                    --LOW
-                    REN     <= '1';
-                    RADDR   <= std_logic_vector(to_unsigned(4*i - 3 + k, c_CIC_REG_ADDR_WIDTH));
-
-
-                elsif clk_counter2 = 6*i-2 + 1 then
-
-                    --HIGH
-                    REN     <= '1';
-                    RADDR   <= std_logic_vector(to_unsigned(4*i - 2 + k, c_CIC_REG_ADDR_WIDTH));
-
+                if  clk_counter2(1) = '1' then
+                    addr_counter <= addr_counter + 1;
+                    r_timer <= r_timer + 3;
                 end if;
 
-            end loop;
+            end if;  
 
 
             -- writing
             WEN <= '0';
             
-            for i in 1 to c_CIC_ORDER loop
+            if clk_counter2 = w_timer then
 
-                if clk_counter2 = 6*i-5 then
+                WEN     <= '1';
+                WADDR   <= std_logic_vector(addr_counter) & oddeven & not clk_counter2(1);
 
-                    --LOW
-                    WEN     <= '1';
-                    RADDR   <= std_logic_vector(to_unsigned(4*i - 3 - k, c_CIC_REG_ADDR_WIDTH));
-
-
-                elsif clk_counter2 = 6*i-5 + 1 then
-
-                    --HIGH
-                    WEN     <= '1';
-                    RADDR   <= std_logic_vector(to_unsigned(4*i - 2 - k, c_CIC_REG_ADDR_WIDTH));
-
+                if  clk_counter2(1) = '1' then
+                        --LOW
+                        w_timer <= w_timer + 1;
+                else
+                        --HIGH
+--                        w_addr_counter <= w_addr_counter + 1;
+                        w_timer <= w_timer + 5;
                 end if;
 
-            end loop;
+            end if;            
 
         end if;
 
     end process;
 
-
-
 	-- Assign output signal
-    output  <= std_logic_vector(comb);  
-
-
+    output(c_CIC_INNER_WIDTH-1 downto 0)  <= std_logic_vector(comb);  
 
 end Behavioral;

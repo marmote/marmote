@@ -27,9 +27,9 @@ architecture DEF_ARCH of DDC is
         );
   end component;
 
-  component CIC
-    port( CLK    : in    std_logic := 'U';
-          RST    : in    std_logic := 'U';
+  component FIR
+    port( RST    : in    std_logic := 'U';
+          CLK    : in    std_logic := 'U';
           INPUT  : in    std_logic_vector(21 downto 0) := (others => 'U');
           OUTPUT : out   std_logic_vector(46 downto 0)
         );
@@ -61,28 +61,28 @@ architecture DEF_ARCH of DDC is
     signal \CH1_[13]\, \CH1_[12]\, \CH1_[11]\, \CH1_[10]\, 
         \CH1_[9]\, \CH1_[8]\, \CH1_[7]\, \CH1_[6]\, \CH1_[5]\, 
         \CH1_[4]\, \CH1_[3]\, \CH1_[2]\, \CH1_[1]\, \CH1_[0]\, 
-        \mult1_0_Mult_0_[21]\, \mult1_0_Mult_0_[20]\, 
-        \mult1_0_Mult_0_[19]\, \mult1_0_Mult_0_[18]\, 
-        \mult1_0_Mult_0_[17]\, \mult1_0_Mult_0_[16]\, 
-        \mult1_0_Mult_0_[15]\, \mult1_0_Mult_0_[14]\, 
-        \mult1_0_Mult_0_[13]\, \mult1_0_Mult_0_[12]\, 
-        \mult1_0_Mult_0_[11]\, \mult1_0_Mult_0_[10]\, 
-        \mult1_0_Mult_0_[9]\, \mult1_0_Mult_0_[8]\, 
-        \mult1_0_Mult_0_[7]\, \mult1_0_Mult_0_[6]\, 
-        \mult1_0_Mult_0_[5]\, \mult1_0_Mult_0_[4]\, 
-        \mult1_0_Mult_0_[3]\, \mult1_0_Mult_0_[2]\, 
-        \mult1_0_Mult_0_[1]\, \mult1_0_Mult_0_[0]\, 
-        \mult1_1_Mult_0_[21]\, \mult1_1_Mult_0_[20]\, 
-        \mult1_1_Mult_0_[19]\, \mult1_1_Mult_0_[18]\, 
-        \mult1_1_Mult_0_[17]\, \mult1_1_Mult_0_[16]\, 
-        \mult1_1_Mult_0_[15]\, \mult1_1_Mult_0_[14]\, 
-        \mult1_1_Mult_0_[13]\, \mult1_1_Mult_0_[12]\, 
-        \mult1_1_Mult_0_[11]\, \mult1_1_Mult_0_[10]\, 
-        \mult1_1_Mult_0_[9]\, \mult1_1_Mult_0_[8]\, 
-        \mult1_1_Mult_0_[7]\, \mult1_1_Mult_0_[6]\, 
-        \mult1_1_Mult_0_[5]\, \mult1_1_Mult_0_[4]\, 
-        \mult1_1_Mult_0_[3]\, \mult1_1_Mult_0_[2]\, 
-        \mult1_1_Mult_0_[1]\, \mult1_1_Mult_0_[0]\, 
+        \mult1_0_Mult_1_[21]\, \mult1_0_Mult_1_[20]\, 
+        \mult1_0_Mult_1_[19]\, \mult1_0_Mult_1_[18]\, 
+        \mult1_0_Mult_1_[17]\, \mult1_0_Mult_1_[16]\, 
+        \mult1_0_Mult_1_[15]\, \mult1_0_Mult_1_[14]\, 
+        \mult1_0_Mult_1_[13]\, \mult1_0_Mult_1_[12]\, 
+        \mult1_0_Mult_1_[11]\, \mult1_0_Mult_1_[10]\, 
+        \mult1_0_Mult_1_[9]\, \mult1_0_Mult_1_[8]\, 
+        \mult1_0_Mult_1_[7]\, \mult1_0_Mult_1_[6]\, 
+        \mult1_0_Mult_1_[5]\, \mult1_0_Mult_1_[4]\, 
+        \mult1_0_Mult_1_[3]\, \mult1_0_Mult_1_[2]\, 
+        \mult1_0_Mult_1_[1]\, \mult1_0_Mult_1_[0]\, 
+        \mult1_1_Mult_1_[21]\, \mult1_1_Mult_1_[20]\, 
+        \mult1_1_Mult_1_[19]\, \mult1_1_Mult_1_[18]\, 
+        \mult1_1_Mult_1_[17]\, \mult1_1_Mult_1_[16]\, 
+        \mult1_1_Mult_1_[15]\, \mult1_1_Mult_1_[14]\, 
+        \mult1_1_Mult_1_[13]\, \mult1_1_Mult_1_[12]\, 
+        \mult1_1_Mult_1_[11]\, \mult1_1_Mult_1_[10]\, 
+        \mult1_1_Mult_1_[9]\, \mult1_1_Mult_1_[8]\, 
+        \mult1_1_Mult_1_[7]\, \mult1_1_Mult_1_[6]\, 
+        \mult1_1_Mult_1_[5]\, \mult1_1_Mult_1_[4]\, 
+        \mult1_1_Mult_1_[3]\, \mult1_1_Mult_1_[2]\, 
+        \mult1_1_Mult_1_[1]\, \mult1_1_Mult_1_[0]\, 
         \sincos_gen_0_COS_OUT_0_[7]\, 
         \sincos_gen_0_COS_OUT_0_[6]\, 
         \sincos_gen_0_COS_OUT_0_[5]\, 
@@ -121,23 +121,23 @@ begin
     \VCC\ : VCC
       port map(Y => VCC_net);
     
-    CIC_1 : CIC
-      port map(CLK => CLK, RST => RST, INPUT(21) => 
-        \mult1_1_Mult_0_[21]\, INPUT(20) => \mult1_1_Mult_0_[20]\, 
-        INPUT(19) => \mult1_1_Mult_0_[19]\, INPUT(18) => 
-        \mult1_1_Mult_0_[18]\, INPUT(17) => \mult1_1_Mult_0_[17]\, 
-        INPUT(16) => \mult1_1_Mult_0_[16]\, INPUT(15) => 
-        \mult1_1_Mult_0_[15]\, INPUT(14) => \mult1_1_Mult_0_[14]\, 
-        INPUT(13) => \mult1_1_Mult_0_[13]\, INPUT(12) => 
-        \mult1_1_Mult_0_[12]\, INPUT(11) => \mult1_1_Mult_0_[11]\, 
-        INPUT(10) => \mult1_1_Mult_0_[10]\, INPUT(9) => 
-        \mult1_1_Mult_0_[9]\, INPUT(8) => \mult1_1_Mult_0_[8]\, 
-        INPUT(7) => \mult1_1_Mult_0_[7]\, INPUT(6) => 
-        \mult1_1_Mult_0_[6]\, INPUT(5) => \mult1_1_Mult_0_[5]\, 
-        INPUT(4) => \mult1_1_Mult_0_[4]\, INPUT(3) => 
-        \mult1_1_Mult_0_[3]\, INPUT(2) => \mult1_1_Mult_0_[2]\, 
-        INPUT(1) => \mult1_1_Mult_0_[1]\, INPUT(0) => 
-        \mult1_1_Mult_0_[0]\, OUTPUT(46) => OUTPUT_1(46), 
+    FIR_1 : FIR
+      port map(RST => RST, CLK => CLK, INPUT(21) => 
+        \mult1_1_Mult_1_[21]\, INPUT(20) => \mult1_1_Mult_1_[20]\, 
+        INPUT(19) => \mult1_1_Mult_1_[19]\, INPUT(18) => 
+        \mult1_1_Mult_1_[18]\, INPUT(17) => \mult1_1_Mult_1_[17]\, 
+        INPUT(16) => \mult1_1_Mult_1_[16]\, INPUT(15) => 
+        \mult1_1_Mult_1_[15]\, INPUT(14) => \mult1_1_Mult_1_[14]\, 
+        INPUT(13) => \mult1_1_Mult_1_[13]\, INPUT(12) => 
+        \mult1_1_Mult_1_[12]\, INPUT(11) => \mult1_1_Mult_1_[11]\, 
+        INPUT(10) => \mult1_1_Mult_1_[10]\, INPUT(9) => 
+        \mult1_1_Mult_1_[9]\, INPUT(8) => \mult1_1_Mult_1_[8]\, 
+        INPUT(7) => \mult1_1_Mult_1_[7]\, INPUT(6) => 
+        \mult1_1_Mult_1_[6]\, INPUT(5) => \mult1_1_Mult_1_[5]\, 
+        INPUT(4) => \mult1_1_Mult_1_[4]\, INPUT(3) => 
+        \mult1_1_Mult_1_[3]\, INPUT(2) => \mult1_1_Mult_1_[2]\, 
+        INPUT(1) => \mult1_1_Mult_1_[1]\, INPUT(0) => 
+        \mult1_1_Mult_1_[0]\, OUTPUT(46) => OUTPUT_1(46), 
         OUTPUT(45) => OUTPUT_1(45), OUTPUT(44) => OUTPUT_1(44), 
         OUTPUT(43) => OUTPUT_1(43), OUTPUT(42) => OUTPUT_1(42), 
         OUTPUT(41) => OUTPUT_1(41), OUTPUT(40) => OUTPUT_1(40), 
@@ -203,21 +203,21 @@ begin
         \sincos_gen_0_SIN_OUT_0_[2]\, DataB(1) => 
         \sincos_gen_0_SIN_OUT_0_[1]\, DataB(0) => 
         \sincos_gen_0_SIN_OUT_0_[0]\, Mult(21) => 
-        \mult1_1_Mult_0_[21]\, Mult(20) => \mult1_1_Mult_0_[20]\, 
-        Mult(19) => \mult1_1_Mult_0_[19]\, Mult(18) => 
-        \mult1_1_Mult_0_[18]\, Mult(17) => \mult1_1_Mult_0_[17]\, 
-        Mult(16) => \mult1_1_Mult_0_[16]\, Mult(15) => 
-        \mult1_1_Mult_0_[15]\, Mult(14) => \mult1_1_Mult_0_[14]\, 
-        Mult(13) => \mult1_1_Mult_0_[13]\, Mult(12) => 
-        \mult1_1_Mult_0_[12]\, Mult(11) => \mult1_1_Mult_0_[11]\, 
-        Mult(10) => \mult1_1_Mult_0_[10]\, Mult(9) => 
-        \mult1_1_Mult_0_[9]\, Mult(8) => \mult1_1_Mult_0_[8]\, 
-        Mult(7) => \mult1_1_Mult_0_[7]\, Mult(6) => 
-        \mult1_1_Mult_0_[6]\, Mult(5) => \mult1_1_Mult_0_[5]\, 
-        Mult(4) => \mult1_1_Mult_0_[4]\, Mult(3) => 
-        \mult1_1_Mult_0_[3]\, Mult(2) => \mult1_1_Mult_0_[2]\, 
-        Mult(1) => \mult1_1_Mult_0_[1]\, Mult(0) => 
-        \mult1_1_Mult_0_[0]\);
+        \mult1_1_Mult_1_[21]\, Mult(20) => \mult1_1_Mult_1_[20]\, 
+        Mult(19) => \mult1_1_Mult_1_[19]\, Mult(18) => 
+        \mult1_1_Mult_1_[18]\, Mult(17) => \mult1_1_Mult_1_[17]\, 
+        Mult(16) => \mult1_1_Mult_1_[16]\, Mult(15) => 
+        \mult1_1_Mult_1_[15]\, Mult(14) => \mult1_1_Mult_1_[14]\, 
+        Mult(13) => \mult1_1_Mult_1_[13]\, Mult(12) => 
+        \mult1_1_Mult_1_[12]\, Mult(11) => \mult1_1_Mult_1_[11]\, 
+        Mult(10) => \mult1_1_Mult_1_[10]\, Mult(9) => 
+        \mult1_1_Mult_1_[9]\, Mult(8) => \mult1_1_Mult_1_[8]\, 
+        Mult(7) => \mult1_1_Mult_1_[7]\, Mult(6) => 
+        \mult1_1_Mult_1_[6]\, Mult(5) => \mult1_1_Mult_1_[5]\, 
+        Mult(4) => \mult1_1_Mult_1_[4]\, Mult(3) => 
+        \mult1_1_Mult_1_[3]\, Mult(2) => \mult1_1_Mult_1_[2]\, 
+        Mult(1) => \mult1_1_Mult_1_[1]\, Mult(0) => 
+        \mult1_1_Mult_1_[0]\);
     
     mult1_0 : mult1
       port map(DataA(13) => \CH1_[13]\, DataA(12) => \CH1_[12]\, 
@@ -234,42 +234,57 @@ begin
         \sincos_gen_0_COS_OUT_0_[2]\, DataB(1) => 
         \sincos_gen_0_COS_OUT_0_[1]\, DataB(0) => 
         \sincos_gen_0_COS_OUT_0_[0]\, Mult(21) => 
-        \mult1_0_Mult_0_[21]\, Mult(20) => \mult1_0_Mult_0_[20]\, 
-        Mult(19) => \mult1_0_Mult_0_[19]\, Mult(18) => 
-        \mult1_0_Mult_0_[18]\, Mult(17) => \mult1_0_Mult_0_[17]\, 
-        Mult(16) => \mult1_0_Mult_0_[16]\, Mult(15) => 
-        \mult1_0_Mult_0_[15]\, Mult(14) => \mult1_0_Mult_0_[14]\, 
-        Mult(13) => \mult1_0_Mult_0_[13]\, Mult(12) => 
-        \mult1_0_Mult_0_[12]\, Mult(11) => \mult1_0_Mult_0_[11]\, 
-        Mult(10) => \mult1_0_Mult_0_[10]\, Mult(9) => 
-        \mult1_0_Mult_0_[9]\, Mult(8) => \mult1_0_Mult_0_[8]\, 
-        Mult(7) => \mult1_0_Mult_0_[7]\, Mult(6) => 
-        \mult1_0_Mult_0_[6]\, Mult(5) => \mult1_0_Mult_0_[5]\, 
-        Mult(4) => \mult1_0_Mult_0_[4]\, Mult(3) => 
-        \mult1_0_Mult_0_[3]\, Mult(2) => \mult1_0_Mult_0_[2]\, 
-        Mult(1) => \mult1_0_Mult_0_[1]\, Mult(0) => 
-        \mult1_0_Mult_0_[0]\);
+        \mult1_0_Mult_1_[21]\, Mult(20) => \mult1_0_Mult_1_[20]\, 
+        Mult(19) => \mult1_0_Mult_1_[19]\, Mult(18) => 
+        \mult1_0_Mult_1_[18]\, Mult(17) => \mult1_0_Mult_1_[17]\, 
+        Mult(16) => \mult1_0_Mult_1_[16]\, Mult(15) => 
+        \mult1_0_Mult_1_[15]\, Mult(14) => \mult1_0_Mult_1_[14]\, 
+        Mult(13) => \mult1_0_Mult_1_[13]\, Mult(12) => 
+        \mult1_0_Mult_1_[12]\, Mult(11) => \mult1_0_Mult_1_[11]\, 
+        Mult(10) => \mult1_0_Mult_1_[10]\, Mult(9) => 
+        \mult1_0_Mult_1_[9]\, Mult(8) => \mult1_0_Mult_1_[8]\, 
+        Mult(7) => \mult1_0_Mult_1_[7]\, Mult(6) => 
+        \mult1_0_Mult_1_[6]\, Mult(5) => \mult1_0_Mult_1_[5]\, 
+        Mult(4) => \mult1_0_Mult_1_[4]\, Mult(3) => 
+        \mult1_0_Mult_1_[3]\, Mult(2) => \mult1_0_Mult_1_[2]\, 
+        Mult(1) => \mult1_0_Mult_1_[1]\, Mult(0) => 
+        \mult1_0_Mult_1_[0]\);
     
     \GND\ : GND
       port map(Y => GND_net);
     
-    CIC_0 : CIC
-      port map(CLK => CLK, RST => RST, INPUT(21) => 
-        \mult1_0_Mult_0_[21]\, INPUT(20) => \mult1_0_Mult_0_[20]\, 
-        INPUT(19) => \mult1_0_Mult_0_[19]\, INPUT(18) => 
-        \mult1_0_Mult_0_[18]\, INPUT(17) => \mult1_0_Mult_0_[17]\, 
-        INPUT(16) => \mult1_0_Mult_0_[16]\, INPUT(15) => 
-        \mult1_0_Mult_0_[15]\, INPUT(14) => \mult1_0_Mult_0_[14]\, 
-        INPUT(13) => \mult1_0_Mult_0_[13]\, INPUT(12) => 
-        \mult1_0_Mult_0_[12]\, INPUT(11) => \mult1_0_Mult_0_[11]\, 
-        INPUT(10) => \mult1_0_Mult_0_[10]\, INPUT(9) => 
-        \mult1_0_Mult_0_[9]\, INPUT(8) => \mult1_0_Mult_0_[8]\, 
-        INPUT(7) => \mult1_0_Mult_0_[7]\, INPUT(6) => 
-        \mult1_0_Mult_0_[6]\, INPUT(5) => \mult1_0_Mult_0_[5]\, 
-        INPUT(4) => \mult1_0_Mult_0_[4]\, INPUT(3) => 
-        \mult1_0_Mult_0_[3]\, INPUT(2) => \mult1_0_Mult_0_[2]\, 
-        INPUT(1) => \mult1_0_Mult_0_[1]\, INPUT(0) => 
-        \mult1_0_Mult_0_[0]\, OUTPUT(46) => OUTPUT_0(46), 
+    ADC_SPI_0 : entity work.ADC_SPI
+      port map(PCLK => CLK, PRESETn => RST, SCLK => SCLK, CSn => 
+        CSn, sample_rdy => OPEN, CH1(13) => \CH1_[13]\, CH1(12)
+         => \CH1_[12]\, CH1(11) => \CH1_[11]\, CH1(10) => 
+        \CH1_[10]\, CH1(9) => \CH1_[9]\, CH1(8) => \CH1_[8]\, 
+        CH1(7) => \CH1_[7]\, CH1(6) => \CH1_[6]\, CH1(5) => 
+        \CH1_[5]\, CH1(4) => \CH1_[4]\, CH1(3) => \CH1_[3]\, 
+        CH1(2) => \CH1_[2]\, CH1(1) => \CH1_[1]\, CH1(0) => 
+        \CH1_[0]\, CH2(13) => CH2(13), CH2(12) => CH2(12), 
+        CH2(11) => CH2(11), CH2(10) => CH2(10), CH2(9) => CH2(9), 
+        CH2(8) => CH2(8), CH2(7) => CH2(7), CH2(6) => CH2(6), 
+        CH2(5) => CH2(5), CH2(4) => CH2(4), CH2(3) => CH2(3), 
+        CH2(2) => CH2(2), CH2(1) => CH2(1), CH2(0) => CH2(0), 
+        SDATA(1) => SDATA(1), SDATA(2) => SDATA(2));
+    
+    FIR_0 : FIR
+      port map(RST => RST, CLK => CLK, INPUT(21) => 
+        \mult1_0_Mult_1_[21]\, INPUT(20) => \mult1_0_Mult_1_[20]\, 
+        INPUT(19) => \mult1_0_Mult_1_[19]\, INPUT(18) => 
+        \mult1_0_Mult_1_[18]\, INPUT(17) => \mult1_0_Mult_1_[17]\, 
+        INPUT(16) => \mult1_0_Mult_1_[16]\, INPUT(15) => 
+        \mult1_0_Mult_1_[15]\, INPUT(14) => \mult1_0_Mult_1_[14]\, 
+        INPUT(13) => \mult1_0_Mult_1_[13]\, INPUT(12) => 
+        \mult1_0_Mult_1_[12]\, INPUT(11) => \mult1_0_Mult_1_[11]\, 
+        INPUT(10) => \mult1_0_Mult_1_[10]\, INPUT(9) => 
+        \mult1_0_Mult_1_[9]\, INPUT(8) => \mult1_0_Mult_1_[8]\, 
+        INPUT(7) => \mult1_0_Mult_1_[7]\, INPUT(6) => 
+        \mult1_0_Mult_1_[6]\, INPUT(5) => \mult1_0_Mult_1_[5]\, 
+        INPUT(4) => \mult1_0_Mult_1_[4]\, INPUT(3) => 
+        \mult1_0_Mult_1_[3]\, INPUT(2) => \mult1_0_Mult_1_[2]\, 
+        INPUT(1) => \mult1_0_Mult_1_[1]\, INPUT(0) => 
+        \mult1_0_Mult_1_[0]\, OUTPUT(46) => OUTPUT_0(46), 
         OUTPUT(45) => OUTPUT_0(45), OUTPUT(44) => OUTPUT_0(44), 
         OUTPUT(43) => OUTPUT_0(43), OUTPUT(42) => OUTPUT_0(42), 
         OUTPUT(41) => OUTPUT_0(41), OUTPUT(40) => OUTPUT_0(40), 
@@ -293,21 +308,6 @@ begin
         OUTPUT(5) => OUTPUT_0(5), OUTPUT(4) => OUTPUT_0(4), 
         OUTPUT(3) => OUTPUT_0(3), OUTPUT(2) => OUTPUT_0(2), 
         OUTPUT(1) => OUTPUT_0(1), OUTPUT(0) => OUTPUT_0(0));
-    
-    ADC_SPI_0 : entity work.ADC_SPI
-      port map(PCLK => CLK, PRESETn => RST, SCLK => SCLK, CSn => 
-        CSn, sample_rdy => OPEN, CH1(13) => \CH1_[13]\, CH1(12)
-         => \CH1_[12]\, CH1(11) => \CH1_[11]\, CH1(10) => 
-        \CH1_[10]\, CH1(9) => \CH1_[9]\, CH1(8) => \CH1_[8]\, 
-        CH1(7) => \CH1_[7]\, CH1(6) => \CH1_[6]\, CH1(5) => 
-        \CH1_[5]\, CH1(4) => \CH1_[4]\, CH1(3) => \CH1_[3]\, 
-        CH1(2) => \CH1_[2]\, CH1(1) => \CH1_[1]\, CH1(0) => 
-        \CH1_[0]\, CH2(13) => CH2(13), CH2(12) => CH2(12), 
-        CH2(11) => CH2(11), CH2(10) => CH2(10), CH2(9) => CH2(9), 
-        CH2(8) => CH2(8), CH2(7) => CH2(7), CH2(6) => CH2(6), 
-        CH2(5) => CH2(5), CH2(4) => CH2(4), CH2(3) => CH2(3), 
-        CH2(2) => CH2(2), CH2(1) => CH2(1), CH2(0) => CH2(0), 
-        SDATA(1) => SDATA(1), SDATA(2) => SDATA(2));
     
 
 end DEF_ARCH; 
