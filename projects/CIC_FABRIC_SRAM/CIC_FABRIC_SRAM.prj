@@ -10,7 +10,7 @@ KEY VendorTechnology_Package "fg484"
 KEY ProjectLocation "D:\Work\marmote\projects\CIC_FABRIC_SRAM"
 KEY SimulationType "VHDL"
 KEY Vendor "Actel"
-KEY ActiveRoot "uC::work"
+KEY ActiveRoot "top::work"
 LIST REVISIONS
 VALUE="Impl1",NUM=1
 CURREV=1
@@ -115,38 +115,38 @@ PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\work\CIC\CIC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1315918984"
+TIME="1316545302"
 SIZE="2056"
 ENDFILE
 VALUE "<project>\component\work\CIC\CIC.vhd,hdl"
 STATE="utd"
-TIME="1315918984"
+TIME="1316545302"
 SIZE="11552"
 PARENT="<project>\component\work\CIC\CIC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\CIC\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1315918984"
+TIME="1316545302"
 SIZE="1809"
 PARENT="<project>\component\work\CIC\CIC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\top\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1315918988"
+TIME="1316545359"
 SIZE="1780"
 PARENT="<project>\component\work\top\top.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\top\top.cxf,actgen_cxf"
 STATE="utd"
-TIME="1315918988"
+TIME="1316545359"
 SIZE="2518"
 ENDFILE
 VALUE "<project>\component\work\top\top.pdc,pdc"
 STATE="utd"
-TIME="1315918988"
+TIME="1316545358"
 SIZE="988"
 PARENT="<project>\component\work\top\top.cxf"
 BEGIN_USE_CONSTRAINT
@@ -157,7 +157,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\top\top.vhd,hdl"
 STATE="utd"
-TIME="1315918988"
+TIME="1316545359"
 SIZE="9825"
 PARENT="<project>\component\work\top\top.cxf"
 IS_READONLY="TRUE"
@@ -231,18 +231,18 @@ SIZE="244224"
 ENDFILE
 VALUE "<project>\hdl\CIC_control.vhd,hdl"
 STATE="utd"
-TIME="1316100074"
-SIZE="8909"
+TIME="1316546073"
+SIZE="9171"
 ENDFILE
 VALUE "<project>\hdl\common.vhd,hdl"
 STATE="utd"
-TIME="1315918390"
-SIZE="2936"
+TIME="1316546087"
+SIZE="3265"
 ENDFILE
 VALUE "<project>\hdl\test.vhd,hdl"
 STATE="utd"
-TIME="1315420093"
-SIZE="1668"
+TIME="1316545349"
+SIZE="1651"
 ENDFILE
 VALUE "<project>\hdl\test_in.vhd,hdl"
 STATE="utd"
@@ -360,6 +360,21 @@ STATE="utd"
 TIME="1315918317"
 SIZE="440"
 PARENT="<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.cxf"
+ENDFILE
+VALUE "<project>\synthesis\top.edn,syn_edn"
+STATE="ood"
+TIME="1316545370"
+SIZE="844398"
+ENDFILE
+VALUE "<project>\synthesis\top_drc.rpt,log"
+STATE="utd"
+TIME="1316545380"
+SIZE="26706"
+ENDFILE
+VALUE "<project>\synthesis\top_sdc.sdc,syn_sdc"
+STATE="ood"
+TIME="1316545370"
+SIZE="310"
 ENDFILE
 VALUE "<project>\synthesis\uC.edn,syn_edn"
 STATE="utd"
@@ -619,10 +634,11 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 DESIGNFLOW:
-SD:CIC::work
 SD:top::work
+SD:CIC::work
 FILE:<project>\hdl\CIC_control.vhd,hdl
-FILE:<project>\synthesis\uC.srr,???
-FILE:<project>\synthesis\uC.areasrr,???
-ACTIVE_VIEW:3
+FILE:<project>\synthesis\top.areasrr,???
+FILE:<project>\hdl\common.vhd,hdl
+FILE:<project>\hdl\test.vhd,hdl
+ACTIVE_VIEW:0
 ENDLIST

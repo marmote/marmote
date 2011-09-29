@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------
--- Created by Actel SmartDesign Thu Sep 15 11:10:38 2011
+-- Created by Actel SmartDesign Wed Sep 28 09:51:33 2011
 -- Testbench Template
 -- This is a basic testbench that instantiates your design with basic 
 -- clock and reset pins connected.  If your design has special

@@ -31,6 +31,9 @@ package COMMON is
     function reverse_vector(a : std_logic_vector) return std_logic_vector;
 
 
+    function OR_signal(a : std_logic_vector) return std_logic;
+
+
 -----------------------------------------
 --          Common Constants           --
 -----------------------------------------
@@ -96,6 +99,18 @@ package body COMMON is
         for i in a'range loop
             result(i) := a(i);
         end loop;
+        return result;
+    end function;
+
+
+    function OR_signal(a : std_logic_vector) return std_logic is
+        variable result: std_logic := '0';
+    begin
+
+        for i in a'range loop
+            result := result or a(i);
+        end loop;
+
         return result;
     end function;
 

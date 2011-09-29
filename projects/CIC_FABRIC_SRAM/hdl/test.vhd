@@ -18,7 +18,7 @@ entity test is
     );
 
    	port (
-		INPUT     : in  std_logic_vector(c_CIC_INNER_WIDTH-1 downto 0);
+		INPUT     : in  std_logic_vector(46 downto 0);
         OUTPUT    : out std_logic  
 	);
 end entity; 

@@ -185,42 +185,42 @@ TIME="1313419038"
 SIZE="254"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
-VALUE "<project>\component\work\CIC\CIC.cxf,actgen_cxf"
-STATE="utd"
-TIME="1316103028"
-SIZE="2140"
-ENDFILE
-VALUE "<project>\component\work\CIC\CIC.vhd,hdl"
-STATE="utd"
-TIME="1316103028"
-SIZE="26633"
-PARENT="<project>\component\work\CIC\CIC.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\work\CIC\testbench.vhd,tb_hdl"
-STATE="utd"
-TIME="1316103028"
-SIZE="1809"
-PARENT="<project>\component\work\CIC\CIC.cxf"
-IS_READONLY="TRUE"
-ENDFILE
 VALUE "<project>\component\work\DDC\DDC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1316103034"
+TIME="1317221488"
 SIZE="3058"
 ENDFILE
 VALUE "<project>\component\work\DDC\DDC.vhd,hdl"
 STATE="utd"
-TIME="1316103034"
+TIME="1317221488"
 SIZE="15131"
 PARENT="<project>\component\work\DDC\DDC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\DDC\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1316103034"
+TIME="1317221488"
 SIZE="2186"
 PARENT="<project>\component\work\DDC\DDC.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\FIR\FIR.cxf,actgen_cxf"
+STATE="utd"
+TIME="1317221485"
+SIZE="2437"
+ENDFILE
+VALUE "<project>\component\work\FIR\FIR.vhd,hdl"
+STATE="utd"
+TIME="1317221485"
+SIZE="30294"
+PARENT="<project>\component\work\FIR\FIR.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\FIR\testbench.vhd,tb_hdl"
+STATE="utd"
+TIME="1317221485"
+SIZE="1809"
+PARENT="<project>\component\work\FIR\FIR.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\sincos_gen\sincos_gen.cxf,actgen_cxf"
@@ -244,19 +244,19 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\top\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1316103038"
+TIME="1317221493"
 SIZE="2289"
 PARENT="<project>\component\work\top\top.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\top\top.cxf,actgen_cxf"
 STATE="utd"
-TIME="1316103038"
+TIME="1317221493"
 SIZE="3722"
 ENDFILE
 VALUE "<project>\component\work\top\top.pdc,pdc"
 STATE="utd"
-TIME="1316103038"
+TIME="1317221493"
 SIZE="2010"
 PARENT="<project>\component\work\top\top.cxf"
 BEGIN_USE_CONSTRAINT
@@ -267,7 +267,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\top\top.vhd,hdl"
 STATE="utd"
-TIME="1316103038"
+TIME="1317221493"
 SIZE="6799"
 PARENT="<project>\component\work\top\top.cxf"
 IS_READONLY="TRUE"
@@ -349,15 +349,25 @@ STATE="utd"
 TIME="1314106936"
 SIZE="4912"
 ENDFILE
-VALUE "<project>\hdl\CIC_control.vhd,hdl"
-STATE="utd"
-TIME="1316101829"
-SIZE="11044"
-ENDFILE
 VALUE "<project>\hdl\common.vhd,hdl"
 STATE="utd"
-TIME="1315489974"
-SIZE="3011"
+TIME="1317217313"
+SIZE="3457"
+ENDFILE
+VALUE "<project>\hdl\FIR_core.vhd,hdl"
+STATE="utd"
+TIME="1317150973"
+SIZE="3804"
+ENDFILE
+VALUE "<project>\hdl\mem_coef_control.vhd,hdl"
+STATE="utd"
+TIME="1317150159"
+SIZE="2694"
+ENDFILE
+VALUE "<project>\hdl\mem_sample_control.vhd,hdl"
+STATE="utd"
+TIME="1317150252"
+SIZE="4209"
 ENDFILE
 VALUE "<project>\hdl\phase_gen.vhd,hdl"
 STATE="utd"
@@ -394,187 +404,87 @@ TIME="1311177211"
 SIZE="670"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
-VALUE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.cxf,actgen_cxf"
+VALUE "<project>\smartgen\mem_coef\mem_coef.cxf,actgen_cxf"
 STATE="utd"
-TIME="1316102886"
-SIZE="2592"
+TIME="1317217133"
+SIZE="2564"
 ENDFILE
-VALUE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.gen,gen"
+VALUE "<project>\smartgen\mem_coef\mem_coef.gen,gen"
 STATE="utd"
-TIME="1316102885"
-SIZE="671"
-PARENT="<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.cxf"
+TIME="1317217132"
+SIZE="667"
+PARENT="<project>\smartgen\mem_coef\mem_coef.cxf"
 IS_READONLY="TRUE"
 ENDFILE
-VALUE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.log,log"
+VALUE "<project>\smartgen\mem_coef\mem_coef.log,log"
 STATE="utd"
-TIME="1316102886"
-SIZE="3345"
-PARENT="<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.cxf"
+TIME="1317217133"
+SIZE="3336"
+PARENT="<project>\smartgen\mem_coef\mem_coef.cxf"
 IS_READONLY="TRUE"
 ENDFILE
-VALUE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.vhd,hdl"
+VALUE "<project>\smartgen\mem_coef\mem_coef.vhd,hdl"
 STATE="utd"
-TIME="1316102886"
-SIZE="5456"
-PARENT="<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.cxf"
+TIME="1317217133"
+SIZE="10538"
+PARENT="<project>\smartgen\mem_coef\mem_coef.cxf"
 IS_READONLY="TRUE"
 ENDFILE
-VALUE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem_R0C0.mem,sim"
+VALUE "<project>\smartgen\mem_coef\mem_coef_R0C0.mem,sim"
 STATE="utd"
-TIME="1316102886"
-SIZE="440"
-PARENT="<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.cxf"
+TIME="1317217133"
+SIZE="5632"
+PARENT="<project>\smartgen\mem_coef\mem_coef.cxf"
 ENDFILE
-VALUE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem_R0C1.mem,sim"
+VALUE "<project>\smartgen\mem_coef\mem_coef_R0C1.mem,sim"
 STATE="utd"
-TIME="1316102886"
-SIZE="440"
-PARENT="<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.cxf"
+TIME="1317217133"
+SIZE="5632"
+PARENT="<project>\smartgen\mem_coef\mem_coef.cxf"
 ENDFILE
-VALUE "<project>\smartgen\CIC_INT_mem\CIC_INT_mem.cxf,actgen_cxf"
+VALUE "<project>\smartgen\mem_sample\mem_sample.cxf,actgen_cxf"
 STATE="utd"
-TIME="1316102911"
-SIZE="2674"
+TIME="1317217465"
+SIZE="2666"
 ENDFILE
-VALUE "<project>\smartgen\CIC_INT_mem\CIC_INT_mem.gen,gen"
+VALUE "<project>\smartgen\mem_sample\mem_sample.gen,gen"
 STATE="utd"
-TIME="1316102909"
-SIZE="675"
-PARENT="<project>\smartgen\CIC_INT_mem\CIC_INT_mem.cxf"
+TIME="1317217463"
+SIZE="670"
+PARENT="<project>\smartgen\mem_sample\mem_sample.cxf"
 IS_READONLY="TRUE"
 ENDFILE
-VALUE "<project>\smartgen\CIC_INT_mem\CIC_INT_mem.log,log"
+VALUE "<project>\smartgen\mem_sample\mem_sample.log,log"
 STATE="utd"
-TIME="1316102910"
-SIZE="3340"
-PARENT="<project>\smartgen\CIC_INT_mem\CIC_INT_mem.cxf"
+TIME="1317217464"
+SIZE="3342"
+PARENT="<project>\smartgen\mem_sample\mem_sample.cxf"
 IS_READONLY="TRUE"
 ENDFILE
-VALUE "<project>\smartgen\CIC_INT_mem\CIC_INT_mem.vhd,hdl"
+VALUE "<project>\smartgen\mem_sample\mem_sample.vhd,hdl"
 STATE="utd"
-TIME="1316102911"
-SIZE="6845"
-PARENT="<project>\smartgen\CIC_INT_mem\CIC_INT_mem.cxf"
+TIME="1317217464"
+SIZE="14067"
+PARENT="<project>\smartgen\mem_sample\mem_sample.cxf"
 IS_READONLY="TRUE"
 ENDFILE
-VALUE "<project>\smartgen\CIC_INT_mem\CIC_INT_mem_R0C0.mem,sim"
+VALUE "<project>\smartgen\mem_sample\mem_sample_R0C0.mem,sim"
 STATE="utd"
-TIME="1316102911"
-SIZE="110"
-PARENT="<project>\smartgen\CIC_INT_mem\CIC_INT_mem.cxf"
+TIME="1317217465"
+SIZE="5632"
+PARENT="<project>\smartgen\mem_sample\mem_sample.cxf"
 ENDFILE
-VALUE "<project>\smartgen\CIC_INT_mem\CIC_INT_mem_R0C1.mem,sim"
+VALUE "<project>\smartgen\mem_sample\mem_sample_R0C1.mem,sim"
 STATE="utd"
-TIME="1316102911"
-SIZE="110"
-PARENT="<project>\smartgen\CIC_INT_mem\CIC_INT_mem.cxf"
+TIME="1317217465"
+SIZE="5632"
+PARENT="<project>\smartgen\mem_sample\mem_sample.cxf"
 ENDFILE
-VALUE "<project>\smartgen\CIC_INT_mem\CIC_INT_mem_R0C2.mem,sim"
+VALUE "<project>\smartgen\mem_sample\mem_sample_R0C2.mem,sim"
 STATE="utd"
-TIME="1316102911"
-SIZE="110"
-PARENT="<project>\smartgen\CIC_INT_mem\CIC_INT_mem.cxf"
-ENDFILE
-VALUE "<project>\smartgen\CIC_mem\CIC_mem.cxf,actgen_cxf"
-STATE="utd"
-TIME="1315490029"
-SIZE="3571"
-ENDFILE
-VALUE "<project>\smartgen\CIC_mem\CIC_mem.gen,gen"
-STATE="utd"
-TIME="1315490028"
-SIZE="777"
-PARENT="<project>\smartgen\CIC_mem\CIC_mem.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\smartgen\CIC_mem\CIC_mem.log,log"
-STATE="utd"
-TIME="1315490029"
-SIZE="3354"
-PARENT="<project>\smartgen\CIC_mem\CIC_mem.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\smartgen\CIC_mem\CIC_mem.vhd,hdl"
-STATE="utd"
-TIME="1315490029"
-SIZE="13742"
-PARENT="<project>\smartgen\CIC_mem\CIC_mem.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C0.mem,sim"
-STATE="utd"
-TIME="1315490029"
-SIZE="110"
-PARENT="<project>\smartgen\CIC_mem\CIC_mem.cxf"
-ENDFILE
-VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C1.mem,sim"
-STATE="utd"
-TIME="1315490029"
-SIZE="110"
-PARENT="<project>\smartgen\CIC_mem\CIC_mem.cxf"
-ENDFILE
-VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C2.mem,sim"
-STATE="utd"
-TIME="1315490029"
-SIZE="110"
-PARENT="<project>\smartgen\CIC_mem\CIC_mem.cxf"
-ENDFILE
-VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C3.mem,sim"
-STATE="utd"
-TIME="1315490029"
-SIZE="110"
-PARENT="<project>\smartgen\CIC_mem\CIC_mem.cxf"
-ENDFILE
-VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C4.mem,sim"
-STATE="utd"
-TIME="1315490029"
-SIZE="110"
-PARENT="<project>\smartgen\CIC_mem\CIC_mem.cxf"
-ENDFILE
-VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C5.mem,sim"
-STATE="utd"
-TIME="1315490029"
-SIZE="110"
-PARENT="<project>\smartgen\CIC_mem\CIC_mem.cxf"
-ENDFILE
-VALUE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.cxf,actgen_cxf"
-STATE="utd"
-TIME="1315575405"
-SIZE="2613"
-ENDFILE
-VALUE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.gen,gen"
-STATE="utd"
-TIME="1315575404"
-SIZE="674"
-PARENT="<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.log,log"
-STATE="utd"
-TIME="1315575405"
-SIZE="3357"
-PARENT="<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.vhd,hdl"
-STATE="utd"
-TIME="1315575405"
-SIZE="5480"
-PARENT="<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem_R0C0.mem,sim"
-STATE="utd"
-TIME="1315575405"
-SIZE="440"
-PARENT="<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.cxf"
-ENDFILE
-VALUE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem_R0C1.mem,sim"
-STATE="utd"
-TIME="1315575405"
-SIZE="440"
-PARENT="<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.cxf"
+TIME="1317217465"
+SIZE="5632"
+PARENT="<project>\smartgen\mem_sample\mem_sample.cxf"
 ENDFILE
 VALUE "<project>\smartgen\mult1\mult1.cxf,actgen_cxf"
 STATE="utd"
@@ -628,6 +538,32 @@ SIZE="59867"
 PARENT="<project>\smartgen\mult2\mult2.cxf"
 IS_READONLY="TRUE"
 ENDFILE
+VALUE "<project>\smartgen\mult\mult.cxf,actgen_cxf"
+STATE="utd"
+TIME="1317221207"
+SIZE="1402"
+ENDFILE
+VALUE "<project>\smartgen\mult\mult.gen,gen"
+STATE="utd"
+TIME="1317221205"
+SIZE="478"
+PARENT="<project>\smartgen\mult\mult.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\smartgen\mult\mult.log,log"
+STATE="utd"
+TIME="1317221207"
+SIZE="2037"
+PARENT="<project>\smartgen\mult\mult.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\smartgen\mult\mult.vhd,hdl"
+STATE="utd"
+TIME="1317221207"
+SIZE="158850"
+PARENT="<project>\smartgen\mult\mult.cxf"
+IS_READONLY="TRUE"
+ENDFILE
 VALUE "<project>\stimulus\ADC_SPI_tb.vhd,tb_hdl"
 STATE="utd"
 TIME="1311174417"
@@ -667,68 +603,6 @@ ENDLIST
 LIST UsedFile
 ENDLIST
 LIST NewModulesInfo
-LIST "CIC::work"
-FILE "<project>\component\work\CIC\CIC.vhd,hdl"
-LIST Other_Association
-VALUE "<project>\component\work\CIC\testbench.vhd,tb_hdl"
-ENDLIST
-LIST AssociatedStimulus
-VALUE "<project>\component\work\CIC\testbench.vhd,tb_hdl"
-ENDLIST
-LIST ProjectState5.1
-LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
-ENDLIST
-LIST "CIC_COMB_mem::work"
-FILE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.vhd,hdl"
-LIST Other_Association
-VALUE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem_R0C0.mem,sim"
-VALUE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem_R0C1.mem,sim"
-ENDLIST
-ENDLIST
-LIST "CIC_INT_mem::work"
-FILE "<project>\smartgen\CIC_INT_mem\CIC_INT_mem.vhd,hdl"
-LIST Other_Association
-VALUE "<project>\smartgen\CIC_INT_mem\CIC_INT_mem_R0C0.mem,sim"
-VALUE "<project>\smartgen\CIC_INT_mem\CIC_INT_mem_R0C1.mem,sim"
-VALUE "<project>\smartgen\CIC_INT_mem\CIC_INT_mem_R0C2.mem,sim"
-ENDLIST
-ENDLIST
-LIST "CIC_mem::work"
-FILE "<project>\smartgen\CIC_mem\CIC_mem.vhd,hdl"
-LIST Other_Association
-VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C0.mem,sim"
-VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C1.mem,sim"
-VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C2.mem,sim"
-VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C3.mem,sim"
-VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C4.mem,sim"
-VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C5.mem,sim"
-ENDLIST
-ENDLIST
-LIST "CIC_twoport_mem::work"
-FILE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.vhd,hdl"
-LIST Other_Association
-VALUE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem_R0C0.mem,sim"
-VALUE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem_R0C1.mem,sim"
-ENDLIST
-ENDLIST
 LIST "DDC::work"
 FILE "<project>\component\work\DDC\DDC.vhd,hdl"
 LIST Other_Association
@@ -756,6 +630,50 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
+ENDLIST
+ENDLIST
+LIST "FIR::work"
+FILE "<project>\component\work\FIR\FIR.vhd,hdl"
+LIST Other_Association
+VALUE "<project>\component\work\FIR\testbench.vhd,tb_hdl"
+ENDLIST
+LIST AssociatedStimulus
+VALUE "<project>\component\work\FIR\testbench.vhd,tb_hdl"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
+LIST "mem_coef::work"
+FILE "<project>\smartgen\mem_coef\mem_coef.vhd,hdl"
+LIST Other_Association
+VALUE "<project>\smartgen\mem_coef\mem_coef_R0C0.mem,sim"
+VALUE "<project>\smartgen\mem_coef\mem_coef_R0C1.mem,sim"
+ENDLIST
+ENDLIST
+LIST "mem_sample::work"
+FILE "<project>\smartgen\mem_sample\mem_sample.vhd,hdl"
+LIST Other_Association
+VALUE "<project>\smartgen\mem_sample\mem_sample_R0C0.mem,sim"
+VALUE "<project>\smartgen\mem_sample\mem_sample_R0C1.mem,sim"
+VALUE "<project>\smartgen\mem_sample\mem_sample_R0C2.mem,sim"
 ENDLIST
 ENDLIST
 LIST "sincos_gen::work"
@@ -898,8 +816,8 @@ ENDLIST
 LIST DDC
 VALUE "<project>\component\work\DDC\testbench.vhd,tb_hdl"
 ENDLIST
-LIST CIC
-VALUE "<project>\component\work\CIC\testbench.vhd,tb_hdl"
+LIST FIR
+VALUE "<project>\component\work\FIR\testbench.vhd,tb_hdl"
 ENDLIST
 LIST sincos_gen
 VALUE "<project>\component\work\sincos_gen\testbench.vhd,tb_hdl"
@@ -921,17 +839,17 @@ ENDLIST
 LIST DDC
 VALUE "<project>\component\work\DDC\testbench.vhd,tb_hdl"
 ENDLIST
-LIST CIC
-VALUE "<project>\component\work\CIC\testbench.vhd,tb_hdl"
+LIST FIR
+VALUE "<project>\component\work\FIR\testbench.vhd,tb_hdl"
 ENDLIST
-LIST CIC_INT_mem
-VALUE "<project>\smartgen\CIC_INT_mem\CIC_INT_mem_R0C0.mem,sim"
-VALUE "<project>\smartgen\CIC_INT_mem\CIC_INT_mem_R0C1.mem,sim"
-VALUE "<project>\smartgen\CIC_INT_mem\CIC_INT_mem_R0C2.mem,sim"
+LIST mem_coef
+VALUE "<project>\smartgen\mem_coef\mem_coef_R0C0.mem,sim"
+VALUE "<project>\smartgen\mem_coef\mem_coef_R0C1.mem,sim"
 ENDLIST
-LIST CIC_COMB_mem
-VALUE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem_R0C0.mem,sim"
-VALUE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem_R0C1.mem,sim"
+LIST mem_sample
+VALUE "<project>\smartgen\mem_sample\mem_sample_R0C0.mem,sim"
+VALUE "<project>\smartgen\mem_sample\mem_sample_R0C1.mem,sim"
+VALUE "<project>\smartgen\mem_sample\mem_sample_R0C2.mem,sim"
 ENDLIST
 LIST sincos_gen
 VALUE "<project>\component\work\sincos_gen\testbench.vhd,tb_hdl"
@@ -950,18 +868,6 @@ VALUE "<project>\component\work\uC\testbench.vhd,tb_hdl"
 VALUE "<project>\component\work\uC\uC.pdc,pdc"
 VALUE "<project>\component\work\uC\MSS_ENVM_0\MSS_ENVM_0.efc,efc"
 VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
-ENDLIST
-LIST CIC_twoport_mem
-VALUE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem_R0C0.mem,sim"
-VALUE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem_R0C1.mem,sim"
-ENDLIST
-LIST CIC_mem
-VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C0.mem,sim"
-VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C1.mem,sim"
-VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C2.mem,sim"
-VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C3.mem,sim"
-VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C4.mem,sim"
-VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C5.mem,sim"
 ENDLIST
 ENDLIST
 LIST SimulationOptions
@@ -1030,7 +936,7 @@ BATCH=0
 EndProfile
 ENDLIST
 LIST ProjectState5.1
-LIST "CIC::work"
+LIST "DDC::work"
 LIST Impl1
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
@@ -1050,7 +956,7 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 ENDLIST
-LIST "DDC::work"
+LIST "FIR::work"
 LIST Impl1
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
@@ -1169,9 +1075,8 @@ LIST OpenedFileList
 DESIGNFLOW:
 SD:top::work
 SD:DDC::work
-SD:CIC::work
-FILE:<project>\hdl\CIC_control.vhd,hdl
-FILE:<project>\synthesis\top.srr,???
-FILE:<project>\synthesis\top.areasrr,???
-ACTIVE_VIEW:6
+SD:FIR::work
+FILE:<project>\hdl\mem_coef_control.vhd,hdl
+FILE:<project>\hdl\common.vhd,hdl
+ACTIVE_VIEW:0
 ENDLIST

@@ -9,8 +9,8 @@
 	<section name="DialogBounds_SearchDialog">
 		<item value="564" key="DIALOG_WIDTH"/>
 		<item value="209" key="DIALOG_Y_ORIGIN"/>
-		<item value="422" key="DIALOG_HEIGHT"/>
 		<item value="470" key="DIALOG_X_ORIGIN"/>
+		<item value="422" key="DIALOG_HEIGHT"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="Search">
@@ -23,10 +23,10 @@
 			<item value="org.eclipse.cdt.ui.pdomSearchPage"/>
 		</list>
 	</section>
+	<section name="org.eclipse.cdt.ui.pdomSearchViewPage">
+	</section>
 	<section name="org.eclipse.search.text.FileSearchResultPage">
 		<item value="1000" key="org.eclipse.search.resultpage.limit"/>
-	</section>
-	<section name="org.eclipse.cdt.ui.pdomSearchViewPage">
 	</section>
 	<section name="TextSearchPage">
 		<item value="false" key="CASE_SENSITIVE"/>

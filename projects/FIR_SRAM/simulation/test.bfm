@@ -1,0 +1,187 @@
+#===========================================================
+# Created by Actel SmartDesign Mon Sep 26 11:53:03 2011
+# 
+# 
+# Warning:  Do not modify this file, it may lead to unexpected 
+#           simulation failures in your Microcontroller Subsystem.
+#           Add your BFM commands to user.bfm 
+#
+# Syntax: 
+# ------- 
+#
+# memmap    resource_name base_address;
+#
+# write     width resource_name byte_offset data;
+# read      width resource_name byte_offset;
+# readcheck width resource_name byte_offset data;
+#
+#===========================================================
+
+#-----------------------------------------------------------
+# Memory Map
+# Define name and base address of each resource.
+#-----------------------------------------------------------
+
+memmap GPIO 0x40013000;
+memmap SYSREG 0xe0042000;
+
+memmap UART0    0x40000000;
+memmap SPI0     0x40001000;
+memmap I2C0     0x40002000;
+memmap MAC      0x40003000;
+memmap DMA      0x40004000;
+memmap TIMER    0x40005000;
+memmap WDOG     0x40006000;
+memmap INTRCTRL 0x40007000;
+memmap UART1    0x40010000;
+memmap SPI1     0x40011000;
+memmap I2C1     0x40012000;
+memmap RTC      0x40014000;
+memmap FROM     0x40015000;
+memmap IAP      0x40016000;
+memmap ESRAM0   0x20000000;
+memmap ESRAM1   0x20008000;
+memmap ENVM     0x60000000;
+memmap EMC      0x70000000;
+memmap ACE      0x40020000;
+#---- FABRIC memory space is from 0x40050000 to 0x400FFFFF
+memmap FABRIC   0x40050000;
+
+#-----------------------------------------------------------
+# DSS Initialization procedure
+#-----------------------------------------------------------
+
+procedure init;
+  write w SYSREG 0x0 0x0;
+  write w SYSREG 0x4 0x92;
+  write w SYSREG 0x8 0x1;
+  write w SYSREG 0xc 0x0;
+  write w SYSREG 0x10 0x1e;
+  write w SYSREG 0x14 0x0;
+  write w SYSREG 0x18 0x7;
+  write w SYSREG 0x1c 0x0;
+  write w SYSREG 0x20 0x0;
+  write w SYSREG 0x24 0x4;
+  write w SYSREG 0x28 0x0;
+  write w SYSREG 0x2c 0x0;
+  write w SYSREG 0x30 0x8fff8;
+  write w SYSREG 0x34 0x0;
+  write w SYSREG 0x38 0x32000000;
+  write w SYSREG 0x3c 0x0;
+  write w SYSREG 0x40 0x100005;
+  write w SYSREG 0x44 0x100005;
+  write w SYSREG 0x48 0x800;
+  write w SYSREG 0x4c 0x30000;
+  write w SYSREG 0x50 0xd0a4040;
+  write w SYSREG 0x54 0x0;
+  write w SYSREG 0x58 0x1ff8000;
+  write w SYSREG 0x5c 0x0;
+  write w SYSREG 0x60 0x0;
+  write w SYSREG 0x64 0x10;
+  write w SYSREG 0x68 0x100;
+  write w SYSREG 0x6c 0x1a;
+  write w SYSREG 0x70 0x0;
+  write w SYSREG 0x74 0x0;
+  write w SYSREG 0x78 0x0;
+  write w SYSREG 0x7c 0x0;
+  write w SYSREG 0x80 0x0;
+  write w SYSREG 0x84 0x0;
+  write w SYSREG 0x88 0x0;
+  write w SYSREG 0x8c 0x0;
+  write w SYSREG 0x90 0x0;
+  write w SYSREG 0x94 0x0;
+  write w SYSREG 0x98 0x0;
+  write w SYSREG 0x9c 0x7;
+  write w GPIO 0x0 0x0;
+  write w GPIO 0x4 0x0;
+  write w GPIO 0x8 0x0;
+  write w GPIO 0xc 0x0;
+  write w GPIO 0x10 0x0;
+  write w GPIO 0x14 0x0;
+  write w GPIO 0x18 0x0;
+  write w GPIO 0x1c 0x0;
+  write w GPIO 0x20 0x0;
+  write w GPIO 0x24 0x0;
+  write w GPIO 0x28 0x0;
+  write w GPIO 0x2c 0x0;
+  write w GPIO 0x30 0x0;
+  write w GPIO 0x34 0x0;
+  write w GPIO 0x38 0x0;
+  write w GPIO 0x3c 0x0;
+  write w GPIO 0x40 0x0;
+  write w GPIO 0x44 0x0;
+  write w GPIO 0x48 0x0;
+  write w GPIO 0x4c 0x0;
+  write w GPIO 0x50 0x0;
+  write w GPIO 0x54 0x0;
+  write w GPIO 0x58 0x0;
+  write w GPIO 0x5c 0x0;
+  write w GPIO 0x60 0x0;
+  write w GPIO 0x64 0x0;
+  write w GPIO 0x68 0x0;
+  write w GPIO 0x6c 0x0;
+  write w GPIO 0x70 0x0;
+  write w GPIO 0x74 0x0;
+  write w GPIO 0x78 0x0;
+  write w GPIO 0x7c 0x0;
+return
+
+#-----------------------------------------------------------
+# Include resource scriptlets
+#-----------------------------------------------------------
+
+procedure scriplets;
+  
+  // DSS - Embedded ESRAM0 read check for ENABLED peripheral.;
+  write w     ESRAM0 0x00 0x9abcdef0 ;
+  readcheck w ESRAM0 0x00 0x9abcdef0;
+  
+  // DSS - Embedded ESRAM1 read check for ENABLED peripheral.;
+  write w     ESRAM1 0x00 0x9abcdfff ;
+  readcheck w ESRAM1 0x00 0x9abcdfff;
+  
+  // DSS - Embedded ENVM read check for ENABLED peripheral.;
+  write w     ENVM 0x00 0x9abcdfff ;
+  readcheck w ENVM 0x00 0x9abcdfff;
+  
+  // DSS - Embedded UART0 read check for DISABLED peripheral.;
+  write w     UART0 0x0c 0x79 ;
+  
+  // DSS - Embedded SPI0 read check for DISABLED peripheral.;
+  write w     SPI0 0x04 0x9abcdef0 ;
+  
+  // DSS - Embedded I2C0 read check for DISABLED peripheral.;
+  write w     I2C0 0x08 0x78 ;
+  
+  // DSS - Embedded UART1 read check for DISABLED peripheral.;
+  write w     UART1 0x0c 0xf0 ;
+  
+  // DSS - Embedded SPI1 read check for DISABLED peripheral.;
+  write w     SPI1 0x00 0x0fedcba9 ;
+  
+  // DSS - Embedded I2C1 read check for DISABLED peripheral.;
+  write w     I2C1 0x00 0x78 ;
+  
+  // DSS - Embedded GPIO read check for DISABLED peripheral.;
+  write w     GPIO 0x88 0xffffffff ;
+  
+  // DSS - Extermal Memory Write
+  write w EMC 0x0000 0x9abcdef0;
+  
+return
+
+
+#-----------------------------------------------------------
+# Include User BFM
+#-----------------------------------------------------------
+include "user.bfm"
+
+#-----------------------------------------------------------
+# Main Function
+#-----------------------------------------------------------
+
+procedure main;
+  call init;
+  call scriplets;
+  call user_main;
+return
