@@ -35,6 +35,7 @@
  * The ADCs and DAC(s) should use differential analog signals
  * ADCs and DACs should have power down mode
  * ADCs and DACs should have adjustable clock rate (power consumption)
+ * We might need to consider the UMich (Prabal) approach (high speed ADC/DAC to be used with integrated WiFi RF frontend)
 
 Note: The maximum SmartFusion processable sampling rate should be determined prior to selecting the ADCs and DAC(s).
 
