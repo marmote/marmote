@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------
--- Created by Actel SmartDesign Mon May 02 13:44:16 2011
+-- Created by Actel SmartDesign Tue Oct 04 14:25:08 2011
 -- Testbench Template
 -- This is a basic testbench that instantiates your design with basic 
 -- clock and reset pins connected.  If your design has special
@@ -32,6 +32,14 @@ architecture behavioral of testbench is
 
             -- Outputs
             GLC : out std_logic;
+            M2F_GPO_27 : out std_logic;
+            M2F_GPO_26 : out std_logic;
+            M2F_GPO_25 : out std_logic;
+            M2F_GPO_24 : out std_logic;
+            M2F_GPO_23 : out std_logic;
+            M2F_GPO_22 : out std_logic;
+            M2F_GPO_21 : out std_logic;
+            M2F_GPO_20 : out std_logic;
             MAC_0_TXD : out std_logic_vector(1 downto 0);
             MAC_0_TXEN : out std_logic;
             MAC_0_MDC : out std_logic;
@@ -74,6 +82,14 @@ begin
 
             -- Outputs
             GLC =>  open,
+            M2F_GPO_27 =>  open,
+            M2F_GPO_26 =>  open,
+            M2F_GPO_25 =>  open,
+            M2F_GPO_24 =>  open,
+            M2F_GPO_23 =>  open,
+            M2F_GPO_22 =>  open,
+            M2F_GPO_21 =>  open,
+            M2F_GPO_20 =>  open,
             MAC_0_TXD => open,
             MAC_0_TXEN =>  open,
             MAC_0_MDC =>  open,
