@@ -12,8 +12,15 @@ smartfusion = C:/Actel/Libero_v9.1/Designer/lib/modelsim/precompiled/vhdl/smartf
 
 
 
+
+
+
+
 syncad_vhdl_lib = C:\Actel\Libero_v9.1\Designer/lib/actel/syncad_vhdl_lib
 
+postlayout = ../designer/impl4/simulation/postlayout
+MSSLIB = C:/Actel/Libero_v9.1/Designer/lib/modelsim/precompiled/mixed/smartfusion/MSSLIB
+MSS_BFM_LIB = ../component/Actel/SmartFusionMSS/MSS/2.4.105/mti/user_verilog/MSS_BFM_LIB
 [vcom]
 VHDL93 = 1
 
