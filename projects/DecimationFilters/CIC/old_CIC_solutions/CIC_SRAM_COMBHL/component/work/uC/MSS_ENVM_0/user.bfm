@@ -1,0 +1,24 @@
+#===========================================================
+# Enter your BFM commands in this file. 
+#
+# Syntax: 
+# ------- 
+#
+# memmap    resource_name base_address;
+#
+# write     width resource_name byte_offset data;
+# read      width resource_name byte_offset;
+# readcheck width resource_name byte_offset data;
+#
+#===========================================================
+
+procedure user_main;
+
+# uncomment the following include if you have soft peripherals in the fabric
+# that you want to simulate.  The subsystem.bfm file contains the memory map
+# of the soft peripherals.
+# include "subsystem.bfm"
+
+# add your BFM commands below:
+
+return
