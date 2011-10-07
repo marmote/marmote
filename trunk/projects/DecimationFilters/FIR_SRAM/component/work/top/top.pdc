@@ -1,0 +1,51 @@
+# Actel Physical design constraints file
+# Generated file
+
+# Version: 9.1 SP2 9.1.2.16
+# Family: SmartFusion , Die: A2F200M3F , Package: 484 FBGA
+# Date generated: Tue Sep 27 14:08:06 2011 
+
+
+# 
+# IO banks setting
+# 
+
+
+# 
+# I/O constraints
+# 
+
+set_io INPUT          \
+    -pinname A5       \
+    -fixed yes        \
+    -DIRECTION Input
+
+
+set_io MSS_RESET_N        \
+    -pinname R1           \
+    -fixed yes            \
+    -iostd LVTTL          \
+    -RES_PULL None        \
+    -SCHMITT_TRIGGER Off  \
+    -DIRECTION Input
+
+
+set_io OUTPUT          \
+    -pinname A8        \
+    -fixed yes         \
+    -DIRECTION Output
+
+
+
+#
+# Non IO constraints
+#
+
+
+#
+# Old IO constraints, commented out for reference
+#
+
+# set_io INPUT -pinname A5 -fixed yes -DIRECTION Input 
+# set_io MSS_RESET_N -pinname R1 -fixed yes -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -DIRECTION Input 
+# set_io OUTPUT -pinname A8 -fixed yes -DIRECTION Output 

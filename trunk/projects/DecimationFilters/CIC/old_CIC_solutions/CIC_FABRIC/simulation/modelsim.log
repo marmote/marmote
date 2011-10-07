@@ -1,0 +1,581 @@
+# Reading C:/Actel/Libero_v9.1/Model/tcl/vsim/pref.tcl 
+# do run.do 
+# INFO: Simulation library presynth already exists 
+# Modifying modelsim.ini
+# Modifying modelsim.ini
+# Modifying modelsim.ini
+# Modifying modelsim.ini
+# Model Technology ModelSim ACTEL vcom 6.6d Compiler 2010.11 Nov  2 2010
+# -- Skipping module acb_96_bit
+# -- Skipping module adc
+# -- Skipping module AddrDecM0
+# -- Skipping module AddrDecM1
+# -- Skipping module AddrDecM2
+# -- Skipping module AddrDecM3
+# -- Skipping module AddrDecM4
+# -- Skipping module AhbClient_HM
+# -- Skipping module AhbWrapper_FM
+# -- Skipping module AhbWrapper_HM
+# -- Skipping module analog_mux
+# -- Skipping module analog_mux_F060
+# -- Skipping module analog_quad
+# -- Skipping module ApbClient_HM
+# -- Skipping module ApbWrapper_FM
+# -- Skipping module BFM_MAIN
+# -- Skipping module Client_FM
+# -- Skipping module ClientAddrData_FM
+# -- Skipping module ClientAddrData_HM
+# -- Skipping module CMMaster0Stage
+# -- Skipping module CMMaster1Stage
+# -- Skipping module CMMaster2Stage
+# -- Skipping module CMMaster3Stage
+# -- Skipping module CMMaster4Stage
+# -- Skipping module CMSlaveStage
+# -- Skipping module DefaultSlaveSM
+# -- Skipping module dp512x32
+# -- Skipping module dp512x32_col
+# -- Skipping module drive_analog_input
+# -- Skipping module drive_analog_input_varef
+# -- Skipping module drive_analog_io
+# -- Skipping module drive_analog_io_39bit
+# -- Skipping module drive_current_inputs
+# -- Skipping module drive_current_monitor
+# -- Skipping module drive_differential_inputs
+# -- Skipping module drive_temperature_quad
+# -- Skipping module drive_varef_out
+# -- Skipping module DSSAB
+# -- Skipping module DSSAB_F060
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package em_pkg
+# -- Compiling entity em_addr_gen
+# -- Compiling architecture rtl of em_addr_gen
+# -- Compiling entity em_ahb_int
+# -- Compiling architecture rtl of em_ahb_int
+# -- Compiling entity em_phase_gen
+# -- Compiling architecture rtl of em_phase_gen
+# -- Compiling package em_pkg
+# -- Compiling package body em_pkg
+# -- Loading package em_pkg
+# -- Loading package em_pkg
+# -- Compiling entity em_rdata_gen
+# -- Compiling architecture rtl of em_rdata_gen
+# -- Compiling entity em_wdata_gen
+# -- Compiling architecture rtl of em_wdata_gen
+# -- Skipping module F2_ACE_512x16
+# -- Skipping module F2AB
+# -- Skipping module F2AB_F060
+# -- Skipping module F2DSS_ACE
+# -- Skipping module F2DSS_ACE_MISC
+# -- Skipping module F2DSS_ACE_MISC_APB3
+# -- Skipping module F2DSS_ACE_MISC_FDET
+# -- Skipping module F2DSS_ACE_MISC_FDET12
+# -- Skipping module F2DSS_ACE_MISC_INT_LOGIC
+# -- Skipping module F2DSS_ACE_MISC_PDMA
+# -- Skipping module F2DSS_ACE_MISC_RDET
+# -- Skipping module F2DSS_ACE_MISC_RDET12
+# -- Skipping module F2DSS_ACE_MISC_RDET32
+# -- Skipping module F2DSS_ACE_MISC_RDMUX
+# -- Skipping module F2DSS_ACE_MISC_STICKYFLAG
+# -- Skipping module F2DSS_ACE_MISC_STICKYFLAG21
+# -- Skipping module F2DSS_ACE_MISC_STICKYFLAG24
+# -- Skipping module F2DSS_ACE_MISC_STICKYFLAG32
+# -- Skipping module F2DSS_ACE_MISC_STICKYFLAG9
+# -- Skipping module F2DSS_ACE_MISC_SYNC
+# -- Skipping module F2DSS_ACE_MISC_SYNC12
+# -- Skipping module F2DSS_ACE_PPE
+# -- Skipping module F2DSS_ACE_PPE_ADDER
+# -- Skipping module F2DSS_ACE_PPE_ALU
+# -- Skipping module F2DSS_ACE_PPE_DPRAM
+# -- Skipping module F2DSS_ACE_PPE_DPRAM_CTRL
+# -- Skipping module F2DSS_ACE_PPE_FIFO
+# -- Skipping module F2DSS_ACE_PPE_FIFO_CTRL
+# -- Skipping module F2DSS_ACE_PPE_FSM
+# -- Skipping module F2DSS_ACE_PPE_FSM_STFILT
+# -- Skipping module F2DSS_ACE_PPE_MULT
+# -- Skipping module F2DSS_ACE_PPE_RDMUX
+# -- Skipping module F2DSS_ACE_PPE_SSE_CTRL
+# -- Skipping module F2DSS_ACE_PPE_THRFLAGS
+# -- Skipping module F2DSS_ACE_PPE_XFER_DINMUX
+# -- Skipping module F2DSS_ACE_RAMS
+# -- Skipping module F2DSS_COMMSMATRIX
+# -- Loading package attributes
+# -- Loading package std_logic_misc
+# -- Compiling entity f2dss_emc
+# -- Compiling architecture rtl of f2dss_emc
+# -- Skipping module F2DSS_FABRICIF
+# -- Skipping module F2DSS_GPIO
+# -- Skipping module F2DSS_SSE
+# -- Skipping module F2DSS_SSE_APB3_PPE_IF
+# -- Skipping module F2DSS_SSE_ENGINE
+# -- Skipping module F2DSS_SSE_PHASE_ACCUMS
+# -- Skipping module F2DSS_SSE_TDM_FSM
+# -- Skipping module FABRICIF_FM
+# -- Skipping module FABRICIF_HM
+# -- Skipping module M3_BFM
+# -- Skipping module Matrix5x8
+# -- Skipping module MSS_AHB
+# -- Skipping module MSS_AHB_F060
+# -- Skipping module MSS_AHB_F060_IP
+# -- Skipping module MSS_AHB_IP
+# -- Skipping module MSS_APB
+# -- Skipping module MSS_APB_F060
+# -- Skipping module MSS_APB_F060_IP
+# -- Skipping module MSS_APB_IP
+# -- Skipping module MSS_APBSLAVES
+# -- Skipping module MSS_BFM_AHB2APB
+# -- Skipping module MSS_BFM_AHBSLAVE
+# -- Skipping module MSS_BFM_AHBSLAVEEXT
+# -- Skipping module mss_clockgen
+# -- Skipping module MSS_SYSREG
+# -- Skipping module obd
+# -- Skipping module obd_mux
+# -- Skipping module read_39bit_analog_io
+# -- Skipping module read_analog_input
+# -- Skipping module read_analog_io
+# -- Skipping module SINGLE_PORT_RAM
+# -- Skipping module SlaveArbiter
+# -- Skipping module sp512x16
+# Model Technology ModelSim ACTEL vlog 6.6d Compiler 2010.11 Nov  2 2010
+# -- Refreshing module acb_96_bit
+# -- Refreshing module adc
+# -- Refreshing module AddrDecM0
+# -- Refreshing module AddrDecM1
+# -- Refreshing module AddrDecM2
+# -- Refreshing module AddrDecM3
+# -- Refreshing module AddrDecM4
+# -- Refreshing module AhbClient_HM
+# -- Refreshing module AhbWrapper_FM
+# -- Refreshing module AhbWrapper_HM
+# -- Refreshing module analog_mux
+# -- Refreshing module analog_mux_F060
+# -- Refreshing module analog_quad
+# -- Refreshing module ApbClient_HM
+# -- Refreshing module ApbWrapper_FM
+# -- Refreshing module BFM_MAIN
+# -- Refreshing module Client_FM
+# -- Refreshing module ClientAddrData_FM
+# -- Refreshing module ClientAddrData_HM
+# -- Refreshing module CMMaster0Stage
+# -- Refreshing module CMMaster1Stage
+# -- Refreshing module CMMaster2Stage
+# -- Refreshing module CMMaster3Stage
+# -- Refreshing module CMMaster4Stage
+# -- Refreshing module CMSlaveStage
+# -- Refreshing module DefaultSlaveSM
+# -- Refreshing module dp512x32
+# -- Refreshing module dp512x32_col
+# -- Refreshing module drive_analog_input
+# -- Refreshing module drive_analog_input_varef
+# -- Refreshing module drive_analog_io
+# -- Refreshing module drive_analog_io_39bit
+# -- Refreshing module drive_current_inputs
+# -- Refreshing module drive_current_monitor
+# -- Refreshing module drive_differential_inputs
+# -- Refreshing module drive_temperature_quad
+# -- Refreshing module drive_varef_out
+# -- Refreshing module DSSAB
+# -- Refreshing module DSSAB_F060
+# -- Skipping entity em_addr_gen
+# -- Skipping entity em_ahb_int
+# -- Skipping entity em_phase_gen
+# -- Skipping package em_pkg
+# -- Skipping entity em_rdata_gen
+# -- Skipping entity em_wdata_gen
+# -- Refreshing module F2_ACE_512x16
+# -- Refreshing module F2AB
+# -- Refreshing module F2AB_F060
+# -- Refreshing module F2DSS_ACE
+# -- Refreshing module F2DSS_ACE_MISC
+# -- Refreshing module F2DSS_ACE_MISC_APB3
+# -- Refreshing module F2DSS_ACE_MISC_FDET
+# -- Refreshing module F2DSS_ACE_MISC_FDET12
+# -- Refreshing module F2DSS_ACE_MISC_INT_LOGIC
+# -- Refreshing module F2DSS_ACE_MISC_PDMA
+# -- Refreshing module F2DSS_ACE_MISC_RDET
+# -- Refreshing module F2DSS_ACE_MISC_RDET12
+# -- Refreshing module F2DSS_ACE_MISC_RDET32
+# -- Refreshing module F2DSS_ACE_MISC_RDMUX
+# -- Refreshing module F2DSS_ACE_MISC_STICKYFLAG
+# -- Refreshing module F2DSS_ACE_MISC_STICKYFLAG21
+# -- Refreshing module F2DSS_ACE_MISC_STICKYFLAG24
+# -- Refreshing module F2DSS_ACE_MISC_STICKYFLAG32
+# -- Refreshing module F2DSS_ACE_MISC_STICKYFLAG9
+# -- Refreshing module F2DSS_ACE_MISC_SYNC
+# -- Refreshing module F2DSS_ACE_MISC_SYNC12
+# -- Refreshing module F2DSS_ACE_PPE
+# -- Refreshing module F2DSS_ACE_PPE_ADDER
+# -- Refreshing module F2DSS_ACE_PPE_ALU
+# -- Refreshing module F2DSS_ACE_PPE_DPRAM
+# -- Refreshing module F2DSS_ACE_PPE_DPRAM_CTRL
+# -- Refreshing module F2DSS_ACE_PPE_FIFO
+# -- Refreshing module F2DSS_ACE_PPE_FIFO_CTRL
+# -- Refreshing module F2DSS_ACE_PPE_FSM
+# -- Refreshing module F2DSS_ACE_PPE_FSM_STFILT
+# -- Refreshing module F2DSS_ACE_PPE_MULT
+# -- Refreshing module F2DSS_ACE_PPE_RDMUX
+# -- Refreshing module F2DSS_ACE_PPE_SSE_CTRL
+# -- Refreshing module F2DSS_ACE_PPE_THRFLAGS
+# -- Refreshing module F2DSS_ACE_PPE_XFER_DINMUX
+# -- Refreshing module F2DSS_ACE_RAMS
+# -- Refreshing module F2DSS_COMMSMATRIX
+# -- Skipping entity f2dss_emc
+# -- Refreshing module F2DSS_FABRICIF
+# -- Refreshing module F2DSS_GPIO
+# -- Refreshing module F2DSS_SSE
+# -- Refreshing module F2DSS_SSE_APB3_PPE_IF
+# -- Refreshing module F2DSS_SSE_ENGINE
+# -- Refreshing module F2DSS_SSE_PHASE_ACCUMS
+# -- Refreshing module F2DSS_SSE_TDM_FSM
+# -- Refreshing module FABRICIF_FM
+# -- Refreshing module FABRICIF_HM
+# -- Refreshing module M3_BFM
+# -- Refreshing module Matrix5x8
+# -- Refreshing module MSS_AHB
+# -- Refreshing module MSS_AHB_F060
+# -- Refreshing module MSS_AHB_F060_IP
+# -- Refreshing module MSS_AHB_IP
+# -- Refreshing module MSS_APB
+# -- Refreshing module MSS_APB_F060
+# -- Refreshing module MSS_APB_F060_IP
+# -- Refreshing module MSS_APB_IP
+# -- Refreshing module MSS_APBSLAVES
+# -- Refreshing module MSS_BFM_AHB2APB
+# -- Refreshing module MSS_BFM_AHBSLAVE
+# -- Refreshing module MSS_BFM_AHBSLAVEEXT
+# -- Refreshing module mss_clockgen
+# -- Refreshing module MSS_SYSREG
+# -- Refreshing module obd
+# -- Refreshing module obd_mux
+# -- Refreshing module read_39bit_analog_io
+# -- Refreshing module read_analog_input
+# -- Refreshing module read_analog_io
+# -- Refreshing module SINGLE_PORT_RAM
+# -- Refreshing module SlaveArbiter
+# -- Refreshing module sp512x16
+# Model Technology ModelSim ACTEL vcom 6.6d Compiler 2010.11 Nov  2 2010
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Compiling package common
+# -- Compiling package body common
+# -- Loading package common
+# Model Technology ModelSim ACTEL vcom 6.6d Compiler 2010.11 Nov  2 2010
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package common
+# -- Compiling entity cic
+# -- Compiling architecture behavioral of cic
+# Model Technology ModelSim ACTEL vcom 6.6d Compiler 2010.11 Nov  2 2010
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package common
+# -- Compiling entity cic_tb
+# -- Compiling architecture bench of cic_tb
+# vsim -L work -L MSSLIB -L smartfusion -L presynth -L MSS_BFM_LIB -t 1ps presynth.CIC_tb 
+# //  ModelSim ACTEL 6.6d Nov  2 2010 
+# //
+# //  Copyright 1991-2010 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading presynth.common(body)
+# Loading presynth.cic_tb(bench)
+# Loading presynth.cic(behavioral)
+restart
+run -all
+do run.do
+# INFO: Simulation library presynth already exists 
+# Modifying modelsim.ini
+# Modifying modelsim.ini
+# Modifying modelsim.ini
+# Modifying modelsim.ini
+# Model Technology ModelSim ACTEL vcom 6.6d Compiler 2010.11 Nov  2 2010
+# -- Skipping module acb_96_bit
+# -- Skipping module adc
+# -- Skipping module AddrDecM0
+# -- Skipping module AddrDecM1
+# -- Skipping module AddrDecM2
+# -- Skipping module AddrDecM3
+# -- Skipping module AddrDecM4
+# -- Skipping module AhbClient_HM
+# -- Skipping module AhbWrapper_FM
+# -- Skipping module AhbWrapper_HM
+# -- Skipping module analog_mux
+# -- Skipping module analog_mux_F060
+# -- Skipping module analog_quad
+# -- Skipping module ApbClient_HM
+# -- Skipping module ApbWrapper_FM
+# -- Skipping module BFM_MAIN
+# -- Skipping module Client_FM
+# -- Skipping module ClientAddrData_FM
+# -- Skipping module ClientAddrData_HM
+# -- Skipping module CMMaster0Stage
+# -- Skipping module CMMaster1Stage
+# -- Skipping module CMMaster2Stage
+# -- Skipping module CMMaster3Stage
+# -- Skipping module CMMaster4Stage
+# -- Skipping module CMSlaveStage
+# -- Skipping module DefaultSlaveSM
+# -- Skipping module dp512x32
+# -- Skipping module dp512x32_col
+# -- Skipping module drive_analog_input
+# -- Skipping module drive_analog_input_varef
+# -- Skipping module drive_analog_io
+# -- Skipping module drive_analog_io_39bit
+# -- Skipping module drive_current_inputs
+# -- Skipping module drive_current_monitor
+# -- Skipping module drive_differential_inputs
+# -- Skipping module drive_temperature_quad
+# -- Skipping module drive_varef_out
+# -- Skipping module DSSAB
+# -- Skipping module DSSAB_F060
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package em_pkg
+# -- Compiling entity em_addr_gen
+# -- Compiling architecture rtl of em_addr_gen
+# -- Compiling entity em_ahb_int
+# -- Compiling architecture rtl of em_ahb_int
+# -- Compiling entity em_phase_gen
+# -- Compiling architecture rtl of em_phase_gen
+# -- Compiling package em_pkg
+# -- Compiling package body em_pkg
+# -- Loading package em_pkg
+# -- Loading package em_pkg
+# -- Compiling entity em_rdata_gen
+# -- Compiling architecture rtl of em_rdata_gen
+# -- Compiling entity em_wdata_gen
+# -- Compiling architecture rtl of em_wdata_gen
+# -- Skipping module F2_ACE_512x16
+# -- Skipping module F2AB
+# -- Skipping module F2AB_F060
+# -- Skipping module F2DSS_ACE
+# -- Skipping module F2DSS_ACE_MISC
+# -- Skipping module F2DSS_ACE_MISC_APB3
+# -- Skipping module F2DSS_ACE_MISC_FDET
+# -- Skipping module F2DSS_ACE_MISC_FDET12
+# -- Skipping module F2DSS_ACE_MISC_INT_LOGIC
+# -- Skipping module F2DSS_ACE_MISC_PDMA
+# -- Skipping module F2DSS_ACE_MISC_RDET
+# -- Skipping module F2DSS_ACE_MISC_RDET12
+# -- Skipping module F2DSS_ACE_MISC_RDET32
+# -- Skipping module F2DSS_ACE_MISC_RDMUX
+# -- Skipping module F2DSS_ACE_MISC_STICKYFLAG
+# -- Skipping module F2DSS_ACE_MISC_STICKYFLAG21
+# -- Skipping module F2DSS_ACE_MISC_STICKYFLAG24
+# -- Skipping module F2DSS_ACE_MISC_STICKYFLAG32
+# -- Skipping module F2DSS_ACE_MISC_STICKYFLAG9
+# -- Skipping module F2DSS_ACE_MISC_SYNC
+# -- Skipping module F2DSS_ACE_MISC_SYNC12
+# -- Skipping module F2DSS_ACE_PPE
+# -- Skipping module F2DSS_ACE_PPE_ADDER
+# -- Skipping module F2DSS_ACE_PPE_ALU
+# -- Skipping module F2DSS_ACE_PPE_DPRAM
+# -- Skipping module F2DSS_ACE_PPE_DPRAM_CTRL
+# -- Skipping module F2DSS_ACE_PPE_FIFO
+# -- Skipping module F2DSS_ACE_PPE_FIFO_CTRL
+# -- Skipping module F2DSS_ACE_PPE_FSM
+# -- Skipping module F2DSS_ACE_PPE_FSM_STFILT
+# -- Skipping module F2DSS_ACE_PPE_MULT
+# -- Skipping module F2DSS_ACE_PPE_RDMUX
+# -- Skipping module F2DSS_ACE_PPE_SSE_CTRL
+# -- Skipping module F2DSS_ACE_PPE_THRFLAGS
+# -- Skipping module F2DSS_ACE_PPE_XFER_DINMUX
+# -- Skipping module F2DSS_ACE_RAMS
+# -- Skipping module F2DSS_COMMSMATRIX
+# -- Loading package attributes
+# -- Loading package std_logic_misc
+# -- Compiling entity f2dss_emc
+# -- Compiling architecture rtl of f2dss_emc
+# -- Skipping module F2DSS_FABRICIF
+# -- Skipping module F2DSS_GPIO
+# -- Skipping module F2DSS_SSE
+# -- Skipping module F2DSS_SSE_APB3_PPE_IF
+# -- Skipping module F2DSS_SSE_ENGINE
+# -- Skipping module F2DSS_SSE_PHASE_ACCUMS
+# -- Skipping module F2DSS_SSE_TDM_FSM
+# -- Skipping module FABRICIF_FM
+# -- Skipping module FABRICIF_HM
+# -- Skipping module M3_BFM
+# -- Skipping module Matrix5x8
+# -- Skipping module MSS_AHB
+# -- Skipping module MSS_AHB_F060
+# -- Skipping module MSS_AHB_F060_IP
+# -- Skipping module MSS_AHB_IP
+# -- Skipping module MSS_APB
+# -- Skipping module MSS_APB_F060
+# -- Skipping module MSS_APB_F060_IP
+# -- Skipping module MSS_APB_IP
+# -- Skipping module MSS_APBSLAVES
+# -- Skipping module MSS_BFM_AHB2APB
+# -- Skipping module MSS_BFM_AHBSLAVE
+# -- Skipping module MSS_BFM_AHBSLAVEEXT
+# -- Skipping module mss_clockgen
+# -- Skipping module MSS_SYSREG
+# -- Skipping module obd
+# -- Skipping module obd_mux
+# -- Skipping module read_39bit_analog_io
+# -- Skipping module read_analog_input
+# -- Skipping module read_analog_io
+# -- Skipping module SINGLE_PORT_RAM
+# -- Skipping module SlaveArbiter
+# -- Skipping module sp512x16
+# Model Technology ModelSim ACTEL vlog 6.6d Compiler 2010.11 Nov  2 2010
+# -- Refreshing module acb_96_bit
+# -- Refreshing module adc
+# -- Refreshing module AddrDecM0
+# -- Refreshing module AddrDecM1
+# -- Refreshing module AddrDecM2
+# -- Refreshing module AddrDecM3
+# -- Refreshing module AddrDecM4
+# -- Refreshing module AhbClient_HM
+# -- Refreshing module AhbWrapper_FM
+# -- Refreshing module AhbWrapper_HM
+# -- Refreshing module analog_mux
+# -- Refreshing module analog_mux_F060
+# -- Refreshing module analog_quad
+# -- Refreshing module ApbClient_HM
+# -- Refreshing module ApbWrapper_FM
+# -- Refreshing module BFM_MAIN
+# -- Refreshing module Client_FM
+# -- Refreshing module ClientAddrData_FM
+# -- Refreshing module ClientAddrData_HM
+# -- Refreshing module CMMaster0Stage
+# -- Refreshing module CMMaster1Stage
+# -- Refreshing module CMMaster2Stage
+# -- Refreshing module CMMaster3Stage
+# -- Refreshing module CMMaster4Stage
+# -- Refreshing module CMSlaveStage
+# -- Refreshing module DefaultSlaveSM
+# -- Refreshing module dp512x32
+# -- Refreshing module dp512x32_col
+# -- Refreshing module drive_analog_input
+# -- Refreshing module drive_analog_input_varef
+# -- Refreshing module drive_analog_io
+# -- Refreshing module drive_analog_io_39bit
+# -- Refreshing module drive_current_inputs
+# -- Refreshing module drive_current_monitor
+# -- Refreshing module drive_differential_inputs
+# -- Refreshing module drive_temperature_quad
+# -- Refreshing module drive_varef_out
+# -- Refreshing module DSSAB
+# -- Refreshing module DSSAB_F060
+# -- Skipping entity em_addr_gen
+# -- Skipping entity em_ahb_int
+# -- Skipping entity em_phase_gen
+# -- Skipping package em_pkg
+# -- Skipping entity em_rdata_gen
+# -- Skipping entity em_wdata_gen
+# -- Refreshing module F2_ACE_512x16
+# -- Refreshing module F2AB
+# -- Refreshing module F2AB_F060
+# -- Refreshing module F2DSS_ACE
+# -- Refreshing module F2DSS_ACE_MISC
+# -- Refreshing module F2DSS_ACE_MISC_APB3
+# -- Refreshing module F2DSS_ACE_MISC_FDET
+# -- Refreshing module F2DSS_ACE_MISC_FDET12
+# -- Refreshing module F2DSS_ACE_MISC_INT_LOGIC
+# -- Refreshing module F2DSS_ACE_MISC_PDMA
+# -- Refreshing module F2DSS_ACE_MISC_RDET
+# -- Refreshing module F2DSS_ACE_MISC_RDET12
+# -- Refreshing module F2DSS_ACE_MISC_RDET32
+# -- Refreshing module F2DSS_ACE_MISC_RDMUX
+# -- Refreshing module F2DSS_ACE_MISC_STICKYFLAG
+# -- Refreshing module F2DSS_ACE_MISC_STICKYFLAG21
+# -- Refreshing module F2DSS_ACE_MISC_STICKYFLAG24
+# -- Refreshing module F2DSS_ACE_MISC_STICKYFLAG32
+# -- Refreshing module F2DSS_ACE_MISC_STICKYFLAG9
+# -- Refreshing module F2DSS_ACE_MISC_SYNC
+# -- Refreshing module F2DSS_ACE_MISC_SYNC12
+# -- Refreshing module F2DSS_ACE_PPE
+# -- Refreshing module F2DSS_ACE_PPE_ADDER
+# -- Refreshing module F2DSS_ACE_PPE_ALU
+# -- Refreshing module F2DSS_ACE_PPE_DPRAM
+# -- Refreshing module F2DSS_ACE_PPE_DPRAM_CTRL
+# -- Refreshing module F2DSS_ACE_PPE_FIFO
+# -- Refreshing module F2DSS_ACE_PPE_FIFO_CTRL
+# -- Refreshing module F2DSS_ACE_PPE_FSM
+# -- Refreshing module F2DSS_ACE_PPE_FSM_STFILT
+# -- Refreshing module F2DSS_ACE_PPE_MULT
+# -- Refreshing module F2DSS_ACE_PPE_RDMUX
+# -- Refreshing module F2DSS_ACE_PPE_SSE_CTRL
+# -- Refreshing module F2DSS_ACE_PPE_THRFLAGS
+# -- Refreshing module F2DSS_ACE_PPE_XFER_DINMUX
+# -- Refreshing module F2DSS_ACE_RAMS
+# -- Refreshing module F2DSS_COMMSMATRIX
+# -- Skipping entity f2dss_emc
+# -- Refreshing module F2DSS_FABRICIF
+# -- Refreshing module F2DSS_GPIO
+# -- Refreshing module F2DSS_SSE
+# -- Refreshing module F2DSS_SSE_APB3_PPE_IF
+# -- Refreshing module F2DSS_SSE_ENGINE
+# -- Refreshing module F2DSS_SSE_PHASE_ACCUMS
+# -- Refreshing module F2DSS_SSE_TDM_FSM
+# -- Refreshing module FABRICIF_FM
+# -- Refreshing module FABRICIF_HM
+# -- Refreshing module M3_BFM
+# -- Refreshing module Matrix5x8
+# -- Refreshing module MSS_AHB
+# -- Refreshing module MSS_AHB_F060
+# -- Refreshing module MSS_AHB_F060_IP
+# -- Refreshing module MSS_AHB_IP
+# -- Refreshing module MSS_APB
+# -- Refreshing module MSS_APB_F060
+# -- Refreshing module MSS_APB_F060_IP
+# -- Refreshing module MSS_APB_IP
+# -- Refreshing module MSS_APBSLAVES
+# -- Refreshing module MSS_BFM_AHB2APB
+# -- Refreshing module MSS_BFM_AHBSLAVE
+# -- Refreshing module MSS_BFM_AHBSLAVEEXT
+# -- Refreshing module mss_clockgen
+# -- Refreshing module MSS_SYSREG
+# -- Refreshing module obd
+# -- Refreshing module obd_mux
+# -- Refreshing module read_39bit_analog_io
+# -- Refreshing module read_analog_input
+# -- Refreshing module read_analog_io
+# -- Refreshing module SINGLE_PORT_RAM
+# -- Refreshing module SlaveArbiter
+# -- Refreshing module sp512x16
+# Model Technology ModelSim ACTEL vcom 6.6d Compiler 2010.11 Nov  2 2010
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Compiling package common
+# -- Compiling package body common
+# -- Loading package common
+# Model Technology ModelSim ACTEL vcom 6.6d Compiler 2010.11 Nov  2 2010
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package common
+# -- Compiling entity cic
+# -- Compiling architecture behavioral of cic
+# Model Technology ModelSim ACTEL vcom 6.6d Compiler 2010.11 Nov  2 2010
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package common
+# -- Compiling entity cic_tb
+# -- Compiling architecture bench of cic_tb
+# vsim -L work -L MSSLIB -L smartfusion -L presynth -L MSS_BFM_LIB -t 1ps presynth.CIC_tb 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading presynth.common(body)
+# Loading presynth.cic_tb(bench)
+# Loading presynth.cic(behavioral)
+restart
+run -all
