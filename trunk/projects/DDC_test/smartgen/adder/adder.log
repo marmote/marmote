@@ -1,0 +1,59 @@
+ ** Message System Log
+ ** Database: 
+ ** Date:   Sat Oct 15 15:20:53 2011
+
+
+****************
+Macro Parameters
+****************
+
+Name                            : adder
+Family                          : SmartFusion
+Output Format                   : VHDL
+Type                            : Adder/Subtractor
+Variation                       : Ripple
+Width                           : 22
+Algorithm                       : Ripple
+Insert Pad                      : No
+Insert I/O Reg                  : No
+Generate GCF                    : No
+Debug Level                     : 0
+Carry In                        : None
+Carry Out                       : None
+Addsub                          : Active High
+
+*************
+Fanin Control
+*************
+
+Signal      Buffering   Max Load   Signal Width
+------      ---------   --------   ------------
+Addsub        Auto         6
+
+**************
+Compile Report
+**************
+
+
+Netlist Resource Report
+=======================
+
+    Microcontroller Subsystem  Used:      0  Total:      1   (0.00%)
+    Fabric                     Used:     70  Total:   4608   (1.52%)
+    Fabric IO (W/ clocks)      Used:      0  Total:     94   (0.00%)
+    Fabric Differential IO     Used:      0  Total:     47   (0.00%)
+    Dedicated Analog IO        Used:      0  Total:     32   (0.00%)
+    Dedicated MSS IO           Used:      0  Total:     43   (0.00%)
+    GLOBAL (Chip+Quadrant)     Used:      0  Total:     15   (0.00%)
+    MSS GLOBAL                 Used:      0  Total:      3   (0.00%)
+    On-chip RC oscillator      Used:      0  Total:      1   (0.00%)
+    Main Crystal oscillator    Used:      0  Total:      1   (0.00%)
+    32 KHz Crystal oscillator  Used:      0  Total:      1   (0.00%)
+    RAM/FIFO                   Used:      0  Total:      8   (0.00%)
+    User JTAG                  Used:      0  Total:      1   (0.00%)
+
+Wrote VHDL netlist to
+D:/Work/marmote/projects/DDC_test/smartgen\adder\adder.vhd.
+
+ ** Log Ended:   Sat Oct 15 15:20:54 2011
+

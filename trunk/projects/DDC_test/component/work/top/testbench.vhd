@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------
--- Created by Actel SmartDesign Wed Sep 28 09:51:33 2011
+-- Created by Actel SmartDesign Sat Oct 15 15:25:41 2011
 -- Testbench Template
 -- This is a basic testbench that instantiates your design with basic 
 -- clock and reset pins connected.  If your design has special
@@ -28,16 +28,20 @@ architecture behavioral of testbench is
             MAINXIN : in std_logic;
             IO_7_PADIN : in std_logic;
             IO_6_PADIN : in std_logic;
+            MAC_0_CRSDV : in std_logic;
+            MAC_0_RXER : in std_logic;
+            MAC_0_RXD : in std_logic_vector(1 downto 0);
 
             -- Outputs
             IO_8_PADOUT : out std_logic;
             IO_5_PADOUT : out std_logic;
-            CH1 : out std_logic_vector(13 downto 0);
-            CH2 : out std_logic_vector(13 downto 0);
-            OUTPUT_0 : out std_logic_vector(46 downto 0);
-            OUTPUT_1 : out std_logic_vector(46 downto 0)
+            MAC_0_TXEN : out std_logic;
+            MAC_0_MDC : out std_logic;
+            MAC_0_TXD : out std_logic_vector(1 downto 0);
+            GLC : out std_logic;
 
             -- Inouts
+            MAC_0_MDIO : inout std_logic
 
         );
     end component;
@@ -70,16 +74,20 @@ begin
             MAINXIN => '0',
             IO_7_PADIN => '0',
             IO_6_PADIN => '0',
+            MAC_0_CRSDV => '0',
+            MAC_0_RXER => '0',
+            MAC_0_RXD => (others=> '0'),
 
             -- Outputs
             IO_8_PADOUT =>  open,
             IO_5_PADOUT =>  open,
-            CH1 => open,
-            CH2 => open,
-            OUTPUT_0 => open,
-            OUTPUT_1 => open
+            MAC_0_TXEN =>  open,
+            MAC_0_MDC =>  open,
+            MAC_0_TXD => open,
+            GLC =>  open,
 
             -- Inouts
+            MAC_0_MDIO =>  open
 
         );
 
