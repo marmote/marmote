@@ -898,5 +898,5 @@ SD:top::work
 FILE:<project>\hdl\APB_SPI.vhd,hdl
 FILE:<project>\stimulus\mytestbench.vhd,tb_hdl
 FILE:<project>\hdl\common.vhd,hdl
-ACTIVE_VIEW:0
+ACTIVE_VIEW:1
 ENDLIST

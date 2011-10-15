@@ -1,0 +1,93 @@
+# Reading C:/Actel/Libero_v9.1/Model/tcl/vsim/pref.tcl 
+# do run.do 
+# Modifying modelsim.ini
+# Modifying modelsim.ini
+# Modifying modelsim.ini
+# Model Technology ModelSim ACTEL vcom 6.6d Compiler 2010.11 Nov  2 2010
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Compiling package common
+# -- Compiling package body common
+# -- Loading package common
+# Model Technology ModelSim ACTEL vcom 6.6d Compiler 2010.11 Nov  2 2010
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package common
+# -- Compiling entity cic_int
+# -- Compiling architecture behavioral of cic_int
+# Model Technology ModelSim ACTEL vcom 6.6d Compiler 2010.11 Nov  2 2010
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package common
+# -- Compiling entity cic_int_tb
+# -- Compiling architecture bench of cic_int_tb
+# vsim -L work -L MSSLIB -L smartfusion -L presynth -t 1ps presynth.CIC_INT_tb 
+# //  ModelSim ACTEL 6.6d Nov  2 2010 
+# //
+# //  Copyright 1991-2010 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading presynth.common(body)
+# Loading presynth.cic_int_tb(bench)
+# Loading presynth.cic_int(behavioral)
+# WARNING: No extended dataflow license exists
+# Break key hit 
+restart
+run
+run -all
+# Break key hit 
+run
+restart
+run
+run
+run -all
+restart
+run -all
+run do.run
+# Invalid time value: do.run
+do run.do
+# INFO: Simulation library presynth already exists 
+# Modifying modelsim.ini
+# Modifying modelsim.ini
+# Modifying modelsim.ini
+# Model Technology ModelSim ACTEL vcom 6.6d Compiler 2010.11 Nov  2 2010
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Compiling package common
+# -- Compiling package body common
+# -- Loading package common
+# Model Technology ModelSim ACTEL vcom 6.6d Compiler 2010.11 Nov  2 2010
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package common
+# -- Compiling entity cic_int
+# -- Compiling architecture behavioral of cic_int
+# Model Technology ModelSim ACTEL vcom 6.6d Compiler 2010.11 Nov  2 2010
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package common
+# -- Compiling entity cic_int_tb
+# -- Compiling architecture bench of cic_int_tb
+# vsim -L work -L MSSLIB -L smartfusion -L presynth -t 1ps presynth.CIC_INT_tb 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading presynth.common(body)
+# Loading presynth.cic_int_tb(bench)
+# Loading presynth.cic_int(behavioral)
+restart
+run -all

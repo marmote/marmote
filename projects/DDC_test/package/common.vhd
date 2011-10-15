@@ -21,26 +21,29 @@ package COMMON is
 --          Common Constants           --
 -----------------------------------------
     -- FPGA system clock frequency
-    constant c_FAB_CLK : integer    := 50000000;
+--    constant c_FAB_CLK : integer    := 50000000;
 
+
+--ADC
     constant SAMPLE_WIDTH : integer := 14;  -- Has got to be less then or equal to 16 
  --   constant ADC_ZERO_LEVEL : sample_type := x"0080"; --128   
 
---    constant c_CIC_WIDTH            : integer := 22;
---    constant c_CIC_ORDER            : integer := 5;
 
-    constant c_ADC_SAMPLING     : integer := 18; -- How many cycles does it take, to get one sample?
-
-    constant c_COEF_WIDTH       : integer := 16; -- should be less than or equal to 18
-    constant c_COEF_NUMBER      : integer := 511; -- should be less than or equal to 511
-
-    constant c_SAMPLE_WIDTH     : integer := 22;  
-    constant c_SAMPLE_NUMBER    : integer := c_COEF_NUMBER+1; -- should be less than or equal to 512
-
-
+--CORDIC
     constant c_CORDIC_WIDTH         : integer := 16;
 --    constant c_COUNTER_WIDTH    : integer := 5; -- 2^c_COUNTER_WIDTH > c_CORDIC_WIDTH+2
     constant c_CORDIC_OUTPUT_WIDTH  : integer := 8;
+
+
+--CIC
+    constant c_CIC_WIDTH            : integer := 22;
+    constant c_CIC_ORDER            : integer := 3;
+
+    constant c_ADC_SAMPLING         : integer := 18; -- How many cycles does it take, to get one sample?
+
+
+--APB3
+    constant c_APB3_WIDTH           : integer := 32;
 -----------------------------------------
 --   Common Functions and Procedures   --
 -----------------------------------------

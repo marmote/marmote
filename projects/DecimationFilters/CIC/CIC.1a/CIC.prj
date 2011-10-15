@@ -1,0 +1,669 @@
+KEY LIBERO "9.1"
+KEY CAPTURE "9.1.3.4"
+KEY DEFAULT_IMPORT_LOC "D:\Work\Actelprj\HW\SPI_test\hdl"
+KEY DEFAULT_OPEN_LOC "D:\Work\marmote\projects\DecimationFilters\CIC\CIC.1a\hdl"
+KEY ProjectID "02c622d7-0b45-417c-b9d4-04ea47084b4a"
+KEY HDLTechnology "VHDL"
+KEY VendorTechnology_Family "SmartFusion"
+KEY VendorTechnology_Die "IP4X3M1"
+KEY VendorTechnology_Package "fg484"
+KEY ProjectLocation "D:\Work\marmote\projects\DecimationFilters\CIC\CIC.1a"
+KEY SimulationType "VHDL"
+KEY Vendor "Actel"
+KEY ActiveRoot "top::work"
+LIST REVISIONS
+VALUE="Impl1",NUM=1
+VALUE="Impl2",NUM=2
+VALUE="Impl3",NUM=3
+CURREV=3
+ENDLIST
+LIST LIBRARIES
+MSS_BFM_LIB
+ENDLIST
+LIST LIBRARY_MSS_BFM_LIB
+ALIAS=..\component\Actel\SmartFusionMSS\MSS\2.5.106\mti\user_verilog\MSS_BFM_LIB
+COMPILE_OPTION=REFRESH_AND_COMPILE
+ENDLIST
+LIST FileManager
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf,actgen_cxf"
+STATE="utd"
+TIME="1318339909"
+SIZE="944"
+PARENT="<project>\component\work\uC\uC.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd,hdl"
+STATE="utd"
+TIME="1318339909"
+SIZE="17580"
+PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf"
+BEGIN_USE_CONSTRAINT
+TOOL_CONSTRAINT_TYPE="ideSYNTHESIS"
+TOOL_CONSTRAINT_USE="SYNPLIFY7_EXT"
+END_USE_CONSTRAINT
+USE_FOR_ANY_TOOL="FALSE"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_CCC\2.0.106\MSS_CCC.cxf,actgen_cxf"
+STATE="utd"
+TIME="1318339896"
+SIZE="252"
+PARENT="<project>\component\work\uC\uC.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_CM3\1.0.200\MSS_CM3.cxf,actgen_cxf"
+STATE="utd"
+TIME="1318339896"
+SIZE="252"
+PARENT="<project>\component\work\uC\uC.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_COM\1.0.200\MSS_COM.cxf,actgen_cxf"
+STATE="utd"
+TIME="1318339896"
+SIZE="252"
+PARENT="<project>\component\work\uC\uC.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_DMA\1.0.101\MSS_DMA.cxf,actgen_cxf"
+STATE="utd"
+TIME="1318339896"
+SIZE="252"
+PARENT="<project>\component\work\uC\uC.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_ENVM\2.3.102\MSS_ENVM.cxf,actgen_cxf"
+STATE="utd"
+TIME="1318339897"
+SIZE="253"
+PARENT="<project>\component\work\uC\uC.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_FIO\1.0.203\MSS_FIO.cxf,actgen_cxf"
+STATE="utd"
+TIME="1318339897"
+SIZE="252"
+PARENT="<project>\component\work\uC\uC.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_GPIO\1.0.101\MSS_GPIO.cxf,actgen_cxf"
+STATE="utd"
+TIME="1318339897"
+SIZE="253"
+PARENT="<project>\component\work\uC\uC.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_INTR\1.0.101\MSS_INTR.cxf,actgen_cxf"
+STATE="utd"
+TIME="1318339897"
+SIZE="253"
+PARENT="<project>\component\work\uC\uC.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_RESET\1.0.101\MSS_RESET.cxf,actgen_cxf"
+STATE="utd"
+TIME="1318339897"
+SIZE="254"
+PARENT="<project>\component\work\uC\uC.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_RTC\1.0.100\MSS_RTC.cxf,actgen_cxf"
+STATE="utd"
+TIME="1318339897"
+SIZE="252"
+PARENT="<project>\component\work\uC\uC.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_TIMER\1.0.100\MSS_TIMER.cxf,actgen_cxf"
+STATE="utd"
+TIME="1318339897"
+SIZE="254"
+PARENT="<project>\component\work\uC\uC.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_UFROM\1.0.100\MSS_UFROM.cxf,actgen_cxf"
+STATE="utd"
+TIME="1318339897"
+SIZE="254"
+PARENT="<project>\component\work\uC\uC.cxf"
+ENDFILE
+VALUE "<project>\component\work\CIC\CIC.cxf,actgen_cxf"
+STATE="utd"
+TIME="1318425038"
+SIZE="2259"
+ENDFILE
+VALUE "<project>\component\work\CIC\CIC.vhd,hdl"
+STATE="utd"
+TIME="1318425038"
+SIZE="19141"
+PARENT="<project>\component\work\CIC\CIC.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\CIC\testbench.vhd,tb_hdl"
+STATE="utd"
+TIME="1318425038"
+SIZE="1809"
+PARENT="<project>\component\work\CIC\CIC.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\top\testbench.vhd,tb_hdl"
+STATE="utd"
+TIME="1318425042"
+SIZE="1830"
+PARENT="<project>\component\work\top\top.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\top\top.cxf,actgen_cxf"
+STATE="utd"
+TIME="1318425042"
+SIZE="2398"
+ENDFILE
+VALUE "<project>\component\work\top\top.pdc,pdc"
+STATE="utd"
+TIME="1318425042"
+SIZE="665"
+PARENT="<project>\component\work\top\top.cxf"
+BEGIN_USE_CONSTRAINT
+TOOL_CONSTRAINT_TYPE="ideDESIGNER"
+END_USE_CONSTRAINT
+USE_FOR_ANY_TOOL="FALSE"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\top\top.vhd,hdl"
+STATE="utd"
+TIME="1318425042"
+SIZE="3074"
+PARENT="<project>\component\work\top\top.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\uC\MSS_CCC_0\uC_tmp_MSS_CCC_0_MSS_CCC.cxf,actgen_cxf"
+STATE="utd"
+TIME="1318339896"
+SIZE="470"
+PARENT="<project>\component\work\uC\uC.cxf"
+ENDFILE
+VALUE "<project>\component\work\uC\MSS_CCC_0\uC_tmp_MSS_CCC_0_MSS_CCC.vhd,hdl"
+STATE="utd"
+TIME="1318339896"
+SIZE="6977"
+PARENT="<project>\component\work\uC\MSS_CCC_0\uC_tmp_MSS_CCC_0_MSS_CCC.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\uC\MSS_ENVM_0\MSS_ENVM_0.efc,efc"
+STATE="utd"
+TIME="1318339897"
+SIZE="15873"
+PARENT="<project>\component\work\uC\uC.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\uC\mss_tshell.vhd,hdl"
+STATE="utd"
+TIME="1318339898"
+SIZE="22849"
+PARENT="<project>\component\work\uC\uC.cxf"
+BEGIN_USE_CONSTRAINT
+TOOL_CONSTRAINT_TYPE="ideSYNTHESIS"
+TOOL_CONSTRAINT_USE="SYNPLIFY7_EXT"
+END_USE_CONSTRAINT
+USE_FOR_ANY_TOOL="FALSE"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\uC\testbench.vhd,tb_hdl"
+STATE="utd"
+TIME="1318339910"
+SIZE="1793"
+PARENT="<project>\component\work\uC\uC.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\uC\uC.cxf,actgen_cxf"
+STATE="utd"
+TIME="1318339910"
+SIZE="8353"
+ENDFILE
+VALUE "<project>\component\work\uC\uC.pdc,pdc"
+STATE="utd"
+TIME="1318339895"
+SIZE="580"
+PARENT="<project>\component\work\uC\uC.cxf"
+BEGIN_USE_CONSTRAINT
+TOOL_CONSTRAINT_TYPE="ideDESIGNER"
+END_USE_CONSTRAINT
+USE_FOR_ANY_TOOL="FALSE"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\uC\uC.vhd,hdl"
+STATE="utd"
+TIME="1318339910"
+SIZE="31640"
+PARENT="<project>\component\work\uC\uC.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\hdl\CIC_COMB_control.vhd,hdl"
+STATE="utd"
+TIME="1318425031"
+SIZE="6088"
+ENDFILE
+VALUE "<project>\hdl\CIC_control.vhd,hdl"
+STATE="utd"
+TIME="1318424959"
+SIZE="2452"
+ENDFILE
+VALUE "<project>\hdl\CIC_INT.vhd,hdl"
+STATE="utd"
+TIME="1318350368"
+SIZE="2999"
+ENDFILE
+VALUE "<project>\hdl\common.vhd,hdl"
+STATE="utd"
+TIME="1318278370"
+SIZE="3378"
+ENDFILE
+VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
+STATE="utd"
+TIME="1318339912"
+SIZE="41"
+PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf"
+ENDFILE
+VALUE "<project>\simulation\test.bfm,sim"
+STATE="utd"
+TIME="1318339911"
+SIZE="5460"
+PARENT="<project>\component\work\uC\uC.cxf"
+ENDFILE
+VALUE "<project>\simulation\user.bfm,sim"
+STATE="utd"
+TIME="1318339911"
+SIZE="670"
+PARENT="<project>\component\work\uC\uC.cxf"
+ENDFILE
+VALUE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.cxf,actgen_cxf"
+STATE="utd"
+TIME="1318338792"
+SIZE="2592"
+ENDFILE
+VALUE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.gen,gen"
+STATE="utd"
+TIME="1318338790"
+SIZE="690"
+PARENT="<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.log,log"
+STATE="utd"
+TIME="1318338791"
+SIZE="3367"
+PARENT="<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.vhd,hdl"
+STATE="utd"
+TIME="1318338792"
+SIZE="5344"
+PARENT="<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem_R0C0.mem,sim"
+STATE="utd"
+TIME="1318338792"
+SIZE="132"
+PARENT="<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.cxf"
+ENDFILE
+VALUE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem_R0C1.mem,sim"
+STATE="utd"
+TIME="1318338792"
+SIZE="132"
+PARENT="<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.cxf"
+ENDFILE
+VALUE "<project>\synthesis\top.edn,syn_edn"
+STATE="utd"
+TIME="1318366497"
+SIZE="721113"
+ENDFILE
+VALUE "<project>\synthesis\top_drc.rpt,log"
+STATE="utd"
+TIME="1318366508"
+SIZE="26629"
+ENDFILE
+VALUE "<project>\synthesis\top_sdc.sdc,syn_sdc"
+STATE="utd"
+TIME="1318366497"
+SIZE="310"
+ENDFILE
+ENDLIST
+LIST UsedFile
+ENDLIST
+LIST NewModulesInfo
+LIST "CIC::work"
+FILE "<project>\component\work\CIC\CIC.vhd,hdl"
+LIST Other_Association
+VALUE "<project>\component\work\CIC\testbench.vhd,tb_hdl"
+ENDLIST
+LIST AssociatedStimulus
+VALUE "<project>\component\work\CIC\testbench.vhd,tb_hdl"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl3
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
+LIST "CIC_COMB_mem::work"
+FILE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.vhd,hdl"
+LIST Other_Association
+VALUE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem_R0C0.mem,sim"
+VALUE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem_R0C1.mem,sim"
+ENDLIST
+ENDLIST
+LIST "top::work"
+FILE "<project>\component\work\top\top.vhd,hdl"
+LIST Other_Association
+VALUE "<project>\component\work\top\testbench.vhd,tb_hdl"
+VALUE "<project>\component\work\top\top.pdc,pdc"
+ENDLIST
+LIST AssociatedStimulus
+VALUE "<project>\component\work\top\testbench.vhd,tb_hdl"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+LiberoState=Post_Synthesis
+ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+LiberoState=Post_Synthesis
+ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl3
+LiberoState=Post_Synthesis
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
+LIST "uC::work"
+FILE "<project>\component\work\uC\uC.vhd,hdl"
+LIST Other_Association
+VALUE "<project>\simulation\user.bfm,sim"
+VALUE "<project>\simulation\test.bfm,sim"
+VALUE "<project>\component\work\uC\testbench.vhd,tb_hdl"
+VALUE "<project>\component\work\uC\uC.pdc,pdc"
+VALUE "<project>\component\work\uC\MSS_ENVM_0\MSS_ENVM_0.efc,efc"
+VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
+ENDLIST
+LIST AssociatedStimulus
+VALUE "<project>\component\work\uC\testbench.vhd,tb_hdl"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl3
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
+ENDLIST
+LIST AssociatedStimulus
+LIST top
+VALUE "<project>\component\work\top\testbench.vhd,tb_hdl"
+ENDLIST
+LIST uC
+VALUE "<project>\component\work\uC\testbench.vhd,tb_hdl"
+ENDLIST
+LIST CIC
+VALUE "<project>\component\work\CIC\testbench.vhd,tb_hdl"
+ENDLIST
+ENDLIST
+LIST Other_Association
+LIST top
+VALUE "<project>\component\work\top\testbench.vhd,tb_hdl"
+VALUE "<project>\component\work\top\top.pdc,pdc"
+ENDLIST
+LIST uC
+VALUE "<project>\simulation\user.bfm,sim"
+VALUE "<project>\simulation\test.bfm,sim"
+VALUE "<project>\component\work\uC\testbench.vhd,tb_hdl"
+VALUE "<project>\component\work\uC\uC.pdc,pdc"
+VALUE "<project>\component\work\uC\MSS_ENVM_0\MSS_ENVM_0.efc,efc"
+VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
+ENDLIST
+LIST CIC
+VALUE "<project>\component\work\CIC\testbench.vhd,tb_hdl"
+ENDLIST
+LIST CIC_COMB_mem
+VALUE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem_R0C0.mem,sim"
+VALUE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem_R0C1.mem,sim"
+ENDLIST
+ENDLIST
+LIST SimulationOptions
+UseAutomaticDoFile=true
+IncludeWaveDo=false
+Type=max
+RunTime=1000ns
+Resolution=1ps
+VsimOpt=
+EntityName=testbench
+TopInstanceName=<top>_0
+DoFileName=
+DoFileName2=wave.do
+DoFileParams=
+DisplayDUTWave=false
+LogAllSignals=false
+DumpVCD=false
+VCDFileName=power.vcd
+ENDLIST
+LIST ModelSimLibPath
+UseCustomPath=FALSE
+LibraryPath=
+ENDLIST
+LIST GlobalFlowOptions
+GenerateHDLAfterSynthesis=FALSE
+GenerateHDLAfterPhySynthesis=FALSE
+RunDRCAfterSynthesis=TRUE
+AutoCheckConstraints=TRUE
+UpdateViewDrawIni=TRUE
+UpdateModelSimIni=TRUE
+NoIOMode=FALSE
+GenerateHDLFromSchematic=TRUE
+FlashProInputFile=fdb
+SmartGenCompileReport=T
+ENDLIST
+LIST PhySynthesisOptions
+ENDLIST
+LIST Profiles
+NAME="Synplify AE"
+FUNCTION="Synthesis"
+TOOL="Synplify"
+LOCATION="C:\Actel\Libero_v9.1\Synopsys\synplify_E201009A-1\bin\synplify_pro.exe"
+PARAM=""
+BATCH=0
+EndProfile
+NAME="ModelSim AE"
+FUNCTION="Simulation"
+TOOL="ModelSim"
+LOCATION="C:\Actel\Libero_v9.1\Model\win32acoem\modelsim.exe"
+PARAM=""
+BATCH=0
+EndProfile
+NAME="WFL"
+FUNCTION="Stimulus"
+TOOL="WFL"
+LOCATION="syncad.exe"
+PARAM="-pwflite"
+BATCH=0
+EndProfile
+NAME="FlashPro"
+FUNCTION="Program"
+TOOL="FlashPro"
+LOCATION="C:\Actel\Libero_v9.1\Designer\bin\FlashPro.exe"
+PARAM=""
+BATCH=0
+EndProfile
+ENDLIST
+LIST ProjectState5.1
+LIST "CIC::work"
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl3
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+LIST "top::work"
+LIST Impl1
+LiberoState=Post_Synthesis
+ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+LiberoState=Post_Synthesis
+ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl3
+LiberoState=Post_Synthesis
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+LIST "uC::work"
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl3
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
+LIST ExcludePackageForSimulation
+ENDLIST
+LIST ExcludePackageForSynthesis
+ENDLIST
+LIST IncludeModuleForSimulation
+ENDLIST
+LIST CDBOrder
+ENDLIST
+LIST UserCustomizedFileList
+ENDLIST
+LIST OpenedFileList
+DESIGNFLOW:
+SD:top::work
+SD:CIC::work
+FILE:<project>\hdl\CIC_control.vhd,hdl
+FILE:<project>\hdl\CIC_COMB_control.vhd,hdl
+FILE:<project>\hdl\common.vhd,hdl
+FILE:<project>\synthesis\top.areasrr,???
+ACTIVE_VIEW:2
+ENDLIST

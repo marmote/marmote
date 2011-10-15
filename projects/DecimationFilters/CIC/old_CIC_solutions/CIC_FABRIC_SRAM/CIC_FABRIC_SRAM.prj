@@ -1,5 +1,5 @@
 KEY LIBERO "9.1"
-KEY CAPTURE "9.1.2.16"
+KEY CAPTURE "9.1.3.4"
 KEY DEFAULT_IMPORT_LOC "D:\Work\Actelprj\HW\SPI_test\hdl"
 KEY DEFAULT_OPEN_LOC "D:\Work\Actelprj\HW\2.INTtest"
 KEY ProjectID "b206bcde-f492-460e-a4a1-2a99daa7dbac"
@@ -7,13 +7,14 @@ KEY HDLTechnology "VHDL"
 KEY VendorTechnology_Family "SmartFusion"
 KEY VendorTechnology_Die "IP4X3M1"
 KEY VendorTechnology_Package "fg484"
-KEY ProjectLocation "D:\Work\marmote\projects\CIC_FABRIC_SRAM"
+KEY ProjectLocation "D:\Work\marmote\projects\DecimationFilters\CIC\old_CIC_solutions\CIC_FABRIC_SRAM"
 KEY SimulationType "VHDL"
 KEY Vendor "Actel"
 KEY ActiveRoot "top::work"
 LIST REVISIONS
 VALUE="Impl1",NUM=1
-CURREV=1
+VALUE="Impl2",NUM=2
+CURREV=2
 ENDLIST
 LIST LIBRARIES
 MSS_BFM_LIB
@@ -25,13 +26,13 @@ ENDLIST
 LIST FileManager
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf,actgen_cxf"
 STATE="utd"
-TIME="1315344189"
+TIME="1317931798"
 SIZE="944"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd,hdl"
 STATE="utd"
-TIME="1315344189"
+TIME="1317931798"
 SIZE="17580"
 PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf"
 BEGIN_USE_CONSTRAINT
@@ -43,110 +44,110 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_CCC\2.0.106\MSS_CCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1315344175"
+TIME="1317931799"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_CM3\1.0.200\MSS_CM3.cxf,actgen_cxf"
 STATE="utd"
-TIME="1315344175"
+TIME="1317931799"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_COM\1.0.200\MSS_COM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1315344175"
+TIME="1317931783"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_DMA\1.0.101\MSS_DMA.cxf,actgen_cxf"
 STATE="utd"
-TIME="1315344175"
+TIME="1317931799"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_ENVM\2.3.102\MSS_ENVM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1315344176"
+TIME="1317931799"
 SIZE="253"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_FIO\1.0.203\MSS_FIO.cxf,actgen_cxf"
 STATE="utd"
-TIME="1315344176"
+TIME="1317931783"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_GPIO\1.0.101\MSS_GPIO.cxf,actgen_cxf"
 STATE="utd"
-TIME="1315344176"
+TIME="1317931783"
 SIZE="253"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_INTR\1.0.101\MSS_INTR.cxf,actgen_cxf"
 STATE="utd"
-TIME="1315344176"
+TIME="1317931799"
 SIZE="253"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_RESET\1.0.101\MSS_RESET.cxf,actgen_cxf"
 STATE="utd"
-TIME="1315344176"
+TIME="1317931799"
 SIZE="254"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_RTC\1.0.100\MSS_RTC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1315344177"
+TIME="1317931799"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_TIMER\1.0.100\MSS_TIMER.cxf,actgen_cxf"
 STATE="utd"
-TIME="1315344177"
+TIME="1317931783"
 SIZE="254"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_UFROM\1.0.100\MSS_UFROM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1315344177"
+TIME="1317931799"
 SIZE="254"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\work\CIC\CIC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1316545302"
+TIME="1317931783"
 SIZE="2056"
 ENDFILE
 VALUE "<project>\component\work\CIC\CIC.vhd,hdl"
 STATE="utd"
-TIME="1316545302"
+TIME="1317931783"
 SIZE="11552"
 PARENT="<project>\component\work\CIC\CIC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\CIC\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1316545302"
+TIME="1317931783"
 SIZE="1809"
 PARENT="<project>\component\work\CIC\CIC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\top\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1316545359"
+TIME="1317931783"
 SIZE="1780"
 PARENT="<project>\component\work\top\top.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\top\top.cxf,actgen_cxf"
 STATE="utd"
-TIME="1316545359"
+TIME="1317931783"
 SIZE="2518"
 ENDFILE
 VALUE "<project>\component\work\top\top.pdc,pdc"
 STATE="utd"
-TIME="1316545358"
+TIME="1317931783"
 SIZE="988"
 PARENT="<project>\component\work\top\top.cxf"
 BEGIN_USE_CONSTRAINT
@@ -157,34 +158,34 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\top\top.vhd,hdl"
 STATE="utd"
-TIME="1316545359"
+TIME="1317931783"
 SIZE="9825"
 PARENT="<project>\component\work\top\top.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\MSS_CCC_0\uC_tmp_MSS_CCC_0_MSS_CCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1315344175"
+TIME="1317931783"
 SIZE="470"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\work\uC\MSS_CCC_0\uC_tmp_MSS_CCC_0_MSS_CCC.vhd,hdl"
 STATE="utd"
-TIME="1315344175"
+TIME="1317931783"
 SIZE="6977"
 PARENT="<project>\component\work\uC\MSS_CCC_0\uC_tmp_MSS_CCC_0_MSS_CCC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\MSS_ENVM_0\MSS_ENVM_0.efc,efc"
 STATE="utd"
-TIME="1315344176"
+TIME="1317931783"
 SIZE="15874"
 PARENT="<project>\component\work\uC\uC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\mss_tshell.vhd,hdl"
 STATE="utd"
-TIME="1315344177"
+TIME="1317931783"
 SIZE="22849"
 PARENT="<project>\component\work\uC\uC.cxf"
 BEGIN_USE_CONSTRAINT
@@ -196,19 +197,19 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1315344190"
+TIME="1317931783"
 SIZE="1793"
 PARENT="<project>\component\work\uC\uC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\uC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1315344190"
+TIME="1317931783"
 SIZE="8353"
 ENDFILE
 VALUE "<project>\component\work\uC\uC.pdc,pdc"
 STATE="utd"
-TIME="1315344174"
+TIME="1317931783"
 SIZE="10147"
 PARENT="<project>\component\work\uC\uC.cxf"
 BEGIN_USE_CONSTRAINT
@@ -219,176 +220,151 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\uC.vhd,hdl"
 STATE="utd"
-TIME="1315344190"
+TIME="1317931783"
 SIZE="31640"
 PARENT="<project>\component\work\uC\uC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
-VALUE "<project>\designer\impl1\uC.adb,adb"
-STATE="ood"
-TIME="1315420821"
-SIZE="244224"
-ENDFILE
 VALUE "<project>\hdl\CIC_control.vhd,hdl"
 STATE="utd"
-TIME="1316546073"
+TIME="1318016266"
 SIZE="9171"
 ENDFILE
 VALUE "<project>\hdl\common.vhd,hdl"
 STATE="utd"
-TIME="1316546087"
+TIME="1317931800"
 SIZE="3265"
 ENDFILE
 VALUE "<project>\hdl\test.vhd,hdl"
 STATE="utd"
-TIME="1316545349"
+TIME="1317931800"
 SIZE="1651"
 ENDFILE
 VALUE "<project>\hdl\test_in.vhd,hdl"
 STATE="utd"
-TIME="1315420544"
+TIME="1317931800"
 SIZE="1322"
 ENDFILE
 VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
 STATE="utd"
-TIME="1315344190"
+TIME="1317931799"
 SIZE="41"
 PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf"
 ENDFILE
 VALUE "<project>\simulation\test.bfm,sim"
 STATE="utd"
-TIME="1315344190"
+TIME="1317931799"
 SIZE="5460"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\simulation\user.bfm,sim"
 STATE="utd"
-TIME="1315344190"
+TIME="1317931799"
 SIZE="670"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\smartgen\CIC_mem\CIC_mem.cxf,actgen_cxf"
 STATE="utd"
-TIME="1315488027"
+TIME="1317931783"
 SIZE="3486"
 ENDFILE
 VALUE "<project>\smartgen\CIC_mem\CIC_mem.gen,gen"
 STATE="utd"
-TIME="1315488026"
+TIME="1317931783"
 SIZE="780"
 PARENT="<project>\smartgen\CIC_mem\CIC_mem.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\CIC_mem\CIC_mem.log,log"
 STATE="utd"
-TIME="1315488027"
+TIME="1317931783"
 SIZE="3359"
 PARENT="<project>\smartgen\CIC_mem\CIC_mem.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\CIC_mem\CIC_mem.vhd,hdl"
 STATE="utd"
-TIME="1315488027"
+TIME="1317931783"
 SIZE="11940"
 PARENT="<project>\smartgen\CIC_mem\CIC_mem.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C0.mem,sim"
 STATE="utd"
-TIME="1315488027"
+TIME="1317931783"
 SIZE="88"
 PARENT="<project>\smartgen\CIC_mem\CIC_mem.cxf"
 ENDFILE
 VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C1.mem,sim"
 STATE="utd"
-TIME="1315488027"
+TIME="1317931783"
 SIZE="88"
 PARENT="<project>\smartgen\CIC_mem\CIC_mem.cxf"
 ENDFILE
 VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C2.mem,sim"
 STATE="utd"
-TIME="1315488027"
+TIME="1317931783"
 SIZE="88"
 PARENT="<project>\smartgen\CIC_mem\CIC_mem.cxf"
 ENDFILE
 VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C3.mem,sim"
 STATE="utd"
-TIME="1315488027"
+TIME="1317931783"
 SIZE="88"
 PARENT="<project>\smartgen\CIC_mem\CIC_mem.cxf"
 ENDFILE
 VALUE "<project>\smartgen\CIC_mem\CIC_mem_R0C4.mem,sim"
 STATE="utd"
-TIME="1315488027"
+TIME="1317931783"
 SIZE="88"
 PARENT="<project>\smartgen\CIC_mem\CIC_mem.cxf"
 ENDFILE
 VALUE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.cxf,actgen_cxf"
 STATE="utd"
-TIME="1315918317"
+TIME="1317931783"
 SIZE="2613"
 ENDFILE
 VALUE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.gen,gen"
 STATE="utd"
-TIME="1315918316"
+TIME="1317931783"
 SIZE="681"
 PARENT="<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.log,log"
 STATE="utd"
-TIME="1315918317"
+TIME="1317931783"
 SIZE="3364"
 PARENT="<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.vhd,hdl"
 STATE="utd"
-TIME="1315918317"
+TIME="1317931783"
 SIZE="5487"
 PARENT="<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem_R0C0.mem,sim"
 STATE="utd"
-TIME="1315918317"
+TIME="1317931783"
 SIZE="440"
 PARENT="<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.cxf"
 ENDFILE
 VALUE "<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem_R0C1.mem,sim"
 STATE="utd"
-TIME="1315918317"
+TIME="1317931783"
 SIZE="440"
 PARENT="<project>\smartgen\CIC_twoport_mem\CIC_twoport_mem.cxf"
 ENDFILE
 VALUE "<project>\synthesis\top.edn,syn_edn"
 STATE="ood"
-TIME="1316545370"
-SIZE="844398"
-ENDFILE
-VALUE "<project>\synthesis\top_drc.rpt,log"
-STATE="utd"
-TIME="1316545380"
-SIZE="26706"
+TIME="1318016003"
+SIZE="1037659"
 ENDFILE
 VALUE "<project>\synthesis\top_sdc.sdc,syn_sdc"
 STATE="ood"
-TIME="1316545370"
-SIZE="310"
-ENDFILE
-VALUE "<project>\synthesis\uC.edn,syn_edn"
-STATE="utd"
-TIME="1315919048"
-SIZE="88061"
-ENDFILE
-VALUE "<project>\synthesis\uC_drc.rpt,log"
-STATE="utd"
-TIME="1315919059"
-SIZE="21557"
-ENDFILE
-VALUE "<project>\synthesis\uC_sdc.sdc,syn_sdc"
-STATE="utd"
-TIME="1315919048"
+TIME="1318016003"
 SIZE="310"
 ENDFILE
 ENDLIST
@@ -405,6 +381,15 @@ VALUE "<project>\component\work\CIC\testbench.vhd,tb_hdl"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -451,6 +436,15 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
+LIST Impl2
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 ENDLIST
 LIST "uC::work"
@@ -468,9 +462,16 @@ VALUE "<project>\component\work\uC\testbench.vhd,tb_hdl"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
-LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\uC.edn,syn_edn)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -596,6 +597,15 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
+LIST Impl2
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 LIST "top::work"
 LIST Impl1
@@ -607,12 +617,28 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
+LIST Impl2
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 LIST "uC::work"
 LIST Impl1
-LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\uC.edn,syn_edn)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -636,9 +662,9 @@ LIST OpenedFileList
 DESIGNFLOW:
 SD:top::work
 SD:CIC::work
-FILE:<project>\hdl\CIC_control.vhd,hdl
-FILE:<project>\synthesis\top.areasrr,???
 FILE:<project>\hdl\common.vhd,hdl
 FILE:<project>\hdl\test.vhd,hdl
-ACTIVE_VIEW:0
+FILE:<project>\hdl\CIC_control.vhd,hdl
+FILE:<project>\synthesis\top.areasrr,???
+ACTIVE_VIEW:5
 ENDLIST
