@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------
--- Created by Actel SmartDesign Sat Oct 15 15:25:41 2011
+-- Created by Actel SmartDesign Thu Oct 20 10:04:22 2011
 -- Testbench Template
 -- This is a basic testbench that instantiates your design with basic 
 -- clock and reset pins connected.  If your design has special
@@ -37,8 +37,9 @@ architecture behavioral of testbench is
             IO_5_PADOUT : out std_logic;
             MAC_0_TXEN : out std_logic;
             MAC_0_MDC : out std_logic;
-            MAC_0_TXD : out std_logic_vector(1 downto 0);
             GLC : out std_logic;
+            SMPL_RDY : out std_logic;
+            MAC_0_TXD : out std_logic_vector(1 downto 0);
 
             -- Inouts
             MAC_0_MDIO : inout std_logic
@@ -83,8 +84,9 @@ begin
             IO_5_PADOUT =>  open,
             MAC_0_TXEN =>  open,
             MAC_0_MDC =>  open,
-            MAC_0_TXD => open,
             GLC =>  open,
+            SMPL_RDY =>  open,
+            MAC_0_TXD => open,
 
             -- Inouts
             MAC_0_MDIO =>  open

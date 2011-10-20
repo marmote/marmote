@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------
--- Created by Actel SmartDesign Tue Sep 06 14:28:03 2011
+-- Created by Actel SmartDesign Wed Oct 19 08:09:57 2011
 -- Parameters for CORECORDIC
 ----------------------------------------------------------------------
 

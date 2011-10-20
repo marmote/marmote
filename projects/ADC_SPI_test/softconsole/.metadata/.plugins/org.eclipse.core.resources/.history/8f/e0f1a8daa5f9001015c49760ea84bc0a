@@ -1,0 +1,34 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+O_SRCS := 
+CPP_SRCS := 
+C_UPPER_SRCS := 
+C_SRCS := 
+S_UPPER_SRCS := 
+S_SRCS := 
+OBJ_SRCS := 
+CXX_SRCS := 
+C++_SRCS := 
+CC_SRCS := 
+MEMORYMAP := 
+C++_DEPS := 
+OBJS := 
+C_DEPS := 
+CC_DEPS := 
+SRECFILES := 
+IHEXFILES := 
+LISTINGS := 
+CPP_DEPS := 
+EXECUTABLE := 
+CXX_DEPS := 
+C_UPPER_DEPS := 
+
+# Every subdirectory with source files must be described here
+SUBDIRS := \
+. \
+drivers/mss_gpio \
+CMSIS \
+CMSIS/startup_gcc \
+

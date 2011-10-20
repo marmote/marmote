@@ -1,5 +1,5 @@
 KEY LIBERO "9.1"
-KEY CAPTURE "9.1.2.16"
+KEY CAPTURE "9.1.3.4"
 KEY DEFAULT_IMPORT_LOC "D:\Work\Actelprj\HW\SPI_test\hdl"
 KEY DEFAULT_OPEN_LOC "D:\Work\valami\BasebandFsk"
 KEY ProjectID "efe24194-8f72-422b-8e6a-f56be9f6e394"
@@ -14,7 +14,8 @@ KEY ActiveRoot "top::work"
 LIST REVISIONS
 VALUE="Impl1",NUM=1
 VALUE="Impl2",NUM=2
-CURREV=2
+VALUE="Impl3",NUM=3
+CURREV=3
 ENDLIST
 LIST LIBRARIES
 MSS_BFM_LIB
@@ -31,13 +32,13 @@ ENDLIST
 LIST FileManager
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1311105730"
+TIME="1317931747"
 SIZE="2338"
 PARENT="<project>\component\work\sincos_gen\sincos_gen.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\coreparameters.vhd,tb_hdl"
 STATE="utd"
-TIME="1311105730"
+TIME="1317931747"
 SIZE="582"
 LIBRARY="CORECORDIC_LIB"
 PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
@@ -45,7 +46,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\mti\wave.do,do"
 STATE="utd"
-TIME="1311105730"
+TIME="1317931747"
 SIZE="0"
 LIBRARY="CORECORDIC_LIB"
 PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
@@ -53,7 +54,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\core\corecordic_addpackage_word.vhd,hdl"
 STATE="utd"
-TIME="1311105748"
+TIME="1317931747"
 SIZE="2380"
 LIBRARY="CORECORDIC_LIB"
 PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
@@ -61,7 +62,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\core\corecordic_package_word.vhd,hdl"
 STATE="utd"
-TIME="1311105730"
+TIME="1317931747"
 SIZE="7612"
 LIBRARY="CORECORDIC_LIB"
 PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
@@ -69,7 +70,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\core\corecordic_word.vhd,hdl"
 STATE="utd"
-TIME="1311105730"
+TIME="1317931747"
 SIZE="16543"
 LIBRARY="CORECORDIC_LIB"
 PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
@@ -77,7 +78,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\test\user\corecordic_tbpackage.vhd,tb_hdl"
 STATE="utd"
-TIME="1311105748"
+TIME="1317931747"
 SIZE="4406"
 LIBRARY="CORECORDIC_LIB"
 PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
@@ -87,7 +88,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\test\user\corecordic_tb_word.vhd,tb_hdl"
 STATE="utd"
-TIME="1311105730"
+TIME="1317931747"
 SIZE="9313"
 LIBRARY="CORECORDIC_LIB"
 PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
@@ -97,13 +98,13 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf,actgen_cxf"
 STATE="utd"
-TIME="1311101652"
+TIME="1317931763"
 SIZE="944"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd,hdl"
 STATE="utd"
-TIME="1311101652"
+TIME="1317931763"
 SIZE="17580"
 PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf"
 BEGIN_USE_CONSTRAINT
@@ -115,110 +116,110 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_CCC\2.0.106\MSS_CCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1311101650"
+TIME="1317931763"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_CM3\1.0.200\MSS_CM3.cxf,actgen_cxf"
 STATE="utd"
-TIME="1311101650"
+TIME="1317931763"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_COM\1.0.200\MSS_COM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1311101650"
+TIME="1317931748"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_DMA\1.0.101\MSS_DMA.cxf,actgen_cxf"
 STATE="utd"
-TIME="1311101650"
+TIME="1317931763"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_ENVM\2.3.102\MSS_ENVM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1311101651"
+TIME="1317931763"
 SIZE="253"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_FIO\1.0.203\MSS_FIO.cxf,actgen_cxf"
 STATE="utd"
-TIME="1311101651"
+TIME="1317931747"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_GPIO\1.0.101\MSS_GPIO.cxf,actgen_cxf"
 STATE="utd"
-TIME="1311101651"
+TIME="1317931747"
 SIZE="253"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_INTR\1.0.101\MSS_INTR.cxf,actgen_cxf"
 STATE="utd"
-TIME="1311101651"
+TIME="1317931763"
 SIZE="253"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_RESET\1.0.101\MSS_RESET.cxf,actgen_cxf"
 STATE="utd"
-TIME="1311101651"
+TIME="1317931763"
 SIZE="254"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_RTC\1.0.100\MSS_RTC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1311101651"
+TIME="1317931763"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_TIMER\1.0.100\MSS_TIMER.cxf,actgen_cxf"
 STATE="utd"
-TIME="1311101651"
+TIME="1317931748"
 SIZE="254"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_UFROM\1.0.100\MSS_UFROM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1311101651"
+TIME="1317931763"
 SIZE="254"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\work\sincos_gen\sincos_gen.cxf,actgen_cxf"
 STATE="utd"
-TIME="1311105730"
+TIME="1317931747"
 SIZE="2965"
 ENDFILE
 VALUE "<project>\component\work\sincos_gen\sincos_gen.vhd,hdl"
 STATE="utd"
-TIME="1311105730"
+TIME="1317931747"
 SIZE="12774"
 PARENT="<project>\component\work\sincos_gen\sincos_gen.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\sincos_gen\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1311105730"
+TIME="1317931747"
 SIZE="2066"
 PARENT="<project>\component\work\sincos_gen\sincos_gen.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\top\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1311104706"
+TIME="1317931747"
 SIZE="1651"
 PARENT="<project>\component\work\top\top.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\top\top.cxf,actgen_cxf"
 STATE="utd"
-TIME="1311104706"
+TIME="1317931747"
 SIZE="1962"
 ENDFILE
 VALUE "<project>\component\work\top\top.pdc,pdc"
 STATE="utd"
-TIME="1311104706"
+TIME="1317931747"
 SIZE="707"
 PARENT="<project>\component\work\top\top.cxf"
 BEGIN_USE_CONSTRAINT
@@ -229,34 +230,34 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\top\top.vhd,hdl"
 STATE="utd"
-TIME="1311104706"
+TIME="1317931747"
 SIZE="3062"
 PARENT="<project>\component\work\top\top.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\MSS_CCC_0\uC_tmp_MSS_CCC_0_MSS_CCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1311101650"
+TIME="1317931747"
 SIZE="470"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\work\uC\MSS_CCC_0\uC_tmp_MSS_CCC_0_MSS_CCC.vhd,hdl"
 STATE="utd"
-TIME="1311101650"
+TIME="1317931747"
 SIZE="6976"
 PARENT="<project>\component\work\uC\MSS_CCC_0\uC_tmp_MSS_CCC_0_MSS_CCC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\MSS_ENVM_0\MSS_ENVM_0.efc,efc"
 STATE="utd"
-TIME="1311101651"
+TIME="1317931747"
 SIZE="15873"
 PARENT="<project>\component\work\uC\uC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\mss_tshell.vhd,hdl"
 STATE="utd"
-TIME="1311101651"
+TIME="1317931747"
 SIZE="22849"
 PARENT="<project>\component\work\uC\uC.cxf"
 BEGIN_USE_CONSTRAINT
@@ -268,19 +269,19 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1311101652"
+TIME="1317931747"
 SIZE="1793"
 PARENT="<project>\component\work\uC\uC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\uC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1311101652"
+TIME="1317931747"
 SIZE="8355"
 ENDFILE
 VALUE "<project>\component\work\uC\uC.pdc,pdc"
 STATE="utd"
-TIME="1311101648"
+TIME="1317931747"
 SIZE="834"
 PARENT="<project>\component\work\uC\uC.cxf"
 BEGIN_USE_CONSTRAINT
@@ -291,64 +292,64 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\uC.vhd,hdl"
 STATE="utd"
-TIME="1311101652"
+TIME="1317931747"
 SIZE="31639"
 PARENT="<project>\component\work\uC\uC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\hdl\common.vhd,hdl"
 STATE="utd"
-TIME="1311079079"
+TIME="1317931764"
 SIZE="1602"
 ENDFILE
 VALUE "<project>\hdl\phase_gen.vhd,hdl"
 STATE="utd"
-TIME="1311104610"
+TIME="1317931764"
 SIZE="2981"
 ENDFILE
 VALUE "<project>\hdl\SIGN_CORRECTOR.vhd,hdl"
 STATE="utd"
-TIME="1311104908"
+TIME="1317931764"
 SIZE="2209"
 ENDFILE
 VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
 STATE="utd"
-TIME="1311101654"
+TIME="1317931764"
 SIZE="41"
 PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf"
 ENDFILE
 VALUE "<project>\simulation\generate.tcl,sim"
 STATE="utd"
-TIME="1311105730"
+TIME="1317931764"
 SIZE="1244"
 LIBRARY="CORECORDIC_LIB"
 PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
 ENDFILE
 VALUE "<project>\simulation\run.do,do"
 STATE="utd"
-TIME="1311104501"
+TIME="1317931764"
 SIZE="2086"
 ENDFILE
 VALUE "<project>\simulation\test.bfm,sim"
 STATE="utd"
-TIME="1311101654"
+TIME="1317931764"
 SIZE="5460"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\simulation\user.bfm,sim"
 STATE="utd"
-TIME="1311100904"
+TIME="1317931764"
 SIZE="670"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\stimulus\mytestbench_phase_gen.vhd,tb_hdl"
 STATE="utd"
-TIME="1311080983"
+TIME="1317931764"
 SIZE="3027"
 ENDFILE
 VALUE "<project>\stimulus\mytestbench_sincos_gen.vhd,tb_hdl"
 STATE="utd"
-TIME="1311104422"
+TIME="1317931764"
 SIZE="3689"
 ENDFILE
 ENDLIST
@@ -384,6 +385,15 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
+LIST Impl3
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 ENDLIST
 LIST "top::work"
@@ -406,6 +416,15 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl2
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl3
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -448,6 +467,15 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
+LIST Impl3
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 ENDLIST
 LIST "CORECORDIC::CORECORDIC_LIB"
@@ -475,6 +503,15 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl2
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl3
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -613,6 +650,15 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
+LIST Impl3
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 LIST "top::work"
 LIST Impl1
@@ -625,6 +671,15 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl2
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl3
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -653,6 +708,15 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
+LIST Impl3
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 LIST "CORECORDIC::CORECORDIC_LIB"
 LIST Impl1
@@ -665,6 +729,15 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl2
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl3
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -696,5 +769,5 @@ FILE:<project>\stimulus\mytestbench_sincos_gen.vhd,tb_hdl
 FILE:<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\core\corecordic_addpackage_word.vhd,hdl
 FILE:<project>\hdl\common.vhd,hdl
 FILE:<project>\component\work\sincos_gen\testbench.vhd,tb_hdl
-ACTIVE_VIEW:6
+ACTIVE_VIEW:2
 ENDLIST

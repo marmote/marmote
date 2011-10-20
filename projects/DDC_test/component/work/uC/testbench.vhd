@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------
--- Created by Actel SmartDesign Mon Aug 15 09:37:37 2011
+-- Created by Actel SmartDesign Thu Oct 20 10:04:10 2011
 -- Testbench Template
 -- This is a basic testbench that instantiates your design with basic 
 -- clock and reset pins connected.  If your design has special
@@ -27,6 +27,13 @@ architecture behavioral of testbench is
             MAINXIN : in std_logic;
             IO_8_D : in std_logic;
             IO_5_D : in std_logic;
+            MSSPREADY : in std_logic;
+            MSSPSLVERR : in std_logic;
+            MSSPRDATA : in std_logic_vector(31 downto 0);
+            DMAREADY : in std_logic_vector(1 downto 0);
+            MAC_0_RXD : in std_logic_vector(1 downto 0);
+            MAC_0_CRSDV : in std_logic;
+            MAC_0_RXER : in std_logic;
             MSS_RESET_N : in std_logic;
             IO_6_PADIN : in std_logic;
             IO_7_PADIN : in std_logic;
@@ -36,10 +43,20 @@ architecture behavioral of testbench is
             M2F_RESET_N : out std_logic;
             IO_7_Y : out std_logic;
             IO_6_Y : out std_logic;
+            MSSPSEL : out std_logic;
+            MSSPENABLE : out std_logic;
+            MSSPWRITE : out std_logic;
+            GLC : out std_logic;
+            MSSPADDR : out std_logic_vector(19 downto 0);
+            MSSPWDATA : out std_logic_vector(31 downto 0);
+            MAC_0_TXD : out std_logic_vector(1 downto 0);
+            MAC_0_TXEN : out std_logic;
+            MAC_0_MDC : out std_logic;
             IO_5_PADOUT : out std_logic;
-            IO_8_PADOUT : out std_logic
+            IO_8_PADOUT : out std_logic;
 
             -- Inouts
+            MAC_0_MDIO : inout std_logic
 
         );
     end component;
@@ -71,6 +88,13 @@ begin
             MAINXIN => '0',
             IO_8_D => '0',
             IO_5_D => '0',
+            MSSPREADY => '0',
+            MSSPSLVERR => '0',
+            MSSPRDATA => (others=> '0'),
+            DMAREADY => (others=> '0'),
+            MAC_0_RXD => (others=> '0'),
+            MAC_0_CRSDV => '0',
+            MAC_0_RXER => '0',
             MSS_RESET_N => NSYSRESET,
             IO_6_PADIN => '0',
             IO_7_PADIN => '0',
@@ -80,10 +104,20 @@ begin
             M2F_RESET_N =>  open,
             IO_7_Y =>  open,
             IO_6_Y =>  open,
+            MSSPSEL =>  open,
+            MSSPENABLE =>  open,
+            MSSPWRITE =>  open,
+            GLC =>  open,
+            MSSPADDR => open,
+            MSSPWDATA => open,
+            MAC_0_TXD => open,
+            MAC_0_TXEN =>  open,
+            MAC_0_MDC =>  open,
             IO_5_PADOUT =>  open,
-            IO_8_PADOUT =>  open
+            IO_8_PADOUT =>  open,
 
             -- Inouts
+            MAC_0_MDIO =>  open
 
         );
 
