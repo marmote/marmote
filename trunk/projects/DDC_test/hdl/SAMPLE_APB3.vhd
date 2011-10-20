@@ -1,4 +1,3 @@
-
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
@@ -70,10 +69,9 @@ architecture Behavioral of SAMPLE_APB3 is
     constant c_DEFAULT_DATA      : unsigned(31 downto 0) := x"00000000"; 
     constant c_WRONGADDRESS_DATA : unsigned(31 downto 0) := x"55555555";
 
-
-    signal counter      : std_logic_vector(15 downto 0); 
-
     signal oddeven_APB  : std_logic;
+    signal recent_read  : std_logic;
+
 
 
 -- misc
@@ -84,8 +82,11 @@ architecture Behavioral of SAMPLE_APB3 is
     
     signal new_sample   : std_logic_vector(1 to 2);
 
-    signal wait_counter : unsigned( log2_ceil(c_WAIT_CYCLES) downto 1 );  
-
+    signal wait_counter : unsigned( log2_ceil(c_WAIT_CYCLES) downto 1 );
+    
+    
+    signal test_counter     : unsigned(c_APB3_WIDTH-1 downto 0);  
+    signal test_rev_counter : unsigned(c_APB3_WIDTH-1 downto 0);  
 
 begin
 
@@ -122,41 +123,75 @@ begin
 
     -- APB register read
     p_REG_READ : process (PRESETn, PCLK)
-        variable i      : integer :=0; 
     begin
         if PRESETn = '0' then
+            PREADY <= '0';
             PRDATA <= std_logic_vector(c_DEFAULT_DATA);
+
             oddeven_APB <= '0';
+            recent_read <= '0';
+
         elsif rising_edge(PCLK) then
 
             -- Default output
+            PREADY <= '0';
             PRDATA <= std_logic_vector(c_DEFAULT_DATA);
 
             -- Register reads
             if PWRITE = '0' and PSEL = '1' then
                 case PADDR(7 downto 0) is
                     when c_ADDR_DATA =>
+
                         if oddeven_APB = '0' then
-                            PRDATA <= samples(1)(31 downto 24) & samples(1)(23 downto 16) & samples(1)(15 downto 8) & samples(1)(7 downto 0);
+                            PRDATA <= samples(1)(7 downto 0) & samples(1)(15 downto 8) & samples(1)(23 downto 16) & samples(1)(31 downto 24);
                         else
-                            PRDATA <= samples(2)(31 downto 24) & samples(2)(23 downto 16) & samples(2)(15 downto 8) & samples(2)(7 downto 0);
+                            PRDATA <= samples(2)(7 downto 0) & samples(2)(15 downto 8) & samples(2)(23 downto 16) & samples(2)(31 downto 24);
                         end if;
 
-                        oddeven_APB <= not oddeven_APB;
+
+                        if recent_read = '0' then
+                            recent_read <= '1';
+                            PREADY <= '1';
+                        end if;
+
+
                     when c_ADDR_COUNTER =>
---                        PRDATA <= counter & reverse_vector(counter);
---                        PRDATA <= counter(7 downto 0) & counter(15 downto 8) & rev_counter(7 downto 0) & rev_counter(15 downto 8);
+
+                        if oddeven_APB = '0' then
+                            PRDATA <= std_logic_vector(test_counter(7 downto 0)) & std_logic_vector(test_counter(15 downto 8)) & std_logic_vector(test_counter(23 downto 16)) & std_logic_vector(test_counter(31 downto 24));
+                        else
+                            PRDATA <= std_logic_vector(test_rev_counter(7 downto 0)) & std_logic_vector(test_rev_counter(15 downto 8)) & std_logic_vector(test_rev_counter(23 downto 16)) & std_logic_vector(test_rev_counter(31 downto 24));
+                        end if;
+
+
+                        if recent_read = '0' then
+                            recent_read <= '1';
+                            PREADY <= '1';
+                        end if;
+
+
                     when others =>
                         PRDATA <= std_logic_vector(c_WRONGADDRESS_DATA);
+
                 end case;
             end if;
+
+            -- if sample was successfully read then the next sample should be from the other channel
+            if PENABLE = '0' and recent_read = '1' then
+
+                recent_read <= '0';
+
+                oddeven_APB <= not oddeven_APB;
+
+            end if;
+
         end if;
 
     end process p_REG_READ;
 
 
     -- APB misc
-    PREADY <= '1';
+--    PREADY <= '1';
     PSLVERR <= '0';
 
 
@@ -170,6 +205,9 @@ begin
     begin
         if PRESETn = '0' then 
         
+            test_counter <= (others => '0');
+            test_rev_counter <= (others => '0');
+
         elsif rising_edge(PCLK) then
 
             i := 1;
@@ -181,6 +219,15 @@ begin
 
                 i := i + 1;
             end loop;
+
+
+            if SMPL_RDY_IN(1) = '1' then
+                test_counter <= test_counter + 1;
+            end if;
+
+            if SMPL_RDY_IN(2) = '1' then
+                test_rev_counter <= test_rev_counter - 1;
+            end if;
 
         end if;
     end process;

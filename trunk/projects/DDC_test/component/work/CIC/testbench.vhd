@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------
--- Created by Actel SmartDesign Sat Oct 15 14:16:35 2011
+-- Created by Actel SmartDesign Wed Oct 19 10:34:48 2011
 -- Testbench Template
 -- This is a basic testbench that instantiates your design with basic 
 -- clock and reset pins connected.  If your design has special
@@ -26,11 +26,11 @@ architecture behavioral of testbench is
             -- Inputs
             CLK : in std_logic;
             RST : in std_logic;
-            INPUT : in std_logic_vector(21 downto 0);
+            INPUT : in std_logic_vector(22 downto 0);
 
             -- Outputs
-            OUTPUT : out std_logic_vector(30 downto 0);
-            SMPL_RDY : out std_logic
+            SMPL_RDY : out std_logic;
+            OUTPUT : out std_logic_vector(31 downto 0)
 
             -- Inouts
 
@@ -66,8 +66,8 @@ begin
             INPUT => (others=> '0'),
 
             -- Outputs
-            OUTPUT => open,
-            SMPL_RDY =>  open
+            SMPL_RDY =>  open,
+            OUTPUT => open
 
             -- Inouts
 

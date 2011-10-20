@@ -1,4 +1,4 @@
--- Version: 9.1 SP2 9.1.2.16
+-- Version: 9.1 SP3 9.1.3.4
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -24,6 +24,12 @@ architecture DEF_ARCH of sincos_gen is
 
   component VCC
     port( Y : out   std_logic
+        );
+  end component;
+
+  component INV
+    port( A : in    std_logic := 'U';
+          Y : out   std_logic
         );
   end component;
 
@@ -87,8 +93,8 @@ architecture DEF_ARCH of sincos_gen is
         \PHASE_GEN_0_PHASE_[6]\, \PHASE_GEN_0_PHASE_[5]\, 
         \PHASE_GEN_0_PHASE_[4]\, \PHASE_GEN_0_PHASE_[3]\, 
         \PHASE_GEN_0_PHASE_[2]\, \PHASE_GEN_0_PHASE_[1]\, 
-        \PHASE_GEN_0_PHASE_[0]\, PHASE_GEN_0_PHASE_EN, GND_net, 
-        VCC_net : std_logic;
+        \PHASE_GEN_0_PHASE_[0]\, PHASE_GEN_0_PHASE_EN, INV_0_Y, 
+        GND_net, VCC_net : std_logic;
     signal nc7, nc6, nc12, nc5, nc15, nc1, nc16, nc14, nc9, nc13, 
         nc8, nc4, nc11, nc3, nc10, nc2 : std_logic;
 
@@ -135,6 +141,9 @@ begin
         SIN_OUT(4) => SIN_OUT(4), SIN_OUT(3) => SIN_OUT(3), 
         SIN_OUT(2) => SIN_OUT(2), SIN_OUT(1) => SIN_OUT(1), 
         SIN_OUT(0) => SIN_OUT(0));
+    
+    INV_0 : INV
+      port map(A => RST, Y => INV_0_Y);
     
     \GND\ : GND
       port map(Y => GND_net);
@@ -187,10 +196,11 @@ begin
       generic map(ARCH => 1, BIT_WIDTH => 16, FAMILY => 15,
          ITERATIONS => 16, MODE => 0)
 
-      port map(RST => GND_net, NGRST => RST, CLK => CLK, LDDATA
-         => PHASE_GEN_0_PHASE_EN, RDYOUT => CORECORDIC_0_RDYOUT, 
-        CLKEN => GND_net, X0(15) => \PHASE_GEN_0_MAGNITUDE_[15]\, 
-        X0(14) => \PHASE_GEN_0_MAGNITUDE_[14]\, X0(13) => 
+      port map(RST => GND_net, NGRST => INV_0_Y, CLK => CLK, 
+        LDDATA => PHASE_GEN_0_PHASE_EN, RDYOUT => 
+        CORECORDIC_0_RDYOUT, CLKEN => GND_net, X0(15) => 
+        \PHASE_GEN_0_MAGNITUDE_[15]\, X0(14) => 
+        \PHASE_GEN_0_MAGNITUDE_[14]\, X0(13) => 
         \PHASE_GEN_0_MAGNITUDE_[13]\, X0(12) => 
         \PHASE_GEN_0_MAGNITUDE_[12]\, X0(11) => 
         \PHASE_GEN_0_MAGNITUDE_[11]\, X0(10) => 

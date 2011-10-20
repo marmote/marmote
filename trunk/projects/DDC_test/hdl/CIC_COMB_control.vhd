@@ -225,11 +225,11 @@ begin
     begin
         if rst = '1' then
             SMPL_RDY <= '0';
-        elsif rising_edge(clk)  then
+        elsif rising_edge(clk) then
         
             SMPL_RDY <= '0';
 
-            if clk_counter = c_ADC_SAMPLING-1 then
+            if clk_counter = c_ADC_SAMPLING-1 and dec_counter = 0 then
             
                 SMPL_RDY <= '1';
 

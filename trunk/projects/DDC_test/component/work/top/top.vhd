@@ -20,9 +20,10 @@ entity top is
           MAC_0_RXER  : in    std_logic;
           MAC_0_TXEN  : out   std_logic;
           MAC_0_MDC   : out   std_logic;
+          GLC         : out   std_logic;
+          SMPL_RDY    : out   std_logic;
           MAC_0_RXD   : in    std_logic_vector(1 downto 0);
-          MAC_0_TXD   : out   std_logic_vector(1 downto 0);
-          GLC         : out   std_logic
+          MAC_0_TXD   : out   std_logic_vector(1 downto 0)
         );
 
 end top;
@@ -30,20 +31,20 @@ end top;
 architecture DEF_ARCH of top is 
 
   component DDC
-    port( RST       : in    std_logic := 'U';
-          CLK       : in    std_logic := 'U';
-          SCLK      : out   std_logic;
-          CSn       : out   std_logic;
-          SDATA     : in    std_logic_vector(1 to 2) := (others => 'U');
-          PADDR_0   : in    std_logic_vector(31 downto 0) := (others => 'U');
-          PSEL_0    : in    std_logic := 'U';
-          PENABLE_0 : in    std_logic := 'U';
-          PWRITE_0  : in    std_logic := 'U';
-          PRDATA_0  : out   std_logic_vector(31 downto 0);
-          PWDATA_0  : in    std_logic_vector(31 downto 0) := (others => 'U');
-          PREADY_0  : out   std_logic;
-          PSLVERR_0 : out   std_logic;
-          SMPL_RDY  : out   std_logic
+    port( RST           : in    std_logic := 'U';
+          CLK           : in    std_logic := 'U';
+          PSEL_0        : in    std_logic := 'U';
+          PENABLE_0     : in    std_logic := 'U';
+          PWRITE_0      : in    std_logic := 'U';
+          PREADY_0      : out   std_logic;
+          PSLVERR_0     : out   std_logic;
+          SMPL_RDY      : out   std_logic;
+          sample_rdy_in : in    std_logic := 'U';
+          PADDR_0       : in    std_logic_vector(31 downto 0) := (others => 'U');
+          PRDATA_0      : out   std_logic_vector(31 downto 0);
+          PWDATA_0      : in    std_logic_vector(31 downto 0) := (others => 'U');
+          I_B           : in    std_logic_vector(13 downto 0) := (others => 'U');
+          Q_B           : in    std_logic_vector(13 downto 0) := (others => 'U')
         );
   end component;
 
@@ -182,12 +183,33 @@ architecture DEF_ARCH of top is
         );
   end component;
 
+  component INV
+    port( A : in    std_logic := 'U';
+          Y : out   std_logic
+        );
+  end component;
+
   component GND
     port( Y : out   std_logic
         );
   end component;
 
-    signal \CoreAPB3_0_APBmslave0_PADDR_[0]\, 
+    signal \ADC_SPI_0_CH1_[13]\, \ADC_SPI_0_CH1_[12]\, 
+        \ADC_SPI_0_CH1_[11]\, \ADC_SPI_0_CH1_[10]\, 
+        \ADC_SPI_0_CH1_[9]\, \ADC_SPI_0_CH1_[8]\, 
+        \ADC_SPI_0_CH1_[7]\, \ADC_SPI_0_CH1_[6]\, 
+        \ADC_SPI_0_CH1_[5]\, \ADC_SPI_0_CH1_[4]\, 
+        \ADC_SPI_0_CH1_[3]\, \ADC_SPI_0_CH1_[2]\, 
+        \ADC_SPI_0_CH1_[1]\, \ADC_SPI_0_CH1_[0]\, 
+        \ADC_SPI_0_CH2_[13]\, \ADC_SPI_0_CH2_[12]\, 
+        \ADC_SPI_0_CH2_[11]\, \ADC_SPI_0_CH2_[10]\, 
+        \ADC_SPI_0_CH2_[9]\, \ADC_SPI_0_CH2_[8]\, 
+        \ADC_SPI_0_CH2_[7]\, \ADC_SPI_0_CH2_[6]\, 
+        \ADC_SPI_0_CH2_[5]\, \ADC_SPI_0_CH2_[4]\, 
+        \ADC_SPI_0_CH2_[3]\, \ADC_SPI_0_CH2_[2]\, 
+        \ADC_SPI_0_CH2_[1]\, \ADC_SPI_0_CH2_[0]\, ADC_SPI_0_CSn, 
+        ADC_SPI_0_sample_rdy, ADC_SPI_0_SCLK, 
+        \CoreAPB3_0_APBmslave0_PADDR_[0]\, 
         \CoreAPB3_0_APBmslave0_PADDR_[1]\, 
         \CoreAPB3_0_APBmslave0_PADDR_[2]\, 
         \CoreAPB3_0_APBmslave0_PADDR_[3]\, 
@@ -278,9 +300,9 @@ architecture DEF_ARCH of top is
         \CoreAPB3_0_APBmslave0_PWDATA_[29]\, 
         \CoreAPB3_0_APBmslave0_PWDATA_[30]\, 
         \CoreAPB3_0_APBmslave0_PWDATA_[31]\, 
-        CoreAPB3_0_APBmslave0_PWRITE, DDC_0_CSn, DDC_0_SCLK, 
-        DDC_0_SMPL_RDY, uC_0_FAB_CLK, uC_0_IO_6_Y, uC_0_IO_7_Y, 
-        uC_0_M2F_RESET_N, \uC_0_MSS_MASTER_APB_PADDR_[0]\, 
+        CoreAPB3_0_APBmslave0_PWRITE, \SMPL_RDY\, uC_0_FAB_CLK, 
+        uC_0_IO_6_Y, uC_0_IO_7_Y, uC_0_M2F_RESET_N, INV_0_Y, 
+        \uC_0_MSS_MASTER_APB_PADDR_[0]\, 
         \uC_0_MSS_MASTER_APB_PADDR_[1]\, 
         \uC_0_MSS_MASTER_APB_PADDR_[2]\, 
         \uC_0_MSS_MASTER_APB_PADDR_[3]\, 
@@ -374,12 +396,17 @@ architecture DEF_ARCH of top is
 
 begin 
 
+    SMPL_RDY <= \SMPL_RDY\;
 
     DDC_0 : DDC
-      port map(RST => uC_0_M2F_RESET_N, CLK => uC_0_FAB_CLK, SCLK
-         => DDC_0_SCLK, CSn => DDC_0_CSn, SDATA(1) => uC_0_IO_7_Y, 
-        SDATA(2) => uC_0_IO_6_Y, PADDR_0(31) => GND_net, 
-        PADDR_0(30) => GND_net, PADDR_0(29) => GND_net, 
+      port map(RST => INV_0_Y, CLK => uC_0_FAB_CLK, PSEL_0 => 
+        CoreAPB3_0_APBmslave0_PSELx, PENABLE_0 => 
+        CoreAPB3_0_APBmslave0_PENABLE, PWRITE_0 => 
+        CoreAPB3_0_APBmslave0_PWRITE, PREADY_0 => 
+        CoreAPB3_0_APBmslave0_PREADY, PSLVERR_0 => 
+        CoreAPB3_0_APBmslave0_PSLVERR, SMPL_RDY => \SMPL_RDY\, 
+        sample_rdy_in => ADC_SPI_0_sample_rdy, PADDR_0(31) => 
+        GND_net, PADDR_0(30) => GND_net, PADDR_0(29) => GND_net, 
         PADDR_0(28) => GND_net, PADDR_0(27) => GND_net, 
         PADDR_0(26) => GND_net, PADDR_0(25) => GND_net, 
         PADDR_0(24) => GND_net, PADDR_0(23) => 
@@ -406,10 +433,7 @@ begin
         \CoreAPB3_0_APBmslave0_PADDR_[3]\, PADDR_0(2) => 
         \CoreAPB3_0_APBmslave0_PADDR_[2]\, PADDR_0(1) => 
         \CoreAPB3_0_APBmslave0_PADDR_[1]\, PADDR_0(0) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[0]\, PSEL_0 => 
-        CoreAPB3_0_APBmslave0_PSELx, PENABLE_0 => 
-        CoreAPB3_0_APBmslave0_PENABLE, PWRITE_0 => 
-        CoreAPB3_0_APBmslave0_PWRITE, PRDATA_0(31) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[0]\, PRDATA_0(31) => 
         \CoreAPB3_0_APBmslave0_PRDATA_[31]\, PRDATA_0(30) => 
         \CoreAPB3_0_APBmslave0_PRDATA_[30]\, PRDATA_0(29) => 
         \CoreAPB3_0_APBmslave0_PRDATA_[29]\, PRDATA_0(28) => 
@@ -473,9 +497,26 @@ begin
         \CoreAPB3_0_APBmslave0_PWDATA_[3]\, PWDATA_0(2) => 
         \CoreAPB3_0_APBmslave0_PWDATA_[2]\, PWDATA_0(1) => 
         \CoreAPB3_0_APBmslave0_PWDATA_[1]\, PWDATA_0(0) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[0]\, PREADY_0 => 
-        CoreAPB3_0_APBmslave0_PREADY, PSLVERR_0 => 
-        CoreAPB3_0_APBmslave0_PSLVERR, SMPL_RDY => DDC_0_SMPL_RDY);
+        \CoreAPB3_0_APBmslave0_PWDATA_[0]\, I_B(13) => 
+        \ADC_SPI_0_CH1_[13]\, I_B(12) => \ADC_SPI_0_CH1_[12]\, 
+        I_B(11) => \ADC_SPI_0_CH1_[11]\, I_B(10) => 
+        \ADC_SPI_0_CH1_[10]\, I_B(9) => \ADC_SPI_0_CH1_[9]\, 
+        I_B(8) => \ADC_SPI_0_CH1_[8]\, I_B(7) => 
+        \ADC_SPI_0_CH1_[7]\, I_B(6) => \ADC_SPI_0_CH1_[6]\, 
+        I_B(5) => \ADC_SPI_0_CH1_[5]\, I_B(4) => 
+        \ADC_SPI_0_CH1_[4]\, I_B(3) => \ADC_SPI_0_CH1_[3]\, 
+        I_B(2) => \ADC_SPI_0_CH1_[2]\, I_B(1) => 
+        \ADC_SPI_0_CH1_[1]\, I_B(0) => \ADC_SPI_0_CH1_[0]\, 
+        Q_B(13) => \ADC_SPI_0_CH2_[13]\, Q_B(12) => 
+        \ADC_SPI_0_CH2_[12]\, Q_B(11) => \ADC_SPI_0_CH2_[11]\, 
+        Q_B(10) => \ADC_SPI_0_CH2_[10]\, Q_B(9) => 
+        \ADC_SPI_0_CH2_[9]\, Q_B(8) => \ADC_SPI_0_CH2_[8]\, 
+        Q_B(7) => \ADC_SPI_0_CH2_[7]\, Q_B(6) => 
+        \ADC_SPI_0_CH2_[6]\, Q_B(5) => \ADC_SPI_0_CH2_[5]\, 
+        Q_B(4) => \ADC_SPI_0_CH2_[4]\, Q_B(3) => 
+        \ADC_SPI_0_CH2_[3]\, Q_B(2) => \ADC_SPI_0_CH2_[2]\, 
+        Q_B(1) => \ADC_SPI_0_CH2_[1]\, Q_B(0) => 
+        \ADC_SPI_0_CH2_[0]\);
     
     CoreAPB3_0 : CoreAPB3
       generic map(APBSLOT0ENABLE => 1, APBSLOT10ENABLE => 0,
@@ -945,10 +986,10 @@ begin
       port map(MSS_RESET_N => MSS_RESET_N, FAB_CLK => 
         uC_0_FAB_CLK, MAINXIN => MAINXIN, M2F_RESET_N => 
         uC_0_M2F_RESET_N, IO_8_PADOUT => IO_8_PADOUT, IO_8_D => 
-        DDC_0_CSn, IO_7_PADIN => IO_7_PADIN, IO_7_Y => 
+        ADC_SPI_0_CSn, IO_7_PADIN => IO_7_PADIN, IO_7_Y => 
         uC_0_IO_7_Y, IO_6_PADIN => IO_6_PADIN, IO_6_Y => 
         uC_0_IO_6_Y, IO_5_PADOUT => IO_5_PADOUT, IO_5_D => 
-        DDC_0_SCLK, MSSPSEL => uC_0_MSS_MASTER_APB_PSELx, 
+        ADC_SPI_0_SCLK, MSSPSEL => uC_0_MSS_MASTER_APB_PSELx, 
         MSSPENABLE => uC_0_MSS_MASTER_APB_PENABLE, MSSPWRITE => 
         uC_0_MSS_MASTER_APB_PWRITE, MSSPREADY => 
         uC_0_MSS_MASTER_APB_PREADY, MSSPSLVERR => 
@@ -1042,10 +1083,37 @@ begin
         \uC_0_MSS_MASTER_APB_PWDATA_[0]\, MAC_0_RXD(1) => 
         MAC_0_RXD(1), MAC_0_RXD(0) => MAC_0_RXD(0), MAC_0_TXD(1)
          => MAC_0_TXD(1), MAC_0_TXD(0) => MAC_0_TXD(0), 
-        DMAREADY(1) => GND_net, DMAREADY(0) => DDC_0_SMPL_RDY);
+        DMAREADY(1) => GND_net, DMAREADY(0) => \SMPL_RDY\);
+    
+    INV_0 : INV
+      port map(A => uC_0_M2F_RESET_N, Y => INV_0_Y);
     
     \GND\ : GND
       port map(Y => GND_net);
+    
+    ADC_SPI_0 : entity work.ADC_SPI
+      port map(PCLK => uC_0_FAB_CLK, PRESETn => uC_0_M2F_RESET_N, 
+        SCLK => ADC_SPI_0_SCLK, CSn => ADC_SPI_0_CSn, sample_rdy
+         => ADC_SPI_0_sample_rdy, CH1(13) => \ADC_SPI_0_CH1_[13]\, 
+        CH1(12) => \ADC_SPI_0_CH1_[12]\, CH1(11) => 
+        \ADC_SPI_0_CH1_[11]\, CH1(10) => \ADC_SPI_0_CH1_[10]\, 
+        CH1(9) => \ADC_SPI_0_CH1_[9]\, CH1(8) => 
+        \ADC_SPI_0_CH1_[8]\, CH1(7) => \ADC_SPI_0_CH1_[7]\, 
+        CH1(6) => \ADC_SPI_0_CH1_[6]\, CH1(5) => 
+        \ADC_SPI_0_CH1_[5]\, CH1(4) => \ADC_SPI_0_CH1_[4]\, 
+        CH1(3) => \ADC_SPI_0_CH1_[3]\, CH1(2) => 
+        \ADC_SPI_0_CH1_[2]\, CH1(1) => \ADC_SPI_0_CH1_[1]\, 
+        CH1(0) => \ADC_SPI_0_CH1_[0]\, CH2(13) => 
+        \ADC_SPI_0_CH2_[13]\, CH2(12) => \ADC_SPI_0_CH2_[12]\, 
+        CH2(11) => \ADC_SPI_0_CH2_[11]\, CH2(10) => 
+        \ADC_SPI_0_CH2_[10]\, CH2(9) => \ADC_SPI_0_CH2_[9]\, 
+        CH2(8) => \ADC_SPI_0_CH2_[8]\, CH2(7) => 
+        \ADC_SPI_0_CH2_[7]\, CH2(6) => \ADC_SPI_0_CH2_[6]\, 
+        CH2(5) => \ADC_SPI_0_CH2_[5]\, CH2(4) => 
+        \ADC_SPI_0_CH2_[4]\, CH2(3) => \ADC_SPI_0_CH2_[3]\, 
+        CH2(2) => \ADC_SPI_0_CH2_[2]\, CH2(1) => 
+        \ADC_SPI_0_CH2_[1]\, CH2(0) => \ADC_SPI_0_CH2_[0]\, 
+        SDATA(1) => uC_0_IO_7_Y, SDATA(2) => uC_0_IO_6_Y);
     
 
 end DEF_ARCH; 

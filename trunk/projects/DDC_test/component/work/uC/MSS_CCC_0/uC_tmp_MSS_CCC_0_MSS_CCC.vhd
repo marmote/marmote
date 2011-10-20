@@ -1,4 +1,4 @@
--- Version: 9.1 SP2 9.1.2.16
+-- Version: 9.1 SP3 9.1.3.4
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -108,9 +108,7 @@ begin
     GLA <= N_GND;
     GLB <= N_GND;
     YB <= N_GND;
-    GLC <= N_GND;
     YC <= N_GND;
-    MAC_CLK_CCC <= N_GND;
     MAC_CLK_IO <= N_GND;
     N_GND <= GND_power_net1;
     N_VCC <= VCC_power_net1;
@@ -121,7 +119,7 @@ begin
       port map(CLKA => N_CLKA_XTLOSC, EXTFB => N_GND, GLA => 
         FAB_CLK, GLAMSS => GLA0, LOCK => FAB_LOCK, LOCKMSS => 
         MSS_LOCK, CLKB => N_GND, GLB => OPEN, YB => OPEN, CLKC
-         => N_GND, GLC => OPEN, YC => OPEN, MACCLK => OPEN, 
+         => N_GND, GLC => GLC, YC => OPEN, MACCLK => MAC_CLK_CCC, 
         OADIV(4) => N_GND, OADIV(3) => N_GND, OADIV(2) => N_GND, 
         OADIV(1) => N_GND, OADIV(0) => N_GND, OADIVHALF => N_GND, 
         OAMUX(2) => N_VCC, OAMUX(1) => N_GND, OAMUX(0) => N_GND, 
@@ -139,8 +137,8 @@ begin
         DLYGLB(2) => N_GND, DLYGLB(1) => N_GND, DLYGLB(0) => 
         N_GND, OCDIV(4) => N_GND, OCDIV(3) => N_GND, OCDIV(2) => 
         N_GND, OCDIV(1) => N_GND, OCDIV(0) => N_GND, OCDIVHALF
-         => N_GND, OCMUX(2) => N_GND, OCMUX(1) => N_GND, OCMUX(0)
-         => N_GND, BYPASSC => N_VCC, DLYGLC(4) => N_GND, 
+         => N_GND, OCMUX(2) => N_VCC, OCMUX(1) => N_GND, OCMUX(0)
+         => N_GND, BYPASSC => N_GND, DLYGLC(4) => N_GND, 
         DLYGLC(3) => N_GND, DLYGLC(2) => N_GND, DLYGLC(1) => 
         N_GND, DLYGLC(0) => N_GND, FINDIV(6) => N_GND, FINDIV(5)
          => N_GND, FINDIV(4) => N_GND, FINDIV(3) => N_GND, 

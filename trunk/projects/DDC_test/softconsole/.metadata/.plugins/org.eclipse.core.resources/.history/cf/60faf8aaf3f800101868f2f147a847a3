@@ -1,0 +1,39 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+O_SRCS := 
+C_SRCS := 
+S_UPPER_SRCS := 
+S_SRCS := 
+OBJ_SRCS := 
+MEMORYMAP := 
+OBJS := 
+C_DEPS := 
+SRECFILES := 
+IHEXFILES := 
+LISTINGS := 
+EXECUTABLE := 
+
+# Every subdirectory with source files must be described here
+SUBDIRS := \
+. \
+lwip-1.4.0.rc2/test/unit/udp \
+lwip-1.4.0.rc2/test/unit/tcp \
+lwip-1.4.0.rc2/test/unit \
+lwip-1.4.0.rc2/test/unit/etharp \
+lwip-1.4.0.rc2/test/unit/core \
+lwip-1.4.0.rc2/src/netif \
+lwip-1.4.0.rc2/src/netif/ppp \
+lwip-1.4.0.rc2/src/core \
+lwip-1.4.0.rc2/src/core/snmp \
+lwip-1.4.0.rc2/src/core/ipv6 \
+lwip-1.4.0.rc2/src/core/ipv4 \
+lwip-1.4.0.rc2/src/api \
+drivers/mss_pdma \
+drivers/mss_gpio \
+drivers/mss_ethernet_mac \
+arch \
+CMSIS \
+CMSIS/startup_gcc \
+
