@@ -15,7 +15,8 @@ LIST REVISIONS
 VALUE="Impl1",NUM=1
 VALUE="Impl2",NUM=2
 VALUE="Impl3",NUM=3
-CURREV=3
+VALUE="Impl4",NUM=4
+CURREV=4
 ENDLIST
 LIST LIBRARIES
 MSS_BFM_LIB
@@ -37,13 +38,13 @@ ENDLIST
 LIST FileManager
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319123062"
+TIME="1319200427"
 SIZE="2407"
 PARENT="<project>\component\work\top\top.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
 STATE="utd"
-TIME="1319123062"
+TIME="1319200427"
 SIZE="1242"
 LIBRARY="COREAPB3_LIB"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
@@ -51,14 +52,14 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\scripts\wave_user.do,do"
 STATE="utd"
-TIME="1319123062"
+TIME="1319200427"
 SIZE="912"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\components.vhd,hdl"
 STATE="utd"
-TIME="1319123062"
+TIME="1319200427"
 SIZE="5084"
 LIBRARY="COREAPB3_LIB"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
@@ -66,7 +67,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
 STATE="utd"
-TIME="1319123062"
+TIME="1319200427"
 SIZE="25656"
 LIBRARY="COREAPB3_LIB"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
@@ -74,7 +75,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3_muxptob3.vhd,hdl"
 STATE="utd"
-TIME="1319123062"
+TIME="1319200427"
 SIZE="6608"
 LIBRARY="COREAPB3_LIB"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
@@ -82,7 +83,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1319123062"
+TIME="1319200427"
 SIZE="21192"
 LIBRARY="COREAPB3_LIB"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
@@ -92,13 +93,13 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319029797"
+TIME="1319128440"
 SIZE="2338"
 PARENT="<project>\component\work\sincos_gen\sincos_gen.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\coreparameters.vhd,tb_hdl"
 STATE="utd"
-TIME="1319029797"
+TIME="1319128440"
 SIZE="582"
 LIBRARY="CORECORDIC_LIB"
 PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
@@ -106,7 +107,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\mti\wave.do,do"
 STATE="utd"
-TIME="1319029797"
+TIME="1319128440"
 SIZE="0"
 LIBRARY="CORECORDIC_LIB"
 PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
@@ -114,7 +115,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\core\corecordic_addpackage_word.vhd,hdl"
 STATE="utd"
-TIME="1319029858"
+TIME="1319128440"
 SIZE="2380"
 LIBRARY="CORECORDIC_LIB"
 PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
@@ -122,7 +123,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\core\corecordic_package_word.vhd,hdl"
 STATE="utd"
-TIME="1319029797"
+TIME="1319128440"
 SIZE="7612"
 LIBRARY="CORECORDIC_LIB"
 PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
@@ -130,7 +131,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\core\corecordic_word.vhd,hdl"
 STATE="utd"
-TIME="1319029797"
+TIME="1319128440"
 SIZE="16543"
 LIBRARY="CORECORDIC_LIB"
 PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
@@ -138,7 +139,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\test\user\corecordic_tbpackage.vhd,tb_hdl"
 STATE="utd"
-TIME="1319029858"
+TIME="1319128440"
 SIZE="4406"
 LIBRARY="CORECORDIC_LIB"
 PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
@@ -148,7 +149,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\test\user\corecordic_tb_word.vhd,tb_hdl"
 STATE="utd"
-TIME="1319029797"
+TIME="1319128440"
 SIZE="9313"
 LIBRARY="CORECORDIC_LIB"
 PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
@@ -158,13 +159,13 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319123050"
+TIME="1319199296"
 SIZE="944"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd,hdl"
 STATE="utd"
-TIME="1319123050"
+TIME="1319199296"
 SIZE="17580"
 PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf"
 BEGIN_USE_CONSTRAINT
@@ -176,184 +177,184 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_CCC\2.0.106\MSS_CCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319123044"
+TIME="1319199284"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_CM3\1.0.200\MSS_CM3.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319123044"
+TIME="1319199284"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_COM\1.0.200\MSS_COM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319123044"
+TIME="1319199284"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_DMA\1.0.101\MSS_DMA.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319123044"
+TIME="1319199284"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_ENVM\2.3.102\MSS_ENVM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319123046"
+TIME="1319199286"
 SIZE="253"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_FIC\1.0.101\MSS_FIC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319123046"
+TIME="1319199286"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_FIO\1.0.203\MSS_FIO.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319123046"
+TIME="1319199286"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_GPIO\1.0.101\MSS_GPIO.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319123046"
+TIME="1319199286"
 SIZE="253"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_INTR\1.0.101\MSS_INTR.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319123046"
+TIME="1319199286"
 SIZE="253"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_MAC\2.1.101\MSS_MAC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319123046"
+TIME="1319199286"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_RESET\1.0.101\MSS_RESET.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319123046"
+TIME="1319199286"
 SIZE="254"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_RTC\1.0.100\MSS_RTC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319123046"
+TIME="1319199286"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_TIMER\1.0.100\MSS_TIMER.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319123046"
+TIME="1319199286"
 SIZE="254"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_UFROM\1.0.100\MSS_UFROM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319123046"
+TIME="1319199286"
 SIZE="254"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\work\CIC\CIC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319038488"
+TIME="1319128440"
 SIZE="2415"
 ENDFILE
 VALUE "<project>\component\work\CIC\CIC.vhd,hdl"
 STATE="utd"
-TIME="1319038488"
+TIME="1319128440"
 SIZE="19594"
 PARENT="<project>\component\work\CIC\CIC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\CIC\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1319038489"
+TIME="1319128440"
 SIZE="1880"
 PARENT="<project>\component\work\CIC\CIC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\complex_mult\complex_mult.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319046713"
+TIME="1319128440"
 SIZE="2974"
 ENDFILE
 VALUE "<project>\component\work\complex_mult\complex_mult.vhd,hdl"
 STATE="utd"
-TIME="1319046713"
+TIME="1319128440"
 SIZE="13471"
 PARENT="<project>\component\work\complex_mult\complex_mult.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\complex_mult\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1319046713"
+TIME="1319128440"
 SIZE="2250"
 PARENT="<project>\component\work\complex_mult\complex_mult.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\DDC\DDC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319123057"
-SIZE="4933"
+TIME="1319198560"
+SIZE="3140"
 ENDFILE
 VALUE "<project>\component\work\DDC\DDC.vhd,hdl"
 STATE="utd"
-TIME="1319123057"
-SIZE="23182"
+TIME="1319198560"
+SIZE="13981"
 PARENT="<project>\component\work\DDC\DDC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\DDC\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1319123058"
-SIZE="2589"
+TIME="1319198560"
+SIZE="2303"
 PARENT="<project>\component\work\DDC\DDC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\FIR\FIR.cxf,actgen_cxf"
 STATE="utd"
-TIME="1318422708"
+TIME="1319128439"
 SIZE="763"
 ENDFILE
 VALUE "<project>\component\work\sincos_gen\sincos_gen.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319029798"
+TIME="1319128439"
 SIZE="2963"
 ENDFILE
 VALUE "<project>\component\work\sincos_gen\sincos_gen.vhd,hdl"
 STATE="utd"
-TIME="1319029798"
+TIME="1319128439"
 SIZE="12252"
 PARENT="<project>\component\work\sincos_gen\sincos_gen.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\sincos_gen\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1319029798"
+TIME="1319128439"
 SIZE="2064"
 PARENT="<project>\component\work\sincos_gen\sincos_gen.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\top\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1319123066"
+TIME="1319200428"
 SIZE="2643"
 PARENT="<project>\component\work\top\top.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\top\top.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319123063"
-SIZE="6891"
+TIME="1319200427"
+SIZE="6993"
 ENDFILE
 VALUE "<project>\component\work\top\top.pdc,pdc"
 STATE="utd"
-TIME="1319123062"
+TIME="1319200426"
 SIZE="7293"
 PARENT="<project>\component\work\top\top.cxf"
 BEGIN_USE_CONSTRAINT
@@ -364,34 +365,34 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\top\top.vhd,hdl"
 STATE="utd"
-TIME="1319123062"
-SIZE="60263"
+TIME="1319200427"
+SIZE="67166"
 PARENT="<project>\component\work\top\top.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\MSS_CCC_0\uC_tmp_MSS_CCC_0_MSS_CCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319123044"
+TIME="1319199284"
 SIZE="470"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\work\uC\MSS_CCC_0\uC_tmp_MSS_CCC_0_MSS_CCC.vhd,hdl"
 STATE="utd"
-TIME="1319123044"
+TIME="1319199284"
 SIZE="6936"
 PARENT="<project>\component\work\uC\MSS_CCC_0\uC_tmp_MSS_CCC_0_MSS_CCC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\MSS_ENVM_0\MSS_ENVM_0.efc,efc"
 STATE="utd"
-TIME="1319123046"
+TIME="1319199286"
 SIZE="99395"
 PARENT="<project>\component\work\uC\uC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\mss_tshell.vhd,hdl"
 STATE="utd"
-TIME="1319123046"
+TIME="1319199286"
 SIZE="22849"
 PARENT="<project>\component\work\uC\uC.cxf"
 BEGIN_USE_CONSTRAINT
@@ -403,19 +404,19 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1319123050"
+TIME="1319199296"
 SIZE="3716"
 PARENT="<project>\component\work\uC\uC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\uC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319123050"
+TIME="1319199296"
 SIZE="15819"
 ENDFILE
 VALUE "<project>\component\work\uC\uC.pdc,pdc"
 STATE="utd"
-TIME="1319123042"
+TIME="1319199282"
 SIZE="5209"
 PARENT="<project>\component\work\uC\uC.cxf"
 BEGIN_USE_CONSTRAINT
@@ -426,259 +427,249 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\uC.vhd,hdl"
 STATE="utd"
-TIME="1319123050"
+TIME="1319199296"
 SIZE="36099"
 PARENT="<project>\component\work\uC\uC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
-VALUE "<project>\designer\impl3\top.adb,adb"
+VALUE "<project>\designer\impl4\top.adb,adb"
 STATE="utd"
-TIME="1319123329"
-SIZE="4054528"
+TIME="1319198896"
+SIZE="842752"
 ENDFILE
-VALUE "<project>\designer\impl3\top.fdb,fdb"
+VALUE "<project>\designer\impl4\top.fdb,fdb"
 STATE="utd"
-TIME="1319123259"
-SIZE="122432"
+TIME="1319199030"
+SIZE="122944"
 ENDFILE
-VALUE "<project>\designer\impl3\top_fp\top.pro,pro"
+VALUE "<project>\designer\impl4\top_fp\top.pro,pro"
 STATE="utd"
-TIME="1319123403"
-SIZE="1937"
+TIME="1319199110"
+SIZE="1783"
 ENDFILE
 VALUE "<project>\hdl\ADC_SPI.vhd,hdl"
 STATE="utd"
-TIME="1318854015"
+TIME="1319128461"
 SIZE="4912"
 ENDFILE
 VALUE "<project>\hdl\ADDERSUBTRACTOR.vhd,hdl"
 STATE="utd"
-TIME="1319053330"
+TIME="1319128461"
 SIZE="2061"
 ENDFILE
 VALUE "<project>\hdl\CIC_COMB_control.vhd,hdl"
 STATE="utd"
-TIME="1318949275"
+TIME="1319128461"
 SIZE="6314"
 ENDFILE
 VALUE "<project>\hdl\CIC_control.vhd,hdl"
 STATE="utd"
-TIME="1318424959"
+TIME="1319128461"
 SIZE="2452"
 ENDFILE
 VALUE "<project>\hdl\CIC_INT.vhd,hdl"
 STATE="utd"
-TIME="1318350368"
+TIME="1319128461"
 SIZE="2999"
 ENDFILE
 VALUE "<project>\hdl\common.vhd,hdl"
 STATE="utd"
-TIME="1318865796"
+TIME="1319128461"
 SIZE="3217"
 ENDFILE
 VALUE "<project>\hdl\multiplier.vhd,hdl"
 STATE="utd"
-TIME="1319046710"
+TIME="1319128461"
 SIZE="3172"
 ENDFILE
 VALUE "<project>\hdl\phase_gen.vhd,hdl"
 STATE="utd"
-TIME="1317931818"
+TIME="1319128461"
 SIZE="3076"
 ENDFILE
 VALUE "<project>\hdl\SAMPLE_APB3.vhd,hdl"
 STATE="utd"
-TIME="1319122356"
+TIME="1319128461"
 SIZE="8873"
 ENDFILE
 VALUE "<project>\hdl\SIGN_CORRECTOR.vhd,hdl"
 STATE="utd"
-TIME="1317931818"
+TIME="1319128461"
 SIZE="2696"
 ENDFILE
 VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
 STATE="utd"
-TIME="1319123066"
+TIME="1319200428"
 SIZE="1237"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
 ENDFILE
 VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
 STATE="utd"
-TIME="1319123051"
+TIME="1319199300"
 SIZE="41"
 PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf"
 ENDFILE
 VALUE "<project>\simulation\coreapb3_usertb_apb_master.bfm,sim"
 STATE="utd"
-TIME="1319123066"
+TIME="1319200428"
 SIZE="10524"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
 ENDFILE
 VALUE "<project>\simulation\coreapb3_usertb_include.bfm,sim"
 STATE="utd"
-TIME="1319123066"
+TIME="1319200428"
 SIZE="3992"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
 ENDFILE
 VALUE "<project>\simulation\generate.tcl,sim"
 STATE="utd"
-TIME="1319029798"
+TIME="1319128461"
 SIZE="1244"
 LIBRARY="CORECORDIC_LIB"
 PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
 ENDFILE
 VALUE "<project>\simulation\run.do,do"
 STATE="utd"
-TIME="1319034439"
+TIME="1319128461"
 SIZE="1995"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
-TIME="1319123066"
-SIZE="624"
+TIME="1319200428"
+SIZE="632"
 PARENT="<project>\component\work\top\top.cxf"
 ENDFILE
 VALUE "<project>\simulation\test.bfm,sim"
 STATE="utd"
-TIME="1319123051"
+TIME="1319199299"
 SIZE="5460"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\simulation\user.bfm,sim"
 STATE="utd"
-TIME="1317931818"
+TIME="1319128461"
 SIZE="670"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.cxf,actgen_cxf"
 STATE="utd"
-TIME="1318439136"
+TIME="1319128439"
 SIZE="2592"
 ENDFILE
 VALUE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.gen,gen"
 STATE="utd"
-TIME="1318439134"
+TIME="1319128439"
 SIZE="670"
 PARENT="<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.log,log"
 STATE="utd"
-TIME="1318439135"
+TIME="1319128439"
 SIZE="3344"
 PARENT="<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.vhd,hdl"
 STATE="utd"
-TIME="1318439136"
+TIME="1319128439"
 SIZE="5324"
 PARENT="<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem_R0C0.mem,sim"
 STATE="utd"
-TIME="1318439136"
+TIME="1319128439"
 SIZE="132"
 PARENT="<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.cxf"
 ENDFILE
 VALUE "<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem_R0C1.mem,sim"
 STATE="utd"
-TIME="1318439136"
+TIME="1319128439"
 SIZE="132"
 PARENT="<project>\smartgen\CIC_COMB_mem\CIC_COMB_mem.cxf"
 ENDFILE
 VALUE "<project>\smartgen\CIC_INT_mem\CIC_INT_mem.cxf,actgen_cxf"
 STATE="utd"
-TIME="1318439103"
+TIME="1319128439"
 SIZE="2585"
 ENDFILE
 VALUE "<project>\smartgen\CIC_INT_mem\CIC_INT_mem.gen,gen"
 STATE="utd"
-TIME="1318439101"
+TIME="1319128439"
 SIZE="669"
 PARENT="<project>\smartgen\CIC_INT_mem\CIC_INT_mem.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\CIC_INT_mem\CIC_INT_mem.log,log"
 STATE="utd"
-TIME="1318439103"
+TIME="1319128439"
 SIZE="3341"
 PARENT="<project>\smartgen\CIC_INT_mem\CIC_INT_mem.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\CIC_INT_mem\CIC_INT_mem.vhd,hdl"
 STATE="utd"
-TIME="1318439103"
+TIME="1319128439"
 SIZE="5318"
 PARENT="<project>\smartgen\CIC_INT_mem\CIC_INT_mem.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\CIC_INT_mem\CIC_INT_mem_R0C0.mem,sim"
 STATE="utd"
-TIME="1318439103"
+TIME="1319128439"
 SIZE="132"
 PARENT="<project>\smartgen\CIC_INT_mem\CIC_INT_mem.cxf"
 ENDFILE
 VALUE "<project>\smartgen\CIC_INT_mem\CIC_INT_mem_R0C1.mem,sim"
 STATE="utd"
-TIME="1318439103"
+TIME="1319128439"
 SIZE="132"
 PARENT="<project>\smartgen\CIC_INT_mem\CIC_INT_mem.cxf"
 ENDFILE
 VALUE "<project>\stimulus\ADC_SPI_tb.vhd,tb_hdl"
 STATE="utd"
-TIME="1317931818"
+TIME="1319128461"
 SIZE="3356"
 ENDFILE
 VALUE "<project>\stimulus\CIC_testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1318948919"
+TIME="1319128461"
 SIZE="2374"
 ENDFILE
 VALUE "<project>\stimulus\complex_mult_testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1319034425"
+TIME="1319128461"
 SIZE="3767"
 ENDFILE
 VALUE "<project>\stimulus\mytestbench_phase_gen.vhd,tb_hdl"
 STATE="utd"
-TIME="1317931818"
+TIME="1319128461"
 SIZE="3027"
 ENDFILE
 VALUE "<project>\stimulus\mytestbench_sincos_gen.vhd,tb_hdl"
 STATE="utd"
-TIME="1317931818"
+TIME="1319128461"
 SIZE="3689"
 ENDFILE
 VALUE "<project>\stimulus\SAMPLE_APB3_testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1318971976"
+TIME="1319128461"
 SIZE="4567"
-ENDFILE
-VALUE "<project>\synthesis\SAMPLE_APB3.edn,syn_edn"
-STATE="ood"
-TIME="1319029901"
-SIZE="153460"
-ENDFILE
-VALUE "<project>\synthesis\SAMPLE_APB3_sdc.sdc,syn_sdc"
-STATE="ood"
-TIME="1319029901"
-SIZE="377"
 ENDFILE
 VALUE "<project>\synthesis\top.edn,syn_edn"
 STATE="utd"
-TIME="1319123090"
-SIZE="2660675"
+TIME="1319198801"
+SIZE="2660838"
 ENDFILE
 VALUE "<project>\synthesis\top_drc.rpt,log"
 STATE="utd"
-TIME="1319123103"
-SIZE="27676"
+TIME="1319199452"
+SIZE="27726"
 ENDFILE
 VALUE "<project>\synthesis\top_sdc.sdc,syn_sdc"
 STATE="utd"
-TIME="1319123090"
+TIME="1319198800"
 SIZE="310"
 ENDFILE
 ENDLIST
@@ -714,6 +705,15 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl3
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl4
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -775,6 +775,15 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
+LIST Impl4
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 ENDLIST
 LIST "DDC::work"
@@ -813,6 +822,15 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
+LIST Impl4
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 ENDLIST
 LIST "SAMPLE_APB3::work"
@@ -840,6 +858,15 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl3
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl4
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -886,6 +913,15 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
+LIST Impl4
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 ENDLIST
 LIST "top::work"
@@ -922,10 +958,21 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl3
-LiberoState=Post_Layout
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
 ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
-ideDESIGNER(<project>\designer\impl3\top.adb,adb)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl4
+LiberoState=Post_Layout
+ideSTIMULUS=StateSuccess
+ideDESIGNER(<project>\designer\impl4\top.adb,adb)=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -968,6 +1015,15 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl3
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl4
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -1020,6 +1076,15 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
+LIST Impl4
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 ENDLIST
 LIST "CoreAPB3::COREAPB3_LIB::components"
@@ -1064,6 +1129,15 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
+LIST Impl4
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 ENDLIST
 ENDLIST
@@ -1073,9 +1147,6 @@ VALUE "<project>\component\work\top\testbench.vhd,tb_hdl"
 ENDLIST
 LIST DDC
 VALUE "<project>\component\work\DDC\testbench.vhd,tb_hdl"
-ENDLIST
-LIST SAMPLE_APB3
-VALUE "<project>\stimulus\SAMPLE_APB3_testbench.vhd,tb_hdl"
 ENDLIST
 LIST CIC
 VALUE "<project>\component\work\CIC\testbench.vhd,tb_hdl"
@@ -1095,6 +1166,9 @@ VALUE "<project>\component\work\complex_mult\testbench.vhd,tb_hdl"
 ENDLIST
 LIST uC
 VALUE "<project>\component\work\uC\testbench.vhd,tb_hdl"
+ENDLIST
+LIST SAMPLE_APB3
+VALUE "<project>\stimulus\SAMPLE_APB3_testbench.vhd,tb_hdl"
 ENDLIST
 LIST CoreAPB3
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
@@ -1245,6 +1319,15 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
+LIST Impl4
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 LIST "complex_mult::work"
 LIST Impl1
@@ -1266,6 +1349,15 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl3
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl4
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -1303,6 +1395,15 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
+LIST Impl4
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 LIST "SAMPLE_APB3::work"
 LIST Impl1
@@ -1324,6 +1425,15 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl3
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl4
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -1361,6 +1471,15 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
+LIST Impl4
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 LIST "top::work"
 LIST Impl1
@@ -1386,10 +1505,21 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl3
-LiberoState=Post_Layout
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
 ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
-ideDESIGNER(<project>\designer\impl3\top.adb,adb)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl4
+LiberoState=Post_Layout
+ideSTIMULUS=StateSuccess
+ideDESIGNER(<project>\designer\impl4\top.adb,adb)=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1418,6 +1548,15 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl3
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl4
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -1455,6 +1594,15 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
+LIST Impl4
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 LIST "CoreAPB3::COREAPB3_LIB::components"
 LIST Impl1
@@ -1476,6 +1624,15 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl3
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl4
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -1506,7 +1663,6 @@ SD:complex_mult::work
 FILE:<project>\hdl\multiplier.vhd,hdl
 FILE:<project>\hdl\ADDERSUBTRACTOR.vhd,hdl
 FILE:<project>\hdl\SAMPLE_APB3.vhd,hdl
-FILE:<project>\hdl\common.vhd,hdl
 FILE:<project>\synthesis\top.srr,???
 ACTIVE_VIEW:0
 ENDLIST
