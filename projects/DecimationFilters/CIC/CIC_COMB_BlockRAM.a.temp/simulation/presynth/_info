@@ -1,0 +1,173 @@
+m255
+K3
+13
+cModel Technology
+Z0 dD:\Work\marmote\projects\DecimationFilters\CIC\CIC_COMB_BlockRAM.a\simulation
+Ecic_comb
+Z1 w1318352194
+Z2 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
+Z3 dD:\Work\marmote\projects\DecimationFilters\CIC\CIC_COMB_BlockRAM.a\simulation
+Z4 8D:/Work/marmote/projects/DecimationFilters/CIC/CIC_COMB_BlockRAM.a/component/work/CIC_COMB/CIC_COMB.vhd
+Z5 FD:/Work/marmote/projects/DecimationFilters/CIC/CIC_COMB_BlockRAM.a/component/work/CIC_COMB/CIC_COMB.vhd
+l0
+L8
+ViIgB2OKeel5?gZJ>_ZXdc0
+Z6 OW;C;6.6d;45
+31
+Z7 o-93 -explicit -work presynth -O0
+!s100 GF>b`=TA;ozfj:izaZD@Q2
+Adef_arch
+Z8 DPx4 work 6 common 0 22 ZHHl7AA2K4<D_J:;;kElD0
+Z9 DPx4 ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
+Z10 DEx4 work 16 cic_comb_control 0 22 XTfFCGT2ddU1`4DVoHKSL2
+R2
+DEx4 work 8 cic_comb 0 22 iIgB2OKeel5?gZJ>_ZXdc0
+l101
+L20
+VV2H>emn7TAlUdbmgZf3de3
+R6
+31
+Z11 Mx3 4 ieee 14 std_logic_1164
+Z12 Mx2 4 ieee 11 numeric_std
+Z13 Mx1 4 work 6 common
+R7
+!s100 g6cg_z3IHWCkRe_GLSTkg1
+Ecic_comb_control
+Z14 w1318365070
+R8
+R9
+R2
+R3
+Z15 8D:/Work/marmote/projects/DecimationFilters/CIC/CIC_COMB_BlockRAM.a/hdl/CIC_COMB_control.vhd
+Z16 FD:/Work/marmote/projects/DecimationFilters/CIC/CIC_COMB_BlockRAM.a/hdl/CIC_COMB_control.vhd
+l0
+L15
+VXTfFCGT2ddU1`4DVoHKSL2
+R6
+31
+R7
+!s100 RL2DToDa^S>=`]=eooeYM0
+Abehavioral
+R8
+R9
+R2
+R10
+l64
+L54
+VD>XY:3bYb_CX[=J2jEaS^3
+R6
+31
+R11
+R12
+R13
+R7
+!s100 OFzjJ_`^jJJ<c;eGBC>oM3
+Ecic_comb_mem
+Z17 w1318352382
+R2
+R3
+Z18 8D:/Work/marmote/projects/DecimationFilters/CIC/CIC_COMB_BlockRAM.a/smartgen/CIC_COMB_mem/CIC_COMB_mem.vhd
+Z19 FD:/Work/marmote/projects/DecimationFilters/CIC/CIC_COMB_BlockRAM.a/smartgen/CIC_COMB_mem/CIC_COMB_mem.vhd
+l0
+L8
+VSCME:>g>NO<gMj:Sk=Q:13
+R6
+31
+R7
+!s100 GmgVmmk<HAPbi_@nlCh:O2
+Adef_arch
+R2
+DEx4 work 12 cic_comb_mem 0 22 SCME:>g>NO<gMj:Sk=Q:13
+l45
+L17
+VL2V>cZFOSL6:UnV9WlKih1
+R6
+31
+Z20 Mx1 4 ieee 14 std_logic_1164
+R7
+!s100 <HXF>GbB6clm0YoY<cFG63
+Ecic_comb_tb
+Z21 w1318365729
+R8
+R9
+R2
+R3
+Z22 8D:/Work/marmote/projects/DecimationFilters/CIC/CIC_COMB_BlockRAM.a/stimulus/CIC_COMB_testbench.vhd
+Z23 FD:/Work/marmote/projects/DecimationFilters/CIC/CIC_COMB_BlockRAM.a/stimulus/CIC_COMB_testbench.vhd
+l0
+L13
+VCU^GmSa`QJ@ZS5WFdibKL2
+!s100 LEmQk<h<hVMEm=D6nNQGE1
+R6
+31
+R7
+Abench
+R8
+R9
+R2
+Z24 DEx4 work 11 cic_comb_tb 0 22 CU^GmSa`QJ@ZS5WFdibKL2
+l55
+L22
+VoKBkR5dMM9CBXf?Yz9WG93
+!s100 9b:=2R_A]ZWd>6RIKJhDH3
+R6
+31
+R11
+R12
+R13
+R7
+Pcommon
+R9
+R2
+Z25 w1318352394
+R3
+Z26 8D:/Work/marmote/projects/DecimationFilters/CIC/CIC_COMB_BlockRAM.a/hdl/common.vhd
+Z27 FD:/Work/marmote/projects/DecimationFilters/CIC/CIC_COMB_BlockRAM.a/hdl/common.vhd
+l0
+L13
+VZHHl7AA2K4<D_J:;;kElD0
+R6
+31
+b1
+Z28 Mx2 4 ieee 14 std_logic_1164
+Z29 Mx1 4 ieee 11 numeric_std
+R7
+!s100 INXZ;OYL@h^]^c8hmHi7:1
+Bbody
+DBx4 work 6 common 0 22 ZHHl7AA2K4<D_J:;;kElD0
+R9
+R2
+l0
+L70
+V2mN_cL_bnSIkoD;@Cd3eS0
+R6
+31
+R28
+R29
+R7
+nbody
+!s100 9KDPkGbli1=U>P=aES<L63
+Etestbench
+R1
+R2
+R3
+Z30 8D:/Work/marmote/projects/DecimationFilters/CIC/CIC_COMB_BlockRAM.a/component/work/CIC_COMB/testbench.vhd
+Z31 FD:/Work/marmote/projects/DecimationFilters/CIC/CIC_COMB_BlockRAM.a/component/work/CIC_COMB/testbench.vhd
+l0
+L13
+VVA0T[oe<cdTd2f]hNHU`g1
+R6
+31
+R7
+!s100 SS]j:^]CaVnb=FcfJ3Uk[0
+Abehavioral
+R2
+DEx4 work 9 testbench 0 22 VA0T[oe<cdTd2f]hNHU`g1
+l41
+L16
+VePc22DEmUL2@?h^N2WdK>2
+!s100 gd<=IJbNnXCdDb0?S_MgH1
+R6
+31
+R20
+R7
