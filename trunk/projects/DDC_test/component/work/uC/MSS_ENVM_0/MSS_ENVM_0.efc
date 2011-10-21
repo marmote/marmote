@@ -18,7 +18,7 @@
         </version>
     </header>
     <nvm>
-        <region name="eNVM" address="0x000000" retrieveAddressFromFile="false" size="33688" format="HEX" type="Data Storage" wordSize="32" numberWords="8422" memFile="D:\Work\marmote\projects\DDC_test\softconsole\ADC_DDC_DMA_UDP\Release\ADC_DDC_DMA_UDP.hex" memType="INTELHEX" memFileTimeStamp="1319122915" clientType="public" program="true">
+        <region name="eNVM" address="0x000000" retrieveAddressFromFile="false" size="33688" format="HEX" type="Data Storage" wordSize="32" numberWords="8422" memFile="D:\Work\marmote\projects\DDC_test\softconsole\ADC_DDC_DMA_UDP\Release\ADC_DDC_DMA_UDP.hex" memType="INTELHEX" memFileTimeStamp="1319128684" clientType="public" program="true">
             0000012099020000f9020000fb020000fd020000ff020000010300000000
             000000000000000000000000000003030000050300000000000007030000
             090300000b0300000d0300000f03000011030000130300008d4e00001703

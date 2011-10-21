@@ -33,18 +33,14 @@ architecture DEF_ARCH of top is
   component DDC
     port( RST           : in    std_logic := 'U';
           CLK           : in    std_logic := 'U';
-          PSEL_0        : in    std_logic := 'U';
-          PENABLE_0     : in    std_logic := 'U';
-          PWRITE_0      : in    std_logic := 'U';
-          PREADY_0      : out   std_logic;
-          PSLVERR_0     : out   std_logic;
-          SMPL_RDY      : out   std_logic;
           sample_rdy_in : in    std_logic := 'U';
-          PADDR_0       : in    std_logic_vector(31 downto 0) := (others => 'U');
-          PRDATA_0      : out   std_logic_vector(31 downto 0);
-          PWDATA_0      : in    std_logic_vector(31 downto 0) := (others => 'U');
-          I_B           : in    std_logic_vector(13 downto 0) := (others => 'U');
-          Q_B           : in    std_logic_vector(13 downto 0) := (others => 'U')
+          I_in          : in    std_logic_vector(13 downto 0) := (others => 'U');
+          Q_in          : in    std_logic_vector(13 downto 0) := (others => 'U');
+          I_SMPL_RDY    : out   std_logic;
+          I_out         : out   std_logic_vector(31 downto 0);
+          Q_SMPL_RDY    : out   std_logic;
+          Q_out         : out   std_logic_vector(31 downto 0);
+          DPHASE        : in    std_logic_vector(15 downto 0) := (others => 'U')
         );
   end component;
 
@@ -300,8 +296,37 @@ architecture DEF_ARCH of top is
         \CoreAPB3_0_APBmslave0_PWDATA_[29]\, 
         \CoreAPB3_0_APBmslave0_PWDATA_[30]\, 
         \CoreAPB3_0_APBmslave0_PWDATA_[31]\, 
-        CoreAPB3_0_APBmslave0_PWRITE, \SMPL_RDY\, uC_0_FAB_CLK, 
-        uC_0_IO_6_Y, uC_0_IO_7_Y, uC_0_M2F_RESET_N, INV_0_Y, 
+        CoreAPB3_0_APBmslave0_PWRITE, \DDC_0_I_out_[31]\, 
+        \DDC_0_I_out_[30]\, \DDC_0_I_out_[29]\, 
+        \DDC_0_I_out_[28]\, \DDC_0_I_out_[27]\, 
+        \DDC_0_I_out_[26]\, \DDC_0_I_out_[25]\, 
+        \DDC_0_I_out_[24]\, \DDC_0_I_out_[23]\, 
+        \DDC_0_I_out_[22]\, \DDC_0_I_out_[21]\, 
+        \DDC_0_I_out_[20]\, \DDC_0_I_out_[19]\, 
+        \DDC_0_I_out_[18]\, \DDC_0_I_out_[17]\, 
+        \DDC_0_I_out_[16]\, \DDC_0_I_out_[15]\, 
+        \DDC_0_I_out_[14]\, \DDC_0_I_out_[13]\, 
+        \DDC_0_I_out_[12]\, \DDC_0_I_out_[11]\, 
+        \DDC_0_I_out_[10]\, \DDC_0_I_out_[9]\, \DDC_0_I_out_[8]\, 
+        \DDC_0_I_out_[7]\, \DDC_0_I_out_[6]\, \DDC_0_I_out_[5]\, 
+        \DDC_0_I_out_[4]\, \DDC_0_I_out_[3]\, \DDC_0_I_out_[2]\, 
+        \DDC_0_I_out_[1]\, \DDC_0_I_out_[0]\, DDC_0_I_SMPL_RDY, 
+        \DDC_0_Q_out_[31]\, \DDC_0_Q_out_[30]\, 
+        \DDC_0_Q_out_[29]\, \DDC_0_Q_out_[28]\, 
+        \DDC_0_Q_out_[27]\, \DDC_0_Q_out_[26]\, 
+        \DDC_0_Q_out_[25]\, \DDC_0_Q_out_[24]\, 
+        \DDC_0_Q_out_[23]\, \DDC_0_Q_out_[22]\, 
+        \DDC_0_Q_out_[21]\, \DDC_0_Q_out_[20]\, 
+        \DDC_0_Q_out_[19]\, \DDC_0_Q_out_[18]\, 
+        \DDC_0_Q_out_[17]\, \DDC_0_Q_out_[16]\, 
+        \DDC_0_Q_out_[15]\, \DDC_0_Q_out_[14]\, 
+        \DDC_0_Q_out_[13]\, \DDC_0_Q_out_[12]\, 
+        \DDC_0_Q_out_[11]\, \DDC_0_Q_out_[10]\, \DDC_0_Q_out_[9]\, 
+        \DDC_0_Q_out_[8]\, \DDC_0_Q_out_[7]\, \DDC_0_Q_out_[6]\, 
+        \DDC_0_Q_out_[5]\, \DDC_0_Q_out_[4]\, \DDC_0_Q_out_[3]\, 
+        \DDC_0_Q_out_[2]\, \DDC_0_Q_out_[1]\, \DDC_0_Q_out_[0]\, 
+        DDC_0_Q_SMPL_RDY, \SMPL_RDY\, uC_0_FAB_CLK, uC_0_IO_6_Y, 
+        uC_0_IO_7_Y, uC_0_M2F_RESET_N, INV_0_Y, 
         \uC_0_MSS_MASTER_APB_PADDR_[0]\, 
         \uC_0_MSS_MASTER_APB_PADDR_[1]\, 
         \uC_0_MSS_MASTER_APB_PADDR_[2]\, 
@@ -399,124 +424,77 @@ begin
     SMPL_RDY <= \SMPL_RDY\;
 
     DDC_0 : DDC
-      port map(RST => INV_0_Y, CLK => uC_0_FAB_CLK, PSEL_0 => 
-        CoreAPB3_0_APBmslave0_PSELx, PENABLE_0 => 
-        CoreAPB3_0_APBmslave0_PENABLE, PWRITE_0 => 
-        CoreAPB3_0_APBmslave0_PWRITE, PREADY_0 => 
-        CoreAPB3_0_APBmslave0_PREADY, PSLVERR_0 => 
-        CoreAPB3_0_APBmslave0_PSLVERR, SMPL_RDY => \SMPL_RDY\, 
-        sample_rdy_in => ADC_SPI_0_sample_rdy, PADDR_0(31) => 
-        GND_net, PADDR_0(30) => GND_net, PADDR_0(29) => GND_net, 
-        PADDR_0(28) => GND_net, PADDR_0(27) => GND_net, 
-        PADDR_0(26) => GND_net, PADDR_0(25) => GND_net, 
-        PADDR_0(24) => GND_net, PADDR_0(23) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[23]\, PADDR_0(22) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[22]\, PADDR_0(21) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[21]\, PADDR_0(20) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[20]\, PADDR_0(19) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[19]\, PADDR_0(18) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[18]\, PADDR_0(17) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[17]\, PADDR_0(16) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[16]\, PADDR_0(15) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[15]\, PADDR_0(14) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[14]\, PADDR_0(13) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[13]\, PADDR_0(12) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[12]\, PADDR_0(11) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[11]\, PADDR_0(10) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[10]\, PADDR_0(9) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[9]\, PADDR_0(8) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[8]\, PADDR_0(7) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[7]\, PADDR_0(6) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[6]\, PADDR_0(5) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[5]\, PADDR_0(4) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[4]\, PADDR_0(3) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[3]\, PADDR_0(2) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[2]\, PADDR_0(1) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[1]\, PADDR_0(0) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[0]\, PRDATA_0(31) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[31]\, PRDATA_0(30) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[30]\, PRDATA_0(29) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[29]\, PRDATA_0(28) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[28]\, PRDATA_0(27) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[27]\, PRDATA_0(26) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[26]\, PRDATA_0(25) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[25]\, PRDATA_0(24) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[24]\, PRDATA_0(23) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[23]\, PRDATA_0(22) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[22]\, PRDATA_0(21) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[21]\, PRDATA_0(20) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[20]\, PRDATA_0(19) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[19]\, PRDATA_0(18) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[18]\, PRDATA_0(17) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[17]\, PRDATA_0(16) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[16]\, PRDATA_0(15) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[15]\, PRDATA_0(14) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[14]\, PRDATA_0(13) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[13]\, PRDATA_0(12) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[12]\, PRDATA_0(11) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[11]\, PRDATA_0(10) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[10]\, PRDATA_0(9) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[9]\, PRDATA_0(8) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[8]\, PRDATA_0(7) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[7]\, PRDATA_0(6) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[6]\, PRDATA_0(5) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[5]\, PRDATA_0(4) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[4]\, PRDATA_0(3) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[3]\, PRDATA_0(2) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[2]\, PRDATA_0(1) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[1]\, PRDATA_0(0) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[0]\, PWDATA_0(31) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[31]\, PWDATA_0(30) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[30]\, PWDATA_0(29) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[29]\, PWDATA_0(28) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[28]\, PWDATA_0(27) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[27]\, PWDATA_0(26) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[26]\, PWDATA_0(25) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[25]\, PWDATA_0(24) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[24]\, PWDATA_0(23) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[23]\, PWDATA_0(22) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[22]\, PWDATA_0(21) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[21]\, PWDATA_0(20) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[20]\, PWDATA_0(19) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[19]\, PWDATA_0(18) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[18]\, PWDATA_0(17) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[17]\, PWDATA_0(16) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[16]\, PWDATA_0(15) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[15]\, PWDATA_0(14) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[14]\, PWDATA_0(13) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[13]\, PWDATA_0(12) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[12]\, PWDATA_0(11) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[11]\, PWDATA_0(10) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[10]\, PWDATA_0(9) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[9]\, PWDATA_0(8) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[8]\, PWDATA_0(7) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[7]\, PWDATA_0(6) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[6]\, PWDATA_0(5) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[5]\, PWDATA_0(4) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[4]\, PWDATA_0(3) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[3]\, PWDATA_0(2) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[2]\, PWDATA_0(1) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[1]\, PWDATA_0(0) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[0]\, I_B(13) => 
-        \ADC_SPI_0_CH1_[13]\, I_B(12) => \ADC_SPI_0_CH1_[12]\, 
-        I_B(11) => \ADC_SPI_0_CH1_[11]\, I_B(10) => 
-        \ADC_SPI_0_CH1_[10]\, I_B(9) => \ADC_SPI_0_CH1_[9]\, 
-        I_B(8) => \ADC_SPI_0_CH1_[8]\, I_B(7) => 
-        \ADC_SPI_0_CH1_[7]\, I_B(6) => \ADC_SPI_0_CH1_[6]\, 
-        I_B(5) => \ADC_SPI_0_CH1_[5]\, I_B(4) => 
-        \ADC_SPI_0_CH1_[4]\, I_B(3) => \ADC_SPI_0_CH1_[3]\, 
-        I_B(2) => \ADC_SPI_0_CH1_[2]\, I_B(1) => 
-        \ADC_SPI_0_CH1_[1]\, I_B(0) => \ADC_SPI_0_CH1_[0]\, 
-        Q_B(13) => \ADC_SPI_0_CH2_[13]\, Q_B(12) => 
-        \ADC_SPI_0_CH2_[12]\, Q_B(11) => \ADC_SPI_0_CH2_[11]\, 
-        Q_B(10) => \ADC_SPI_0_CH2_[10]\, Q_B(9) => 
-        \ADC_SPI_0_CH2_[9]\, Q_B(8) => \ADC_SPI_0_CH2_[8]\, 
-        Q_B(7) => \ADC_SPI_0_CH2_[7]\, Q_B(6) => 
-        \ADC_SPI_0_CH2_[6]\, Q_B(5) => \ADC_SPI_0_CH2_[5]\, 
-        Q_B(4) => \ADC_SPI_0_CH2_[4]\, Q_B(3) => 
-        \ADC_SPI_0_CH2_[3]\, Q_B(2) => \ADC_SPI_0_CH2_[2]\, 
-        Q_B(1) => \ADC_SPI_0_CH2_[1]\, Q_B(0) => 
-        \ADC_SPI_0_CH2_[0]\);
+      port map(RST => INV_0_Y, CLK => uC_0_FAB_CLK, sample_rdy_in
+         => ADC_SPI_0_sample_rdy, I_in(13) => 
+        \ADC_SPI_0_CH1_[13]\, I_in(12) => \ADC_SPI_0_CH1_[12]\, 
+        I_in(11) => \ADC_SPI_0_CH1_[11]\, I_in(10) => 
+        \ADC_SPI_0_CH1_[10]\, I_in(9) => \ADC_SPI_0_CH1_[9]\, 
+        I_in(8) => \ADC_SPI_0_CH1_[8]\, I_in(7) => 
+        \ADC_SPI_0_CH1_[7]\, I_in(6) => \ADC_SPI_0_CH1_[6]\, 
+        I_in(5) => \ADC_SPI_0_CH1_[5]\, I_in(4) => 
+        \ADC_SPI_0_CH1_[4]\, I_in(3) => \ADC_SPI_0_CH1_[3]\, 
+        I_in(2) => \ADC_SPI_0_CH1_[2]\, I_in(1) => 
+        \ADC_SPI_0_CH1_[1]\, I_in(0) => \ADC_SPI_0_CH1_[0]\, 
+        Q_in(13) => \ADC_SPI_0_CH2_[13]\, Q_in(12) => 
+        \ADC_SPI_0_CH2_[12]\, Q_in(11) => \ADC_SPI_0_CH2_[11]\, 
+        Q_in(10) => \ADC_SPI_0_CH2_[10]\, Q_in(9) => 
+        \ADC_SPI_0_CH2_[9]\, Q_in(8) => \ADC_SPI_0_CH2_[8]\, 
+        Q_in(7) => \ADC_SPI_0_CH2_[7]\, Q_in(6) => 
+        \ADC_SPI_0_CH2_[6]\, Q_in(5) => \ADC_SPI_0_CH2_[5]\, 
+        Q_in(4) => \ADC_SPI_0_CH2_[4]\, Q_in(3) => 
+        \ADC_SPI_0_CH2_[3]\, Q_in(2) => \ADC_SPI_0_CH2_[2]\, 
+        Q_in(1) => \ADC_SPI_0_CH2_[1]\, Q_in(0) => 
+        \ADC_SPI_0_CH2_[0]\, I_SMPL_RDY => DDC_0_I_SMPL_RDY, 
+        I_out(31) => \DDC_0_I_out_[31]\, I_out(30) => 
+        \DDC_0_I_out_[30]\, I_out(29) => \DDC_0_I_out_[29]\, 
+        I_out(28) => \DDC_0_I_out_[28]\, I_out(27) => 
+        \DDC_0_I_out_[27]\, I_out(26) => \DDC_0_I_out_[26]\, 
+        I_out(25) => \DDC_0_I_out_[25]\, I_out(24) => 
+        \DDC_0_I_out_[24]\, I_out(23) => \DDC_0_I_out_[23]\, 
+        I_out(22) => \DDC_0_I_out_[22]\, I_out(21) => 
+        \DDC_0_I_out_[21]\, I_out(20) => \DDC_0_I_out_[20]\, 
+        I_out(19) => \DDC_0_I_out_[19]\, I_out(18) => 
+        \DDC_0_I_out_[18]\, I_out(17) => \DDC_0_I_out_[17]\, 
+        I_out(16) => \DDC_0_I_out_[16]\, I_out(15) => 
+        \DDC_0_I_out_[15]\, I_out(14) => \DDC_0_I_out_[14]\, 
+        I_out(13) => \DDC_0_I_out_[13]\, I_out(12) => 
+        \DDC_0_I_out_[12]\, I_out(11) => \DDC_0_I_out_[11]\, 
+        I_out(10) => \DDC_0_I_out_[10]\, I_out(9) => 
+        \DDC_0_I_out_[9]\, I_out(8) => \DDC_0_I_out_[8]\, 
+        I_out(7) => \DDC_0_I_out_[7]\, I_out(6) => 
+        \DDC_0_I_out_[6]\, I_out(5) => \DDC_0_I_out_[5]\, 
+        I_out(4) => \DDC_0_I_out_[4]\, I_out(3) => 
+        \DDC_0_I_out_[3]\, I_out(2) => \DDC_0_I_out_[2]\, 
+        I_out(1) => \DDC_0_I_out_[1]\, I_out(0) => 
+        \DDC_0_I_out_[0]\, Q_SMPL_RDY => DDC_0_Q_SMPL_RDY, 
+        Q_out(31) => \DDC_0_Q_out_[31]\, Q_out(30) => 
+        \DDC_0_Q_out_[30]\, Q_out(29) => \DDC_0_Q_out_[29]\, 
+        Q_out(28) => \DDC_0_Q_out_[28]\, Q_out(27) => 
+        \DDC_0_Q_out_[27]\, Q_out(26) => \DDC_0_Q_out_[26]\, 
+        Q_out(25) => \DDC_0_Q_out_[25]\, Q_out(24) => 
+        \DDC_0_Q_out_[24]\, Q_out(23) => \DDC_0_Q_out_[23]\, 
+        Q_out(22) => \DDC_0_Q_out_[22]\, Q_out(21) => 
+        \DDC_0_Q_out_[21]\, Q_out(20) => \DDC_0_Q_out_[20]\, 
+        Q_out(19) => \DDC_0_Q_out_[19]\, Q_out(18) => 
+        \DDC_0_Q_out_[18]\, Q_out(17) => \DDC_0_Q_out_[17]\, 
+        Q_out(16) => \DDC_0_Q_out_[16]\, Q_out(15) => 
+        \DDC_0_Q_out_[15]\, Q_out(14) => \DDC_0_Q_out_[14]\, 
+        Q_out(13) => \DDC_0_Q_out_[13]\, Q_out(12) => 
+        \DDC_0_Q_out_[12]\, Q_out(11) => \DDC_0_Q_out_[11]\, 
+        Q_out(10) => \DDC_0_Q_out_[10]\, Q_out(9) => 
+        \DDC_0_Q_out_[9]\, Q_out(8) => \DDC_0_Q_out_[8]\, 
+        Q_out(7) => \DDC_0_Q_out_[7]\, Q_out(6) => 
+        \DDC_0_Q_out_[6]\, Q_out(5) => \DDC_0_Q_out_[5]\, 
+        Q_out(4) => \DDC_0_Q_out_[4]\, Q_out(3) => 
+        \DDC_0_Q_out_[3]\, Q_out(2) => \DDC_0_Q_out_[2]\, 
+        Q_out(1) => \DDC_0_Q_out_[1]\, Q_out(0) => 
+        \DDC_0_Q_out_[0]\, DPHASE(15) => GND_net, DPHASE(14) => 
+        GND_net, DPHASE(13) => GND_net, DPHASE(12) => GND_net, 
+        DPHASE(11) => GND_net, DPHASE(10) => GND_net, DPHASE(9)
+         => GND_net, DPHASE(8) => VCC_net, DPHASE(7) => GND_net, 
+        DPHASE(6) => GND_net, DPHASE(5) => GND_net, DPHASE(4) => 
+        GND_net, DPHASE(3) => GND_net, DPHASE(2) => GND_net, 
+        DPHASE(1) => GND_net, DPHASE(0) => GND_net);
     
     CoreAPB3_0 : CoreAPB3
       generic map(APBSLOT0ENABLE => 1, APBSLOT10ENABLE => 0,
@@ -1084,6 +1062,150 @@ begin
         MAC_0_RXD(1), MAC_0_RXD(0) => MAC_0_RXD(0), MAC_0_TXD(1)
          => MAC_0_TXD(1), MAC_0_TXD(0) => MAC_0_TXD(0), 
         DMAREADY(1) => GND_net, DMAREADY(0) => \SMPL_RDY\);
+    
+    SAMPLE_APB3_0 : entity work.SAMPLE_APB3
+      port map(PCLK => uC_0_FAB_CLK, PRESETn => uC_0_M2F_RESET_N, 
+        PADDR(31) => GND_net, PADDR(30) => GND_net, PADDR(29) => 
+        GND_net, PADDR(28) => GND_net, PADDR(27) => GND_net, 
+        PADDR(26) => GND_net, PADDR(25) => GND_net, PADDR(24) => 
+        GND_net, PADDR(23) => \CoreAPB3_0_APBmslave0_PADDR_[23]\, 
+        PADDR(22) => \CoreAPB3_0_APBmslave0_PADDR_[22]\, 
+        PADDR(21) => \CoreAPB3_0_APBmslave0_PADDR_[21]\, 
+        PADDR(20) => \CoreAPB3_0_APBmslave0_PADDR_[20]\, 
+        PADDR(19) => \CoreAPB3_0_APBmslave0_PADDR_[19]\, 
+        PADDR(18) => \CoreAPB3_0_APBmslave0_PADDR_[18]\, 
+        PADDR(17) => \CoreAPB3_0_APBmslave0_PADDR_[17]\, 
+        PADDR(16) => \CoreAPB3_0_APBmslave0_PADDR_[16]\, 
+        PADDR(15) => \CoreAPB3_0_APBmslave0_PADDR_[15]\, 
+        PADDR(14) => \CoreAPB3_0_APBmslave0_PADDR_[14]\, 
+        PADDR(13) => \CoreAPB3_0_APBmslave0_PADDR_[13]\, 
+        PADDR(12) => \CoreAPB3_0_APBmslave0_PADDR_[12]\, 
+        PADDR(11) => \CoreAPB3_0_APBmslave0_PADDR_[11]\, 
+        PADDR(10) => \CoreAPB3_0_APBmslave0_PADDR_[10]\, PADDR(9)
+         => \CoreAPB3_0_APBmslave0_PADDR_[9]\, PADDR(8) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[8]\, PADDR(7) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[7]\, PADDR(6) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[6]\, PADDR(5) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[5]\, PADDR(4) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[4]\, PADDR(3) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[3]\, PADDR(2) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[2]\, PADDR(1) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[1]\, PADDR(0) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[0]\, PSEL => 
+        CoreAPB3_0_APBmslave0_PSELx, PENABLE => 
+        CoreAPB3_0_APBmslave0_PENABLE, PWRITE => 
+        CoreAPB3_0_APBmslave0_PWRITE, PWDATA(31) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[31]\, PWDATA(30) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[30]\, PWDATA(29) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[29]\, PWDATA(28) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[28]\, PWDATA(27) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[27]\, PWDATA(26) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[26]\, PWDATA(25) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[25]\, PWDATA(24) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[24]\, PWDATA(23) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[23]\, PWDATA(22) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[22]\, PWDATA(21) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[21]\, PWDATA(20) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[20]\, PWDATA(19) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[19]\, PWDATA(18) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[18]\, PWDATA(17) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[17]\, PWDATA(16) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[16]\, PWDATA(15) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[15]\, PWDATA(14) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[14]\, PWDATA(13) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[13]\, PWDATA(12) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[12]\, PWDATA(11) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[11]\, PWDATA(10) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[10]\, PWDATA(9) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[9]\, PWDATA(8) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[8]\, PWDATA(7) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[7]\, PWDATA(6) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[6]\, PWDATA(5) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[5]\, PWDATA(4) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[4]\, PWDATA(3) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[3]\, PWDATA(2) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[2]\, PWDATA(1) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[1]\, PWDATA(0) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[0]\, PREADY => 
+        CoreAPB3_0_APBmslave0_PREADY, PRDATA(31) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[31]\, PRDATA(30) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[30]\, PRDATA(29) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[29]\, PRDATA(28) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[28]\, PRDATA(27) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[27]\, PRDATA(26) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[26]\, PRDATA(25) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[25]\, PRDATA(24) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[24]\, PRDATA(23) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[23]\, PRDATA(22) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[22]\, PRDATA(21) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[21]\, PRDATA(20) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[20]\, PRDATA(19) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[19]\, PRDATA(18) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[18]\, PRDATA(17) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[17]\, PRDATA(16) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[16]\, PRDATA(15) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[15]\, PRDATA(14) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[14]\, PRDATA(13) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[13]\, PRDATA(12) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[12]\, PRDATA(11) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[11]\, PRDATA(10) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[10]\, PRDATA(9) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[9]\, PRDATA(8) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[8]\, PRDATA(7) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[7]\, PRDATA(6) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[6]\, PRDATA(5) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[5]\, PRDATA(4) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[4]\, PRDATA(3) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[3]\, PRDATA(2) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[2]\, PRDATA(1) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[1]\, PRDATA(0) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[0]\, PSLVERR => 
+        CoreAPB3_0_APBmslave0_PSLVERR, INPUT(63) => 
+        \DDC_0_Q_out_[31]\, INPUT(62) => \DDC_0_Q_out_[30]\, 
+        INPUT(61) => \DDC_0_Q_out_[29]\, INPUT(60) => 
+        \DDC_0_Q_out_[28]\, INPUT(59) => \DDC_0_Q_out_[27]\, 
+        INPUT(58) => \DDC_0_Q_out_[26]\, INPUT(57) => 
+        \DDC_0_Q_out_[25]\, INPUT(56) => \DDC_0_Q_out_[24]\, 
+        INPUT(55) => \DDC_0_Q_out_[23]\, INPUT(54) => 
+        \DDC_0_Q_out_[22]\, INPUT(53) => \DDC_0_Q_out_[21]\, 
+        INPUT(52) => \DDC_0_Q_out_[20]\, INPUT(51) => 
+        \DDC_0_Q_out_[19]\, INPUT(50) => \DDC_0_Q_out_[18]\, 
+        INPUT(49) => \DDC_0_Q_out_[17]\, INPUT(48) => 
+        \DDC_0_Q_out_[16]\, INPUT(47) => \DDC_0_Q_out_[15]\, 
+        INPUT(46) => \DDC_0_Q_out_[14]\, INPUT(45) => 
+        \DDC_0_Q_out_[13]\, INPUT(44) => \DDC_0_Q_out_[12]\, 
+        INPUT(43) => \DDC_0_Q_out_[11]\, INPUT(42) => 
+        \DDC_0_Q_out_[10]\, INPUT(41) => \DDC_0_Q_out_[9]\, 
+        INPUT(40) => \DDC_0_Q_out_[8]\, INPUT(39) => 
+        \DDC_0_Q_out_[7]\, INPUT(38) => \DDC_0_Q_out_[6]\, 
+        INPUT(37) => \DDC_0_Q_out_[5]\, INPUT(36) => 
+        \DDC_0_Q_out_[4]\, INPUT(35) => \DDC_0_Q_out_[3]\, 
+        INPUT(34) => \DDC_0_Q_out_[2]\, INPUT(33) => 
+        \DDC_0_Q_out_[1]\, INPUT(32) => \DDC_0_Q_out_[0]\, 
+        INPUT(31) => \DDC_0_I_out_[31]\, INPUT(30) => 
+        \DDC_0_I_out_[30]\, INPUT(29) => \DDC_0_I_out_[29]\, 
+        INPUT(28) => \DDC_0_I_out_[28]\, INPUT(27) => 
+        \DDC_0_I_out_[27]\, INPUT(26) => \DDC_0_I_out_[26]\, 
+        INPUT(25) => \DDC_0_I_out_[25]\, INPUT(24) => 
+        \DDC_0_I_out_[24]\, INPUT(23) => \DDC_0_I_out_[23]\, 
+        INPUT(22) => \DDC_0_I_out_[22]\, INPUT(21) => 
+        \DDC_0_I_out_[21]\, INPUT(20) => \DDC_0_I_out_[20]\, 
+        INPUT(19) => \DDC_0_I_out_[19]\, INPUT(18) => 
+        \DDC_0_I_out_[18]\, INPUT(17) => \DDC_0_I_out_[17]\, 
+        INPUT(16) => \DDC_0_I_out_[16]\, INPUT(15) => 
+        \DDC_0_I_out_[15]\, INPUT(14) => \DDC_0_I_out_[14]\, 
+        INPUT(13) => \DDC_0_I_out_[13]\, INPUT(12) => 
+        \DDC_0_I_out_[12]\, INPUT(11) => \DDC_0_I_out_[11]\, 
+        INPUT(10) => \DDC_0_I_out_[10]\, INPUT(9) => 
+        \DDC_0_I_out_[9]\, INPUT(8) => \DDC_0_I_out_[8]\, 
+        INPUT(7) => \DDC_0_I_out_[7]\, INPUT(6) => 
+        \DDC_0_I_out_[6]\, INPUT(5) => \DDC_0_I_out_[5]\, 
+        INPUT(4) => \DDC_0_I_out_[4]\, INPUT(3) => 
+        \DDC_0_I_out_[3]\, INPUT(2) => \DDC_0_I_out_[2]\, 
+        INPUT(1) => \DDC_0_I_out_[1]\, INPUT(0) => 
+        \DDC_0_I_out_[0]\, SMPL_RDY_IN(1) => DDC_0_I_SMPL_RDY, 
+        SMPL_RDY_IN(2) => DDC_0_Q_SMPL_RDY, SMPL_RDY => 
+        \SMPL_RDY\);
     
     INV_0 : INV
       port map(A => uC_0_M2F_RESET_N, Y => INV_0_Y);

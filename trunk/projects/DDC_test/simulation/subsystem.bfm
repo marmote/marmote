@@ -1,5 +1,5 @@
 #===========================================================
-# Created by Actel SmartDesign Thu Oct 20 10:04:23 2011
+# Created by Actel SmartDesign Fri Oct 21 07:33:47 2011
 #
 # Syntax: 
 # ------- 
@@ -17,4 +17,4 @@
 # Define name and base address of each resource.
 #-----------------------------------------------------------
 
-memmap DDC_0 0x40050000;
+memmap SAMPLE_APB3_0 0x40050000;

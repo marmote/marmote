@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------
--- Created by Actel SmartDesign Thu Oct 20 10:04:17 2011
+-- Created by Actel SmartDesign Fri Oct 21 07:02:40 2011
 -- Testbench Template
 -- This is a basic testbench that instantiates your design with basic 
 -- clock and reset pins connected.  If your design has special
@@ -26,20 +26,16 @@ architecture behavioral of testbench is
             -- Inputs
             RST : in std_logic;
             CLK : in std_logic;
-            PSEL_0 : in std_logic;
-            PENABLE_0 : in std_logic;
-            PWRITE_0 : in std_logic;
             sample_rdy_in : in std_logic;
-            PADDR_0 : in std_logic_vector(31 downto 0);
-            PWDATA_0 : in std_logic_vector(31 downto 0);
-            I_B : in std_logic_vector(13 downto 0);
-            Q_B : in std_logic_vector(13 downto 0);
+            I_in : in std_logic_vector(13 downto 0);
+            Q_in : in std_logic_vector(13 downto 0);
+            DPHASE : in std_logic_vector(15 downto 0);
 
             -- Outputs
-            PREADY_0 : out std_logic;
-            PSLVERR_0 : out std_logic;
-            SMPL_RDY : out std_logic;
-            PRDATA_0 : out std_logic_vector(31 downto 0)
+            I_SMPL_RDY : out std_logic;
+            I_out : out std_logic_vector(31 downto 0);
+            Q_SMPL_RDY : out std_logic;
+            Q_out : out std_logic_vector(31 downto 0)
 
             -- Inouts
 
@@ -72,20 +68,16 @@ begin
             -- Inputs
             RST => NSYSRESET,
             CLK => SYSCLK,
-            PSEL_0 => '0',
-            PENABLE_0 => '0',
-            PWRITE_0 => '0',
             sample_rdy_in => '0',
-            PADDR_0 => (others=> '0'),
-            PWDATA_0 => (others=> '0'),
-            I_B => (others=> '0'),
-            Q_B => (others=> '0'),
+            I_in => (others=> '0'),
+            Q_in => (others=> '0'),
+            DPHASE => (others=> '0'),
 
             -- Outputs
-            PREADY_0 =>  open,
-            PSLVERR_0 =>  open,
-            SMPL_RDY =>  open,
-            PRDATA_0 => open
+            I_SMPL_RDY =>  open,
+            I_out => open,
+            Q_SMPL_RDY =>  open,
+            Q_out => open
 
             -- Inouts
 
