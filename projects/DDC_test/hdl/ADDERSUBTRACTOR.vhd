@@ -25,10 +25,10 @@ entity ADDERSUBTRACTOR is
 
         addsubtract     : in    std_logic; -- 0 subtract, 1 add
 
-        A               : in    unsigned(c_A_WIDTH-1 downto 0);
-        B               : in    unsigned(c_B_WIDTH-1 downto 0);
+        A               : in    std_logic_vector(c_A_WIDTH-1 downto 0);
+        B               : in    std_logic_vector(c_B_WIDTH-1 downto 0);
         
-        C               : out   unsigned(c_C_WIDTH-1 downto 0)
+        C               : out   std_logic_vector(c_C_WIDTH-1 downto 0)
 
          );
 end entity;
@@ -42,8 +42,8 @@ end entity;
 --
 ------------------------------------------------------------------------------
 architecture Behavioral of ADDERSUBTRACTOR is
-    signal As       : unsigned(c_A_WIDTH downto 0);
-    signal Bs       : unsigned(c_B_WIDTH downto 0);
+    signal As       : signed(c_A_WIDTH downto 0);
+    signal Bs       : signed(c_B_WIDTH downto 0);
 
 begin
 
@@ -51,26 +51,26 @@ begin
     begin
         if RST = '1' then
 
-            C <= to_unsigned(0, c_C_WIDTH);
+            C <= (others => '0');
 
         elsif rising_edge(CLK) then
 
             if addsubtract = '1' then
 
-                C <= As + Bs;
+                C <= std_logic_vector(As + Bs);
 
             else
 
-                C <= As - Bs;
+                C <= std_logic_vector(As - Bs);
 
             end if;
 
         end if;
     end process;
 
-    As(c_A_WIDTH-1 downto 0) <= A;
-    As(c_A_WIDTH) <= '0';
-    Bs(c_B_WIDTH-1 downto 0) <= B;
-    Bs(c_B_WIDTH) <= '0';
+    As(c_A_WIDTH-1 downto 0) <= signed(A);
+    As(c_A_WIDTH) <= A(c_A_WIDTH-1);
+    Bs(c_B_WIDTH-1 downto 0) <= signed(B);
+    Bs(c_B_WIDTH) <= B(c_B_WIDTH-1);
 
 end Behavioral;

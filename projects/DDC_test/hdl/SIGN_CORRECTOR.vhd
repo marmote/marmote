@@ -49,7 +49,7 @@ begin
 	invert_sincos : process (rst, clk)
 	begin
 		if rst = '1' then
-			COS <= (others => '0');
+			COS <= (c_CORDIC_WIDTH-1 => '0', others => '1');
 			SIN <= (others => '0');
             RDYOUT <= '0';
 
@@ -69,9 +69,8 @@ begin
 		end if;
 	end process invert_sincos;
 
-    -- WARNING!!! CORDIC GENERATES SIGNED NUMBERS WHEREAS WE NEED UNSIGNED NUMBERS, THUS THE MSB BIT IS INVERTED!
-    COS_OUT <= (not COS(c_CORDIC_WIDTH-1)) & COS(c_CORDIC_WIDTH-2 downto c_CORDIC_WIDTH-c_CORDIC_OUTPUT_WIDTH);
-    SIN_OUT <= (not SIN(c_CORDIC_WIDTH-1)) & SIN(c_CORDIC_WIDTH-2 downto c_CORDIC_WIDTH-c_CORDIC_OUTPUT_WIDTH);
+    COS_OUT <= COS(c_CORDIC_WIDTH-1 downto c_CORDIC_WIDTH-c_CORDIC_OUTPUT_WIDTH);
+    SIN_OUT <= SIN(c_CORDIC_WIDTH-1 downto c_CORDIC_WIDTH-c_CORDIC_OUTPUT_WIDTH);
 
 
 end Behavioral;

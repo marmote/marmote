@@ -27,10 +27,10 @@ architecture bench of complex_mult_tb is
 
         sample_rdy_in   : in    std_logic;
 
-        I_A             : in    std_logic_vector(13 downto 0);
-        Q_A             : in    std_logic_vector(13 downto 0);
-        I_B             : in    std_logic_vector(7 downto 0);
-        Q_B             : in    std_logic_vector(7 downto 0);
+        I_A             : in    std_logic_vector(7 downto 0);
+        Q_A             : in    std_logic_vector(7 downto 0);
+        I_B             : in    std_logic_vector(13 downto 0);
+        Q_B             : in    std_logic_vector(13 downto 0);
 
         I               : out   std_logic_vector(22 downto 0);
         Q               : out   std_logic_vector(22 downto 0)
@@ -43,10 +43,10 @@ architecture bench of complex_mult_tb is
 
         signal  sample_rdy_in   : std_logic;
 
-        signal  I_A             : std_logic_vector(13 downto 0);
-        signal  Q_A             : std_logic_vector(13 downto 0);
-        signal  I_B             : std_logic_vector(7 downto 0);
-        signal  Q_B             : std_logic_vector(7 downto 0);
+        signal  I_A             : std_logic_vector(7 downto 0);
+        signal  Q_A             : std_logic_vector(7 downto 0);
+        signal  I_B             : std_logic_vector(13 downto 0);
+        signal  Q_B             : std_logic_vector(13 downto 0);
 
         signal  I               : std_logic_vector(22 downto 0);
         signal  Q               : std_logic_vector(22 downto 0);
@@ -138,10 +138,10 @@ begin
             if clk_counter = 0 then
                 sample_rdy_in <= '1';
 
-                I_A <= std_logic_vector(unsigned(I_A) + 1);
-                Q_A <= std_logic_vector(unsigned(Q_A) + 2);
-                I_B <= std_logic_vector(unsigned(I_B) + 3);
-                Q_B <= std_logic_vector(unsigned(Q_B) + 4);
+                I_A <= std_logic_vector(signed(I_A) + 1);
+                Q_A <= std_logic_vector(signed(Q_A) - 2);
+                I_B <= std_logic_vector(signed(I_B) + 3);
+                Q_B <= std_logic_vector(signed(Q_B) - 4);
             end if;
 
         end if;

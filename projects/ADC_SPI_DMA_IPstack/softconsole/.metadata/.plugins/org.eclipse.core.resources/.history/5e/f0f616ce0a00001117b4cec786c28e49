@@ -1,0 +1,44 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+O_SRCS := 
+C_SRCS := 
+S_UPPER_SRCS := 
+S_SRCS := 
+OBJ_SRCS := 
+MEMORYMAP := 
+OBJS := 
+C_DEPS := 
+SRECFILES := 
+IHEXFILES := 
+LISTINGS := 
+EXECUTABLE := 
+
+# Every subdirectory with source files must be described here
+SUBDIRS := \
+. \
+lwip-1.4.0.rc2/src/netif \
+lwip-1.4.0.rc2/src/netif/ppp \
+lwip-1.4.0.rc2/src/core \
+lwip-1.4.0.rc2/src/core/snmp \
+lwip-1.4.0.rc2/src/core/ipv4 \
+lwip-1.4.0.rc2/src/api \
+drivers/mss_pdma \
+drivers/mss_gpio \
+drivers/mss_ethernet_mac \
+arch \
+CMSIS \
+CMSIS/startup_gcc \
+
+################################################################################
+# Microsemi SoftConsole IDE Variables
+################################################################################
+
+BUILDCMD = arm-none-eabi-gcc -mthumb -mcpu=cortex-m3 -specs=bare.specs -T../CMSIS/startup_gcc/debug-in-actel-smartfusion-envm.ld -Wl,-Map=$(EXECUTABLE).map 
+SHELL := cmd.exe
+EXECUTABLE := ADC_SPI_DMA_IPstack_UDP
+
+# Target-specific items to be cleaned up in the top directory.
+clean::
+	-$(RM) $(wildcard ./*.map) 

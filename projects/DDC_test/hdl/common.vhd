@@ -37,7 +37,7 @@ package COMMON is
 
 --CIC
     constant c_CIC_WIDTH            : integer := 23;
-    constant c_CIC_ORDER            : integer := 3;
+    constant c_CIC_ORDER            : integer := 2;
 
     constant c_ADC_SAMPLING         : integer := 18; -- How many cycles does it take, to get one sample?
 

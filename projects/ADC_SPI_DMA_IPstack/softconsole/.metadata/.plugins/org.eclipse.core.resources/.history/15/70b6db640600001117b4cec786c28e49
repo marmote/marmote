@@ -1,0 +1,30 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../drivers/mss_ethernet_mac/crc32.c \
+../drivers/mss_ethernet_mac/mss_ethernet_mac.c \
+../drivers/mss_ethernet_mac/phy.c 
+
+OBJS += \
+./drivers/mss_ethernet_mac/crc32.o \
+./drivers/mss_ethernet_mac/mss_ethernet_mac.o \
+./drivers/mss_ethernet_mac/phy.o 
+
+C_DEPS += \
+./drivers/mss_ethernet_mac/crc32.d \
+./drivers/mss_ethernet_mac/mss_ethernet_mac.d \
+./drivers/mss_ethernet_mac/phy.d 
+
+
+# Each subdirectory must supply rules for building sources it contributes
+drivers/mss_ethernet_mac/%.o: ../drivers/mss_ethernet_mac/%.c
+	@echo 'Building file: $<'
+	@echo 'Invoking: GNU C Compiler'
+	arm-none-eabi-gcc -mthumb -mcpu=cortex-m3 -I"..\lwip-1.4.0.rc2\src\include" -I"..\lwip-1.4.0.rc2\src\include\ipv4" -I".." -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+

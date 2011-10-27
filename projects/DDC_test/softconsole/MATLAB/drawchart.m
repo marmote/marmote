@@ -48,7 +48,7 @@ end
     plot(time*1e6, chunk2, 'g.-');
     xlim([0 N*T*1e6]);
 %    ylim([0 Full_Scale/4]);
-    ylim([-1 1]);
+ %   ylim([-1 1]);
     xlabel('time [usec]');
     ylabel('Sample []');
     

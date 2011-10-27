@@ -24,7 +24,7 @@ entity CIC_INT is
 
         clk_counter : in    unsigned(log2_ceil(c_ADC_SAMPLING) downto 1);  
 
-		INPUT       : in    unsigned(c_CIC_WIDTH-1 downto 0);
+		INPUT       : in    std_logic_vector(c_CIC_WIDTH-1 downto 0);
         OUTPUT      : out   std_logic_vector(c_CIC_INNER_WIDTH-1 downto 0)
 	);
 end entity; 
@@ -39,10 +39,10 @@ end entity;
 ------------------------------------------------------------------------------
 architecture Behavioral of CIC_INT is
 
-    type sample_vector is array ( natural range <> ) of unsigned(c_CIC_INNER_WIDTH-1 downto 0);
+    type sample_vector is array ( natural range <> ) of signed(c_CIC_INNER_WIDTH-1 downto 0);
 
 	-- Signals
-    signal int              : unsigned(c_CIC_INNER_WIDTH-1 downto 0);   
+    signal int              : signed(c_CIC_INNER_WIDTH-1 downto 0);   
     signal int_vec          : sample_vector(1 to c_CIC_ORDER);
 
 begin
@@ -66,8 +66,8 @@ begin
             if clk_counter = c_CIC_INPUT_CYCLE then
 
                 -- Get the newest sample form input
-                int(c_CIC_INNER_WIDTH-1 downto c_CIC_WIDTH) <= (others => '0');
-                int(c_CIC_WIDTH-1 downto 0) <= INPUT;
+                int(c_CIC_INNER_WIDTH-1 downto c_CIC_WIDTH) <= (others => INPUT(c_CIC_WIDTH-1));
+                int(c_CIC_WIDTH-1 downto 0) <= signed(INPUT);
             
             elsif clk_counter <= 2*c_CIC_ORDER then
 

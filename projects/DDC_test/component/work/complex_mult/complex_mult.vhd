@@ -86,14 +86,14 @@ begin
     
     MULTIPLIER_2 : entity work.MULTIPLIER
       port map(CLK => CLK, RST => RST, sample_rdy_in => 
-        sample_rdy_in, A(7) => I_A(7), A(6) => I_A(6), A(5) => 
-        I_A(5), A(4) => I_A(4), A(3) => I_A(3), A(2) => I_A(2), 
-        A(1) => I_A(1), A(0) => I_A(0), B(13) => Q_B(13), B(12)
-         => Q_B(12), B(11) => Q_B(11), B(10) => Q_B(10), B(9) => 
-        Q_B(9), B(8) => Q_B(8), B(7) => Q_B(7), B(6) => Q_B(6), 
-        B(5) => Q_B(5), B(4) => Q_B(4), B(3) => Q_B(3), B(2) => 
-        Q_B(2), B(1) => Q_B(1), B(0) => Q_B(0), sample_rdy => 
-        OPEN, C(21) => \MULTIPLIER_2_C_[21]\, C(20) => 
+        sample_rdy_in, sample_rdy => OPEN, A(7) => I_A(7), A(6)
+         => I_A(6), A(5) => I_A(5), A(4) => I_A(4), A(3) => 
+        I_A(3), A(2) => I_A(2), A(1) => I_A(1), A(0) => I_A(0), 
+        B(13) => Q_B(13), B(12) => Q_B(12), B(11) => Q_B(11), 
+        B(10) => Q_B(10), B(9) => Q_B(9), B(8) => Q_B(8), B(7)
+         => Q_B(7), B(6) => Q_B(6), B(5) => Q_B(5), B(4) => 
+        Q_B(4), B(3) => Q_B(3), B(2) => Q_B(2), B(1) => Q_B(1), 
+        B(0) => Q_B(0), C(21) => \MULTIPLIER_2_C_[21]\, C(20) => 
         \MULTIPLIER_2_C_[20]\, C(19) => \MULTIPLIER_2_C_[19]\, 
         C(18) => \MULTIPLIER_2_C_[18]\, C(17) => 
         \MULTIPLIER_2_C_[17]\, C(16) => \MULTIPLIER_2_C_[16]\, 
@@ -110,14 +110,14 @@ begin
     
     MULTIPLIER_1 : entity work.MULTIPLIER
       port map(CLK => CLK, RST => RST, sample_rdy_in => 
-        sample_rdy_in, A(7) => Q_A(7), A(6) => Q_A(6), A(5) => 
-        Q_A(5), A(4) => Q_A(4), A(3) => Q_A(3), A(2) => Q_A(2), 
-        A(1) => Q_A(1), A(0) => Q_A(0), B(13) => Q_B(13), B(12)
-         => Q_B(12), B(11) => Q_B(11), B(10) => Q_B(10), B(9) => 
-        Q_B(9), B(8) => Q_B(8), B(7) => Q_B(7), B(6) => Q_B(6), 
-        B(5) => Q_B(5), B(4) => Q_B(4), B(3) => Q_B(3), B(2) => 
-        Q_B(2), B(1) => Q_B(1), B(0) => Q_B(0), sample_rdy => 
-        OPEN, C(21) => \MULTIPLIER_1_C_[21]\, C(20) => 
+        sample_rdy_in, sample_rdy => OPEN, A(7) => Q_A(7), A(6)
+         => Q_A(6), A(5) => Q_A(5), A(4) => Q_A(4), A(3) => 
+        Q_A(3), A(2) => Q_A(2), A(1) => Q_A(1), A(0) => Q_A(0), 
+        B(13) => Q_B(13), B(12) => Q_B(12), B(11) => Q_B(11), 
+        B(10) => Q_B(10), B(9) => Q_B(9), B(8) => Q_B(8), B(7)
+         => Q_B(7), B(6) => Q_B(6), B(5) => Q_B(5), B(4) => 
+        Q_B(4), B(3) => Q_B(3), B(2) => Q_B(2), B(1) => Q_B(1), 
+        B(0) => Q_B(0), C(21) => \MULTIPLIER_1_C_[21]\, C(20) => 
         \MULTIPLIER_1_C_[20]\, C(19) => \MULTIPLIER_1_C_[19]\, 
         C(18) => \MULTIPLIER_1_C_[18]\, C(17) => 
         \MULTIPLIER_1_C_[17]\, C(16) => \MULTIPLIER_1_C_[16]\, 
@@ -134,14 +134,14 @@ begin
     
     MULTIPLIER_3 : entity work.MULTIPLIER
       port map(CLK => CLK, RST => RST, sample_rdy_in => 
-        sample_rdy_in, A(7) => Q_A(7), A(6) => Q_A(6), A(5) => 
-        Q_A(5), A(4) => Q_A(4), A(3) => Q_A(3), A(2) => Q_A(2), 
-        A(1) => Q_A(1), A(0) => Q_A(0), B(13) => I_B(13), B(12)
-         => I_B(12), B(11) => I_B(11), B(10) => I_B(10), B(9) => 
-        I_B(9), B(8) => I_B(8), B(7) => I_B(7), B(6) => I_B(6), 
-        B(5) => I_B(5), B(4) => I_B(4), B(3) => I_B(3), B(2) => 
-        I_B(2), B(1) => I_B(1), B(0) => I_B(0), sample_rdy => 
-        OPEN, C(21) => \MULTIPLIER_3_C_[21]\, C(20) => 
+        sample_rdy_in, sample_rdy => OPEN, A(7) => Q_A(7), A(6)
+         => Q_A(6), A(5) => Q_A(5), A(4) => Q_A(4), A(3) => 
+        Q_A(3), A(2) => Q_A(2), A(1) => Q_A(1), A(0) => Q_A(0), 
+        B(13) => I_B(13), B(12) => I_B(12), B(11) => I_B(11), 
+        B(10) => I_B(10), B(9) => I_B(9), B(8) => I_B(8), B(7)
+         => I_B(7), B(6) => I_B(6), B(5) => I_B(5), B(4) => 
+        I_B(4), B(3) => I_B(3), B(2) => I_B(2), B(1) => I_B(1), 
+        B(0) => I_B(0), C(21) => \MULTIPLIER_3_C_[21]\, C(20) => 
         \MULTIPLIER_3_C_[20]\, C(19) => \MULTIPLIER_3_C_[19]\, 
         C(18) => \MULTIPLIER_3_C_[18]\, C(17) => 
         \MULTIPLIER_3_C_[17]\, C(16) => \MULTIPLIER_3_C_[16]\, 
@@ -237,14 +237,14 @@ begin
     
     MULTIPLIER_0 : entity work.MULTIPLIER
       port map(CLK => CLK, RST => RST, sample_rdy_in => 
-        sample_rdy_in, A(7) => I_A(7), A(6) => I_A(6), A(5) => 
-        I_A(5), A(4) => I_A(4), A(3) => I_A(3), A(2) => I_A(2), 
-        A(1) => I_A(1), A(0) => I_A(0), B(13) => I_B(13), B(12)
-         => I_B(12), B(11) => I_B(11), B(10) => I_B(10), B(9) => 
-        I_B(9), B(8) => I_B(8), B(7) => I_B(7), B(6) => I_B(6), 
-        B(5) => I_B(5), B(4) => I_B(4), B(3) => I_B(3), B(2) => 
-        I_B(2), B(1) => I_B(1), B(0) => I_B(0), sample_rdy => 
-        OPEN, C(21) => \MULTIPLIER_0_C_[21]\, C(20) => 
+        sample_rdy_in, sample_rdy => OPEN, A(7) => I_A(7), A(6)
+         => I_A(6), A(5) => I_A(5), A(4) => I_A(4), A(3) => 
+        I_A(3), A(2) => I_A(2), A(1) => I_A(1), A(0) => I_A(0), 
+        B(13) => I_B(13), B(12) => I_B(12), B(11) => I_B(11), 
+        B(10) => I_B(10), B(9) => I_B(9), B(8) => I_B(8), B(7)
+         => I_B(7), B(6) => I_B(6), B(5) => I_B(5), B(4) => 
+        I_B(4), B(3) => I_B(3), B(2) => I_B(2), B(1) => I_B(1), 
+        B(0) => I_B(0), C(21) => \MULTIPLIER_0_C_[21]\, C(20) => 
         \MULTIPLIER_0_C_[20]\, C(19) => \MULTIPLIER_0_C_[19]\, 
         C(18) => \MULTIPLIER_0_C_[18]\, C(17) => 
         \MULTIPLIER_0_C_[17]\, C(16) => \MULTIPLIER_0_C_[16]\, 

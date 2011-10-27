@@ -1,0 +1,93 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+-include ../makefile.init
+
+RM := rm -rf
+
+# All of the sources participating in the build are defined here
+-include sources.mk
+-include subdir.mk
+-include lwip-1.4.0.rc2/src/netif/subdir.mk
+-include lwip-1.4.0.rc2/src/netif/ppp/subdir.mk
+-include lwip-1.4.0.rc2/src/core/subdir.mk
+-include lwip-1.4.0.rc2/src/core/snmp/subdir.mk
+-include lwip-1.4.0.rc2/src/core/ipv4/subdir.mk
+-include lwip-1.4.0.rc2/src/api/subdir.mk
+-include drivers/mss_pdma/subdir.mk
+-include drivers/mss_gpio/subdir.mk
+-include drivers/mss_ethernet_mac/subdir.mk
+-include arch/subdir.mk
+-include CMSIS/subdir.mk
+-include CMSIS/startup_gcc/subdir.mk
+-include objects.mk
+
+ifneq ($(MAKECMDGOALS),clean)
+ifneq ($(strip $(C_DEPS)),)
+-include $(C_DEPS)
+endif
+endif
+
+-include ../makefile.defs
+
+# Add inputs and outputs from these tool invocations to the build variables 
+MEMORYMAP += \
+memory-map.xml \
+
+IHEXFILES += \
+ADC_SPI_DMA_IPstack_UDP.hex \
+
+SRECFILES += \
+ADC_SPI_DMA_IPstack_UDP.srec \
+
+LISTINGS += \
+ADC_SPI_DMA_IPstack_UDP.lst \
+
+
+# All Target
+all: ADC_SPI_DMA_IPstack_UDP secondary-outputs
+
+# Tool invocations
+ADC_SPI_DMA_IPstack_UDP: $(OBJS) $(USER_OBJS)
+	@echo 'Building target: $@'
+	@echo 'Invoking: GNU C Linker'
+	arm-none-eabi-gcc -mthumb -mcpu=cortex-m3 -specs=bare.specs -T../CMSIS/startup_gcc/production-execute-in-place.ld -Wl,-Map=$(EXECUTABLE).map -o"ADC_SPI_DMA_IPstack_UDP" $(OBJS) $(USER_OBJS) $(LIBS)
+	@echo 'Finished building target: $@'
+	@echo ' '
+
+memory-map.xml: $(EXECUTABLE)
+	@echo 'Invoking: Memory map generator'
+	actel-map -o "memory-map.xml" $(EXECUTABLE) $(BUILDCMD)
+	@echo 'Finished building: $@'
+	@echo ' '
+
+ADC_SPI_DMA_IPstack_UDP.hex: $(EXECUTABLE)
+	@echo 'Invoking: GNU Intel Hex File Generator'
+	arm-none-eabi-objcopy -O ihex $(EXECUTABLE) "ADC_SPI_DMA_IPstack_UDP.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+ADC_SPI_DMA_IPstack_UDP.srec: $(EXECUTABLE)
+	@echo 'Invoking: GNU S-Record Generator'
+	arm-none-eabi-objcopy -O srec $(EXECUTABLE) "ADC_SPI_DMA_IPstack_UDP.srec"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+ADC_SPI_DMA_IPstack_UDP.lst: $(EXECUTABLE)
+	@echo 'Invoking: GNU Listing Generator'
+	arm-none-eabi-objdump -h -S $(EXECUTABLE) > "ADC_SPI_DMA_IPstack_UDP.lst"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+# Other Targets
+clean::
+	-$(RM) $(MEMORYMAP)$(OBJS)$(C_DEPS)$(SRECFILES)$(IHEXFILES)$(LISTINGS)$(EXECUTABLE) ADC_SPI_DMA_IPstack_UDP
+	-@echo ' '
+
+secondary-outputs: $(MEMORYMAP) $(IHEXFILES) $(SRECFILES) $(LISTINGS)
+
+.PHONY: all clean dependents
+.SECONDARY:
+
+-include ../makefile.targets

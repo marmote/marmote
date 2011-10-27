@@ -45,9 +45,9 @@ end entity;
 ------------------------------------------------------------------------------
 architecture Behavioral of MULTIPLIER is
 
-    signal As       : unsigned(c_A_WIDTH-1 downto 0);
-    signal Bs       : unsigned(c_B_WIDTH-1 downto 0);
-    signal Cs       : unsigned(c_C_WIDTH downto 0);
+    signal As       : signed(c_A_WIDTH-1 downto 0);
+    signal Bs       : signed(c_B_WIDTH-1 downto 0);
+    signal Cs       : signed(c_C_WIDTH downto 0);
 
     signal counter  : unsigned( log2_ceil(c_B_WIDTH+2) downto 1 );  
 
@@ -67,17 +67,21 @@ begin
             
             if counter > 1 then
                 -- Computing 
+
                 if Bs(Bs'HIGH) = '1' then
 
-                    Cs(c_C_WIDTH downto 1) <= Cs(c_C_WIDTH-1 downto 0) + As;
-                    Cs(0) <= '0';
+                    if counter = c_B_WIDTH+1 then
+                        Cs(c_C_WIDTH downto 1) <= Cs(c_C_WIDTH-1 downto 0) - As;
+                    else
+                        Cs(c_C_WIDTH downto 1) <= Cs(c_C_WIDTH-1 downto 0) + As;
+                    end if;
 
                 else
 
                     Cs(c_C_WIDTH downto 1) <= Cs(c_C_WIDTH-1 downto 0);
-                    Cs(0) <= '0';
 
                 end if;
+                Cs(0) <= '0';
 
                 Bs(c_B_WIDTH-1 downto 1) <= Bs(c_B_WIDTH-2 downto 0);
 
@@ -95,8 +99,8 @@ begin
 
                 if sample_rdy_in = '1' then
                     -- New input
-                    As <= unsigned(A);
-                    Bs <= unsigned(B);
+                    As <= signed(A);
+                    Bs <= signed(B);
 
                     Cs <= (others => '0');
                 

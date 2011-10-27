@@ -17,7 +17,7 @@ entity CIC_COMB_control is
         c_CIC_DECIMATION        : integer := pow2(c_CIC_ORDER);
         c_CIC_INNER_WIDTH       : integer := c_CIC_WIDTH + c_CIC_ORDER * c_CIC_ORDER;
         c_CIC_REG_WIDTH         : integer := 36;
-        c_CIC_REG_ADDR_WIDTH    : integer := 3;
+        c_CIC_REG_ADDR_WIDTH    : integer := 2;
         c_CIC_INPUT_CYCLE       : integer := 0  
     );
 
@@ -29,16 +29,16 @@ entity CIC_COMB_control is
         clk_counter : in    unsigned(log2_ceil(c_ADC_SAMPLING) downto 1);  
         dec_counter : in    unsigned(log2_ceil(c_CIC_DECIMATION) downto 1);
 
-        WD          : out   unsigned(c_CIC_REG_WIDTH-1 downto 0);
+        WD          : out   std_logic_vector(c_CIC_REG_WIDTH-1 downto 0);
         WADDR       : out   std_logic_vector(c_CIC_REG_ADDR_WIDTH-1 downto 0);
         RADDR       : out   std_logic_vector(c_CIC_REG_ADDR_WIDTH-1 downto 0);
         WEN         : out   std_logic;
         REN         : out   std_logic;
 
-        RD          : in    unsigned(c_CIC_REG_WIDTH-1 downto 0);
+        RD          : in    std_logic_vector(c_CIC_REG_WIDTH-1 downto 0);
 
 
-		INPUT       : in    unsigned(c_CIC_INNER_WIDTH-1 downto 0);
+		INPUT       : in    std_logic_vector(c_CIC_INNER_WIDTH-1 downto 0);
         OUTPUT      : out   std_logic_vector(c_CIC_INNER_WIDTH-1 downto 0);  
 
         SMPL_RDY    : out   std_logic
@@ -55,10 +55,10 @@ end entity;
 ------------------------------------------------------------------------------
 architecture Behavioral of CIC_COMB_control is
 
-    type sample_vector is array ( natural range <> ) of unsigned(c_CIC_INNER_WIDTH-1 downto 0);
+--    type sample_vector is array ( natural range <> ) of unsigned(c_CIC_INNER_WIDTH-1 downto 0);
 
 	-- Signals
-    signal comb             : unsigned(c_CIC_INNER_WIDTH-1 downto 0);  
+    signal comb             : signed(c_CIC_INNER_WIDTH-1 downto 0);  
 
     signal oddeven          : std_logic;      
 
@@ -76,7 +76,7 @@ begin
         elsif rising_edge(clk) and dec_counter = 0 then
 
             WD(c_CIC_REG_WIDTH-1 downto c_CIC_INNER_WIDTH) <= (others => comb(comb'high));
-            WD(c_CIC_INNER_WIDTH-1 downto 0) <= comb;
+            WD(c_CIC_INNER_WIDTH-1 downto 0) <= std_logic_vector(comb);
 
         end if;
     end process;
@@ -97,7 +97,7 @@ begin
             -- Get the newest sample form integrator
             if clk_counter = c_CIC_INPUT_CYCLE then
 
-                comb <= INPUT;
+                comb <= signed(INPUT);
 
             end if;
 
@@ -111,7 +111,7 @@ begin
 
                     if clk_counter = 2*(i-j)+j +2 then
 
-                        comb <= comb - RD(c_CIC_INNER_WIDTH-1 downto 0);
+                        comb <= comb - signed(RD(c_CIC_INNER_WIDTH-1 downto 0));
                     
                     end if;
 

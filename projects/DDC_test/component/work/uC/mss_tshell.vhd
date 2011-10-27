@@ -392,7 +392,7 @@ architecture DEF_ARCH of MSS_APB is
     attribute syn_tsu36 : string;
     attribute syn_tsu36 of DEF_ARCH : architecture is "MSSPREADY->FCLK=0";
     attribute syn_tco43 : string;
-    attribute syn_tco43 of DEF_ARCH : architecture is "FCLK->MSSPSEL=2.49";
+    attribute syn_tco43 of DEF_ARCH : architecture is "FCLK->MSSPSEL=12.49";
     attribute syn_tsu37 : string;
     attribute syn_tsu37 of DEF_ARCH : architecture is "MSSPSLVERR->FCLK=0";
     attribute syn_tco44 : string;

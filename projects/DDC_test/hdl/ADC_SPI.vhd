@@ -132,7 +132,10 @@ begin
 
             if rising_edge(PCLK) then
                 if prog(0) = '1' then
-                    samples(i) <= shift_regs(i)(SAMPLE_WIDTH-1 downto 0);
+
+                    -- WARNING!!! ADC GENERATES UNSIGNED NUMBERS WHEREAS WE NEED SIGNED NUMBERS, THUS THE MSB BIT IS INVERTED!
+                    samples(i) <= (not shift_regs(i)(SAMPLE_WIDTH-1)) & shift_regs(i)(SAMPLE_WIDTH-2 downto 0);
+
                 end if;
             end if;
         end process;

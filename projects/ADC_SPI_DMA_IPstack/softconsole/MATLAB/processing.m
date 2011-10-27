@@ -1,13 +1,6 @@
 function [ TS, chunk1, chunk2, chunk1fft, chunk2fft ] = processing( TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, Resolution, chunk )
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Variables
-    if TIME_STAMP == 1
-        N = (BUFF_LENGTH-1)*BUFF_MULTIPLIER;
-    else
-        N = BUFF_LENGTH*BUFF_MULTIPLIER;
-    end
-    
-    Full_Scale = 2^Resolution - 1;
+
+    setvariables();
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Signal processing    

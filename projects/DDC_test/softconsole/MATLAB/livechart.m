@@ -33,7 +33,7 @@ while (1)
         continue;
     end
     
-    chunk = fread(t, BUFF_LENGTH*BUFF_MULTIPLIER, 'uint32');
+    chunk = fread(t, BUFF_LENGTH*BUFF_MULTIPLIER, 'int32');
     
     elapsed_time = elapsed_time + toc(ticID);
     ticID = tic;    

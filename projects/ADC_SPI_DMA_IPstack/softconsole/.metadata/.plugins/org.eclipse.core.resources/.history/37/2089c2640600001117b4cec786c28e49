@@ -1,0 +1,30 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../lwip-1.4.0.rc2/src/netif/etharp.c \
+../lwip-1.4.0.rc2/src/netif/ethernetif.c \
+../lwip-1.4.0.rc2/src/netif/slipif.c 
+
+OBJS += \
+./lwip-1.4.0.rc2/src/netif/etharp.o \
+./lwip-1.4.0.rc2/src/netif/ethernetif.o \
+./lwip-1.4.0.rc2/src/netif/slipif.o 
+
+C_DEPS += \
+./lwip-1.4.0.rc2/src/netif/etharp.d \
+./lwip-1.4.0.rc2/src/netif/ethernetif.d \
+./lwip-1.4.0.rc2/src/netif/slipif.d 
+
+
+# Each subdirectory must supply rules for building sources it contributes
+lwip-1.4.0.rc2/src/netif/%.o: ../lwip-1.4.0.rc2/src/netif/%.c
+	@echo 'Building file: $<'
+	@echo 'Invoking: GNU C Compiler'
+	arm-none-eabi-gcc -mthumb -mcpu=cortex-m3 -I"..\lwip-1.4.0.rc2\src\include" -I"..\lwip-1.4.0.rc2\src\include\ipv4" -I".." -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+
