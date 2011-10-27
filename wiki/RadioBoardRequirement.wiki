@@ -9,3 +9,8 @@
 = Misc = 
 
  * May have a microphone and a speaker (footprint)
+
+= Candidate RF parts =
+
+|| *Vendor* || *Model* || *RX mixer* || *LPF* || *TX mixer* || *PLL* ||
+|| Analog Devices || [http://www.analog.com/static/imported-files/data_sheets/ADF9010.pdf ADF9010] || no || yes || yes || yes ||
