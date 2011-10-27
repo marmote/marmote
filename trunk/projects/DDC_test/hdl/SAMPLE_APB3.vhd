@@ -142,10 +142,15 @@ begin
                 case PADDR(7 downto 0) is
                     when c_ADDR_DATA =>
 
+--                        if oddeven_APB = '0' then
+--                            PRDATA <= samples(1)(7 downto 0) & samples(1)(15 downto 8) & samples(1)(23 downto 16) & samples(1)(31 downto 24);
+--                        else
+--                            PRDATA <= samples(2)(7 downto 0) & samples(2)(15 downto 8) & samples(2)(23 downto 16) & samples(2)(31 downto 24);
+--                        end if;
                         if oddeven_APB = '0' then
-                            PRDATA <= samples(1)(7 downto 0) & samples(1)(15 downto 8) & samples(1)(23 downto 16) & samples(1)(31 downto 24);
+                            PRDATA <= samples(1);
                         else
-                            PRDATA <= samples(2)(7 downto 0) & samples(2)(15 downto 8) & samples(2)(23 downto 16) & samples(2)(31 downto 24);
+                            PRDATA <= samples(2);
                         end if;
 
 
@@ -157,10 +162,15 @@ begin
 
                     when c_ADDR_COUNTER =>
 
+--                        if oddeven_APB = '0' then
+--                            PRDATA <= std_logic_vector(test_counter(7 downto 0)) & std_logic_vector(test_counter(15 downto 8)) & std_logic_vector(test_counter(23 downto 16)) & std_logic_vector(test_counter(31 downto 24));
+--                        else
+--                            PRDATA <= std_logic_vector(test_rev_counter(7 downto 0)) & std_logic_vector(test_rev_counter(15 downto 8)) & std_logic_vector(test_rev_counter(23 downto 16)) & std_logic_vector(test_rev_counter(31 downto 24));
+--                        end if;
                         if oddeven_APB = '0' then
-                            PRDATA <= std_logic_vector(test_counter(7 downto 0)) & std_logic_vector(test_counter(15 downto 8)) & std_logic_vector(test_counter(23 downto 16)) & std_logic_vector(test_counter(31 downto 24));
+                            PRDATA <= std_logic_vector(test_counter);
                         else
-                            PRDATA <= std_logic_vector(test_rev_counter(7 downto 0)) & std_logic_vector(test_rev_counter(15 downto 8)) & std_logic_vector(test_rev_counter(23 downto 16)) & std_logic_vector(test_rev_counter(31 downto 24));
+                            PRDATA <= std_logic_vector(test_rev_counter);
                         end if;
 
 
@@ -215,6 +225,7 @@ begin
             while i <= 2 loop
                 if SMPL_RDY_IN(i) = '1' then
                     samples(i) <= INPUT( i*c_APB3_WIDTH-1 downto (i-1)*c_APB3_WIDTH );
+--                    samples(i)(7 downto 0) <= (others => '1');
                 end if;
 
                 i := i + 1;

@@ -1,4 +1,4 @@
--- Version: 9.1 SP1 9.1.1.7
+-- Version: 9.1 SP3 9.1.3.4
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -929,10 +929,16 @@ begin
     
     SPI_APB_ADC_0 : entity work.SPI_APB_ADC
       port map(PCLK => uC_0_FAB_CLK, PRESETn => uC_0_M2F_RESET_N, 
-        PADDR(31) => GND_net, PADDR(30) => GND_net, PADDR(29) => 
-        GND_net, PADDR(28) => GND_net, PADDR(27) => GND_net, 
-        PADDR(26) => GND_net, PADDR(25) => GND_net, PADDR(24) => 
-        GND_net, PADDR(23) => \CoreAPB3_0_APBmslave0_PADDR_[23]\, 
+        PSEL => CoreAPB3_0_APBmslave0_PSELx, PENABLE => 
+        CoreAPB3_0_APBmslave0_PENABLE, PWRITE => 
+        CoreAPB3_0_APBmslave0_PWRITE, PREADY => 
+        CoreAPB3_0_APBmslave0_PREADY, PSLVERR => 
+        CoreAPB3_0_APBmslave0_PSLVERR, SCLK => SPI_APB_ADC_0_SCLK, 
+        CSn => SPI_APB_ADC_0_CSn, sample_rdy => net_2, PADDR(31)
+         => GND_net, PADDR(30) => GND_net, PADDR(29) => GND_net, 
+        PADDR(28) => GND_net, PADDR(27) => GND_net, PADDR(26) => 
+        GND_net, PADDR(25) => GND_net, PADDR(24) => GND_net, 
+        PADDR(23) => \CoreAPB3_0_APBmslave0_PADDR_[23]\, 
         PADDR(22) => \CoreAPB3_0_APBmslave0_PADDR_[22]\, 
         PADDR(21) => \CoreAPB3_0_APBmslave0_PADDR_[21]\, 
         PADDR(20) => \CoreAPB3_0_APBmslave0_PADDR_[20]\, 
@@ -955,10 +961,7 @@ begin
         \CoreAPB3_0_APBmslave0_PADDR_[3]\, PADDR(2) => 
         \CoreAPB3_0_APBmslave0_PADDR_[2]\, PADDR(1) => 
         \CoreAPB3_0_APBmslave0_PADDR_[1]\, PADDR(0) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[0]\, PSEL => 
-        CoreAPB3_0_APBmslave0_PSELx, PENABLE => 
-        CoreAPB3_0_APBmslave0_PENABLE, PWRITE => 
-        CoreAPB3_0_APBmslave0_PWRITE, PWDATA(31) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[0]\, PWDATA(31) => 
         \CoreAPB3_0_APBmslave0_PWDATA_[31]\, PWDATA(30) => 
         \CoreAPB3_0_APBmslave0_PWDATA_[30]\, PWDATA(29) => 
         \CoreAPB3_0_APBmslave0_PWDATA_[29]\, PWDATA(28) => 
@@ -990,8 +993,7 @@ begin
         \CoreAPB3_0_APBmslave0_PWDATA_[3]\, PWDATA(2) => 
         \CoreAPB3_0_APBmslave0_PWDATA_[2]\, PWDATA(1) => 
         \CoreAPB3_0_APBmslave0_PWDATA_[1]\, PWDATA(0) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[0]\, PREADY => 
-        CoreAPB3_0_APBmslave0_PREADY, PRDATA(31) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[0]\, PRDATA(31) => 
         \CoreAPB3_0_APBmslave0_PRDATA_[31]\, PRDATA(30) => 
         \CoreAPB3_0_APBmslave0_PRDATA_[30]\, PRDATA(29) => 
         \CoreAPB3_0_APBmslave0_PRDATA_[29]\, PRDATA(28) => 
@@ -1023,10 +1025,8 @@ begin
         \CoreAPB3_0_APBmslave0_PRDATA_[3]\, PRDATA(2) => 
         \CoreAPB3_0_APBmslave0_PRDATA_[2]\, PRDATA(1) => 
         \CoreAPB3_0_APBmslave0_PRDATA_[1]\, PRDATA(0) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[0]\, PSLVERR => 
-        CoreAPB3_0_APBmslave0_PSLVERR, SCLK => SPI_APB_ADC_0_SCLK, 
-        CSn => SPI_APB_ADC_0_CSn, SDATA(1) => uC_0_IO_7_Y, 
-        SDATA(2) => uC_0_IO_6_Y, sample_rdy => net_2);
+        \CoreAPB3_0_APBmslave0_PRDATA_[0]\, SDATA(1) => 
+        uC_0_IO_7_Y, SDATA(2) => uC_0_IO_6_Y);
     
     \GND\ : GND
       port map(Y => GND_net);

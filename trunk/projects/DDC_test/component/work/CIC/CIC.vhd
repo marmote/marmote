@@ -11,7 +11,7 @@ entity CIC is
           RST      : in    std_logic;
           SMPL_RDY : out   std_logic;
           INPUT    : in    std_logic_vector(22 downto 0);
-          OUTPUT   : out   std_logic_vector(31 downto 0)
+          OUTPUT   : out   std_logic_vector(26 downto 0)
         );
 
 end CIC;
@@ -29,23 +29,21 @@ architecture DEF_ARCH of CIC is
   end component;
 
   component CIC_COMB_mem
-    port( WEN   : in    std_logic := 'U';
-          REN   : in    std_logic := 'U';
-          RWCLK : in    std_logic := 'U';
-          RESET : in    std_logic := 'U';
-          WD    : in    std_logic_vector(35 downto 0) := (others => 'U');
+    port( WD    : in    std_logic_vector(35 downto 0) := (others => 'U');
           RD    : out   std_logic_vector(35 downto 0);
-          WADDR : in    std_logic_vector(2 downto 0) := (others => 'U');
-          RADDR : in    std_logic_vector(2 downto 0) := (others => 'U')
+          WEN   : in    std_logic := 'U';
+          REN   : in    std_logic := 'U';
+          WADDR : in    std_logic_vector(1 downto 0) := (others => 'U');
+          RADDR : in    std_logic_vector(1 downto 0) := (others => 'U');
+          RWCLK : in    std_logic := 'U';
+          RESET : in    std_logic := 'U'
         );
   end component;
 
-    signal \CIC_COMB_control_0_RADDR_[2]\, 
-        \CIC_COMB_control_0_RADDR_[1]\, 
-        \CIC_COMB_control_0_RADDR_[0]\, CIC_COMB_control_0_REN, 
-        \CIC_COMB_control_0_WADDR_[2]\, 
-        \CIC_COMB_control_0_WADDR_[1]\, 
-        \CIC_COMB_control_0_WADDR_[0]\, 
+    signal \CIC_COMB_control_0_RADDR_0_[1]\, 
+        \CIC_COMB_control_0_RADDR_0_[0]\, CIC_COMB_control_0_REN, 
+        \CIC_COMB_control_0_WADDR_0_[1]\, 
+        \CIC_COMB_control_0_WADDR_0_[0]\, 
         \CIC_COMB_control_0_WD_[35]\, 
         \CIC_COMB_control_0_WD_[34]\, 
         \CIC_COMB_control_0_WD_[33]\, 
@@ -100,26 +98,22 @@ architecture DEF_ARCH of CIC is
         \CIC_control_0_clk_counter_out_[3]\, 
         \CIC_control_0_clk_counter_out_[2]\, 
         \CIC_control_0_clk_counter_out_[1]\, 
-        \CIC_control_0_dec_counter_out_[3]\, 
-        \CIC_control_0_dec_counter_out_[2]\, 
-        \CIC_control_0_dec_counter_out_[1]\, 
-        \CIC_INT_0_OUTPUT_0_[31]\, \CIC_INT_0_OUTPUT_0_[30]\, 
-        \CIC_INT_0_OUTPUT_0_[29]\, \CIC_INT_0_OUTPUT_0_[28]\, 
-        \CIC_INT_0_OUTPUT_0_[27]\, \CIC_INT_0_OUTPUT_0_[26]\, 
-        \CIC_INT_0_OUTPUT_0_[25]\, \CIC_INT_0_OUTPUT_0_[24]\, 
-        \CIC_INT_0_OUTPUT_0_[23]\, \CIC_INT_0_OUTPUT_0_[22]\, 
-        \CIC_INT_0_OUTPUT_0_[21]\, \CIC_INT_0_OUTPUT_0_[20]\, 
-        \CIC_INT_0_OUTPUT_0_[19]\, \CIC_INT_0_OUTPUT_0_[18]\, 
-        \CIC_INT_0_OUTPUT_0_[17]\, \CIC_INT_0_OUTPUT_0_[16]\, 
-        \CIC_INT_0_OUTPUT_0_[15]\, \CIC_INT_0_OUTPUT_0_[14]\, 
-        \CIC_INT_0_OUTPUT_0_[13]\, \CIC_INT_0_OUTPUT_0_[12]\, 
-        \CIC_INT_0_OUTPUT_0_[11]\, \CIC_INT_0_OUTPUT_0_[10]\, 
-        \CIC_INT_0_OUTPUT_0_[9]\, \CIC_INT_0_OUTPUT_0_[8]\, 
-        \CIC_INT_0_OUTPUT_0_[7]\, \CIC_INT_0_OUTPUT_0_[6]\, 
-        \CIC_INT_0_OUTPUT_0_[5]\, \CIC_INT_0_OUTPUT_0_[4]\, 
-        \CIC_INT_0_OUTPUT_0_[3]\, \CIC_INT_0_OUTPUT_0_[2]\, 
-        \CIC_INT_0_OUTPUT_0_[1]\, \CIC_INT_0_OUTPUT_0_[0]\, 
-        GND_net, VCC_net : std_logic;
+        \CIC_control_0_dec_counter_out_0_[2]\, 
+        \CIC_control_0_dec_counter_out_0_[1]\, 
+        \CIC_INT_0_OUTPUT_1_[26]\, \CIC_INT_0_OUTPUT_1_[25]\, 
+        \CIC_INT_0_OUTPUT_1_[24]\, \CIC_INT_0_OUTPUT_1_[23]\, 
+        \CIC_INT_0_OUTPUT_1_[22]\, \CIC_INT_0_OUTPUT_1_[21]\, 
+        \CIC_INT_0_OUTPUT_1_[20]\, \CIC_INT_0_OUTPUT_1_[19]\, 
+        \CIC_INT_0_OUTPUT_1_[18]\, \CIC_INT_0_OUTPUT_1_[17]\, 
+        \CIC_INT_0_OUTPUT_1_[16]\, \CIC_INT_0_OUTPUT_1_[15]\, 
+        \CIC_INT_0_OUTPUT_1_[14]\, \CIC_INT_0_OUTPUT_1_[13]\, 
+        \CIC_INT_0_OUTPUT_1_[12]\, \CIC_INT_0_OUTPUT_1_[11]\, 
+        \CIC_INT_0_OUTPUT_1_[10]\, \CIC_INT_0_OUTPUT_1_[9]\, 
+        \CIC_INT_0_OUTPUT_1_[8]\, \CIC_INT_0_OUTPUT_1_[7]\, 
+        \CIC_INT_0_OUTPUT_1_[6]\, \CIC_INT_0_OUTPUT_1_[5]\, 
+        \CIC_INT_0_OUTPUT_1_[4]\, \CIC_INT_0_OUTPUT_1_[3]\, 
+        \CIC_INT_0_OUTPUT_1_[2]\, \CIC_INT_0_OUTPUT_1_[1]\, 
+        \CIC_INT_0_OUTPUT_1_[0]\, GND_net, VCC_net : std_logic;
 
 begin 
 
@@ -137,22 +131,19 @@ begin
         clk_counter_out(3) => \CIC_control_0_clk_counter_out_[3]\, 
         clk_counter_out(2) => \CIC_control_0_clk_counter_out_[2]\, 
         clk_counter_out(1) => \CIC_control_0_clk_counter_out_[1]\, 
-        dec_counter_out(3) => \CIC_control_0_dec_counter_out_[3]\, 
-        dec_counter_out(2) => \CIC_control_0_dec_counter_out_[2]\, 
-        dec_counter_out(1) => \CIC_control_0_dec_counter_out_[1]\);
+        dec_counter_out(2) => 
+        \CIC_control_0_dec_counter_out_0_[2]\, dec_counter_out(1)
+         => \CIC_control_0_dec_counter_out_0_[1]\);
     
     CIC_COMB_control_0 : entity work.CIC_COMB_control
-      port map(CLK => CLK, RST => RST, WEN => 
-        CIC_COMB_control_0_WEN, REN => CIC_COMB_control_0_REN, 
-        SMPL_RDY => SMPL_RDY, clk_counter(5) => 
+      port map(CLK => CLK, RST => RST, clk_counter(5) => 
         \CIC_control_0_clk_counter_out_[5]\, clk_counter(4) => 
         \CIC_control_0_clk_counter_out_[4]\, clk_counter(3) => 
         \CIC_control_0_clk_counter_out_[3]\, clk_counter(2) => 
         \CIC_control_0_clk_counter_out_[2]\, clk_counter(1) => 
-        \CIC_control_0_clk_counter_out_[1]\, dec_counter(3) => 
-        \CIC_control_0_dec_counter_out_[3]\, dec_counter(2) => 
-        \CIC_control_0_dec_counter_out_[2]\, dec_counter(1) => 
-        \CIC_control_0_dec_counter_out_[1]\, WD(35) => 
+        \CIC_control_0_clk_counter_out_[1]\, dec_counter(2) => 
+        \CIC_control_0_dec_counter_out_0_[2]\, dec_counter(1) => 
+        \CIC_control_0_dec_counter_out_0_[1]\, WD(35) => 
         \CIC_COMB_control_0_WD_[35]\, WD(34) => 
         \CIC_COMB_control_0_WD_[34]\, WD(33) => 
         \CIC_COMB_control_0_WD_[33]\, WD(32) => 
@@ -188,14 +179,13 @@ begin
         \CIC_COMB_control_0_WD_[3]\, WD(2) => 
         \CIC_COMB_control_0_WD_[2]\, WD(1) => 
         \CIC_COMB_control_0_WD_[1]\, WD(0) => 
-        \CIC_COMB_control_0_WD_[0]\, WADDR(2) => 
-        \CIC_COMB_control_0_WADDR_[2]\, WADDR(1) => 
-        \CIC_COMB_control_0_WADDR_[1]\, WADDR(0) => 
-        \CIC_COMB_control_0_WADDR_[0]\, RADDR(2) => 
-        \CIC_COMB_control_0_RADDR_[2]\, RADDR(1) => 
-        \CIC_COMB_control_0_RADDR_[1]\, RADDR(0) => 
-        \CIC_COMB_control_0_RADDR_[0]\, RD(35) => 
-        \CIC_COMB_mem_0_RD_[35]\, RD(34) => 
+        \CIC_COMB_control_0_WD_[0]\, WADDR(1) => 
+        \CIC_COMB_control_0_WADDR_0_[1]\, WADDR(0) => 
+        \CIC_COMB_control_0_WADDR_0_[0]\, RADDR(1) => 
+        \CIC_COMB_control_0_RADDR_0_[1]\, RADDR(0) => 
+        \CIC_COMB_control_0_RADDR_0_[0]\, WEN => 
+        CIC_COMB_control_0_WEN, REN => CIC_COMB_control_0_REN, 
+        RD(35) => \CIC_COMB_mem_0_RD_[35]\, RD(34) => 
         \CIC_COMB_mem_0_RD_[34]\, RD(33) => 
         \CIC_COMB_mem_0_RD_[33]\, RD(32) => 
         \CIC_COMB_mem_0_RD_[32]\, RD(31) => 
@@ -227,54 +217,47 @@ begin
         RD(4) => \CIC_COMB_mem_0_RD_[4]\, RD(3) => 
         \CIC_COMB_mem_0_RD_[3]\, RD(2) => \CIC_COMB_mem_0_RD_[2]\, 
         RD(1) => \CIC_COMB_mem_0_RD_[1]\, RD(0) => 
-        \CIC_COMB_mem_0_RD_[0]\, INPUT(31) => 
-        \CIC_INT_0_OUTPUT_0_[31]\, INPUT(30) => 
-        \CIC_INT_0_OUTPUT_0_[30]\, INPUT(29) => 
-        \CIC_INT_0_OUTPUT_0_[29]\, INPUT(28) => 
-        \CIC_INT_0_OUTPUT_0_[28]\, INPUT(27) => 
-        \CIC_INT_0_OUTPUT_0_[27]\, INPUT(26) => 
-        \CIC_INT_0_OUTPUT_0_[26]\, INPUT(25) => 
-        \CIC_INT_0_OUTPUT_0_[25]\, INPUT(24) => 
-        \CIC_INT_0_OUTPUT_0_[24]\, INPUT(23) => 
-        \CIC_INT_0_OUTPUT_0_[23]\, INPUT(22) => 
-        \CIC_INT_0_OUTPUT_0_[22]\, INPUT(21) => 
-        \CIC_INT_0_OUTPUT_0_[21]\, INPUT(20) => 
-        \CIC_INT_0_OUTPUT_0_[20]\, INPUT(19) => 
-        \CIC_INT_0_OUTPUT_0_[19]\, INPUT(18) => 
-        \CIC_INT_0_OUTPUT_0_[18]\, INPUT(17) => 
-        \CIC_INT_0_OUTPUT_0_[17]\, INPUT(16) => 
-        \CIC_INT_0_OUTPUT_0_[16]\, INPUT(15) => 
-        \CIC_INT_0_OUTPUT_0_[15]\, INPUT(14) => 
-        \CIC_INT_0_OUTPUT_0_[14]\, INPUT(13) => 
-        \CIC_INT_0_OUTPUT_0_[13]\, INPUT(12) => 
-        \CIC_INT_0_OUTPUT_0_[12]\, INPUT(11) => 
-        \CIC_INT_0_OUTPUT_0_[11]\, INPUT(10) => 
-        \CIC_INT_0_OUTPUT_0_[10]\, INPUT(9) => 
-        \CIC_INT_0_OUTPUT_0_[9]\, INPUT(8) => 
-        \CIC_INT_0_OUTPUT_0_[8]\, INPUT(7) => 
-        \CIC_INT_0_OUTPUT_0_[7]\, INPUT(6) => 
-        \CIC_INT_0_OUTPUT_0_[6]\, INPUT(5) => 
-        \CIC_INT_0_OUTPUT_0_[5]\, INPUT(4) => 
-        \CIC_INT_0_OUTPUT_0_[4]\, INPUT(3) => 
-        \CIC_INT_0_OUTPUT_0_[3]\, INPUT(2) => 
-        \CIC_INT_0_OUTPUT_0_[2]\, INPUT(1) => 
-        \CIC_INT_0_OUTPUT_0_[1]\, INPUT(0) => 
-        \CIC_INT_0_OUTPUT_0_[0]\, OUTPUT(31) => OUTPUT(31), 
-        OUTPUT(30) => OUTPUT(30), OUTPUT(29) => OUTPUT(29), 
-        OUTPUT(28) => OUTPUT(28), OUTPUT(27) => OUTPUT(27), 
-        OUTPUT(26) => OUTPUT(26), OUTPUT(25) => OUTPUT(25), 
-        OUTPUT(24) => OUTPUT(24), OUTPUT(23) => OUTPUT(23), 
-        OUTPUT(22) => OUTPUT(22), OUTPUT(21) => OUTPUT(21), 
-        OUTPUT(20) => OUTPUT(20), OUTPUT(19) => OUTPUT(19), 
-        OUTPUT(18) => OUTPUT(18), OUTPUT(17) => OUTPUT(17), 
-        OUTPUT(16) => OUTPUT(16), OUTPUT(15) => OUTPUT(15), 
-        OUTPUT(14) => OUTPUT(14), OUTPUT(13) => OUTPUT(13), 
-        OUTPUT(12) => OUTPUT(12), OUTPUT(11) => OUTPUT(11), 
-        OUTPUT(10) => OUTPUT(10), OUTPUT(9) => OUTPUT(9), 
-        OUTPUT(8) => OUTPUT(8), OUTPUT(7) => OUTPUT(7), OUTPUT(6)
-         => OUTPUT(6), OUTPUT(5) => OUTPUT(5), OUTPUT(4) => 
-        OUTPUT(4), OUTPUT(3) => OUTPUT(3), OUTPUT(2) => OUTPUT(2), 
-        OUTPUT(1) => OUTPUT(1), OUTPUT(0) => OUTPUT(0));
+        \CIC_COMB_mem_0_RD_[0]\, INPUT(26) => 
+        \CIC_INT_0_OUTPUT_1_[26]\, INPUT(25) => 
+        \CIC_INT_0_OUTPUT_1_[25]\, INPUT(24) => 
+        \CIC_INT_0_OUTPUT_1_[24]\, INPUT(23) => 
+        \CIC_INT_0_OUTPUT_1_[23]\, INPUT(22) => 
+        \CIC_INT_0_OUTPUT_1_[22]\, INPUT(21) => 
+        \CIC_INT_0_OUTPUT_1_[21]\, INPUT(20) => 
+        \CIC_INT_0_OUTPUT_1_[20]\, INPUT(19) => 
+        \CIC_INT_0_OUTPUT_1_[19]\, INPUT(18) => 
+        \CIC_INT_0_OUTPUT_1_[18]\, INPUT(17) => 
+        \CIC_INT_0_OUTPUT_1_[17]\, INPUT(16) => 
+        \CIC_INT_0_OUTPUT_1_[16]\, INPUT(15) => 
+        \CIC_INT_0_OUTPUT_1_[15]\, INPUT(14) => 
+        \CIC_INT_0_OUTPUT_1_[14]\, INPUT(13) => 
+        \CIC_INT_0_OUTPUT_1_[13]\, INPUT(12) => 
+        \CIC_INT_0_OUTPUT_1_[12]\, INPUT(11) => 
+        \CIC_INT_0_OUTPUT_1_[11]\, INPUT(10) => 
+        \CIC_INT_0_OUTPUT_1_[10]\, INPUT(9) => 
+        \CIC_INT_0_OUTPUT_1_[9]\, INPUT(8) => 
+        \CIC_INT_0_OUTPUT_1_[8]\, INPUT(7) => 
+        \CIC_INT_0_OUTPUT_1_[7]\, INPUT(6) => 
+        \CIC_INT_0_OUTPUT_1_[6]\, INPUT(5) => 
+        \CIC_INT_0_OUTPUT_1_[5]\, INPUT(4) => 
+        \CIC_INT_0_OUTPUT_1_[4]\, INPUT(3) => 
+        \CIC_INT_0_OUTPUT_1_[3]\, INPUT(2) => 
+        \CIC_INT_0_OUTPUT_1_[2]\, INPUT(1) => 
+        \CIC_INT_0_OUTPUT_1_[1]\, INPUT(0) => 
+        \CIC_INT_0_OUTPUT_1_[0]\, OUTPUT(26) => OUTPUT(26), 
+        OUTPUT(25) => OUTPUT(25), OUTPUT(24) => OUTPUT(24), 
+        OUTPUT(23) => OUTPUT(23), OUTPUT(22) => OUTPUT(22), 
+        OUTPUT(21) => OUTPUT(21), OUTPUT(20) => OUTPUT(20), 
+        OUTPUT(19) => OUTPUT(19), OUTPUT(18) => OUTPUT(18), 
+        OUTPUT(17) => OUTPUT(17), OUTPUT(16) => OUTPUT(16), 
+        OUTPUT(15) => OUTPUT(15), OUTPUT(14) => OUTPUT(14), 
+        OUTPUT(13) => OUTPUT(13), OUTPUT(12) => OUTPUT(12), 
+        OUTPUT(11) => OUTPUT(11), OUTPUT(10) => OUTPUT(10), 
+        OUTPUT(9) => OUTPUT(9), OUTPUT(8) => OUTPUT(8), OUTPUT(7)
+         => OUTPUT(7), OUTPUT(6) => OUTPUT(6), OUTPUT(5) => 
+        OUTPUT(5), OUTPUT(4) => OUTPUT(4), OUTPUT(3) => OUTPUT(3), 
+        OUTPUT(2) => OUTPUT(2), OUTPUT(1) => OUTPUT(1), OUTPUT(0)
+         => OUTPUT(0), SMPL_RDY => SMPL_RDY);
     
     CIC_INT_0 : entity work.CIC_INT
       port map(CLK => CLK, RST => RST, clk_counter(5) => 
@@ -292,43 +275,36 @@ begin
         INPUT(7) => INPUT(7), INPUT(6) => INPUT(6), INPUT(5) => 
         INPUT(5), INPUT(4) => INPUT(4), INPUT(3) => INPUT(3), 
         INPUT(2) => INPUT(2), INPUT(1) => INPUT(1), INPUT(0) => 
-        INPUT(0), OUTPUT(31) => \CIC_INT_0_OUTPUT_0_[31]\, 
-        OUTPUT(30) => \CIC_INT_0_OUTPUT_0_[30]\, OUTPUT(29) => 
-        \CIC_INT_0_OUTPUT_0_[29]\, OUTPUT(28) => 
-        \CIC_INT_0_OUTPUT_0_[28]\, OUTPUT(27) => 
-        \CIC_INT_0_OUTPUT_0_[27]\, OUTPUT(26) => 
-        \CIC_INT_0_OUTPUT_0_[26]\, OUTPUT(25) => 
-        \CIC_INT_0_OUTPUT_0_[25]\, OUTPUT(24) => 
-        \CIC_INT_0_OUTPUT_0_[24]\, OUTPUT(23) => 
-        \CIC_INT_0_OUTPUT_0_[23]\, OUTPUT(22) => 
-        \CIC_INT_0_OUTPUT_0_[22]\, OUTPUT(21) => 
-        \CIC_INT_0_OUTPUT_0_[21]\, OUTPUT(20) => 
-        \CIC_INT_0_OUTPUT_0_[20]\, OUTPUT(19) => 
-        \CIC_INT_0_OUTPUT_0_[19]\, OUTPUT(18) => 
-        \CIC_INT_0_OUTPUT_0_[18]\, OUTPUT(17) => 
-        \CIC_INT_0_OUTPUT_0_[17]\, OUTPUT(16) => 
-        \CIC_INT_0_OUTPUT_0_[16]\, OUTPUT(15) => 
-        \CIC_INT_0_OUTPUT_0_[15]\, OUTPUT(14) => 
-        \CIC_INT_0_OUTPUT_0_[14]\, OUTPUT(13) => 
-        \CIC_INT_0_OUTPUT_0_[13]\, OUTPUT(12) => 
-        \CIC_INT_0_OUTPUT_0_[12]\, OUTPUT(11) => 
-        \CIC_INT_0_OUTPUT_0_[11]\, OUTPUT(10) => 
-        \CIC_INT_0_OUTPUT_0_[10]\, OUTPUT(9) => 
-        \CIC_INT_0_OUTPUT_0_[9]\, OUTPUT(8) => 
-        \CIC_INT_0_OUTPUT_0_[8]\, OUTPUT(7) => 
-        \CIC_INT_0_OUTPUT_0_[7]\, OUTPUT(6) => 
-        \CIC_INT_0_OUTPUT_0_[6]\, OUTPUT(5) => 
-        \CIC_INT_0_OUTPUT_0_[5]\, OUTPUT(4) => 
-        \CIC_INT_0_OUTPUT_0_[4]\, OUTPUT(3) => 
-        \CIC_INT_0_OUTPUT_0_[3]\, OUTPUT(2) => 
-        \CIC_INT_0_OUTPUT_0_[2]\, OUTPUT(1) => 
-        \CIC_INT_0_OUTPUT_0_[1]\, OUTPUT(0) => 
-        \CIC_INT_0_OUTPUT_0_[0]\);
+        INPUT(0), OUTPUT(26) => \CIC_INT_0_OUTPUT_1_[26]\, 
+        OUTPUT(25) => \CIC_INT_0_OUTPUT_1_[25]\, OUTPUT(24) => 
+        \CIC_INT_0_OUTPUT_1_[24]\, OUTPUT(23) => 
+        \CIC_INT_0_OUTPUT_1_[23]\, OUTPUT(22) => 
+        \CIC_INT_0_OUTPUT_1_[22]\, OUTPUT(21) => 
+        \CIC_INT_0_OUTPUT_1_[21]\, OUTPUT(20) => 
+        \CIC_INT_0_OUTPUT_1_[20]\, OUTPUT(19) => 
+        \CIC_INT_0_OUTPUT_1_[19]\, OUTPUT(18) => 
+        \CIC_INT_0_OUTPUT_1_[18]\, OUTPUT(17) => 
+        \CIC_INT_0_OUTPUT_1_[17]\, OUTPUT(16) => 
+        \CIC_INT_0_OUTPUT_1_[16]\, OUTPUT(15) => 
+        \CIC_INT_0_OUTPUT_1_[15]\, OUTPUT(14) => 
+        \CIC_INT_0_OUTPUT_1_[14]\, OUTPUT(13) => 
+        \CIC_INT_0_OUTPUT_1_[13]\, OUTPUT(12) => 
+        \CIC_INT_0_OUTPUT_1_[12]\, OUTPUT(11) => 
+        \CIC_INT_0_OUTPUT_1_[11]\, OUTPUT(10) => 
+        \CIC_INT_0_OUTPUT_1_[10]\, OUTPUT(9) => 
+        \CIC_INT_0_OUTPUT_1_[9]\, OUTPUT(8) => 
+        \CIC_INT_0_OUTPUT_1_[8]\, OUTPUT(7) => 
+        \CIC_INT_0_OUTPUT_1_[7]\, OUTPUT(6) => 
+        \CIC_INT_0_OUTPUT_1_[6]\, OUTPUT(5) => 
+        \CIC_INT_0_OUTPUT_1_[5]\, OUTPUT(4) => 
+        \CIC_INT_0_OUTPUT_1_[4]\, OUTPUT(3) => 
+        \CIC_INT_0_OUTPUT_1_[3]\, OUTPUT(2) => 
+        \CIC_INT_0_OUTPUT_1_[2]\, OUTPUT(1) => 
+        \CIC_INT_0_OUTPUT_1_[1]\, OUTPUT(0) => 
+        \CIC_INT_0_OUTPUT_1_[0]\);
     
     CIC_COMB_mem_0 : CIC_COMB_mem
-      port map(WEN => CIC_COMB_control_0_WEN, REN => 
-        CIC_COMB_control_0_REN, RWCLK => CLK, RESET => RST, 
-        WD(35) => \CIC_COMB_control_0_WD_[35]\, WD(34) => 
+      port map(WD(35) => \CIC_COMB_control_0_WD_[35]\, WD(34) => 
         \CIC_COMB_control_0_WD_[34]\, WD(33) => 
         \CIC_COMB_control_0_WD_[33]\, WD(32) => 
         \CIC_COMB_control_0_WD_[32]\, WD(31) => 
@@ -396,13 +372,13 @@ begin
         RD(4) => \CIC_COMB_mem_0_RD_[4]\, RD(3) => 
         \CIC_COMB_mem_0_RD_[3]\, RD(2) => \CIC_COMB_mem_0_RD_[2]\, 
         RD(1) => \CIC_COMB_mem_0_RD_[1]\, RD(0) => 
-        \CIC_COMB_mem_0_RD_[0]\, WADDR(2) => 
-        \CIC_COMB_control_0_WADDR_[2]\, WADDR(1) => 
-        \CIC_COMB_control_0_WADDR_[1]\, WADDR(0) => 
-        \CIC_COMB_control_0_WADDR_[0]\, RADDR(2) => 
-        \CIC_COMB_control_0_RADDR_[2]\, RADDR(1) => 
-        \CIC_COMB_control_0_RADDR_[1]\, RADDR(0) => 
-        \CIC_COMB_control_0_RADDR_[0]\);
+        \CIC_COMB_mem_0_RD_[0]\, WEN => CIC_COMB_control_0_WEN, 
+        REN => CIC_COMB_control_0_REN, WADDR(1) => 
+        \CIC_COMB_control_0_WADDR_0_[1]\, WADDR(0) => 
+        \CIC_COMB_control_0_WADDR_0_[0]\, RADDR(1) => 
+        \CIC_COMB_control_0_RADDR_0_[1]\, RADDR(0) => 
+        \CIC_COMB_control_0_RADDR_0_[0]\, RWCLK => CLK, RESET => 
+        RST);
     
 
 end DEF_ARCH; 

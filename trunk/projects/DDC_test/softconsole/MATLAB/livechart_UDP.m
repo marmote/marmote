@@ -7,6 +7,7 @@ disp('Opening UDP connection');
 
 % Create TCP/IP object 't'. Specify server machine and port number. 
 u = udp('192.168.1.2', 49151);%, 'LocalPort', 49152);
+set(u,'Timeout',10) 
 
 %rec_buff_size = BUFF_LENGTH*BUFF_MULTIPLIER*32/8;
 % Set size of receiving buffer, if needed. 
@@ -18,7 +19,7 @@ fopen(u);
 % Pause for the communication delay, if needed. 
 %pause(0.05) 
 
-fwrite(u, 0, 'uint32');
+fwrite(u, 0, 'int32');
 
 elapsed_time = 0;
 ticID = tic;
@@ -40,8 +41,8 @@ while (1)
 %    if (BytesAvailable < rec_buff_size)
 %        continue;
 %    end
-    temp = fread(u, BUFF_LENGTH, 'uint32');
-
+    temp = swapbytes(int32(fread(u, BUFF_LENGTH, 'int32')));
+    
     temp_length = length(temp);
     
 %    if temp_length < BUFF_LENGTH

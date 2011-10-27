@@ -1,6 +1,6 @@
  ** Message System Log
  ** Database: 
- ** Date:   Wed Oct 12 12:05:34 2011
+ ** Date:   Wed Oct 26 16:04:26 2011
 
 
 ****************
@@ -18,9 +18,9 @@ LP                              : None
 FF                              : None
 Read Clock                      : Rising
 Write Clock                     : Rising
-Write Depth                     : 6
+Write Depth                     : 4
 Write Width                     : 36
-Read Depth                      : 6
+Read Depth                      : 4
 Read Width                      : 36
 RAM Type                        : Two Port
 Clocks                          : Single Read/Write Clock
@@ -86,5 +86,5 @@ Netlist Resource Report
 Wrote VHDL netlist to
 D:/Work/marmote/projects/DDC_test/smartgen\CIC_COMB_mem\CIC_COMB_mem.vhd.
 
- ** Log Ended:   Wed Oct 12 12:05:35 2011
+ ** Log Ended:   Wed Oct 26 16:04:27 2011
 

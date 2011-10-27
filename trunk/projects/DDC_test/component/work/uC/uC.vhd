@@ -461,8 +461,8 @@ begin
       port map(D => MSS_MAC_0_TXD_1_D, PAD => MAC_0_TXD(1));
     
     MSS_ADLIB_INST : MSS_APB
-      generic map(ACT_CONFIG => 0, ACT_DIE => "IP4X3M1",
-         ACT_FCLK => 50000000, ACT_PKG => "fg484")
+      generic map(ACT_CONFIG => 128, ACT_DIE => "IP4X3M1",
+         ACT_FCLK => 100000000, ACT_PKG => "fg484")
 
       port map(MSSPADDR(19) => MSSPADDR(19), MSSPADDR(18) => 
         MSSPADDR(18), MSSPADDR(17) => MSSPADDR(17), MSSPADDR(16)

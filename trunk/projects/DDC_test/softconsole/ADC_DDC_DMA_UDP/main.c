@@ -70,7 +70,7 @@
 
 //#define BUFF_LENGTH				TCP_SND_BUF/sizeof(uint32_t)
 
-#define BUFF_LENGTH				64
+#define BUFF_LENGTH				128
 #define NB_OF_SAMPLE_BUFFERS	3 //MIN 3 !!!!!!!
 
 
@@ -127,14 +127,15 @@ unsigned long sys_now(void)
 #	ifdef TIME_STAMP
 void set_time_stamp(uint8_t buf_num)
 {
-    buffer[buf_num][0] = //counter;
+    buffer[buf_num][0] = counter;
+/*    buffer[buf_num][0] =
         	((counter & 0xFF000000) >> 24)
 			|
            	((counter & 0x00FF0000) >> 8)
            	|
            	((counter & 0x0000FF00) << 8)
            	|
-           	((counter & 0x000000FF) << 24);
+           	((counter & 0x000000FF) << 24);*/
 
     counter++;
 

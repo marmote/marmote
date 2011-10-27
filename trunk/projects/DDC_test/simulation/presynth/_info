@@ -4,8 +4,8 @@ K3
 cModel Technology
 Z0 dD:\Work\marmote\projects\DDC_test\simulation
 Eaddersubtractor
-Z1 w1318865589
-Z2 DPx4 work 6 common 0 22 ObPaIMGE2D8SC=Hk@1kMz2
+Z1 w1319645715
+Z2 DPx4 work 6 common 0 22 gY=[AhFk7P`Rf:kYQET3E3
 Z3 DPx4 ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
 Z4 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
 Z5 dD:\Work\marmote\projects\DDC_test\simulation
@@ -13,26 +13,26 @@ Z6 8D:/Work/marmote/projects/DDC_test/hdl/ADDERSUBTRACTOR.vhd
 Z7 FD:/Work/marmote/projects/DDC_test/hdl/ADDERSUBTRACTOR.vhd
 l0
 L15
-VK1j8DEokQ`8;`0LQcUOUo3
+VL;2glL:H?>7d0CNEkLBbL0
 Z8 OW;C;6.6d;45
 31
 Z9 o-93 -explicit -work presynth -O0
-!s100 k@UWUfYBmLIf5oRIagcMV3
+!s100 <T2Ae?aV=k4_S<[LE42Ao3
 Abehavioral
 R2
 R3
 R4
-Z10 DEx4 work 15 addersubtractor 0 22 K1j8DEokQ`8;`0LQcUOUo3
+Z10 DEx4 work 15 addersubtractor 0 22 L;2glL:H?>7d0CNEkLBbL0
 l48
 L44
-VIHZl6zeDRmdgPO?Pad8T^1
+V>6iWcWE0_bU`EKbQW==g=2
 R8
 31
 Z11 Mx3 4 ieee 14 std_logic_1164
 Z12 Mx2 4 ieee 11 numeric_std
 Z13 Mx1 4 work 6 common
 R9
-!s100 NIMYJS=J5l;mj[L>>Njz`3
+!s100 mBI4inDG:KAPGCP<ZXnU83
 Ecic
 Z14 w1318866016
 R4
@@ -49,9 +49,9 @@ R9
 Adef_arch
 Z17 DEx4 work 7 cic_int 0 22 [iOnk>zVcLb8bAa7zUCaF3
 Z18 DEx4 work 16 cic_comb_control 0 22 N1DR_S@Db0IAPf?USUc5]1
-R2
+Z19 DPx4 work 6 common 0 22 ObPaIMGE2D8SC=Hk@1kMz2
 R3
-Z19 DEx4 work 11 cic_control 0 22 <bhKe]:PW>mcN39aC8fIH2
+Z20 DEx4 work 11 cic_control 0 22 <bhKe]:PW>mcN39aC8fIH2
 R4
 DEx4 work 3 cic 0 22 Y`ZRVc;Rm`TXSoZB=MRaj1
 l124
@@ -65,13 +65,13 @@ R13
 R9
 !s100 AYnJ2VchMzGMlZTfYW_130
 Ecic_comb_control
-Z20 w1318949275
-R2
+Z21 w1318949275
+R19
 R3
 R4
 R5
-Z21 8D:/Work/marmote/projects/DDC_test/hdl/CIC_COMB_control.vhd
-Z22 FD:/Work/marmote/projects/DDC_test/hdl/CIC_COMB_control.vhd
+Z22 8D:/Work/marmote/projects/DDC_test/hdl/CIC_COMB_control.vhd
+Z23 FD:/Work/marmote/projects/DDC_test/hdl/CIC_COMB_control.vhd
 l0
 L15
 VN1DR_S@Db0IAPf?USUc5]1
@@ -80,7 +80,7 @@ R8
 R9
 !s100 mC_hC2[dg>[R`eAS8LCoi3
 Abehavioral
-R2
+R19
 R3
 R4
 R18
@@ -95,11 +95,11 @@ R13
 R9
 !s100 dF0mlDhZdz@Skcz936eg[2
 Ecic_comb_mem
-Z23 w1318439136
+Z24 w1318439136
 R4
 R5
-Z24 8D:/Work/marmote/projects/DDC_test/smartgen/CIC_COMB_mem/CIC_COMB_mem.vhd
-Z25 FD:/Work/marmote/projects/DDC_test/smartgen/CIC_COMB_mem/CIC_COMB_mem.vhd
+Z25 8D:/Work/marmote/projects/DDC_test/smartgen/CIC_COMB_mem/CIC_COMB_mem.vhd
+Z26 FD:/Work/marmote/projects/DDC_test/smartgen/CIC_COMB_mem/CIC_COMB_mem.vhd
 l0
 L8
 VSCME:>g>NO<gMj:Sk=Q:13
@@ -115,17 +115,17 @@ L17
 VFeKh<hShaiXecl_jVhK<M0
 R8
 31
-Z26 Mx1 4 ieee 14 std_logic_1164
+Z27 Mx1 4 ieee 14 std_logic_1164
 R9
 !s100 on`7Q]S=MB<ka4E[fh7Rl2
 Ecic_control
-Z27 w1318424959
-R2
+Z28 w1318424959
+R19
 R3
 R4
 R5
-Z28 8D:/Work/marmote/projects/DDC_test/hdl/CIC_control.vhd
-Z29 FD:/Work/marmote/projects/DDC_test/hdl/CIC_control.vhd
+Z29 8D:/Work/marmote/projects/DDC_test/hdl/CIC_control.vhd
+Z30 FD:/Work/marmote/projects/DDC_test/hdl/CIC_control.vhd
 l0
 L15
 V<bhKe]:PW>mcN39aC8fIH2
@@ -134,10 +134,10 @@ R8
 R9
 !s100 A89lZE0HYTcPIoZ=B3P<U1
 Abehavioral
-R2
+R19
 R3
 R4
-R19
+R20
 l44
 L38
 V54dVF1=[Fd1OD[k<CD>nC1
@@ -149,13 +149,13 @@ R13
 R9
 !s100 S?Azn1Wb=@3lXUU^G9HWX2
 Ecic_int
-Z30 w1318350368
-R2
+Z31 w1318350368
+R19
 R3
 R4
 R5
-Z31 8D:/Work/marmote/projects/DDC_test/hdl/CIC_INT.vhd
-Z32 FD:/Work/marmote/projects/DDC_test/hdl/CIC_INT.vhd
+Z32 8D:/Work/marmote/projects/DDC_test/hdl/CIC_INT.vhd
+Z33 FD:/Work/marmote/projects/DDC_test/hdl/CIC_INT.vhd
 l0
 L15
 V[iOnk>zVcLb8bAa7zUCaF3
@@ -164,7 +164,7 @@ R8
 R9
 !s100 g=M?2<M<7DN:DScP4II:G0
 Abehavioral
-R2
+R19
 R3
 R4
 R17
@@ -179,13 +179,13 @@ R13
 R9
 !s100 JG:QJ;97H>ia9oVm^jGQk2
 Ecic_tb
-Z33 w1318948919
-R2
+Z34 w1318948919
+R19
 R3
 R4
 R5
-Z34 8D:/Work/marmote/projects/DDC_test/stimulus/CIC_testbench.vhd
-Z35 FD:/Work/marmote/projects/DDC_test/stimulus/CIC_testbench.vhd
+Z35 8D:/Work/marmote/projects/DDC_test/stimulus/CIC_testbench.vhd
+Z36 FD:/Work/marmote/projects/DDC_test/stimulus/CIC_testbench.vhd
 l0
 L13
 V`n<dOeD@fOzQJ809Pa@3J1
@@ -194,7 +194,7 @@ R8
 R9
 !s100 FQMeS0I62UZkLj]P:e?C=2
 Abench
-R2
+R19
 R3
 R4
 DEx4 work 6 cic_tb 0 22 `n<dOeD@fOzQJ809Pa@3J1
@@ -211,22 +211,22 @@ R9
 Pcommon
 R3
 R4
-Z36 w1318865796
+Z37 w1319662859
 R5
-Z37 8D:/Work/marmote/projects/DDC_test/hdl/common.vhd
-Z38 FD:/Work/marmote/projects/DDC_test/hdl/common.vhd
+Z38 8D:/Work/marmote/projects/DDC_test/hdl/common.vhd
+Z39 FD:/Work/marmote/projects/DDC_test/hdl/common.vhd
 l0
 L13
-VObPaIMGE2D8SC=Hk@1kMz2
+VgY=[AhFk7P`Rf:kYQET3E3
 R8
 31
 b1
-Z39 Mx2 4 ieee 14 std_logic_1164
-Z40 Mx1 4 ieee 11 numeric_std
+Z40 Mx2 4 ieee 14 std_logic_1164
+Z41 Mx1 4 ieee 11 numeric_std
 R9
-!s100 ?kJ4hz2a3d@jR5[dVaE=m1
+!s100 @DMR_Ycm<]D3341g7`aUW0
 Bbody
-DBx4 work 6 common 0 22 ObPaIMGE2D8SC=Hk@1kMz2
+DBx4 work 6 common 0 22 gY=[AhFk7P`Rf:kYQET3E3
 R3
 R4
 l0
@@ -234,109 +234,109 @@ L76
 VL2@moY8UlcdjN8]BCg0Ha2
 R8
 31
-R39
 R40
+R41
 R9
 nbody
 !s100 5Q[di2cgm`4>3eeanjzhW3
 Ecomplex_mult
-Z41 w1318866024
+Z42 w1319722780
 R4
 R5
-Z42 8D:/Work/marmote/projects/DDC_test/component/work/complex_mult/complex_mult.vhd
-Z43 FD:/Work/marmote/projects/DDC_test/component/work/complex_mult/complex_mult.vhd
+Z43 8D:/Work/marmote/projects/DDC_test/component/work/complex_mult/complex_mult.vhd
+Z44 FD:/Work/marmote/projects/DDC_test/component/work/complex_mult/complex_mult.vhd
 l0
 L8
-VzU_HQX]k7:BM3_gKfg=h]1
+VHgUVNgNb41];<=SA2lT@?1
 R8
 31
 R9
-!s100 oQAA_]O4e[eHKlBiMUHY]2
+!s100 :lDWSDmCW2IP:CjaP80Ui2
 Adef_arch
 R10
 R2
 R3
-Z44 DEx4 work 10 multiplier 0 22 gI2e;X<A<FQbi4P2h:@:N3
+Z45 DEx4 work 10 multiplier 0 22 Qh<^<:DXkU>KmX_HM:Nz70
 R4
-DEx4 work 12 complex_mult 0 22 zU_HQX]k7:BM3_gKfg=h]1
+DEx4 work 12 complex_mult 0 22 HgUVNgNb41];<=SA2lT@?1
 l81
 L23
-VzclO=enOfh?<J`M;U=@Hd1
+VzAl29b?J2MFNR>IoUn^cD3
 R8
 31
 R11
 R12
 R13
 R9
-!s100 :7[ee_V1CN^SEzB3nbYFF3
+!s100 TJPi8b`>e;bmcm_H`S`aW1
 Ecomplex_mult_tb
-Z45 w1319034425
+Z46 w1319725494
 R2
 R3
 R4
 R5
-Z46 8D:/Work/marmote/projects/DDC_test/stimulus/complex_mult_testbench.vhd
-Z47 FD:/Work/marmote/projects/DDC_test/stimulus/complex_mult_testbench.vhd
+Z47 8D:/Work/marmote/projects/DDC_test/stimulus/complex_mult_testbench.vhd
+Z48 FD:/Work/marmote/projects/DDC_test/stimulus/complex_mult_testbench.vhd
 l0
 L13
 VIMzmIWVY1BeaYdI54`2FN1
-!s100 c:Ckf::g6Mjj>YfnJhYR`2
 R8
 31
 R9
+!s100 c:Ckf::g6Mjj>YfnJhYR`2
 Abench
 R2
 R3
 R4
-Z48 DEx4 work 15 complex_mult_tb 0 22 IMzmIWVY1BeaYdI54`2FN1
+DEx4 work 15 complex_mult_tb 0 22 IMzmIWVY1BeaYdI54`2FN1
 l67
 L21
-Z49 V@;@T2WHYEC3U@<R3_FG3g1
-Z50 !s100 WdYAHH9BH:;MRc40hPO2^1
+V^zh`:[jCG66zI[>^dJJNE1
 R8
 31
 R11
 R12
 R13
 R9
+!s100 >T<3O<[^7lO0GHkcF43_?2
 Emultiplier
-Z51 w1319043221
+Z49 w1319724547
 R2
 R3
 R4
 R5
-Z52 8D:/Work/marmote/projects/DDC_test/hdl/multiplier.vhd
-Z53 FD:/Work/marmote/projects/DDC_test/hdl/multiplier.vhd
+Z50 8D:/Work/marmote/projects/DDC_test/hdl/multiplier.vhd
+Z51 FD:/Work/marmote/projects/DDC_test/hdl/multiplier.vhd
 l0
 L15
-VgI2e;X<A<FQbi4P2h:@:N3
+VQh<^<:DXkU>KmX_HM:Nz70
 R8
 31
 R9
-!s100 VHE=B2`SQ8O@ofYP1H:zH3
+!s100 oIlLzockJ6cBoL;i[9M8L1
 Abehavioral
 R2
 R3
 R4
-R44
+R45
 l55
 L46
-V<bN5L6]CJ`13@`Zi0UT_53
+VKKh6_jTk:AlR4YYVZL73g0
 R8
 31
 R11
 R12
 R13
 R9
-!s100 ]DS^<G_og;hX:Cz_oT>zX0
+!s100 PSONBJ[l?mdeIBQ=Y2]>I3
 Esample_apb3
-Z54 w1318970631
-R2
+Z52 w1318970631
+R19
 R3
 R4
 R5
-Z55 8D:/Work/marmote/projects/DDC_test/hdl/SAMPLE_APB3.vhd
-Z56 FD:/Work/marmote/projects/DDC_test/hdl/SAMPLE_APB3.vhd
+Z53 8D:/Work/marmote/projects/DDC_test/hdl/SAMPLE_APB3.vhd
+Z54 FD:/Work/marmote/projects/DDC_test/hdl/SAMPLE_APB3.vhd
 l0
 L15
 VX9Z0XEzVUWIjz4<jZ@3=52
@@ -345,7 +345,7 @@ R8
 R9
 !s100 ?FflJT8Y@gZIfG8^_CFLg2
 Abehavioral
-R2
+R19
 R3
 R4
 DEx4 work 11 sample_apb3 0 22 X9Z0XEzVUWIjz4<jZ@3=52
@@ -360,13 +360,13 @@ R13
 R9
 !s100 215Q;?oUe4U8]g9ZlOoaL1
 Esample_apb3_tb
-Z57 w1318971885
-R2
+Z55 w1318971885
+R19
 R3
 R4
 R5
-Z58 8D:/Work/marmote/projects/DDC_test/stimulus/SAMPLE_APB3_testbench.vhd
-Z59 FD:/Work/marmote/projects/DDC_test/stimulus/SAMPLE_APB3_testbench.vhd
+Z56 8D:/Work/marmote/projects/DDC_test/stimulus/SAMPLE_APB3_testbench.vhd
+Z57 FD:/Work/marmote/projects/DDC_test/stimulus/SAMPLE_APB3_testbench.vhd
 l0
 L13
 V]Gea2nmMVmYY[02GKlNQS2
@@ -375,7 +375,7 @@ R8
 R9
 !s100 kL1dT]>=8_d^gM8^Y5lT`2
 Abench
-R2
+R19
 R3
 R4
 DEx4 work 14 sample_apb3_tb 0 22 ]Gea2nmMVmYY[02GKlNQS2
@@ -390,26 +390,26 @@ R13
 R9
 !s100 ]Tgd6Kdn4DSR:DRdeWl3Y1
 Etestbench
-Z60 w1318866025
+R42
 R4
 R5
-Z61 8D:/Work/marmote/projects/DDC_test/component/work/complex_mult/testbench.vhd
-Z62 FD:/Work/marmote/projects/DDC_test/component/work/complex_mult/testbench.vhd
+Z58 8D:/Work/marmote/projects/DDC_test/component/work/complex_mult/testbench.vhd
+Z59 FD:/Work/marmote/projects/DDC_test/component/work/complex_mult/testbench.vhd
 l0
 L13
 VVA0T[oe<cdTd2f]hNHU`g1
+!s100 SS]j:^]CaVnb=FcfJ3Uk[0
 R8
 31
 R9
-!s100 SS]j:^]CaVnb=FcfJ3Uk[0
 Abehavioral
 R4
-DEx4 work 9 testbench 0 22 VA0T[oe<cdTd2f]hNHU`g1
+Z60 DEx4 work 9 testbench 0 22 VA0T[oe<cdTd2f]hNHU`g1
 l44
 L16
-Vbg;cn?G[TL0n2X[zSQ_W03
-!s100 4FV5Z68_iHI^@8GhgDMdG1
+Z61 V:7mFg>=Aefbh0R^FIkgCC1
+Z62 !s100 ;PZEIZ<I=dX^T]D9KT;Q50
 R8
 31
-R26
+R27
 R9

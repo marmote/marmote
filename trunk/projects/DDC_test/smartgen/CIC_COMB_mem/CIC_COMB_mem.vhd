@@ -8,8 +8,8 @@ use smartfusion.all;
 entity CIC_COMB_mem is 
     port( WD : in std_logic_vector(35 downto 0); RD : out 
         std_logic_vector(35 downto 0);WEN, REN : in std_logic; 
-        WADDR : in std_logic_vector(2 downto 0); RADDR : in 
-        std_logic_vector(2 downto 0);RWCLK, RESET : in std_logic
+        WADDR : in std_logic_vector(1 downto 0); RADDR : in 
+        std_logic_vector(1 downto 0);RWCLK, RESET : in std_logic
         ) ;
 end CIC_COMB_mem;
 
@@ -49,11 +49,11 @@ architecture DEF_ARCH of  CIC_COMB_mem is
     CIC_COMB_mem_R0C1 : RAM512X18
       port map(RADDR8 => GND_1_net, RADDR7 => GND_1_net, 
         RADDR6 => GND_1_net, RADDR5 => GND_1_net, RADDR4 => 
-        GND_1_net, RADDR3 => GND_1_net, RADDR2 => RADDR(2), 
+        GND_1_net, RADDR3 => GND_1_net, RADDR2 => GND_1_net, 
         RADDR1 => RADDR(1), RADDR0 => RADDR(0), WADDR8 => 
         GND_1_net, WADDR7 => GND_1_net, WADDR6 => GND_1_net, 
         WADDR5 => GND_1_net, WADDR4 => GND_1_net, WADDR3 => 
-        GND_1_net, WADDR2 => WADDR(2), WADDR1 => WADDR(1), 
+        GND_1_net, WADDR2 => GND_1_net, WADDR1 => WADDR(1), 
         WADDR0 => WADDR(0), WD17 => WD(35), WD16 => WD(34), 
         WD15 => WD(33), WD14 => WD(32), WD13 => WD(31), WD12 => 
         WD(30), WD11 => WD(29), WD10 => WD(28), WD9 => WD(27), 
@@ -73,11 +73,11 @@ architecture DEF_ARCH of  CIC_COMB_mem is
     CIC_COMB_mem_R0C0 : RAM512X18
       port map(RADDR8 => GND_1_net, RADDR7 => GND_1_net, 
         RADDR6 => GND_1_net, RADDR5 => GND_1_net, RADDR4 => 
-        GND_1_net, RADDR3 => GND_1_net, RADDR2 => RADDR(2), 
+        GND_1_net, RADDR3 => GND_1_net, RADDR2 => GND_1_net, 
         RADDR1 => RADDR(1), RADDR0 => RADDR(0), WADDR8 => 
         GND_1_net, WADDR7 => GND_1_net, WADDR6 => GND_1_net, 
         WADDR5 => GND_1_net, WADDR4 => GND_1_net, WADDR3 => 
-        GND_1_net, WADDR2 => WADDR(2), WADDR1 => WADDR(1), 
+        GND_1_net, WADDR2 => GND_1_net, WADDR1 => WADDR(1), 
         WADDR0 => WADDR(0), WD17 => WD(17), WD16 => WD(16), 
         WD15 => WD(15), WD14 => WD(14), WD13 => WD(13), WD12 => 
         WD(12), WD11 => WD(11), WD10 => WD(10), WD9 => WD(9), 
@@ -121,9 +121,9 @@ end DEF_ARCH;
 -- SMARTGEN_PACKAGE:fg484
 -- AGENIII_IS_SUBPROJECT_LIBERO:T
 -- WWIDTH:36
--- WDEPTH:6
+-- WDEPTH:4
 -- RWIDTH:36
--- RDEPTH:6
+-- RDEPTH:4
 -- CLKS:1
 -- CLOCK_PN:RWCLK
 -- RESET_PN:RESET

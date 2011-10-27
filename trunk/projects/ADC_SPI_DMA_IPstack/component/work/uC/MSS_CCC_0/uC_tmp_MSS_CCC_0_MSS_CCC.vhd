@@ -1,4 +1,4 @@
--- Version: 9.1 SP1 9.1.1.7
+-- Version: 9.1 SP3 9.1.3.4
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -114,14 +114,14 @@ begin
     N_VCC <= VCC_power_net1;
 
     I_MSSCCC : MSS_CCC
-      generic map(VCOFREQUENCY => 50.000)
+      generic map(VCOFREQUENCY => 100.000)
 
-      port map(CLKA => N_CLKA_XTLOSC, EXTFB => N_GND, GLA => 
-        FAB_CLK, GLAMSS => GLA0, LOCK => FAB_LOCK, LOCKMSS => 
-        MSS_LOCK, CLKB => N_GND, GLB => OPEN, YB => OPEN, CLKC
-         => N_GND, GLC => GLC, YC => OPEN, MACCLK => MAC_CLK_CCC, 
-        OADIV(4) => N_GND, OADIV(3) => N_GND, OADIV(2) => N_GND, 
-        OADIV(1) => N_GND, OADIV(0) => N_GND, OADIVHALF => N_GND, 
+      port map(CLKA => N_CLKA_XTLOSC, EXTFB => N_GND, GLA => OPEN, 
+        GLAMSS => GLA0, LOCK => FAB_LOCK, LOCKMSS => MSS_LOCK, 
+        CLKB => N_GND, GLB => FAB_CLK, YB => OPEN, CLKC => N_GND, 
+        GLC => GLC, YC => OPEN, MACCLK => MAC_CLK_CCC, OADIV(4)
+         => N_GND, OADIV(3) => N_GND, OADIV(2) => N_GND, OADIV(1)
+         => N_GND, OADIV(0) => N_GND, OADIVHALF => N_GND, 
         OAMUX(2) => N_VCC, OAMUX(1) => N_GND, OAMUX(0) => N_GND, 
         BYPASSA => N_GND, DLYGLA(4) => N_GND, DLYGLA(3) => N_GND, 
         DLYGLA(2) => N_GND, DLYGLA(1) => N_GND, DLYGLA(0) => 
@@ -131,12 +131,12 @@ begin
         DLYGLAFAB(3) => N_GND, DLYGLAFAB(2) => N_GND, 
         DLYGLAFAB(1) => N_GND, DLYGLAFAB(0) => N_GND, OBDIV(4)
          => N_GND, OBDIV(3) => N_GND, OBDIV(2) => N_GND, OBDIV(1)
-         => N_GND, OBDIV(0) => N_GND, OBDIVHALF => N_GND, 
-        OBMUX(2) => N_GND, OBMUX(1) => N_GND, OBMUX(0) => N_GND, 
-        BYPASSB => N_VCC, DLYGLB(4) => N_GND, DLYGLB(3) => N_GND, 
+         => N_GND, OBDIV(0) => N_VCC, OBDIVHALF => N_GND, 
+        OBMUX(2) => N_GND, OBMUX(1) => N_VCC, OBMUX(0) => N_VCC, 
+        BYPASSB => N_GND, DLYGLB(4) => N_GND, DLYGLB(3) => N_GND, 
         DLYGLB(2) => N_GND, DLYGLB(1) => N_GND, DLYGLB(0) => 
         N_GND, OCDIV(4) => N_GND, OCDIV(3) => N_GND, OCDIV(2) => 
-        N_GND, OCDIV(1) => N_GND, OCDIV(0) => N_GND, OCDIVHALF
+        N_GND, OCDIV(1) => N_GND, OCDIV(0) => N_VCC, OCDIVHALF
          => N_GND, OCMUX(2) => N_VCC, OCMUX(1) => N_GND, OCMUX(0)
          => N_GND, BYPASSC => N_GND, DLYGLC(4) => N_GND, 
         DLYGLC(3) => N_GND, DLYGLC(2) => N_GND, DLYGLC(1) => 
@@ -144,8 +144,8 @@ begin
          => N_GND, FINDIV(4) => N_GND, FINDIV(3) => N_GND, 
         FINDIV(2) => N_GND, FINDIV(1) => N_VCC, FINDIV(0) => 
         N_VCC, FBDIV(6) => N_GND, FBDIV(5) => N_GND, FBDIV(4) => 
-        N_GND, FBDIV(3) => N_VCC, FBDIV(2) => N_GND, FBDIV(1) => 
-        N_GND, FBDIV(0) => N_VCC, FBDLY(4) => N_GND, FBDLY(3) => 
+        N_VCC, FBDIV(3) => N_GND, FBDIV(2) => N_GND, FBDIV(1) => 
+        N_VCC, FBDIV(0) => N_VCC, FBDLY(4) => N_GND, FBDLY(3) => 
         N_GND, FBDLY(2) => N_GND, FBDLY(1) => N_GND, FBDLY(0) => 
         N_VCC, FBSEL(1) => N_GND, FBSEL(0) => N_VCC, XDLYSEL => 
         N_GND, GLMUXSEL(1) => N_GND, GLMUXSEL(0) => N_GND, 

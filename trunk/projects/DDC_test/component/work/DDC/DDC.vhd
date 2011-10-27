@@ -10,13 +10,13 @@ entity DDC is
     port( RST           : in    std_logic;
           CLK           : in    std_logic;
           sample_rdy_in : in    std_logic;
+          I_SMPL_RDY    : out   std_logic;
+          Q_SMPL_RDY    : out   std_logic;
           I_in          : in    std_logic_vector(13 downto 0);
           Q_in          : in    std_logic_vector(13 downto 0);
-          I_SMPL_RDY    : out   std_logic;
-          I_out         : out   std_logic_vector(31 downto 0);
-          Q_SMPL_RDY    : out   std_logic;
-          Q_out         : out   std_logic_vector(31 downto 0);
-          DPHASE        : in    std_logic_vector(15 downto 0)
+          DPHASE        : in    std_logic_vector(15 downto 0);
+          I_out         : out   std_logic_vector(26 downto 0);
+          Q_out         : out   std_logic_vector(26 downto 0)
         );
 
 end DDC;
@@ -33,7 +33,7 @@ architecture DEF_ARCH of DDC is
           RST      : in    std_logic := 'U';
           SMPL_RDY : out   std_logic;
           INPUT    : in    std_logic_vector(22 downto 0) := (others => 'U');
-          OUTPUT   : out   std_logic_vector(31 downto 0)
+          OUTPUT   : out   std_logic_vector(26 downto 0)
         );
   end component;
 
@@ -137,22 +137,20 @@ begin
         \complex_mult_0_Q_0_[3]\, INPUT(2) => 
         \complex_mult_0_Q_0_[2]\, INPUT(1) => 
         \complex_mult_0_Q_0_[1]\, INPUT(0) => 
-        \complex_mult_0_Q_0_[0]\, OUTPUT(31) => Q_out(31), 
-        OUTPUT(30) => Q_out(30), OUTPUT(29) => Q_out(29), 
-        OUTPUT(28) => Q_out(28), OUTPUT(27) => Q_out(27), 
-        OUTPUT(26) => Q_out(26), OUTPUT(25) => Q_out(25), 
-        OUTPUT(24) => Q_out(24), OUTPUT(23) => Q_out(23), 
-        OUTPUT(22) => Q_out(22), OUTPUT(21) => Q_out(21), 
-        OUTPUT(20) => Q_out(20), OUTPUT(19) => Q_out(19), 
-        OUTPUT(18) => Q_out(18), OUTPUT(17) => Q_out(17), 
-        OUTPUT(16) => Q_out(16), OUTPUT(15) => Q_out(15), 
-        OUTPUT(14) => Q_out(14), OUTPUT(13) => Q_out(13), 
-        OUTPUT(12) => Q_out(12), OUTPUT(11) => Q_out(11), 
-        OUTPUT(10) => Q_out(10), OUTPUT(9) => Q_out(9), OUTPUT(8)
-         => Q_out(8), OUTPUT(7) => Q_out(7), OUTPUT(6) => 
-        Q_out(6), OUTPUT(5) => Q_out(5), OUTPUT(4) => Q_out(4), 
-        OUTPUT(3) => Q_out(3), OUTPUT(2) => Q_out(2), OUTPUT(1)
-         => Q_out(1), OUTPUT(0) => Q_out(0));
+        \complex_mult_0_Q_0_[0]\, OUTPUT(26) => Q_out(26), 
+        OUTPUT(25) => Q_out(25), OUTPUT(24) => Q_out(24), 
+        OUTPUT(23) => Q_out(23), OUTPUT(22) => Q_out(22), 
+        OUTPUT(21) => Q_out(21), OUTPUT(20) => Q_out(20), 
+        OUTPUT(19) => Q_out(19), OUTPUT(18) => Q_out(18), 
+        OUTPUT(17) => Q_out(17), OUTPUT(16) => Q_out(16), 
+        OUTPUT(15) => Q_out(15), OUTPUT(14) => Q_out(14), 
+        OUTPUT(13) => Q_out(13), OUTPUT(12) => Q_out(12), 
+        OUTPUT(11) => Q_out(11), OUTPUT(10) => Q_out(10), 
+        OUTPUT(9) => Q_out(9), OUTPUT(8) => Q_out(8), OUTPUT(7)
+         => Q_out(7), OUTPUT(6) => Q_out(6), OUTPUT(5) => 
+        Q_out(5), OUTPUT(4) => Q_out(4), OUTPUT(3) => Q_out(3), 
+        OUTPUT(2) => Q_out(2), OUTPUT(1) => Q_out(1), OUTPUT(0)
+         => Q_out(0));
     
     sincos_gen_0 : sincos_gen
       port map(RST => RST, CLK => CLK, DPHASE_EN => VCC_net, 
@@ -283,22 +281,20 @@ begin
         \complex_mult_0_I_0_[3]\, INPUT(2) => 
         \complex_mult_0_I_0_[2]\, INPUT(1) => 
         \complex_mult_0_I_0_[1]\, INPUT(0) => 
-        \complex_mult_0_I_0_[0]\, OUTPUT(31) => I_out(31), 
-        OUTPUT(30) => I_out(30), OUTPUT(29) => I_out(29), 
-        OUTPUT(28) => I_out(28), OUTPUT(27) => I_out(27), 
-        OUTPUT(26) => I_out(26), OUTPUT(25) => I_out(25), 
-        OUTPUT(24) => I_out(24), OUTPUT(23) => I_out(23), 
-        OUTPUT(22) => I_out(22), OUTPUT(21) => I_out(21), 
-        OUTPUT(20) => I_out(20), OUTPUT(19) => I_out(19), 
-        OUTPUT(18) => I_out(18), OUTPUT(17) => I_out(17), 
-        OUTPUT(16) => I_out(16), OUTPUT(15) => I_out(15), 
-        OUTPUT(14) => I_out(14), OUTPUT(13) => I_out(13), 
-        OUTPUT(12) => I_out(12), OUTPUT(11) => I_out(11), 
-        OUTPUT(10) => I_out(10), OUTPUT(9) => I_out(9), OUTPUT(8)
-         => I_out(8), OUTPUT(7) => I_out(7), OUTPUT(6) => 
-        I_out(6), OUTPUT(5) => I_out(5), OUTPUT(4) => I_out(4), 
-        OUTPUT(3) => I_out(3), OUTPUT(2) => I_out(2), OUTPUT(1)
-         => I_out(1), OUTPUT(0) => I_out(0));
+        \complex_mult_0_I_0_[0]\, OUTPUT(26) => I_out(26), 
+        OUTPUT(25) => I_out(25), OUTPUT(24) => I_out(24), 
+        OUTPUT(23) => I_out(23), OUTPUT(22) => I_out(22), 
+        OUTPUT(21) => I_out(21), OUTPUT(20) => I_out(20), 
+        OUTPUT(19) => I_out(19), OUTPUT(18) => I_out(18), 
+        OUTPUT(17) => I_out(17), OUTPUT(16) => I_out(16), 
+        OUTPUT(15) => I_out(15), OUTPUT(14) => I_out(14), 
+        OUTPUT(13) => I_out(13), OUTPUT(12) => I_out(12), 
+        OUTPUT(11) => I_out(11), OUTPUT(10) => I_out(10), 
+        OUTPUT(9) => I_out(9), OUTPUT(8) => I_out(8), OUTPUT(7)
+         => I_out(7), OUTPUT(6) => I_out(6), OUTPUT(5) => 
+        I_out(5), OUTPUT(4) => I_out(4), OUTPUT(3) => I_out(3), 
+        OUTPUT(2) => I_out(2), OUTPUT(1) => I_out(1), OUTPUT(0)
+         => I_out(0));
     
 
 end DEF_ARCH; 
