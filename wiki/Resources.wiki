@@ -1,0 +1,6 @@
+#labels Phase-Requirements
+= Software Resources =
+
+A list of software components that might come handy:
+
+ * [http://www.actel.com/documents/SynphonyModelCompilerAE_UG.pdf Synphony Model Compiler For Actel Edition - User Guide]
