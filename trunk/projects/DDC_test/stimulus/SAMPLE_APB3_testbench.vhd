@@ -12,9 +12,10 @@ use work.common.all;
 
 entity SAMPLE_APB3_tb is
 
---    generic (
---        c_CIC_INNER_WIDTH       : integer := c_CIC_WIDTH + c_CIC_ORDER * c_CIC_ORDER
---    );
+    generic (
+
+        c_BIT_SHIFT             : integer := c_APB3_INPUT_WIDTH - c_APB3_WIDTH/2 + 1
+    );
 
 end;
 
@@ -39,9 +40,10 @@ architecture bench of SAMPLE_APB3_tb is
 
 
 -- DDC interface
-        INPUT       : in    std_logic_vector(2*c_APB3_WIDTH-1 downto 0);
+        INPUT       : in    std_logic_vector(2*c_APB3_INPUT_WIDTH-1 downto 0);
+        shift       : in    std_logic_vector(log2_ceil(c_BIT_SHIFT)-1 downto 0);  
 
-        SMPL_RDY_IN : in    std_logic_vector(1 to 2);
+        SMPL_RDY_IN : in    std_logic;
 
 -- Misc
         SMPL_RDY    : out   std_logic
@@ -66,9 +68,10 @@ architecture bench of SAMPLE_APB3_tb is
 
 
 -- DDC interface
-        signal INPUT       : std_logic_vector(2*c_APB3_WIDTH-1 downto 0);
+        signal INPUT       : std_logic_vector(2*c_APB3_INPUT_WIDTH-1 downto 0);
+        signal shift       : std_logic_vector(log2_ceil(c_BIT_SHIFT)-1 downto 0);  
 
-        signal SMPL_RDY_IN : std_logic_vector(1 to 2);
+        signal SMPL_RDY_IN : std_logic;
 
 -- Misc
         signal SMPL_RDY    : std_logic;
@@ -99,6 +102,7 @@ begin
         PRDATA      =>  PRDATA,
         PSLVERR     =>  PSLVERR,
         INPUT       =>  INPUT,
+        shift       =>  shift,
         SMPL_RDY_IN =>  SMPL_RDY_IN,
         SMPL_RDY    =>  SMPL_RDY
                       
@@ -110,7 +114,7 @@ begin
     -- Put initialisation code here
 
 -- BB begin
---    INPUT <= (others => '0');
+    shift <= (others => '0');
 
 -- BB end
 
@@ -153,14 +157,13 @@ begin
                 clk_counter <= clk_counter + 1;
             end if;
 
-            SMPL_RDY_IN(1) <= '0';
-            SMPL_RDY_IN(2) <= '0';
+            SMPL_RDY_IN <= '0';
+
 
             if clk_counter = 0 then
-                SMPL_RDY_IN(1) <= '1';
-                SMPL_RDY_IN(2) <= '1';
-                INPUT(c_APB3_WIDTH-1 downto 0) <= std_logic_vector(unsigned(INPUT(c_APB3_WIDTH-1 downto 0)) + 1);
-                INPUT(2*c_APB3_WIDTH-1 downto c_APB3_WIDTH) <= std_logic_vector(unsigned(INPUT(2*c_APB3_WIDTH-1 downto c_APB3_WIDTH)) + 3);
+                SMPL_RDY_IN <= '1';
+                INPUT(c_APB3_INPUT_WIDTH-1 downto 0) <= std_logic_vector(unsigned(INPUT(c_APB3_INPUT_WIDTH-1 downto 0)) + 1);
+                INPUT(2*c_APB3_INPUT_WIDTH-1 downto c_APB3_INPUT_WIDTH) <= std_logic_vector(unsigned(INPUT(2*c_APB3_INPUT_WIDTH-1 downto c_APB3_INPUT_WIDTH)) + 3);
             end if;
 
         end if;

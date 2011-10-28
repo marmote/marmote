@@ -165,7 +165,7 @@ void next_DMA_transfer()
 
 	PDMA_load_next_buffer(PDMA_CHANNEL_0,
 			(uint32_t) ADC_MEM_ADDRESS,
-            (uint32_t) &(buffer[next_DMA_buf][2]),
+            (uint32_t) &(buffer[next_DMA_buf][1]),
             BUFF_LENGTH-2);
 
 #	else
@@ -322,7 +322,7 @@ int main()
 
 	PDMA_start(PDMA_CHANNEL_0,
 			(uint32_t) ADC_MEM_ADDRESS,
-            (uint32_t) &(buffer[DMA_buf][2]),
+            (uint32_t) &(buffer[DMA_buf][1]),
             BUFF_LENGTH-2);
 #	else
 

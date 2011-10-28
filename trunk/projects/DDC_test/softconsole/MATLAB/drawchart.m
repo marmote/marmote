@@ -40,7 +40,7 @@ end
     hold on;
 
     for ii=1:BUFF_MULTIPLIER-1
-        x = ( ii*((BUFF_LENGTH-2)/2)*T - T/2 )*1e6;
+        x = ( ii*(BUFF_LENGTH-1)*T - T/2 )*1e6;
         plot([x x], [-1 1], 'r-');
     end
     

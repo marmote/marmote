@@ -43,6 +43,7 @@ package COMMON is
 
 
 --APB3
+    constant c_APB3_INPUT_WIDTH     : integer := 27;
     constant c_APB3_WIDTH           : integer := 32;
 -----------------------------------------
 --   Common Functions and Procedures   --

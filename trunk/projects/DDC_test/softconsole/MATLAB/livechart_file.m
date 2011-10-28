@@ -11,7 +11,7 @@ accum = zeros( 1, BUFF_LENGTH*(BUFF_MULTIPLIER+1) );
 accum_length = 0;
 
 while (1) 
-    temp = fread(f, BUFF_LENGTH, 'int32');
+    temp = fread(f, BUFF_LENGTH, 'uint32');
 
     temp_length = length(temp);
     
