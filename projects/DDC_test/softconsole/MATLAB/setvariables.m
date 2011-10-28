@@ -7,15 +7,15 @@ BUFF_LENGTH = 128; % in samples for a single channel
 
 Fs = 50e6 / 18 / 4; % [Hz] = 347.2 kHz
 F_offset = 0; % [Hz]
-Resolution = 27; % bits
+Resolution = 16; % bits
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Calculated variables
 if TIME_STAMP == 1
-    N = (BUFF_LENGTH-2)*BUFF_MULTIPLIER/2;
+    N = (BUFF_LENGTH-1)*BUFF_MULTIPLIER;
 else
-    N = BUFF_LENGTH*BUFF_MULTIPLIER/2;
+    N = BUFF_LENGTH*BUFF_MULTIPLIER;
 end
 F = Fs / N;
 T = 1/Fs;

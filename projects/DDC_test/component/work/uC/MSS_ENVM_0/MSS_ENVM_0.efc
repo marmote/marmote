@@ -18,7 +18,7 @@
         </version>
     </header>
     <nvm>
-        <region name="eNVM" address="0x000000" retrieveAddressFromFile="false" size="33640" format="HEX" type="Data Storage" wordSize="32" numberWords="8410" memFile="D:\Work\marmote\projects\DDC_test\softconsole\ADC_DDC_DMA_UDP\Release\ADC_DDC_DMA_UDP.hex" memType="INTELHEX" memFileTimeStamp="1319732819" clientType="public" program="true">
+        <region name="eNVM" address="0x000000" retrieveAddressFromFile="false" size="33640" format="HEX" type="Data Storage" wordSize="32" numberWords="8410" memFile="D:\Work\marmote\projects\DDC_test\softconsole\ADC_DDC_DMA_UDP\Release\ADC_DDC_DMA_UDP.hex" memType="INTELHEX" memFileTimeStamp="1319816564" clientType="public" program="true">
             0000012099020000f9020000fb020000fd020000ff020000010300000000
             000000000000000000000000000003030000050300000000000007030000
             090300000b0300000d0300000f03000011030000130300005d4e00001703
@@ -84,9 +84,9 @@
             4860c3f88061c3f888611560f8bd00bf10b503f059ff002003460a2143f2
             082203f090ff40f67d010020c0f2000104f0eff80020bde8104004f006b9
             40f20800c2f200000278054b40f2000103eb4222c4f2050100207e2304f0
-            1eb82c3100202de9f84f40f23854c2f20004fff7d0fffff792ff01f0eaf8
+            1eb8283100202de9f84f40f23854c2f20004fff7d0fffff792ff01f0eaf8
             04f11000fff766fe4bf6ff7000f084f843f2247ac2f2000acaf80000fff7
-            d2ff94f8400043f2241b42020832c2f2000b40f20001c4f205015a440020
+            d2ff94f8401043f2241b4802021dc2f2000b40f20001c4f205015a440020
             7e2303f079ff0026002741f288384ff000092546d4e90023921b63eb0703
             904579eb030124d31648fff700ff617b94f840308b42eed02a7b002aebd1
             daf800000beb4121838a4ff40072002be2d04ff0010c85f80cc000f077f8
@@ -1142,7 +1142,7 @@
             fc040020fc04002004050020040500200c0500200c050020140500201405
             0020ffffffff00000200
             <crc>
-                a564
+                c5c3
             </crc>
         </region>
         <region name="ACTEL_SYSTEM_BOOT" address="0x081100" retrieveAddressFromFile="false" size="5632" format="HEX" type="Data Storage" wordSize="32" numberWords="1408" memFile="" memType="" memFileTimeStamp="" clientType="private" program="true">

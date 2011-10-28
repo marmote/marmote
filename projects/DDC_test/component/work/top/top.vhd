@@ -296,37 +296,36 @@ architecture DEF_ARCH of top is
         \CoreAPB3_0_APBmslave0_PWDATA_[29]\, 
         \CoreAPB3_0_APBmslave0_PWDATA_[30]\, 
         \CoreAPB3_0_APBmslave0_PWDATA_[31]\, 
-        CoreAPB3_0_APBmslave0_PWRITE, \DDC_0_I_out25to0_[25]\, 
-        \DDC_0_I_out25to0_[24]\, \DDC_0_I_out25to0_[23]\, 
-        \DDC_0_I_out25to0_[22]\, \DDC_0_I_out25to0_[21]\, 
-        \DDC_0_I_out25to0_[20]\, \DDC_0_I_out25to0_[19]\, 
-        \DDC_0_I_out25to0_[18]\, \DDC_0_I_out25to0_[17]\, 
-        \DDC_0_I_out25to0_[16]\, \DDC_0_I_out25to0_[15]\, 
-        \DDC_0_I_out25to0_[14]\, \DDC_0_I_out25to0_[13]\, 
-        \DDC_0_I_out25to0_[12]\, \DDC_0_I_out25to0_[11]\, 
-        \DDC_0_I_out25to0_[10]\, \DDC_0_I_out25to0_[9]\, 
-        \DDC_0_I_out25to0_[8]\, \DDC_0_I_out25to0_[7]\, 
-        \DDC_0_I_out25to0_[6]\, \DDC_0_I_out25to0_[5]\, 
-        \DDC_0_I_out25to0_[4]\, \DDC_0_I_out25to0_[3]\, 
-        \DDC_0_I_out25to0_[2]\, \DDC_0_I_out25to0_[1]\, 
-        \DDC_0_I_out25to0_[0]\, DDC_0_I_out26to26, 
-        DDC_0_I_SMPL_RDY, \DDC_0_Q_out25to0_[25]\, 
-        \DDC_0_Q_out25to0_[24]\, \DDC_0_Q_out25to0_[23]\, 
-        \DDC_0_Q_out25to0_[22]\, \DDC_0_Q_out25to0_[21]\, 
-        \DDC_0_Q_out25to0_[20]\, \DDC_0_Q_out25to0_[19]\, 
-        \DDC_0_Q_out25to0_[18]\, \DDC_0_Q_out25to0_[17]\, 
-        \DDC_0_Q_out25to0_[16]\, \DDC_0_Q_out25to0_[15]\, 
-        \DDC_0_Q_out25to0_[14]\, \DDC_0_Q_out25to0_[13]\, 
-        \DDC_0_Q_out25to0_[12]\, \DDC_0_Q_out25to0_[11]\, 
-        \DDC_0_Q_out25to0_[10]\, \DDC_0_Q_out25to0_[9]\, 
-        \DDC_0_Q_out25to0_[8]\, \DDC_0_Q_out25to0_[7]\, 
-        \DDC_0_Q_out25to0_[6]\, \DDC_0_Q_out25to0_[5]\, 
-        \DDC_0_Q_out25to0_[4]\, \DDC_0_Q_out25to0_[3]\, 
-        \DDC_0_Q_out25to0_[2]\, \DDC_0_Q_out25to0_[1]\, 
-        \DDC_0_Q_out25to0_[0]\, DDC_0_Q_out26to26, 
-        DDC_0_Q_SMPL_RDY, \SMPL_RDY\, uC_0_FAB_CLK, uC_0_IO_6_Y, 
-        uC_0_IO_7_Y, uC_0_M2F_RESET_N, INV_0_Y, 
-        \uC_0_MSS_MASTER_APB_PADDR_[0]\, 
+        CoreAPB3_0_APBmslave0_PWRITE, \DDC_0_I_out_1_[26]\, 
+        \DDC_0_I_out_1_[25]\, \DDC_0_I_out_1_[24]\, 
+        \DDC_0_I_out_1_[23]\, \DDC_0_I_out_1_[22]\, 
+        \DDC_0_I_out_1_[21]\, \DDC_0_I_out_1_[20]\, 
+        \DDC_0_I_out_1_[19]\, \DDC_0_I_out_1_[18]\, 
+        \DDC_0_I_out_1_[17]\, \DDC_0_I_out_1_[16]\, 
+        \DDC_0_I_out_1_[15]\, \DDC_0_I_out_1_[14]\, 
+        \DDC_0_I_out_1_[13]\, \DDC_0_I_out_1_[12]\, 
+        \DDC_0_I_out_1_[11]\, \DDC_0_I_out_1_[10]\, 
+        \DDC_0_I_out_1_[9]\, \DDC_0_I_out_1_[8]\, 
+        \DDC_0_I_out_1_[7]\, \DDC_0_I_out_1_[6]\, 
+        \DDC_0_I_out_1_[5]\, \DDC_0_I_out_1_[4]\, 
+        \DDC_0_I_out_1_[3]\, \DDC_0_I_out_1_[2]\, 
+        \DDC_0_I_out_1_[1]\, \DDC_0_I_out_1_[0]\, 
+        DDC_0_I_SMPL_RDY, \DDC_0_Q_out_0_[26]\, 
+        \DDC_0_Q_out_0_[25]\, \DDC_0_Q_out_0_[24]\, 
+        \DDC_0_Q_out_0_[23]\, \DDC_0_Q_out_0_[22]\, 
+        \DDC_0_Q_out_0_[21]\, \DDC_0_Q_out_0_[20]\, 
+        \DDC_0_Q_out_0_[19]\, \DDC_0_Q_out_0_[18]\, 
+        \DDC_0_Q_out_0_[17]\, \DDC_0_Q_out_0_[16]\, 
+        \DDC_0_Q_out_0_[15]\, \DDC_0_Q_out_0_[14]\, 
+        \DDC_0_Q_out_0_[13]\, \DDC_0_Q_out_0_[12]\, 
+        \DDC_0_Q_out_0_[11]\, \DDC_0_Q_out_0_[10]\, 
+        \DDC_0_Q_out_0_[9]\, \DDC_0_Q_out_0_[8]\, 
+        \DDC_0_Q_out_0_[7]\, \DDC_0_Q_out_0_[6]\, 
+        \DDC_0_Q_out_0_[5]\, \DDC_0_Q_out_0_[4]\, 
+        \DDC_0_Q_out_0_[3]\, \DDC_0_Q_out_0_[2]\, 
+        \DDC_0_Q_out_0_[1]\, \DDC_0_Q_out_0_[0]\, \SMPL_RDY\, 
+        uC_0_FAB_CLK, uC_0_IO_6_Y, uC_0_IO_7_Y, uC_0_M2F_RESET_N, 
+        INV_0_Y, \uC_0_MSS_MASTER_APB_PADDR_[0]\, 
         \uC_0_MSS_MASTER_APB_PADDR_[1]\, 
         \uC_0_MSS_MASTER_APB_PADDR_[2]\, 
         \uC_0_MSS_MASTER_APB_PADDR_[3]\, 
@@ -425,84 +424,68 @@ begin
     DDC_0 : DDC
       port map(RST => INV_0_Y, CLK => uC_0_FAB_CLK, sample_rdy_in
          => ADC_SPI_0_sample_rdy, I_SMPL_RDY => DDC_0_I_SMPL_RDY, 
-        Q_SMPL_RDY => DDC_0_Q_SMPL_RDY, I_in(13) => 
-        \ADC_SPI_0_CH1_[13]\, I_in(12) => \ADC_SPI_0_CH1_[12]\, 
-        I_in(11) => \ADC_SPI_0_CH1_[11]\, I_in(10) => 
-        \ADC_SPI_0_CH1_[10]\, I_in(9) => \ADC_SPI_0_CH1_[9]\, 
-        I_in(8) => \ADC_SPI_0_CH1_[8]\, I_in(7) => 
-        \ADC_SPI_0_CH1_[7]\, I_in(6) => \ADC_SPI_0_CH1_[6]\, 
-        I_in(5) => \ADC_SPI_0_CH1_[5]\, I_in(4) => 
-        \ADC_SPI_0_CH1_[4]\, I_in(3) => \ADC_SPI_0_CH1_[3]\, 
-        I_in(2) => \ADC_SPI_0_CH1_[2]\, I_in(1) => 
-        \ADC_SPI_0_CH1_[1]\, I_in(0) => \ADC_SPI_0_CH1_[0]\, 
-        Q_in(13) => \ADC_SPI_0_CH2_[13]\, Q_in(12) => 
-        \ADC_SPI_0_CH2_[12]\, Q_in(11) => \ADC_SPI_0_CH2_[11]\, 
-        Q_in(10) => \ADC_SPI_0_CH2_[10]\, Q_in(9) => 
-        \ADC_SPI_0_CH2_[9]\, Q_in(8) => \ADC_SPI_0_CH2_[8]\, 
-        Q_in(7) => \ADC_SPI_0_CH2_[7]\, Q_in(6) => 
-        \ADC_SPI_0_CH2_[6]\, Q_in(5) => \ADC_SPI_0_CH2_[5]\, 
-        Q_in(4) => \ADC_SPI_0_CH2_[4]\, Q_in(3) => 
-        \ADC_SPI_0_CH2_[3]\, Q_in(2) => \ADC_SPI_0_CH2_[2]\, 
-        Q_in(1) => \ADC_SPI_0_CH2_[1]\, Q_in(0) => 
-        \ADC_SPI_0_CH2_[0]\, DPHASE(15) => GND_net, DPHASE(14)
-         => GND_net, DPHASE(13) => GND_net, DPHASE(12) => GND_net, 
-        DPHASE(11) => GND_net, DPHASE(10) => GND_net, DPHASE(9)
-         => GND_net, DPHASE(8) => GND_net, DPHASE(7) => GND_net, 
-        DPHASE(6) => GND_net, DPHASE(5) => VCC_net, DPHASE(4) => 
-        GND_net, DPHASE(3) => GND_net, DPHASE(2) => GND_net, 
-        DPHASE(1) => GND_net, DPHASE(0) => GND_net, I_out(26) => 
-        DDC_0_I_out26to26, I_out(25) => \DDC_0_I_out25to0_[25]\, 
-        I_out(24) => \DDC_0_I_out25to0_[24]\, I_out(23) => 
-        \DDC_0_I_out25to0_[23]\, I_out(22) => 
-        \DDC_0_I_out25to0_[22]\, I_out(21) => 
-        \DDC_0_I_out25to0_[21]\, I_out(20) => 
-        \DDC_0_I_out25to0_[20]\, I_out(19) => 
-        \DDC_0_I_out25to0_[19]\, I_out(18) => 
-        \DDC_0_I_out25to0_[18]\, I_out(17) => 
-        \DDC_0_I_out25to0_[17]\, I_out(16) => 
-        \DDC_0_I_out25to0_[16]\, I_out(15) => 
-        \DDC_0_I_out25to0_[15]\, I_out(14) => 
-        \DDC_0_I_out25to0_[14]\, I_out(13) => 
-        \DDC_0_I_out25to0_[13]\, I_out(12) => 
-        \DDC_0_I_out25to0_[12]\, I_out(11) => 
-        \DDC_0_I_out25to0_[11]\, I_out(10) => 
-        \DDC_0_I_out25to0_[10]\, I_out(9) => 
-        \DDC_0_I_out25to0_[9]\, I_out(8) => 
-        \DDC_0_I_out25to0_[8]\, I_out(7) => 
-        \DDC_0_I_out25to0_[7]\, I_out(6) => 
-        \DDC_0_I_out25to0_[6]\, I_out(5) => 
-        \DDC_0_I_out25to0_[5]\, I_out(4) => 
-        \DDC_0_I_out25to0_[4]\, I_out(3) => 
-        \DDC_0_I_out25to0_[3]\, I_out(2) => 
-        \DDC_0_I_out25to0_[2]\, I_out(1) => 
-        \DDC_0_I_out25to0_[1]\, I_out(0) => 
-        \DDC_0_I_out25to0_[0]\, Q_out(26) => DDC_0_Q_out26to26, 
-        Q_out(25) => \DDC_0_Q_out25to0_[25]\, Q_out(24) => 
-        \DDC_0_Q_out25to0_[24]\, Q_out(23) => 
-        \DDC_0_Q_out25to0_[23]\, Q_out(22) => 
-        \DDC_0_Q_out25to0_[22]\, Q_out(21) => 
-        \DDC_0_Q_out25to0_[21]\, Q_out(20) => 
-        \DDC_0_Q_out25to0_[20]\, Q_out(19) => 
-        \DDC_0_Q_out25to0_[19]\, Q_out(18) => 
-        \DDC_0_Q_out25to0_[18]\, Q_out(17) => 
-        \DDC_0_Q_out25to0_[17]\, Q_out(16) => 
-        \DDC_0_Q_out25to0_[16]\, Q_out(15) => 
-        \DDC_0_Q_out25to0_[15]\, Q_out(14) => 
-        \DDC_0_Q_out25to0_[14]\, Q_out(13) => 
-        \DDC_0_Q_out25to0_[13]\, Q_out(12) => 
-        \DDC_0_Q_out25to0_[12]\, Q_out(11) => 
-        \DDC_0_Q_out25to0_[11]\, Q_out(10) => 
-        \DDC_0_Q_out25to0_[10]\, Q_out(9) => 
-        \DDC_0_Q_out25to0_[9]\, Q_out(8) => 
-        \DDC_0_Q_out25to0_[8]\, Q_out(7) => 
-        \DDC_0_Q_out25to0_[7]\, Q_out(6) => 
-        \DDC_0_Q_out25to0_[6]\, Q_out(5) => 
-        \DDC_0_Q_out25to0_[5]\, Q_out(4) => 
-        \DDC_0_Q_out25to0_[4]\, Q_out(3) => 
-        \DDC_0_Q_out25to0_[3]\, Q_out(2) => 
-        \DDC_0_Q_out25to0_[2]\, Q_out(1) => 
-        \DDC_0_Q_out25to0_[1]\, Q_out(0) => 
-        \DDC_0_Q_out25to0_[0]\);
+        Q_SMPL_RDY => OPEN, I_in(13) => \ADC_SPI_0_CH1_[13]\, 
+        I_in(12) => \ADC_SPI_0_CH1_[12]\, I_in(11) => 
+        \ADC_SPI_0_CH1_[11]\, I_in(10) => \ADC_SPI_0_CH1_[10]\, 
+        I_in(9) => \ADC_SPI_0_CH1_[9]\, I_in(8) => 
+        \ADC_SPI_0_CH1_[8]\, I_in(7) => \ADC_SPI_0_CH1_[7]\, 
+        I_in(6) => \ADC_SPI_0_CH1_[6]\, I_in(5) => 
+        \ADC_SPI_0_CH1_[5]\, I_in(4) => \ADC_SPI_0_CH1_[4]\, 
+        I_in(3) => \ADC_SPI_0_CH1_[3]\, I_in(2) => 
+        \ADC_SPI_0_CH1_[2]\, I_in(1) => \ADC_SPI_0_CH1_[1]\, 
+        I_in(0) => \ADC_SPI_0_CH1_[0]\, Q_in(13) => 
+        \ADC_SPI_0_CH2_[13]\, Q_in(12) => \ADC_SPI_0_CH2_[12]\, 
+        Q_in(11) => \ADC_SPI_0_CH2_[11]\, Q_in(10) => 
+        \ADC_SPI_0_CH2_[10]\, Q_in(9) => \ADC_SPI_0_CH2_[9]\, 
+        Q_in(8) => \ADC_SPI_0_CH2_[8]\, Q_in(7) => 
+        \ADC_SPI_0_CH2_[7]\, Q_in(6) => \ADC_SPI_0_CH2_[6]\, 
+        Q_in(5) => \ADC_SPI_0_CH2_[5]\, Q_in(4) => 
+        \ADC_SPI_0_CH2_[4]\, Q_in(3) => \ADC_SPI_0_CH2_[3]\, 
+        Q_in(2) => \ADC_SPI_0_CH2_[2]\, Q_in(1) => 
+        \ADC_SPI_0_CH2_[1]\, Q_in(0) => \ADC_SPI_0_CH2_[0]\, 
+        DPHASE(15) => GND_net, DPHASE(14) => GND_net, DPHASE(13)
+         => GND_net, DPHASE(12) => GND_net, DPHASE(11) => GND_net, 
+        DPHASE(10) => GND_net, DPHASE(9) => GND_net, DPHASE(8)
+         => GND_net, DPHASE(7) => GND_net, DPHASE(6) => GND_net, 
+        DPHASE(5) => VCC_net, DPHASE(4) => GND_net, DPHASE(3) => 
+        GND_net, DPHASE(2) => GND_net, DPHASE(1) => GND_net, 
+        DPHASE(0) => GND_net, I_out(26) => \DDC_0_I_out_1_[26]\, 
+        I_out(25) => \DDC_0_I_out_1_[25]\, I_out(24) => 
+        \DDC_0_I_out_1_[24]\, I_out(23) => \DDC_0_I_out_1_[23]\, 
+        I_out(22) => \DDC_0_I_out_1_[22]\, I_out(21) => 
+        \DDC_0_I_out_1_[21]\, I_out(20) => \DDC_0_I_out_1_[20]\, 
+        I_out(19) => \DDC_0_I_out_1_[19]\, I_out(18) => 
+        \DDC_0_I_out_1_[18]\, I_out(17) => \DDC_0_I_out_1_[17]\, 
+        I_out(16) => \DDC_0_I_out_1_[16]\, I_out(15) => 
+        \DDC_0_I_out_1_[15]\, I_out(14) => \DDC_0_I_out_1_[14]\, 
+        I_out(13) => \DDC_0_I_out_1_[13]\, I_out(12) => 
+        \DDC_0_I_out_1_[12]\, I_out(11) => \DDC_0_I_out_1_[11]\, 
+        I_out(10) => \DDC_0_I_out_1_[10]\, I_out(9) => 
+        \DDC_0_I_out_1_[9]\, I_out(8) => \DDC_0_I_out_1_[8]\, 
+        I_out(7) => \DDC_0_I_out_1_[7]\, I_out(6) => 
+        \DDC_0_I_out_1_[6]\, I_out(5) => \DDC_0_I_out_1_[5]\, 
+        I_out(4) => \DDC_0_I_out_1_[4]\, I_out(3) => 
+        \DDC_0_I_out_1_[3]\, I_out(2) => \DDC_0_I_out_1_[2]\, 
+        I_out(1) => \DDC_0_I_out_1_[1]\, I_out(0) => 
+        \DDC_0_I_out_1_[0]\, Q_out(26) => \DDC_0_Q_out_0_[26]\, 
+        Q_out(25) => \DDC_0_Q_out_0_[25]\, Q_out(24) => 
+        \DDC_0_Q_out_0_[24]\, Q_out(23) => \DDC_0_Q_out_0_[23]\, 
+        Q_out(22) => \DDC_0_Q_out_0_[22]\, Q_out(21) => 
+        \DDC_0_Q_out_0_[21]\, Q_out(20) => \DDC_0_Q_out_0_[20]\, 
+        Q_out(19) => \DDC_0_Q_out_0_[19]\, Q_out(18) => 
+        \DDC_0_Q_out_0_[18]\, Q_out(17) => \DDC_0_Q_out_0_[17]\, 
+        Q_out(16) => \DDC_0_Q_out_0_[16]\, Q_out(15) => 
+        \DDC_0_Q_out_0_[15]\, Q_out(14) => \DDC_0_Q_out_0_[14]\, 
+        Q_out(13) => \DDC_0_Q_out_0_[13]\, Q_out(12) => 
+        \DDC_0_Q_out_0_[12]\, Q_out(11) => \DDC_0_Q_out_0_[11]\, 
+        Q_out(10) => \DDC_0_Q_out_0_[10]\, Q_out(9) => 
+        \DDC_0_Q_out_0_[9]\, Q_out(8) => \DDC_0_Q_out_0_[8]\, 
+        Q_out(7) => \DDC_0_Q_out_0_[7]\, Q_out(6) => 
+        \DDC_0_Q_out_0_[6]\, Q_out(5) => \DDC_0_Q_out_0_[5]\, 
+        Q_out(4) => \DDC_0_Q_out_0_[4]\, Q_out(3) => 
+        \DDC_0_Q_out_0_[3]\, Q_out(2) => \DDC_0_Q_out_0_[2]\, 
+        Q_out(1) => \DDC_0_Q_out_0_[1]\, Q_out(0) => 
+        \DDC_0_Q_out_0_[0]\);
     
     CoreAPB3_0 : CoreAPB3
       generic map(APBSLOT0ENABLE => 1, APBSLOT10ENABLE => 0,
@@ -1073,11 +1056,6 @@ begin
     
     SAMPLE_APB3_0 : entity work.SAMPLE_APB3
       port map(PCLK => uC_0_FAB_CLK, PRESETn => uC_0_M2F_RESET_N, 
-        PSEL => CoreAPB3_0_APBmslave0_PSELx, PENABLE => 
-        CoreAPB3_0_APBmslave0_PENABLE, PWRITE => 
-        CoreAPB3_0_APBmslave0_PWRITE, PREADY => 
-        CoreAPB3_0_APBmslave0_PREADY, PSLVERR => 
-        CoreAPB3_0_APBmslave0_PSLVERR, SMPL_RDY => \SMPL_RDY\, 
         PADDR(31) => GND_net, PADDR(30) => GND_net, PADDR(29) => 
         GND_net, PADDR(28) => GND_net, PADDR(27) => GND_net, 
         PADDR(26) => GND_net, PADDR(25) => GND_net, PADDR(24) => 
@@ -1104,7 +1082,10 @@ begin
         \CoreAPB3_0_APBmslave0_PADDR_[3]\, PADDR(2) => 
         \CoreAPB3_0_APBmslave0_PADDR_[2]\, PADDR(1) => 
         \CoreAPB3_0_APBmslave0_PADDR_[1]\, PADDR(0) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[0]\, PWDATA(31) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[0]\, PSEL => 
+        CoreAPB3_0_APBmslave0_PSELx, PENABLE => 
+        CoreAPB3_0_APBmslave0_PENABLE, PWRITE => 
+        CoreAPB3_0_APBmslave0_PWRITE, PWDATA(31) => 
         \CoreAPB3_0_APBmslave0_PWDATA_[31]\, PWDATA(30) => 
         \CoreAPB3_0_APBmslave0_PWDATA_[30]\, PWDATA(29) => 
         \CoreAPB3_0_APBmslave0_PWDATA_[29]\, PWDATA(28) => 
@@ -1136,7 +1117,8 @@ begin
         \CoreAPB3_0_APBmslave0_PWDATA_[3]\, PWDATA(2) => 
         \CoreAPB3_0_APBmslave0_PWDATA_[2]\, PWDATA(1) => 
         \CoreAPB3_0_APBmslave0_PWDATA_[1]\, PWDATA(0) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[0]\, PRDATA(31) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[0]\, PREADY => 
+        CoreAPB3_0_APBmslave0_PREADY, PRDATA(31) => 
         \CoreAPB3_0_APBmslave0_PRDATA_[31]\, PRDATA(30) => 
         \CoreAPB3_0_APBmslave0_PRDATA_[30]\, PRDATA(29) => 
         \CoreAPB3_0_APBmslave0_PRDATA_[29]\, PRDATA(28) => 
@@ -1168,67 +1150,47 @@ begin
         \CoreAPB3_0_APBmslave0_PRDATA_[3]\, PRDATA(2) => 
         \CoreAPB3_0_APBmslave0_PRDATA_[2]\, PRDATA(1) => 
         \CoreAPB3_0_APBmslave0_PRDATA_[1]\, PRDATA(0) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[0]\, INPUT(63) => 
-        DDC_0_Q_out26to26, INPUT(62) => DDC_0_Q_out26to26, 
-        INPUT(61) => DDC_0_Q_out26to26, INPUT(60) => 
-        DDC_0_Q_out26to26, INPUT(59) => DDC_0_Q_out26to26, 
-        INPUT(58) => DDC_0_Q_out26to26, INPUT(57) => 
-        \DDC_0_Q_out25to0_[25]\, INPUT(56) => 
-        \DDC_0_Q_out25to0_[24]\, INPUT(55) => 
-        \DDC_0_Q_out25to0_[23]\, INPUT(54) => 
-        \DDC_0_Q_out25to0_[22]\, INPUT(53) => 
-        \DDC_0_Q_out25to0_[21]\, INPUT(52) => 
-        \DDC_0_Q_out25to0_[20]\, INPUT(51) => 
-        \DDC_0_Q_out25to0_[19]\, INPUT(50) => 
-        \DDC_0_Q_out25to0_[18]\, INPUT(49) => 
-        \DDC_0_Q_out25to0_[17]\, INPUT(48) => 
-        \DDC_0_Q_out25to0_[16]\, INPUT(47) => 
-        \DDC_0_Q_out25to0_[15]\, INPUT(46) => 
-        \DDC_0_Q_out25to0_[14]\, INPUT(45) => 
-        \DDC_0_Q_out25to0_[13]\, INPUT(44) => 
-        \DDC_0_Q_out25to0_[12]\, INPUT(43) => 
-        \DDC_0_Q_out25to0_[11]\, INPUT(42) => 
-        \DDC_0_Q_out25to0_[10]\, INPUT(41) => 
-        \DDC_0_Q_out25to0_[9]\, INPUT(40) => 
-        \DDC_0_Q_out25to0_[8]\, INPUT(39) => 
-        \DDC_0_Q_out25to0_[7]\, INPUT(38) => 
-        \DDC_0_Q_out25to0_[6]\, INPUT(37) => 
-        \DDC_0_Q_out25to0_[5]\, INPUT(36) => 
-        \DDC_0_Q_out25to0_[4]\, INPUT(35) => 
-        \DDC_0_Q_out25to0_[3]\, INPUT(34) => 
-        \DDC_0_Q_out25to0_[2]\, INPUT(33) => 
-        \DDC_0_Q_out25to0_[1]\, INPUT(32) => 
-        \DDC_0_Q_out25to0_[0]\, INPUT(31) => DDC_0_I_out26to26, 
-        INPUT(30) => DDC_0_I_out26to26, INPUT(29) => 
-        DDC_0_I_out26to26, INPUT(28) => DDC_0_I_out26to26, 
-        INPUT(27) => DDC_0_I_out26to26, INPUT(26) => 
-        DDC_0_I_out26to26, INPUT(25) => \DDC_0_I_out25to0_[25]\, 
-        INPUT(24) => \DDC_0_I_out25to0_[24]\, INPUT(23) => 
-        \DDC_0_I_out25to0_[23]\, INPUT(22) => 
-        \DDC_0_I_out25to0_[22]\, INPUT(21) => 
-        \DDC_0_I_out25to0_[21]\, INPUT(20) => 
-        \DDC_0_I_out25to0_[20]\, INPUT(19) => 
-        \DDC_0_I_out25to0_[19]\, INPUT(18) => 
-        \DDC_0_I_out25to0_[18]\, INPUT(17) => 
-        \DDC_0_I_out25to0_[17]\, INPUT(16) => 
-        \DDC_0_I_out25to0_[16]\, INPUT(15) => 
-        \DDC_0_I_out25to0_[15]\, INPUT(14) => 
-        \DDC_0_I_out25to0_[14]\, INPUT(13) => 
-        \DDC_0_I_out25to0_[13]\, INPUT(12) => 
-        \DDC_0_I_out25to0_[12]\, INPUT(11) => 
-        \DDC_0_I_out25to0_[11]\, INPUT(10) => 
-        \DDC_0_I_out25to0_[10]\, INPUT(9) => 
-        \DDC_0_I_out25to0_[9]\, INPUT(8) => 
-        \DDC_0_I_out25to0_[8]\, INPUT(7) => 
-        \DDC_0_I_out25to0_[7]\, INPUT(6) => 
-        \DDC_0_I_out25to0_[6]\, INPUT(5) => 
-        \DDC_0_I_out25to0_[5]\, INPUT(4) => 
-        \DDC_0_I_out25to0_[4]\, INPUT(3) => 
-        \DDC_0_I_out25to0_[3]\, INPUT(2) => 
-        \DDC_0_I_out25to0_[2]\, INPUT(1) => 
-        \DDC_0_I_out25to0_[1]\, INPUT(0) => 
-        \DDC_0_I_out25to0_[0]\, SMPL_RDY_IN(1) => 
-        DDC_0_I_SMPL_RDY, SMPL_RDY_IN(2) => DDC_0_Q_SMPL_RDY);
+        \CoreAPB3_0_APBmslave0_PRDATA_[0]\, PSLVERR => 
+        CoreAPB3_0_APBmslave0_PSLVERR, INPUT(53) => 
+        \DDC_0_Q_out_0_[26]\, INPUT(52) => \DDC_0_Q_out_0_[25]\, 
+        INPUT(51) => \DDC_0_Q_out_0_[24]\, INPUT(50) => 
+        \DDC_0_Q_out_0_[23]\, INPUT(49) => \DDC_0_Q_out_0_[22]\, 
+        INPUT(48) => \DDC_0_Q_out_0_[21]\, INPUT(47) => 
+        \DDC_0_Q_out_0_[20]\, INPUT(46) => \DDC_0_Q_out_0_[19]\, 
+        INPUT(45) => \DDC_0_Q_out_0_[18]\, INPUT(44) => 
+        \DDC_0_Q_out_0_[17]\, INPUT(43) => \DDC_0_Q_out_0_[16]\, 
+        INPUT(42) => \DDC_0_Q_out_0_[15]\, INPUT(41) => 
+        \DDC_0_Q_out_0_[14]\, INPUT(40) => \DDC_0_Q_out_0_[13]\, 
+        INPUT(39) => \DDC_0_Q_out_0_[12]\, INPUT(38) => 
+        \DDC_0_Q_out_0_[11]\, INPUT(37) => \DDC_0_Q_out_0_[10]\, 
+        INPUT(36) => \DDC_0_Q_out_0_[9]\, INPUT(35) => 
+        \DDC_0_Q_out_0_[8]\, INPUT(34) => \DDC_0_Q_out_0_[7]\, 
+        INPUT(33) => \DDC_0_Q_out_0_[6]\, INPUT(32) => 
+        \DDC_0_Q_out_0_[5]\, INPUT(31) => \DDC_0_Q_out_0_[4]\, 
+        INPUT(30) => \DDC_0_Q_out_0_[3]\, INPUT(29) => 
+        \DDC_0_Q_out_0_[2]\, INPUT(28) => \DDC_0_Q_out_0_[1]\, 
+        INPUT(27) => \DDC_0_Q_out_0_[0]\, INPUT(26) => 
+        \DDC_0_I_out_1_[26]\, INPUT(25) => \DDC_0_I_out_1_[25]\, 
+        INPUT(24) => \DDC_0_I_out_1_[24]\, INPUT(23) => 
+        \DDC_0_I_out_1_[23]\, INPUT(22) => \DDC_0_I_out_1_[22]\, 
+        INPUT(21) => \DDC_0_I_out_1_[21]\, INPUT(20) => 
+        \DDC_0_I_out_1_[20]\, INPUT(19) => \DDC_0_I_out_1_[19]\, 
+        INPUT(18) => \DDC_0_I_out_1_[18]\, INPUT(17) => 
+        \DDC_0_I_out_1_[17]\, INPUT(16) => \DDC_0_I_out_1_[16]\, 
+        INPUT(15) => \DDC_0_I_out_1_[15]\, INPUT(14) => 
+        \DDC_0_I_out_1_[14]\, INPUT(13) => \DDC_0_I_out_1_[13]\, 
+        INPUT(12) => \DDC_0_I_out_1_[12]\, INPUT(11) => 
+        \DDC_0_I_out_1_[11]\, INPUT(10) => \DDC_0_I_out_1_[10]\, 
+        INPUT(9) => \DDC_0_I_out_1_[9]\, INPUT(8) => 
+        \DDC_0_I_out_1_[8]\, INPUT(7) => \DDC_0_I_out_1_[7]\, 
+        INPUT(6) => \DDC_0_I_out_1_[6]\, INPUT(5) => 
+        \DDC_0_I_out_1_[5]\, INPUT(4) => \DDC_0_I_out_1_[4]\, 
+        INPUT(3) => \DDC_0_I_out_1_[3]\, INPUT(2) => 
+        \DDC_0_I_out_1_[2]\, INPUT(1) => \DDC_0_I_out_1_[1]\, 
+        INPUT(0) => \DDC_0_I_out_1_[0]\, shift(3) => GND_net, 
+        shift(2) => GND_net, shift(1) => GND_net, shift(0) => 
+        GND_net, SMPL_RDY_IN => DDC_0_I_SMPL_RDY, SMPL_RDY => 
+        \SMPL_RDY\);
     
     INV_0 : INV
       port map(A => uC_0_M2F_RESET_N, Y => INV_0_Y);

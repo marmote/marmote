@@ -19,7 +19,7 @@ fopen(u);
 % Pause for the communication delay, if needed. 
 %pause(0.05) 
 
-fwrite(u, 0, 'int32');
+fwrite(u, 0, 'uint32');
 
 elapsed_time = 0;
 ticID = tic;
@@ -41,7 +41,7 @@ while (1)
 %    if (BytesAvailable < rec_buff_size)
 %        continue;
 %    end
-    temp = swapbytes(int32(fread(u, BUFF_LENGTH, 'int32')));
+    temp = swapbytes(int32(fread(u, BUFF_LENGTH, 'uint32')));
     
     temp_length = length(temp);
     

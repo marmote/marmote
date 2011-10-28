@@ -24,14 +24,11 @@ vcom -work COREAPB3_LIB -refresh
 vlog -work COREAPB3_LIB -refresh
 
 vcom -93 -explicit -work presynth "${PROJECT_DIR}/hdl/common.vhd"
-vcom -93 -explicit -work presynth "${PROJECT_DIR}/hdl/ADDERSUBTRACTOR.vhd"
-vcom -93 -explicit -work presynth "${PROJECT_DIR}/hdl/multiplier.vhd"
-vcom -93 -explicit -work presynth "${PROJECT_DIR}/component/work/complex_mult/complex_mult.vhd"
+vcom -93 -explicit -work presynth "${PROJECT_DIR}/hdl/SAMPLE_APB3.vhd"
 vcom -93 -explicit -work COREAPB3_LIB "${PROJECT_DIR}/component/Actel/DirectCore/CoreAPB3/3.0.103/rtl/vhdl/core_obfuscated/components.vhd"
 vcom -93 -explicit -work CORECORDIC_LIB "${PROJECT_DIR}/component/Actel/DirectCore/CORECORDIC/3.0.196/rtl/vhdl/core/corecordic_package_word.vhd"
-vcom -93 -explicit -work presynth "${PROJECT_DIR}/stimulus/complex_mult_testbench.vhd"
-vcom -93 -explicit -work presynth "${PROJECT_DIR}/component/work/complex_mult/testbench.vhd"
+vcom -93 -explicit -work presynth "${PROJECT_DIR}/stimulus/SAMPLE_APB3_testbench.vhd"
 
-vsim -L work -L MSSLIB -L smartfusion -L presynth -L MSS_BFM_LIB -L CORECORDIC_LIB -L COREAPB3_LIB  -t 1ps presynth.complex_mult_tb
-add wave /complex_mult_tb/*
+vsim -L work -L MSSLIB -L smartfusion -L presynth -L MSS_BFM_LIB -L CORECORDIC_LIB -L COREAPB3_LIB  -t 1ps presynth.sample_APB3_tb
+add wave /sample_APB3_tb/*
 run 10000ns

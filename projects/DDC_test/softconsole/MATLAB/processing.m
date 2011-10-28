@@ -10,14 +10,16 @@ function [ TS, chunk1, chunk2, chunk1fft, chunk2fft ] = processing( TIME_STAMP, 
         while ii > 0
            TS = [chunk(ii) TS]; 
            chunk(ii) = [];
-           chunk(ii) = [];
            ii = ii - BUFF_LENGTH;
         end
     end
 
-    chunk1 = chunk(1:2:end);
-    chunk2 = chunk(2:2:end);
-
+    chunk1 = fix( chunk / 2^16 ); %upper 16 bits
+    chunk2 = rem( chunk, 2^16 ); %lower 16 bits
+    
+    chunk1 = double(typecast(uint16(chunk1), 'int16'));
+    chunk2 = double(typecast(uint16(chunk2), 'int16'));
+    
     chunk1 = chunk1/Full_Scale;
     chunk2 = chunk2/Full_Scale;
    
