@@ -1,28 +1,48 @@
 #labels Phase-Requirements
-= General =
+= Functional =
 
  * Should be able to identify itself to the host (USB) and the other boards (I^2^C)
 
-= Power Rails =
+== Power Rails ==
 
  * Should provide 1.5 V power rail for the FPGA
  * Should provide 3.3 V power rail for the FPGA
  * May provide 1.8 V power rail for the SRAM, radio chip and/or other peripherals
 
 
-= Programmer Logic =
+== Programmer Logic ==
 
  * Must be able to program the FPGA on the MainBoard
  * Must be able to receive bitstream file through USB
- ** May provide a mass-storage-like interface
+  ** May provide a mass-storage-like interface
  * Should be able to retrieve bitstream file from the SD card
  * Must support an open bitstream file format
 
 
-= Data acquisition =
+== Data acquisition ==
 
  * Must be able to read data samples from the FPGA
  * Should be able to read from and write to the SD card
  * Must be able to transfer data samples back through USB
- ** Should provide an audio class interface for slower, continuous streaming
- ** Should provide bulk transfer mode to retrieve buffered (from external memory on the MainBoard)
+  ** Should provide an audio class interface for slower, continuous streaming
+  ** Should provide bulk transfer mode to retrieve buffered (from external memory on the MainBoard)
+
+----
+
+= Software =
+
+_Note: The "Software" section below should go somewhere else._
+
+ * The software should utilize a simple OS
+  ** [http://www.freertos.org/index.html?http://interactive.freertos.org/entries/126315-stm32-with-gcc-and-eclipse FreeRTOS]
+  ** [http://www.chibios.org/dokuwiki/doku.php?id=start ChibiOS], 
+  ** [http://ecos.sourceware.org/ eCos]
+  ** [http://www.coocox.org/ CooCox]
+  ** [https://sites.google.com/site/stm32discovery/stm32-resources-and-links/open-source-real-time-operating-systems-for-the-stm32-and-cortex-m3-mpus Other]
+ * The OS should
+  ** support both ST32 and SmartFusion ARM Cortex M3
+  ** support CMSIS HAL
+  ** have no licensing issues
+  ** come with decent IDE and debug tools (Eclipse preferred)
+  ** be easy to use with SPI/FAT for the SD card (nice to have)
+  ** be easy to use with USB
