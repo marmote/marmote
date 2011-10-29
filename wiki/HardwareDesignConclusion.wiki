@@ -1,0 +1,9 @@
+#summary One-sentence summary of this page.
+#labels Phase-Support
+
+= Power Board =
+
+ * Via test points on important lines are useful
+ * Reset jumper seems to be valuable (reset test)
+ * Temporary MCO connection seems to be useful (R=0)
+ * 
