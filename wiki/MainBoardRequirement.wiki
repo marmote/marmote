@@ -44,6 +44,11 @@
 
 Note: The maximum SmartFusion processable sampling rate should be determined prior to selecting the ADCs and DAC(s).
 
+= External volatile memory =
+
+ * An external SRAM or DRAM (preferred) memory should be connected to the FPGA's high speed external memory interface
+ * The memory should operate on the SmartFusion 1.5V (preferred) or 3.0V rail
+ * The memory should provide a stand-by and quick wake-up mode
 
 = Connectors =
 
