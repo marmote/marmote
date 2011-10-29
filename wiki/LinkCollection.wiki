@@ -1,6 +1,16 @@
 #summary Collection of useful links related to hardware and software aspects of the Marmote project.
 #labels Phase-Design,Phase-Implementation
 
+= Software =
+
+== Eclipse ==
+
+ * VHDL editor
+  * [http://www.sigasi.com/university Sigasi]
+  * [http://simplifide.com/drupal6/ SimplifIDE]
+ * OS
+  * [http://www.stf12.org/developers/ODeV.html FreeRTOS]
+
 = Hardware =
 
 == ADC ==
