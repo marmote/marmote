@@ -12,6 +12,7 @@
   * [http://www.vhdleditor.com/vhdl-ides Others]
  * OS
   * [http://www.stf12.org/developers/ODeV.html FreeRTOS]
+ * [http://www.actel.com/products/solutions/dsp/default.aspx Actel DSP design flow/Symphony model compiler]
 
 = Hardware =
 
