@@ -8,6 +8,8 @@
  * VHDL editor
   * [http://www.sigasi.com/university Sigasi]
   * [http://simplifide.com/drupal6/ SimplifIDE]
+  * [http://zamiacad.sourceforge.net/web/?q=license ZamiaCAD]
+  * [http://www.vhdleditor.com/vhdl-ides Others]
  * OS
   * [http://www.stf12.org/developers/ODeV.html FreeRTOS]
 
