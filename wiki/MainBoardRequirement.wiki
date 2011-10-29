@@ -15,9 +15,9 @@
 
 = Programmer logic =
 
- * The FPGA should be programmable by the PowerBoard
- * The FPGA should be programmable directly via JTAG
- * The above two should not conflict
+ * The FPGA and the uC should be programmable by the PowerBoard
+ * The FPGA and the uC should be programmable directly via JTAG
+ * The above two should not conflict (e.g. multiplexer should be used)
 
 = Reset Logic =
 
@@ -36,6 +36,7 @@
  * ADCs and DACs should have power down mode
  * ADCs and DACs should have adjustable clock rate (power consumption)
  * We might need to consider the UMich (Prabal) approach (high speed ADC/DAC to be used with integrated WiFi RF frontend)
+ * Consider adding external DDC(s) and DUC(s)
 
 Note: The maximum SmartFusion processable sampling rate should be determined prior to selecting the ADCs and DAC(s).
 
