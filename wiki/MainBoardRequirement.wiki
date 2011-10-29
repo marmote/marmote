@@ -24,6 +24,10 @@
  * The PowerBoard should be able to reset the FPGA
  * The FPGA should have an external reset (e.g. push-button or jumper)
 
+= Wake-up Logic =
+
+ * The FPGA/uC should be able to weak up on an external signal (e.g. consider connecting it to a pin with analog comparator or Flash*Freeze-like functionality)
+
 = Interfaces =
 
 == Analog Front-End / Sensor Board ==
