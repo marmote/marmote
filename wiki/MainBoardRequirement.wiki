@@ -41,6 +41,8 @@
  * ADCs and DACs should have adjustable clock rate (power consumption)
  * We might need to consider the UMich (Prabal) approach (high speed ADC/DAC to be used with integrated WiFi RF frontend)
  * Consider adding external DDC(s) and DUC(s)
+  * Note: Adding a DDC might increase the response time of SmartFusion to the RF signals
+  * Note: If a DDC is used, it has to be added to all four channels (AE)
 
 Note: The maximum SmartFusion processable sampling rate should be determined prior to selecting the ADCs and DAC(s).
 
