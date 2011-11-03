@@ -1,5 +1,7 @@
 setvariables();
 
+TS_history = [];
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % Open UDP connection. 
@@ -41,7 +43,7 @@ while (1)
 %    if (BytesAvailable < rec_buff_size)
 %        continue;
 %    end
-    temp = swapbytes(int32(fread(u, BUFF_LENGTH, 'uint32')));
+    temp = swapbytes(uint32(fread(u, BUFF_LENGTH, 'uint32')));
     
     temp_length = length(temp);
     
@@ -79,9 +81,9 @@ while (1)
     ticID = tic;    
     
 %    if (elapsed_time >= 2)
-        [ TS, chunk1, chunk2, chunk1fft, chunk2fft ] = processing( TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, Resolution, chunk );
+        [ TS, TS_history, chunk1, chunk2, chunk1fft, chunk2fft ] = processing( TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, Resolution, chunk, TS_history );
 
-        drawchart(TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, TS, Fs, F_offset, Resolution, N, chunk1, chunk2, chunk1fft, chunk2fft);
+        drawchart(TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, TS, TS_history, Fs, F_offset, Resolution, N, chunk1, chunk2, chunk1fft, chunk2fft);
         
         elapsed_time = 0;
 %    end
