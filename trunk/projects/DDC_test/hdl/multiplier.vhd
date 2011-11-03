@@ -58,6 +58,8 @@ begin
     begin
         if RST = '1' then
 
+            C <= (others => '0');
+
             counter <= to_unsigned(0, log2_ceil(c_B_WIDTH+1));
             sample_rdy <= '0';
 

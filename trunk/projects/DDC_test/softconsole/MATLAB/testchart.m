@@ -1,7 +1,7 @@
 setvariables();
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-gen_f = 20000; % 0.1 MHz
+gen_f = 20000; % [Hz]
 gen_A = 1; %
 gen_phi = 0; % [rad]
 
@@ -11,14 +11,17 @@ c1 = gen_A*sin(2*pi()*gen_f*t + gen_phi);
 %chunk2 = -chunk1/Full_Scale; 
 c2 = -c1/2; 
 
-c1 = ( c1 +1 ) * Full_Scale/2;
-c2 = ( c2 +1 ) * Full_Scale/2;
+c1 = c1 * Full_Scale;
+c2 = c2 * Full_Scale;
+
+c1 = typecast(int32(c1), 'uint32');
+c2 = typecast(int32(c2), 'uint32');
+
+c1 = bitand(c1, hex2dec('FFFF'));
+c2 = bitand(c2, hex2dec('FFFF'));
 
 c = [];
-c(1:2:2*N) = c1; 
-c(2:2:2*N) = c2; 
-
-%c = fix(c1) * 2^16 + fix(c2);
+c = bitor(bitshift(c1,16), c2);
 
 chunk = [];
 if TIME_STAMP == 1
@@ -26,13 +29,13 @@ if TIME_STAMP == 1
 
     c_tmp = [];
     for ii=1:BUFF_MULTIPLIER
-        c_tmp = [c_tmp ii 0 c((ii-1)*(BUFF_LENGTH-2)+1:ii*(BUFF_LENGTH-2))];
+        c_tmp = [c_tmp ii c((ii-1)*(BUFF_LENGTH-1)+1:ii*(BUFF_LENGTH-1))];
     end
     
     chunk = c_tmp;
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-[ TS, chunk1, chunk2, chunk1fft, chunk2fft ] = processing( TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, Resolution, chunk );
+[ TS, TS_history, chunk1, chunk2, chunk1fft, chunk2fft ] = processing( TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, Resolution, chunk, TS_history );
 
-drawchart(TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, TS, Fs, F_offset, Resolution, N, chunk1, chunk2, chunk1fft, chunk2fft);
+drawchart(TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, TS, TS_history, Fs, F_offset, Resolution, N, chunk1, chunk2, chunk1fft, chunk2fft);

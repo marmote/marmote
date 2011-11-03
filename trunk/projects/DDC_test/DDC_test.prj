@@ -10,7 +10,7 @@ KEY VendorTechnology_Package "fg484"
 KEY ProjectLocation "D:\Work\marmote\projects\DDC_test"
 KEY SimulationType "VHDL"
 KEY Vendor "Actel"
-KEY ActiveRoot "top::work"
+KEY ActiveRoot "DDC::work"
 LIST REVISIONS
 VALUE="Impl1",NUM=1
 VALUE="Impl2",NUM=2
@@ -116,7 +116,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\core\corecordic_addpackage_word.vhd,hdl"
 STATE="utd"
-TIME="1319201296"
+TIME="1320356318"
 SIZE="2380"
 LIBRARY="CORECORDIC_LIB"
 PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
@@ -140,7 +140,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\test\user\corecordic_tbpackage.vhd,tb_hdl"
 STATE="utd"
-TIME="1319201296"
+TIME="1320356318"
 SIZE="4406"
 LIBRARY="CORECORDIC_LIB"
 PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
@@ -429,19 +429,19 @@ PARENT="<project>\component\work\uC\uC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\designer\impl5\top.adb,adb"
-STATE="utd"
-TIME="1319816145"
-SIZE="833536"
+STATE="ood"
+TIME="1319823475"
+SIZE="3588608"
 ENDFILE
 VALUE "<project>\designer\impl5\top.fdb,fdb"
-STATE="utd"
-TIME="1319816280"
-SIZE="123969"
+STATE="ood"
+TIME="1319823407"
+SIZE="122944"
 ENDFILE
 VALUE "<project>\designer\impl5\top_fp\top.pro,pro"
 STATE="utd"
-TIME="1319816349"
-SIZE="1783"
+TIME="1319823608"
+SIZE="1937"
 ENDFILE
 VALUE "<project>\hdl\ADC_SPI.vhd,hdl"
 STATE="utd"
@@ -450,7 +450,7 @@ SIZE="5082"
 ENDFILE
 VALUE "<project>\hdl\ADDERSUBTRACTOR.vhd,hdl"
 STATE="utd"
-TIME="1319645715"
+TIME="1320093288"
 SIZE="2145"
 ENDFILE
 VALUE "<project>\hdl\CIC_COMB_control.vhd,hdl"
@@ -475,8 +475,8 @@ SIZE="3271"
 ENDFILE
 VALUE "<project>\hdl\multiplier.vhd,hdl"
 STATE="utd"
-TIME="1319724547"
-SIZE="3317"
+TIME="1320093266"
+SIZE="3354"
 ENDFILE
 VALUE "<project>\hdl\phase_gen.vhd,hdl"
 STATE="utd"
@@ -526,8 +526,8 @@ PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
 ENDFILE
 VALUE "<project>\simulation\run.do,do"
 STATE="utd"
-TIME="1319725517"
-SIZE="1995"
+TIME="1320356314"
+SIZE="3001"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
@@ -640,8 +640,8 @@ SIZE="3759"
 ENDFILE
 VALUE "<project>\stimulus\DDC_testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1319546038"
-SIZE="4290"
+TIME="1320354750"
+SIZE="7789"
 ENDFILE
 VALUE "<project>\stimulus\mytestbench_phase_gen.vhd,tb_hdl"
 STATE="utd"
@@ -655,22 +655,22 @@ SIZE="3689"
 ENDFILE
 VALUE "<project>\stimulus\SAMPLE_APB3_testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1319128461"
-SIZE="4567"
+TIME="1319818953"
+SIZE="4700"
 ENDFILE
 VALUE "<project>\synthesis\top.edn,syn_edn"
-STATE="utd"
-TIME="1319816102"
-SIZE="2616008"
+STATE="ood"
+TIME="1319823125"
+SIZE="2568191"
 ENDFILE
 VALUE "<project>\synthesis\top_drc.rpt,log"
 STATE="utd"
-TIME="1319816114"
-SIZE="28342"
+TIME="1319823137"
+SIZE="28701"
 ENDFILE
 VALUE "<project>\synthesis\top_sdc.sdc,syn_sdc"
-STATE="utd"
-TIME="1319816102"
+STATE="ood"
+TIME="1319823125"
 SIZE="310"
 ENDFILE
 ENDLIST
@@ -812,6 +812,7 @@ VALUE "<project>\component\work\DDC\testbench.vhd,tb_hdl"
 ENDLIST
 LIST AssociatedStimulus
 VALUE "<project>\component\work\DDC\testbench.vhd,tb_hdl"
+VALUE "<project>\stimulus\DDC_testbench.vhd,tb_hdl"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
@@ -982,9 +983,7 @@ VALUE "<project>\component\work\top\testbench.vhd,tb_hdl"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
-LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -993,9 +992,7 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl2
-LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1004,9 +1001,7 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl3
-LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1015,9 +1010,7 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl4
-LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1026,10 +1019,7 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl5
-LiberoState=Post_Layout
 ideSTIMULUS=StateSuccess
-ideDESIGNER(<project>\designer\impl5\top.adb,adb)=StateSuccess
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1231,6 +1221,7 @@ VALUE "<project>\component\work\top\testbench.vhd,tb_hdl"
 ENDLIST
 LIST DDC
 VALUE "<project>\component\work\DDC\testbench.vhd,tb_hdl"
+VALUE "<project>\stimulus\DDC_testbench.vhd,tb_hdl"
 ENDLIST
 LIST CIC
 VALUE "<project>\stimulus\CIC_testbench.vhd,tb_hdl"
@@ -1313,10 +1304,10 @@ LIST SimulationOptions
 UseAutomaticDoFile=true
 IncludeWaveDo=false
 Type=max
-RunTime=10000ns
+RunTime=100000ns
 Resolution=1ps
 VsimOpt=
-EntityName=sample_APB3_tb
+EntityName=DDC_tb
 TopInstanceName=uut
 DoFileName=
 DoFileName2=wave.do
@@ -1612,9 +1603,7 @@ ENDLIST
 ENDLIST
 LIST "top::work"
 LIST Impl1
-LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1623,9 +1612,7 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl2
-LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1634,9 +1621,7 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl3
-LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1645,9 +1630,7 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl4
-LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1656,10 +1639,7 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl5
-LiberoState=Post_Layout
 ideSTIMULUS=StateSuccess
-ideDESIGNER(<project>\designer\impl5\top.adb,adb)=StateSuccess
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1824,12 +1804,6 @@ LIST OpenedFileList
 DESIGNFLOW:
 SD:top::work
 SD:DDC::work
-SD:complex_mult::work
-FILE:<project>\hdl\multiplier.vhd,hdl
-FILE:<project>\stimulus\complex_mult_testbench.vhd,tb_hdl
-FILE:<project>\hdl\SAMPLE_APB3.vhd,hdl
-FILE:<project>\hdl\common.vhd,hdl
-FILE:<project>\stimulus\SAMPLE_APB3_testbench.vhd,tb_hdl
-FILE:<project>\synthesis\top.srr,???
-ACTIVE_VIEW:9
+FILE:<project>\stimulus\DDC_testbench.vhd,tb_hdl
+ACTIVE_VIEW:3
 ENDLIST
