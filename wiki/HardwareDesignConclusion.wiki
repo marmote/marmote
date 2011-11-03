@@ -6,4 +6,4 @@
  * Via test points on important lines are useful
  * Reset jumper seems to be valuable (reset test)
  * Temporary MCO connection seems to be useful (R=0)
- * 
+ * A push button might have been more useful than a jumper for NRST
