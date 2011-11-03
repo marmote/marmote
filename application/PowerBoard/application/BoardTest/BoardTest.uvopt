@@ -151,21 +151,6 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>73</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134218272</Address>
-          <ByteObject>0</ByteObject>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>D:\work\software\PowerBoard\application\BoardTest\main.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
           <LineNumber>9</LineNumber>
           <EnabledFlag>1</EnabledFlag>
           <Address>134218124</Address>
@@ -231,10 +216,10 @@
       <FileType>1</FileType>
       <tvExp>1</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>24</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>2</TopLine>
-      <CurrentLine>15</CurrentLine>
+      <TopLine>56</TopLine>
+      <CurrentLine>74</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -252,10 +237,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>53</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>22</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\CMSIS\source\core_cm3.c</PathWithFileName>
       <FilenameWithoutPath>core_cm3.c</FilenameWithoutPath>
@@ -340,9 +325,9 @@
   </Group>
 
   <AlienFiles>
-    <PathWithFilename>D:\work\software\PowerBoard\library\CMSIS\include\stm32f10x.h</PathWithFilename>
-    <TopLine>1753</TopLine>
-    <CurrentLine>1771</CurrentLine>
+    <PathWithFilename>D:\work\software\PowerBoard\library\CMSIS\include\core_cm3.h</PathWithFilename>
+    <TopLine>548</TopLine>
+    <CurrentLine>556</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -366,9 +351,9 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>D:\work\software\PowerBoard\library\CMSIS\include\core_cm3.h</PathWithFilename>
-    <TopLine>547</TopLine>
-    <CurrentLine>566</CurrentLine>
+    <PathWithFilename>D:\work\software\PowerBoard\library\CMSIS\include\stm32f10x.h</PathWithFilename>
+    <TopLine>1753</TopLine>
+    <CurrentLine>1771</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -396,7 +381,7 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>1</ActiveTab>
+      <ActiveTab>4</ActiveTab>
       <Documents>
         <Doc>
           <Name>..\..\library\CMSIS\source\system_stm32f10x.c</Name>
@@ -406,9 +391,9 @@
         </Doc>
         <Doc>
           <Name>.\main.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>2</TopLine>
-          <CurrentLine>15</CurrentLine>
+          <ColumnNumber>24</ColumnNumber>
+          <TopLine>56</TopLine>
+          <CurrentLine>74</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\library\CMSIS\source\arm\startup_stm32f10x_md.s</Name>
@@ -424,9 +409,9 @@
         </Doc>
         <Doc>
           <Name>..\..\library\CMSIS\include\core_cm3.h</Name>
-          <ColumnNumber>14</ColumnNumber>
-          <TopLine>547</TopLine>
-          <CurrentLine>566</CurrentLine>
+          <ColumnNumber>78</ColumnNumber>
+          <TopLine>548</TopLine>
+          <CurrentLine>556</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>
