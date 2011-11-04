@@ -7,3 +7,4 @@
  * Reset jumper seems to be valuable (reset test)
  * Temporary MCO connection seems to be useful (R=0)
  * A push button might have been more useful than a jumper for NRST
+ * TRACESWO would have been useful to be connected to the board-to-board connector as a GPIO (it's fault tolerant and has no special limitations)
