@@ -113,21 +113,39 @@ void LED_Toggle (uint32_t led)
 }
 
 
-/*
 void SF_GPIO_Init(void)
 {
+	GPIO_InitTypeDef GPIO_InitStructure; 
+
 	// Enable peripheral clocks
 	RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
 	RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
 	RCC->APB2ENR |= RCC_APB2ENR_IOPCEN;
 
-	GPIO_InitTypeDef GPIO_InitStructure; 
-
     // PC14, PC15, PA9, PA10, PB4
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8; 
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP; 
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz; 
-	GPIO_Init(GPIOA, &GPIO_InitStructure); 
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_14; 
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
+	GPIO_Init(GPIOC, &GPIO_InitStructure); 
 }
-*/
 
+
+void SF_GPIO_Set(uint32_t gpio)
+{
+	// PC14, PC15, PA9, PA10, PB4 as
+	// GPIO0, GPIO1, GPIO2, GPIO3, GPIO4
+	if (gpio & SF_CON_GPIO0)
+	{
+		GPIOC->BSRR = SF_CON_GPIO0_Msk;
+	}
+}
+
+void SF_GPIO_Clear(uint32_t gpio)
+{
+	// PC14, PC15, PA9, PA10, PB4 as
+	// GPIO0, GPIO1, GPIO2, GPIO3, GPIO4
+	if (gpio & SF_CON_GPIO0)
+	{
+		GPIOC->BRR = SF_CON_GPIO0_Msk;
+	}
+}
