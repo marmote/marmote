@@ -45,6 +45,7 @@ int main (void) {
 //	GPIOA->CRL |= GPIO_CRH_CNF8_1;   // PA8 to MCO (alternate function)
 	
 	LED_Init();	
+	SF_GPIO_Init();
 
 	SysTick->CTRL |= (SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_TICKINT_Msk | SysTick_CTRL_ENABLE_Msk);
 	SysTick->LOAD = 72000;	
@@ -52,6 +53,9 @@ int main (void) {
 	while (1)
 	{
 		LED_Toggle(LED1 | LED2);
+		SF_GPIO_Set(SF_CON_GPIO0);
+		Delay(500);
+		SF_GPIO_Clear(SF_CON_GPIO0);
 		Delay(500);
 	}
 }

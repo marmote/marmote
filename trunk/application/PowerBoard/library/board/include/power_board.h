@@ -67,13 +67,26 @@ void LED_Toggle (uint32_t led);
 
 // SmartFusion connector
 
-#define SF_CON_GPIO_PIN30 // !
-#define SF_CON_GPIO_PIN32 // !
-#define SF_CON_GPIO_PIN34
-#define SF_CON_GPIO_PIN36
-#define SF_CON_GPIO_PIN38
+
+typedef enum
+{
+    SF_CON_GPIO0 = 1,
+    SF_CON_GPIO1 = 2,
+    SF_CON_GPIO2 = 4,
+    SF_CON_GPIO3 = 8,
+    SF_CON_GPIO4 = 16
+} SF_CON_GPIO_TypeDef;
+
+#define SF_CON_GPIO0_Pos    14  //PIN30
+#define SF_CON_GPIO0_Msk    (0x1UL << SF_CON_GPIO0_Pos)
+#define SF_CON_GPIO1 //PIN32
+#define SF_CON_GPIO2 //PIN34
+#define SF_CON_GPIO3 //PIN36
+#define SF_CON_GPIO4 //PIN38
 
 void SF_GPIO_Init(void);
+void SF_GPIO_Set(uint32_t gpio);
+void SF_GPIO_Clear(uint32_t gpio);
 
 #endif // __POWER_BOARD_H
 
