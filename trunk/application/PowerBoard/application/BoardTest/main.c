@@ -44,19 +44,48 @@ int main (void) {
 //	GPIOA->CRL &= GPIO_CRH_CNF8_0;
 //	GPIOA->CRL |= GPIO_CRH_CNF8_1;   // PA8 to MCO (alternate function)
 	
-	LED_Init();	
-	SF_GPIO_Init();
+	LED_Init();			
+	PowerControl_Init();
+
+
+#ifdef CON_GPIO_TEST
+	CON_GPIO_Init();
+#endif
 
 	SysTick->CTRL |= (SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_TICKINT_Msk | SysTick_CTRL_ENABLE_Msk);
 	SysTick->LOAD = 72000;	
 
 	while (1)
 	{
-		LED_Toggle(LED1 | LED2);
-		SF_GPIO_Set(SF_CON_GPIO0);
+		//LED_Toggle(LED2);
+		//Delay(250);		
+		Delay(100);		
+		
+//#ifdef POWER_CONTROL_TEST
+		//USB_EnableSuspendMode();
+		//USB_DisableSuspendMode();
+
+		//USB_EnableHighPowerMode();
+		//USB_DisableHighPowerMode();
+
+		if (WALL_IsPowerGood())
+		{
+			LED_On(LED1);
+			LED_Off(LED2);	
+		}
+		else
+		{
+			LED_Off(LED1);
+			LED_On(LED2);	
+		}
+//#endif	
+
+#ifdef CON_GPIO_TEST
+		CON_GPIO_Set(CON_GPIO0 | CON_GPIO1 | CON_GPIO2 | CON_GPIO3 | CON_GPIO4);
 		Delay(500);
-		SF_GPIO_Clear(SF_CON_GPIO0);
+		CON_GPIO_Clear(CON_GPIO0 | CON_GPIO1 | CON_GPIO2 | CON_GPIO3 | CON_GPIO4);
 		Delay(500);
+#endif
 	}
 }
 
