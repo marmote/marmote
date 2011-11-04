@@ -113,7 +113,7 @@ void LED_Toggle (uint32_t led)
 }
 
 
-void SF_GPIO_Init(void)
+void CON_GPIO_Init(void)
 {
 	GPIO_InitTypeDef GPIO_InitStructure; 
 
@@ -122,30 +122,93 @@ void SF_GPIO_Init(void)
 	RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
 	RCC->APB2ENR |= RCC_APB2ENR_IOPCEN;
 
-    // PC14, PC15, PA9, PA10, PB4
+    // PC14
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_14; 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
 	GPIO_Init(GPIOC, &GPIO_InitStructure); 
+
+    // PC15
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_15; 
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
+	GPIO_Init(GPIOC, &GPIO_InitStructure); 
+
+    // PA9
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9; 
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
+	GPIO_Init(GPIOA, &GPIO_InitStructure); 
+    
+    // PA10
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10; 
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
+	GPIO_Init(GPIOA, &GPIO_InitStructure); 
+    
+    // PB4
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4; 
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
+	GPIO_Init(GPIOB, &GPIO_InitStructure); 
 }
 
 
-void SF_GPIO_Set(uint32_t gpio)
+void CON_GPIO_Set(uint32_t gpio)
 {
-	// PC14, PC15, PA9, PA10, PB4 as
-	// GPIO0, GPIO1, GPIO2, GPIO3, GPIO4
-	if (gpio & SF_CON_GPIO0)
+	if (gpio & CON_GPIO0)
 	{
-		GPIOC->BSRR = SF_CON_GPIO0_Msk;
+		GPIOC->BSRR = CON_GPIO0_Msk;
+	}
+
+	if (gpio & CON_GPIO1)
+	{
+		GPIOC->BSRR = CON_GPIO1_Msk;
+	}
+
+	if (gpio & CON_GPIO2)
+	{
+		GPIOA->BSRR = CON_GPIO2_Msk;
+	}
+
+	if (gpio & CON_GPIO3)
+	{
+		GPIOA->BSRR = CON_GPIO3_Msk;
+	}
+
+	if (gpio & CON_GPIO4)
+	{
+		GPIOB->BSRR = CON_GPIO4_Msk;
 	}
 }
 
-void SF_GPIO_Clear(uint32_t gpio)
+void CON_GPIO_Clear(uint32_t gpio)
 {
 	// PC14, PC15, PA9, PA10, PB4 as
 	// GPIO0, GPIO1, GPIO2, GPIO3, GPIO4
-	if (gpio & SF_CON_GPIO0)
+
+	if (gpio & CON_GPIO0)
 	{
-		GPIOC->BRR = SF_CON_GPIO0_Msk;
+		GPIOC->BRR = CON_GPIO0_Msk;
+	}
+
+	if (gpio & CON_GPIO1)
+	{
+		GPIOC->BRR = CON_GPIO1_Msk;
+	}
+
+	if (gpio & CON_GPIO2)
+	{
+		GPIOA->BRR = CON_GPIO2_Msk;
+	}
+
+	if (gpio & CON_GPIO3)
+	{
+		GPIOA->BRR = CON_GPIO3_Msk;
+	}
+
+	if (gpio & CON_GPIO4)
+	{
+		GPIOB->BRR = CON_GPIO4_Msk;
 	}
 }

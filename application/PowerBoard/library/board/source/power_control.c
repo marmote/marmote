@@ -1,18 +1,19 @@
 //-----------------------------------------------------------------------------
-// Title         : Power Board Header
-// Project       : Marmote Power Supply Board
+// Title         : Power Control Functions Source
+// Project       : Power Board
 //-----------------------------------------------------------------------------
-// File          : power_board.h
+// File          : power_control.c
 // Author        : Sandor Szilvasi
 // Company       : Vanderbilt University, ISIS
-// Created       : 2011-11-02 20:13
-// Last update   : 2011-11-02 20:15
+// Created       : 2011-11-04 11:01
+// Last update   : 2011-11-04
 // Platform      : Marmote
 // Target device : STM32F102CB
 // Tool version  : ARM uVision 4 (v4.22.22.0)
 // Standard      : CMSIS
 //-----------------------------------------------------------------------------
-// Description   : <+description+>
+// Description   : C source file for the power management functionalities
+// regarding the USB, 5V WALL and Li-Ion battery of the Marmote Power Board.
 //-----------------------------------------------------------------------------
 // Copyright (c) 2006-2011, Vanderbilt University
 // All rights reserved.
@@ -35,64 +36,65 @@
 //-----------------------------------------------------------------------------
 // Revisions     :
 // Date            Version  Author			Description
-// 2011-11-02      1.0      Sandor Szilvasi	Created
+// 2011-11-04      1.0      Sandor Szilvasi	Created
 //-----------------------------------------------------------------------------
 
-#ifndef __POWER_BOARD_H
-#define __POWER_BOARD_H
-
-#include "stm32f10x.h"
 #include "power_control.h"
 
-// Board - Initialize board peripherals and GPIOs with default values
-void Board_Init(void); // 
-
-
-// LEDs
-
-typedef enum 
+void PowerControl_Init(void)
 {
-  LED1 = 1,
-  LED2 = 2
-} Led_TypeDef;
+	GPIO_InitTypeDef GPIO_InitStructure; 
 
-#define POWER_BOARD_LED1_Pos    15    
-#define POWER_BOARD_LED1_Msk    (0x1UL << POWER_BOARD_LED1_Pos)
-#define POWER_BOARD_LED2_Pos    2    
-#define POWER_BOARD_LED2_Msk    (0x1UL << POWER_BOARD_LED2_Pos)
+	// Enable peripheral clocks
+	RCC->APB2ENR |= (RCC_APB2ENR_IOPBEN | RCC_APB2ENR_IOPCEN);
 
-void LED_Init(void);
-void LED_On (uint32_t led);
-void LED_Off (uint32_t led);
-void LED_Toggle (uint32_t led);
+    // USB_SUSP (PC13)
+    GPIOC->ODR &= ~(USB_SUSP_Msk);
 
-// SmartFusion connector
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13; 
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
+	GPIO_Init(GPIOC, &GPIO_InitStructure); 
+    
+    // USB_HPWR (PB8)
+    GPIOB->ODR &= ~(USB_HPWR_Msk);
 
-typedef enum
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8; 
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
+	GPIO_Init(GPIOB, &GPIO_InitStructure); 
+
+    // WALL_PWERGD
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8; 
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING; 
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
+	GPIO_Init(WALL_PWRGD_Prt, &GPIO_InitStructure); 
+}
+
+void USB_EnableSuspendMode(void)
 {
-    CON_GPIO0 = 1,
-    CON_GPIO1 = 2,
-    CON_GPIO2 = 4,
-    CON_GPIO3 = 8,
-    CON_GPIO4 = 16
-} CON_GPIO_TypeDef;
+    GPIOC->ODR |= (USB_SUSP_Msk);
+}
 
-// * means limited IO capabilities
-#define CON_GPIO0_Pos    14 // PC14* - CON PIN30
-#define CON_GPIO0_Msk    (0x1UL << CON_GPIO0_Pos)
-#define CON_GPIO1_Pos    15 // PC15* - CON PIN32
-#define CON_GPIO1_Msk    (0x1UL << CON_GPIO1_Pos)
-#define CON_GPIO2_Pos     9 // PA9 - CON PIN34
-#define CON_GPIO2_Msk    (0x1UL << CON_GPIO2_Pos)
-#define CON_GPIO3_Pos    10 // PA10 - CON PIN36
-#define CON_GPIO3_Msk    (0x1UL << CON_GPIO3_Pos)
-#define CON_GPIO4_Pos     4 // PB4 - CON PIN38
-#define CON_GPIO4_Msk    (0x1UL << CON_GPIO4_Pos)
+void USB_DisableSuspendMode(void)
+{
+    GPIOC->ODR &= ~(USB_SUSP_Msk);
+}
 
-void CON_GPIO_Init(void);
-void CON_GPIO_Set(uint32_t gpio);
-void CON_GPIO_Clear(uint32_t gpio);
 
-#endif // __POWER_BOARD_H
+void USB_EnableHighPowerMode(void)
+{
+    GPIOB->ODR |= (USB_HPWR_Msk);
+}
 
+void USB_DisableHighPowerMode(void)
+{
+    GPIOB->ODR &= ~(USB_HPWR_Msk);
+}
+
+
+uint8_t WALL_IsPowerGood(void)
+{
+    return (WALL_PWRGD_Prt->IDR &= WALL_PWRGD_Msk) == 0;
+}
 
