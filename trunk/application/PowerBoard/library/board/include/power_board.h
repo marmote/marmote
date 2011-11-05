@@ -43,6 +43,8 @@
 
 #include "stm32f10x.h"
 #include "power_control.h"
+#include "stm32f10x_spi.h"
+#include "stm32f10x_i2c.h"
 
 // Board - Initialize board peripherals and GPIOs with default values
 void Board_Init(void); // 
@@ -92,6 +94,51 @@ typedef enum
 void CON_GPIO_Init(void);
 void CON_GPIO_Set(uint32_t gpio);
 void CON_GPIO_Clear(uint32_t gpio);
+
+
+// SmartFusion connector SPI
+
+#define CON_SPI_NSS_PIN               GPIO_Pin_4                     /* PA.4  */
+#define CON_SPI_NSS_GPIO_PORT         GPIOA                          /* GPIOA */
+#define CON_SPI_NSS_GPIO_CLK          RCC_AHBPeriph_GPIOA 
+
+#define CON_SPI_SCK_PIN               GPIO_Pin_5                     /* PA.5  */
+#define CON_SPI_SCK_GPIO_PORT         GPIOA                          /* GPIOA */
+#define CON_SPI_SCK_GPIO_CLK          RCC_AHBPeriph_GPIOA  
+//#define CON_SPI_SCK_SOURCE            GPIO_PinSource13
+#define CON_SPI_SCK_AF                GPIO_AF_SPI1
+#define CON_SPI_MISO_PIN              GPIO_Pin_6                     /* PA.6 */
+#define CON_SPI_MISO_GPIO_PORT        GPIOA                          /* GPIOA */
+#define CON_SPI_MISO_GPIO_CLK         RCC_AHBPeriph_GPIOA  
+//#define CON_SPI_MISO_SOURCE           GPIO_PinSource14
+#define CON_SPI_MISO_AF               GPIO_AF_SPI1
+#define CON_SPI_MOSI_PIN              GPIO_Pin_7                     /* PA.7  */
+#define CON_SPI_MOSI_GPIO_PORT        GPIOA                          /* GPIOA */
+#define CON_SPI_MOSI_GPIO_CLK         RCC_AHBPeriph_GPIOA  
+//#define CON_SPI_MOSI_SOURCE           GPIO_PinSource15
+#define CON_SPI_MOSI_AF               GPIO_AF_SPI1
+#define CON_SPI                       SPI1
+#define CON_SPI_CLK                   RCC_APB2Periph_SPI1
+
+void CON_SPI_Init(void);
+void CON_SPI_SendData(uint16_t data);
+
+
+// SmartFusion connector I2C
+
+#define CON_I2C_SCL_PIN             GPIO_Pin_6  // PB.6
+#define CON_I2C_SCL_GPIO_PORT       GPIOB       // GPIOB
+#define CON_I2C_SCL_GPIO_CLK        RCC_AHBPeriph_GPIOB
+
+#define CON_I2C_SDA_PIN             GPIO_Pin_7  // PB.7
+#define CON_I2C_SDA_GPIO_PORT       GPIOB       // GPIOB
+#define CON_I2C_SDA_GPIO_CLK        RCC_AHBPeriph_GPIOB
+
+#define CON_I2C                     I2C1
+#define CON_I2C_CLK                 RCC_APB1Periph_I2C1
+
+void CON_I2C_Init(void);
+ErrorStatus CON_I2C_SendData(uint8_t address, uint8_t data);
 
 #endif // __POWER_BOARD_H
 
