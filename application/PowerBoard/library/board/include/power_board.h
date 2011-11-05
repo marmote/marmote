@@ -43,6 +43,7 @@
 
 #include "stm32f10x.h"
 #include "power_control.h"
+#include "power_monitor.h"
 #include "stm32f10x_spi.h"
 #include "stm32f10x_i2c.h"
 

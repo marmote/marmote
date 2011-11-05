@@ -50,6 +50,8 @@ int main (void) {
 	CON_SPI_Init();
 	CON_I2C_Init();
 
+	BAT_I2C_Init();
+
 #ifdef CON_GPIO_TEST
 	CON_GPIO_Init();
 #endif
@@ -99,7 +101,11 @@ int main (void) {
 //#endif
 
 //#ifdef I2C1_TEST
-		CON_I2C_SendData(ctr++,0);
+		//CON_I2C_SendData(ctr++,0);
+//#endif
+
+//#ifdef I2C2_TEST
+		BAT_ReadRegister(00);
 //#endif
 
 #ifdef CON_GPIO_TEST
