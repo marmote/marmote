@@ -346,7 +346,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_MD,USE_STDPERIPH_DRIVER,HSE_VALUE=16000000</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\library\CMSIS\include;..\..\library\peripheral\include</IncludePath>
+              <IncludePath>..\..\library\CMSIS\include;..\..\library\peripheral\include;..\..\library\board\include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -420,6 +420,18 @@
         </Group>
         <Group>
           <GroupName>Board</GroupName>
+          <Files>
+            <File>
+              <FileName>power_board.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\library\board\source\power_board.c</FilePath>
+            </File>
+            <File>
+              <FileName>power_control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\library\board\source\power_control.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>Peripheral</GroupName>
@@ -433,6 +445,16 @@
               <FileName>stm32f10x_rcc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\library\peripheral\source\stm32f10x_rcc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f10x_i2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\library\peripheral\source\stm32f10x_i2c.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f10x_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\library\peripheral\source\stm32f10x_spi.c</FilePath>
             </File>
           </Files>
         </Group>
