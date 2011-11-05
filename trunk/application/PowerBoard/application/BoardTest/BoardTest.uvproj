@@ -431,6 +431,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\library\board\source\power_control.c</FilePath>
             </File>
+            <File>
+              <FileName>power_monitor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\library\board\source\power_monitor.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
