@@ -60,7 +60,6 @@ void BAT_I2C_Init(void)
     //RCC_APB1PeriphClockCmd(BAT_I2C_CLK | RCC_APB1Periph_SYSCFG, ENABLE);
 
 
-	/*
 	GPIO_InitStructure.GPIO_Pin = BAT_I2C_SCL_PIN | BAT_I2C_SDA_PIN;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_OD;
@@ -79,15 +78,15 @@ void BAT_I2C_Init(void)
 
     // Enable I2C peripheral
     I2C_Cmd(BAT_I2C, ENABLE);
-	*/
 
-
+    /*
     // START - TEMPORARY DEBUG CODE TO DRIVE I2C SIGNALS AS GPIOS
 	GPIO_InitStructure.GPIO_Pin = BAT_I2C_SCL_PIN | BAT_I2C_SDA_PIN; 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_OD; 
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
 	GPIO_Init(BAT_I2C_SDA_GPIO_PORT, &GPIO_InitStructure); 
     // END - TEMPORARY DEBUG CODE TO DRIVE I2C SIGNALS AS GPIOS
+    */
 
 }
 
@@ -143,7 +142,8 @@ uint8_t BAT_ReadRegister(uint8_t address)
     I2C_Send7bitAddress(BAT_I2C, BAT_I2C_ADDRESS, I2C_Direction_Transmitter);
 
     /* Test EV6 and clear it */
-    while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED))
+    //while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED))
+    while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_TRANSMITTING)) // FIXME
 	{
 		// Check for ACK ERROR
 	    if (I2C_CheckEvent(BAT_I2C, I2C_EVENT_SLAVE_ACK_FAILURE))
