@@ -24,3 +24,6 @@
 
 || *Vendor* || *Model* || *RX mixer* || *LPF* || *TX mixer* || *PLL* ||
 || Analog Devices || [http://www.analog.com/static/imported-files/data_sheets/ADF9010.pdf ADF9010] || no || yes || yes || yes ||
+
+http://datasheets.maxim-ic.com/en/ds/MAX2830.pdf (MAX2831 with PA)
+http://datasheets.maxim-ic.com/en/ds/MAX2510.pdf
