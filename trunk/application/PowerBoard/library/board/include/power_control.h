@@ -59,6 +59,15 @@
 #define WALL_PWRGD_Pos	 9
 #define WALL_PWRGD_Msk	(0x1UL << WALL_PWRGD_Pos)
 
+
+#ifdef MASTER_SWITCH_ZERO_RESISTOR_NOT_POPULATED
+// Use pin as MCO (AF) output
+
+//#elif
+// Use pin GPIO as master switch 
+
+#endif
+
 void PowerControl_Init(void);
 
 void USB_EnableSuspendMode(void);

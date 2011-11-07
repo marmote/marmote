@@ -59,6 +59,8 @@ void BAT_I2C_Init(void)
 	RCC->APB1ENR |= BAT_I2C_CLK;
     //RCC_APB1PeriphClockCmd(BAT_I2C_CLK | RCC_APB1Periph_SYSCFG, ENABLE);
 
+
+	/*
 	GPIO_InitStructure.GPIO_Pin = BAT_I2C_SCL_PIN | BAT_I2C_SDA_PIN;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_OD;
@@ -77,6 +79,16 @@ void BAT_I2C_Init(void)
 
     // Enable I2C peripheral
     I2C_Cmd(BAT_I2C, ENABLE);
+	*/
+
+
+    // START - TEMPORARY DEBUG CODE TO DRIVE I2C SIGNALS AS GPIOS
+	GPIO_InitStructure.GPIO_Pin = BAT_I2C_SCL_PIN | BAT_I2C_SDA_PIN; 
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_OD; 
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
+	GPIO_Init(BAT_I2C_SDA_GPIO_PORT, &GPIO_InitStructure); 
+    // END - TEMPORARY DEBUG CODE TO DRIVE I2C SIGNALS AS GPIOS
+
 }
 
 ErrorStatus BAT_I2C_SendData(uint8_t address, uint8_t data)
