@@ -44,6 +44,7 @@
   * Note: Adding a DDC might increase the response time of SmartFusion to the RF signals
   * Note: If a DDC is used, it has to be added to all four channels (AE)
   * Check on ADCs/DACs with integrated DDC and DUC
+ * Use ADCs with some testing capabilities (e.g. test pattern mode)
 
 Note: The maximum SmartFusion processable sampling rate should be determined prior to selecting the ADCs and DAC(s).
 
