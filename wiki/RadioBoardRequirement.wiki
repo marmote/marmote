@@ -6,6 +6,12 @@
  * Should have a fine tunable LO (say in < 50 Hz steps)
  * Should operate in the 433 MHz and/or 2.4 GHz band
 
+= Test points =
+
+ * Analog baseband waveform feed in (signal generator) and signal out (oscilloscope) test point (e.g. right after the DAC/ADC)
+ * Analog baseband signal loop-back option
+ * Analog RF signal loopback option (might be trivial)
+
 = Misc = 
 
  * May have a microphone and a speaker (footprint)
