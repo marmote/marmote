@@ -19,7 +19,7 @@ static void Delay (uint32_t dlyTicks) {
 
 int main (void) {
 
-	uint16_t ctr;					
+//	uint16_t ctr;					
 
 	GPIO_InitTypeDef GPIO_InitStructure; 
 
@@ -59,7 +59,7 @@ int main (void) {
 	SysTick->CTRL |= (SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_TICKINT_Msk | SysTick_CTRL_ENABLE_Msk);
 	SysTick->LOAD = 72000;	
 					
-	ctr = 0;	
+//	ctr = 0;	
 
 	while (1)
 	{
@@ -105,7 +105,12 @@ int main (void) {
 //#endif
 
 //#ifdef I2C2_TEST
-		BAT_ReadRegister(00);
+		//BAT_ReadRegister(00);
+        GPIO_ResetBits(BAT_I2C_SCL_GPIO_PORT, BAT_I2C_SCL_PIN);
+        GPIO_SetBits(BAT_I2C_SCL_GPIO_PORT, BAT_I2C_SCL_PIN);
+
+        GPIO_ResetBits(BAT_I2C_SDA_GPIO_PORT, BAT_I2C_SDA_PIN);
+        GPIO_SetBits(BAT_I2C_SDA_GPIO_PORT, BAT_I2C_SDA_PIN);
 //#endif
 
 #ifdef CON_GPIO_TEST
