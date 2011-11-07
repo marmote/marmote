@@ -6,6 +6,10 @@
  * Should have a fine tunable LO (say in < 50 Hz steps)
  * Should operate in the 433 MHz and/or 2.4 GHz band
 
+= Clocking =
+
+ * LO clocks should be derived from a temperature compensated voltage controlled crystal oscillator (TCVCXO) driven source
+
 = Test points =
 
  * Analog baseband waveform feed in (signal generator) and signal out (oscilloscope) test point (e.g. right after the DAC/ADC)
