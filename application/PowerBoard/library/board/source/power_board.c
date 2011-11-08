@@ -295,6 +295,7 @@ void CON_SPI_SendData(uint16_t data)
 	//CON_SPI_NSS_GPIO_PORT->BRR = CON_SPI_NSS_PIN;
     GPIO_ResetBits(CON_SPI_NSS_GPIO_PORT, CON_SPI_NSS_PIN);
     SPI_I2S_SendData(SPI1, data);
+	while (CON_SPI->SR & SPI_SR_BSY); // wait for busy flag
 	//CON_SPI_NSS_GPIO_PORT->BSRR = CON_SPI_NSS_PIN;
     GPIO_SetBits(CON_SPI_NSS_GPIO_PORT, CON_SPI_NSS_PIN);
 }

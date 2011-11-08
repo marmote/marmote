@@ -203,4 +203,70 @@ uint8_t BAT_ReadRegister(uint8_t address)
     return data;
 }
 
+void SD_SPI_Init(void)
+{
+	SPI_InitTypeDef  SPI_InitStructure;
+	GPIO_InitTypeDef  GPIO_InitStructure;
+
+	RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
+	RCC->APB1ENR |= SD_SPI_CLK;
+
+	//RCC->APB1ENR |= RCC_APB1ENR_SPI2EN;
+    
+    // Default value
+	//SD_SPI_NSS_GPIO_PORT->BSRR = SD_SPI_NSS_PIN;
+    GPIO_SetBits(SD_SPI_NSS_GPIO_PORT, SD_SPI_NSS_PIN);
+
+	GPIO_InitStructure.GPIO_Pin = SD_SPI_NSS_PIN;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+    GPIO_Init(SD_SPI_NSS_GPIO_PORT, &GPIO_InitStructure); 
+
+    // SCK
+    GPIO_InitStructure.GPIO_Pin = SD_SPI_SCK_PIN;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+    GPIO_Init(SD_SPI_SCK_GPIO_PORT, &GPIO_InitStructure);
+
+    // MISO
+    GPIO_InitStructure.GPIO_Pin = SD_SPI_MISO_PIN;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; // !
+    GPIO_Init(SD_SPI_MISO_GPIO_PORT, &GPIO_InitStructure);
+
+    // MOSI
+    GPIO_InitStructure.GPIO_Pin = SD_SPI_MOSI_PIN;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+    GPIO_Init(SD_SPI_MOSI_GPIO_PORT, &GPIO_InitStructure);
+
+    // Initialize SPI as master
+    SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
+    SPI_InitStructure.SPI_Mode = SPI_Mode_Master;
+    SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;
+    SPI_InitStructure.SPI_CPOL = SPI_CPOL_Low;
+    SPI_InitStructure.SPI_CPHA = SPI_CPHA_1Edge;
+    SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
+    SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_8;
+    SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
+    SPI_InitStructure.SPI_CRCPolynomial = 7;
+    SPI_Init(SD_SPI, &SPI_InitStructure);
+
+    // Enable NSS as output
+    SPI_SSOutputCmd(SD_SPI, ENABLE); // TODO: Check if this is needed
+
+    // Enable SPI
+    SPI_Cmd(SD_SPI, ENABLE);
+}
+
+void SD_SPI_SendData(uint16_t data)
+{
+	//SD_SPI_NSS_GPIO_PORT->BRR = SD_SPI_NSS_PIN;
+    GPIO_ResetBits(SD_SPI_NSS_GPIO_PORT, SD_SPI_NSS_PIN);
+    SPI_I2S_SendData(SD_SPI, data);
+	//SD_SPI_NSS_GPIO_PORT->BSRR = SD_SPI_NSS_PIN;
+	while (SD_SPI->SR & SPI_SR_BSY); // wait for busy flag
+    GPIO_SetBits(SD_SPI_NSS_GPIO_PORT, SD_SPI_NSS_PIN);
+}
+
 
