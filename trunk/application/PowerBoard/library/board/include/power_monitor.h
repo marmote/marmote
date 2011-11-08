@@ -62,6 +62,7 @@
 #define BAT_I2C_CLK                 RCC_APB1Periph_I2C2
 
 #define BAT_I2C_ADDRESS				(0x64U << 1) // 1100100X
+//#define BAT_I2C_ADDRESS				(0x65U << 1) // 1100101X (for testing NACK only)
 
 void BAT_I2C_Init(void);
 ErrorStatus BAT_I2C_SendData(uint8_t address, uint8_t data);

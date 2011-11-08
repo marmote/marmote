@@ -151,62 +151,17 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>108</LineNumber>
+          <LineNumber>88</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134218296</Address>
+          <Address>134218210</Address>
           <ByteObject>0</ByteObject>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename></Filename>
+          <Filename>D:\work\software\PowerBoard\application\BoardTest\main.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\BoardTest\main.c\108</Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>53</LineNumber>
-          <EnabledFlag>0</EnabledFlag>
-          <Address>134218238</Address>
-          <ByteObject>0</ByteObject>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename></Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\BoardTest\main.c\53</Expression>
-        </Bp>
-        <Bp>
-          <Number>2</Number>
-          <Type>0</Type>
-          <LineNumber>131</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134220536</Address>
-          <ByteObject>0</ByteObject>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename></Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\BoardTest\../../library/board/source/power_monitor.c\131</Expression>
-        </Bp>
-        <Bp>
-          <Number>3</Number>
-          <Type>0</Type>
-          <LineNumber>104</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134218282</Address>
-          <ByteObject>0</ByteObject>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename></Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\BoardTest\main.c\104</Expression>
+          <Expression></Expression>
         </Bp>
       </Breakpoint>
       <DebugFlag>
@@ -259,6 +214,14 @@
           <WinId>35903</WinId>
         </Entry>
         <Entry>
+          <Name>System Viewer\I2C2</Name>
+          <WinId>35899</WinId>
+        </Entry>
+        <Entry>
+          <Name>System Viewer\RCC</Name>
+          <WinId>35898</WinId>
+        </Entry>
+        <Entry>
           <Name>System Viewer\SPI1</Name>
           <WinId>35900</WinId>
         </Entry>
@@ -277,10 +240,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>39</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>95</TopLine>
-      <CurrentLine>108</CurrentLine>
+      <TopLine>70</TopLine>
+      <CurrentLine>101</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -289,19 +252,19 @@
 
   <Group>
     <GroupName>CMSIS</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
       <GroupNumber>2</GroupNumber>
       <FileNumber>2</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>53</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>1</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\CMSIS\source\core_cm3.c</PathWithFileName>
       <FilenameWithoutPath>core_cm3.c</FilenameWithoutPath>
@@ -312,10 +275,10 @@
       <FileType>1</FileType>
       <tvExp>1</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>59</ColumnNumber>
+      <ColumnNumber>22</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>43</TopLine>
+      <CurrentLine>65</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\CMSIS\source\system_stm32f10x.c</PathWithFileName>
       <FilenameWithoutPath>system_stm32f10x.c</FilenameWithoutPath>
@@ -324,7 +287,7 @@
 
   <Group>
     <GroupName>Startup</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
@@ -354,10 +317,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>79</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>362</TopLine>
-      <CurrentLine>375</CurrentLine>
+      <TopLine>316</TopLine>
+      <CurrentLine>316</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\board\source\power_board.c</PathWithFileName>
       <FilenameWithoutPath>power_board.c</FilenameWithoutPath>
@@ -368,10 +331,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>27</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>1</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\board\source\power_control.c</PathWithFileName>
       <FilenameWithoutPath>power_control.c</FilenameWithoutPath>
@@ -380,12 +343,12 @@
       <GroupNumber>4</GroupNumber>
       <FileNumber>7</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>105</ColumnNumber>
+      <ColumnNumber>101</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>108</TopLine>
-      <CurrentLine>134</CurrentLine>
+      <TopLine>168</TopLine>
+      <CurrentLine>168</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\board\source\power_monitor.c</PathWithFileName>
       <FilenameWithoutPath>power_monitor.c</FilenameWithoutPath>
@@ -394,7 +357,7 @@
 
   <Group>
     <GroupName>Peripheral</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
@@ -403,10 +366,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>38</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>355</TopLine>
+      <CurrentLine>363</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\peripheral\source\stm32f10x_gpio.c</PathWithFileName>
       <FilenameWithoutPath>stm32f10x_gpio.c</FilenameWithoutPath>
@@ -415,12 +378,12 @@
       <GroupNumber>5</GroupNumber>
       <FileNumber>9</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>40</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>996</TopLine>
+      <CurrentLine>1002</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\peripheral\source\stm32f10x_rcc.c</PathWithFileName>
       <FilenameWithoutPath>stm32f10x_rcc.c</FilenameWithoutPath>
@@ -429,12 +392,12 @@
       <GroupNumber>5</GroupNumber>
       <FileNumber>10</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>43</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1030</TopLine>
-      <CurrentLine>1043</CurrentLine>
+      <TopLine>864</TopLine>
+      <CurrentLine>864</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\peripheral\source\stm32f10x_i2c.c</PathWithFileName>
       <FilenameWithoutPath>stm32f10x_i2c.c</FilenameWithoutPath>
@@ -457,8 +420,8 @@
 
   <AlienFiles>
     <PathWithFilename>D:\work\software\PowerBoard\library\board\include\power_monitor.h</PathWithFilename>
-    <TopLine>33</TopLine>
-    <CurrentLine>48</CurrentLine>
+    <TopLine>40</TopLine>
+    <CurrentLine>67</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -483,8 +446,8 @@
 
   <AlienFiles>
     <PathWithFilename>D:\work\software\PowerBoard\library\peripheral\include\stm32f10x_i2c.h</PathWithFilename>
-    <TopLine>338</TopLine>
-    <CurrentLine>347</CurrentLine>
+    <TopLine>106</TopLine>
+    <CurrentLine>106</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -512,49 +475,55 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>1</ActiveTab>
+      <ActiveTab>2</ActiveTab>
       <Documents>
         <Doc>
-          <Name>.\main.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>95</TopLine>
-          <CurrentLine>108</CurrentLine>
+          <Name>..\..\library\board\source\power_control.c</Name>
+          <ColumnNumber>27</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>1</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\library\peripheral\source\stm32f10x_i2c.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>1030</TopLine>
-          <CurrentLine>1043</CurrentLine>
+          <ColumnNumber>43</ColumnNumber>
+          <TopLine>864</TopLine>
+          <CurrentLine>864</CurrentLine>
         </Doc>
         <Doc>
-          <Name>..\..\library\CMSIS\source\arm\startup_stm32f10x_md.s</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>133</TopLine>
-          <CurrentLine>133</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>..\..\library\board\source\power_board.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>362</TopLine>
-          <CurrentLine>375</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>..\..\library\board\source\power_monitor.c</Name>
-          <ColumnNumber>105</ColumnNumber>
-          <TopLine>108</TopLine>
-          <CurrentLine>134</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>..\..\library\board\include\power_monitor.h</Name>
-          <ColumnNumber>83</ColumnNumber>
-          <TopLine>33</TopLine>
-          <CurrentLine>48</CurrentLine>
+          <Name>.\main.c</Name>
+          <ColumnNumber>39</ColumnNumber>
+          <TopLine>70</TopLine>
+          <CurrentLine>101</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\library\peripheral\include\stm32f10x_i2c.h</Name>
-          <ColumnNumber>9</ColumnNumber>
-          <TopLine>338</TopLine>
-          <CurrentLine>347</CurrentLine>
+          <ColumnNumber>16</ColumnNumber>
+          <TopLine>106</TopLine>
+          <CurrentLine>106</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\library\board\include\power_monitor.h</Name>
+          <ColumnNumber>87</ColumnNumber>
+          <TopLine>40</TopLine>
+          <CurrentLine>67</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\library\board\source\power_monitor.c</Name>
+          <ColumnNumber>101</ColumnNumber>
+          <TopLine>168</TopLine>
+          <CurrentLine>168</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\library\peripheral\source\stm32f10x_rcc.c</Name>
+          <ColumnNumber>40</ColumnNumber>
+          <TopLine>996</TopLine>
+          <CurrentLine>1002</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\library\board\source\power_board.c</Name>
+          <ColumnNumber>79</ColumnNumber>
+          <TopLine>316</TopLine>
+          <CurrentLine>316</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>
