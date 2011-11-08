@@ -319,6 +319,9 @@ void CON_I2C_Init(void)
 	RCC->APB1ENR |= RCC_APB1Periph_I2C1;
     //RCC_APB1PeriphClockCmd(CON_I2C_CLK | RCC_APB1Periph_SYSCFG, ENABLE);
 
+	CON_I2C_SDA_GPIO_PORT->BRR = CON_I2C_SDA_PIN;
+	CON_I2C_SCL_GPIO_PORT->BRR = CON_I2C_SCL_PIN;
+
 	GPIO_InitStructure.GPIO_Pin = CON_I2C_SCL_PIN | CON_I2C_SDA_PIN;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_OD;

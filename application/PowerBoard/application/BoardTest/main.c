@@ -41,8 +41,8 @@ int main (void) {
 	{
 		//LED_Toggle(LED2);
 		//Delay(250);		
-		Delay(1000);	
-		LED_Off(LED2);	
+		//Delay(1000);	
+		LED_On(LED2);	
 		
 //#ifdef POWER_CONTROL_TEST
 		//USB_EnableSuspendMode();
@@ -65,8 +65,8 @@ int main (void) {
 		*/
 //#endif
 
-	POW_EnableMasterSwitch();
-	POW_DisableMasterSwitch();
+//	POW_EnableMasterSwitch();
+//	POW_DisableMasterSwitch();
 
 //#ifdef SPI1_TEST
 		//CON_SPI_SendData(ctr++);
@@ -84,7 +84,9 @@ int main (void) {
 //#endif
 
 //#ifdef I2C2_TEST
-		//BAT_ReadRegister(00);
+		BAT_ReadRegister(00);
+		LED_Off(LED2);
+		while (1);
         /*
         GPIO_ResetBits(BAT_I2C_SCL_GPIO_PORT, BAT_I2C_SCL_PIN);
         GPIO_SetBits(BAT_I2C_SCL_GPIO_PORT, BAT_I2C_SCL_PIN);

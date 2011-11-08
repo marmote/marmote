@@ -79,6 +79,10 @@ void BAT_I2C_Init(void)
     // Enable I2C peripheral
     I2C_Cmd(BAT_I2C, ENABLE);
 
+	// Reset the battery gauge I2C interface
+	//I2C_GenerateSTART(BAT_I2C, ENABLE);
+	//I2C_GenerateSTOP(BAT_I2C, ENABLE);
+
     /*
     // START - TEMPORARY DEBUG CODE TO DRIVE I2C SIGNALS AS GPIOS
 	GPIO_InitStructure.GPIO_Pin = BAT_I2C_SCL_PIN | BAT_I2C_SDA_PIN; 
@@ -136,7 +140,7 @@ uint8_t BAT_ReadRegister(uint8_t address)
     I2C_GenerateSTART(BAT_I2C, ENABLE);
 
     /* Test EV5 and clear it */
-    while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_MODE_SELECT));  
+     while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_MODE_SELECT));  
 
     /* Send slave address for write */
     I2C_Send7bitAddress(BAT_I2C, BAT_I2C_ADDRESS, I2C_Direction_Transmitter);
