@@ -19,13 +19,14 @@ static void Delay (uint32_t dlyTicks) {
 
 int main (void) {
 
-//	uint16_t ctr;					
+	uint16_t ctr;					
 
 	LED_Init();			
 	PowerControl_Init();
 	CON_SPI_Init();
 	CON_I2C_Init();
 
+	SD_SPI_Init();
 	BAT_I2C_Init();
 
 #ifdef CON_GPIO_TEST
@@ -35,7 +36,7 @@ int main (void) {
 	SysTick->CTRL |= (SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_TICKINT_Msk | SysTick_CTRL_ENABLE_Msk);
 	SysTick->LOAD = 72000;	
 					
-//	ctr = 0;	
+	ctr = 0;	
 
 	while (1)
 	{
@@ -83,10 +84,18 @@ int main (void) {
 		//CON_I2C_SendData(ctr++,0);
 //#endif
 
+//#ifdef SPI2_TEST
+		SD_SPI_SendData(ctr++);
+		
+		LED_Off(LED2);	
+		Delay(1000);		
+//#endif
+
+
 //#ifdef I2C2_TEST
-		BAT_ReadRegister(00);
-		LED_Off(LED2);
-		while (1);
+		//BAT_ReadRegister(00);
+		//LED_Off(LED2);
+		//while (1);
         /*
         GPIO_ResetBits(BAT_I2C_SCL_GPIO_PORT, BAT_I2C_SCL_PIN);
         GPIO_SetBits(BAT_I2C_SCL_GPIO_PORT, BAT_I2C_SCL_PIN);

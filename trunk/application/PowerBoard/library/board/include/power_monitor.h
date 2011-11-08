@@ -48,7 +48,7 @@
 #include "power_board.h" // FIXME: for LED only - this line should be removed later
 
 
-// Battery Gauge I2C
+// Battery Gauge I2C (I2C2)
 
 #define BAT_I2C_SCL_PIN             GPIO_Pin_10 // PB.10
 #define BAT_I2C_SCL_GPIO_PORT       GPIOB       // GPIOB
@@ -67,5 +67,33 @@
 void BAT_I2C_Init(void);
 ErrorStatus BAT_I2C_SendData(uint8_t address, uint8_t data);
 uint8_t BAT_ReadRegister(uint8_t address);
+
+
+// SD card SPI (SPI2)
+
+#define SD_SPI_NSS_PIN               GPIO_Pin_12                    /* PB.12  */
+#define SD_SPI_NSS_GPIO_PORT         GPIOB                          /* GPIOB */
+#define SD_SPI_NSS_GPIO_CLK          RCC_AHBPeriph_GPIOB 
+
+#define SD_SPI_SCK_PIN               GPIO_Pin_13                    /* PB.13  */
+#define SD_SPI_SCK_GPIO_PORT         GPIOB                          /* GPIOB */
+#define SD_SPI_SCK_GPIO_CLK          RCC_AHBPeriph_GPIOB  
+//#define SD_SPI_SCK_SOURCE            GPIO_PinSource13
+#define SD_SPI_SCK_AF                GPIO_AF_SPI2
+#define SD_SPI_MISO_PIN              GPIO_Pin_14                    /* PB.14 */
+#define SD_SPI_MISO_GPIO_PORT        GPIOB                          /* GPIOB */
+#define SD_SPI_MISO_GPIO_CLK         RCC_AHBPeriph_GPIOB  
+//#define SD_SPI_MISO_SOURCE           GPIO_PinSource14
+#define SD_SPI_MISO_AF               GPIO_AF_SPI2
+#define SD_SPI_MOSI_PIN              GPIO_Pin_15                    /* PB.15  */
+#define SD_SPI_MOSI_GPIO_PORT        GPIOB                          /* GPIOB */
+#define SD_SPI_MOSI_GPIO_CLK         RCC_AHBPeriph_GPIOB  
+//#define SD_SPI_MOSI_SOURCE           GPIO_PinSource15
+#define SD_SPI_MOSI_AF               GPIO_AF_SPI2
+#define SD_SPI                       SPI2
+#define SD_SPI_CLK                   RCC_APB1Periph_SPI2
+
+void SD_SPI_Init(void);
+void SD_SPI_SendData(uint16_t data);
 
 #endif // __POWER_MONITOR_H
