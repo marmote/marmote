@@ -47,6 +47,7 @@ void PowerControl_Init(void)
 
 	// Enable peripheral clocks
 	RCC->APB2ENR |= (RCC_APB2ENR_IOPBEN | RCC_APB2ENR_IOPCEN);
+	RCC->APB2ENR |= MASTER_SWITCH_GPIO_CLK;
 
     // USB_SUSP (PC13)
     GPIOC->ODR &= ~(USB_SUSP_Msk);
@@ -69,6 +70,14 @@ void PowerControl_Init(void)
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING; 
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
 	GPIO_Init(WALL_PWRGD_Prt, &GPIO_InitStructure); 
+    
+//#ifndef MASTER_SWITCH_ZERO_RESISTOR_NOT_POPULATED
+    // MASTER_SWITCH
+	GPIO_InitStructure.GPIO_Pin = MASTER_SWITCH_PIN; 
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
+	GPIO_Init(MASTER_SWITCH_GPIO_PORT, &GPIO_InitStructure); 
+//#endif
 }
 
 void USB_EnableSuspendMode(void)
@@ -98,3 +107,36 @@ uint8_t WALL_IsPowerGood(void)
     return (WALL_PWRGD_Prt->IDR &= WALL_PWRGD_Msk) == 0;
 }
 
+void POW_EnableMasterSwitch(void)
+{
+    MASTER_SWITCH_GPIO_PORT->BSRR = MASTER_SWITCH_PIN;
+}
+
+void POW_DisableMasterSwitch(void)
+{
+    MASTER_SWITCH_GPIO_PORT->BRR = MASTER_SWITCH_PIN;
+}
+
+/*
+void RCC_MCO_Init(void)
+{
+	GPIO_InitTypeDef GPIO_InitStructure; 
+
+	// Put the clock configuration into RCC_APB2PeriphClockCmd 
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE); 
+
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8; 
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP; 
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz; 
+	GPIO_Init(GPIOA, &GPIO_InitStructure); 
+
+    // Enable AFIO clock
+    RCC->APB2ENR |= RCC_APB2ENR_AFIOEN;
+    
+	// Note: Set breakpoints here to check MCO output
+//	RCC_MCOConfig(RCC_MCO_HSI);
+//  RCC_MCOConfig(RCC_MCO_HSE);
+//	RCC_MCOConfig(RCC_MCO_PLLCLK_Div2);				   
+//	RCC_MCOConfig(RCC_MCO_SYSCLK); 
+}
+*/

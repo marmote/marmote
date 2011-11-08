@@ -19,32 +19,8 @@ static void Delay (uint32_t dlyTicks) {
 
 int main (void) {
 
-	uint16_t ctr;					
+//	uint16_t ctr;					
 
-	GPIO_InitTypeDef GPIO_InitStructure; 
-
-	// Put the clock configuration into RCC_APB2PeriphClockCmd 
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE); 
-
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8; 
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP; 
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz; 
-	GPIO_Init(GPIOA, &GPIO_InitStructure); 
-
-	// Set breakpoints here to check MCO output
-	RCC_MCOConfig(RCC_MCO_HSI);
-    RCC_MCOConfig(RCC_MCO_HSE);
-	RCC_MCOConfig(RCC_MCO_PLLCLK_Div2);				   
-	RCC_MCOConfig(RCC_MCO_SYSCLK); 
-
-//	RCC->APB2ENR |= RCC_APB2ENR_AFIOEN;
-
-	// Enable AFIO clock
-	
-//	RCC->APB2ENR |= RCC_APB2ENR_AFIOEN;
-//	GPIOA->CRL &= GPIO_CRH_CNF8_0;
-//	GPIOA->CRL |= GPIO_CRH_CNF8_1;   // PA8 to MCO (alternate function)
-	
 	LED_Init();			
 	PowerControl_Init();
 	CON_SPI_Init();
@@ -59,7 +35,7 @@ int main (void) {
 	SysTick->CTRL |= (SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_TICKINT_Msk | SysTick_CTRL_ENABLE_Msk);
 	SysTick->LOAD = 72000;	
 					
-	ctr = 0;	
+//	ctr = 0;	
 
 	while (1)
 	{
@@ -87,7 +63,10 @@ int main (void) {
 			LED_On(LED2);	
 		}
 		*/
-//#endif	
+//#endif
+
+	POW_EnableMasterSwitch();
+	POW_DisableMasterSwitch();
 
 //#ifdef SPI1_TEST
 		//CON_SPI_SendData(ctr++);
@@ -101,11 +80,11 @@ int main (void) {
 //#endif
 
 //#ifdef I2C1_TEST
-		CON_I2C_SendData(ctr++,0);
+		//CON_I2C_SendData(ctr++,0);
 //#endif
 
 //#ifdef I2C2_TEST
-		BAT_ReadRegister(00);
+		//BAT_ReadRegister(00);
         /*
         GPIO_ResetBits(BAT_I2C_SCL_GPIO_PORT, BAT_I2C_SCL_PIN);
         GPIO_SetBits(BAT_I2C_SCL_GPIO_PORT, BAT_I2C_SCL_PIN);

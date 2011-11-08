@@ -142,20 +142,26 @@ uint8_t BAT_ReadRegister(uint8_t address)
     I2C_Send7bitAddress(BAT_I2C, BAT_I2C_ADDRESS, I2C_Direction_Transmitter);
 
     /* Test EV6 and clear it */
-    //while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED))
-    while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_TRANSMITTING)) // FIXME
+    while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED));
+	//while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_TRANSMITTING));
+    /*
+	while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_TRANSMITTING)) // FIXME
 	{
-		// Check for ACK ERROR
+		// Check for ACK ERROR						
 	    if (I2C_CheckEvent(BAT_I2C, I2C_EVENT_SLAVE_ACK_FAILURE))
 	    {	        
 			I2C_GenerateSTOP(BAT_I2C, ENABLE);
             LED_On(LED2);
 	    }
 	}  
+	*/
 
     // Send battery gauge register address
     I2C_SendData(BAT_I2C, data);
     
+	// Check EV8
+	//while(I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_TRANSMITTING));
+
     // Check EV8_2
     while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_TRANSMITTED));  
 

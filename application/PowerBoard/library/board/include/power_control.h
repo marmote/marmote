@@ -60,13 +60,16 @@
 #define WALL_PWRGD_Msk	(0x1UL << WALL_PWRGD_Pos)
 
 
-#ifdef MASTER_SWITCH_ZERO_RESISTOR_NOT_POPULATED
+//#ifdef MASTER_SWITCH_ZERO_RESISTOR_NOT_POPULATED
 // Use pin as MCO (AF) output
-
+//void RCC_MCO_Init(void);
 //#elif
 // Use pin GPIO as master switch 
-
-#endif
+// See PowerControl_Init
+#define MASTER_SWITCH_GPIO_PORT		GPIOA
+#define MASTER_SWITCH_PIN           GPIO_Pin_8	// PA.11
+#define MASTER_SWITCH_GPIO_CLK      RCC_APB2ENR_IOPAEN
+//#endif
 
 void PowerControl_Init(void);
 
@@ -77,6 +80,9 @@ void USB_EnableHighPowerMode(void);
 void USB_DisableHighPowerMode(void);
 
 uint8_t WALL_IsPowerGood(void);
+
+void POW_EnableMasterSwitch(void);
+void POW_DisableMasterSwitch(void);
 
 
 #endif // __POWER_CONTROL_H
