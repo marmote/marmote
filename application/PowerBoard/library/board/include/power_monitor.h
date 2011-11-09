@@ -64,6 +64,26 @@
 #define BAT_I2C_ADDRESS				(0x64U << 1) // 1100100X
 //#define BAT_I2C_ADDRESS				(0x65U << 1) // 1100101X (for testing NACK only)
 
+typedef enum BAT_RegisterAddress_Type
+{
+	STATUS 						= 0x00, // R
+	CONTROL 					= 0x01, // R/W
+	ACCUMULATED_CHARGE_MSB 		= 0x02, // R/W
+	ACCUMULATED_CHARGE_LSB 		= 0x03, // R/W
+	CHARGE_THRESHOLD_HIGH_MSB 	= 0x04, // R/W
+	CHARGE_THRESHOLD_HIGH_LSB 	= 0x05, // R/W
+	CHARGE_THRESHOLD_LOW_MSB 	= 0x06, // R/W
+	CHARGE_THRESHOLD_LOW_LSB 	= 0x07, // R/W
+	VOLTAGE_MSB 				= 0x08, // R
+	VOLTAGE_LSB 				= 0x09, // R
+	VOLTAGE_THRESHOLD_HIGH 		= 0x0A, // R/W
+	VOLTAGE_THRESHOLD_LOW 		= 0x0B, // R/W
+	TEMPERATURE_MSB 			= 0x0C, // R
+	TEMPERATURE_LSB 			= 0x0D, // R
+	TEMPERATURE_THRESHOLD_HIGH 	= 0x0E, // R/W
+	TEMPERATURE_THRESHOLD_LOW 	= 0x0F  // R/W
+} BAT_RegisterAddress_Type;
+
 void BAT_I2C_Init(void);
 void BAT_WriteRegister(uint8_t address, uint8_t data);
 uint8_t BAT_ReadRegister(uint8_t address);
