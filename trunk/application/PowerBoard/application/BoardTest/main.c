@@ -17,7 +17,9 @@ static void Delay (uint32_t dlyTicks) {
 }
 
 		   				
-	uint16_t temp;
+uint16_t temp;
+uint16_t volt;
+
 int main (void) {
 
 	uint16_t ctr;	
@@ -116,15 +118,23 @@ int main (void) {
 
 		//Delay(500);
 
+		BAT_WriteRegister(CONTROL, 0xC0);
+
 		BAT_WriteRegister(CHARGE_THRESHOLD_HIGH_MSB, 0xF0F6);
+		temp = BAT_ReadRegister(CHARGE_THRESHOLD_HIGH_MSB);
+		temp = BAT_ReadRegister(TEMPERATURE_MSB);
+		volt = BAT_ReadRegister(VOLTAGE_MSB);
 
 		//Delay(500);
 
 		//BAT_ReadRegister(2);
 		while (1)
 		{
-			Delay(200);
-			LED_Toggle(LED1);	
+			BAT_WriteRegister(CONTROL, (0x01 << 6));   // Temperature
+			BAT_WriteRegister(CONTROL, (0x02 << 6));   // Voltage
+			LED_Toggle(LED1);
+			temp = BAT_ReadRegister(TEMPERATURE_MSB);
+			volt = BAT_ReadRegister(VOLTAGE_MSB);
 		}
 
 		for ( ctr = 0 ; ctr < 10 ; ctr++ )

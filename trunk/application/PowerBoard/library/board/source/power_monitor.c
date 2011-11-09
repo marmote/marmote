@@ -192,54 +192,135 @@ void BAT_WriteRegister(BAT_RegisterAddress_Type address, uint16_t data)
 
 uint16_t BAT_ReadRegister(BAT_RegisterAddress_Type address)
 {
-    uint8_t data;
+    uint16_t data;
+
+    switch (address)
+    {
+        // 8-bit readable registers
+        case STATUS :
+        case CONTROL :
+        case VOLTAGE_THRESHOLD_HIGH :
+        case VOLTAGE_THRESHOLD_LOW :
+        case TEMPERATURE_THRESHOLD_HIGH :
+        case TEMPERATURE_THRESHOLD_LOW :
 							
-	// ------------- Write register address ----------------
+            // ------------- Write register address ----------------
 
-    // Send START condition
-    I2C_GenerateSTART(BAT_I2C, ENABLE);
+            // Send START condition
+            I2C_GenerateSTART(BAT_I2C, ENABLE);
 
-    // EV5
-     while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_MODE_SELECT));  
+            // EV5
+             while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_MODE_SELECT));  
 
-    // Send slave address for write
-    I2C_Send7bitAddress(BAT_I2C, BAT_I2C_ADDRESS, I2C_Direction_Transmitter);
+            // Send slave address for write
+            I2C_Send7bitAddress(BAT_I2C, BAT_I2C_ADDRESS, I2C_Direction_Transmitter);
 
-    // EV6
-    while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED));
+            // EV6
+            while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED));
 
-    // Send battery gauge register address
-    I2C_SendData(BAT_I2C, address);
+            // Send battery gauge register address
+            I2C_SendData(BAT_I2C, address);
 
-	// EV8
-	while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_TRANSMITTED));
-	
+            // EV8
+            while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_TRANSMITTED));
+            
 
-	// --------------- Read register value ----------------
+            // --------------- Read register value ----------------
 
-    // Send repeated START condition
-    I2C_GenerateSTART(BAT_I2C, ENABLE);
+            // Send repeated START condition
+            I2C_GenerateSTART(BAT_I2C, ENABLE);
 
-    // EV5
-    while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_MODE_SELECT));  
+            // EV5
+            while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_MODE_SELECT));  
 
-    // Send battery gauge I2C address for read
-    I2C_Send7bitAddress(BAT_I2C, BAT_I2C_ADDRESS, I2C_Direction_Receiver);
+            // Send battery gauge I2C address for read
+            I2C_Send7bitAddress(BAT_I2C, BAT_I2C_ADDRESS, I2C_Direction_Receiver);
 
-    // EV6
-    while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_RECEIVER_MODE_SELECTED));
-    
-	// Disable I2C acknowledgement
-  	I2C_AcknowledgeConfig(BAT_I2C, DISABLE);
+            // EV6
+            while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_RECEIVER_MODE_SELECTED));
+            
+            // Disable I2C acknowledgement
+            I2C_AcknowledgeConfig(BAT_I2C, DISABLE);
 
-    // Set STOP Condition
-    I2C_GenerateSTOP(BAT_I2C, ENABLE);
-									
-    // EV7
-    while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_RECEIVED));  
+            // Set STOP Condition
+            I2C_GenerateSTOP(BAT_I2C, ENABLE);
+                                            
+            // EV7
+            while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_RECEIVED));  
 
-    // Receive data
-    data = I2C_ReceiveData(BAT_I2C);
+            // Receive data
+            data = I2C_ReceiveData(BAT_I2C);
+
+            break;
+
+        // 16-bit readable registers
+        case ACCUMULATED_CHARGE_MSB :
+        case CHARGE_THRESHOLD_HIGH_MSB :
+        case CHARGE_THRESHOLD_LOW_MSB :
+        case VOLTAGE_MSB :
+        case TEMPERATURE_MSB :
+
+            // ------------- Write register address ----------------
+
+            // Send START condition
+            I2C_GenerateSTART(BAT_I2C, ENABLE);
+
+            // EV5
+             while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_MODE_SELECT));  
+
+            // Send slave address for write
+            I2C_Send7bitAddress(BAT_I2C, BAT_I2C_ADDRESS, I2C_Direction_Transmitter);
+
+            // EV6
+            while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED));
+
+            // Send battery gauge register address
+            I2C_SendData(BAT_I2C, address);
+
+            // EV8
+            while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_TRANSMITTED));
+            
+
+            // --------------- Read register value ----------------
+
+            // Send repeated START condition
+            I2C_GenerateSTART(BAT_I2C, ENABLE);
+
+            // EV5
+            while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_MODE_SELECT));  
+
+            // Send battery gauge I2C address for read
+            I2C_Send7bitAddress(BAT_I2C, BAT_I2C_ADDRESS, I2C_Direction_Receiver);
+
+            // EV6
+            while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_RECEIVER_MODE_SELECTED));
+            
+            // EV7
+            while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_RECEIVED));  
+
+            // Receive MSB register value
+            data = (uint16_t)(I2C_ReceiveData(BAT_I2C)) << 8;
+
+            // Disable I2C acknowledgement
+            I2C_AcknowledgeConfig(BAT_I2C, DISABLE);
+
+            // Set STOP Condition
+            I2C_GenerateSTOP(BAT_I2C, ENABLE);
+                                            
+            // EV7
+            while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_RECEIVED));  
+
+            // Receive data
+            data |= (uint8_t)(I2C_ReceiveData(BAT_I2C));
+
+            break;
+            
+
+        default :
+
+            break;
+
+    }
 
     return data;
 }
