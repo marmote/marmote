@@ -85,8 +85,8 @@ typedef enum BAT_RegisterAddress_Type
 } BAT_RegisterAddress_Type;
 
 void BAT_I2C_Init(void);
-void BAT_WriteRegister(uint8_t address, uint8_t data);
-uint8_t BAT_ReadRegister(uint8_t address);
+void BAT_WriteRegister(uint8_t BAT_RegisterAddress_Type, uint16_t data);
+uint16_t BAT_ReadRegister(uint8_t BAT_RegisterAddress_Type);
 
 
 // SD card SPI (SPI2)
