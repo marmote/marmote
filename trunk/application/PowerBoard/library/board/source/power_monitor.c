@@ -94,144 +94,87 @@ void BAT_I2C_Init(void)
 
 }
 
-ErrorStatus BAT_I2C_SendData(uint8_t address, uint8_t data)
+// TODO: accommodate to 16-bit registers
+void BAT_WriteRegister(uint8_t address, uint8_t data)
 {
-    // NOTE: not finished yet!
-    
-    /* Send START condition */
-    I2C_GenerateSTART(BAT_I2C, ENABLE);
-
-    /* Test EV5 and clear it */
-    while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_MODE_SELECT));  
-
-    /* Send slave address for write */
-    I2C_Send7bitAddress(BAT_I2C, address << 1, I2C_Direction_Transmitter);
-
-    /* Test EV6 and clear it */
-    while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED))
-	{
-		// Check for ACK ERROR
-	    if (I2C_CheckEvent(BAT_I2C, I2C_EVENT_SLAVE_ACK_FAILURE))
-	    {	        
-			I2C_GenerateSTOP(BAT_I2C, ENABLE);
-
-			return ERROR;
-	    }
-	}  
-
-    // Send data
-    I2C_SendData(BAT_I2C, data);
-    
-    // Check EV8_2
-    while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_TRANSMITTED));  
-
-    /* Send STOP Condition */
-    I2C_GenerateSTOP(BAT_I2C, ENABLE);
-
-    return SUCCESS;
-}
-
-
-uint8_t BAT_ReadRegister(uint8_t address)
-{
-    uint8_t data;
-	uint32_t timeout;
-							
-	// ------------ Write register address ----------------
+	// ------------- Write register address ----------------
 
     /* Send START condition */
     I2C_GenerateSTART(BAT_I2C, ENABLE);
 
-    /* Test EV5 and clear it */
+    // EV5
      while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_MODE_SELECT));  
 
     /* Send slave address for write */
     I2C_Send7bitAddress(BAT_I2C, BAT_I2C_ADDRESS, I2C_Direction_Transmitter);
 
-    /* Test EV6 and clear it */
+    // EV6
     while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED));
-	//while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_TRANSMITTING));
-    /*
-	while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_TRANSMITTING)) // FIXME
-	{
-		// Check for ACK ERROR						
-	    if (I2C_CheckEvent(BAT_I2C, I2C_EVENT_SLAVE_ACK_FAILURE))
-	    {	        
-			I2C_GenerateSTOP(BAT_I2C, ENABLE);
-            LED_On(LED2);
-	    }
-	}  
-	*/
 
     // Send battery gauge register address
     I2C_SendData(BAT_I2C, address);
-/*    
-	// Check EV8
-	//while(I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_TRANSMITTING));
-	timeout = 72000000/100;  
-	while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_TRANSMITTING))
-	{
-		if ((timeout--) == 0)
-		{		
-			return -1;
-			//LED_Off(LED2);
-		}
-	}  
-	*/
 
+	// EV8
+	while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_TRANSMITTED));
 
-	while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_TRANSMITTED)) /* EV8 */
-	{
-	}
+    // Send battery gauge register value
+    I2C_SendData(BAT_I2C, data);
 
-    /* Send STOP Condition */
-    //I2C_GenerateSTOP(BAT_I2C, ENABLE);
-    //return data;
+	// EV8
+	while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_TRANSMITTED));
+	
+	// Set STOP Condition
+    I2C_GenerateSTOP(BAT_I2C, ENABLE);
+}
 
-	// -------------- Read register value ----------------
+// TODO: accommodate to 16-bit registers
+uint8_t BAT_ReadRegister(uint8_t address)
+{
+    uint8_t data;
+							
+	// ------------- Write register address ----------------
 
+    // Send START condition
+    I2C_GenerateSTART(BAT_I2C, ENABLE);
+
+    // EV5
+     while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_MODE_SELECT));  
+
+    // Send slave address for write
+    I2C_Send7bitAddress(BAT_I2C, BAT_I2C_ADDRESS, I2C_Direction_Transmitter);
+
+    // EV6
+    while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED));
+
+    // Send battery gauge register address
+    I2C_SendData(BAT_I2C, address);
+
+	// EV8
+	while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_TRANSMITTED));
+	
+
+	// --------------- Read register value ----------------
 
     // Send repeated START condition
     I2C_GenerateSTART(BAT_I2C, ENABLE);
 
-	//LED_On(LED1);
-
-    /* Test EV5 and clear it */
+    // EV5
     while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_MODE_SELECT));  
 
     // Send battery gauge I2C address for read
     I2C_Send7bitAddress(BAT_I2C, BAT_I2C_ADDRESS, I2C_Direction_Receiver);
 
-
-	//LED_Off(LED2);
-	LED_Off(LED1);
-
-    /* Test EV6 and clear it */
-    while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_RECEIVER_MODE_SELECTED))
-	{
-		// Check for ACK ERROR
-	    if (I2C_CheckEvent(BAT_I2C, I2C_EVENT_SLAVE_ACK_FAILURE))
-	    {	        
-			I2C_GenerateSTOP(BAT_I2C, ENABLE);
-			LED_On(LED2);
-
-			return ERROR;
-	    }
-	}  
-
-
+    // EV6
+    while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_RECEIVER_MODE_SELECTED));
     
-	 /* Disable I2C1 acknowledgement */
+	// Disable I2C acknowledgement
   	I2C_AcknowledgeConfig(BAT_I2C, DISABLE);
 
-    /* Send STOP Condition */
+    // Set STOP Condition
     I2C_GenerateSTOP(BAT_I2C, ENABLE);
-
-
 									
-    // Check EV7
+    // EV7
     while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_RECEIVED));  
-
 
     // Receive data
     data = I2C_ReceiveData(BAT_I2C);
