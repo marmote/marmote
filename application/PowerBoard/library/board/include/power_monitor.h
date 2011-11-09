@@ -65,7 +65,7 @@
 //#define BAT_I2C_ADDRESS				(0x65U << 1) // 1100101X (for testing NACK only)
 
 void BAT_I2C_Init(void);
-ErrorStatus BAT_I2C_SendData(uint8_t address, uint8_t data);
+void BAT_WriteRegister(uint8_t address, uint8_t data);
 uint8_t BAT_ReadRegister(uint8_t address);
 
 
