@@ -94,41 +94,103 @@ void BAT_I2C_Init(void)
 
 }
 
-// TODO: accommodate to 16-bit registers
-void BAT_WriteRegister(uint8_t address, uint8_t data)
+void BAT_WriteRegister(BAT_RegisterAddress_Type address, uint16_t data)
 {
-	// ------------- Write register address ----------------
+    switch (address)
+    {
+        // 8-bit writable registers
+        case CONTROL :
+        case VOLTAGE_THRESHOLD_HIGH :
+        case VOLTAGE_THRESHOLD_LOW :
+        case TEMPERATURE_THRESHOLD_HIGH :
+        case TEMPERATURE_THRESHOLD_LOW :
 
-    // Send START condition
-    I2C_GenerateSTART(BAT_I2C, ENABLE);
+            // ------------- Write register address ----------------
 
-    // EV5
-     while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_MODE_SELECT));  
+            // Send START condition
+            I2C_GenerateSTART(BAT_I2C, ENABLE);
 
-    /* Send slave address for write */
-    I2C_Send7bitAddress(BAT_I2C, BAT_I2C_ADDRESS, I2C_Direction_Transmitter);
+            // EV5
+             while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_MODE_SELECT));  
 
-    // EV6
-    while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED));
+            /* Send slave address for write */
+            I2C_Send7bitAddress(BAT_I2C, BAT_I2C_ADDRESS, I2C_Direction_Transmitter);
 
-    // Send battery gauge register address
-    I2C_SendData(BAT_I2C, address);
+            // EV6
+            while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED));
 
-	// EV8
-	while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_TRANSMITTED));
+            // ------------- Write register address ----------------
 
-    // Send battery gauge register value
-    I2C_SendData(BAT_I2C, data);
+            // Send battery gauge register address
+            I2C_SendData(BAT_I2C, address);
 
-	// EV8
-	while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_TRANSMITTED));
-	
-	// Set STOP Condition
-    I2C_GenerateSTOP(BAT_I2C, ENABLE);
+            // EV8
+            while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_TRANSMITTED));
+
+            // Send battery gauge register value
+            I2C_SendData(BAT_I2C, data);
+
+            // EV8
+            while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_TRANSMITTED));
+            
+            // Set STOP Condition
+            I2C_GenerateSTOP(BAT_I2C, ENABLE);
+
+            break;
+
+
+        // 16-bit writable registers
+        case ACCUMULATED_CHARGE_MSB :
+        case CHARGE_THRESHOLD_HIGH_MSB :
+        case CHARGE_THRESHOLD_LOW_MSB :
+
+            // ------------- Write register address ----------------
+
+            // Send START condition
+            I2C_GenerateSTART(BAT_I2C, ENABLE);
+
+            // EV5
+             while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_MODE_SELECT));  
+
+            /* Send slave address for write */
+            I2C_Send7bitAddress(BAT_I2C, BAT_I2C_ADDRESS, I2C_Direction_Transmitter);
+
+            // EV6
+            while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED));
+
+            // ------------- Write register address ----------------
+
+            // Send battery gauge register address
+            I2C_SendData(BAT_I2C, address);
+
+            // EV8
+            while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_TRANSMITTED));
+
+            // Send battery gauge register MSB value
+            I2C_SendData(BAT_I2C, (uint8_t)(data >> 8));
+
+            // EV8
+            while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_TRANSMITTED));
+            
+            // Send battery gauge register LSB value
+            I2C_SendData(BAT_I2C, (uint8_t)data); // & 0xFF
+
+            // EV8
+            while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_TRANSMITTED));
+            
+            // Set STOP Condition
+            I2C_GenerateSTOP(BAT_I2C, ENABLE);
+
+            break;
+
+
+        default :
+
+            break;
+    }
 }
 
-// TODO: accommodate to 16-bit registers
-uint8_t BAT_ReadRegister(uint8_t address)
+uint16_t BAT_ReadRegister(BAT_RegisterAddress_Type address)
 {
     uint8_t data;
 							

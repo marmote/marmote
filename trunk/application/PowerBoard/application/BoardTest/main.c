@@ -95,11 +95,12 @@ int main (void) {
 
 //#ifdef I2C2_TEST
 
-
+		/*
 		for ( ctr = 0 ; ctr <= 0x0F ; ctr++ )
 		{
 			temp = BAT_ReadRegister(ctr);
 		}
+		*/
 
 				/*
 		// Read temperature
@@ -115,7 +116,7 @@ int main (void) {
 
 		//Delay(500);
 
-		//BAT_WriteRegister(2,0xF5);
+		BAT_WriteRegister(CHARGE_THRESHOLD_HIGH_MSB, 0xF0F6);
 
 		//Delay(500);
 
