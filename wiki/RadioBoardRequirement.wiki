@@ -24,6 +24,7 @@
 
 || *Vendor* || *Model* || *RX mixer* || *LPF* || *TX mixer* || *PLL* || Power Consumption || Frequency ||
 || Analog Devices || [http://www.analog.com/static/imported-files/data_sheets/ADF9010.pdf ADF9010] || no || yes || yes || yes || ? || ? ||
+|| Maxim || [http://datasheets.maxim-ic.com/en/ds/MAX2830.pdf MAX2830] || || || || || 80 mA || 2.4 GHz ||
 
 http://datasheets.maxim-ic.com/en/ds/MAX2830.pdf (MAX2831 with PA)
 http://datasheets.maxim-ic.com/en/ds/MAX2510.pdf
