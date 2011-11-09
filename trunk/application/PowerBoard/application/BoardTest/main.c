@@ -37,13 +37,15 @@ int main (void) {
 	SysTick->LOAD = 72000;	
 					
 	ctr = 0;	
+	LED_On(LED1);
+	LED_Off(LED2);
 
 	while (1)
 	{
 		//LED_Toggle(LED2);
 		//Delay(250);		
 		//Delay(1000);	
-		LED_On(LED2);	
+		//LED_On(LED2);	
 		
 //#ifdef POWER_CONTROL_TEST
 		//USB_EnableSuspendMode();
@@ -85,14 +87,33 @@ int main (void) {
 //#endif
 
 //#ifdef SPI2_TEST
-		SD_SPI_SendData(ctr++);
-		
-		LED_Off(LED2);	
-		Delay(1000);		
+//		SD_SPI_SendData(ctr++);
+		//Delay(1000);		
 //#endif
 
 
 //#ifdef I2C2_TEST
+
+		BAT_ReadRegister(1);
+		while (1)
+		{
+			Delay(200);
+			LED_Toggle(LED1);	
+		}
+
+		for ( ctr = 0 ; ctr < 10 ; ctr++ )
+		{		
+			LED_On(LED2);
+			BAT_ReadRegister(01);
+			while (1);
+			Delay(1000);
+			//LED_Off(LED2);	
+		}
+		
+		//LED_Off(LED1);	
+
+		USB_EnableSuspendMode(); // Reset when powered from USB
+
 		//BAT_ReadRegister(00);
 		//LED_Off(LED2);
 		//while (1);
