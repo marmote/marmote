@@ -16,10 +16,11 @@ static void Delay (uint32_t dlyTicks) {
 	while ((msTicks - curTicks) < dlyTicks);
 }
 
-
+		   				
+	uint16_t temp;
 int main (void) {
 
-	uint16_t ctr;					
+	uint16_t ctr;	
 
 	LED_Init();			
 	PowerControl_Init();
@@ -94,7 +95,31 @@ int main (void) {
 
 //#ifdef I2C2_TEST
 
-		BAT_ReadRegister(1);
+
+		for ( ctr = 0 ; ctr <= 0x0F ; ctr++ )
+		{
+			temp = BAT_ReadRegister(ctr);
+		}
+
+				/*
+		// Read temperature
+		temp = 0;
+		temp = BAT_ReadRegister(0x0C) << 8; // MSB
+		temp |= BAT_ReadRegister(0x0D); // LSB
+		
+		// Read voltage
+		temp = 0;
+		temp = BAT_ReadRegister(0x08) << 8; // MSB
+		temp |= BAT_ReadRegister(0x09); // LSB
+		*/
+
+		//Delay(500);
+
+		//BAT_WriteRegister(2,0xF5);
+
+		//Delay(500);
+
+		//BAT_ReadRegister(2);
 		while (1)
 		{
 			Delay(200);

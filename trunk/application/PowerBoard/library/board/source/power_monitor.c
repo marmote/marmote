@@ -99,7 +99,7 @@ void BAT_WriteRegister(uint8_t address, uint8_t data)
 {
 	// ------------- Write register address ----------------
 
-    /* Send START condition */
+    // Send START condition
     I2C_GenerateSTART(BAT_I2C, ENABLE);
 
     // EV5
