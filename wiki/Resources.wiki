@@ -7,4 +7,4 @@ A list of software components that might come handy:
 
 Related SDR projects:
 
-* [http://openhpsdr.org | High Performance Software Defined Radio]
+ * [http://openhpsdr.org | High Performance Software Defined Radio]
