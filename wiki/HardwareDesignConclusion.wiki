@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Errata and observations on the board designs during testing.
 #labels Phase-Support
 
 = Power Board =
@@ -9,3 +9,4 @@
  * A push button might have been more useful than a jumper for NRST
  * TRACESWO would have been useful to be connected to the board-to-board connector as a GPIO (it's fault tolerant and has no special limitations)
  * Test points (especially GNDs) would be more useful on the side of the board
+ * USB D+ line pull-up resistor R,,PU,, seems to be missing
