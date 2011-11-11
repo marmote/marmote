@@ -99,11 +99,11 @@ void BAT_WriteRegister(BAT_RegisterAddress_Type address, uint16_t data)
     switch (address)
     {
         // 8-bit writable registers
-        case CONTROL :
-        case VOLTAGE_THRESHOLD_HIGH :
-        case VOLTAGE_THRESHOLD_LOW :
-        case TEMPERATURE_THRESHOLD_HIGH :
-        case TEMPERATURE_THRESHOLD_LOW :
+        case BAT_CONTROL :
+        case BAT_VOLTAGE_THRESHOLD_HIGH :
+        case BAT_VOLTAGE_THRESHOLD_LOW :
+        case BAT_TEMPERATURE_THRESHOLD_HIGH :
+        case BAT_TEMPERATURE_THRESHOLD_LOW :
 
             // ------------- Write register address ----------------
 
@@ -140,9 +140,9 @@ void BAT_WriteRegister(BAT_RegisterAddress_Type address, uint16_t data)
 
 
         // 16-bit writable registers
-        case ACCUMULATED_CHARGE_MSB :
-        case CHARGE_THRESHOLD_HIGH_MSB :
-        case CHARGE_THRESHOLD_LOW_MSB :
+        case BAT_ACCUMULATED_CHARGE_MSB :
+        case BAT_CHARGE_THRESHOLD_HIGH_MSB :
+        case BAT_CHARGE_THRESHOLD_LOW_MSB :
 
             // ------------- Write register address ----------------
 
@@ -197,12 +197,12 @@ uint16_t BAT_ReadRegister(BAT_RegisterAddress_Type address)
     switch (address)
     {
         // 8-bit readable registers
-        case STATUS :
-        case CONTROL :
-        case VOLTAGE_THRESHOLD_HIGH :
-        case VOLTAGE_THRESHOLD_LOW :
-        case TEMPERATURE_THRESHOLD_HIGH :
-        case TEMPERATURE_THRESHOLD_LOW :
+        case BAT_STATUS :
+        case BAT_CONTROL :
+        case BAT_VOLTAGE_THRESHOLD_HIGH :
+        case BAT_VOLTAGE_THRESHOLD_LOW :
+        case BAT_TEMPERATURE_THRESHOLD_HIGH :
+        case BAT_TEMPERATURE_THRESHOLD_LOW :
 							
             // ------------- Write register address ----------------
 
@@ -254,11 +254,11 @@ uint16_t BAT_ReadRegister(BAT_RegisterAddress_Type address)
             break;
 
         // 16-bit readable registers
-        case ACCUMULATED_CHARGE_MSB :
-        case CHARGE_THRESHOLD_HIGH_MSB :
-        case CHARGE_THRESHOLD_LOW_MSB :
-        case VOLTAGE_MSB :
-        case TEMPERATURE_MSB :
+        case BAT_ACCUMULATED_CHARGE_MSB :
+        case BAT_CHARGE_THRESHOLD_HIGH_MSB :
+        case BAT_CHARGE_THRESHOLD_LOW_MSB :
+        case BAT_VOLTAGE_MSB :
+        case BAT_TEMPERATURE_MSB :
 
             // ------------- Write register address ----------------
 
@@ -295,6 +295,9 @@ uint16_t BAT_ReadRegister(BAT_RegisterAddress_Type address)
             // EV6
             while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_RECEIVER_MODE_SELECTED));
             
+            // Enable I2C acknowledgement
+            I2C_AcknowledgeConfig(BAT_I2C, ENABLE);
+
             // EV7
             while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_RECEIVED));  
 
@@ -311,7 +314,7 @@ uint16_t BAT_ReadRegister(BAT_RegisterAddress_Type address)
             while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_RECEIVED));  
 
             // Receive data
-            data |= (uint8_t)(I2C_ReceiveData(BAT_I2C));
+            data |= (uint16_t)(I2C_ReceiveData(BAT_I2C));
 
             break;
             
