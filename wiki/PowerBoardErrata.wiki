@@ -1,0 +1,6 @@
+#summary Errata for the Power Supply Board
+#labels Phase-Implementation,Phase-QA
+
+= Rev A =
+
+ * USB D+ line pull-up resistor R,,PU,, seems to be missing
