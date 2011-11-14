@@ -27,6 +27,7 @@ int main (void) {
 
 	LED_Init();			
 	PowerControl_Init();
+	USB_EnableSuspendMode();
 	CON_SPI_Init();
 	CON_I2C_Init();
 

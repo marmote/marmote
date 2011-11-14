@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>Power Board Test</TargetName>
+      <TargetName>UsbCdcDeviceTest</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -44,7 +44,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\</OutputDirectory>
-          <OutputName>BoardTest</OutputName>
+          <OutputName>UsbCdcDeviceTest</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -159,11 +159,11 @@
             <UseExternalTool>0</UseExternalTool>
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
-            <Capability>0</Capability>
-            <DriverSelection>-1</DriverSelection>
+            <Capability>1</Capability>
+            <DriverSelection>4096</DriverSelection>
           </Flash1>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
         </Utilities>
         <TargetArmAds>
@@ -346,7 +346,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_MD,USE_STDPERIPH_DRIVER,HSE_VALUE=16000000</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\library\CMSIS\include;..\..\library\peripheral\include;..\..\library\board\include</IncludePath>
+              <IncludePath>.\include;..\..\library\CMSIS\include;..\..\library\peripheral\include;..\..\library\board\include;..\..\library\usb\include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -434,6 +434,9 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>USB</GroupName>
+        </Group>
+        <Group>
           <GroupName>Peripheral</GroupName>
           <Files>
             <File>
@@ -455,6 +458,11 @@
               <FileName>stm32f10x_spi.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\library\peripheral\source\stm32f10x_spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>misc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\library\peripheral\source\misc.c</FilePath>
             </File>
           </Files>
         </Group>
