@@ -95,3 +95,5 @@ _Note:_ Several PCB layout guidelines can be found in other sections such as ADC
 [http://www.usb.org/developers/docs/ USB Specification]
 
 [http://www.amazon.com/USB-Complete-Developers-Guide-Guides/dp/1931448086/ref=sr_1_1?ie=UTF8&qid=1320968210&sr=8-1 USB Complete (ISBN-10: 1931448086)]
+
+[http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/USER_MANUAL/CD00158241.pdf UM0424 STM32 USB-FS-Device development kit]
