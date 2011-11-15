@@ -29,9 +29,13 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-uint8_t Tx_Char = '!';
-uint8_t USB_Rx_Buffer[VIRTUAL_COM_PORT_DATA_SIZE];
-extern uint8_t  USB_Tx_State;
+static uint8_t USB_Tx_Buffer[VIRTUAL_COM_PORT_DATA_SIZE];
+static uint8_t* USB_Tx_Ptr;
+static uint8_t USB_Tx_Length;
+
+static uint8_t USB_Rx_Buffer[VIRTUAL_COM_PORT_DATA_SIZE];
+static uint8_t* USB_Rx_Ptr;
+static uint8_t USB_Rx_Length;
 
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
@@ -45,6 +49,7 @@ extern uint8_t  USB_Tx_State;
 *******************************************************************************/
 void EP1_IN_Callback (void)
 {
+	/*
     uint16_t USB_Tx_ptr;
     uint16_t USB_Tx_length;
 
@@ -57,6 +62,35 @@ void EP1_IN_Callback (void)
         SetEPTxCount(ENDP1, USB_Tx_length);
         SetEPTxValid(ENDP1);
     }
+	*/
+
+	 USB_Tx_Buffer[0] = '!';
+	 USB_Tx_Length = 1;
+
+	//if (USB_Rx_Length > 0) {
+
+	 UserToPMABufferCopy(USB_Tx_Buffer, ENDP1_TXADDR, USB_Tx_Length);
+	 SetEPTxCount(ENDP1, USB_Tx_Length);
+	 SetEPTxValid(ENDP1);
+
+	 //USB_Rx_Length = 0;	
+	 //}
+	 
+	 /*
+	if (USB_Rx_Length > 0)
+	{
+		//USB_Tx_Length = USB_Rx_Length;
+		//USB_Tx_Ptr = 
+
+		// Echo characters back
+		UserToPMABufferCopy(USB_Rx_Buffer, ENDP1_TXADDR, USB_Rx_Length);
+	    SetEPTxCount(ENDP1, USB_Rx_Length);
+	    SetEPTxValid(ENDP1);
+		
+		USB_Rx_Length = 0;											
+	}
+	*/
+
 }
 
 /*******************************************************************************
@@ -67,17 +101,25 @@ void EP1_IN_Callback (void)
 * Return         : None.
 *******************************************************************************/
 void EP3_OUT_Callback(void)
-{
-  uint16_t USB_Rx_Cnt;
+{  
+  	/* Get the received data buffer and update the counter */
+  	USB_Rx_Length = USB_SIL_Read(EP3_OUT, USB_Rx_Buffer);
   
-  /* Get the received data buffer and update the counter */
-  USB_Rx_Cnt = USB_SIL_Read(EP3_OUT, USB_Rx_Buffer);
+
+	USB_Rx_Length  = 1;
+  	/* USB data will be immediately processed, this allow next USB traffic being 
+  	NAKed till the end of the USART Xfer */
+
+	/*
+   UserToPMABufferCopy(USB_Rx_Buffer, ENDP1_TXADDR, USB_Rx_Length);
+	    SetEPTxCount(ENDP1, USB_Rx_Length);
+	    SetEPTxValid(ENDP1);
+
+		*/
   
-  /* USB data will be immediately processed, this allow next USB traffic being 
-  NAKed till the end of the USART Xfer */
-  
-  //USB_To_USART_Send_Data(USB_Rx_Buffer, USB_Rx_Cnt);
+  	//USB_To_USART_Send_Data(USB_Rx_Buffer, USB_Rx_Cnt);
 	// Send data to command processor here
+
 }
 
 /*******************************************************************************
