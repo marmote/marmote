@@ -4,6 +4,8 @@
 #include "misc.h"
 #include "stm32f10x_tim.h"
 
+#include "usb_istr.h"
+
 #include "power_board.h"
 
 #include "usb_lib.h"
@@ -64,7 +66,6 @@ void TIM2_IRQHandler(void)
 	{
 		LED_Toggle(LED1);
 		ctr++;
-		//TIM2->SR &= ~(1<<0);
 		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
 	}
 	else
@@ -74,12 +75,31 @@ void TIM2_IRQHandler(void)
 	}
 }
 
+void USBWakeUp_IRQHandler(void)
+{
+	LED_On(LED2);
+	while(1);
+}
+
+void USB_HP_CAN1_TX_IRQHandler()
+{	
+	LED_On(LED2);
+	while(1);
+}
+
+void USB_LP_CAN1_RX0_IRQHandler()
+{
+	//LED_On(LED2);
+	USB_Istr();
+	//LED_Off(LED2);
+	//while(1);
+}
+
 		   		
 int main (void) {
 
-
-  	//NVIC_InitTypeDef NVIC_InitStructure;
-  	//NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
+	NVIC_InitTypeDef NVIC_InitStructure;
+  	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
 
 	LED_Init();			
 	PowerControl_Init();   
@@ -89,16 +109,11 @@ int main (void) {
 	SysTick->CTRL |= (SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_TICKINT_Msk | SysTick_CTRL_ENABLE_Msk);
 	SysTick->LOAD = 72000;	
 
-	/*
-
   	// Select USBCLK source
   	RCC_USBCLKConfig(RCC_USBCLKSource_PLLCLK_1Div5);
 	  	
   	// Enable the USB clock 
   	RCC_APB1PeriphClockCmd(RCC_APB1Periph_USB, ENABLE);	
-
-	// Do not draw power from VBUS (assumes WALL is present)
-	USB_EnableSuspendMode();				
 
 	// Configure USB interrupts
 	NVIC_InitStructure.NVIC_IRQChannel = USB_LP_CAN1_RX0_IRQn;
@@ -106,13 +121,13 @@ int main (void) {
   	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
   	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
   	NVIC_Init(&NVIC_InitStructure);
-	  */
 	
-	Init_Timer();	  
+	Init_Timer();
+	USB_Init();
 				
 	while (1)
 	{		
-		//Delay(250);
+		Delay(250);
 		//LED_Toggle(LED2);	
 	}
 }
