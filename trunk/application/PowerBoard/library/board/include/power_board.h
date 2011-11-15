@@ -141,6 +141,11 @@ void CON_SPI_SendData(uint16_t data);
 void CON_I2C_Init(void);
 ErrorStatus CON_I2C_SendData(uint8_t address, uint8_t data);
 
+void Get_SerialNum(void);
+static void IntToUnicode (uint32_t value , uint8_t *pbuf , uint8_t len);
+
+
 #endif // __POWER_BOARD_H
+
 
 
