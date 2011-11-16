@@ -69,7 +69,7 @@ void EP1_IN_Callback (void)
 	*/
 	LED_On(LED2);
 
-	if (USB_Tx_Request == 1)
+	/*if (USB_Tx_Request == 1)
 	{
 
 		USB_Tx_Buffer[0] = '!';
@@ -81,6 +81,7 @@ void EP1_IN_Callback (void)
 
 		USB_Tx_Request = 0;
 	}
+	*/
 		 
 
 	 //USB_SIL_Write(EP1_IN, USB_Tx_Buffer, 4);  
@@ -117,23 +118,16 @@ void EP3_OUT_Callback(void)
   	/* Get the received data buffer and update the counter */
   	USB_Rx_Length = USB_SIL_Read(EP3_OUT, USB_Rx_Buffer);
 
+	// Echo characters
+	UserToPMABufferCopy(USB_Rx_Buffer, ENDP1_TXADDR, USB_Rx_Length);
+	SetEPTxCount(ENDP1, USB_Rx_Length);
+	SetEPTxValid(ENDP1);
   
-
-	//USB_Rx_Length  = 1;
-  	/* USB data will be immediately processed, this allow next USB traffic being 
-  	NAKed till the end of the USART Xfer */
-
-	/*
-   UserToPMABufferCopy(USB_Rx_Buffer, ENDP1_TXADDR, USB_Rx_Length);
-	    SetEPTxCount(ENDP1, USB_Rx_Length);
-	    SetEPTxValid(ENDP1);
-
-		*/
-	LED_On(LED2);
-  
-  	//USB_To_USART_Send_Data(USB_Rx_Buffer, USB_Rx_Cnt);
 	// Send data to command processor here
+	// TODO
 
+	/* Enable the receive of data on EP3 */	
+	SetEPRxValid(ENDP3);
 }
 
 /*******************************************************************************
