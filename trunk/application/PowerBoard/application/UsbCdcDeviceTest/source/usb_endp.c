@@ -21,6 +21,8 @@
 #include "usb_istr.h"
 #include "usb_pwr.h"
 
+#include "power_board.h"
+
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 
@@ -36,6 +38,8 @@ static uint8_t USB_Tx_Length;
 static uint8_t USB_Rx_Buffer[VIRTUAL_COM_PORT_DATA_SIZE];
 static uint8_t* USB_Rx_Ptr;
 static uint8_t USB_Rx_Length;
+
+extern uint8_t USB_Tx_Request;
 
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
@@ -63,15 +67,23 @@ void EP1_IN_Callback (void)
         SetEPTxValid(ENDP1);
     }
 	*/
+	LED_On(LED2);
 
-	 USB_Tx_Buffer[0] = '!';
-	 USB_Tx_Length = 1;
+	if (USB_Tx_Request == 1)
+	{
 
-	//if (USB_Rx_Length > 0) {
+		USB_Tx_Buffer[0] = '!';
+		USB_Tx_Length = 1;
+	
+		UserToPMABufferCopy(USB_Tx_Buffer, ENDP1_TXADDR, USB_Tx_Length);
+		SetEPTxCount(ENDP1, USB_Tx_Length);
+		SetEPTxValid(ENDP1);
 
-	 UserToPMABufferCopy(USB_Tx_Buffer, ENDP1_TXADDR, USB_Tx_Length);
-	 SetEPTxCount(ENDP1, USB_Tx_Length);
-	 SetEPTxValid(ENDP1);
+		USB_Tx_Request = 0;
+	}
+		 
+
+	 //USB_SIL_Write(EP1_IN, USB_Tx_Buffer, 4);  
 
 	 //USB_Rx_Length = 0;	
 	 //}
@@ -104,9 +116,10 @@ void EP3_OUT_Callback(void)
 {  
   	/* Get the received data buffer and update the counter */
   	USB_Rx_Length = USB_SIL_Read(EP3_OUT, USB_Rx_Buffer);
+
   
 
-	USB_Rx_Length  = 1;
+	//USB_Rx_Length  = 1;
   	/* USB data will be immediately processed, this allow next USB traffic being 
   	NAKed till the end of the USART Xfer */
 
@@ -116,6 +129,7 @@ void EP3_OUT_Callback(void)
 	    SetEPTxValid(ENDP1);
 
 		*/
+	LED_On(LED2);
   
   	//USB_To_USART_Send_Data(USB_Rx_Buffer, USB_Rx_Cnt);
 	// Send data to command processor here

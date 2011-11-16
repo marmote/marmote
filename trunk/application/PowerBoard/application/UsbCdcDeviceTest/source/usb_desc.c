@@ -31,7 +31,9 @@ const uint8_t Virtual_Com_Port_DeviceDescriptor[] =
     0x83,
     0x04,   /* idVendor = 0x0483 */
     0x40,
-    0x57,   /* idProduct = 0x7540 */
+    0x57,   /* idProduct = 0x7540 (original STM Example)*/
+	//0x41,
+    //0x57,   /* idProduct = 0x7541 (modified to be different from STM Example - see PowerBoardCdc.inf) */
     0x00,
     0x02,   /* bcdDevice = 2.00 */
     1,              /* Index of string descriptor describing manufacturer */

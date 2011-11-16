@@ -1,64 +1,21 @@
 #include "stm32f10x_conf.h"
 #include "stm32f10x.h"
 
-#include "misc.h"
-#include "stm32f10x_tim.h"
+#include "power_board.h"
 
 #include "usb_istr.h"
+#include "usb_pwr.h"
 
-#include "power_board.h"
 
 #include "usb_lib.h"
 
-
-volatile uint32_t msTicks;                       /* timeTicks counter */
-
-void SysTick_Handler(void) {
-	msTicks++;                                     /* increment timeTicks counter */
-}
-
-static void Delay (uint32_t dlyTicks) {
-	uint32_t curTicks = msTicks;
-
-	while ((msTicks - curTicks) < dlyTicks);
-}
-
-void Init_Timer()
-{						
-						   
-  	NVIC_InitTypeDef NVIC_InitStructure;
-	TIM_TimeBaseInitTypeDef TIM_InitStructure;
-
-  	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
-
-	// Configure TIM1 OVF interrupts
-	NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
-  	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
-  	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-  	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-  	NVIC_Init(&NVIC_InitStructure);
-
-	// Set peripheral clock sources
-	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
-
-	// Initialize peripheral
-	TIM_InitStructure.TIM_Prescaler	= 7200; // 100 us at 72 MHz SysClk
-	TIM_InitStructure.TIM_CounterMode = TIM_CounterMode_Down;
-	TIM_InitStructure.TIM_Period = 10000;
-	TIM_InitStructure.TIM_ClockDivision = TIM_CKD_DIV2;
-	TIM_InitStructure.TIM_RepetitionCounter = 0;
-	TIM_TimeBaseInit(TIM2, &TIM_InitStructure);					   
-	
-	TIM_ARRPreloadConfig(TIM2, ENABLE);
-							
-	TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);
-
-	// Enable Peripheral
-	TIM_Cmd(TIM2, ENABLE);
-}
-
+uint8_t USB_Tx_Request; 
 uint32_t ctr;
 uint32_t it;
+
+
+static uint8_t USB_Tx_Buffer[1];
+static uint8_t USB_Tx_Length;
 
 void TIM2_IRQHandler(void)
 {
@@ -67,6 +24,15 @@ void TIM2_IRQHandler(void)
 		LED_Toggle(LED1);
 		ctr++;
 		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
+		USB_Tx_Request = 1;
+
+		 //
+		USB_Tx_Buffer[0] = '!';
+		USB_Tx_Length = 1;
+				
+		UserToPMABufferCopy(USB_Tx_Buffer, ENDP1_TXADDR, USB_Tx_Length);
+		SetEPTxCount(ENDP1, USB_Tx_Length);
+		SetEPTxValid(ENDP1);
 	}
 	else
 	{
@@ -104,16 +70,17 @@ int main (void) {
 	LED_Init();			
 	PowerControl_Init();   
 	
-	
 	// Configure SysTick
 	SysTick->CTRL |= (SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_TICKINT_Msk | SysTick_CTRL_ENABLE_Msk);
 	SysTick->LOAD = 72000;	
+
+	//USB_SoftReset();
 
   	// Select USBCLK source
   	RCC_USBCLKConfig(RCC_USBCLKSource_PLLCLK_1Div5);
 	  	
   	// Enable the USB clock 
-  	RCC_APB1PeriphClockCmd(RCC_APB1Periph_USB, ENABLE);	
+  	RCC_APB1PeriphClockCmd(RCC_APB1Periph_USB, ENABLE);	 
 
 	// Configure USB interrupts
 	NVIC_InitStructure.NVIC_IRQChannel = USB_LP_CAN1_RX0_IRQn;
@@ -121,7 +88,7 @@ int main (void) {
   	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
   	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
   	NVIC_Init(&NVIC_InitStructure);
-	
+
 	Init_Timer();
 	USB_Init();
 				

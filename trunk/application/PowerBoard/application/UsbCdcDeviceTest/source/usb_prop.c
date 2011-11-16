@@ -20,7 +20,7 @@
 #include "usb_desc.h"
 #include "usb_pwr.h"
 #include "hw_config.h"
-//#include "power_board.h"
+#include "power_board.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -116,7 +116,7 @@ void Virtual_Com_Port_init(void)
   pInformation->Current_Configuration = 0;
 
   /* Connect the device */
-  //PowerOn();
+  PowerOn();
 
   /* Perform basic device initialization operations */
   USB_SIL_Init();
