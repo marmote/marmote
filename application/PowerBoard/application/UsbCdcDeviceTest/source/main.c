@@ -27,12 +27,12 @@ void TIM2_IRQHandler(void)
 		USB_Tx_Request = 1;
 
 		 //
-		USB_Tx_Buffer[0] = '!';
-		USB_Tx_Length = 1;
+		//USB_Tx_Buffer[0] = '!';
+		//USB_Tx_Length = 1;
 				
-		UserToPMABufferCopy(USB_Tx_Buffer, ENDP1_TXADDR, USB_Tx_Length);
-		SetEPTxCount(ENDP1, USB_Tx_Length);
-		SetEPTxValid(ENDP1);
+		//UserToPMABufferCopy(USB_Tx_Buffer, ENDP1_TXADDR, USB_Tx_Length);
+		//SetEPTxCount(ENDP1, USB_Tx_Length);
+		//SetEPTxValid(ENDP1);
 	}
 	else
 	{
