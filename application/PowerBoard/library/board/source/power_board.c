@@ -40,6 +40,52 @@
 
 #include "power_board.h"
 
+volatile uint32_t msTicks;                       /* timeTicks counter */
+
+void SysTick_Handler(void) {
+	msTicks++;                                     /* increment timeTicks counter */
+}
+
+void Delay (uint32_t dlyTicks) {
+	uint32_t curTicks = msTicks;
+
+	while ((msTicks - curTicks) < dlyTicks);
+}
+
+void Init_Timer(void)
+{						   
+  	NVIC_InitTypeDef NVIC_InitStructure;
+	TIM_TimeBaseInitTypeDef TIM_InitStructure;
+
+  	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
+
+	// Configure TIM1 OVF interrupts
+	NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
+  	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+  	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+  	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  	NVIC_Init(&NVIC_InitStructure);
+
+	// Set peripheral clock sources
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
+
+	// Initialize peripheral
+	TIM_InitStructure.TIM_Prescaler	= 7200; // 100 us at 72 MHz SysClk
+	TIM_InitStructure.TIM_CounterMode = TIM_CounterMode_Down;
+	TIM_InitStructure.TIM_Period = 10000;
+	TIM_InitStructure.TIM_ClockDivision = TIM_CKD_DIV2;
+	TIM_InitStructure.TIM_RepetitionCounter = 0;
+	TIM_TimeBaseInit(TIM2, &TIM_InitStructure);					   
+	
+	TIM_ARRPreloadConfig(TIM2, ENABLE);
+							
+	TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);
+
+	// Enable Peripheral
+	TIM_Cmd(TIM2, ENABLE);
+}
+
+
 void LED_Init(void)
 {
 	// Enable peripheral clock
@@ -112,6 +158,28 @@ void LED_Toggle (uint32_t led)
     }
 }
 
+void USB_SoftReset()
+{
+	GPIO_InitTypeDef GPIO_InitStructure; 
+
+	// Enable peripheral clocks
+	RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
+
+    // PA12 / USBDP
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12; 
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_OD; 
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
+	GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+	// Pull down USBDP for 50 ms
+	GPIOA->BRR = GPIO_Pin_12;
+	Delay(50);
+
+	// Release USBDP
+	GPIOA->BSRR = GPIO_Pin_12;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING; 
+	GPIO_Init(GPIOA, &GPIO_InitStructure);
+}
 
 void CON_GPIO_Init(void)
 {

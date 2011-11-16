@@ -47,8 +47,18 @@
 #include "stm32f10x_spi.h"
 #include "stm32f10x_i2c.h"
 
+#include "misc.h"
+#include "stm32f10x_tim.h"
+
 // Board - Initialize board peripherals and GPIOs with default values
 void Board_Init(void); // 
+
+
+// Timer
+
+void Init_Timer(void);
+void Delay(uint32_t dlyTicks);
+void USB_SoftReset(void);
 
 
 // LEDs
