@@ -7,35 +7,53 @@ use smartfusion.all;
 
 entity uC is
 
-    port( FAB_CLK     : out   std_logic;
-          MAINXIN     : in    std_logic;
-          M2F_RESET_N : out   std_logic;
-          IO_8_D      : in    std_logic;
-          IO_7_Y      : out   std_logic;
-          IO_6_Y      : out   std_logic;
-          IO_5_D      : in    std_logic;
-          MSSPSEL     : out   std_logic;
-          MSSPENABLE  : out   std_logic;
-          MSSPWRITE   : out   std_logic;
-          MSSPREADY   : in    std_logic;
-          MSSPSLVERR  : in    std_logic;
-          GLC         : out   std_logic;
-          MSSPADDR    : out   std_logic_vector(19 downto 0);
-          MSSPRDATA   : in    std_logic_vector(31 downto 0);
-          MSSPWDATA   : out   std_logic_vector(31 downto 0);
-          DMAREADY    : in    std_logic_vector(1 downto 0);
-          MAC_0_RXD   : in    std_logic_vector(1 downto 0);
-          MAC_0_TXD   : out   std_logic_vector(1 downto 0);
-          MAC_0_MDIO  : inout std_logic := 'Z';
-          MAC_0_CRSDV : in    std_logic;
-          MAC_0_RXER  : in    std_logic;
-          MAC_0_TXEN  : out   std_logic;
-          MAC_0_MDC   : out   std_logic;
-          MSS_RESET_N : in    std_logic;
-          IO_5_PADOUT : out   std_logic;
-          IO_6_PADIN  : in    std_logic;
-          IO_7_PADIN  : in    std_logic;
-          IO_8_PADOUT : out   std_logic
+    port( FAB_CLK      : out   std_logic;
+          MAINXIN      : in    std_logic;
+          M2F_RESET_N  : out   std_logic;
+          IO_8_D       : in    std_logic;
+          IO_7_Y       : out   std_logic;
+          IO_6_Y       : out   std_logic;
+          IO_5_D       : in    std_logic;
+          MSSPSEL      : out   std_logic;
+          MSSPENABLE   : out   std_logic;
+          MSSPWRITE    : out   std_logic;
+          MSSPREADY    : in    std_logic;
+          MSSPSLVERR   : in    std_logic;
+          GLC          : out   std_logic;
+          IO_13_D      : in    std_logic;
+          IO_4_D       : in    std_logic;
+          IO_3_Y       : out   std_logic;
+          IO_2_D       : in    std_logic;
+          IO_1_D       : in    std_logic;
+          IO_0_D       : in    std_logic;
+          IO_15_D      : in    std_logic;
+          IO_14_D      : in    std_logic;
+          IO_12_D      : in    std_logic;
+          MSSPADDR     : out   std_logic_vector(19 downto 0);
+          MSSPRDATA    : in    std_logic_vector(31 downto 0);
+          MSSPWDATA    : out   std_logic_vector(31 downto 0);
+          DMAREADY     : in    std_logic_vector(1 downto 0);
+          MAC_0_RXD    : in    std_logic_vector(1 downto 0);
+          MAC_0_TXD    : out   std_logic_vector(1 downto 0);
+          MAC_0_MDIO   : inout std_logic := 'Z';
+          MAC_0_CRSDV  : in    std_logic;
+          MAC_0_RXER   : in    std_logic;
+          MAC_0_TXEN   : out   std_logic;
+          MAC_0_MDC    : out   std_logic;
+          MSS_RESET_N  : in    std_logic;
+          IO_0_PADOUT  : out   std_logic;
+          IO_1_PADOUT  : out   std_logic;
+          IO_2_PADOUT  : out   std_logic;
+          IO_3_PADIN   : in    std_logic;
+          IO_4_PADOUT  : out   std_logic;
+          IO_5_PADOUT  : out   std_logic;
+          IO_6_PADIN   : in    std_logic;
+          IO_7_PADIN   : in    std_logic;
+          IO_8_PADOUT  : out   std_logic;
+          IO_12_PADOUT : out   std_logic;
+          IO_13_PADOUT : out   std_logic;
+          IO_14_PADOUT : out   std_logic;
+          IO_15_PADOUT : out   std_logic
         );
 
 end uC;
@@ -393,10 +411,20 @@ begin
 
       port map(D => MSS_MAC_0_TXD_0_D, PAD => MAC_0_TXD(0));
     
+    FIO_OUTBUF_13 : OUTBUF_MSS
+      generic map(ACT_CONFIG => 1073741824, ACT_PIN => "AB2")
+
+      port map(D => IO_13_D, PAD => IO_13_PADOUT);
+    
     MSS_MAC_0_TXEN : OUTBUF_MSS
       generic map(ACT_CONFIG => 0, ACT_PIN => "Y4")
 
       port map(D => MSS_MAC_0_TXEN_D, PAD => MAC_0_TXEN);
+    
+    FIO_OUTBUF_0 : OUTBUF_MSS
+      generic map(ACT_CONFIG => 1073741824, ACT_PIN => "V1")
+
+      port map(D => IO_0_D, PAD => IO_0_PADOUT);
     
     MSS_RESET_0_MSS_RESET_N : INBUF_MSS
       generic map(ACT_CONFIG => 0, ACT_PIN => "R1")
@@ -418,6 +446,11 @@ begin
         MSS_ADLIB_INST_MACCLKCCC, MAC_CLK_IO => 
         MSS_ADLIB_INST_MACCLK);
     
+    FIO_INBUF_3 : INBUF_MSS
+      generic map(ACT_CONFIG => 1073741824, ACT_PIN => "Y1")
+
+      port map(PAD => IO_3_PADIN, Y => IO_3_Y);
+    
     MSS_MAC_0_RXD_0 : INBUF_MSS
       generic map(ACT_CONFIG => 0, ACT_PIN => "V5")
 
@@ -437,6 +470,21 @@ begin
       port map(PAD => MAC_0_MDIO, D => MSS_MAC_0_MDIO_D, E => 
         MSS_MAC_0_MDIO_E, Y => MSS_MAC_0_MDIO_Y);
     
+    FIO_OUTBUF_2 : OUTBUF_MSS
+      generic map(ACT_CONFIG => 1073741824, ACT_PIN => "W1")
+
+      port map(D => IO_2_D, PAD => IO_2_PADOUT);
+    
+    FIO_OUTBUF_4 : OUTBUF_MSS
+      generic map(ACT_CONFIG => 1073741824, ACT_PIN => "AA1")
+
+      port map(D => IO_4_D, PAD => IO_4_PADOUT);
+    
+    FIO_OUTBUF_14 : OUTBUF_MSS
+      generic map(ACT_CONFIG => 1073741824, ACT_PIN => "AB3")
+
+      port map(D => IO_14_D, PAD => IO_14_PADOUT);
+    
     FIO_INBUF_6 : INBUF_MSS
       generic map(ACT_CONFIG => 1073741824, ACT_PIN => "V2")
 
@@ -450,6 +498,16 @@ begin
 
       port map(D => IO_8_D, PAD => IO_8_PADOUT);
     
+    FIO_OUTBUF_15 : OUTBUF_MSS
+      generic map(ACT_CONFIG => 1073741824, ACT_PIN => "Y3")
+
+      port map(D => IO_15_D, PAD => IO_15_PADOUT);
+    
+    FIO_OUTBUF_12 : OUTBUF_MSS
+      generic map(ACT_CONFIG => 1073741824, ACT_PIN => "AA2")
+
+      port map(D => IO_12_D, PAD => IO_12_PADOUT);
+    
     MSS_MAC_0_CRSDV : INBUF_MSS
       generic map(ACT_CONFIG => 0, ACT_PIN => "W4")
 
@@ -459,6 +517,11 @@ begin
       generic map(ACT_CONFIG => 0, ACT_PIN => "W5")
 
       port map(D => MSS_MAC_0_TXD_1_D, PAD => MAC_0_TXD(1));
+    
+    FIO_OUTBUF_1 : OUTBUF_MSS
+      generic map(ACT_CONFIG => 1073741824, ACT_PIN => "R3")
+
+      port map(D => IO_1_D, PAD => IO_1_PADOUT);
     
     MSS_ADLIB_INST : MSS_APB
       generic map(ACT_CONFIG => 128, ACT_DIE => "IP4X3M1",

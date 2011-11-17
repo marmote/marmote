@@ -4,387 +4,358 @@ K3
 cModel Technology
 Z0 dd:\Actelprj\SVN_checkout_work\CoreAPB3\trunk\mti\user_vhdl
 Ebfm_apb
-Z1 DPx4 work 8 bfm_misc 0 22 `HGaYiHI3TC_A;`nSTH3c3
-Z2 DPx4 work 10 bfm_textio 0 22 Nb7PmjWaRJ1zglOB3fWii3
-Z3 DPx4 work 11 bfm_package 0 22 Czz;j0a??GGf[d995F;Lo3
-Z4 DPx4 ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
-Z5 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
-Z6 DPx3 std 6 textio 0 22 m2KQDRRhmF833<<DjYdL70
-32
-Z7 OW;C;6.6d;45
-Z8 w1264190477
-Z9 8../../rtl/vhdl/amba_bfm/bfm_apb.vhd
-Z10 F../../rtl/vhdl/amba_bfm/bfm_apb.vhd
+Z1 w1264190477
+Z2 DPx4 work 8 bfm_misc 0 22 `HGaYiHI3TC_A;`nSTH3c3
+Z3 DPx4 work 10 bfm_textio 0 22 Nb7PmjWaRJ1zglOB3fWii3
+Z4 DPx4 work 11 bfm_package 0 22 Czz;j0a??GGf[d995F;Lo3
+Z5 DPx4 ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
+Z7 DPx3 std 6 textio 0 22 m2KQDRRhmF833<<DjYdL70
+Z8 8../../rtl/vhdl/amba_bfm/bfm_apb.vhd
+Z9 F../../rtl/vhdl/amba_bfm/bfm_apb.vhd
 l0
 L15
 V:chNQIk<^g4>k`9022QCk1
+Z10 OW;C;6.5a;42
+32
 Z11 o-work COREAPB3_LIB -O0
 Z12 tExplicit 1
-Z13 dd:\Actelprj\SVN_checkout_work\CoreAPB3\trunk\mti\user_vhdl
 !s100 Qo6`Vl<T8mAE=f=l8<GdA3
 Abfma1i10i
-w0
-R1
 R2
 R3
 R4
 R5
 R6
-DEx4 work 7 bfm_apb 0 22 :chNQIk<^g4>k`9022QCk1
-32
-Z14 Mx6 3 std 6 textio
-Z15 Mx5 4 ieee 14 std_logic_1164
-Z16 Mx4 4 ieee 11 numeric_std
-Mx3 4 work 11 bfm_package
-Z17 Mx2 4 work 10 bfm_textio
-Z18 Mx1 4 work 8 bfm_misc
 R7
+DEx4 work 7 bfm_apb 0 22 :chNQIk<^g4>k`9022QCk1
 l191
 L145
 VD:QGHQjV1jMX<go:mVjG;3
+R10
+32
+Z13 Mx6 3 std 6 textio
+Z14 Mx5 4 ieee 14 std_logic_1164
+Z15 Mx4 4 ieee 11 numeric_std
+Mx3 4 work 11 bfm_package
+Z16 Mx2 4 work 10 bfm_textio
+Z17 Mx1 4 work 8 bfm_misc
 R11
 R12
 !s100 DnQ@^c^f1TfUD:NeQ@=L22
 Ebfm_apbslave
-R3
-R6
-R2
 R1
 R4
-R5
-32
 R7
-R8
-Z19 8../../rtl/vhdl/amba_bfm/bfm_apbslave.vhd
-Z20 F../../rtl/vhdl/amba_bfm/bfm_apbslave.vhd
+R3
+R2
+R5
+R6
+Z18 8../../rtl/vhdl/amba_bfm/bfm_apbslave.vhd
+Z19 F../../rtl/vhdl/amba_bfm/bfm_apbslave.vhd
 l0
 L17
 Vg0ZnE5i56zO@4[Oz9;Xf?3
+!s100 J>U=Yi^RLzXjLYCTA@LeK2
+R10
+32
 R11
 R12
-R13
-!s100 J>U=Yi^RLzXjLYCTA@LeK2
 Abfma1io1ol
-w0
-R3
-R6
-R2
-R1
 R4
-R5
-DEx4 work 12 bfm_apbslave 0 22 g0ZnE5i56zO@4[Oz9;Xf?3
-32
-Z21 Mx6 4 ieee 14 std_logic_1164
-Z22 Mx5 4 ieee 11 numeric_std
-Z23 Mx4 4 work 8 bfm_misc
-Z24 Mx3 4 work 10 bfm_textio
-Z25 Mx2 3 std 6 textio
-Z26 Mx1 4 work 11 bfm_package
 R7
+R3
+R2
+R5
+R6
+DEx4 work 12 bfm_apbslave 0 22 g0ZnE5i56zO@4[Oz9;Xf?3
 l49
 L37
 V<bW;eddglEElmzk<K5bV[3
+!s100 g688jIZ`7Pom]3?k9<19J2
+R10
+32
+Z20 Mx6 4 ieee 14 std_logic_1164
+Z21 Mx5 4 ieee 11 numeric_std
+Z22 Mx4 4 work 8 bfm_misc
+Z23 Mx3 4 work 10 bfm_textio
+Z24 Mx2 3 std 6 textio
+Z25 Mx1 4 work 11 bfm_package
 R11
 R12
-!s100 g688jIZ`7Pom]3?k9<19J2
 Ebfm_apbslaveext
-R3
-R6
-R2
 R1
 R4
-R5
-32
 R7
-R8
-Z27 8../../rtl/vhdl/amba_bfm/bfm_apbslaveext.vhd
-Z28 F../../rtl/vhdl/amba_bfm/bfm_apbslaveext.vhd
+R3
+R2
+R5
+R6
+Z26 8../../rtl/vhdl/amba_bfm/bfm_apbslaveext.vhd
+Z27 F../../rtl/vhdl/amba_bfm/bfm_apbslaveext.vhd
 l0
 L17
 V8?kLi9XGGHeP`inc;YRo;0
+R10
+32
 R11
 R12
-R13
 !s100 kKT?Mah72SYY9GD?X209m3
 Abfma1io1ol
-w0
-R3
-R6
-R2
-R1
 R4
+R7
+R3
+R2
 R5
+R6
 DEx4 work 15 bfm_apbslaveext 0 22 8?kLi9XGGHeP`inc;YRo;0
+l93
+L43
+V9cHM]0f[PFmLa3YGmOYEn0
+R10
 32
+R20
 R21
 R22
 R23
 R24
 R25
-R26
-R7
-l93
-L43
-V9cHM]0f[PFmLa3YGmOYEn0
 R11
 R12
 !s100 1V:FECeYX;`_ji43gk9>R3
 Ebfm_main
-R3
 R1
-R2
 R4
+R2
+R3
 R5
 R6
-32
 R7
-R8
-Z29 8../../rtl/vhdl/amba_bfm/bfm_main.vhd
-Z30 F../../rtl/vhdl/amba_bfm/bfm_main.vhd
+Z28 8../../rtl/vhdl/amba_bfm/bfm_main.vhd
+Z29 F../../rtl/vhdl/amba_bfm/bfm_main.vhd
 l0
 L18
 VbTlGUQZ<L<e5bI2[j?G2]1
+R10
+32
 R11
 R12
-R13
 !s100 LMclhMg8ZDg15GXnIbh2R1
 Abfma1i10i
-w0
-R3
-R1
-R2
 R4
+R2
+R3
 R5
 R6
-DEx4 work 8 bfm_main 0 22 bTlGUQZ<L<e5bI2[j?G2]1
-32
-R14
-R15
-R16
-R24
-Z31 Mx2 4 work 8 bfm_misc
-R26
 R7
+DEx4 work 8 bfm_main 0 22 bTlGUQZ<L<e5bI2[j?G2]1
 l294
 L162
 V<YhZ=0LijkSOUX[d>3>zT1
+R10
+32
+R13
+R14
+R15
+R23
+Z30 Mx2 4 work 8 bfm_misc
+R25
 R11
 R12
 !s100 AQ[?Nm80BBLb?:IaGEMfX3
 Pbfm_misc
-R4
 R5
-32
-b1
-Z32 Mx2 4 ieee 14 std_logic_1164
-Z33 Mx1 4 ieee 11 numeric_std
-R7
-R8
-Z34 8../../rtl/vhdl/amba_bfm/misc.vhd
-Z35 F../../rtl/vhdl/amba_bfm/misc.vhd
+R6
+R1
+Z31 8../../rtl/vhdl/amba_bfm/misc.vhd
+Z32 F../../rtl/vhdl/amba_bfm/misc.vhd
 l0
 L40
 V`HGaYiHI3TC_A;`nSTH3c3
+R10
+32
+b1
+Z33 Mx2 4 ieee 14 std_logic_1164
+Z34 Mx1 4 ieee 11 numeric_std
 R11
 R12
-R13
 !s100 iajkUXceZ=Gefa45k6J;Y2
 Bbody
 DBx4 work 8 bfm_misc 0 22 `HGaYiHI3TC_A;`nSTH3c3
-R4
 R5
-32
-R32
-R33
-R7
+R6
 l0
 L110
 VcN`i^SQm`PNQhWm_S56GP3
+R10
+32
+R33
+R34
 R11
 R12
 nbody
 !s100 LlgA8ZQMZaI@k2XTm>WHb3
 Pbfm_package
-R1
 R2
-R4
+R3
 R5
 R6
-32
-b1
-Z36 Mx5 3 std 6 textio
-Z37 Mx4 4 ieee 14 std_logic_1164
-Z38 Mx3 4 ieee 11 numeric_std
-R17
-R18
 R7
-R8
-Z39 8../../rtl/vhdl/amba_bfm/bfm_package.vhd
-Z40 F../../rtl/vhdl/amba_bfm/bfm_package.vhd
+R1
+Z35 8../../rtl/vhdl/amba_bfm/bfm_package.vhd
+Z36 F../../rtl/vhdl/amba_bfm/bfm_package.vhd
 l0
 L16
 VCzz;j0a??GGf[d995F;Lo3
+R10
+32
+b1
+Z37 Mx5 3 std 6 textio
+Z38 Mx4 4 ieee 14 std_logic_1164
+Z39 Mx3 4 ieee 11 numeric_std
+R16
+R17
 R11
 R12
-R13
 !s100 N4LMBU7bWa7EI[me=7A7Z1
 Bbody
 DBx4 work 11 bfm_package 0 22 Czz;j0a??GGf[d995F;Lo3
-R1
 R2
-R4
+R3
 R5
 R6
-32
-R36
-R37
-R38
-R17
-R18
 R7
 l0
 L1106
 V?9jS1OX<nfSCAjc4_[k;]2
+R10
+32
+R37
+R38
+R39
+R16
+R17
 R11
 R12
 nbody
 !s100 zNGi3Q^N_8S8d[R^7XZZl3
 Pbfm_textio
-R4
 R5
-R1
 R6
-32
-b1
-Z41 Mx4 3 std 6 textio
-Z42 Mx3 4 work 8 bfm_misc
-R32
-R33
+R2
 R7
-R8
-Z43 8../../rtl/vhdl/amba_bfm/textio.vhd
-Z44 F../../rtl/vhdl/amba_bfm/textio.vhd
+R1
+Z40 8../../rtl/vhdl/amba_bfm/textio.vhd
+Z41 F../../rtl/vhdl/amba_bfm/textio.vhd
 l0
 L109
 VNb7PmjWaRJ1zglOB3fWii3
+R10
+32
+b1
+Z42 Mx4 3 std 6 textio
+Z43 Mx3 4 work 8 bfm_misc
+R33
+R34
 R11
 R12
-R13
 !s100 VPZUE@YmGebg0L5@>57AV3
 Bbody
 DBx4 work 10 bfm_textio 0 22 Nb7PmjWaRJ1zglOB3fWii3
-R4
 R5
-R1
 R6
-32
-R41
-R42
-R32
-R33
+R2
 R7
 l0
 L165
 V7[fTILSa4Pn_;DJB_dSd[0
+R10
+32
+R42
+R43
+R33
+R34
 R11
 R12
 nbody
 !s100 C3:4>`6]ES^Ll=n94<Tob1
 Ebfm_textio_test
-R4
 R1
-R2
-R6
-Z45 DPx4 ieee 15 std_logic_arith 0 22 GJbAT?7@hRQU9IQ702DT]2
 R5
-32
+R2
+R3
 R7
-R8
-R43
-R44
+Z44 DPx4 ieee 15 std_logic_arith 0 22 GJbAT?7@hRQU9IQ702DT]2
+R6
+R40
+R41
 l0
 L702
 Ve[zhdCK1044iL1Yb_c;on1
+R10
+32
 R11
 R12
-R13
 !s100 g]QLlFI=Y`5N5?O55BkjY1
 Atb
-w0
-R4
-R1
-R2
-R6
-R45
 R5
-DEx4 work 15 bfm_textio_test 0 22 e[zhdCK1044iL1Yb_c;on1
-32
-R21
-Mx5 4 ieee 15 std_logic_arith
-R41
-R24
-R31
-R33
+R2
+R3
 R7
+R44
+R6
+DEx4 work 15 bfm_textio_test 0 22 e[zhdCK1044iL1Yb_c;on1
 l707
 L706
 V0N_bkMNNI?b:1?l3j9=d61
+R10
+32
+R20
+Mx5 4 ieee 15 std_logic_arith
+R42
+R23
+R30
+R34
 R11
 R12
 !s100 ?WI4jhS?L4L8YmZLMekmh0
 Ebfma1i1li
-R3
-R6
-R2
 R1
 R4
-R5
-32
 R7
-R8
-Z46 8../../rtl/vhdl/amba_bfm/bfm_ahbtoapb.vhd
-Z47 F../../rtl/vhdl/amba_bfm/bfm_ahbtoapb.vhd
+R3
+R2
+R5
+R6
+Z45 8../../rtl/vhdl/amba_bfm/bfm_ahbtoapb.vhd
+Z46 F../../rtl/vhdl/amba_bfm/bfm_ahbtoapb.vhd
 l0
 L16
 VMQoR4:PzAQaC^E>k0<GSm2
+R10
+32
 R11
 R12
-R13
 !s100 a>]IGIM>K0d>MY7zX[@AE0
 Abfma1io1ol
-w0
-R3
-R6
-R2
-R1
 R4
+R7
+R3
+R2
 R5
+R6
 DEx4 work 9 bfma1i1li 0 22 MQoR4:PzAQaC^E>k0<GSm2
+l70
+L42
+VkUmcVS?k>CVo_gj2EN:Rk1
+R10
 32
+R20
 R21
 R22
 R23
 R24
 R25
-R26
-R7
-l70
-L42
-VkUmcVS?k>CVo_gj2EN:Rk1
 R11
 R12
 !s100 ^]aE<?laS5PMjGBS[b<;H3
-Pcomponents
-R5
-w1319823063
-dD:\Work\marmote\projects\DDC_test\simulation
-8D:/Work/marmote/projects/DDC_test/component/Actel/DirectCore/CoreAPB3/3.0.103/rtl/vhdl/core_obfuscated/components.vhd
-FD:/Work/marmote/projects/DDC_test/component/Actel/DirectCore/CoreAPB3/3.0.103/rtl/vhdl/core_obfuscated/components.vhd
-l0
-L30
-VOTGf7oT[=0<VfN>6I9]gA2
-!s100 C7NHcATUg<KVbAl<<l9==2
-R7
-31
-Z48 Mx1 4 ieee 14 std_logic_1164
-o-93 -explicit -work COREAPB3_LIB -O0

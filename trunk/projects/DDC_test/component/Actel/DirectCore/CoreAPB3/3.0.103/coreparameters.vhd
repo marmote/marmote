@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------
--- Created by Actel SmartDesign Fri Oct 28 12:31:03 2011
+-- Created by Actel SmartDesign Thu Nov 17 11:29:51 2011
 -- Parameters for CoreAPB3
 ----------------------------------------------------------------------
 
@@ -12,7 +12,7 @@ package coreparameters is
     constant APBSLOT13ENABLE : integer := 0;
     constant APBSLOT14ENABLE : integer := 0;
     constant APBSLOT15ENABLE : integer := 0;
-    constant APBSLOT1ENABLE : integer := 0;
+    constant APBSLOT1ENABLE : integer := 1;
     constant APBSLOT2ENABLE : integer := 0;
     constant APBSLOT3ENABLE : integer := 0;
     constant APBSLOT4ENABLE : integer := 0;

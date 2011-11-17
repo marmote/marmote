@@ -3,7 +3,7 @@
 
 # Version: 9.1 SP3 9.1.3.4
 # Family: SmartFusion , Die: A2F200M3F , Package: 484 FBGA
-# Date generated: Fri Oct 28 12:31:03 2011 
+# Date generated: Thu Nov 17 11:29:50 2011 
 
 
 # 
@@ -27,6 +27,157 @@ define_group -name MAC_0_RMII_DATA_PADs
 set_io GLC             \
     -pinname F2        \
     -fixed yes         \
+    -DIRECTION Output
+
+
+set_io GPIO_IN        \
+    -pinname J6       \
+    -fixed yes        \
+    -DIRECTION Input
+
+
+set_io {GPIO_OUT_1[8]}  \
+    -pinname E3         \
+    -fixed yes          \
+    -DIRECTION Output
+
+
+set_io {GPIO_OUT_1[9]}  \
+    -pinname F3         \
+    -fixed yes          \
+    -DIRECTION Output
+
+
+set_io {GPIO_OUT_1[10]}  \
+    -pinname G4          \
+    -fixed yes           \
+    -DIRECTION Output
+
+
+set_io {GPIO_OUT_1[11]}  \
+    -pinname H5          \
+    -fixed yes           \
+    -DIRECTION Output
+
+
+set_io {GPIO_OUT_1[12]}  \
+    -pinname H6          \
+    -fixed yes           \
+    -DIRECTION Output
+
+
+set_io {GPIO_OUT_2[14]}  \
+    -pinname B22         \
+    -fixed yes           \
+    -DIRECTION Output
+
+
+set_io {GPIO_OUT_2[15]}  \
+    -pinname C22         \
+    -fixed yes           \
+    -DIRECTION Output
+
+
+set_io {GPIO_OUT_2[16]}  \
+    -pinname F1          \
+    -fixed yes           \
+    -DIRECTION Output
+
+
+set_io IO_0_PADOUT     \
+    -pinname V1        \
+    -fixed yes         \
+    -iostd LVTTL       \
+    -OUT_LOAD 35       \
+    -RES_PULL None     \
+    -SKEW Off          \
+    -SLEW High         \
+    -DIRECTION Output
+
+
+set_io IO_12_PADOUT    \
+    -pinname AA2       \
+    -fixed yes         \
+    -iostd LVTTL       \
+    -OUT_LOAD 35       \
+    -RES_PULL None     \
+    -SKEW Off          \
+    -SLEW High         \
+    -DIRECTION Output
+
+
+set_io IO_13_PADOUT    \
+    -pinname AB2       \
+    -fixed yes         \
+    -iostd LVTTL       \
+    -OUT_LOAD 35       \
+    -RES_PULL None     \
+    -SKEW Off          \
+    -SLEW High         \
+    -DIRECTION Output
+
+
+set_io IO_14_PADOUT    \
+    -pinname AB3       \
+    -fixed yes         \
+    -iostd LVTTL       \
+    -OUT_LOAD 35       \
+    -RES_PULL None     \
+    -SKEW Off          \
+    -SLEW High         \
+    -DIRECTION Output
+
+
+set_io IO_15_PADOUT    \
+    -pinname Y3        \
+    -fixed yes         \
+    -iostd LVTTL       \
+    -OUT_LOAD 35       \
+    -RES_PULL None     \
+    -SKEW Off          \
+    -SLEW High         \
+    -DIRECTION Output
+
+
+set_io IO_1_PADOUT     \
+    -pinname R3        \
+    -fixed yes         \
+    -iostd LVTTL       \
+    -OUT_LOAD 35       \
+    -RES_PULL None     \
+    -SKEW Off          \
+    -SLEW High         \
+    -DIRECTION Output
+
+
+set_io IO_2_PADOUT     \
+    -pinname W1        \
+    -fixed yes         \
+    -iostd LVTTL       \
+    -OUT_LOAD 35       \
+    -RES_PULL None     \
+    -SKEW Off          \
+    -SLEW High         \
+    -DIRECTION Output
+
+
+set_io IO_3_PADIN         \
+    -pinname Y1           \
+    -fixed yes            \
+    -iostd LVTTL          \
+    -RES_PULL None        \
+    -SCHMITT_TRIGGER Off  \
+    -DIRECTION Input
+
+
+set_io IO_4_PADOUT     \
+    -pinname AA1       \
+    -fixed yes         \
+    -iostd LVTTL       \
+    -OUT_LOAD 35       \
+    -RES_PULL None     \
+    -SKEW Off          \
+    -SLEW High         \
     -DIRECTION Output
 
 
@@ -201,6 +352,24 @@ set_io MAC_0_MDIO                         \
 #
 
 # set_io GLC -pinname F2 -fixed yes -DIRECTION Output 
+# set_io GPIO_IN -pinname J6 -fixed yes -DIRECTION Input 
+# set_io {GPIO_OUT_1[8]} -pinname E3 -fixed yes -DIRECTION Output 
+# set_io {GPIO_OUT_1[9]} -pinname F3 -fixed yes -DIRECTION Output 
+# set_io {GPIO_OUT_1[10]} -pinname G4 -fixed yes -DIRECTION Output 
+# set_io {GPIO_OUT_1[11]} -pinname H5 -fixed yes -DIRECTION Output 
+# set_io {GPIO_OUT_1[12]} -pinname H6 -fixed yes -DIRECTION Output 
+# set_io {GPIO_OUT_2[14]} -pinname B22 -fixed yes -DIRECTION Output 
+# set_io {GPIO_OUT_2[15]} -pinname C22 -fixed yes -DIRECTION Output 
+# set_io {GPIO_OUT_2[16]} -pinname F1 -fixed yes -DIRECTION Output 
+# set_io IO_0_PADOUT -pinname V1 -fixed yes -iostd LVTTL -OUT_LOAD 35 -RES_PULL None -SKEW Off -SLEW High -DIRECTION Output 
+# set_io IO_12_PADOUT -pinname AA2 -fixed yes -iostd LVTTL -OUT_LOAD 35 -RES_PULL None -SKEW Off -SLEW High -DIRECTION Output 
+# set_io IO_13_PADOUT -pinname AB2 -fixed yes -iostd LVTTL -OUT_LOAD 35 -RES_PULL None -SKEW Off -SLEW High -DIRECTION Output 
+# set_io IO_14_PADOUT -pinname AB3 -fixed yes -iostd LVTTL -OUT_LOAD 35 -RES_PULL None -SKEW Off -SLEW High -DIRECTION Output 
+# set_io IO_15_PADOUT -pinname Y3 -fixed yes -iostd LVTTL -OUT_LOAD 35 -RES_PULL None -SKEW Off -SLEW High -DIRECTION Output 
+# set_io IO_1_PADOUT -pinname R3 -fixed yes -iostd LVTTL -OUT_LOAD 35 -RES_PULL None -SKEW Off -SLEW High -DIRECTION Output 
+# set_io IO_2_PADOUT -pinname W1 -fixed yes -iostd LVTTL -OUT_LOAD 35 -RES_PULL None -SKEW Off -SLEW High -DIRECTION Output 
+# set_io IO_3_PADIN -pinname Y1 -fixed yes -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -DIRECTION Input 
+# set_io IO_4_PADOUT -pinname AA1 -fixed yes -iostd LVTTL -OUT_LOAD 35 -RES_PULL None -SKEW Off -SLEW High -DIRECTION Output 
 # set_io IO_5_PADOUT -pinname U2 -fixed yes -iostd LVTTL -OUT_LOAD 35 -RES_PULL None -SKEW Off -SLEW High -DIRECTION Output 
 # set_io IO_6_PADIN -pinname V2 -fixed yes -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -DIRECTION Input 
 # set_io IO_7_PADIN -pinname W2 -fixed yes -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -DIRECTION Input 

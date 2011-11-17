@@ -1,4 +1,4 @@
-function [ TS, TS_history_out, chunk1, chunk2, chunk1fft, chunk2fft ] = processing( TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, Resolution, chunk, TS_history )
+function [ TS, TS_history_out, chunk1, chunk2, chunk1fft, chunk2fft, chunkfft ] = processing( TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, Resolution, chunk, TS_history )
 
     setvariables();
 
@@ -28,16 +28,20 @@ function [ TS, TS_history_out, chunk1, chunk2, chunk1fft, chunk2fft ] = processi
     chunk1 = chunk1/Full_Scale;
     chunk2 = chunk2/Full_Scale;
    
+    chunkfft = 2*abs(fft(chunk1 + 1i * chunk2));
     chunk1fft = 2*abs(fft(chunk1));
     chunk2fft = 2*abs(fft(chunk2));
 
-    chunk1fft(ceil(end/2):end) = [];
-    chunk2fft(ceil(end/2):end) = [];
+    chunkfft = [chunkfft(num_pos_fr+1:end) chunkfft(1:num_pos_fr)];
+    chunk1fft(end-num_neg_fr+1:end) = [];
+    chunk2fft(end-num_neg_fr+1:end) = [];
     
+    chunkfft = chunkfft / N;
     chunk1fft = chunk1fft / N;
     chunk2fft = chunk2fft / N;
 
-    chunk1fft = 20 * log10(chunk1fft);
-    chunk2fft = 20 * log10(chunk2fft);
+    chunkfft = 10 * log10(chunkfft);
+    chunk1fft = 10 * log10(chunk1fft);
+    chunk2fft = 10 * log10(chunk2fft);
     
 end

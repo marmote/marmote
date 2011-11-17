@@ -1,3 +1,5 @@
+screen_refresh_rate = 100; %in frame per secs
+
 setvariables();
 
 TS_history = [];
@@ -76,17 +78,18 @@ while (1)
     accum_length = accum_length - BUFF_LENGTH*BUFF_MULTIPLIER;
     
 %    chunk = fread(u, BUFF_LENGTH*BUFF_MULTIPLIER, 'uint32');
-    
+
+    [ TS, TS_history, chunk1, chunk2, chunk1fft, chunk2fft, chunkfft ] = processing( TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, Resolution, chunk, TS_history );
+
     elapsed_time = elapsed_time + toc(ticID);
     ticID = tic;    
     
-%    if (elapsed_time >= 2)
-        [ TS, TS_history, chunk1, chunk2, chunk1fft, chunk2fft ] = processing( TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, Resolution, chunk, TS_history );
+    if (elapsed_time >= 1/screen_refresh_rate)
 
-        drawchart(TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, TS, TS_history, Fs, F_offset, Resolution, N, chunk1, chunk2, chunk1fft, chunk2fft);
+        drawchart(TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, TS, TS_history, Fs, F_offset, Resolution, N, chunk1, chunk2, chunk1fft, chunk2fft, chunkfft);
         
         elapsed_time = 0;
-%    end
+    end
 end
 
 % Disconnect and clean up the server connection. 

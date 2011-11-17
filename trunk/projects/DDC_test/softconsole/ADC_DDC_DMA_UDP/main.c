@@ -44,6 +44,7 @@
 #  include "sampleserver.h"
 #endif
 
+#include "RFX400.h"
 
 
 // **************************************************************************
@@ -51,8 +52,8 @@
 // **************************************************************************
 
 #ifdef ADC_ENABLED
-#  define ADC_MEM_ADDRESS_DATA		(0x00+SPI_APB_ADC_0)
-#  define ADC_MEM_ADDRESS_COUNTER	(0x04+SPI_APB_ADC_0)
+#  define ADC_MEM_ADDRESS_DATA		(0x00+SAMPLE_APB3_0)
+#  define ADC_MEM_ADDRESS_COUNTER	(0x04+SAMPLE_APB3_0)
 #  define ADC_MEM_ADDRESS			ADC_MEM_ADDRESS_DATA
 #endif
 
@@ -80,22 +81,15 @@
 // **************************************************************************
 
 #ifdef NETWORKING_ENABLED
-static uint64_t System_ticks = 0;
-static struct netif l_netif;                // the single network interface
-struct udp_pcb *pcb;
+static volatile uint64_t System_ticks = 0;
 
-unsigned char still_working_on_last_data = 0;
+volatile unsigned char still_working_on_last_data = 0;
 #endif
 
-uint8_t		DMA_buf = 0;
-uint8_t		next_DMA_buf = 1;
-uint8_t		NET_buf = 0;
-uint32_t	buffer[NB_OF_SAMPLE_BUFFERS][BUFF_LENGTH];
-
-#ifdef TIME_STAMP
-uint32_t counter = 0;
-#endif
-
+static volatile uint8_t		DMA_buf = 0;
+static volatile uint8_t		next_DMA_buf = 1;
+static volatile uint8_t		NET_buf = 0;
+static volatile uint32_t	buffer[NB_OF_SAMPLE_BUFFERS][BUFF_LENGTH];
 
 
 // *************************************************************************
@@ -127,34 +121,12 @@ unsigned long sys_now(void)
 #	ifdef TIME_STAMP
 void set_time_stamp(uint8_t buf_num)
 {
+	static uint32_t counter = 0;
+
     buffer[buf_num][0] = counter;
-/*    buffer[buf_num][0] =
-        	((counter & 0xFF000000) >> 24)
-			|
-           	((counter & 0x00FF0000) >> 8)
-           	|
-           	((counter & 0x0000FF00) << 8)
-           	|
-           	((counter & 0x000000FF) << 24);*/
 
     counter++;
 
-/*
-	int i;
-	for (i = 0; i<BUFF_LENGTH-58; i++)
-	{
-		buffer[buf_num][i] = //counter;
-        	((counter & 0xFF000000) >> 24)
-			|
-           	((counter & 0x00FF0000) >> 8)
-           	|
-           	((counter & 0x0000FF00) << 8)
-           	|
-           	((counter & 0x000000FF) << 24);
-
-		counter++;
-	}
-*/
 }
 #	endif
 
@@ -177,6 +149,26 @@ void next_DMA_transfer()
 }
 #endif
 
+
+void BusyWait(uint64_t time_ms) //Wait for given millisecs
+{
+	uint64_t t_orig = System_ticks;
+
+	while (1)
+	{
+		if (System_ticks - t_orig > time_ms)
+			break;
+	}
+}
+
+void SetRFFr(uint32_t frequency)
+{
+	RFX400InitFrequency(frequency);
+
+	BusyWait(15);
+
+	RFX400SetFrequency();
+}
 
 
 // **************************************************************************
@@ -285,6 +277,9 @@ int main()
 
 #ifdef NETWORKING_ENABLED
 
+	struct netif l_netif;                // the single network interface
+	struct udp_pcb *pcb;
+
 #  if LWIP_ARP
     uint64_t arp_timer = 0;
 #  endif
@@ -313,6 +308,10 @@ int main()
     // initialize the simple server
     pcb = server_init(49151);
 #endif
+
+    BusyWait(1); // WARNING!!! WITH RFX400 ATTACHED IT TAKES AT LEAST 170us FOR THE GPIO VOLTAGES TO REACH 3.3V
+    RFX400init();
+    SetRFFr(426000000);
 
 #ifdef ADC_ENABLED
 	next_DMA_transfer();
