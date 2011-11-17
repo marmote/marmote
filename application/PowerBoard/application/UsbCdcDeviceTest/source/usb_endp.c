@@ -31,9 +31,9 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-static uint8_t USB_Tx_Buffer[VIRTUAL_COM_PORT_DATA_SIZE];
+extern uint8_t USB_Tx_Buffer[VIRTUAL_COM_PORT_DATA_SIZE];
 static uint8_t* USB_Tx_Ptr;
-static uint8_t USB_Tx_Length;
+extern uint8_t USB_Tx_Length;
 
 static uint8_t USB_Rx_Buffer[VIRTUAL_COM_PORT_DATA_SIZE];
 static uint8_t* USB_Rx_Ptr;
@@ -90,26 +90,12 @@ void EP3_OUT_Callback(void)
   
 	// Send data to command processor here
 	//CMD_ProcessRxBuffer(USB_Rx_Buffer, USB_Rx_Length);
-	for (i = 0; i < USB_Rx_Length; i++)
-	{
-		if (USB_Rx_Buffer[i] == '\r')
-		{			
-			USB_Tx_Buffer[0] = '>';
-			//USB_Tx_Buffer[1] = '>';
-			USB_Tx_Length = 1;
-			USB_Tx_Request = 1;
-			LED_Toggle(LED2);
-		}
-	}
 
 	for (i = 0; i < USB_Rx_Length; i++)
 	{
 		switch (USB_Rx_Buffer[i])
-		{				
-			case '\r' :
-				// Ignore carriage returns
-				break;
-
+		{	
+			case 127 :		  // Backspace ('DEL') from Putty
 			case '\b' :
 				// Handle back space (TODO)
 				if (CMD_Rx_Length > 0)
@@ -118,11 +104,17 @@ void EP3_OUT_Callback(void)
 				}
 				break;
 
+					  				
+			case '\r' :
+				// // Ignore carriage returns
+				// break;
 			case '\n' :
 				// For now assume:
 				// - '\n' is the last character in USB_Rx_Buffer (remainder is ignored)
 				// - no new characters are received until the command is processed
 												 
+				CMD_Rx_Buffer[CMD_Rx_Length++] = '\0';
+
 				// Signal to command processor (set flag)
 				CMD_Rx_Valid = 1;
 
