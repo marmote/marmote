@@ -2,7 +2,7 @@
 // Title         : Power Monitor Functions Source
 // Project       : Power Board
 //-----------------------------------------------------------------------------
-// File          : ..sourcepower_monitor.c
+// File          : power_monitor.c
 // Author        : Sandor Szilvasi
 // Company       : Vanderbilt University, ISIS
 // Created       : 2011-11-04 19:42
@@ -33,13 +33,177 @@
 // AND FITNESS FOR A PARTICULAR PURPOSE.  THE SOFTWARE PROVIDED HEREUNDER IS
 // ON AN "AS IS" BASIS, AND THE VANDERBILT UNIVERSITY HAS NO OBLIGATION TO
 // PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
-//-----------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 // Revisions     :
 // Date            Version  Author			Description
 // 2011-11-04      1.0      Sandor Szilvasi	Created
-//-----------------------------------------------------------------------------
+// 2011-11-17      1.1      Sandor Szilvasi	Re-organized and cleaned up the
+//                                          content
+//---------------------------------------------------------------------------
 
 #include "power_monitor.h"
+
+void PowerMonitor_Init(void)
+{
+    LED_Init();
+    BAT_I2C_Init();
+    SD_SPI_Init();
+
+    Logger_Init();
+}
+
+/*-------------------------------------------------------------------------*/
+/*                                  LEDs                                   */
+/*-------------------------------------------------------------------------*/
+
+void LED_Init(void)
+{
+    GPIO_InitTypeDef  GPIO_InitStructure;
+
+	// Enable peripheral clock
+	RCC_APB2PeriphClockCmd( LED_LED1_GPIO_CLK |
+                            LED_LED2_GPIO_CLK |
+                            RCC_APB2Periph_AFIO,
+                            ENABLE);
+	
+    // PA.15 GPIO remap for LED1
+    AFIO->MAPR |= AFIO_MAPR_SWJ_CFG_JTAGDISABLE;
+
+    // Make sure the LEDs are turned-off by default
+    GPIOA->BSRR = LED_LED1_PIN;
+	GPIOB->BSRR = LED_LED2_PIN;
+
+	// Configure LEDs to open-drain
+	GPIO_InitStructure.GPIO_Pin = LED_LED1_PIN;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_OD;
+    GPIO_Init(LED_LED1_GPIO_PORT, &GPIO_InitStructure); 
+
+	GPIO_InitStructure.GPIO_Pin = LED_LED2_PIN;
+    GPIO_Init(LED_LED2_GPIO_PORT, &GPIO_InitStructure); 
+}
+
+void LED_On (uint32_t led)
+{
+    if (led & LED1)
+    {
+        GPIOA->BRR = LED_LED1_PIN;
+    }
+
+    if (led & LED2)
+    {
+        GPIOB->BRR = LED_LED2_PIN;
+    }
+}
+
+void LED_Off (uint32_t led)
+{
+    if (led & LED1)
+    {
+        GPIOA->BSRR = LED_LED1_PIN;
+    }
+
+    if (led & LED2)
+    {
+        GPIOB->BSRR = LED_LED2_PIN;
+    }
+}
+
+void LED_Toggle (uint32_t led)
+{
+    if (led & LED1)
+    {
+        if (GPIOA->IDR & LED_LED1_PIN)
+        {
+            GPIOA->BRR = LED_LED1_PIN;
+        }
+        else
+        {
+            GPIOA->BSRR = LED_LED1_PIN;
+        }
+    }
+
+    if (led & LED2)
+    {
+        if (GPIOB->IDR & LED_LED2_PIN)
+        {
+            GPIOB->BRR = LED_LED2_PIN;
+        }
+        else
+        {
+            GPIOB->BSRR = LED_LED2_PIN;
+        }
+    }
+}
+
+
+/*-------------------------------------------------------------------------*/
+/*                              ADC MONITOR                                */
+/*-------------------------------------------------------------------------*/
+
+// TODO: make it in a sort of subscriber style so that it can be logged to:
+//       - USB CDC (Virtual COM port)
+//       - USB Audio
+//       - SD card
+void Logger_Init(void)
+{						   
+  	NVIC_InitTypeDef NVIC_InitStructure;
+	TIM_TimeBaseInitTypeDef TIM_InitStructure;
+
+  	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
+
+	// Configure TIM2 interrupts
+	NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
+  	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+  	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+  	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  	NVIC_Init(&NVIC_InitStructure);
+
+	// Set peripheral clock sources
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
+
+	// Initialize peripheral
+	TIM_InitStructure.TIM_Prescaler	= 7200; // 100 us at 72 MHz SysClk
+	TIM_InitStructure.TIM_CounterMode = TIM_CounterMode_Down;
+	TIM_InitStructure.TIM_Period = 10000;
+	TIM_InitStructure.TIM_ClockDivision = TIM_CKD_DIV2;
+	TIM_InitStructure.TIM_RepetitionCounter = 0;
+	TIM_TimeBaseInit(TIM2, &TIM_InitStructure);					   
+	
+	TIM_ARRPreloadConfig(TIM2, ENABLE);
+							
+	TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);
+
+	// Enable Peripheral
+	TIM_Cmd(TIM2, ENABLE);
+}
+
+void TIM2_IRQHandler(void)
+{
+	if (TIM_GetITStatus(TIM2, TIM_IT_Update) == SET)
+	{
+		LED_Toggle(LED1);
+		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
+
+		//USB_Tx_Buffer[0] = '!';
+		//USB_Tx_Length = 1;
+				
+		//UserToPMABufferCopy(USB_Tx_Buffer, ENDP1_TXADDR, USB_Tx_Length);
+		//SetEPTxCount(ENDP1, USB_Tx_Length);
+		//SetEPTxValid(ENDP1);
+	}
+	else
+	{
+		LED_On(LED2);
+		while(1);
+	}
+}
+
+
+
+/*-------------------------------------------------------------------------*/
+/*                              BATTERY GAUGE                              */
+/*-------------------------------------------------------------------------*/
 
 void BAT_I2C_Init(void)
 {
@@ -328,6 +492,9 @@ uint16_t BAT_ReadRegister(BAT_RegisterAddress_Type address)
     return data;
 }
 
+/*-------------------------------------------------------------------------*/
+/*                                  SD CARD                                */
+/*-------------------------------------------------------------------------*/
 
 
 void SD_SPI_Init(void)
@@ -395,5 +562,7 @@ void SD_SPI_SendData(uint16_t data)
 	while (SD_SPI->SR & SPI_SR_BSY); // wait for busy flag
     GPIO_SetBits(SD_SPI_NSS_GPIO_PORT, SD_SPI_NSS_PIN);
 }
+
+
 
 

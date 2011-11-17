@@ -23,28 +23,6 @@ uint8_t CMD_ParseResult;
 uint8_t USB_Tx_Buffer[VIRTUAL_COM_PORT_DATA_SIZE];
 uint8_t USB_Tx_Length;
 
-void TIM2_IRQHandler(void)
-{
-	if (TIM_GetITStatus(TIM2, TIM_IT_Update) == SET)
-	{
-		LED_Toggle(LED1);
-		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
-
-		 //
-		//USB_Tx_Buffer[0] = '!';
-		//USB_Tx_Length = 1;
-				
-		//UserToPMABufferCopy(USB_Tx_Buffer, ENDP1_TXADDR, USB_Tx_Length);
-		//SetEPTxCount(ENDP1, USB_Tx_Length);
-		//SetEPTxValid(ENDP1);
-	}
-	else
-	{
-		LED_On(LED2);
-		while(1);
-	}
-}
-
 void USBWakeUp_IRQHandler(void)
 {
 	LED_On(LED2);
@@ -59,10 +37,7 @@ void USB_HP_CAN1_TX_IRQHandler()
 
 void USB_LP_CAN1_RX0_IRQHandler()
 {
-	//LED_On(LED2);
 	USB_Istr();
-	//LED_Off(LED2);
-	//while(1);
 }
 
 uint8_t i, j;		  
@@ -72,9 +47,12 @@ int main (void) {
 
 	NVIC_InitTypeDef NVIC_InitStructure;
   	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
+
+	//LED_Init();
+	//for (;;) ;
 	
-	LED_Init();			
-	PowerControl_Init();   
+	PowerControl_Init(); // PowerControl_Init();   
+	PowerMonitor_Init();
 	
 	// Configure SysTick
 	SysTick->CTRL |= (SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_TICKINT_Msk | SysTick_CTRL_ENABLE_Msk);
@@ -96,7 +74,6 @@ int main (void) {
   	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
   	NVIC_Init(&NVIC_InitStructure);
 
-	Init_Timer();
 	USB_Init();
 
 	CMD_ListLength = sizeof(CMD_List)/sizeof(CMD_Type);

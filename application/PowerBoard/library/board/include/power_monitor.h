@@ -43,20 +43,44 @@
 #define __POWER_MONITOR_H
 
 #include "stm32f10x.h"
+#include "stm32f10x_tim.h"
 #include "stm32f10x_i2c.h"
+#include "stm32f10x_spi.h"
+#include "misc.h"
 
-#include "power_board.h" // FIXME: for LED only - this line should be removed later
+void PowerMonitor_Init(void);
+void Logger_Init(void);
 
+
+// LEDs
+
+typedef enum 
+{
+  LED1 = 1,
+  LED2 = 2
+} Led_TypeDef;
+
+#define LED_LED1_PIN    			GPIO_Pin_15	// PA.15    
+#define LED_LED1_GPIO_PORT  		GPIOA		// GPIOA
+#define LED_LED1_GPIO_CLK   		RCC_APB2Periph_GPIOA
+#define LED_LED2_PIN				GPIO_Pin_2	// PB.2
+#define LED_LED2_GPIO_PORT  		GPIOB		// GPIOB
+#define LED_LED2_GPIO_CLK   		RCC_APB2Periph_GPIOB
+
+void LED_Init(void);
+void LED_On (uint32_t led);
+void LED_Off (uint32_t led);
+void LED_Toggle (uint32_t led);
 
 // Battery Gauge I2C (I2C2)
 
 #define BAT_I2C_SCL_PIN             GPIO_Pin_10 // PB.10
 #define BAT_I2C_SCL_GPIO_PORT       GPIOB       // GPIOB
-#define BAT_I2C_SCL_GPIO_CLK        RCC_AHBPeriph_GPIOB
+#define BAT_I2C_SCL_GPIO_CLK        RCC_APB2Periph_GPIOB
 
 #define BAT_I2C_SDA_PIN             GPIO_Pin_11	// PB.11
 #define BAT_I2C_SDA_GPIO_PORT       GPIOB       // GPIOB
-#define BAT_I2C_SDA_GPIO_CLK        RCC_AHBPeriph_GPIOB
+#define BAT_I2C_SDA_GPIO_CLK        RCC_APB2Periph_GPIOB
 
 #define BAT_I2C                     I2C2
 #define BAT_I2C_CLK                 RCC_APB1Periph_I2C2
@@ -91,24 +115,21 @@ uint16_t BAT_ReadRegister(uint8_t BAT_RegisterAddress_Type);
 
 // SD card SPI (SPI2)
 
-#define SD_SPI_NSS_PIN               GPIO_Pin_12                    /* PB.12  */
+#define SD_SPI_NSS_PIN               GPIO_Pin_12                    /* PB.12 */
 #define SD_SPI_NSS_GPIO_PORT         GPIOB                          /* GPIOB */
 #define SD_SPI_NSS_GPIO_CLK          RCC_AHBPeriph_GPIOB 
 
-#define SD_SPI_SCK_PIN               GPIO_Pin_13                    /* PB.13  */
+#define SD_SPI_SCK_PIN               GPIO_Pin_13                    /* PB.13 */
 #define SD_SPI_SCK_GPIO_PORT         GPIOB                          /* GPIOB */
 #define SD_SPI_SCK_GPIO_CLK          RCC_AHBPeriph_GPIOB  
-//#define SD_SPI_SCK_SOURCE            GPIO_PinSource13
 #define SD_SPI_SCK_AF                GPIO_AF_SPI2
 #define SD_SPI_MISO_PIN              GPIO_Pin_14                    /* PB.14 */
 #define SD_SPI_MISO_GPIO_PORT        GPIOB                          /* GPIOB */
 #define SD_SPI_MISO_GPIO_CLK         RCC_AHBPeriph_GPIOB  
-//#define SD_SPI_MISO_SOURCE           GPIO_PinSource14
 #define SD_SPI_MISO_AF               GPIO_AF_SPI2
-#define SD_SPI_MOSI_PIN              GPIO_Pin_15                    /* PB.15  */
+#define SD_SPI_MOSI_PIN              GPIO_Pin_15                    /* PB.15 */
 #define SD_SPI_MOSI_GPIO_PORT        GPIOB                          /* GPIOB */
 #define SD_SPI_MOSI_GPIO_CLK         RCC_AHBPeriph_GPIOB  
-//#define SD_SPI_MOSI_SOURCE           GPIO_PinSource15
 #define SD_SPI_MOSI_AF               GPIO_AF_SPI2
 #define SD_SPI                       SPI2
 #define SD_SPI_CLK                   RCC_APB1Periph_SPI2
