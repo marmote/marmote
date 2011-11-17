@@ -128,20 +128,23 @@ uint16_t BAT_ReadRegister(uint8_t BAT_RegisterAddress_Type);
 
 #define SD_SPI_NSS_PIN               GPIO_Pin_12                    /* PB.12 */
 #define SD_SPI_NSS_GPIO_PORT         GPIOB                          /* GPIOB */
-#define SD_SPI_NSS_GPIO_CLK          RCC_AHBPeriph_GPIOB 
+#define SD_SPI_NSS_GPIO_CLK          RCC_APB2Periph_GPIOB 
 
 #define SD_SPI_SCK_PIN               GPIO_Pin_13                    /* PB.13 */
 #define SD_SPI_SCK_GPIO_PORT         GPIOB                          /* GPIOB */
-#define SD_SPI_SCK_GPIO_CLK          RCC_AHBPeriph_GPIOB  
+#define SD_SPI_SCK_GPIO_CLK          RCC_APB2Periph_GPIOB  
 #define SD_SPI_SCK_AF                GPIO_AF_SPI2
+
 #define SD_SPI_MISO_PIN              GPIO_Pin_14                    /* PB.14 */
 #define SD_SPI_MISO_GPIO_PORT        GPIOB                          /* GPIOB */
-#define SD_SPI_MISO_GPIO_CLK         RCC_AHBPeriph_GPIOB  
+#define SD_SPI_MISO_GPIO_CLK         RCC_APB2Periph_GPIOB  
+
 #define SD_SPI_MISO_AF               GPIO_AF_SPI2
 #define SD_SPI_MOSI_PIN              GPIO_Pin_15                    /* PB.15 */
 #define SD_SPI_MOSI_GPIO_PORT        GPIOB                          /* GPIOB */
-#define SD_SPI_MOSI_GPIO_CLK         RCC_AHBPeriph_GPIOB  
+#define SD_SPI_MOSI_GPIO_CLK         RCC_APB2Periph_GPIOB  
 #define SD_SPI_MOSI_AF               GPIO_AF_SPI2
+
 #define SD_SPI                       SPI2
 #define SD_SPI_CLK                   RCC_APB1Periph_SPI2
 
