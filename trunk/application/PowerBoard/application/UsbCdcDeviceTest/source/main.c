@@ -13,6 +13,10 @@ uint8_t USB_Tx_Request;
 uint32_t ctr;
 uint32_t it;
 
+uint8_t CMD_Rx_Buffer[32];
+uint8_t CMD_Rx_Length;
+uint8_t CMD_Rx_Valid;
+
 
 static uint8_t USB_Tx_Buffer[1];
 static uint8_t USB_Tx_Length;
@@ -24,7 +28,6 @@ void TIM2_IRQHandler(void)
 		LED_Toggle(LED1);
 		ctr++;
 		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
-		USB_Tx_Request = 1;
 
 		 //
 		//USB_Tx_Buffer[0] = '!';
@@ -94,8 +97,10 @@ int main (void) {
 				
 	while (1)
 	{		
-		Delay(250);
-		//LED_Toggle(LED2);	
+		if (CMD_Rx_Valid == 1)
+		{
+			LED_Toggle(LED2);
+		}	
 	}
 }
 

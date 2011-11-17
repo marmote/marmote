@@ -41,6 +41,10 @@ static uint8_t USB_Rx_Length;
 
 extern uint8_t USB_Tx_Request;
 
+extern uint8_t CMD_Rx_Buffer[32];
+extern uint8_t CMD_Rx_Length;
+extern uint8_t CMD_Rx_Valid;
+
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 
@@ -53,57 +57,16 @@ extern uint8_t USB_Tx_Request;
 *******************************************************************************/
 void EP1_IN_Callback (void)
 {
-	/*
-    uint16_t USB_Tx_ptr;
-    uint16_t USB_Tx_length;
+	if (USB_Tx_Request == 1)
+	{	
+		//USB_SIL_Write(EP1_IN, USB_Tx_Buffer, USB_Tx_Length); 
 
-    USB_Tx_length = 1;
-
-    if (USB_Tx_State == 1)
-    {
-        //UserToPMABufferCopy(&USART_Rx_Buffer[USB_Tx_ptr], ENDP1_TXADDR, USB_Tx_length);
-        UserToPMABufferCopy(&Tx_Char, ENDP1_TXADDR, USB_Tx_length);
-        SetEPTxCount(ENDP1, USB_Tx_length);
-        SetEPTxValid(ENDP1);
-    }
-	*/
-	LED_On(LED2);
-
-	/*if (USB_Tx_Request == 1)
-	{
-
-		USB_Tx_Buffer[0] = '!';
-		USB_Tx_Length = 1;
-	
 		UserToPMABufferCopy(USB_Tx_Buffer, ENDP1_TXADDR, USB_Tx_Length);
 		SetEPTxCount(ENDP1, USB_Tx_Length);
 		SetEPTxValid(ENDP1);
 
 		USB_Tx_Request = 0;
 	}
-	*/
-		 
-
-	 //USB_SIL_Write(EP1_IN, USB_Tx_Buffer, 4);  
-
-	 //USB_Rx_Length = 0;	
-	 //}
-	 
-	 /*
-	if (USB_Rx_Length > 0)
-	{
-		//USB_Tx_Length = USB_Rx_Length;
-		//USB_Tx_Ptr = 
-
-		// Echo characters back
-		UserToPMABufferCopy(USB_Rx_Buffer, ENDP1_TXADDR, USB_Rx_Length);
-	    SetEPTxCount(ENDP1, USB_Rx_Length);
-	    SetEPTxValid(ENDP1);
-		
-		USB_Rx_Length = 0;											
-	}
-	*/
-
 }
 
 /*******************************************************************************
@@ -115,18 +78,63 @@ void EP1_IN_Callback (void)
 *******************************************************************************/
 void EP3_OUT_Callback(void)
 {  
+	uint16_t i;
+
   	/* Get the received data buffer and update the counter */
   	USB_Rx_Length = USB_SIL_Read(EP3_OUT, USB_Rx_Buffer);
-
+				    
 	// Echo characters
 	UserToPMABufferCopy(USB_Rx_Buffer, ENDP1_TXADDR, USB_Rx_Length);
 	SetEPTxCount(ENDP1, USB_Rx_Length);
 	SetEPTxValid(ENDP1);
   
 	// Send data to command processor here
-	// TODO
+	//CMD_ProcessRxBuffer(USB_Rx_Buffer, USB_Rx_Length);
+	for (i = 0; i < USB_Rx_Length; i++)
+	{
+		if (USB_Rx_Buffer[i] == '\r')
+		{			
+			USB_Tx_Buffer[0] = '>';
+			//USB_Tx_Buffer[1] = '>';
+			USB_Tx_Length = 1;
+			USB_Tx_Request = 1;
+			LED_Toggle(LED2);
+		}
+	}
 
-	/* Enable the receive of data on EP3 */	
+	for (i = 0; i < USB_Rx_Length; i++)
+	{
+		switch (USB_Rx_Buffer[i])
+		{				
+			case '\r' :
+				// Ignore carriage returns
+				break;
+
+			case '\b' :
+				// Handle back space (TODO)
+				if (CMD_Rx_Length > 0)
+				{
+					CMD_Rx_Length--;
+				}
+				break;
+
+			case '\n' :
+				// For now assume:
+				// - '\n' is the last character in USB_Rx_Buffer (remainder is ignored)
+				// - no new characters are received until the command is processed
+												 
+				// Signal to command processor (set flag)
+				CMD_Rx_Valid = 1;
+
+				break;
+			default:
+				// Copy character to 'command processor buffer'	
+				CMD_Rx_Buffer[CMD_Rx_Length++] = USB_Rx_Buffer[i];
+				break;
+		}
+	}
+
+	// Enable the receive of data on EP3
 	SetEPRxValid(ENDP3);
 }
 
