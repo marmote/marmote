@@ -49,7 +49,10 @@ void PowerMonitor_Init(void)
     BAT_I2C_Init();
     SD_SPI_Init();
 
-    Logger_Init();
+    //BAT_WriteRegister(BAT_CHARGE_THRESHOLD_HIGH_MSB, 0x9531u);
+    //BAT_ReadRegister(BAT_CHARGE_THRESHOLD_HIGH_MSB);
+
+	Logger_Init();
 }
 
 /*-------------------------------------------------------------------------*/
@@ -70,17 +73,17 @@ void LED_Init(void)
     AFIO->MAPR |= AFIO_MAPR_SWJ_CFG_JTAGDISABLE;
 
     // Make sure the LEDs are turned-off by default
-    GPIOA->BSRR = LED_LED1_PIN;
-	GPIOB->BSRR = LED_LED2_PIN;
+    LED_LED1_GPIO_PORT->BSRR = LED_LED1_PIN;
+	LED_LED2_GPIO_PORT->BSRR = LED_LED2_PIN;
 
 	// Configure LEDs to open-drain
 	GPIO_InitStructure.GPIO_Pin = LED_LED1_PIN;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_OD;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_OD;
     GPIO_Init(LED_LED1_GPIO_PORT, &GPIO_InitStructure); 
 
 	GPIO_InitStructure.GPIO_Pin = LED_LED2_PIN;
-    GPIO_Init(LED_LED2_GPIO_PORT, &GPIO_InitStructure); 
+    GPIO_Init(LED_LED2_GPIO_PORT, &GPIO_InitStructure);
 }
 
 void LED_On (uint32_t led)
@@ -152,14 +155,14 @@ void Logger_Init(void)
 
   	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
 
-	// Configure TIM2 interrupts
+	// Configure TIM2 interrupts in NVIC
 	NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
   	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
   	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
   	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
   	NVIC_Init(&NVIC_InitStructure);
 
-	// Set peripheral clock sources
+	// Enable peripheral clock
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
 
 	// Initialize peripheral
@@ -170,8 +173,10 @@ void Logger_Init(void)
 	TIM_InitStructure.TIM_RepetitionCounter = 0;
 	TIM_TimeBaseInit(TIM2, &TIM_InitStructure);					   
 	
+    // Enable auto-reload
 	TIM_ARRPreloadConfig(TIM2, ENABLE);
 							
+    // Enable interrupt at peripheral level
 	TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);
 
 	// Enable Peripheral
@@ -180,17 +185,52 @@ void Logger_Init(void)
 
 void TIM2_IRQHandler(void)
 {
+    uint32_t volt;
+    uint32_t temp;
+
 	if (TIM_GetITStatus(TIM2, TIM_IT_Update) == SET)
 	{
 		LED_Toggle(LED1);
-		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
 
-		//USB_Tx_Buffer[0] = '!';
-		//USB_Tx_Length = 1;
+        // TODO: Time critical part of logging here
+        
+        // For now, just log battery voltage through USB
+        BAT_WriteRegister(BAT_CONTROL, 0xB8);
+        volt = BAT_ReadRegister(BAT_VOLTAGE_MSB);
+		//volt = 0xB01C; // Battery gauge still gets stuck sometimes
+
+        // U = 6V * volt / 0xFFFF
+
+        BAT_WriteRegister(BAT_CONTROL, 0x78);
+        temp = BAT_ReadRegister(BAT_TEMPERATURE_MSB);
+		//temp = 0x8000; // Battery gauge still gets stuck sometimes
+
+        // T = 600K * temp / 0xFFFF
+        // 
+
+        //sprintf((char*)&USB_Tx_Buffer[0], "%2.1f V\t%2.1f K\r\n", (6*(float)volt) / 2^16, (600*(float)temp) / 2^16);
+		sprintf((char*)&USB_Tx_Buffer[0], "%2.2f V\t%2.1f C\r\n", (float)volt * 6 / (float)0xFFFF,
+			((float)temp * 600 / (float)0xFFFF) - (float)273.15);
+        //sprintf((char*)&USB_Tx_Buffer[0], "a b\n"); //, volt >> 16, temp >> 16);
+        USB_Tx_Length = strlen((char*)USB_Tx_Buffer);
+        
+        /*
+		USB_Tx_Buffer[0] = 'x';
+		USB_Tx_Buffer[1] = 'x';
+		USB_Tx_Buffer[2] = '.';
+		USB_Tx_Buffer[3] = 'y';
+		USB_Tx_Buffer[4] = 'y';
+		USB_Tx_Buffer[5] = ' ';
+		USB_Tx_Buffer[6] = 'V';
+		USB_Tx_Buffer[7] = '\r';
+		USB_Tx_Length = 8;
+        */
 				
-		//UserToPMABufferCopy(USB_Tx_Buffer, ENDP1_TXADDR, USB_Tx_Length);
-		//SetEPTxCount(ENDP1, USB_Tx_Length);
-		//SetEPTxValid(ENDP1);
+		UserToPMABufferCopy(USB_Tx_Buffer, ENDP1_TXADDR, USB_Tx_Length);
+		SetEPTxCount(ENDP1, USB_Tx_Length);
+		SetEPTxValid(ENDP1);
+
+		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
 	}
 	else
 	{
