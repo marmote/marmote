@@ -44,11 +44,6 @@
 #include "stm32f10x.h"
 #include "power_control.h"
 #include "power_monitor.h"
-#include "stm32f10x_spi.h"
-#include "stm32f10x_i2c.h"
-
-#include "misc.h"
-#include "stm32f10x_tim.h"
 
 // Board - Initialize board peripherals and GPIOs with default values
 void Board_Init(void); // 
@@ -60,24 +55,6 @@ void Init_Timer(void);
 void Delay(uint32_t dlyTicks);
 void USB_SoftReset(void);
 
-
-// LEDs
-
-typedef enum 
-{
-  LED1 = 1,
-  LED2 = 2
-} Led_TypeDef;
-
-#define POWER_BOARD_LED1_Pos    15    
-#define POWER_BOARD_LED1_Msk    (0x1UL << POWER_BOARD_LED1_Pos)
-#define POWER_BOARD_LED2_Pos    2    
-#define POWER_BOARD_LED2_Msk    (0x1UL << POWER_BOARD_LED2_Pos)
-
-void LED_Init(void);
-void LED_On (uint32_t led);
-void LED_Off (uint32_t led);
-void LED_Toggle (uint32_t led);
 
 // SmartFusion connector
 
