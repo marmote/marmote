@@ -1,0 +1,126 @@
+#include "RFX400.h"
+#include "io_ports.h"
+
+
+void RFX400init()
+{
+	(*((uint32_t*)GPIO_OUTPUT)) = GPIO_IO_RX_05 /*|| GPIO_IO_RX_06*/ || GPIO_IO_RX_07 || GPIO_IO_TX_06 || GPIO_SEN_RX;
+}
+
+void RFX400InitFrequency(uint32_t frequency)
+{
+/*
+	f_VCO = ( (P*B)+A ) * f_ref/R
+
+	P = 8
+	f_ref = 50e6
+
+	R := 200
+//with the above settings B corresponds to 1MHz, and A corresponds to 125kHz
+*/
+
+	uint16_t R	= 200;									// min 1, max 16383
+	uint16_t B	= frequency / 1000000;					// min 3, max 8191, B > A !!!!!!!!!!
+	uint8_t A	= (frequency - B*1000000) / 125000;		// min 0, max 31
+
+}
+
+void RFX400SetFrequency()
+{
+/*
+	f_VCO = ( (P*B)+A ) * f_ref/R
+
+	P = 8
+	f_ref = 50e6
+
+	R := 200
+//with the above settings B corresponds to 1MHz, and A corresponds to 125kHz
+*/
+
+	uint16_t R	= 200;									// min 1, max 16383
+	uint16_t B	= frequency / 1000000;					// min 3, max 8191, B > A !!!!!!!!!!
+	uint8_t A	= (frequency - B*1000000) / 125000;		// min 0, max 31
+
+}
+
+
+uint32_t create_R_latch(uint16_t R)
+{
+	R = R & 0x3FFF; //get rid of upper two bits
+
+	uint32_t result;
+
+	result = R_COUNTER_LATCH_DB23_DB16;
+
+	result = result << 14;
+	result = result | R;
+
+	result = result << 2;
+	result = result | R_COUNTER_LATCH_DB1_DB0;
+
+	return result;
+}
+
+uint32_t create_Control_latch()
+{
+	uint32_t result;
+
+	result = CONTROL_LATCH_DB23_DB16;
+
+	result = result << 8;
+	result = result | CONTROL_LATCH_DB15_DB8;
+
+	result = result << 8;
+	result = result | CONTROL_LATCH_DB7_DB0;
+
+	return result;
+}
+
+uint32_t create_N_latch(uint16_t B, uint8_t A)
+{
+	B = B & 0x1FFF;	//get rid of upper three bits
+	A = A & 0x1F;	//get rid of upper three bits
+
+	uint32_t result;
+
+	result = N_COUNTER_LATCH_DB23_DB21;
+
+	result = result << 3;
+	result = result | B;
+
+	result = result << 1;
+	result = result | N_COUNTER_LATCH_DB7;
+
+	result = result << 5;
+	result = result | A;
+
+	result = result << 2;
+	result = result | N_COUNTER_LATCH_DB1_DB0;
+
+	return result;
+}
+
+void send_SPI(uint32_t data, uint8_t data_size)
+{
+/*
+	GPIO_SCLK
+	GPIO_SEN_RX
+	GPIO_SDI
+*/
+
+	uint8_t i;
+
+	ResetFlag(GPIO_OUTPUT, GPIO_SEN_RX);
+
+	for (i = 0; i < data_size; i++)
+	{
+		ResetFlag(GPIO_OUTPUT, GPIO_SCLK);
+
+		SetFlagVal(GPIO_OUTPUT, GPIO_SDI, ((data << i) & 0x800000) ? 1 : 0);
+
+		SetFlag(GPIO_OUTPUT, GPIO_SCLK);
+	}
+
+	SetFlag(GPIO_OUTPUT, GPIO_SEN_RX);
+
+}

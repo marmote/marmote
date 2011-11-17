@@ -20,5 +20,8 @@ end
 F = Fs / N;
 T = 1/Fs;
 
+num_pos_fr = round(N/2); %positive and zero frequency bins
+num_neg_fr = N-num_pos_fr; %negative frequency bins
+
 Full_Scale = 2^(Resolution-1) - 1;
-Full_Scale_dB = 10 * log10(Full_Scale);
+Full_Scale_dB = 10 * log10(2^Resolution);

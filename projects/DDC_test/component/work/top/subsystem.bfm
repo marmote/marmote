@@ -1,5 +1,5 @@
 #===========================================================
-# Created by Actel SmartDesign Fri Oct 28 12:31:04 2011
+# Created by Actel SmartDesign Thu Nov 17 11:29:52 2011
 #
 # Syntax: 
 # ------- 
@@ -18,3 +18,4 @@
 #-----------------------------------------------------------
 
 memmap SAMPLE_APB3_0 0x40050000;
+memmap CoreGPIO_0 0x40050100;

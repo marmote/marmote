@@ -1,0 +1,32 @@
+#include "io_ports.h"
+
+
+void set_port(uint32_t mask, char value)
+{
+	GPIO_OUTPUT
+
+}
+
+void init_ports()
+{
+
+	(*((uint32_t*)GPIO_OUTPUT)) = GPIO_IO_RX_05 /*|| GPIO_IO_RX_06*/ || GPIO_IO_RX_07 || GPIO_IO_TX_06;
+
+}
+
+uint32_t create_R_latch(uint16_t R)
+{
+	R = R & 0x3FFF; //get rid of upper two bits
+
+	uint32_t result;
+
+	result = R_COUNTER_LATCH_DB23_DB16;
+
+	result = result << 14;
+	result = result | R;
+
+	result = result << 2;
+	result = result | R_COUNTER_LATCH_DB1_DB0;
+
+	return result;
+}

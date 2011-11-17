@@ -3,7 +3,7 @@
 
 # Version: 9.1 SP3 9.1.3.4
 # Family: SmartFusion , Die: A2F200M3F , Package: 484 FBGA
-# Date generated: Fri Oct 28 10:44:53 2011 
+# Date generated: Thu Nov 17 10:28:30 2011 
 
 
 # 
@@ -23,6 +23,60 @@ define_group -name MAC_0_RMII_PHY_MGMT_PADs
 # 
 # I/O constraints
 # 
+
+set_io IO_0_PADOUT     \
+    -pinname V1        \
+    -fixed yes         \
+    -DIRECTION Output
+
+
+set_io IO_12_PADOUT    \
+    -pinname AA2       \
+    -fixed yes         \
+    -DIRECTION Output
+
+
+set_io IO_13_PADOUT    \
+    -pinname AB2       \
+    -fixed yes         \
+    -DIRECTION Output
+
+
+set_io IO_14_PADOUT    \
+    -pinname AB3       \
+    -fixed yes         \
+    -DIRECTION Output
+
+
+set_io IO_15_PADOUT    \
+    -pinname Y3        \
+    -fixed yes         \
+    -DIRECTION Output
+
+
+set_io IO_1_PADOUT     \
+    -pinname R3        \
+    -fixed yes         \
+    -DIRECTION Output
+
+
+set_io IO_2_PADOUT     \
+    -pinname W1        \
+    -fixed yes         \
+    -DIRECTION Output
+
+
+set_io IO_3_PADIN     \
+    -pinname Y1       \
+    -fixed yes        \
+    -DIRECTION Input
+
+
+set_io IO_4_PADOUT     \
+    -pinname AA1       \
+    -fixed yes         \
+    -DIRECTION Output
+
 
 set_io IO_5_PADOUT     \
     -pinname U2        \
@@ -131,6 +185,15 @@ set_io MAC_0_MDIO                         \
 # Old IO constraints, commented out for reference
 #
 
+# set_io IO_0_PADOUT -pinname V1 -fixed yes -DIRECTION Output 
+# set_io IO_12_PADOUT -pinname AA2 -fixed yes -DIRECTION Output 
+# set_io IO_13_PADOUT -pinname AB2 -fixed yes -DIRECTION Output 
+# set_io IO_14_PADOUT -pinname AB3 -fixed yes -DIRECTION Output 
+# set_io IO_15_PADOUT -pinname Y3 -fixed yes -DIRECTION Output 
+# set_io IO_1_PADOUT -pinname R3 -fixed yes -DIRECTION Output 
+# set_io IO_2_PADOUT -pinname W1 -fixed yes -DIRECTION Output 
+# set_io IO_3_PADIN -pinname Y1 -fixed yes -DIRECTION Input 
+# set_io IO_4_PADOUT -pinname AA1 -fixed yes -DIRECTION Output 
 # set_io IO_5_PADOUT -pinname U2 -fixed yes -DIRECTION Output 
 # set_io IO_6_PADIN -pinname V2 -fixed yes -DIRECTION Input 
 # set_io IO_7_PADIN -pinname W2 -fixed yes -DIRECTION Input 
@@ -145,6 +208,15 @@ set_io MAC_0_MDIO                         \
 # set_io MAC_0_TXEN -pinname Y4 -fixed yes -GROUP_NAME MAC_0_RMII_DATA_PADs -DIRECTION Output 
 # set_io MAC_0_MDC -pinname AA3 -fixed yes -GROUP_NAME MAC_0_RMII_PHY_MGMT_PADs -DIRECTION Output 
 # set_io MAC_0_MDIO -pinname V4 -fixed yes -GROUP_NAME MAC_0_RMII_PHY_MGMT_PADs -DIRECTION Inout 
+# set_io IO_0_PADOUT -pinname V1 -fixed yes -DIRECTION Output 
+# set_io IO_12_PADOUT -pinname AA2 -fixed yes -DIRECTION Output 
+# set_io IO_13_PADOUT -pinname AB2 -fixed yes -DIRECTION Output 
+# set_io IO_14_PADOUT -pinname AB3 -fixed yes -DIRECTION Output 
+# set_io IO_15_PADOUT -pinname Y3 -fixed yes -DIRECTION Output 
+# set_io IO_1_PADOUT -pinname R3 -fixed yes -DIRECTION Output 
+# set_io IO_2_PADOUT -pinname W1 -fixed yes -DIRECTION Output 
+# set_io IO_3_PADIN -pinname Y1 -fixed yes -DIRECTION Input 
+# set_io IO_4_PADOUT -pinname AA1 -fixed yes -DIRECTION Output 
 # set_io IO_5_PADOUT -pinname U2 -fixed yes -DIRECTION Output 
 # set_io IO_6_PADIN -pinname V2 -fixed yes -DIRECTION Input 
 # set_io IO_7_PADIN -pinname W2 -fixed yes -DIRECTION Input 

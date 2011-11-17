@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------
--- Created by Actel SmartDesign Fri Oct 28 12:31:03 2011
+-- Created by Actel SmartDesign Thu Nov 17 11:29:51 2011
 -- Testbench Template
 -- This is a basic testbench that instantiates your design with basic 
 -- clock and reset pins connected.  If your design has special
@@ -30,6 +30,8 @@ architecture behavioral of testbench is
             IO_6_PADIN : in std_logic;
             MAC_0_CRSDV : in std_logic;
             MAC_0_RXER : in std_logic;
+            IO_3_PADIN : in std_logic;
+            GPIO_IN : in std_logic;
             MAC_0_RXD : in std_logic_vector(1 downto 0);
 
             -- Outputs
@@ -39,7 +41,17 @@ architecture behavioral of testbench is
             MAC_0_MDC : out std_logic;
             GLC : out std_logic;
             SMPL_RDY : out std_logic;
+            IO_13_PADOUT : out std_logic;
+            IO_4_PADOUT : out std_logic;
+            IO_2_PADOUT : out std_logic;
+            IO_1_PADOUT : out std_logic;
+            IO_0_PADOUT : out std_logic;
+            IO_15_PADOUT : out std_logic;
+            IO_14_PADOUT : out std_logic;
+            IO_12_PADOUT : out std_logic;
             MAC_0_TXD : out std_logic_vector(1 downto 0);
+            GPIO_OUT_1 : out std_logic_vector(12 downto 8);
+            GPIO_OUT_2 : out std_logic_vector(16 downto 14);
 
             -- Inouts
             MAC_0_MDIO : inout std_logic
@@ -77,6 +89,8 @@ begin
             IO_6_PADIN => '0',
             MAC_0_CRSDV => '0',
             MAC_0_RXER => '0',
+            IO_3_PADIN => '0',
+            GPIO_IN => '0',
             MAC_0_RXD => (others=> '0'),
 
             -- Outputs
@@ -86,7 +100,17 @@ begin
             MAC_0_MDC =>  open,
             GLC =>  open,
             SMPL_RDY =>  open,
+            IO_13_PADOUT =>  open,
+            IO_4_PADOUT =>  open,
+            IO_2_PADOUT =>  open,
+            IO_1_PADOUT =>  open,
+            IO_0_PADOUT =>  open,
+            IO_15_PADOUT =>  open,
+            IO_14_PADOUT =>  open,
+            IO_12_PADOUT =>  open,
             MAC_0_TXD => open,
+            GPIO_OUT_1 => open,
+            GPIO_OUT_2 => open,
 
             -- Inouts
             MAC_0_MDIO =>  open

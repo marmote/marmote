@@ -10,7 +10,7 @@ KEY VendorTechnology_Package "fg484"
 KEY ProjectLocation "D:\Work\marmote\projects\DDC_test"
 KEY SimulationType "VHDL"
 KEY Vendor "Actel"
-KEY ActiveRoot "DDC::work"
+KEY ActiveRoot "top::work"
 LIST REVISIONS
 VALUE="Impl1",NUM=1
 VALUE="Impl2",NUM=2
@@ -23,6 +23,7 @@ LIST LIBRARIES
 MSS_BFM_LIB
 CORECORDIC_LIB
 COREAPB3_LIB
+COREGPIO_LIB
 ENDLIST
 LIST LIBRARY_MSS_BFM_LIB
 ALIAS=..\component\Actel\SmartFusionMSS\MSS\2.5.106\mti\user_verilog\MSS_BFM_LIB
@@ -36,16 +37,20 @@ LIST LIBRARY_COREAPB3_LIB
 ALIAS=..\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\user_vhdl\COREAPB3_LIB
 COMPILE_OPTION=REFRESH_AND_COMPILE
 ENDLIST
+LIST LIBRARY_COREGPIO_LIB
+ALIAS=COREGPIO_LIB
+COMPILE_OPTION=COMPILE
+ENDLIST
 LIST FileManager
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319823063"
+TIME="1321550991"
 SIZE="2407"
 PARENT="<project>\component\work\top\top.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
 STATE="utd"
-TIME="1319823063"
+TIME="1321550991"
 SIZE="1242"
 LIBRARY="COREAPB3_LIB"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
@@ -53,14 +58,14 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\scripts\wave_user.do,do"
 STATE="utd"
-TIME="1319823063"
+TIME="1321550991"
 SIZE="912"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\components.vhd,hdl"
 STATE="utd"
-TIME="1319823063"
+TIME="1321550991"
 SIZE="5084"
 LIBRARY="COREAPB3_LIB"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
@@ -68,7 +73,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
 STATE="utd"
-TIME="1319823063"
+TIME="1321550991"
 SIZE="25656"
 LIBRARY="COREAPB3_LIB"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
@@ -76,7 +81,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3_muxptob3.vhd,hdl"
 STATE="utd"
-TIME="1319823063"
+TIME="1321550991"
 SIZE="6608"
 LIBRARY="COREAPB3_LIB"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
@@ -84,7 +89,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1319823063"
+TIME="1321550991"
 SIZE="21192"
 LIBRARY="COREAPB3_LIB"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
@@ -158,15 +163,181 @@ MODULE_UNDER_TEST="testbench"
 SIMULATION_TIME="-all"
 IS_READONLY="TRUE"
 ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\bfmtovec_compile.do,do"
+STATE="utd"
+TIME="1321550991"
+SIZE="1218"
+PARENT="<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\CoreGPIO.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\CoreGPIO.cxf,actgen_cxf"
+STATE="utd"
+TIME="1321550991"
+SIZE="3886"
+PARENT="<project>\component\work\top\top.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\coreparameters.vhd,tb_hdl"
+STATE="utd"
+TIME="1321550991"
+SIZE="6046"
+LIBRARY="COREGPIO_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\CoreGPIO.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_ahbl.vhd,tb_hdl"
+STATE="utd"
+TIME="1321550991"
+SIZE="8289"
+LIBRARY="COREGPIO_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\CoreGPIO.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_ahblapb.vhd,tb_hdl"
+STATE="utd"
+TIME="1321550991"
+SIZE="11016"
+LIBRARY="COREGPIO_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\CoreGPIO.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_ahbslave.vhd,tb_hdl"
+STATE="utd"
+TIME="1321550991"
+SIZE="2347"
+LIBRARY="COREGPIO_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\CoreGPIO.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_ahbslaveext.vhd,tb_hdl"
+STATE="utd"
+TIME="1321550991"
+SIZE="22168"
+LIBRARY="COREGPIO_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\CoreGPIO.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_ahbtoapb.vhd,tb_hdl"
+STATE="utd"
+TIME="1321550991"
+SIZE="4008"
+LIBRARY="COREGPIO_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\CoreGPIO.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_apb.vhd,tb_hdl"
+STATE="utd"
+TIME="1321550991"
+SIZE="9539"
+LIBRARY="COREGPIO_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\CoreGPIO.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_apbslave.vhd,tb_hdl"
+STATE="utd"
+TIME="1321550991"
+SIZE="2073"
+LIBRARY="COREGPIO_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\CoreGPIO.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_apbslaveext.vhd,tb_hdl"
+STATE="utd"
+TIME="1321550991"
+SIZE="12454"
+LIBRARY="COREGPIO_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\CoreGPIO.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_apbtoapb.vhd,tb_hdl"
+STATE="utd"
+TIME="1321550991"
+SIZE="4006"
+LIBRARY="COREGPIO_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\CoreGPIO.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_main.vhd,tb_hdl"
+STATE="utd"
+TIME="1321550991"
+SIZE="82846"
+LIBRARY="COREGPIO_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\CoreGPIO.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_package.vhd,tb_hdl"
+STATE="utd"
+TIME="1321550991"
+SIZE="45674"
+LIBRARY="COREGPIO_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\CoreGPIO.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\misc.vhd,tb_hdl"
+STATE="utd"
+TIME="1321550991"
+SIZE="12779"
+LIBRARY="COREGPIO_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\CoreGPIO.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\textio.vhd,tb_hdl"
+STATE="utd"
+TIME="1321550991"
+SIZE="23828"
+LIBRARY="COREGPIO_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\CoreGPIO.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\core_obfuscated\components.vhd,hdl"
+STATE="utd"
+TIME="1321550991"
+SIZE="7134"
+LIBRARY="COREGPIO_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\CoreGPIO.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\core_obfuscated\coregpio.vhd,hdl"
+STATE="utd"
+TIME="1321550991"
+SIZE="29969"
+LIBRARY="COREGPIO_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\CoreGPIO.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\core_obfuscated\coregpio_pkg.vhd,hdl"
+STATE="utd"
+TIME="1321550991"
+SIZE="2801"
+LIBRARY="COREGPIO_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\CoreGPIO.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+STATE="utd"
+TIME="1321550991"
+SIZE="16739"
+LIBRARY="COREGPIO_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\CoreGPIO.cxf"
+MODULE_UNDER_TEST="testbench"
+SIMULATION_TIME="-all"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\wave_vhdl.do,do"
+STATE="utd"
+TIME="1321550991"
+SIZE="1559"
+PARENT="<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\CoreGPIO.cxf"
+IS_READONLY="TRUE"
+ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319816705"
+TIME="1321547315"
 SIZE="944"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd,hdl"
 STATE="utd"
-TIME="1319816705"
+TIME="1321547315"
 SIZE="17580"
 PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf"
 BEGIN_USE_CONSTRAINT
@@ -178,85 +349,85 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_CCC\2.0.106\MSS_CCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319816695"
+TIME="1321547312"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_CM3\1.0.200\MSS_CM3.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319816695"
+TIME="1321547312"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_COM\1.0.200\MSS_COM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319816695"
+TIME="1321547312"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_DMA\1.0.101\MSS_DMA.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319816695"
+TIME="1321547312"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_ENVM\2.3.102\MSS_ENVM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319816697"
+TIME="1321547313"
 SIZE="253"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_FIC\1.0.101\MSS_FIC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319816697"
+TIME="1321547313"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_FIO\1.0.203\MSS_FIO.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319816697"
+TIME="1321547313"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_GPIO\1.0.101\MSS_GPIO.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319816697"
+TIME="1321547313"
 SIZE="253"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_INTR\1.0.101\MSS_INTR.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319816697"
+TIME="1321547313"
 SIZE="253"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_MAC\2.1.101\MSS_MAC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319816697"
+TIME="1321547313"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_RESET\1.0.101\MSS_RESET.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319816697"
+TIME="1321547313"
 SIZE="254"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_RTC\1.0.100\MSS_RTC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319816697"
+TIME="1321547313"
 SIZE="252"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_TIMER\1.0.100\MSS_TIMER.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319816697"
+TIME="1321547313"
 SIZE="254"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_UFROM\1.0.100\MSS_UFROM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319816697"
+TIME="1321547313"
 SIZE="254"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
@@ -338,20 +509,20 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\top\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1319823066"
-SIZE="2643"
+TIME="1321550993"
+SIZE="3594"
 PARENT="<project>\component\work\top\top.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\top\top.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319823064"
-SIZE="6993"
+TIME="1321550992"
+SIZE="9969"
 ENDFILE
 VALUE "<project>\component\work\top\top.pdc,pdc"
 STATE="utd"
-TIME="1319823063"
-SIZE="7293"
+TIME="1321550990"
+SIZE="12094"
 PARENT="<project>\component\work\top\top.cxf"
 BEGIN_USE_CONSTRAINT
 TOOL_CONSTRAINT_TYPE="ideDESIGNER"
@@ -361,34 +532,34 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\top\top.vhd,hdl"
 STATE="utd"
-TIME="1319823063"
-SIZE="66495"
+TIME="1321550991"
+SIZE="88438"
 PARENT="<project>\component\work\top\top.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\MSS_CCC_0\uC_tmp_MSS_CCC_0_MSS_CCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319816695"
+TIME="1321547312"
 SIZE="470"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
 VALUE "<project>\component\work\uC\MSS_CCC_0\uC_tmp_MSS_CCC_0_MSS_CCC.vhd,hdl"
 STATE="utd"
-TIME="1319816695"
+TIME="1321547312"
 SIZE="6937"
 PARENT="<project>\component\work\uC\MSS_CCC_0\uC_tmp_MSS_CCC_0_MSS_CCC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\MSS_ENVM_0\MSS_ENVM_0.efc,efc"
 STATE="utd"
-TIME="1319816697"
-SIZE="99285"
+TIME="1321547313"
+SIZE="100773"
 PARENT="<project>\component\work\uC\uC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\mss_tshell.vhd,hdl"
 STATE="utd"
-TIME="1319816697"
+TIME="1321547314"
 SIZE="22850"
 PARENT="<project>\component\work\uC\uC.cxf"
 BEGIN_USE_CONSTRAINT
@@ -400,20 +571,20 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1319816706"
-SIZE="3716"
+TIME="1321547315"
+SIZE="4999"
 PARENT="<project>\component\work\uC\uC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\uC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1319816706"
-SIZE="15817"
+TIME="1321547315"
+SIZE="19364"
 ENDFILE
 VALUE "<project>\component\work\uC\uC.pdc,pdc"
 STATE="utd"
-TIME="1319816693"
-SIZE="5209"
+TIME="1321547310"
+SIZE="7314"
 PARENT="<project>\component\work\uC\uC.cxf"
 BEGIN_USE_CONSTRAINT
 TOOL_CONSTRAINT_TYPE="ideDESIGNER"
@@ -423,24 +594,24 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\uC\uC.vhd,hdl"
 STATE="utd"
-TIME="1319816706"
-SIZE="36102"
+TIME="1321547315"
+SIZE="38277"
 PARENT="<project>\component\work\uC\uC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\designer\impl5\top.adb,adb"
-STATE="ood"
-TIME="1319823475"
-SIZE="3588608"
+STATE="utd"
+TIME="1321482373"
+SIZE="3761152"
 ENDFILE
 VALUE "<project>\designer\impl5\top.fdb,fdb"
-STATE="ood"
-TIME="1319823407"
-SIZE="122944"
+STATE="utd"
+TIME="1321482344"
+SIZE="124021"
 ENDFILE
 VALUE "<project>\designer\impl5\top_fp\top.pro,pro"
 STATE="utd"
-TIME="1319823608"
+TIME="1321482455"
 SIZE="1937"
 ENDFILE
 VALUE "<project>\hdl\ADC_SPI.vhd,hdl"
@@ -495,27 +666,39 @@ SIZE="2546"
 ENDFILE
 VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
 STATE="utd"
-TIME="1319823066"
+TIME="1321550992"
 SIZE="1237"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
 ENDFILE
 VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
 STATE="utd"
-TIME="1319816709"
+TIME="1321547318"
 SIZE="41"
 PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf"
 ENDFILE
 VALUE "<project>\simulation\coreapb3_usertb_apb_master.bfm,sim"
 STATE="utd"
-TIME="1319823066"
+TIME="1321550992"
 SIZE="10524"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
 ENDFILE
 VALUE "<project>\simulation\coreapb3_usertb_include.bfm,sim"
 STATE="utd"
-TIME="1319823066"
+TIME="1321550992"
 SIZE="3992"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
+ENDFILE
+VALUE "<project>\simulation\coregpio_usertb_apb_master.bfm,sim"
+STATE="utd"
+TIME="1321550992"
+SIZE="2823"
+PARENT="<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\CoreGPIO.cxf"
+ENDFILE
+VALUE "<project>\simulation\coregpio_usertb_include.bfm,sim"
+STATE="utd"
+TIME="1321550992"
+SIZE="23755"
+PARENT="<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\CoreGPIO.cxf"
 ENDFILE
 VALUE "<project>\simulation\generate.tcl,sim"
 STATE="utd"
@@ -531,13 +714,13 @@ SIZE="3001"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
-TIME="1319823066"
-SIZE="632"
+TIME="1321550992"
+SIZE="663"
 PARENT="<project>\component\work\top\top.cxf"
 ENDFILE
 VALUE "<project>\simulation\test.bfm,sim"
 STATE="utd"
-TIME="1319816709"
+TIME="1321547318"
 SIZE="5461"
 PARENT="<project>\component\work\uC\uC.cxf"
 ENDFILE
@@ -659,18 +842,18 @@ TIME="1319818953"
 SIZE="4700"
 ENDFILE
 VALUE "<project>\synthesis\top.edn,syn_edn"
-STATE="ood"
-TIME="1319823125"
-SIZE="2568191"
+STATE="utd"
+TIME="1321482177"
+SIZE="2658773"
 ENDFILE
 VALUE "<project>\synthesis\top_drc.rpt,log"
 STATE="utd"
-TIME="1319823137"
-SIZE="28701"
+TIME="1321482190"
+SIZE="27113"
 ENDFILE
 VALUE "<project>\synthesis\top_sdc.sdc,syn_sdc"
-STATE="ood"
-TIME="1319823125"
+STATE="utd"
+TIME="1321482176"
 SIZE="310"
 ENDFILE
 ENDLIST
@@ -983,7 +1166,9 @@ VALUE "<project>\component\work\top\testbench.vhd,tb_hdl"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -992,7 +1177,9 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl2
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1001,7 +1188,9 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl3
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1010,7 +1199,9 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl4
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1019,7 +1210,10 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl5
+LiberoState=Post_Layout
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
+ideDESIGNER(<project>\designer\impl5\top.adb,adb)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1214,6 +1408,94 @@ ENDUsed_File_List
 ENDLIST
 ENDLIST
 ENDLIST
+LIST "CoreGPIO::COREGPIO_LIB::components"
+FILE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\core_obfuscated\coregpio.vhd,hdl"
+LIST Other_Association
+VALUE "<project>\simulation\coregpio_usertb_apb_master.bfm,sim"
+VALUE "<project>\simulation\coregpio_usertb_include.bfm,sim"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\coreparameters.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\misc.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\textio.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_package.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_ahbl.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_ahblapb.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_ahbslave.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_ahbslaveext.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_ahbtoapb.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_apb.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_apbslave.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_apbslaveext.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_apbtoapb.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_main.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\bfmtovec_compile.do,do"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\wave_vhdl.do,do"
+ENDLIST
+LIST AssociatedStimulus
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\coreparameters.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\misc.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\textio.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_package.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_ahbl.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_ahblapb.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_ahbslave.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_ahbslaveext.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_ahbtoapb.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_apb.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_apbslave.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_apbslaveext.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_apbtoapb.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_main.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl3
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl4
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl5
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
 ENDLIST
 LIST AssociatedStimulus
 LIST top
@@ -1248,6 +1530,23 @@ ENDLIST
 LIST CoreAPB3
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+ENDLIST
+LIST CoreGPIO
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\coreparameters.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\misc.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\textio.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_package.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_ahbl.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_ahblapb.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_ahbslave.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_ahbslaveext.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_ahbtoapb.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_apb.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_apbslave.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_apbslaveext.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_apbtoapb.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_main.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
 ENDLIST
 ENDLIST
 LIST Other_Association
@@ -1294,6 +1593,27 @@ VALUE "<project>\simulation\coreapb3_usertb_apb_master.bfm,sim"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\scripts\wave_user.do,do"
+ENDLIST
+LIST CoreGPIO
+VALUE "<project>\simulation\coregpio_usertb_apb_master.bfm,sim"
+VALUE "<project>\simulation\coregpio_usertb_include.bfm,sim"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\coreparameters.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\misc.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\textio.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_package.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_ahbl.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_ahblapb.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_ahbslave.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_ahbslaveext.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_ahbtoapb.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_apb.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_apbslave.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_apbslaveext.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_apbtoapb.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\amba_bfm\bfm_main.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\bfmtovec_compile.do,do"
+VALUE "<project>\component\Actel\DirectCore\CoreGPIO\3.0.120\wave_vhdl.do,do"
 ENDLIST
 LIST CIC_INT_mem
 VALUE "<project>\smartgen\CIC_INT_mem\CIC_INT_mem_R0C0.mem,sim"
@@ -1603,7 +1923,9 @@ ENDLIST
 ENDLIST
 LIST "top::work"
 LIST Impl1
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1612,7 +1934,9 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl2
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1621,7 +1945,9 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl3
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1630,7 +1956,9 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl4
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1639,7 +1967,10 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl5
+LiberoState=Post_Layout
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
+ideDESIGNER(<project>\designer\impl5\top.adb,adb)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1789,6 +2120,53 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 ENDLIST
+LIST "CoreGPIO::COREGPIO_LIB::components"
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl3
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl4
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl5
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
 ENDLIST
 LIST ExcludePackageForSimulation
 ENDLIST
@@ -1803,7 +2181,6 @@ ENDLIST
 LIST OpenedFileList
 DESIGNFLOW:
 SD:top::work
-SD:DDC::work
-FILE:<project>\stimulus\DDC_testbench.vhd,tb_hdl
-ACTIVE_VIEW:3
+FILE:<project>\hdl\SAMPLE_APB3.vhd,hdl
+ACTIVE_VIEW:1
 ENDLIST
