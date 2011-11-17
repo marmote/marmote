@@ -49,9 +49,6 @@ void PowerMonitor_Init(void)
     BAT_I2C_Init();
     SD_SPI_Init();
 
-    //BAT_WriteRegister(BAT_CHARGE_THRESHOLD_HIGH_MSB, 0x9531u);
-    //BAT_ReadRegister(BAT_CHARGE_THRESHOLD_HIGH_MSB);
-
 	Logger_Init();
 }
 
@@ -183,35 +180,36 @@ void Logger_Init(void)
 	TIM_Cmd(TIM2, ENABLE);
 }
 
+static uint16_t ctr;
+
 void TIM2_IRQHandler(void)
 {
     uint32_t volt;
     uint32_t temp;
-
+	
 	if (TIM_GetITStatus(TIM2, TIM_IT_Update) == SET)
 	{
 		LED_Toggle(LED1);
 
+		SD_SPI_SendData(ctr++);
+
         // TODO: Time critical part of logging here
         
-        // For now, just log battery voltage through USB
+        // For now, just log battery voltage and temperature through USB
+        // NOTE: the current implementation is sub-optimal for an ISR
         BAT_WriteRegister(BAT_CONTROL, 0xB8);
-        volt = BAT_ReadRegister(BAT_VOLTAGE_MSB);
-		//volt = 0xB01C; // Battery gauge still gets stuck sometimes
-
         // U = 6V * volt / 0xFFFF
+        volt = BAT_ReadRegister(BAT_VOLTAGE_MSB);
+
 
         BAT_WriteRegister(BAT_CONTROL, 0x78);
-        temp = BAT_ReadRegister(BAT_TEMPERATURE_MSB);
-		//temp = 0x8000; // Battery gauge still gets stuck sometimes
-
         // T = 600K * temp / 0xFFFF
-        // 
+        temp = BAT_ReadRegister(BAT_TEMPERATURE_MSB);
 
-        //sprintf((char*)&USB_Tx_Buffer[0], "%2.1f V\t%2.1f K\r\n", (6*(float)volt) / 2^16, (600*(float)temp) / 2^16);
-		sprintf((char*)&USB_Tx_Buffer[0], "%2.2f V\t%2.1f C\r\n", (float)volt * 6 / (float)0xFFFF,
-			((float)temp * 600 / (float)0xFFFF) - (float)273.15);
-        //sprintf((char*)&USB_Tx_Buffer[0], "a b\n"); //, volt >> 16, temp >> 16);
+		sprintf((char*)&USB_Tx_Buffer[0], "%5.2f V \t%5.1f C\r\n",
+                (float)volt * 6 / (float)0xFFFF,
+                ((float)temp * 600 / (float)0xFFFF) - (float)273.15);
+
         USB_Tx_Length = strlen((char*)USB_Tx_Buffer);
         
         /*
@@ -250,26 +248,19 @@ void BAT_I2C_Init(void)
     GPIO_InitTypeDef  GPIO_InitStructure;
     I2C_InitTypeDef   I2C_InitStructure;
 
-    //RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO | BAT_I2C_SCL_GPIO_CLK, ENABLE);
-    //RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO | RCC_APB2Periph_GPIOB, ENABLE);
-	RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
-    //RCC_AHBPeriphClockCmd( BAT_I2C_SCL_GPIO_CLK  |
-    //                       BAT_I2C_SDA_GPIO_CLK,
-    //                      ENABLE);
-    
-    //RCC_APB1PeriphClockCmd(BAT_I2C_CLK, ENABLE);
-    //RCC_APB1PeriphClockCmd(RCC_APB1Periph_I2C2, ENABLE);
-	//RCC->APB1ENR |= RCC_APB1Periph_I2C2;
-	RCC->APB1ENR |= BAT_I2C_CLK;
-    //RCC_APB1PeriphClockCmd(BAT_I2C_CLK | RCC_APB1Periph_SYSCFG, ENABLE);
-
-
+	RCC_APB2PeriphClockCmd(BAT_I2C_SCL_GPIO_CLK |
+                           BAT_I2C_SDA_GPIO_CLK,
+                           ENABLE);
+	
 	GPIO_InitStructure.GPIO_Pin = BAT_I2C_SCL_PIN | BAT_I2C_SDA_PIN;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_OD;
     GPIO_Init(BAT_I2C_SDA_GPIO_PORT, &GPIO_InitStructure); 
 
-    // Init
+    
+	// Enable peripheral clock
+	RCC_APB1PeriphClockCmd(BAT_I2C_CLK, ENABLE);
+
     I2C_DeInit(BAT_I2C);
 
     I2C_InitStructure.I2C_Mode = I2C_Mode_I2C; 
@@ -282,20 +273,6 @@ void BAT_I2C_Init(void)
 
     // Enable I2C peripheral
     I2C_Cmd(BAT_I2C, ENABLE);
-
-	// Reset the battery gauge I2C interface
-	//I2C_GenerateSTART(BAT_I2C, ENABLE);
-	//I2C_GenerateSTOP(BAT_I2C, ENABLE);
-
-    /*
-    // START - TEMPORARY DEBUG CODE TO DRIVE I2C SIGNALS AS GPIOS
-	GPIO_InitStructure.GPIO_Pin = BAT_I2C_SCL_PIN | BAT_I2C_SDA_PIN; 
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_OD; 
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
-	GPIO_Init(BAT_I2C_SDA_GPIO_PORT, &GPIO_InitStructure); 
-    // END - TEMPORARY DEBUG CODE TO DRIVE I2C SIGNALS AS GPIOS
-    */
-
 }
 
 void BAT_WriteRegister(BAT_RegisterAddress_Type address, uint16_t data)
@@ -539,16 +516,19 @@ uint16_t BAT_ReadRegister(BAT_RegisterAddress_Type address)
 
 void SD_SPI_Init(void)
 {
-	SPI_InitTypeDef  SPI_InitStructure;
 	GPIO_InitTypeDef  GPIO_InitStructure;
+	SPI_InitTypeDef  SPI_InitStructure;
 
-	RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
-	RCC->APB1ENR |= SD_SPI_CLK;
-
-	//RCC->APB1ENR |= RCC_APB1ENR_SPI2EN;
+	RCC_APB2PeriphClockCmd(SD_SPI_NSS_GPIO_CLK |
+                           SD_SPI_SCK_GPIO_CLK |
+                           SD_SPI_MISO_GPIO_CLK |
+                           SD_SPI_MOSI_GPIO_CLK,
+                           ENABLE);
     
+	// Enable peripheral clock
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_SPI2, ENABLE);
+
     // Default value
-	//SD_SPI_NSS_GPIO_PORT->BSRR = SD_SPI_NSS_PIN;
     GPIO_SetBits(SD_SPI_NSS_GPIO_PORT, SD_SPI_NSS_PIN);
 
 	GPIO_InitStructure.GPIO_Pin = SD_SPI_NSS_PIN;
@@ -587,7 +567,7 @@ void SD_SPI_Init(void)
     SPI_Init(SD_SPI, &SPI_InitStructure);
 
     // Enable NSS as output
-    SPI_SSOutputCmd(SD_SPI, ENABLE); // TODO: Check if this is needed
+    SPI_SSOutputCmd(SD_SPI, ENABLE);
 
     // Enable SPI
     SPI_Cmd(SD_SPI, ENABLE);
@@ -595,12 +575,14 @@ void SD_SPI_Init(void)
 
 void SD_SPI_SendData(uint16_t data)
 {
-	//SD_SPI_NSS_GPIO_PORT->BRR = SD_SPI_NSS_PIN;
-    GPIO_ResetBits(SD_SPI_NSS_GPIO_PORT, SD_SPI_NSS_PIN);
+    //GPIO_ResetBits(SD_SPI_NSS_GPIO_PORT, SD_SPI_NSS_PIN);
+	SD_SPI_NSS_GPIO_PORT->BRR = SD_SPI_NSS_PIN;
+
     SPI_I2S_SendData(SD_SPI, data);
-	//SD_SPI_NSS_GPIO_PORT->BSRR = SD_SPI_NSS_PIN;
 	while (SD_SPI->SR & SPI_SR_BSY); // wait for busy flag
-    GPIO_SetBits(SD_SPI_NSS_GPIO_PORT, SD_SPI_NSS_PIN);
+
+    //GPIO_SetBits(SD_SPI_NSS_GPIO_PORT, SD_SPI_NSS_PIN);
+	SD_SPI_NSS_GPIO_PORT->BSRR = SD_SPI_NSS_PIN;
 }
 
 
