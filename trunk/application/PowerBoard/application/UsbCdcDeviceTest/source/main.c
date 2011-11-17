@@ -16,10 +16,11 @@ uint32_t it;
 uint8_t CMD_Rx_Buffer[32];
 uint8_t CMD_Rx_Length;
 uint8_t CMD_Rx_Valid;
+uint8_t CMD_Accepted;
 
-
-static uint8_t USB_Tx_Buffer[1];
-static uint8_t USB_Tx_Length;
+#include "usb_desc.h"
+uint8_t USB_Tx_Buffer[VIRTUAL_COM_PORT_DATA_SIZE];
+uint8_t USB_Tx_Length;
 
 void TIM2_IRQHandler(void)
 {
@@ -64,6 +65,7 @@ void USB_LP_CAN1_RX0_IRQHandler()
 	//while(1);
 }
 
+//uint8_t i;
 		   		
 int main (void) {
 
@@ -99,7 +101,41 @@ int main (void) {
 	{		
 		if (CMD_Rx_Valid == 1)
 		{
+			CMD_Accepted = 0;
 			LED_Toggle(LED2);
+
+			// Process command
+			//for (i = 0; i < CMD_Rx_Length; i++)
+			if (CMD_Rx_Buffer[0] == 'q')
+			{
+				CMD_Accepted = 1;
+			}
+
+			// Send ACK/NAK
+			if (CMD_Accepted == 1)
+			{			
+				USB_Tx_Buffer[0] = 'A';
+				USB_Tx_Buffer[1] = 'C';
+				USB_Tx_Buffer[2] = 'K';
+				USB_Tx_Buffer[3] = '\n';
+				USB_Tx_Buffer[4] = '>';
+				USB_Tx_Length = 5;
+				USB_Tx_Request = 1;
+			}
+			else
+			{			
+				USB_Tx_Buffer[0] = 'N';
+				USB_Tx_Buffer[1] = 'A';
+				USB_Tx_Buffer[2] = 'K';
+				USB_Tx_Buffer[3] = '\n';
+				USB_Tx_Buffer[4] = '>';
+				USB_Tx_Length = 5;
+				USB_Tx_Request = 1;
+			}
+
+			// Clean up states
+			CMD_Rx_Valid = 0;
+			CMD_Rx_Length = 0;
 		}	
 	}
 }
