@@ -48,6 +48,17 @@
 #include "stm32f10x_spi.h"
 #include "misc.h"
 
+					 
+// For USB logger demo only - START
+#include "usb_lib.h"
+#include "usb_desc.h"
+#include "stdio.h"
+#include "string.h"
+extern uint8_t USB_Tx_Buffer[VIRTUAL_COM_PORT_DATA_SIZE];
+extern uint8_t USB_Tx_Length;
+// For USB logger demo only - END
+
+
 void PowerMonitor_Init(void);
 void Logger_Init(void);
 
