@@ -9,14 +9,15 @@
 
 #include "usb_lib.h"
 
+#include "cmd_def.h"
+
 uint8_t USB_Tx_Request; 
-uint32_t ctr;
 uint32_t it;
 
 uint8_t CMD_Rx_Buffer[32];
 uint8_t CMD_Rx_Length;
 uint8_t CMD_Rx_Valid;
-uint8_t CMD_Accepted;
+uint8_t CMD_ParseResult;
 
 #include "usb_desc.h"
 uint8_t USB_Tx_Buffer[VIRTUAL_COM_PORT_DATA_SIZE];
@@ -27,7 +28,6 @@ void TIM2_IRQHandler(void)
 	if (TIM_GetITStatus(TIM2, TIM_IT_Update) == SET)
 	{
 		LED_Toggle(LED1);
-		ctr++;
 		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
 
 		 //
@@ -65,13 +65,14 @@ void USB_LP_CAN1_RX0_IRQHandler()
 	//while(1);
 }
 
-//uint8_t i;
-		   		
+uint8_t i, j;		  
+uint8_t CMD_ListLength;		   		
+
 int main (void) {
 
 	NVIC_InitTypeDef NVIC_InitStructure;
   	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
-
+	
 	LED_Init();			
 	PowerControl_Init();   
 	
@@ -79,7 +80,8 @@ int main (void) {
 	SysTick->CTRL |= (SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_TICKINT_Msk | SysTick_CTRL_ENABLE_Msk);
 	SysTick->LOAD = 72000;	
 
-	//USB_SoftReset();
+	//Delay(200);
+	USB_SoftReset();
 
   	// Select USBCLK source
   	RCC_USBCLKConfig(RCC_USBCLKSource_PLLCLK_1Div5);
@@ -96,23 +98,43 @@ int main (void) {
 
 	Init_Timer();
 	USB_Init();
+
+	CMD_ListLength = sizeof(CMD_List)/sizeof(CMD_Type);
 				
 	while (1)
 	{		
 		if (CMD_Rx_Valid == 1)
 		{
-			CMD_Accepted = 0;
-			LED_Toggle(LED2);
+			CMD_ParseResult = 1;
 
 			// Process command
-			//for (i = 0; i < CMD_Rx_Length; i++)
-			if (CMD_Rx_Buffer[0] == 'q')
-			{
-				CMD_Accepted = 1;
-			}
+			for (i = 0; i < CMD_ListLength; i++)
+            {
+                // Compare CMD[i} with received command
+                for (j = 0; j < CMD_Rx_Length; j++)
+                {
+                    if (CMD_List[i].CmdString[j] == '\0')
+                    {
+                        CMD_ParseResult = 0;
+                        (*CMD_List[i].CmdFunction)();
+                        break;
+                    }
+
+                    if (CMD_Rx_Buffer[j] != CMD_List[i].CmdString[j])
+                    {
+                        break;
+                    }
+                }
+
+                // Exit for loop as soon as a match is found
+				if (CMD_ParseResult == 0)
+				{
+					break;
+				}
+            }
 
 			// Send ACK/NAK
-			if (CMD_Accepted == 1)
+			if (CMD_ParseResult == 0)
 			{			
 				USB_Tx_Buffer[0] = 'A';
 				USB_Tx_Buffer[1] = 'C';

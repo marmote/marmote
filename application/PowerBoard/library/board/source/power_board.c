@@ -72,7 +72,7 @@ void Init_Timer(void)
 	// Initialize peripheral
 	TIM_InitStructure.TIM_Prescaler	= 7200; // 100 us at 72 MHz SysClk
 	TIM_InitStructure.TIM_CounterMode = TIM_CounterMode_Down;
-	TIM_InitStructure.TIM_Period = 10000;
+	TIM_InitStructure.TIM_Period = 5000;
 	TIM_InitStructure.TIM_ClockDivision = TIM_CKD_DIV2;
 	TIM_InitStructure.TIM_RepetitionCounter = 0;
 	TIM_TimeBaseInit(TIM2, &TIM_InitStructure);					   
