@@ -412,14 +412,14 @@
               <FilePath>.\source\usb_istr.c</FilePath>
             </File>
             <File>
-              <FileName>hw_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\source\hw_config.c</FilePath>
-            </File>
-            <File>
               <FileName>usb_pwr.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\source\usb_pwr.c</FilePath>
+            </File>
+            <File>
+              <FileName>usb_fs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\source\usb_fs.c</FilePath>
             </File>
           </Files>
         </Group>

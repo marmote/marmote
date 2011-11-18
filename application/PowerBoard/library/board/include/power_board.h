@@ -53,12 +53,11 @@ void Board_Init(void); //
 
 void Init_Timer(void);
 void Delay(uint32_t dlyTicks);
-void USB_SoftReset(void);
 
 
 // SmartFusion connector
 
-typedef enum
+typedef enum _CON_GPIO_TypeDef
 {
     CON_GPIO0 = 1,
     CON_GPIO1 = 2,
@@ -68,16 +67,25 @@ typedef enum
 } CON_GPIO_TypeDef;
 
 // * means limited IO capabilities
-#define CON_GPIO0_Pos    14 // PC14* - CON PIN30
-#define CON_GPIO0_Msk    (0x1UL << CON_GPIO0_Pos)
-#define CON_GPIO1_Pos    15 // PC15* - CON PIN32
-#define CON_GPIO1_Msk    (0x1UL << CON_GPIO1_Pos)
-#define CON_GPIO2_Pos     9 // PA9 - CON PIN34
-#define CON_GPIO2_Msk    (0x1UL << CON_GPIO2_Pos)
-#define CON_GPIO3_Pos    10 // PA10 - CON PIN36
-#define CON_GPIO3_Msk    (0x1UL << CON_GPIO3_Pos)
-#define CON_GPIO4_Pos     4 // PB4 - CON PIN38
-#define CON_GPIO4_Msk    (0x1UL << CON_GPIO4_Pos)
+#define CON_GPIO0_PIN    		GPIO_Pin_14 // PC.14* - CON PIN30
+#define CON_GPIO0_GPIO_PORT    	GPIOC
+#define CON_GPIO0_GPIO_CLK    	RCC_APB2Periph_GPIOC
+
+#define CON_GPIO1_PIN    		GPIO_Pin_15 // PC.15* - CON PIN32
+#define CON_GPIO1_GPIO_PORT    	GPIOC
+#define CON_GPIO1_GPIO_CLK    	RCC_APB2Periph_GPIOC
+
+#define CON_GPIO2_PIN    		GPIO_Pin_9	// PA.9 - CON PIN34
+#define CON_GPIO2_GPIO_PORT    	GPIOA
+#define CON_GPIO2_GPIO_CLK    	RCC_APB2Periph_GPIOA
+
+#define CON_GPIO3_PIN    		GPIO_Pin_10 // PA.10 - CON PIN36
+#define CON_GPIO3_GPIO_PORT    	GPIOA
+#define CON_GPIO3_GPIO_CLK    	RCC_APB2Periph_GPIOA
+
+#define CON_GPIO4_PIN    		GPIO_Pin_4	// PB.4 - CON PIN38
+#define CON_GPIO4_GPIO_PORT    	GPIOB
+#define CON_GPIO4_GPIO_CLK    	RCC_APB2Periph_GPIOB
 
 void CON_GPIO_Init(void);
 void CON_GPIO_Set(uint32_t gpio);
@@ -88,22 +96,22 @@ void CON_GPIO_Clear(uint32_t gpio);
 
 #define CON_SPI_NSS_PIN               GPIO_Pin_4                     /* PA.4  */
 #define CON_SPI_NSS_GPIO_PORT         GPIOA                          /* GPIOA */
-#define CON_SPI_NSS_GPIO_CLK          RCC_AHBPeriph_GPIOA 
+#define CON_SPI_NSS_GPIO_CLK          RCC_APB2Periph_GPIOA 
 
 #define CON_SPI_SCK_PIN               GPIO_Pin_5                     /* PA.5  */
 #define CON_SPI_SCK_GPIO_PORT         GPIOA                          /* GPIOA */
-#define CON_SPI_SCK_GPIO_CLK          RCC_AHBPeriph_GPIOA  
-//#define CON_SPI_SCK_SOURCE            GPIO_PinSource13
+#define CON_SPI_SCK_GPIO_CLK          RCC_APB2Periph_GPIOA  
+
 #define CON_SPI_SCK_AF                GPIO_AF_SPI1
 #define CON_SPI_MISO_PIN              GPIO_Pin_6                     /* PA.6 */
 #define CON_SPI_MISO_GPIO_PORT        GPIOA                          /* GPIOA */
-#define CON_SPI_MISO_GPIO_CLK         RCC_AHBPeriph_GPIOA  
-//#define CON_SPI_MISO_SOURCE           GPIO_PinSource14
+#define CON_SPI_MISO_GPIO_CLK         RCC_APB2Periph_GPIOA  
+
 #define CON_SPI_MISO_AF               GPIO_AF_SPI1
 #define CON_SPI_MOSI_PIN              GPIO_Pin_7                     /* PA.7  */
 #define CON_SPI_MOSI_GPIO_PORT        GPIOA                          /* GPIOA */
-#define CON_SPI_MOSI_GPIO_CLK         RCC_AHBPeriph_GPIOA  
-//#define CON_SPI_MOSI_SOURCE           GPIO_PinSource15
+#define CON_SPI_MOSI_GPIO_CLK         RCC_APB2Periph_GPIOA  
+
 #define CON_SPI_MOSI_AF               GPIO_AF_SPI1
 #define CON_SPI                       SPI1
 #define CON_SPI_CLK                   RCC_APB2Periph_SPI1
@@ -116,21 +124,17 @@ void CON_SPI_SendData(uint16_t data);
 
 #define CON_I2C_SCL_PIN             GPIO_Pin_6  // PB.6
 #define CON_I2C_SCL_GPIO_PORT       GPIOB       // GPIOB
-#define CON_I2C_SCL_GPIO_CLK        RCC_AHBPeriph_GPIOB
+#define CON_I2C_SCL_GPIO_CLK        RCC_APB2Periph_GPIOB
 
 #define CON_I2C_SDA_PIN             GPIO_Pin_7  // PB.7
 #define CON_I2C_SDA_GPIO_PORT       GPIOB       // GPIOB
-#define CON_I2C_SDA_GPIO_CLK        RCC_AHBPeriph_GPIOB
+#define CON_I2C_SDA_GPIO_CLK        RCC_APB2Periph_GPIOB
 
 #define CON_I2C                     I2C1
 #define CON_I2C_CLK                 RCC_APB1Periph_I2C1
 
 void CON_I2C_Init(void);
-ErrorStatus CON_I2C_SendData(uint8_t address, uint8_t data);
-
-void Get_SerialNum(void);
-static void IntToUnicode (uint32_t value , uint8_t *pbuf , uint8_t len);
-
+void CON_I2C_SendData(uint8_t address, uint8_t data);
 
 #endif // __POWER_BOARD_H
 
