@@ -6,7 +6,7 @@
 // Author        : Sandor Szilvasi
 // Company       : Vanderbilt University, ISIS
 // Created       : 2011-11-04 11:01
-// Last update   : 2011-11-04
+// Last update   : 2011-11-17 18:32
 // Platform      : Marmote
 // Target device : STM32F102CB
 // Tool version  : ARM uVision 4 (v4.22.22.0)
@@ -37,7 +37,10 @@
 // Revisions     :
 // Date            Version  Author			Description
 // 2011-11-04      1.0      Sandor Szilvasi	Created
+// 2011-11-17      1.1      Sandor Szilvasi	Cleanup
 //-----------------------------------------------------------------------------
+
+// TODO: Consider merging the enable and disable functions
 
 #include "power_control.h"
 
@@ -45,66 +48,93 @@ void PowerControl_Init(void)
 {
 	GPIO_InitTypeDef GPIO_InitStructure; 
 
-	// Enable peripheral clocks
-	RCC->APB2ENR |= (RCC_APB2ENR_IOPBEN | RCC_APB2ENR_IOPCEN);
-	RCC->APB2ENR |= MASTER_SWITCH_GPIO_CLK;
-
+	// Enable GPIO register clocks
+	RCC_APB2PeriphClockCmd( USB_SUSP_GPIO_CLK |
+                            USB_HPWR_GPIO_CLK |
+                            WALL_PWRGD_GPIO_CLK |
+                            MASTER_SWITCH_GPIO_CLK,
+                            ENABLE);
+    
     // USB_SUSP (PC13)
-    GPIOC->ODR &= ~(USB_SUSP_Msk);
+    USB_SUSP_GPIO_PORT->BRR = USB_SUSP_PIN;
 
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13; 
+	GPIO_InitStructure.GPIO_Pin = USB_SUSP_PIN; 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
-	GPIO_Init(GPIOC, &GPIO_InitStructure); 
+	GPIO_Init(USB_SUSP_GPIO_PORT, &GPIO_InitStructure); 
     
     // USB_HPWR (PB8)
-    GPIOB->ODR &= ~(USB_HPWR_Msk);
+    USB_HPWR_GPIO_PORT->BRR = USB_HPWR_PIN;
 
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8; 
+	GPIO_InitStructure.GPIO_Pin = USB_HPWR_PIN; 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
-	GPIO_Init(GPIOB, &GPIO_InitStructure); 
+	GPIO_Init(USB_HPWR_GPIO_PORT, &GPIO_InitStructure); 
 
     // WALL_PWERGD
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8; 
+	GPIO_InitStructure.GPIO_Pin = WALL_PWRGD_PIN; 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING; 
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
-	GPIO_Init(WALL_PWRGD_Prt, &GPIO_InitStructure); 
+	GPIO_Init(WALL_PWRGD_GPIO_PORT, &GPIO_InitStructure); 
     
-//#ifndef MASTER_SWITCH_ZERO_RESISTOR_NOT_POPULATED
+#ifndef MASTER_SWITCH_ZERO_RESISTOR_NOT_POPULATED
     // MASTER_SWITCH
 	GPIO_InitStructure.GPIO_Pin = MASTER_SWITCH_PIN; 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
 	GPIO_Init(MASTER_SWITCH_GPIO_PORT, &GPIO_InitStructure); 
-//#endif
+#endif
 }
+
+#ifdef MASTER_SWITCH_ZERO_RESISTOR_NOT_POPULATED
+void RCC_MCO_Init(void)
+{
+	GPIO_InitTypeDef GPIO_InitStructure; 
+
+	// Enable GPIO clock
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE); 
+
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8; 
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP; 
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz; 
+	GPIO_Init(GPIOA, &GPIO_InitStructure); 
+
+    // Enable AFIO clock
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE)
+    
+	// Note: Set breakpoints here to check MCO output
+	RCC_MCOConfig(RCC_MCO_HSI);
+//  RCC_MCOConfig(RCC_MCO_HSE);
+//	RCC_MCOConfig(RCC_MCO_PLLCLK_Div2);				   
+//	RCC_MCOConfig(RCC_MCO_SYSCLK); 
+}
+#endif
 
 void USB_EnableSuspendMode(void)
 {
-    GPIOC->ODR |= (USB_SUSP_Msk);
+    USB_SUSP_GPIO_PORT->BSRR = USB_SUSP_PIN;
 }
 
 void USB_DisableSuspendMode(void)
 {
-    GPIOC->ODR &= ~(USB_SUSP_Msk);
+    USB_SUSP_GPIO_PORT->BRR = USB_SUSP_PIN;
 }
 
 
 void USB_EnableHighPowerMode(void)
 {
-    GPIOB->ODR |= (USB_HPWR_Msk);
+    USB_HPWR_GPIO_PORT->BSRR = USB_HPWR_PIN;
 }
 
 void USB_DisableHighPowerMode(void)
 {
-    GPIOB->ODR &= ~(USB_HPWR_Msk);
+    USB_HPWR_GPIO_PORT->BRR = USB_HPWR_PIN;
 }
 
 
 uint8_t WALL_IsPowerGood(void)
 {
-    return (WALL_PWRGD_Prt->IDR &= WALL_PWRGD_Msk) == 0;
+    return (WALL_PWRGD_GPIO_PORT->IDR &= WALL_PWRGD_PIN) == 0;
 }
 
 void POW_EnableMasterSwitch(void)
@@ -117,26 +147,3 @@ void POW_DisableMasterSwitch(void)
     MASTER_SWITCH_GPIO_PORT->BRR = MASTER_SWITCH_PIN;
 }
 
-/*
-void RCC_MCO_Init(void)
-{
-	GPIO_InitTypeDef GPIO_InitStructure; 
-
-	// Put the clock configuration into RCC_APB2PeriphClockCmd 
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE); 
-
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8; 
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP; 
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz; 
-	GPIO_Init(GPIOA, &GPIO_InitStructure); 
-
-    // Enable AFIO clock
-    RCC->APB2ENR |= RCC_APB2ENR_AFIOEN;
-    
-	// Note: Set breakpoints here to check MCO output
-//	RCC_MCOConfig(RCC_MCO_HSI);
-//  RCC_MCOConfig(RCC_MCO_HSE);
-//	RCC_MCOConfig(RCC_MCO_PLLCLK_Div2);				   
-//	RCC_MCOConfig(RCC_MCO_SYSCLK); 
-}
-*/

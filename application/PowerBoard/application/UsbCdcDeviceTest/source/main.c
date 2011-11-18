@@ -41,17 +41,20 @@ void USB_LP_CAN1_RX0_IRQHandler()
 }
 
 uint8_t i, j;		  
-uint8_t CMD_ListLength;		   		
+uint8_t CMD_ListLength;		
+uint8_t pg;   		
 
 int main (void) {
 
 	NVIC_InitTypeDef NVIC_InitStructure;
   	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
 
-	//LED_Init();
-	//for (;;) ;
-	
-	PowerControl_Init(); // PowerControl_Init();   
+	PowerControl_Init();
+
+	pg = WALL_IsPowerGood();
+	pg = WALL_IsPowerGood();	
+	for (;;) ;
+		 
 	PowerMonitor_Init();
 	
 	// Configure SysTick
