@@ -30,6 +30,7 @@
 #include "usb_pwr.h"
 
 #include "misc.h" //
+#include "power_board.h" //
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -50,59 +51,10 @@ static void IntToUnicode (uint32_t value , uint8_t *pbuf , uint8_t len);
 *******************************************************************************/
 void Set_System(void)
 {
-#if !defined(STM32L1XX_MD)  
-//  GPIO_InitTypeDef GPIO_InitStructure;
-#endif /* STM32L1XX_MD */  
-#if defined(USB_USE_EXTERNAL_PULLUP)
-  GPIO_InitTypeDef  GPIO_InitStructure;
-#endif /* USB_USE_EXTERNAL_PULLUP */ 
- 
-  /*!< At this stage the microcontroller clock setting is already configured, 
-       this is done through SystemInit() function which is called from startup
-       file (startup_stm32f10x_xx.s) before to branch to application main.
-       To reconfigure the default setting of SystemInit() function, refer to
-       system_stm32f10x.c file
-     */ 
-  
-#ifdef STM32L1XX_MD 
-  /* Enable the SYSCFG module clock */
-  RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
-#endif /* STM32L1XX_MD */   
-  
-  
-#ifdef USE_STM3210B_EVAL
   /* Enable GPIOB, TIM2 & TIM4 clock */
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB , ENABLE);
   RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2 | RCC_APB1Periph_TIM4 , ENABLE);
-#endif /* USE_STM3210B_EVAL */
 
-//#if !defined(STM32L1XX_MD)
-//  /* Configure USB pull-up */
-//  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIO_DISCONNECT, ENABLE);
-//
-//  /* Configure USB pull-up */
-//  GPIO_InitStructure.GPIO_Pin = USB_DISCONNECT_PIN;
-//  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-//  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_OD;
-//  GPIO_Init(USB_DISCONNECT, &GPIO_InitStructure);
-//#endif /* STM32L1XX_MD */
-
-#if defined(USB_USE_EXTERNAL_PULLUP)
-  /* Enable the USB disconnect GPIO clock */
-  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIO_DISCONNECT, ENABLE);
-
-  /* USB_DISCONNECT used as USB pull-up */
-  GPIO_InitStructure.GPIO_Pin = USB_DISCONNECT_PIN;
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
-  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
-  GPIO_Init(USB_DISCONNECT, &GPIO_InitStructure);  
-#endif /* USB_USE_EXTERNAL_PULLUP */
-  
-  USB_Cable_Config(DISABLE);
-
-  USB_Cable_Config(ENABLE);
 }
 
 /*******************************************************************************
@@ -111,19 +63,60 @@ void Set_System(void)
 * Input          : None.
 * Return         : None.
 *******************************************************************************/
-void Set_USBClock(void)
-{
-#ifdef STM32L1XX_MD
-  /* Enable USB clock */
-  RCC_APB1PeriphClockCmd(RCC_APB1Periph_USB, ENABLE);
+void USB_FsInit()
+{	
+	NVIC_InitTypeDef NVIC_InitStructure;
+	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
 
-#else
-  /* Select USBCLK source */
-  RCC_USBCLKConfig(RCC_USBCLKSource_PLLCLK_1Div5);
+	USB_SoftReset();
+
+  	// Select USBCLK source
+  	RCC_USBCLKConfig(RCC_USBCLKSource_PLLCLK_1Div5);
+	  	
+  	// Enable the USB clock 
+  	RCC_APB1PeriphClockCmd(RCC_APB1Periph_USB, ENABLE);	 
+
+	// Configure USB interrupts
+	NVIC_InitStructure.NVIC_IRQChannel = USB_LP_CAN1_RX0_IRQn;
+  	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+  	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+  	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  	NVIC_Init(&NVIC_InitStructure);
+
+	/* Enable and configure the priority of the USB_HP IRQ Channel*/
+  	NVIC_InitStructure.NVIC_IRQChannel = USB_HP_CAN1_TX_IRQn;
+  	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+  	NVIC_Init(&NVIC_InitStructure);
   
-  /* Enable the USB clock */
-  RCC_APB1PeriphClockCmd(RCC_APB1Periph_USB, ENABLE);
-#endif /* STM32F10X_CL */  
+  	// Call USB init from STM32 USB-FS library
+	USB_Init();
+	
+	/* Audio Components Interrupt configuration */
+  	Audio_Config();
+
+}
+
+void USB_SoftReset()
+{
+	GPIO_InitTypeDef GPIO_InitStructure; 
+
+	// Enable peripheral clocks
+	RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
+
+    // PA12 / USBDP
+	GPIO_InitStructure.GPIO_Pin = USB_USBDP_PIN; 
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_OD; 
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
+	GPIO_Init(USB_USBDP_GPIO_PORT, &GPIO_InitStructure);
+
+	// Pull down USBDP for 50 ms
+	USB_USBDP_GPIO_PORT->BRR = USB_USBDP_PIN;
+	Delay(50);
+
+	// Release USBDP
+	USB_USBDP_GPIO_PORT->BSRR = USB_USBDP_PIN;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING; 
+	GPIO_Init(USB_USBDP_GPIO_PORT, &GPIO_InitStructure);
 }
 
 /*******************************************************************************
@@ -172,18 +165,6 @@ void USB_Config(void)
 
   NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
 
-#ifdef STM32L1XX_MD
-  NVIC_InitStructure.NVIC_IRQChannel = USB_LP_IRQn;
-  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-  NVIC_Init(&NVIC_InitStructure);
-
-  /* Enable and configure the priority of the USB_HP IRQ Channel*/
-  NVIC_InitStructure.NVIC_IRQChannel = USB_HP_IRQn;
-  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
-  NVIC_Init(&NVIC_InitStructure);  
-#else
   /* Enable and configure the priority of the USB_LP IRQ Channel*/
   NVIC_InitStructure.NVIC_IRQChannel = USB_LP_CAN1_RX0_IRQn;
   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
@@ -195,7 +176,6 @@ void USB_Config(void)
   NVIC_InitStructure.NVIC_IRQChannel = USB_HP_CAN1_TX_IRQn;
   NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
   NVIC_Init(&NVIC_InitStructure);
-#endif /* STM32L1XX_MD */
   
   /* Audio Components Interrupt configuration */
   Audio_Config();
@@ -210,60 +190,12 @@ void Audio_Config(void)
 {
   NVIC_InitTypeDef NVIC_InitStructure;
   
-#if defined(USE_STM32L152_EVAL)
-  /* Enable the TIM2 Interrupt */
-  NVIC_InitStructure.NVIC_IRQChannel = TIM6_IRQn;
-  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
-  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-  NVIC_Init(&NVIC_InitStructure);
-  
-#elif defined(USE_STM3210B_EVAL)
   /* Enable the TIM2 Interrupt */
   NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
   NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
   NVIC_Init(&NVIC_InitStructure);
-  
-#elif defined(USE_STM3210E_EVAL)
-  /* SPI2 IRQ Channel configuration */
-  NVIC_InitStructure.NVIC_IRQChannel = SPI2_IRQn;
-  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
-  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-  NVIC_Init(&NVIC_InitStructure);
-  
-#endif /* USE_STM3210B_EVAL */
-}
-/*******************************************************************************
-* Function Name  : USB_Cable_Config
-* Description    : Software Connection/Disconnection of USB Cable
-* Input          : None.
-* Return         : Status
-*******************************************************************************/
-void USB_Cable_Config (FunctionalState NewState)
-{
-#ifdef STM32L1XX_MD
-  if (NewState != DISABLE)
-  {
-    STM32L15_USB_CONNECT;
-  }
-  else
-  {
-    STM32L15_USB_DISCONNECT;
-  }  
-
-#else  
-  if (NewState != DISABLE)
-  {
-    GPIO_ResetBits(USB_DISCONNECT, USB_DISCONNECT_PIN);
-  }
-  else
-  {
-    GPIO_SetBits(USB_DISCONNECT, USB_DISCONNECT_PIN);
-  }
-#endif /* STM32L1XX_MD */  
 }
 
 /*******************************************************************************

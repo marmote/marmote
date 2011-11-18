@@ -32,6 +32,11 @@
 #define BufferSize        100
 #define CodecAddress      0x27
 
+
+#define USB_USBDP_PIN    		GPIO_Pin_12 // PA.12
+#define USB_USBDP_GPIO_PORT    	GPIOA
+#define USB_USBDP_GPIO_CLK    	RCC_APB2Periph_GPIOA
+
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
 /* Exported define -----------------------------------------------------------*/
@@ -54,6 +59,9 @@ void Codec_PowerDown(void);
 uint32_t I2SCodec_WriteRegister(uint32_t RegisterAddr, uint32_t RegisterValue, uint32_t Verify);
 uint32_t Codec_SpeakerConfig(uint16_t I2S_Standard, uint8_t volume, uint32_t verif, uint8_t pll);
 void Get_SerialNum(void);
+
+void USB_FsInit(void); // USB_Init() is reserved by STM USB library
+void USB_SoftReset(void);
 
 #endif  /*__HW_CONFIG_H*/
 

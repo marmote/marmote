@@ -20,6 +20,7 @@
 #include "usb_lib.h"
 #include "usb_istr.h"
 #include "hw_config.h"
+#include "stm32f10x_tim.h"
 //#include "i2s_codec.h"
 
 /* Private typedef -----------------------------------------------------------*/
@@ -151,9 +152,11 @@ void PendSV_Handler(void)
 * Output         : None
 * Return         : None
 *******************************************************************************/
+/*
 void SysTick_Handler(void)
 {
 }
+*/
 
 /******************************************************************************/
 /*            STM32F10x Peripherals Interrupt Handlers                        */
@@ -185,7 +188,6 @@ void USB_LP_CAN1_RX0_IRQHandler(void)
   USB_Istr();
 }
 
-#ifdef USE_STM3210B_EVAL
 /*******************************************************************************
 * Function Name  : TIM2_IRQHandler
 * Description    : This function handles TIM2 global interrupt request.
@@ -200,16 +202,17 @@ void TIM2_IRQHandler(void)
     /* Clear TIM2 update interrupt */
     TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
 
+	/*
     if ((Out_Data_Offset < In_Data_Offset) && ((uint8_t)(MUTE_DATA) == 0))
     {
       TIM_SetCompare3(TIM4, Stream_Buff[Out_Data_Offset]);
       Out_Data_Offset++;
     }
+	*/
   }
 }
-#endif /* USE_STM3210B_EVAL */
 
-#ifdef USE_STM3210E_EVAL
+
 /*******************************************************************************
 * Function Name  : SPI2_IRQHandler
 * Description    : This function handles SPI2 global interrupt request.
@@ -219,30 +222,11 @@ void TIM2_IRQHandler(void)
 *******************************************************************************/
 void SPI2_IRQHandler(void)
 {
-  static uint8_t channel = 0;
-
-  if ((SPI_I2S_GetITStatus(SPI2, SPI_I2S_IT_TXE) == SET))
-  {
-    /* Audio codec configuration section */
-    if (GetVar_SendDummyData() == 1)
-    {
-      /* Send a dummy data just to generate the I2S clock */
-      SPI_I2S_SendData(SPI2, DUMMYDATA);
-    }
-    else if ((Out_Data_Offset < In_Data_Offset) && ((uint8_t)(MUTE_DATA) == 0))
-    {
-      if ((channel++) & 1)
-      {
-        SPI_I2S_SendData(SPI2, (uint16_t)Stream_Buff[Out_Data_Offset++]);
-      }
-      else
-      {
-        SPI_I2S_SendData(SPI2, (uint16_t)Stream_Buff[Out_Data_Offset]);
-      }
-    }
-  }
+	while(1)
+	{
+	}  
 }
-#endif /* USE_STM3210E_EVAL */
+
 
 /******************************************************************************/
 /*                 STM32F10x Peripherals Interrupt Handlers                   */

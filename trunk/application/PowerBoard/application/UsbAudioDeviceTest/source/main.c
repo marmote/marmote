@@ -22,6 +22,8 @@
 #include "hw_config.h"
 #include "usb_prop.h"
 
+#include "power_board.h"
+
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
@@ -43,13 +45,24 @@ extern uint8_t IT_Clock_Sent;
 *******************************************************************************/
 int main(void)
 {
-  Set_System();
-  Set_USBClock();
-  USB_Config();
-  USB_Init();
-  Speaker_Config();
+    Set_System();
+
+  //Set_USBClock();
+  //USB_Config();
+  //USB_Init();
+
+  	// Configure SysTick
+	SysTick->CTRL |= (SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_TICKINT_Msk | SysTick_CTRL_ENABLE_Msk);
+	SysTick->LOAD = 72000;	
+
+	USB_FsInit();
+						
+	PowerControl_Init();
+	PowerMonitor_Init();
+  //Speaker_Config();
   while (1)
-  {}
+  {
+  }
 }
 
 #ifdef  USE_FULL_ASSERT
