@@ -38,9 +38,11 @@ entity SAMPLE_APB3 is
 
 -- DDC interface
         INPUT       : in    std_logic_vector(2*c_APB3_INPUT_WIDTH-1 downto 0);
-        shift       : in    std_logic_vector(log2_ceil(c_BIT_SHIFT)-1 downto 0);   
+--        shift       : in    std_logic_vector(log2_ceil(c_BIT_SHIFT)-1 downto 0);   
+        DPHASE      : out   std_logic_vector(15 downto 0);
 
         SMPL_RDY_IN : in    std_logic;
+
 
 -- Misc
         SMPL_RDY    : out   std_logic
@@ -68,6 +70,8 @@ architecture Behavioral of SAMPLE_APB3 is
     -- Addresses
     constant c_ADDR_DATA    : std_logic_vector(7 downto 0) := x"00"; -- Read only
     constant c_ADDR_COUNTER : std_logic_vector(7 downto 0) := x"04"; -- Read only
+    constant c_ADDR_SHIFT   : std_logic_vector(7 downto 0) := x"08"; -- Write only
+    constant c_ADDR_DPHASE  : std_logic_vector(7 downto 0) := x"0C"; -- Write only
 
     -- Default values (based on the Matlab simulation results)
     constant c_DEFAULT_DATA      : unsigned(31 downto 0) := x"00000000"; 
@@ -80,6 +84,7 @@ architecture Behavioral of SAMPLE_APB3 is
     
     signal SMPL_RDY_signal  : std_logic;
 
+    signal shift            : unsigned(log2_ceil(c_BIT_SHIFT)-1 downto 0);   
     signal shift_counter    : unsigned(log2_ceil(c_BIT_SHIFT)-1 downto 0);   
     
     signal test_counter     : unsigned(15 downto 0);  
@@ -95,8 +100,9 @@ begin
     p_REG_WRITE : process (PRESETn, PCLK)
     begin
         if PRESETn = '0' then
-    --        s_start <= '0';
-    --        s_correlation_delay  <= std_logic_vector(c_DEFAULT_CORD);
+            shift <= (others => '0');
+            DPHASE <= (others => '0');
+
         elsif rising_edge(PCLK) then
 
             -- Default values
@@ -106,10 +112,10 @@ begin
             -- FIXME: allow writes only when no transmission is in progress
             if PWRITE = '1' and PSEL = '1' and PENABLE = '1' then
                 case PADDR(7 downto 0) is
-    --                when c_ADDR_CTRL =>
-    --                    s_start <= PWDATA(0);
-    --                when c_ADDR_BAUD =>
-    --                    s_baud <= PWDATA;
+                    when c_ADDR_SHIFT =>
+                        shift <= unsigned(PWDATA(log2_ceil(c_BIT_SHIFT)-1 downto 0));
+                    when c_ADDR_DPHASE =>
+                        DPHASE <= PWDATA(15 downto 0);
                     when others =>
                         null;
                 end case;
@@ -205,7 +211,7 @@ begin
                     SMPL_RDY_signal <= '1';
                 end if;
 
-                shift_counter <= unsigned(shift);   
+                shift_counter <= shift;   
 
                 test_counter <= test_counter + 1;
                 test_rev_counter <= test_rev_counter - 1;

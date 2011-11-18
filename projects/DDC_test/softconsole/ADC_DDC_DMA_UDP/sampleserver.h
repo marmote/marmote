@@ -5,7 +5,10 @@
 extern "C" {
 #endif
 
+void receive_callback(void* data, u16_t len);
+
 struct udp_pcb *server_init(u16_t port);
+
 err_t send_buffer (struct udp_pcb *pcb,
 		                /* struct ip_addr *to_ip,
 		                 int to_port,*/
