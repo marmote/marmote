@@ -1,4 +1,6 @@
+#summary Requirement and design considerations for the SmartFusion-based Main Board
 #labels Phase-Requirements
+
 = Power Supply =
 
  * The FPGA should use the power rails from the Power Board
@@ -18,6 +20,7 @@
  * The FPGA and the uC should be programmable by the PowerBoard
  * The FPGA and the uC should be programmable directly via JTAG
  * The above two should not conflict (e.g. multiplexer should be used)
+ * Consider relying on IAP through SPI (preferred) or Ethernet
 
 = Reset Logic =
 
