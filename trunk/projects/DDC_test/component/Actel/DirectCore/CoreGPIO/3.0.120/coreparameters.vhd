@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------
--- Created by Actel SmartDesign Thu Nov 17 11:29:51 2011
+-- Created by Actel SmartDesign Thu Nov 17 17:34:59 2011
 -- Parameters for CoreGPIO
 ----------------------------------------------------------------------
 

@@ -55,6 +55,9 @@
 #  define ADC_MEM_ADDRESS_DATA		(0x00+SAMPLE_APB3_0)
 #  define ADC_MEM_ADDRESS_COUNTER	(0x04+SAMPLE_APB3_0)
 #  define ADC_MEM_ADDRESS			ADC_MEM_ADDRESS_DATA
+
+#  define SHIFT_REG					(0x08+SAMPLE_APB3_0)
+#  define DPHASE_REG				(0x0C+SAMPLE_APB3_0)
 #endif
 
 #ifdef NETWORKING_ENABLED
@@ -138,7 +141,7 @@ void next_DMA_transfer()
 	PDMA_load_next_buffer(PDMA_CHANNEL_0,
 			(uint32_t) ADC_MEM_ADDRESS,
             (uint32_t) &(buffer[next_DMA_buf][1]),
-            BUFF_LENGTH-2);
+            BUFF_LENGTH-1);
 
 #	else
 	PDMA_load_next_buffer(PDMA_CHANNEL_0,
@@ -168,6 +171,24 @@ void SetRFFr(uint32_t frequency)
 	BusyWait(15);
 
 	RFX400SetFrequency();
+}
+
+void SetDDCFr(double frequency)
+{
+	double Fs = 50000000.0;
+	double phase_bit_width = 65536.0; //2^16
+
+	uint32_t dummy = (uint32_t) ((int16_t) (frequency * phase_bit_width / Fs));
+
+	*((uint32_t*) DPHASE_REG ) = (uint32_t) ((int16_t) (frequency * phase_bit_width / Fs));
+}
+
+void SetDDCshift(uint8_t shift)
+{
+	if (shift > 11)
+		shift = 11;
+
+	*((uint32_t*) SHIFT_REG) = (uint32_t) shift;
 }
 
 
@@ -211,6 +232,33 @@ void Timer1_IRQHandler( void )
     System_ticks++;
     MSS_TIM1_clear_irq();
 }
+
+void receive_callback(void* data, u16_t len)
+{
+	static uint8_t buffer[9];
+	static uint8_t counter = 9;
+
+	u16_t i;
+	for (i = 0; i < len; i++)
+	{
+		counter--;
+		buffer[counter] = *(((uint8_t*) data) + i);
+
+		if (counter == 0)
+		{
+			uint32_t RFfrequency = *((uint32_t*) &(buffer[5]));
+			double DDCfrequency = (double) *(((int32_t*) &(buffer[1])));
+			uint8_t shift = buffer[0];
+
+			SetRFFr(RFfrequency);
+			SetDDCFr(DDCfrequency);
+			SetDDCshift(shift);
+
+			counter = 9;
+		}
+	}
+}
+
 #endif
 
 
@@ -299,6 +347,15 @@ int main()
     // Initialization hardware necessary for millisecond timing
     init_timing();
 
+
+    SetDDCFr(1000);
+    SetDDCshift(3);
+
+    BusyWait(1); // WARNING!!! WITH RFX400 ATTACHED IT TAKES AT LEAST 170us FOR THE GPIO VOLTAGES TO REACH 3.3V
+    RFX400init();
+    SetRFFr(426000000);
+
+
     // Initialize the lwIP stack
     lwip_init();
 
@@ -309,10 +366,6 @@ int main()
     pcb = server_init(49151);
 #endif
 
-    BusyWait(1); // WARNING!!! WITH RFX400 ATTACHED IT TAKES AT LEAST 170us FOR THE GPIO VOLTAGES TO REACH 3.3V
-    RFX400init();
-    SetRFFr(426000000);
-
 #ifdef ADC_ENABLED
 	next_DMA_transfer();
 
@@ -322,7 +375,7 @@ int main()
 	PDMA_start(PDMA_CHANNEL_0,
 			(uint32_t) ADC_MEM_ADDRESS,
             (uint32_t) &(buffer[DMA_buf][1]),
-            BUFF_LENGTH-2);
+            BUFF_LENGTH-1);
 #	else
 
 	PDMA_start(PDMA_CHANNEL_0,
