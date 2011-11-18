@@ -59,10 +59,6 @@ extern uint8_t USB_Tx_Length;
 // For USB logger demo only - END
 
 
-void PowerMonitor_Init(void);
-void Logger_Init(void);
-
-
 // LEDs
 
 typedef enum 
@@ -77,11 +73,6 @@ typedef enum
 #define LED_LED2_PIN				GPIO_Pin_2	// PB.2
 #define LED_LED2_GPIO_PORT  		GPIOB		// GPIOB
 #define LED_LED2_GPIO_CLK   		RCC_APB2Periph_GPIOB
-
-void LED_Init(void);
-void LED_On (uint32_t led);
-void LED_Off (uint32_t led);
-void LED_Toggle (uint32_t led);
 
 // Battery Gauge I2C (I2C2)
 
@@ -99,7 +90,7 @@ void LED_Toggle (uint32_t led);
 #define BAT_I2C_ADDRESS				(0x64U << 1) // 1100100X
 //#define BAT_I2C_ADDRESS				(0x65U << 1) // 1100101X (for testing NACK only)
 
-typedef enum BAT_RegisterAddress_Type
+typedef enum _BAT_RegisterAddress_Type
 {
 	BAT_STATUS 						= 0x00, // R
 	BAT_CONTROL 					= 0x01, // R/W
@@ -118,10 +109,6 @@ typedef enum BAT_RegisterAddress_Type
 	BAT_TEMPERATURE_THRESHOLD_HIGH 	= 0x0E, // R/W
 	BAT_TEMPERATURE_THRESHOLD_LOW 	= 0x0F  // R/W
 } BAT_RegisterAddress_Type;
-
-void BAT_I2C_Init(void);
-void BAT_WriteRegister(uint8_t BAT_RegisterAddress_Type, uint16_t data);
-uint16_t BAT_ReadRegister(uint8_t BAT_RegisterAddress_Type);
 
 
 // SD card SPI (SPI2)
@@ -147,6 +134,25 @@ uint16_t BAT_ReadRegister(uint8_t BAT_RegisterAddress_Type);
 
 #define SD_SPI                       SPI2
 #define SD_SPI_CLK                   RCC_APB1Periph_SPI2
+
+
+void PowerMonitor_Init(void);
+void Logger_Init(void);
+
+void LED_Init(void);
+void LED_On (uint32_t led);
+void LED_Off (uint32_t led);
+void LED_Toggle (uint32_t led);
+
+static void BAT_I2C_Init(void);
+static void BAT_WriteRegister(BAT_RegisterAddress_Type address, uint16_t data);
+static uint16_t BAT_ReadRegister(BAT_RegisterAddress_Type address);
+
+/*
+uint16_t BAT_ReadVoltage();
+uint16_t BAT_ReadTemperature();
+uint16_t BAT_ReadAccumulatedCharge();
+*/
 
 void SD_SPI_Init(void);
 void SD_SPI_SendData(uint16_t data);
