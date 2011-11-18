@@ -6,7 +6,7 @@
 // Author        : Sandor Szilvasi
 // Company       : Vanderbilt University, ISIS
 // Created       : 2011-11-04 10:41
-// Last update   : 2011-11-04 10:41
+// Last update   : 2011-11-17 17:55
 // Platform      : Marmote
 // Target device : STM32F102CB
 // Tool version  : ARM uVision 4 (v4.22.22.0)
@@ -37,6 +37,7 @@
 // Revisions     :
 // Date            Version  Author			Description
 // 2011-11-04      1.0      Sandor Szilvasi	Created
+// 2011-11-17      1.1      Sandor Szilvasi	Cleanup
 //-----------------------------------------------------------------------------
 
 #ifndef __POWER_CONTROL_H
@@ -44,32 +45,29 @@
 
 #include "stm32f10x.h"
 
-// PC13
-#define USB_SUSP_Prt	GPIOC
-#define USB_SUSP_Pos	13
-#define USB_SUSP_Msk	(0x1UL << USB_SUSP_Pos)
 
-// PB8
-#define USB_HPWR_Prt	GPIOB
-#define USB_HPWR_Pos	 8
-#define USB_HPWR_Msk	(0x1UL << USB_HPWR_Pos)
+#define USB_SUSP_PIN			GPIO_Pin_13	// PC.13
+#define USB_SUSP_GPIO_PORT		GPIOC
+#define USB_SUSP_GPIO_CLK		RCC_APB2Periph_GPIOC
 
-// PB9
-#define WALL_PWRGD_Prt	GPIOB
-#define WALL_PWRGD_Pos	 9
-#define WALL_PWRGD_Msk	(0x1UL << WALL_PWRGD_Pos)
+#define USB_HPWR_PIN			GPIO_Pin_8	// PB.8
+#define USB_HPWR_GPIO_PORT		GPIOB
+#define USB_HPWR_GPIO_CLK		RCC_APB2Periph_GPIOB
+
+#define WALL_PWRGD_PIN			GPIO_Pin_9	// PB.9
+#define WALL_PWRGD_GPIO_PORT	GPIOB
+#define WALL_PWRGD_GPIO_CLK		RCC_APB2Periph_GPIOB
 
 
-//#ifdef MASTER_SWITCH_ZERO_RESISTOR_NOT_POPULATED
-// Use pin as MCO (AF) output
-//void RCC_MCO_Init(void);
-//#elif
+#ifndef MASTER_SWITCH_ZERO_RESISTOR_NOT_POPULATED
 // Use pin GPIO as master switch 
-// See PowerControl_Init
 #define MASTER_SWITCH_GPIO_PORT		GPIOA
-#define MASTER_SWITCH_PIN           GPIO_Pin_8	// PA.11
-#define MASTER_SWITCH_GPIO_CLK      RCC_APB2ENR_IOPAEN
-//#endif
+#define MASTER_SWITCH_PIN           GPIO_Pin_8	// PA.8
+#define MASTER_SWITCH_GPIO_CLK      RCC_APB2Periph_GPIOA
+#else
+// Use pin as MCO (AF) output
+void RCC_MCO_Init(void);
+#endif
 
 void PowerControl_Init(void);
 
