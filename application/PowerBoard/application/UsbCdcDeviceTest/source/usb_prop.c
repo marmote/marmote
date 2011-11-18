@@ -19,7 +19,7 @@
 #include "usb_prop.h"
 #include "usb_desc.h"
 #include "usb_pwr.h"
-#include "hw_config.h"
+#include "usb_fs.h"
 #include "power_board.h"
 
 /* Private typedef -----------------------------------------------------------*/

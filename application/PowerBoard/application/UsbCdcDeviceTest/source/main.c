@@ -2,77 +2,30 @@
 #include "stm32f10x.h"
 
 #include "power_board.h"
-
-#include "usb_istr.h"
-#include "usb_pwr.h"
-
-
-#include "usb_lib.h"
-
 #include "cmd_def.h"
-
-uint8_t USB_Tx_Request; 
-uint32_t it;
+#include "usb_fs.h"
 
 uint8_t CMD_Rx_Buffer[32];
 uint8_t CMD_Rx_Length;
 uint8_t CMD_Rx_Valid;
 uint8_t CMD_ParseResult;
 
-#include "usb_desc.h"
 uint8_t USB_Tx_Buffer[VIRTUAL_COM_PORT_DATA_SIZE];
 uint8_t USB_Tx_Length;
-
-void USBWakeUp_IRQHandler(void)
-{
-	LED_On(LED2);
-	while(1);
-}
-
-void USB_HP_CAN1_TX_IRQHandler()
-{	
-	LED_On(LED2);
-	while(1);
-}
-
-void USB_LP_CAN1_RX0_IRQHandler()
-{
-	USB_Istr();
-}
+uint8_t USB_Tx_Request; 
 
 uint8_t i, j;		  
-uint8_t CMD_ListLength;		
-uint8_t pg;   		
+uint8_t CMD_ListLength;  		
 
 int main (void) {
-
-	NVIC_InitTypeDef NVIC_InitStructure;
-  	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
-
-	PowerControl_Init();
-	PowerMonitor_Init();
-	
+							
 	// Configure SysTick
 	SysTick->CTRL |= (SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_TICKINT_Msk | SysTick_CTRL_ENABLE_Msk);
 	SysTick->LOAD = 72000;	
-
-	//Delay(200);
-	USB_SoftReset();
-
-  	// Select USBCLK source
-  	RCC_USBCLKConfig(RCC_USBCLKSource_PLLCLK_1Div5);
-	  	
-  	// Enable the USB clock 
-  	RCC_APB1PeriphClockCmd(RCC_APB1Periph_USB, ENABLE);	 
-
-	// Configure USB interrupts
-	NVIC_InitStructure.NVIC_IRQChannel = USB_LP_CAN1_RX0_IRQn;
-  	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
-  	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-  	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-  	NVIC_Init(&NVIC_InitStructure);
-
-	USB_Init();
+						
+	PowerControl_Init();
+	PowerMonitor_Init();	
+	USB_FsInit();
 
 	CMD_ListLength = sizeof(CMD_List)/sizeof(CMD_Type);
 				
