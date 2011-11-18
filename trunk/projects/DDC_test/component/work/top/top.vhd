@@ -54,7 +54,9 @@ architecture DEF_ARCH of top is
           Q_in          : in    std_logic_vector(13 downto 0) := (others => 'U');
           DPHASE        : in    std_logic_vector(15 downto 0) := (others => 'U');
           I_out         : out   std_logic_vector(26 downto 0);
-          Q_out         : out   std_logic_vector(26 downto 0)
+          Q_out         : out   std_logic_vector(26 downto 0);
+          DC_OFFSETI    : in    std_logic_vector(13 downto 0) := (others => 'U');
+          DC_OFFSETQ    : in    std_logic_vector(13 downto 0) := (others => 'U')
         );
   end component;
 
@@ -513,17 +515,45 @@ architecture DEF_ARCH of top is
         \DDC_0_Q_out_0_[6]\, \DDC_0_Q_out_0_[5]\, 
         \DDC_0_Q_out_0_[4]\, \DDC_0_Q_out_0_[3]\, 
         \DDC_0_Q_out_0_[2]\, \DDC_0_Q_out_0_[1]\, 
-        \DDC_0_Q_out_0_[0]\, \SAMPLE_APB3_0_DPHASE_[15]\, 
-        \SAMPLE_APB3_0_DPHASE_[14]\, \SAMPLE_APB3_0_DPHASE_[13]\, 
-        \SAMPLE_APB3_0_DPHASE_[12]\, \SAMPLE_APB3_0_DPHASE_[11]\, 
-        \SAMPLE_APB3_0_DPHASE_[10]\, \SAMPLE_APB3_0_DPHASE_[9]\, 
-        \SAMPLE_APB3_0_DPHASE_[8]\, \SAMPLE_APB3_0_DPHASE_[7]\, 
-        \SAMPLE_APB3_0_DPHASE_[6]\, \SAMPLE_APB3_0_DPHASE_[5]\, 
-        \SAMPLE_APB3_0_DPHASE_[4]\, \SAMPLE_APB3_0_DPHASE_[3]\, 
-        \SAMPLE_APB3_0_DPHASE_[2]\, \SAMPLE_APB3_0_DPHASE_[1]\, 
-        \SAMPLE_APB3_0_DPHASE_[0]\, \SMPL_RDY\, uC_0_FAB_CLK, 
-        uC_0_IO_3_Y, uC_0_IO_6_Y, uC_0_IO_7_Y, uC_0_M2F_RESET_N, 
-        INV_0_Y, \uC_0_MSS_MASTER_APB_PADDR_[0]\, 
+        \DDC_0_Q_out_0_[0]\, \SAMPLE_APB3_0_DC_OFFSETI_[13]\, 
+        \SAMPLE_APB3_0_DC_OFFSETI_[12]\, 
+        \SAMPLE_APB3_0_DC_OFFSETI_[11]\, 
+        \SAMPLE_APB3_0_DC_OFFSETI_[10]\, 
+        \SAMPLE_APB3_0_DC_OFFSETI_[9]\, 
+        \SAMPLE_APB3_0_DC_OFFSETI_[8]\, 
+        \SAMPLE_APB3_0_DC_OFFSETI_[7]\, 
+        \SAMPLE_APB3_0_DC_OFFSETI_[6]\, 
+        \SAMPLE_APB3_0_DC_OFFSETI_[5]\, 
+        \SAMPLE_APB3_0_DC_OFFSETI_[4]\, 
+        \SAMPLE_APB3_0_DC_OFFSETI_[3]\, 
+        \SAMPLE_APB3_0_DC_OFFSETI_[2]\, 
+        \SAMPLE_APB3_0_DC_OFFSETI_[1]\, 
+        \SAMPLE_APB3_0_DC_OFFSETI_[0]\, 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[13]\, 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[12]\, 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[11]\, 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[10]\, 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[9]\, 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[8]\, 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[7]\, 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[6]\, 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[5]\, 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[4]\, 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[3]\, 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[2]\, 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[1]\, 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[0]\, 
+        \SAMPLE_APB3_0_DPHASE_[15]\, \SAMPLE_APB3_0_DPHASE_[14]\, 
+        \SAMPLE_APB3_0_DPHASE_[13]\, \SAMPLE_APB3_0_DPHASE_[12]\, 
+        \SAMPLE_APB3_0_DPHASE_[11]\, \SAMPLE_APB3_0_DPHASE_[10]\, 
+        \SAMPLE_APB3_0_DPHASE_[9]\, \SAMPLE_APB3_0_DPHASE_[8]\, 
+        \SAMPLE_APB3_0_DPHASE_[7]\, \SAMPLE_APB3_0_DPHASE_[6]\, 
+        \SAMPLE_APB3_0_DPHASE_[5]\, \SAMPLE_APB3_0_DPHASE_[4]\, 
+        \SAMPLE_APB3_0_DPHASE_[3]\, \SAMPLE_APB3_0_DPHASE_[2]\, 
+        \SAMPLE_APB3_0_DPHASE_[1]\, \SAMPLE_APB3_0_DPHASE_[0]\, 
+        \SMPL_RDY\, uC_0_FAB_CLK, uC_0_IO_3_Y, uC_0_IO_6_Y, 
+        uC_0_IO_7_Y, uC_0_M2F_RESET_N, INV_0_Y, 
+        \uC_0_MSS_MASTER_APB_PADDR_[0]\, 
         \uC_0_MSS_MASTER_APB_PADDR_[1]\, 
         \uC_0_MSS_MASTER_APB_PADDR_[2]\, 
         \uC_0_MSS_MASTER_APB_PADDR_[3]\, 
@@ -623,25 +653,25 @@ begin
     DDC_0 : DDC
       port map(RST => INV_0_Y, CLK => uC_0_FAB_CLK, sample_rdy_in
          => ADC_SPI_0_sample_rdy, I_SMPL_RDY => DDC_0_I_SMPL_RDY, 
-        Q_SMPL_RDY => OPEN, I_in(13) => \ADC_SPI_0_CH1_[13]\, 
-        I_in(12) => \ADC_SPI_0_CH1_[12]\, I_in(11) => 
-        \ADC_SPI_0_CH1_[11]\, I_in(10) => \ADC_SPI_0_CH1_[10]\, 
-        I_in(9) => \ADC_SPI_0_CH1_[9]\, I_in(8) => 
-        \ADC_SPI_0_CH1_[8]\, I_in(7) => \ADC_SPI_0_CH1_[7]\, 
-        I_in(6) => \ADC_SPI_0_CH1_[6]\, I_in(5) => 
-        \ADC_SPI_0_CH1_[5]\, I_in(4) => \ADC_SPI_0_CH1_[4]\, 
-        I_in(3) => \ADC_SPI_0_CH1_[3]\, I_in(2) => 
-        \ADC_SPI_0_CH1_[2]\, I_in(1) => \ADC_SPI_0_CH1_[1]\, 
-        I_in(0) => \ADC_SPI_0_CH1_[0]\, Q_in(13) => 
-        \ADC_SPI_0_CH2_[13]\, Q_in(12) => \ADC_SPI_0_CH2_[12]\, 
-        Q_in(11) => \ADC_SPI_0_CH2_[11]\, Q_in(10) => 
-        \ADC_SPI_0_CH2_[10]\, Q_in(9) => \ADC_SPI_0_CH2_[9]\, 
-        Q_in(8) => \ADC_SPI_0_CH2_[8]\, Q_in(7) => 
-        \ADC_SPI_0_CH2_[7]\, Q_in(6) => \ADC_SPI_0_CH2_[6]\, 
-        Q_in(5) => \ADC_SPI_0_CH2_[5]\, Q_in(4) => 
-        \ADC_SPI_0_CH2_[4]\, Q_in(3) => \ADC_SPI_0_CH2_[3]\, 
-        Q_in(2) => \ADC_SPI_0_CH2_[2]\, Q_in(1) => 
-        \ADC_SPI_0_CH2_[1]\, Q_in(0) => \ADC_SPI_0_CH2_[0]\, 
+        Q_SMPL_RDY => OPEN, I_in(13) => \ADC_SPI_0_CH2_[13]\, 
+        I_in(12) => \ADC_SPI_0_CH2_[12]\, I_in(11) => 
+        \ADC_SPI_0_CH2_[11]\, I_in(10) => \ADC_SPI_0_CH2_[10]\, 
+        I_in(9) => \ADC_SPI_0_CH2_[9]\, I_in(8) => 
+        \ADC_SPI_0_CH2_[8]\, I_in(7) => \ADC_SPI_0_CH2_[7]\, 
+        I_in(6) => \ADC_SPI_0_CH2_[6]\, I_in(5) => 
+        \ADC_SPI_0_CH2_[5]\, I_in(4) => \ADC_SPI_0_CH2_[4]\, 
+        I_in(3) => \ADC_SPI_0_CH2_[3]\, I_in(2) => 
+        \ADC_SPI_0_CH2_[2]\, I_in(1) => \ADC_SPI_0_CH2_[1]\, 
+        I_in(0) => \ADC_SPI_0_CH2_[0]\, Q_in(13) => 
+        \ADC_SPI_0_CH1_[13]\, Q_in(12) => \ADC_SPI_0_CH1_[12]\, 
+        Q_in(11) => \ADC_SPI_0_CH1_[11]\, Q_in(10) => 
+        \ADC_SPI_0_CH1_[10]\, Q_in(9) => \ADC_SPI_0_CH1_[9]\, 
+        Q_in(8) => \ADC_SPI_0_CH1_[8]\, Q_in(7) => 
+        \ADC_SPI_0_CH1_[7]\, Q_in(6) => \ADC_SPI_0_CH1_[6]\, 
+        Q_in(5) => \ADC_SPI_0_CH1_[5]\, Q_in(4) => 
+        \ADC_SPI_0_CH1_[4]\, Q_in(3) => \ADC_SPI_0_CH1_[3]\, 
+        Q_in(2) => \ADC_SPI_0_CH1_[2]\, Q_in(1) => 
+        \ADC_SPI_0_CH1_[1]\, Q_in(0) => \ADC_SPI_0_CH1_[0]\, 
         DPHASE(15) => \SAMPLE_APB3_0_DPHASE_[15]\, DPHASE(14) => 
         \SAMPLE_APB3_0_DPHASE_[14]\, DPHASE(13) => 
         \SAMPLE_APB3_0_DPHASE_[13]\, DPHASE(12) => 
@@ -693,7 +723,35 @@ begin
         \DDC_0_Q_out_0_[5]\, Q_out(4) => \DDC_0_Q_out_0_[4]\, 
         Q_out(3) => \DDC_0_Q_out_0_[3]\, Q_out(2) => 
         \DDC_0_Q_out_0_[2]\, Q_out(1) => \DDC_0_Q_out_0_[1]\, 
-        Q_out(0) => \DDC_0_Q_out_0_[0]\);
+        Q_out(0) => \DDC_0_Q_out_0_[0]\, DC_OFFSETI(13) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[13]\, DC_OFFSETI(12) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[12]\, DC_OFFSETI(11) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[11]\, DC_OFFSETI(10) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[10]\, DC_OFFSETI(9) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[9]\, DC_OFFSETI(8) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[8]\, DC_OFFSETI(7) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[7]\, DC_OFFSETI(6) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[6]\, DC_OFFSETI(5) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[5]\, DC_OFFSETI(4) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[4]\, DC_OFFSETI(3) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[3]\, DC_OFFSETI(2) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[2]\, DC_OFFSETI(1) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[1]\, DC_OFFSETI(0) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[0]\, DC_OFFSETQ(13) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[13]\, DC_OFFSETQ(12) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[12]\, DC_OFFSETQ(11) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[11]\, DC_OFFSETQ(10) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[10]\, DC_OFFSETQ(9) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[9]\, DC_OFFSETQ(8) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[8]\, DC_OFFSETQ(7) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[7]\, DC_OFFSETQ(6) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[6]\, DC_OFFSETQ(5) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[5]\, DC_OFFSETQ(4) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[4]\, DC_OFFSETQ(3) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[3]\, DC_OFFSETQ(2) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[2]\, DC_OFFSETQ(1) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[1]\, DC_OFFSETQ(0) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[0]\);
     
     CoreAPB3_0 : CoreAPB3
       generic map(APBSLOT0ENABLE => 1, APBSLOT10ENABLE => 0,
@@ -1456,7 +1514,35 @@ begin
         \SAMPLE_APB3_0_DPHASE_[3]\, DPHASE(2) => 
         \SAMPLE_APB3_0_DPHASE_[2]\, DPHASE(1) => 
         \SAMPLE_APB3_0_DPHASE_[1]\, DPHASE(0) => 
-        \SAMPLE_APB3_0_DPHASE_[0]\, SMPL_RDY_IN => 
+        \SAMPLE_APB3_0_DPHASE_[0]\, DC_OFFSETI(13) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[13]\, DC_OFFSETI(12) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[12]\, DC_OFFSETI(11) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[11]\, DC_OFFSETI(10) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[10]\, DC_OFFSETI(9) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[9]\, DC_OFFSETI(8) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[8]\, DC_OFFSETI(7) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[7]\, DC_OFFSETI(6) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[6]\, DC_OFFSETI(5) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[5]\, DC_OFFSETI(4) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[4]\, DC_OFFSETI(3) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[3]\, DC_OFFSETI(2) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[2]\, DC_OFFSETI(1) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[1]\, DC_OFFSETI(0) => 
+        \SAMPLE_APB3_0_DC_OFFSETI_[0]\, DC_OFFSETQ(13) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[13]\, DC_OFFSETQ(12) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[12]\, DC_OFFSETQ(11) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[11]\, DC_OFFSETQ(10) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[10]\, DC_OFFSETQ(9) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[9]\, DC_OFFSETQ(8) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[8]\, DC_OFFSETQ(7) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[7]\, DC_OFFSETQ(6) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[6]\, DC_OFFSETQ(5) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[5]\, DC_OFFSETQ(4) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[4]\, DC_OFFSETQ(3) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[3]\, DC_OFFSETQ(2) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[2]\, DC_OFFSETQ(1) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[1]\, DC_OFFSETQ(0) => 
+        \SAMPLE_APB3_0_DC_OFFSETQ_[0]\, SMPL_RDY_IN => 
         DDC_0_I_SMPL_RDY, SMPL_RDY => \SMPL_RDY\);
     
     INV_0 : INV

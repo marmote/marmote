@@ -1,6 +1,13 @@
-screen_refresh_rate = 100; %in frame per secs
+screen_refresh_rate = 10; %in frame per secs
 
 setvariables();
+
+RFFrequency = 432e6; %Hz
+DC_Offset_I = 10;
+DC_Offset_Q = -10;
+DDCFrequency = 200e3; %Hz
+Shift = 3;
+
 
 TS_history = [];
 
@@ -11,24 +18,30 @@ disp('Opening UDP connection');
 
 % Create TCP/IP object 't'. Specify server machine and port number. 
 u = udp('192.168.1.2', 49151);%, 'LocalPort', 49152);
-set(u,'Timeout',10) 
+set(u,'Timeout',0.0005) 
 
-%rec_buff_size = BUFF_LENGTH*BUFF_MULTIPLIER*32/8;
+rec_buff_size = BUFF_LENGTH*BUFF_MULTIPLIER*32/8;
 % Set size of receiving buffer, if needed. 
-%set(t, 'InputBufferSize', 20*rec_buff_size); 
+set(u, 'InputBufferSize', 2*rec_buff_size); 
 
 % Open connection to the server. 
 fopen(u); 
 
 % Pause for the communication delay, if needed. 
-%pause(0.05) 
+%pause(0.05)
 
-fwrite(u, 0, 'uint32');
+fwrite(u, RFFrequency, 'uint32');
+fwrite(u, DC_Offset_I, 'int16');
+fwrite(u, DC_Offset_Q, 'int16');
+fwrite(u, DDCFrequency, 'int32');
+fwrite(u, Shift, 'uint8');
+
+%buffer = [RFFrequency DC_Offset_I DC_Offset_Q DDCFrequency Shift];
+%fwrite(u, buffer, '13*uint8');
+
 
 elapsed_time = 0;
 ticID = tic;
-
-ii = 0;
 
 temp = zeros( 1, BUFF_LENGTH );
 %if TIME_STAMP == 1
@@ -39,6 +52,7 @@ temp = zeros( 1, BUFF_LENGTH );
     accum = zeros( 1, BUFF_LENGTH*(BUFF_MULTIPLIER+1) );
 %end
 accum_length = 0;
+
 % Receive lines of data from server 
 while (1) 
 %    BytesAvailable = get(t, 'BytesAvailable');
@@ -49,42 +63,33 @@ while (1)
     
     temp_length = length(temp);
     
-%    if temp_length < BUFF_LENGTH
+    if temp_length < BUFF_LENGTH
+%        disp('UNDERRUN!');
 %        disp(temp_length);
-%    end
+        
+        continue;
+    end
     
-%    if TIME_STAMP == 1
-%        accum(accum_length+1:accum_length+(temp_length-1)) = temp(2:end)';
-%         accum_length = accum_length + temp_length - 1;
-%         
-%         if accum_length < (BUFF_LENGTH-1)*BUFF_MULTIPLIER
-%             continue;
-%         end
-%         
-%         chunk = accum( 1:(BUFF_LENGTH-1)*BUFF_MULTIPLIER );        
-%     else
-        accum(accum_length+1:accum_length+temp_length) = temp';
-        accum_length = accum_length + temp_length;
+    accum(accum_length+1:accum_length+temp_length) = temp';
+    accum_length = accum_length + temp_length;
 
-        if accum_length < BUFF_LENGTH*BUFF_MULTIPLIER
+    while (accum_length >= BUFF_LENGTH*BUFF_MULTIPLIER)
+        
+        chunk = accum( 1:BUFF_LENGTH*BUFF_MULTIPLIER );
+
+    
+        accum(1:accum_length - BUFF_LENGTH*BUFF_MULTIPLIER) = accum( BUFF_LENGTH*BUFF_MULTIPLIER + 1 : accum_length );
+
+        accum_length = accum_length - BUFF_LENGTH*BUFF_MULTIPLIER;
+    
+        elapsed_time = elapsed_time + toc(ticID);
+        ticID = tic;    
+    
+        if (elapsed_time < 1/screen_refresh_rate)
             continue;
         end
         
-        chunk = accum( 1:BUFF_LENGTH*BUFF_MULTIPLIER );
-%    end
-        
-    accum(1:accum_length - BUFF_LENGTH*BUFF_MULTIPLIER) = accum( BUFF_LENGTH*BUFF_MULTIPLIER + 1 : accum_length );
-
-    accum_length = accum_length - BUFF_LENGTH*BUFF_MULTIPLIER;
-    
-%    chunk = fread(u, BUFF_LENGTH*BUFF_MULTIPLIER, 'uint32');
-
-    [ TS, TS_history, chunk1, chunk2, chunk1fft, chunk2fft, chunkfft ] = processing( TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, Resolution, chunk, TS_history );
-
-    elapsed_time = elapsed_time + toc(ticID);
-    ticID = tic;    
-    
-    if (elapsed_time >= 1/screen_refresh_rate)
+        [ TS, TS_history, chunk1, chunk2, chunk1fft, chunk2fft, chunkfft ] = processing( TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, Resolution, chunk, TS_history );
 
         drawchart(TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, TS, TS_history, Fs, F_offset, Resolution, N, chunk1, chunk2, chunk1fft, chunk2fft, chunkfft);
         

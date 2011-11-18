@@ -49,7 +49,7 @@ void recv_callback(void *arg,
 	while (p && p->len)
 	{
 		receive_callback(p->payload, p->len);
-		p = p->payload;
+		p = p->next;
 	}
 
 //Free buff
