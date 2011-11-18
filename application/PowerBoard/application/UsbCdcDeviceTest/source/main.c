@@ -50,11 +50,6 @@ int main (void) {
   	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
 
 	PowerControl_Init();
-
-	pg = WALL_IsPowerGood();
-	pg = WALL_IsPowerGood();	
-	for (;;) ;
-		 
 	PowerMonitor_Init();
 	
 	// Configure SysTick
