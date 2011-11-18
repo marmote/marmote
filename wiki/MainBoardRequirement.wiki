@@ -50,15 +50,18 @@ Note: The maximum SmartFusion processable sampling rate should be determined pri
 
 = External memory =
  
- * *Volatile*
-  * An external SRAM or DRAM (preferred) memory should be connected to the FPGA's high speed external memory interface
-  * The memory should operate on the SmartFusion 1.5V (preferred) or 3.0V rail
-  * The memory should provide a stand-by and quick wake-up mode
- * *Non-volatile*
-  * An external FLASH memory may be connected to the SmartFusion
-  * The memory should be >2 MB (8 MB preferred)
-  * Simply adding footprint or leaving board-space may be sufficient for Rev A
+*Volatile*
+ * An external SRAM or DRAM (preferred) memory should be connected to the FPGA's high speed external memory interface
+ * The memory should operate on the SmartFusion 1.5V (preferred) or 3.0V rail
+ * The memory should provide a stand-by and quick wake-up mode
+*Non-volatile (optional)*
+ * An external FLASH memory may be connected to the SmartFusion
+ * The memory should be >2 MB (8 MB preferred)
+ * Simply adding footprint or leaving board-space may be sufficient for Rev A
 
 = Connectors =
 
  * External clock sync connector
+ * JTAG connector
+ * Mezzazine connectors
+ * Low-profile RJ-45 connector (optional footprint might suffice)
