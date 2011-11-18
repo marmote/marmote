@@ -16,7 +16,9 @@ entity DDC is
           Q_in          : in    std_logic_vector(13 downto 0);
           DPHASE        : in    std_logic_vector(15 downto 0);
           I_out         : out   std_logic_vector(26 downto 0);
-          Q_out         : out   std_logic_vector(26 downto 0)
+          Q_out         : out   std_logic_vector(26 downto 0);
+          DC_OFFSETI    : in    std_logic_vector(13 downto 0);
+          DC_OFFSETQ    : in    std_logic_vector(13 downto 0)
         );
 
 end DDC;
@@ -89,6 +91,20 @@ architecture DEF_ARCH of DDC is
         \complex_mult_0_Q_0_[5]\, \complex_mult_0_Q_0_[4]\, 
         \complex_mult_0_Q_0_[3]\, \complex_mult_0_Q_0_[2]\, 
         \complex_mult_0_Q_0_[1]\, \complex_mult_0_Q_0_[0]\, 
+        \SimpleAdder_0_C_[13]\, \SimpleAdder_0_C_[12]\, 
+        \SimpleAdder_0_C_[11]\, \SimpleAdder_0_C_[10]\, 
+        \SimpleAdder_0_C_[9]\, \SimpleAdder_0_C_[8]\, 
+        \SimpleAdder_0_C_[7]\, \SimpleAdder_0_C_[6]\, 
+        \SimpleAdder_0_C_[5]\, \SimpleAdder_0_C_[4]\, 
+        \SimpleAdder_0_C_[3]\, \SimpleAdder_0_C_[2]\, 
+        \SimpleAdder_0_C_[1]\, \SimpleAdder_0_C_[0]\, 
+        \SimpleAdder_1_C_[13]\, \SimpleAdder_1_C_[12]\, 
+        \SimpleAdder_1_C_[11]\, \SimpleAdder_1_C_[10]\, 
+        \SimpleAdder_1_C_[9]\, \SimpleAdder_1_C_[8]\, 
+        \SimpleAdder_1_C_[7]\, \SimpleAdder_1_C_[6]\, 
+        \SimpleAdder_1_C_[5]\, \SimpleAdder_1_C_[4]\, 
+        \SimpleAdder_1_C_[3]\, \SimpleAdder_1_C_[2]\, 
+        \SimpleAdder_1_C_[1]\, \SimpleAdder_1_C_[0]\, 
         \sincos_gen_0_COS_OUT_0_[7]\, 
         \sincos_gen_0_COS_OUT_0_[6]\, 
         \sincos_gen_0_COS_OUT_0_[5]\, 
@@ -112,6 +128,52 @@ begin
 
     \VCC\ : VCC
       port map(Y => VCC_net);
+    
+    SimpleAdder_1 : entity work.SimpleAdder
+      port map(CLK => CLK, A(13) => Q_in(13), A(12) => Q_in(12), 
+        A(11) => Q_in(11), A(10) => Q_in(10), A(9) => Q_in(9), 
+        A(8) => Q_in(8), A(7) => Q_in(7), A(6) => Q_in(6), A(5)
+         => Q_in(5), A(4) => Q_in(4), A(3) => Q_in(3), A(2) => 
+        Q_in(2), A(1) => Q_in(1), A(0) => Q_in(0), B(13) => 
+        DC_OFFSETQ(13), B(12) => DC_OFFSETQ(12), B(11) => 
+        DC_OFFSETQ(11), B(10) => DC_OFFSETQ(10), B(9) => 
+        DC_OFFSETQ(9), B(8) => DC_OFFSETQ(8), B(7) => 
+        DC_OFFSETQ(7), B(6) => DC_OFFSETQ(6), B(5) => 
+        DC_OFFSETQ(5), B(4) => DC_OFFSETQ(4), B(3) => 
+        DC_OFFSETQ(3), B(2) => DC_OFFSETQ(2), B(1) => 
+        DC_OFFSETQ(1), B(0) => DC_OFFSETQ(0), C(13) => 
+        \SimpleAdder_1_C_[13]\, C(12) => \SimpleAdder_1_C_[12]\, 
+        C(11) => \SimpleAdder_1_C_[11]\, C(10) => 
+        \SimpleAdder_1_C_[10]\, C(9) => \SimpleAdder_1_C_[9]\, 
+        C(8) => \SimpleAdder_1_C_[8]\, C(7) => 
+        \SimpleAdder_1_C_[7]\, C(6) => \SimpleAdder_1_C_[6]\, 
+        C(5) => \SimpleAdder_1_C_[5]\, C(4) => 
+        \SimpleAdder_1_C_[4]\, C(3) => \SimpleAdder_1_C_[3]\, 
+        C(2) => \SimpleAdder_1_C_[2]\, C(1) => 
+        \SimpleAdder_1_C_[1]\, C(0) => \SimpleAdder_1_C_[0]\);
+    
+    SimpleAdder_0 : entity work.SimpleAdder
+      port map(CLK => CLK, A(13) => I_in(13), A(12) => I_in(12), 
+        A(11) => I_in(11), A(10) => I_in(10), A(9) => I_in(9), 
+        A(8) => I_in(8), A(7) => I_in(7), A(6) => I_in(6), A(5)
+         => I_in(5), A(4) => I_in(4), A(3) => I_in(3), A(2) => 
+        I_in(2), A(1) => I_in(1), A(0) => I_in(0), B(13) => 
+        DC_OFFSETI(13), B(12) => DC_OFFSETI(12), B(11) => 
+        DC_OFFSETI(11), B(10) => DC_OFFSETI(10), B(9) => 
+        DC_OFFSETI(9), B(8) => DC_OFFSETI(8), B(7) => 
+        DC_OFFSETI(7), B(6) => DC_OFFSETI(6), B(5) => 
+        DC_OFFSETI(5), B(4) => DC_OFFSETI(4), B(3) => 
+        DC_OFFSETI(3), B(2) => DC_OFFSETI(2), B(1) => 
+        DC_OFFSETI(1), B(0) => DC_OFFSETI(0), C(13) => 
+        \SimpleAdder_0_C_[13]\, C(12) => \SimpleAdder_0_C_[12]\, 
+        C(11) => \SimpleAdder_0_C_[11]\, C(10) => 
+        \SimpleAdder_0_C_[10]\, C(9) => \SimpleAdder_0_C_[9]\, 
+        C(8) => \SimpleAdder_0_C_[8]\, C(7) => 
+        \SimpleAdder_0_C_[7]\, C(6) => \SimpleAdder_0_C_[6]\, 
+        C(5) => \SimpleAdder_0_C_[5]\, C(4) => 
+        \SimpleAdder_0_C_[4]\, C(3) => \SimpleAdder_0_C_[3]\, 
+        C(2) => \SimpleAdder_0_C_[2]\, C(1) => 
+        \SimpleAdder_0_C_[1]\, C(0) => \SimpleAdder_0_C_[0]\);
     
     CIC_1 : CIC
       port map(CLK => CLK, RST => RST, SMPL_RDY => Q_SMPL_RDY, 
@@ -237,25 +299,33 @@ begin
         \sincos_gen_0_COS_OUT_0_[3]\, I_A(2) => 
         \sincos_gen_0_COS_OUT_0_[2]\, I_A(1) => 
         \sincos_gen_0_COS_OUT_0_[1]\, I_A(0) => 
-        \sincos_gen_0_COS_OUT_0_[0]\, I_B(13) => I_in(13), 
-        I_B(12) => I_in(12), I_B(11) => I_in(11), I_B(10) => 
-        I_in(10), I_B(9) => I_in(9), I_B(8) => I_in(8), I_B(7)
-         => I_in(7), I_B(6) => I_in(6), I_B(5) => I_in(5), I_B(4)
-         => I_in(4), I_B(3) => I_in(3), I_B(2) => I_in(2), I_B(1)
-         => I_in(1), I_B(0) => I_in(0), Q_A(7) => 
-        \sincos_gen_0_SIN_OUT_1_[7]\, Q_A(6) => 
+        \sincos_gen_0_COS_OUT_0_[0]\, I_B(13) => 
+        \SimpleAdder_0_C_[13]\, I_B(12) => \SimpleAdder_0_C_[12]\, 
+        I_B(11) => \SimpleAdder_0_C_[11]\, I_B(10) => 
+        \SimpleAdder_0_C_[10]\, I_B(9) => \SimpleAdder_0_C_[9]\, 
+        I_B(8) => \SimpleAdder_0_C_[8]\, I_B(7) => 
+        \SimpleAdder_0_C_[7]\, I_B(6) => \SimpleAdder_0_C_[6]\, 
+        I_B(5) => \SimpleAdder_0_C_[5]\, I_B(4) => 
+        \SimpleAdder_0_C_[4]\, I_B(3) => \SimpleAdder_0_C_[3]\, 
+        I_B(2) => \SimpleAdder_0_C_[2]\, I_B(1) => 
+        \SimpleAdder_0_C_[1]\, I_B(0) => \SimpleAdder_0_C_[0]\, 
+        Q_A(7) => \sincos_gen_0_SIN_OUT_1_[7]\, Q_A(6) => 
         \sincos_gen_0_SIN_OUT_1_[6]\, Q_A(5) => 
         \sincos_gen_0_SIN_OUT_1_[5]\, Q_A(4) => 
         \sincos_gen_0_SIN_OUT_1_[4]\, Q_A(3) => 
         \sincos_gen_0_SIN_OUT_1_[3]\, Q_A(2) => 
         \sincos_gen_0_SIN_OUT_1_[2]\, Q_A(1) => 
         \sincos_gen_0_SIN_OUT_1_[1]\, Q_A(0) => 
-        \sincos_gen_0_SIN_OUT_1_[0]\, Q_B(13) => Q_in(13), 
-        Q_B(12) => Q_in(12), Q_B(11) => Q_in(11), Q_B(10) => 
-        Q_in(10), Q_B(9) => Q_in(9), Q_B(8) => Q_in(8), Q_B(7)
-         => Q_in(7), Q_B(6) => Q_in(6), Q_B(5) => Q_in(5), Q_B(4)
-         => Q_in(4), Q_B(3) => Q_in(3), Q_B(2) => Q_in(2), Q_B(1)
-         => Q_in(1), Q_B(0) => Q_in(0));
+        \sincos_gen_0_SIN_OUT_1_[0]\, Q_B(13) => 
+        \SimpleAdder_1_C_[13]\, Q_B(12) => \SimpleAdder_1_C_[12]\, 
+        Q_B(11) => \SimpleAdder_1_C_[11]\, Q_B(10) => 
+        \SimpleAdder_1_C_[10]\, Q_B(9) => \SimpleAdder_1_C_[9]\, 
+        Q_B(8) => \SimpleAdder_1_C_[8]\, Q_B(7) => 
+        \SimpleAdder_1_C_[7]\, Q_B(6) => \SimpleAdder_1_C_[6]\, 
+        Q_B(5) => \SimpleAdder_1_C_[5]\, Q_B(4) => 
+        \SimpleAdder_1_C_[4]\, Q_B(3) => \SimpleAdder_1_C_[3]\, 
+        Q_B(2) => \SimpleAdder_1_C_[2]\, Q_B(1) => 
+        \SimpleAdder_1_C_[1]\, Q_B(0) => \SimpleAdder_1_C_[0]\);
     
     CIC_0 : CIC
       port map(CLK => CLK, RST => RST, SMPL_RDY => I_SMPL_RDY, 

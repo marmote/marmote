@@ -53,11 +53,12 @@
 
 #ifdef ADC_ENABLED
 #  define ADC_MEM_ADDRESS_DATA		(0x00+SAMPLE_APB3_0)
-#  define ADC_MEM_ADDRESS_COUNTER	(0x04+SAMPLE_APB3_0)
+//#  define ADC_MEM_ADDRESS_COUNTER	(0x04+SAMPLE_APB3_0)
 #  define ADC_MEM_ADDRESS			ADC_MEM_ADDRESS_DATA
 
 #  define SHIFT_REG					(0x08+SAMPLE_APB3_0)
 #  define DPHASE_REG				(0x0C+SAMPLE_APB3_0)
+#  define DC_OFFSET_REG				(0x10+SAMPLE_APB3_0)
 #endif
 
 #ifdef NETWORKING_ENABLED
@@ -173,12 +174,23 @@ void SetRFFr(uint32_t frequency)
 	RFX400SetFrequency();
 }
 
+
+void SetDCoffset(int16_t DC_offsetI, int16_t DC_offsetQ)
+{
+	uint32_t temp =  (uint16_t) DC_offsetI;
+	temp = temp << 16;
+	temp = temp | (uint16_t) DC_offsetQ;
+
+	*((uint32_t*) DC_OFFSET_REG ) = temp;
+}
+
+
 void SetDDCFr(double frequency)
 {
-	double Fs = 50000000.0;
+	double Fs = 50000000.0/18.0;
 	double phase_bit_width = 65536.0; //2^16
 
-	uint32_t dummy = (uint32_t) ((int16_t) (frequency * phase_bit_width / Fs));
+//	uint32_t dummy = (uint32_t) ((int16_t) (frequency * phase_bit_width / Fs));
 
 	*((uint32_t*) DPHASE_REG ) = (uint32_t) ((int16_t) (frequency * phase_bit_width / Fs));
 }
@@ -235,8 +247,8 @@ void Timer1_IRQHandler( void )
 
 void receive_callback(void* data, u16_t len)
 {
-	static uint8_t buffer[9];
-	static uint8_t counter = 9;
+	static uint8_t buffer[13];
+	static uint8_t counter = 13;
 
 	u16_t i;
 	for (i = 0; i < len; i++)
@@ -246,15 +258,18 @@ void receive_callback(void* data, u16_t len)
 
 		if (counter == 0)
 		{
-			uint32_t RFfrequency = *((uint32_t*) &(buffer[5]));
-			double DDCfrequency = (double) *(((int32_t*) &(buffer[1])));
-			uint8_t shift = buffer[0];
+			uint32_t RFfrequency	=	*((uint32_t*) &(buffer[9]));
+			int16_t DC_offsetI		=	*((int32_t*) &(buffer[7]));
+			int16_t DC_offsetQ		=	*((int32_t*) &(buffer[5]));
+			double DDCfrequency		=	(double) *(((int32_t*) &(buffer[1])));
+			uint8_t shift			=	buffer[0];
 
 			SetRFFr(RFfrequency);
+			SetDCoffset(DC_offsetI, DC_offsetQ);
 			SetDDCFr(DDCfrequency);
 			SetDDCshift(shift);
 
-			counter = 9;
+			counter = 13;
 		}
 	}
 }
@@ -347,7 +362,7 @@ int main()
     // Initialization hardware necessary for millisecond timing
     init_timing();
 
-
+	SetDCoffset(0, 0);
     SetDDCFr(1000);
     SetDDCshift(3);
 

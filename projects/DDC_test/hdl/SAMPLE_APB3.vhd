@@ -40,6 +40,9 @@ entity SAMPLE_APB3 is
         INPUT       : in    std_logic_vector(2*c_APB3_INPUT_WIDTH-1 downto 0);
 --        shift       : in    std_logic_vector(log2_ceil(c_BIT_SHIFT)-1 downto 0);   
         DPHASE      : out   std_logic_vector(15 downto 0);
+        DC_OFFSETI  : out   std_logic_vector(13 downto 0);
+        DC_OFFSETQ  : out   std_logic_vector(13 downto 0);
+
 
         SMPL_RDY_IN : in    std_logic;
 
@@ -69,9 +72,10 @@ architecture Behavioral of SAMPLE_APB3 is
 -- APB3 interface
     -- Addresses
     constant c_ADDR_DATA    : std_logic_vector(7 downto 0) := x"00"; -- Read only
-    constant c_ADDR_COUNTER : std_logic_vector(7 downto 0) := x"04"; -- Read only
+--    constant c_ADDR_COUNTER : std_logic_vector(7 downto 0) := x"04"; -- Read only  -- NO MORE SPACE LEFT :(
     constant c_ADDR_SHIFT   : std_logic_vector(7 downto 0) := x"08"; -- Write only
     constant c_ADDR_DPHASE  : std_logic_vector(7 downto 0) := x"0C"; -- Write only
+    constant c_ADDR_DCOFFset: std_logic_vector(7 downto 0) := x"10"; -- Write only
 
     -- Default values (based on the Matlab simulation results)
     constant c_DEFAULT_DATA      : unsigned(31 downto 0) := x"00000000"; 
@@ -87,8 +91,8 @@ architecture Behavioral of SAMPLE_APB3 is
     signal shift            : unsigned(log2_ceil(c_BIT_SHIFT)-1 downto 0);   
     signal shift_counter    : unsigned(log2_ceil(c_BIT_SHIFT)-1 downto 0);   
     
-    signal test_counter     : unsigned(15 downto 0);  
-    signal test_rev_counter : unsigned(15 downto 0);  
+--    signal test_counter     : unsigned(15 downto 0);  -- NO MORE SPACE LEFT :(
+--    signal test_rev_counter : unsigned(15 downto 0);  -- NO MORE SPACE LEFT :(
 
 begin
 
@@ -116,6 +120,9 @@ begin
                         shift <= unsigned(PWDATA(log2_ceil(c_BIT_SHIFT)-1 downto 0));
                     when c_ADDR_DPHASE =>
                         DPHASE <= PWDATA(15 downto 0);
+                    when c_ADDR_DCOFFset =>
+                        DC_OFFSETQ <= PWDATA(13 downto 0);
+                        DC_OFFSETI <= PWDATA(29 downto 16);
                     when others =>
                         null;
                 end case;
@@ -143,8 +150,8 @@ begin
                     when c_ADDR_DATA =>
                         PRDATA <= samples_out(1) & samples_out(2);
 
-                    when c_ADDR_COUNTER =>
-                        PRDATA <= std_logic_vector(test_counter) & std_logic_vector(test_rev_counter);
+--                    when c_ADDR_COUNTER =>
+--                        PRDATA <= std_logic_vector(test_counter) & std_logic_vector(test_rev_counter);
 
                     when others =>
                         PRDATA <= std_logic_vector(c_WRONGADDRESS_DATA);
@@ -173,8 +180,8 @@ begin
         if PRESETn = '0' then 
             shift_counter <= (others => '0'); 
         
-            test_counter <= (others => '0');
-            test_rev_counter <= (others => '0');
+--            test_counter <= (others => '0');
+--            test_rev_counter <= (others => '0');
 
             SMPL_RDY_signal <= '0';
 
@@ -213,8 +220,8 @@ begin
 
                 shift_counter <= shift;   
 
-                test_counter <= test_counter + 1;
-                test_rev_counter <= test_rev_counter - 1;
+--                test_counter <= test_counter + 1;
+--                test_rev_counter <= test_rev_counter - 1;
 
             end if;
 
