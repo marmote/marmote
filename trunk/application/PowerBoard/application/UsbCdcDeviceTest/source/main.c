@@ -10,10 +10,6 @@ uint8_t CMD_Rx_Length;
 uint8_t CMD_Rx_Valid;
 uint8_t CMD_ParseResult;
 
-uint8_t USB_Tx_Buffer[VIRTUAL_COM_PORT_DATA_SIZE];
-uint8_t USB_Tx_Length;
-uint8_t USB_Tx_Request; 
-
 uint8_t i, j;		  
 uint8_t CMD_ListLength;  		
 
@@ -25,6 +21,7 @@ int main (void) {
 						
 	PowerControl_Init();
 	PowerMonitor_Init();	
+	//LED_Init();
 	USB_FsInit();
 
 	CMD_ListLength = sizeof(CMD_List)/sizeof(CMD_Type);
@@ -63,7 +60,9 @@ int main (void) {
 
 			// Send ACK/NAK
 			if (CMD_ParseResult == 0)
-			{			
+			{		
+				USB_SendMsg("\nACK\n>", 6);	
+				/*
 				USB_Tx_Buffer[0] = 'A';
 				USB_Tx_Buffer[1] = 'C';
 				USB_Tx_Buffer[2] = 'K';
@@ -71,9 +70,12 @@ int main (void) {
 				USB_Tx_Buffer[4] = '>';
 				USB_Tx_Length = 5;
 				USB_Tx_Request = 1;
+				*/
 			}
 			else
-			{			
+			{		
+				USB_SendMsg("\nNAK\n>", 6);	
+				/*
 				USB_Tx_Buffer[0] = 'N';
 				USB_Tx_Buffer[1] = 'A';
 				USB_Tx_Buffer[2] = 'K';
@@ -81,6 +83,7 @@ int main (void) {
 				USB_Tx_Buffer[4] = '>';
 				USB_Tx_Length = 5;
 				USB_Tx_Request = 1;
+				*/
 			}
 
 			// Clean up states

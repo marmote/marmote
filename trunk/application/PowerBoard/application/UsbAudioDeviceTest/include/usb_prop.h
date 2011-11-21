@@ -22,30 +22,30 @@
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
-void Speaker_init(void);
-void Speaker_Reset(void);
-void Speaker_SetConfiguration(void);
-void Speaker_SetDeviceAddress (void);
-void Speaker_Status_In (void);
-void Speaker_Status_Out (void);
-RESULT Speaker_Data_Setup(uint8_t);
-RESULT Speaker_NoData_Setup(uint8_t);
-RESULT Speaker_Get_Interface_Setting(uint8_t Interface, uint8_t AlternateSetting);
-uint8_t *Speaker_GetDeviceDescriptor(uint16_t );
-uint8_t *Speaker_GetConfigDescriptor(uint16_t);
-uint8_t *Speaker_GetStringDescriptor(uint16_t);
+void Microphone_init(void);
+void Microphone_Reset(void);
+void Microphone_SetConfiguration(void);
+void Microphone_SetDeviceAddress (void);
+void Microphone_Status_In (void);
+void Microphone_Status_Out (void);
+RESULT Microphone_Data_Setup(uint8_t);
+RESULT Microphone_NoData_Setup(uint8_t);
+RESULT Microphone_Get_Interface_Setting(uint8_t Interface, uint8_t AlternateSetting);
+uint8_t *Microphone_GetDeviceDescriptor(uint16_t );
+uint8_t *Microphone_GetConfigDescriptor(uint16_t);
+uint8_t *Microphone_GetStringDescriptor(uint16_t);
 uint8_t *Mute_Command(uint16_t Length);
 
 /* Exported define -----------------------------------------------------------*/
-#define Speaker_GetConfiguration          NOP_Process
-//#define Speaker_SetConfiguration          NOP_Process
-#define Speaker_GetInterface              NOP_Process
-#define Speaker_SetInterface              NOP_Process
-#define Speaker_GetStatus                 NOP_Process
-#define Speaker_ClearFeature              NOP_Process
-#define Speaker_SetEndPointFeature        NOP_Process
-#define Speaker_SetDeviceFeature          NOP_Process
-//#define Speaker_SetDeviceAddress          NOP_Process
+#define Microphone_GetConfiguration          NOP_Process
+//#define Microphone_SetConfiguration          NOP_Process
+#define Microphone_GetInterface              NOP_Process
+#define Microphone_SetInterface              NOP_Process
+#define Microphone_GetStatus                 NOP_Process
+#define Microphone_ClearFeature              NOP_Process
+#define Microphone_SetEndPointFeature        NOP_Process
+#define Microphone_SetDeviceFeature          NOP_Process
+//#define Microphone_SetDeviceAddress          NOP_Process
 #define GET_CUR                           0x81
 #define SET_CUR                           0x01
 

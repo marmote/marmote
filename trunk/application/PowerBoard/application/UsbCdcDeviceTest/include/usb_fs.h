@@ -32,6 +32,11 @@
 #define USB_USBDP_GPIO_PORT    	GPIOA
 #define USB_USBDP_GPIO_CLK    	RCC_APB2Periph_GPIOA
 
+static uint8_t USB_Tx_Buffer[VIRTUAL_COM_PORT_DATA_SIZE];
+static uint8_t* USB_Tx_Ptr = USB_Tx_Buffer;
+static uint8_t USB_Tx_Length;
+//uint8_t USB_Tx_Request; 
+
 /* Exported functions ------------------------------------------------------- */
 //void Set_System(void);
 static void Set_USBClock(void);
@@ -42,6 +47,10 @@ void Get_SerialNum(void);
 
 void USB_FsInit(void); // USB_Init() is reserved by STM USB library
 void USB_SoftReset(void);
+
+uint8_t USB_SendMsg(char* msg, uint8_t length);
+uint8_t USB_GetTxLength(void);
+uint8_t* USB_GetTxBuffer(void);
 
 /* External variables --------------------------------------------------------*/
 

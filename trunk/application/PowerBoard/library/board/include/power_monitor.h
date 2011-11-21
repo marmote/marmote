@@ -54,8 +54,7 @@
 #include "usb_desc.h"
 #include "stdio.h"
 #include "string.h"
-//extern uint8_t USB_Tx_Buffer[VIRTUAL_COM_PORT_DATA_SIZE];
-//extern uint8_t USB_Tx_Length;
+#include "usb_fs.h"
 // For USB logger demo only - END
 
 

@@ -521,6 +521,21 @@
               <FileType>1</FileType>
               <FilePath>..\..\library\peripheral\source\stm32f10x_rcc.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32f10x_i2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\library\peripheral\source\stm32f10x_i2c.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f10x_tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\library\peripheral\source\stm32f10x_tim.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f10x_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\library\peripheral\source\stm32f10x_spi.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
