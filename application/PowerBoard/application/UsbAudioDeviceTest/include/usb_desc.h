@@ -23,14 +23,14 @@
 /* Exported macro ------------------------------------------------------------*/
 /* Exported define -----------------------------------------------------------*/
 
-#define SPEAKER_SIZ_DEVICE_DESC                       18
-#define SPEAKER_SIZ_CONFIG_DESC                       109
-#define SPEAKER_SIZ_INTERFACE_DESC_SIZE               9
+#define MICROPHONE_SIZ_DEVICE_DESC                       18
+#define MICROPHONE_SIZ_CONFIG_DESC                       111
+#define MICROPHONE_SIZ_INTERFACE_DESC_SIZE               9
 
-#define SPEAKER_SIZ_STRING_LANGID                     0x04
-#define SPEAKER_SIZ_STRING_VENDOR                     0x26
-#define SPEAKER_SIZ_STRING_PRODUCT                    0x1C
-#define SPEAKER_SIZ_STRING_SERIAL                     0x1A
+#define MICROPHONE_SIZ_STRING_LANGID                     0x04
+#define MICROPHONE_SIZ_STRING_VENDOR                     0x26
+#define MICROPHONE_SIZ_STRING_PRODUCT                    0x1E
+#define MICROPHONE_SIZ_STRING_SERIAL                     0x1A
 
 #define AUDIO_STANDARD_ENDPOINT_DESC_SIZE             0x09
 #define AUDIO_STREAMING_ENDPOINT_DESC_SIZE            0x07
@@ -71,12 +71,12 @@
 #define AUDIO_ENDPOINT_GENERAL                        0x01
 
 /* Exported functions ------------------------------------------------------- */
-extern const uint8_t Speaker_DeviceDescriptor[SPEAKER_SIZ_DEVICE_DESC];
-extern const uint8_t Speaker_ConfigDescriptor[SPEAKER_SIZ_CONFIG_DESC];
-extern const uint8_t Speaker_StringLangID[SPEAKER_SIZ_STRING_LANGID];
-extern const uint8_t Speaker_StringVendor[SPEAKER_SIZ_STRING_VENDOR];
-extern const uint8_t Speaker_StringProduct[SPEAKER_SIZ_STRING_PRODUCT];
-extern uint8_t Speaker_StringSerial[SPEAKER_SIZ_STRING_SERIAL];
+extern const uint8_t Microphone_DeviceDescriptor[MICROPHONE_SIZ_DEVICE_DESC];
+extern const uint8_t Microphone_ConfigDescriptor[MICROPHONE_SIZ_CONFIG_DESC];
+extern const uint8_t Microphone_StringLangID[MICROPHONE_SIZ_STRING_LANGID];
+extern const uint8_t Microphone_StringVendor[MICROPHONE_SIZ_STRING_VENDOR];
+extern const uint8_t Microphone_StringProduct[MICROPHONE_SIZ_STRING_PRODUCT];
+extern uint8_t Microphone_StringSerial[MICROPHONE_SIZ_STRING_SERIAL];
 
 #endif /* __USB_DESC_H */
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/

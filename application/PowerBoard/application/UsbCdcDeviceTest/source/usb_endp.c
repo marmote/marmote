@@ -32,11 +32,11 @@
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 extern uint8_t USB_Tx_Buffer[VIRTUAL_COM_PORT_DATA_SIZE];
-static uint8_t* USB_Tx_Ptr;
-extern uint8_t USB_Tx_Length;
+//static uint8_t* USB_Tx_Ptr;
+//extern uint8_t USB_Tx_Length;
 
 static uint8_t USB_Rx_Buffer[VIRTUAL_COM_PORT_DATA_SIZE];
-static uint8_t* USB_Rx_Ptr;
+//static uint8_t* USB_Rx_Ptr;
 static uint8_t USB_Rx_Length;
 
 extern uint8_t USB_Tx_Request;
@@ -56,7 +56,8 @@ extern uint8_t CMD_Rx_Valid;
 * Return         : None.
 *******************************************************************************/
 void EP1_IN_Callback (void)
-{
+{	 
+	/*
 	if (USB_Tx_Request == 1)
 	{	
 		//USB_SIL_Write(EP1_IN, USB_Tx_Buffer, USB_Tx_Length); 
@@ -67,6 +68,7 @@ void EP1_IN_Callback (void)
 
 		USB_Tx_Request = 0;
 	}
+	*/
 }
 
 /*******************************************************************************

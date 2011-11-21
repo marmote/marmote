@@ -102,13 +102,25 @@ void Leave_LowPowerMode(void)
 
 /*******************************************************************************
 * Function Name  : Handle_USBAsynchXfer.
-* Description    : send data to USB.
+* Description    : Send character data to USB through CDC.
 * Input          : None.
 * Return         : none.
 *******************************************************************************/
 void Handle_USBAsynchXfer (void)
 {
-  
+	uint8_t length;
+	
+	length = USB_GetTxLength();
+
+	if (length > 0)
+	{
+		UserToPMABufferCopy(USB_GetTxBuffer(), ENDP1_TXADDR, length);
+    	SetEPTxCount(ENDP1, length);
+    	SetEPTxValid(ENDP1);
+	}
+
+ 
+
     /*
   uint16_t USB_Tx_ptr;
   uint16_t USB_Tx_length;
@@ -184,5 +196,40 @@ void USB_SoftReset()
 	GPIO_Init(USB_USBDP_GPIO_PORT, &GPIO_InitStructure);
 }
 
+
+uint8_t USB_SendMsg(char* msg, uint8_t length)
+{
+    uint8_t i;
+
+    if (USB_Tx_Length + length > VIRTUAL_COM_PORT_DATA_SIZE)
+    {
+        return 1; // FAILURE
+    }
+
+    for (i = 0; i < length; i++)
+    {
+        *USB_Tx_Ptr = *(msg+i);
+        USB_Tx_Ptr++;
+    }
+
+    USB_Tx_Length += length;
+    return 0; // SUCCESS
+}
+
+uint8_t USB_GetTxLength()
+{
+    return USB_Tx_Length;
+}
+
+// Assume that the entier buffer can be taken at once
+uint8_t* USB_GetTxBuffer()
+{
+    //uint8_t* ret = USB_Tx_Ptr;
+
+    USB_Tx_Ptr = USB_Tx_Buffer; // ((USB_Tx_Ptr - USB_Tx_Buffer + USB_Tx_Length) % USB_TX_BUFFER_LENGTH_MAX) + USB_Tx_Buffer;
+    USB_Tx_Length = 0;
+
+    return USB_Tx_Ptr;
+}
 
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/

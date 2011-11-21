@@ -41,12 +41,14 @@
 #include "power_board.h"
 
 volatile uint32_t msTicks;                       /* timeTicks counter */
+uint32_t ctr;
 
 void SysTick_Handler(void) {
 	msTicks++;                                     /* increment timeTicks counter */
 	if (msTicks % 200 == 0)
 	{
 		LED_Toggle(LED1);
+		ctr++;
 	}
 }
 

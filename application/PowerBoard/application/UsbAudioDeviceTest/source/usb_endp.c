@@ -17,6 +17,8 @@
 #include "usb_lib.h"
 #include "usb_istr.h"
 
+#include "power_board.h"
+
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
@@ -35,24 +37,30 @@ uint16_t In_Data_Offset;
 * Output         : None.
 * Return         : None.
 *******************************************************************************/
-void EP1_OUT_Callback(void)
+void EP1_IN_Callback(void)
 {
   uint16_t Data_Len;       /* data length*/
   
-  if (GetENDPOINT(ENDP1) & EP_DTOG_TX)
+  LED_On(LED2);
+
+  while (1)
   {
-    /*read from ENDP1_BUF0Addr buffer*/
-    Data_Len = GetEPDblBuf0Count(ENDP1);
-    PMAToUserBufferCopy(Stream_Buff, ENDP1_BUF0Addr, Data_Len);
   }
-  else
-  {
-    /*read from ENDP1_BUF1Addr buffer*/
-    Data_Len = GetEPDblBuf1Count(ENDP1);
-    PMAToUserBufferCopy(Stream_Buff, ENDP1_BUF1Addr, Data_Len);
-  }
-  FreeUserBuffer(ENDP1, EP_DBUF_OUT);
-  In_Data_Offset += Data_Len;
+  // FIXME correct the lines below
+//  if (GetENDPOINT(ENDP1) & EP_DTOG_TX)
+//  {
+//    /*read from ENDP1_BUF0Addr buffer*/
+//    Data_Len = GetEPDblBuf0Count(ENDP1);
+//    PMAToUserBufferCopy(Stream_Buff, ENDP1_BUF0Addr, Data_Len);
+//  }
+//  else
+//  {
+//    /*read from ENDP1_BUF1Addr buffer*/
+//    Data_Len = GetEPDblBuf1Count(ENDP1);
+//    PMAToUserBufferCopy(Stream_Buff, ENDP1_BUF1Addr, Data_Len);
+//  }
+//  FreeUserBuffer(ENDP1, EP_DBUF_OUT);
+//  In_Data_Offset += Data_Len;
 }
 
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/

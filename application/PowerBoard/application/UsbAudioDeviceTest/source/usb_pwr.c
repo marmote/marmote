@@ -53,24 +53,21 @@ ResumeS;
 *******************************************************************************/
 RESULT PowerOn(void)
 {
-//  uint16_t wRegVal;
-//
-//  /*** cable plugged-in ? ***/
-//  USB_Cable_Config(ENABLE);
-//
-//  /*** CNTR_PWDN = 0 ***/
-//  wRegVal = CNTR_FRES;
-//  _SetCNTR(wRegVal);
-//
-//  /*** CNTR_FRES = 0 ***/
-//  wInterrupt_Mask = 0;
-//  _SetCNTR(wInterrupt_Mask);
-//  /*** Clear pending interrupts ***/
-//  _SetISTR(0);
-//  /*** Set interrupt mask ***/
-//  wInterrupt_Mask = CNTR_RESETM | CNTR_SUSPM | CNTR_WKUPM;
-//  _SetCNTR(wInterrupt_Mask);
-//
+  uint16_t wRegVal;
+
+  /*** CNTR_PWDN = 0 ***/
+  wRegVal = CNTR_FRES;
+  _SetCNTR(wRegVal);
+
+  /*** CNTR_FRES = 0 ***/
+  wInterrupt_Mask = 0;
+  _SetCNTR(wInterrupt_Mask);
+  /*** Clear pending interrupts ***/
+  _SetISTR(0);
+  /*** Set interrupt mask ***/
+  wInterrupt_Mask = CNTR_RESETM | CNTR_SUSPM | CNTR_WKUPM;
+  _SetCNTR(wInterrupt_Mask);
+
   return USB_SUCCESS;
 }
 

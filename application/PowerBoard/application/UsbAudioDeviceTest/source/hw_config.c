@@ -68,7 +68,7 @@ void USB_FsInit()
 	NVIC_InitTypeDef NVIC_InitStructure;
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
 
-	USB_SoftReset();
+	//USB_SoftReset();
 
   	// Select USBCLK source
   	RCC_USBCLKConfig(RCC_USBCLKSource_PLLCLK_1Div5);
@@ -111,7 +111,7 @@ void USB_SoftReset()
 
 	// Pull down USBDP for 50 ms
 	USB_USBDP_GPIO_PORT->BRR = USB_USBDP_PIN;
-	Delay(50);
+	Delay(10);
 
 	// Release USBDP
 	USB_USBDP_GPIO_PORT->BSRR = USB_USBDP_PIN;
@@ -199,12 +199,12 @@ void Audio_Config(void)
 }
 
 /*******************************************************************************
-* Function Name  : Speaker_Timer_Config
+* Function Name  : Microphone_Timer_Config
 * Description    : Configure and enable the timer
 * Input          : None.
 * Return         : None.
 *******************************************************************************/
-void Speaker_Config(void)
+void Microphone_Config(void)
 {
 #ifdef USE_STM32L152_EVAL  
   DAC_InitTypeDef     DAC_InitStructure;
@@ -340,8 +340,8 @@ void Get_SerialNum(void)
 
   if (Device_Serial0 != 0)
   {
-    IntToUnicode (Device_Serial0, &Speaker_StringSerial[2] , 8);
-    IntToUnicode (Device_Serial1, &Speaker_StringSerial[18], 4);
+    IntToUnicode (Device_Serial0, &Microphone_StringSerial[2] , 8);
+    IntToUnicode (Device_Serial1, &Microphone_StringSerial[18], 4);
   }
 }
 

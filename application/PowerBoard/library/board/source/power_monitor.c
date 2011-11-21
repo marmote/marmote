@@ -165,7 +165,7 @@ void Logger_Init(void)
 	// Initialize peripheral
 	TIM_InitStructure.TIM_Prescaler	= 7200; // 100 us at 72 MHz SysClk
 	TIM_InitStructure.TIM_CounterMode = TIM_CounterMode_Down;
-	TIM_InitStructure.TIM_Period = 10000;
+	TIM_InitStructure.TIM_Period = 20000;
 	TIM_InitStructure.TIM_ClockDivision = TIM_CKD_DIV2;
 	TIM_InitStructure.TIM_RepetitionCounter = 0;
 	TIM_TimeBaseInit(TIM2, &TIM_InitStructure);					   
@@ -181,71 +181,65 @@ void Logger_Init(void)
 }
 
 //static uint16_t ctr;
+static char lineBuffer[64];
 
-//void TIM2_IRQHandler(void)
-//{
-//    /*
-//	uint32_t volt;
-//    uint32_t temp;
-//	*/
-//	
-//	if (TIM_GetITStatus(TIM2, TIM_IT_Update) == SET)
-//	{
-//		LED_Toggle(LED1);
-//
-//		/*
-//
-//		SD_SPI_SendData(ctr++);
-//
-//        // TODO: Time critical part of logging here
-//        
-//        // For now, just log battery voltage and temperature through USB
-//        // NOTE: the current implementation is sub-optimal for an ISR
-//        BAT_WriteRegister(BAT_CONTROL, 0xB8);
-//        // U = 6V * volt / 0xFFFF
-//        volt = BAT_ReadRegister(BAT_VOLTAGE_MSB);
-//
-//
-//        BAT_WriteRegister(BAT_CONTROL, 0x78);
-//        // T = 600K * temp / 0xFFFF
-//        temp = BAT_ReadRegister(BAT_TEMPERATURE_MSB);
-//
-//		
-//		sprintf((char*)&USB_Tx_Buffer[0], "%5.2f V \t%5.1f C\r\n",
-//                (float)volt * 6 / (float)0xFFFF,
-//                ((float)temp * 600 / (float)0xFFFF) - (float)273.15);
-//
-//        USB_Tx_Length = strlen((char*)USB_Tx_Buffer);
-//		*/
-//        
-//        /*
-//		USB_Tx_Buffer[0] = 'x';
-//		USB_Tx_Buffer[1] = 'x';
-//		USB_Tx_Buffer[2] = '.';
-//		USB_Tx_Buffer[3] = 'y';
-//		USB_Tx_Buffer[4] = 'y';
-//		USB_Tx_Buffer[5] = ' ';
-//		USB_Tx_Buffer[6] = 'V';
-//		USB_Tx_Buffer[7] = '\r';
-//		USB_Tx_Length = 8;
-//        */
-//		
-//		/*		
-//		UserToPMABufferCopy(USB_Tx_Buffer, ENDP1_TXADDR, USB_Tx_Length);
-//		SetEPTxCount(ENDP1, USB_Tx_Length);
-//		SetEPTxValid(ENDP1);
-//		*/
-//
-//		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
-//	}
-//	else
-//	{
-//		LED_On(LED2);
-//		while(1);
-//	}
-//}
-//
-//
+void TIM2_IRQHandler(void)
+{
+	uint32_t volt;
+    uint32_t temp;
+	
+	if (TIM_GetITStatus(TIM2, TIM_IT_Update) == SET)
+	{
+		LED_Toggle(LED1);
+
+		//SD_SPI_SendData(ctr++);
+
+        // For now, just log battery voltage and temperature through USB
+        // NOTE: the current implementation is sub-optimal for an ISR
+        BAT_WriteRegister(BAT_CONTROL, 0xB8);
+        // U = 6V * volt / 0xFFFF
+        volt = BAT_ReadRegister(BAT_VOLTAGE_MSB);
+
+
+        BAT_WriteRegister(BAT_CONTROL, 0x78);
+        // T = 600K * temp / 0xFFFF
+        temp = BAT_ReadRegister(BAT_TEMPERATURE_MSB);
+
+		
+		sprintf((char*)&lineBuffer[0], "%5.2f V \t%5.1f C\r\n",
+                (float)volt * 6 / (float)0xFFFF,
+                ((float)temp * 600 / (float)0xFFFF) - (float)273.15);
+
+		USB_SendMsg(lineBuffer, strlen((char*)lineBuffer));
+
+		/*
+		USB_Tx_Buffer[0] = 'x';
+		USB_Tx_Buffer[1] = 'x';
+		USB_Tx_Buffer[2] = '.';
+		USB_Tx_Buffer[3] = 'y';
+		USB_Tx_Buffer[4] = 'y';
+		USB_Tx_Buffer[5] = ' ';
+		USB_Tx_Buffer[6] = 'V';
+		USB_Tx_Buffer[7] = '\r';
+		USB_Tx_Length = 8;
+        */
+		
+		/*		
+		UserToPMABufferCopy(USB_Tx_Buffer, ENDP1_TXADDR, USB_Tx_Length);
+		SetEPTxCount(ENDP1, USB_Tx_Length);
+		SetEPTxValid(ENDP1);
+		*/
+
+		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
+	}
+	else
+	{
+		LED_On(LED2);
+		while(1);
+	}
+}
+
+
 
 /*-------------------------------------------------------------------------*/
 /*                              BATTERY GAUGE                              */
