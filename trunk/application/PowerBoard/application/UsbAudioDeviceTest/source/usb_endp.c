@@ -39,7 +39,7 @@ uint16_t In_Data_Offset;
 *******************************************************************************/
 void EP1_IN_Callback(void)
 {
-  uint16_t Data_Len;       /* data length*/
+//  uint16_t Data_Len;       /* data length*/
   
   LED_On(LED2);
 

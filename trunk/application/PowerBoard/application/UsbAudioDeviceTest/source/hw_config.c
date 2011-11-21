@@ -68,7 +68,7 @@ void USB_FsInit()
 	NVIC_InitTypeDef NVIC_InitStructure;
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
 
-	//USB_SoftReset();
+	USB_SoftReset();
 
   	// Select USBCLK source
   	RCC_USBCLKConfig(RCC_USBCLKSource_PLLCLK_1Div5);
@@ -302,15 +302,6 @@ void Microphone_Config(void)
 
   /* Enable TIM2 update interrupt */
   TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);
-#else
-  /* Configure the initialization parameters */
-  /*
-  I2S_GPIO_Config();
-  I2S_Config(I2S_Standard_Phillips, I2S_MCLKOutput_Enable, I2S_AudioFreq_22k);
-  CODEC_Config(OutputDevice_SPEAKER, I2S_Standard_Phillips, I2S_MCLKOutput_Enable, 0x08);
-  SPI_I2S_ITConfig(SPI2, SPI_I2S_IT_TXE, ENABLE);
-  */
-#endif
 
 }
 
