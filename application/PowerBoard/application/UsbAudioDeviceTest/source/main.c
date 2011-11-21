@@ -29,11 +29,11 @@
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 /* Extern variables ----------------------------------------------------------*/
-extern uint32_t MUTE_DATA;
-extern uint16_t In_Data_Offset;
-extern uint16_t Out_Data_Offset;
-extern uint8_t Stream_Buff[24];
-extern uint8_t IT_Clock_Sent;
+//extern uint32_t MUTE_DATA;
+//extern uint16_t In_Data_Offset;
+//extern uint16_t Out_Data_Offset;
+//extern uint8_t Stream_Buff[24];
+//extern uint8_t IT_Clock_Sent;
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 /*******************************************************************************
@@ -75,7 +75,7 @@ int main(void)
 * Output         : None
 * Return         : None
 *******************************************************************************/
-void assert_failed(uint8_t* file, uint32_t line)
+void assert_failed(uint8_t* file, uint3 2_t line)
 {
   /* User can add his own implementation to report the file name and line number,
      ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */

@@ -32,43 +32,44 @@
 #define MICROPHONE_SIZ_STRING_PRODUCT                    0x1E
 #define MICROPHONE_SIZ_STRING_SERIAL                     0x1A
 
-#define AUDIO_STANDARD_ENDPOINT_DESC_SIZE             0x09
-#define AUDIO_STREAMING_ENDPOINT_DESC_SIZE            0x07
-/* USB Descriptor Types */
-#define USB_DEVICE_DESCRIPTOR_TYPE                    0x01
-#define USB_CONFIGURATION_DESCRIPTOR_TYPE             0x02
-#define USB_STRING_DESCRIPTOR_TYPE                    0x03
-#define USB_INTERFACE_DESCRIPTOR_TYPE                 0x04
-#define USB_ENDPOINT_DESCRIPTOR_TYPE                  0x05
 
-#define USB_DEVICE_CLASS_AUDIO                        0x01
-#define AUDIO_SUBCLASS_AUDIOCONTROL                   0x01
-#define AUDIO_SUBCLASS_AUDIOSTREAMING                 0x02
-#define AUDIO_PROTOCOL_UNDEFINED                      0x00
-#define AUDIO_STREAMING_GENERAL                       0x01
-#define AUDIO_STREAMING_FORMAT_TYPE                   0x02
-
-/* Audio Descriptor Types */
-#define AUDIO_INTERFACE_DESCRIPTOR_TYPE               0x24
-#define AUDIO_ENDPOINT_DESCRIPTOR_TYPE                0x25
-
-
-/* Audio Control Interface Descriptor Subtypes */
-#define AUDIO_CONTROL_HEADER                          0x01
-#define AUDIO_CONTROL_INPUT_TERMINAL                  0x02
-#define AUDIO_CONTROL_OUTPUT_TERMINAL                 0x03
-#define AUDIO_CONTROL_FEATURE_UNIT                    0x06
-
-#define AUDIO_INPUT_TERMINAL_DESC_SIZE                0x0C
-#define AUDIO_OUTPUT_TERMINAL_DESC_SIZE               0x09
-#define AUDIO_STREAMING_INTERFACE_DESC_SIZE           0x07
-
-#define AUDIO_CONTROL_MUTE                            0x0001
-
-#define AUDIO_FORMAT_TYPE_I                           0x01
-
-#define USB_ENDPOINT_TYPE_ISOCHRONOUS                 0x01
-#define AUDIO_ENDPOINT_GENERAL                        0x01
+//#define AUDIO_STANDARD_ENDPOINT_DESC_SIZE             0x09
+//#define AUDIO_STREAMING_ENDPOINT_DESC_SIZE            0x07
+///* USB Descriptor Types */
+//#define USB_DEVICE_DESCRIPTOR_TYPE                    0x01
+//#define USB_CONFIGURATION_DESCRIPTOR_TYPE             0x02
+//#define USB_STRING_DESCRIPTOR_TYPE                    0x03
+//#define USB_INTERFACE_DESCRIPTOR_TYPE                 0x04
+//#define USB_ENDPOINT_DESCRIPTOR_TYPE                  0x05
+//
+//#define USB_DEVICE_CLASS_AUDIO                        0x01
+//#define AUDIO_SUBCLASS_AUDIOCONTROL                   0x01
+//#define AUDIO_SUBCLASS_AUDIOSTREAMING                 0x02
+//#define AUDIO_PROTOCOL_UNDEFINED                      0x00
+//#define AUDIO_STREAMING_GENERAL                       0x01
+//#define AUDIO_STREAMING_FORMAT_TYPE                   0x02
+//
+///* Audio Descriptor Types */
+//#define AUDIO_INTERFACE_DESCRIPTOR_TYPE               0x24
+//#define AUDIO_ENDPOINT_DESCRIPTOR_TYPE                0x25
+//
+//
+///* Audio Control Interface Descriptor Subtypes */
+//#define AUDIO_CONTROL_HEADER                          0x01
+//#define AUDIO_CONTROL_INPUT_TERMINAL                  0x02
+//#define AUDIO_CONTROL_OUTPUT_TERMINAL                 0x03
+//#define AUDIO_CONTROL_FEATURE_UNIT                    0x06
+//
+//#define AUDIO_INPUT_TERMINAL_DESC_SIZE                0x0C
+//#define AUDIO_OUTPUT_TERMINAL_DESC_SIZE               0x09
+//#define AUDIO_STREAMING_INTERFACE_DESC_SIZE           0x07
+//
+//#define AUDIO_CONTROL_MUTE                            0x0001
+//
+//#define AUDIO_FORMAT_TYPE_I                           0x01
+//
+//#define USB_ENDPOINT_TYPE_ISOCHRONOUS                 0x01
+//#define AUDIO_ENDPOINT_GENERAL                        0x01
 
 /* Exported functions ------------------------------------------------------- */
 extern const uint8_t Microphone_DeviceDescriptor[MICROPHONE_SIZ_DEVICE_DESC];
