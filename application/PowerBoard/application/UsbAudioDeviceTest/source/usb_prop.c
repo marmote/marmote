@@ -26,7 +26,7 @@
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-//uint32_t MUTE_DATA = 0;
+uint32_t MUTE_DATA = 0;
 
 DEVICE Device_Table =
   {
@@ -218,26 +218,24 @@ void Microphone_Status_Out (void)
 *******************************************************************************/
 RESULT Microphone_Data_Setup(uint8_t RequestNo)
 {
-	// !!!
-	/*(
-  uint8_t *(*CopyRoutine)(uint16_t);
-  CopyRoutine = NULL;
+	uint8_t *(*CopyRoutine)(uint16_t);
+  	CopyRoutine = NULL;
 
-  if ((RequestNo == GET_CUR) || (RequestNo == SET_CUR))
-  {
-    CopyRoutine = Mute_Command;
-  }
+  	if ((RequestNo == GET_CUR) || (RequestNo == SET_CUR))
+  	{
+    	CopyRoutine = Mute_Command;
+  	}
 
-  else
-  {
-    return USB_UNSUPPORT;
-  }
+  	else
+  	{
+    	return USB_UNSUPPORT;
+  	}
 
-  pInformation->Ctrl_Info.CopyData = CopyRoutine;
-  pInformation->Ctrl_Info.Usb_wOffset = 0;
-  (*CopyRoutine)(0);
-  */
-  return USB_SUCCESS;
+  	pInformation->Ctrl_Info.CopyData = CopyRoutine;
+  	pInformation->Ctrl_Info.Usb_wOffset = 0;
+  	(*CopyRoutine)(0);
+  
+  	return USB_SUCCESS;
 }
 
 /*******************************************************************************
@@ -326,7 +324,7 @@ RESULT Microphone_Get_Interface_Setting(uint8_t Interface, uint8_t AlternateSett
 * Output         : None.
 * Return         : The address of the string descriptors.
 *******************************************************************************/
-/*
+
 uint8_t *Mute_Command(uint16_t Length)
 {
 
@@ -340,6 +338,6 @@ uint8_t *Mute_Command(uint16_t Length)
     return((uint8_t*)(&MUTE_DATA));
   }
 }
-*/
+
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/
 

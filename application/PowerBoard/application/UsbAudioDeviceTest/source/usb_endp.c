@@ -23,8 +23,10 @@
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
+//uint16_t Stream_Buff[48];
+uint16_t Stream_Buff[] = { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0} ;
+//static uint16_t ctr;
 /*
-uint8_t Stream_Buff[24];
 uint16_t In_Data_Offset;
 */
 
@@ -41,28 +43,35 @@ uint16_t In_Data_Offset;
 *******************************************************************************/
 void EP1_IN_Callback(void)
 {
-//  uint16_t Data_Len;       /* data length*/
-  
-  LED_On(LED2);
+    //uint8_t i;
 
-  while (1)
-  {
-  }
-  // FIXME correct the lines below
-//  if (GetENDPOINT(ENDP1) & EP_DTOG_TX)
-//  {
-//    /*read from ENDP1_BUF0Addr buffer*/
-//    Data_Len = GetEPDblBuf0Count(ENDP1);
-//    PMAToUserBufferCopy(Stream_Buff, ENDP1_BUF0Addr, Data_Len);
-//  }
-//  else
-//  {
-//    /*read from ENDP1_BUF1Addr buffer*/
-//    Data_Len = GetEPDblBuf1Count(ENDP1);
-//    PMAToUserBufferCopy(Stream_Buff, ENDP1_BUF1Addr, Data_Len);
-//  }
-//  FreeUserBuffer(ENDP1, EP_DBUF_OUT);
-//  In_Data_Offset += Data_Len;
+    uint16_t Data_Len;       /* data length*/
+    Data_Len = 20;
+    //ctr = 3;
+
+    //for (i = 0 ; i < Data_Len ; i++)
+    //{
+    //    Stream_Buff[i] = ctr;
+    //}
+
+    //ctr++;
+    //ctr %= 500;
+
+    LED_Toggle(LED2);
+
+    if (GetENDPOINT(ENDP1) & EP_DTOG_TX)
+    {
+        // Write to ENDP1_BUF0Addr buffer
+        UserToPMABufferCopy((uint8_t*)Stream_Buff, ENDP1_BUF0Addr, Data_Len);
+    }
+    else
+    {
+        // Write to ENDP1_BUF1Addr buffer
+        //Data_Len = GetEPDblBuf1Count(ENDP1);
+        UserToPMABufferCopy((uint8_t*)Stream_Buff, ENDP1_BUF1Addr, Data_Len);
+    }
+    
+    FreeUserBuffer(ENDP1, EP_DBUF_OUT);
 }
 
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/
