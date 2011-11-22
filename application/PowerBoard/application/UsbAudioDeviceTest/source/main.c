@@ -60,10 +60,10 @@ int main(void)
 	PowerControl_Init();
 	LED_Init();
 	//PowerMonitor_Init();
-  //Speaker_Config();
-  while (1)
-  {
-  }
+    //Speaker_Config();
+    while (1)
+    {
+    }
 }
 
 #ifdef  USE_FULL_ASSERT

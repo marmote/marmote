@@ -54,7 +54,7 @@
 #include "usb_desc.h"
 #include "stdio.h"
 #include "string.h"
-#include "usb_fs.h"
+//#include "usb_fs.h"
 // For USB logger demo only - END
 
 
