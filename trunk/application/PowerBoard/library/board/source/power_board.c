@@ -45,7 +45,7 @@ uint32_t ctr;
 
 void SysTick_Handler(void) {
 	msTicks++;                                     /* increment timeTicks counter */
-	if (msTicks % 200 == 0)
+	if (msTicks % 500 == 0)
 	{
 		LED_Toggle(LED1);
 		ctr++;

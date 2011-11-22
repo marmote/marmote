@@ -157,8 +157,11 @@ const uint8_t Microphone_ConfigDescriptor[] =
 /*  bSubframeSize                          */ 0x02u,
 /*  bBitResolution                         */ 0x10u,
 /*  bSamFreqType                           */ 0x01u,
-///*  tSamFreq                               */ 0x00u, 0x77u, 0x01u, // !
-/*  tSamFreq: 48,000 Hz                    */ 0x80u, 0xBBu, 0x00u,
+///*  tSamFreq: 96,000 Hz                    */ 0x00u, 0x77u, 0x01u, // !
+///*  tSamFreq: 48,000 Hz                    */ 0x80u, 0xBBu, 0x00u,
+///*  tSamFreq: 44,100 Hz                    */ 0x44u, 0xACu, 0x00u,
+///*  tSamFreq: 24,000 Hz                    */ 0xC0u, 0x5Du, 0x00u,
+/*  tSamFreq: 8,000 Hz                     */ 0x40u, 0x1Fu, 0x00u,
 /*********************************************************************
  Endpoint Descriptor (Mono Microphone Standard AS Audio Data EP)
  *********************************************************************/
@@ -166,7 +169,7 @@ const uint8_t Microphone_ConfigDescriptor[] =
 /*  DescriptorType: ENDPOINT               */ 0x05u,
 /*  bEndpointAddress: EP1 IN               */ 0x81u,
 /*  bmAttributes: synchronous              */ 0x0Du,
-/*  wMaxPacketSize: 96 bytes               */ 0x60u, 0x00u, // !
+/*  wMaxPacketSize: 96 bytes               */ 0x10u, 0x00u, // !
 /*  bInterval: 1 ms                        */ 0x01u,
 /*  bRefresh                               */ 0x00u,
 /*  bSynchAddress                          */ 0x00u,
