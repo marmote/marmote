@@ -58,7 +58,7 @@ int main(void)
 	USB_FsInit();
 						
 	PowerControl_Init();
-	PowerMonitor_Init();
+	//PowerMonitor_Init();
   //Speaker_Config();
   while (1)
   {

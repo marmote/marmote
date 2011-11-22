@@ -37,13 +37,7 @@ void SysTick_Handler(void);
 void USB_HP_CAN1_TX_IRQHandler(void);
 void USB_LP_CAN1_RX0_IRQHandler(void);
 
-#ifdef USE_STM3210B_EVAL
 void TIM2_IRQHandler(void);
-#endif /* USE_STM3210B_EVAL */
-
-#ifdef USE_STM3210E_EVAL
-void SPI2_IRQHandler(void);
-#endif /* USE_STM3210E_EVAL */
 					 
 #endif /* __STM32F10x_IT_H */
 

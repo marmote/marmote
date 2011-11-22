@@ -31,11 +31,9 @@ const uint8_t Microphone_DeviceDescriptor[] =
 /* bDeviceClass                            */ 0x00u,
 /* bDeviceSubClass                         */ 0x00u,
 /* bDeviceProtocol                         */ 0x00u,
-/* bMaxPacketSize0                         */ 0x08u,
-/* idVendor                                */ 0xB4u, 0x04u, // CYC
-///* idVendor                                */ 0x83u, 0x04u,
-/* idProduct                               */ 0x74u, 0x76u, // CYC
-///* idProduct                               */ 0x74u, 0x76u,
+/* bMaxPacketSize0                         */ 0x40u,
+/* idVendor                                */ 0x84u, 0x34u,
+/* idProduct                               */ 0x41u, 0x57u,
 /* bcdDevice                               */ 0x00u, 0x00u,
 /* iManufacturer                           */ 0x01u,
 /* iProduct                                */ 0x02u,

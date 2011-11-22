@@ -80,16 +80,16 @@ RESULT PowerOn(void)
 *******************************************************************************/
 RESULT PowerOff()
 {
-//  /* disable all interrupts and force USB reset */
-//  _SetCNTR(CNTR_FRES);
-//  /* clear interrupt status register */
-//  _SetISTR(0);
+  /* disable all interrupts and force USB reset */
+  _SetCNTR(CNTR_FRES);
+  /* clear interrupt status register */
+  _SetISTR(0);
 //  /* Disable the Pull-Up*/
 //  USB_Cable_Config(DISABLE);
 //  /* switch-off device */
-//  _SetCNTR(CNTR_FRES + CNTR_PDWN);
-//  /* sw variables reset */
-//  /* ... */
+  _SetCNTR(CNTR_FRES + CNTR_PDWN);
+  /* sw variables reset */
+  /* ... */
 
   return USB_SUCCESS;
 }

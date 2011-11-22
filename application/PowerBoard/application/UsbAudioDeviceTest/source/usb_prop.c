@@ -26,7 +26,7 @@
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-uint32_t MUTE_DATA = 0;
+//uint32_t MUTE_DATA = 0;
 
 DEVICE Device_Table =
   {
@@ -84,8 +84,8 @@ ONE_DESCRIPTOR String_Descriptor[4] =
   };
 
 /* Extern variables ----------------------------------------------------------*/
-extern uint16_t In_Data_Offset;
-extern uint16_t Out_Data_Offset;
+//extern uint16_t In_Data_Offset;
+//extern uint16_t Out_Data_Offset;
 
 /* Private function prototypes -----------------------------------------------*/
 /* Extern function prototypes ------------------------------------------------*/
@@ -102,7 +102,7 @@ void Microphone_init()
 {
   /* Update the serial number string descriptor with the data from the unique
   ID*/
-  Get_SerialNum();
+  //Get_SerialNum();
 
   /* Initialize the current configuration */
   pInformation->Current_Configuration = 0;
@@ -158,8 +158,8 @@ void Microphone_Reset()
 
   bDeviceState = ATTACHED;
 
-  In_Data_Offset = 0;
-  Out_Data_Offset = 0;
+  //In_Data_Offset = 0;
+  //Out_Data_Offset = 0;
 }
 /*******************************************************************************
 * Function Name  : Microphone_SetConfiguration.
@@ -218,6 +218,8 @@ void Microphone_Status_Out (void)
 *******************************************************************************/
 RESULT Microphone_Data_Setup(uint8_t RequestNo)
 {
+	// !!!
+	/*(
   uint8_t *(*CopyRoutine)(uint16_t);
   CopyRoutine = NULL;
 
@@ -234,6 +236,7 @@ RESULT Microphone_Data_Setup(uint8_t RequestNo)
   pInformation->Ctrl_Info.CopyData = CopyRoutine;
   pInformation->Ctrl_Info.Usb_wOffset = 0;
   (*CopyRoutine)(0);
+  */
   return USB_SUCCESS;
 }
 
@@ -323,6 +326,7 @@ RESULT Microphone_Get_Interface_Setting(uint8_t Interface, uint8_t AlternateSett
 * Output         : None.
 * Return         : The address of the string descriptors.
 *******************************************************************************/
+/*
 uint8_t *Mute_Command(uint16_t Length)
 {
 
@@ -336,6 +340,6 @@ uint8_t *Mute_Command(uint16_t Length)
     return((uint8_t*)(&MUTE_DATA));
   }
 }
-
+*/
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/
 

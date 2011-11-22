@@ -26,8 +26,8 @@
 __IO uint16_t wIstr;  /* ISTR register last read value */
 __IO uint8_t bIntPackSOF = 0;  /* SOFs received between 2 consecutive packets */
 /* Extern variables ----------------------------------------------------------*/
-extern uint16_t In_Data_Offset;
-extern uint16_t Out_Data_Offset;
+//extern uint16_t In_Data_Offset;
+//extern uint16_t Out_Data_Offset;
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 /* function pointers to non-control endpoints service routines */
@@ -178,8 +178,8 @@ void USB_Istr(void)
 *******************************************************************************/
 void SOF_Callback(void)
 {
-  In_Data_Offset = 0;
-  Out_Data_Offset = 0;
+//  In_Data_Offset = 0;
+//  Out_Data_Offset = 0;
 }
 
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/
