@@ -33,7 +33,7 @@ const uint8_t Microphone_DeviceDescriptor[] =
 /* bDeviceProtocol                         */ 0x00u,
 /* bMaxPacketSize0                         */ 0x40u,
 /* idVendor                                */ 0x84u, 0x34u,
-/* idProduct                               */ 0x41u, 0x57u,
+/* idProduct                               */ 0x42u, 0x57u,
 /* bcdDevice                               */ 0x00u, 0x00u,
 /* iManufacturer                           */ 0x01u,
 /* iProduct                                */ 0x02u,
@@ -92,18 +92,19 @@ const uint8_t Microphone_ConfigDescriptor[] =
  AC Feature Unit Descriptor
  *********************************************************************/
 /*  AC Feature Unit Descriptor Length      */ 0x0bu,
-/*  DescriptorType: AUDIO                  */ 0x24u,
-/*  bDescriptorSubtype                     */ 0x06u,
+/*  DescriptorType: CS_INTERFACE           */ 0x24u,
+/*  bDescriptorSubtype: FEATURE_UNIT       */ 0x06u,
 /*  bUnitID                                */ 0x05u,
 /*  bSourceID                              */ 0x04u,
 /*  bControlSize                           */ 0x02u,
-/*  bmaControls                            */ 0x01u, 0x00u, 0x02u, 0x00u,
+///*  bmaControls                            */ 0x01u, 0x00u, 0x02u, 0x00u,
+/*  bmaControls                            */ 0x01u, 0x00u, 0x00u, 0x00u, // Support only MUTE for now
 /*  iFeature                               */ 0x00u,
 /*********************************************************************
  AC Output Terminal Descriptor
  *********************************************************************/
 /*  AC Output Terminal Descriptor Length   */ 0x09u,
-/*  DescriptorType: AUDIO                  */ 0x24u,
+/*  DescriptorType: CS_INTERFACE           */ 0x24u,
 /*  bDescriptorSubtype                     */ 0x03u,
 /*  bTerminalID                            */ 0x06u,
 /*  wTerminalType                          */ 0x01u, 0x01u,
@@ -149,23 +150,24 @@ const uint8_t Microphone_ConfigDescriptor[] =
  AS Format Type I Descriptor
  *********************************************************************/
 /*  AS Format Type I Descriptor Length     */ 0x0Bu,
-/*  DescriptorType: AUDIO                  */ 0x24u,
-/*  bDescriptorSubtype                     */ 0x02u,
-/*  bFormatType                            */ 0x01u,
+/*  DescriptorType: CS_INTERFACE           */ 0x24u,
+/*  bDescriptorSubtype: FORMAT_TYPE        */ 0x02u,
+/*  bFormatType: TYPE_I                    */ 0x01u,
 /*  bNrChannels                            */ 0x01u,
 /*  bSubframeSize                          */ 0x02u,
 /*  bBitResolution                         */ 0x10u,
 /*  bSamFreqType                           */ 0x01u,
-/*  tSamFreq                               */ 0x00u, 0x77u, 0x01u, // !
+///*  tSamFreq                               */ 0x00u, 0x77u, 0x01u, // !
+/*  tSamFreq: 48,000 Hz                    */ 0x80u, 0xBBu, 0x00u,
 /*********************************************************************
  Endpoint Descriptor (Mono Microphone Standard AS Audio Data EP)
  *********************************************************************/
 /*  Endpoint Descriptor Length             */ 0x09u,
 /*  DescriptorType: ENDPOINT               */ 0x05u,
-/*  bEndpointAddress                       */ 0x81u, // !
-/*  bmAttributes                           */ 0x0Du,
-/*  wMaxPacketSize                         */ 0xC0u, 0x00u, // !
-/*  bInterval                              */ 0x01u,
+/*  bEndpointAddress: EP1 IN               */ 0x81u,
+/*  bmAttributes: synchronous              */ 0x0Du,
+/*  wMaxPacketSize: 96 bytes               */ 0x60u, 0x00u, // !
+/*  bInterval: 1 ms                        */ 0x01u,
 /*  bRefresh                               */ 0x00u,
 /*  bSynchAddress                          */ 0x00u,
 /*********************************************************************
@@ -173,8 +175,8 @@ const uint8_t Microphone_ConfigDescriptor[] =
  *********************************************************************/
 /*  Endpoint Descriptor Length             */ 0x07u,
 /*  DescriptorType: CS_ENDPOINT            */ 0x25u,
-/*  bDescriptorSubtype                     */ 0x01u,
-/*  bmAttributes                           */ 0x00u,
+/*  bDescriptorSubtype: EP_GENERAL         */ 0x01u,
+/*  bmAttributes: none                     */ 0x00u,
 /*  bLockDelayUnits                        */ 0x00u,
 /*  wLockDelay                             */ 0x00u, 0x00u
 };
