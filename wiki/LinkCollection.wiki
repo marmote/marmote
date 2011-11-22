@@ -100,4 +100,6 @@ _Note:_ Several PCB layout guidelines can be found in other sections such as ADC
 
 === Audio Class Device ===
 
-[www.silabs.com/Support%20Documents/TechnicalDocs/AN295.pdf Silicon Laboratories AN 295] - USB Audio Class Tutorial
+[http://www.silabs.com/Support%20Documents/TechnicalDocs/AN295.pdf Silicon Laboratories AN 295] - USB Audio Class Tutorial (Descriptor)
+
+[http://atmel.com/dyn/resources/prod_documents/doc32139.pdf Atmel AVR32716] - AVR UC3 USB Audio Class (Adaptive synchronization)
