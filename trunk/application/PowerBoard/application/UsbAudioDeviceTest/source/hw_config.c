@@ -40,7 +40,6 @@
 ErrorStatus HSEStartUpStatus;
 /* Extern variables ----------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
-static void IntToUnicode (uint32_t value , uint8_t *pbuf , uint8_t len);
 /* Private functions ---------------------------------------------------------*/
 
 /*******************************************************************************
@@ -111,7 +110,7 @@ void USB_SoftReset()
 
 	// Pull down USBDP for 50 ms
 	USB_USBDP_GPIO_PORT->BRR = USB_USBDP_PIN;
-	Delay(10);
+	Delay(50);
 
 	// Release USBDP
 	USB_USBDP_GPIO_PORT->BSRR = USB_USBDP_PIN;
@@ -188,14 +187,14 @@ void USB_Config(void)
 *******************************************************************************/
 void Audio_Config(void)
 {
-  NVIC_InitTypeDef NVIC_InitStructure;
+  //NVIC_InitTypeDef NVIC_InitStructure;
   
   /* Enable the TIM2 Interrupt */
-  NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
-  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
-  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-  NVIC_Init(&NVIC_InitStructure);
+  //NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
+  //NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+  //NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+  //NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  //NVIC_Init(&NVIC_InitStructure);
 }
 
 /*******************************************************************************
@@ -206,185 +205,9 @@ void Audio_Config(void)
 *******************************************************************************/
 void Microphone_Config(void)
 {
-#ifdef USE_STM32L152_EVAL  
-  DAC_InitTypeDef     DAC_InitStructure;
-  GPIO_InitTypeDef    GPIO_InitStructure;
-  uint16_t TIM6ARRValue = 4000;
 
-  /* TIM6 and DAC clocks enable */
-  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM6 | RCC_APB1Periph_DAC, ENABLE);
-
-  /* Enable GPIOA clock */
-  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);  
-  
-  /* Configure DAC Channel1 and Channel2 as output */
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4 | GPIO_Pin_5;
-  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
-  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL ;
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN; 
-  GPIO_Init(GPIOA, &GPIO_InitStructure);
-
-  /* TIM6 Configuration */
-  TIM_DeInit(TIM6);
-
-  TIM6ARRValue = (uint32_t)(SystemCoreClock/22000); /* Audio Sample Rate = 22KHz */
-
-  /* Set the timer auto reload value dependent on the audio frequency */  
-  TIM_SetAutoreload(TIM6, TIM6ARRValue); /* 22.KHz = 32MHz / 1454 */  
-
-  /* TIM6 TRGO selection */
-  TIM_SelectOutputTrigger(TIM6, TIM_TRGOSource_Update);
-
-  /* Enable TIM6 update interrupt */
-  TIM_ITConfig(TIM6, TIM_IT_Update, ENABLE);
-
-  /* DAC deinitialize */
-  DAC_DeInit();
-  DAC_StructInit(&DAC_InitStructure);
-
-  /* Fill DAC InitStructure */
-  DAC_InitStructure.DAC_Trigger = DAC_Trigger_T6_TRGO;
-  DAC_InitStructure.DAC_WaveGeneration = DAC_WaveGeneration_None;
-  DAC_InitStructure.DAC_OutputBuffer = DAC_OutputBuffer_Disable;
-
-/* DAC Channel1: 8bit right---------------------------------------------------*/
-  /* DAC Channel1 Init */
-  DAC_Init(DAC_Channel_1, &DAC_InitStructure);
-
-  /* Enable DAC Channel1 */
-  DAC_Cmd(DAC_Channel_1, ENABLE);
-
-  /* Start TIM6 */
-  TIM_Cmd(TIM6, ENABLE);  
-  
-#elif defined(USE_STM3210B_EVAL)
-  GPIO_InitTypeDef GPIO_InitStructure;
-  TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;
-  TIM_OCInitTypeDef TIM_OCInitStructure;
-
-  /* Configure PB.08 as alternate function (TIM4_OC3) */
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8;
-  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-  GPIO_Init(GPIOB, &GPIO_InitStructure);
-
-  /* TIM4 configuration */
-  TIM_TimeBaseStructure.TIM_Prescaler = 0x00; /* TIM4CLK = 72 MHz */
-  TIM_TimeBaseStructure.TIM_Period = 0xFF;   /* PWM frequency : 281.250KHz*/
-  TIM_TimeBaseStructure.TIM_ClockDivision = 0x0;
-  TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
-  TIM_TimeBaseInit(TIM4, &TIM_TimeBaseStructure);
-  /* TIM4's Channel3 in PWM1 mode */
-  TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
-  TIM_OCInitStructure.TIM_Pulse = 0x7F;  /* Duty cycle: 50%*/
-  TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;  /* set high polarity */
-  TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
-  TIM_OC3Init(TIM4, &TIM_OCInitStructure);
-  TIM_OC3PreloadConfig(TIM4, TIM_OCPreload_Enable);
-
-  /* TIM2 configuration */
-  TIM_TimeBaseStructure.TIM_Period = TIM2ARRValue;
-  TIM_TimeBaseStructure.TIM_Prescaler = 0x00;    /* TIM2CLK = 72 MHz */
-  TIM_TimeBaseStructure.TIM_ClockDivision = 0x0;
-  TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
-  TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);
-  /* Output Compare Inactive Mode configuration: Channel1 */
-  TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_Timing;
-  TIM_OCInitStructure.TIM_Pulse = 0x0;
-  TIM_OC1Init(TIM2, &TIM_OCInitStructure);
-  TIM_OC1PreloadConfig(TIM2, TIM_OCPreload_Disable);
-
-  /* Start TIM4 */
-  TIM_Cmd(TIM4, ENABLE);
-
-  /* Start TIM2 */
-  TIM_Cmd(TIM2, ENABLE);
-
-  /* Enable TIM2 update interrupt */
-  TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);
-
+	// ...
 }
 
 
-/*******************************************************************************
-* Function Name  : Get_SerialNum.
-* Description    : Create the serial number string descriptor.
-* Input          : None.
-* Output         : None.
-* Return         : None.
-*******************************************************************************/
-void Get_SerialNum(void)
-{
-  uint32_t Device_Serial0, Device_Serial1, Device_Serial2;
-
-#ifdef STM32L1XX_MD
-  Device_Serial0 = *(uint32_t*)(0x1FF80050);
-  Device_Serial1 = *(uint32_t*)(0x1FF80054);
-  Device_Serial2 = *(uint32_t*)(0x1FF80064);
-#else   
-  Device_Serial0 = *(__IO uint32_t*)(0x1FFFF7E8);
-  Device_Serial1 = *(__IO uint32_t*)(0x1FFFF7EC);
-  Device_Serial2 = *(__IO uint32_t*)(0x1FFFF7F0);
-#endif /* STM32L1XX_MD */ 
-
-  Device_Serial0 += Device_Serial2;
-
-  if (Device_Serial0 != 0)
-  {
-    IntToUnicode (Device_Serial0, &Microphone_StringSerial[2] , 8);
-    IntToUnicode (Device_Serial1, &Microphone_StringSerial[18], 4);
-  }
-}
-
-/*******************************************************************************
-* Function Name  : HexToChar.
-* Description    : Convert Hex 32Bits value into char.
-* Input          : None.
-* Output         : None.
-* Return         : None.
-*******************************************************************************/
-static void IntToUnicode (uint32_t value , uint8_t *pbuf , uint8_t len)
-{
-  uint8_t idx = 0;
-  
-  for( idx = 0 ; idx < len ; idx ++)
-  {
-    if( ((value >> 28)) < 0xA )
-    {
-      pbuf[ 2* idx] = (value >> 28) + '0';
-    }
-    else
-    {
-      pbuf[2* idx] = (value >> 28) + 'A' - 10; 
-    }
-    
-    value = value << 4;
-    
-    pbuf[ 2* idx + 1] = 0;
-  }
-}
-#ifdef STM32F10X_CL
-/*******************************************************************************
-* Function Name  : USB_OTG_BSP_uDelay.
-* Description    : provide delay (usec).
-* Input          : None.
-* Output         : None.
-* Return         : None.
-*******************************************************************************/
-void USB_OTG_BSP_uDelay (const uint32_t usec)
-{
-  RCC_ClocksTypeDef  RCC_Clocks;  
-
-  /* Configure HCLK clock as SysTick clock source */
-  SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK);
-  
-  RCC_GetClocksFreq(&RCC_Clocks);
-  
-  SysTick_Config(usec * (RCC_Clocks.HCLK_Frequency / 1000000));  
-  
-  SysTick->CTRL  &= ~SysTick_CTRL_TICKINT_Msk ;
-  
-  while (!(SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk));
-}
-#endif
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/

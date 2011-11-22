@@ -29,10 +29,12 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
+/*
 uint16_t Out_Data_Offset;
 extern uint16_t In_Data_Offset;
 extern uint8_t Stream_Buff[24];
 extern uint32_t MUTE_DATA;
+*/
 
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/

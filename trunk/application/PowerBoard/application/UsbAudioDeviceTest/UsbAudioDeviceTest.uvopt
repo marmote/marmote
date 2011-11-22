@@ -147,6 +147,72 @@
           <Name>-UV0806MBE -O718 -S0 -C0 -N00("ARM CoreSight SW-DP") -D00(1BA01477) -L00(0) -TO18 -TC10000000 -TP21 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO7 -FD20000000 -FC800 -FN1 -FF0STM32F10x_128 -FS08000000 -FL020000</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
+      <Breakpoint>
+        <Bp>
+          <Number>0</Number>
+          <Type>0</Type>
+          <LineNumber>177</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134218598</Address>
+          <ByteObject>0</ByteObject>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename></Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\UsbAudioDeviceTest\source/stm32f10x_it.c\177</Expression>
+        </Bp>
+        <Bp>
+          <Number>1</Number>
+          <Type>0</Type>
+          <LineNumber>178</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134218982</Address>
+          <ByteObject>0</ByteObject>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename></Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\UsbAudioDeviceTest\source/usb_prop.c\178</Expression>
+        </Bp>
+        <Bp>
+          <Number>2</Number>
+          <Type>0</Type>
+          <LineNumber>63</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134222880</Address>
+          <ByteObject>0</ByteObject>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename></Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\UsbAudioDeviceTest\../../library/usb/source/usb_core.c\63</Expression>
+        </Bp>
+      </Breakpoint>
+      <WatchWindow1>
+        <Ww>
+          <count>0</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>bDeviceState</ItemText>
+        </Ww>
+        <Ww>
+          <count>1</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Length</ItemText>
+        </Ww>
+      </WatchWindow1>
+      <MemoryWindow1>
+        <Mm>
+          <WinNumber>1</WinNumber>
+          <SubType>0</SubType>
+          <ItemText>0x20000000</ItemText>
+        </Mm>
+      </MemoryWindow1>
       <DebugFlag>
         <trace>0</trace>
         <periodic>1</periodic>
@@ -189,10 +255,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>62</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>123</TopLine>
-      <CurrentLine>135</CurrentLine>
+      <TopLine>83</TopLine>
+      <CurrentLine>89</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\source\hw_config.c</PathWithFileName>
       <FilenameWithoutPath>hw_config.c</FilenameWithoutPath>
@@ -203,10 +269,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>42</ColumnNumber>
+      <ColumnNumber>38</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>53</TopLine>
-      <CurrentLine>64</CurrentLine>
+      <TopLine>37</TopLine>
+      <CurrentLine>62</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\source\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -217,10 +283,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>18</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>213</TopLine>
-      <CurrentLine>213</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>1</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\source\stm32f10x_it.c</PathWithFileName>
       <FilenameWithoutPath>stm32f10x_it.c</FilenameWithoutPath>
@@ -231,10 +297,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>8</ColumnNumber>
+      <ColumnNumber>29</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>187</TopLine>
-      <CurrentLine>187</CurrentLine>
+      <TopLine>16</TopLine>
+      <CurrentLine>16</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\source\usb_desc.c</PathWithFileName>
       <FilenameWithoutPath>usb_desc.c</FilenameWithoutPath>
@@ -245,10 +311,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>25</ColumnNumber>
+      <ColumnNumber>6</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>31</TopLine>
-      <CurrentLine>40</CurrentLine>
+      <TopLine>23</TopLine>
+      <CurrentLine>35</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\source\usb_endp.c</PathWithFileName>
       <FilenameWithoutPath>usb_endp.c</FilenameWithoutPath>
@@ -259,10 +325,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>46</ColumnNumber>
+      <ColumnNumber>19</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>150</TopLine>
-      <CurrentLine>150</CurrentLine>
+      <TopLine>152</TopLine>
+      <CurrentLine>177</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\source\usb_istr.c</PathWithFileName>
       <FilenameWithoutPath>usb_istr.c</FilenameWithoutPath>
@@ -273,10 +339,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>25</ColumnNumber>
+      <ColumnNumber>17</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>305</TopLine>
-      <CurrentLine>305</CurrentLine>
+      <TopLine>180</TopLine>
+      <CurrentLine>192</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\source\usb_prop.c</PathWithFileName>
       <FilenameWithoutPath>usb_prop.c</FilenameWithoutPath>
@@ -287,10 +353,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>5</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>144</TopLine>
-      <CurrentLine>151</CurrentLine>
+      <TopLine>63</TopLine>
+      <CurrentLine>75</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\source\usb_pwr.c</PathWithFileName>
       <FilenameWithoutPath>usb_pwr.c</FilenameWithoutPath>
@@ -308,10 +374,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>22</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>229</TopLine>
+      <CurrentLine>229</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\CMSIS\source\system_stm32f10x.c</PathWithFileName>
       <FilenameWithoutPath>system_stm32f10x.c</FilenameWithoutPath>
@@ -329,10 +395,10 @@
       <FileType>2</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>12</ColumnNumber>
+      <ColumnNumber>11</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>133</TopLine>
-      <CurrentLine>145</CurrentLine>
+      <TopLine>121</TopLine>
+      <CurrentLine>127</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\CMSIS\source\arm\startup_stm32f10x_md.s</PathWithFileName>
       <FilenameWithoutPath>startup_stm32f10x_md.s</FilenameWithoutPath>
@@ -350,10 +416,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>20</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>38</TopLine>
-      <CurrentLine>49</CurrentLine>
+      <TopLine>25</TopLine>
+      <CurrentLine>25</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\board\source\power_board.c</PathWithFileName>
       <FilenameWithoutPath>power_board.c</FilenameWithoutPath>
@@ -380,8 +446,8 @@
       <Focus>0</Focus>
       <ColumnNumber>31</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>132</TopLine>
-      <CurrentLine>132</CurrentLine>
+      <TopLine>0</TopLine>
+      <CurrentLine>0</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\board\source\power_monitor.c</PathWithFileName>
       <FilenameWithoutPath>power_monitor.c</FilenameWithoutPath>
@@ -401,8 +467,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1</TopLine>
-      <CurrentLine>1</CurrentLine>
+      <TopLine>399</TopLine>
+      <CurrentLine>425</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\usb\source\usb_core.c</PathWithFileName>
       <FilenameWithoutPath>usb_core.c</FilenameWithoutPath>
@@ -413,10 +479,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>13</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>23</TopLine>
+      <CurrentLine>29</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\usb\source\usb_init.c</PathWithFileName>
       <FilenameWithoutPath>usb_init.c</FilenameWithoutPath>
@@ -427,10 +493,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>41</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>144</TopLine>
+      <CurrentLine>174</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\usb\source\usb_int.c</PathWithFileName>
       <FilenameWithoutPath>usb_int.c</FilenameWithoutPath>
@@ -441,10 +507,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>29</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>7</TopLine>
+      <CurrentLine>7</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\usb\source\usb_mem.c</PathWithFileName>
       <FilenameWithoutPath>usb_mem.c</FilenameWithoutPath>
@@ -455,10 +521,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>44</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>619</TopLine>
+      <CurrentLine>628</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\usb\source\usb_regs.c</PathWithFileName>
       <FilenameWithoutPath>usb_regs.c</FilenameWithoutPath>
@@ -471,8 +537,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>19</TopLine>
+      <CurrentLine>37</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\usb\source\usb_sil.c</PathWithFileName>
       <FilenameWithoutPath>usb_sil.c</FilenameWithoutPath>
@@ -570,24 +636,98 @@
     </File>
   </Group>
 
+  <AlienFiles>
+    <PathWithFilename>D:\work\software\PowerBoard\application\UsbAudioDeviceTest\include\usb_prop.h</PathWithFilename>
+    <TopLine>22</TopLine>
+    <CurrentLine>48</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
+
   <MDIGroups>
     <Orientation>1</Orientation>
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>1</ActiveTab>
+      <ActiveTab>7</ActiveTab>
       <Documents>
         <Doc>
-          <Name>.\source\usb_pwr.c</Name>
-          <ColumnNumber>20</ColumnNumber>
-          <TopLine>142</TopLine>
-          <CurrentLine>151</CurrentLine>
+          <Name>.\include\usb_prop.h</Name>
+          <ColumnNumber>25</ColumnNumber>
+          <TopLine>22</TopLine>
+          <CurrentLine>48</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\source\usb_prop.c</Name>
+          <ColumnNumber>17</ColumnNumber>
+          <TopLine>180</TopLine>
+          <CurrentLine>192</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\source\usb_istr.c</Name>
+          <ColumnNumber>19</ColumnNumber>
+          <TopLine>152</TopLine>
+          <CurrentLine>177</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\source\hw_config.c</Name>
-          <ColumnNumber>16</ColumnNumber>
-          <TopLine>140</TopLine>
-          <CurrentLine>152</CurrentLine>
+          <ColumnNumber>62</ColumnNumber>
+          <TopLine>83</TopLine>
+          <CurrentLine>89</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\source\usb_desc.c</Name>
+          <ColumnNumber>29</ColumnNumber>
+          <TopLine>16</TopLine>
+          <CurrentLine>16</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\library\usb\source\usb_regs.c</Name>
+          <ColumnNumber>44</ColumnNumber>
+          <TopLine>619</TopLine>
+          <CurrentLine>628</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\library\CMSIS\source\arm\startup_stm32f10x_md.s</Name>
+          <ColumnNumber>11</ColumnNumber>
+          <TopLine>121</TopLine>
+          <CurrentLine>127</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\source\main.c</Name>
+          <ColumnNumber>38</ColumnNumber>
+          <TopLine>37</TopLine>
+          <CurrentLine>62</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\library\board\source\power_board.c</Name>
+          <ColumnNumber>20</ColumnNumber>
+          <TopLine>25</TopLine>
+          <CurrentLine>25</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\library\usb\source\usb_core.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>399</TopLine>
+          <CurrentLine>425</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>
