@@ -43,9 +43,6 @@
 volatile uint32_t msTicks;                       /* timeTicks counter */
 uint32_t ctr;
 
-uint32_t EP_ctr;
-uint32_t EP_ctr_save;
-
 void SysTick_Handler(void) {
 	msTicks++;                                     /* increment timeTicks counter */
 	if (msTicks % 500 == 0)
@@ -53,9 +50,6 @@ void SysTick_Handler(void) {
 		LED_Toggle(LED1);
 		ctr++;
 	}
-	if (EP_ctr_save < EP_ctr)
-		EP_ctr_save = EP_ctr;
-	EP_ctr = 0;
 }
 
 void Delay (uint32_t dlyTicks) {

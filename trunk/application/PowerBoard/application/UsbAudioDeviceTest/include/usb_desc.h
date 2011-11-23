@@ -24,8 +24,7 @@
 /* Exported define -----------------------------------------------------------*/
 
 #define MICROPHONE_SIZ_DEVICE_DESC                       18
-//#define MICROPHONE_SIZ_CONFIG_DESC                       111
-#define MICROPHONE_SIZ_CONFIG_DESC                       114
+#define MICROPHONE_SIZ_CONFIG_DESC                       111
 #define MICROPHONE_SIZ_INTERFACE_DESC_SIZE               9
 
 #define MICROPHONE_SIZ_STRING_LANGID                     0x04
