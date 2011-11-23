@@ -367,10 +367,10 @@
       <FileType>1</FileType>
       <tvExp>1</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>25</ColumnNumber>
+      <ColumnNumber>32</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>319</TopLine>
-      <CurrentLine>319</CurrentLine>
+      <CurrentLine>326</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\source\usb_prop.c</PathWithFileName>
       <FilenameWithoutPath>usb_prop.c</FilenameWithoutPath>
@@ -721,113 +721,9 @@
   </Group>
 
   <AlienFiles>
-    <PathWithFilename>D:\work\software\PowerBoard\application\UsbCdcDeviceTest\include\usb_fs.h</PathWithFilename>
-    <TopLine>19</TopLine>
-    <CurrentLine>36</CurrentLine>
-    <Constant>0</Constant>
-    <WindowPosition>
-      <length>0</length>
-      <flags>0</flags>
-      <showCmd>0</showCmd>
-      <MinPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MinPosition>
-      <MaxPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MaxPosition>
-      <NormalPosition>
-        <Top>0</Top>
-        <Left>0</Left>
-        <Right>0</Right>
-        <Bottom>0</Bottom>
-      </NormalPosition>
-    </WindowPosition>
-  </AlienFiles>
-
-  <AlienFiles>
-    <PathWithFilename>D:\work\software\PowerBoard\application\UsbCdcDeviceTest\include\usb_pwr.h</PathWithFilename>
-    <TopLine>23</TopLine>
-    <CurrentLine>31</CurrentLine>
-    <Constant>0</Constant>
-    <WindowPosition>
-      <length>0</length>
-      <flags>0</flags>
-      <showCmd>0</showCmd>
-      <MinPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MinPosition>
-      <MaxPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MaxPosition>
-      <NormalPosition>
-        <Top>0</Top>
-        <Left>0</Left>
-        <Right>0</Right>
-        <Bottom>0</Bottom>
-      </NormalPosition>
-    </WindowPosition>
-  </AlienFiles>
-
-  <AlienFiles>
-    <PathWithFilename>D:\work\software\PowerBoard\application\UsbCdcDeviceTest\include\usb_istr.h</PathWithFilename>
-    <TopLine>83</TopLine>
-    <CurrentLine>83</CurrentLine>
-    <Constant>0</Constant>
-    <WindowPosition>
-      <length>0</length>
-      <flags>0</flags>
-      <showCmd>0</showCmd>
-      <MinPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MinPosition>
-      <MaxPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MaxPosition>
-      <NormalPosition>
-        <Top>0</Top>
-        <Left>0</Left>
-        <Right>0</Right>
-        <Bottom>0</Bottom>
-      </NormalPosition>
-    </WindowPosition>
-  </AlienFiles>
-
-  <AlienFiles>
-    <PathWithFilename>D:\work\software\PowerBoard\application\UsbCdcDeviceTest\include\usb_desc.h</PathWithFilename>
-    <TopLine>15</TopLine>
-    <CurrentLine>31</CurrentLine>
-    <Constant>0</Constant>
-    <WindowPosition>
-      <length>0</length>
-      <flags>0</flags>
-      <showCmd>0</showCmd>
-      <MinPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MinPosition>
-      <MaxPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MaxPosition>
-      <NormalPosition>
-        <Top>0</Top>
-        <Left>0</Left>
-        <Right>0</Right>
-        <Bottom>0</Bottom>
-      </NormalPosition>
-    </WindowPosition>
-  </AlienFiles>
-
-  <AlienFiles>
-    <PathWithFilename>D:\work\software\PowerBoard\library\usb\include\usb_int.h</PathWithFilename>
+    <PathWithFilename>D:\work\software\PowerBoard\application\UsbCdcDeviceTest\include\usb_prop.h</PathWithFilename>
     <TopLine>1</TopLine>
-    <CurrentLine>1</CurrentLine>
+    <CurrentLine>21</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -929,9 +825,113 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>D:\work\software\PowerBoard\application\UsbCdcDeviceTest\include\usb_prop.h</PathWithFilename>
+    <PathWithFilename>D:\work\software\PowerBoard\application\UsbCdcDeviceTest\include\usb_desc.h</PathWithFilename>
+    <TopLine>15</TopLine>
+    <CurrentLine>31</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
+
+  <AlienFiles>
+    <PathWithFilename>D:\work\software\PowerBoard\library\usb\include\usb_int.h</PathWithFilename>
     <TopLine>1</TopLine>
-    <CurrentLine>21</CurrentLine>
+    <CurrentLine>1</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
+
+  <AlienFiles>
+    <PathWithFilename>D:\work\software\PowerBoard\application\UsbCdcDeviceTest\include\usb_istr.h</PathWithFilename>
+    <TopLine>83</TopLine>
+    <CurrentLine>83</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
+
+  <AlienFiles>
+    <PathWithFilename>D:\work\software\PowerBoard\application\UsbCdcDeviceTest\include\usb_pwr.h</PathWithFilename>
+    <TopLine>23</TopLine>
+    <CurrentLine>31</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
+
+  <AlienFiles>
+    <PathWithFilename>D:\work\software\PowerBoard\application\UsbCdcDeviceTest\include\usb_fs.h</PathWithFilename>
+    <TopLine>19</TopLine>
+    <CurrentLine>36</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -959,7 +959,7 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>13</ActiveTab>
+      <ActiveTab>0</ActiveTab>
       <Documents>
         <Doc>
           <Name>.\include\usb_fs.h</Name>
@@ -986,52 +986,10 @@
           <CurrentLine>71</CurrentLine>
         </Doc>
         <Doc>
-          <Name>.\include\usb_pwr.h</Name>
-          <ColumnNumber>11</ColumnNumber>
-          <TopLine>23</TopLine>
-          <CurrentLine>31</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\include\usb_istr.h</Name>
-          <ColumnNumber>7</ColumnNumber>
-          <TopLine>83</TopLine>
-          <CurrentLine>83</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>..\..\library\usb\include\usb_int.h</Name>
-          <ColumnNumber>0</ColumnNumber>
+          <Name>.\include\usb_prop.h</Name>
+          <ColumnNumber>17</ColumnNumber>
           <TopLine>1</TopLine>
-          <CurrentLine>1</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\include\usb_desc.h</Name>
-          <ColumnNumber>8</ColumnNumber>
-          <TopLine>15</TopLine>
-          <CurrentLine>31</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\include\usb_conf.h</Name>
-          <ColumnNumber>25</ColumnNumber>
-          <TopLine>159</TopLine>
-          <CurrentLine>159</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>..\..\library\usb\include\usb_regs.h</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>1</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>..\..\library\usb\include\usb_def.h</Name>
-          <ColumnNumber>102</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>1</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\source\main.c</Name>
-          <ColumnNumber>104</ColumnNumber>
-          <TopLine>46</TopLine>
-          <CurrentLine>57</CurrentLine>
+          <CurrentLine>21</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\source\usb_fs.c</Name>
@@ -1040,10 +998,52 @@
           <CurrentLine>43</CurrentLine>
         </Doc>
         <Doc>
-          <Name>.\include\usb_prop.h</Name>
-          <ColumnNumber>17</ColumnNumber>
+          <Name>.\source\main.c</Name>
+          <ColumnNumber>104</ColumnNumber>
+          <TopLine>46</TopLine>
+          <CurrentLine>57</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\library\usb\include\usb_def.h</Name>
+          <ColumnNumber>102</ColumnNumber>
           <TopLine>1</TopLine>
-          <CurrentLine>21</CurrentLine>
+          <CurrentLine>1</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\library\usb\include\usb_regs.h</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>1</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\include\usb_conf.h</Name>
+          <ColumnNumber>25</ColumnNumber>
+          <TopLine>159</TopLine>
+          <CurrentLine>159</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\include\usb_desc.h</Name>
+          <ColumnNumber>8</ColumnNumber>
+          <TopLine>15</TopLine>
+          <CurrentLine>31</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\library\usb\include\usb_int.h</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>1</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\include\usb_istr.h</Name>
+          <ColumnNumber>7</ColumnNumber>
+          <TopLine>83</TopLine>
+          <CurrentLine>83</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\include\usb_pwr.h</Name>
+          <ColumnNumber>11</ColumnNumber>
+          <TopLine>23</TopLine>
+          <CurrentLine>31</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>
