@@ -47,7 +47,8 @@ const uint8_t Microphone_ConfigDescriptor[] =
 {
 /*  Config Descriptor Length               */ 0x09u,
 /*  DescriptorType: CONFIG                 */ 0x02u,
-/*  wTotalLength                           */ 0x6fu, 0x00u,
+///*  wTotalLength                           */ 0x6fu, 0x00u,
+/*  wTotalLength                           */ 0x72u, 0x00u,
 /*  bNumInterfaces                         */ 0x02u,
 /*  bConfigurationValue                    */ 0x01u,
 /*  iConfiguration                         */ 0x00u,
@@ -63,7 +64,8 @@ const uint8_t Microphone_ConfigDescriptor[] =
 /*  bNumEndpoints                          */ 0x00u,
 /*  bInterfaceClass                        */ 0x01u,
 /*  bInterfaceSubClass                     */ 0x01u,
-/*  bInterfaceProtocol: M_MIC              */ 0x0bu,
+///*  bInterfaceProtocol: M_MIC              */ 0x0bu,
+/*  bInterfaceProtocol: M_MIC              */ 0x00u,
 /*  iInterface                             */ 0x00u,
 /*********************************************************************
  AC Header Descriptor
@@ -72,7 +74,8 @@ const uint8_t Microphone_ConfigDescriptor[] =
 /*  DescriptorType: AUDIO                  */ 0x24u,
 /*  bDescriptorSubtype                     */ 0x01u,
 /*  bcdADC                                 */ 0x00u, 0x01u,
-/*  wTotalLength                           */ 0x29u, 0x00u,
+///*  wTotalLength                           */ 0x29u, 0x00u,
+/*  wTotalLength                           */ 0x2Cu, 0x00u,
 /*  bInCollection                          */ 0x01u,
 /*  baInterfaceNr                          */ 0x01u,
 /*********************************************************************
@@ -144,12 +147,14 @@ const uint8_t Microphone_ConfigDescriptor[] =
 /*  DescriptorType: AUDIO                  */ 0x24u,
 /*  bDescriptorSubtype                     */ 0x01u,
 /*  bTerminalLink                          */ 0x06u,
-/*  bDelay                                 */ 0x00u,
+///*  bDelay                                 */ 0x00u,
+/*  bDelay                                 */ 0x01u,
 /*  wFormatTag                             */ 0x01u, 0x00u,
 /*********************************************************************
  AS Format Type I Descriptor
  *********************************************************************/
-/*  AS Format Type I Descriptor Length     */ 0x0Bu,
+///*  AS Format Type I Descriptor Length     */ 0x0Bu,
+/*  AS Format Type I Descriptor Length     */ 0x0Eu,
 /*  DescriptorType: CS_INTERFACE           */ 0x24u,
 /*  bDescriptorSubtype: FORMAT_TYPE        */ 0x02u,
 /*  bFormatType: TYPE_I                    */ 0x01u,
@@ -158,12 +163,13 @@ const uint8_t Microphone_ConfigDescriptor[] =
 /*  bBitResolution                         */ 0x08u,
 ///*  bSubframeSize                          */ 0x02u,
 ///*  bBitResolution                         */ 0x10u,
-/*  bSamFreqType                           */ 0x01u,
-///*  tSamFreq: 96,000 Hz                    */ 0x00u, 0x77u, 0x01u, // !
-/*  tSamFreq: 48,000 Hz                    */ 0x80u, 0xBBu, 0x00u,
-///*  tSamFreq: 44,100 Hz                    */ 0x44u, 0xACu, 0x00u,
+///*  bSamFreqType                           */ 0x01u,
+/*  bSamFreqType                           */ 0x02u,
+/*  tSamFreq: 8,000 Hz                     */ 0x40u, 0x1Fu, 0x00u,
 ///*  tSamFreq: 24,000 Hz                    */ 0xC0u, 0x5Du, 0x00u,
-///*  tSamFreq: 8,000 Hz                     */ 0x40u, 0x1Fu, 0x00u,
+///*  tSamFreq: 44,100 Hz                    */ 0x44u, 0xACu, 0x00u,
+/*  tSamFreq: 48,000 Hz                    */ 0x80u, 0xBBu, 0x00u,
+///*  tSamFreq: 96,000 Hz                    */ 0x00u, 0x77u, 0x01u, // !
 /*********************************************************************
  Endpoint Descriptor (Mono Microphone Standard AS Audio Data EP)
  *********************************************************************/
@@ -181,7 +187,8 @@ const uint8_t Microphone_ConfigDescriptor[] =
 /*  Endpoint Descriptor Length             */ 0x07u,
 /*  DescriptorType: CS_ENDPOINT            */ 0x25u,
 /*  bDescriptorSubtype: EP_GENERAL         */ 0x01u,
-/*  bmAttributes: none                     */ 0x00u,
+///*  bmAttributes: none                     */ 0x00u,
+/*  bmAttributes:                          */ 0x01u,
 /*  bLockDelayUnits                        */ 0x00u,
 /*  wLockDelay                             */ 0x00u, 0x00u
 };
