@@ -24,6 +24,7 @@ if TIME_STAMP == 1
     subplot(5,2,[1 2]);
     hold on;
     plot(TSD_history, '.-');
+    xlim([1 length(TSD_history)]);
     hold off;    
     
     TSD = (TS(2:end) - TS(1:end-1)) - 1;
@@ -60,7 +61,7 @@ end
     plot(time*1e6, chunk2, 'g.-');
     xlim([0 N*T*1e6]);
 %    ylim([0 Full_Scale/4]);
- %   ylim([-1 1]);
+    ylim([-1 1]);
     xlabel('time [usec]');
     ylabel('Sample []');
     

@@ -48,12 +48,14 @@ architecture Behavioral of ADDERSUBTRACTOR is
 begin
 
     process(RST, CLK)
+--    process(CLK)
     begin
         if RST = '1' then
 
             C <= (others => '0');
 
         elsif rising_edge(CLK) then
+--        if rising_edge(CLK) then
 
             if addsubtract = '1' then
 
