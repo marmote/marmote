@@ -61,8 +61,8 @@ architecture Behavioral of ADC_SPI is
     signal shift_regs       : byte_vector(1 to 2);
     signal shift_en         : std_logic;
 
-    signal counter          : std_logic_vector(15 downto 0);
-    signal rev_counter      : std_logic_vector(15 downto 0);
+--    signal counter          : std_logic_vector(15 downto 0);
+--    signal rev_counter      : std_logic_vector(15 downto 0);
 
 
     signal sample_rdy_int   : std_logic;
@@ -161,15 +161,15 @@ begin
 
 
     -- Counter stepping
-    process(PRESETn, PCLK)
-    begin
-        if PRESETn = '0' then
-            counter <=  x"0001";
-        elsif rising_edge(PCLK) and prog(0) = '1' then
-            counter <= counter(14 downto 0) & counter(15);
-        end if;
-    end process;
+--    process(PRESETn, PCLK)
+--    begin
+--        if PRESETn = '0' then
+--            counter <=  x"0001";
+--        elsif rising_edge(PCLK) and prog(0) = '1' then
+--            counter <= counter(14 downto 0) & counter(15);
+--        end if;
+--    end process;
 
-    rev_counter <= reverse_vector(counter);
+--    rev_counter <= reverse_vector(counter);
 
 end Behavioral;

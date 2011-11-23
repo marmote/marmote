@@ -91,8 +91,8 @@ architecture Behavioral of SAMPLE_APB3 is
     signal shift            : unsigned(log2_ceil(c_BIT_SHIFT)-1 downto 0);   
     signal shift_counter    : unsigned(log2_ceil(c_BIT_SHIFT)-1 downto 0);   
     
---    signal test_counter     : unsigned(15 downto 0);  -- NO MORE SPACE LEFT :(
---    signal test_rev_counter : unsigned(15 downto 0);  -- NO MORE SPACE LEFT :(
+--    signal test_counter     : unsigned(15 downto 0);  -- NO MORE SPACE LEFT IN FPGA FABRIC :(
+--    signal test_rev_counter : unsigned(15 downto 0);  -- NO MORE SPACE LEFT IN FPGA FABRIC :(
 
 begin
 

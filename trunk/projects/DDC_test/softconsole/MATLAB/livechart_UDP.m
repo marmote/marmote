@@ -1,13 +1,15 @@
-screen_refresh_rate = 10; %in frame per secs
-
 setvariables();
 
-RFFrequency = 432e6; %Hz
-DC_Offset_I = 10;
-DC_Offset_Q = -10;
-DDCFrequency = 200e3; %Hz
-Shift = 3;
+TOTAL_BUFF_LENGTH = BUFF_MULTIPLIER * BUFF_LENGTH;
 
+
+RFFrequency = uint32(433e6); %Hz
+DC_Offset_I = int16(0);
+DC_Offset_Q = int16(0);
+DDCFrequency = int32(0); %Hz
+Shift = uint8(4);
+
+screen_refresh_rate = 10; %in frame per secs
 
 TS_history = [];
 
@@ -18,11 +20,12 @@ disp('Opening UDP connection');
 
 % Create TCP/IP object 't'. Specify server machine and port number. 
 u = udp('192.168.1.2', 49151);%, 'LocalPort', 49152);
-set(u,'Timeout',0.0005) 
+%set(u,'Timeout', 3*READ_TIME) 
+set(u,'Timeout', 0.001 + 0.0002);
 
-rec_buff_size = BUFF_LENGTH*BUFF_MULTIPLIER*32/8;
 % Set size of receiving buffer, if needed. 
-set(u, 'InputBufferSize', 2*rec_buff_size); 
+set(u, 'InputBufferSize', 10 * BUFF_LENGTH * 32/8); 
+set(u, 'DatagramTerminateMode', 'on'); 
 
 % Open connection to the server. 
 fopen(u); 
@@ -30,71 +33,71 @@ fopen(u);
 % Pause for the communication delay, if needed. 
 %pause(0.05)
 
-fwrite(u, RFFrequency, 'uint32');
-fwrite(u, DC_Offset_I, 'int16');
-fwrite(u, DC_Offset_Q, 'int16');
-fwrite(u, DDCFrequency, 'int32');
-fwrite(u, Shift, 'uint8');
+data = [int8(0) ...
+        typecast(swapbytes(RFFrequency),'int8') ...
+        typecast(swapbytes(DC_Offset_I),'int8') ... 
+        typecast(swapbytes(DC_Offset_Q),'int8') ... 
+        typecast(swapbytes(DDCFrequency),'int8') ... 
+        typecast(swapbytes(Shift),'int8')];
+    
+fwrite(u, data, 'int8');
 
-%buffer = [RFFrequency DC_Offset_I DC_Offset_Q DDCFrequency Shift];
-%fwrite(u, buffer, '13*uint8');
-
-
-elapsed_time = 0;
-ticID = tic;
-
-temp = zeros( 1, BUFF_LENGTH );
+temp = uint8(zeros( 1, BUFF_LENGTH*32/8 ));
 %if TIME_STAMP == 1
 %    chunk = zeros( 1, (BUFF_LENGTH-1)*BUFF_MULTIPLIER );
 %    accum = zeros( 1, (BUFF_LENGTH-1)*(BUFF_MULTIPLIER+1) );
 %else
-    chunk = zeros( 1, BUFF_LENGTH*BUFF_MULTIPLIER );
-    accum = zeros( 1, BUFF_LENGTH*(BUFF_MULTIPLIER+1) );
+    chunk = uint32(zeros( 1, TOTAL_BUFF_LENGTH ));
+    accum = uint32(zeros( 1, TOTAL_BUFF_LENGTH ));
 %end
 accum_length = 0;
 
+    fid = fopen('C:\Users\babjak\Desktop\logfile.txt', 'w');
+    fclose(fid);
+
 % Receive lines of data from server 
 while (1) 
-%    BytesAvailable = get(t, 'BytesAvailable');
-%    if (BytesAvailable < rec_buff_size)
-%        continue;
-%    end
-    temp = swapbytes(uint32(fread(u, BUFF_LENGTH, 'uint32')));
     
-    temp_length = length(temp);
+    fwrite(u, int8([1 1]), 'int8');
+
+%Read data
+    for ii=(1:5)
+        temp = uint8(fread(u, BUFF_LENGTH*32/8, 'uint8'));
+    
+        temp_length = length(temp)*8/32;    
+    
+        if temp_length >= BUFF_LENGTH
+            break;
+        end
+        
+        disp('UNDERRUN!');
+        disp(['temp_length in bytes: ' num2str(temp_length*32/8)]);
+        disp(['temp_length: ' num2str(temp_length)]);
+    end
     
     if temp_length < BUFF_LENGTH
-%        disp('UNDERRUN!');
-%        disp(temp_length);
-        
         continue;
     end
     
-    accum(accum_length+1:accum_length+temp_length) = temp';
-    accum_length = accum_length + temp_length;
-
-    while (accum_length >= BUFF_LENGTH*BUFF_MULTIPLIER)
-        
-        chunk = accum( 1:BUFF_LENGTH*BUFF_MULTIPLIER );
-
     
-        accum(1:accum_length - BUFF_LENGTH*BUFF_MULTIPLIER) = accum( BUFF_LENGTH*BUFF_MULTIPLIER + 1 : accum_length );
-
-        accum_length = accum_length - BUFF_LENGTH*BUFF_MULTIPLIER;
+    fid = fopen('C:\Users\babjak\Desktop\logfile.txt', 'a');
+    fwrite(fid, temp);
+    fclose(fid);
     
-        elapsed_time = elapsed_time + toc(ticID);
-        ticID = tic;    
-    
-        if (elapsed_time < 1/screen_refresh_rate)
-            continue;
-        end
-        
-        [ TS, TS_history, chunk1, chunk2, chunk1fft, chunk2fft, chunkfft ] = processing( TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, Resolution, chunk, TS_history );
+    accum(accum_length+1:accum_length+temp_length) = typecast(temp, 'uint32')';
+    accum_length = accum_length + temp_length; 
 
-        drawchart(TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, TS, TS_history, Fs, F_offset, Resolution, N, chunk1, chunk2, chunk1fft, chunk2fft, chunkfft);
-        
-        elapsed_time = 0;
-    end
+    if (accum_length < BUFF_LENGTH*BUFF_MULTIPLIER)
+        continue;
+    end    
+    
+    chunk = accum;
+
+    [ TS, TS_history, chunk1, chunk2, chunk1fft, chunk2fft, chunkfft ] = processing( TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, Resolution, chunk, TS_history );
+
+    drawchart(TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, TS, TS_history, Fs, F_offset, Resolution, N, chunk1, chunk2, chunk1fft, chunk2fft, chunkfft);
+    
+    accum_length = 0;
 end
 
 % Disconnect and clean up the server connection. 

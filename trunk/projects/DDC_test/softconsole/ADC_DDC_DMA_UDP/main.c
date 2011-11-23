@@ -95,6 +95,12 @@ static volatile uint8_t		next_DMA_buf = 1;
 static volatile uint8_t		NET_buf = 0;
 static volatile uint32_t	buffer[NB_OF_SAMPLE_BUFFERS][BUFF_LENGTH];
 
+//Specifies how many bursts are to be sent over the network.
+//The number is decreased after every successful burst transmit.
+static volatile uint8_t		BurstCounter = 0;
+//If BurstCounter is set to FAST_FLOOD, it will continuously send bursts.
+#define	FAST_FLOOD			0xFF
+
 
 // *************************************************************************
 // External Declarations
@@ -237,6 +243,9 @@ void data_sent_callback_fn()
 
 	still_working_on_last_data = 0;
 	NET_buf = (NET_buf + 1) % NB_OF_SAMPLE_BUFFERS;
+
+	if (BurstCounter && BurstCounter != FAST_FLOOD)
+		BurstCounter--;
 }
 
 void Timer1_IRQHandler( void )
@@ -245,31 +254,59 @@ void Timer1_IRQHandler( void )
     MSS_TIM1_clear_irq();
 }
 
+#define COMMAND_ID_CONFIG_MSG		0x00
+#define COMMAND_ID_FLOW_CONTROL_MSG	0x01
+
+#define COMMAND_ID_WAITING_STATE		0
+#define COMMAND_ID_CONFIG_STATE			1
+#define COMMAND_ID_FLOW_CONTROL_STATE	2
+
 void receive_callback(void* data, u16_t len)
 {
-	static uint8_t buffer[13];
-	static uint8_t counter = 13;
+	static uint8_t	buffer[13];
+	static uint8_t	counter = 13;
+	static char		state = COMMAND_ID_WAITING_STATE;
 
 	u16_t i;
 	for (i = 0; i < len; i++)
 	{
-		counter--;
-		buffer[counter] = *(((uint8_t*) data) + i);
-
-		if (counter == 0)
+		if (state == COMMAND_ID_WAITING_STATE)
 		{
-			uint32_t RFfrequency	=	*((uint32_t*) &(buffer[9]));
-			int16_t DC_offsetI		=	*((int32_t*) &(buffer[7]));
-			int16_t DC_offsetQ		=	*((int32_t*) &(buffer[5]));
-			double DDCfrequency		=	(double) *(((int32_t*) &(buffer[1])));
-			uint8_t shift			=	buffer[0];
+			if (*(((uint8_t*) data) + i) == COMMAND_ID_CONFIG_MSG)
+				state = COMMAND_ID_CONFIG_STATE;
+			else if (*(((uint8_t*) data) + i) == COMMAND_ID_FLOW_CONTROL_MSG)
+				state = COMMAND_ID_FLOW_CONTROL_STATE;
+		}
+		else if (state == COMMAND_ID_CONFIG_STATE)
+		{
+			counter--;
+			buffer[counter] = *(((uint8_t*) data) + i);
 
-			SetRFFr(RFfrequency);
-			SetDCoffset(DC_offsetI, DC_offsetQ);
-			SetDDCFr(DDCfrequency);
-			SetDDCshift(shift);
+			if (counter == 0)
+			{
+				uint32_t RFfrequency	=	*((uint32_t*) &(buffer[9]));
+				int16_t DC_offsetI		=	*((int32_t*) &(buffer[7]));
+				int16_t DC_offsetQ		=	*((int32_t*) &(buffer[5]));
+				double DDCfrequency		=	(double) *(((int32_t*) &(buffer[1])));
+				uint8_t shift			=	buffer[0];
 
-			counter = 13;
+				SetRFFr(RFfrequency);
+				SetDCoffset(DC_offsetI, DC_offsetQ);
+				SetDDCFr(DDCfrequency);
+				SetDDCshift(shift);
+
+				counter = 13;
+
+				state = COMMAND_ID_WAITING_STATE;
+			}
+		}
+		else if (state == COMMAND_ID_FLOW_CONTROL_STATE)
+		{
+			BurstCounter = *(((uint8_t*) data) + i);
+
+			NET_buf = DMA_buf;
+
+			state = COMMAND_ID_WAITING_STATE;
 		}
 	}
 }
@@ -382,7 +419,7 @@ int main()
 #endif
 
 #ifdef ADC_ENABLED
-	next_DMA_transfer();
+//	next_DMA_transfer(); //This would be ideal, but it doesn't work like this. This has to be after PDMA_start
 
 #	ifdef TIME_STAMP
 //    set_time_stamp(DMA_buf);
@@ -399,7 +436,7 @@ int main()
             BUFF_LENGTH);
 #	endif
 
-//	next_DMA_transfer();
+	next_DMA_transfer();
 #endif
 
     while (1)
@@ -418,13 +455,20 @@ int main()
 #endif
 
         // if we have stuff to write AND last data is already sent AND we have a live connection
-        if ( (NET_buf != DMA_buf) && !still_working_on_last_data && pcb->remote_port)
+//        if ( (NET_buf != DMA_buf) && !still_working_on_last_data && pcb->remote_port)
+
+        // if we have stuff to write
+        //AND last data is already sent
+        //AND we have a live connection
+        //AND BurstCounter indicates that receiver is still expecting bursts
+        if (	(NET_buf != DMA_buf)
+        		&&
+        		!still_working_on_last_data
+        		&&
+        		pcb->remote_port
+        		&&
+        		BurstCounter)
         {
-        	//buffer[NET_buf][0] = 0xFFFFFFFF;
-        	//buffer[NET_buf][BUFF_LENGTH/4-1] = 0xFFFFFFFF;
-        	//buffer[NET_buf][BUFF_LENGTH/2-1] = 0xFFFFFFFF;
-        	//buffer[NET_buf][BUFF_LENGTH*3/4-1] = 0xFFFFFFFF;
-        	//buffer[NET_buf][BUFF_LENGTH-1] = 0xFFFFFFFF;
         	still_working_on_last_data = 1;
         	send_buffer(pcb, &(buffer[NET_buf][0]), BUFF_LENGTH*sizeof(uint32_t));
 

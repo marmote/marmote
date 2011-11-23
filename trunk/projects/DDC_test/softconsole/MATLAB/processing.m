@@ -8,7 +8,7 @@ function [ TS, TS_history_out, chunk1, chunk2, chunk1fft, chunk2fft, chunkfft ] 
     if TIME_STAMP == 1
         ii = BUFF_LENGTH*(BUFF_MULTIPLIER-1)+1;
         while ii > 0
-           TS = [chunk(ii) TS]; 
+           TS = [uint32(chunk(ii)) TS]; 
            chunk(ii) = [];
            ii = ii - BUFF_LENGTH;
         end

@@ -42,6 +42,8 @@ void recv_callback(void *arg,
 		               struct ip_addr *addr,
 		               u16_t port)
 {
+	pcb->remote_port = port;
+	pcb->remote_ip = *addr;
 
 //Process
 	struct pbuf* p = pkt_buf;
@@ -57,24 +59,6 @@ void recv_callback(void *arg,
 
 // if error close
 	//udp_remove(pcb);
-}
-
-
-/*..........................................................................*/
-void server_recv_callback(void *arg,
-		           struct udp_pcb *pcb,
-		           struct pbuf *pkt_buf,
-		           struct ip_addr *addr,
-		           u16_t port)
-{
-	//Process this message
-	recv_callback(arg, pcb, pkt_buf, addr, port);
-
-	pcb->remote_port = port;
-	pcb->remote_ip = *addr;
-
-    //Set callback for receives on this UDP PCB (Protocol Control Block)
-	udp_recv(pcb, recv_callback, NULL);
 }
 
 
@@ -98,7 +82,7 @@ struct udp_pcb *server_init(u16_t port)
         return NULL;
     }
 
-    udp_recv(pcb, server_recv_callback, NULL);
+    udp_recv(pcb, recv_callback, NULL);
 
     return pcb;
 }
