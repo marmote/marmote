@@ -38,10 +38,10 @@
 
 /* EP1  */
 /* buffer base address */
-#define ENDP1_BUF0Addr      (0x90)
-#define ENDP1_BUF1Addr      (0xC0)
 //#define ENDP1_BUF0Addr      (0x90)
-//#define ENDP1_BUF1Addr      (0x100)
+//#define ENDP1_BUF1Addr      (0xC0)
+#define ENDP1_BUF0Addr      (0x90)
+#define ENDP1_BUF1Addr      (0x100)
 
 /*-------------------------------------------------------------*/
 /* -------------------   ISTR events  -------------------------*/
