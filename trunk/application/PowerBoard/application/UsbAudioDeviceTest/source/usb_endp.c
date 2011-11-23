@@ -44,7 +44,7 @@ uint16_t In_Data_Offset;
 extern uint32_t EP_ctr;
 void EP1_IN_Callback(void)
 {																																			  
-    uint16_t i;
+//    uint16_t i;
 
     uint16_t Data_Len;       /* data length*/
     Data_Len = 48;
