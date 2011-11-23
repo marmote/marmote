@@ -20,8 +20,8 @@ int main (void) {
 	SysTick->LOAD = 72000;	
 						
 	PowerControl_Init();
-	PowerMonitor_Init();	
-	//LED_Init();
+	//PowerMonitor_Init();	
+	LED_Init();
 	USB_FsInit();
 
 	CMD_ListLength = sizeof(CMD_List)/sizeof(CMD_Type);

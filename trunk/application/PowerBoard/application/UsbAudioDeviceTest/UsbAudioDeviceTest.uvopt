@@ -367,7 +367,7 @@
       <Focus>0</Focus>
       <ColumnNumber>139</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>133</TopLine>
+      <TopLine>138</TopLine>
       <CurrentLine>158</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\CMSIS\source\arm\startup_stm32f10x_md.s</PathWithFileName>
@@ -607,9 +607,9 @@
   </Group>
 
   <AlienFiles>
-    <PathWithFilename>D:\work\software\PowerBoard\library\usb\include\usb_regs.h</PathWithFilename>
-    <TopLine>615</TopLine>
-    <CurrentLine>648</CurrentLine>
+    <PathWithFilename>D:\work\software\PowerBoard\application\UsbAudioDeviceTest\include\usb_prop.h</PathWithFilename>
+    <TopLine>10</TopLine>
+    <CurrentLine>31</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -659,9 +659,9 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>D:\work\software\PowerBoard\application\UsbAudioDeviceTest\include\usb_prop.h</PathWithFilename>
-    <TopLine>1</TopLine>
-    <CurrentLine>31</CurrentLine>
+    <PathWithFilename>D:\work\software\PowerBoard\library\usb\include\usb_regs.h</PathWithFilename>
+    <TopLine>627</TopLine>
+    <CurrentLine>648</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -706,13 +706,13 @@
         <Doc>
           <Name>..\..\library\usb\include\usb_regs.h</Name>
           <ColumnNumber>17</ColumnNumber>
-          <TopLine>615</TopLine>
+          <TopLine>627</TopLine>
           <CurrentLine>648</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\library\CMSIS\source\arm\startup_stm32f10x_md.s</Name>
           <ColumnNumber>139</ColumnNumber>
-          <TopLine>133</TopLine>
+          <TopLine>138</TopLine>
           <CurrentLine>158</CurrentLine>
         </Doc>
         <Doc>
@@ -742,7 +742,7 @@
         <Doc>
           <Name>.\include\usb_prop.h</Name>
           <ColumnNumber>18</ColumnNumber>
-          <TopLine>1</TopLine>
+          <TopLine>10</TopLine>
           <CurrentLine>31</CurrentLine>
         </Doc>
       </Documents>

@@ -23,7 +23,7 @@
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-uint16_t Stream_Buff[48];
+uint8_t Stream_Buff[48];
 //uint16_t Stream_Buff[] = { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0} ;
 //static uint16_t ctr;
 /*
@@ -41,14 +41,16 @@ uint16_t In_Data_Offset;
 * Output         : None.
 * Return         : None.
 *******************************************************************************/
+extern uint32_t EP_ctr;
 void EP1_IN_Callback(void)
 {																																			  
     uint16_t i;
 
     uint16_t Data_Len;       /* data length*/
-    Data_Len = 16;
+    Data_Len = 48;
 
 
+			 EP_ctr++;
 	//Stream_Buff[0] = 3;
     //ctr = 3;
 
@@ -64,26 +66,30 @@ void EP1_IN_Callback(void)
 
     if (GetENDPOINT(ENDP1) & EP_DTOG_TX)
     {
-	    for (i = 0 ; i < 5 ; i++)
+	    /*
+		for (i = 0 ; i < sizeof(Stream_Buff) ; i++)
 	    {
 	        Stream_Buff[i] = i;
 	    }
+		*/
         // Write to ENDP1_BUF0Addr buffer
         UserToPMABufferCopy((uint8_t*)Stream_Buff, ENDP1_BUF0Addr, Data_Len);
     }
     else
     {
-	    for (i = 0 ; i < 5 ; i++)
+		/*
+	    for (i = 0 ; i < sizeof(Stream_Buff) ; i++)
 	    {
-	        Stream_Buff[i] = 5;
+	        Stream_Buff[i] = 1;
 	    }
+		*/
 
         // Write to ENDP1_BUF1Addr buffer
         //Data_Len = GetEPDblBuf1Count(ENDP1);
         UserToPMABufferCopy((uint8_t*)Stream_Buff, ENDP1_BUF1Addr, Data_Len);
     }
     
-    FreeUserBuffer(ENDP1, EP_DBUF_OUT);
+    //FreeUserBuffer(ENDP1, EP_DBUF_OUT);
 }
 
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/
