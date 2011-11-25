@@ -145,10 +145,11 @@ void Microphone_Reset()
   /* Initialize Endpoint 1 */
   SetEPType(ENDP1, EP_ISOCHRONOUS);
   SetEPDblBuffAddr(ENDP1, ENDP1_BUF0Addr, ENDP1_BUF1Addr);
+  //SetEPDblBuffCount(ENDP1, EP_DBUF_IN, 0x40);
   SetEPDblBuffCount(ENDP1, EP_DBUF_IN, 0x60);
   ClearDTOG_RX(ENDP1);
   ClearDTOG_TX(ENDP1);
-  ToggleDTOG_TX(ENDP1); // Give Buf0 to SW
+  ToggleDTOG_TX(ENDP1);
   SetEPRxStatus(ENDP1, EP_RX_DIS);
   SetEPTxStatus(ENDP1, EP_TX_VALID);
 

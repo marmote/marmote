@@ -31,9 +31,7 @@ const uint8_t Microphone_DeviceDescriptor[] =
 /* bDeviceClass                            */ 0x00u,
 /* bDeviceSubClass                         */ 0x00u,
 /* bDeviceProtocol                         */ 0x00u,
-///* bMaxPacketSize0                         */ 0x40u, // 64 bytes
-///* bMaxPacketSize0                         */ 0x20u, // 32 bytes
-/* bMaxPacketSize0                         */ 0x18u, // 24 bytes
+/* bMaxPacketSize0                         */ 0x40u, // 64 bytes
 /* idVendor                                */ 0x84u, 0x34u,
 /* idProduct                               */ 0x42u, 0x57u,
 /* bcdDevice                               */ 0x00u, 0x00u,
@@ -171,8 +169,7 @@ const uint8_t Microphone_ConfigDescriptor[] =
 /*  DescriptorType: ENDPOINT               */ 0x05u,
 /*  bEndpointAddress: EP1 IN               */ 0x81u,
 /*  bmAttributes: synchronous              */ 0x0Du,
-///*  wMaxPacketSize: 64 bytes               */ 0x40u, 0x00u,
-/*  wMaxPacketSize: 96 bytes               */ 0x60u, 0x00u,
+/*  wMaxPacketSize: 96 bytes               */ 0x60u, 0x00u, // !
 /*  bInterval: 1 ms                        */ 0x01u,
 /*  bRefresh                               */ 0x00u,
 /*  bSynchAddress                          */ 0x00u,

@@ -29,22 +29,19 @@
 /*-------------------------------------------------------------*/
 /* buffer table base address */
 /* buffer table base address */
-#define BTABLE_ADDRESS      (0x00) // 16 bytes for registers
+#define BTABLE_ADDRESS      (0x00)
 
 /* EP0  */
 /* rx/tx buffer base address */
-//#define ENDP0_RXADDR        (0x10)
-//#define ENDP0_TXADDR        (0x50)
-//#define ENDP0_TXADDR        (0x30)
-#define ENDP0_RXADDR        (0x10) // 24 bytes
-#define ENDP0_TXADDR        (0x28) // 24 bytes
+#define ENDP0_RXADDR        (0x20)
+#define ENDP0_TXADDR        (0x60)
 
 /* EP1  */
 /* buffer base address */
 //#define ENDP1_BUF0Addr      (0x90)
 //#define ENDP1_BUF1Addr      (0xC0)
-#define ENDP1_BUF0Addr      (0x40) // 96 bytes
-#define ENDP1_BUF1Addr      (0xA0) // 96 bytes
+#define ENDP1_BUF0Addr      (0xA0)
+#define ENDP1_BUF1Addr      (0x100)
 
 /*-------------------------------------------------------------*/
 /* -------------------   ISTR events  -------------------------*/
@@ -56,7 +53,7 @@
 
 
 /*#define CTR_CALLBACK*/
-#define DOVR_CALLBACK
+/*#define DOVR_CALLBACK*/
 /*#define ERR_CALLBACK*/
 /*#define WKUP_CALLBACK*/
 /*#define SUSP_CALLBACK*/

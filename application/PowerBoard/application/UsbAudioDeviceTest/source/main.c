@@ -44,7 +44,8 @@ extern uint16_t Stream_Buf[48];
 * Return         : None.
 *******************************************************************************/
 int main(void)
-{
+{																																			  
+    uint16_t i;
     Set_System();
 
   //Set_USBClock();
@@ -55,16 +56,16 @@ int main(void)
 	SysTick->CTRL |= (SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_TICKINT_Msk | SysTick_CTRL_ENABLE_Msk);
 	SysTick->LOAD = 72000;	
 
+
     for (i = 0 ; i < sizeof(Stream_Buf) ; i++)
     {
         Stream_Buf[i] = 0;
     }
 
-	USB_FsInit();
-						
+	USB_FsInit();			
+							
 	PowerControl_Init();
 	LED_Init();
-
 	//PowerMonitor_Init();
     //Speaker_Config();
     while (1)
@@ -82,7 +83,7 @@ int main(void)
 * Output         : None
 * Return         : None
 *******************************************************************************/
-void assert_failed(uint8_t* file, uint3 2_t line)
+void assert_failed(uint8_t* file, uint32_t line)
 {
   /* User can add his own implementation to report the file name and line number,
      ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
