@@ -45,6 +45,8 @@
 #include "power_control.h"
 #include "power_monitor.h"
 
+//uint16_t Stream_Buf[48];
+
 // Board - Initialize board peripherals and GPIOs with default values
 void Board_Init(void); // 
 
