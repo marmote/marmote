@@ -41,16 +41,16 @@ uint16_t In_Data_Offset;
 * Output         : None.
 * Return         : None.
 *******************************************************************************/
+extern int16_t sampleValue;
 void EP1_IN_Callback(void)
-{	
-
+{		   
 	uint8_t i;
 
     if (GetENDPOINT(ENDP1) & EP_DTOG_TX)
     {
 	    for (i = 0 ; i < 48 ; i++)
 	    {
-	        Stream_Buf[i] = i;
+	        Stream_Buf[i] = sampleValue;
 	    }
         // Write to ENDP1_BUF0Addr buffer
         UserToPMABufferCopy((uint8_t*)Stream_Buf, ENDP1_BUF0Addr, 96);
@@ -59,7 +59,7 @@ void EP1_IN_Callback(void)
     {
 	    for (i = 0 ; i < 48 ; i++)
 	    {
-	        Stream_Buf[i] = 10;
+	        Stream_Buf[i] = sampleValue;
 	    }
 
         // Write to ENDP1_BUF1Addr buffer
