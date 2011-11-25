@@ -44,9 +44,8 @@ extern uint16_t Stream_Buf[48];
 * Return         : None.
 *******************************************************************************/
 int main(void)
-{																																			  
-    uint16_t i;
-    Set_System();
+{	
+	Set_System();
 
   //Set_USBClock();
   //USB_Config();
@@ -55,12 +54,6 @@ int main(void)
   	// Configure SysTick
 	SysTick->CTRL |= (SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_TICKINT_Msk | SysTick_CTRL_ENABLE_Msk);
 	SysTick->LOAD = 72000;	
-
-
-    for (i = 0 ; i < sizeof(Stream_Buf) ; i++)
-    {
-        Stream_Buf[i] = 0;
-    }
 
 	USB_FsInit();			
 							
