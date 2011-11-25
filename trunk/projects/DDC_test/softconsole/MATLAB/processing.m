@@ -1,7 +1,19 @@
-function [ TS, TS_history_out, chunk1, chunk2, chunk1fft, chunk2fft, chunkfft ] = processing( TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, Resolution, chunk, TS_history )
+function [ TS, TS_history_out, chunk1, chunk2, chunk1fft, chunk2fft, chunkfft ] = processing( conf, chunk, TS_history )
 
-    setvariables();
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set variables    
+    TIME_STAMP          = conf.TIME_STAMP;
+    BUFF_LENGTH         = conf.BUFF_LENGTH;
+    BUFF_MULTIPLIER     = conf.BUFF_MULTIPLIER;
 
+    N                   = conf.N;
+
+    num_pos_fr          = conf.num_pos_fr;
+    num_neg_fr          = conf.num_neg_fr;
+
+    Full_Scale          = conf.Full_Scale;
+
+    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Signal processing    
     TS = [];
@@ -40,8 +52,8 @@ function [ TS, TS_history_out, chunk1, chunk2, chunk1fft, chunk2fft, chunkfft ] 
     chunk1fft = chunk1fft / N;
     chunk2fft = chunk2fft / N;
 
-    chunkfft = 10 * log10(chunkfft);
-    chunk1fft = 10 * log10(chunk1fft);
-    chunk2fft = 10 * log10(chunk2fft);
+    chunkfft = 20 * log10(chunkfft);
+    chunk1fft = 20 * log10(chunk1fft);
+    chunk2fft = 20 * log10(chunk2fft);
     
 end
