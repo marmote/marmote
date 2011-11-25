@@ -1,8 +1,18 @@
-setvariables();
+DSPconf = GetDSPConfig();
+
+TIME_STAMP          = DSPconf.TIME_STAMP;
+BUFF_MULTIPLIER     = DSPconf.BUFF_MULTIPLIER;
+BUFF_LENGTH         = DSPconf.BUFF_LENGTH;
+N                   = DSPconf.N;
+Fs                  = DSPconf.Fs;
+T                   = DSPconf.T;
+Full_Scale          = DSPconf.Full_Scale;
+
+TS_history = [];
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-gen_f = 156000; % [Hz]
-%gen_f = Fs/10; % [Hz]
+%gen_f = 100000; % [Hz]
+gen_f = Fs/10; % [Hz]
 gen_A = 1; %
 gen_phi = 0; % [rad]
 
@@ -36,7 +46,8 @@ if TIME_STAMP == 1
     chunk = c_tmp;
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+fig_handle = figure;
 
-[ TS, TS_history, chunk1, chunk2, chunk1fft, chunk2fft, chunkfft ] = processing( TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, Resolution, chunk, TS_history );
+    [ TS, TS_history, chunk1, chunk2, chunk1fft, chunk2fft, chunkfft ] = processing( DSPconf, chunk, TS_history );
 
-drawchart(TIME_STAMP, BUFF_MULTIPLIER, BUFF_LENGTH, TS, TS_history, Fs, F_offset, Resolution, N, chunk1, chunk2, chunk1fft, chunk2fft, chunkfft);
+    drawchart( fig_handle, DSPconf, TS, TS_history, chunk1, chunk2, chunk1fft, chunk2fft, chunkfft);

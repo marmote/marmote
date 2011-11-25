@@ -22,7 +22,7 @@ function varargout = livechart_GUI(varargin)
 
 % Edit the above text to modify the response to help livechart_GUI
 
-% Last Modified by GUIDE v2.5 24-Nov-2011 15:59:56
+% Last Modified by GUIDE v2.5 25-Nov-2011 14:13:42
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -384,6 +384,8 @@ function pushbutton_start_Callback(hObject, eventdata, handles)
     
     UpdateGUI(handles);
     
+    StartUDP(hObject);
+    
     
 %--------------------------------------------------------------------------
 % --- Executes on button press in pushbutton_stop.
@@ -398,6 +400,8 @@ function pushbutton_stop_Callback(hObject, eventdata, handles)
     StoreConf(handles, conf);
     
     UpdateGUI(handles);
+    
+    StopUDP(handles);
     
     
 %--------------------------------------------------------------------------
@@ -441,6 +445,8 @@ function edit_IQ_demod_fr_Callback(hObject, eventdata, handles)
     StoreConf(handles, conf);
     
     UpdateGUI(handles);
+    
+    SendConfig(handles);
 
     
 %--------------------------------------------------------------------------
@@ -460,6 +466,8 @@ function slider_IQ_demod_fr_Callback(hObject, eventdata, handles)
     
     UpdateGUI(handles);
     
+    SendConfig(handles);
+    
     
 %--------------------------------------------------------------------------
 function edit_I_DC_offset_Callback(hObject, eventdata, handles)
@@ -476,6 +484,8 @@ function edit_I_DC_offset_Callback(hObject, eventdata, handles)
     StoreConf(handles, conf);
     
     UpdateGUI(handles);
+    
+    SendConfig(handles);
     
     
 %--------------------------------------------------------------------------
@@ -495,6 +505,8 @@ function slider_I_DC_offset_Callback(hObject, eventdata, handles)
     
     UpdateGUI(handles);
     
+    SendConfig(handles);
+    
     
 %--------------------------------------------------------------------------
 function edit_Q_DC_offset_Callback(hObject, eventdata, handles)
@@ -512,6 +524,8 @@ function edit_Q_DC_offset_Callback(hObject, eventdata, handles)
     
     UpdateGUI(handles);
     
+    SendConfig(handles);
+   
     
 %--------------------------------------------------------------------------
 % --- Executes on slider movement.
@@ -530,6 +544,8 @@ function slider_Q_DC_offset_Callback(hObject, eventdata, handles)
     
     UpdateGUI(handles);
     
+    SendConfig(handles);
+    
     
 %--------------------------------------------------------------------------
 function edit_DDC_fr_Callback(hObject, eventdata, handles)
@@ -546,6 +562,8 @@ function edit_DDC_fr_Callback(hObject, eventdata, handles)
     StoreConf(handles, conf);
     
     UpdateGUI(handles);
+    
+    SendConfig(handles);
     
     
 %--------------------------------------------------------------------------
@@ -565,6 +583,8 @@ function slider_DDC_fr_Callback(hObject, eventdata, handles)
     
     UpdateGUI(handles);
     
+    SendConfig(handles);
+
     
 %--------------------------------------------------------------------------
 function edit_shift_Callback(hObject, eventdata, handles)
@@ -582,6 +602,8 @@ function edit_shift_Callback(hObject, eventdata, handles)
     
     UpdateGUI(handles);
     
+    SendConfig(handles);
+
     
 %--------------------------------------------------------------------------
 % --- Executes on slider movement.
@@ -599,6 +621,8 @@ function slider_shift_Callback(hObject, eventdata, handles)
     StoreConf(handles, conf);
     
     UpdateGUI(handles);
+    
+    SendConfig(handles);
     
 
 %--------------------------------------------------------------------------
@@ -626,19 +650,38 @@ function UpdateGUI(handles)
     
     set(handles.slider_IQ_demod_fr, 'Min', conf.IQ_demod_fr_min);
     set(handles.slider_IQ_demod_fr, 'Max', conf.IQ_demod_fr_max);
+    smallstep = conf.IQ_demod_fr_step/(conf.IQ_demod_fr_max - conf.IQ_demod_fr_min);
+    set(handles.slider_IQ_demod_fr, 'SliderStep', [smallstep smallstep]);
+    set(handles.text_IQ_demod_fr_min, 'String', conf.IQ_demod_fr_min);
+    set(handles.text_IQ_demod_fr_max, 'String', conf.IQ_demod_fr_max);
     
     set(handles.slider_I_DC_offset, 'Min', conf.I_DC_offset_min);
     set(handles.slider_I_DC_offset, 'Max', conf.I_DC_offset_max);
+    smallstep = conf.I_DC_offset_step/(conf.I_DC_offset_max - conf.I_DC_offset_min);
+    set(handles.slider_I_DC_offset, 'SliderStep', [smallstep smallstep]);
+    set(handles.text_I_DC_offset_min, 'String', conf.I_DC_offset_min);
+    set(handles.text_I_DC_offset_max, 'String', conf.I_DC_offset_max);
     
     set(handles.slider_Q_DC_offset, 'Min', conf.Q_DC_offset_min);
     set(handles.slider_Q_DC_offset, 'Max', conf.Q_DC_offset_max);
-
+    smallstep = conf.Q_DC_offset_step/(conf.Q_DC_offset_max - conf.Q_DC_offset_min);
+    set(handles.slider_Q_DC_offset, 'SliderStep', [smallstep smallstep]);
+    set(handles.text_Q_DC_offset_min, 'String', conf.Q_DC_offset_min);
+    set(handles.text_Q_DC_offset_max, 'String', conf.Q_DC_offset_max);
+    
     set(handles.slider_DDC_fr, 'Min', conf.DDC_fr_min);
     set(handles.slider_DDC_fr, 'Max', conf.DDC_fr_max); 
+    smallstep = conf.DDC_fr_step/(conf.DDC_fr_max - conf.DDC_fr_min);
+    set(handles.slider_DDC_fr, 'SliderStep', [smallstep smallstep]);
+    set(handles.text_DDC_fr_min, 'String', conf.DDC_fr_min);
+    set(handles.text_DDC_fr_max, 'String', conf.DDC_fr_max);
     
     set(handles.slider_shift, 'Min', conf.Shift_min);
     set(handles.slider_shift, 'Max', conf.Shift_max); 
-    
+    smallstep = conf.Shift_step/(conf.Shift_max - conf.Shift_min);
+    set(handles.slider_shift, 'SliderStep', [smallstep smallstep]);
+    set(handles.text_shift_min, 'String', conf.Shift_min);
+    set(handles.text_shift_max, 'String', conf.Shift_max);
     
     % Source
     if conf.source == 0 %file
@@ -703,9 +746,20 @@ function UpdateGUI(handles)
     if conf.running == 1
         set(handles.pushbutton_start,'Enable','off');
         set(handles.pushbutton_stop,'Enable','on');
+        
+        set(handles.radiobutton_file,'Enable','off');
+        set(handles.edit_file,'Enable','off');
+        set(handles.pushbutton_browse,'Enable','off');
+        set(handles.radiobutton_UDP,'Enable','off');
+        set(handles.edit_IP,'Enable','off');
+        set(handles.edit_port,'Enable','off');
+        
     else
         set(handles.pushbutton_start,'Enable','on');
         set(handles.pushbutton_stop,'Enable','off');
+        
+        set(handles.radiobutton_file,'Enable','off');
+        set(handles.radiobutton_UDP,'Enable','on');
     end
     
     if conf.en_rr == 1
@@ -743,9 +797,14 @@ function CheckConf(handles)
 
     
 function ResetConf(handles)
+    conf.fig_handle    = 0;
+    conf.timerObject   = 0;
+    conf.u             = 0;
+    conf.TS_history    = [];
+
     conf.running       = 0;
 
-    conf.source        = 0; %0: file, 1: UDP
+    conf.source        = 1; %0: file, 1: UDP
     conf.file          = 'log.txt';
     conf.IP            = '192.168.1.2';
     conf.port          = 49151;
@@ -796,3 +855,79 @@ function StoreConf(handles, conf)
 function conf = LoadConf(handles)
     conf = getappdata(handles.pushbutton_browse,'ConfigData');
     
+
+function StartUDP(hObject)
+    handles = guidata(hObject);
+    conf = LoadConf(handles);
+
+    if conf.running == 0 %Because at this point running status is alread set
+        return;
+    end
+    
+    DSPconf = GetDSPConfig();
+    
+    conf.u = OpenUDP( conf.IP, conf.port, 10 * DSPconf.BUFF_LENGTH * 32/8 );
+    
+    WriteConfig( conf.u, conf.IQ_demod_fr, conf.I_DC_offset, conf.Q_DC_offset, conf.DDC_fr, conf.Shift );
+        
+    if conf.en_rr == 0
+        Period = 0;
+    else
+        Period = 1/conf.refresh_rate;
+    end
+    Period = max(0.001, Period);
+    
+    conf.timerObject = timer('TimerFcn',{@TimerCallback, hObject},...
+                        'ExecutionMode','fixedRate',...
+                        'Period', Period);
+    
+    conf.TS_history    = [];
+
+    conf.fig_handle = figure;
+    
+    StoreConf(handles,conf);
+    
+    start(conf.timerObject);
+       
+
+function StopUDP(handles)
+    conf = LoadConf(handles);
+
+    if conf.running == 1 %Because at this point running status is alread set
+        return;
+    end
+    
+    stop(conf.timerObject);
+%    wait(conf.timerObject);
+    delete(conf.timerObject);
+    conf.timerObject = 0;
+    
+    CloseUDP( conf.u );
+    conf.u = 0;
+    
+    StoreConf(handles,conf);
+    
+    
+function TimerCallback(obj, event, hObject)
+    handles = guidata(hObject);
+    
+    conf = LoadConf(handles);
+    
+    TS_history = conf.TS_history;
+    
+    DSPconf = GetDSPConfig();
+    
+    chunk = ReadBuffer( conf.u, DSPconf );
+    
+    [ TS, TS_history, chunk1, chunk2, chunk1fft, chunk2fft, chunkfft ] = processing( DSPconf, chunk, TS_history );
+
+    drawchart( conf.fig_handle, DSPconf, TS, TS_history, chunk1, chunk2, chunk1fft, chunk2fft, chunkfft);
+
+    conf.TS_history = TS_history;
+    
+    StoreConf(handles,conf);    
+    
+function SendConfig(handles)
+    conf = LoadConf(handles);
+    
+    WriteConfig( conf.u, conf.IQ_demod_fr, conf.I_DC_offset, conf.Q_DC_offset, conf.DDC_fr, conf.Shift );
