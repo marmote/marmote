@@ -23,8 +23,8 @@
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-//int16_t Stream_Buff[] = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1} ;
-int16_t Stream_Buff[48]; // = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1} ;
+//int16_t Stream_Buf[] = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1} ;
+int16_t Stream_Buf[48]; // = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1} ;
 //static uint16_t ctr;
 /*
 uint16_t In_Data_Offset;
@@ -43,8 +43,8 @@ uint16_t In_Data_Offset;
 *******************************************************************************/
 void EP1_IN_Callback(void)
 {																																			  
-    //UserToPMABufferCopy((uint8_t*)Stream_Buff, ENDP1_BUF0Addr, 96);
-    //UserToPMABufferCopy((uint8_t*)Stream_Buff, ENDP1_BUF0Addr, 96);
+    //UserToPMABuferCopy((uint8_t*)Stream_Buf, ENDP1_BUF0Addr, 96);
+    //UserToPMABuferCopy((uint8_t*)Stream_Buf, ENDP1_BUF0Addr, 96);
     //return;
 
     //
@@ -55,33 +55,33 @@ void EP1_IN_Callback(void)
     {
 	    
 		/*
-		for (i = 0 ; i < sizeof(Stream_Buff) ; i++)
+		for (i = 0 ; i < sizeof(Stream_Buf) ; i++)
 	    {
-	        Stream_Buff[i] = 0;
+	        Stream_Buf[i] = 0;
 	    }
 		*/
 		
         // Write to ENDP1_BUF0Addr buffer
-        //UserToPMABufferCopy((uint8_t*)Stream_Buff, ENDP1_BUF0Addr, sizeof(Stream_Buff)/sizeof(int16_t));
-        //UserToPMABufferCopy((uint8_t*)Stream_Buff, ENDP1_BUF0Addr, sizeof(Stream_Buff));
-        UserToPMABufferCopy((uint8_t*)Stream_Buff, ENDP1_BUF0Addr, 96);
+        //UserToPMABuferCopy((uint8_t*)Stream_Buf, ENDP1_BUF0Addr, sizeof(Stream_Buf)/sizeof(int16_t));
+        //UserToPMABuferCopy((uint8_t*)Stream_Buf, ENDP1_BUF0Addr, sizeof(Stream_Buf));
+        UserToPMABuferCopy((uint8_t*)Stream_Buf, ENDP1_BUF0Addr, 96);
     }
     else
     {
 		/*
-	    for (i = 0 ; i < sizeof(Stream_Buff) ; i++)
+	    for (i = 0 ; i < sizeof(Stream_Buf) ; i++)
 	    {
-	        Stream_Buff[i] = 1;
+	        Stream_Buf[i] = 1;
 	    }
 		*/		
 
         // Write to ENDP1_BUF1Addr buffer
-        //UserToPMABufferCopy((uint8_t*)Stream_Buff, ENDP1_BUF1Addr, sizeof(Stream_Buff)/sizeof(int16_t));
-        //UserToPMABufferCopy((uint8_t*)Stream_Buff, ENDP1_BUF1Addr, sizeof(Stream_Buff));
-        UserToPMABufferCopy((uint8_t*)Stream_Buff, ENDP1_BUF1Addr, 96);
+        //UserToPMABuferCopy((uint8_t*)Stream_Buf, ENDP1_BUF1Addr, sizeof(Stream_Buf)/sizeof(int16_t));
+        //UserToPMABuferCopy((uint8_t*)Stream_Buf, ENDP1_BUF1Addr, sizeof(Stream_Buf));
+        UserToPMABuferCopy((uint8_t*)Stream_Buf, ENDP1_BUF1Addr, 96);
     }
     
-    FreeUserBuffer(ENDP1, EP_DBUF_OUT);
+    FreeUserBufer(ENDP1, EP_DBUF_OUT);
 }
 
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/
