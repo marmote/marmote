@@ -32,7 +32,7 @@
 //extern uint32_t MUTE_DATA;
 //extern uint16_t In_Data_Offset;
 //extern uint16_t Out_Data_Offset;
-extern uint16_t Stream_Buff[48];
+extern uint16_t Stream_Buf[48];
 //extern uint8_t IT_Clock_Sent;
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
@@ -55,9 +55,9 @@ int main(void)
 	SysTick->CTRL |= (SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_TICKINT_Msk | SysTick_CTRL_ENABLE_Msk);
 	SysTick->LOAD = 72000;	
 
-    for (i = 0 ; i < sizeof(Stream_Buff) ; i++)
+    for (i = 0 ; i < sizeof(Stream_Buf) ; i++)
     {
-        Stream_Buff[i] = 0;
+        Stream_Buf[i] = 0;
     }
 
 	USB_FsInit();
