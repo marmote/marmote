@@ -18,6 +18,7 @@
 #include "usb_istr.h"
 
 #include "power_board.h"
+#include "sine_table.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -44,26 +45,29 @@ uint16_t In_Data_Offset;
 extern int16_t sampleValue;
 void EP1_IN_Callback(void)
 {		   
-	uint8_t i;
+	//uint8_t i;
 
     if (GetENDPOINT(ENDP1) & EP_DTOG_TX)
     {
-	    for (i = 0 ; i < 48 ; i++)
+	    /*for (i = 0 ; i < 48 ; i++)
 	    {
 	        Stream_Buf[i] = sampleValue;
 	    }
+		*/
         // Write to ENDP1_BUF0Addr buffer
-        UserToPMABufferCopy((uint8_t*)Stream_Buf, ENDP1_BUF0Addr, 96);
+        UserToPMABufferCopy((uint8_t*)sine_table, ENDP1_BUF0Addr, 96);
     }
     else
     {
+		/*
 	    for (i = 0 ; i < 48 ; i++)
 	    {
 	        Stream_Buf[i] = sampleValue;
 	    }
+		*/
 
         // Write to ENDP1_BUF1Addr buffer
-        UserToPMABufferCopy((uint8_t*)Stream_Buf, ENDP1_BUF1Addr, 96);
+        UserToPMABufferCopy((uint8_t*)sine_table, ENDP1_BUF1Addr, 96);
     }
     
     FreeUserBuffer(ENDP1, EP_DBUF_IN);
