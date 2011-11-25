@@ -189,12 +189,13 @@ void SOF_Callback(void)
 * Output         : None.
 * Return         : None.
 *******************************************************************************/
+//#include "power_board.h"
 void DOVR_Callback(void)
 {
-    LED_On(LED2);
-    for (;;)
-    {
-    }
+    //LED_On(LED2);
+    //for (;;)
+    //{
+    //}
 }
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/
 
