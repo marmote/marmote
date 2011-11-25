@@ -170,7 +170,7 @@ void USB_Istr(void)
 } /* USB_Istr */
 
 /*******************************************************************************
-* Function Name  : USB_Istr
+* Function Name  : SOF_Callback
 * Description    : Start of frame callback function.
 * Input          : None.
 * Output         : None.
@@ -182,5 +182,19 @@ void SOF_Callback(void)
 //  Out_Data_Offset = 0;
 }
 
+/*******************************************************************************
+* Function Name  : DOVR_Callback
+* Description    : Data underflow/overflow callback function.
+* Input          : None.
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void DOVR_Callback(void)
+{
+    LED_On(LED2);
+    for (;;)
+    {
+    }
+}
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/
 
