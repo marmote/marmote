@@ -43,18 +43,11 @@ uint16_t In_Data_Offset;
 *******************************************************************************/
 void EP1_IN_Callback(void)
 {																																			  
-    uint16_t i;
+    //UserToPMABufferCopy((uint8_t*)Stream_Buff, ENDP1_BUF0Addr, 96);
+    //UserToPMABufferCopy((uint8_t*)Stream_Buff, ENDP1_BUF0Addr, 96);
+    //return;
 
-	//Stream_Buff[0] = 3;
-    //ctr = 3;
-
-//    for (i = 0 ; i < 5 ; i++)
-//    {
-//        Stream_Buff[i] = i;
-//    }
-
-    //ctr++;
-    //ctr %= 500;
+    //
 
     LED_Toggle(LED2);
 
@@ -69,7 +62,9 @@ void EP1_IN_Callback(void)
 		*/
 		
         // Write to ENDP1_BUF0Addr buffer
-        UserToPMABufferCopy((uint8_t*)Stream_Buff, ENDP1_BUF0Addr, sizeof(Stream_Buff)/sizeof(int16_t));
+        //UserToPMABufferCopy((uint8_t*)Stream_Buff, ENDP1_BUF0Addr, sizeof(Stream_Buff)/sizeof(int16_t));
+        //UserToPMABufferCopy((uint8_t*)Stream_Buff, ENDP1_BUF0Addr, sizeof(Stream_Buff));
+        UserToPMABufferCopy((uint8_t*)Stream_Buff, ENDP1_BUF0Addr, 96);
     }
     else
     {
@@ -81,7 +76,9 @@ void EP1_IN_Callback(void)
 		*/		
 
         // Write to ENDP1_BUF1Addr buffer
-        UserToPMABufferCopy((uint8_t*)Stream_Buff, ENDP1_BUF1Addr, sizeof(Stream_Buff)/sizeof(int16_t));
+        //UserToPMABufferCopy((uint8_t*)Stream_Buff, ENDP1_BUF1Addr, sizeof(Stream_Buff)/sizeof(int16_t));
+        //UserToPMABufferCopy((uint8_t*)Stream_Buff, ENDP1_BUF1Addr, sizeof(Stream_Buff));
+        UserToPMABufferCopy((uint8_t*)Stream_Buff, ENDP1_BUF1Addr, 96);
     }
     
     FreeUserBuffer(ENDP1, EP_DBUF_OUT);
