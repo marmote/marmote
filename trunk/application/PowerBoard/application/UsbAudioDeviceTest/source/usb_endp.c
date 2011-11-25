@@ -23,8 +23,8 @@
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-//int16_t Stream_Buf[] = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1} ;
-int16_t Stream_Buf[48]; // = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1} ;
+int16_t Stream_Buf[48];
+//uint16_t Stream_Buff[] = { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0} ;
 //static uint16_t ctr;
 /*
 uint16_t In_Data_Offset;
@@ -42,46 +42,31 @@ uint16_t In_Data_Offset;
 * Return         : None.
 *******************************************************************************/
 void EP1_IN_Callback(void)
-{																																			  
-    //UserToPMABuferCopy((uint8_t*)Stream_Buf, ENDP1_BUF0Addr, 96);
-    //UserToPMABuferCopy((uint8_t*)Stream_Buf, ENDP1_BUF0Addr, 96);
-    //return;
+{	
 
-    //
-
-    LED_Toggle(LED2);
+	uint8_t i;
 
     if (GetENDPOINT(ENDP1) & EP_DTOG_TX)
     {
-	    
-		/*
-		for (i = 0 ; i < sizeof(Stream_Buf) ; i++)
+	    for (i = 0 ; i < 48 ; i++)
 	    {
-	        Stream_Buf[i] = 0;
+	        Stream_Buf[i] = i;
 	    }
-		*/
-		
         // Write to ENDP1_BUF0Addr buffer
-        //UserToPMABuferCopy((uint8_t*)Stream_Buf, ENDP1_BUF0Addr, sizeof(Stream_Buf)/sizeof(int16_t));
-        //UserToPMABuferCopy((uint8_t*)Stream_Buf, ENDP1_BUF0Addr, sizeof(Stream_Buf));
-        UserToPMABuferCopy((uint8_t*)Stream_Buf, ENDP1_BUF0Addr, 96);
+        UserToPMABufferCopy((uint8_t*)Stream_Buf, ENDP1_BUF0Addr, 96);
     }
     else
     {
-		/*
-	    for (i = 0 ; i < sizeof(Stream_Buf) ; i++)
+	    for (i = 0 ; i < 48 ; i++)
 	    {
-	        Stream_Buf[i] = 1;
+	        Stream_Buf[i] = 10;
 	    }
-		*/		
 
         // Write to ENDP1_BUF1Addr buffer
-        //UserToPMABuferCopy((uint8_t*)Stream_Buf, ENDP1_BUF1Addr, sizeof(Stream_Buf)/sizeof(int16_t));
-        //UserToPMABuferCopy((uint8_t*)Stream_Buf, ENDP1_BUF1Addr, sizeof(Stream_Buf));
-        UserToPMABuferCopy((uint8_t*)Stream_Buf, ENDP1_BUF1Addr, 96);
+        UserToPMABufferCopy((uint8_t*)Stream_Buf, ENDP1_BUF1Addr, 96);
     }
     
-    FreeUserBufer(ENDP1, EP_DBUF_OUT);
+    FreeUserBuffer(ENDP1, EP_DBUF_IN);
 }
 
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/
