@@ -1,4 +1,4 @@
-#summary Errata and observations on the board designs during testing.
+#summary Errata and observations on the board designs during testing
 #labels Phase-Support
 
 = Power Board =
