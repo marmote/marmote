@@ -125,6 +125,7 @@ TBD
 
 [TBD]
 
+
 == General PCB design notes ==
 
   * http://www.sparkfun.com/tutorials
@@ -134,3 +135,10 @@ TBD
   * http://www.alternatezone.com/electronics/files/PCBDesignTutorialRevA.pdf
   * http://www.youtube.com/watch?v=VXE_dh38HjU
   * Complete PCB design using OrCAD Capture and PCB editor / Kraig Mitzner (Ch1, Ch5, Ch6)
+
+
+= Gerber file export =
+
+ # Run File > CAM Processor
+ # Use the .cam job file found under the CAM directory
+ # Run the jobs and export the files under the CAM directory
