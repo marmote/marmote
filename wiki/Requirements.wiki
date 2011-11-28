@@ -1,4 +1,4 @@
-#summary Main page for the various HW and SW requirements.
+#summary Main page for the various HW and SW requirements
 #labels Phase-Requirements
 
 = List of Requirements =
