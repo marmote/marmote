@@ -1,0 +1,4 @@
+#summary Main page for the erratas of the various HW designs
+#labels Phase-Implementation
+
+[http://code.google.com/p/marmote/wiki/PowerBoardErrata Power Board Errata]
