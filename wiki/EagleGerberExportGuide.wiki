@@ -1,4 +1,4 @@
-#summary A step-by-step guide on creating the Gerbers from an Eagle project.
+#summary A step-by-step guide on creating the Gerbers from an Eagle project
 #labels Phase-Design
 
 = Generating Gerber Files =
