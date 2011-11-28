@@ -1,4 +1,4 @@
-#summary Collection of useful links related to hardware and software aspects of the Marmote project.
+#summary Collection of useful links related to hardware and software aspects of the Marmote project
 #labels Phase-Design,Phase-Implementation
 
 = Software =
