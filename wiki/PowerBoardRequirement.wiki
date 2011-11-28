@@ -1,4 +1,6 @@
+#summary Requirement for the Power Supply Board
 #labels Phase-Requirements
+
 = Functional =
 
  * Should be able to identify itself to the host (USB) and the other boards (I^2^C)
