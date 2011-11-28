@@ -1,0 +1,49 @@
+SMD component position file.
+
+Centroid Data for pc board: "BreakoutBoard.brd" as of: 11/28/2011 3:13:00 PM
+Measurements are in inches. Comma delimited
+Only surface mount components included
+
+RefDes,Layer,LocationX,LocationY,Rotation
+J1,Top,1.772,0.276,0
+J2,Bottom,1.772,0.276,180
+M5,Top,0.079,0.079,0
+M6,Top,0.079,1.890,0
+M7,Top,3.465,1.890,0
+M8,Top,3.465,0.079,0
+R1,Top,0.551,0.906,0
+R2,Top,0.906,0.945,90
+R3,Top,1.063,0.945,90
+R4,Top,1.063,1.181,90
+R5,Top,0.906,1.142,0
+R6,Top,1.299,0.748,90
+R7,Top,1.299,0.945,90
+R8,Top,1.457,0.945,90
+R9,Top,1.457,1.181,90
+R10,Top,1.299,1.142,0
+R11,Top,1.693,0.591,90
+R12,Top,1.693,0.945,90
+R13,Top,1.850,0.945,90
+R14,Top,1.850,1.181,90
+R15,Top,1.693,1.142,0
+R16,Top,2.303,0.591,90
+R17,Top,2.087,0.945,90
+R18,Top,2.244,0.945,90
+R19,Top,2.244,1.181,90
+R20,Top,2.087,1.142,0
+R21,Top,2.677,0.630,90
+R22,Top,2.480,0.945,90
+R23,Top,2.638,0.945,90
+R24,Top,2.638,1.181,90
+R25,Top,2.480,1.142,0
+R26,Bottom,1.772,1.614,90
+R27,Bottom,1.614,1.614,90
+R28,Bottom,1.457,1.614,90
+R29,Bottom,1.299,1.614,90
+R30,Bottom,1.929,1.614,270
+R31,Bottom,2.244,1.614,270
+R32,Bottom,2.087,1.614,270
+R33,Bottom,0.906,0.236,0
+R34,Bottom,0.906,0.394,0
+R35,Bottom,2.638,0.236,180
+R36,Bottom,2.638,0.394,180
