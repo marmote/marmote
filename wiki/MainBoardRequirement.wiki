@@ -21,6 +21,7 @@
  * The FPGA and the uC should be programmable directly via JTAG
  * The above two should not conflict (e.g. multiplexer should be used)
  * Consider relying on IAP through SPI (preferred) or Ethernet
+ * Consider using the compact ISP programming header recommended by Actel (Samtec FTSH-105-01-L-D-K)
 
 = Reset Logic =
 
