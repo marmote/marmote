@@ -2,8 +2,8 @@ BreakoutBoard Revision A
 
 PCB DECRIPTION: 90mm x 56mm 
                 4 LAYER PCB (.062 inches thickness) FR4
-                Smallest line width and spacing 8/8
-                Smallest standard drill hole 12 mils
+                Smallest line width and spacing 6/6 mil
+                Smallest standard drill hole 12 mil
                 Components/Silkscreen on both sides
                 Double side soldermask
                 
@@ -12,8 +12,8 @@ PCB STACKUP:
 	Stack Layer		Gerber Polarity	Comment	
 	-----------		---------------	-------
 	1 (Top)			Positive		Component side (signal)
-	2 (Inner 1)		Positive		Power (GND)
-	3 (Inner 2)		Positive		Power (VCC)
+	2 (Inner 1)		Positive		Even (signal)
+	3 (Inner 2)		Positive		Odd (signal)
 	4 (Bottom)		Positive		Solder side (signal)
 
 
