@@ -1,6 +1,6 @@
 SMD component position file.
 
-Centroid Data for pc board: "BreakoutBoard.brd" as of: 11/28/2011 3:13:00 PM
+Centroid Data for pc board: "BreakoutBoard.brd" as of: 11/29/2011 3:33:10 PM
 Measurements are in inches. Comma delimited
 Only surface mount components included
 
@@ -40,9 +40,7 @@ R26,Bottom,1.772,1.614,90
 R27,Bottom,1.614,1.614,90
 R28,Bottom,1.457,1.614,90
 R29,Bottom,1.299,1.614,90
-R30,Bottom,1.929,1.614,270
-R31,Bottom,2.244,1.614,270
-R32,Bottom,2.087,1.614,270
+R31,Bottom,2.047,1.614,270
 R33,Bottom,0.906,0.236,0
 R34,Bottom,0.906,0.394,0
 R35,Bottom,2.638,0.236,180
