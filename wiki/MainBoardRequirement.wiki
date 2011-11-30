@@ -52,6 +52,16 @@
 
 Note: The maximum SmartFusion processable sampling rate should be determined prior to selecting the ADCs and DAC(s).
 
+Candidate ICs:
+
+*ADC*
+
+ * [www.analog.com/static/imported-files/data_sheets/AD9288.pdf Analog Devices - AD9288] (Dual, 8-bit 40/80/100 MHz ADC, 3.3V)
+
+*DAC*
+
+ * [http://datasheets.maxim-ic.com/en/ds/MAX5186-MAX5189.pdf Maxim - MAX5186] (Dual, 8-bit, 40 MHz DAC, 3.3V)
+
 = External memory =
  
 *Volatile*
