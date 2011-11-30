@@ -10,3 +10,4 @@
  * TRACESWO would have been useful to be connected to the board-to-board connector as a GPIO (it's fault tolerant and has no special limitations)
  * Test points (especially GNDs) would be more useful on the side of the board
  * USB D+ line pull-up resistor R,,PU,, seems to be missing
+ * PWRGD seems to be useless at first sight, consider connecting the GPIO pin to CHRG in Rev B
