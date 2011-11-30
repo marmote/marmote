@@ -76,6 +76,6 @@ Candidate ICs:
 = Connectors =
 
  * External clock sync connector
- * JTAG connector (Consider using the compact ISP programming header recommended by Actel: Samtec FTSH-105-01-L-D-K)
+ * JTAG connector (consider using the compact ISP programming header recommended by Actel: Samtec FTSH-105-01-L-D-K)
  * Mezzazine connectors
  * Low-profile RJ-45 connector (optional footprint might suffice)
