@@ -62,6 +62,10 @@ Candidate ICs:
 
  * [http://datasheets.maxim-ic.com/en/ds/MAX5186-MAX5189.pdf Maxim - MAX5186] (Dual, 8-bit, 40 MHz DAC, 3.3V)
 
+== Local components ==
+
+ * Consider adding a temperature sensor
+
 = External memory =
  
 *Volatile*
