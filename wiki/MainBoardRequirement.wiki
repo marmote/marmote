@@ -6,7 +6,7 @@
  * The FPGA should use the power rails from the Power Board
  * The FPGA may have a button-battery for RTC
  * May assume 1.8 V or 2.5 V on the reserved power rail and bypass it to the sensor board
- * Components that might benefit of a 2.5 V rail:
+ * Components that might benefit of the presence of a 2.5 V rail:
   * SRAM
   * ADC
   * Ethernet
