@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------
--- Created by Actel SmartDesign Wed Nov 23 15:35:03 2011
+-- Created by Actel SmartDesign Tue Nov 29 14:29:05 2011
 -- Testbench Template
 -- This is a basic testbench that instantiates your design with basic 
 -- clock and reset pins connected.  If your design has special
@@ -33,6 +33,7 @@ architecture behavioral of testbench is
             IO_3_PADIN : in std_logic;
             GPIO_IN : in std_logic;
             MAC_0_RXD : in std_logic_vector(1 downto 0);
+            VAREF1 : in std_logic;
 
             -- Outputs
             IO_8_PADOUT : out std_logic;
@@ -52,6 +53,7 @@ architecture behavioral of testbench is
             MAC_0_TXD : out std_logic_vector(1 downto 0);
             GPIO_OUT_1 : out std_logic_vector(12 downto 8);
             GPIO_OUT_2 : out std_logic_vector(16 downto 14);
+            SDD_0 : out std_logic;
 
             -- Inouts
             MAC_0_MDIO : inout std_logic
@@ -92,6 +94,7 @@ begin
             IO_3_PADIN => '0',
             GPIO_IN => '0',
             MAC_0_RXD => (others=> '0'),
+            VAREF1 => '0',
 
             -- Outputs
             IO_8_PADOUT =>  open,
@@ -111,6 +114,7 @@ begin
             MAC_0_TXD => open,
             GPIO_OUT_1 => open,
             GPIO_OUT_2 => open,
+            SDD_0 =>  open,
 
             -- Inouts
             MAC_0_MDIO =>  open

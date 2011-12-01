@@ -33,6 +33,8 @@ entity uC is
           MSSPRDATA    : in    std_logic_vector(31 downto 0);
           MSSPWDATA    : out   std_logic_vector(31 downto 0);
           DMAREADY     : in    std_logic_vector(1 downto 0);
+          SDD_0        : out   std_logic;
+          VAREF1       : in    std_logic;
           MAC_0_RXD    : in    std_logic_vector(1 downto 0);
           MAC_0_TXD    : out   std_logic_vector(1 downto 0);
           MAC_0_MDIO   : inout std_logic := 'Z';
@@ -114,6 +116,12 @@ architecture DEF_ARCH of uC is
         );
   end component;
 
+  component INBUF_A
+    port( PAD : in    std_logic := 'U';
+          Y   : out   std_logic
+        );
+  end component;
+
   component BIBUF_MSS
     generic (ACT_CONFIG:integer := 0; ACT_PIN:string := "");
 
@@ -126,6 +134,12 @@ architecture DEF_ARCH of uC is
 
   component VCC
     port( Y : out   std_logic
+        );
+  end component;
+
+  component OUTBUF_A
+    port( D   : in    std_logic := 'U';
+          PAD : out   std_logic
         );
   end component;
 
@@ -350,7 +364,8 @@ architecture DEF_ARCH of uC is
         );
   end component;
 
-    signal MSS_ADLIB_INST_EMCCLK, MSS_ADLIB_INST_FCLK, 
+    signal MSS_ACE_0_SDD1_D, MSS_ACE_0_VAREF1_Y, 
+        MSS_ADLIB_INST_EMCCLK, MSS_ADLIB_INST_FCLK, 
         MSS_ADLIB_INST_MACCLK, MSS_ADLIB_INST_MACCLKCCC, 
         MSS_ADLIB_INST_PLLLOCK, MSS_ADLIB_INST_SYNCCLKFDBK, 
         MSS_MAC_0_CRSDV_Y, MSS_MAC_0_MDC_D, MSS_MAC_0_MDIO_D, 
@@ -464,6 +479,9 @@ begin
 
       port map(D => MSS_MAC_0_MDC_D, PAD => MAC_0_MDC);
     
+    MSS_ACE_0_VAREF1 : INBUF_A
+      port map(PAD => VAREF1, Y => MSS_ACE_0_VAREF1_Y);
+    
     MSS_MAC_0_MDIO : BIBUF_MSS
       generic map(ACT_CONFIG => 0, ACT_PIN => "V4")
 
@@ -508,6 +526,9 @@ begin
 
       port map(D => IO_12_D, PAD => IO_12_PADOUT);
     
+    MSS_ACE_0_SDD1 : OUTBUF_A
+      port map(D => MSS_ACE_0_SDD1_D, PAD => SDD_0);
+    
     MSS_MAC_0_CRSDV : INBUF_MSS
       generic map(ACT_CONFIG => 0, ACT_PIN => "W4")
 
@@ -524,7 +545,7 @@ begin
       port map(D => IO_1_D, PAD => IO_1_PADOUT);
     
     MSS_ADLIB_INST : MSS_APB
-      generic map(ACT_CONFIG => 128, ACT_DIE => "IP4X3M1",
+      generic map(ACT_CONFIG => 4224, ACT_DIE => "IP4X3M1",
          ACT_FCLK => 100000000, ACT_PKG => "fg484")
 
       port map(MSSPADDR(19) => MSSPADDR(19), MSSPADDR(18) => 
@@ -767,17 +788,18 @@ begin
         ADC3 => GND_net, ADC4 => GND_net, ADC5 => GND_net, ADC6
          => GND_net, ADC7 => GND_net, ADC8 => GND_net, ADC9 => 
         GND_net, ADC10 => GND_net, ADC11 => GND_net, SDD0 => OPEN, 
-        SDD1 => OPEN, SDD2 => OPEN, ABPS0 => GND_net, ABPS1 => 
-        GND_net, ABPS2 => GND_net, ABPS3 => GND_net, ABPS4 => 
-        GND_net, ABPS5 => GND_net, ABPS6 => GND_net, ABPS7 => 
-        GND_net, ABPS8 => GND_net, ABPS9 => GND_net, ABPS10 => 
-        GND_net, ABPS11 => GND_net, TM0 => GND_net, TM1 => 
-        GND_net, TM2 => GND_net, TM3 => GND_net, TM4 => GND_net, 
-        TM5 => GND_net, CM0 => GND_net, CM1 => GND_net, CM2 => 
-        GND_net, CM3 => GND_net, CM4 => GND_net, CM5 => GND_net, 
-        GNDTM0 => GND_net, GNDTM1 => GND_net, GNDTM2 => GND_net, 
-        VAREF0 => GND_net, VAREF1 => GND_net, VAREF2 => GND_net, 
-        VAREFOUT => OPEN, GNDVAREF => GND_net, PUn => GND_net);
+        SDD1 => MSS_ACE_0_SDD1_D, SDD2 => OPEN, ABPS0 => GND_net, 
+        ABPS1 => GND_net, ABPS2 => GND_net, ABPS3 => GND_net, 
+        ABPS4 => GND_net, ABPS5 => GND_net, ABPS6 => GND_net, 
+        ABPS7 => GND_net, ABPS8 => GND_net, ABPS9 => GND_net, 
+        ABPS10 => GND_net, ABPS11 => GND_net, TM0 => GND_net, TM1
+         => GND_net, TM2 => GND_net, TM3 => GND_net, TM4 => 
+        GND_net, TM5 => GND_net, CM0 => GND_net, CM1 => GND_net, 
+        CM2 => GND_net, CM3 => GND_net, CM4 => GND_net, CM5 => 
+        GND_net, GNDTM0 => GND_net, GNDTM1 => GND_net, GNDTM2 => 
+        GND_net, VAREF0 => GND_net, VAREF1 => MSS_ACE_0_VAREF1_Y, 
+        VAREF2 => GND_net, VAREFOUT => OPEN, GNDVAREF => GND_net, 
+        PUn => GND_net);
     
 
 end DEF_ARCH; 
