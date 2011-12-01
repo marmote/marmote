@@ -1,0 +1,674 @@
+Section MEMMAP_SEGMENTS.
+REGISTER ACE_ACB_AQ0 ACE_ACB_AQ0 0x40020204.
+REGISTER ACE_ACB_AQ1 ACE_ACB_AQ1 0x40020234.
+REGISTER ACE_ACB_AQ2 ACE_ACB_AQ2 0x40020264.
+REGISTER ACE_ACB_AQ3 ACE_ACB_AQ3 0x40020294.
+REGISTER ACE_ACB_AQ4 ACE_ACB_AQ4 0x400202c4.
+REGISTER ACE_ACB_AQ5 ACE_ACB_AQ5 0x400202f4.
+REGISTER ACE_INIT0 ACE_INIT0 0x40020000.
+REGISTER ACE_INIT1 ACE_INIT1 0x40020000.
+REGISTER ACE_INIT2 ACE_INIT2 0x40020000.
+REGISTER ACE_PPE_RAM ACE_PPE_RAM 0x40021800.
+REGISTER ACE_SSE_RAM ACE_SSE_RAM 0x40020800.
+REGISTER PPE_MERGE_CONFIG PPE_MERGE_CONFIG 0x0.
+End.
+
+Section MEMMAP_SEGMENT_ACE_ACB_AQ0.
+begin_register ABPS1_TRIM0 0x0 8 .
+field OFFSET_TRIM 0 RW 8 0x0.
+end_register.
+begin_register ABPS1_TRIM1 0x4 8 .
+field GAIN_TRIM 2 RW 4 0x0.
+field NEG_TRIM 0 RW 1 0x0.
+field PER4_PER3B 1 RW 1 0x0.
+end_register.
+begin_register ABPS2_TRIM0 0x8 8 .
+field DAC_TRIM 0 RW 8 0x0.
+end_register.
+begin_register ABPS2_TRIM1 0xc 8 .
+field GAIN_TRIM 2 RW 4 0x0.
+field NEG_TRIM 0 RW 1 0x0.
+field PER4_PER3B 1 RW 1 0x0.
+end_register.
+begin_register OBD_TRIM 0x10 8 .
+field INCR_DECRB 8 RW 1 0x0.
+field OBD_TRIM 0 RW 7 0x0.
+end_register.
+begin_register IREF 0x14 8 .
+field IREF_TRIM 0 RW 4 0x0.
+end_register.
+begin_register OBD_CONFIGURATION 0x18 8 .
+field ANA_SEL 2 RW 2 0x0.
+field CUR_VOLB 0 RW 1 0x0.
+field NO_CHOPPING 1 RW 1 0x0.
+field QUAD_DACOUT_SEL 4 RW 1 0x0.
+end_register.
+begin_register CURRMON_SIMUL_STROBES 0x1c 8 .
+field CM_STB_G0 0 RW 1 0x0.
+field CM_STB_G1 1 RW 1 0x0.
+field CM_STB_G2 2 RW 1 0x0.
+field CM_STB_G3 3 RW 1 0x0.
+field CM_STB_G4 4 RW 1 0x0.
+field CM_STB_G5 5 RW 1 0x0.
+end_register.
+begin_register PRESCALE_CFG 0x20 8 .
+field PS1_ENABLE 0 RW 1 0x0.
+field PS1_GAIN_SELECT 1 RW 2 0x0.
+field PS2_ENABLE 4 RW 1 0x0.
+field PS2_GAIN_SELECT 5 RW 2 0x0.
+end_register.
+begin_register CURRMON 0x24 8 .
+field CM_ENABLE 2 RW 1 0x0.
+field CM_STROBE 3 RW 1 0x0.
+field COMPARATOR_ENABLE 4 RW 1 0x0.
+field DIRECT_INPUT_SWITCH 1 RW 1 0x0.
+field HYSTERESIS_SELECT 6 RW 2 0x0.
+field MUX_SELECT 0 RW 1 0x0.
+end_register.
+begin_register TEMPMON 0x28 8 .
+field COMPARATOR_ENABLE 4 RW 1 0x0.
+field DIRECT_INPUT_SWITCH 1 RW 1 0x0.
+field HYSTERESIS_SELECT 6 RW 2 0x0.
+field MUX_SELECT 0 RW 1 0x0.
+field TM_ENABLE 2 RW 1 0x0.
+field TM_STROBE 3 RW 1 0x0.
+field VREF_SWITCH 5 RW 1 0x0.
+end_register.
+begin_register ATCOMP 0x2c 8 .
+field DAC_INPUT_SELECT 0 RW 2 0x0.
+field PDVC_ENABLE 7 RW 1 0x1.
+field SSE_APP_START 5 RW 1 0x0.
+field VREFSEL 4 RW 1 0x0.
+end_register.
+End.
+
+Section MEMMAP_SEGMENT_ACE_ACB_AQ1.
+begin_register ABPS1_TRIM0 0x0 8 .
+field OFFSET_TRIM 0 RW 8 0x0.
+end_register.
+begin_register ABPS1_TRIM1 0x4 8 .
+field GAIN_TRIM 2 RW 4 0x0.
+field NEG_TRIM 0 RW 1 0x0.
+field PER4_PER3B 1 RW 1 0x0.
+end_register.
+begin_register ABPS2_TRIM0 0x8 8 .
+field DAC_TRIM 0 RW 8 0x0.
+end_register.
+begin_register ABPS2_TRIM1 0xc 8 .
+field GAIN_TRIM 2 RW 4 0x0.
+field NEG_TRIM 0 RW 1 0x0.
+field PER4_PER3B 1 RW 1 0x0.
+end_register.
+begin_register OBD_TRIM 0x10 8 .
+field INCR_DECRB 8 RW 1 0x0.
+field OBD_TRIM 0 RW 7 0x0.
+end_register.
+begin_register OBD_CONFIGURATION 0x18 8 .
+field ANA_SEL 2 RW 2 0x0.
+field CUR_VOLB 0 RW 1 0x0.
+field NO_CHOPPING 1 RW 1 0x0.
+field QUAD_DACOUT_SEL 4 RW 1 0x0.
+end_register.
+begin_register PRESCALE_CFG 0x20 8 .
+field PS1_ENABLE 0 RW 1 0x0.
+field PS1_GAIN_SELECT 1 RW 2 0x0.
+field PS2_ENABLE 4 RW 1 0x0.
+field PS2_GAIN_SELECT 5 RW 2 0x0.
+end_register.
+begin_register CURRMON 0x24 8 .
+field CM_ENABLE 2 RW 1 0x0.
+field CM_STROBE 3 RW 1 0x0.
+field COMPARATOR_ENABLE 4 RW 1 0x0.
+field DIRECT_INPUT_SWITCH 1 RW 1 0x0.
+field HYSTERESIS_SELECT 6 RW 2 0x0.
+field MUX_SELECT 0 RW 1 0x0.
+end_register.
+begin_register TEMPMON 0x28 8 .
+field COMPARATOR_ENABLE 4 RW 1 0x0.
+field DIRECT_INPUT_SWITCH 1 RW 1 0x0.
+field HYSTERESIS_SELECT 6 RW 2 0x0.
+field MUX_SELECT 0 RW 1 0x0.
+field TM_ENABLE 2 RW 1 0x0.
+field TM_STROBE 3 RW 1 0x0.
+field VREF_SWITCH 5 RW 1 0x0.
+end_register.
+begin_register ATCOMP 0x2c 8 .
+field DAC_INPUT_SELECT 0 RW 2 0x0.
+end_register.
+End.
+
+Section MEMMAP_SEGMENT_ACE_ACB_AQ2.
+begin_register ABPS1_TRIM0 0x0 8 .
+field OFFSET_TRIM 0 RW 8 0x0.
+end_register.
+begin_register ABPS1_TRIM1 0x4 8 .
+field GAIN_TRIM 2 RW 4 0x0.
+field NEG_TRIM 0 RW 1 0x0.
+field PER4_PER3B 1 RW 1 0x0.
+end_register.
+begin_register ABPS2_TRIM0 0x8 8 .
+field DAC_TRIM 0 RW 8 0x0.
+end_register.
+begin_register ABPS2_TRIM1 0xc 8 .
+field GAIN_TRIM 2 RW 4 0x0.
+field NEG_TRIM 0 RW 1 0x0.
+field PER4_PER3B 1 RW 1 0x0.
+end_register.
+begin_register OBD_TRIM 0x10 8 .
+field INCR_DECRB 8 RW 1 0x0.
+field OBD_TRIM 0 RW 7 0x0.
+end_register.
+begin_register OBD_CONFIGURATION 0x18 8 .
+field ANA_SEL 2 RW 2 0x0.
+field CUR_VOLB 0 RW 1 0x0.
+field NO_CHOPPING 1 RW 1 0x1.
+field QUAD_DACOUT_SEL 4 RW 1 0x0.
+end_register.
+begin_register PRESCALE_CFG 0x20 8 .
+field PS1_ENABLE 0 RW 1 0x0.
+field PS1_GAIN_SELECT 1 RW 2 0x0.
+field PS2_ENABLE 4 RW 1 0x0.
+field PS2_GAIN_SELECT 5 RW 2 0x0.
+end_register.
+begin_register CURRMON 0x24 8 .
+field CM_ENABLE 2 RW 1 0x0.
+field CM_STROBE 3 RW 1 0x0.
+field COMPARATOR_ENABLE 4 RW 1 0x0.
+field DIRECT_INPUT_SWITCH 1 RW 1 0x0.
+field HYSTERESIS_SELECT 6 RW 2 0x0.
+field MUX_SELECT 0 RW 1 0x0.
+end_register.
+begin_register TEMPMON 0x28 8 .
+field COMPARATOR_ENABLE 4 RW 1 0x0.
+field DIRECT_INPUT_SWITCH 1 RW 1 0x0.
+field HYSTERESIS_SELECT 6 RW 2 0x0.
+field MUX_SELECT 0 RW 1 0x0.
+field TM_ENABLE 2 RW 1 0x0.
+field TM_STROBE 3 RW 1 0x0.
+field VREF_SWITCH 5 RW 1 0x0.
+end_register.
+begin_register ATCOMP 0x2c 8 .
+field DAC_INPUT_SELECT 0 RW 2 0x0.
+end_register.
+End.
+
+Section MEMMAP_SEGMENT_ACE_ACB_AQ3.
+begin_register ABPS1_TRIM0 0x0 8 .
+field OFFSET_TRIM 0 RW 8 0x0.
+end_register.
+begin_register ABPS1_TRIM1 0x4 8 .
+field GAIN_TRIM 2 RW 4 0x0.
+field NEG_TRIM 0 RW 1 0x0.
+field PER4_PER3B 1 RW 1 0x0.
+end_register.
+begin_register ABPS2_TRIM0 0x8 8 .
+field DAC_TRIM 0 RW 8 0x0.
+end_register.
+begin_register ABPS2_TRIM1 0xc 8 .
+field GAIN_TRIM 2 RW 4 0x0.
+field NEG_TRIM 0 RW 1 0x0.
+field PER4_PER3B 1 RW 1 0x0.
+end_register.
+begin_register OBD_TRIM 0x10 8 .
+field INCR_DECRB 8 RW 1 0x0.
+field OBD_TRIM 0 RW 7 0x0.
+end_register.
+begin_register OBD_CONFIGURATION 0x18 8 .
+field ANA_SEL 2 RW 2 0x0.
+field CUR_VOLB 0 RW 1 0x0.
+field NO_CHOPPING 1 RW 1 0x0.
+field QUAD_DACOUT_SEL 4 RW 1 0x0.
+end_register.
+begin_register PRESCALE_CFG 0x20 8 .
+field PS1_ENABLE 0 RW 1 0x0.
+field PS1_GAIN_SELECT 1 RW 2 0x0.
+field PS2_ENABLE 4 RW 1 0x0.
+field PS2_GAIN_SELECT 5 RW 2 0x0.
+end_register.
+begin_register CURRMON 0x24 8 .
+field CM_ENABLE 2 RW 1 0x0.
+field CM_STROBE 3 RW 1 0x0.
+field COMPARATOR_ENABLE 4 RW 1 0x0.
+field DIRECT_INPUT_SWITCH 1 RW 1 0x0.
+field HYSTERESIS_SELECT 6 RW 2 0x0.
+field MUX_SELECT 0 RW 1 0x0.
+end_register.
+begin_register TEMPMON 0x28 8 .
+field COMPARATOR_ENABLE 4 RW 1 0x0.
+field DIRECT_INPUT_SWITCH 1 RW 1 0x0.
+field HYSTERESIS_SELECT 6 RW 2 0x0.
+field MUX_SELECT 0 RW 1 0x0.
+field TM_ENABLE 2 RW 1 0x0.
+field TM_STROBE 3 RW 1 0x0.
+field VREF_SWITCH 5 RW 1 0x0.
+end_register.
+begin_register ATCOMP 0x2c 8 .
+field DAC_INPUT_SELECT 0 RW 2 0x0.
+end_register.
+End.
+
+Section MEMMAP_SEGMENT_ACE_ACB_AQ4.
+begin_register ABPS1_TRIM0 0x0 8 .
+field OFFSET_TRIM 0 RW 8 0x0.
+end_register.
+begin_register ABPS1_TRIM1 0x4 8 .
+field GAIN_TRIM 2 RW 4 0x0.
+field NEG_TRIM 0 RW 1 0x0.
+field PER4_PER3B 1 RW 1 0x0.
+end_register.
+begin_register ABPS2_TRIM0 0x8 8 .
+field DAC_TRIM 0 RW 8 0x0.
+end_register.
+begin_register ABPS2_TRIM1 0xc 8 .
+field GAIN_TRIM 2 RW 4 0x0.
+field NEG_TRIM 0 RW 1 0x0.
+field PER4_PER3B 1 RW 1 0x0.
+end_register.
+begin_register OBD_TRIM 0x10 8 .
+field INCR_DECRB 8 RW 1 0x0.
+field OBD_TRIM 0 RW 7 0x0.
+end_register.
+begin_register OBD_CONFIGURATION 0x18 8 .
+field ANA_SEL 2 RW 2 0x0.
+field CUR_VOLB 0 RW 1 0x0.
+field NO_CHOPPING 1 RW 1 0x0.
+field QUAD_DACOUT_SEL 4 RW 1 0x0.
+end_register.
+begin_register PRESCALE_CFG 0x20 8 .
+field PS1_ENABLE 0 RW 1 0x0.
+field PS1_GAIN_SELECT 1 RW 2 0x0.
+field PS2_ENABLE 4 RW 1 0x0.
+field PS2_GAIN_SELECT 5 RW 2 0x0.
+end_register.
+begin_register CURRMON 0x24 8 .
+field CM_ENABLE 2 RW 1 0x0.
+field CM_STROBE 3 RW 1 0x0.
+field COMPARATOR_ENABLE 4 RW 1 0x0.
+field DIRECT_INPUT_SWITCH 1 RW 1 0x0.
+field HYSTERESIS_SELECT 6 RW 2 0x0.
+field MUX_SELECT 0 RW 1 0x0.
+end_register.
+begin_register TEMPMON 0x28 8 .
+field COMPARATOR_ENABLE 4 RW 1 0x0.
+field DIRECT_INPUT_SWITCH 1 RW 1 0x0.
+field HYSTERESIS_SELECT 6 RW 2 0x0.
+field MUX_SELECT 0 RW 1 0x0.
+field TM_ENABLE 2 RW 1 0x0.
+field TM_STROBE 3 RW 1 0x0.
+field VREF_SWITCH 5 RW 1 0x0.
+end_register.
+begin_register ATCOMP 0x2c 8 .
+field DAC_INPUT_SELECT 0 RW 2 0x0.
+end_register.
+End.
+
+Section MEMMAP_SEGMENT_ACE_ACB_AQ5.
+begin_register ABPS1_TRIM0 0x0 8 .
+field OFFSET_TRIM 0 RW 8 0x0.
+end_register.
+begin_register ABPS1_TRIM1 0x4 8 .
+field GAIN_TRIM 2 RW 4 0x0.
+field NEG_TRIM 0 RW 1 0x0.
+field PER4_PER3B 1 RW 1 0x0.
+end_register.
+begin_register ABPS2_TRIM0 0x8 8 .
+field DAC_TRIM 0 RW 8 0x0.
+end_register.
+begin_register ABPS2_TRIM1 0xc 8 .
+field GAIN_TRIM 2 RW 4 0x0.
+field NEG_TRIM 0 RW 1 0x0.
+field PER4_PER3B 1 RW 1 0x0.
+end_register.
+begin_register OBD_TRIM 0x10 8 .
+field INCR_DECRB 8 RW 1 0x0.
+field OBD_TRIM 0 RW 7 0x0.
+end_register.
+begin_register OBD_CONFIGURATION 0x18 8 .
+field ANA_SEL 2 RW 2 0x0.
+field CUR_VOLB 0 RW 1 0x0.
+field NO_CHOPPING 1 RW 1 0x0.
+field QUAD_DACOUT_SEL 4 RW 1 0x0.
+end_register.
+begin_register PRESCALE_CFG 0x20 8 .
+field PS1_ENABLE 0 RW 1 0x0.
+field PS1_GAIN_SELECT 1 RW 2 0x0.
+field PS2_ENABLE 4 RW 1 0x0.
+field PS2_GAIN_SELECT 5 RW 2 0x0.
+end_register.
+begin_register CURRMON 0x24 8 .
+field CM_ENABLE 2 RW 1 0x0.
+field CM_STROBE 3 RW 1 0x0.
+field COMPARATOR_ENABLE 4 RW 1 0x0.
+field DIRECT_INPUT_SWITCH 1 RW 1 0x0.
+field HYSTERESIS_SELECT 6 RW 2 0x0.
+field MUX_SELECT 0 RW 1 0x0.
+end_register.
+begin_register TEMPMON 0x28 8 .
+field COMPARATOR_ENABLE 4 RW 1 0x0.
+field DIRECT_INPUT_SWITCH 1 RW 1 0x0.
+field HYSTERESIS_SELECT 6 RW 2 0x0.
+field MUX_SELECT 0 RW 1 0x0.
+field TM_ENABLE 2 RW 1 0x0.
+field TM_STROBE 3 RW 1 0x0.
+field VREF_SWITCH 5 RW 1 0x0.
+end_register.
+begin_register ATCOMP 0x2c 8 .
+field DAC_INPUT_SELECT 0 RW 2 0x0.
+end_register.
+End.
+
+Section MEMMAP_SEGMENT_ACE_INIT0.
+begin_register SSE_TS_CTRL 0x4 32 .
+field SSE_SRAM_ENABLE 1 RW 1 0x1.
+field TS_ENABLE 0 RW 1 0x0.
+end_register.
+End.
+
+Section MEMMAP_SEGMENT_ACE_INIT1.
+begin_register PC0_CTRL 0x48 32 .
+field PC0_EN 0 RW 1 0x1.
+end_register.
+begin_register PC1_CTRL 0x88 32 .
+field PC1_EN 0 RW 1 0x1.
+end_register.
+begin_register PC2_CTRL 0xc8 32 .
+field PC2_EN 0 RW 1 0x0.
+end_register.
+begin_register SSE_PC0 0x410 32 .
+field PC 0 RW 9 0x0.
+end_register.
+begin_register SSE_PC1 0x414 32 .
+field PC 0 RW 9 0x3.
+end_register.
+begin_register SSE_PC2 0x418 32 .
+field PC 0 RW 9 0x0.
+end_register.
+begin_register FPGA_FLAGS_SEL 0x1260 32 .
+field FIFO_AFULL0_SEL 3 RW 1 0x0.
+field FIFO_AFULL1_SEL 4 RW 1 0x0.
+field FIFO_AFULL2_SEL 5 RW 1 0x0.
+field FIFO_EMPTY0_SEL 0 RW 1 0x0.
+field FIFO_EMPTY1_SEL 1 RW 1 0x0.
+field FIFO_EMPTY2_SEL 2 RW 1 0x0.
+field FIFO_FULL0_SEL 6 RW 1 0x0.
+field FIFO_FULL1_SEL 7 RW 1 0x0.
+field FIFO_FULL2_SEL 8 RW 1 0x0.
+field PPE_BUSY_SEL 9 RW 1 0x0.
+end_register.
+begin_register PPE_ALU_CTRL 0x1418 32 .
+field NSAT_EN 1 RW 1 0x1.
+field PSAT_EN 0 RW 1 0x1.
+end_register.
+begin_register ADC0_FIFO_CTRL 0x1490 32 .
+field AFULL_WT_EN 0 RW 1 0x1.
+field CLR 0 RW 1 0x1.
+field FULL_WT_EN 0 RW 1 0x1.
+end_register.
+begin_register ADC1_FIFO_CTRL 0x149c 32 .
+field AFULL_WT_EN 0 RW 1 0x1.
+field CLR 0 RW 1 0x1.
+field FULL_WT_EN 0 RW 1 0x1.
+end_register.
+begin_register ADC2_FIFO_CTRL 0x14a8 32 .
+field AFULL_WT_EN 0 RW 1 0x1.
+field CLR 0 RW 1 0x1.
+field FULL_WT_EN 0 RW 1 0x1.
+end_register.
+End.
+
+Section MEMMAP_SEGMENT_ACE_INIT2.
+begin_register SSE_TS_CTRL 0x4 32 .
+field SSE_SRAM_ENABLE 1 RW 1 0x1.
+field TS_ENABLE 0 RW 1 0x1.
+end_register.
+begin_register ANA_COMM_CTRL 0xc 32 .
+field ABPOWERON 3 RW 1 0x1.
+field ACB_RESETN 4 RW 1 0x0.
+field ADCRESET 1 RW 1 0x1.
+field PWRDWN 2 RW 1 0x0.
+field VREFSEL 0 RW 1 0x0.
+end_register.
+begin_register PPE_CTRL 0x1404 32 .
+field PPE_EN 0 RW 1 0x1.
+field PPE_RRDIS0 14 RW 1 0x0.
+field PPE_RRDIS1 15 RW 1 0x0.
+field PPE_RRDIS2 16 RW 1 0x0.
+end_register.
+End.
+
+Section MEMMAP_SEGMENT_ACE_PPE_RAM.
+begin_register CHAN_JUMP_ADDRESS 0x0 32 .
+field ADC0 0 RW 10 0x0.
+field ADC1 10 RW 10 0x0.
+field ADC2 20 RW 10 0x0.
+end_register.
+begin_register CHAN_JUMP_ADDRESS 0x4 32 .
+field ADC0 0 RW 10 0x0.
+field ADC1 10 RW 10 0x0.
+field ADC2 20 RW 10 0x0.
+end_register.
+begin_register CHAN_JUMP_ADDRESS 0x8 32 .
+field ADC0 0 RW 10 0x0.
+field ADC1 10 RW 10 0x0.
+field ADC2 20 RW 10 0x0.
+end_register.
+begin_register CHAN_JUMP_ADDRESS 0xc 32 .
+field ADC0 0 RW 10 0x0.
+field ADC1 10 RW 10 0x0.
+field ADC2 20 RW 10 0x0.
+end_register.
+begin_register CHAN_JUMP_ADDRESS 0x10 32 .
+field ADC0 0 RW 10 0x0.
+field ADC1 10 RW 10 0x0.
+field ADC2 20 RW 10 0x0.
+end_register.
+begin_register CHAN_JUMP_ADDRESS 0x14 32 .
+field ADC0 0 RW 10 0x0.
+field ADC1 10 RW 10 0x0.
+field ADC2 20 RW 10 0x0.
+end_register.
+begin_register CHAN_JUMP_ADDRESS 0x18 32 .
+field ADC0 0 RW 10 0x0.
+field ADC1 10 RW 10 0x0.
+field ADC2 20 RW 10 0x0.
+end_register.
+begin_register CHAN_JUMP_ADDRESS 0x1c 32 .
+field ADC0 0 RW 10 0x0.
+field ADC1 10 RW 10 0x0.
+field ADC2 20 RW 10 0x0.
+end_register.
+begin_register CHAN_JUMP_ADDRESS 0x20 32 .
+field ADC0 0 RW 10 0x0.
+field ADC1 10 RW 10 0x0.
+field ADC2 20 RW 10 0x0.
+end_register.
+begin_register CHAN_JUMP_ADDRESS 0x24 32 .
+field ADC0 0 RW 10 0x0.
+field ADC1 10 RW 10 0x0.
+field ADC2 20 RW 10 0x0.
+end_register.
+begin_register CHAN_JUMP_ADDRESS 0x28 32 .
+field ADC0 0 RW 10 0x0.
+field ADC1 10 RW 10 0x0.
+field ADC2 20 RW 10 0x0.
+end_register.
+begin_register CHAN_JUMP_ADDRESS 0x2c 32 .
+field ADC0 0 RW 10 0x0.
+field ADC1 10 RW 10 0x0.
+field ADC2 20 RW 10 0x0.
+end_register.
+begin_register CHAN_JUMP_ADDRESS 0x30 32 .
+field ADC0 0 RW 10 0x0.
+field ADC1 10 RW 10 0x0.
+field ADC2 20 RW 10 0x0.
+end_register.
+begin_register CHAN_JUMP_ADDRESS 0x34 32 .
+field ADC0 0 RW 10 0x0.
+field ADC1 10 RW 10 0xe.
+field ADC2 20 RW 10 0x0.
+end_register.
+begin_register MOVE_REG_TO_REG 0x38 32 .
+field C2A 22 RW 1 0x0.
+field C2A_DLY 18 RW 1 0x0.
+field C2D 20 RW 1 0x0.
+field C2D_DLY 16 RW 1 0x0.
+field DEST_REG 24 RW 6 0xf.
+field NEGA 23 RW 1 0x0.
+field NEGA_DLY 19 RW 1 0x0.
+field S2B 21 RW 1 0x0.
+field S2B_DLY 17 RW 1 0x0.
+field SRC_REG 0 RW 6 0x22.
+field SRC_TYPE 11 RW 2 0x0.
+field XFER_CTRL 30 RW 2 0x1.
+end_register.
+begin_register LOAD_CONSTANT_TO_REG_ALU_DE 0x3c 32 .
+field C2A 22 RW 1 0x0.
+field C2A_DLY 18 RW 1 0x0.
+field C2D 20 RW 1 0x0.
+field C2D_DLY 16 RW 1 0x0.
+field CONSTANT_VALUE 0 RW 16 0x4000.
+field DEST_REG 24 RW 6 0x10.
+field NEGA 23 RW 1 0x0.
+field NEGA_DLY 19 RW 1 0x0.
+field S2B 21 RW 1 0x0.
+field S2B_DLY 17 RW 1 0x0.
+field XFER_CTRL 30 RW 2 0x0.
+end_register.
+begin_register LOAD_CONSTANT_TO_REG 0x40 32 .
+field CONSTANT_VALUE 0 RW 24 0x0.
+field DEST_REG 24 RW 6 0x9.
+field XFER_CTRL 30 RW 2 0x0.
+end_register.
+begin_register LOAD_CONSTANT_TO_REG 0x44 32 .
+field CONSTANT_VALUE 0 RW 24 0x0.
+field DEST_REG 24 RW 6 0x0.
+field XFER_CTRL 30 RW 2 0x0.
+end_register.
+begin_register LOAD_CONSTANT_TO_REG 0x48 32 .
+field CONSTANT_VALUE 0 RW 24 0x0.
+field DEST_REG 24 RW 6 0x3f.
+field XFER_CTRL 30 RW 2 0x0.
+end_register.
+End.
+
+Section MEMMAP_SEGMENT_ACE_SSE_RAM.
+begin_register ADC0_MISC_CTRL 0x0 16 .
+field ADCRESET 4 RW 1 0x0.
+field MODE 0 RW 4 0x4.
+field PWRDWN 5 RW 1 0x0.
+field SSE_INT_ADDR 8 RW 8 0x17.
+end_register.
+begin_register ADC0_TVC 0x4 16 .
+field SSE_INT_ADDR 8 RW 8 0x16.
+field TVC 0 RW 8 0x2.
+end_register.
+begin_register PC0_CTRL 0x8 16 .
+field PC0_EN 0 RW 1 0x0.
+field SSE_INT_ADDR 8 RW 8 0x12.
+end_register.
+begin_register ADC1_MISC_CTRL 0xc 16 .
+field ADCRESET 4 RW 1 0x0.
+field MODE 0 RW 4 0x4.
+field PWRDWN 5 RW 1 0x0.
+field SSE_INT_ADDR 8 RW 8 0x27.
+end_register.
+begin_register ADC1_TVC 0x10 16 .
+field SSE_INT_ADDR 8 RW 8 0x26.
+field TVC 0 RW 8 0x2.
+end_register.
+begin_register DAC1_CTRL 0x14 16 .
+field DACRES 2 RW 2 0x2.
+field DACSEL 0 RW 2 0x2.
+field EN 5 RW 1 0x1.
+field REG_SEL 6 RW 1 0x0.
+field SSE_INT_ADDR 8 RW 8 0x28.
+field SW_OBD 4 RW 1 0x0.
+end_register.
+begin_register PC1_CTRL 0x18 16 .
+field PC1_EN 0 RW 1 0x0.
+field SSE_INT_ADDR 8 RW 8 0x22.
+end_register.
+End.
+
+Section MEMMAP_SEGMENT_PPE_MERGE_CONFIG.
+begin_register MERGE_DATA_BLOCK_WORD0 0x0 32 .
+field MERGE_OPERATION 24 RW 8 0x0.
+field OPERAND_LOCATION 0 RW 16 0x300.
+field OPERAND_WIDTH 16 RW 8 0x0.
+end_register.
+begin_register MERGE_DATA_BLOCK_GENERIC_WORD1 0x4 32 .
+field OPERAND_TYPE 10 RW 1 0x0.
+field OPERAND_WIDTH 16 RW 8 0x10.
+field OPERATION_LOCATION 0 RW 10 0xf.
+field RESERVED 11 RW 5 0x0.
+field RESULT_WIDTH 24 RW 8 0x10.
+end_register.
+begin_register MERGE_DATA_BLOCK_WORD0 0x8 32 .
+field MERGE_OPERATION 24 RW 8 0x2.
+field OPERAND_LOCATION 0 RW 16 0x300.
+field OPERAND_WIDTH 16 RW 8 0x10.
+end_register.
+begin_register MERGE_DATA_BLOCK_CHANNEL_WORD1 0xc 32 .
+field ADC_NUMBER 4 RW 2 0x1.
+field CALIB_CHOICE 6 RW 1 0x0.
+field CHANNEL_NUMBER 0 RW 4 0xf.
+field OPERAND_TYPE 10 RW 1 0x1.
+field OPERAND_WIDTH 16 RW 8 0x10.
+field RESERVED1 7 RW 3 0x0.
+field RESERVED2 11 RW 5 0x0.
+field RESULT_WIDTH 24 RW 8 0x20.
+end_register.
+begin_register MERGE_DATA_BLOCK_WORD0 0x10 32 .
+field MERGE_OPERATION 24 RW 8 0x0.
+field OPERAND_LOCATION 0 RW 16 0x301.
+field OPERAND_WIDTH 16 RW 8 0x40.
+end_register.
+begin_register MERGE_DATA_BLOCK_GENERIC_WORD1 0x14 32 .
+field OPERAND_TYPE 10 RW 1 0x0.
+field OPERAND_WIDTH 16 RW 8 0x10.
+field OPERATION_LOCATION 0 RW 10 0xf.
+field RESERVED 11 RW 5 0x0.
+field RESULT_WIDTH 24 RW 8 0x10.
+end_register.
+begin_register MERGE_DATA_BLOCK_WORD0 0x18 32 .
+field MERGE_OPERATION 24 RW 8 0x2.
+field OPERAND_LOCATION 0 RW 16 0x301.
+field OPERAND_WIDTH 16 RW 8 0x10.
+end_register.
+begin_register MERGE_DATA_BLOCK_CHANNEL_WORD1 0x1c 32 .
+field ADC_NUMBER 4 RW 2 0x1.
+field CALIB_CHOICE 6 RW 1 0x1.
+field CHANNEL_NUMBER 0 RW 4 0xf.
+field OPERAND_TYPE 10 RW 1 0x1.
+field OPERAND_WIDTH 16 RW 8 0x10.
+field RESERVED1 7 RW 3 0x0.
+field RESERVED2 11 RW 5 0x0.
+field RESULT_WIDTH 24 RW 8 0x20.
+end_register.
+begin_register MERGE_DATA_BLOCK_WORD0 0x20 32 .
+field MERGE_OPERATION 24 RW 8 0x1.
+field OPERAND_LOCATION 0 RW 16 0x10.
+field OPERAND_WIDTH 16 RW 8 0x18.
+end_register.
+begin_register MERGE_DATA_BLOCK_GENERIC_WORD1 0x24 32 .
+field OPERAND_TYPE 10 RW 1 0x0.
+field OPERAND_WIDTH 16 RW 8 0x20.
+field OPERATION_LOCATION 0 RW 10 0x301.
+field RESERVED 11 RW 5 0x0.
+field RESULT_WIDTH 24 RW 8 0x18.
+end_register.
+begin_register MERGE_DATA_BLOCK_WORD0 0x28 32 .
+field MERGE_OPERATION 24 RW 8 0x0.
+field OPERAND_LOCATION 0 RW 16 0xf.
+field OPERAND_WIDTH 16 RW 8 0x10.
+end_register.
+begin_register MERGE_DATA_BLOCK_GENERIC_WORD1 0x2c 32 .
+field OPERAND_TYPE 10 RW 1 0x0.
+field OPERAND_WIDTH 16 RW 8 0x20.
+field OPERATION_LOCATION 0 RW 10 0x300.
+field RESERVED 11 RW 5 0x0.
+field RESULT_WIDTH 24 RW 8 0x10.
+end_register.
+End.
+
+

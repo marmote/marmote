@@ -2,6 +2,7 @@
 #include "RFX400.h"
 
 #include <stdint.h>
+#include "flags.h"
 
 /*
 R counter latch
@@ -107,12 +108,12 @@ void RFX400init()
 
 	(*((uint32_t*)GPIO_OUTPUT)) =
 		GPIO_IO_RX_05
-//		| GPIO_IO_RX_06
+		| GPIO_IO_RX_06
 		| GPIO_IO_RX_07
 		| GPIO_SEN_RX
 //		| GPIO_SCLK
 //		| GPIO_IO_TX_05
-		| GPIO_IO_TX_06
+//		| GPIO_IO_TX_06
 //		| GPIO_IO_TX_07
 		| GPIO_SEN_TX; // GPIO_IO_RX_02 and GPIO_IO_TX_02 are input!
 }
@@ -200,4 +201,20 @@ void RFX400InitFrequency(uint32_t frequency)
 void RFX400SetFrequency()
 {
 	send_SPI(N_latch, 24);
+}
+
+void RFX400SetInput(uint8_t input)
+{
+
+	if (input == RFX400_TX_RX)
+	{
+		ResetFlag((flags_t*) GPIO_OUTPUT, GPIO_IO_RX_06);
+		SetFlag((flags_t*) GPIO_OUTPUT, GPIO_IO_TX_06);
+	}
+	else
+	{
+		SetFlag((flags_t*) GPIO_OUTPUT, GPIO_IO_RX_06);
+		SetFlag((flags_t*) GPIO_OUTPUT, GPIO_IO_TX_06);
+	}
+
 }

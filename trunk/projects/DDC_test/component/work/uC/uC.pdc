@@ -3,7 +3,7 @@
 
 # Version: 9.1 SP3 9.1.3.4
 # Family: SmartFusion , Die: A2F200M3F , Package: 484 FBGA
-# Date generated: Wed Nov 23 09:44:59 2011 
+# Date generated: Tue Nov 29 14:28:32 2011 
 
 
 # 
@@ -108,6 +108,18 @@ set_io MSS_RESET_N    \
     -DIRECTION Input
 
 
+set_io SDD_0           \
+    -pinname Y17       \
+    -fixed yes         \
+    -DIRECTION Output
+
+
+set_io VAREF1         \
+    -pinname AB11     \
+    -fixed yes        \
+    -DIRECTION Input
+
+
 # User Group MAC_0_RMII_DATA_PADs
 
 set_io MAC_0_CRSDV                    \
@@ -199,6 +211,8 @@ set_io MAC_0_MDIO                         \
 # set_io IO_7_PADIN -pinname W2 -fixed yes -DIRECTION Input 
 # set_io IO_8_PADOUT -pinname T3 -fixed yes -DIRECTION Output 
 # set_io MSS_RESET_N -pinname R1 -fixed yes -DIRECTION Input 
+# set_io SDD_0 -pinname Y17 -fixed yes -DIRECTION Output 
+# set_io VAREF1 -pinname AB11 -fixed yes -DIRECTION Input 
 # set_io MAC_0_CRSDV -pinname W4 -fixed yes -GROUP_NAME MAC_0_RMII_DATA_PADs -DIRECTION Input 
 # set_io {MAC_0_RXD[0]} -pinname V5 -fixed yes -GROUP_NAME MAC_0_RMII_DATA_PADs -DIRECTION Input 
 # set_io {MAC_0_RXD[1]} -pinname U5 -fixed yes -GROUP_NAME MAC_0_RMII_DATA_PADs -DIRECTION Input 
@@ -222,6 +236,8 @@ set_io MAC_0_MDIO                         \
 # set_io IO_7_PADIN -pinname W2 -fixed yes -DIRECTION Input 
 # set_io IO_8_PADOUT -pinname T3 -fixed yes -DIRECTION Output 
 # set_io MSS_RESET_N -pinname R1 -fixed yes -DIRECTION Input 
+# set_io SDD_0 -pinname Y17 -fixed yes -DIRECTION Output 
+# set_io VAREF1 -pinname AB11 -fixed yes -DIRECTION Input 
 # set_io MAC_0_CRSDV -pinname W4 -fixed yes -GROUP_NAME MAC_0_RMII_DATA_PADs -DIRECTION Input 
 # set_io {MAC_0_RXD[0]} -pinname V5 -fixed yes -GROUP_NAME MAC_0_RMII_DATA_PADs -DIRECTION Input 
 # set_io {MAC_0_RXD[1]} -pinname U5 -fixed yes -GROUP_NAME MAC_0_RMII_DATA_PADs -DIRECTION Input 

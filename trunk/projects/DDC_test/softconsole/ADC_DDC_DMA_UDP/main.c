@@ -1,10 +1,17 @@
-#define NETWORKING_ENABLED
-#define ADC_ENABLED
-#define TIME_STAMP
+#define NETWORKING_ENABLED	// Everything network related
+
+#define ADC_ENABLED			// DMA to read from ADC
+#define TIME_STAMP			// Shall we put time stamps on buffers?
+
+#define CONTROL_ENABLED		// Radio front-end card control
 
 
 // **************************************************************************
-// Standard Includes
+// **************************************************************************
+//
+// 								Standard Includes
+//
+//
 // **************************************************************************
 
 //#include <stdio.h>
@@ -13,7 +20,11 @@
 
 
 // **************************************************************************
-// Firmware and other Includes
+// **************************************************************************
+//
+// 							Firmware and other Includes
+//
+//
 // **************************************************************************
 
 #include "CMSIS/a2fxxxm3.h"
@@ -21,8 +32,13 @@
 #ifdef ADC_ENABLED
 #  include "drivers\mss_gpio\mss_gpio.h"
 #  include "drivers\mss_pdma\mss_pdma.h"
-
 #  include "top_hw_platform.h"
+#endif
+
+#ifdef CONTROL_ENABLED
+#	include "drivers\mss_ace\mss_ace.h"
+#	include "top_hw_platform.h"
+#	include "RFX400.h"
 #endif
 
 #ifdef NETWORKING_ENABLED
@@ -35,7 +51,6 @@
 #  include "lwip/memp.h"
 #  include "lwip/ip.h"
 #  include "lwip/udp.h"
-//#  include "lwip/tcp_impl.h"
 #  include "lwip/dhcp.h"
 #  include "lwip/init.h"
 #  include "netif/etharp.h"
@@ -44,18 +59,23 @@
 #  include "sampleserver.h"
 #endif
 
-#include "RFX400.h"
 
 
 // **************************************************************************
-// Preprocessor Macros
+// **************************************************************************
+//
+// 								Preprocessor Macros
+//
+//
 // **************************************************************************
 
 #ifdef ADC_ENABLED
 #  define ADC_MEM_ADDRESS_DATA		(0x00+SAMPLE_APB3_0)
 //#  define ADC_MEM_ADDRESS_COUNTER	(0x04+SAMPLE_APB3_0)
 #  define ADC_MEM_ADDRESS			ADC_MEM_ADDRESS_DATA
+#endif
 
+#ifdef CONTROL_ENABLED
 #  define SHIFT_REG					(0x08+SAMPLE_APB3_0)
 #  define DPHASE_REG				(0x0C+SAMPLE_APB3_0)
 #  define DC_OFFSET_REG				(0x10+SAMPLE_APB3_0)
@@ -74,14 +94,17 @@
 #endif
 
 //#define BUFF_LENGTH				TCP_SND_BUF/sizeof(uint32_t)
-
 #define BUFF_LENGTH				128
 #define NB_OF_SAMPLE_BUFFERS	3 //MIN 3 !!!!!!!
 
 
 
 // **************************************************************************
-// Declaration of global variables
+// **************************************************************************
+//
+// 						Declaration of global variables
+//
+//
 // **************************************************************************
 
 #ifdef NETWORKING_ENABLED
@@ -102,8 +125,13 @@ static volatile uint8_t		BurstCounter = 0;
 #define	FAST_FLOOD			0xFF
 
 
-// *************************************************************************
-// External Declarations
+
+// **************************************************************************
+// **************************************************************************
+//
+// 							External Declarations
+//
+//
 // **************************************************************************
 
 #ifdef NETWORKING_ENABLED
@@ -115,7 +143,7 @@ u32_t sys_now(void)
 }
 #else
 //Dummy function
-unsigned long sys_now(void)
+unsigned long sys_now()
 {
 	return 0;
 }
@@ -124,7 +152,11 @@ unsigned long sys_now(void)
 
 
 // **************************************************************************
-// Functions
+// **************************************************************************
+//
+// 								Functions
+//
+//
 // **************************************************************************
 
 #ifdef ADC_ENABLED
@@ -143,8 +175,6 @@ void set_time_stamp(uint8_t buf_num)
 void next_DMA_transfer()
 {
 #	ifdef TIME_STAMP
-//	set_time_stamp(next_DMA_buf);
-
 	PDMA_load_next_buffer(PDMA_CHANNEL_0,
 			(uint32_t) ADC_MEM_ADDRESS,
             (uint32_t) &(buffer[next_DMA_buf][1]),
@@ -160,6 +190,7 @@ void next_DMA_transfer()
 #endif
 
 
+#ifdef CONTROL_ENABLED
 void BusyWait(uint64_t time_ms) //Wait for given millisecs
 {
 	uint64_t t_orig = System_ticks;
@@ -170,6 +201,18 @@ void BusyWait(uint64_t time_ms) //Wait for given millisecs
 			break;
 	}
 }
+
+void SetRFinput(uint8_t input)
+{
+	RFX400SetInput(input);
+}
+
+
+void SetRFGain(uint32_t gain)
+{
+    ACE_set_sdd_value(SDD1_OUT, gain);
+}
+
 
 void SetRFFr(uint32_t frequency)
 {
@@ -208,17 +251,21 @@ void SetDDCshift(uint8_t shift)
 
 	*((uint32_t*) SHIFT_REG) = (uint32_t) shift;
 }
+#endif
+
 
 
 // **************************************************************************
-// Functions for Interrupt Handlers
+// **************************************************************************
+//
+// 					Functions for Interrupt Handlers
+//
+//
 // **************************************************************************
 
 #ifdef ADC_ENABLED
 void pdma_handler( void )
 {
-//	PDMA_disable_irq( PDMA_CHANNEL_0 );
-
 #	ifdef TIME_STAMP
 	set_time_stamp(DMA_buf);
 #	endif
@@ -230,8 +277,6 @@ void pdma_handler( void )
 		next_DMA_buf = next_buf;
 
 	next_DMA_transfer();
-
-//    PDMA_enable_irq( PDMA_CHANNEL_0 );
 }
 #endif
 
@@ -261,10 +306,12 @@ void Timer1_IRQHandler( void )
 #define COMMAND_ID_CONFIG_STATE			1
 #define COMMAND_ID_FLOW_CONTROL_STATE	2
 
+#define CMD_SIZE	(1+4+4+2+2+4+1)
+
 void receive_callback(void* data, u16_t len)
 {
-	static uint8_t	buffer[13];
-	static uint8_t	counter = 13;
+	static uint8_t	buffer[CMD_SIZE];
+	static uint8_t	counter = CMD_SIZE;
 	static char		state = COMMAND_ID_WAITING_STATE;
 
 	u16_t i;
@@ -272,11 +319,14 @@ void receive_callback(void* data, u16_t len)
 	{
 		if (state == COMMAND_ID_WAITING_STATE)
 		{
-			if (*(((uint8_t*) data) + i) == COMMAND_ID_CONFIG_MSG)
-				state = COMMAND_ID_CONFIG_STATE;
-			else if (*(((uint8_t*) data) + i) == COMMAND_ID_FLOW_CONTROL_MSG)
+			if (*(((uint8_t*) data) + i) == COMMAND_ID_FLOW_CONTROL_MSG)
 				state = COMMAND_ID_FLOW_CONTROL_STATE;
+#ifdef CONTROL_ENABLED
+			else if (*(((uint8_t*) data) + i) == COMMAND_ID_CONFIG_MSG)
+				state = COMMAND_ID_CONFIG_STATE;
+#endif
 		}
+#ifdef CONTROL_ENABLED
 		else if (state == COMMAND_ID_CONFIG_STATE)
 		{
 			counter--;
@@ -284,22 +334,27 @@ void receive_callback(void* data, u16_t len)
 
 			if (counter == 0)
 			{
+				uint8_t input			=	buffer[17];
+				uint32_t gain			=	*((uint32_t*) &(buffer[13]));
 				uint32_t RFfrequency	=	*((uint32_t*) &(buffer[9]));
 				int16_t DC_offsetI		=	*((int32_t*) &(buffer[7]));
 				int16_t DC_offsetQ		=	*((int32_t*) &(buffer[5]));
 				double DDCfrequency		=	(double) *(((int32_t*) &(buffer[1])));
 				uint8_t shift			=	buffer[0];
 
+				SetRFinput(input);
+				SetRFGain(gain);
 				SetRFFr(RFfrequency);
 				SetDCoffset(DC_offsetI, DC_offsetQ);
 				SetDDCFr(DDCfrequency);
 				SetDDCshift(shift);
 
-				counter = 13;
+				counter = CMD_SIZE;
 
 				state = COMMAND_ID_WAITING_STATE;
 			}
 		}
+#endif
 		else if (state == COMMAND_ID_FLOW_CONTROL_STATE)
 		{
 			BurstCounter = *(((uint8_t*) data) + i);
@@ -310,31 +365,16 @@ void receive_callback(void* data, u16_t len)
 		}
 	}
 }
-
 #endif
 
 
 
-/*
-__attribute__ ((interrupt)) void Fabric_IRQHandler(void)
-{
-//    MSS_GPIO_clear_irq( MSS_GPIO_22 );
-	NVIC_ClearPendingIRQ(Fabric_IRQn);
-
-	int a=4;
-	int b=6;
-	int c;
-
-	c = a + b;
-
-//	NVIC_EnableIRQ(Fabric_IRQn);
-}
-*/
-
-
-
 // **************************************************************************
-// Init functions
+// **************************************************************************
+//
+// 								Init functions
+//
+//
 // **************************************************************************
 
 #ifdef ADC_ENABLED
@@ -349,7 +389,6 @@ void init_DMA()
 
     PDMA_set_irq_handler( PDMA_CHANNEL_0, pdma_handler );
     PDMA_enable_irq( PDMA_CHANNEL_0 );
-//    NVIC_EnableIRQ( DMA_IRQn );
 }
 #endif
 
@@ -358,7 +397,6 @@ void init_timing()
 {
     SystemCoreClockUpdate();
 
-//    timer1_load_value = g_FrequencyPCLK0/10000;
     MSS_TIM1_init( MSS_TIMER_PERIODIC_MODE );
     MSS_TIM1_load_immediate( (uint32_t) (g_FrequencyPCLK0/1000) ); //Divide by 1000 means an interrupt at every 1/1000 sec = 1 msec
     MSS_TIM1_start();
@@ -369,12 +407,14 @@ void init_timing()
 
 
 // ****************************************************************
-// Entry to Main form user boot code
+// ****************************************************************
+//
+// 								Main
+//
+//
 // ****************************************************************
 int main()
 {
-//	NVIC_EnableIRQ(Fabric_IRQn);
-
 #ifdef NETWORKING_ENABLED
 
 	struct netif l_netif;                // the single network interface
@@ -390,14 +430,20 @@ int main()
 
 #endif
 
+
 #ifdef ADC_ENABLED
     init_DMA();
 #endif
 
 
 #ifdef NETWORKING_ENABLED
-    // Initialization hardware necessary for millisecond timing
+    // Initialize hardware necessary for millisecond timing
     init_timing();
+
+#ifdef CONTROL_ENABLED
+    ACE_init();
+    ACE_configure_sdd(SDD1_OUT, SDD_24_BITS, SDD_VOLTAGE_MODE | SDD_NON_RTZ , INDIVIDUAL_UPDATE );
+    ACE_enable_sdd(SDD1_OUT);
 
 	SetDCoffset(0, 0);
     SetDDCFr(1000);
@@ -405,8 +451,11 @@ int main()
 
     BusyWait(1); // WARNING!!! WITH RFX400 ATTACHED IT TAKES AT LEAST 170us FOR THE GPIO VOLTAGES TO REACH 3.3V
     RFX400init();
-    SetRFFr(426000000);
 
+    SetRFinput(RFX400_TX_RX);
+    SetRFGain(0);
+    SetRFFr(426000000);
+#endif
 
     // Initialize the lwIP stack
     lwip_init();
@@ -454,9 +503,6 @@ int main()
         ethernetif_input(&l_netif);
 #endif
 
-        // if we have stuff to write AND last data is already sent AND we have a live connection
-//        if ( (NET_buf != DMA_buf) && !still_working_on_last_data && pcb->remote_port)
-
         // if we have stuff to write
         //AND last data is already sent
         //AND we have a live connection
@@ -474,7 +520,6 @@ int main()
 
         	data_sent_callback_fn();
         }
-
     }
 
     return 0;
