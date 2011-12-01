@@ -57,7 +57,7 @@ Candidate ICs:
 *ADC*
 
  * [http://www.analog.com/static/imported-files/data_sheets/AD9288.pdf Analog Devices - AD9288] (Dual, 8-bit 40/80/100 MHz ADC, 3.3V)
- * [http://www.analog.com/static/imported-files/data_sheets/AD7352.pdf AD7352] (Differential, Dual, 12-bit, 3 MSPS, SAR ADC, *2.5V (!)* )
+ * [http://www.analog.com/static/imported-files/data_sheets/AD7352.pdf Analog Devices - AD7352] (Differential, Dual, 12-bit, 3 MSPS, SAR ADC, *2.5V (!)* )
 
 *DAC*
 
