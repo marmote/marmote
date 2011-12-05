@@ -31,7 +31,7 @@
 
  * The PowerBoard should be able to reset the FPGA
  * The FPGA should have an external reset (e.g. push-button or jumper)
-  * Consider adding an external reset circuit (DS1818)
+  * Consider adding an external reset circuit (DS1818, TCM809)
 
 = Wake-up Logic =
 
