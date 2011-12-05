@@ -35,7 +35,8 @@
 
 = Wake-up Logic =
 
- * The FPGA/uC should be able to weak up on an external signal (e.g. consider connecting it to a pin with analog comparator or Flash*Freeze-like functionality)
+ * The FPGA/uC should be able to weak up on an external signal from the sensor board (e.g. consider connecting it to a pin with analog comparator or Flash*Freeze-like functionality)
+  * Consider adding a wake-up functionality from the Power Board
 
 = Interfaces =
 
