@@ -40,6 +40,10 @@
 
 = Interfaces =
 
+== Simple display unit for debug ==
+ * Killer application: Battery life display
+ * I2C interface
+
 == Analog Front-End / Sensor Board ==
 
  * Should support 4 ADCs with at least 1 MSPS for sensor hookup
