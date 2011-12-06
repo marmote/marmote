@@ -10,6 +10,10 @@
 
  * LO clocks should be derived from a temperature compensated voltage controlled crystal oscillator (TCVCXO) driven source
 
+= Analog front-end =
+
+ * Consider adding a second RF front-end IC and antenna if ADCs and DACs are already present (at least at footprint-level)
+
 = Test points =
 
  * Analog baseband waveform feed in (signal generator) and signal out (oscilloscope) test point (e.g. right after the DAC/ADC)
