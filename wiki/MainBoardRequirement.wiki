@@ -43,6 +43,7 @@
 == Simple display unit for debug ==
  * Killer application: Battery life display
  * I2C interface
+ * Varitronix - Landscape QVGA, 5 in, 320x240, Touch Screen
 
 == Analog Front-End / Sensor Board ==
 
