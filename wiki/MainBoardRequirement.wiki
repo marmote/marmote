@@ -64,10 +64,12 @@ Candidate ICs:
 
  * [http://www.analog.com/static/imported-files/data_sheets/AD9288.pdf Analog Devices - AD9288] (Dual, 8-bit 40/80/100 MHz ADC, 3.3V)
  * [http://www.analog.com/static/imported-files/data_sheets/AD7352.pdf Analog Devices - AD7352] (Differential, Dual, 12-bit, 3 MSPS, SAR ADC, *2.5V (!)* )
+ * [http://www.maxim-ic.com/datasheet/index.mvp/id/5032 Maxim - MAX19706] (Differential, Dual + 3, 10-bit, 22 MSPS, *3.0V*)
 
 *DAC*
 
  * [http://datasheets.maxim-ic.com/en/ds/MAX5186-MAX5189.pdf Maxim - MAX5186] (Dual, 8-bit, 40 MHz DAC, 3.3V)
+ * [http://www.maxim-ic.com/datasheet/index.mvp/id/5032 Maxim - MAX19706] (Differential, Dual + 2, 10-bit/12-bit, 22 MSPS, *3.0V*)
 
 == Local components ==
 
@@ -88,5 +90,6 @@ Candidate ICs:
 
  * External clock sync connector
  * JTAG connector (consider using the compact ISP programming header recommended by Actel: Samtec FTSH-105-01-L-D-K)
- * Mezzazine connectors
+ * Mezzanine connectors
+  * Consider adding a Mezzanine connector with pin count greater than 64
  * Low-profile RJ-45 connector (optional footprint might suffice)
