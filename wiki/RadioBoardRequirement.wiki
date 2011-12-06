@@ -29,7 +29,7 @@
 || *Vendor* || *Model* || *RX mixer* || *LPF* || *TX mixer* || *PLL* || Power Consumption || Frequency ||
 || Analog Devices || [http://www.analog.com/static/imported-files/data_sheets/ADF9010.pdf ADF9010] || no || yes || yes || yes || ? || ? ||
 || Maxim || [http://datasheets.maxim-ic.com/en/ds/MAX2830.pdf MAX2830] || || || || || 80 mA || 2.4 GHz ||
-|| Skyworks || [http://www.skyworksinc.com/uploads/documents/200755C.pdf SKY73202-364LF] || || || || *4.5V* || *100 mA*  ||   ||
+|| Skyworks || [http://www.skyworksinc.com/uploads/documents/200755C.pdf SKY73202-364LF] || || || || *4.5V* || *60 mA*  ||   ||
 
 
 http://datasheets.maxim-ic.com/en/ds/MAX2830.pdf (MAX2831 with PA)
