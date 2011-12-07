@@ -14,10 +14,15 @@
 
 = Clock Subsystem =
 
- * External clock synchronization Multiple nodes should be able to synchronize their FPGA clock(s) to each other
- * A TCVCXO should be available to provide clock for the FPGA
- * A ~50-100 MHz crystal oscillator should be available for the FPGA
+ * External clock synchronization (Multiple nodes should be able to synchronize their FPGA clock(s) to each other)
+ * A TCVCXO should be available to provide clock for the FPGA and LO
  * RTC
+
+|| *Vendor* || *Model* || *Frequency* || *Supply voltage* || *Supply current (max)* || *Frequency stability* || *Comment* ||
+|| Fox || FOX924B-20.000 || 20 MHz || 3.3 V || 6 mA || 2.5 ppm || Reasonable ||
+|| Connor-Winfield || D53G-020.0M || 20 MHz || 3.3 V || 2 mA || 0.5 ppm || Low-power and expensive ||
+|| Connor-Winfield || D75A-020.0M || 20 MHz || 3.3 V || 6 mA || 0.28 ppm || Precise and expensive ||
+
 
 = Programmer logic =
 
