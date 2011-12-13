@@ -20395,6 +20395,118 @@ Source: &lt;p&gt;
 <hole x="-22.2" y="0" drill="1.4"/>
 <hole x="22.2" y="0" drill="1.4"/>
 </package>
+<package name="LQFP-48">
+<description>&lt;b&gt;LQFP-48&lt;/b&gt;
+&lt;p&gt;
+48-pin LQFP package based on the IPC-7351 standard.</description>
+<wire x1="-3.375" y1="3.1" x2="-3.1" y2="3.375" width="0.254" layer="21"/>
+<wire x1="-3.1" y1="3.375" x2="3.1" y2="3.375" width="0.254" layer="21"/>
+<wire x1="3.1" y1="3.375" x2="3.375" y2="3.1" width="0.254" layer="21"/>
+<wire x1="3.375" y1="3.1" x2="3.375" y2="-3.1" width="0.254" layer="21"/>
+<wire x1="3.375" y1="-3.1" x2="3.1" y2="-3.375" width="0.254" layer="21"/>
+<wire x1="3.1" y1="-3.375" x2="-3.1" y2="-3.375" width="0.254" layer="21"/>
+<wire x1="-3.1" y1="-3.375" x2="-3.375" y2="-3.1" width="0.254" layer="21"/>
+<wire x1="-3.375" y1="-3.1" x2="-3.375" y2="3.1" width="0.254" layer="21"/>
+<circle x="-2" y="2" radius="0.1" width="0.2032" layer="21"/>
+<smd name="1" x="-4.2" y="2.75" dx="0.3" dy="1.5" layer="1" rot="R270"/>
+<smd name="2" x="-4.2" y="2.25" dx="0.3" dy="1.5" layer="1" rot="R270"/>
+<smd name="3" x="-4.2" y="1.75" dx="0.3" dy="1.5" layer="1" rot="R270"/>
+<smd name="4" x="-4.2" y="1.25" dx="0.3" dy="1.5" layer="1" rot="R270"/>
+<smd name="5" x="-4.2" y="0.75" dx="0.3" dy="1.5" layer="1" rot="R270"/>
+<smd name="6" x="-4.2" y="0.25" dx="0.3" dy="1.5" layer="1" rot="R270"/>
+<smd name="7" x="-4.2" y="-0.25" dx="0.3" dy="1.5" layer="1" rot="R270"/>
+<smd name="8" x="-4.2" y="-0.75" dx="0.3" dy="1.5" layer="1" rot="R270"/>
+<smd name="9" x="-4.2" y="-1.25" dx="0.3" dy="1.5" layer="1" rot="R270"/>
+<smd name="10" x="-4.2" y="-1.75" dx="0.3" dy="1.5" layer="1" rot="R270"/>
+<smd name="11" x="-4.2" y="-2.25" dx="0.3" dy="1.5" layer="1" rot="R270"/>
+<smd name="12" x="-4.2" y="-2.75" dx="0.3" dy="1.5" layer="1" rot="R270"/>
+<smd name="13" x="-2.75" y="-4.2" dx="1.5" dy="0.3" layer="1" rot="R270"/>
+<smd name="14" x="-2.25" y="-4.2" dx="1.5" dy="0.3" layer="1" rot="R270"/>
+<smd name="15" x="-1.75" y="-4.2" dx="1.5" dy="0.3" layer="1" rot="R270"/>
+<smd name="16" x="-1.25" y="-4.2" dx="1.5" dy="0.3" layer="1" rot="R270"/>
+<smd name="17" x="-0.75" y="-4.2" dx="1.5" dy="0.3" layer="1" rot="R270"/>
+<smd name="18" x="-0.25" y="-4.2" dx="1.5" dy="0.3" layer="1" rot="R270"/>
+<smd name="19" x="0.25" y="-4.2" dx="1.5" dy="0.3" layer="1" rot="R270"/>
+<smd name="20" x="0.75" y="-4.2" dx="1.5" dy="0.3" layer="1" rot="R270"/>
+<smd name="21" x="1.25" y="-4.2" dx="1.5" dy="0.3" layer="1" rot="R270"/>
+<smd name="22" x="1.75" y="-4.2" dx="1.5" dy="0.3" layer="1" rot="R270"/>
+<smd name="23" x="2.25" y="-4.2" dx="1.5" dy="0.3" layer="1" rot="R270"/>
+<smd name="24" x="2.75" y="-4.2" dx="1.5" dy="0.3" layer="1" rot="R270"/>
+<smd name="25" x="4.2" y="-2.75" dx="0.3" dy="1.5" layer="1" rot="R270"/>
+<smd name="26" x="4.2" y="-2.25" dx="0.3" dy="1.5" layer="1" rot="R270"/>
+<smd name="27" x="4.2" y="-1.75" dx="0.3" dy="1.5" layer="1" rot="R270"/>
+<smd name="28" x="4.2" y="-1.25" dx="0.3" dy="1.5" layer="1" rot="R270"/>
+<smd name="29" x="4.2" y="-0.75" dx="0.3" dy="1.5" layer="1" rot="R270"/>
+<smd name="30" x="4.2" y="-0.25" dx="0.3" dy="1.5" layer="1" rot="R270"/>
+<smd name="31" x="4.2" y="0.25" dx="0.3" dy="1.5" layer="1" rot="R270"/>
+<smd name="32" x="4.2" y="0.75" dx="0.3" dy="1.5" layer="1" rot="R270"/>
+<smd name="33" x="4.2" y="1.25" dx="0.3" dy="1.5" layer="1" rot="R270"/>
+<smd name="34" x="4.2" y="1.75" dx="0.3" dy="1.5" layer="1" rot="R270"/>
+<smd name="35" x="4.2" y="2.25" dx="0.3" dy="1.5" layer="1" rot="R270"/>
+<smd name="36" x="4.2" y="2.75" dx="0.3" dy="1.5" layer="1" rot="R270"/>
+<smd name="37" x="2.75" y="4.2" dx="1.5" dy="0.3" layer="1" rot="R270"/>
+<smd name="38" x="2.25" y="4.2" dx="1.5" dy="0.3" layer="1" rot="R270"/>
+<smd name="39" x="1.75" y="4.2" dx="1.5" dy="0.3" layer="1" rot="R270"/>
+<smd name="40" x="1.25" y="4.2" dx="1.5" dy="0.3" layer="1" rot="R270"/>
+<smd name="41" x="0.75" y="4.2" dx="1.5" dy="0.3" layer="1" rot="R270"/>
+<smd name="42" x="0.25" y="4.2" dx="1.5" dy="0.3" layer="1" rot="R270"/>
+<smd name="43" x="-0.25" y="4.2" dx="1.5" dy="0.3" layer="1" rot="R270"/>
+<smd name="44" x="-0.75" y="4.2" dx="1.5" dy="0.3" layer="1" rot="R270"/>
+<smd name="45" x="-1.25" y="4.2" dx="1.5" dy="0.3" layer="1" rot="R270"/>
+<smd name="46" x="-1.75" y="4.2" dx="1.5" dy="0.3" layer="1" rot="R270"/>
+<smd name="47" x="-2.25" y="4.2" dx="1.5" dy="0.3" layer="1" rot="R270"/>
+<smd name="48" x="-2.75" y="4.2" dx="1.5" dy="0.3" layer="1" rot="R270"/>
+<text x="3.81" y="-3.81" size="0.4064" layer="25">&gt;NAME</text>
+<text x="-2.1" y="0" size="0.4064" layer="27">&gt;VALUE</text>
+<rectangle x1="-2.85" y1="-4.5" x2="-2.65" y2="-3.45" layer="51"/>
+<rectangle x1="-2.35" y1="-4.5" x2="-2.15" y2="-3.45" layer="51"/>
+<rectangle x1="-1.85" y1="-4.5" x2="-1.65" y2="-3.45" layer="51"/>
+<rectangle x1="-1.35" y1="-4.5" x2="-1.15" y2="-3.45" layer="51"/>
+<rectangle x1="-0.85" y1="-4.5" x2="-0.65" y2="-3.45" layer="51"/>
+<rectangle x1="-0.35" y1="-4.5" x2="-0.15" y2="-3.45" layer="51"/>
+<rectangle x1="0.15" y1="-4.5" x2="0.35" y2="-3.45" layer="51"/>
+<rectangle x1="0.65" y1="-4.5" x2="0.85" y2="-3.45" layer="51"/>
+<rectangle x1="1.15" y1="-4.5" x2="1.35" y2="-3.45" layer="51"/>
+<rectangle x1="1.65" y1="-4.5" x2="1.85" y2="-3.45" layer="51"/>
+<rectangle x1="2.15" y1="-4.5" x2="2.35" y2="-3.45" layer="51"/>
+<rectangle x1="2.65" y1="-4.5" x2="2.85" y2="-3.45" layer="51"/>
+<rectangle x1="3.45" y1="-2.85" x2="4.5" y2="-2.65" layer="51"/>
+<rectangle x1="3.45" y1="-2.35" x2="4.5" y2="-2.15" layer="51"/>
+<rectangle x1="3.45" y1="-1.85" x2="4.5" y2="-1.65" layer="51"/>
+<rectangle x1="3.45" y1="-1.35" x2="4.5" y2="-1.15" layer="51"/>
+<rectangle x1="3.45" y1="-0.85" x2="4.5" y2="-0.65" layer="51"/>
+<rectangle x1="3.45" y1="-0.35" x2="4.5" y2="-0.15" layer="51"/>
+<rectangle x1="3.45" y1="0.15" x2="4.5" y2="0.35" layer="51"/>
+<rectangle x1="3.45" y1="0.65" x2="4.5" y2="0.85" layer="51"/>
+<rectangle x1="3.45" y1="1.15" x2="4.5" y2="1.35" layer="51"/>
+<rectangle x1="3.45" y1="1.65" x2="4.5" y2="1.85" layer="51"/>
+<rectangle x1="3.45" y1="2.15" x2="4.5" y2="2.35" layer="51"/>
+<rectangle x1="3.45" y1="2.65" x2="4.5" y2="2.85" layer="51"/>
+<rectangle x1="2.65" y1="3.45" x2="2.85" y2="4.5" layer="51"/>
+<rectangle x1="2.15" y1="3.45" x2="2.35" y2="4.5" layer="51"/>
+<rectangle x1="1.65" y1="3.45" x2="1.85" y2="4.5" layer="51"/>
+<rectangle x1="1.15" y1="3.45" x2="1.35" y2="4.5" layer="51"/>
+<rectangle x1="0.65" y1="3.45" x2="0.85" y2="4.5" layer="51"/>
+<rectangle x1="0.15" y1="3.45" x2="0.35" y2="4.5" layer="51"/>
+<rectangle x1="-0.35" y1="3.45" x2="-0.15" y2="4.5" layer="51"/>
+<rectangle x1="-0.85" y1="3.45" x2="-0.65" y2="4.5" layer="51"/>
+<rectangle x1="-1.35" y1="3.45" x2="-1.15" y2="4.5" layer="51"/>
+<rectangle x1="-1.85" y1="3.45" x2="-1.65" y2="4.5" layer="51"/>
+<rectangle x1="-2.35" y1="3.45" x2="-2.15" y2="4.5" layer="51"/>
+<rectangle x1="-2.85" y1="3.45" x2="-2.65" y2="4.5" layer="51"/>
+<rectangle x1="-4.5" y1="2.65" x2="-3.45" y2="2.85" layer="51"/>
+<rectangle x1="-4.5" y1="2.15" x2="-3.45" y2="2.35" layer="51"/>
+<rectangle x1="-4.5" y1="1.65" x2="-3.45" y2="1.85" layer="51"/>
+<rectangle x1="-4.5" y1="1.15" x2="-3.45" y2="1.35" layer="51"/>
+<rectangle x1="-4.5" y1="0.65" x2="-3.45" y2="0.85" layer="51"/>
+<rectangle x1="-4.5" y1="0.15" x2="-3.45" y2="0.35" layer="51"/>
+<rectangle x1="-4.5" y1="-0.35" x2="-3.45" y2="-0.15" layer="51"/>
+<rectangle x1="-4.5" y1="-0.85" x2="-3.45" y2="-0.65" layer="51"/>
+<rectangle x1="-4.5" y1="-1.35" x2="-3.45" y2="-1.15" layer="51"/>
+<rectangle x1="-4.5" y1="-1.85" x2="-3.45" y2="-1.65" layer="51"/>
+<rectangle x1="-4.5" y1="-2.35" x2="-3.45" y2="-2.15" layer="51"/>
+<rectangle x1="-4.5" y1="-2.85" x2="-3.45" y2="-2.65" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="DGND">
@@ -21555,6 +21667,67 @@ Source: &lt;a href="http://www.maxim-ic.com/datasheet/index.mvp/id/5032"&gt;http
 <pin name="IO1@2" x="-10.16" y="0" visible="pad" length="short" swaplevel="1"/>
 <pin name="IO2@2" x="-10.16" y="-2.54" visible="pad" length="short" swaplevel="2"/>
 </symbol>
+<symbol name="DP83848C">
+<description>&lt;b&gt;National Semiconductor DP83848C PHYTER&lt;/b&gt;
+&lt;p&gt;
+Single Port 10/100 Mb/s Ethernet Physical Layer Transceiver.
+&lt;p&gt;
+Source: &lt;a href="http://cache.national.com/ds/DP/DP83848C.pdf"&gt;http://cache.national.com/ds/DP/DP83848C.pdf&lt;/a&gt;</description>
+<pin name="TX_CLK" x="-25.4" y="27.94" length="middle" direction="out" function="clk"/>
+<pin name="TXD_0" x="-25.4" y="22.86" length="middle" direction="out"/>
+<pin name="TXD_1" x="-25.4" y="20.32" length="middle" direction="out"/>
+<pin name="TXD_2" x="-25.4" y="17.78" length="middle" direction="out"/>
+<pin name="TXD_3/SNI_MODE" x="-25.4" y="15.24" length="middle" direction="out"/>
+<pin name="TX_EN" x="-25.4" y="25.4" length="middle" direction="out"/>
+<pin name="MDIO" x="-25.4" y="45.72" length="middle"/>
+<pin name="MDC" x="-25.4" y="43.18" length="middle"/>
+<pin name="COL/PHYAD0" x="-25.4" y="35.56" length="middle"/>
+<pin name="CRS/CRS_DV/LED_CFG" x="-25.4" y="38.1" length="middle"/>
+<pin name="RX_ER/MDIX_EN" x="-25.4" y="7.62" length="middle" direction="in"/>
+<pin name="RX_DV/MII_MODE" x="-25.4" y="5.08" length="middle" direction="in"/>
+<pin name="RXD_0/PHYAD1" x="-25.4" y="2.54" length="middle" direction="in"/>
+<pin name="RXD_1/PHYAD2" x="-25.4" y="0" length="middle" direction="in"/>
+<pin name="TD+" x="25.4" y="25.4" length="middle" direction="out" rot="R180"/>
+<pin name="TD-" x="25.4" y="20.32" length="middle" direction="out" rot="R180"/>
+<pin name="RD+" x="25.4" y="12.7" length="middle" direction="in" rot="R180"/>
+<pin name="RD-" x="25.4" y="7.62" length="middle" direction="in" rot="R180"/>
+<pin name="LED_ACT/COL/AN_EN" x="25.4" y="-15.24" length="middle" direction="out" rot="R180"/>
+<pin name="LED_LINK/AN0" x="25.4" y="-12.7" length="middle" direction="out" rot="R180"/>
+<pin name="RXD_2/PHYAD3" x="-25.4" y="-2.54" length="middle" direction="in"/>
+<pin name="RXD_3/PHYAD4" x="-25.4" y="-5.08" length="middle" direction="in"/>
+<pin name="LED_SPEED/AN1" x="25.4" y="-10.16" length="middle" direction="out" rot="R180"/>
+<pin name="25MHZ_OUT" x="-25.4" y="-48.26" length="middle" direction="out"/>
+<pin name="RX_CLK" x="-25.4" y="10.16" length="middle" direction="in" function="clk"/>
+<pin name="RESET_N" x="-25.4" y="-15.24" length="middle" direction="in" function="dot"/>
+<pin name="X1" x="-25.4" y="-38.1" length="middle" direction="in"/>
+<pin name="X2" x="-25.4" y="-40.64" length="middle" direction="in"/>
+<pin name="PWR_DOWN/INT" x="-25.4" y="-12.7" length="middle" direction="out"/>
+<pin name="RESERVED@1" x="25.4" y="-20.32" length="middle" direction="out" rot="R180"/>
+<pin name="RESERVED@2" x="25.4" y="-22.86" length="middle" direction="out" rot="R180"/>
+<pin name="RESERVED@3" x="25.4" y="-25.4" length="middle" direction="out" rot="R180"/>
+<pin name="RESERVED@4" x="25.4" y="-27.94" length="middle" direction="out" rot="R180"/>
+<pin name="RESERVED@5" x="25.4" y="-30.48" length="middle" direction="out" rot="R180"/>
+<pin name="RESERVED@6" x="25.4" y="-35.56" length="middle" direction="out" rot="R180"/>
+<pin name="RESERVED@7" x="25.4" y="-38.1" length="middle" direction="out" rot="R180"/>
+<pin name="AGND@1" x="25.4" y="-43.18" length="middle" direction="out" rot="R180"/>
+<pin name="AVDD33" x="25.4" y="45.72" length="middle" direction="out" rot="R180"/>
+<pin name="PFBOUT" x="-25.4" y="-27.94" length="middle" direction="out"/>
+<pin name="RBIAS" x="-25.4" y="-53.34" length="middle" direction="out"/>
+<pin name="IOVDD33@1" x="25.4" y="43.18" length="middle" direction="out" rot="R180"/>
+<pin name="IOGND@1" x="25.4" y="-50.8" length="middle" direction="out" rot="R180"/>
+<pin name="DGND" x="25.4" y="-48.26" length="middle" direction="out" rot="R180"/>
+<pin name="PFBIN1" x="-25.4" y="-22.86" length="middle" direction="out"/>
+<pin name="PFBIN2" x="-25.4" y="-25.4" length="middle" direction="out"/>
+<pin name="AGND@2" x="25.4" y="-45.72" length="middle" direction="out" rot="R180"/>
+<pin name="IOGND@2" x="25.4" y="-53.34" length="middle" direction="out" rot="R180"/>
+<pin name="IOVDD33@2" x="25.4" y="40.64" length="middle" direction="out" rot="R180"/>
+<wire x1="-20.32" y1="48.26" x2="20.32" y2="48.26" width="0.254" layer="94"/>
+<wire x1="20.32" y1="48.26" x2="20.32" y2="-55.88" width="0.254" layer="94"/>
+<wire x1="20.32" y1="-55.88" x2="-20.32" y2="-55.88" width="0.254" layer="94"/>
+<wire x1="-20.32" y1="-55.88" x2="-20.32" y2="48.26" width="0.254" layer="94"/>
+<text x="-20.32" y="48.895" size="1.778" layer="95">&gt;NAME</text>
+<text x="-20.32" y="-58.42" size="1.778" layer="96">&gt;VALUE</text>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="DGND">
@@ -22264,7 +22437,7 @@ Source: &lt;a href="http://www.ftdichip.com/Support/Documents/DataSheets/ICs/DS_
 <gate name="G$1" symbol="FT232H" x="0" y="0"/>
 </gates>
 <devices>
-<device name="L" package="TQFP-48">
+<device name="T" package="TQFP-48">
 <connects>
 <connect gate="G$1" pin="!RESET" pad="34"/>
 <connect gate="G$1" pin="ACBUS0" pad="21"/>
@@ -22320,6 +22493,65 @@ Source: &lt;a href="http://www.ftdichip.com/Support/Documents/DataSheets/ICs/DS_
 <attribute name="DIGI-KEY#" value="768-1101-1-ND"/>
 <attribute name="MF" value="FTDI"/>
 <attribute name="MPN" value="FT232HL"/>
+</technology>
+</technologies>
+</device>
+<device name="L" package="LQFP-48">
+<connects>
+<connect gate="G$1" pin="!RESET" pad="34"/>
+<connect gate="G$1" pin="ACBUS0" pad="21"/>
+<connect gate="G$1" pin="ACBUS1" pad="25"/>
+<connect gate="G$1" pin="ACBUS2" pad="26"/>
+<connect gate="G$1" pin="ACBUS3" pad="27"/>
+<connect gate="G$1" pin="ACBUS4" pad="28"/>
+<connect gate="G$1" pin="ACBUS5" pad="29"/>
+<connect gate="G$1" pin="ACBUS6" pad="30"/>
+<connect gate="G$1" pin="ACBUS7" pad="31"/>
+<connect gate="G$1" pin="ACBUS8" pad="32"/>
+<connect gate="G$1" pin="ACBUS9" pad="33"/>
+<connect gate="G$1" pin="ADBUS0" pad="13"/>
+<connect gate="G$1" pin="ADBUS1" pad="14"/>
+<connect gate="G$1" pin="ADBUS2" pad="15"/>
+<connect gate="G$1" pin="ADBUS3" pad="16"/>
+<connect gate="G$1" pin="ADBUS4" pad="17"/>
+<connect gate="G$1" pin="ADBUS5" pad="18"/>
+<connect gate="G$1" pin="ADBUS6" pad="19"/>
+<connect gate="G$1" pin="ADBUS7" pad="20"/>
+<connect gate="G$1" pin="AGND@1" pad="4"/>
+<connect gate="G$1" pin="AGND@2" pad="9"/>
+<connect gate="G$1" pin="AGND@3" pad="41"/>
+<connect gate="G$1" pin="DM" pad="6"/>
+<connect gate="G$1" pin="DP" pad="7"/>
+<connect gate="G$1" pin="EECLK" pad="44"/>
+<connect gate="G$1" pin="EECS" pad="45"/>
+<connect gate="G$1" pin="EEDATA" pad="43"/>
+<connect gate="G$1" pin="GND@1" pad="10"/>
+<connect gate="G$1" pin="GND@2" pad="11"/>
+<connect gate="G$1" pin="GND@3" pad="22"/>
+<connect gate="G$1" pin="GND@4" pad="23"/>
+<connect gate="G$1" pin="GND@5" pad="35"/>
+<connect gate="G$1" pin="GND@6" pad="36"/>
+<connect gate="G$1" pin="GND@7" pad="47"/>
+<connect gate="G$1" pin="GND@8" pad="48"/>
+<connect gate="G$1" pin="REF" pad="5"/>
+<connect gate="G$1" pin="TEST" pad="42"/>
+<connect gate="G$1" pin="VCCA" pad="37"/>
+<connect gate="G$1" pin="VCCCORE" pad="38"/>
+<connect gate="G$1" pin="VCCD" pad="39"/>
+<connect gate="G$1" pin="VCCIO@1" pad="12"/>
+<connect gate="G$1" pin="VCCIO@2" pad="24"/>
+<connect gate="G$1" pin="VCCIO@3" pad="46"/>
+<connect gate="G$1" pin="VPHY" pad="3"/>
+<connect gate="G$1" pin="VPLL" pad="8"/>
+<connect gate="G$1" pin="VREGIN" pad="40"/>
+<connect gate="G$1" pin="XCSI" pad="1"/>
+<connect gate="G$1" pin="XCSO" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DIGI-KEY#" value="768-1101-1-ND"/>
+<attribute name="MF" value="FTDI"/>
+<attribute name="MPN" value="768-1101-1-ND"/>
 </technology>
 </technologies>
 </device>
@@ -22496,6 +22728,77 @@ Source: &lt;a href="http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL
 </device>
 </devices>
 </deviceset>
+<deviceset name="DP83848C" prefix="U">
+<description>&lt;b&gt;National Semiconductor DP83848C PHYTER&lt;/b&gt;
+&lt;p&gt;
+Single Port 10/100 Mb/s Ethernet Physical Layer Transceiver.
+&lt;p&gt;
+Source: &lt;a href="http://cache.national.com/ds/DP/DP83848C.pdf"&gt;http://cache.national.com/ds/DP/DP83848C.pdf&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="DP83848C" x="-5.08" y="7.62"/>
+</gates>
+<devices>
+<device name="-VBH48A" package="LQFP-48">
+<connects>
+<connect gate="G$1" pin="25MHZ_OUT" pad="25"/>
+<connect gate="G$1" pin="AGND@1" pad="15"/>
+<connect gate="G$1" pin="AGND@2" pad="19"/>
+<connect gate="G$1" pin="AVDD33" pad="22"/>
+<connect gate="G$1" pin="COL/PHYAD0" pad="42"/>
+<connect gate="G$1" pin="CRS/CRS_DV/LED_CFG" pad="40"/>
+<connect gate="G$1" pin="DGND" pad="36"/>
+<connect gate="G$1" pin="IOGND@1" pad="35"/>
+<connect gate="G$1" pin="IOGND@2" pad="47"/>
+<connect gate="G$1" pin="IOVDD33@1" pad="32"/>
+<connect gate="G$1" pin="IOVDD33@2" pad="48"/>
+<connect gate="G$1" pin="LED_ACT/COL/AN_EN" pad="26"/>
+<connect gate="G$1" pin="LED_LINK/AN0" pad="28"/>
+<connect gate="G$1" pin="LED_SPEED/AN1" pad="27"/>
+<connect gate="G$1" pin="MDC" pad="31"/>
+<connect gate="G$1" pin="MDIO" pad="30"/>
+<connect gate="G$1" pin="PFBIN1" pad="18"/>
+<connect gate="G$1" pin="PFBIN2" pad="37"/>
+<connect gate="G$1" pin="PFBOUT" pad="23"/>
+<connect gate="G$1" pin="PWR_DOWN/INT" pad="7"/>
+<connect gate="G$1" pin="RBIAS" pad="24"/>
+<connect gate="G$1" pin="RD+" pad="14"/>
+<connect gate="G$1" pin="RD-" pad="13"/>
+<connect gate="G$1" pin="RESERVED@1" pad="8"/>
+<connect gate="G$1" pin="RESERVED@2" pad="9"/>
+<connect gate="G$1" pin="RESERVED@3" pad="10"/>
+<connect gate="G$1" pin="RESERVED@4" pad="11"/>
+<connect gate="G$1" pin="RESERVED@5" pad="12"/>
+<connect gate="G$1" pin="RESERVED@6" pad="20"/>
+<connect gate="G$1" pin="RESERVED@7" pad="21"/>
+<connect gate="G$1" pin="RESET_N" pad="29"/>
+<connect gate="G$1" pin="RXD_0/PHYAD1" pad="43"/>
+<connect gate="G$1" pin="RXD_1/PHYAD2" pad="44"/>
+<connect gate="G$1" pin="RXD_2/PHYAD3" pad="45"/>
+<connect gate="G$1" pin="RXD_3/PHYAD4" pad="46"/>
+<connect gate="G$1" pin="RX_CLK" pad="38"/>
+<connect gate="G$1" pin="RX_DV/MII_MODE" pad="39"/>
+<connect gate="G$1" pin="RX_ER/MDIX_EN" pad="41"/>
+<connect gate="G$1" pin="TD+" pad="17"/>
+<connect gate="G$1" pin="TD-" pad="16"/>
+<connect gate="G$1" pin="TXD_0" pad="3"/>
+<connect gate="G$1" pin="TXD_1" pad="4"/>
+<connect gate="G$1" pin="TXD_2" pad="5"/>
+<connect gate="G$1" pin="TXD_3/SNI_MODE" pad="6"/>
+<connect gate="G$1" pin="TX_CLK" pad="1"/>
+<connect gate="G$1" pin="TX_EN" pad="2"/>
+<connect gate="G$1" pin="X1" pad="34"/>
+<connect gate="G$1" pin="X2" pad="33"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DIGI-KEY#" value="DP83848CVV-ND" constant="no"/>
+<attribute name="MF" value="National Semiconductor"/>
+<attribute name="MPN" value="DP83848C"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -22568,7 +22871,9 @@ Source: &lt;a href="http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL
 <part name="PORT12" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT13" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT14" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="U5" library="MainBoard" deviceset="FT232H" device="L"/>
+<part name="U5" library="MainBoard" deviceset="FT232H" device="L">
+<attribute name="MPN" value="768-1101-1-ND"/>
+</part>
 <part name="U2" library="MainBoard" deviceset="MAX19706" device="-T4877-4"/>
 <part name="U3" library="MainBoard" deviceset="MAX19706" device="-T4877-4"/>
 <part name="X1" library="MainBoard" deviceset="CON-SMA" device=""/>
@@ -22593,6 +22898,15 @@ Source: &lt;a href="http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL
 <part name="PORT26" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT27" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT28" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="U6" library="MainBoard" deviceset="DP83848C" device="-VBH48A"/>
+<part name="PORT29" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT30" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT31" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT32" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT33" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT34" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT35" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT36" library="MainBoard" deviceset="PORT5" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -23045,8 +23359,9 @@ Source: &lt;a href="http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL
 <instances>
 <instance part="FRAME7" gate="G$1" x="0" y="0"/>
 <instance part="FRAME7" gate="G$2" x="147.32" y="0"/>
-<instance part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" x="147.32" y="127"/>
+<instance part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" x="137.16" y="127"/>
 <instance part="U5" gate="G$1" x="58.42" y="127"/>
+<instance part="U6" gate="G$1" x="215.9" y="111.76"/>
 </instances>
 <busses>
 </busses>
@@ -23107,12 +23422,116 @@ Source: &lt;a href="http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL
 <instances>
 <instance part="FRAME4" gate="G$1" x="0" y="0"/>
 <instance part="FRAME4" gate="G$2" x="147.32" y="0"/>
-<instance part="U2" gate="-ADC-DAC" x="226.06" y="142.24"/>
-<instance part="U3" gate="-ADC-DAC" x="190.5" y="76.2"/>
+<instance part="U2" gate="-ADC-DAC" x="58.42" y="137.16"/>
+<instance part="U3" gate="-ADC-DAC" x="58.42" y="53.34"/>
 </instances>
 <busses>
 </busses>
 <nets>
+<net name="ADC2+" class="0">
+<segment>
+<label x="22.86" y="157.48" size="1.778" layer="95"/>
+<pinref part="U2" gate="-ADC-DAC" pin="QAP"/>
+<wire x1="33.02" y1="157.48" x2="43.18" y2="157.48" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="ADC2-" class="0">
+<segment>
+<label x="22.86" y="152.4" size="1.778" layer="95"/>
+<pinref part="U2" gate="-ADC-DAC" pin="QAN"/>
+<wire x1="43.18" y1="152.4" x2="33.02" y2="152.4" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="ADC1+" class="0">
+<segment>
+<label x="22.86" y="170.18" size="1.778" layer="95"/>
+<pinref part="U2" gate="-ADC-DAC" pin="IAP"/>
+<wire x1="43.18" y1="170.18" x2="33.02" y2="170.18" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="ADC1-" class="0">
+<segment>
+<label x="22.86" y="165.1" size="1.778" layer="95"/>
+<pinref part="U2" gate="-ADC-DAC" pin="IAN"/>
+<wire x1="33.02" y1="165.1" x2="43.18" y2="165.1" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$8" class="0">
+<segment>
+<pinref part="U3" gate="-ADC-DAC" pin="IAP"/>
+<wire x1="43.18" y1="86.36" x2="33.02" y2="86.36" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$9" class="0">
+<segment>
+<pinref part="U3" gate="-ADC-DAC" pin="IAN"/>
+<wire x1="43.18" y1="81.28" x2="33.02" y2="81.28" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$13" class="0">
+<segment>
+<pinref part="U3" gate="-ADC-DAC" pin="QAP"/>
+<wire x1="43.18" y1="73.66" x2="33.02" y2="73.66" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$15" class="0">
+<segment>
+<pinref part="U3" gate="-ADC-DAC" pin="QAN"/>
+<wire x1="43.18" y1="68.58" x2="33.02" y2="68.58" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$16" class="0">
+<segment>
+<pinref part="U3" gate="-ADC-DAC" pin="IDP"/>
+<wire x1="43.18" y1="58.42" x2="33.02" y2="58.42" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$17" class="0">
+<segment>
+<pinref part="U3" gate="-ADC-DAC" pin="IDN"/>
+<wire x1="43.18" y1="53.34" x2="33.02" y2="53.34" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$18" class="0">
+<segment>
+<pinref part="U3" gate="-ADC-DAC" pin="QDP"/>
+<wire x1="43.18" y1="45.72" x2="33.02" y2="45.72" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$19" class="0">
+<segment>
+<pinref part="U3" gate="-ADC-DAC" pin="QDN"/>
+<wire x1="43.18" y1="40.64" x2="33.02" y2="40.64" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="DAC2+" class="0">
+<segment>
+<pinref part="U2" gate="-ADC-DAC" pin="IDP"/>
+<wire x1="43.18" y1="142.24" x2="33.02" y2="142.24" width="0.1524" layer="91"/>
+<label x="22.86" y="142.24" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="DAC2-" class="0">
+<segment>
+<pinref part="U2" gate="-ADC-DAC" pin="IDN"/>
+<wire x1="43.18" y1="137.16" x2="33.02" y2="137.16" width="0.1524" layer="91"/>
+<label x="22.86" y="137.16" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="DAC1+" class="0">
+<segment>
+<pinref part="U2" gate="-ADC-DAC" pin="QDP"/>
+<wire x1="43.18" y1="129.54" x2="33.02" y2="129.54" width="0.1524" layer="91"/>
+<label x="22.86" y="129.54" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="DAC1-" class="0">
+<segment>
+<pinref part="U2" gate="-ADC-DAC" pin="QDN"/>
+<wire x1="43.18" y1="124.46" x2="33.02" y2="124.46" width="0.1524" layer="91"/>
+<label x="22.86" y="124.46" size="1.778" layer="95"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>
@@ -23171,6 +23590,14 @@ Source: &lt;a href="http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL
 <instance part="PORT26" gate="G$1" x="228.6" y="66.04"/>
 <instance part="PORT27" gate="G$1" x="228.6" y="63.5"/>
 <instance part="PORT28" gate="G$1" x="228.6" y="60.96"/>
+<instance part="PORT29" gate="G$1" x="228.6" y="71.12"/>
+<instance part="PORT30" gate="G$1" x="228.6" y="73.66"/>
+<instance part="PORT31" gate="G$1" x="228.6" y="78.74"/>
+<instance part="PORT32" gate="G$1" x="228.6" y="81.28"/>
+<instance part="PORT33" gate="G$1" x="228.6" y="86.36"/>
+<instance part="PORT34" gate="G$1" x="228.6" y="88.9"/>
+<instance part="PORT35" gate="G$1" x="228.6" y="93.98"/>
+<instance part="PORT36" gate="G$1" x="228.6" y="96.52"/>
 </instances>
 <busses>
 </busses>
@@ -23401,6 +23828,78 @@ Source: &lt;a href="http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL
 <wire x1="210.82" y1="68.58" x2="210.82" y2="58.42" width="0.1524" layer="91"/>
 <junction x="210.82" y="58.42"/>
 <pinref part="U$16" gate="G$1" pin="AGND"/>
+<pinref part="J2" gate="G$1" pin="70"/>
+<wire x1="208.28" y1="76.2" x2="210.82" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="210.82" y1="76.2" x2="210.82" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="J2" gate="G$1" pin="64"/>
+<wire x1="208.28" y1="83.82" x2="210.82" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="210.82" y1="83.82" x2="210.82" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="J2" gate="G$1" pin="58"/>
+<wire x1="208.28" y1="91.44" x2="210.82" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="210.82" y1="91.44" x2="210.82" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="J2" gate="G$1" pin="52"/>
+<wire x1="208.28" y1="99.06" x2="210.82" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="210.82" y1="99.06" x2="210.82" y2="91.44" width="0.1524" layer="91"/>
+<junction x="210.82" y="68.58"/>
+<junction x="210.82" y="76.2"/>
+<junction x="210.82" y="83.82"/>
+<junction x="210.82" y="91.44"/>
+</segment>
+</net>
+<net name="DAC1+" class="0">
+<segment>
+<pinref part="J2" gate="G$1" pin="74"/>
+<wire x1="208.28" y1="71.12" x2="218.44" y2="71.12" width="0.1524" layer="91"/>
+<label x="220.98" y="71.12" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="DAC1-" class="0">
+<segment>
+<pinref part="J2" gate="G$1" pin="72"/>
+<wire x1="208.28" y1="73.66" x2="218.44" y2="73.66" width="0.1524" layer="91"/>
+<label x="220.98" y="73.66" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="DAC2+" class="0">
+<segment>
+<pinref part="J2" gate="G$1" pin="68"/>
+<wire x1="208.28" y1="78.74" x2="218.44" y2="78.74" width="0.1524" layer="91"/>
+<label x="220.98" y="78.74" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="DAC2-" class="0">
+<segment>
+<pinref part="J2" gate="G$1" pin="66"/>
+<wire x1="208.28" y1="81.28" x2="218.44" y2="81.28" width="0.1524" layer="91"/>
+<label x="220.98" y="81.28" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="ADC1+" class="0">
+<segment>
+<pinref part="J2" gate="G$1" pin="62"/>
+<wire x1="208.28" y1="86.36" x2="218.44" y2="86.36" width="0.1524" layer="91"/>
+<label x="220.98" y="86.36" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="ADC1-" class="0">
+<segment>
+<pinref part="J2" gate="G$1" pin="60"/>
+<wire x1="208.28" y1="88.9" x2="218.44" y2="88.9" width="0.1524" layer="91"/>
+<label x="220.98" y="88.9" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="ADC2+" class="0">
+<segment>
+<pinref part="J2" gate="G$1" pin="56"/>
+<wire x1="208.28" y1="93.98" x2="218.44" y2="93.98" width="0.1524" layer="91"/>
+<label x="220.98" y="93.98" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="ADC2-" class="0">
+<segment>
+<pinref part="J2" gate="G$1" pin="54"/>
+<wire x1="208.28" y1="96.52" x2="218.44" y2="96.52" width="0.1524" layer="91"/>
+<label x="220.98" y="96.52" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
