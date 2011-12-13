@@ -22907,6 +22907,14 @@ Source: &lt;a href="http://cache.national.com/ds/DP/DP83848C.pdf"&gt;http://cach
 <part name="PORT34" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT35" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT36" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT37" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT38" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT39" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT40" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT41" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT42" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT43" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT44" library="MainBoard" deviceset="PORT5" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -23430,78 +23438,30 @@ Source: &lt;a href="http://cache.national.com/ds/DP/DP83848C.pdf"&gt;http://cach
 <nets>
 <net name="ADC2+" class="0">
 <segment>
-<label x="22.86" y="157.48" size="1.778" layer="95"/>
-<pinref part="U2" gate="-ADC-DAC" pin="QAP"/>
-<wire x1="33.02" y1="157.48" x2="43.18" y2="157.48" width="0.1524" layer="91"/>
+<label x="22.86" y="170.18" size="1.778" layer="95"/>
+<pinref part="U2" gate="-ADC-DAC" pin="IAP"/>
+<wire x1="33.02" y1="170.18" x2="43.18" y2="170.18" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="ADC2-" class="0">
-<segment>
-<label x="22.86" y="152.4" size="1.778" layer="95"/>
-<pinref part="U2" gate="-ADC-DAC" pin="QAN"/>
-<wire x1="43.18" y1="152.4" x2="33.02" y2="152.4" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="ADC1+" class="0">
-<segment>
-<label x="22.86" y="170.18" size="1.778" layer="95"/>
-<pinref part="U2" gate="-ADC-DAC" pin="IAP"/>
-<wire x1="43.18" y1="170.18" x2="33.02" y2="170.18" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="ADC1-" class="0">
 <segment>
 <label x="22.86" y="165.1" size="1.778" layer="95"/>
 <pinref part="U2" gate="-ADC-DAC" pin="IAN"/>
 <wire x1="33.02" y1="165.1" x2="43.18" y2="165.1" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$8" class="0">
+<net name="ADC1+" class="0">
 <segment>
-<pinref part="U3" gate="-ADC-DAC" pin="IAP"/>
-<wire x1="43.18" y1="86.36" x2="33.02" y2="86.36" width="0.1524" layer="91"/>
+<label x="22.86" y="157.48" size="1.778" layer="95"/>
+<pinref part="U2" gate="-ADC-DAC" pin="QAP"/>
+<wire x1="43.18" y1="157.48" x2="33.02" y2="157.48" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$9" class="0">
+<net name="ADC1-" class="0">
 <segment>
-<pinref part="U3" gate="-ADC-DAC" pin="IAN"/>
-<wire x1="43.18" y1="81.28" x2="33.02" y2="81.28" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$13" class="0">
-<segment>
-<pinref part="U3" gate="-ADC-DAC" pin="QAP"/>
-<wire x1="43.18" y1="73.66" x2="33.02" y2="73.66" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$15" class="0">
-<segment>
-<pinref part="U3" gate="-ADC-DAC" pin="QAN"/>
-<wire x1="43.18" y1="68.58" x2="33.02" y2="68.58" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$16" class="0">
-<segment>
-<pinref part="U3" gate="-ADC-DAC" pin="IDP"/>
-<wire x1="43.18" y1="58.42" x2="33.02" y2="58.42" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$17" class="0">
-<segment>
-<pinref part="U3" gate="-ADC-DAC" pin="IDN"/>
-<wire x1="43.18" y1="53.34" x2="33.02" y2="53.34" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$18" class="0">
-<segment>
-<pinref part="U3" gate="-ADC-DAC" pin="QDP"/>
-<wire x1="43.18" y1="45.72" x2="33.02" y2="45.72" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$19" class="0">
-<segment>
-<pinref part="U3" gate="-ADC-DAC" pin="QDN"/>
-<wire x1="43.18" y1="40.64" x2="33.02" y2="40.64" width="0.1524" layer="91"/>
+<label x="22.86" y="152.4" size="1.778" layer="95"/>
+<pinref part="U2" gate="-ADC-DAC" pin="QAN"/>
+<wire x1="33.02" y1="152.4" x2="43.18" y2="152.4" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="DAC2+" class="0">
@@ -23530,6 +23490,62 @@ Source: &lt;a href="http://cache.national.com/ds/DP/DP83848C.pdf"&gt;http://cach
 <pinref part="U2" gate="-ADC-DAC" pin="QDN"/>
 <wire x1="43.18" y1="124.46" x2="33.02" y2="124.46" width="0.1524" layer="91"/>
 <label x="22.86" y="124.46" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="DAC3-" class="0">
+<segment>
+<wire x1="43.18" y1="40.64" x2="33.02" y2="40.64" width="0.1524" layer="91"/>
+<label x="22.86" y="40.64" size="1.778" layer="95"/>
+<pinref part="U3" gate="-ADC-DAC" pin="QDN"/>
+</segment>
+</net>
+<net name="DAC3+" class="0">
+<segment>
+<wire x1="43.18" y1="45.72" x2="33.02" y2="45.72" width="0.1524" layer="91"/>
+<label x="22.86" y="45.72" size="1.778" layer="95"/>
+<pinref part="U3" gate="-ADC-DAC" pin="QDP"/>
+</segment>
+</net>
+<net name="DAC4-" class="0">
+<segment>
+<wire x1="43.18" y1="53.34" x2="33.02" y2="53.34" width="0.1524" layer="91"/>
+<label x="22.86" y="53.34" size="1.778" layer="95"/>
+<pinref part="U3" gate="-ADC-DAC" pin="IDN"/>
+</segment>
+</net>
+<net name="DAC4+" class="0">
+<segment>
+<wire x1="43.18" y1="58.42" x2="33.02" y2="58.42" width="0.1524" layer="91"/>
+<label x="22.86" y="58.42" size="1.778" layer="95"/>
+<pinref part="U3" gate="-ADC-DAC" pin="IDP"/>
+</segment>
+</net>
+<net name="ADC3-" class="0">
+<segment>
+<label x="22.86" y="68.58" size="1.778" layer="95"/>
+<wire x1="33.02" y1="68.58" x2="43.18" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="U3" gate="-ADC-DAC" pin="QAN"/>
+</segment>
+</net>
+<net name="ADC3+" class="0">
+<segment>
+<label x="22.86" y="73.66" size="1.778" layer="95"/>
+<wire x1="43.18" y1="73.66" x2="33.02" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="U3" gate="-ADC-DAC" pin="QAP"/>
+</segment>
+</net>
+<net name="ADC4-" class="0">
+<segment>
+<label x="22.86" y="81.28" size="1.778" layer="95"/>
+<wire x1="33.02" y1="81.28" x2="43.18" y2="81.28" width="0.1524" layer="91"/>
+<pinref part="U3" gate="-ADC-DAC" pin="IAN"/>
+</segment>
+</net>
+<net name="ADC4+" class="0">
+<segment>
+<label x="22.86" y="86.36" size="1.778" layer="95"/>
+<wire x1="33.02" y1="86.36" x2="43.18" y2="86.36" width="0.1524" layer="91"/>
+<pinref part="U3" gate="-ADC-DAC" pin="IAP"/>
 </segment>
 </net>
 </nets>
@@ -23590,14 +23606,22 @@ Source: &lt;a href="http://cache.national.com/ds/DP/DP83848C.pdf"&gt;http://cach
 <instance part="PORT26" gate="G$1" x="228.6" y="66.04"/>
 <instance part="PORT27" gate="G$1" x="228.6" y="63.5"/>
 <instance part="PORT28" gate="G$1" x="228.6" y="60.96"/>
-<instance part="PORT29" gate="G$1" x="228.6" y="71.12"/>
-<instance part="PORT30" gate="G$1" x="228.6" y="73.66"/>
-<instance part="PORT31" gate="G$1" x="228.6" y="78.74"/>
-<instance part="PORT32" gate="G$1" x="228.6" y="81.28"/>
-<instance part="PORT33" gate="G$1" x="228.6" y="86.36"/>
-<instance part="PORT34" gate="G$1" x="228.6" y="88.9"/>
-<instance part="PORT35" gate="G$1" x="228.6" y="93.98"/>
-<instance part="PORT36" gate="G$1" x="228.6" y="96.52"/>
+<instance part="PORT29" gate="G$1" x="228.6" y="86.36"/>
+<instance part="PORT30" gate="G$1" x="228.6" y="88.9"/>
+<instance part="PORT31" gate="G$1" x="228.6" y="93.98"/>
+<instance part="PORT32" gate="G$1" x="228.6" y="96.52"/>
+<instance part="PORT33" gate="G$1" x="228.6" y="71.12"/>
+<instance part="PORT34" gate="G$1" x="228.6" y="73.66"/>
+<instance part="PORT35" gate="G$1" x="228.6" y="78.74"/>
+<instance part="PORT36" gate="G$1" x="228.6" y="81.28"/>
+<instance part="PORT37" gate="G$1" x="228.6" y="116.84"/>
+<instance part="PORT38" gate="G$1" x="228.6" y="119.38"/>
+<instance part="PORT39" gate="G$1" x="228.6" y="124.46"/>
+<instance part="PORT40" gate="G$1" x="228.6" y="127"/>
+<instance part="PORT41" gate="G$1" x="228.6" y="101.6"/>
+<instance part="PORT42" gate="G$1" x="228.6" y="104.14"/>
+<instance part="PORT43" gate="G$1" x="228.6" y="109.22"/>
+<instance part="PORT44" gate="G$1" x="228.6" y="111.76"/>
 </instances>
 <busses>
 </busses>
@@ -23712,7 +23736,6 @@ Source: &lt;a href="http://cache.national.com/ds/DP/DP83848C.pdf"&gt;http://cach
 </segment>
 <segment>
 <wire x1="185.42" y1="152.4" x2="195.58" y2="152.4" width="0.1524" layer="91"/>
-<label x="182.88" y="152.4" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -23723,7 +23746,6 @@ Source: &lt;a href="http://cache.national.com/ds/DP/DP83848C.pdf"&gt;http://cach
 </segment>
 <segment>
 <wire x1="218.44" y1="152.4" x2="208.28" y2="152.4" width="0.1524" layer="91"/>
-<label x="220.98" y="152.4" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="A1V5" class="0">
@@ -23754,7 +23776,6 @@ Source: &lt;a href="http://cache.national.com/ds/DP/DP83848C.pdf"&gt;http://cach
 </segment>
 <segment>
 <wire x1="208.28" y1="66.04" x2="218.44" y2="66.04" width="0.1524" layer="91"/>
-<label x="220.98" y="66.04" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="A3V3" class="0">
@@ -23785,7 +23806,6 @@ Source: &lt;a href="http://cache.national.com/ds/DP/DP83848C.pdf"&gt;http://cach
 </segment>
 <segment>
 <wire x1="195.58" y1="66.04" x2="185.42" y2="66.04" width="0.1524" layer="91"/>
-<label x="182.88" y="66.04" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
 <net name="AGND" class="0">
@@ -23844,62 +23864,134 @@ Source: &lt;a href="http://cache.national.com/ds/DP/DP83848C.pdf"&gt;http://cach
 <junction x="210.82" y="76.2"/>
 <junction x="210.82" y="83.82"/>
 <junction x="210.82" y="91.44"/>
+<pinref part="J2" gate="G$1" pin="28"/>
+<wire x1="210.82" y1="99.06" x2="210.82" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="210.82" y1="106.68" x2="210.82" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="210.82" y1="114.3" x2="210.82" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="210.82" y1="121.92" x2="210.82" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="210.82" y1="129.54" x2="208.28" y2="129.54" width="0.1524" layer="91"/>
+<pinref part="J2" gate="G$1" pin="34"/>
+<wire x1="208.28" y1="121.92" x2="210.82" y2="121.92" width="0.1524" layer="91"/>
+<pinref part="J2" gate="G$1" pin="40"/>
+<wire x1="208.28" y1="114.3" x2="210.82" y2="114.3" width="0.1524" layer="91"/>
+<pinref part="J2" gate="G$1" pin="46"/>
+<wire x1="208.28" y1="106.68" x2="210.82" y2="106.68" width="0.1524" layer="91"/>
+<junction x="210.82" y="106.68"/>
+<junction x="210.82" y="99.06"/>
+<junction x="210.82" y="114.3"/>
+<junction x="210.82" y="121.92"/>
 </segment>
 </net>
 <net name="DAC1+" class="0">
 <segment>
-<pinref part="J2" gate="G$1" pin="74"/>
-<wire x1="208.28" y1="71.12" x2="218.44" y2="71.12" width="0.1524" layer="91"/>
-<label x="220.98" y="71.12" size="1.778" layer="95"/>
+<label x="220.98" y="86.36" size="1.778" layer="95"/>
+<pinref part="J2" gate="G$1" pin="62"/>
+<wire x1="218.44" y1="86.36" x2="208.28" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="DAC1-" class="0">
 <segment>
-<pinref part="J2" gate="G$1" pin="72"/>
-<wire x1="208.28" y1="73.66" x2="218.44" y2="73.66" width="0.1524" layer="91"/>
-<label x="220.98" y="73.66" size="1.778" layer="95"/>
+<label x="220.98" y="88.9" size="1.778" layer="95"/>
+<pinref part="J2" gate="G$1" pin="60"/>
+<wire x1="218.44" y1="88.9" x2="208.28" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="DAC2+" class="0">
 <segment>
-<pinref part="J2" gate="G$1" pin="68"/>
-<wire x1="208.28" y1="78.74" x2="218.44" y2="78.74" width="0.1524" layer="91"/>
-<label x="220.98" y="78.74" size="1.778" layer="95"/>
+<label x="220.98" y="93.98" size="1.778" layer="95"/>
+<pinref part="J2" gate="G$1" pin="56"/>
+<wire x1="218.44" y1="93.98" x2="208.28" y2="93.98" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="DAC2-" class="0">
 <segment>
-<pinref part="J2" gate="G$1" pin="66"/>
-<wire x1="208.28" y1="81.28" x2="218.44" y2="81.28" width="0.1524" layer="91"/>
-<label x="220.98" y="81.28" size="1.778" layer="95"/>
+<label x="220.98" y="96.52" size="1.778" layer="95"/>
+<pinref part="J2" gate="G$1" pin="54"/>
+<wire x1="218.44" y1="96.52" x2="208.28" y2="96.52" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="ADC1+" class="0">
 <segment>
-<pinref part="J2" gate="G$1" pin="62"/>
-<wire x1="208.28" y1="86.36" x2="218.44" y2="86.36" width="0.1524" layer="91"/>
-<label x="220.98" y="86.36" size="1.778" layer="95"/>
+<label x="220.98" y="71.12" size="1.778" layer="95"/>
+<pinref part="J2" gate="G$1" pin="74"/>
+<wire x1="218.44" y1="71.12" x2="208.28" y2="71.12" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="ADC1-" class="0">
 <segment>
-<pinref part="J2" gate="G$1" pin="60"/>
-<wire x1="208.28" y1="88.9" x2="218.44" y2="88.9" width="0.1524" layer="91"/>
-<label x="220.98" y="88.9" size="1.778" layer="95"/>
+<label x="220.98" y="73.66" size="1.778" layer="95"/>
+<pinref part="J2" gate="G$1" pin="72"/>
+<wire x1="218.44" y1="73.66" x2="208.28" y2="73.66" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="ADC2+" class="0">
 <segment>
-<pinref part="J2" gate="G$1" pin="56"/>
-<wire x1="208.28" y1="93.98" x2="218.44" y2="93.98" width="0.1524" layer="91"/>
-<label x="220.98" y="93.98" size="1.778" layer="95"/>
+<label x="220.98" y="78.74" size="1.778" layer="95"/>
+<pinref part="J2" gate="G$1" pin="68"/>
+<wire x1="218.44" y1="78.74" x2="208.28" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="ADC2-" class="0">
 <segment>
-<pinref part="J2" gate="G$1" pin="54"/>
-<wire x1="208.28" y1="96.52" x2="218.44" y2="96.52" width="0.1524" layer="91"/>
-<label x="220.98" y="96.52" size="1.778" layer="95"/>
+<label x="220.98" y="81.28" size="1.778" layer="95"/>
+<pinref part="J2" gate="G$1" pin="66"/>
+<wire x1="218.44" y1="81.28" x2="208.28" y2="81.28" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="ADC3+" class="0">
+<segment>
+<label x="220.98" y="101.6" size="1.778" layer="95"/>
+<wire x1="218.44" y1="101.6" x2="208.28" y2="101.6" width="0.1524" layer="91"/>
+<pinref part="J2" gate="G$1" pin="50"/>
+</segment>
+</net>
+<net name="ADC3-" class="0">
+<segment>
+<label x="220.98" y="104.14" size="1.778" layer="95"/>
+<wire x1="218.44" y1="104.14" x2="208.28" y2="104.14" width="0.1524" layer="91"/>
+<pinref part="J2" gate="G$1" pin="48"/>
+</segment>
+</net>
+<net name="ADC4+" class="0">
+<segment>
+<label x="220.98" y="109.22" size="1.778" layer="95"/>
+<wire x1="218.44" y1="109.22" x2="208.28" y2="109.22" width="0.1524" layer="91"/>
+<pinref part="J2" gate="G$1" pin="44"/>
+</segment>
+</net>
+<net name="ADC4-" class="0">
+<segment>
+<label x="220.98" y="111.76" size="1.778" layer="95"/>
+<wire x1="218.44" y1="111.76" x2="208.28" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="J2" gate="G$1" pin="42"/>
+</segment>
+</net>
+<net name="DAC3+" class="0">
+<segment>
+<label x="220.98" y="116.84" size="1.778" layer="95"/>
+<wire x1="218.44" y1="116.84" x2="208.28" y2="116.84" width="0.1524" layer="91"/>
+<pinref part="J2" gate="G$1" pin="38"/>
+</segment>
+</net>
+<net name="DAC3-" class="0">
+<segment>
+<label x="220.98" y="119.38" size="1.778" layer="95"/>
+<wire x1="218.44" y1="119.38" x2="208.28" y2="119.38" width="0.1524" layer="91"/>
+<pinref part="J2" gate="G$1" pin="36"/>
+</segment>
+</net>
+<net name="DAC4+" class="0">
+<segment>
+<label x="220.98" y="124.46" size="1.778" layer="95"/>
+<wire x1="218.44" y1="124.46" x2="208.28" y2="124.46" width="0.1524" layer="91"/>
+<pinref part="J2" gate="G$1" pin="32"/>
+</segment>
+</net>
+<net name="DAC4-" class="0">
+<segment>
+<label x="220.98" y="127" size="1.778" layer="95"/>
+<wire x1="218.44" y1="127" x2="208.28" y2="127" width="0.1524" layer="91"/>
+<pinref part="J2" gate="G$1" pin="30"/>
 </segment>
 </net>
 </nets>
