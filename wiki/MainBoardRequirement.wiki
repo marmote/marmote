@@ -24,6 +24,8 @@
 || Connor-Winfield || D75A-020.0M || 20 MHz || 3.3 V || 6 mA || 0.28 ppm || Precise and expensive ||
 || Abracon || ASVTX11-20.000MHZ-T || 20 MHz || 3.3 V || 1.75 mA || 2.5 ppm || N/A, TCVCXO, [http://mouser.com/search/ProductDetail.aspx?qs=76dmnhCH%2fMO%2fVaiaelIPwQ%3d%3d&amp;cm_mmc=findchips-_-na-_-na-_-na Mouser], [http://www.abracon.com/Oscillators/ASTX11_ASVTX11.pdf Datasheet] ||
 
+_Note: as the selection in 20 MHz 3.3 V oscillators is very limited, consider using an LDO with a 3.0 V oscillator variant._
+
 = Programmer logic =
 
  * The FPGA and the uC should be programmable by the PowerBoard
