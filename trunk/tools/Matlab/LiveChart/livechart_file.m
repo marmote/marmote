@@ -1,3 +1,5 @@
+function conf = livechart_file(file_name)
+
 screen_refresh_rate = 25; %in frame per secs
 
 DSPconf = GetDSPConfig();
@@ -7,7 +9,9 @@ TS_history = [];
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % Open file. 
-f = fopen('C:\Users\babjak\Desktop\logfile.txt'); 
+
+%file_name = '..\..\netcat_win\SaveSamples\logfile.txt'
+f = fopen(file_name); 
 
 temp = zeros( 1, DSPconf.BUFF_LENGTH );
 chunk = zeros( 1, DSPconf.BUFF_LENGTH*DSPconf.BUFF_MULTIPLIER );

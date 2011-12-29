@@ -9,7 +9,7 @@ conf.BUFF_MULTIPLIER	= 3; % How many buffers would you like to read from network
 
 conf.BUFF_LENGTH        = 128; % in samples for a single channel
 
-conf.Fs                 = 50e6 / 18 / 4; % [Hz] = 347.2 kHz
+conf.Fs                 = 50e6 / 18 / 4; % [Hz] = 2*347.2 kHz
 conf.F_offset           = 0; % [Hz]
 conf.Resolution         = 16; % bits
 
