@@ -6,10 +6,10 @@
  * The FPGA should use the power rails from the Power Board
  * The FPGA may have a button-battery for RTC
  * May assume 1.8 V or 2.5 V on the reserved power rail and bypass it to the sensor board
- * Components that might benefit of the presence of a 2.5 V rail:
-  * SRAM
-  * ADC
-  * Ethernet
+ * ~~Components that might benefit of the presence of a 2.5 V rail:~~
+  * ~~SRAM~~
+  * ~~ADC~~
+  * ~~Ethernet~~
  * The FPGA should optionally use its internal 1.5 V regulator (0 Ohm resistor or jumper)
 
 = Clock Subsystem =
@@ -110,4 +110,5 @@ _The external memory has been replaced with a simple high-speed external interfa
  * JTAG connector (consider using the compact ISP programming header recommended by Actel: Samtec FTSH-105-01-L-D-K)
  * Mezzanine connectors
   * Consider adding a Mezzanine connector with pin count greater than 64
- * Low-profile RJ-45 connector (optional footprint might suffice)
+ * Low-profile RJ-45 connector (optionally a footprint might suffice)
+ * Simple connector or vias for an UART debug port
