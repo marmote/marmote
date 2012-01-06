@@ -9,13 +9,13 @@
 <grid distance="1" unitdist="mm" unit="mm" style="dots" multiple="1" display="yes" altdistance="0.05" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
-<layer number="2" name="Route2" color="14" fill="1" visible="no" active="yes"/>
-<layer number="3" name="Route3" color="4" fill="1" visible="no" active="yes"/>
+<layer number="2" name="Route2" color="14" fill="1" visible="yes" active="yes"/>
+<layer number="3" name="Route3" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
 <layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="14" fill="1" visible="no" active="yes"/>
+<layer number="16" name="Bottom" color="14" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="no" active="yes"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
@@ -36,12 +36,12 @@
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
 <layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
 <layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
-<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="yes"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
 <layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
-<layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
+<layer number="44" name="Drills" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
@@ -49,7 +49,7 @@
 <layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="yes"/>
 <layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="yes"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="yes"/>
@@ -232,6 +232,14 @@
 <wire x1="37" y1="54" x2="52" y2="54" width="0.4064" layer="51"/>
 <wire x1="52" y1="54" x2="52" y2="50" width="0.4064" layer="51"/>
 <wire x1="52" y1="50" x2="37" y2="50" width="0.4064" layer="51"/>
+<wire x1="26" y1="36" x2="26" y2="24" width="0.2032" layer="52"/>
+<wire x1="26" y1="24" x2="64" y2="24" width="0.2032" layer="52"/>
+<wire x1="64" y1="24" x2="64" y2="36" width="0.2032" layer="52"/>
+<wire x1="64" y1="36" x2="26" y2="36" width="0.2032" layer="52"/>
+<text x="51" y="33" size="1.778" layer="52" font="vector" rot="MR0">RF Board</text>
+<text x="63" y="30" size="1.27" layer="52" font="vector" rot="MR0">Wideband 2.4 GHz/Baseband module</text>
+<text x="57.75" y="27.75" size="1.27" layer="52" font="vector" rot="MR0">for the Marmote platform</text>
+<text x="60.25" y="25.25" size="1.27" layer="52" font="vector" rot="MR0">http://marmote.googlecode.com</text>
 </plain>
 <libraries>
 <library name="RFWBBoard">

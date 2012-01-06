@@ -3282,7 +3282,7 @@ I2C</description>
 <sheet>
 <plain>
 <text x="81.28" y="116.84" size="10.16" layer="97">WBRF Board</text>
-<text x="43.18" y="101.6" size="5.08" layer="97">Wide-Band Radio Front-End (2.4 GHz and Base Band)</text>
+<text x="53.34" y="101.6" size="5.08" layer="97">Wideband 2.4 GHz/Baseband Radio Front-End</text>
 <text x="74.93" y="81.28" size="5.08" layer="97">http://marmote.googlecode.com</text>
 <text x="187.96" y="20.32" size="5.08" layer="97">Cover page</text>
 <text x="161.29" y="20.32" size="2.54" layer="95" rot="MR0">&gt;AUTHOREMAIL</text>
