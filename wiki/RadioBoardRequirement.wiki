@@ -17,6 +17,7 @@
 = Test points =
 
  * Analog baseband waveform feed in (signal generator) and signal out (oscilloscope) test point (e.g. right after the DAC/ADC)
+  * Consider adding this functionality to the Inspection Board (may also affect Main Board ADC/DAC analog interface)
  * Analog baseband signal loop-back option
  * Analog RF signal loopback option (might be trivial)
 
