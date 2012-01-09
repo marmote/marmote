@@ -49,7 +49,7 @@ _Note: as the selection in 20 MHz 3.3 V oscillators is very limited, consider us
 
 == Simple display unit for debug ==
  * Killer application: Battery life display
- * I2C interface
+ * UART/SPI/I^2^C interface
  * Varitronix - Landscape QVGA, 5 in, 320x240, Touch Screen
 
 == Analog Front-End / Sensor Board ==
