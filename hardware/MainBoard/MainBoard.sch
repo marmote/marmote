@@ -23617,6 +23617,10 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <part name="PORT53" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT54" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT55" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT56" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT57" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT58" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT59" library="MainBoard" deviceset="PORT7" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -24213,7 +24217,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <label x="93.98" y="78.74" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="MAIN_CLK" class="0">
+<net name="MAIN_CLK_IN" class="0">
 <segment>
 <pinref part="X1" gate="G$1" pin="FO"/>
 <wire x1="73.66" y1="48.26" x2="91.44" y2="48.26" width="0.1524" layer="91"/>
@@ -24229,6 +24233,8 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <text x="46.355" y="67.945" size="1.778" layer="97">NC</text>
 <text x="46.355" y="60.325" size="1.778" layer="97">NC</text>
 <rectangle x1="27.94" y1="91.44" x2="48.26" y2="96.52" layer="97"/>
+<text x="46.355" y="136.525" size="1.778" layer="97">NC</text>
+<text x="46.355" y="118.745" size="1.778" layer="97">NC</text>
 </plain>
 <instances>
 <instance part="FRAME8" gate="G$1" x="0" y="0"/>
@@ -24300,6 +24306,8 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <text x="58.42" y="137.16" size="2.54" layer="97">UART</text>
 <rectangle x1="25.4" y1="152.4" x2="45.72" y2="162.56" layer="97"/>
 <rectangle x1="182.88" y1="64.77" x2="210.82" y2="68.58" layer="97"/>
+<rectangle x1="182.88" y1="62.23" x2="210.82" y2="66.04" layer="97"/>
+<rectangle x1="215.9" y1="71.12" x2="228.6" y2="78.74" layer="97"/>
 </plain>
 <instances>
 <instance part="FRAME3" gate="G$1" x="0" y="0"/>
@@ -24310,15 +24318,47 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <instance part="U1" gate="-SPI" x="63.5" y="76.2"/>
 <instance part="U1" gate="-IOB" x="180.34" y="76.2"/>
 <instance part="PORT54" gate="G$1" x="231.14" y="66.04"/>
+<instance part="PORT56" gate="G$1" x="231.14" y="63.5"/>
+<instance part="PORT57" gate="G$1" x="129.54" y="81.28" rot="MR0"/>
+<instance part="PORT58" gate="G$1" x="231.14" y="71.12"/>
+<instance part="PORT59" gate="G$1" x="231.14" y="73.66"/>
 </instances>
 <busses>
 </busses>
 <nets>
-<net name="MAIN_CLK" class="0">
+<net name="MAIN_CLK_IN" class="0">
 <segment>
 <pinref part="U1" gate="-IOB" pin="GFA2/IO85PDB5V0"/>
 <wire x1="210.82" y1="66.04" x2="215.9" y2="66.04" width="0.1524" layer="91"/>
 <label x="218.44" y="66.04" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="EXT_CLK_IN" class="0">
+<segment>
+<pinref part="U1" gate="-IOB" pin="GFB2/IO85NDB5V0"/>
+<wire x1="210.82" y1="63.5" x2="215.9" y2="63.5" width="0.1524" layer="91"/>
+<label x="218.44" y="63.5" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="USB_CLK" class="0">
+<segment>
+<pinref part="U1" gate="-IOB" pin="GCA2/IO28PDB1V0"/>
+<wire x1="149.86" y1="81.28" x2="144.78" y2="81.28" width="0.1524" layer="91"/>
+<label x="129.54" y="81.28" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="REF_CLK_OUT" class="0">
+<segment>
+<pinref part="U1" gate="-IOB" pin="GFC2/IO84PDB5V0"/>
+<wire x1="210.82" y1="73.66" x2="215.9" y2="73.66" width="0.1524" layer="91"/>
+<label x="218.44" y="73.66" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="EXT_CLK_OUT" class="0">
+<segment>
+<pinref part="U1" gate="-IOB" pin="IO84NDB5V0"/>
+<wire x1="210.82" y1="71.12" x2="215.9" y2="71.12" width="0.1524" layer="91"/>
+<label x="218.44" y="71.12" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
