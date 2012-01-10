@@ -13,6 +13,7 @@
 = Analog front-end =
 
  * Consider adding a second RF front-end IC and antenna if ADCs and DACs are already present (at least at footprint-level)
+ * Consider connecting the RSSI signal to both the SF ADC and a high-precision ADC
 
 = Test points =
 
