@@ -117,7 +117,7 @@ TBD
 = Layout =
 
 == Silk screen ==
-|| small labels (refdes) || vector, 40mil, 8% ||
+|| small labels (refdes) || vector, 50 mil, 8% ||
 || large labels (conns) ||  vector, 70 mil, 10% ||
 || very large labels || inverse text with bold fonts and capitals (looks nice) ||
 
