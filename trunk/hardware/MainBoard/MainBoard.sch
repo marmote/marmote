@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="2" fill="3" visible="no" active="no"/>
@@ -172,41 +172,6 @@
 <text x="1.27" y="11.43" size="2.54" layer="94">Verified by:</text>
 <text x="1.27" y="26.67" size="2.54" layer="94">Designed by:</text>
 </symbol>
-<symbol name="FRAME-LETTER-L">
-<wire x1="0" y1="185.42" x2="248.92" y2="185.42" width="0.4064" layer="94"/>
-<wire x1="248.92" y1="185.42" x2="248.92" y2="0" width="0.4064" layer="94"/>
-<wire x1="0" y1="185.42" x2="0" y2="0" width="0.4064" layer="94"/>
-<wire x1="0" y1="0" x2="248.92" y2="0" width="0.4064" layer="94"/>
-</symbol>
-<symbol name="FRAME-DOCFIELD">
-<wire x1="17.78" y1="5.08" x2="76.2" y2="5.08" width="0.254" layer="94"/>
-<wire x1="17.78" y1="5.08" x2="17.78" y2="10.16" width="0.254" layer="94"/>
-<wire x1="17.78" y1="10.16" x2="76.2" y2="10.16" width="0.254" layer="94"/>
-<wire x1="76.2" y1="10.16" x2="76.2" y2="5.08" width="0.254" layer="94"/>
-<wire x1="76.2" y1="5.08" x2="101.6" y2="5.08" width="0.254" layer="94"/>
-<wire x1="101.6" y1="10.16" x2="76.2" y2="10.16" width="0.254" layer="94"/>
-<wire x1="101.6" y1="10.16" x2="101.6" y2="5.08" width="0.254" layer="94"/>
-<wire x1="17.78" y1="10.16" x2="17.78" y2="15.24" width="0.254" layer="94"/>
-<wire x1="101.6" y1="30.48" x2="17.78" y2="30.48" width="0.254" layer="94"/>
-<wire x1="101.6" y1="30.48" x2="101.6" y2="15.24" width="0.254" layer="94"/>
-<wire x1="17.78" y1="15.24" x2="76.2" y2="15.24" width="0.254" layer="94"/>
-<wire x1="76.2" y1="15.24" x2="101.6" y2="15.24" width="0.254" layer="94"/>
-<wire x1="17.78" y1="15.24" x2="17.78" y2="30.48" width="0.254" layer="94"/>
-<wire x1="101.6" y1="15.24" x2="101.6" y2="10.16" width="0.254" layer="94"/>
-<wire x1="17.78" y1="5.08" x2="17.78" y2="0" width="0.254" layer="94"/>
-<wire x1="17.78" y1="0" x2="101.6" y2="0" width="0.254" layer="94"/>
-<wire x1="101.6" y1="0" x2="101.6" y2="5.08" width="0.254" layer="94"/>
-<wire x1="76.2" y1="10.16" x2="76.2" y2="15.24" width="0.254" layer="94"/>
-<text x="19.05" y="6.35" size="2.54" layer="94">Date:</text>
-<text x="30.48" y="6.35" size="2.54" layer="94">&gt;LAST_DATE_TIME</text>
-<text x="78.74" y="6.35" size="2.54" layer="94">Sheet:</text>
-<text x="91.44" y="6.35" size="2.54" layer="94">&gt;SHEET</text>
-<text x="78.74" y="11.43" size="2.54" layer="94">Rev:</text>
-<text x="19.05" y="11.43" size="2.54" layer="94">Title:</text>
-<text x="30.48" y="11.43" size="2.54" layer="94">&gt;TITLE</text>
-<text x="25.654" y="1.27" size="2.54" layer="94" ratio="12">Copyright © 2011 Vanderbilt University, ISIS</text>
-<text x="92.71" y="11.43" size="2.54" layer="94">&gt;REVISION</text>
-</symbol>
 </symbols>
 <devicesets>
 <deviceset name="FRAME-TOC">
@@ -226,21 +191,6 @@
 <description>Schematic Author Field</description>
 <gates>
 <gate name="G$1" symbol="AUTHOR-FIELD" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="FRAME-LETTER" prefix="FRAME">
-<description>&lt;b&gt;Schematic Frame&lt;/b&gt;&lt;p&gt;
-Standard 8.5x11 US Letter frame</description>
-<gates>
-<gate name="G$1" symbol="FRAME-LETTER-L" x="0" y="0"/>
-<gate name="G$2" symbol="FRAME-DOCFIELD" x="147.32" y="0" addlevel="must"/>
 </gates>
 <devices>
 <device name="">
@@ -22153,6 +22103,41 @@ Clock oscillator with output enable.</description>
 <pin name="2" x="2.54" y="0" visible="off" length="point" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="1" x="-5.08" y="0" visible="off" length="point" direction="pas" swaplevel="1"/>
 </symbol>
+<symbol name="FRAME-LETTER-L">
+<wire x1="0" y1="185.42" x2="248.92" y2="185.42" width="0.4064" layer="94"/>
+<wire x1="248.92" y1="185.42" x2="248.92" y2="0" width="0.4064" layer="94"/>
+<wire x1="0" y1="185.42" x2="0" y2="0" width="0.4064" layer="94"/>
+<wire x1="0" y1="0" x2="248.92" y2="0" width="0.4064" layer="94"/>
+</symbol>
+<symbol name="FRAME-DOCFIELD">
+<wire x1="0" y1="5.08" x2="58.42" y2="5.08" width="0.254" layer="94"/>
+<wire x1="0" y1="5.08" x2="0" y2="10.16" width="0.254" layer="94"/>
+<wire x1="0" y1="10.16" x2="58.42" y2="10.16" width="0.254" layer="94"/>
+<wire x1="58.42" y1="10.16" x2="58.42" y2="5.08" width="0.254" layer="94"/>
+<wire x1="58.42" y1="5.08" x2="83.82" y2="5.08" width="0.254" layer="94"/>
+<wire x1="83.82" y1="10.16" x2="58.42" y2="10.16" width="0.254" layer="94"/>
+<wire x1="83.82" y1="10.16" x2="83.82" y2="5.08" width="0.254" layer="94"/>
+<wire x1="0" y1="10.16" x2="0" y2="15.24" width="0.254" layer="94"/>
+<wire x1="83.82" y1="30.48" x2="0" y2="30.48" width="0.254" layer="94"/>
+<wire x1="83.82" y1="30.48" x2="83.82" y2="15.24" width="0.254" layer="94"/>
+<wire x1="0" y1="15.24" x2="58.42" y2="15.24" width="0.254" layer="94"/>
+<wire x1="58.42" y1="15.24" x2="83.82" y2="15.24" width="0.254" layer="94"/>
+<wire x1="0" y1="15.24" x2="0" y2="30.48" width="0.254" layer="94"/>
+<wire x1="83.82" y1="15.24" x2="83.82" y2="10.16" width="0.254" layer="94"/>
+<wire x1="0" y1="5.08" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="83.82" y2="0" width="0.254" layer="94"/>
+<wire x1="83.82" y1="0" x2="83.82" y2="5.08" width="0.254" layer="94"/>
+<wire x1="58.42" y1="10.16" x2="58.42" y2="15.24" width="0.254" layer="94"/>
+<text x="1.27" y="6.35" size="2.54" layer="94">Date:</text>
+<text x="12.7" y="6.35" size="2.54" layer="94">&gt;LAST_DATE_TIME</text>
+<text x="60.96" y="6.35" size="2.54" layer="94">Sheet:</text>
+<text x="73.66" y="6.35" size="2.54" layer="94">&gt;SHEET</text>
+<text x="60.96" y="11.43" size="2.54" layer="94">Rev:</text>
+<text x="1.27" y="11.43" size="2.54" layer="94">Title:</text>
+<text x="12.7" y="11.43" size="2.54" layer="94">&gt;TITLE</text>
+<text x="7.874" y="1.27" size="2.54" layer="94" ratio="12">Copyright © 2012 Vanderbilt University, ISIS</text>
+<text x="74.93" y="11.43" size="2.54" layer="94">&gt;REVISION</text>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="DGND">
@@ -23474,6 +23459,21 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 </device>
 </devices>
 </deviceset>
+<deviceset name="FRAME-LETTER" prefix="FRAME">
+<description>&lt;b&gt;Schematic Frame&lt;/b&gt;&lt;p&gt;
+Standard 8.5x11 US Letter frame</description>
+<gates>
+<gate name="G$1" symbol="FRAME-LETTER-L" x="0" y="0"/>
+<gate name="G$2" symbol="FRAME-DOCFIELD" x="165.1" y="0" addlevel="must"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -23497,14 +23497,12 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 </class>
 </classes>
 <parts>
-<part name="FRAME5" library="powerboard" deviceset="FRAME-LETTER" device=""/>
 <part name="AUTHOR-FIELD" library="powerboard" deviceset="FRATME-AUTHOR-FIELD" device=""/>
 <part name="TOC-FIELD" library="powerboard" deviceset="FRAME-TOC" device=""/>
 <part name="LOGO1" library="Logo" deviceset="LOGO-ISIS-600MIL" device="-10MM-CU"/>
 <part name="LOGO2" library="Logo" deviceset="LOGO-VANDERBILT-600MIL" device="-10MM-CU"/>
 <part name="LOGO3" library="Logo" deviceset="LOGO-MARMOTE-600MIL" device="-10MM-CU"/>
 <part name="LOGO4" library="Logo" deviceset="LOGO-SMARTFUSION-600MIL" device="-10MM-CU"/>
-<part name="FRAME1" library="powerboard" deviceset="FRAME-LETTER" device="" value=""/>
 <part name="U$1" library="MainBoard" deviceset="DGND" device=""/>
 <part name="U$2" library="MainBoard" deviceset="DGND" device=""/>
 <part name="U$3" library="MainBoard" deviceset="D1V5" device=""/>
@@ -23514,11 +23512,6 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <part name="U$10" library="MainBoard" deviceset="D3V3" device=""/>
 <part name="U$11" library="MainBoard" deviceset="D1V5" device=""/>
 <part name="U$12" library="MainBoard" deviceset="AGND" device=""/>
-<part name="FRAME7" library="powerboard" deviceset="FRAME-LETTER" device="" value=""/>
-<part name="FRAME2" library="powerboard" deviceset="FRAME-LETTER" device="" value=""/>
-<part name="FRAME3" library="powerboard" deviceset="FRAME-LETTER" device="" value=""/>
-<part name="FRAME4" library="powerboard" deviceset="FRAME-LETTER" device="" value=""/>
-<part name="FRAME6" library="powerboard" deviceset="FRAME-LETTER" device="" value=""/>
 <part name="J1" library="MainBoard" deviceset="CON-71439" device="64" technology="-21">
 <attribute name="DIGI-KEY#" value="WM17222-ND"/>
 <attribute name="MPN" value="71439-2164"/>
@@ -23590,7 +23583,6 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <part name="PORT42" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT43" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT44" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="FRAME8" library="powerboard" deviceset="FRAME-LETTER" device="" value=""/>
 <part name="X4" library="MainBoard" deviceset="ASEM1" device=""/>
 <part name="U$17" library="MainBoard" deviceset="AGND" device=""/>
 <part name="PORT45" library="MainBoard" deviceset="PORT7" device=""/>
@@ -23621,6 +23613,14 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <part name="PORT57" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT58" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT59" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="FRAME5" library="MainBoard" deviceset="FRAME-LETTER" device=""/>
+<part name="FRAME1" library="MainBoard" deviceset="FRAME-LETTER" device=""/>
+<part name="FRAME2" library="MainBoard" deviceset="FRAME-LETTER" device=""/>
+<part name="FRAME8" library="MainBoard" deviceset="FRAME-LETTER" device=""/>
+<part name="FRAME7" library="MainBoard" deviceset="FRAME-LETTER" device=""/>
+<part name="FRAME3" library="MainBoard" deviceset="FRAME-LETTER" device=""/>
+<part name="FRAME4" library="MainBoard" deviceset="FRAME-LETTER" device=""/>
+<part name="FRAME6" library="MainBoard" deviceset="FRAME-LETTER" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -23636,14 +23636,14 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <rectangle x1="33.02" y1="-2.54" x2="71.12" y2="48.26" layer="97"/>
 </plain>
 <instances>
-<instance part="FRAME5" gate="G$1" x="0" y="0"/>
-<instance part="FRAME5" gate="G$2" x="147.32" y="0"/>
 <instance part="AUTHOR-FIELD" gate="G$1" x="81.28" y="0"/>
 <instance part="TOC-FIELD" gate="G$1" x="0" y="0"/>
 <instance part="LOGO1" gate="G$1" x="104.14" y="60.96"/>
 <instance part="LOGO2" gate="G$1" x="78.74" y="60.96"/>
 <instance part="LOGO3" gate="G$1" x="129.54" y="60.96"/>
 <instance part="LOGO4" gate="G$1" x="154.94" y="60.96"/>
+<instance part="FRAME5" gate="G$1" x="0" y="0"/>
+<instance part="FRAME5" gate="G$2" x="165.1" y="0"/>
 </instances>
 <busses>
 </busses>
@@ -23668,8 +23668,6 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <rectangle x1="203.2" y1="93.98" x2="231.14" y2="99.06" layer="97"/>
 </plain>
 <instances>
-<instance part="FRAME1" gate="G$1" x="0" y="0"/>
-<instance part="FRAME1" gate="G$2" x="147.32" y="0"/>
 <instance part="U$1" gate="G$1" x="182.88" y="78.74"/>
 <instance part="U$2" gate="G$1" x="228.6" y="78.74"/>
 <instance part="U$3" gate="G$1" x="124.46" y="152.4"/>
@@ -23684,6 +23682,8 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <instance part="U$10" gate="G$1" x="68.58" y="152.4"/>
 <instance part="U$11" gate="G$1" x="68.58" y="121.92"/>
 <instance part="U$12" gate="G$1" x="124.46" y="121.92"/>
+<instance part="FRAME1" gate="G$1" x="0" y="0"/>
+<instance part="FRAME1" gate="G$2" x="165.1" y="0"/>
 </instances>
 <busses>
 </busses>
@@ -24074,8 +24074,6 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <rectangle x1="81.28" y1="154.94" x2="104.14" y2="157.48" layer="97"/>
 </plain>
 <instances>
-<instance part="FRAME2" gate="G$1" x="0" y="0"/>
-<instance part="FRAME2" gate="G$2" x="147.32" y="0"/>
 <instance part="U1" gate="-MISC" x="78.74" y="144.78"/>
 <instance part="X4" gate="G$1" x="58.42" y="83.82"/>
 <instance part="U$17" gate="G$1" x="40.64" y="73.66"/>
@@ -24096,6 +24094,8 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <instance part="PORT52" gate="G$1" x="106.68" y="48.26"/>
 <instance part="U$18" gate="G$1" x="40.64" y="91.44"/>
 <instance part="U$19" gate="G$1" x="40.64" y="55.88"/>
+<instance part="FRAME2" gate="G$1" x="0" y="0"/>
+<instance part="FRAME2" gate="G$2" x="165.1" y="0"/>
 </instances>
 <busses>
 </busses>
@@ -24237,13 +24237,13 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <text x="46.355" y="118.745" size="1.778" layer="97">NC</text>
 </plain>
 <instances>
-<instance part="FRAME8" gate="G$1" x="0" y="0"/>
-<instance part="FRAME8" gate="G$2" x="147.32" y="0"/>
 <instance part="U6" gate="G$1" x="76.2" y="109.22"/>
 <instance part="PORT47" gate="G$1" x="30.48" y="71.12" rot="MR0"/>
 <instance part="PORT48" gate="G$1" x="30.48" y="93.98" rot="MR0"/>
 <instance part="U1" gate="-ETHERNET-MAC" x="177.8" y="119.38"/>
 <instance part="PORT53" gate="G$1" x="236.22" y="114.3"/>
+<instance part="FRAME8" gate="G$1" x="0" y="0"/>
+<instance part="FRAME8" gate="G$2" x="165.1" y="0"/>
 </instances>
 <busses>
 </busses>
@@ -24277,11 +24277,11 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <text x="43.18" y="78.74" size="2.54" layer="97">USB</text>
 </plain>
 <instances>
-<instance part="FRAME7" gate="G$1" x="0" y="0"/>
-<instance part="FRAME7" gate="G$2" x="147.32" y="0"/>
 <instance part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" x="154.94" y="127"/>
 <instance part="U5" gate="G$1" x="48.26" y="129.54"/>
 <instance part="PORT55" gate="G$1" x="93.98" y="121.92"/>
+<instance part="FRAME7" gate="G$1" x="0" y="0"/>
+<instance part="FRAME7" gate="G$2" x="165.1" y="0"/>
 </instances>
 <busses>
 </busses>
@@ -24310,8 +24310,6 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <rectangle x1="215.9" y1="71.12" x2="228.6" y2="78.74" layer="97"/>
 </plain>
 <instances>
-<instance part="FRAME3" gate="G$1" x="0" y="0"/>
-<instance part="FRAME3" gate="G$2" x="147.32" y="0"/>
 <instance part="U1" gate="-JTAG" x="63.5" y="35.56"/>
 <instance part="U1" gate="-UART" x="63.5" y="152.4"/>
 <instance part="U1" gate="-I2C" x="63.5" y="116.84"/>
@@ -24322,6 +24320,8 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <instance part="PORT57" gate="G$1" x="129.54" y="81.28" rot="MR0"/>
 <instance part="PORT58" gate="G$1" x="231.14" y="71.12"/>
 <instance part="PORT59" gate="G$1" x="231.14" y="73.66"/>
+<instance part="FRAME3" gate="G$1" x="0" y="0"/>
+<instance part="FRAME3" gate="G$2" x="165.1" y="0"/>
 </instances>
 <busses>
 </busses>
@@ -24373,13 +24373,13 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <text x="203.2" y="55.88" size="2.54" layer="97">AFE</text>
 </plain>
 <instances>
-<instance part="FRAME4" gate="G$1" x="0" y="0"/>
-<instance part="FRAME4" gate="G$2" x="147.32" y="0"/>
 <instance part="U2" gate="-ADC-DAC" x="58.42" y="137.16"/>
 <instance part="U3" gate="-ADC-DAC" x="58.42" y="53.34"/>
 <instance part="U1" gate="-ANALOG-FRONT-END" x="205.74" y="109.22"/>
 <instance part="U2" gate="-SUPPLY" x="160.02" y="160.02"/>
 <instance part="U3" gate="-SUPPLY" x="205.74" y="160.02"/>
+<instance part="FRAME4" gate="G$1" x="0" y="0"/>
+<instance part="FRAME4" gate="G$2" x="165.1" y="0"/>
 </instances>
 <busses>
 </busses>
@@ -24509,8 +24509,6 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <text x="27.94" y="71.12" size="2.54" layer="97">USB connector</text>
 </plain>
 <instances>
-<instance part="FRAME6" gate="G$1" x="0" y="0"/>
-<instance part="FRAME6" gate="G$2" x="147.32" y="0"/>
 <instance part="J1" gate="G$1" x="134.62" y="111.76"/>
 <instance part="J2" gate="G$1" x="200.66" y="114.3"/>
 <instance part="J3" gate="G$1" x="58.42" y="137.16"/>
@@ -24572,6 +24570,8 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <instance part="PORT44" gate="G$1" x="228.6" y="111.76"/>
 <instance part="PORT49" gate="G$1" x="63.5" y="45.72"/>
 <instance part="PORT50" gate="G$1" x="114.3" y="45.72"/>
+<instance part="FRAME6" gate="G$1" x="0" y="0"/>
+<instance part="FRAME6" gate="G$2" x="165.1" y="0"/>
 </instances>
 <busses>
 </busses>
