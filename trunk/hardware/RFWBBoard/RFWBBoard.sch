@@ -24731,8 +24731,10 @@ v1.0 Initial design</description>
 <attribute name="PAGE5" value="Supply"/>
 <attribute name="REVISION" value="A"/>
 <attribute name="TITLE" value="Radio Front-End Board"/>
-<attribute name="VERIFIER" value="Peter Volgyesi"/>
-<attribute name="VERIFIEREMAIL" value="peter.volgyesi@vanderbilt.edu"/>
+<attribute name="VERIFIER1" value="Peter Volgyesi"/>
+<attribute name="VERIFIER2" value="Sandor Szilvasi"/>
+<attribute name="VERIFIEREMAIL1" value="peter.volgyesi@vanderbilt.edu"/>
+<attribute name="VERIFIEREMAIL2" value="sandor.szilvasi@vanderbilt.edu"/>
 </attributes>
 <variantdefs>
 </variantdefs>
@@ -24887,9 +24889,11 @@ v1.0 Initial design</description>
 <text x="187.96" y="20.32" size="5.08" layer="97">&gt;PAGE1</text>
 <text x="163.83" y="20.32" size="2.54" layer="95" rot="MR0">&gt;AUTHOREMAIL</text>
 <text x="82.55" y="20.32" size="2.54" layer="95">&gt;AUTHOR</text>
-<text x="82.55" y="5.08" size="2.54" layer="95">&gt;VERIFIER</text>
-<text x="163.83" y="5.08" size="2.54" layer="95" rot="MR0">&gt;VERIFIEREMAIL</text>
+<text x="82.55" y="7.62" size="2.54" layer="95">&gt;VERIFIER1</text>
+<text x="163.83" y="7.62" size="2.54" layer="95" rot="MR0">&gt;VERIFIEREMAIL1</text>
 <text x="83.82" y="93.98" size="5.08" layer="97">for the Marmote platform</text>
+<text x="82.55" y="2.54" size="2.54" layer="95">&gt;VERIFIER2</text>
+<text x="163.83" y="2.54" size="2.54" layer="95" rot="MR0">&gt;VERIFIEREMAIL2</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
