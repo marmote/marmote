@@ -23624,10 +23624,7 @@ Standard 8.5x11 US Letter frame</description>
 <part name="FRAME3" library="MainBoard" deviceset="FRAME-LETTER" device=""/>
 <part name="FRAME4" library="MainBoard" deviceset="FRAME-LETTER" device=""/>
 <part name="FRAME6" library="MainBoard" deviceset="FRAME-LETTER" device=""/>
-<part name="PORT63" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT65" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="PORT74" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="PORT75" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT66" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT67" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT68" library="MainBoard" deviceset="PORT7" device=""/>
@@ -23716,9 +23713,7 @@ Standard 8.5x11 US Letter frame</description>
 <part name="PORT89" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT90" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT91" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="PORT92" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT93" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="PORT94" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT95" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT96" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT97" library="MainBoard" deviceset="PORT5" device=""/>
@@ -23835,6 +23830,79 @@ Standard 8.5x11 US Letter frame</description>
 <part name="R25" library="MainBoard" deviceset="R" device="0603" value="100k"/>
 <part name="PORT133" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="U$58" library="MainBoard" deviceset="D3V3" device=""/>
+<part name="R26" library="MainBoard" deviceset="R" device="0603" value="100">
+<attribute name="TOLERANCE" value=""/>
+</part>
+<part name="R27" library="MainBoard" deviceset="R" device="0603" value="100">
+<attribute name="TOLERANCE" value=""/>
+</part>
+<part name="R28" library="MainBoard" deviceset="R" device="0603" value="100">
+<attribute name="TOLERANCE" value=""/>
+</part>
+<part name="R29" library="MainBoard" deviceset="R" device="0603" value="100">
+<attribute name="TOLERANCE" value=""/>
+</part>
+<part name="R30" library="MainBoard" deviceset="R" device="0603" value="100">
+<attribute name="TOLERANCE" value=""/>
+</part>
+<part name="R31" library="MainBoard" deviceset="R" device="0603" value="100">
+<attribute name="TOLERANCE" value=""/>
+</part>
+<part name="R32" library="MainBoard" deviceset="R" device="0603" value="100">
+<attribute name="TOLERANCE" value=""/>
+</part>
+<part name="R33" library="MainBoard" deviceset="R" device="0603" value="100">
+<attribute name="TOLERANCE" value=""/>
+</part>
+<part name="R34" library="MainBoard" deviceset="R" device="0603" value="100">
+<attribute name="TOLERANCE" value=""/>
+</part>
+<part name="R35" library="MainBoard" deviceset="R" device="0603" value="100">
+<attribute name="TOLERANCE" value=""/>
+</part>
+<part name="R36" library="MainBoard" deviceset="R" device="0603" value="100">
+<attribute name="TOLERANCE" value=""/>
+</part>
+<part name="R37" library="MainBoard" deviceset="R" device="0603" value="100">
+<attribute name="TOLERANCE" value=""/>
+</part>
+<part name="R38" library="MainBoard" deviceset="R" device="0603" value="100">
+<attribute name="TOLERANCE" value=""/>
+</part>
+<part name="R39" library="MainBoard" deviceset="R" device="0603" value="100">
+<attribute name="TOLERANCE" value=""/>
+</part>
+<part name="R40" library="MainBoard" deviceset="R" device="0603" value="100">
+<attribute name="TOLERANCE" value=""/>
+</part>
+<part name="R41" library="MainBoard" deviceset="R" device="0603" value="100">
+<attribute name="TOLERANCE" value=""/>
+</part>
+<part name="R42" library="MainBoard" deviceset="R" device="0603" value="100">
+<attribute name="TOLERANCE" value=""/>
+</part>
+<part name="R43" library="MainBoard" deviceset="R" device="0603" value="100">
+<attribute name="TOLERANCE" value=""/>
+</part>
+<part name="R44" library="MainBoard" deviceset="R" device="0603" value="100">
+<attribute name="TOLERANCE" value=""/>
+</part>
+<part name="R45" library="MainBoard" deviceset="R" device="0603" value="100">
+<attribute name="TOLERANCE" value=""/>
+</part>
+<part name="PORT134" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT135" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT136" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT137" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT138" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT139" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT92" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT140" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT141" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT94" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT63" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT74" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT75" library="MainBoard" deviceset="PORT7" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -24899,13 +24967,19 @@ Standard 8.5x11 US Letter frame</description>
 <rectangle x1="127" y1="106.68" x2="144.78" y2="167.64" layer="97"/>
 <rectangle x1="86.36" y1="76.2" x2="104.14" y2="78.74" layer="97"/>
 <rectangle x1="203.2" y1="76.2" x2="223.52" y2="78.74" layer="97"/>
-<text x="101.6" y="81.28" size="1.778" layer="97">Add T/R pull-down</text>
-<text x="223.52" y="81.28" size="1.778" layer="97">Add T/R pull-down</text>
 <rectangle x1="71.12" y1="88.9" x2="81.28" y2="96.52" layer="97"/>
 <rectangle x1="187.96" y1="88.9" x2="198.12" y2="96.52" layer="97"/>
 <rectangle x1="220.98" y1="106.68" x2="238.76" y2="167.64" layer="97"/>
 <rectangle x1="10.16" y1="106.68" x2="27.94" y2="167.64" layer="97"/>
 <rectangle x1="104.14" y1="106.68" x2="121.92" y2="167.64" layer="97"/>
+<rectangle x1="33.02" y1="63.5" x2="43.18" y2="93.98" layer="97"/>
+<rectangle x1="149.86" y1="63.5" x2="160.02" y2="93.98" layer="97"/>
+<text x="80.645" y="106.045" size="1.778" layer="97">NC</text>
+<text x="197.485" y="106.045" size="1.778" layer="97">NC</text>
+<rectangle x1="96.52" y1="101.6" x2="101.6" y2="106.68" layer="97"/>
+<rectangle x1="213.36" y1="101.6" x2="218.44" y2="106.68" layer="97"/>
+<text x="98.425" y="103.505" size="1.778" layer="97">Buffer?</text>
+<text x="215.265" y="103.505" size="1.778" layer="97">Buffer?</text>
 </plain>
 <instances>
 <instance part="U2" gate="-AFE" x="60.96" y="116.84"/>
@@ -24975,10 +25049,8 @@ Standard 8.5x11 US Letter frame</description>
 <instance part="PORT89" gate="G$1" x="132.08" y="139.7" rot="MR0"/>
 <instance part="PORT90" gate="G$1" x="132.08" y="132.08" rot="MR0"/>
 <instance part="PORT91" gate="G$1" x="132.08" y="111.76" rot="MR0"/>
-<instance part="PORT92" gate="G$1" x="15.24" y="96.52" rot="MR0"/>
-<instance part="PORT93" gate="G$1" x="17.78" y="63.5" rot="MR0"/>
-<instance part="PORT94" gate="G$1" x="132.08" y="96.52" rot="MR0"/>
-<instance part="PORT95" gate="G$1" x="134.62" y="63.5" rot="MR0"/>
+<instance part="PORT93" gate="G$1" x="12.7" y="63.5" rot="MR0"/>
+<instance part="PORT95" gate="G$1" x="129.54" y="63.5" rot="MR0"/>
 <instance part="PORT96" gate="G$1" x="93.98" y="83.82"/>
 <instance part="PORT97" gate="G$1" x="93.98" y="81.28"/>
 <instance part="PORT98" gate="G$1" x="215.9" y="83.82"/>
@@ -25005,22 +25077,52 @@ Standard 8.5x11 US Letter frame</description>
 <instance part="U$41" gate="G$1" x="91.44" y="20.32"/>
 <instance part="U$42" gate="G$1" x="137.16" y="21.59"/>
 <instance part="U$43" gate="G$1" x="137.16" y="12.7"/>
+<instance part="R26" gate="G$1" x="35.56" y="91.44" rot="R180"/>
+<instance part="R27" gate="G$1" x="35.56" y="88.9" rot="R180"/>
+<instance part="R28" gate="G$1" x="35.56" y="86.36" rot="R180"/>
+<instance part="R29" gate="G$1" x="35.56" y="83.82" rot="R180"/>
+<instance part="R30" gate="G$1" x="35.56" y="81.28" rot="R180"/>
+<instance part="R31" gate="G$1" x="35.56" y="78.74" rot="R180"/>
+<instance part="R32" gate="G$1" x="35.56" y="76.2" rot="R180"/>
+<instance part="R33" gate="G$1" x="35.56" y="73.66" rot="R180"/>
+<instance part="R34" gate="G$1" x="35.56" y="71.12" rot="R180"/>
+<instance part="R35" gate="G$1" x="35.56" y="68.58" rot="R180"/>
+<instance part="R36" gate="G$1" x="152.4" y="91.44" rot="R180"/>
+<instance part="R37" gate="G$1" x="152.4" y="88.9" rot="R180"/>
+<instance part="R38" gate="G$1" x="152.4" y="86.36" rot="R180"/>
+<instance part="R39" gate="G$1" x="152.4" y="83.82" rot="R180"/>
+<instance part="R40" gate="G$1" x="152.4" y="81.28" rot="R180"/>
+<instance part="R41" gate="G$1" x="152.4" y="78.74" rot="R180"/>
+<instance part="R42" gate="G$1" x="152.4" y="76.2" rot="R180"/>
+<instance part="R43" gate="G$1" x="152.4" y="73.66" rot="R180"/>
+<instance part="R44" gate="G$1" x="152.4" y="71.12" rot="R180"/>
+<instance part="R45" gate="G$1" x="152.4" y="68.58" rot="R180"/>
+<instance part="PORT134" gate="G$1" x="99.06" y="104.14"/>
+<instance part="PORT135" gate="G$1" x="99.06" y="101.6"/>
+<instance part="PORT136" gate="G$1" x="215.9" y="104.14"/>
+<instance part="PORT137" gate="G$1" x="215.9" y="101.6"/>
+<instance part="PORT138" gate="G$1" x="15.24" y="104.14" rot="MR0"/>
+<instance part="PORT139" gate="G$1" x="15.24" y="106.68" rot="MR0"/>
+<instance part="PORT92" gate="G$1" x="15.24" y="96.52" rot="MR0"/>
+<instance part="PORT140" gate="G$1" x="132.08" y="104.14" rot="MR0"/>
+<instance part="PORT141" gate="G$1" x="132.08" y="106.68" rot="MR0"/>
+<instance part="PORT94" gate="G$1" x="132.08" y="96.52" rot="MR0"/>
 </instances>
 <busses>
 <bus name="AFE1_DB[0..9]">
 <segment>
-<wire x1="38.1" y1="88.9" x2="38.1" y2="66.04" width="0.762" layer="92"/>
-<wire x1="38.1" y1="66.04" x2="35.56" y2="63.5" width="0.762" layer="92"/>
-<wire x1="35.56" y1="63.5" x2="27.94" y2="63.5" width="0.762" layer="92"/>
-<label x="25.4" y="63.5" size="1.778" layer="95" rot="MR0"/>
+<wire x1="27.94" y1="88.9" x2="27.94" y2="66.04" width="0.762" layer="92"/>
+<wire x1="27.94" y1="66.04" x2="25.4" y2="63.5" width="0.762" layer="92"/>
+<wire x1="25.4" y1="63.5" x2="22.86" y2="63.5" width="0.762" layer="92"/>
+<label x="20.32" y="63.5" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </bus>
 <bus name="AFE2_DB[0..9]">
 <segment>
-<wire x1="154.94" y1="88.9" x2="154.94" y2="66.04" width="0.762" layer="92"/>
-<wire x1="154.94" y1="66.04" x2="152.4" y2="63.5" width="0.762" layer="92"/>
-<wire x1="152.4" y1="63.5" x2="144.78" y2="63.5" width="0.762" layer="92"/>
-<label x="142.24" y="63.5" size="1.778" layer="95" rot="MR0"/>
+<wire x1="144.78" y1="88.9" x2="144.78" y2="66.04" width="0.762" layer="92"/>
+<wire x1="144.78" y1="66.04" x2="142.24" y2="63.5" width="0.762" layer="92"/>
+<wire x1="142.24" y1="63.5" x2="139.7" y2="63.5" width="0.762" layer="92"/>
+<label x="137.16" y="63.5" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </bus>
 </busses>
@@ -25217,7 +25319,6 @@ Standard 8.5x11 US Letter frame</description>
 <junction x="137.16" y="33.02"/>
 <junction x="137.16" y="35.56"/>
 <junction x="137.16" y="38.1"/>
-<junction x="137.16" y="40.64"/>
 <pinref part="U3" gate="-SUPPLY" pin="GND@1"/>
 <pinref part="U3" gate="-SUPPLY" pin="GND@2"/>
 <pinref part="U3" gate="-SUPPLY" pin="GND@3"/>
@@ -25489,153 +25590,153 @@ Standard 8.5x11 US Letter frame</description>
 <net name="AFE_CLK" class="0">
 <segment>
 <pinref part="U2" gate="-AFE" pin="CLK"/>
-<wire x1="43.18" y1="96.52" x2="25.4" y2="96.52" width="0.1524" layer="91"/>
-<label x="22.86" y="96.52" size="1.778" layer="95" rot="MR0"/>
+<wire x1="43.18" y1="96.52" x2="30.48" y2="96.52" width="0.1524" layer="91"/>
+<label x="27.94" y="96.52" size="1.778" layer="95" rot="MR0"/>
 </segment>
 <segment>
-<wire x1="160.02" y1="96.52" x2="142.24" y2="96.52" width="0.1524" layer="91"/>
-<label x="139.7" y="96.52" size="1.778" layer="95" rot="MR0"/>
+<wire x1="160.02" y1="96.52" x2="147.32" y2="96.52" width="0.1524" layer="91"/>
+<label x="144.78" y="96.52" size="1.778" layer="95" rot="MR0"/>
 <pinref part="U3" gate="-AFE" pin="CLK"/>
 </segment>
 </net>
 <net name="AFE1_DB0" class="0">
 <segment>
-<pinref part="U2" gate="-AFE" pin="D0"/>
-<wire x1="38.1" y1="66.04" x2="40.64" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="40.64" y1="68.58" x2="43.18" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="66.04" x2="30.48" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="68.58" x2="33.02" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="R35" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="AFE1_DB1" class="0">
 <segment>
-<pinref part="U2" gate="-AFE" pin="D1"/>
-<wire x1="38.1" y1="68.58" x2="40.64" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="40.64" y1="71.12" x2="43.18" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="68.58" x2="30.48" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="71.12" x2="33.02" y2="71.12" width="0.1524" layer="91"/>
+<pinref part="R34" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="AFE1_DB2" class="0">
 <segment>
-<pinref part="U2" gate="-AFE" pin="D2"/>
-<wire x1="38.1" y1="71.12" x2="40.64" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="40.64" y1="73.66" x2="43.18" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="71.12" x2="30.48" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="73.66" x2="33.02" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="R33" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="AFE1_DB3" class="0">
 <segment>
-<pinref part="U2" gate="-AFE" pin="D3"/>
-<wire x1="38.1" y1="73.66" x2="40.64" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="40.64" y1="76.2" x2="43.18" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="73.66" x2="30.48" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="76.2" x2="33.02" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="R32" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="AFE1_DB4" class="0">
 <segment>
-<pinref part="U2" gate="-AFE" pin="D4"/>
-<wire x1="38.1" y1="76.2" x2="40.64" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="40.64" y1="78.74" x2="43.18" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="76.2" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="78.74" x2="33.02" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="R31" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="AFE1_DB5" class="0">
 <segment>
-<pinref part="U2" gate="-AFE" pin="D5"/>
-<wire x1="38.1" y1="78.74" x2="40.64" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="40.64" y1="81.28" x2="43.18" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="78.74" x2="30.48" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="81.28" x2="33.02" y2="81.28" width="0.1524" layer="91"/>
+<pinref part="R30" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="AFE1_DB6" class="0">
 <segment>
-<pinref part="U2" gate="-AFE" pin="D6"/>
-<wire x1="38.1" y1="81.28" x2="40.64" y2="83.82" width="0.1524" layer="91"/>
-<wire x1="40.64" y1="83.82" x2="43.18" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="81.28" x2="30.48" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="83.82" x2="33.02" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="R29" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="AFE1_DB7" class="0">
 <segment>
-<pinref part="U2" gate="-AFE" pin="D7"/>
-<wire x1="38.1" y1="83.82" x2="40.64" y2="86.36" width="0.1524" layer="91"/>
-<wire x1="40.64" y1="86.36" x2="43.18" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="83.82" x2="30.48" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="86.36" x2="33.02" y2="86.36" width="0.1524" layer="91"/>
+<pinref part="R28" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="AFE1_DB8" class="0">
 <segment>
-<pinref part="U2" gate="-AFE" pin="D8"/>
-<wire x1="38.1" y1="86.36" x2="40.64" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="40.64" y1="88.9" x2="43.18" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="86.36" x2="30.48" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="88.9" x2="33.02" y2="88.9" width="0.1524" layer="91"/>
+<pinref part="R27" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="AFE1_DB9" class="0">
 <segment>
-<pinref part="U2" gate="-AFE" pin="D9"/>
-<wire x1="38.1" y1="88.9" x2="40.64" y2="91.44" width="0.1524" layer="91"/>
-<wire x1="40.64" y1="91.44" x2="43.18" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="88.9" x2="30.48" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="91.44" x2="33.02" y2="91.44" width="0.1524" layer="91"/>
+<pinref part="R26" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="AFE1_DB10" class="0">
 <segment>
-<wire x1="154.94" y1="66.04" x2="157.48" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="157.48" y1="68.58" x2="160.02" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="U3" gate="-AFE" pin="D0"/>
+<wire x1="144.78" y1="66.04" x2="147.32" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="68.58" x2="149.86" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="R45" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="AFE1_DB11" class="0">
 <segment>
-<wire x1="154.94" y1="68.58" x2="157.48" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="157.48" y1="71.12" x2="160.02" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="U3" gate="-AFE" pin="D1"/>
+<wire x1="144.78" y1="68.58" x2="147.32" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="71.12" x2="149.86" y2="71.12" width="0.1524" layer="91"/>
+<pinref part="R44" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="AFE1_DB12" class="0">
 <segment>
-<wire x1="154.94" y1="71.12" x2="157.48" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="157.48" y1="73.66" x2="160.02" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="U3" gate="-AFE" pin="D2"/>
+<wire x1="144.78" y1="71.12" x2="147.32" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="73.66" x2="149.86" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="R43" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="AFE1_DB13" class="0">
 <segment>
-<wire x1="154.94" y1="73.66" x2="157.48" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="157.48" y1="76.2" x2="160.02" y2="76.2" width="0.1524" layer="91"/>
-<pinref part="U3" gate="-AFE" pin="D3"/>
+<wire x1="144.78" y1="73.66" x2="147.32" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="76.2" x2="149.86" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="R42" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="AFE1_DB14" class="0">
 <segment>
-<wire x1="154.94" y1="76.2" x2="157.48" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="157.48" y1="78.74" x2="160.02" y2="78.74" width="0.1524" layer="91"/>
-<pinref part="U3" gate="-AFE" pin="D4"/>
+<wire x1="144.78" y1="76.2" x2="147.32" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="78.74" x2="149.86" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="R41" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="AFE1_DB15" class="0">
 <segment>
-<wire x1="154.94" y1="78.74" x2="157.48" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="157.48" y1="81.28" x2="160.02" y2="81.28" width="0.1524" layer="91"/>
-<pinref part="U3" gate="-AFE" pin="D5"/>
+<wire x1="144.78" y1="78.74" x2="147.32" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="81.28" x2="149.86" y2="81.28" width="0.1524" layer="91"/>
+<pinref part="R40" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="AFE1_DB16" class="0">
 <segment>
-<wire x1="154.94" y1="81.28" x2="157.48" y2="83.82" width="0.1524" layer="91"/>
-<wire x1="157.48" y1="83.82" x2="160.02" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U3" gate="-AFE" pin="D6"/>
+<wire x1="144.78" y1="81.28" x2="147.32" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="83.82" x2="149.86" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="R39" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="AFE1_DB17" class="0">
 <segment>
-<wire x1="154.94" y1="83.82" x2="157.48" y2="86.36" width="0.1524" layer="91"/>
-<wire x1="157.48" y1="86.36" x2="160.02" y2="86.36" width="0.1524" layer="91"/>
-<pinref part="U3" gate="-AFE" pin="D7"/>
+<wire x1="144.78" y1="83.82" x2="147.32" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="86.36" x2="149.86" y2="86.36" width="0.1524" layer="91"/>
+<pinref part="R38" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="AFE1_DB18" class="0">
 <segment>
-<wire x1="154.94" y1="86.36" x2="157.48" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="157.48" y1="88.9" x2="160.02" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U3" gate="-AFE" pin="D8"/>
+<wire x1="144.78" y1="86.36" x2="147.32" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="88.9" x2="149.86" y2="88.9" width="0.1524" layer="91"/>
+<pinref part="R37" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="AFE1_DB19" class="0">
 <segment>
-<wire x1="154.94" y1="88.9" x2="157.48" y2="91.44" width="0.1524" layer="91"/>
-<wire x1="157.48" y1="91.44" x2="160.02" y2="91.44" width="0.1524" layer="91"/>
-<pinref part="U3" gate="-AFE" pin="D9"/>
+<wire x1="144.78" y1="88.9" x2="147.32" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="91.44" x2="149.86" y2="91.44" width="0.1524" layer="91"/>
+<pinref part="R36" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="!AFE1_SHDN" class="0">
@@ -25818,6 +25919,198 @@ Standard 8.5x11 US Letter frame</description>
 <label x="86.36" y="76.2" size="1.778" layer="95"/>
 </segment>
 </net>
+<net name="N$9" class="0">
+<segment>
+<pinref part="U2" gate="-AFE" pin="D9"/>
+<pinref part="R26" gate="G$1" pin="1"/>
+<wire x1="40.64" y1="91.44" x2="43.18" y2="91.44" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$13" class="0">
+<segment>
+<pinref part="U2" gate="-AFE" pin="D0"/>
+<pinref part="R35" gate="G$1" pin="1"/>
+<wire x1="40.64" y1="68.58" x2="43.18" y2="68.58" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$17" class="0">
+<segment>
+<pinref part="U2" gate="-AFE" pin="D1"/>
+<pinref part="R34" gate="G$1" pin="1"/>
+<wire x1="40.64" y1="71.12" x2="43.18" y2="71.12" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$28" class="0">
+<segment>
+<pinref part="U2" gate="-AFE" pin="D2"/>
+<pinref part="R33" gate="G$1" pin="1"/>
+<wire x1="40.64" y1="73.66" x2="43.18" y2="73.66" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$29" class="0">
+<segment>
+<pinref part="U2" gate="-AFE" pin="D3"/>
+<pinref part="R32" gate="G$1" pin="1"/>
+<wire x1="40.64" y1="76.2" x2="43.18" y2="76.2" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$30" class="0">
+<segment>
+<pinref part="U2" gate="-AFE" pin="D4"/>
+<pinref part="R31" gate="G$1" pin="1"/>
+<wire x1="40.64" y1="78.74" x2="43.18" y2="78.74" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$31" class="0">
+<segment>
+<pinref part="U2" gate="-AFE" pin="D5"/>
+<pinref part="R30" gate="G$1" pin="1"/>
+<wire x1="40.64" y1="81.28" x2="43.18" y2="81.28" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$32" class="0">
+<segment>
+<pinref part="U2" gate="-AFE" pin="D6"/>
+<pinref part="R29" gate="G$1" pin="1"/>
+<wire x1="40.64" y1="83.82" x2="43.18" y2="83.82" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$33" class="0">
+<segment>
+<pinref part="U2" gate="-AFE" pin="D7"/>
+<pinref part="R28" gate="G$1" pin="1"/>
+<wire x1="40.64" y1="86.36" x2="43.18" y2="86.36" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$34" class="0">
+<segment>
+<pinref part="U2" gate="-AFE" pin="D8"/>
+<pinref part="R27" gate="G$1" pin="1"/>
+<wire x1="40.64" y1="88.9" x2="43.18" y2="88.9" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$35" class="0">
+<segment>
+<pinref part="U3" gate="-AFE" pin="D0"/>
+<pinref part="R45" gate="G$1" pin="1"/>
+<wire x1="157.48" y1="68.58" x2="160.02" y2="68.58" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$36" class="0">
+<segment>
+<pinref part="U3" gate="-AFE" pin="D1"/>
+<pinref part="R44" gate="G$1" pin="1"/>
+<wire x1="157.48" y1="71.12" x2="160.02" y2="71.12" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$37" class="0">
+<segment>
+<pinref part="U3" gate="-AFE" pin="D2"/>
+<pinref part="R43" gate="G$1" pin="1"/>
+<wire x1="157.48" y1="73.66" x2="160.02" y2="73.66" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$38" class="0">
+<segment>
+<pinref part="U3" gate="-AFE" pin="D3"/>
+<pinref part="R42" gate="G$1" pin="1"/>
+<wire x1="157.48" y1="76.2" x2="160.02" y2="76.2" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$39" class="0">
+<segment>
+<pinref part="U3" gate="-AFE" pin="D4"/>
+<pinref part="R41" gate="G$1" pin="1"/>
+<wire x1="157.48" y1="78.74" x2="160.02" y2="78.74" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$40" class="0">
+<segment>
+<pinref part="U3" gate="-AFE" pin="D5"/>
+<pinref part="R40" gate="G$1" pin="1"/>
+<wire x1="157.48" y1="81.28" x2="160.02" y2="81.28" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$41" class="0">
+<segment>
+<pinref part="U3" gate="-AFE" pin="D6"/>
+<pinref part="R39" gate="G$1" pin="1"/>
+<wire x1="157.48" y1="83.82" x2="160.02" y2="83.82" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$42" class="0">
+<segment>
+<pinref part="U3" gate="-AFE" pin="D7"/>
+<pinref part="R38" gate="G$1" pin="1"/>
+<wire x1="157.48" y1="86.36" x2="160.02" y2="86.36" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$43" class="0">
+<segment>
+<pinref part="U3" gate="-AFE" pin="D8"/>
+<pinref part="R37" gate="G$1" pin="1"/>
+<wire x1="157.48" y1="88.9" x2="160.02" y2="88.9" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$44" class="0">
+<segment>
+<pinref part="U3" gate="-AFE" pin="D9"/>
+<pinref part="R36" gate="G$1" pin="1"/>
+<wire x1="157.48" y1="91.44" x2="160.02" y2="91.44" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="AUX_DAC1" class="0">
+<segment>
+<pinref part="U2" gate="-AFE" pin="DAC2"/>
+<wire x1="78.74" y1="104.14" x2="83.82" y2="104.14" width="0.1524" layer="91"/>
+<label x="86.36" y="104.14" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="AUX_DAC2" class="0">
+<segment>
+<pinref part="U2" gate="-AFE" pin="DAC3"/>
+<wire x1="78.74" y1="101.6" x2="83.82" y2="101.6" width="0.1524" layer="91"/>
+<label x="86.36" y="101.6" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="AUX_DAC3" class="0">
+<segment>
+<wire x1="195.58" y1="104.14" x2="200.66" y2="104.14" width="0.1524" layer="91"/>
+<label x="203.2" y="104.14" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="AUX_DAC4" class="0">
+<segment>
+<wire x1="195.58" y1="101.6" x2="200.66" y2="101.6" width="0.1524" layer="91"/>
+<label x="203.2" y="101.6" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="AUX_ADC1" class="0">
+<segment>
+<pinref part="U2" gate="-AFE" pin="ADC1"/>
+<wire x1="43.18" y1="106.68" x2="30.48" y2="106.68" width="0.1524" layer="91"/>
+<label x="27.94" y="106.68" size="1.778" layer="95" rot="MR0"/>
+</segment>
+</net>
+<net name="AUX_ADC2" class="0">
+<segment>
+<pinref part="U2" gate="-AFE" pin="ADC2"/>
+<wire x1="43.18" y1="104.14" x2="30.48" y2="104.14" width="0.1524" layer="91"/>
+<label x="27.94" y="104.14" size="1.778" layer="95" rot="MR0"/>
+</segment>
+</net>
+<net name="AUX_ADC3" class="0">
+<segment>
+<wire x1="160.02" y1="106.68" x2="147.32" y2="106.68" width="0.1524" layer="91"/>
+<label x="144.78" y="106.68" size="1.778" layer="95" rot="MR0"/>
+</segment>
+</net>
+<net name="AUX_ADC4" class="0">
+<segment>
+<wire x1="160.02" y1="104.14" x2="147.32" y2="104.14" width="0.1524" layer="91"/>
+<label x="144.78" y="104.14" size="1.778" layer="95" rot="MR0"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>
@@ -25829,7 +26122,6 @@ Standard 8.5x11 US Letter frame</description>
 <text x="25.4" y="30.48" size="2.54" layer="97">CLK IN SMA connector</text>
 <text x="73.66" y="30.48" size="2.54" layer="97">CLK OUT SMA connector</text>
 <text x="27.94" y="71.12" size="2.54" layer="97">USB connector</text>
-<rectangle x1="170.18" y1="116.84" x2="182.88" y2="119.38" layer="97"/>
 </plain>
 <instances>
 <instance part="J1" gate="G$1" x="134.62" y="111.76"/>
@@ -25895,10 +26187,7 @@ Standard 8.5x11 US Letter frame</description>
 <instance part="PORT50" gate="G$1" x="114.3" y="45.72"/>
 <instance part="FRAME6" gate="G$1" x="0" y="0"/>
 <instance part="FRAME6" gate="G$2" x="165.1" y="0"/>
-<instance part="PORT63" gate="G$1" x="175.26" y="116.84" rot="MR0"/>
 <instance part="PORT65" gate="G$1" x="170.18" y="109.22" rot="MR0"/>
-<instance part="PORT74" gate="G$1" x="175.26" y="73.66" rot="MR0"/>
-<instance part="PORT75" gate="G$1" x="175.26" y="71.12" rot="MR0"/>
 <instance part="PORT66" gate="G$1" x="170.18" y="104.14" rot="MR0"/>
 <instance part="PORT67" gate="G$1" x="170.18" y="101.6" rot="MR0"/>
 <instance part="PORT68" gate="G$1" x="170.18" y="96.52" rot="MR0"/>
@@ -25911,6 +26200,9 @@ Standard 8.5x11 US Letter frame</description>
 <instance part="PORT61" gate="G$1" x="170.18" y="124.46" rot="MR0"/>
 <instance part="PORT62" gate="G$1" x="170.18" y="127" rot="MR0"/>
 <instance part="PORT64" gate="G$1" x="170.18" y="111.76" rot="MR0"/>
+<instance part="PORT63" gate="G$1" x="170.18" y="116.84" rot="MR0"/>
+<instance part="PORT74" gate="G$1" x="170.18" y="73.66" rot="MR0"/>
+<instance part="PORT75" gate="G$1" x="170.18" y="71.12" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -26329,31 +26621,25 @@ Standard 8.5x11 US Letter frame</description>
 <wire x1="218.44" y1="71.12" x2="208.28" y2="71.12" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="SF_ADC1" class="0">
+<net name="AUX_ADC1" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="29"/>
 <wire x1="195.58" y1="127" x2="185.42" y2="127" width="0.1524" layer="91"/>
 <label x="182.88" y="127" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="HP_ADC1" class="0">
-<segment>
-<pinref part="J2" gate="G$1" pin="31"/>
-<wire x1="195.58" y1="124.46" x2="185.42" y2="124.46" width="0.1524" layer="91"/>
-<label x="182.88" y="124.46" size="1.778" layer="95" rot="MR0"/>
-</segment>
-</net>
-<net name="SF_ADC2" class="0">
+<net name="AUX_DAC1" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="35"/>
 <wire x1="195.58" y1="119.38" x2="185.42" y2="119.38" width="0.1524" layer="91"/>
 <label x="182.88" y="119.38" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="N$15" class="0">
+<net name="AUX_DAC2" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="37"/>
 <wire x1="195.58" y1="116.84" x2="185.42" y2="116.84" width="0.1524" layer="91"/>
+<label x="182.88" y="116.84" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
 <net name="SF_DAC1" class="0">
@@ -26363,81 +26649,88 @@ Standard 8.5x11 US Letter frame</description>
 <label x="182.88" y="111.76" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="HP_DAC1" class="0">
+<net name="SF_DAC2" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="43"/>
 <wire x1="195.58" y1="109.22" x2="185.42" y2="109.22" width="0.1524" layer="91"/>
 <label x="182.88" y="109.22" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="N$18" class="0">
+<net name="SF_ADC1" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="47"/>
 <wire x1="195.58" y1="104.14" x2="185.42" y2="104.14" width="0.1524" layer="91"/>
 <label x="182.88" y="104.14" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="N$19" class="0">
+<net name="SF_ADC2" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="49"/>
 <wire x1="195.58" y1="101.6" x2="185.42" y2="101.6" width="0.1524" layer="91"/>
 <label x="182.88" y="101.6" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="N$20" class="0">
+<net name="SF_ADC3" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="53"/>
 <wire x1="195.58" y1="96.52" x2="185.42" y2="96.52" width="0.1524" layer="91"/>
 <label x="182.88" y="96.52" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="N$21" class="0">
+<net name="SF_ADC4" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="55"/>
 <wire x1="195.58" y1="93.98" x2="185.42" y2="93.98" width="0.1524" layer="91"/>
 <label x="182.88" y="93.98" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="N$22" class="0">
+<net name="SF_ADC5" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="59"/>
 <wire x1="195.58" y1="88.9" x2="185.42" y2="88.9" width="0.1524" layer="91"/>
 <label x="182.88" y="88.9" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="N$23" class="0">
+<net name="SF_ADC6" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="61"/>
 <wire x1="195.58" y1="86.36" x2="185.42" y2="86.36" width="0.1524" layer="91"/>
 <label x="182.88" y="86.36" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="N$24" class="0">
+<net name="AUX_ADC3" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="65"/>
 <wire x1="195.58" y1="81.28" x2="185.42" y2="81.28" width="0.1524" layer="91"/>
 <label x="182.88" y="81.28" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="N$25" class="0">
+<net name="AUX_ADC4" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="67"/>
 <wire x1="195.58" y1="78.74" x2="185.42" y2="78.74" width="0.1524" layer="91"/>
 <label x="182.88" y="78.74" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="N$26" class="0">
+<net name="AUX_DAC3" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="71"/>
 <wire x1="195.58" y1="73.66" x2="185.42" y2="73.66" width="0.1524" layer="91"/>
 <label x="182.88" y="73.66" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="N$27" class="0">
+<net name="AUX_DAC4" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="73"/>
 <wire x1="195.58" y1="71.12" x2="185.42" y2="71.12" width="0.1524" layer="91"/>
 <label x="182.88" y="71.12" size="1.778" layer="95" rot="MR0"/>
+</segment>
+</net>
+<net name="AUX_ADC2" class="0">
+<segment>
+<pinref part="J2" gate="G$1" pin="31"/>
+<wire x1="195.58" y1="124.46" x2="185.42" y2="124.46" width="0.1524" layer="91"/>
+<label x="182.88" y="124.46" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
 </nets>
@@ -26449,13 +26742,13 @@ Standard 8.5x11 US Letter frame</description>
 <text x="78.74" y="76.2" size="5.08" layer="97">Pull-up and pull-down resistors</text>
 <text x="33.02" y="144.78" size="2.54" layer="97">AFE1</text>
 <text x="33.02" y="104.14" size="2.54" layer="97">AFE2</text>
-<text x="55.88" y="63.5" size="2.54" layer="97">AFE1</text>
-<text x="106.68" y="63.5" size="2.54" layer="97">AFE2</text>
+<text x="30.48" y="63.5" size="2.54" layer="97">AFE1</text>
+<text x="109.22" y="63.5" size="2.54" layer="97">AFE2</text>
 <text x="142.24" y="157.48" size="2.54" layer="97" rot="R90">VDD</text>
 <text x="50.8" y="157.48" size="2.54" layer="97" rot="R90">REFP</text>
 <text x="200.66" y="157.48" size="2.54" layer="97" rot="R90">OVDD</text>
-<rectangle x1="45.72" y1="17.78" x2="58.42" y2="33.02" layer="97"/>
-<text x="48.26" y="30.48" size="1.778" layer="97" rot="R90">Shut-down by default</text>
+<rectangle x1="17.78" y1="17.78" x2="30.48" y2="33.02" layer="97"/>
+<text x="20.32" y="30.48" size="1.778" layer="97" rot="R90">Shut-down by default</text>
 <text x="55.88" y="157.48" size="2.54" layer="97" rot="R90">REFN</text>
 <text x="66.04" y="157.48" size="2.54" layer="97" rot="R90">COM</text>
 <text x="71.12" y="157.48" size="2.54" layer="97" rot="R90">REFIN</text>
@@ -26465,8 +26758,14 @@ Standard 8.5x11 US Letter frame</description>
 <text x="55.88" y="116.84" size="2.54" layer="97" rot="R90">REFN</text>
 <text x="66.04" y="116.84" size="2.54" layer="97" rot="R90">COM</text>
 <text x="71.12" y="116.84" size="2.54" layer="97" rot="R90">REFIN</text>
-<rectangle x1="96.52" y1="17.78" x2="109.22" y2="33.02" layer="97"/>
-<text x="99.06" y="30.48" size="1.778" layer="97" rot="R90">Shut-down by default</text>
+<rectangle x1="93.98" y1="17.78" x2="106.68" y2="33.02" layer="97"/>
+<text x="96.52" y="30.48" size="1.778" layer="97" rot="R90">Shut-down by default</text>
+<text x="50.8" y="15.24" size="1.778" layer="97" rot="R90">AFE1 DB lines are internally pulled-up</text>
+<text x="53.34" y="17.78" size="1.778" layer="97" rot="R90">both in AFE1 and SmartFusion</text>
+<text x="127" y="15.24" size="1.778" layer="97" rot="R90">AFE2 DB lines are internally pulled-up</text>
+<text x="129.54" y="17.78" size="1.778" layer="97" rot="R90">both in AFE2 and SmartFusion</text>
+<text x="15.24" y="10.16" size="1.778" layer="97">Might be replaceable with SmartFusion internal pull-ups</text>
+<text x="86.36" y="10.16" size="1.778" layer="97">Might be replaceable with SmartFusion internal pull-ups</text>
 </plain>
 <instances>
 <instance part="FRAME9" gate="G$1" x="0" y="0"/>
@@ -26494,18 +26793,18 @@ Standard 8.5x11 US Letter frame</description>
 <instance part="C41" gate="G$1" x="195.58" y="147.32"/>
 <instance part="U$44" gate="G$1" x="193.04" y="134.62"/>
 <instance part="U$45" gate="G$1" x="193.04" y="154.94"/>
-<instance part="U$47" gate="G$1" x="53.34" y="20.32"/>
-<instance part="R19" gate="G$1" x="53.34" y="33.02" rot="R90"/>
-<instance part="PORT123" gate="G$1" x="53.34" y="55.88" rot="R90"/>
-<instance part="U$46" gate="G$1" x="60.96" y="20.32"/>
-<instance part="R20" gate="G$1" x="60.96" y="33.02" rot="R90"/>
-<instance part="PORT124" gate="G$1" x="60.96" y="55.88" rot="R90"/>
+<instance part="U$47" gate="G$1" x="25.4" y="20.32"/>
+<instance part="R19" gate="G$1" x="25.4" y="33.02" rot="R90"/>
+<instance part="PORT123" gate="G$1" x="25.4" y="55.88" rot="R90"/>
+<instance part="U$46" gate="G$1" x="33.02" y="20.32"/>
+<instance part="R20" gate="G$1" x="33.02" y="33.02" rot="R90"/>
+<instance part="PORT124" gate="G$1" x="33.02" y="55.88" rot="R90"/>
 <instance part="R21" gate="G$1" x="149.86" y="45.72" rot="R90"/>
 <instance part="PORT127" gate="G$1" x="149.86" y="20.32" rot="R270"/>
 <instance part="U$48" gate="G$1" x="149.86" y="53.34"/>
-<instance part="R22" gate="G$1" x="68.58" y="45.72" rot="R90"/>
-<instance part="PORT128" gate="G$1" x="68.58" y="20.32" rot="R270"/>
-<instance part="U$49" gate="G$1" x="68.58" y="53.34"/>
+<instance part="R22" gate="G$1" x="40.64" y="45.72" rot="R90"/>
+<instance part="PORT128" gate="G$1" x="40.64" y="20.32" rot="R270"/>
+<instance part="U$49" gate="G$1" x="40.64" y="53.34"/>
 <instance part="C42" gate="G$1" x="55.88" y="147.32"/>
 <instance part="C43" gate="G$1" x="63.5" y="147.32"/>
 <instance part="C44" gate="G$1" x="71.12" y="147.32"/>
@@ -26535,15 +26834,15 @@ Standard 8.5x11 US Letter frame</description>
 <instance part="C62" gate="G$1" x="55.88" y="106.68"/>
 <instance part="C63" gate="G$1" x="63.5" y="106.68"/>
 <instance part="C64" gate="G$1" x="71.12" y="106.68"/>
-<instance part="U$56" gate="G$1" x="104.14" y="20.32"/>
-<instance part="R23" gate="G$1" x="104.14" y="33.02" rot="R90"/>
-<instance part="PORT131" gate="G$1" x="104.14" y="55.88" rot="R90"/>
-<instance part="U$57" gate="G$1" x="111.76" y="20.32"/>
-<instance part="R24" gate="G$1" x="111.76" y="33.02" rot="R90"/>
-<instance part="PORT132" gate="G$1" x="111.76" y="55.88" rot="R90"/>
-<instance part="R25" gate="G$1" x="119.38" y="45.72" rot="R90"/>
-<instance part="PORT133" gate="G$1" x="119.38" y="20.32" rot="R270"/>
-<instance part="U$58" gate="G$1" x="119.38" y="53.34"/>
+<instance part="U$56" gate="G$1" x="101.6" y="20.32"/>
+<instance part="R23" gate="G$1" x="101.6" y="33.02" rot="R90"/>
+<instance part="PORT131" gate="G$1" x="101.6" y="55.88" rot="R90"/>
+<instance part="U$57" gate="G$1" x="109.22" y="20.32"/>
+<instance part="R24" gate="G$1" x="109.22" y="33.02" rot="R90"/>
+<instance part="PORT132" gate="G$1" x="109.22" y="55.88" rot="R90"/>
+<instance part="R25" gate="G$1" x="116.84" y="45.72" rot="R90"/>
+<instance part="PORT133" gate="G$1" x="116.84" y="20.32" rot="R270"/>
+<instance part="U$58" gate="G$1" x="116.84" y="53.34"/>
 </instances>
 <busses>
 </busses>
@@ -26882,12 +27181,12 @@ Standard 8.5x11 US Letter frame</description>
 </segment>
 <segment>
 <pinref part="R19" gate="G$1" pin="1"/>
-<wire x1="53.34" y1="27.94" x2="53.34" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="27.94" x2="25.4" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="U$47" gate="G$1" pin="DGND"/>
 </segment>
 <segment>
 <pinref part="R20" gate="G$1" pin="1"/>
-<wire x1="60.96" y1="27.94" x2="60.96" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="27.94" x2="33.02" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="U$46" gate="G$1" pin="DGND"/>
 </segment>
 <segment>
@@ -26901,12 +27200,12 @@ Standard 8.5x11 US Letter frame</description>
 </segment>
 <segment>
 <pinref part="R23" gate="G$1" pin="1"/>
-<wire x1="104.14" y1="27.94" x2="104.14" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="27.94" x2="101.6" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="U$56" gate="G$1" pin="DGND"/>
 </segment>
 <segment>
 <pinref part="R24" gate="G$1" pin="1"/>
-<wire x1="111.76" y1="27.94" x2="111.76" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="27.94" x2="109.22" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="U$57" gate="G$1" pin="DGND"/>
 </segment>
 </net>
@@ -26929,7 +27228,7 @@ Standard 8.5x11 US Letter frame</description>
 </segment>
 <segment>
 <pinref part="R22" gate="G$1" pin="2"/>
-<wire x1="68.58" y1="48.26" x2="68.58" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="48.26" x2="40.64" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="U$49" gate="G$1" pin="D3V3"/>
 </segment>
 <segment>
@@ -26945,22 +27244,22 @@ Standard 8.5x11 US Letter frame</description>
 </segment>
 <segment>
 <pinref part="R25" gate="G$1" pin="2"/>
-<wire x1="119.38" y1="48.26" x2="119.38" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="48.26" x2="116.84" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="U$58" gate="G$1" pin="D3V3"/>
 </segment>
 </net>
 <net name="!AFE1_SHDN" class="0">
 <segment>
 <pinref part="R19" gate="G$1" pin="2"/>
-<wire x1="53.34" y1="35.56" x2="53.34" y2="40.64" width="0.1524" layer="91"/>
-<label x="53.34" y="43.18" size="1.778" layer="95" rot="R90"/>
+<wire x1="25.4" y1="35.56" x2="25.4" y2="40.64" width="0.1524" layer="91"/>
+<label x="25.4" y="43.18" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="AFE1_T/!R" class="0">
 <segment>
 <pinref part="R20" gate="G$1" pin="2"/>
-<wire x1="60.96" y1="35.56" x2="60.96" y2="40.64" width="0.1524" layer="91"/>
-<label x="60.96" y="43.18" size="1.778" layer="95" rot="R90"/>
+<wire x1="33.02" y1="35.56" x2="33.02" y2="40.64" width="0.1524" layer="91"/>
+<label x="33.02" y="43.18" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="SPI1_SS" class="0">
@@ -26973,8 +27272,8 @@ Standard 8.5x11 US Letter frame</description>
 <net name="!SPI1_SS_AFE1" class="0">
 <segment>
 <pinref part="R22" gate="G$1" pin="1"/>
-<wire x1="68.58" y1="40.64" x2="68.58" y2="35.56" width="0.1524" layer="91"/>
-<label x="68.58" y="33.02" size="1.778" layer="95" rot="R270"/>
+<wire x1="40.64" y1="40.64" x2="40.64" y2="35.56" width="0.1524" layer="91"/>
+<label x="40.64" y="33.02" size="1.778" layer="95" rot="R270"/>
 </segment>
 </net>
 <net name="N$8" class="0">
@@ -26986,22 +27285,22 @@ Standard 8.5x11 US Letter frame</description>
 <net name="!AFE2_SHDN" class="0">
 <segment>
 <pinref part="R23" gate="G$1" pin="2"/>
-<wire x1="104.14" y1="35.56" x2="104.14" y2="40.64" width="0.1524" layer="91"/>
-<label x="104.14" y="43.18" size="1.778" layer="95" rot="R90"/>
+<wire x1="101.6" y1="35.56" x2="101.6" y2="40.64" width="0.1524" layer="91"/>
+<label x="101.6" y="43.18" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="AFE2_T/!R" class="0">
 <segment>
 <pinref part="R24" gate="G$1" pin="2"/>
-<wire x1="111.76" y1="35.56" x2="111.76" y2="40.64" width="0.1524" layer="91"/>
-<label x="111.76" y="43.18" size="1.778" layer="95" rot="R90"/>
+<wire x1="109.22" y1="35.56" x2="109.22" y2="40.64" width="0.1524" layer="91"/>
+<label x="109.22" y="43.18" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="!SPI1_SS_AFE2" class="0">
 <segment>
 <pinref part="R25" gate="G$1" pin="1"/>
-<wire x1="119.38" y1="40.64" x2="119.38" y2="35.56" width="0.1524" layer="91"/>
-<label x="119.38" y="33.02" size="1.778" layer="95" rot="R270"/>
+<wire x1="116.84" y1="40.64" x2="116.84" y2="35.56" width="0.1524" layer="91"/>
+<label x="116.84" y="33.02" size="1.778" layer="95" rot="R270"/>
 </segment>
 </net>
 </nets>
