@@ -1,0 +1,17 @@
+1. Create a 1-bit 360x360 bitmap image
+2. Create a 600 mil symbol in Eagle
+ a. Run import-bmp
+ b. Paramters
+    Format: Scaled
+	Unit: Mil
+	Scale factor for a pixel: 1.66666666 (600/360)
+	Start layer: 200
+3. Create a 10 mm device in Eagle
+    Format: Scaled
+	Unit: MM
+	Scale factor for a pixel: 0.027777 (10/360)
+	Start layer: 200
+ b. Fill out the package description
+4. Create a device
+ a. Fill out the device description
+
