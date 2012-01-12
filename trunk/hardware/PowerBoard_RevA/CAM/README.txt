@@ -20,29 +20,29 @@ PCB STACKUP:
 
 FILES:
 
-PowerBoard.GTO - Top Silk Screen (component side)
-PowerBoard.GTP - Top Solder paste (cream stencil, component side)
-PowerBoard.GTS - Top Solder stop mask (component side)
-PowerBoard.GTL - Top Copper (component side), Positive Polarity
-PowerBoard.GP1 - Inner Layer 1, Positive Polarity
-PowerBoard.GP2 - Inner Layer 2, Positive Polarity
-PowerBoard.GBL - Bottom Copper (solder side), Positive Polarity
-PowerBoard.GBS - Bottom Solder stop mask (solder side)
-PowerBoard.GBP - Bottom Solder paste (cream stencil, solder side)
-PowerBoard.GBO - Bottom Silk Screen (solder side)
-PowerBoard.GML - Board outline
-PowerBoard.gpi - Gerber Report 
+PowerBoard_RevA.GTO - Top Silk Screen (component side)
+PowerBoard_RevA.GTP - Top Solder paste (cream stencil, component side)
+PowerBoard_RevA.GTS - Top Solder stop mask (component side)
+PowerBoard_RevA.GTL - Top Copper (component side), Positive Polarity
+PowerBoard_RevA.GP1 - Inner Layer 1, Positive Polarity
+PowerBoard_RevA.GP2 - Inner Layer 2, Positive Polarity
+PowerBoard_RevA.GBL - Bottom Copper (solder side), Positive Polarity
+PowerBoard_RevA.GBS - Bottom Solder stop mask (solder side)
+PowerBoard_RevA.GBP - Bottom Solder paste (cream stencil, solder side)
+PowerBoard_RevA.GBO - Bottom Silk Screen (solder side)
+PowerBoard_RevA.GML - Board outline
+PowerBoard_RevA.gpi - Gerber Report 
 
-PowerBoard.DRD - NC Drill : 1.4, Abs, inches, leading zero supress, quad
-PowerBoard.dri - NC Drill Report
+PowerBoard_RevA.DRD - NC Drill : 1.4, Abs, inches, leading zero supress, quad
+PowerBoard_RevA.dri - NC Drill Report
 
-PowerBoard.gwk - GraphiCode GC-Prevue Project File (Gerbers and drill)
+PowerBoard_RevA.gwk - GraphiCode GC-Prevue Project File (Gerbers and drill)
 
-PowerBoard.xy  - Centroid data for SMD components
+PowerBoard_RevA.xy  - Centroid data for SMD components
    
-PowerBoard_BOM.xls	- Bill of materials
+PowerBoard_RevA_BOM.xls	- Bill of materials
 
-PowerBoard_Asy.pdf	- Board assembly drawing
+PowerBoard_RevA_Asy.pdf	- Board assembly drawing
 
 
 QUESTIONS?
