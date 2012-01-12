@@ -1,0 +1,12 @@
+#summary One-sentence summary of this page.
+#labels Phase-Requirements,Phase-Design,Phase-Implementation
+
+|| *Tier* || *Power Supply* || *Main board* || *Debug* || *Sensor board* ||
+|| 0 || - || A2F-EVAL || - || USRP RF ||
+|| 1 || Power Board Rev A || - || Inspection Board Rev A || - ||
+|| 2 || Power Board Rev B || RF Board Rev A || Inspection Board Rev A || MainBoard Rev A ||
+|| 3 ||                  || _Main Board Rev B^*^_ || Inspection Board Rev A || RF Board Rev B^**^ ||
+
+^*^ With integrated power-supply (optional)
+
+^**^ With base-band filters
