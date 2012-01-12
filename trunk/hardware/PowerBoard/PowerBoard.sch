@@ -22927,7 +22927,7 @@ v1.0 Initial design</description>
 <attribute name="PAGE3" value="Current Monitor"/>
 <attribute name="PAGE4" value="Caps, Pulls and Misc"/>
 <attribute name="PAGE5" value="Connector"/>
-<attribute name="REVISION" value="A"/>
+<attribute name="REVISION" value="B"/>
 <attribute name="TITLE" value="Power Board"/>
 <attribute name="VERIFIER" value="Peter Volgyesi"/>
 <attribute name="VERIFIEREMAIL" value="peter.volgyesi@vanderbilt.edu"/>
