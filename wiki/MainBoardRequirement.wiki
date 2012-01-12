@@ -85,7 +85,7 @@ Candidate ICs:
 
 == Local components ==
 
- * Consider adding a temperature sensor
+ * Consider adding a temperature sensor ([http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/DATASHEET/CD00119601.pdf STLM20])
 
 = External memory =
  
