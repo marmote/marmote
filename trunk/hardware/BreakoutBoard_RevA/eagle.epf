@@ -1,0 +1,20 @@
+[Eagle]
+Version="06 00 00"
+Platform="Windows"
+Serial="6E20A1E4F4-LSR-WLM-3ES"
+Globals="Globals"
+Desktop="Desktop"
+
+[Globals]
+AutoSaveProject=1
+UsedLibrary="BreakoutBoard.lbr"
+
+[Win_1]
+Type="Control Panel"
+Loc="89 77 1406 948"
+State=2
+Number=0
+
+[Desktop]
+Screen="3280 1200"
+Window="Win_1"
