@@ -1,5 +1,7 @@
+#summary Requirement and design considerations for Radio Front-End Board
 #labels Phase-Requirements
-= Requirement =
+
+= Functional =
 
  * May support UWB time-sync/localization
  * Should have a PLL to lock-on a carrier signal
@@ -9,6 +11,9 @@
 = Clocking =
 
  * LO clocks should be derived from a temperature compensated voltage controlled crystal oscillator (TCVCXO) driven source
+ * Should have an on-board TCXO (for cases the bottom board is unable to provide it)
+ * Must be able to use a clock sourced from the MainBoard through the mezzanine connector
+ * Should be able to switch between the above two (either by a jumper or a digital switch)
 
 = Analog front-end =
 
