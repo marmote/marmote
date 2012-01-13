@@ -1,11 +1,12 @@
-#summary Road map and board summary
+#summary One-sentence summary of this page.
 #labels Phase-Requirements,Phase-Design,Phase-Implementation
 
-|| *Tier* || *Power Supply* || *Main board* || *Debug* || *Sensor board* ||
-|| 0 || - || A2F-EVAL || - || USRP RF ||
-|| 1 || Power Board Rev A || - || Inspection Board Rev A || - ||
-|| 2 || Power Board Rev B || RF Board Rev A || Inspection Board Rev A || MainBoard Rev A ||
-|| 3 ||                  || _Main Board Rev B^*^_ || Inspection Board Rev A || RF Board Rev B^**^ ||
+|| *Tier* || *Power Supply* || *Digital Signal processing* || *Domain conversion* || *Sensor board* || *Debug* || *Significant Projects* ||
+|| 0 || A2F-EVAL-KIT || A2F-EVAL-KIT || A2F-EVAL-KIT || - || - || FSK modulation/demodulation ||
+|| 1 || A2F-EVAL-KIT/BeaverBoard Rev A || A2F-EVAL-KIT || BeaverBoard Rev A || USRP daughterboards (RFX400) || - || DDC (down mixing, CIC filter, LWIP for UDP streaming, Matlab processing and GUI) ||
+|| 2 || Power Board Rev A || - || - || - || Inspection Board Rev A || - ||
+|| 3 || _Power Board Rev B_ || _Main Board Rev A_ || _Main Board Rev A_ || _RF Board Rev A_ || _Inspection Board Rev B_ ||  ||
+|| || _Main Board Rev B^*^_ || _Main Board Rev B^*^_ || _Main Board Rev B^*^_ || _RF Board Rev B^**^_ || || ||
 
 ^*^ With integrated power-supply (optional)
 
