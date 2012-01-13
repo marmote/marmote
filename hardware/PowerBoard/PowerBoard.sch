@@ -23318,6 +23318,9 @@ v1.0 Initial design</description>
 <part name="M6" library="powerboard" deviceset="FIDUCIAL" device="1X2"/>
 <part name="M7" library="powerboard" deviceset="FIDUCIAL" device="1X2"/>
 <part name="M8" library="powerboard" deviceset="FIDUCIAL" device="1X2"/>
+<part name="R53" library="powerboard" deviceset="R" device="0603" value="1.5k"/>
+<part name="PORT81" library="powerboard" deviceset="PORT5" device=""/>
+<part name="U$66" library="powerboard" deviceset="D3V3_STM" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -23388,6 +23391,8 @@ v1.0 Initial design</description>
 <text x="208.28" y="86.995" size="1.778" layer="97" rot="R180">20mV</text>
 <text x="208.28" y="84.455" size="1.778" layer="97" rot="R180">60mV</text>
 <text x="186.69" y="91.44" size="1.778" layer="97">D3V3_STM</text>
+<rectangle x1="91.44" y1="129.54" x2="119.38" y2="144.78" layer="98"/>
+<rectangle x1="185.42" y1="134.62" x2="195.58" y2="154.94" layer="98"/>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
@@ -24844,6 +24849,7 @@ v1.0 Initial design</description>
 <text x="101.6" y="152.4" size="2.54" layer="97">D1V5</text>
 <text x="223.52" y="87.63" size="1.778" layer="95" rot="R90">SUSP</text>
 <text x="213.36" y="87.63" size="1.778" layer="95" rot="R90">HPWR</text>
+<rectangle x1="-2.54" y1="60.96" x2="10.16" y2="104.14" layer="98"/>
 </plain>
 <instances>
 <instance part="FRAME3" gate="G$1" x="0" y="0"/>
@@ -25006,6 +25012,9 @@ v1.0 Initial design</description>
 <instance part="U$51" gate="G$1" x="233.68" y="66.04"/>
 <instance part="PORT138" gate="G$1" x="233.68" y="96.52" rot="R90"/>
 <instance part="U$65" gate="G$1" x="15.24" y="66.04"/>
+<instance part="R53" gate="G$1" x="5.08" y="83.82" rot="R90"/>
+<instance part="PORT81" gate="G$1" x="5.08" y="66.04" rot="R270"/>
+<instance part="U$66" gate="G$1" x="5.08" y="93.98" smashed="yes"/>
 </instances>
 <busses>
 </busses>
@@ -25231,6 +25240,12 @@ v1.0 Initial design</description>
 <wire x1="104.14" y1="22.86" x2="104.14" y2="25.4" width="0.1524" layer="91"/>
 <label x="104.14" y="27.94" size="1.778" layer="95" rot="R90"/>
 <pinref part="TP9" gate="G$1" pin="1"/>
+</segment>
+<segment>
+<wire x1="5.08" y1="86.36" x2="5.08" y2="93.98" width="0.1524" layer="91"/>
+<label x="-1.27" y="97.79" size="1.778" layer="95"/>
+<pinref part="U$66" gate="G$1" pin="D3V3_STM"/>
+<pinref part="R53" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="VBAT" class="0">
@@ -25512,6 +25527,13 @@ v1.0 Initial design</description>
 <pinref part="R44" gate="G$1" pin="2"/>
 </segment>
 </net>
+<net name="USBDP" class="0">
+<segment>
+<wire x1="5.08" y1="78.74" x2="5.08" y2="76.2" width="0.1524" layer="91"/>
+<label x="5.08" y="73.66" size="1.778" layer="95" rot="R270"/>
+<pinref part="R53" gate="G$1" pin="1"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>
@@ -25524,6 +25546,7 @@ v1.0 Initial design</description>
 <text x="111.76" y="132.08" size="2.54" layer="97">WALL connector</text>
 <text x="111.76" y="86.36" size="2.54" layer="97">Battery connector</text>
 <text x="115.57" y="46.99" size="2.54" layer="97">Slide switch</text>
+<rectangle x1="177.8" y1="53.34" x2="210.82" y2="157.48" layer="98"/>
 </plain>
 <instances>
 <instance part="FRAME4" gate="G$1" x="0" y="0"/>
@@ -25594,10 +25617,10 @@ v1.0 Initial design</description>
 <instance part="U15" gate="G$1" x="53.34" y="99.06"/>
 <instance part="J4" gate="G$1" x="116.84" y="96.52"/>
 <instance part="J3" gate="G$1" x="40.64" y="55.88"/>
-<instance part="M1" gate="G$1" x="182.88" y="48.26"/>
-<instance part="M2" gate="G$1" x="190.5" y="48.26"/>
-<instance part="M3" gate="G$1" x="198.12" y="48.26"/>
-<instance part="M4" gate="G$1" x="205.74" y="48.26"/>
+<instance part="M1" gate="G$1" x="40.64" y="25.4"/>
+<instance part="M2" gate="G$1" x="48.26" y="25.4"/>
+<instance part="M3" gate="G$1" x="55.88" y="25.4"/>
+<instance part="M4" gate="G$1" x="63.5" y="25.4"/>
 <instance part="J5" gate="G$1" x="116.84" y="144.78"/>
 <instance part="SW2" gate="G$1" x="132.08" y="55.88"/>
 <instance part="U$52" gate="G$1" x="144.78" y="53.34"/>
@@ -25610,10 +25633,10 @@ v1.0 Initial design</description>
 <attribute name="NAME" x="63.5" y="96.52" size="1.778" layer="95"/>
 <attribute name="VALUE" x="74.93" y="96.52" size="1.778" layer="96"/>
 </instance>
-<instance part="M5" gate="G$1" x="182.88" y="40.64"/>
-<instance part="M6" gate="G$1" x="190.5" y="40.64"/>
-<instance part="M7" gate="G$1" x="198.12" y="40.64"/>
-<instance part="M8" gate="G$1" x="205.74" y="40.64"/>
+<instance part="M5" gate="G$1" x="40.64" y="17.78"/>
+<instance part="M6" gate="G$1" x="48.26" y="17.78"/>
+<instance part="M7" gate="G$1" x="55.88" y="17.78"/>
+<instance part="M8" gate="G$1" x="63.5" y="17.78"/>
 </instances>
 <busses>
 </busses>
