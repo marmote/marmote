@@ -115,3 +115,11 @@ _The external memory has been replaced with a simple high-speed external interfa
   * Consider adding a Mezzanine connector with pin count greater than 64
  * Low-profile RJ-45 connector (optionally a footprint might suffice)
  * Simple connector or vias for an UART debug port
+
+
+= Optional (Rev B) =
+
+ * MainBoard power supply (3.3V, 1.5V, VSUP)
+ * Current monitor on all rails and voltage monitor on VSUP (SmartFusion)
+ * Battery operation
+ * Charging through USB
