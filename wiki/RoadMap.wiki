@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Road map and board summary
 #labels Phase-Requirements,Phase-Design,Phase-Implementation
 
 || *Tier* || *Power Supply* || *Main board* || *Debug* || *Sensor board* ||
