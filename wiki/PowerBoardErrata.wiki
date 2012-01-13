@@ -4,3 +4,4 @@
 = Rev A =
 
  * USB D+ line pull-up resistor R,,PU,, seems to be missing
+ * Battery gauge I^2^C lines may get stuck if not powered up properly
