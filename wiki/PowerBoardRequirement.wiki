@@ -4,15 +4,32 @@
 = Functional =
 
  * Should be able to identify itself to the host (USB) and the other boards (I^2^C)
+ * Should be able to program the FPGA on the MainBoard
+   * Bitstream may come from either USB or SD card
+ * Should be able to control the RadioBoard if connected directly (w/o the MainBoard)
 
-== Power Rails ==
+= Hardware =
+
+== Rev B ==
+
+ * Should have a 84-pin mezzanine connector on the top
+   * Simplifies connector placements on the MainBoard
+ * Mezzanine connector pinout should be "compatible" with that of the above layer (e.g. MainBoard to SensorBoard)
+   * GPIO pinout
+   * I^2^C bus pin locations
+   * SPI bus pin locations
+ * All the requirements from Rev A (see below)   
+
+== Rev A ==
+
+=== Power Rails ===
 
  * Should provide 1.5 V power rail for the FPGA
  * Should provide 3.3 V power rail for the FPGA
  * May provide 1.8 V power rail for the SRAM, radio chip and/or other peripherals
 
 
-== Programmer Logic ==
+=== Programmer Logic ===
 
  * Must be able to program the FPGA on the MainBoard
  * Must be able to receive bitstream file through USB
@@ -21,7 +38,7 @@
  * Must support an open bitstream file format
 
 
-== Data acquisition ==
+=== Data acquisition ===
 
  * Must be able to read data samples from the FPGA
  * Should be able to read from and write to the SD card
@@ -32,6 +49,14 @@
 ----
 
 = Software =
+
+== Rev B ==
+
+  * Should be able to control the [http://code.google.com/p/marmote/wiki/RadioBoardRequirement RadioBoard] directly through the GPIO pins and the SPI and I^2^C buses
+
+== Rev A ==
+
+  * May be able to program the SmartFusion through the GPIO -> JTAG pins with a STAPL player
 
 _Note: The "Software" section below should go somewhere else._
 
