@@ -20646,6 +20646,26 @@ Source:&lt;p&gt;
 <rectangle x1="-1.175" y1="-1.275" x2="-0.775" y2="-0.625" layer="51" rot="R90"/>
 <rectangle x1="0.775" y1="-0.325" x2="1.175" y2="0.325" layer="51" rot="R90"/>
 </package>
+<package name="ECX-42">
+<description>&lt;b&gt;ECX-42&lt;/b&gt;
+&lt;p&gt;
+Compact SMD crystal in 4 x 2.5 x 0.8 mm ceramic package.
+&lt;p&gt;
+Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX_42.pdf"&gt; http://www.ecsxtal.com/store/pdf/ECX_42.pdf&lt;/a&gt;
+&lt;p&gt;
+&lt;i&gt;&lt;b&gt;Note:&lt;/b&gt; Device has two GND pins named DGND&lt;/i&gt;</description>
+<smd name="4" x="-1.5" y="0.8" dx="1.4" dy="1.15" layer="1"/>
+<smd name="1" x="-1.5" y="-0.8" dx="1.4" dy="1.15" layer="1"/>
+<smd name="2" x="1.5" y="-0.8" dx="1.4" dy="1.15" layer="1"/>
+<smd name="3" x="1.5" y="0.8" dx="1.4" dy="1.15" layer="1"/>
+<wire x1="-2" y1="1.25" x2="2" y2="1.25" width="0.127" layer="51"/>
+<wire x1="2" y1="1.25" x2="2" y2="-1.25" width="0.127" layer="51"/>
+<wire x1="2" y1="-1.25" x2="-2" y2="-1.25" width="0.127" layer="51"/>
+<wire x1="-2" y1="-1.25" x2="-2" y2="1.25" width="0.127" layer="51"/>
+<circle x="-2.75" y="-1.75" radius="0.1" width="0.2032" layer="21"/>
+<text x="-2" y="-2" size="0.4064" layer="27">&gt;VALUE</text>
+<text x="-2" y="1.75" size="0.4064" layer="25">&gt;NAME</text>
+</package>
 </packages>
 <symbols>
 <symbol name="DGND">
@@ -21873,6 +21893,31 @@ Clock oscillator with output enable.</description>
 <pin name="B" x="-2.54" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
 <pin name="E" x="2.54" y="-5.08" visible="off" length="short" direction="pas" swaplevel="3" rot="R90"/>
 <pin name="C" x="2.54" y="5.08" visible="off" length="short" direction="pas" swaplevel="2" rot="R270"/>
+</symbol>
+<symbol name="VBUS">
+<wire x1="0.762" y1="1.27" x2="0" y2="2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="2.54" x2="-0.762" y2="1.27" width="0.254" layer="94"/>
+<text x="-1.016" y="3.556" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="VBAT" x="0" y="0" visible="off" length="short" direction="sup" rot="R90"/>
+</symbol>
+<symbol name="93LC56BT">
+<description>&lt;b&gt;93LC56BT&lt;/b&gt;
+&lt;p&gt;
+Microchip 2K Microwire Compatible Serial EEPROM 
+&lt;p&gt;
+Source: &lt;a href="http://ww1.microchip.com/downloads/en/DeviceDoc/21794F.pdf"&gt;http://ww1.microchip.com/downloads/en/DeviceDoc/21794F.pdf&lt;/a&gt;</description>
+<wire x1="-7.62" y1="5.08" x2="-7.62" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-7.62" x2="7.62" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-7.62" x2="7.62" y2="5.08" width="0.254" layer="94"/>
+<wire x1="7.62" y1="5.08" x2="-7.62" y2="5.08" width="0.254" layer="94"/>
+<pin name="CS" x="12.7" y="2.54" length="middle" direction="in" rot="R180"/>
+<pin name="CLK" x="12.7" y="0" length="middle" direction="in" rot="R180"/>
+<pin name="DI" x="12.7" y="-2.54" length="middle" direction="in" rot="R180"/>
+<pin name="DO" x="12.7" y="-5.08" length="middle" direction="out" rot="R180"/>
+<pin name="VCC" x="-12.7" y="2.54" length="middle" direction="pwr"/>
+<pin name="GND" x="-12.7" y="-5.08" length="middle" direction="pwr"/>
+<text x="-7.62" y="-10.16" size="1.27" layer="95">&gt;NAME</text>
+<text x="-7.62" y="5.715" size="1.27" layer="96">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -23125,6 +23170,77 @@ Standard 8.5x11 US Letter frame</description>
 </device>
 </devices>
 </deviceset>
+<deviceset name="VBUS">
+<description>&lt;b&gt;USB SUPPLY SYMBOL&lt;/b&gt;&lt;p&gt;
++5V USB supply voltage</description>
+<gates>
+<gate name="G$1" symbol="VBUS" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="ECX-42" prefix="X">
+<description>&lt;b&gt;ECX-42&lt;/b&gt;
+&lt;p&gt;
+Compact SMD crystal in 4 x 2.5 x 0.8 mm ceramic package.
+&lt;p&gt;
+Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX_42.pdf"&gt; http://www.ecsxtal.com/store/pdf/ECX_42.pdf&lt;/a&gt;
+&lt;p&gt;
+&lt;i&gt;&lt;b&gt;Note:&lt;/b&gt; Device has two GND pins named DGND&lt;/i&gt;</description>
+<gates>
+<gate name="P" symbol="CRYSTAL-4" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="ECX-42">
+<connects>
+<connect gate="P" pin="1" pad="1"/>
+<connect gate="P" pin="2" pad="3"/>
+<connect gate="P" pin="DGND@1" pad="2"/>
+<connect gate="P" pin="DGND@2" pad="4"/>
+</connects>
+<technologies>
+<technology name="-120">
+<attribute name="CLOAD" value="20 pF"/>
+<attribute name="DIGI-KEY#" value="XC1608CT-ND"/>
+<attribute name="FREQ-STABILITY" value="10 ppm"/>
+<attribute name="FREQ-TOLERANCE" value="10 ppm"/>
+<attribute name="MF" value="ECS"/>
+<attribute name="MPN" value="ECS-120-9-42-CKM-TR"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="93LC56BT" prefix="U">
+<description>&lt;b&gt;93LC56BT&lt;/b&gt;
+&lt;p&gt;
+Microchip 2K Microwire Compatible Serial EEPROM
+&lt;p&gt;
+Source: &lt;a href="http://ww1.microchip.com/downloads/en/DeviceDoc/21794F.pdf"&gt; http://ww1.microchip.com/downloads/en/DeviceDoc/21794F.pdf&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="93LC56BT" x="0" y="0"/>
+</gates>
+<devices>
+<device name="-OT" package="SOT23-6L">
+<connects>
+<connect gate="G$1" pin="CLK" pad="4"/>
+<connect gate="G$1" pin="CS" pad="5"/>
+<connect gate="G$1" pin="DI" pad="3"/>
+<connect gate="G$1" pin="DO" pad="1"/>
+<connect gate="G$1" pin="GND" pad="2"/>
+<connect gate="G$1" pin="VCC" pad="6"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -23645,6 +23761,56 @@ Standard 8.5x11 US Letter frame</description>
 <part name="R57" library="MainBoard" deviceset="R" device="0603" value="1.5k"/>
 <part name="PORT175" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="U$69" library="MainBoard" deviceset="D3V3" device=""/>
+<part name="PORT176" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT177" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT178" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT179" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT180" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT181" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT183" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT184" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT185" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT186" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT187" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT188" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="U$70" library="MainBoard" deviceset="D3V3" device=""/>
+<part name="U$71" library="MainBoard" deviceset="A3V3" device=""/>
+<part name="PORT190" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT191" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="R58" library="MainBoard" deviceset="R" device="0603" value="39k"/>
+<part name="U$72" library="MainBoard" deviceset="VBUS" device=""/>
+<part name="PORT182" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="U$73" library="MainBoard" deviceset="DGND" device=""/>
+<part name="R59" library="MainBoard" deviceset="R" device="0603" value="12k">
+<attribute name="TOLERANCE" value="1%"/>
+</part>
+<part name="U$74" library="MainBoard" deviceset="DGND" device=""/>
+<part name="U$75" library="MainBoard" deviceset="DGND" device=""/>
+<part name="U$76" library="MainBoard" deviceset="AGND" device=""/>
+<part name="PORT189" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="X5" library="MainBoard" deviceset="ECX-42" device="" technology="-120"/>
+<part name="C71" library="MainBoard" deviceset="C" device="0603"/>
+<part name="C72" library="MainBoard" deviceset="C" device="0603"/>
+<part name="U7" library="MainBoard" deviceset="93LC56BT" device="-OT"/>
+<part name="U$77" library="MainBoard" deviceset="DGND" device=""/>
+<part name="U$78" library="MainBoard" deviceset="D3V3" device=""/>
+<part name="PORT192" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT193" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT194" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="R60" library="MainBoard" deviceset="R" device="0603" value="2k"/>
+<part name="R61" library="MainBoard" deviceset="R" device="0603" value="10k">
+<attribute name="TOLERANCE" value=""/>
+</part>
+<part name="R62" library="MainBoard" deviceset="R" device="0603" value="10k">
+<attribute name="TOLERANCE" value=""/>
+</part>
+<part name="R63" library="MainBoard" deviceset="R" device="0603" value="10k">
+<attribute name="TOLERANCE" value=""/>
+</part>
+<part name="U$79" library="MainBoard" deviceset="D3V3" device=""/>
+<part name="PORT195" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT196" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT197" library="MainBoard" deviceset="PORT5" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -24118,6 +24284,8 @@ Standard 8.5x11 US Letter frame</description>
 <text x="101.6" y="17.78" size="1.778" layer="97" rot="R90">both in AFE2 and SmartFusion</text>
 <text x="15.24" y="10.16" size="1.778" layer="97">Might be replaceable with SmartFusion internal pull-ups</text>
 <text x="58.42" y="10.16" size="1.778" layer="97">Might be replaceable with SmartFusion internal pull-ups</text>
+<rectangle x1="134.62" y1="17.78" x2="144.78" y2="63.5" layer="97"/>
+<text x="144.78" y="12.7" size="1.778" layer="97" rot="R90">Check if internally available</text>
 </plain>
 <instances>
 <instance part="FRAME9" gate="G$1" x="0" y="0"/>
@@ -24707,6 +24875,7 @@ Standard 8.5x11 US Letter frame</description>
 <instance part="U$19" gate="G$1" x="40.64" y="55.88"/>
 <instance part="FRAME2" gate="G$1" x="0" y="0"/>
 <instance part="FRAME2" gate="G$2" x="165.1" y="0"/>
+<instance part="PORT189" gate="G$1" x="160.02" y="86.36" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -24835,6 +25004,12 @@ Standard 8.5x11 US Letter frame</description>
 <label x="93.98" y="48.26" size="1.778" layer="95"/>
 </segment>
 </net>
+<net name="!USB_RESET" class="0">
+<segment>
+<wire x1="175.26" y1="86.36" x2="187.96" y2="86.36" width="0.1524" layer="91"/>
+<label x="172.72" y="86.36" size="1.778" layer="97" rot="MR0"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>
@@ -24885,37 +25060,105 @@ Standard 8.5x11 US Letter frame</description>
 <sheet>
 <plain>
 <text x="193.04" y="20.32" size="5.08" layer="97">&gt;PAGE5</text>
-<text x="43.18" y="78.74" size="2.54" layer="97">USB</text>
-<rectangle x1="198.12" y1="96.52" x2="208.28" y2="170.18" layer="98"/>
-<rectangle x1="195.58" y1="88.9" x2="215.9" y2="101.6" layer="98"/>
-<rectangle x1="91.44" y1="91.44" x2="111.76" y2="99.06" layer="98"/>
+<text x="53.34" y="55.88" size="2.54" layer="97">USB</text>
+<rectangle x1="213.36" y1="73.66" x2="223.52" y2="147.32" layer="98"/>
+<rectangle x1="210.82" y1="66.04" x2="231.14" y2="78.74" layer="98"/>
+<rectangle x1="106.68" y1="68.58" x2="127" y2="76.2" layer="98"/>
+<text x="86.36" y="91.44" size="1.778" layer="97">NC</text>
+<text x="86.36" y="88.9" size="1.778" layer="97">NC</text>
+<text x="30.48" y="124.46" size="1.778" layer="97" rot="MR0">NC</text>
+<text x="30.48" y="127" size="1.778" layer="97" rot="MR0">NC</text>
+<rectangle x1="27.94" y1="129.54" x2="35.56" y2="132.08" layer="98"/>
+<rectangle x1="27.94" y1="134.62" x2="35.56" y2="137.16" layer="98"/>
+<rectangle x1="2.54" y1="99.06" x2="7.62" y2="104.14" layer="97"/>
+<text x="0" y="99.06" size="1.778" layer="97">AGND or DGND</text>
+<rectangle x1="81.28" y1="86.36" x2="86.36" y2="93.98" layer="97"/>
+<rectangle x1="93.98" y1="101.6" x2="106.68" y2="104.14" layer="97"/>
+<wire x1="104.14" y1="102.87" x2="106.68" y2="105.41" width="0.1524" layer="97"/>
+<wire x1="106.68" y1="105.41" x2="106.68" y2="118.11" width="0.1524" layer="97"/>
+<text x="101.6" y="119.38" size="1.778" layer="97">Optional</text>
+<text x="12.7" y="127" size="1.778" layer="97">Add via TP</text>
+<rectangle x1="50.8" y1="139.7" x2="55.88" y2="152.4" layer="97"/>
+<rectangle x1="12.7" y1="71.12" x2="25.4" y2="78.74" layer="97"/>
 </plain>
 <instances>
-<instance part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" x="154.94" y="127"/>
-<instance part="U5" gate="G$1" x="48.26" y="129.54"/>
-<instance part="PORT55" gate="G$1" x="93.98" y="121.92"/>
+<instance part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" x="170.18" y="104.14"/>
+<instance part="U5" gate="G$1" x="58.42" y="106.68"/>
+<instance part="PORT55" gate="G$1" x="104.14" y="99.06"/>
 <instance part="FRAME7" gate="G$1" x="0" y="0"/>
 <instance part="FRAME7" gate="G$2" x="165.1" y="0"/>
-<instance part="PORT121" gate="G$1" x="213.36" y="104.14"/>
-<instance part="PORT122" gate="G$1" x="213.36" y="101.6"/>
-<instance part="PORT125" gate="G$1" x="213.36" y="99.06"/>
-<instance part="PORT126" gate="G$1" x="213.36" y="93.98"/>
-<instance part="PORT129" gate="G$1" x="96.52" y="96.52" rot="MR0"/>
-<instance part="PORT130" gate="G$1" x="96.52" y="93.98" rot="MR0"/>
+<instance part="PORT121" gate="G$1" x="228.6" y="81.28"/>
+<instance part="PORT122" gate="G$1" x="228.6" y="78.74"/>
+<instance part="PORT125" gate="G$1" x="228.6" y="76.2"/>
+<instance part="PORT126" gate="G$1" x="228.6" y="71.12"/>
+<instance part="PORT129" gate="G$1" x="111.76" y="73.66" rot="MR0"/>
+<instance part="PORT130" gate="G$1" x="111.76" y="71.12" rot="MR0"/>
+<instance part="PORT176" gate="G$1" x="99.06" y="111.76"/>
+<instance part="PORT177" gate="G$1" x="99.06" y="109.22"/>
+<instance part="PORT178" gate="G$1" x="99.06" y="106.68"/>
+<instance part="PORT179" gate="G$1" x="99.06" y="104.14"/>
+<instance part="PORT180" gate="G$1" x="99.06" y="101.6"/>
+<instance part="PORT181" gate="G$1" x="99.06" y="96.52"/>
+<instance part="PORT183" gate="G$1" x="116.84" y="114.3" rot="MR0"/>
+<instance part="PORT184" gate="G$1" x="116.84" y="111.76" rot="MR0"/>
+<instance part="PORT185" gate="G$1" x="116.84" y="109.22" rot="MR0"/>
+<instance part="PORT186" gate="G$1" x="116.84" y="106.68" rot="MR0"/>
+<instance part="PORT187" gate="G$1" x="116.84" y="104.14" rot="MR0"/>
+<instance part="PORT188" gate="G$1" x="116.84" y="101.6" rot="MR0"/>
+<instance part="U$70" gate="G$1" x="60.96" y="147.32"/>
+<instance part="U$71" gate="G$1" x="53.34" y="147.32"/>
+<instance part="PORT190" gate="G$1" x="17.78" y="119.38" rot="MR0"/>
+<instance part="PORT191" gate="G$1" x="17.78" y="116.84" rot="MR0"/>
+<instance part="R58" gate="G$1" x="101.6" y="93.98"/>
+<instance part="U$72" gate="G$1" x="109.22" y="96.52"/>
+<instance part="PORT182" gate="G$1" x="12.7" y="111.76" rot="MR0"/>
+<instance part="U$73" gate="G$1" x="22.86" y="60.96"/>
+<instance part="R59" gate="G$1" x="25.4" y="106.68">
+<attribute name="TOLERANCE" x="25.4" y="106.68" size="1.778" layer="96"/>
+</instance>
+<instance part="U$74" gate="G$1" x="5.08" y="101.6"/>
+<instance part="U$75" gate="G$1" x="73.66" y="60.96"/>
+<instance part="U$76" gate="G$1" x="48.26" y="60.96"/>
+<instance part="X5" gate="P" x="27.94" y="86.36" rot="R270"/>
+<instance part="C71" gate="G$1" x="22.86" y="76.2"/>
+<instance part="C72" gate="G$1" x="17.78" y="76.2"/>
+<instance part="U7" gate="G$1" x="38.1" y="25.4"/>
+<instance part="U$77" gate="G$1" x="22.86" y="15.24"/>
+<instance part="U$78" gate="G$1" x="22.86" y="30.48"/>
+<instance part="PORT192" gate="G$1" x="17.78" y="101.6" rot="MR0"/>
+<instance part="PORT193" gate="G$1" x="17.78" y="99.06" rot="MR0"/>
+<instance part="PORT194" gate="G$1" x="17.78" y="96.52" rot="MR0"/>
+<instance part="R60" gate="G$1" x="60.96" y="20.32"/>
+<instance part="R61" gate="G$1" x="53.34" y="35.56" rot="R90"/>
+<instance part="R62" gate="G$1" x="58.42" y="35.56" rot="R90"/>
+<instance part="R63" gate="G$1" x="63.5" y="35.56" rot="R90"/>
+<instance part="U$79" gate="G$1" x="58.42" y="43.18"/>
+<instance part="PORT195" gate="G$1" x="78.74" y="27.94"/>
+<instance part="PORT196" gate="G$1" x="78.74" y="25.4"/>
+<instance part="PORT197" gate="G$1" x="78.74" y="22.86"/>
 </instances>
 <busses>
 <bus name="AFE1_DB[0..9]">
 <segment>
-<wire x1="200.66" y1="137.16" x2="200.66" y2="162.56" width="0.762" layer="92"/>
-<wire x1="200.66" y1="162.56" x2="203.2" y2="165.1" width="0.762" layer="92"/>
-<label x="203.2" y="149.86" size="1.778" layer="95"/>
+<wire x1="215.9" y1="114.3" x2="215.9" y2="139.7" width="0.762" layer="92"/>
+<wire x1="215.9" y1="139.7" x2="218.44" y2="142.24" width="0.762" layer="92"/>
+<label x="218.44" y="127" size="1.778" layer="95"/>
 </segment>
 </bus>
 <bus name="AFE2_DB[0..9]">
 <segment>
-<wire x1="200.66" y1="109.22" x2="200.66" y2="134.62" width="0.762" layer="92"/>
-<wire x1="200.66" y1="134.62" x2="203.2" y2="137.16" width="0.762" layer="92"/>
-<label x="203.2" y="116.84" size="1.778" layer="95"/>
+<wire x1="215.9" y1="86.36" x2="215.9" y2="111.76" width="0.762" layer="92"/>
+<wire x1="215.9" y1="111.76" x2="218.44" y2="114.3" width="0.762" layer="92"/>
+<label x="218.44" y="93.98" size="1.778" layer="95"/>
+</segment>
+</bus>
+<bus name="USBDB[0..7]">
+<segment>
+<wire x1="91.44" y1="119.38" x2="91.44" y2="139.7" width="0.762" layer="92"/>
+<wire x1="91.44" y1="139.7" x2="93.98" y2="142.24" width="0.762" layer="92"/>
+<wire x1="93.98" y1="142.24" x2="121.92" y2="142.24" width="0.762" layer="92"/>
+<wire x1="121.92" y1="142.24" x2="124.46" y2="139.7" width="0.762" layer="92"/>
+<wire x1="124.46" y1="139.7" x2="124.46" y2="119.38" width="0.762" layer="92"/>
 </segment>
 </bus>
 </busses>
@@ -24923,190 +25166,612 @@ Standard 8.5x11 US Letter frame</description>
 <net name="USB_CLK" class="0">
 <segment>
 <pinref part="U5" gate="G$1" pin="ACBUS5"/>
-<wire x1="73.66" y1="121.92" x2="78.74" y2="121.92" width="0.1524" layer="91"/>
-<label x="81.28" y="121.92" size="1.778" layer="95"/>
+<wire x1="83.82" y1="99.06" x2="88.9" y2="99.06" width="0.1524" layer="91"/>
+<label x="91.44" y="99.06" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="AFE1_DB0" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[0]/GEA2/IO76NDB5V0"/>
-<wire x1="200.66" y1="160.02" x2="198.12" y2="157.48" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="157.48" x2="193.04" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="137.16" x2="213.36" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="134.62" x2="208.28" y2="134.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB1" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[1]/GEB2/IO76PDB5V0"/>
-<wire x1="200.66" y1="157.48" x2="198.12" y2="154.94" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="154.94" x2="193.04" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="134.62" x2="213.36" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="132.08" x2="208.28" y2="132.08" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB2" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[2]/IO77NDB5V0"/>
-<wire x1="200.66" y1="154.94" x2="198.12" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="152.4" x2="193.04" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="132.08" x2="213.36" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="129.54" x2="208.28" y2="129.54" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB3" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[3]/GEC2/IO77PDB5V0"/>
-<wire x1="200.66" y1="152.4" x2="198.12" y2="149.86" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="149.86" x2="193.04" y2="149.86" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="129.54" x2="213.36" y2="127" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="127" x2="208.28" y2="127" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB4" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[4]/GEA0/IO78NPB5V0"/>
-<wire x1="200.66" y1="149.86" x2="198.12" y2="147.32" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="147.32" x2="193.04" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="127" x2="213.36" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="124.46" x2="208.28" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB5" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[5]/GEA1/IO78PPB5V0"/>
-<wire x1="200.66" y1="147.32" x2="198.12" y2="144.78" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="144.78" x2="193.04" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="124.46" x2="213.36" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="121.92" x2="208.28" y2="121.92" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB6" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[6]/GEB0/IO79NDB5V0"/>
-<wire x1="200.66" y1="144.78" x2="198.12" y2="142.24" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="142.24" x2="193.04" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="121.92" x2="213.36" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="119.38" x2="208.28" y2="119.38" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB7" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[7]/GEB1/IO79PDB5V0"/>
-<wire x1="200.66" y1="142.24" x2="198.12" y2="139.7" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="139.7" x2="193.04" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="119.38" x2="213.36" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="116.84" x2="208.28" y2="116.84" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB8" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[8]/GEC0/IO80NDB5V0"/>
-<wire x1="200.66" y1="139.7" x2="198.12" y2="137.16" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="137.16" x2="193.04" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="116.84" x2="213.36" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="114.3" x2="208.28" y2="114.3" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB9" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[9]/GEC1/IO80PDB5V0"/>
-<wire x1="200.66" y1="137.16" x2="198.12" y2="134.62" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="134.62" x2="193.04" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="114.3" x2="213.36" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="111.76" x2="208.28" y2="111.76" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE2_DB0" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[10]/IO86NPB5V0"/>
-<wire x1="200.66" y1="134.62" x2="198.12" y2="132.08" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="132.08" x2="193.04" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="111.76" x2="213.36" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="109.22" x2="208.28" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE2_DB1" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[11]/IO86PPB5V0"/>
-<wire x1="200.66" y1="132.08" x2="198.12" y2="129.54" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="129.54" x2="193.04" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="109.22" x2="213.36" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="106.68" x2="208.28" y2="106.68" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE2_DB2" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[12]/IO87NDB5V0"/>
-<wire x1="200.66" y1="129.54" x2="198.12" y2="127" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="127" x2="193.04" y2="127" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="106.68" x2="213.36" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="104.14" x2="208.28" y2="104.14" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE2_DB3" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[13]/GAC2/IO87PDB5V0"/>
-<wire x1="200.66" y1="127" x2="198.12" y2="124.46" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="124.46" x2="193.04" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="104.14" x2="213.36" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="101.6" x2="208.28" y2="101.6" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE2_DB4" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[14]/GAB2/IO88NDB5V0"/>
-<wire x1="200.66" y1="124.46" x2="198.12" y2="121.92" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="121.92" x2="193.04" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="101.6" x2="213.36" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="99.06" x2="208.28" y2="99.06" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE2_DB5" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[15]/GAA2/IO88PDB5V0"/>
-<wire x1="200.66" y1="121.92" x2="198.12" y2="119.38" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="119.38" x2="193.04" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="99.06" x2="213.36" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="96.52" x2="208.28" y2="96.52" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE2_DB6" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_OEN0_N/IO08NDB0V0"/>
-<wire x1="200.66" y1="116.84" x2="198.12" y2="114.3" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="114.3" x2="193.04" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="93.98" x2="213.36" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="91.44" x2="208.28" y2="91.44" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE2_DB7" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_OEN1_N/IO08PDB0V0"/>
-<wire x1="200.66" y1="114.3" x2="198.12" y2="111.76" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="111.76" x2="193.04" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="91.44" x2="213.36" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="88.9" x2="208.28" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE2_DB8" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_BYTEN[0]/GAC0/IO07NDB0V0"/>
-<wire x1="200.66" y1="111.76" x2="198.12" y2="109.22" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="109.22" x2="193.04" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="88.9" x2="213.36" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="86.36" x2="208.28" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE2_DB9" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_BYTEN[1]/GAC1/IO07PDB0V0"/>
-<wire x1="200.66" y1="109.22" x2="198.12" y2="106.68" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="106.68" x2="193.04" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="86.36" x2="213.36" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="83.82" x2="208.28" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="!AFE1_SHDN" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_CS0_N/GAB0/IO05NDB0V0"/>
-<wire x1="193.04" y1="104.14" x2="198.12" y2="104.14" width="0.1524" layer="91"/>
-<label x="200.66" y="104.14" size="1.778" layer="95"/>
+<wire x1="208.28" y1="81.28" x2="213.36" y2="81.28" width="0.1524" layer="91"/>
+<label x="215.9" y="81.28" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="!AFE2_SHDN" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_CS1_N/GAB1/IO05PDB0V0"/>
-<wire x1="193.04" y1="101.6" x2="198.12" y2="101.6" width="0.1524" layer="91"/>
-<label x="200.66" y="101.6" size="1.778" layer="95"/>
+<wire x1="208.28" y1="78.74" x2="213.36" y2="78.74" width="0.1524" layer="91"/>
+<label x="215.9" y="78.74" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="AFE1_T/!R" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_RW_N/GAA1/IO02PDB0V0"/>
-<wire x1="193.04" y1="99.06" x2="198.12" y2="99.06" width="0.1524" layer="91"/>
-<label x="200.66" y="99.06" size="1.778" layer="95"/>
+<wire x1="208.28" y1="76.2" x2="213.36" y2="76.2" width="0.1524" layer="91"/>
+<label x="215.9" y="76.2" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="AFE2_T/!R" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_CLK/GAA0/IO02NDB0V0"/>
-<wire x1="193.04" y1="93.98" x2="198.12" y2="93.98" width="0.1524" layer="91"/>
-<label x="200.66" y="93.98" size="1.778" layer="95"/>
+<wire x1="208.28" y1="71.12" x2="213.36" y2="71.12" width="0.1524" layer="91"/>
+<label x="215.9" y="71.12" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="!SPI1_SS_AFE1" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[24]/IO20NDB0V0"/>
-<wire x1="116.84" y1="96.52" x2="111.76" y2="96.52" width="0.1524" layer="91"/>
-<label x="109.22" y="96.52" size="1.778" layer="95" rot="MR0"/>
+<wire x1="132.08" y1="73.66" x2="127" y2="73.66" width="0.1524" layer="91"/>
+<label x="124.46" y="73.66" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
 <net name="!SPI1_SS_AFE2" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[25]/IO20PDB0V0"/>
-<wire x1="116.84" y1="93.98" x2="111.76" y2="93.98" width="0.1524" layer="91"/>
-<label x="109.22" y="93.98" size="1.778" layer="95" rot="MR0"/>
+<wire x1="132.08" y1="71.12" x2="127" y2="71.12" width="0.1524" layer="91"/>
+<label x="124.46" y="71.12" size="1.778" layer="95" rot="MR0"/>
+</segment>
+</net>
+<net name="USBDB7" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="ADBUS7"/>
+<wire x1="91.44" y1="119.38" x2="88.9" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="116.84" x2="83.82" y2="116.84" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[7]/IO12PDB0V0"/>
+<wire x1="124.46" y1="119.38" x2="127" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="127" y1="116.84" x2="132.08" y2="116.84" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="USBDB6" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="ADBUS6"/>
+<wire x1="91.44" y1="121.92" x2="88.9" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="119.38" x2="83.82" y2="119.38" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[6]/IO12NDB0V0"/>
+<wire x1="124.46" y1="121.92" x2="127" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="127" y1="119.38" x2="132.08" y2="119.38" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="USBDB5" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="ADBUS5"/>
+<wire x1="91.44" y1="124.46" x2="88.9" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="121.92" x2="83.82" y2="121.92" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[5]/IO10PDB0V0"/>
+<wire x1="124.46" y1="124.46" x2="127" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="127" y1="121.92" x2="132.08" y2="121.92" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="USBDB4" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="ADBUS4"/>
+<wire x1="91.44" y1="127" x2="88.9" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="124.46" x2="83.82" y2="124.46" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[4]/IO10NDB0V0"/>
+<wire x1="124.46" y1="127" x2="127" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="127" y1="124.46" x2="132.08" y2="124.46" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="USBDB3" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="ADBUS3"/>
+<wire x1="91.44" y1="129.54" x2="88.9" y2="127" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="127" x2="83.82" y2="127" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[3]/IO09PDB0V0"/>
+<wire x1="124.46" y1="129.54" x2="127" y2="127" width="0.1524" layer="91"/>
+<wire x1="127" y1="127" x2="132.08" y2="127" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="USBDB2" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="ADBUS2"/>
+<wire x1="91.44" y1="132.08" x2="88.9" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="129.54" x2="83.82" y2="129.54" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[1]/IO06PDB0V0"/>
+<wire x1="124.46" y1="132.08" x2="127" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="127" y1="129.54" x2="132.08" y2="129.54" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="USBDB1" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="ADBUS1"/>
+<wire x1="91.44" y1="134.62" x2="88.9" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="132.08" x2="83.82" y2="132.08" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[2]/IO09NDB0V0"/>
+<wire x1="124.46" y1="134.62" x2="127" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="127" y1="132.08" x2="132.08" y2="132.08" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="USBDB0" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="ADBUS0"/>
+<wire x1="91.44" y1="137.16" x2="88.9" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="134.62" x2="83.82" y2="134.62" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[0]/IO06NDB0V0"/>
+<wire x1="124.46" y1="137.16" x2="127" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="127" y1="134.62" x2="132.08" y2="134.62" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="!RXF" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="ACBUS0"/>
+<wire x1="83.82" y1="111.76" x2="88.9" y2="111.76" width="0.1524" layer="91"/>
+<label x="91.44" y="111.76" size="1.778" layer="97"/>
+</segment>
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[8]/IO13NDB0V0"/>
+<wire x1="132.08" y1="114.3" x2="127" y2="114.3" width="0.1524" layer="91"/>
+<label x="124.46" y="114.3" size="1.778" layer="97" rot="MR0"/>
+</segment>
+</net>
+<net name="!TXE" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="ACBUS1"/>
+<wire x1="83.82" y1="109.22" x2="88.9" y2="109.22" width="0.1524" layer="91"/>
+<label x="91.44" y="109.22" size="1.778" layer="97"/>
+</segment>
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[9]/IO13PDB0V0"/>
+<wire x1="132.08" y1="111.76" x2="127" y2="111.76" width="0.1524" layer="91"/>
+<label x="124.46" y="111.76" size="1.778" layer="97" rot="MR0"/>
+</segment>
+</net>
+<net name="!RD" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="ACBUS2"/>
+<wire x1="83.82" y1="106.68" x2="88.9" y2="106.68" width="0.1524" layer="91"/>
+<label x="91.44" y="106.68" size="1.778" layer="97"/>
+</segment>
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[10]/IO11NDB0V0"/>
+<wire x1="132.08" y1="109.22" x2="127" y2="109.22" width="0.1524" layer="91"/>
+<label x="124.46" y="109.22" size="1.778" layer="97" rot="MR0"/>
+</segment>
+</net>
+<net name="!WR" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="ACBUS3"/>
+<wire x1="83.82" y1="104.14" x2="88.9" y2="104.14" width="0.1524" layer="91"/>
+<label x="91.44" y="104.14" size="1.778" layer="97"/>
+</segment>
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[11]/IO11PDB0V0"/>
+<wire x1="132.08" y1="106.68" x2="127" y2="106.68" width="0.1524" layer="91"/>
+<label x="124.46" y="106.68" size="1.778" layer="97" rot="MR0"/>
+</segment>
+</net>
+<net name="!SIWU" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="ACBUS4"/>
+<wire x1="83.82" y1="101.6" x2="88.9" y2="101.6" width="0.1524" layer="91"/>
+<label x="91.44" y="101.6" size="1.778" layer="97"/>
+</segment>
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[12]/IO14NDB0V0"/>
+<wire x1="132.08" y1="104.14" x2="127" y2="104.14" width="0.1524" layer="91"/>
+<label x="124.46" y="104.14" size="1.778" layer="97" rot="MR0"/>
+</segment>
+</net>
+<net name="!OE" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="ACBUS6"/>
+<wire x1="83.82" y1="96.52" x2="88.9" y2="96.52" width="0.1524" layer="91"/>
+<label x="91.44" y="96.52" size="1.778" layer="97"/>
+</segment>
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[13]/IO14PDB0V0"/>
+<wire x1="132.08" y1="101.6" x2="127" y2="101.6" width="0.1524" layer="91"/>
+<label x="124.46" y="101.6" size="1.778" layer="97" rot="MR0"/>
+</segment>
+</net>
+<net name="!PWRSAV" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="ACBUS7"/>
+<label x="86.36" y="93.98" size="1.778" layer="97"/>
+<wire x1="83.82" y1="93.98" x2="96.52" y2="93.98" width="0.1524" layer="91"/>
+<pinref part="R58" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="D3V3" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="VCCIO@1"/>
+<wire x1="58.42" y1="142.24" x2="58.42" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="144.78" x2="60.96" y2="144.78" width="0.1524" layer="91"/>
+<pinref part="U5" gate="G$1" pin="VCCIO@3"/>
+<wire x1="60.96" y1="144.78" x2="63.5" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="144.78" x2="63.5" y2="142.24" width="0.1524" layer="91"/>
+<pinref part="U5" gate="G$1" pin="VCCIO@2"/>
+<wire x1="60.96" y1="142.24" x2="60.96" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="144.78" x2="60.96" y2="147.32" width="0.1524" layer="91"/>
+<pinref part="U$70" gate="G$1" pin="D3V3"/>
+<junction x="60.96" y="144.78"/>
+</segment>
+<segment>
+<pinref part="U7" gate="G$1" pin="VCC"/>
+<wire x1="25.4" y1="27.94" x2="22.86" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="27.94" x2="22.86" y2="30.48" width="0.1524" layer="91"/>
+<pinref part="U$78" gate="G$1" pin="D3V3"/>
+</segment>
+<segment>
+<pinref part="R61" gate="G$1" pin="2"/>
+<wire x1="53.34" y1="38.1" x2="53.34" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="40.64" x2="58.42" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="R62" gate="G$1" pin="2"/>
+<wire x1="58.42" y1="40.64" x2="58.42" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="40.64" x2="63.5" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="R63" gate="G$1" pin="2"/>
+<wire x1="63.5" y1="40.64" x2="63.5" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="40.64" x2="58.42" y2="43.18" width="0.1524" layer="91"/>
+<junction x="58.42" y="40.64"/>
+<pinref part="U$79" gate="G$1" pin="D3V3"/>
+</segment>
+</net>
+<net name="A3V3" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="VPHY"/>
+<wire x1="53.34" y1="142.24" x2="53.34" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="144.78" x2="55.88" y2="144.78" width="0.1524" layer="91"/>
+<pinref part="U5" gate="G$1" pin="VPLL"/>
+<wire x1="55.88" y1="144.78" x2="55.88" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="144.78" x2="53.34" y2="147.32" width="0.1524" layer="91"/>
+<pinref part="U$71" gate="G$1" pin="A3V3"/>
+<junction x="53.34" y="144.78"/>
+</segment>
+</net>
+<net name="USBDM" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="DM"/>
+<wire x1="33.02" y1="119.38" x2="27.94" y2="119.38" width="0.1524" layer="91"/>
+<label x="25.4" y="119.38" size="1.778" layer="97" rot="MR0"/>
+</segment>
+</net>
+<net name="USBDP" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="DP"/>
+<wire x1="33.02" y1="116.84" x2="27.94" y2="116.84" width="0.1524" layer="91"/>
+<label x="25.4" y="116.84" size="1.778" layer="97" rot="MR0"/>
+</segment>
+</net>
+<net name="VBAT" class="0">
+<segment>
+<pinref part="R58" gate="G$1" pin="2"/>
+<wire x1="104.14" y1="93.98" x2="109.22" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="93.98" x2="109.22" y2="96.52" width="0.1524" layer="91"/>
+<pinref part="U$72" gate="G$1" pin="VBAT"/>
+</segment>
+</net>
+<net name="!USB_RESET" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="!RESET"/>
+<wire x1="33.02" y1="111.76" x2="27.94" y2="111.76" width="0.1524" layer="91"/>
+<label x="25.4" y="111.76" size="1.778" layer="97" rot="MR0"/>
+</segment>
+</net>
+<net name="DGND" class="0">
+<segment>
+<pinref part="U$73" gate="G$1" pin="DGND"/>
+<pinref part="C71" gate="G$1" pin="2"/>
+<wire x1="22.86" y1="71.12" x2="22.86" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="C72" gate="G$1" pin="2"/>
+<wire x1="22.86" y1="68.58" x2="22.86" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="71.12" x2="17.78" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="68.58" x2="22.86" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="68.58" x2="27.94" y2="68.58" width="0.1524" layer="91"/>
+<junction x="22.86" y="68.58"/>
+</segment>
+<segment>
+<pinref part="R59" gate="G$1" pin="1"/>
+<wire x1="20.32" y1="106.68" x2="5.08" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="5.08" y1="106.68" x2="5.08" y2="104.14" width="0.1524" layer="91"/>
+<pinref part="U$74" gate="G$1" pin="DGND"/>
+</segment>
+<segment>
+<pinref part="U5" gate="G$1" pin="GND@1"/>
+<wire x1="55.88" y1="68.58" x2="55.88" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="66.04" x2="58.42" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="U5" gate="G$1" pin="GND@8"/>
+<wire x1="58.42" y1="66.04" x2="60.96" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="66.04" x2="63.5" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="66.04" x2="66.04" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="66.04" x2="68.58" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="66.04" x2="71.12" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="71.12" y1="66.04" x2="73.66" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="66.04" x2="73.66" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="U5" gate="G$1" pin="GND@2"/>
+<wire x1="58.42" y1="68.58" x2="58.42" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="U5" gate="G$1" pin="GND@3"/>
+<wire x1="60.96" y1="68.58" x2="60.96" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="U5" gate="G$1" pin="GND@4"/>
+<wire x1="63.5" y1="68.58" x2="63.5" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="U5" gate="G$1" pin="GND@5"/>
+<wire x1="66.04" y1="68.58" x2="66.04" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="U5" gate="G$1" pin="GND@6"/>
+<wire x1="68.58" y1="68.58" x2="68.58" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="U5" gate="G$1" pin="GND@7"/>
+<wire x1="71.12" y1="68.58" x2="71.12" y2="66.04" width="0.1524" layer="91"/>
+<junction x="58.42" y="66.04"/>
+<junction x="63.5" y="66.04"/>
+<junction x="60.96" y="66.04"/>
+<junction x="66.04" y="66.04"/>
+<junction x="68.58" y="66.04"/>
+<junction x="71.12" y="66.04"/>
+<pinref part="U$75" gate="G$1" pin="DGND"/>
+<wire x1="73.66" y1="66.04" x2="73.66" y2="63.5" width="0.1524" layer="91"/>
+<junction x="73.66" y="66.04"/>
+</segment>
+<segment>
+<pinref part="U7" gate="G$1" pin="GND"/>
+<wire x1="25.4" y1="20.32" x2="22.86" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="20.32" x2="22.86" y2="17.78" width="0.1524" layer="91"/>
+<pinref part="U$77" gate="G$1" pin="DGND"/>
+</segment>
+</net>
+<net name="N$23" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="REF"/>
+<wire x1="33.02" y1="106.68" x2="27.94" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="R59" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="AGND" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="AGND@3"/>
+<wire x1="53.34" y1="68.58" x2="53.34" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="66.04" x2="50.8" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="U5" gate="G$1" pin="AGND@1"/>
+<wire x1="50.8" y1="66.04" x2="48.26" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="66.04" x2="48.26" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="U5" gate="G$1" pin="AGND@2"/>
+<wire x1="50.8" y1="68.58" x2="50.8" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="66.04" x2="48.26" y2="63.5" width="0.1524" layer="91"/>
+<pinref part="U$76" gate="G$1" pin="AGND"/>
+<junction x="48.26" y="66.04"/>
+<junction x="50.8" y="66.04"/>
+</segment>
+</net>
+<net name="N$21" class="0">
+<segment>
+<pinref part="X5" gate="P" pin="1"/>
+<wire x1="27.94" y1="88.9" x2="27.94" y2="91.44" width="0.1524" layer="91"/>
+<pinref part="U5" gate="G$1" pin="XCSI"/>
+<wire x1="27.94" y1="91.44" x2="33.02" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="91.44" x2="17.78" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="91.44" x2="17.78" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="C72" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="N$24" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="XCSO"/>
+<wire x1="33.02" y1="81.28" x2="27.94" y2="81.28" width="0.1524" layer="91"/>
+<pinref part="X5" gate="P" pin="2"/>
+<wire x1="27.94" y1="81.28" x2="27.94" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="81.28" x2="22.86" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="81.28" x2="22.86" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="C71" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="N$27" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="TEST"/>
+<wire x1="33.02" y1="76.2" x2="27.94" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="76.2" x2="27.94" y2="68.58" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="EECS" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="EECS"/>
+<wire x1="27.94" y1="101.6" x2="33.02" y2="101.6" width="0.1524" layer="91"/>
+<label x="25.4" y="101.6" size="1.778" layer="97" rot="MR0"/>
+</segment>
+<segment>
+<pinref part="U7" gate="G$1" pin="CS"/>
+<wire x1="50.8" y1="27.94" x2="63.5" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="27.94" x2="63.5" y2="30.48" width="0.1524" layer="91"/>
+<pinref part="R63" gate="G$1" pin="1"/>
+<junction x="63.5" y="27.94"/>
+<wire x1="63.5" y1="27.94" x2="68.58" y2="27.94" width="0.1524" layer="91"/>
+<label x="71.12" y="27.94" size="1.778" layer="97"/>
+</segment>
+</net>
+<net name="EECLK" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="EECLK"/>
+<wire x1="27.94" y1="99.06" x2="33.02" y2="99.06" width="0.1524" layer="91"/>
+<label x="25.4" y="99.06" size="1.778" layer="97" rot="MR0"/>
+</segment>
+<segment>
+<pinref part="U7" gate="G$1" pin="CLK"/>
+<wire x1="50.8" y1="25.4" x2="58.42" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="25.4" x2="68.58" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="25.4" x2="58.42" y2="30.48" width="0.1524" layer="91"/>
+<pinref part="R62" gate="G$1" pin="1"/>
+<junction x="58.42" y="25.4"/>
+<label x="71.12" y="25.4" size="1.778" layer="97"/>
+</segment>
+</net>
+<net name="EEDATA" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="EEDATA"/>
+<wire x1="27.94" y1="96.52" x2="33.02" y2="96.52" width="0.1524" layer="91"/>
+<label x="25.4" y="96.52" size="1.778" layer="97" rot="MR0"/>
+</segment>
+<segment>
+<pinref part="U7" gate="G$1" pin="DI"/>
+<wire x1="50.8" y1="22.86" x2="66.04" y2="22.86" width="0.1524" layer="91"/>
+<pinref part="R60" gate="G$1" pin="2"/>
+<wire x1="66.04" y1="22.86" x2="68.58" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="20.32" x2="66.04" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="20.32" x2="66.04" y2="22.86" width="0.1524" layer="91"/>
+<junction x="66.04" y="22.86"/>
+<label x="71.12" y="22.86" size="1.778" layer="97"/>
+</segment>
+</net>
+<net name="N$53" class="0">
+<segment>
+<pinref part="U7" gate="G$1" pin="DO"/>
+<wire x1="50.8" y1="20.32" x2="53.34" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="R60" gate="G$1" pin="1"/>
+<wire x1="53.34" y1="20.32" x2="55.88" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="20.32" x2="53.34" y2="30.48" width="0.1524" layer="91"/>
+<pinref part="R61" gate="G$1" pin="1"/>
+<junction x="53.34" y="20.32"/>
 </segment>
 </net>
 </nets>
@@ -26928,6 +27593,10 @@ Standard 8.5x11 US Letter frame</description>
 <text x="66.04" y="25.4" size="2.54" layer="97">CLK OUT SMA connector</text>
 <text x="27.94" y="71.12" size="2.54" layer="97">USB connector</text>
 <rectangle x1="167.64" y1="68.58" x2="180.34" y2="132.08" layer="97"/>
+<text x="43.18" y="152.4" size="2.54" layer="97">UART placeholder (FTDI instead?)</text>
+<rectangle x1="45.72" y1="162.56" x2="58.42" y2="175.26" layer="97"/>
+<text x="215.9" y="139.7" size="2.54" layer="97">I2C, SPI, UART</text>
+<rectangle x1="193.04" y1="132.08" x2="210.82" y2="147.32" layer="97"/>
 </plain>
 <instances>
 <instance part="J2" gate="G$1" x="200.66" y="114.3"/>
