@@ -24284,8 +24284,6 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <part name="PORT241" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT242" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="U$106" library="MainBoard" deviceset="D3V3" device=""/>
-<part name="U$107" library="MainBoard" deviceset="D3V3" device=""/>
-<part name="R84" library="MainBoard" deviceset="R" device="0603" value="1.5k"/>
 <part name="R85" library="MainBoard" deviceset="R" device="0603" value="1.5k"/>
 <part name="PORT240" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT243" library="MainBoard" deviceset="PORT7" device=""/>
@@ -24300,6 +24298,8 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <part name="C85" library="MainBoard" deviceset="C" device="0603" value="0.1uF"/>
 <part name="U$110" library="MainBoard" deviceset="DGND" device=""/>
 <part name="PORT247" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT248" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT249" library="MainBoard" deviceset="PORT7" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -25659,14 +25659,15 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <text x="61.595" y="136.525" size="1.778" layer="97">NC</text>
 <text x="61.595" y="116.205" size="1.778" layer="97">NC</text>
 <text x="61.595" y="113.665" size="1.778" layer="97">NC</text>
-<rectangle x1="12.7" y1="106.68" x2="17.78" y2="121.92" layer="98"/>
-<wire x1="269.24" y1="101.6" x2="129.54" y2="101.6" width="0.1524" layer="97" style="shortdash"/>
+<wire x1="284.48" y1="101.6" x2="129.54" y2="101.6" width="0.1524" layer="97" style="shortdash"/>
 <wire x1="129.54" y1="101.6" x2="129.54" y2="40.64" width="0.1524" layer="97" style="shortdash"/>
-<wire x1="129.54" y1="40.64" x2="269.24" y2="40.64" width="0.1524" layer="97" style="shortdash"/>
-<wire x1="269.24" y1="40.64" x2="269.24" y2="101.6" width="0.1524" layer="97" style="shortdash"/>
+<wire x1="129.54" y1="40.64" x2="284.48" y2="40.64" width="0.1524" layer="97" style="shortdash"/>
+<wire x1="284.48" y1="40.64" x2="284.48" y2="101.6" width="0.1524" layer="97" style="shortdash"/>
 <rectangle x1="223.52" y1="58.42" x2="233.68" y2="81.28" layer="97"/>
 <rectangle x1="241.3" y1="58.42" x2="251.46" y2="81.28" layer="97"/>
 <rectangle x1="254" y1="58.42" x2="264.16" y2="81.28" layer="97"/>
+<rectangle x1="43.18" y1="106.68" x2="53.34" y2="109.22" layer="98"/>
+<text x="33.02" y="106.68" size="1.778" layer="98">Pull-up?</text>
 </plain>
 <instances>
 <instance part="U6" gate="G$1" x="91.44" y="119.38"/>
@@ -25739,8 +25740,6 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <instance part="PORT241" gate="G$1" x="27.94" y="121.92" rot="MR0"/>
 <instance part="PORT242" gate="G$1" x="27.94" y="119.38" rot="MR0"/>
 <instance part="U$106" gate="G$1" x="20.32" y="137.16"/>
-<instance part="U$107" gate="G$1" x="15.24" y="119.38"/>
-<instance part="R84" gate="G$1" x="15.24" y="114.3" rot="R90"/>
 <instance part="R85" gate="G$1" x="20.32" y="132.08" rot="R90"/>
 <instance part="PORT240" gate="G$1" x="45.72" y="93.98" rot="MR0"/>
 <instance part="PORT243" gate="G$1" x="45.72" y="96.52" rot="MR0"/>
@@ -25755,6 +25754,7 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <instance part="C85" gate="G$1" x="259.08" y="71.12"/>
 <instance part="U$110" gate="G$1" x="259.08" y="58.42"/>
 <instance part="PORT247" gate="G$1" x="259.08" y="88.9" rot="R90"/>
+<instance part="PORT248" gate="G$1" x="45.72" y="106.68" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -25985,11 +25985,6 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <pinref part="U$106" gate="G$1" pin="D3V3"/>
 <wire x1="20.32" y1="134.62" x2="20.32" y2="137.16" width="0.1524" layer="91"/>
 </segment>
-<segment>
-<pinref part="U$107" gate="G$1" pin="D3V3"/>
-<pinref part="R84" gate="G$1" pin="2"/>
-<wire x1="15.24" y1="119.38" x2="15.24" y2="116.84" width="0.1524" layer="91"/>
-</segment>
 </net>
 <net name="LED_ETH_ACT" class="0">
 <segment>
@@ -26103,6 +26098,7 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <segment>
 <pinref part="U6" gate="G$1" pin="MDC"/>
 <wire x1="66.04" y1="162.56" x2="60.96" y2="162.56" width="0.1524" layer="91"/>
+<label x="58.42" y="162.56" size="1.778" layer="97" rot="MR0"/>
 </segment>
 </net>
 <net name="MAC_MDIO" class="0">
@@ -26114,6 +26110,7 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <segment>
 <pinref part="U6" gate="G$1" pin="MDIO"/>
 <wire x1="66.04" y1="165.1" x2="60.96" y2="165.1" width="0.1524" layer="91"/>
+<label x="58.42" y="165.1" size="1.778" layer="97" rot="MR0"/>
 </segment>
 </net>
 <net name="MAC_TXEN" class="0">
@@ -26125,6 +26122,7 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <segment>
 <pinref part="R83" gate="G$1" pin="1"/>
 <wire x1="48.26" y1="144.78" x2="43.18" y2="144.78" width="0.1524" layer="91"/>
+<label x="40.64" y="144.78" size="1.778" layer="97" rot="MR0"/>
 </segment>
 </net>
 <net name="MAC_TXD0" class="0">
@@ -26136,6 +26134,7 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <segment>
 <pinref part="R82" gate="G$1" pin="1"/>
 <wire x1="48.26" y1="142.24" x2="43.18" y2="142.24" width="0.1524" layer="91"/>
+<label x="40.64" y="142.24" size="1.778" layer="97" rot="MR0"/>
 </segment>
 </net>
 <net name="MAC_TXD1" class="0">
@@ -26147,6 +26146,7 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <segment>
 <pinref part="R81" gate="G$1" pin="1"/>
 <wire x1="48.26" y1="139.7" x2="43.18" y2="139.7" width="0.1524" layer="91"/>
+<label x="40.64" y="139.7" size="1.778" layer="97" rot="MR0"/>
 </segment>
 </net>
 <net name="MAC_CRS" class="0">
@@ -26158,6 +26158,7 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <segment>
 <pinref part="U6" gate="G$1" pin="CRS/CRS_DV/LED_CFG"/>
 <wire x1="66.04" y1="157.48" x2="60.96" y2="157.48" width="0.1524" layer="91"/>
+<label x="58.42" y="157.48" size="1.778" layer="97" rot="MR0"/>
 </segment>
 </net>
 <net name="MAC_RXER" class="0">
@@ -26169,6 +26170,7 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <segment>
 <pinref part="R78" gate="G$1" pin="1"/>
 <wire x1="48.26" y1="127" x2="43.18" y2="127" width="0.1524" layer="91"/>
+<label x="40.64" y="127" size="1.778" layer="97" rot="MR0"/>
 </segment>
 </net>
 <net name="MAC_RXD0" class="0">
@@ -26176,6 +26178,11 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <pinref part="U1" gate="-ETHERNET-MAC" pin="MAC_RXD[0]/IO63RSB4V0"/>
 <wire x1="119.38" y1="30.48" x2="124.46" y2="30.48" width="0.1524" layer="91"/>
 <label x="127" y="30.48" size="1.778" layer="97"/>
+</segment>
+<segment>
+<pinref part="R79" gate="G$1" pin="1"/>
+<wire x1="48.26" y1="121.92" x2="43.18" y2="121.92" width="0.1524" layer="91"/>
+<label x="40.64" y="121.92" size="1.778" layer="97" rot="MR0"/>
 </segment>
 </net>
 <net name="MAC_RXD1" class="0">
@@ -26187,16 +26194,14 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <segment>
 <pinref part="R80" gate="G$1" pin="1"/>
 <wire x1="43.18" y1="119.38" x2="48.26" y2="119.38" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="R79" gate="G$1" pin="1"/>
-<wire x1="48.26" y1="121.92" x2="43.18" y2="121.92" width="0.1524" layer="91"/>
+<label x="40.64" y="119.38" size="1.778" layer="97" rot="MR0"/>
 </segment>
 </net>
 <net name="MAC_COL" class="0">
 <segment>
 <pinref part="U6" gate="G$1" pin="COL/PHYAD0"/>
 <wire x1="66.04" y1="154.94" x2="60.96" y2="154.94" width="0.1524" layer="91"/>
+<label x="58.42" y="154.94" size="1.778" layer="97" rot="MR0"/>
 </segment>
 </net>
 <net name="N$56" class="0">
@@ -26249,12 +26254,11 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <wire x1="66.04" y1="119.38" x2="55.88" y2="119.38" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$63" class="0">
+<net name="ETH_PWDN" class="0">
 <segment>
 <pinref part="U6" gate="G$1" pin="PWR_DOWN/INT"/>
-<wire x1="66.04" y1="106.68" x2="15.24" y2="106.68" width="0.1524" layer="91"/>
-<wire x1="15.24" y1="106.68" x2="15.24" y2="109.22" width="0.1524" layer="91"/>
-<pinref part="R84" gate="G$1" pin="1"/>
+<wire x1="66.04" y1="106.68" x2="60.96" y2="106.68" width="0.1524" layer="91"/>
+<label x="58.42" y="106.68" size="1.778" layer="97" rot="MR0"/>
 </segment>
 </net>
 <net name="PFBIN1" class="0">
@@ -26325,6 +26329,7 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <rectangle x1="20.32" y1="81.28" x2="33.02" y2="88.9" layer="97"/>
 <text x="15.24" y="78.74" size="1.778" layer="97">Capacitance value\</text>
 <text x="53.34" y="17.78" size="2.54" layer="97">EEPROM</text>
+<rectangle x1="114.3" y1="86.36" x2="132.08" y2="88.9" layer="98"/>
 </plain>
 <instances>
 <instance part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" x="177.8" y="114.3"/>
@@ -26381,6 +26386,7 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <instance part="PORT195" gate="G$1" x="96.52" y="38.1"/>
 <instance part="PORT196" gate="G$1" x="96.52" y="35.56"/>
 <instance part="PORT197" gate="G$1" x="96.52" y="33.02"/>
+<instance part="PORT249" gate="G$1" x="119.38" y="86.36" rot="MR0"/>
 </instances>
 <busses>
 <bus name="AFE1_DB[0..9]">
@@ -27017,6 +27023,13 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <wire x1="71.12" y1="30.48" x2="71.12" y2="40.64" width="0.1524" layer="91"/>
 <pinref part="R61" gate="G$1" pin="1"/>
 <junction x="71.12" y="30.48"/>
+</segment>
+</net>
+<net name="ETH_PWDN" class="0">
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[23]/IO19PDB0V0"/>
+<wire x1="139.7" y1="86.36" x2="134.62" y2="86.36" width="0.1524" layer="91"/>
+<label x="132.08" y="86.36" size="1.778" layer="97" rot="MR0"/>
 </segment>
 </net>
 </nets>
