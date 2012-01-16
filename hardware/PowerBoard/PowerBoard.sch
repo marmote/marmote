@@ -1871,7 +1871,7 @@ Source: &lt;p&gt;
 <wire x1="0" y1="5.08" x2="0" y2="0" width="0.254" layer="94"/>
 <wire x1="0" y1="0" x2="83.82" y2="0" width="0.254" layer="94"/>
 <wire x1="83.82" y1="0" x2="83.82" y2="5.08" width="0.254" layer="94"/>
-<text x="1.27" y="11.43" size="2.54" layer="94">Verified by:</text>
+<text x="1.27" y="11.43" size="2.54" layer="94">Reviewed by:</text>
 <text x="1.27" y="26.67" size="2.54" layer="94">Designed by:</text>
 </symbol>
 <symbol name="D3V3_STM">
@@ -2829,7 +2829,7 @@ Battery supply voltage after current sense circuit</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="FRATME-AUTHOR-FIELD">
+<deviceset name="FRAME-AUTHOR-FIELD">
 <description>Schematic Author Field</description>
 <gates>
 <gate name="G$1" symbol="AUTHOR-FIELD" x="0" y="0"/>
@@ -23023,10 +23023,10 @@ v1.0 Initial design</description>
 <attribute name="PAGE3" value="Current Monitor"/>
 <attribute name="PAGE4" value="Caps, Pulls and Misc"/>
 <attribute name="PAGE5" value="Connector"/>
+<attribute name="REVIEWER" value="Benjamin Babjak"/>
+<attribute name="REVIEWEREMAIL" value="benjamin.babjak@vanderbilt.edu"/>
 <attribute name="REVISION" value="B"/>
 <attribute name="TITLE" value="Power Board"/>
-<attribute name="VERIFIER" value="Peter Volgyesi"/>
-<attribute name="VERIFIEREMAIL" value="peter.volgyesi@vanderbilt.edu"/>
 </attributes>
 <variantdefs>
 </variantdefs>
@@ -23036,7 +23036,7 @@ v1.0 Initial design</description>
 </classes>
 <parts>
 <part name="FRAME5" library="powerboard" deviceset="FRAME-LETTER" device=""/>
-<part name="AUTHOR-FIELD" library="powerboard" deviceset="FRATME-AUTHOR-FIELD" device=""/>
+<part name="AUTHOR-FIELD" library="powerboard" deviceset="FRAME-AUTHOR-FIELD" device=""/>
 <part name="TOC-FIELD" library="powerboard" deviceset="FRAME-TOC" device=""/>
 <part name="LOGO1" library="Logo" deviceset="LOGO-ISIS-600MIL" device="-10MM-CU"/>
 <part name="LOGO2" library="Logo" deviceset="LOGO-VANDERBILT-600MIL" device="-10MM-CU"/>
@@ -23427,8 +23427,8 @@ v1.0 Initial design</description>
 <text x="187.96" y="20.32" size="5.08" layer="97">&gt;PAGE1</text>
 <text x="161.29" y="20.32" size="2.54" layer="95" rot="MR0">&gt;AUTHOREMAIL</text>
 <text x="85.09" y="20.32" size="2.54" layer="95">&gt;AUTHOR</text>
-<text x="85.09" y="5.08" size="2.54" layer="95">&gt;VERIFIER</text>
-<text x="161.29" y="5.08" size="2.54" layer="95" rot="MR0">&gt;VERIFIEREMAIL</text>
+<text x="85.09" y="5.08" size="2.54" layer="95">&gt;REVIEWER</text>
+<text x="161.29" y="5.08" size="2.54" layer="95" rot="MR0">&gt;REVIEWEREMAIL</text>
 </plain>
 <instances>
 <instance part="FRAME5" gate="G$1" x="0" y="0"/>
@@ -25673,7 +25673,7 @@ v1.0 Initial design</description>
 <instance part="PORT83" gate="G$1" x="165.1" y="147.32" rot="MR0"/>
 <instance part="PORT87" gate="G$1" x="223.52" y="149.86"/>
 <instance part="PORT88" gate="G$1" x="223.52" y="147.32"/>
-<instance part="U$64" gate="G$1" x="208.28" y="157.48"/>
+<instance part="U$64" gate="G$1" x="210.82" y="111.76"/>
 <instance part="PORT94" gate="G$1" x="223.52" y="137.16"/>
 <instance part="PORT95" gate="G$1" x="223.52" y="134.62"/>
 <instance part="PORT96" gate="G$1" x="223.52" y="132.08"/>
@@ -25707,7 +25707,7 @@ v1.0 Initial design</description>
 <instance part="PORT119" gate="G$1" x="223.52" y="53.34"/>
 <instance part="PORT120" gate="G$1" x="223.52" y="50.8"/>
 <instance part="PORT89" gate="G$1" x="165.1" y="124.46" rot="MR0"/>
-<instance part="U$4" gate="G$1" x="180.34" y="157.48"/>
+<instance part="U$4" gate="G$1" x="177.8" y="111.76"/>
 <instance part="U15" gate="G$1" x="53.34" y="99.06"/>
 <instance part="J4" gate="G$1" x="116.84" y="96.52"/>
 <instance part="J3" gate="G$1" x="40.64" y="55.88"/>
@@ -25799,30 +25799,32 @@ v1.0 Initial design</description>
 <pinref part="J4" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<wire x1="180.34" y1="160.02" x2="185.42" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="177.8" y1="114.3" x2="177.8" y2="116.84" width="0.1524" layer="91"/>
+<pinref part="U$4" gate="G$1" pin="DGND"/>
 <wire x1="187.96" y1="152.4" x2="185.42" y2="152.4" width="0.1524" layer="91"/>
 <wire x1="185.42" y1="139.7" x2="185.42" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="185.42" y1="160.02" x2="185.42" y2="152.4" width="0.1524" layer="91"/>
 <wire x1="185.42" y1="139.7" x2="187.96" y2="139.7" width="0.1524" layer="91"/>
-<pinref part="U$4" gate="G$1" pin="DGND"/>
 <pinref part="J6" gate="G$1" pin="1"/>
 <pinref part="J6" gate="G$1" pin="11"/>
-<junction x="185.42" y="152.4"/>
+<wire x1="185.42" y1="139.7" x2="185.42" y2="116.84" width="0.1524" layer="91"/>
+<junction x="185.42" y="139.7"/>
+<wire x1="177.8" y1="116.84" x2="185.42" y2="116.84" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="208.28" y1="160.02" x2="203.2" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="210.82" y1="114.3" x2="210.82" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="210.82" y1="116.84" x2="203.2" y2="116.84" width="0.1524" layer="91"/>
 <pinref part="U$64" gate="G$1" pin="DGND"/>
-<wire x1="203.2" y1="160.02" x2="203.2" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="200.66" y1="152.4" x2="203.2" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="203.2" y1="127" x2="203.2" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="203.2" y1="116.84" x2="203.2" y2="127" width="0.1524" layer="91"/>
 <wire x1="203.2" y1="139.7" x2="203.2" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="200.66" y1="139.7" x2="203.2" y2="139.7" width="0.1524" layer="91"/>
-<junction x="203.2" y="139.7"/>
+<wire x1="200.66" y1="152.4" x2="203.2" y2="152.4" width="0.1524" layer="91"/>
 <pinref part="J6" gate="G$1" pin="2"/>
 <pinref part="J6" gate="G$1" pin="12"/>
+<wire x1="200.66" y1="139.7" x2="203.2" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="203.2" y1="127" x2="203.2" y2="139.7" width="0.1524" layer="91"/>
 <pinref part="J6" gate="G$1" pin="22"/>
 <wire x1="200.66" y1="127" x2="203.2" y2="127" width="0.1524" layer="91"/>
-<junction x="203.2" y="152.4"/>
+<junction x="203.2" y="139.7"/>
+<junction x="203.2" y="127"/>
 </segment>
 <segment>
 <wire x1="35.56" y1="93.98" x2="40.64" y2="93.98" width="0.1524" layer="91"/>
