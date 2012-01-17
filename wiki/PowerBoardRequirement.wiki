@@ -18,6 +18,7 @@
    * GPIO pinout
    * I^2^C bus pin locations
    * SPI bus pin locations
+ * The reset jumper/button should be accessible from the side, when the board is stacked
  * All the requirements from Rev A (see below)   
 
 == Rev A ==
