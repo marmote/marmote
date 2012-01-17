@@ -216,6 +216,15 @@ uint8_t USB_SendMsg(char* msg, uint8_t length)
     return 0; // SUCCESS
 }
 
+uint8_t USB_SendString(char* msg)
+{
+	uint8_t length;
+	
+	length = strlen(msg);
+	return USB_SendMsg(msg, length);
+}
+
+
 uint8_t USB_GetTxLength()
 {
     return USB_Tx_Length;
