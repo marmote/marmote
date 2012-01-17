@@ -1392,7 +1392,7 @@ MSOP&lt;br&gt;
 <wire x1="0" y1="5.08" x2="0" y2="0" width="0.254" layer="94"/>
 <wire x1="0" y1="0" x2="83.82" y2="0" width="0.254" layer="94"/>
 <wire x1="83.82" y1="0" x2="83.82" y2="5.08" width="0.254" layer="94"/>
-<text x="1.27" y="11.43" size="2.54" layer="94">Verified by:</text>
+<text x="1.27" y="11.43" size="2.54" layer="94">Reviewed by:</text>
 <text x="1.27" y="26.67" size="2.54" layer="94">Designed by:</text>
 </symbol>
 <symbol name="CON-2X42">
@@ -2050,7 +2050,7 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <gate name="G$1" symbol="CON-2X42" x="0" y="2.54"/>
 </gates>
 <devices>
-<device name="84-BOT" package="71742-3003-BOT">
+<device name="-3003-BOT" package="71742-3003-BOT">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="10" pad="10"/>
@@ -2138,12 +2138,7 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <connect gate="G$1" pin="9" pad="9"/>
 </connects>
 <technologies>
-<technology name="-21">
-<attribute name="DIGI-KEY#" value="WM3499CT-ND"/>
-<attribute name="MATED-STACKING-HEIGHT" value="13mm, 15mm"/>
-<attribute name="MF" value="Molex"/>
-<attribute name="MPN" value="71742-3003"/>
-</technology>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -24729,12 +24724,12 @@ v1.0 Initial design</description>
 <attribute name="PAGE3" value="Analog Signals"/>
 <attribute name="PAGE4" value="Control/Digital Signals"/>
 <attribute name="PAGE5" value="Supply"/>
+<attribute name="REVIEWER1" value="Peter Volgyesi"/>
+<attribute name="REVIEWER2" value="Sandor Szilvasi"/>
+<attribute name="REVIEWEREMAIL1" value="peter.volgyesi@vanderbilt.edu"/>
+<attribute name="REVIEWEREMAIL2" value="sandor.szilvasi@vanderbilt.edu"/>
 <attribute name="REVISION" value="A"/>
 <attribute name="TITLE" value="Radio Front-End Board"/>
-<attribute name="VERIFIER1" value="Peter Volgyesi"/>
-<attribute name="VERIFIER2" value="Sandor Szilvasi"/>
-<attribute name="VERIFIEREMAIL1" value="peter.volgyesi@vanderbilt.edu"/>
-<attribute name="VERIFIEREMAIL2" value="sandor.szilvasi@vanderbilt.edu"/>
 </attributes>
 <variantdefs>
 </variantdefs>
@@ -24751,7 +24746,7 @@ v1.0 Initial design</description>
 <part name="M2" library="RFWBBoard" deviceset="MOUNT-HOLE" device="3.3"/>
 <part name="M3" library="RFWBBoard" deviceset="MOUNT-HOLE" device="3.3"/>
 <part name="M4" library="RFWBBoard" deviceset="MOUNT-HOLE" device="3.3"/>
-<part name="J1" library="RFWBBoard" deviceset="CON-71742" device="84-BOT" technology="-21"/>
+<part name="J1" library="RFWBBoard" deviceset="CON-71742" device="-3003-BOT"/>
 <part name="FRAME3" library="RFWBBoard" deviceset="FRAME-LETTER" device=""/>
 <part name="U1" library="RFWBBoard" deviceset="MAX2830" device="IPC-7351"/>
 <part name="FRAME4" library="RFWBBoard" deviceset="FRAME-LETTER" device=""/>
@@ -24889,11 +24884,11 @@ v1.0 Initial design</description>
 <text x="187.96" y="20.32" size="5.08" layer="97">&gt;PAGE1</text>
 <text x="163.83" y="20.32" size="2.54" layer="95" rot="MR0">&gt;AUTHOREMAIL</text>
 <text x="82.55" y="20.32" size="2.54" layer="95">&gt;AUTHOR</text>
-<text x="82.55" y="7.62" size="2.54" layer="95">&gt;VERIFIER1</text>
-<text x="163.83" y="7.62" size="2.54" layer="95" rot="MR0">&gt;VERIFIEREMAIL1</text>
+<text x="82.55" y="7.62" size="2.54" layer="95">&gt;REVIEWER1</text>
+<text x="163.83" y="7.62" size="2.54" layer="95" rot="MR0">&gt;REVIEWEREMAIL1</text>
 <text x="83.82" y="93.98" size="5.08" layer="97">for the Marmote platform</text>
-<text x="82.55" y="2.54" size="2.54" layer="95">&gt;VERIFIER2</text>
-<text x="163.83" y="2.54" size="2.54" layer="95" rot="MR0">&gt;VERIFIEREMAIL2</text>
+<text x="82.55" y="2.54" size="2.54" layer="95">&gt;REVIEWER2</text>
+<text x="163.83" y="2.54" size="2.54" layer="95" rot="MR0">&gt;REVIEWEREMAIL2</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>

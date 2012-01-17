@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.1" altunitdist="mm" altunit="mm"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
@@ -1516,7 +1516,7 @@ MSOP&lt;br&gt;
 <wire x1="0" y1="5.08" x2="0" y2="0" width="0.254" layer="94"/>
 <wire x1="0" y1="0" x2="83.82" y2="0" width="0.254" layer="94"/>
 <wire x1="83.82" y1="0" x2="83.82" y2="5.08" width="0.254" layer="94"/>
-<text x="1.27" y="11.43" size="2.54" layer="94">Verified by:</text>
+<text x="1.27" y="11.43" size="2.54" layer="94">Reviewed by:</text>
 <text x="1.27" y="26.67" size="2.54" layer="94">Designed by:</text>
 </symbol>
 <symbol name="FRAME-LETTER-L">
@@ -2338,7 +2338,7 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <gate name="G$1" symbol="CON-2X42" x="0" y="0"/>
 </gates>
 <devices>
-<device name="84-TOP" package="71741-0002">
+<device name="-0002-TOP" package="71741-0002">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="10" pad="10"/>
@@ -2426,106 +2426,7 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <connect gate="G$1" pin="9" pad="9"/>
 </connects>
 <technologies>
-<technology name="-21">
-<attribute name="DIGI-KEY#" value="WM3498CT-ND"/>
-<attribute name="MF" value="Molex" constant="no"/>
-<attribute name="MPN" value="71741-0002"/>
-</technology>
-</technologies>
-</device>
-<device name="84-BOT" package="71742-3003-BOT">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="10" pad="10"/>
-<connect gate="G$1" pin="11" pad="11"/>
-<connect gate="G$1" pin="12" pad="12"/>
-<connect gate="G$1" pin="13" pad="13"/>
-<connect gate="G$1" pin="14" pad="14"/>
-<connect gate="G$1" pin="15" pad="15"/>
-<connect gate="G$1" pin="16" pad="16"/>
-<connect gate="G$1" pin="17" pad="17"/>
-<connect gate="G$1" pin="18" pad="18"/>
-<connect gate="G$1" pin="19" pad="19"/>
-<connect gate="G$1" pin="2" pad="2"/>
-<connect gate="G$1" pin="20" pad="20"/>
-<connect gate="G$1" pin="21" pad="21"/>
-<connect gate="G$1" pin="22" pad="22"/>
-<connect gate="G$1" pin="23" pad="23"/>
-<connect gate="G$1" pin="24" pad="24"/>
-<connect gate="G$1" pin="25" pad="25"/>
-<connect gate="G$1" pin="26" pad="26"/>
-<connect gate="G$1" pin="27" pad="27"/>
-<connect gate="G$1" pin="28" pad="28"/>
-<connect gate="G$1" pin="29" pad="29"/>
-<connect gate="G$1" pin="3" pad="3"/>
-<connect gate="G$1" pin="30" pad="30"/>
-<connect gate="G$1" pin="31" pad="31"/>
-<connect gate="G$1" pin="32" pad="32"/>
-<connect gate="G$1" pin="33" pad="33"/>
-<connect gate="G$1" pin="34" pad="34"/>
-<connect gate="G$1" pin="35" pad="35"/>
-<connect gate="G$1" pin="36" pad="36"/>
-<connect gate="G$1" pin="37" pad="37"/>
-<connect gate="G$1" pin="38" pad="38"/>
-<connect gate="G$1" pin="39" pad="39"/>
-<connect gate="G$1" pin="4" pad="4"/>
-<connect gate="G$1" pin="40" pad="40"/>
-<connect gate="G$1" pin="41" pad="41"/>
-<connect gate="G$1" pin="42" pad="42"/>
-<connect gate="G$1" pin="43" pad="43"/>
-<connect gate="G$1" pin="44" pad="44"/>
-<connect gate="G$1" pin="45" pad="45"/>
-<connect gate="G$1" pin="46" pad="46"/>
-<connect gate="G$1" pin="47" pad="47"/>
-<connect gate="G$1" pin="48" pad="48"/>
-<connect gate="G$1" pin="49" pad="49"/>
-<connect gate="G$1" pin="5" pad="5"/>
-<connect gate="G$1" pin="50" pad="50"/>
-<connect gate="G$1" pin="51" pad="51"/>
-<connect gate="G$1" pin="52" pad="52"/>
-<connect gate="G$1" pin="53" pad="53"/>
-<connect gate="G$1" pin="54" pad="54"/>
-<connect gate="G$1" pin="55" pad="55"/>
-<connect gate="G$1" pin="56" pad="56"/>
-<connect gate="G$1" pin="57" pad="57"/>
-<connect gate="G$1" pin="58" pad="58"/>
-<connect gate="G$1" pin="59" pad="59"/>
-<connect gate="G$1" pin="6" pad="6"/>
-<connect gate="G$1" pin="60" pad="60"/>
-<connect gate="G$1" pin="61" pad="61"/>
-<connect gate="G$1" pin="62" pad="62"/>
-<connect gate="G$1" pin="63" pad="63"/>
-<connect gate="G$1" pin="64" pad="64"/>
-<connect gate="G$1" pin="65" pad="65"/>
-<connect gate="G$1" pin="66" pad="66"/>
-<connect gate="G$1" pin="67" pad="67"/>
-<connect gate="G$1" pin="68" pad="68"/>
-<connect gate="G$1" pin="69" pad="69"/>
-<connect gate="G$1" pin="7" pad="7"/>
-<connect gate="G$1" pin="70" pad="70"/>
-<connect gate="G$1" pin="71" pad="71"/>
-<connect gate="G$1" pin="72" pad="72"/>
-<connect gate="G$1" pin="73" pad="73"/>
-<connect gate="G$1" pin="74" pad="74"/>
-<connect gate="G$1" pin="75" pad="75"/>
-<connect gate="G$1" pin="76" pad="76"/>
-<connect gate="G$1" pin="77" pad="77"/>
-<connect gate="G$1" pin="78" pad="78"/>
-<connect gate="G$1" pin="79" pad="79"/>
-<connect gate="G$1" pin="8" pad="8"/>
-<connect gate="G$1" pin="80" pad="80"/>
-<connect gate="G$1" pin="81" pad="81"/>
-<connect gate="G$1" pin="82" pad="82"/>
-<connect gate="G$1" pin="83" pad="83"/>
-<connect gate="G$1" pin="84" pad="84"/>
-<connect gate="G$1" pin="9" pad="9"/>
-</connects>
-<technologies>
-<technology name="-21">
-<attribute name="DIGI-KEY#" value="WM3499CT-ND" constant="no"/>
-<attribute name="MF" value="Molex" constant="no"/>
-<attribute name="MPN" value="71742-3003" constant="no"/>
-</technology>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -2540,7 +2441,7 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <gate name="G$1" symbol="CON-2X42" x="0" y="2.54"/>
 </gates>
 <devices>
-<device name="84-BOT" package="71742-3003-BOT">
+<device name="-3003-BOT" package="71742-3003-BOT">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="10" pad="10"/>
@@ -2628,12 +2529,7 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <connect gate="G$1" pin="9" pad="9"/>
 </connects>
 <technologies>
-<technology name="-21">
-<attribute name="DIGI-KEY#" value="WM3499CT-ND"/>
-<attribute name="MATED-STACKING-HEIGHT" value="13mm, 15mm"/>
-<attribute name="MF" value="Molex"/>
-<attribute name="MPN" value="71742-3003"/>
-</technology>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
