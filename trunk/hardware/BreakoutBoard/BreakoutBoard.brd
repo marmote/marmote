@@ -19,9 +19,9 @@
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
@@ -187,6 +187,11 @@
 <text x="54" y="22" size="1.27" layer="22" font="vector" rot="MR0">Copyright c 2012</text>
 <circle x="42.8" y="22.45" radius="0.85" width="0.127" layer="22"/>
 <text x="59" y="20" size="1.27" layer="22" font="vector" rot="MR0">Vanderbilt University, ISIS</text>
+<text x="51" y="24.7" size="1.27" layer="21" font="vector" rot="R90">A1V5</text>
+<text x="61" y="24.7" size="1.27" layer="21" font="vector" rot="R90">A3V3</text>
+<text x="41" y="24.7" size="1.27" layer="21" font="vector" rot="R90">D1V5</text>
+<text x="31" y="24.7" size="1.27" layer="21" font="vector" rot="R90">D3V3</text>
+<text x="21" y="24.7" size="1.27" layer="21" font="vector" rot="R90">VSUP</text>
 </plain>
 <libraries>
 <library name="powerboard">
