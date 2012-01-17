@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.05" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="2" fill="3" visible="no" active="no"/>
@@ -302,22 +302,6 @@ Small fiducial for automated assembly
 </package>
 </packages>
 <symbols>
-<symbol name="AUTHOR-FIELD">
-<wire x1="0" y1="5.08" x2="0" y2="10.16" width="0.254" layer="94"/>
-<wire x1="83.82" y1="10.16" x2="83.82" y2="5.08" width="0.254" layer="94"/>
-<wire x1="0" y1="10.16" x2="0" y2="15.24" width="0.254" layer="94"/>
-<wire x1="83.82" y1="30.48" x2="0" y2="30.48" width="0.254" layer="94"/>
-<wire x1="83.82" y1="30.48" x2="83.82" y2="15.24" width="0.254" layer="94"/>
-<wire x1="0" y1="15.24" x2="58.42" y2="15.24" width="0.254" layer="94"/>
-<wire x1="58.42" y1="15.24" x2="83.82" y2="15.24" width="0.254" layer="94"/>
-<wire x1="0" y1="15.24" x2="0" y2="30.48" width="0.254" layer="94"/>
-<wire x1="83.82" y1="15.24" x2="83.82" y2="10.16" width="0.254" layer="94"/>
-<wire x1="0" y1="5.08" x2="0" y2="0" width="0.254" layer="94"/>
-<wire x1="0" y1="0" x2="83.82" y2="0" width="0.254" layer="94"/>
-<wire x1="83.82" y1="0" x2="83.82" y2="5.08" width="0.254" layer="94"/>
-<text x="1.27" y="11.43" size="2.54" layer="94">Verified by:</text>
-<text x="1.27" y="26.67" size="2.54" layer="94">Designed by:</text>
-</symbol>
 <symbol name="MOUNT-HOLE">
 <wire x1="0" y1="1.27" x2="1.27" y2="0" width="1.524" layer="94" curve="-90" cap="flat"/>
 <wire x1="-1.27" y1="0" x2="0" y2="-1.27" width="1.524" layer="94" curve="90" cap="flat"/>
@@ -370,19 +354,6 @@ Small fiducial for automated assembly
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="FRATME-AUTHOR-FIELD">
-<description>Schematic Author Field</description>
-<gates>
-<gate name="G$1" symbol="AUTHOR-FIELD" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="MOUNT-HOLE" prefix="M">
 <description>&lt;b&gt;MOUNTING HOLE&lt;/b&gt; with drill center marker</description>
 <gates>
@@ -29178,6 +29149,22 @@ Source: &lt;p&gt;
 <text x="-2.54" y="10.16" size="1.27" layer="95">&gt;NAME</text>
 <text x="-2.54" y="-21.59" size="1.27" layer="96">&gt;VALUE</text>
 </symbol>
+<symbol name="AUTHOR-FIELD">
+<wire x1="0" y1="5.08" x2="0" y2="10.16" width="0.254" layer="94"/>
+<wire x1="83.82" y1="10.16" x2="83.82" y2="5.08" width="0.254" layer="94"/>
+<wire x1="0" y1="10.16" x2="0" y2="15.24" width="0.254" layer="94"/>
+<wire x1="83.82" y1="30.48" x2="0" y2="30.48" width="0.254" layer="94"/>
+<wire x1="83.82" y1="30.48" x2="83.82" y2="15.24" width="0.254" layer="94"/>
+<wire x1="0" y1="15.24" x2="58.42" y2="15.24" width="0.254" layer="94"/>
+<wire x1="58.42" y1="15.24" x2="83.82" y2="15.24" width="0.254" layer="94"/>
+<wire x1="0" y1="15.24" x2="0" y2="30.48" width="0.254" layer="94"/>
+<wire x1="83.82" y1="15.24" x2="83.82" y2="10.16" width="0.254" layer="94"/>
+<wire x1="0" y1="5.08" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="83.82" y2="0" width="0.254" layer="94"/>
+<wire x1="83.82" y1="0" x2="83.82" y2="5.08" width="0.254" layer="94"/>
+<text x="1.27" y="11.43" size="2.54" layer="94">Reviewed by:</text>
+<text x="1.27" y="26.67" size="2.54" layer="94">Designed by:</text>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="PORT2" prefix="PORT">
@@ -29724,6 +29711,19 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </device>
 </devices>
 </deviceset>
+<deviceset name="FRAME-AUTHOR-FIELD">
+<description>Schematic Author Field</description>
+<gates>
+<gate name="G$1" symbol="AUTHOR-FIELD" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -29734,10 +29734,10 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <attribute name="PAGE1" value="Cover Page"/>
 <attribute name="PAGE2" value="General Breakout"/>
 <attribute name="PAGE3" value="Power Board Specific"/>
+<attribute name="REVIEWER" value="Peter Volgyesi"/>
+<attribute name="REVIEWEREMAIL" value="peter.volgyesi@vanderbilt.edu"/>
 <attribute name="REVISION" value="B"/>
 <attribute name="TITLE" value="Breakout Board"/>
-<attribute name="VERIFIER" value="Peter Volgyesi"/>
-<attribute name="VERIFIEREMAIL" value="peter.volgyesi@vanderbilt.edu"/>
 </attributes>
 <variantdefs>
 </variantdefs>
@@ -29747,7 +29747,6 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </classes>
 <parts>
 <part name="FRAME5" library="powerboard" deviceset="FRAME-LETTER" device=""/>
-<part name="AUTHOR-FIELD" library="powerboard" deviceset="FRATME-AUTHOR-FIELD" device=""/>
 <part name="TOC-FIELD" library="BreakoutBoard" deviceset="FRAME-TOC" device=""/>
 <part name="LOGO1" library="Logo" deviceset="LOGO-ISIS-600MIL" device="-10MM-AU"/>
 <part name="LOGO2" library="Logo" deviceset="LOGO-VANDERBILT-600MIL" device="-10MM-AU"/>
@@ -30120,6 +30119,7 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <part name="PORT148" library="BreakoutBoard" deviceset="PORT2" device=""/>
 <part name="PORT149" library="BreakoutBoard" deviceset="PORT2" device=""/>
 <part name="J6" library="BreakoutBoard" deviceset="CON-2X11-RASTER" device=""/>
+<part name="U$14" library="BreakoutBoard" deviceset="FRAME-AUTHOR-FIELD" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -30130,18 +30130,18 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <text x="187.96" y="20.32" size="5.08" layer="97">&gt;PAGE1</text>
 <text x="161.29" y="20.32" size="2.54" layer="95" rot="MR0">&gt;AUTHOREMAIL</text>
 <text x="85.09" y="20.32" size="2.54" layer="95">&gt;AUTHOR</text>
-<text x="85.09" y="5.08" size="2.54" layer="95">&gt;VERIFIER</text>
-<text x="161.29" y="5.08" size="2.54" layer="95" rot="MR0">&gt;VERIFIEREMAIL</text>
+<text x="85.09" y="5.08" size="2.54" layer="95">&gt;REVIEWER</text>
+<text x="161.29" y="5.08" size="2.54" layer="95" rot="MR0">&gt;REVIEWEREMAIL</text>
 </plain>
 <instances>
 <instance part="FRAME5" gate="G$1" x="0" y="0"/>
 <instance part="FRAME5" gate="G$2" x="147.32" y="0"/>
-<instance part="AUTHOR-FIELD" gate="G$1" x="81.28" y="0"/>
 <instance part="TOC-FIELD" gate="G$1" x="0" y="0"/>
 <instance part="LOGO1" gate="G$1" x="104.14" y="60.96"/>
 <instance part="LOGO2" gate="G$1" x="78.74" y="60.96"/>
 <instance part="LOGO3" gate="G$1" x="129.54" y="60.96"/>
 <instance part="LOGO4" gate="G$1" x="154.94" y="60.96"/>
+<instance part="U$14" gate="G$1" x="81.28" y="0"/>
 </instances>
 <busses>
 </busses>
@@ -32339,40 +32339,11 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="TP5" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="60" class="0">
-<segment>
-<wire x1="152.4" y1="149.86" x2="157.48" y2="149.86" width="0.1524" layer="91"/>
-<wire x1="157.48" y1="149.86" x2="162.56" y2="149.86" width="0.1524" layer="91"/>
-<wire x1="157.48" y1="154.94" x2="157.48" y2="149.86" width="0.1524" layer="91"/>
-<junction x="157.48" y="149.86"/>
-<label x="144.78" y="149.86" size="1.778" layer="95"/>
-<pinref part="R16" gate="G$1" pin="1"/>
-<pinref part="TP7" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="62" class="0">
-<segment>
-<wire x1="157.48" y1="109.22" x2="162.56" y2="109.22" width="0.1524" layer="91"/>
-<wire x1="157.48" y1="114.3" x2="157.48" y2="109.22" width="0.1524" layer="91"/>
-<wire x1="157.48" y1="109.22" x2="152.4" y2="109.22" width="0.1524" layer="91"/>
-<junction x="157.48" y="109.22"/>
-<label x="144.78" y="109.22" size="1.778" layer="95"/>
-<pinref part="R21" gate="G$1" pin="1"/>
-<pinref part="TP9" gate="G$1" pin="1"/>
-</segment>
-</net>
 <net name="2" class="0">
 <segment>
 <wire x1="83.82" y1="25.4" x2="78.74" y2="25.4" width="0.1524" layer="91"/>
 <label x="73.66" y="25.4" size="1.778" layer="95"/>
 <pinref part="R32" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="64" class="0">
-<segment>
-<wire x1="119.38" y1="25.4" x2="114.3" y2="25.4" width="0.1524" layer="91"/>
-<label x="109.22" y="25.4" size="1.778" layer="95"/>
-<pinref part="R34" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="AGND" class="0">
@@ -32419,18 +32390,47 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="U$5" gate="G$1" pin="AGND"/>
 </segment>
 </net>
-<net name="63" class="0">
+<net name="1" class="0">
+<segment>
+<wire x1="83.82" y1="33.02" x2="78.74" y2="33.02" width="0.1524" layer="91"/>
+<label x="73.66" y="33.02" size="1.778" layer="95"/>
+<pinref part="R31" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="80" class="0">
+<segment>
+<wire x1="152.4" y1="149.86" x2="157.48" y2="149.86" width="0.1524" layer="91"/>
+<wire x1="157.48" y1="149.86" x2="162.56" y2="149.86" width="0.1524" layer="91"/>
+<wire x1="157.48" y1="154.94" x2="157.48" y2="149.86" width="0.1524" layer="91"/>
+<junction x="157.48" y="149.86"/>
+<label x="144.78" y="149.86" size="1.778" layer="95"/>
+<pinref part="R16" gate="G$1" pin="1"/>
+<pinref part="TP7" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="82" class="0">
+<segment>
+<wire x1="157.48" y1="109.22" x2="162.56" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="157.48" y1="114.3" x2="157.48" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="157.48" y1="109.22" x2="152.4" y2="109.22" width="0.1524" layer="91"/>
+<junction x="157.48" y="109.22"/>
+<label x="144.78" y="109.22" size="1.778" layer="95"/>
+<pinref part="R21" gate="G$1" pin="1"/>
+<pinref part="TP9" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="83" class="0">
 <segment>
 <wire x1="119.38" y1="33.02" x2="114.3" y2="33.02" width="0.1524" layer="91"/>
 <label x="109.22" y="33.02" size="1.778" layer="95"/>
 <pinref part="R33" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="1" class="0">
+<net name="84" class="0">
 <segment>
-<wire x1="83.82" y1="33.02" x2="78.74" y2="33.02" width="0.1524" layer="91"/>
-<label x="73.66" y="33.02" size="1.778" layer="95"/>
-<pinref part="R31" gate="G$1" pin="1"/>
+<wire x1="119.38" y1="25.4" x2="114.3" y2="25.4" width="0.1524" layer="91"/>
+<label x="109.22" y="25.4" size="1.778" layer="95"/>
+<pinref part="R34" gate="G$1" pin="1"/>
 </segment>
 </net>
 </nets>
