@@ -42,18 +42,20 @@
 
 volatile uint32_t msTicks;                       /* timeTicks counter */
 uint32_t ctr;
-int16_t sampleValue;
 
 void SysTick_Handler(void) {
 	msTicks++;                                     /* increment timeTicks counter */
 	if (msTicks % 500 == 0)
 	{
-		LED_Toggle(LED1);
-		ctr++;		
-	}
-	if (msTicks % 50 == 0)
-	{				  	
-		sampleValue++;
+		if (LED1_Enabled)
+		{
+			LED_Toggle(LED1);
+		}
+		else
+		{
+			LED_Off(LED1);
+		}
+		ctr++;
 	}
 }
 

@@ -174,7 +174,7 @@ void Logger_Init(void)
 	TIM_ARRPreloadConfig(TIM2, ENABLE);
 							
     // Enable interrupt at peripheral level
-	TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);
+	//TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);
 
 	// Enable Peripheral
 	TIM_Cmd(TIM2, ENABLE);
