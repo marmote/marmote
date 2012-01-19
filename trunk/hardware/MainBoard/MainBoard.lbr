@@ -4095,12 +4095,12 @@ Source: &lt;a href="http://www.ck-components.com/index.php?module=media&amp;acti
 <pin name="LPXOUT" x="-20.32" y="-15.24" length="middle" direction="pas"/>
 <pin name="MAINXIN" x="-20.32" y="10.16" length="middle" direction="pas"/>
 <pin name="MAINXOUT" x="-20.32" y="0" length="middle" direction="pas"/>
-<pin name="NCAP" x="20.32" y="-7.62" length="middle" direction="pas" rot="R180"/>
-<pin name="PCAP" x="20.32" y="-12.7" length="middle" direction="pas" rot="R180"/>
-<pin name="PTBASE" x="20.32" y="5.08" length="middle" direction="pas" rot="R180"/>
-<pin name="PTEM" x="20.32" y="2.54" length="middle" direction="pas" rot="R180"/>
-<pin name="PU_N" x="20.32" y="10.16" length="middle" direction="pas" rot="R180"/>
-<pin name="MSS_RESET_N" x="20.32" y="-2.54" length="middle" direction="pas" rot="R180"/>
+<pin name="NCAP" x="20.32" y="-15.24" length="middle" direction="pas" rot="R180"/>
+<pin name="PCAP" x="20.32" y="-7.62" length="middle" direction="pas" rot="R180"/>
+<pin name="PTBASE" x="20.32" y="5.08" length="middle" direction="out" rot="R180"/>
+<pin name="PTEM" x="20.32" y="2.54" length="middle" direction="in" rot="R180"/>
+<pin name="PU_N" x="20.32" y="10.16" length="middle" direction="in" rot="R180"/>
+<pin name="MSS_RESET_N" x="20.32" y="-2.54" length="middle" direction="oc" rot="R180"/>
 </symbol>
 <symbol name="A2F500M3G-ADC-DAC">
 <wire x1="-12.7" y1="-40.64" x2="-12.7" y2="30.48" width="0.254" layer="94"/>
@@ -5354,18 +5354,20 @@ Clock oscillator with output enable.</description>
 <pin name="1" x="-5.08" y="0" visible="off" length="point" direction="pas" swaplevel="1"/>
 </symbol>
 <symbol name="L">
-<wire x1="0" y1="5.08" x2="1.27" y2="3.81" width="0.254" layer="94" curve="-90"/>
-<wire x1="0" y1="2.54" x2="1.27" y2="3.81" width="0.254" layer="94" curve="90"/>
-<wire x1="0" y1="2.54" x2="1.27" y2="1.27" width="0.254" layer="94" curve="-90"/>
-<wire x1="0" y1="0" x2="1.27" y2="1.27" width="0.254" layer="94" curve="90"/>
-<wire x1="0" y1="0" x2="1.27" y2="-1.27" width="0.254" layer="94" curve="-90"/>
-<wire x1="0" y1="-2.54" x2="1.27" y2="-1.27" width="0.254" layer="94" curve="90"/>
-<wire x1="0" y1="-2.54" x2="1.27" y2="-3.81" width="0.254" layer="94" curve="-90"/>
-<wire x1="0" y1="-5.08" x2="1.27" y2="-3.81" width="0.254" layer="94" curve="90"/>
+<description>&lt;b&gt;Bead&lt;/b&gt;</description>
+<wire x1="0" y1="3.81" x2="1.27" y2="2.54" width="0.254" layer="94" curve="-90"/>
+<wire x1="0" y1="1.27" x2="1.27" y2="2.54" width="0.254" layer="94" curve="90"/>
+<wire x1="0" y1="1.27" x2="1.27" y2="0" width="0.254" layer="94" curve="-90"/>
+<wire x1="0" y1="-1.27" x2="1.27" y2="0" width="0.254" layer="94" curve="90"/>
+<wire x1="0" y1="-1.27" x2="1.27" y2="-2.54" width="0.254" layer="94" curve="-90"/>
+<wire x1="0" y1="-3.81" x2="1.27" y2="-2.54" width="0.254" layer="94" curve="90"/>
 <text x="-1.27" y="-5.08" size="1.778" layer="95" rot="R90">&gt;NAME</text>
-<text x="3.81" y="-5.08" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
-<pin name="2" x="0" y="-7.62" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
-<pin name="1" x="0" y="7.62" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
+<text x="5.08" y="-6.35" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="2" x="0" y="-5.08" visible="off" length="point" direction="pas" swaplevel="1" rot="R90"/>
+<pin name="1" x="0" y="5.08" visible="off" length="point" direction="pas" swaplevel="1" rot="R270"/>
+<wire x1="0" y1="5.08" x2="0" y2="3.81" width="0.254" layer="94"/>
+<wire x1="0" y1="-5.08" x2="0" y2="-3.81" width="0.254" layer="94"/>
+<wire x1="1.905" y1="3.81" x2="1.905" y2="-3.81" width="0.254" layer="94"/>
 </symbol>
 <symbol name="FRAME-LETTER-L">
 <wire x1="0" y1="185.42" x2="248.92" y2="185.42" width="0.4064" layer="94"/>
@@ -8378,9 +8380,18 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
-<technology name="">
+<technology name="-BLM18EG601SN1D">
+<attribute name="CURRENT-RATING" value="0.5 A"/>
+<attribute name="DIGI-KEY#" value="490-3994-2-ND"/>
+<attribute name="IMPEDANCE" value="600 Ohm @ 100 MHz"/>
+<attribute name="MF" value="Murata"/>
+<attribute name="MPN" value="BLM18EG601SN1D"/>
+</technology>
+<technology name="-BLM18SG700TN1D">
+<attribute name="CURRENT-RATING" value="4 A"/>
 <attribute name="DIGI-KEY#" value="490-5224-1-ND"/>
-<attribute name="MF" value="Murata" constant="no"/>
+<attribute name="IMPEDANCE" value="70 Ohm @ 100 MHz"/>
+<attribute name="MF" value="Murata"/>
 <attribute name="MPN" value="BLM18SG700TN1D"/>
 </technology>
 </technologies>
@@ -8405,7 +8416,7 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 </device>
 </devices>
 </deviceset>
-<deviceset name="DS1818">
+<deviceset name="DS1818" prefix="U">
 <description>&lt;b&gt;DS1818 Reset IC&lt;/b&gt;
 &lt;p&gt;
 Dallas 3.3V EconoReset with Pushbutton
