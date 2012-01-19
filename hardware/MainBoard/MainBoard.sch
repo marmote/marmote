@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.0">
+<eagle version="6.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="dots" multiple="1" display="yes" altdistance="0.05" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="2" fill="3" visible="no" active="no"/>
@@ -55,7 +55,7 @@
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
-<layer number="93" name="Pins" color="2" fill="1" visible="no" active="yes"/>
+<layer number="93" name="Pins" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="94" name="Symbols" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="95" name="Names" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
@@ -127,7 +127,7 @@
 <layer number="205" name="205bmp" color="6" fill="10" visible="yes" active="yes"/>
 <layer number="206" name="206bmp" color="7" fill="10" visible="yes" active="yes"/>
 <layer number="207" name="207bmp" color="8" fill="10" visible="yes" active="yes"/>
-<layer number="208" name="208bmp" color="9" fill="10" visible="yes" active="yes"/>
+<layer number="208" name="208bmp" color="9" fill="10" visible="no" active="yes"/>
 <layer number="216" name="SMD16" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="250" name="Descript" color="3" fill="1" visible="no" active="no"/>
 <layer number="251" name="SMDround" color="12" fill="11" visible="no" active="no"/>
@@ -22182,6 +22182,20 @@ Source: &lt;a href="http://ww1.microchip.com/downloads/en/DeviceDoc/21794F.pdf"&
 <pin name="2" x="0" y="-7.62" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
 <pin name="1" x="0" y="7.62" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
 </symbol>
+<symbol name="DS1818">
+<description>&lt;b&gt;DS1818 Reset IC&lt;/b&gt;
+&lt;p&gt;
+Dallas 3.3V EconoReset with Pushbutton
+&lt;p&gt;
+Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://datasheets.maxim-ic.com/en/ds/DS1818.pdf&lt;/a&gt;</description>
+<pin name="VCC" x="-12.7" y="2.54" length="middle" direction="pwr"/>
+<pin name="GND" x="-12.7" y="-2.54" length="middle" direction="pwr"/>
+<pin name="!RST" x="12.7" y="0" length="middle" direction="oc" rot="R180"/>
+<wire x1="-7.62" y1="5.08" x2="7.62" y2="5.08" width="0.254" layer="94"/>
+<wire x1="7.62" y1="5.08" x2="7.62" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-5.08" x2="-7.62" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-5.08" x2="-7.62" y2="5.08" width="0.254" layer="94"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="DGND">
@@ -23600,6 +23614,45 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 </device>
 </devices>
 </deviceset>
+<deviceset name="DS1818">
+<description>&lt;b&gt;DS1818 Reset IC&lt;/b&gt;
+&lt;p&gt;
+Dallas 3.3V EconoReset with Pushbutton
+&lt;p&gt;
+Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://datasheets.maxim-ic.com/en/ds/DS1818.pdf&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="DS1818" x="0" y="0"/>
+</gates>
+<devices>
+<device name="-SOT-23" package="SOT23-3L">
+<connects>
+<connect gate="G$1" pin="!RST" pad="1"/>
+<connect gate="G$1" pin="GND" pad="3"/>
+<connect gate="G$1" pin="VCC" pad="2"/>
+</connects>
+<technologies>
+<technology name="-10">
+<attribute name="DIGI-KEY#" value="DS1818R-10+CT-ND"/>
+<attribute name="MF" value="Maxim"/>
+<attribute name="MPN" value="DS1818R-10+T&amp;R"/>
+<attribute name="TRIP-POINT" value="2.88 V"/>
+</technology>
+<technology name="-20">
+<attribute name="DIGI-KEY#" value="DS1818R-20+CT-ND"/>
+<attribute name="MF" value="Maxim"/>
+<attribute name="MPN" value="DS1818R-20+T&amp;R"/>
+<attribute name="TRIP-POINT" value="2.55 V"/>
+</technology>
+<technology name="-5">
+<attribute name="DIGI-KEY#" value="DS1818R-5+CT-ND"/>
+<attribute name="MF" value="Maxim"/>
+<attribute name="MPN" value="DS1818R-5+T&amp;R"/>
+<attribute name="TRIP-POINT" value="3.06 V"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -24334,6 +24387,19 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <part name="C88" library="MainBoard" deviceset="C" device="0603" value="0.1uF"/>
 <part name="U$110" library="MainBoard" deviceset="DGND" device=""/>
 <part name="C89" library="MainBoard" deviceset="C" device="0603" value="0.1uF"/>
+<part name="U$112" library="MainBoard" deviceset="DS1818" device="-SOT-23" technology="-10"/>
+<part name="U$113" library="MainBoard" deviceset="D3V3" device=""/>
+<part name="U$114" library="MainBoard" deviceset="DGND" device=""/>
+<part name="U$115" library="MainBoard" deviceset="DGND" device=""/>
+<part name="C90" library="MainBoard" deviceset="C" device="0603">
+<attribute name="DNP" value="ON"/>
+</part>
+<part name="R91" library="MainBoard" deviceset="R" device="0603" value="10k"/>
+<part name="U$116" library="MainBoard" deviceset="D3V3" device=""/>
+<part name="R92" library="MainBoard" deviceset="R" device="0603"/>
+<part name="PORT243" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="U$117" library="MainBoard" deviceset="DGND" device=""/>
+<part name="PORT244" library="MainBoard" deviceset="PORT7" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -25499,8 +25565,10 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <text x="75.565" y="52.705" size="1.778" layer="97">NC</text>
 <rectangle x1="81.28" y1="144.78" x2="104.14" y2="152.4" layer="97"/>
 <rectangle x1="81.28" y1="154.94" x2="104.14" y2="157.48" layer="97"/>
-<rectangle x1="137.16" y1="73.66" x2="220.98" y2="160.02" layer="97"/>
 <text x="157.48" y="58.42" size="2.54" layer="97">Reset logic placeholder</text>
+<rectangle x1="177.8" y1="134.62" x2="185.42" y2="142.24" layer="97"/>
+<text x="177.8" y="142.24" size="1.778" layer="97" rot="R90">DS1818 5.5k internal pull-up</text>
+<text x="180.34" y="142.24" size="1.778" layer="97" rot="R90">should be sufficient</text>
 </plain>
 <instances>
 <instance part="U1" gate="-MISC" x="78.74" y="144.78"/>
@@ -25526,6 +25594,19 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <instance part="FRAME2" gate="G$1" x="0" y="0"/>
 <instance part="FRAME2" gate="G$2" x="165.1" y="0"/>
 <instance part="PORT189" gate="G$1" x="160.02" y="86.36" rot="MR0"/>
+<instance part="U$112" gate="G$1" x="165.1" y="132.08"/>
+<instance part="U$113" gate="G$1" x="147.32" y="144.78"/>
+<instance part="U$114" gate="G$1" x="147.32" y="119.38"/>
+<instance part="U$115" gate="G$1" x="182.88" y="119.38"/>
+<instance part="C90" gate="G$1" x="182.88" y="127">
+<attribute name="DNP" x="182.88" y="127" size="1.778" layer="96" display="name"/>
+</instance>
+<instance part="R91" gate="G$1" x="182.88" y="139.7" rot="R90"/>
+<instance part="U$116" gate="G$1" x="182.88" y="144.78"/>
+<instance part="R92" gate="G$1" x="193.04" y="139.7" rot="R90"/>
+<instance part="PORT243" gate="G$1" x="213.36" y="147.32"/>
+<instance part="U$117" gate="G$1" x="215.9" y="127"/>
+<instance part="PORT244" gate="G$1" x="121.92" y="142.24"/>
 </instances>
 <busses>
 </busses>
@@ -25632,6 +25713,21 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <pinref part="C4" gate="G$1" pin="2"/>
 <wire x1="43.18" y1="129.54" x2="40.64" y2="129.54" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="U$114" gate="G$1" pin="DGND"/>
+<pinref part="U$112" gate="G$1" pin="GND"/>
+<wire x1="147.32" y1="121.92" x2="147.32" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="129.54" x2="152.4" y2="129.54" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$115" gate="G$1" pin="DGND"/>
+<pinref part="C90" gate="G$1" pin="2"/>
+</segment>
+<segment>
+<wire x1="210.82" y1="132.08" x2="215.9" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="132.08" x2="215.9" y2="129.54" width="0.1524" layer="91"/>
+<pinref part="U$117" gate="G$1" pin="DGND"/>
+</segment>
 </net>
 <net name="MSS_RMII_CLK" class="0">
 <segment>
@@ -25658,6 +25754,47 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <segment>
 <wire x1="175.26" y1="86.36" x2="187.96" y2="86.36" width="0.1524" layer="91"/>
 <label x="172.72" y="86.36" size="1.778" layer="97" rot="MR0"/>
+</segment>
+</net>
+<net name="D3V3" class="0">
+<segment>
+<pinref part="U$112" gate="G$1" pin="VCC"/>
+<pinref part="U$113" gate="G$1" pin="D3V3"/>
+<wire x1="152.4" y1="134.62" x2="147.32" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="134.62" x2="147.32" y2="144.78" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$116" gate="G$1" pin="D3V3"/>
+<pinref part="R91" gate="G$1" pin="2"/>
+<wire x1="182.88" y1="144.78" x2="182.88" y2="142.24" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$65" class="0">
+<segment>
+<pinref part="U$112" gate="G$1" pin="!RST"/>
+<pinref part="C90" gate="G$1" pin="1"/>
+<wire x1="177.8" y1="132.08" x2="182.88" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="182.88" y1="132.08" x2="182.88" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="182.88" y1="132.08" x2="182.88" y2="134.62" width="0.1524" layer="91"/>
+<pinref part="R91" gate="G$1" pin="1"/>
+<wire x1="182.88" y1="132.08" x2="193.04" y2="132.08" width="0.1524" layer="91"/>
+<junction x="177.8" y="132.08"/>
+<pinref part="R92" gate="G$1" pin="1"/>
+<wire x1="193.04" y1="132.08" x2="193.04" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="132.08" x2="198.12" y2="132.08" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="!MSS_RESET" class="0">
+<segment>
+<pinref part="R92" gate="G$1" pin="2"/>
+<wire x1="193.04" y1="142.24" x2="193.04" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="147.32" x2="198.12" y2="147.32" width="0.1524" layer="91"/>
+<label x="200.66" y="147.32" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U1" gate="-MISC" pin="MSS_RESET_N"/>
+<wire x1="99.06" y1="142.24" x2="106.68" y2="142.24" width="0.1524" layer="91"/>
+<label x="109.22" y="142.24" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
@@ -26455,7 +26592,7 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <junction x="232.41" y="73.66"/>
 </segment>
 </net>
-<net name="!MAC_RESET" class="0">
+<net name="!MSS_RESET" class="0">
 <segment>
 <label x="58.42" y="104.14" size="1.778" layer="95" rot="MR0"/>
 <pinref part="U6" gate="G$1" pin="RESET_N"/>
