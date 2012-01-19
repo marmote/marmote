@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.25" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="2" fill="3" visible="no" active="no"/>
@@ -20806,6 +20806,24 @@ Chip inductor
 <rectangle x1="-0.508" y1="0.762" x2="0.508" y2="0.9144" layer="21"/>
 <rectangle x1="-0.508" y1="-0.9144" x2="0.508" y2="-0.762" layer="21"/>
 </package>
+<package name="SWITCH-KSC-J-LEAD">
+<description>&lt;b&gt;KSC J-Lead Button&lt;/b&gt;
+&lt;p&gt;
+KSC Series Sealed Tact Switch for SMT
+&lt;p&gt;
+Source: &lt;a href="http://www.ck-components.com/index.php?module=media&amp;action=Display&amp;cmpref=14422&amp;lang=en"&gt;http://www.ck-components.com/index.php?module=media&amp;action=Display&amp;cmpref=14422&amp;lang=en&lt;/a&gt;</description>
+<smd name="2$1" x="-2.9" y="-2" dx="2.8" dy="1" layer="1"/>
+<smd name="1$1" x="-2.9" y="2" dx="2.8" dy="1" layer="1"/>
+<smd name="1$2" x="2.9" y="2" dx="2.8" dy="1" layer="1"/>
+<smd name="2$2" x="2.9" y="-2" dx="2.8" dy="1" layer="1"/>
+<wire x1="-3" y1="3" x2="-3" y2="-3" width="0.127" layer="51"/>
+<wire x1="-3" y1="-3" x2="3" y2="-3" width="0.127" layer="51"/>
+<wire x1="3" y1="-3" x2="3" y2="3" width="0.127" layer="51"/>
+<wire x1="3" y1="3" x2="-3" y2="3" width="0.127" layer="51"/>
+<circle x="0" y="0" radius="1.5" width="0.127" layer="51"/>
+<text x="-3" y="-4" size="0.4064" layer="25">&gt;NAME</text>
+<text x="-3" y="3.5" size="0.4064" layer="27">&gt;VALUE</text>
+</package>
 </packages>
 <symbols>
 <symbol name="DGND">
@@ -21776,53 +21794,53 @@ Symbol for a single port 10/100 Mb/s Ethernet Physical Layer Transceiver.
 &lt;p&gt;
 Source: &lt;a href="http://cache.national.com/ds/DP/DP83848C.pdf"&gt;http://cache.national.com/ds/DP/DP83848C.pdf&lt;/a&gt;</description>
 <pin name="TX_CLK" x="-25.4" y="27.94" length="middle" direction="out" function="clk"/>
-<pin name="TXD_0" x="-25.4" y="22.86" length="middle" direction="out"/>
-<pin name="TXD_1" x="-25.4" y="20.32" length="middle" direction="out"/>
-<pin name="TXD_2" x="-25.4" y="17.78" length="middle" direction="out"/>
-<pin name="TXD_3/SNI_MODE" x="-25.4" y="15.24" length="middle" direction="out"/>
-<pin name="TX_EN" x="-25.4" y="25.4" length="middle" direction="out"/>
+<pin name="TXD_0" x="-25.4" y="22.86" length="middle" direction="in"/>
+<pin name="TXD_1" x="-25.4" y="20.32" length="middle" direction="in"/>
+<pin name="TXD_2" x="-25.4" y="17.78" length="middle" direction="in"/>
+<pin name="TXD_3/SNI_MODE" x="-25.4" y="15.24" length="middle" direction="in"/>
+<pin name="TX_EN" x="-25.4" y="25.4" length="middle" direction="in"/>
 <pin name="MDIO" x="-25.4" y="45.72" length="middle"/>
 <pin name="MDC" x="-25.4" y="43.18" length="middle" direction="in"/>
-<pin name="COL/PHYAD0" x="-25.4" y="35.56" length="middle"/>
-<pin name="CRS/CRS_DV/LED_CFG" x="-25.4" y="38.1" length="middle"/>
-<pin name="RX_ER/MDIX_EN" x="-25.4" y="7.62" length="middle" direction="in"/>
-<pin name="RX_DV/MII_MODE" x="-25.4" y="5.08" length="middle" direction="in"/>
-<pin name="RXD_0/PHYAD1" x="-25.4" y="2.54" length="middle" direction="in"/>
-<pin name="RXD_1/PHYAD2" x="-25.4" y="0" length="middle" direction="in"/>
-<pin name="TD+" x="25.4" y="25.4" length="middle" direction="out" rot="R180"/>
-<pin name="TD-" x="25.4" y="20.32" length="middle" direction="out" rot="R180"/>
-<pin name="RD+" x="25.4" y="12.7" length="middle" direction="in" rot="R180"/>
-<pin name="RD-" x="25.4" y="7.62" length="middle" direction="in" rot="R180"/>
+<pin name="COL/PHYAD0" x="-25.4" y="35.56" length="middle" direction="out"/>
+<pin name="CRS/CRS_DV/LED_CFG" x="-25.4" y="38.1" length="middle" direction="out"/>
+<pin name="RX_ER/MDIX_EN" x="-25.4" y="7.62" length="middle" direction="out"/>
+<pin name="RX_DV/MII_MODE" x="-25.4" y="5.08" length="middle" direction="out"/>
+<pin name="RXD_0/PHYAD1" x="-25.4" y="2.54" length="middle" direction="out"/>
+<pin name="RXD_1/PHYAD2" x="-25.4" y="0" length="middle" direction="out"/>
+<pin name="TD+" x="25.4" y="25.4" length="middle" rot="R180"/>
+<pin name="TD-" x="25.4" y="20.32" length="middle" rot="R180"/>
+<pin name="RD+" x="25.4" y="12.7" length="middle" rot="R180"/>
+<pin name="RD-" x="25.4" y="7.62" length="middle" rot="R180"/>
 <pin name="LED_ACT/COL/AN_EN" x="25.4" y="-15.24" length="middle" direction="out" rot="R180"/>
 <pin name="LED_LINK/AN0" x="25.4" y="-12.7" length="middle" direction="out" rot="R180"/>
-<pin name="RXD_2/PHYAD3" x="-25.4" y="-2.54" length="middle" direction="in"/>
-<pin name="RXD_3/PHYAD4" x="-25.4" y="-5.08" length="middle" direction="in"/>
+<pin name="RXD_2/PHYAD3" x="-25.4" y="-2.54" length="middle" direction="out"/>
+<pin name="RXD_3/PHYAD4" x="-25.4" y="-5.08" length="middle" direction="out"/>
 <pin name="LED_SPEED/AN1" x="25.4" y="-10.16" length="middle" direction="out" rot="R180"/>
 <pin name="25MHZ_OUT" x="-25.4" y="-48.26" length="middle" direction="out"/>
-<pin name="RX_CLK" x="-25.4" y="10.16" length="middle" direction="in" function="clk"/>
+<pin name="RX_CLK" x="-25.4" y="10.16" length="middle" direction="out" function="clk"/>
 <pin name="RESET_N" x="-25.4" y="-15.24" length="middle" direction="in" function="dot"/>
 <pin name="X1" x="-25.4" y="-38.1" length="middle" direction="in"/>
-<pin name="X2" x="-25.4" y="-40.64" length="middle" direction="in"/>
+<pin name="X2" x="-25.4" y="-40.64" length="middle" direction="out"/>
 <pin name="PWR_DOWN/INT" x="-25.4" y="-12.7" length="middle" function="dot"/>
-<pin name="RESERVED@1" x="25.4" y="-20.32" length="middle" direction="out" rot="R180"/>
-<pin name="RESERVED@2" x="25.4" y="-22.86" length="middle" direction="out" rot="R180"/>
-<pin name="RESERVED@3" x="25.4" y="-25.4" length="middle" direction="out" rot="R180"/>
-<pin name="RESERVED@4" x="25.4" y="-27.94" length="middle" direction="out" rot="R180"/>
-<pin name="RESERVED@5" x="25.4" y="-30.48" length="middle" direction="out" rot="R180"/>
-<pin name="RESERVED@6" x="25.4" y="-35.56" length="middle" direction="out" rot="R180"/>
-<pin name="RESERVED@7" x="25.4" y="-38.1" length="middle" direction="out" rot="R180"/>
-<pin name="AGND@1" x="25.4" y="-43.18" length="middle" direction="out" rot="R180"/>
-<pin name="AVDD33" x="25.4" y="45.72" length="middle" direction="out" rot="R180"/>
+<pin name="RESERVED@1" x="25.4" y="-20.32" length="middle" rot="R180"/>
+<pin name="RESERVED@2" x="25.4" y="-22.86" length="middle" rot="R180"/>
+<pin name="RESERVED@3" x="25.4" y="-25.4" length="middle" rot="R180"/>
+<pin name="RESERVED@4" x="25.4" y="-27.94" length="middle" rot="R180"/>
+<pin name="RESERVED@5" x="25.4" y="-30.48" length="middle" rot="R180"/>
+<pin name="RESERVED@6" x="25.4" y="-35.56" length="middle" rot="R180"/>
+<pin name="RESERVED@7" x="25.4" y="-38.1" length="middle" rot="R180"/>
+<pin name="AGND@1" x="25.4" y="-43.18" length="middle" direction="pwr" rot="R180"/>
+<pin name="AVDD33" x="25.4" y="45.72" length="middle" direction="pwr" rot="R180"/>
 <pin name="PFBOUT" x="-25.4" y="-27.94" length="middle" direction="out"/>
-<pin name="RBIAS" x="-25.4" y="-53.34" length="middle" direction="out"/>
-<pin name="IOVDD33@1" x="25.4" y="43.18" length="middle" direction="out" rot="R180"/>
-<pin name="IOGND@1" x="25.4" y="-50.8" length="middle" direction="out" rot="R180"/>
-<pin name="DGND" x="25.4" y="-48.26" length="middle" direction="out" rot="R180"/>
-<pin name="PFBIN1" x="-25.4" y="-22.86" length="middle" direction="out"/>
-<pin name="PFBIN2" x="-25.4" y="-25.4" length="middle" direction="out"/>
-<pin name="AGND@2" x="25.4" y="-45.72" length="middle" direction="out" rot="R180"/>
-<pin name="IOGND@2" x="25.4" y="-53.34" length="middle" direction="out" rot="R180"/>
-<pin name="IOVDD33@2" x="25.4" y="40.64" length="middle" direction="out" rot="R180"/>
+<pin name="RBIAS" x="-25.4" y="-53.34" length="middle" direction="in"/>
+<pin name="IOVDD33@1" x="25.4" y="43.18" length="middle" direction="pwr" rot="R180"/>
+<pin name="IOGND@1" x="25.4" y="-50.8" length="middle" direction="pwr" rot="R180"/>
+<pin name="DGND" x="25.4" y="-48.26" length="middle" direction="pwr" rot="R180"/>
+<pin name="PFBIN1" x="-25.4" y="-22.86" length="middle" direction="in"/>
+<pin name="PFBIN2" x="-25.4" y="-25.4" length="middle" direction="in"/>
+<pin name="AGND@2" x="25.4" y="-45.72" length="middle" direction="pwr" rot="R180"/>
+<pin name="IOGND@2" x="25.4" y="-53.34" length="middle" direction="pwr" rot="R180"/>
+<pin name="IOVDD33@2" x="25.4" y="40.64" length="middle" direction="pwr" rot="R180"/>
 <wire x1="-20.32" y1="48.26" x2="20.32" y2="48.26" width="0.254" layer="94"/>
 <wire x1="20.32" y1="48.26" x2="20.32" y2="-55.88" width="0.254" layer="94"/>
 <wire x1="20.32" y1="-55.88" x2="-20.32" y2="-55.88" width="0.254" layer="94"/>
@@ -22195,6 +22213,31 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <wire x1="7.62" y1="5.08" x2="7.62" y2="-5.08" width="0.254" layer="94"/>
 <wire x1="7.62" y1="-5.08" x2="-7.62" y2="-5.08" width="0.254" layer="94"/>
 <wire x1="-7.62" y1="-5.08" x2="-7.62" y2="5.08" width="0.254" layer="94"/>
+<text x="-7.62" y="-7.62" size="1.778" layer="95">&gt;NAME</text>
+<text x="-7.62" y="5.715" size="1.778" layer="96">&gt;VALUE</text>
+</symbol>
+<symbol name="PUSH-BUTTON">
+<description>&lt;b&gt;Pushbutton&lt;/b&gt;</description>
+<pin name="2" x="-7.62" y="2.54" visible="pin" length="short" direction="pas"/>
+<pin name="4" x="-7.62" y="-2.54" visible="pin" length="short" direction="pas"/>
+<pin name="1" x="7.62" y="2.54" visible="pin" length="short" direction="pas" rot="R180"/>
+<pin name="3" x="7.62" y="-2.54" visible="pin" length="short" direction="pas" rot="R180"/>
+<wire x1="-5.08" y1="2.54" x2="-5.08" y2="0" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="0" x2="-5.08" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-2.54" x2="5.08" y2="0" width="0.254" layer="94"/>
+<wire x1="5.08" y1="0" x2="5.08" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="0" x2="-3.175" y2="0" width="0.254" layer="94"/>
+<wire x1="5.08" y1="0" x2="3.175" y2="0" width="0.254" layer="94"/>
+<circle x="-2.54" y="0" radius="0.635" width="0.254" layer="94"/>
+<circle x="2.54" y="0" radius="0.635" width="0.254" layer="94"/>
+<wire x1="-3.175" y1="1.905" x2="-0.635" y2="1.905" width="0.254" layer="94"/>
+<wire x1="-0.635" y1="1.905" x2="0.635" y2="1.905" width="0.254" layer="94"/>
+<wire x1="0.635" y1="1.905" x2="3.175" y2="1.905" width="0.254" layer="94"/>
+<wire x1="-0.635" y1="1.905" x2="-0.635" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-0.635" y1="2.54" x2="0.635" y2="2.54" width="0.254" layer="94"/>
+<wire x1="0.635" y1="2.54" x2="0.635" y2="1.905" width="0.254" layer="94"/>
+<text x="-7.62" y="-5.08" size="1.27" layer="95">&gt;NAME</text>
+<text x="-7.62" y="4.318" size="1.27" layer="96">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -23653,6 +23696,32 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 </device>
 </devices>
 </deviceset>
+<deviceset name="SWITCH-KSC" prefix="SW">
+<description>&lt;b&gt;KSC Series Sealed Tact Switch for SMT&lt;/b&gt;
+&lt;p&gt;
+Source: &lt;a href="http://www.ck-components.com/index.php?module=media&amp;action=Display&amp;cmpref=14422&amp;lang=en&amp;width=&amp;height=&amp;format=&amp;alt="&gt;http://www.ck-components.com/index.php?module=media&amp;action=Display&amp;cmpref=14422&amp;lang=en&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="PUSH-BUTTON" x="0" y="0"/>
+</gates>
+<devices>
+<device name="J" package="SWITCH-KSC-J-LEAD">
+<connects>
+<connect gate="G$1" pin="1" pad="1$1"/>
+<connect gate="G$1" pin="2" pad="2$1"/>
+<connect gate="G$1" pin="3" pad="1$2"/>
+<connect gate="G$1" pin="4" pad="2$2"/>
+</connects>
+<technologies>
+<technology name="-201">
+<attribute name="ACT-HEIGHT" value="3.5 mm"/>
+</technology>
+<technology name="-403">
+<attribute name="ACT-HEIGHT" value="5.2 mm" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -24396,10 +24465,15 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 </part>
 <part name="R91" library="MainBoard" deviceset="R" device="0603" value="10k"/>
 <part name="U$116" library="MainBoard" deviceset="D3V3" device=""/>
-<part name="R92" library="MainBoard" deviceset="R" device="0603"/>
+<part name="R92" library="MainBoard" deviceset="R" device="0603" value="39"/>
 <part name="PORT243" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="U$117" library="MainBoard" deviceset="DGND" device=""/>
 <part name="PORT244" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="SW1" library="MainBoard" deviceset="SWITCH-KSC" device="J" technology="-201"/>
+<part name="SW2" library="MainBoard" deviceset="SWITCH-KSC" device="J" technology="-201">
+<attribute name="ACT-HEIGHT" value="3.5 mm"/>
+</part>
+<part name="U$118" library="MainBoard" deviceset="DGND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -25564,11 +25638,12 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <text x="50.8" y="114.3" size="2.54" layer="97">Internal oscillators - 20 MHz / 32 kHz</text>
 <text x="75.565" y="52.705" size="1.778" layer="97">NC</text>
 <rectangle x1="81.28" y1="144.78" x2="104.14" y2="152.4" layer="97"/>
-<rectangle x1="81.28" y1="154.94" x2="104.14" y2="157.48" layer="97"/>
 <text x="157.48" y="58.42" size="2.54" layer="97">Reset logic placeholder</text>
 <rectangle x1="177.8" y1="134.62" x2="185.42" y2="142.24" layer="97"/>
 <text x="177.8" y="142.24" size="1.778" layer="97" rot="R90">DS1818 5.5k internal pull-up</text>
 <text x="180.34" y="142.24" size="1.778" layer="97" rot="R90">should be sufficient</text>
+<rectangle x1="190.5" y1="134.62" x2="195.58" y2="142.24" layer="97"/>
+<rectangle x1="104.14" y1="147.32" x2="129.54" y2="160.02" layer="97"/>
 </plain>
 <instances>
 <instance part="U1" gate="-MISC" x="78.74" y="144.78"/>
@@ -25605,8 +25680,11 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <instance part="U$116" gate="G$1" x="182.88" y="144.78"/>
 <instance part="R92" gate="G$1" x="193.04" y="139.7" rot="R90"/>
 <instance part="PORT243" gate="G$1" x="213.36" y="147.32"/>
-<instance part="U$117" gate="G$1" x="215.9" y="127"/>
+<instance part="U$117" gate="G$1" x="218.44" y="121.92"/>
 <instance part="PORT244" gate="G$1" x="121.92" y="142.24"/>
+<instance part="SW1" gate="G$1" x="205.74" y="132.08"/>
+<instance part="SW2" gate="G$1" x="111.76" y="154.94"/>
+<instance part="U$118" gate="G$1" x="124.46" y="149.86"/>
 </instances>
 <busses>
 </busses>
@@ -25724,9 +25802,24 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <pinref part="C90" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<wire x1="210.82" y1="132.08" x2="215.9" y2="132.08" width="0.1524" layer="91"/>
-<wire x1="215.9" y1="132.08" x2="215.9" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="218.44" y1="132.08" x2="218.44" y2="124.46" width="0.1524" layer="91"/>
 <pinref part="U$117" gate="G$1" pin="DGND"/>
+<pinref part="SW1" gate="G$1" pin="1"/>
+<pinref part="SW1" gate="G$1" pin="3"/>
+<wire x1="213.36" y1="129.54" x2="213.36" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="132.08" x2="213.36" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="132.08" x2="218.44" y2="132.08" width="0.1524" layer="91"/>
+<junction x="213.36" y="132.08"/>
+</segment>
+<segment>
+<pinref part="SW2" gate="G$1" pin="1"/>
+<pinref part="SW2" gate="G$1" pin="3"/>
+<wire x1="119.38" y1="157.48" x2="119.38" y2="154.94" width="0.1524" layer="91"/>
+<junction x="119.38" y="154.94"/>
+<wire x1="119.38" y1="154.94" x2="119.38" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="154.94" x2="124.46" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="154.94" x2="124.46" y2="152.4" width="0.1524" layer="91"/>
+<pinref part="U$118" gate="G$1" pin="DGND"/>
 </segment>
 </net>
 <net name="MSS_RMII_CLK" class="0">
@@ -25781,7 +25874,12 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <junction x="177.8" y="132.08"/>
 <pinref part="R92" gate="G$1" pin="1"/>
 <wire x1="193.04" y1="132.08" x2="193.04" y2="134.62" width="0.1524" layer="91"/>
+<pinref part="SW1" gate="G$1" pin="2"/>
+<pinref part="SW1" gate="G$1" pin="4"/>
+<wire x1="198.12" y1="129.54" x2="198.12" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="198.12" y1="132.08" x2="198.12" y2="134.62" width="0.1524" layer="91"/>
 <wire x1="193.04" y1="132.08" x2="198.12" y2="132.08" width="0.1524" layer="91"/>
+<junction x="198.12" y="132.08"/>
 </segment>
 </net>
 <net name="!MSS_RESET" class="0">
@@ -25795,6 +25893,17 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <pinref part="U1" gate="-MISC" pin="MSS_RESET_N"/>
 <wire x1="99.06" y1="142.24" x2="106.68" y2="142.24" width="0.1524" layer="91"/>
 <label x="109.22" y="142.24" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$68" class="0">
+<segment>
+<pinref part="SW2" gate="G$1" pin="2"/>
+<pinref part="SW2" gate="G$1" pin="4"/>
+<wire x1="104.14" y1="157.48" x2="104.14" y2="154.94" width="0.1524" layer="91"/>
+<pinref part="U1" gate="-MISC" pin="PU_N"/>
+<wire x1="104.14" y1="154.94" x2="104.14" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="154.94" x2="104.14" y2="154.94" width="0.1524" layer="91"/>
+<junction x="104.14" y="154.94"/>
 </segment>
 </net>
 </nets>
