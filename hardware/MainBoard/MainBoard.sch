@@ -24302,66 +24302,6 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <part name="R25" library="MainBoard" deviceset="R" device="0603" value="100k"/>
 <part name="PORT133" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="U$58" library="MainBoard" deviceset="D3V3" device=""/>
-<part name="R26" library="MainBoard" deviceset="R" device="0603" value="100">
-<attribute name="TOLERANCE" value=""/>
-</part>
-<part name="R27" library="MainBoard" deviceset="R" device="0603" value="100">
-<attribute name="TOLERANCE" value=""/>
-</part>
-<part name="R28" library="MainBoard" deviceset="R" device="0603" value="100">
-<attribute name="TOLERANCE" value=""/>
-</part>
-<part name="R29" library="MainBoard" deviceset="R" device="0603" value="100">
-<attribute name="TOLERANCE" value=""/>
-</part>
-<part name="R30" library="MainBoard" deviceset="R" device="0603" value="100">
-<attribute name="TOLERANCE" value=""/>
-</part>
-<part name="R31" library="MainBoard" deviceset="R" device="0603" value="100">
-<attribute name="TOLERANCE" value=""/>
-</part>
-<part name="R32" library="MainBoard" deviceset="R" device="0603" value="100">
-<attribute name="TOLERANCE" value=""/>
-</part>
-<part name="R33" library="MainBoard" deviceset="R" device="0603" value="100">
-<attribute name="TOLERANCE" value=""/>
-</part>
-<part name="R34" library="MainBoard" deviceset="R" device="0603" value="100">
-<attribute name="TOLERANCE" value=""/>
-</part>
-<part name="R35" library="MainBoard" deviceset="R" device="0603" value="100">
-<attribute name="TOLERANCE" value=""/>
-</part>
-<part name="R36" library="MainBoard" deviceset="R" device="0603" value="100">
-<attribute name="TOLERANCE" value=""/>
-</part>
-<part name="R37" library="MainBoard" deviceset="R" device="0603" value="100">
-<attribute name="TOLERANCE" value=""/>
-</part>
-<part name="R38" library="MainBoard" deviceset="R" device="0603" value="100">
-<attribute name="TOLERANCE" value=""/>
-</part>
-<part name="R39" library="MainBoard" deviceset="R" device="0603" value="100">
-<attribute name="TOLERANCE" value=""/>
-</part>
-<part name="R40" library="MainBoard" deviceset="R" device="0603" value="100">
-<attribute name="TOLERANCE" value=""/>
-</part>
-<part name="R41" library="MainBoard" deviceset="R" device="0603" value="100">
-<attribute name="TOLERANCE" value=""/>
-</part>
-<part name="R42" library="MainBoard" deviceset="R" device="0603" value="100">
-<attribute name="TOLERANCE" value=""/>
-</part>
-<part name="R43" library="MainBoard" deviceset="R" device="0603" value="100">
-<attribute name="TOLERANCE" value=""/>
-</part>
-<part name="R44" library="MainBoard" deviceset="R" device="0603" value="100">
-<attribute name="TOLERANCE" value=""/>
-</part>
-<part name="R45" library="MainBoard" deviceset="R" device="0603" value="100">
-<attribute name="TOLERANCE" value=""/>
-</part>
 <part name="PORT134" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT135" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT136" library="MainBoard" deviceset="PORT7" device=""/>
@@ -24392,21 +24332,7 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <part name="PORT153" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT154" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT155" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="PORT156" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT157" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="R46" library="MainBoard" deviceset="R" device="0603" value="50m">
-<attribute name="TOLERANCE" value="1%"/>
-</part>
-<part name="R47" library="MainBoard" deviceset="R" device="0603" value="50m">
-<attribute name="TOLERANCE" value="1%"/>
-</part>
-<part name="PORT158" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="PORT159" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="PORT160" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="PORT161" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="R48" library="MainBoard" deviceset="R" device="0603" value="50m">
-<attribute name="TOLERANCE" value="1%"/>
-</part>
 <part name="PORT162" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT163" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="C65" library="MainBoard" deviceset="C" device="0603">
@@ -24811,6 +24737,11 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <part name="SW3" library="MainBoard" deviceset="SWITCH-KSC" device="J" technology="-201"/>
 <part name="U$126" library="MainBoard" deviceset="D3V3" device=""/>
 <part name="PORT286" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT156" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT158" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT159" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT160" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT161" library="MainBoard" deviceset="PORT7" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -28499,8 +28430,6 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <rectangle x1="220.98" y1="106.68" x2="238.76" y2="167.64" layer="97"/>
 <rectangle x1="10.16" y1="106.68" x2="27.94" y2="167.64" layer="97"/>
 <rectangle x1="104.14" y1="106.68" x2="121.92" y2="167.64" layer="97"/>
-<rectangle x1="33.02" y1="63.5" x2="43.18" y2="93.98" layer="97"/>
-<rectangle x1="149.86" y1="63.5" x2="160.02" y2="93.98" layer="97"/>
 <text x="80.645" y="106.045" size="1.778" layer="97">NC</text>
 <text x="197.485" y="106.045" size="1.778" layer="97">NC</text>
 <rectangle x1="96.52" y1="101.6" x2="101.6" y2="106.68" layer="97"/>
@@ -28577,8 +28506,8 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <instance part="PORT89" gate="G$1" x="132.08" y="139.7" rot="MR0"/>
 <instance part="PORT90" gate="G$1" x="132.08" y="132.08" rot="MR0"/>
 <instance part="PORT91" gate="G$1" x="132.08" y="111.76" rot="MR0"/>
-<instance part="PORT93" gate="G$1" x="12.7" y="63.5" rot="MR0"/>
-<instance part="PORT95" gate="G$1" x="129.54" y="63.5" rot="MR0"/>
+<instance part="PORT93" gate="G$1" x="20.32" y="63.5" rot="MR0"/>
+<instance part="PORT95" gate="G$1" x="137.16" y="63.5" rot="MR0"/>
 <instance part="PORT96" gate="G$1" x="93.98" y="83.82"/>
 <instance part="PORT97" gate="G$1" x="93.98" y="81.28"/>
 <instance part="PORT98" gate="G$1" x="215.9" y="83.82"/>
@@ -28605,26 +28534,6 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <instance part="U$41" gate="G$1" x="91.44" y="20.32"/>
 <instance part="U$42" gate="G$1" x="137.16" y="21.59"/>
 <instance part="U$43" gate="G$1" x="137.16" y="12.7"/>
-<instance part="R26" gate="G$1" x="35.56" y="91.44" rot="R180"/>
-<instance part="R27" gate="G$1" x="35.56" y="88.9" rot="R180"/>
-<instance part="R28" gate="G$1" x="35.56" y="86.36" rot="R180"/>
-<instance part="R29" gate="G$1" x="35.56" y="83.82" rot="R180"/>
-<instance part="R30" gate="G$1" x="35.56" y="81.28" rot="R180"/>
-<instance part="R31" gate="G$1" x="35.56" y="78.74" rot="R180"/>
-<instance part="R32" gate="G$1" x="35.56" y="76.2" rot="R180"/>
-<instance part="R33" gate="G$1" x="35.56" y="73.66" rot="R180"/>
-<instance part="R34" gate="G$1" x="35.56" y="71.12" rot="R180"/>
-<instance part="R35" gate="G$1" x="35.56" y="68.58" rot="R180"/>
-<instance part="R36" gate="G$1" x="152.4" y="91.44" rot="R180"/>
-<instance part="R37" gate="G$1" x="152.4" y="88.9" rot="R180"/>
-<instance part="R38" gate="G$1" x="152.4" y="86.36" rot="R180"/>
-<instance part="R39" gate="G$1" x="152.4" y="83.82" rot="R180"/>
-<instance part="R40" gate="G$1" x="152.4" y="81.28" rot="R180"/>
-<instance part="R41" gate="G$1" x="152.4" y="78.74" rot="R180"/>
-<instance part="R42" gate="G$1" x="152.4" y="76.2" rot="R180"/>
-<instance part="R43" gate="G$1" x="152.4" y="73.66" rot="R180"/>
-<instance part="R44" gate="G$1" x="152.4" y="71.12" rot="R180"/>
-<instance part="R45" gate="G$1" x="152.4" y="68.58" rot="R180"/>
 <instance part="PORT134" gate="G$1" x="99.06" y="104.14"/>
 <instance part="PORT135" gate="G$1" x="99.06" y="101.6"/>
 <instance part="PORT136" gate="G$1" x="215.9" y="104.14"/>
@@ -28639,18 +28548,18 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <busses>
 <bus name="AFE1_DB[0..9]">
 <segment>
-<wire x1="27.94" y1="88.9" x2="27.94" y2="66.04" width="0.762" layer="92"/>
-<wire x1="27.94" y1="66.04" x2="25.4" y2="63.5" width="0.762" layer="92"/>
-<wire x1="25.4" y1="63.5" x2="22.86" y2="63.5" width="0.762" layer="92"/>
-<label x="20.32" y="63.5" size="1.778" layer="95" rot="MR0"/>
+<wire x1="35.56" y1="88.9" x2="35.56" y2="66.04" width="0.762" layer="92"/>
+<wire x1="35.56" y1="66.04" x2="33.02" y2="63.5" width="0.762" layer="92"/>
+<wire x1="33.02" y1="63.5" x2="30.48" y2="63.5" width="0.762" layer="92"/>
+<label x="27.94" y="63.5" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </bus>
 <bus name="AFE2_DB[0..9]">
 <segment>
-<wire x1="144.78" y1="88.9" x2="144.78" y2="66.04" width="0.762" layer="92"/>
-<wire x1="144.78" y1="66.04" x2="142.24" y2="63.5" width="0.762" layer="92"/>
-<wire x1="142.24" y1="63.5" x2="139.7" y2="63.5" width="0.762" layer="92"/>
-<label x="137.16" y="63.5" size="1.778" layer="95" rot="MR0"/>
+<wire x1="152.4" y1="88.9" x2="152.4" y2="66.04" width="0.762" layer="92"/>
+<wire x1="152.4" y1="66.04" x2="149.86" y2="63.5" width="0.762" layer="92"/>
+<wire x1="149.86" y1="63.5" x2="147.32" y2="63.5" width="0.762" layer="92"/>
+<label x="144.78" y="63.5" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </bus>
 </busses>
@@ -29128,142 +29037,142 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 </net>
 <net name="AFE1_DB0" class="0">
 <segment>
-<wire x1="27.94" y1="66.04" x2="30.48" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="68.58" x2="33.02" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="R35" gate="G$1" pin="2"/>
+<wire x1="35.56" y1="66.04" x2="38.1" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="U2" gate="-AFE" pin="D0"/>
+<wire x1="38.1" y1="68.58" x2="43.18" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB1" class="0">
 <segment>
-<wire x1="27.94" y1="68.58" x2="30.48" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="71.12" x2="33.02" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="R34" gate="G$1" pin="2"/>
+<wire x1="35.56" y1="68.58" x2="38.1" y2="71.12" width="0.1524" layer="91"/>
+<pinref part="U2" gate="-AFE" pin="D1"/>
+<wire x1="38.1" y1="71.12" x2="43.18" y2="71.12" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB2" class="0">
 <segment>
-<wire x1="27.94" y1="71.12" x2="30.48" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="73.66" x2="33.02" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="R33" gate="G$1" pin="2"/>
+<wire x1="35.56" y1="71.12" x2="38.1" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="U2" gate="-AFE" pin="D2"/>
+<wire x1="38.1" y1="73.66" x2="43.18" y2="73.66" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB3" class="0">
 <segment>
-<wire x1="27.94" y1="73.66" x2="30.48" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="76.2" x2="33.02" y2="76.2" width="0.1524" layer="91"/>
-<pinref part="R32" gate="G$1" pin="2"/>
+<wire x1="35.56" y1="73.66" x2="38.1" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="U2" gate="-AFE" pin="D3"/>
+<wire x1="38.1" y1="76.2" x2="43.18" y2="76.2" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB4" class="0">
 <segment>
-<wire x1="27.94" y1="76.2" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="78.74" x2="33.02" y2="78.74" width="0.1524" layer="91"/>
-<pinref part="R31" gate="G$1" pin="2"/>
+<wire x1="35.56" y1="76.2" x2="38.1" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="U2" gate="-AFE" pin="D4"/>
+<wire x1="38.1" y1="78.74" x2="43.18" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB5" class="0">
 <segment>
-<wire x1="27.94" y1="78.74" x2="30.48" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="81.28" x2="33.02" y2="81.28" width="0.1524" layer="91"/>
-<pinref part="R30" gate="G$1" pin="2"/>
+<wire x1="35.56" y1="78.74" x2="38.1" y2="81.28" width="0.1524" layer="91"/>
+<pinref part="U2" gate="-AFE" pin="D5"/>
+<wire x1="38.1" y1="81.28" x2="43.18" y2="81.28" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB6" class="0">
 <segment>
-<wire x1="27.94" y1="81.28" x2="30.48" y2="83.82" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="83.82" x2="33.02" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="R29" gate="G$1" pin="2"/>
+<wire x1="35.56" y1="81.28" x2="38.1" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="U2" gate="-AFE" pin="D6"/>
+<wire x1="38.1" y1="83.82" x2="43.18" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB7" class="0">
 <segment>
-<wire x1="27.94" y1="83.82" x2="30.48" y2="86.36" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="86.36" x2="33.02" y2="86.36" width="0.1524" layer="91"/>
-<pinref part="R28" gate="G$1" pin="2"/>
+<wire x1="35.56" y1="83.82" x2="38.1" y2="86.36" width="0.1524" layer="91"/>
+<pinref part="U2" gate="-AFE" pin="D7"/>
+<wire x1="38.1" y1="86.36" x2="43.18" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB8" class="0">
 <segment>
-<wire x1="27.94" y1="86.36" x2="30.48" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="88.9" x2="33.02" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="R27" gate="G$1" pin="2"/>
+<wire x1="35.56" y1="86.36" x2="38.1" y2="88.9" width="0.1524" layer="91"/>
+<pinref part="U2" gate="-AFE" pin="D8"/>
+<wire x1="38.1" y1="88.9" x2="43.18" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB9" class="0">
 <segment>
-<wire x1="27.94" y1="88.9" x2="30.48" y2="91.44" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="91.44" x2="33.02" y2="91.44" width="0.1524" layer="91"/>
-<pinref part="R26" gate="G$1" pin="2"/>
+<wire x1="35.56" y1="88.9" x2="38.1" y2="91.44" width="0.1524" layer="91"/>
+<pinref part="U2" gate="-AFE" pin="D9"/>
+<wire x1="38.1" y1="91.44" x2="43.18" y2="91.44" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB10" class="0">
 <segment>
-<wire x1="144.78" y1="66.04" x2="147.32" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="147.32" y1="68.58" x2="149.86" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="R45" gate="G$1" pin="2"/>
+<wire x1="152.4" y1="66.04" x2="154.94" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="U3" gate="-AFE" pin="D0"/>
+<wire x1="154.94" y1="68.58" x2="160.02" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB11" class="0">
 <segment>
-<wire x1="144.78" y1="68.58" x2="147.32" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="147.32" y1="71.12" x2="149.86" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="R44" gate="G$1" pin="2"/>
+<wire x1="152.4" y1="68.58" x2="154.94" y2="71.12" width="0.1524" layer="91"/>
+<pinref part="U3" gate="-AFE" pin="D1"/>
+<wire x1="154.94" y1="71.12" x2="160.02" y2="71.12" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB12" class="0">
 <segment>
-<wire x1="144.78" y1="71.12" x2="147.32" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="147.32" y1="73.66" x2="149.86" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="R43" gate="G$1" pin="2"/>
+<wire x1="152.4" y1="71.12" x2="154.94" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="U3" gate="-AFE" pin="D2"/>
+<wire x1="154.94" y1="73.66" x2="160.02" y2="73.66" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB13" class="0">
 <segment>
-<wire x1="144.78" y1="73.66" x2="147.32" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="147.32" y1="76.2" x2="149.86" y2="76.2" width="0.1524" layer="91"/>
-<pinref part="R42" gate="G$1" pin="2"/>
+<wire x1="152.4" y1="73.66" x2="154.94" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="U3" gate="-AFE" pin="D3"/>
+<wire x1="154.94" y1="76.2" x2="160.02" y2="76.2" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB14" class="0">
 <segment>
-<wire x1="144.78" y1="76.2" x2="147.32" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="147.32" y1="78.74" x2="149.86" y2="78.74" width="0.1524" layer="91"/>
-<pinref part="R41" gate="G$1" pin="2"/>
+<wire x1="152.4" y1="76.2" x2="154.94" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="U3" gate="-AFE" pin="D4"/>
+<wire x1="154.94" y1="78.74" x2="160.02" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB15" class="0">
 <segment>
-<wire x1="144.78" y1="78.74" x2="147.32" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="147.32" y1="81.28" x2="149.86" y2="81.28" width="0.1524" layer="91"/>
-<pinref part="R40" gate="G$1" pin="2"/>
+<wire x1="152.4" y1="78.74" x2="154.94" y2="81.28" width="0.1524" layer="91"/>
+<pinref part="U3" gate="-AFE" pin="D5"/>
+<wire x1="154.94" y1="81.28" x2="160.02" y2="81.28" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB16" class="0">
 <segment>
-<wire x1="144.78" y1="81.28" x2="147.32" y2="83.82" width="0.1524" layer="91"/>
-<wire x1="147.32" y1="83.82" x2="149.86" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="R39" gate="G$1" pin="2"/>
+<wire x1="152.4" y1="81.28" x2="154.94" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="U3" gate="-AFE" pin="D6"/>
+<wire x1="154.94" y1="83.82" x2="160.02" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB17" class="0">
 <segment>
-<wire x1="144.78" y1="83.82" x2="147.32" y2="86.36" width="0.1524" layer="91"/>
-<wire x1="147.32" y1="86.36" x2="149.86" y2="86.36" width="0.1524" layer="91"/>
-<pinref part="R38" gate="G$1" pin="2"/>
+<wire x1="152.4" y1="83.82" x2="154.94" y2="86.36" width="0.1524" layer="91"/>
+<pinref part="U3" gate="-AFE" pin="D7"/>
+<wire x1="154.94" y1="86.36" x2="160.02" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB18" class="0">
 <segment>
-<wire x1="144.78" y1="86.36" x2="147.32" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="147.32" y1="88.9" x2="149.86" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="R37" gate="G$1" pin="2"/>
+<wire x1="152.4" y1="86.36" x2="154.94" y2="88.9" width="0.1524" layer="91"/>
+<pinref part="U3" gate="-AFE" pin="D8"/>
+<wire x1="154.94" y1="88.9" x2="160.02" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AFE1_DB19" class="0">
 <segment>
-<wire x1="144.78" y1="88.9" x2="147.32" y2="91.44" width="0.1524" layer="91"/>
-<wire x1="147.32" y1="91.44" x2="149.86" y2="91.44" width="0.1524" layer="91"/>
-<pinref part="R36" gate="G$1" pin="2"/>
+<wire x1="152.4" y1="88.9" x2="154.94" y2="91.44" width="0.1524" layer="91"/>
+<pinref part="U3" gate="-AFE" pin="D9"/>
+<wire x1="154.94" y1="91.44" x2="160.02" y2="91.44" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="!AFE1_SHDN" class="0">
@@ -29446,146 +29355,6 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <label x="86.36" y="76.2" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$9" class="0">
-<segment>
-<pinref part="U2" gate="-AFE" pin="D9"/>
-<pinref part="R26" gate="G$1" pin="1"/>
-<wire x1="40.64" y1="91.44" x2="43.18" y2="91.44" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$13" class="0">
-<segment>
-<pinref part="U2" gate="-AFE" pin="D0"/>
-<pinref part="R35" gate="G$1" pin="1"/>
-<wire x1="40.64" y1="68.58" x2="43.18" y2="68.58" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$17" class="0">
-<segment>
-<pinref part="U2" gate="-AFE" pin="D1"/>
-<pinref part="R34" gate="G$1" pin="1"/>
-<wire x1="40.64" y1="71.12" x2="43.18" y2="71.12" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$28" class="0">
-<segment>
-<pinref part="U2" gate="-AFE" pin="D2"/>
-<pinref part="R33" gate="G$1" pin="1"/>
-<wire x1="40.64" y1="73.66" x2="43.18" y2="73.66" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$29" class="0">
-<segment>
-<pinref part="U2" gate="-AFE" pin="D3"/>
-<pinref part="R32" gate="G$1" pin="1"/>
-<wire x1="40.64" y1="76.2" x2="43.18" y2="76.2" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$30" class="0">
-<segment>
-<pinref part="U2" gate="-AFE" pin="D4"/>
-<pinref part="R31" gate="G$1" pin="1"/>
-<wire x1="40.64" y1="78.74" x2="43.18" y2="78.74" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$31" class="0">
-<segment>
-<pinref part="U2" gate="-AFE" pin="D5"/>
-<pinref part="R30" gate="G$1" pin="1"/>
-<wire x1="40.64" y1="81.28" x2="43.18" y2="81.28" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$32" class="0">
-<segment>
-<pinref part="U2" gate="-AFE" pin="D6"/>
-<pinref part="R29" gate="G$1" pin="1"/>
-<wire x1="40.64" y1="83.82" x2="43.18" y2="83.82" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$33" class="0">
-<segment>
-<pinref part="U2" gate="-AFE" pin="D7"/>
-<pinref part="R28" gate="G$1" pin="1"/>
-<wire x1="40.64" y1="86.36" x2="43.18" y2="86.36" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$34" class="0">
-<segment>
-<pinref part="U2" gate="-AFE" pin="D8"/>
-<pinref part="R27" gate="G$1" pin="1"/>
-<wire x1="40.64" y1="88.9" x2="43.18" y2="88.9" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$35" class="0">
-<segment>
-<pinref part="U3" gate="-AFE" pin="D0"/>
-<pinref part="R45" gate="G$1" pin="1"/>
-<wire x1="157.48" y1="68.58" x2="160.02" y2="68.58" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$36" class="0">
-<segment>
-<pinref part="U3" gate="-AFE" pin="D1"/>
-<pinref part="R44" gate="G$1" pin="1"/>
-<wire x1="157.48" y1="71.12" x2="160.02" y2="71.12" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$37" class="0">
-<segment>
-<pinref part="U3" gate="-AFE" pin="D2"/>
-<pinref part="R43" gate="G$1" pin="1"/>
-<wire x1="157.48" y1="73.66" x2="160.02" y2="73.66" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$38" class="0">
-<segment>
-<pinref part="U3" gate="-AFE" pin="D3"/>
-<pinref part="R42" gate="G$1" pin="1"/>
-<wire x1="157.48" y1="76.2" x2="160.02" y2="76.2" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$39" class="0">
-<segment>
-<pinref part="U3" gate="-AFE" pin="D4"/>
-<pinref part="R41" gate="G$1" pin="1"/>
-<wire x1="157.48" y1="78.74" x2="160.02" y2="78.74" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$40" class="0">
-<segment>
-<pinref part="U3" gate="-AFE" pin="D5"/>
-<pinref part="R40" gate="G$1" pin="1"/>
-<wire x1="157.48" y1="81.28" x2="160.02" y2="81.28" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$41" class="0">
-<segment>
-<pinref part="U3" gate="-AFE" pin="D6"/>
-<pinref part="R39" gate="G$1" pin="1"/>
-<wire x1="157.48" y1="83.82" x2="160.02" y2="83.82" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$42" class="0">
-<segment>
-<pinref part="U3" gate="-AFE" pin="D7"/>
-<pinref part="R38" gate="G$1" pin="1"/>
-<wire x1="157.48" y1="86.36" x2="160.02" y2="86.36" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$43" class="0">
-<segment>
-<pinref part="U3" gate="-AFE" pin="D8"/>
-<pinref part="R37" gate="G$1" pin="1"/>
-<wire x1="157.48" y1="88.9" x2="160.02" y2="88.9" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$44" class="0">
-<segment>
-<pinref part="U3" gate="-AFE" pin="D9"/>
-<pinref part="R36" gate="G$1" pin="1"/>
-<wire x1="157.48" y1="91.44" x2="160.02" y2="91.44" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="AUX_DAC1" class="0">
 <segment>
 <pinref part="U2" gate="-AFE" pin="DAC2"/>
@@ -29645,11 +29414,7 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <text x="177.8" y="20.32" size="5.08" layer="97">SmartFusion AFE</text>
 <rectangle x1="160.02" y1="104.14" x2="177.8" y2="119.38" layer="97"/>
 <rectangle x1="137.16" y1="66.04" x2="152.4" y2="81.28" layer="97"/>
-<rectangle x1="165.1" y1="99.06" x2="182.88" y2="104.14" layer="97"/>
 <rectangle x1="71.12" y1="35.56" x2="104.14" y2="48.26" layer="97"/>
-<rectangle x1="55.88" y1="134.62" x2="68.58" y2="139.7" layer="97"/>
-<rectangle x1="167.64" y1="137.16" x2="175.26" y2="144.78" layer="97"/>
-<rectangle x1="175.26" y1="121.92" x2="180.34" y2="124.46" layer="97"/>
 <text x="43.18" y="50.8" size="1.778" layer="97">AUX_DAC as reference</text>
 <text x="185.42" y="139.7" size="1.778" layer="97">to North Bridge</text>
 <wire x1="180.34" y1="144.78" x2="182.88" y2="144.78" width="0.1524" layer="97"/>
@@ -29666,7 +29431,7 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <text x="134.62" y="62.23" size="1.778" layer="97">DAC LPF 4th pole (DNP)</text>
 <text x="175.26" y="111.76" size="1.778" layer="97">Check NPN BJT parameters</text>
 <text x="185.42" y="121.92" size="1.778" layer="97">NC</text>
-<text x="50.8" y="137.16" size="1.778" layer="97" rot="MR0">to North Bridge</text>
+<text x="45.72" y="142.24" size="1.778" layer="97" rot="MR0">to North Bridge</text>
 <text x="180.34" y="86.36" size="1.778" layer="97">to North Bridge</text>
 <wire x1="175.26" y1="91.44" x2="177.8" y2="91.44" width="0.1524" layer="97"/>
 <wire x1="177.8" y1="91.44" x2="177.8" y2="81.28" width="0.1524" layer="97"/>
@@ -29678,6 +29443,7 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <wire x1="33.02" y1="22.86" x2="33.02" y2="71.12" width="0.1524" layer="97" style="shortdash"/>
 <text x="78.74" y="111.76" size="50.8" layer="208">SF</text>
 <text x="53.34" y="38.1" size="50.8" layer="208">AFE</text>
+<text x="48.26" y="25.4" size="2.54" layer="97">Comparator reference voltages</text>
 </plain>
 <instances>
 <instance part="FRAME10" gate="G$1" x="0" y="0"/>
@@ -29693,29 +29459,15 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <instance part="PORT149" gate="G$1" x="170.18" y="81.28"/>
 <instance part="U$59" gate="G$1" x="93.98" y="104.14"/>
 <instance part="U$60" gate="G$1" x="162.56" y="104.14"/>
-<instance part="PORT150" gate="G$1" x="71.12" y="144.78" rot="MR0"/>
-<instance part="PORT151" gate="G$1" x="71.12" y="142.24" rot="MR0"/>
-<instance part="PORT152" gate="G$1" x="71.12" y="139.7" rot="MR0"/>
-<instance part="PORT153" gate="G$1" x="58.42" y="137.16" rot="MR0"/>
-<instance part="PORT154" gate="G$1" x="170.18" y="144.78"/>
-<instance part="PORT155" gate="G$1" x="177.8" y="142.24"/>
-<instance part="PORT156" gate="G$1" x="170.18" y="134.62"/>
-<instance part="PORT157" gate="G$1" x="170.18" y="124.46"/>
-<instance part="R46" gate="G$1" x="93.98" y="130.81" rot="R90">
-<attribute name="TOLERANCE" x="93.98" y="130.81" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="R47" gate="G$1" x="93.98" y="118.11" rot="R90">
-<attribute name="TOLERANCE" x="93.98" y="118.11" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="PORT158" gate="G$1" x="71.12" y="124.46" rot="MR0"/>
-<instance part="PORT159" gate="G$1" x="71.12" y="134.62" rot="MR0"/>
-<instance part="PORT160" gate="G$1" x="71.12" y="121.92" rot="MR0"/>
-<instance part="PORT161" gate="G$1" x="71.12" y="111.76" rot="MR0"/>
-<instance part="R48" gate="G$1" x="149.86" y="130.81" rot="R90">
-<attribute name="TOLERANCE" x="149.86" y="130.81" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="PORT162" gate="G$1" x="177.8" y="137.16"/>
-<instance part="PORT163" gate="G$1" x="177.8" y="139.7"/>
+<instance part="PORT150" gate="G$1" x="83.82" y="144.78" rot="MR0"/>
+<instance part="PORT151" gate="G$1" x="83.82" y="142.24" rot="MR0"/>
+<instance part="PORT152" gate="G$1" x="83.82" y="139.7" rot="MR0"/>
+<instance part="PORT153" gate="G$1" x="83.82" y="137.16" rot="MR0"/>
+<instance part="PORT154" gate="G$1" x="160.02" y="144.78"/>
+<instance part="PORT155" gate="G$1" x="160.02" y="142.24"/>
+<instance part="PORT157" gate="G$1" x="160.02" y="124.46"/>
+<instance part="PORT162" gate="G$1" x="160.02" y="137.16"/>
+<instance part="PORT163" gate="G$1" x="160.02" y="139.7"/>
 <instance part="C65" gate="G$1" x="149.86" y="76.2">
 <attribute name="DNP" x="149.86" y="76.2" size="1.778" layer="96" display="name"/>
 </instance>
@@ -29724,7 +29476,7 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 </instance>
 <instance part="U$61" gate="G$1" x="142.24" y="68.58"/>
 <instance part="U$62" gate="G$1" x="149.86" y="68.58"/>
-<instance part="PORT164" gate="G$1" x="177.8" y="121.92"/>
+<instance part="PORT164" gate="G$1" x="160.02" y="121.92"/>
 <instance part="Q1" gate="G1" x="165.1" y="111.76" rot="MR0"/>
 <instance part="PORT165" gate="G$1" x="58.42" y="83.82" rot="MR0"/>
 <instance part="PORT166" gate="G$1" x="58.42" y="81.28" rot="MR0"/>
@@ -29766,6 +29518,11 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <instance part="R54" gate="G$1" x="66.04" y="55.88">
 <attribute name="DNP" x="68.58" y="55.88" size="1.778" layer="96" display="name"/>
 </instance>
+<instance part="PORT156" gate="G$1" x="160.02" y="134.62"/>
+<instance part="PORT158" gate="G$1" x="83.82" y="134.62" rot="MR0"/>
+<instance part="PORT159" gate="G$1" x="83.82" y="124.46" rot="MR0"/>
+<instance part="PORT160" gate="G$1" x="83.82" y="121.92" rot="MR0"/>
+<instance part="PORT161" gate="G$1" x="83.82" y="111.76" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -29858,22 +29615,6 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <junction x="149.86" y="81.28"/>
 </segment>
 </net>
-<net name="VSUP" class="0">
-<segment>
-<pinref part="U1" gate="-ANALOG-FRONT-END" pin="ABPS0"/>
-<wire x1="104.14" y1="144.78" x2="86.36" y2="144.78" width="0.1524" layer="91"/>
-<label x="83.82" y="144.78" size="1.778" layer="95" rot="MR0"/>
-</segment>
-<segment>
-<pinref part="U1" gate="-ANALOG-FRONT-END" pin="TM0"/>
-<wire x1="104.14" y1="124.46" x2="93.98" y2="124.46" width="0.1524" layer="91"/>
-<pinref part="R46" gate="G$1" pin="1"/>
-<wire x1="93.98" y1="124.46" x2="93.98" y2="125.73" width="0.1524" layer="91"/>
-<wire x1="86.36" y1="124.46" x2="93.98" y2="124.46" width="0.1524" layer="91"/>
-<label x="83.82" y="124.46" size="1.778" layer="97" rot="MR0"/>
-<junction x="93.98" y="124.46"/>
-</segment>
-</net>
 <net name="AGND" class="0">
 <segment>
 <pinref part="U1" gate="-ANALOG-FRONT-END" pin="GNDTM0"/>
@@ -29917,89 +29658,35 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <pinref part="U$67" gate="G$1" pin="AGND"/>
 </segment>
 </net>
-<net name="VBAT" class="0">
-<segment>
-<pinref part="U1" gate="-ANALOG-FRONT-END" pin="ABPS1"/>
-<wire x1="104.14" y1="142.24" x2="86.36" y2="142.24" width="0.1524" layer="91"/>
-<label x="83.82" y="142.24" size="1.778" layer="95" rot="MR0"/>
-</segment>
-</net>
-<net name="1V5" class="0">
-<segment>
-<pinref part="U1" gate="-ANALOG-FRONT-END" pin="ABPS4"/>
-<wire x1="139.7" y1="144.78" x2="154.94" y2="144.78" width="0.1524" layer="91"/>
-<label x="157.48" y="144.78" size="1.778" layer="97"/>
-</segment>
+<net name="SF_TM2" class="0">
 <segment>
 <pinref part="U1" gate="-ANALOG-FRONT-END" pin="TM2"/>
-<wire x1="139.7" y1="124.46" x2="149.86" y2="124.46" width="0.1524" layer="91"/>
-<pinref part="R48" gate="G$1" pin="1"/>
-<wire x1="149.86" y1="124.46" x2="149.86" y2="125.73" width="0.1524" layer="91"/>
-<wire x1="149.86" y1="124.46" x2="154.94" y2="124.46" width="0.1524" layer="91"/>
-<label x="157.48" y="124.46" size="1.778" layer="97"/>
-<junction x="149.86" y="124.46"/>
+<wire x1="139.7" y1="124.46" x2="144.78" y2="124.46" width="0.1524" layer="91"/>
+<label x="147.32" y="124.46" size="1.778" layer="97"/>
 </segment>
 </net>
-<net name="N$22" class="0">
+<net name="SF_ABPS6" class="0">
 <segment>
 <pinref part="U1" gate="-ANALOG-FRONT-END" pin="ABPS6"/>
-<wire x1="139.7" y1="139.7" x2="147.32" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="139.7" x2="144.78" y2="139.7" width="0.1524" layer="91"/>
+<label x="147.32" y="139.7" size="1.778" layer="97"/>
 </segment>
 </net>
 <net name="SF_ABPS7" class="0">
 <segment>
 <pinref part="U1" gate="-ANALOG-FRONT-END" pin="ABPS7"/>
-<wire x1="139.7" y1="137.16" x2="162.56" y2="137.16" width="0.1524" layer="91"/>
-<label x="165.1" y="137.16" size="1.778" layer="97"/>
-</segment>
-</net>
-<net name="1V5_I" class="0">
-<segment>
-<pinref part="U1" gate="-ANALOG-FRONT-END" pin="CM2"/>
-<pinref part="R48" gate="G$1" pin="2"/>
-<wire x1="139.7" y1="134.62" x2="149.86" y2="134.62" width="0.1524" layer="91"/>
-<wire x1="149.86" y1="134.62" x2="149.86" y2="133.35" width="0.1524" layer="91"/>
-<wire x1="149.86" y1="134.62" x2="154.94" y2="134.62" width="0.1524" layer="91"/>
-<label x="157.48" y="134.62" size="1.778" layer="97"/>
-<junction x="149.86" y="134.62"/>
-</segment>
-</net>
-<net name="VSU_I" class="0">
-<segment>
-<pinref part="U1" gate="-ANALOG-FRONT-END" pin="CM0"/>
-<wire x1="104.14" y1="134.62" x2="93.98" y2="134.62" width="0.1524" layer="91"/>
-<pinref part="R46" gate="G$1" pin="2"/>
-<wire x1="93.98" y1="134.62" x2="86.36" y2="134.62" width="0.1524" layer="91"/>
-<wire x1="93.98" y1="133.35" x2="93.98" y2="134.62" width="0.1524" layer="91"/>
-<label x="83.82" y="134.62" size="1.778" layer="97" rot="MR0"/>
-<junction x="93.98" y="134.62"/>
-</segment>
-</net>
-<net name="3V3_I" class="0">
-<segment>
-<pinref part="U1" gate="-ANALOG-FRONT-END" pin="CM1"/>
-<wire x1="86.36" y1="121.92" x2="93.98" y2="121.92" width="0.1524" layer="91"/>
-<pinref part="R47" gate="G$1" pin="2"/>
-<wire x1="93.98" y1="121.92" x2="104.14" y2="121.92" width="0.1524" layer="91"/>
-<wire x1="93.98" y1="121.92" x2="93.98" y2="120.65" width="0.1524" layer="91"/>
-<label x="83.82" y="121.92" size="1.778" layer="97" rot="MR0"/>
-<junction x="93.98" y="121.92"/>
-</segment>
-</net>
-<net name="SF_ABPS6" class="0">
-<segment>
-<wire x1="147.32" y1="139.7" x2="162.56" y2="139.7" width="0.1524" layer="91"/>
-<label x="165.1" y="139.7" size="1.778" layer="97"/>
+<wire x1="139.7" y1="137.16" x2="144.78" y2="137.16" width="0.1524" layer="91"/>
+<label x="147.32" y="137.16" size="1.778" layer="97"/>
 </segment>
 </net>
 <net name="SF_CM3" class="0">
 <segment>
 <pinref part="U1" gate="-ANALOG-FRONT-END" pin="CM3"/>
-<wire x1="139.7" y1="121.92" x2="162.56" y2="121.92" width="0.1524" layer="91"/>
-<label x="165.1" y="121.92" size="1.778" layer="97"/>
+<wire x1="139.7" y1="121.92" x2="144.78" y2="121.92" width="0.1524" layer="91"/>
+<label x="147.32" y="121.92" size="1.778" layer="97"/>
 </segment>
 </net>
-<net name="N$48" class="0">
+<net name="SF_TM3" class="0">
 <segment>
 <pinref part="U1" gate="-ANALOG-FRONT-END" pin="TM3"/>
 <wire x1="139.7" y1="111.76" x2="149.86" y2="111.76" width="0.1524" layer="91"/>
@@ -30011,34 +29698,25 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <wire x1="167.64" y1="116.84" x2="162.56" y2="116.84" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="3V3" class="0">
+<net name="SF_TM1" class="0">
 <segment>
 <pinref part="U1" gate="-ANALOG-FRONT-END" pin="TM1"/>
-<wire x1="104.14" y1="111.76" x2="93.98" y2="111.76" width="0.1524" layer="91"/>
-<pinref part="R47" gate="G$1" pin="1"/>
-<wire x1="93.98" y1="111.76" x2="86.36" y2="111.76" width="0.1524" layer="91"/>
-<wire x1="93.98" y1="111.76" x2="93.98" y2="113.03" width="0.1524" layer="91"/>
-<label x="83.82" y="111.76" size="1.778" layer="97" rot="MR0"/>
-<junction x="93.98" y="111.76"/>
-</segment>
-<segment>
-<pinref part="U1" gate="-ANALOG-FRONT-END" pin="ABPS2"/>
-<wire x1="104.14" y1="139.7" x2="86.36" y2="139.7" width="0.1524" layer="91"/>
-<label x="83.82" y="139.7" size="1.778" layer="95" rot="MR0"/>
+<wire x1="104.14" y1="111.76" x2="99.06" y2="111.76" width="0.1524" layer="91"/>
+<label x="96.52" y="111.76" size="1.778" layer="97" rot="MR0"/>
 </segment>
 </net>
 <net name="SF_ABPS5" class="0">
 <segment>
 <pinref part="U1" gate="-ANALOG-FRONT-END" pin="ABPS5"/>
-<wire x1="139.7" y1="142.24" x2="162.56" y2="142.24" width="0.1524" layer="91"/>
-<label x="165.1" y="142.24" size="1.778" layer="97"/>
+<wire x1="139.7" y1="142.24" x2="144.78" y2="142.24" width="0.1524" layer="91"/>
+<label x="147.32" y="142.24" size="1.778" layer="97"/>
 </segment>
 </net>
 <net name="SF_ABPS3" class="0">
 <segment>
 <pinref part="U1" gate="-ANALOG-FRONT-END" pin="ABPS3"/>
-<wire x1="104.14" y1="137.16" x2="73.66" y2="137.16" width="0.1524" layer="91"/>
-<label x="71.12" y="137.16" size="1.778" layer="97" rot="MR0"/>
+<wire x1="104.14" y1="137.16" x2="99.06" y2="137.16" width="0.1524" layer="91"/>
+<label x="96.52" y="137.16" size="1.778" layer="97" rot="MR0"/>
 </segment>
 </net>
 <net name="SF_ADC6" class="0">
@@ -30119,6 +29797,62 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <pinref part="R51" gate="G$1" pin="1"/>
 <wire x1="55.88" y1="63.5" x2="60.96" y2="63.5" width="0.1524" layer="91"/>
 <label x="53.34" y="63.5" size="1.778" layer="97" rot="MR0"/>
+</segment>
+</net>
+<net name="SF_CM1" class="0">
+<segment>
+<pinref part="U1" gate="-ANALOG-FRONT-END" pin="CM1"/>
+<wire x1="104.14" y1="121.92" x2="99.06" y2="121.92" width="0.1524" layer="91"/>
+<label x="96.52" y="121.92" size="1.778" layer="97" rot="MR0"/>
+</segment>
+</net>
+<net name="SF_TM0" class="0">
+<segment>
+<pinref part="U1" gate="-ANALOG-FRONT-END" pin="TM0"/>
+<wire x1="104.14" y1="124.46" x2="99.06" y2="124.46" width="0.1524" layer="91"/>
+<label x="96.52" y="124.46" size="1.778" layer="97" rot="MR0"/>
+</segment>
+</net>
+<net name="SF_CM0" class="0">
+<segment>
+<pinref part="U1" gate="-ANALOG-FRONT-END" pin="CM0"/>
+<wire x1="104.14" y1="134.62" x2="99.06" y2="134.62" width="0.1524" layer="91"/>
+<label x="96.52" y="134.62" size="1.778" layer="97" rot="MR0"/>
+</segment>
+</net>
+<net name="SF_CM2" class="0">
+<segment>
+<pinref part="U1" gate="-ANALOG-FRONT-END" pin="CM2"/>
+<wire x1="139.7" y1="134.62" x2="144.78" y2="134.62" width="0.1524" layer="91"/>
+<label x="147.32" y="134.62" size="1.778" layer="97"/>
+</segment>
+</net>
+<net name="SF_ABPS4" class="0">
+<segment>
+<pinref part="U1" gate="-ANALOG-FRONT-END" pin="ABPS4"/>
+<wire x1="139.7" y1="144.78" x2="144.78" y2="144.78" width="0.1524" layer="91"/>
+<label x="147.32" y="144.78" size="1.778" layer="97"/>
+</segment>
+</net>
+<net name="SF_ABPS2" class="0">
+<segment>
+<pinref part="U1" gate="-ANALOG-FRONT-END" pin="ABPS2"/>
+<wire x1="104.14" y1="139.7" x2="99.06" y2="139.7" width="0.1524" layer="91"/>
+<label x="96.52" y="139.7" size="1.778" layer="95" rot="MR0"/>
+</segment>
+</net>
+<net name="SF_ABPS1" class="0">
+<segment>
+<pinref part="U1" gate="-ANALOG-FRONT-END" pin="ABPS1"/>
+<wire x1="104.14" y1="142.24" x2="99.06" y2="142.24" width="0.1524" layer="91"/>
+<label x="96.52" y="142.24" size="1.778" layer="95" rot="MR0"/>
+</segment>
+</net>
+<net name="SF_ABPS0" class="0">
+<segment>
+<pinref part="U1" gate="-ANALOG-FRONT-END" pin="ABPS0"/>
+<wire x1="104.14" y1="144.78" x2="99.06" y2="144.78" width="0.1524" layer="91"/>
+<label x="96.52" y="144.78" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
 </nets>
