@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
@@ -4022,10 +4022,10 @@ Source: &lt;a href="http://www.ck-components.com/index.php?module=media&amp;acti
 </symbol>
 <symbol name="A2F500M3G-DIGITAL-GROUND">
 <wire x1="-12.7" y1="33.02" x2="12.7" y2="33.02" width="0.254" layer="94"/>
-<wire x1="12.7" y1="33.02" x2="12.7" y2="-38.1" width="0.254" layer="94"/>
-<wire x1="12.7" y1="-38.1" x2="-12.7" y2="-38.1" width="0.254" layer="94"/>
-<wire x1="-12.7" y1="-38.1" x2="-12.7" y2="33.02" width="0.254" layer="94"/>
-<text x="-12.7" y="-40.64" size="1.778" layer="96">&gt;VALUE</text>
+<wire x1="12.7" y1="33.02" x2="12.7" y2="-33.02" width="0.254" layer="94"/>
+<wire x1="12.7" y1="-33.02" x2="-12.7" y2="-33.02" width="0.254" layer="94"/>
+<wire x1="-12.7" y1="-33.02" x2="-12.7" y2="33.02" width="0.254" layer="94"/>
+<text x="-12.7" y="-35.56" size="1.778" layer="96">&gt;VALUE</text>
 <text x="-12.7" y="33.655" size="1.778" layer="95">&gt;NAME</text>
 <pin name="GND@0" x="-17.78" y="30.48" length="middle" direction="pwr"/>
 <pin name="GND@1" x="-17.78" y="27.94" length="middle" direction="pwr"/>
@@ -4067,14 +4067,13 @@ Source: &lt;a href="http://www.ck-components.com/index.php?module=media&amp;acti
 <pin name="GND@37" x="17.78" y="-12.7" length="middle" direction="pwr" rot="R180"/>
 <pin name="GND@38" x="17.78" y="-15.24" length="middle" direction="pwr" rot="R180"/>
 <pin name="GND@39" x="17.78" y="-17.78" length="middle" direction="pwr" rot="R180"/>
-<pin name="GNDENVM" x="17.78" y="-27.94" length="middle" direction="pwr" rot="R180"/>
+<pin name="GNDENVM" x="17.78" y="-30.48" length="middle" direction="pwr" rot="R180"/>
 <pin name="GNDQ@0" x="-17.78" y="-22.86" length="middle" direction="pwr"/>
 <pin name="GNDQ@1" x="-17.78" y="-25.4" length="middle" direction="pwr"/>
 <pin name="GNDQ@2" x="-17.78" y="-27.94" length="middle" direction="pwr"/>
 <pin name="GNDQ@3" x="-17.78" y="-30.48" length="middle" direction="pwr"/>
-<pin name="GNDQ@4" x="-17.78" y="-33.02" length="middle" direction="pwr"/>
-<pin name="GNDQ@5" x="-17.78" y="-35.56" length="middle" direction="pwr"/>
-<pin name="GNDRCOSC" x="17.78" y="-22.86" length="middle" direction="pwr" rot="R180"/>
+<pin name="GNDQ@4" x="17.78" y="-22.86" length="middle" direction="pwr" rot="R180"/>
+<pin name="GNDQ@5" x="17.78" y="-25.4" length="middle" direction="pwr" rot="R180"/>
 </symbol>
 <symbol name="A2F500M3G-ANALOG-SUPPLY">
 <wire x1="-12.7" y1="-27.94" x2="-12.7" y2="25.4" width="0.254" layer="94"/>
@@ -4098,26 +4097,27 @@ Source: &lt;a href="http://www.ck-components.com/index.php?module=media&amp;acti
 <pin name="VDDBAT" x="-17.78" y="2.54" length="middle" direction="pwr"/>
 </symbol>
 <symbol name="A2F500M3G-ANALOG-GROUND">
-<wire x1="-12.7" y1="-25.4" x2="-12.7" y2="25.4" width="0.254" layer="94"/>
-<wire x1="12.7" y1="-25.4" x2="12.7" y2="25.4" width="0.254" layer="94"/>
+<wire x1="-12.7" y1="-27.94" x2="-12.7" y2="25.4" width="0.254" layer="94"/>
+<wire x1="12.7" y1="-27.94" x2="12.7" y2="25.4" width="0.254" layer="94"/>
 <wire x1="12.7" y1="25.4" x2="-12.7" y2="25.4" width="0.254" layer="94"/>
-<wire x1="12.7" y1="-25.4" x2="-12.7" y2="-25.4" width="0.254" layer="94"/>
+<wire x1="12.7" y1="-27.94" x2="-12.7" y2="-27.94" width="0.254" layer="94"/>
 <text x="-12.7" y="26.035" size="1.778" layer="95">&gt;NAME</text>
-<text x="-12.7" y="-27.94" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="GND15ADC0" x="-17.78" y="7.62" length="middle" direction="pwr"/>
-<pin name="GND15ADC1" x="-17.78" y="5.08" length="middle" direction="pwr"/>
-<pin name="GND33ADC0@0" x="-17.78" y="0" length="middle" direction="pwr"/>
-<pin name="GND33ADC0@1" x="-17.78" y="-2.54" length="middle" direction="pwr"/>
-<pin name="GND33ADC1@0" x="-17.78" y="-5.08" length="middle" direction="pwr"/>
-<pin name="GND33ADC1@1" x="-17.78" y="-7.62" length="middle" direction="pwr"/>
-<pin name="GNDA@0" x="-17.78" y="-12.7" length="middle" direction="pwr"/>
-<pin name="GNDA@1" x="-17.78" y="-15.24" length="middle" direction="pwr"/>
-<pin name="GNDAQ@0" x="-17.78" y="-20.32" length="middle" direction="pwr"/>
-<pin name="GNDAQ@1" x="-17.78" y="-22.86" length="middle" direction="pwr"/>
+<text x="-12.7" y="-30.48" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="GND15ADC0" x="-17.78" y="5.08" length="middle" direction="pwr"/>
+<pin name="GND15ADC1" x="-17.78" y="2.54" length="middle" direction="pwr"/>
+<pin name="GND33ADC0@0" x="-17.78" y="-2.54" length="middle" direction="pwr"/>
+<pin name="GND33ADC0@1" x="-17.78" y="-5.08" length="middle" direction="pwr"/>
+<pin name="GND33ADC1@0" x="-17.78" y="-7.62" length="middle" direction="pwr"/>
+<pin name="GND33ADC1@1" x="-17.78" y="-10.16" length="middle" direction="pwr"/>
+<pin name="GNDA@0" x="-17.78" y="-15.24" length="middle" direction="pwr"/>
+<pin name="GNDA@1" x="-17.78" y="-17.78" length="middle" direction="pwr"/>
+<pin name="GNDAQ@0" x="-17.78" y="-22.86" length="middle" direction="pwr"/>
+<pin name="GNDAQ@1" x="-17.78" y="-25.4" length="middle" direction="pwr"/>
 <pin name="GNDLPXTAL" x="-17.78" y="12.7" length="middle" direction="pwr"/>
 <pin name="GNDMAINXTAL" x="-17.78" y="15.24" length="middle" direction="pwr"/>
 <pin name="GNDSDD0" x="-17.78" y="22.86" length="middle" direction="pwr"/>
 <pin name="GNDSDD1" x="-17.78" y="20.32" length="middle" direction="pwr"/>
+<pin name="GNDRCOSC" x="-17.78" y="10.16" length="middle" direction="pwr"/>
 </symbol>
 <symbol name="A2F500M3G-MISC">
 <wire x1="-15.24" y1="-17.78" x2="-15.24" y2="12.7" width="0.254" layer="94"/>
@@ -5726,6 +5726,13 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <wire x1="-1.778" y1="0" x2="-2.54" y2="-1.27" width="0.254" layer="94"/>
 <wire x1="1.778" y1="0" x2="1.016" y2="-1.27" width="0.254" layer="94"/>
 </symbol>
+<symbol name="A1V5">
+<description>&lt;b&gt;Analog 1.5V Supply Symbol&lt;/b&gt;</description>
+<wire x1="0.762" y1="1.27" x2="0" y2="2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="2.54" x2="-0.762" y2="1.27" width="0.254" layer="94"/>
+<pin name="A1V5" x="0" y="0" visible="off" length="short" direction="sup" rot="R90"/>
+<text x="-3.175" y="3.175" size="1.778" layer="96">&gt;VALUE</text>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="A2F500M3G-CS288-COMPACT" prefix="U">
@@ -6642,7 +6649,7 @@ Sources:&lt;p&gt;
 <gate name="-ANALOG-SUPPLY" symbol="A2F500M3G-ANALOG-SUPPLY" x="7.62" y="91.44"/>
 <gate name="-ANALOG-GROUND" symbol="A2F500M3G-ANALOG-GROUND" x="7.62" y="27.94"/>
 <gate name="-MISC" symbol="A2F500M3G-MISC" x="58.42" y="17.78"/>
-<gate name="-ANALOG-FRONT-END" symbol="A2F500M3G-ADC-DAC" x="7.62" y="-38.1"/>
+<gate name="-ANALOG-FRONT-END" symbol="A2F500M3G-ADC-DAC" x="7.62" y="-40.64"/>
 <gate name="-JTAG" symbol="A2F500M3G-JTAG" x="58.42" y="-15.24"/>
 <gate name="-EXTERNAL-MEMORY-CONTROLLER" symbol="A2F500M3G-EMC" x="127" y="83.82"/>
 <gate name="-UART" symbol="A2F500M3G-UART" x="58.42" y="109.22"/>
@@ -6698,6 +6705,7 @@ Sources:&lt;p&gt;
 <connect gate="-ANALOG-GROUND" pin="GNDAQ@1" pad="P5"/>
 <connect gate="-ANALOG-GROUND" pin="GNDLPXTAL" pad="P13"/>
 <connect gate="-ANALOG-GROUND" pin="GNDMAINXTAL" pad="T14"/>
+<connect gate="-ANALOG-GROUND" pin="GNDRCOSC" pad="J4"/>
 <connect gate="-ANALOG-GROUND" pin="GNDSDD0" pad="P1"/>
 <connect gate="-ANALOG-GROUND" pin="GNDSDD1" pad="N13"/>
 <connect gate="-ANALOG-SUPPLY" pin="VCC15A" pad="N3"/>
@@ -6760,7 +6768,6 @@ Sources:&lt;p&gt;
 <connect gate="-DIGITAL-GROUND" pin="GNDQ@3" pad="E5"/>
 <connect gate="-DIGITAL-GROUND" pin="GNDQ@4" pad="F13"/>
 <connect gate="-DIGITAL-GROUND" pin="GNDQ@5" pad="J5"/>
-<connect gate="-DIGITAL-GROUND" pin="GNDRCOSC" pad="J4"/>
 <connect gate="-ETHERNET-MAC" pin="MAC_CLK" pad="L5"/>
 <connect gate="-ETHERNET-MAC" pin="MAC_CRSDV/IO60RSB4V0" pad="L3"/>
 <connect gate="-ETHERNET-MAC" pin="MAC_MDC/IO57RSB4V0" pad="K2"/>
@@ -8569,6 +8576,19 @@ Basic 0.1" spaced 3 pin jumper. Use with breakaway headers.</description>
 Ground for the galvanically decoupled Ethernet chassis.</description>
 <gates>
 <gate name="G$1" symbol="EGND" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="A1V5">
+<description>&lt;b&gt;Analog 1.5V Supply&lt;/b&gt;</description>
+<gates>
+<gate name="G$1" symbol="A1V5" x="0" y="0"/>
 </gates>
 <devices>
 <device name="">
