@@ -17,10 +17,11 @@
  * External clock synchronization (Multiple nodes should be able to synchronize their FPGA clock(s) to each other)
 
   * Candidate clock buffers:
-|| *Vendor* || *Model* || *Input* || *Output* || *Supply* ||
+|| *Vendor* || *Model* || *Input* || *Output* || *Supply* || *Frequency* ||
 || IDT || [http://www.idt.com/sites/default/files/documents/IDT_83021I_DST_20100103.pdf 83021I] || D LVCMOS/LVTTL || SE || 3.3 V ||
 || TI || [http://www.ti.com/lit/ds/symlink/cdcs503.pdf CDCS503PW] || SE LVCMOS || SE || 3.3 V ||
-|| TI || *[http://www.ti.com/lit/ds/symlink/lmv112.pdf LMV112]* || SE LVCMOS || SE || 3.3 V ||
+|| TI || *[http://www.ti.com/lit/ds/symlink/lmv112.pdf LMV112]* || SE LVCMOS || SE || 3.3 V || 40 MHz ||
+|| TI || *[http://www.ti.com/lit/ds/symlink/lmh2180.pdf LMH2180]* || SE LVCMOS || SE || 3.3 V || 75 MHz ||
 || STM || [http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/DATASHEET/CD00168561.pdf STCD1020] || SE LVCMOS || SE || 3.3 V ||
 
  * A TCVCXO should be available to provide clock for the FPGA and LO
