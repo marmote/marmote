@@ -15,6 +15,12 @@
 = Clock Subsystem =
 
  * External clock synchronization (Multiple nodes should be able to synchronize their FPGA clock(s) to each other)
+
+  * Candidate clock buffers:
+|| *Vendor* || *Model* || *Input* || *Output* || *Supply* ||
+|| IDT || [http://www.idt.com/sites/default/files/documents/IDT_83021I_DST_20100103.pdf 83021I] || D LVCMOS/LVTTL || SE || 3.3 V ||
+|| TI || [http://www.ti.com/lit/ds/symlink/cdcs503.pdf CDCS503PW] || SE LVCMOS || SE || 3.3 V ||
+
  * A TCVCXO should be available to provide clock for the FPGA and LO
  * RTC
 
