@@ -1,0 +1,19 @@
+#summary Requirement for the M6-RF315 integrated 315 MHz radio transceiver
+#labels Phase-Requirements
+
+= Functional =
+
+ * Must be able receive and transmit in the 315 MHz band
+  * Must be tunable to 313.95 MHz
+  * Must support FSK modulation
+ * Should provide a low-level digital access to the incoming bitstream
+ * Must be compatible with PowerBoard Rev A
+
+= Other =
+
+Candidate IC parts:
+
+|| *Vendor* || *Model* || *Package* || *Sample* ||
+|| TI || [http://www.ti.com/lit/ds/symlink/cc1101.pdf CC1101] || VQFN-20 || Shipped ||
+|| Maxim || [http://datasheets.maxim-ic.com/en/ds/MAX7032.pdf MAX7032ATJ] || WFQFN-32 || Ordered ||
+|| Actel || [http://www.atmel.com/dyn/resources/prod_documents/doc4841.pdf ATA5423] || QFN-48 || Ordered ||
