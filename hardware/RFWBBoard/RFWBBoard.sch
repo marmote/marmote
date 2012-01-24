@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.0">
+<eagle version="6.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -24874,6 +24874,8 @@ v1.0 Initial design</description>
 <part name="LOGO1" library="Logo" deviceset="LOGO-ISIS-600MIL" device="-10MM-AU"/>
 <part name="LOGO2" library="Logo" deviceset="LOGO-MARMOTE-600MIL" device="-10MM-AU"/>
 <part name="LOGO3" library="Logo" deviceset="LOGO-VANDERBILT-600MIL" device="-10MM-AU"/>
+<part name="R1" library="RFWBBoard" deviceset="R" device="0402" value="4.7k"/>
+<part name="R2" library="RFWBBoard" deviceset="R" device="0402" value="4.7k"/>
 </parts>
 <sheets>
 <sheet>
@@ -26253,6 +26255,8 @@ v1.0 Initial design</description>
 <instance part="RA11" gate="G$1" x="106.68" y="35.56"/>
 <instance part="RA00" gate="G$1" x="106.68" y="25.4"/>
 <instance part="RA01" gate="G$1" x="106.68" y="15.24"/>
+<instance part="R1" gate="G$1" x="220.98" y="76.2" rot="R90"/>
+<instance part="R2" gate="G$1" x="213.36" y="76.2" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -26303,6 +26307,16 @@ v1.0 Initial design</description>
 <pinref part="RA01" gate="G$1" pin="1"/>
 <wire x1="91.44" y1="15.24" x2="101.6" y2="15.24" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<wire x1="236.22" y1="81.28" x2="220.98" y2="81.28" width="0.1524" layer="91"/>
+<pinref part="R2" gate="G$1" pin="2"/>
+<wire x1="220.98" y1="81.28" x2="213.36" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="81.28" x2="213.36" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="R1" gate="G$1" pin="2"/>
+<wire x1="220.98" y1="78.74" x2="220.98" y2="81.28" width="0.1524" layer="91"/>
+<junction x="220.98" y="81.28"/>
+<label x="223.52" y="81.28" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="DGND" class="0">
 <segment>
@@ -26336,12 +26350,24 @@ v1.0 Initial design</description>
 <wire x1="172.72" y1="78.74" x2="190.5" y2="78.74" width="0.1524" layer="91"/>
 <label x="175.26" y="78.74" size="1.778" layer="95"/>
 </segment>
+<segment>
+<wire x1="198.12" y1="68.58" x2="213.36" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="68.58" x2="213.36" y2="71.12" width="0.1524" layer="91"/>
+<label x="200.66" y="68.58" size="1.778" layer="95"/>
+<pinref part="R2" gate="G$1" pin="1"/>
+</segment>
 </net>
 <net name="I2C1_SCL" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="SCL"/>
 <wire x1="127" y1="86.36" x2="144.78" y2="86.36" width="0.1524" layer="91"/>
 <label x="129.54" y="86.36" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="220.98" y1="71.12" x2="220.98" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="220.98" y1="68.58" x2="236.22" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="R1" gate="G$1" pin="1"/>
+<label x="223.52" y="68.58" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="WP" class="0">
