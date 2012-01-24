@@ -15293,90 +15293,6 @@ Various fiducial points for machine vision alignment.</description>
 </library>
 <library name="powerboard">
 <packages>
-<package name="R0402">
-<description>&lt;b&gt;R0402&lt;/b&gt;
-&lt;p&gt;
-Chip resistor
-&lt;p&gt;
-&lt;i&gt;Source: EAGLE 5.11 'rlc.lbr'&lt;/i&gt;</description>
-<wire x1="-0.245" y1="0.224" x2="0.245" y2="0.224" width="0.1524" layer="51"/>
-<wire x1="0.245" y1="-0.224" x2="-0.245" y2="-0.224" width="0.1524" layer="51"/>
-<wire x1="-1.473" y1="0.483" x2="1.473" y2="0.483" width="0.0508" layer="39"/>
-<wire x1="1.473" y1="0.483" x2="1.473" y2="-0.483" width="0.0508" layer="39"/>
-<wire x1="1.473" y1="-0.483" x2="-1.473" y2="-0.483" width="0.0508" layer="39"/>
-<wire x1="-1.473" y1="-0.483" x2="-1.473" y2="0.483" width="0.0508" layer="39"/>
-<smd name="1" x="-0.65" y="0" dx="0.7" dy="0.9" layer="1"/>
-<smd name="2" x="0.65" y="0" dx="0.7" dy="0.9" layer="1"/>
-<text x="-0.889" y="0.5842" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-0.889" y="-0.9906" size="0.4064" layer="27">&gt;VALUE</text>
-<rectangle x1="-0.554" y1="-0.3048" x2="-0.254" y2="0.2951" layer="51"/>
-<rectangle x1="0.2588" y1="-0.3048" x2="0.5588" y2="0.2951" layer="51"/>
-<rectangle x1="-0.1999" y1="-0.4001" x2="0.1999" y2="0.4001" layer="35"/>
-<rectangle x1="-0.2032" y1="-0.3048" x2="0.2032" y2="0.3048" layer="21"/>
-</package>
-<package name="R0603">
-<description>&lt;b&gt;R0603&lt;/b&gt;
-&lt;p&gt;
-Chip resistor
-&lt;p&gt;
-&lt;i&gt;Source: EAGLE 5.11 'rlc.lbr'&lt;/i&gt;</description>
-<wire x1="-0.432" y1="-0.356" x2="0.432" y2="-0.356" width="0.1524" layer="51"/>
-<wire x1="0.432" y1="0.356" x2="-0.432" y2="0.356" width="0.1524" layer="51"/>
-<wire x1="-1.46" y1="0.97" x2="1.46" y2="0.97" width="0.0508" layer="39"/>
-<wire x1="1.46" y1="0.97" x2="1.46" y2="-0.97" width="0.0508" layer="39"/>
-<wire x1="1.46" y1="-0.97" x2="-1.46" y2="-0.97" width="0.0508" layer="39"/>
-<wire x1="-1.46" y1="-0.97" x2="-1.46" y2="0.97" width="0.0508" layer="39"/>
-<smd name="1" x="-0.85" y="0" dx="1" dy="1.1" layer="1"/>
-<smd name="2" x="0.85" y="0" dx="1" dy="1.1" layer="1"/>
-<text x="-0.889" y="0.6858" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-0.889" y="-1.143" size="0.4064" layer="27">&gt;VALUE</text>
-<rectangle x1="0.4318" y1="-0.4318" x2="0.8382" y2="0.4318" layer="51"/>
-<rectangle x1="-0.8382" y1="-0.4318" x2="-0.4318" y2="0.4318" layer="51"/>
-<rectangle x1="-0.1999" y1="-0.4001" x2="0.1999" y2="0.4001" layer="35"/>
-<rectangle x1="-0.254" y1="-0.4064" x2="0.254" y2="0.4064" layer="21"/>
-</package>
-<package name="R0805">
-<description>&lt;b&gt;R0805&lt;/b&gt;
-&lt;p&gt;
-Chip resistor
-&lt;p&gt;
-&lt;i&gt;Source: EAGLE 5.11 'rlc.lbr'&lt;/i&gt;</description>
-<wire x1="-0.41" y1="0.635" x2="0.41" y2="0.635" width="0.1524" layer="51"/>
-<wire x1="-0.41" y1="-0.635" x2="0.41" y2="-0.635" width="0.1524" layer="51"/>
-<wire x1="-1.973" y1="0.983" x2="1.973" y2="0.983" width="0.0508" layer="39"/>
-<wire x1="1.973" y1="0.983" x2="1.973" y2="-0.983" width="0.0508" layer="39"/>
-<wire x1="1.973" y1="-0.983" x2="-1.973" y2="-0.983" width="0.0508" layer="39"/>
-<wire x1="-1.973" y1="-0.983" x2="-1.973" y2="0.983" width="0.0508" layer="39"/>
-<smd name="1" x="-0.95" y="0" dx="1.3" dy="1.5" layer="1"/>
-<smd name="2" x="0.95" y="0" dx="1.3" dy="1.5" layer="1"/>
-<text x="-1.016" y="0.9652" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-1.016" y="-1.3208" size="0.4064" layer="27">&gt;VALUE</text>
-<rectangle x1="0.4064" y1="-0.6985" x2="1.0564" y2="0.7015" layer="51"/>
-<rectangle x1="-1.0668" y1="-0.6985" x2="-0.4168" y2="0.7015" layer="51"/>
-<rectangle x1="-0.1999" y1="-0.5001" x2="0.1999" y2="0.5001" layer="35"/>
-<rectangle x1="-0.2032" y1="-0.7112" x2="0.2032" y2="0.7112" layer="21"/>
-</package>
-<package name="R1206">
-<description>&lt;b&gt;R0805&lt;/b&gt;
-&lt;p&gt;
-Chip resistor
-&lt;p&gt;
-&lt;i&gt;Source: EAGLE 5.11 'rlc.lbr'&lt;/i&gt;</description>
-<wire x1="0.9525" y1="-0.8128" x2="-0.9652" y2="-0.8128" width="0.1524" layer="51"/>
-<wire x1="0.9525" y1="0.8128" x2="-0.9652" y2="0.8128" width="0.1524" layer="51"/>
-<wire x1="-2.473" y1="0.983" x2="2.473" y2="0.983" width="0.0508" layer="39"/>
-<wire x1="2.473" y1="0.983" x2="2.473" y2="-0.983" width="0.0508" layer="39"/>
-<wire x1="2.473" y1="-0.983" x2="-2.473" y2="-0.983" width="0.0508" layer="39"/>
-<wire x1="-2.473" y1="-0.983" x2="-2.473" y2="0.983" width="0.0508" layer="39"/>
-<smd name="2" x="1.422" y="0" dx="1.6" dy="1.803" layer="1"/>
-<smd name="1" x="-1.422" y="0" dx="1.6" dy="1.803" layer="1"/>
-<text x="-1.1684" y="1.1176" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-1.1684" y="-1.4732" size="0.4064" layer="27">&gt;VALUE</text>
-<rectangle x1="-1.6891" y1="-0.8763" x2="-0.9525" y2="0.8763" layer="51"/>
-<rectangle x1="0.9525" y1="-0.8763" x2="1.6891" y2="0.8763" layer="51"/>
-<rectangle x1="-0.3" y1="-0.7" x2="0.3" y2="0.7" layer="35"/>
-<rectangle x1="-0.508" y1="-0.8636" x2="0.508" y2="0.8636" layer="21"/>
-</package>
 </packages>
 <symbols>
 <symbol name="PORT7">
@@ -15397,32 +15313,6 @@ Chip resistor
 <wire x1="-1.016" y1="-0.762" x2="1.016" y2="-0.762" width="0.254" layer="94"/>
 <wire x1="-0.254" y1="-1.524" x2="0.254" y2="-1.524" width="0.254" layer="94"/>
 <pin name="AGND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
-</symbol>
-<symbol name="PORT3">
-<wire x1="-6.604" y1="-0.254" x2="0" y2="-0.254" width="0.2032" layer="95"/>
-<wire x1="1.651" y1="0.889" x2="0" y2="-0.254" width="0.2032" layer="95"/>
-<wire x1="1.651" y1="0.889" x2="0" y2="2.032" width="0.2032" layer="95"/>
-<wire x1="0" y1="2.032" x2="-6.604" y2="2.032" width="0.2032" layer="95"/>
-<wire x1="-6.604" y1="2.032" x2="-6.604" y2="0" width="0.2032" layer="95"/>
-<wire x1="-6.604" y1="0" x2="-6.604" y2="-0.254" width="0.2032" layer="95"/>
-<wire x1="-6.604" y1="0" x2="-7.62" y2="0" width="0.1524" layer="95"/>
-</symbol>
-<symbol name="R">
-<wire x1="-3.81" y1="0" x2="-3.429" y2="1.016" width="0.2032" layer="94"/>
-<wire x1="-3.429" y1="1.016" x2="-2.794" y2="-1.016" width="0.2032" layer="94"/>
-<wire x1="-2.794" y1="-1.016" x2="-2.159" y2="1.016" width="0.2032" layer="94"/>
-<wire x1="-2.159" y1="1.016" x2="-1.524" y2="-1.016" width="0.2032" layer="94"/>
-<wire x1="-1.524" y1="-1.016" x2="-0.889" y2="1.016" width="0.2032" layer="94"/>
-<wire x1="-0.889" y1="1.016" x2="-0.254" y2="-1.016" width="0.2032" layer="94"/>
-<wire x1="-0.254" y1="-1.016" x2="0.381" y2="1.016" width="0.2032" layer="94"/>
-<wire x1="0.381" y1="1.016" x2="1.016" y2="-1.016" width="0.2032" layer="94"/>
-<wire x1="1.016" y1="-1.016" x2="1.27" y2="0" width="0.2032" layer="94"/>
-<wire x1="1.27" y1="0" x2="2.54" y2="0" width="0.2032" layer="94"/>
-<wire x1="-3.81" y1="0" x2="-5.08" y2="0" width="0.2032" layer="94"/>
-<text x="-5.08" y="1.27" size="1.778" layer="95">&gt;NAME</text>
-<text x="-5.08" y="-3.175" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="2" x="2.54" y="0" visible="off" length="point" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="1" x="-5.08" y="0" visible="off" length="point" direction="pas" swaplevel="1"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -15462,72 +15352,6 @@ Chip resistor
 <device name="">
 <technologies>
 <technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="PORT3" prefix="PORT">
-<description>&lt;b&gt;PORT SYMBOL&lt;/b&gt;&lt;p&gt;
- for net name (3 characters)</description>
-<gates>
-<gate name="G$1" symbol="PORT3" x="5.08" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="R" prefix="R" uservalue="yes">
-<description>&lt;b&gt;RESISTOR&lt;/b&gt;</description>
-<gates>
-<gate name="G$1" symbol="R" x="0" y="0"/>
-</gates>
-<devices>
-<device name="0402" package="R0402">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="TOLERANCE" value="" constant="no"/>
-</technology>
-</technologies>
-</device>
-<device name="0603" package="R0603">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="TOLERANCE" value="" constant="no"/>
-</technology>
-</technologies>
-</device>
-<device name="0805" package="R0805">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="TOLERANCE" value="" constant="no"/>
-</technology>
-</technologies>
-</device>
-<device name="1206" package="R1206">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="TOLERANCE" value="" constant="no"/>
-</technology>
 </technologies>
 </device>
 </devices>
@@ -15574,8 +15398,6 @@ Chip resistor
 <part name="PORT98" library="powerboard" deviceset="PORT7" device=""/>
 <part name="PORT99" library="powerboard" deviceset="PORT7" device=""/>
 <part name="PORT100" library="powerboard" deviceset="PORT7" device=""/>
-<part name="PORT101" library="powerboard" deviceset="PORT3" device=""/>
-<part name="R48" library="powerboard" deviceset="R" device="0603" value="0"/>
 <part name="PORT2" library="powerboard" deviceset="PORT7" device=""/>
 <part name="PORT114" library="powerboard" deviceset="PORT7" device=""/>
 <part name="PORT117" library="powerboard" deviceset="PORT7" device=""/>
@@ -15590,6 +15412,7 @@ Chip resistor
 <part name="PORT86" library="powerboard" deviceset="PORT7" device=""/>
 <part name="PORT91" library="powerboard" deviceset="PORT7" device=""/>
 <part name="U$4" library="powerboard" deviceset="DGND" device=""/>
+<part name="PORT1" library="powerboard" deviceset="PORT7" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -15652,11 +15475,6 @@ Chip resistor
 <instance part="PORT98" gate="G$1" x="88.9" y="106.68"/>
 <instance part="PORT99" gate="G$1" x="88.9" y="104.14"/>
 <instance part="PORT100" gate="G$1" x="88.9" y="101.6"/>
-<instance part="PORT101" gate="G$1" x="88.9" y="96.52"/>
-<instance part="R48" gate="G$1" x="73.66" y="96.52" smashed="yes">
-<attribute name="NAME" x="76.2" y="96.7486" size="1.778" layer="95"/>
-<attribute name="VALUE" x="76.2" y="93.853" size="1.778" layer="96"/>
-</instance>
 <instance part="PORT2" gate="G$1" x="88.9" y="124.46"/>
 <instance part="PORT114" gate="G$1" x="88.9" y="127"/>
 <instance part="PORT117" gate="G$1" x="88.9" y="134.62"/>
@@ -15671,6 +15489,7 @@ Chip resistor
 <instance part="PORT86" gate="G$1" x="25.4" y="68.58" rot="MR0"/>
 <instance part="PORT91" gate="G$1" x="25.4" y="66.04" rot="MR0"/>
 <instance part="U$4" gate="G$1" x="40.64" y="124.46"/>
+<instance part="PORT1" gate="G$1" x="88.9" y="96.52"/>
 </instances>
 <busses>
 </busses>
@@ -15853,9 +15672,9 @@ Chip resistor
 </net>
 <net name="PB4" class="0">
 <segment>
-<wire x1="76.2" y1="96.52" x2="81.28" y2="96.52" width="0.1524" layer="91"/>
-<label x="83.82" y="96.52" size="1.778" layer="95"/>
-<pinref part="R48" gate="G$1" pin="2"/>
+<label x="76.2" y="96.52" size="1.778" layer="95"/>
+<pinref part="J1" gate="G$1" pin="38"/>
+<wire x1="73.66" y1="96.52" x2="63.5" y2="96.52" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="PA10" class="0">
@@ -15870,13 +15689,6 @@ Chip resistor
 <wire x1="73.66" y1="101.6" x2="63.5" y2="101.6" width="0.1524" layer="91"/>
 <label x="76.2" y="101.6" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="34"/>
-</segment>
-</net>
-<net name="PB4-SF" class="0">
-<segment>
-<wire x1="68.58" y1="96.52" x2="63.5" y2="96.52" width="0.1524" layer="91"/>
-<pinref part="R48" gate="G$1" pin="1"/>
-<pinref part="J1" gate="G$1" pin="38"/>
 </segment>
 </net>
 </nets>
