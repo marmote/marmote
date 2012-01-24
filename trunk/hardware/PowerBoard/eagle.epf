@@ -12,7 +12,7 @@ UsedLibrary="Logo.lbr"
 
 [Win_1]
 Type="Control Panel"
-Loc="95 143 1412 920"
+Loc="175 175 1343 958"
 State=2
 Number=0
 
