@@ -15,6 +15,10 @@
  * Must be able to use a clock sourced from the MainBoard through the mezzanine connector
  * Should be able to switch between the above two (either by a jumper or a digital switch)
 
+== Candidate clock buffer ICs ==
+
+|| IDT || [http://www.idt.com/products/clocks-timing/clock-distribution/fanout-buffers-non-pll/83026i-01-12-differential-lvcmoslvttl-fanout-buffer ICS83026I] ||
+
 = Analog front-end =
 
  * Consider adding a second RF front-end IC and antenna if ADCs and DACs are already present (at least at footprint-level)
