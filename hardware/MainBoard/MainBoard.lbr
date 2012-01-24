@@ -3049,6 +3049,34 @@ Source: &lt;a href="http://www.ck-components.com/index.php?module=media&amp;acti
 <rectangle x1="2.286" y1="-0.254" x2="2.794" y2="0.254" layer="51"/>
 <rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
 </package>
+<package name="LLP-8">
+<description>&lt;b&gt;LLP-8 (WFDFN-8) Exposed Pad&lt;/b&gt;
+&lt;p&gt;
+Source: &lt;a href="http://www.ti.com/lit/ds/symlink/lmv112.pdf"&gt;http://www.ti.com/lit/ds/symlink/lmv112.pdf&lt;/a&gt;</description>
+<smd name="EXP" x="0" y="0" dx="2" dy="1.6" layer="1" cream="no"/>
+<smd name="8" x="-0.75" y="-1.4" dx="0.25" dy="0.6" layer="1"/>
+<smd name="7" x="-0.25" y="-1.4" dx="0.25" dy="0.6" layer="1"/>
+<smd name="5" x="0.75" y="-1.4" dx="0.25" dy="0.6" layer="1"/>
+<smd name="6" x="0.25" y="-1.4" dx="0.25" dy="0.6" layer="1"/>
+<smd name="1" x="-0.75" y="1.4" dx="0.25" dy="0.6" layer="1"/>
+<smd name="2" x="-0.25" y="1.4" dx="0.25" dy="0.6" layer="1"/>
+<smd name="4" x="0.75" y="1.4" dx="0.25" dy="0.6" layer="1"/>
+<smd name="3" x="0.25" y="1.4" dx="0.25" dy="0.6" layer="1"/>
+<rectangle x1="-0.7" y1="-0.5" x2="0.7" y2="0.5" layer="31"/>
+<wire x1="-1.5" y1="-1.5" x2="-1.5" y2="1.5" width="0.127" layer="51"/>
+<wire x1="-1.5" y1="1.5" x2="1.5" y2="1.5" width="0.127" layer="51"/>
+<wire x1="1.5" y1="1.5" x2="1.5" y2="-1.5" width="0.127" layer="51"/>
+<wire x1="1.5" y1="-1.5" x2="-1.5" y2="-1.5" width="0.127" layer="51"/>
+<wire x1="-1" y1="-0.8" x2="-1" y2="0.5" width="0.127" layer="51"/>
+<wire x1="-0.7" y1="0.8" x2="1" y2="0.8" width="0.127" layer="51"/>
+<wire x1="1" y1="0.8" x2="1" y2="-0.8" width="0.127" layer="51"/>
+<wire x1="1" y1="-0.8" x2="-1" y2="-0.8" width="0.127" layer="51"/>
+<wire x1="-1" y1="0.5" x2="-0.7" y2="0.8" width="0.127" layer="51"/>
+<wire x1="-1.9" y1="1.2" x2="-1.7" y2="1.4" width="0.127" layer="21"/>
+<wire x1="-1.7" y1="1.4" x2="-1.9" y2="1.6" width="0.127" layer="21"/>
+<wire x1="-1.9" y1="1.6" x2="-1.9" y2="1.2" width="0.127" layer="21"/>
+<text x="-2.54" y="0" size="0.2032" layer="51">Check if EXP should be soldered to PCB</text>
+</package>
 </packages>
 <symbols>
 <symbol name="A2F500M3G-CS288">
@@ -3958,67 +3986,64 @@ Source: &lt;a href="http://www.ck-components.com/index.php?module=media&amp;acti
 <pin name="VPP" x="-53.34" y="58.42" length="middle" direction="pas"/>
 </symbol>
 <symbol name="A2F500M3G-FPGA-IOB-SUPPLY">
-<wire x1="-12.7" y1="-25.4" x2="-12.7" y2="22.86" width="0.254" layer="94"/>
-<wire x1="12.7" y1="-25.4" x2="12.7" y2="22.86" width="0.254" layer="94"/>
-<wire x1="12.7" y1="22.86" x2="-12.7" y2="22.86" width="0.254" layer="94"/>
-<wire x1="12.7" y1="-25.4" x2="-12.7" y2="-25.4" width="0.254" layer="94"/>
-<text x="-12.7" y="23.495" size="1.778" layer="95">&gt;NAME</text>
-<text x="-12.7" y="-27.94" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="VCCFPGAIOB0@0" x="-17.78" y="20.32" length="middle" direction="pwr"/>
-<pin name="VCCFPGAIOB0@1" x="-17.78" y="17.78" length="middle" direction="pwr"/>
-<pin name="VCCFPGAIOB0@2" x="-17.78" y="15.24" length="middle" direction="pwr"/>
-<pin name="VCCFPGAIOB0@3" x="-17.78" y="12.7" length="middle" direction="pwr"/>
-<pin name="VCCFPGAIOB0@4" x="-17.78" y="10.16" length="middle" direction="pwr"/>
-<pin name="VCCFPGAIOB0@5" x="-17.78" y="7.62" length="middle" direction="pwr"/>
-<pin name="VCCFPGAIOB0@6" x="-17.78" y="5.08" length="middle" direction="pwr"/>
-<pin name="VCCFPGAIOB0@7" x="-17.78" y="2.54" length="middle" direction="pwr"/>
-<pin name="VCCFPGAIOB1@0" x="-17.78" y="-2.54" length="middle" direction="pwr"/>
-<pin name="VCCFPGAIOB1@1" x="-17.78" y="-5.08" length="middle" direction="pwr"/>
-<pin name="VCCFPGAIOB1@2" x="-17.78" y="-7.62" length="middle" direction="pwr"/>
-<pin name="VCCFPGAIOB5@0" x="-17.78" y="-12.7" length="middle" direction="pwr"/>
-<pin name="VCCFPGAIOB5@1" x="-17.78" y="-15.24" length="middle" direction="pwr"/>
-<pin name="VCCFPGAIOB5@2" x="-17.78" y="-17.78" length="middle" direction="pwr"/>
-<pin name="VCCFPGAIOB5@3" x="-17.78" y="-20.32" length="middle" direction="pwr"/>
-<pin name="VCCFPGAIOB5@4" x="-17.78" y="-22.86" length="middle" direction="pwr"/>
+<wire x1="-20.32" y1="-12.7" x2="-20.32" y2="12.7" width="0.254" layer="94"/>
+<wire x1="20.32" y1="-12.7" x2="20.32" y2="12.7" width="0.254" layer="94"/>
+<wire x1="20.32" y1="12.7" x2="-20.32" y2="12.7" width="0.254" layer="94"/>
+<wire x1="20.32" y1="-12.7" x2="-20.32" y2="-12.7" width="0.254" layer="94"/>
+<text x="-20.32" y="13.335" size="1.778" layer="95">&gt;NAME</text>
+<text x="-20.32" y="-15.24" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="VCCFPGAIOB0@0" x="-25.4" y="10.16" length="middle" direction="pwr"/>
+<pin name="VCCFPGAIOB0@1" x="-25.4" y="7.62" length="middle" direction="pwr"/>
+<pin name="VCCFPGAIOB0@2" x="-25.4" y="5.08" length="middle" direction="pwr"/>
+<pin name="VCCFPGAIOB0@3" x="-25.4" y="2.54" length="middle" direction="pwr"/>
+<pin name="VCCFPGAIOB0@4" x="-25.4" y="0" length="middle" direction="pwr"/>
+<pin name="VCCFPGAIOB0@5" x="-25.4" y="-2.54" length="middle" direction="pwr"/>
+<pin name="VCCFPGAIOB0@6" x="-25.4" y="-5.08" length="middle" direction="pwr"/>
+<pin name="VCCFPGAIOB0@7" x="-25.4" y="-7.62" length="middle" direction="pwr"/>
+<pin name="VCCFPGAIOB1@0" x="25.4" y="10.16" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCCFPGAIOB1@1" x="25.4" y="7.62" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCCFPGAIOB1@2" x="25.4" y="5.08" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCCFPGAIOB5@0" x="25.4" y="0" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCCFPGAIOB5@1" x="25.4" y="-2.54" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCCFPGAIOB5@2" x="25.4" y="-5.08" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCCFPGAIOB5@3" x="25.4" y="-7.62" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCCFPGAIOB5@4" x="25.4" y="-10.16" length="middle" direction="pwr" rot="R180"/>
 </symbol>
 <symbol name="A2F500M3G-FPGA-CORE-SUPPLY">
-<wire x1="-12.7" y1="-15.24" x2="-12.7" y2="12.7" width="0.254" layer="94"/>
-<wire x1="-12.7" y1="12.7" x2="12.7" y2="12.7" width="0.254" layer="94"/>
-<wire x1="12.7" y1="12.7" x2="12.7" y2="-15.24" width="0.254" layer="94"/>
-<wire x1="12.7" y1="-15.24" x2="-12.7" y2="-15.24" width="0.254" layer="94"/>
-<text x="-12.7" y="13.335" size="1.778" layer="95">&gt;NAME</text>
-<text x="-12.7" y="-17.78" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="VCC@0" x="-17.78" y="10.16" length="middle" direction="pwr"/>
-<pin name="VCC@1" x="-17.78" y="7.62" length="middle" direction="pwr"/>
-<pin name="VCC@2" x="-17.78" y="5.08" length="middle" direction="pwr"/>
-<pin name="VCC@3" x="-17.78" y="2.54" length="middle" direction="pwr"/>
-<pin name="VCC@4" x="-17.78" y="0" length="middle" direction="pwr"/>
-<pin name="VCC@5" x="-17.78" y="-2.54" length="middle" direction="pwr"/>
-<pin name="VCC@6" x="17.78" y="10.16" length="middle" direction="pwr" rot="R180"/>
-<pin name="VCC@7" x="17.78" y="7.62" length="middle" direction="pwr" rot="R180"/>
-<pin name="VCC@8" x="17.78" y="5.08" length="middle" direction="pwr" rot="R180"/>
-<pin name="VCC@9" x="17.78" y="2.54" length="middle" direction="pwr" rot="R180"/>
-<pin name="VCC@10" x="17.78" y="0" length="middle" direction="pwr" rot="R180"/>
-<pin name="VCC@11" x="17.78" y="-2.54" length="middle" direction="pwr" rot="R180"/>
-<pin name="VCCPLL0" x="-17.78" y="-7.62" length="middle" direction="pwr"/>
-<pin name="VCOMPLA0" x="-17.78" y="-12.7" length="middle" direction="pas"/>
+<wire x1="-20.32" y1="-12.7" x2="-20.32" y2="10.16" width="0.254" layer="94"/>
+<wire x1="-20.32" y1="10.16" x2="20.32" y2="10.16" width="0.254" layer="94"/>
+<wire x1="20.32" y1="10.16" x2="20.32" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="20.32" y1="-12.7" x2="-20.32" y2="-12.7" width="0.254" layer="94"/>
+<text x="-20.32" y="10.795" size="1.778" layer="95">&gt;NAME</text>
+<text x="-20.32" y="-15.24" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="VCC@0" x="-25.4" y="7.62" length="middle" direction="pwr"/>
+<pin name="VCC@1" x="-25.4" y="5.08" length="middle" direction="pwr"/>
+<pin name="VCC@2" x="-25.4" y="2.54" length="middle" direction="pwr"/>
+<pin name="VCC@3" x="-25.4" y="0" length="middle" direction="pwr"/>
+<pin name="VCC@4" x="-25.4" y="-2.54" length="middle" direction="pwr"/>
+<pin name="VCC@5" x="-25.4" y="-5.08" length="middle" direction="pwr"/>
+<pin name="VCC@6" x="25.4" y="7.62" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCC@7" x="25.4" y="5.08" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCC@8" x="25.4" y="2.54" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCC@9" x="25.4" y="0" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCC@10" x="25.4" y="-2.54" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCC@11" x="25.4" y="-5.08" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCCENVM" x="-25.4" y="-10.16" length="middle" direction="pwr"/>
 </symbol>
 <symbol name="A2F500M3G-MSS-IOB-SUPPLY">
-<wire x1="-12.7" y1="-17.78" x2="-12.7" y2="15.24" width="0.254" layer="94"/>
-<wire x1="12.7" y1="-17.78" x2="12.7" y2="15.24" width="0.254" layer="94"/>
-<wire x1="-12.7" y1="15.24" x2="12.7" y2="15.24" width="0.254" layer="94"/>
-<wire x1="-12.7" y1="-17.78" x2="12.7" y2="-17.78" width="0.254" layer="94"/>
-<text x="-12.7" y="-20.32" size="1.778" layer="96">&gt;VALUE</text>
-<text x="-12.7" y="15.875" size="1.778" layer="95">&gt;NAME</text>
-<pin name="VCCENVM" x="-17.78" y="-15.24" length="middle" direction="pwr"/>
-<pin name="VCCMSSIOB2@0" x="-17.78" y="12.7" length="middle" direction="pwr"/>
-<pin name="VCCMSSIOB2@1" x="-17.78" y="10.16" length="middle" direction="pwr"/>
-<pin name="VCCMSSIOB2@2" x="-17.78" y="7.62" length="middle" direction="pwr"/>
-<pin name="VCCMSSIOB2@3" x="-17.78" y="5.08" length="middle" direction="pwr"/>
-<pin name="VCCMSSIOB4@0" x="-17.78" y="0" length="middle" direction="pwr"/>
-<pin name="VCCMSSIOB4@1" x="-17.78" y="-2.54" length="middle" direction="pwr"/>
-<pin name="VCCMSSIOB4@2" x="-17.78" y="-5.08" length="middle" direction="pwr"/>
-<pin name="VCCRCOSC" x="-17.78" y="-10.16" length="middle" direction="pwr"/>
+<wire x1="-20.32" y1="-7.62" x2="-20.32" y2="5.08" width="0.254" layer="94"/>
+<wire x1="20.32" y1="-7.62" x2="20.32" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-20.32" y1="5.08" x2="20.32" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-20.32" y1="-7.62" x2="20.32" y2="-7.62" width="0.254" layer="94"/>
+<text x="-20.32" y="-10.16" size="1.778" layer="96">&gt;VALUE</text>
+<text x="-20.32" y="5.715" size="1.778" layer="95">&gt;NAME</text>
+<pin name="VCCMSSIOB2@0" x="-25.4" y="2.54" length="middle" direction="pwr"/>
+<pin name="VCCMSSIOB2@1" x="-25.4" y="0" length="middle" direction="pwr"/>
+<pin name="VCCMSSIOB2@2" x="-25.4" y="-2.54" length="middle" direction="pwr"/>
+<pin name="VCCMSSIOB2@3" x="-25.4" y="-5.08" length="middle" direction="pwr"/>
+<pin name="VCCMSSIOB4@0" x="25.4" y="2.54" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCCMSSIOB4@1" x="25.4" y="0" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCCMSSIOB4@2" x="25.4" y="-2.54" length="middle" direction="pwr" rot="R180"/>
 </symbol>
 <symbol name="A2F500M3G-DIGITAL-GROUND">
 <wire x1="-12.7" y1="33.02" x2="12.7" y2="33.02" width="0.254" layer="94"/>
@@ -4076,48 +4101,51 @@ Source: &lt;a href="http://www.ck-components.com/index.php?module=media&amp;acti
 <pin name="GNDQ@5" x="17.78" y="-25.4" length="middle" direction="pwr" rot="R180"/>
 </symbol>
 <symbol name="A2F500M3G-ANALOG-SUPPLY">
-<wire x1="-12.7" y1="-27.94" x2="-12.7" y2="25.4" width="0.254" layer="94"/>
-<wire x1="12.7" y1="-27.94" x2="12.7" y2="25.4" width="0.254" layer="94"/>
-<wire x1="-12.7" y1="25.4" x2="12.7" y2="25.4" width="0.254" layer="94"/>
-<wire x1="-12.7" y1="-27.94" x2="12.7" y2="-27.94" width="0.254" layer="94"/>
-<text x="-12.7" y="26.035" size="1.778" layer="95">&gt;NAME</text>
-<text x="-12.7" y="-30.48" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="VCC15A" x="-17.78" y="15.24" length="middle" direction="pwr"/>
-<pin name="VCC15ADC0" x="-17.78" y="22.86" length="middle" direction="pwr"/>
-<pin name="VCC15ADC1" x="-17.78" y="20.32" length="middle" direction="pwr"/>
-<pin name="VCC33A" x="-17.78" y="-5.08" length="middle" direction="pwr"/>
-<pin name="VCC33ADC0" x="-17.78" y="-10.16" length="middle" direction="pwr"/>
-<pin name="VCC33ADC1" x="-17.78" y="-12.7" length="middle" direction="pwr"/>
-<pin name="VCC33AP" x="-17.78" y="-2.54" length="middle" direction="pwr"/>
-<pin name="VCC33N" x="-17.78" y="-25.4" length="middle" direction="pwr"/>
-<pin name="VCC33SDD0" x="-17.78" y="10.16" length="middle" direction="pwr"/>
-<pin name="VCC33SDD1" x="-17.78" y="7.62" length="middle" direction="pwr"/>
-<pin name="VCCLPXTAL" x="-17.78" y="-17.78" length="middle" direction="pwr"/>
-<pin name="VCCMAINXTAL" x="-17.78" y="-20.32" length="middle" direction="pwr"/>
-<pin name="VDDBAT" x="-17.78" y="2.54" length="middle" direction="pwr"/>
+<wire x1="-17.78" y1="-22.86" x2="-17.78" y2="17.78" width="0.254" layer="94"/>
+<wire x1="17.78" y1="-22.86" x2="17.78" y2="17.78" width="0.254" layer="94"/>
+<wire x1="-17.78" y1="17.78" x2="17.78" y2="17.78" width="0.254" layer="94"/>
+<wire x1="-17.78" y1="-22.86" x2="17.78" y2="-22.86" width="0.254" layer="94"/>
+<text x="-17.78" y="18.415" size="1.778" layer="95">&gt;NAME</text>
+<text x="-17.78" y="-25.4" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="VCC15A" x="22.86" y="7.62" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCC15ADC0" x="22.86" y="15.24" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCC15ADC1" x="22.86" y="12.7" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCC33A" x="-22.86" y="7.62" length="middle" direction="pwr"/>
+<pin name="VCC33ADC0" x="-22.86" y="15.24" length="middle" direction="pwr"/>
+<pin name="VCC33ADC1" x="-22.86" y="12.7" length="middle" direction="pwr"/>
+<pin name="VCC33AP" x="-22.86" y="5.08" length="middle" direction="pwr"/>
+<pin name="VCC33N" x="22.86" y="-20.32" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCC33SDD0" x="-22.86" y="-5.08" length="middle" direction="pwr"/>
+<pin name="VCC33SDD1" x="-22.86" y="-7.62" length="middle" direction="pwr"/>
+<pin name="VCCLPXTAL" x="-22.86" y="-12.7" length="middle" direction="pwr"/>
+<pin name="VCCMAINXTAL" x="-22.86" y="-15.24" length="middle" direction="pwr"/>
+<pin name="VDDBAT" x="-22.86" y="0" length="middle" direction="pwr"/>
+<pin name="VCCPLL0" x="22.86" y="2.54" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCCRCOSC" x="-22.86" y="-20.32" length="middle" direction="pwr"/>
 </symbol>
 <symbol name="A2F500M3G-ANALOG-GROUND">
-<wire x1="-12.7" y1="-27.94" x2="-12.7" y2="25.4" width="0.254" layer="94"/>
-<wire x1="12.7" y1="-27.94" x2="12.7" y2="25.4" width="0.254" layer="94"/>
-<wire x1="12.7" y1="25.4" x2="-12.7" y2="25.4" width="0.254" layer="94"/>
-<wire x1="12.7" y1="-27.94" x2="-12.7" y2="-27.94" width="0.254" layer="94"/>
-<text x="-12.7" y="26.035" size="1.778" layer="95">&gt;NAME</text>
-<text x="-12.7" y="-30.48" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="GND15ADC0" x="-17.78" y="5.08" length="middle" direction="pwr"/>
-<pin name="GND15ADC1" x="-17.78" y="2.54" length="middle" direction="pwr"/>
-<pin name="GND33ADC0@0" x="-17.78" y="-2.54" length="middle" direction="pwr"/>
-<pin name="GND33ADC0@1" x="-17.78" y="-5.08" length="middle" direction="pwr"/>
-<pin name="GND33ADC1@0" x="-17.78" y="-7.62" length="middle" direction="pwr"/>
-<pin name="GND33ADC1@1" x="-17.78" y="-10.16" length="middle" direction="pwr"/>
-<pin name="GNDA@0" x="-17.78" y="-15.24" length="middle" direction="pwr"/>
-<pin name="GNDA@1" x="-17.78" y="-17.78" length="middle" direction="pwr"/>
-<pin name="GNDAQ@0" x="-17.78" y="-22.86" length="middle" direction="pwr"/>
-<pin name="GNDAQ@1" x="-17.78" y="-25.4" length="middle" direction="pwr"/>
-<pin name="GNDLPXTAL" x="-17.78" y="12.7" length="middle" direction="pwr"/>
-<pin name="GNDMAINXTAL" x="-17.78" y="15.24" length="middle" direction="pwr"/>
-<pin name="GNDSDD0" x="-17.78" y="22.86" length="middle" direction="pwr"/>
-<pin name="GNDSDD1" x="-17.78" y="20.32" length="middle" direction="pwr"/>
-<pin name="GNDRCOSC" x="-17.78" y="10.16" length="middle" direction="pwr"/>
+<wire x1="-17.78" y1="-17.78" x2="-17.78" y2="15.24" width="0.254" layer="94"/>
+<wire x1="17.78" y1="-17.78" x2="17.78" y2="15.24" width="0.254" layer="94"/>
+<wire x1="17.78" y1="15.24" x2="-17.78" y2="15.24" width="0.254" layer="94"/>
+<wire x1="17.78" y1="-17.78" x2="-17.78" y2="-17.78" width="0.254" layer="94"/>
+<text x="-17.78" y="15.875" size="1.778" layer="95">&gt;NAME</text>
+<text x="-17.78" y="-20.32" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="GND15ADC0" x="22.86" y="12.7" length="middle" direction="pwr" rot="R180"/>
+<pin name="GND15ADC1" x="22.86" y="10.16" length="middle" direction="pwr" rot="R180"/>
+<pin name="GND33ADC0@0" x="-22.86" y="12.7" length="middle" direction="pwr"/>
+<pin name="GND33ADC0@1" x="-22.86" y="10.16" length="middle" direction="pwr"/>
+<pin name="GND33ADC1@0" x="-22.86" y="7.62" length="middle" direction="pwr"/>
+<pin name="GND33ADC1@1" x="-22.86" y="5.08" length="middle" direction="pwr"/>
+<pin name="GNDA@0" x="22.86" y="-5.08" length="middle" direction="pwr" rot="R180"/>
+<pin name="GNDA@1" x="22.86" y="-7.62" length="middle" direction="pwr" rot="R180"/>
+<pin name="GNDAQ@0" x="22.86" y="-12.7" length="middle" direction="pwr" rot="R180"/>
+<pin name="GNDAQ@1" x="22.86" y="-15.24" length="middle" direction="pwr" rot="R180"/>
+<pin name="GNDLPXTAL" x="-22.86" y="-10.16" length="middle" direction="pwr"/>
+<pin name="GNDMAINXTAL" x="-22.86" y="-7.62" length="middle" direction="pwr"/>
+<pin name="GNDSDD0" x="-22.86" y="0" length="middle" direction="pwr"/>
+<pin name="GNDSDD1" x="-22.86" y="-2.54" length="middle" direction="pwr"/>
+<pin name="GNDRCOSC" x="-22.86" y="-15.24" length="middle" direction="pwr"/>
+<pin name="VCOMPLA0" x="22.86" y="0" length="middle" direction="pwr" rot="R180"/>
 </symbol>
 <symbol name="A2F500M3G-MISC">
 <wire x1="-15.24" y1="-17.78" x2="-15.24" y2="12.7" width="0.254" layer="94"/>
@@ -5733,6 +5761,43 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <pin name="A1V5" x="0" y="0" visible="off" length="short" direction="sup" rot="R90"/>
 <text x="-3.175" y="3.175" size="1.778" layer="96">&gt;VALUE</text>
 </symbol>
+<symbol name="CLOCK-BUFFER-DUAL">
+<description>&lt;b&gt;Clock Buffer Symbol (dual)&lt;/b&gt;</description>
+<wire x1="-7.62" y1="12.7" x2="7.62" y2="12.7" width="0.254" layer="94"/>
+<wire x1="7.62" y1="12.7" x2="7.62" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-12.7" x2="-7.62" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-12.7" x2="-7.62" y2="-10.16" width="0.254" layer="94"/>
+<text x="-7.62" y="-15.24" size="1.778" layer="95">&gt;NAME</text>
+<text x="-7.62" y="13.335" size="1.778" layer="96">&gt;VALUE</text>
+<wire x1="-7.62" y1="-10.16" x2="-7.62" y2="10.16" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="10.16" x2="-7.62" y2="12.7" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-7.62" x2="-2.54" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-5.08" x2="-2.54" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-2.54" x2="2.54" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-5.08" x2="0" y2="-6.35" width="0.254" layer="94"/>
+<wire x1="0" y1="-6.35" x2="-2.54" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="2.54" x2="-2.54" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="5.08" x2="-2.54" y2="7.62" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="7.62" x2="0" y2="6.35" width="0.254" layer="94"/>
+<wire x1="0" y1="6.35" x2="2.54" y2="5.08" width="0.254" layer="94"/>
+<wire x1="2.54" y1="5.08" x2="-2.54" y2="2.54" width="0.254" layer="94"/>
+<wire x1="2.54" y1="5.08" x2="7.62" y2="5.08" width="0.1778" layer="94"/>
+<wire x1="2.54" y1="-5.08" x2="7.62" y2="-5.08" width="0.1778" layer="94"/>
+<wire x1="-2.54" y1="-5.08" x2="-7.62" y2="-5.08" width="0.1778" layer="94"/>
+<wire x1="-2.54" y1="5.08" x2="-7.62" y2="5.08" width="0.1778" layer="94"/>
+<wire x1="0" y1="6.35" x2="0" y2="10.16" width="0.1778" layer="94"/>
+<wire x1="0" y1="10.16" x2="-7.62" y2="10.16" width="0.1778" layer="94"/>
+<wire x1="0" y1="-6.35" x2="0" y2="-10.16" width="0.1778" layer="94"/>
+<wire x1="0" y1="-10.16" x2="-7.62" y2="-10.16" width="0.1778" layer="94"/>
+<pin name="EN1" x="-12.7" y="10.16" visible="pad" length="middle" direction="in"/>
+<pin name="IN1" x="-12.7" y="5.08" visible="pad" length="middle" direction="in"/>
+<pin name="IN2" x="-12.7" y="-5.08" visible="pad" length="middle" direction="in"/>
+<pin name="EN2" x="-12.7" y="-10.16" visible="pad" length="middle" direction="in"/>
+<pin name="OUT1" x="12.7" y="5.08" visible="pad" length="middle" direction="out" rot="R180"/>
+<pin name="OUT2" x="12.7" y="-5.08" visible="pad" length="middle" direction="out" rot="R180"/>
+<pin name="VCC" x="12.7" y="10.16" length="middle" direction="pwr" rot="R180"/>
+<pin name="GND" x="12.7" y="-10.16" length="middle" direction="pwr" rot="R180"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="A2F500M3G-CS288-COMPACT" prefix="U">
@@ -6708,6 +6773,7 @@ Sources:&lt;p&gt;
 <connect gate="-ANALOG-GROUND" pin="GNDRCOSC" pad="J4"/>
 <connect gate="-ANALOG-GROUND" pin="GNDSDD0" pad="P1"/>
 <connect gate="-ANALOG-GROUND" pin="GNDSDD1" pad="N13"/>
+<connect gate="-ANALOG-GROUND" pin="VCOMPLA0" pad="D2"/>
 <connect gate="-ANALOG-SUPPLY" pin="VCC15A" pad="N3"/>
 <connect gate="-ANALOG-SUPPLY" pin="VCC15ADC0" pad="P8"/>
 <connect gate="-ANALOG-SUPPLY" pin="VCC15ADC1" pad="R8"/>
@@ -6720,6 +6786,8 @@ Sources:&lt;p&gt;
 <connect gate="-ANALOG-SUPPLY" pin="VCC33SDD1" pad="N14"/>
 <connect gate="-ANALOG-SUPPLY" pin="VCCLPXTAL" pad="T15"/>
 <connect gate="-ANALOG-SUPPLY" pin="VCCMAINXTAL" pad="P12"/>
+<connect gate="-ANALOG-SUPPLY" pin="VCCPLL0" pad="C2"/>
+<connect gate="-ANALOG-SUPPLY" pin="VCCRCOSC" pad="K5"/>
 <connect gate="-ANALOG-SUPPLY" pin="VDDBAT" pad="P14"/>
 <connect gate="-DIGITAL-GROUND" pin="GND@0" pad="A1"/>
 <connect gate="-DIGITAL-GROUND" pin="GND@1" pad="A12"/>
@@ -6840,8 +6908,7 @@ Sources:&lt;p&gt;
 <connect gate="-FPGA-CORE-SUPPLY" pin="VCC@7" pad="J9"/>
 <connect gate="-FPGA-CORE-SUPPLY" pin="VCC@8" pad="K10"/>
 <connect gate="-FPGA-CORE-SUPPLY" pin="VCC@9" pad="K8"/>
-<connect gate="-FPGA-CORE-SUPPLY" pin="VCCPLL0" pad="C2"/>
-<connect gate="-FPGA-CORE-SUPPLY" pin="VCOMPLA0" pad="D2"/>
+<connect gate="-FPGA-CORE-SUPPLY" pin="VCCENVM" pad="F16"/>
 <connect gate="-FPGA-IOB-SUPPLY" pin="VCCFPGAIOB0@0" pad="A15"/>
 <connect gate="-FPGA-IOB-SUPPLY" pin="VCCFPGAIOB0@1" pad="A2"/>
 <connect gate="-FPGA-IOB-SUPPLY" pin="VCCFPGAIOB0@2" pad="A8"/>
@@ -6896,7 +6963,6 @@ Sources:&lt;p&gt;
 <connect gate="-MISC" pin="PTBASE" pad="P16"/>
 <connect gate="-MISC" pin="PTEM" pad="P15"/>
 <connect gate="-MISC" pin="PU_N" pad="T16"/>
-<connect gate="-MSS-IOB-SUPPLY" pin="VCCENVM" pad="F16"/>
 <connect gate="-MSS-IOB-SUPPLY" pin="VCCMSSIOB2@0" pad="J11"/>
 <connect gate="-MSS-IOB-SUPPLY" pin="VCCMSSIOB2@1" pad="J15"/>
 <connect gate="-MSS-IOB-SUPPLY" pin="VCCMSSIOB2@2" pad="L11"/>
@@ -6904,7 +6970,6 @@ Sources:&lt;p&gt;
 <connect gate="-MSS-IOB-SUPPLY" pin="VCCMSSIOB4@0" pad="K3"/>
 <connect gate="-MSS-IOB-SUPPLY" pin="VCCMSSIOB4@1" pad="K6"/>
 <connect gate="-MSS-IOB-SUPPLY" pin="VCCMSSIOB4@2" pad="N2"/>
-<connect gate="-MSS-IOB-SUPPLY" pin="VCCRCOSC" pad="K5"/>
 <connect gate="-SPI" pin="SPI_0_CLK/GPIO_18" pad="M15"/>
 <connect gate="-SPI" pin="SPI_0_DI/GPIO_17" pad="M16"/>
 <connect gate="-SPI" pin="SPI_0_DO/GPIO_16" pad="N16"/>
@@ -8594,6 +8659,35 @@ Ground for the galvanically decoupled Ethernet chassis.</description>
 <device name="">
 <technologies>
 <technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="LMV112" prefix="U">
+<description>&lt;b&gt;LMV112 Clock Buffer&lt;/b&gt;
+&lt;p&gt;
+Texas Instruments (National Semiconductor) LMV112 40 MHz Dual Clock Buffer
+&lt;p&gt;
+Source: &lt;a href="http://www.ti.com/lit/ds/symlink/lmv112.pdf"&gt;http://www.ti.com/lit/ds/symlink/lmv112.pdf&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="CLOCK-BUFFER-DUAL" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="LLP-8">
+<connects>
+<connect gate="G$1" pin="EN1" pad="8"/>
+<connect gate="G$1" pin="EN2" pad="4"/>
+<connect gate="G$1" pin="GND" pad="5"/>
+<connect gate="G$1" pin="IN1" pad="2"/>
+<connect gate="G$1" pin="IN2" pad="3"/>
+<connect gate="G$1" pin="OUT1" pad="7"/>
+<connect gate="G$1" pin="OUT2" pad="6"/>
+<connect gate="G$1" pin="VCC" pad="1"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="FREQ" value="40 MHz"/>
+</technology>
 </technologies>
 </device>
 </devices>
