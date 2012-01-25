@@ -19,6 +19,7 @@
    * I^2^C bus pin locations
    * SPI bus pin locations
  * The reset jumper/button should be accessible from the side, when the board is stacked
+ * Consider solving the issue of USB re-enumeration (add pull-up resistor and remove after enumeration)
  * All the requirements from Rev A (see below)   
 
 == Rev A ==
