@@ -1,5 +1,5 @@
 #summary EAGLE Design Guide
-#labels Phase-Implementation
+#labels Phase-Design
 
 The Marmote project uses a multi-board platform. The printed circuit boards (PCBs) are created in [http://www.cadsoftusa.com/ CadSoft EAGLE] according the following rules:
 
@@ -135,6 +135,26 @@ TBD
   * http://www.alternatezone.com/electronics/files/PCBDesignTutorialRevA.pdf
   * http://www.youtube.com/watch?v=VXE_dh38HjU
   * Complete PCB design using OrCAD Capture and PCB editor / Kraig Mitzner (Ch1, Ch5, Ch6)
+
+= Logo =
+
+Note: This logo design guide uses 360x360 pixel input bitmap to create 10x10 mm PCB logo and 600x600 mil schematic logo.
+
+ # Create the logo design and save it as a 360x360 pixel B/W 1-bit bitmap
+
+== Symbol ==
+
+ # In EAGLE create a new Symbol
+ # Type 'RUN' to run a ULP script
+ # Select the bitmap file in the file dialog
+ # Select both colors in the pop-up dialog
+ # Select:
+  * Format: Scaled
+  * Unit: Mil
+  * Scale: 1.6667
+  * Start layer: 200
+ # Delete the small text in the lower-left corner
+ # Use Change > Layer to move the desired layer (200 or 201) to the symbol layer
 
 
 = Gerber file export =
