@@ -142,3 +142,5 @@ TBD
  # Run File > CAM Processor
  # Use the .cam job file found under the CAM directory
  # Run the jobs and export the files under the CAM directory
+
+For details see EagleGerberExportGuide.
