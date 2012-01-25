@@ -142,7 +142,7 @@ Note: This logo design guide uses 360x360 pixel input bitmap to create 10x10 mm 
 
  # Create the logo design and save it as a 360x360 pixel B/W 1-bit bitmap
 
-== Symbol ==
+== Schematic symbol ==
 
  # In EAGLE create a new Symbol
  # Type 'RUN' to run a ULP script
@@ -151,11 +151,29 @@ Note: This logo design guide uses 360x360 pixel input bitmap to create 10x10 mm 
  # Select:
   * Format: Scaled
   * Unit: Mil
-  * Scale: 1.6667
+  * Scale: 1.6667 (600/360)
   * Start layer: 200
  # Delete the small text in the lower-left corner
  # Use Change > Layer to move the desired layer (200 or 201) to the symbol layer
 
+== PCB footprint ==
+
+ # In EAGLE create a new Package
+ # Type 'RUN' to run a ULP script
+ # Select the bitmap file in the file dialog
+ # Select both colors in the pop-up dialog
+ # Select:
+  * Format: Scaled
+  * Unit: MM
+  * Scale: 0.0277 (10/360)
+  * Start layer: 200
+ # Delete the small text in the lower-left corner
+ # For PCBs with green stopmask
+   * Use Change > Layer to move the desired inverse layer (200 or 201) to the Top layer
+   * Draw a rectangular line around the Design in tRestrict
+ # For PCBs with black stopmask and gold finish
+   * Use Change > Layer to move the desired inverse layer (200 or 201) to the tStop layer
+ # Fill out the Description field
 
 = Gerber file export =
 
