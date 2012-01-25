@@ -29270,12 +29270,14 @@ Various fiducial points for machine vision alignment.</description>
 <rectangle x1="127" y1="116.84" x2="147.32" y2="157.48" layer="98"/>
 <text x="53.34" y="63.5" size="50.8" layer="208">USB</text>
 <rectangle x1="106.68" y1="104.14" x2="132.08" y2="106.68" layer="97"/>
-<text x="137.16" y="33.02" size="2.54" layer="97" rot="R90">93LC56BT</text>
-<text x="140.97" y="33.02" size="2.54" layer="97" rot="R90">EEPROM</text>
-<rectangle x1="119.38" y1="10.16" x2="142.24" y2="53.34" layer="97"/>
+<text x="132.08" y="33.02" size="2.54" layer="97" rot="R90">93LC56BT</text>
+<text x="143.51" y="33.02" size="2.54" layer="97" rot="R90">EEPROM</text>
 <text x="121.92" y="55.88" size="1.778" layer="97">check for duplicate</text>
-<rectangle x1="137.16" y1="7.62" x2="147.32" y2="53.34" layer="97"/>
-<text x="147.32" y="2.54" size="1.778" layer="97" rot="R90">Check if internally available</text>
+<rectangle x1="139.7" y1="7.62" x2="149.86" y2="53.34" layer="97"/>
+<text x="149.86" y="2.54" size="1.778" layer="97" rot="R90">Check if internally available</text>
+<rectangle x1="101.6" y1="10.16" x2="109.22" y2="40.64" layer="98"/>
+<text x="106.68" y="12.7" size="1.778" layer="97" rot="R90">check for duplicate</text>
+<rectangle x1="119.38" y1="10.16" x2="132.08" y2="40.64" layer="97"/>
 </plain>
 <instances>
 <instance part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" x="177.8" y="124.46"/>
@@ -29396,12 +29398,12 @@ Various fiducial points for machine vision alignment.</description>
 <instance part="PORT292" gate="G$1" x="119.38" y="99.06" rot="MR0"/>
 <instance part="PORT293" gate="G$1" x="119.38" y="101.6" rot="MR0"/>
 <instance part="PORT294" gate="G$1" x="119.38" y="104.14" rot="MR0"/>
-<instance part="C73" gate="G$1" x="129.54" y="22.86"/>
-<instance part="U$80" gate="G$1" x="129.54" y="10.16"/>
-<instance part="U$81" gate="G$1" x="129.54" y="30.48"/>
-<instance part="R57" gate="G$1" x="142.24" y="35.56" rot="R90"/>
-<instance part="PORT175" gate="G$1" x="142.24" y="10.16" rot="R270"/>
-<instance part="U$69" gate="G$1" x="142.24" y="43.18"/>
+<instance part="C73" gate="G$1" x="124.46" y="22.86"/>
+<instance part="U$80" gate="G$1" x="124.46" y="10.16"/>
+<instance part="U$81" gate="G$1" x="124.46" y="30.48"/>
+<instance part="R57" gate="G$1" x="144.78" y="35.56" rot="R90"/>
+<instance part="PORT175" gate="G$1" x="144.78" y="10.16" rot="R270"/>
+<instance part="U$69" gate="G$1" x="144.78" y="43.18"/>
 </instances>
 <busses>
 <bus name="AFE1_DB[0..9]">
@@ -29811,8 +29813,8 @@ Various fiducial points for machine vision alignment.</description>
 </segment>
 <segment>
 <pinref part="R57" gate="G$1" pin="1"/>
-<wire x1="142.24" y1="30.48" x2="142.24" y2="25.4" width="0.1524" layer="91"/>
-<label x="142.24" y="22.86" size="1.778" layer="95" rot="R270"/>
+<wire x1="144.78" y1="30.48" x2="144.78" y2="25.4" width="0.1524" layer="91"/>
+<label x="144.78" y="22.86" size="1.778" layer="95" rot="R270"/>
 </segment>
 </net>
 <net name="VBAT" class="0">
@@ -29986,7 +29988,7 @@ Various fiducial points for machine vision alignment.</description>
 </segment>
 <segment>
 <pinref part="C73" gate="G$1" pin="2"/>
-<wire x1="129.54" y1="17.78" x2="129.54" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="17.78" x2="124.46" y2="12.7" width="0.1524" layer="91"/>
 <pinref part="U$80" gate="G$1" pin="DGND"/>
 </segment>
 </net>
@@ -30326,12 +30328,12 @@ Various fiducial points for machine vision alignment.</description>
 <net name="D3V3" class="0">
 <segment>
 <pinref part="C73" gate="G$1" pin="1"/>
-<wire x1="129.54" y1="25.4" x2="129.54" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="25.4" x2="124.46" y2="30.48" width="0.1524" layer="91"/>
 <pinref part="U$81" gate="G$1" pin="D3V3"/>
 </segment>
 <segment>
 <pinref part="R57" gate="G$1" pin="2"/>
-<wire x1="142.24" y1="38.1" x2="142.24" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="38.1" x2="144.78" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="U$69" gate="G$1" pin="D3V3"/>
 </segment>
 </net>
@@ -30358,6 +30360,8 @@ Various fiducial points for machine vision alignment.</description>
 <rectangle x1="129.54" y1="81.28" x2="142.24" y2="83.82" layer="98"/>
 <rectangle x1="134.62" y1="68.58" x2="142.24" y2="76.2" layer="98"/>
 <rectangle x1="121.92" y1="63.5" x2="134.62" y2="66.04" layer="98"/>
+<rectangle x1="121.92" y1="127" x2="172.72" y2="147.32" layer="98"/>
+<text x="127" y="149.86" size="1.778" layer="98">Subject to be removed for board space</text>
 </plain>
 <instances>
 <instance part="U1" gate="-UART" x="63.5" y="152.4"/>
