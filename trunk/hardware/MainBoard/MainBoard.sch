@@ -55,7 +55,7 @@
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
-<layer number="93" name="Pins" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="93" name="Pins" color="2" fill="1" visible="no" active="yes"/>
 <layer number="94" name="Symbols" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="95" name="Names" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
@@ -25836,6 +25836,7 @@ Various fiducial points for machine vision alignment.</description>
 <text x="190.5" y="43.18" size="1.778" layer="97">NC</text>
 <rectangle x1="220.98" y1="60.96" x2="226.06" y2="73.66" layer="101"/>
 <rectangle x1="220.98" y1="35.56" x2="226.06" y2="45.72" layer="101"/>
+<rectangle x1="81.28" y1="81.28" x2="99.06" y2="88.9" layer="98"/>
 </plain>
 <instances>
 <instance part="U1" gate="-MISC" x="63.5" y="134.62"/>
@@ -29196,6 +29197,10 @@ Various fiducial points for machine vision alignment.</description>
 <rectangle x1="101.6" y1="10.16" x2="109.22" y2="40.64" layer="98"/>
 <text x="106.68" y="12.7" size="1.778" layer="97" rot="R90">check for duplicate</text>
 <rectangle x1="119.38" y1="10.16" x2="132.08" y2="40.64" layer="97"/>
+<text x="236.22" y="114.3" size="1.778" layer="98" rot="R90">Move EXT AFE data signals to the same IO bank</text>
+<text x="104.14" y="91.44" size="1.778" layer="98">To Bank2</text>
+<text x="104.14" y="93.98" size="1.778" layer="98">To Bank2</text>
+<text x="127" y="139.7" size="1.778" layer="98" rot="R90">Move USB signals to the same IO bank</text>
 </plain>
 <instances>
 <instance part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" x="177.8" y="124.46"/>
@@ -30552,17 +30557,18 @@ Various fiducial points for machine vision alignment.</description>
 <text x="60.96" y="45.72" size="2.54" layer="97">CLK OUT SMA connector</text>
 <text x="45.72" y="76.2" size="2.54" layer="97">USB connector</text>
 <rectangle x1="167.64" y1="68.58" x2="180.34" y2="132.08" layer="97"/>
-<text x="233.68" y="134.62" size="2.54" layer="97">I2C, SPI, UART</text>
+<text x="236.22" y="116.84" size="2.54" layer="97" rot="R90">I2C0, SPI1, UART</text>
 <rectangle x1="193.04" y1="132.08" x2="210.82" y2="147.32" layer="97"/>
 <rectangle x1="127" y1="132.08" x2="144.78" y2="147.32" layer="97"/>
 <text x="64.77" y="149.86" size="1.778" layer="97">NC</text>
 <text x="45.72" y="76.2" size="50.8" layer="208">CON</text>
+<text x="116.84" y="114.3" size="2.54" layer="97" rot="R90">I2C0, SPI0, UART</text>
 </plain>
 <instances>
 <instance part="J2" gate="G$1" x="200.66" y="114.3"/>
 <instance part="J3" gate="G$1" x="55.88" y="147.32"/>
-<instance part="U$5" gate="G$1" x="121.92" y="144.78"/>
-<instance part="U$6" gate="G$1" x="149.86" y="144.78"/>
+<instance part="U$5" gate="G$1" x="119.38" y="147.32"/>
+<instance part="U$6" gate="G$1" x="152.4" y="147.32"/>
 <instance part="PORT1" gate="G$1" x="162.56" y="160.02"/>
 <instance part="PORT2" gate="G$1" x="162.56" y="157.48"/>
 <instance part="PORT3" gate="G$1" x="162.56" y="154.94"/>
@@ -30583,7 +30589,7 @@ Various fiducial points for machine vision alignment.</description>
 <instance part="J6" gate="G1" x="66.04" y="60.96"/>
 <instance part="J4" gate="G$1" x="35.56" y="101.6" rot="MR0"/>
 <instance part="U4" gate="G$1" x="55.88" y="101.6"/>
-<instance part="U$13" gate="G$1" x="187.96" y="144.78"/>
+<instance part="U$13" gate="G$1" x="185.42" y="147.32"/>
 <instance part="PORT15" gate="G$1" x="175.26" y="160.02" rot="MR0"/>
 <instance part="PORT16" gate="G$1" x="175.26" y="157.48" rot="MR0"/>
 <instance part="PORT17" gate="G$1" x="175.26" y="154.94" rot="MR0"/>
@@ -30736,8 +30742,7 @@ Various fiducial points for machine vision alignment.</description>
 <wire x1="129.54" y1="149.86" x2="127" y2="149.86" width="0.1524" layer="91"/>
 <wire x1="129.54" y1="162.56" x2="127" y2="162.56" width="0.1524" layer="91"/>
 <wire x1="127" y1="149.86" x2="127" y2="162.56" width="0.1524" layer="91"/>
-<wire x1="127" y1="149.86" x2="121.92" y2="149.86" width="0.1524" layer="91"/>
-<wire x1="121.92" y1="149.86" x2="121.92" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="127" y1="149.86" x2="119.38" y2="149.86" width="0.1524" layer="91"/>
 <junction x="127" y="149.86"/>
 <pinref part="U$5" gate="G$1" pin="DGND"/>
 <pinref part="J1" gate="G$1" pin="1"/>
@@ -30745,8 +30750,7 @@ Various fiducial points for machine vision alignment.</description>
 </segment>
 <segment>
 <wire x1="142.24" y1="149.86" x2="144.78" y2="149.86" width="0.1524" layer="91"/>
-<wire x1="144.78" y1="149.86" x2="149.86" y2="149.86" width="0.1524" layer="91"/>
-<wire x1="149.86" y1="149.86" x2="149.86" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="149.86" x2="152.4" y2="149.86" width="0.1524" layer="91"/>
 <wire x1="142.24" y1="162.56" x2="144.78" y2="162.56" width="0.1524" layer="91"/>
 <wire x1="144.78" y1="162.56" x2="144.78" y2="149.86" width="0.1524" layer="91"/>
 <junction x="144.78" y="149.86"/>
@@ -30758,8 +30762,7 @@ Various fiducial points for machine vision alignment.</description>
 <wire x1="195.58" y1="149.86" x2="193.04" y2="149.86" width="0.1524" layer="91"/>
 <wire x1="195.58" y1="162.56" x2="193.04" y2="162.56" width="0.1524" layer="91"/>
 <wire x1="193.04" y1="149.86" x2="193.04" y2="162.56" width="0.1524" layer="91"/>
-<wire x1="193.04" y1="149.86" x2="187.96" y2="149.86" width="0.1524" layer="91"/>
-<wire x1="187.96" y1="149.86" x2="187.96" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="149.86" x2="185.42" y2="149.86" width="0.1524" layer="91"/>
 <junction x="193.04" y="149.86"/>
 <pinref part="U$13" gate="G$1" pin="DGND"/>
 </segment>
