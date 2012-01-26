@@ -20959,41 +20959,6 @@ Source: &lt;a href="http://www.kingbrightusa.com/images/catalog/SPEC/APECVA3010M
 <text x="-1" y="-1.75" size="0.4064" layer="27">&gt;VALUE</text>
 <rectangle x1="-0.635" y1="0" x2="0" y2="0.635" layer="21"/>
 </package>
-<package name="1X03">
-<description>&lt;b&gt;1X03&lt;/b&gt;
-&lt;p&gt;
-100mil jumper header
-&lt;p&gt;
-&lt;i&gt;Source: Sparkfun EAGLE library&lt;/i&gt;</description>
-<wire x1="3.81" y1="0.635" x2="4.445" y2="1.27" width="0.2032" layer="21"/>
-<wire x1="4.445" y1="1.27" x2="5.715" y2="1.27" width="0.2032" layer="21"/>
-<wire x1="5.715" y1="1.27" x2="6.35" y2="0.635" width="0.2032" layer="21"/>
-<wire x1="6.35" y1="-0.635" x2="5.715" y2="-1.27" width="0.2032" layer="21"/>
-<wire x1="5.715" y1="-1.27" x2="4.445" y2="-1.27" width="0.2032" layer="21"/>
-<wire x1="4.445" y1="-1.27" x2="3.81" y2="-0.635" width="0.2032" layer="21"/>
-<wire x1="-0.635" y1="1.27" x2="0.635" y2="1.27" width="0.2032" layer="21"/>
-<wire x1="0.635" y1="1.27" x2="1.27" y2="0.635" width="0.2032" layer="21"/>
-<wire x1="1.27" y1="-0.635" x2="0.635" y2="-1.27" width="0.2032" layer="21"/>
-<wire x1="1.27" y1="0.635" x2="1.905" y2="1.27" width="0.2032" layer="21"/>
-<wire x1="1.905" y1="1.27" x2="3.175" y2="1.27" width="0.2032" layer="21"/>
-<wire x1="3.175" y1="1.27" x2="3.81" y2="0.635" width="0.2032" layer="21"/>
-<wire x1="3.81" y1="-0.635" x2="3.175" y2="-1.27" width="0.2032" layer="21"/>
-<wire x1="3.175" y1="-1.27" x2="1.905" y2="-1.27" width="0.2032" layer="21"/>
-<wire x1="1.905" y1="-1.27" x2="1.27" y2="-0.635" width="0.2032" layer="21"/>
-<wire x1="-1.27" y1="0.635" x2="-1.27" y2="-0.635" width="0.2032" layer="21"/>
-<wire x1="-0.635" y1="1.27" x2="-1.27" y2="0.635" width="0.2032" layer="21"/>
-<wire x1="-1.27" y1="-0.635" x2="-0.635" y2="-1.27" width="0.2032" layer="21"/>
-<wire x1="0.635" y1="-1.27" x2="-0.635" y2="-1.27" width="0.2032" layer="21"/>
-<wire x1="6.35" y1="0.635" x2="6.35" y2="-0.635" width="0.2032" layer="21"/>
-<pad name="1" x="0" y="0" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="2" x="2.54" y="0" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="3" x="5.08" y="0" drill="1.016" diameter="1.8796" rot="R90"/>
-<text x="1.4224" y="1.5748" size="0.4064" layer="25" ratio="10">&gt;NAME</text>
-<text x="1.4224" y="-1.9812" size="0.4064" layer="27">&gt;VALUE</text>
-<rectangle x1="4.826" y1="-0.254" x2="5.334" y2="0.254" layer="51"/>
-<rectangle x1="2.286" y1="-0.254" x2="2.794" y2="0.254" layer="51"/>
-<rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
-</package>
 <package name="LLP-8">
 <description>&lt;b&gt;LLP-8 (WFDFN-8) Exposed Pad&lt;/b&gt;
 &lt;p&gt;
@@ -21184,6 +21149,25 @@ Small fiducial for automated assembly
 &lt;p&gt;
 &lt;i&gt;Source: Sparkfun EAGLE library&lt;/i&gt;</description>
 <smd name="1" x="0" y="0" dx="1" dy="1" layer="1" roundness="100" cream="no"/>
+</package>
+<package name="SWITCH-DIP-CJS">
+<description>&lt;b&gt;CJS DIP Switch&lt;/b&gt;
+&lt;p&gt;
+CJS sufrace mount SPDT DIP Switch.
+&lt;p&gt;
+Source: &lt;a href="http://media.digikey.com/pdf/Data%20Sheets/COPAL%20Electronics%20PDFs/CJS.pdf"&gt;http://media.digikey.com/pdf/Data%20Sheets/COPAL%20Electronics%20PDFs/CJS.pdf&lt;/a&gt;</description>
+<wire x1="-2.7" y1="1.25" x2="2.7" y2="1.25" width="0.127" layer="51"/>
+<wire x1="2.7" y1="1.25" x2="2.7" y2="-1.25" width="0.127" layer="51"/>
+<wire x1="2.7" y1="-1.25" x2="-2.7" y2="-1.25" width="0.127" layer="51"/>
+<wire x1="-2.7" y1="-1.25" x2="-2.7" y2="1.25" width="0.127" layer="51"/>
+<smd name="1" x="-1.75" y="-1.15" dx="1" dy="1.6" layer="1"/>
+<smd name="3" x="1.75" y="-1.15" dx="1" dy="1.6" layer="1"/>
+<smd name="2" x="0" y="1.15" dx="1" dy="1.6" layer="1"/>
+<wire x1="-3" y1="-1" x2="-2.75" y2="-1.25" width="0.127" layer="21"/>
+<wire x1="-2.75" y1="-1.25" x2="-3" y2="-1.5" width="0.127" layer="21"/>
+<wire x1="-3" y1="-1.5" x2="-3" y2="-1" width="0.127" layer="21"/>
+<text x="-3" y="-4" size="1.27" layer="25">&gt;NAME</text>
+<text x="-3" y="3" size="1.27" layer="27">&gt;VALUE</text>
 </package>
 </packages>
 <symbols>
@@ -22628,25 +22612,6 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <vertex x="-2.413" y="-1.651"/>
 </polygon>
 </symbol>
-<symbol name="JUMPER-3">
-<wire x1="0" y1="0" x2="0" y2="1.27" width="0.1524" layer="94"/>
-<wire x1="0" y1="2.54" x2="0" y2="1.27" width="0.4064" layer="94"/>
-<wire x1="2.54" y1="0" x2="2.54" y2="1.27" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="2.54" x2="2.54" y2="1.27" width="0.4064" layer="94"/>
-<wire x1="-0.635" y1="0" x2="2.54" y2="0" width="0.4064" layer="94"/>
-<wire x1="2.54" y1="0" x2="5.08" y2="0" width="0.4064" layer="94"/>
-<wire x1="5.08" y1="0" x2="5.715" y2="0" width="0.4064" layer="94"/>
-<wire x1="5.715" y1="0" x2="5.715" y2="0.635" width="0.4064" layer="94"/>
-<wire x1="5.715" y1="0.635" x2="-0.635" y2="0.635" width="0.4064" layer="94"/>
-<wire x1="-0.635" y1="0.635" x2="-0.635" y2="0" width="0.4064" layer="94"/>
-<wire x1="5.08" y1="2.54" x2="5.08" y2="1.27" width="0.4064" layer="94"/>
-<wire x1="5.08" y1="0" x2="5.08" y2="1.27" width="0.1524" layer="94"/>
-<text x="-1.27" y="0" size="1.778" layer="95" rot="R90">&gt;NAME</text>
-<text x="8.255" y="0" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
-<pin name="1" x="0" y="-2.54" visible="pad" length="short" direction="pas" rot="R90"/>
-<pin name="2" x="2.54" y="-2.54" visible="pad" length="short" direction="pas" rot="R90"/>
-<pin name="3" x="5.08" y="-2.54" visible="pad" length="short" direction="pas" rot="R90"/>
-</symbol>
 <symbol name="EGND">
 <description>&lt;b&gt;EGND symbol&lt;/b&gt;</description>
 <pin name="EGND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
@@ -22714,6 +22679,20 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <wire x1="0.762" y1="0.762" x2="-0.762" y2="-0.762" width="0.254" layer="94"/>
 <circle x="0" y="0" radius="1.27" width="0.254" layer="94"/>
 <text x="-1.27" y="1.905" size="1.27" layer="95">&gt;NAME</text>
+</symbol>
+<symbol name="SWITCH-SPDT">
+<description>&lt;b&gt;SPDT Switch symbol&lt;/b&gt;</description>
+<wire x1="3.175" y1="1.27" x2="-1.905" y2="0" width="0.2032" layer="94"/>
+<wire x1="-5.08" y1="0" x2="-3.175" y2="0" width="0.2032" layer="94"/>
+<wire x1="3.175" y1="2.54" x2="5.08" y2="2.54" width="0.2032" layer="94"/>
+<wire x1="3.175" y1="-2.54" x2="5.08" y2="-2.54" width="0.2032" layer="94"/>
+<circle x="-2.54" y="0" radius="0.635" width="0.2032" layer="94"/>
+<circle x="2.54" y="2.54" radius="0.635" width="0.2032" layer="94"/>
+<circle x="2.54" y="-2.54" radius="0.635" width="0.2032" layer="94"/>
+<text x="-5.08" y="2.54" size="1.27" layer="95">&gt;NAME</text>
+<pin name="2" x="-5.08" y="0" visible="pad" length="point" direction="pas"/>
+<pin name="1" x="5.08" y="2.54" visible="pad" length="point" direction="pas" rot="R180"/>
+<pin name="3" x="5.08" y="-2.54" visible="pad" length="point" direction="pas" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -24262,25 +24241,6 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 </device>
 </devices>
 </deviceset>
-<deviceset name="JUMPER-3" prefix="JP">
-<description>&lt;b&gt;Jumper&lt;/b&gt;
-Basic 0.1" spaced 3 pin jumper. Use with breakaway headers.</description>
-<gates>
-<gate name="G$1" symbol="JUMPER-3" x="-2.54" y="0"/>
-</gates>
-<devices>
-<device name="PTH" package="1X03">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-<connect gate="G$1" pin="3" pad="3"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="EGND">
 <description>&lt;b&gt;Ethernet ground&lt;/b&gt;
 &lt;p&gt;
@@ -24404,6 +24364,27 @@ Various fiducial points for machine vision alignment.</description>
 </gates>
 <devices>
 <device name="1X2" package="FIDUCIAL-1X2">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SWITCH-CJS-1200" prefix="J">
+<description>&lt;b&gt;CJS-1200 SPDT Switch&lt;/b&gt;
+&lt;p&gt;
+Source:
+&lt;a href="http://media.digikey.com/pdf/Data%20Sheets/COPAL%20Electronics%20PDFs/CJS.pdf"&gt;http://media.digikey.com/pdf/Data%20Sheets/COPAL%20Electronics%20PDFs/CJS.pdf&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="SWITCH-SPDT" x="0" y="0"/>
+</gates>
+<devices>
+<device name="-1200" package="SWITCH-DIP-CJS">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+</connects>
 <technologies>
 <technology name=""/>
 </technologies>
@@ -25172,19 +25153,14 @@ Various fiducial points for machine vision alignment.</description>
 <part name="PORT283" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT284" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT285" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="SW3" library="MainBoard" deviceset="SWITCH-KSC" device="J" technology="-201"/>
-<part name="U$126" library="MainBoard" deviceset="D3V3" device=""/>
-<part name="PORT286" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT156" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT158" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT159" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT160" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT161" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="PORT287" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT210" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT211" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT212" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="JP1" library="MainBoard" deviceset="JUMPER-3" device="PTH"/>
 <part name="R26" library="MainBoard" deviceset="R" device="0603" value="0">
 <attribute name="TOLERANCE" value=""/>
 </part>
@@ -25229,6 +25205,13 @@ Various fiducial points for machine vision alignment.</description>
 <part name="M6" library="MainBoard" deviceset="FIDUCIAL" device="1X2"/>
 <part name="M7" library="MainBoard" deviceset="FIDUCIAL" device="1X2"/>
 <part name="M8" library="MainBoard" deviceset="FIDUCIAL" device="1X2"/>
+<part name="R3" library="MainBoard" deviceset="R" device="0402" value="330"/>
+<part name="R4" library="MainBoard" deviceset="R" device="0402" value="330"/>
+<part name="PORT286" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT287" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT295" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT296" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="J8" library="MainBoard" deviceset="SWITCH-CJS-1200" device="-1200"/>
 </parts>
 <sheets>
 <sheet>
@@ -25820,11 +25803,6 @@ Various fiducial points for machine vision alignment.</description>
 <text x="162.56" y="78.74" size="2.54" layer="97">JTAG</text>
 <text x="195.58" y="99.06" size="1.778" layer="97">VPUMP</text>
 <text x="139.7" y="99.06" size="1.778" layer="97" rot="MR0">VJTAG</text>
-<text x="213.36" y="109.22" size="1.778" layer="97">1.5V in datasheet</text>
-<text x="213.36" y="106.68" size="1.778" layer="97">3.3V in reference designs</text>
-<rectangle x1="208.28" y1="104.14" x2="213.36" y2="114.3" layer="97"/>
-<text x="218.44" y="83.82" size="1.778" layer="97">Consider using a DIP switch</text>
-<rectangle x1="218.44" y1="86.36" x2="223.52" y2="96.52" layer="97"/>
 <text x="139.7" y="45.72" size="2.54" layer="97" rot="R90">VJTAG</text>
 <wire x1="111.76" y1="20.32" x2="160.02" y2="20.32" width="0.1524" layer="97" style="shortdash"/>
 <wire x1="160.02" y1="20.32" x2="160.02" y2="58.42" width="0.1524" layer="97" style="shortdash"/>
@@ -25834,8 +25812,6 @@ Various fiducial points for machine vision alignment.</description>
 <text x="190.5" y="48.26" size="1.778" layer="97">NC</text>
 <text x="223.52" y="48.26" size="1.778" layer="97">NC</text>
 <text x="190.5" y="43.18" size="1.778" layer="97">NC</text>
-<rectangle x1="220.98" y1="60.96" x2="226.06" y2="73.66" layer="101"/>
-<rectangle x1="220.98" y1="35.56" x2="226.06" y2="45.72" layer="101"/>
 <rectangle x1="81.28" y1="81.28" x2="99.06" y2="88.9" layer="98"/>
 </plain>
 <instances>
@@ -25893,14 +25869,13 @@ Various fiducial points for machine vision alignment.</description>
 <instance part="U$85" gate="G$1" x="190.5" y="101.6"/>
 <instance part="U$86" gate="G$1" x="144.78" y="101.6"/>
 <instance part="PORT214" gate="G$1" x="127" y="99.06" rot="MR0"/>
-<instance part="U$89" gate="G$1" x="210.82" y="73.66"/>
-<instance part="R66" gate="G$1" x="210.82" y="83.82" rot="R90"/>
-<instance part="R67" gate="G$1" x="210.82" y="101.6" rot="R90"/>
-<instance part="U$90" gate="G$1" x="210.82" y="106.68"/>
+<instance part="U$89" gate="G$1" x="215.9" y="73.66"/>
+<instance part="R66" gate="G$1" x="215.9" y="83.82" rot="R90"/>
+<instance part="R67" gate="G$1" x="215.9" y="104.14" rot="R90"/>
+<instance part="U$90" gate="G$1" x="215.9" y="109.22"/>
 <instance part="PORT210" gate="G$1" x="203.2" y="99.06"/>
 <instance part="PORT211" gate="G$1" x="203.2" y="96.52"/>
 <instance part="PORT212" gate="G$1" x="203.2" y="93.98"/>
-<instance part="JP1" gate="G$1" x="218.44" y="93.98" rot="R270"/>
 <instance part="U$82" gate="G$1" x="119.38" y="22.86"/>
 <instance part="R64" gate="G$1" x="119.38" y="35.56" rot="R90"/>
 <instance part="U$84" gate="G$1" x="127" y="22.86"/>
@@ -25924,6 +25899,7 @@ Various fiducial points for machine vision alignment.</description>
 <instance part="PORT289" gate="G$1" x="177.8" y="63.5" rot="MR0"/>
 <instance part="PORT290" gate="G$1" x="177.8" y="58.42" rot="MR0"/>
 <instance part="PORT291" gate="G$1" x="238.76" y="58.42"/>
+<instance part="J8" gate="G$1" x="208.28" y="91.44"/>
 </instances>
 <busses>
 </busses>
@@ -26066,7 +26042,7 @@ Various fiducial points for machine vision alignment.</description>
 </segment>
 <segment>
 <pinref part="R66" gate="G$1" pin="1"/>
-<wire x1="210.82" y1="78.74" x2="210.82" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="78.74" x2="215.9" y2="76.2" width="0.1524" layer="91"/>
 <pinref part="U$89" gate="G$1" pin="DGND"/>
 </segment>
 <segment>
@@ -26158,7 +26134,7 @@ Various fiducial points for machine vision alignment.</description>
 </segment>
 <segment>
 <pinref part="R67" gate="G$1" pin="2"/>
-<wire x1="210.82" y1="104.14" x2="210.82" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="106.68" x2="215.9" y2="109.22" width="0.1524" layer="91"/>
 <pinref part="U$90" gate="G$1" pin="D3V3"/>
 </segment>
 <segment>
@@ -26312,24 +26288,24 @@ Various fiducial points for machine vision alignment.</description>
 <segment>
 <pinref part="U1" gate="-JTAG" pin="JTAGSEL"/>
 <label x="195.58" y="91.44" size="1.778" layer="97"/>
-<wire x1="187.96" y1="91.44" x2="215.9" y2="91.44" width="0.1524" layer="91"/>
-<pinref part="JP1" gate="G$1" pin="2"/>
+<wire x1="187.96" y1="91.44" x2="203.2" y2="91.44" width="0.1524" layer="91"/>
+<pinref part="J8" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$9" class="0">
 <segment>
-<pinref part="JP1" gate="G$1" pin="1"/>
 <pinref part="R67" gate="G$1" pin="1"/>
-<wire x1="215.9" y1="93.98" x2="210.82" y2="93.98" width="0.1524" layer="91"/>
-<wire x1="210.82" y1="93.98" x2="210.82" y2="96.52" width="0.1524" layer="91"/>
+<pinref part="J8" gate="G$1" pin="1"/>
+<wire x1="213.36" y1="93.98" x2="215.9" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="93.98" x2="215.9" y2="99.06" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$13" class="0">
 <segment>
 <pinref part="R66" gate="G$1" pin="2"/>
-<pinref part="JP1" gate="G$1" pin="3"/>
-<wire x1="210.82" y1="86.36" x2="210.82" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="210.82" y1="88.9" x2="215.9" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="86.36" x2="215.9" y2="88.9" width="0.1524" layer="91"/>
+<pinref part="J8" gate="G$1" pin="3"/>
+<wire x1="213.36" y1="88.9" x2="215.9" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="EXT_CLK_OUT_BUF" class="0">
@@ -30265,17 +30241,15 @@ Various fiducial points for machine vision alignment.</description>
 <sheet>
 <plain>
 <text x="185.42" y="20.32" size="5.08" layer="97">&gt;PAGE5</text>
-<text x="58.42" y="101.6" size="2.54" layer="97">I2C(s)</text>
-<text x="58.42" y="55.88" size="2.54" layer="97">SPI(s)</text>
-<text x="195.58" y="111.76" size="2.54" layer="97">LEDs</text>
-<text x="58.42" y="137.16" size="2.54" layer="97">UART</text>
-<rectangle x1="25.4" y1="152.4" x2="45.72" y2="162.56" layer="97"/>
+<text x="60.96" y="101.6" size="2.54" layer="97">I2C(s)</text>
+<text x="60.96" y="55.88" size="2.54" layer="97">SPI(s)</text>
+<text x="195.58" y="116.84" size="2.54" layer="97">LEDs</text>
+<text x="50.8" y="137.16" size="2.54" layer="97">UART</text>
 <rectangle x1="182.88" y1="64.77" x2="210.82" y2="68.58" layer="97"/>
 <rectangle x1="182.88" y1="62.23" x2="210.82" y2="66.04" layer="97"/>
 <rectangle x1="215.9" y1="71.12" x2="228.6" y2="78.74" layer="98"/>
 <rectangle x1="215.9" y1="78.74" x2="233.68" y2="93.98" layer="98"/>
 <rectangle x1="129.54" y1="78.74" x2="144.78" y2="81.28" layer="98"/>
-<text x="144.78" y="111.76" size="2.54" layer="97">Push buttons</text>
 <text x="81.28" y="71.12" size="50.8" layer="208">I/O</text>
 <rectangle x1="139.7" y1="63.5" x2="147.32" y2="66.04" layer="150"/>
 <text x="218.44" y="130.81" size="1.778" layer="97" rot="R90">ORANGE</text>
@@ -30283,13 +30257,15 @@ Various fiducial points for machine vision alignment.</description>
 <rectangle x1="129.54" y1="81.28" x2="142.24" y2="83.82" layer="98"/>
 <rectangle x1="134.62" y1="68.58" x2="142.24" y2="76.2" layer="98"/>
 <rectangle x1="121.92" y1="63.5" x2="134.62" y2="66.04" layer="98"/>
-<rectangle x1="121.92" y1="127" x2="172.72" y2="147.32" layer="98"/>
-<text x="127" y="149.86" size="1.778" layer="98">Subject to be removed for board space</text>
+<text x="45.72" y="149.86" size="1.778" layer="97">NC</text>
+<text x="45.72" y="147.32" size="1.778" layer="97">NC</text>
+<text x="40.64" y="114.3" size="1.778" layer="97">NC</text>
+<text x="40.64" y="111.76" size="1.778" layer="97">NC</text>
 </plain>
 <instances>
-<instance part="U1" gate="-UART" x="63.5" y="152.4"/>
-<instance part="U1" gate="-I2C" x="63.5" y="116.84"/>
-<instance part="U1" gate="-SPI" x="63.5" y="76.2"/>
+<instance part="U1" gate="-UART" x="71.12" y="152.4"/>
+<instance part="U1" gate="-I2C" x="66.04" y="116.84"/>
+<instance part="U1" gate="-SPI" x="66.04" y="76.2"/>
 <instance part="U1" gate="-IOB" x="180.34" y="76.2"/>
 <instance part="PORT54" gate="G$1" x="231.14" y="66.04"/>
 <instance part="PORT56" gate="G$1" x="231.14" y="63.5"/>
@@ -30298,14 +30274,14 @@ Various fiducial points for machine vision alignment.</description>
 <instance part="PORT59" gate="G$1" x="231.14" y="73.66"/>
 <instance part="FRAME3" gate="G$1" x="0" y="0"/>
 <instance part="FRAME3" gate="G$2" x="165.1" y="0"/>
-<instance part="PORT100" gate="G$1" x="22.86" y="86.36" rot="MR0"/>
-<instance part="PORT101" gate="G$1" x="22.86" y="83.82" rot="MR0"/>
-<instance part="PORT102" gate="G$1" x="22.86" y="81.28" rot="MR0"/>
-<instance part="PORT103" gate="G$1" x="22.86" y="78.74" rot="MR0"/>
-<instance part="PORT104" gate="G$1" x="22.86" y="73.66" rot="MR0"/>
-<instance part="PORT105" gate="G$1" x="22.86" y="71.12" rot="MR0"/>
-<instance part="PORT106" gate="G$1" x="22.86" y="68.58" rot="MR0"/>
-<instance part="PORT107" gate="G$1" x="22.86" y="66.04" rot="MR0"/>
+<instance part="PORT100" gate="G$1" x="25.4" y="86.36" rot="MR0"/>
+<instance part="PORT101" gate="G$1" x="25.4" y="83.82" rot="MR0"/>
+<instance part="PORT102" gate="G$1" x="25.4" y="81.28" rot="MR0"/>
+<instance part="PORT103" gate="G$1" x="25.4" y="78.74" rot="MR0"/>
+<instance part="PORT104" gate="G$1" x="25.4" y="73.66" rot="MR0"/>
+<instance part="PORT105" gate="G$1" x="25.4" y="71.12" rot="MR0"/>
+<instance part="PORT106" gate="G$1" x="25.4" y="68.58" rot="MR0"/>
+<instance part="PORT107" gate="G$1" x="25.4" y="66.04" rot="MR0"/>
 <instance part="PORT116" gate="G$1" x="129.54" y="78.74" rot="MR0"/>
 <instance part="PORT117" gate="G$1" x="231.14" y="78.74"/>
 <instance part="PORT118" gate="G$1" x="231.14" y="81.28"/>
@@ -30321,10 +30297,12 @@ Various fiducial points for machine vision alignment.</description>
 <instance part="PORT283" gate="G$1" x="134.62" y="71.12" rot="MR0"/>
 <instance part="PORT284" gate="G$1" x="180.34" y="124.46" rot="MR0"/>
 <instance part="PORT285" gate="G$1" x="180.34" y="129.54" rot="MR0"/>
-<instance part="SW3" gate="G$1" x="152.4" y="134.62"/>
-<instance part="U$126" gate="G$1" x="167.64" y="137.16"/>
-<instance part="PORT286" gate="G$1" x="127" y="134.62" rot="MR0"/>
-<instance part="PORT287" gate="G$1" x="134.62" y="86.36" rot="MR0"/>
+<instance part="R3" gate="G$1" x="45.72" y="157.48"/>
+<instance part="R4" gate="G$1" x="45.72" y="154.94"/>
+<instance part="PORT286" gate="G$1" x="25.4" y="121.92" rot="MR0"/>
+<instance part="PORT287" gate="G$1" x="25.4" y="119.38" rot="MR0"/>
+<instance part="PORT295" gate="G$1" x="22.86" y="154.94" rot="MR0"/>
+<instance part="PORT296" gate="G$1" x="22.86" y="157.48" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -30360,57 +30338,57 @@ Various fiducial points for machine vision alignment.</description>
 <net name="SPI1_SS" class="0">
 <segment>
 <pinref part="U1" gate="-SPI" pin="SPI_1_SS/GPIO_27"/>
-<wire x1="43.18" y1="73.66" x2="38.1" y2="73.66" width="0.1524" layer="91"/>
-<label x="35.56" y="73.66" size="1.778" layer="95" rot="MR0"/>
+<wire x1="45.72" y1="73.66" x2="40.64" y2="73.66" width="0.1524" layer="91"/>
+<label x="38.1" y="73.66" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
 <net name="SPI1_SCLK" class="0">
 <segment>
 <pinref part="U1" gate="-SPI" pin="SPI_1_CLK/GPIO_26"/>
-<wire x1="43.18" y1="71.12" x2="38.1" y2="71.12" width="0.1524" layer="91"/>
-<label x="35.56" y="71.12" size="1.778" layer="95" rot="MR0"/>
+<wire x1="45.72" y1="71.12" x2="40.64" y2="71.12" width="0.1524" layer="91"/>
+<label x="38.1" y="71.12" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
 <net name="SPI1_MISO" class="0">
 <segment>
 <pinref part="U1" gate="-SPI" pin="SPI_1_DI/GPIO_25"/>
-<wire x1="43.18" y1="68.58" x2="38.1" y2="68.58" width="0.1524" layer="91"/>
-<label x="35.56" y="68.58" size="1.778" layer="95" rot="MR0"/>
+<wire x1="45.72" y1="68.58" x2="40.64" y2="68.58" width="0.1524" layer="91"/>
+<label x="38.1" y="68.58" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
 <net name="SPI1_MOSI" class="0">
 <segment>
 <pinref part="U1" gate="-SPI" pin="SPI_1_DO/GPIO_24"/>
-<wire x1="43.18" y1="66.04" x2="38.1" y2="66.04" width="0.1524" layer="91"/>
-<label x="35.56" y="66.04" size="1.778" layer="95" rot="MR0"/>
+<wire x1="45.72" y1="66.04" x2="40.64" y2="66.04" width="0.1524" layer="91"/>
+<label x="38.1" y="66.04" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
 <net name="SPI0_MOSI" class="0">
 <segment>
 <pinref part="U1" gate="-SPI" pin="SPI_0_DO/GPIO_16"/>
-<wire x1="43.18" y1="78.74" x2="38.1" y2="78.74" width="0.1524" layer="91"/>
-<label x="35.56" y="78.74" size="1.778" layer="95" rot="MR0"/>
+<wire x1="45.72" y1="78.74" x2="40.64" y2="78.74" width="0.1524" layer="91"/>
+<label x="38.1" y="78.74" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
 <net name="SPI0_MISO" class="0">
 <segment>
 <pinref part="U1" gate="-SPI" pin="SPI_0_DI/GPIO_17"/>
-<wire x1="43.18" y1="81.28" x2="38.1" y2="81.28" width="0.1524" layer="91"/>
-<label x="35.56" y="81.28" size="1.778" layer="95" rot="MR0"/>
+<wire x1="45.72" y1="81.28" x2="40.64" y2="81.28" width="0.1524" layer="91"/>
+<label x="38.1" y="81.28" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
 <net name="SPI0_SCLK" class="0">
 <segment>
 <pinref part="U1" gate="-SPI" pin="SPI_0_CLK/GPIO_18"/>
-<wire x1="43.18" y1="83.82" x2="38.1" y2="83.82" width="0.1524" layer="91"/>
-<label x="35.56" y="83.82" size="1.778" layer="95" rot="MR0"/>
+<wire x1="45.72" y1="83.82" x2="40.64" y2="83.82" width="0.1524" layer="91"/>
+<label x="38.1" y="83.82" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
 <net name="SPI0_SS" class="0">
 <segment>
 <pinref part="U1" gate="-SPI" pin="SPI_0_SS/GPIO_19"/>
-<wire x1="43.18" y1="86.36" x2="38.1" y2="86.36" width="0.1524" layer="91"/>
-<label x="35.56" y="86.36" size="1.778" layer="95" rot="MR0"/>
+<wire x1="45.72" y1="86.36" x2="40.64" y2="86.36" width="0.1524" layer="91"/>
+<label x="38.1" y="86.36" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
 <net name="AFE_CLK" class="0">
@@ -30460,18 +30438,6 @@ Various fiducial points for machine vision alignment.</description>
 <pinref part="U$70" gate="G$1" pin="D3V3"/>
 <junction x="207.01" y="149.86"/>
 </segment>
-<segment>
-<pinref part="SW3" gate="G$1" pin="3"/>
-<wire x1="160.02" y1="132.08" x2="162.56" y2="132.08" width="0.1524" layer="91"/>
-<pinref part="SW3" gate="G$1" pin="1"/>
-<wire x1="162.56" y1="137.16" x2="160.02" y2="137.16" width="0.1524" layer="91"/>
-<wire x1="162.56" y1="132.08" x2="162.56" y2="134.62" width="0.1524" layer="91"/>
-<pinref part="U$126" gate="G$1" pin="D3V3"/>
-<wire x1="162.56" y1="134.62" x2="162.56" y2="137.16" width="0.1524" layer="91"/>
-<wire x1="162.56" y1="134.62" x2="167.64" y2="134.62" width="0.1524" layer="91"/>
-<wire x1="167.64" y1="134.62" x2="167.64" y2="137.16" width="0.1524" layer="91"/>
-<junction x="162.56" y="134.62"/>
-</segment>
 </net>
 <net name="MAIN_CLK_IN_EN" class="0">
 <segment>
@@ -30520,29 +30486,53 @@ Various fiducial points for machine vision alignment.</description>
 <label x="187.96" y="129.54" size="1.778" layer="97" rot="MR0"/>
 </segment>
 </net>
-<net name="PB1" class="0">
-<segment>
-<pinref part="SW3" gate="G$1" pin="4"/>
-<wire x1="144.78" y1="132.08" x2="142.24" y2="132.08" width="0.1524" layer="91"/>
-<pinref part="SW3" gate="G$1" pin="2"/>
-<wire x1="142.24" y1="132.08" x2="142.24" y2="134.62" width="0.1524" layer="91"/>
-<wire x1="142.24" y1="134.62" x2="142.24" y2="137.16" width="0.1524" layer="91"/>
-<wire x1="142.24" y1="137.16" x2="144.78" y2="137.16" width="0.1524" layer="91"/>
-<wire x1="142.24" y1="134.62" x2="137.16" y2="134.62" width="0.1524" layer="91"/>
-<label x="134.62" y="134.62" size="1.778" layer="97" rot="MR0"/>
-<junction x="142.24" y="134.62"/>
-</segment>
-<segment>
-<pinref part="U1" gate="-IOB" pin="GBB2/IO27NPB1V0"/>
-<wire x1="149.86" y1="86.36" x2="144.78" y2="86.36" width="0.1524" layer="91"/>
-<label x="142.24" y="86.36" size="1.778" layer="97" rot="MR0"/>
-</segment>
-</net>
 <net name="REF_CLK_OUT_N" class="0">
 <segment>
 <pinref part="U1" gate="-IOB" pin="IO84NDB5V0"/>
 <wire x1="210.82" y1="71.12" x2="215.9" y2="71.12" width="0.1524" layer="91"/>
 <label x="218.44" y="71.12" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="U1" gate="-UART" pin="UART_0_TXD/GPIO_20"/>
+<pinref part="R3" gate="G$1" pin="2"/>
+<wire x1="48.26" y1="157.48" x2="50.8" y2="157.48" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$5" class="0">
+<segment>
+<pinref part="U1" gate="-UART" pin="UART_0_RXD/GPIO_21"/>
+<pinref part="R4" gate="G$1" pin="2"/>
+<wire x1="48.26" y1="154.94" x2="50.8" y2="154.94" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="USBDB0" class="0">
+<segment>
+<pinref part="R4" gate="G$1" pin="1"/>
+<wire x1="40.64" y1="154.94" x2="38.1" y2="154.94" width="0.1524" layer="91"/>
+<label x="35.56" y="154.94" size="1.778" layer="95" rot="MR0"/>
+</segment>
+</net>
+<net name="I2C0_SDA" class="0">
+<segment>
+<pinref part="U1" gate="-I2C" pin="I2C_0_SDA/GPIO_22"/>
+<wire x1="45.72" y1="121.92" x2="40.64" y2="121.92" width="0.1524" layer="91"/>
+<label x="38.1" y="121.92" size="1.778" layer="95" rot="MR0"/>
+</segment>
+</net>
+<net name="I2C0_SCL" class="0">
+<segment>
+<pinref part="U1" gate="-I2C" pin="I2C_0_SCL/GPIO_23"/>
+<wire x1="45.72" y1="119.38" x2="40.64" y2="119.38" width="0.1524" layer="91"/>
+<label x="38.1" y="119.38" size="1.778" layer="95" rot="MR0"/>
+</segment>
+</net>
+<net name="USBDB1" class="0">
+<segment>
+<pinref part="R3" gate="G$1" pin="1"/>
+<wire x1="40.64" y1="157.48" x2="38.1" y2="157.48" width="0.1524" layer="91"/>
+<label x="35.56" y="157.48" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
 </nets>
