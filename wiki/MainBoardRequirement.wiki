@@ -129,6 +129,7 @@ _The external memory has been replaced with a simple high-speed external interfa
 = Optional (Rev B) =
 
  * MainBoard power supply (3.3V, 1.5V, VSUP)
- * Current monitor on all rails and voltage monitor on VSUP (SmartFusion)
+ * Current monitor on all rails and voltage monitor on VSUP (SmartFusion, see [http://marmote.googlecode.com/svn-history/r653/trunk/hardware/MainBoard/MainBoard.sch Rev 653])
  * Battery operation
  * Charging through USB
+ * External 5V power input as connector
