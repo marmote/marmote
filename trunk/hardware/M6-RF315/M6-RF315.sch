@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.05" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -7636,14 +7636,8 @@ Note: This package is created  according to the IPC-7351B standard.</description
 <wire x1="-2.75" y1="1.75" x2="-2.25" y2="1.75" width="0.127" layer="21"/>
 <wire x1="-2.25" y1="1.75" x2="-2.5" y2="1.5" width="0.127" layer="21"/>
 <wire x1="-2.5" y1="1.5" x2="-2.75" y2="1.75" width="0.127" layer="21"/>
-<smd name="E$1" x="-0.75" y="0" dx="0.75" dy="0.75" layer="1" cream="no"/>
-<smd name="E$2" x="0" y="-0.75" dx="0.75" dy="0.75" layer="1" cream="no"/>
-<smd name="E$3" x="0.75" y="0" dx="0.75" dy="0.75" layer="1" cream="no"/>
-<smd name="E$4" x="0" y="0.75" dx="0.75" dy="0.75" layer="1" cream="no"/>
-<rectangle x1="-1" y1="-0.25" x2="-0.5" y2="0.25" layer="31"/>
-<rectangle x1="-0.25" y1="-1" x2="0.25" y2="-0.5" layer="31"/>
-<rectangle x1="0.5" y1="-0.25" x2="1" y2="0.25" layer="31"/>
-<rectangle x1="-0.25" y1="0.5" x2="0.25" y2="1" layer="31"/>
+<smd name="EXP" x="0" y="0" dx="1.8" dy="1.8" layer="1" cream="no"/>
+<rectangle x1="-0.5" y1="-0.5" x2="0.5" y2="0.5" layer="31"/>
 </package>
 <package name="C0402">
 <description>&lt;b&gt;C0402&lt;/b&gt;
@@ -22609,10 +22603,7 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/cc1101"&gt;http://www.ti.com/lit/g
 <pin name="RF_P" x="17.78" y="10.16" length="middle" direction="pas" rot="R180"/>
 <pin name="DGND" x="17.78" y="-17.78" length="middle" direction="pwr" rot="R180"/>
 <pin name="AGND" x="17.78" y="-10.16" length="middle" direction="pwr" rot="R180"/>
-<pin name="AGND@1" x="0" y="0" visible="off" length="point"/>
-<pin name="AGND@2" x="0" y="-2.54" visible="off" length="point"/>
-<pin name="AGND@3" x="2.54" y="0" visible="off" length="point"/>
-<pin name="AGND@4" x="2.54" y="-2.54" visible="off" length="point"/>
+<pin name="AGND@1" x="0" y="0" visible="off" length="point" direction="pwr"/>
 </symbol>
 <symbol name="PORT5">
 <wire x1="-9.144" y1="-0.254" x2="0" y2="-0.254" width="0.2032" layer="95"/>
@@ -26552,10 +26543,7 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/cc1101"&gt;http://www.ti.com/lit/g
 <device name="RTKR" package="QFN-20">
 <connects>
 <connect gate="G$1" pin="AGND" pad="16"/>
-<connect gate="G$1" pin="AGND@1" pad="E$1"/>
-<connect gate="G$1" pin="AGND@2" pad="E$2"/>
-<connect gate="G$1" pin="AGND@3" pad="E$3"/>
-<connect gate="G$1" pin="AGND@4" pad="E$4"/>
+<connect gate="G$1" pin="AGND@1" pad="EXP"/>
 <connect gate="G$1" pin="AVDD@1" pad="9"/>
 <connect gate="G$1" pin="AVDD@2" pad="11"/>
 <connect gate="G$1" pin="AVDD@3" pad="14"/>
@@ -27072,7 +27060,7 @@ Source: &lt;a href="http://www.ndk.com/images/products/catalog/c_NX3225GA-STD-CR
 <part name="TP1" library="M6-RF315" deviceset="TESTPOINT" device="" technology="-RED"/>
 <part name="TP2" library="M6-RF315" deviceset="TESTPOINT" device="" technology="-RED"/>
 <part name="R2" library="M6-RF315" deviceset="R" device="0603" value="100k"/>
-<part name="C9" library="M6-RF315" deviceset="C" device="0603" value="6.8 pF">
+<part name="C9" library="M6-RF315" deviceset="C" device="0603" value="6.8pF">
 <attribute name="FUNCTION" value="RF balun/matching capacitor"/>
 </part>
 <part name="C10" library="M6-RF315" deviceset="C" device="0603" value="220pF">
@@ -27108,7 +27096,7 @@ Source: &lt;a href="http://www.ndk.com/images/products/catalog/c_NX3225GA-STD-CR
 <part name="U$12" library="M6-RF315" deviceset="AGND" device=""/>
 <part name="U$13" library="M6-RF315" deviceset="AGND" device=""/>
 <part name="U$14" library="M6-RF315" deviceset="AGND" device=""/>
-<part name="U$3" library="M6-RF315" deviceset="LOGO-RADIO-2-600MIL" device="-10MM-CU"/>
+<part name="LOGO4" library="M6-RF315" deviceset="LOGO-RADIO-2-600MIL" device="-10MM-CU"/>
 <part name="X1" library="M6-RF315" deviceset="NX3225GA" device=""/>
 <part name="PORT10" library="M6-RF315" deviceset="PORT5" device=""/>
 <part name="PORT11" library="M6-RF315" deviceset="PORT5" device=""/>
@@ -27160,7 +27148,7 @@ Source: &lt;a href="http://www.ndk.com/images/products/catalog/c_NX3225GA-STD-CR
 <instance part="LOGO1" gate="G$1" x="104.14" y="55.88"/>
 <instance part="LOGO2" gate="G$1" x="129.54" y="55.88"/>
 <instance part="LOGO3" gate="G$1" x="78.74" y="55.88"/>
-<instance part="U$3" gate="G$1" x="154.94" y="55.88"/>
+<instance part="LOGO4" gate="G$1" x="154.94" y="55.88"/>
 </instances>
 <busses>
 </busses>
@@ -27173,15 +27161,14 @@ Source: &lt;a href="http://www.ndk.com/images/products/catalog/c_NX3225GA-STD-CR
 <text x="177.8" y="20.32" size="5.08" layer="97">&gt;PAGE2</text>
 <text x="101.6" y="81.28" size="2.54" layer="98">TODO:</text>
 <wire x1="96.52" y1="88.9" x2="200.66" y2="88.9" width="0.1524" layer="98"/>
-<wire x1="200.66" y1="88.9" x2="200.66" y2="58.42" width="0.1524" layer="98"/>
-<wire x1="200.66" y1="58.42" x2="96.52" y2="58.42" width="0.1524" layer="98"/>
-<wire x1="96.52" y1="58.42" x2="96.52" y2="88.9" width="0.1524" layer="98"/>
+<wire x1="200.66" y1="88.9" x2="200.66" y2="68.58" width="0.1524" layer="98"/>
+<wire x1="200.66" y1="68.58" x2="96.52" y2="68.58" width="0.1524" layer="98"/>
+<wire x1="96.52" y1="68.58" x2="96.52" y2="88.9" width="0.1524" layer="98"/>
 <text x="83.82" y="109.22" size="1.778" layer="95">SERIAL TX DATA</text>
 <text x="83.82" y="106.68" size="1.778" layer="95">SERIAL RX DATA</text>
-<text x="104.14" y="63.5" size="2.54" layer="98">- Check BOM against CC1101 reference BOM for 315 MHz</text>
+<text x="104.14" y="71.12" size="2.54" layer="98">- Check BOM against CC1101 reference BOM for 315 MHz</text>
 <text x="238.76" y="149.86" size="1.778" layer="97" rot="R270">Digikey: ANT-315-CW-RH-SMA-ND</text>
-<text x="104.14" y="68.58" size="2.54" layer="98">- Create BOM file</text>
-<text x="104.14" y="73.66" size="2.54" layer="98">- Route PCB design</text>
+<text x="104.14" y="76.2" size="2.54" layer="98">- Create BOM file</text>
 <text x="71.12" y="109.22" size="1.778" layer="97">NC</text>
 <text x="71.12" y="106.68" size="1.778" layer="97">NC</text>
 <text x="71.12" y="104.14" size="1.778" layer="97">NC</text>
