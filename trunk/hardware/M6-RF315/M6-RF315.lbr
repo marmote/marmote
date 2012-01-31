@@ -14363,7 +14363,7 @@ Source: Lighthorse Technologies, inc. SASF54GT.pdf</description>
 <package name="QFN-20">
 <description>&lt;b&gt;QFN-8 packager&lt;/b&gt;
 &lt;p&gt;
-Note: This package is created  according to the IPC-7351B standard.</description>
+Note: This package is created  according to the IPC-7351B standard, but the SMD pin outline widths have been shrung to 0.28 mm from 0.30 mm.</description>
 <wire x1="-2" y1="2" x2="2" y2="2" width="0.127" layer="51"/>
 <wire x1="2" y1="2" x2="2" y2="-2" width="0.127" layer="51"/>
 <wire x1="2" y1="-2" x2="-2" y2="-2" width="0.127" layer="51"/>
