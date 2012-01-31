@@ -24550,56 +24550,56 @@ Source:
 <part name="PORT61" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT62" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT64" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="C5" library="MainBoard" deviceset="C" device="0603"/>
-<part name="C6" library="MainBoard" deviceset="C" device="0603"/>
-<part name="C7" library="MainBoard" deviceset="C" device="0603"/>
+<part name="C5" library="MainBoard" deviceset="C" device="0402"/>
+<part name="C6" library="MainBoard" deviceset="C" device="0402"/>
+<part name="C7" library="MainBoard" deviceset="C" device="0402"/>
 <part name="U$21" library="MainBoard" deviceset="AGND" device=""/>
-<part name="C8" library="MainBoard" deviceset="C" device="0603"/>
-<part name="C9" library="MainBoard" deviceset="C" device="0603"/>
+<part name="C8" library="MainBoard" deviceset="C" device="0402"/>
+<part name="C9" library="MainBoard" deviceset="C" device="0402"/>
 <part name="U$23" library="MainBoard" deviceset="AGND" device=""/>
-<part name="R5" library="MainBoard" deviceset="R" device="0603" value="0">
+<part name="R5" library="MainBoard" deviceset="R" device="0402" value="0">
 <attribute name="TOLERANCE" value=""/>
 </part>
-<part name="R6" library="MainBoard" deviceset="R" device="0603" value="0">
+<part name="R6" library="MainBoard" deviceset="R" device="0402" value="0">
 <attribute name="TOLERANCE" value=""/>
 </part>
-<part name="C10" library="MainBoard" deviceset="C" device="0603"/>
-<part name="C11" library="MainBoard" deviceset="C" device="0603"/>
-<part name="C12" library="MainBoard" deviceset="C" device="0603"/>
+<part name="C10" library="MainBoard" deviceset="C" device="0402"/>
+<part name="C11" library="MainBoard" deviceset="C" device="0402"/>
+<part name="C12" library="MainBoard" deviceset="C" device="0402"/>
 <part name="U$24" library="MainBoard" deviceset="AGND" device=""/>
-<part name="C13" library="MainBoard" deviceset="C" device="0603"/>
-<part name="C14" library="MainBoard" deviceset="C" device="0603"/>
+<part name="C13" library="MainBoard" deviceset="C" device="0402"/>
+<part name="C14" library="MainBoard" deviceset="C" device="0402"/>
 <part name="U$25" library="MainBoard" deviceset="AGND" device=""/>
-<part name="R9" library="MainBoard" deviceset="R" device="0603" value="0">
+<part name="R9" library="MainBoard" deviceset="R" device="0402" value="0">
 <attribute name="TOLERANCE" value=""/>
 </part>
-<part name="R10" library="MainBoard" deviceset="R" device="0603" value="0">
+<part name="R10" library="MainBoard" deviceset="R" device="0402" value="0">
 <attribute name="TOLERANCE" value=""/>
 </part>
-<part name="C15" library="MainBoard" deviceset="C" device="0603"/>
-<part name="C16" library="MainBoard" deviceset="C" device="0603"/>
-<part name="C17" library="MainBoard" deviceset="C" device="0603"/>
+<part name="C15" library="MainBoard" deviceset="C" device="0402"/>
+<part name="C16" library="MainBoard" deviceset="C" device="0402"/>
+<part name="C17" library="MainBoard" deviceset="C" device="0402"/>
 <part name="U$26" library="MainBoard" deviceset="AGND" device=""/>
-<part name="C18" library="MainBoard" deviceset="C" device="0603"/>
-<part name="C19" library="MainBoard" deviceset="C" device="0603"/>
-<part name="C20" library="MainBoard" deviceset="C" device="0603"/>
+<part name="C18" library="MainBoard" deviceset="C" device="0402"/>
+<part name="C19" library="MainBoard" deviceset="C" device="0402"/>
+<part name="C20" library="MainBoard" deviceset="C" device="0402"/>
 <part name="U$27" library="MainBoard" deviceset="AGND" device=""/>
-<part name="C21" library="MainBoard" deviceset="C" device="0603"/>
-<part name="C22" library="MainBoard" deviceset="C" device="0603"/>
+<part name="C21" library="MainBoard" deviceset="C" device="0402"/>
+<part name="C22" library="MainBoard" deviceset="C" device="0402"/>
 <part name="U$28" library="MainBoard" deviceset="AGND" device=""/>
-<part name="R15" library="MainBoard" deviceset="R" device="0603" value="0">
+<part name="R15" library="MainBoard" deviceset="R" device="0402" value="0">
 <attribute name="TOLERANCE" value=""/>
 </part>
-<part name="R16" library="MainBoard" deviceset="R" device="0603" value="0">
+<part name="R16" library="MainBoard" deviceset="R" device="0402" value="0">
 <attribute name="TOLERANCE" value=""/>
 </part>
-<part name="C23" library="MainBoard" deviceset="C" device="0603"/>
-<part name="C24" library="MainBoard" deviceset="C" device="0603"/>
+<part name="C23" library="MainBoard" deviceset="C" device="0402"/>
+<part name="C24" library="MainBoard" deviceset="C" device="0402"/>
 <part name="U$29" library="MainBoard" deviceset="AGND" device=""/>
-<part name="R17" library="MainBoard" deviceset="R" device="0603" value="0">
+<part name="R17" library="MainBoard" deviceset="R" device="0402" value="0">
 <attribute name="TOLERANCE" value=""/>
 </part>
-<part name="R18" library="MainBoard" deviceset="R" device="0603" value="0">
+<part name="R18" library="MainBoard" deviceset="R" device="0402" value="0">
 <attribute name="TOLERANCE" value=""/>
 </part>
 <part name="PORT77" library="MainBoard" deviceset="PORT5" device=""/>
@@ -25193,10 +25193,6 @@ Source:
 <part name="PORT292" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT293" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT294" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="C113" library="MainBoard" deviceset="C" device="0603"/>
-<part name="C114" library="MainBoard" deviceset="C" device="0603"/>
-<part name="C115" library="MainBoard" deviceset="C" device="0603"/>
-<part name="C116" library="MainBoard" deviceset="C" device="0603"/>
 <part name="M1" library="MainBoard" deviceset="MOUNT-HOLE" device="3.3"/>
 <part name="M2" library="MainBoard" deviceset="MOUNT-HOLE" device="3.3"/>
 <part name="M3" library="MainBoard" deviceset="MOUNT-HOLE" device="3.3"/>
@@ -26841,6 +26837,10 @@ Source:
 <text x="222.885" y="103.505" size="1.778" layer="97">Buffer?</text>
 <text x="58.42" y="104.14" size="50.8" layer="208">EXT</text>
 <text x="55.88" y="25.4" size="50.8" layer="208">AFE</text>
+<rectangle x1="45.72" y1="144.78" x2="50.8" y2="154.94" layer="98"/>
+<rectangle x1="45.72" y1="116.84" x2="50.8" y2="127" layer="98"/>
+<rectangle x1="162.56" y1="144.78" x2="167.64" y2="154.94" layer="98"/>
+<rectangle x1="162.56" y1="116.84" x2="167.64" y2="127" layer="98"/>
 </plain>
 <instances>
 <instance part="U2" gate="-AFE" x="68.58" y="116.84"/>
@@ -26939,10 +26939,6 @@ Source:
 <instance part="PORT140" gate="G$1" x="132.08" y="104.14" rot="MR0"/>
 <instance part="PORT141" gate="G$1" x="132.08" y="106.68" rot="MR0"/>
 <instance part="PORT94" gate="G$1" x="132.08" y="96.52" rot="MR0"/>
-<instance part="C113" gate="G$1" x="48.26" y="151.13"/>
-<instance part="C114" gate="G$1" x="48.26" y="123.19"/>
-<instance part="C115" gate="G$1" x="165.1" y="151.13"/>
-<instance part="C116" gate="G$1" x="165.1" y="123.19"/>
 </instances>
 <busses>
 <bus name="AFE1_DB[0..9]">
@@ -27148,13 +27144,9 @@ Source:
 <wire x1="35.56" y1="132.08" x2="40.64" y2="132.08" width="0.1524" layer="91"/>
 <pinref part="U2" gate="-AFE" pin="QAP"/>
 <pinref part="C8" gate="G$1" pin="1"/>
-<wire x1="40.64" y1="132.08" x2="48.26" y2="132.08" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="132.08" x2="50.8" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="132.08" x2="50.8" y2="132.08" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="132.08" x2="40.64" y2="130.81" width="0.1524" layer="91"/>
 <junction x="40.64" y="132.08"/>
-<pinref part="C114" gate="G$1" pin="1"/>
-<wire x1="48.26" y1="132.08" x2="48.26" y2="125.73" width="0.1524" layer="91"/>
-<junction x="48.26" y="132.08"/>
 </segment>
 </net>
 <net name="QAN" class="0">
@@ -27163,13 +27155,9 @@ Source:
 <wire x1="35.56" y1="111.76" x2="40.64" y2="111.76" width="0.1524" layer="91"/>
 <pinref part="U2" gate="-AFE" pin="QAN"/>
 <pinref part="C9" gate="G$1" pin="2"/>
-<wire x1="40.64" y1="111.76" x2="48.26" y2="111.76" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="111.76" x2="50.8" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="111.76" x2="50.8" y2="111.76" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="111.76" x2="40.64" y2="113.03" width="0.1524" layer="91"/>
 <junction x="40.64" y="111.76"/>
-<pinref part="C114" gate="G$1" pin="2"/>
-<wire x1="48.26" y1="118.11" x2="48.26" y2="111.76" width="0.1524" layer="91"/>
-<junction x="48.26" y="111.76"/>
 </segment>
 </net>
 <net name="DAC1+" class="0">
@@ -27222,13 +27210,9 @@ Source:
 <wire x1="35.56" y1="160.02" x2="40.64" y2="160.02" width="0.1524" layer="91"/>
 <pinref part="U2" gate="-AFE" pin="IAP"/>
 <pinref part="C13" gate="G$1" pin="1"/>
-<wire x1="40.64" y1="160.02" x2="48.26" y2="160.02" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="160.02" x2="50.8" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="160.02" x2="50.8" y2="160.02" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="160.02" x2="40.64" y2="158.75" width="0.1524" layer="91"/>
 <junction x="40.64" y="160.02"/>
-<pinref part="C113" gate="G$1" pin="1"/>
-<wire x1="48.26" y1="153.67" x2="48.26" y2="160.02" width="0.1524" layer="91"/>
-<junction x="48.26" y="160.02"/>
 </segment>
 </net>
 <net name="IAN" class="0">
@@ -27237,13 +27221,9 @@ Source:
 <wire x1="35.56" y1="139.7" x2="40.64" y2="139.7" width="0.1524" layer="91"/>
 <pinref part="U2" gate="-AFE" pin="IAN"/>
 <pinref part="C14" gate="G$1" pin="2"/>
-<wire x1="40.64" y1="139.7" x2="48.26" y2="139.7" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="139.7" x2="50.8" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="139.7" x2="50.8" y2="139.7" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="139.7" x2="40.64" y2="140.97" width="0.1524" layer="91"/>
 <junction x="40.64" y="139.7"/>
-<pinref part="C113" gate="G$1" pin="2"/>
-<wire x1="48.26" y1="146.05" x2="48.26" y2="139.7" width="0.1524" layer="91"/>
-<junction x="48.26" y="139.7"/>
 </segment>
 </net>
 <net name="DAC4+" class="0">
@@ -27326,13 +27306,9 @@ Source:
 <wire x1="152.4" y1="132.08" x2="157.48" y2="132.08" width="0.1524" layer="91"/>
 <pinref part="U3" gate="-AFE" pin="QAP"/>
 <pinref part="C21" gate="G$1" pin="1"/>
-<wire x1="157.48" y1="132.08" x2="165.1" y2="132.08" width="0.1524" layer="91"/>
-<wire x1="165.1" y1="132.08" x2="167.64" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="157.48" y1="132.08" x2="167.64" y2="132.08" width="0.1524" layer="91"/>
 <wire x1="157.48" y1="130.81" x2="157.48" y2="132.08" width="0.1524" layer="91"/>
 <junction x="157.48" y="132.08"/>
-<wire x1="165.1" y1="125.73" x2="165.1" y2="132.08" width="0.1524" layer="91"/>
-<pinref part="C116" gate="G$1" pin="1"/>
-<junction x="165.1" y="132.08"/>
 </segment>
 </net>
 <net name="N$46" class="0">
@@ -27341,13 +27317,9 @@ Source:
 <wire x1="152.4" y1="111.76" x2="157.48" y2="111.76" width="0.1524" layer="91"/>
 <pinref part="U3" gate="-AFE" pin="QAN"/>
 <pinref part="C22" gate="G$1" pin="2"/>
-<wire x1="157.48" y1="111.76" x2="165.1" y2="111.76" width="0.1524" layer="91"/>
-<wire x1="165.1" y1="111.76" x2="167.64" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="157.48" y1="111.76" x2="167.64" y2="111.76" width="0.1524" layer="91"/>
 <wire x1="157.48" y1="113.03" x2="157.48" y2="111.76" width="0.1524" layer="91"/>
 <junction x="157.48" y="111.76"/>
-<pinref part="C116" gate="G$1" pin="2"/>
-<wire x1="165.1" y1="118.11" x2="165.1" y2="111.76" width="0.1524" layer="91"/>
-<junction x="165.1" y="111.76"/>
 </segment>
 </net>
 <net name="ADC4+" class="0">
@@ -27370,13 +27342,9 @@ Source:
 <wire x1="152.4" y1="160.02" x2="157.48" y2="160.02" width="0.1524" layer="91"/>
 <pinref part="U3" gate="-AFE" pin="IAP"/>
 <pinref part="C23" gate="G$1" pin="1"/>
-<wire x1="157.48" y1="160.02" x2="165.1" y2="160.02" width="0.1524" layer="91"/>
-<wire x1="165.1" y1="160.02" x2="167.64" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="157.48" y1="160.02" x2="167.64" y2="160.02" width="0.1524" layer="91"/>
 <wire x1="157.48" y1="158.75" x2="157.48" y2="160.02" width="0.1524" layer="91"/>
 <junction x="157.48" y="160.02"/>
-<wire x1="165.1" y1="153.67" x2="165.1" y2="160.02" width="0.1524" layer="91"/>
-<pinref part="C115" gate="G$1" pin="1"/>
-<junction x="165.1" y="160.02"/>
 </segment>
 </net>
 <net name="N$50" class="0">
@@ -27385,13 +27353,9 @@ Source:
 <wire x1="152.4" y1="139.7" x2="157.48" y2="139.7" width="0.1524" layer="91"/>
 <pinref part="U3" gate="-AFE" pin="IAN"/>
 <pinref part="C24" gate="G$1" pin="2"/>
-<wire x1="157.48" y1="139.7" x2="165.1" y2="139.7" width="0.1524" layer="91"/>
-<wire x1="165.1" y1="139.7" x2="167.64" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="157.48" y1="139.7" x2="167.64" y2="139.7" width="0.1524" layer="91"/>
 <wire x1="157.48" y1="140.97" x2="157.48" y2="139.7" width="0.1524" layer="91"/>
 <junction x="157.48" y="139.7"/>
-<pinref part="C115" gate="G$1" pin="2"/>
-<wire x1="165.1" y1="146.05" x2="165.1" y2="139.7" width="0.1524" layer="91"/>
-<junction x="165.1" y="139.7"/>
 </segment>
 </net>
 <net name="AFE_CLK" class="0">
