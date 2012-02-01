@@ -19,12 +19,12 @@
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
@@ -36,23 +36,23 @@
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
 <layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
 <layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
-<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="yes"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="yes"/>
-<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
+<layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="yes"/>
 <layer number="42" name="bRestrict" color="1" fill="10" visible="no" active="yes"/>
-<layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
+<layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
-<layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="50" name="dxf" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="yes"/>
+<layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
+<layer number="50" name="dxf" color="7" fill="1" visible="no" active="yes"/>
+<layer number="51" name="tDocu" color="14" fill="1" visible="yes" active="yes"/>
+<layer number="52" name="bDocu" color="11" fill="1" visible="no" active="yes"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
-<layer number="56" name="wert" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="56" name="wert" color="7" fill="1" visible="no" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="no" active="no"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="no" active="no"/>
 <layer number="93" name="Pins" color="2" fill="1" visible="no" active="no"/>
@@ -62,13 +62,13 @@
 <layer number="97" name="Info" color="7" fill="1" visible="no" active="no"/>
 <layer number="98" name="Guide" color="6" fill="1" visible="no" active="no"/>
 <layer number="100" name="Muster" color="7" fill="1" visible="no" active="no"/>
-<layer number="101" name="Patch_Top" color="12" fill="4" visible="yes" active="yes"/>
-<layer number="102" name="Vscore" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="103" name="tMap" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="104" name="Name" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="105" name="tPlate" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="106" name="bPlate" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="107" name="Crop" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="101" name="Patch_Top" color="12" fill="4" visible="no" active="yes"/>
+<layer number="102" name="Vscore" color="7" fill="1" visible="no" active="yes"/>
+<layer number="103" name="tMap" color="7" fill="1" visible="no" active="yes"/>
+<layer number="104" name="Name" color="7" fill="1" visible="no" active="yes"/>
+<layer number="105" name="tPlate" color="7" fill="1" visible="no" active="yes"/>
+<layer number="106" name="bPlate" color="7" fill="1" visible="no" active="yes"/>
+<layer number="107" name="Crop" color="7" fill="1" visible="no" active="yes"/>
 <layer number="108" name="Route8" color="7" fill="1" visible="no" active="no"/>
 <layer number="109" name="Route9" color="7" fill="1" visible="no" active="no"/>
 <layer number="110" name="Route10" color="7" fill="1" visible="no" active="no"/>
@@ -76,13 +76,13 @@
 <layer number="112" name="Route12" color="7" fill="1" visible="no" active="no"/>
 <layer number="113" name="Route13" color="7" fill="1" visible="no" active="no"/>
 <layer number="114" name="FIXED_SF_PIN" color="2" fill="3" visible="no" active="yes"/>
-<layer number="116" name="Patch_BOT" color="9" fill="4" visible="yes" active="yes"/>
+<layer number="116" name="Patch_BOT" color="9" fill="4" visible="no" active="yes"/>
 <layer number="117" name="mPads" color="7" fill="1" visible="no" active="no"/>
 <layer number="118" name="mVias" color="7" fill="1" visible="no" active="no"/>
 <layer number="119" name="mUnrouted" color="7" fill="1" visible="no" active="no"/>
 <layer number="120" name="mDimension" color="7" fill="1" visible="no" active="no"/>
-<layer number="121" name="_tsilk" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="122" name="_bsilk" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="121" name="_tsilk" color="7" fill="1" visible="no" active="yes"/>
+<layer number="122" name="_bsilk" color="7" fill="1" visible="no" active="yes"/>
 <layer number="123" name="mtOrigins" color="7" fill="1" visible="no" active="no"/>
 <layer number="124" name="mbOrigins" color="7" fill="1" visible="no" active="no"/>
 <layer number="125" name="mtNames" color="7" fill="1" visible="no" active="no"/>
@@ -110,8 +110,8 @@
 <layer number="147" name="mMeasures" color="7" fill="1" visible="no" active="no"/>
 <layer number="148" name="mDocument" color="7" fill="1" visible="no" active="no"/>
 <layer number="149" name="mReference" color="7" fill="1" visible="no" active="no"/>
-<layer number="150" name="Notes" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="151" name="HeatSink" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="150" name="Notes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="151" name="HeatSink" color="7" fill="1" visible="no" active="yes"/>
 <layer number="152" name="mbDocu" color="7" fill="1" visible="no" active="no"/>
 <layer number="191" name="mNets" color="7" fill="1" visible="no" active="no"/>
 <layer number="192" name="mBusses" color="7" fill="1" visible="no" active="no"/>
@@ -119,7 +119,7 @@
 <layer number="194" name="mSymbols" color="7" fill="1" visible="no" active="no"/>
 <layer number="195" name="mNames" color="7" fill="1" visible="no" active="no"/>
 <layer number="196" name="mValues" color="7" fill="1" visible="no" active="no"/>
-<layer number="199" name="EXTD_ERC" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="199" name="EXTD_ERC" color="7" fill="1" visible="no" active="yes"/>
 <layer number="200" name="200bmp" color="1" fill="10" visible="no" active="no"/>
 <layer number="201" name="201bmp" color="2" fill="10" visible="no" active="yes"/>
 <layer number="202" name="202bmp" color="3" fill="10" visible="no" active="yes"/>
@@ -10705,37 +10705,6 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ecx-31b.pdf"&gt;http://www.
 <text x="-1" y="1.25" size="0.4064" layer="25">&gt;NAME</text>
 <text x="-1" y="-1.5" size="0.4064" layer="27">&gt;VALUE</text>
 </package>
-<package name="ECX-2236">
-<description>&lt;b&gt;ECX-2236&lt;/b&gt;
-&lt;p&gt;
-ECS ECX-2236 2.5mm X 2.0mm ceramic package for SMD quartz crystals.
-&lt;p&gt;
-&lt;i&gt;Source: http://www.ecsxtal.com/store/pdf/ECX-2236.pdf&lt;/i&gt;</description>
-<wire x1="-1.573" y1="1.283" x2="1.573" y2="1.283" width="0.0508" layer="39"/>
-<wire x1="1.573" y1="1.283" x2="1.573" y2="-1.283" width="0.0508" layer="39"/>
-<wire x1="1.573" y1="-1.283" x2="-1.573" y2="-1.283" width="0.0508" layer="39"/>
-<wire x1="-1.573" y1="-1.283" x2="-1.573" y2="1.283" width="0.0508" layer="39"/>
-<wire x1="-1.25" y1="1" x2="1.25" y2="1" width="0.127" layer="51"/>
-<wire x1="1.25" y1="1" x2="1.25" y2="-1" width="0.127" layer="51"/>
-<wire x1="1.25" y1="-1" x2="-0.6" y2="-1" width="0.127" layer="51"/>
-<wire x1="-0.6" y1="-1" x2="-1.25" y2="-1" width="0.127" layer="51"/>
-<wire x1="-1.25" y1="-1" x2="-1.25" y2="1" width="0.127" layer="51"/>
-<wire x1="-1.2" y1="-0.4" x2="-0.8" y2="-0.4" width="0.127" layer="51"/>
-<wire x1="-0.8" y1="-0.4" x2="-0.6" y2="-0.6" width="0.127" layer="51"/>
-<wire x1="-0.6" y1="-0.6" x2="-0.6" y2="-1" width="0.127" layer="51"/>
-<circle x="-1.8" y="-1.5" radius="0.1" width="0.2032" layer="21"/>
-<smd name="4" x="-0.85" y="0.65" dx="1.2" dy="1" layer="1"/>
-<smd name="3" x="0.85" y="0.65" dx="1.2" dy="1" layer="1"/>
-<smd name="2" x="0.85" y="-0.65" dx="1.2" dy="1" layer="1"/>
-<smd name="1" x="-0.85" y="-0.65" dx="1.2" dy="1" layer="1"/>
-<text x="-0.889" y="1.3858" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-1.089" y="-1.743" size="0.4064" layer="27">&gt;VALUE</text>
-<rectangle x1="0.45" y1="-0.975" x2="1.25" y2="-0.325" layer="51"/>
-<rectangle x1="-1.25" y1="0.325" x2="-0.45" y2="0.975" layer="51"/>
-<rectangle x1="0.45" y1="0.325" x2="1.25" y2="0.975" layer="51"/>
-<rectangle x1="-1.2" y1="-1" x2="-0.8" y2="-0.4" layer="51"/>
-<rectangle x1="-0.8" y1="-1" x2="-0.6" y2="-0.5" layer="51"/>
-</package>
 <package name="C0402">
 <description>&lt;b&gt;C0402&lt;/b&gt;
 &lt;p&gt;
@@ -11351,15 +11320,15 @@ design rules under a new name.</description>
 <attribute name="MF" value="Molex" x="45" y="7" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="71741-0002" x="45" y="7" size="1.778" layer="27" display="off"/>
 </element>
-<element name="J3" library="MainBoard" package="FTSH-105-01-L-DV-K" value="CON-FTSH-105-01-L-DV-K" x="6.44" y="31.62">
-<attribute name="DIGI-KEY#" value="FTSH-105-01-L-DV-K-ND" x="6.44" y="31.62" size="1.778" layer="27" display="off"/>
-<attribute name="MF" value="Samtec" x="6.44" y="31.62" size="1.778" layer="27" display="off"/>
-<attribute name="MPN" value="FTSH-105-01-L-DV-K" x="6.44" y="31.62" size="1.778" layer="27" display="off"/>
+<element name="J3" library="MainBoard" package="FTSH-105-01-L-DV-K" value="CON-FTSH-105-01-L-DV-K" x="6" y="30" locked="yes" rot="R180">
+<attribute name="DIGI-KEY#" value="FTSH-105-01-L-DV-K-ND" x="6" y="30" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MF" value="Samtec" x="6" y="30" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MPN" value="FTSH-105-01-L-DV-K" x="6" y="30" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="U5" library="MainBoard" package="LQFP-48" value="FT232HL" x="24" y="38" rot="R180">
-<attribute name="DIGI-KEY#" value="768-1101-1-ND" x="24" y="38" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MPN" value="768-1101-1-ND" x="24" y="38" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MF" value="FTDI" x="24" y="38" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="U5" library="MainBoard" package="LQFP-48" value="FT232HL" x="20" y="38">
+<attribute name="DIGI-KEY#" value="768-1101-1-ND" x="20" y="38" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="768-1101-1-ND" x="20" y="38" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value="FTDI" x="20" y="38" size="1.778" layer="27" display="off"/>
 </element>
 <element name="U2" library="MainBoard" package="TQFN-48" value="MAX19706-T4877-4" x="40" y="21" rot="R180">
 <attribute name="DIGI-KEY#" value="MAX19706ETM+-ND" x="40" y="21" size="1.778" layer="27" rot="R180" display="off"/>
@@ -11371,94 +11340,83 @@ design rules under a new name.</description>
 <attribute name="MPN" value="MAX19706ETM+" x="57" y="21" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MF" value="Maxim" x="57" y="21" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="J5" library="MainBoard" package="CON-SMA-SIDE" value="CON-SMA" x="37" y="56" rot="R270">
-<attribute name="DIGI-KEY#" value="CONREVSMA003.062-ND" x="37" y="56" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MPN" value="CONREVSMA003.062" x="37" y="56" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MF" value="Linx Technologies" x="37" y="56" size="1.778" layer="27" rot="R270" display="off"/>
-</element>
-<element name="J6" library="MainBoard" package="CON-SMA-SIDE" value="CON-SMA" x="49" y="56" rot="R270">
+<element name="J5" library="MainBoard" package="CON-SMA-SIDE" value="CON-SMA" x="49" y="56" rot="R270">
 <attribute name="DIGI-KEY#" value="CONREVSMA003.062-ND" x="49" y="56" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="CONREVSMA003.062" x="49" y="56" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MF" value="Linx Technologies" x="49" y="56" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="J4" library="MainBoard" package="ZX62R-B-5P" value="CON-ZX62R-B-5P" x="22" y="54" rot="R180">
-<attribute name="DIGI-KEY#" value="H11574CT-ND" x="22" y="54" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MPN" value="ZX62R-B-5P" x="22" y="54" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MF" value="Hirose" x="22" y="54" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="TEMINATION-TYPE" value="Right-angle SMT, Horizontal" x="22" y="54" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="J6" library="MainBoard" package="CON-SMA-SIDE" value="CON-SMA" x="37" y="56" rot="R270">
+<attribute name="DIGI-KEY#" value="CONREVSMA003.062-ND" x="37" y="56" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value="CONREVSMA003.062" x="37" y="56" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value="Linx Technologies" x="37" y="56" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="U4" library="MainBoard" package="SOT23-6L" value="USBLC6-2SC6" x="17" y="46" rot="R180">
-<attribute name="DIGI-KEY#" value="497-5235-1-ND" x="17" y="46" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MPN" value="USBLC6-2SC6" x="17" y="46" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MF" value="STMicroelectronics" x="17" y="46" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="J4" library="MainBoard" package="ZX62R-B-5P" value="CON-ZX62R-B-5P" x="19" y="54" locked="yes" rot="R180">
+<attribute name="DIGI-KEY#" value="H11574CT-ND" x="19" y="54" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MPN" value="ZX62R-B-5P" x="19" y="54" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MF" value="Hirose" x="19" y="54" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TEMINATION-TYPE" value="Right-angle SMT, Horizontal" x="19" y="54" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="U6" library="MainBoard" package="LQFP-48" value="DP83848C-VBH48A" x="74" y="32" rot="R180">
-<attribute name="DIGI-KEY#" value="DP83848CVV-ND" x="74" y="32" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MPN" value="DP83848C" x="74" y="32" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MF" value="National Semiconductor" x="74" y="32" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="U4" library="MainBoard" package="SOT23-6L" value="USBLC6-2SC6" x="16" y="47.5">
+<attribute name="DIGI-KEY#" value="497-5235-1-ND" x="16" y="47.5" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="USBLC6-2SC6" x="16" y="47.5" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value="STMicroelectronics" x="16" y="47.5" size="1.778" layer="27" display="off"/>
 </element>
-<element name="X4" library="MainBoard" package="ASEM1" value="ASEM1-C" x="58" y="44" rot="R90">
-<attribute name="DIGI-KEY#" value="535-9774-1-ND" x="58" y="44" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="FREQ" value="50 MHz" x="58" y="44" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MPN" value="ASEM1-50.000MHZ-LC-T" x="58" y="44" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MF" value="Abracon" x="58" y="44" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="FREQ-STABILITY" value="50 ppm" x="58" y="44" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="U6" library="MainBoard" package="LQFP-48" value="DP83848C-VBH48A" x="74" y="26" rot="R180">
+<attribute name="DIGI-KEY#" value="DP83848CVV-ND" x="74" y="26" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MPN" value="DP83848C" x="74" y="26" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MF" value="National Semiconductor" x="74" y="26" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="X1" library="MainBoard" package="FOX924" value="FOX924B" x="34" y="37" rot="R270">
-<attribute name="DIGI-KEY#" value="631-1073-1-ND" x="34" y="37" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="FREQ" value="20 MHz" x="34" y="37" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MPN" value="FOX924B-20.000" x="34" y="37" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MF" value="Fox Electronics" x="34" y="37" size="1.778" layer="27" rot="R270" display="off"/>
+<element name="X4" library="MainBoard" package="ASEM1" value="ASEM1-C" x="57" y="45">
+<attribute name="DIGI-KEY#" value="535-9774-1-ND" x="57" y="45" size="1.778" layer="27" display="off"/>
+<attribute name="FREQ" value="50 MHz" x="57" y="45" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="ASEM1-50.000MHZ-LC-T" x="57" y="45" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value="Abracon" x="57" y="45" size="1.778" layer="27" display="off"/>
+<attribute name="FREQ-STABILITY" value="50 ppm" x="57" y="45" size="1.778" layer="27" display="off"/>
 </element>
-<element name="X3" library="MainBoard" package="ECX-31B" value="ECX-31B" x="30" y="47">
-<attribute name="CLOAD" value="7pF" x="30" y="47" size="1.778" layer="27" display="off"/>
-<attribute name="DIGI-KEY#" value="XC1656CT-ND" x="30" y="47" size="1.778" layer="27" display="off"/>
-<attribute name="FREQ" value="32.7kHz" x="30" y="47" size="1.778" layer="27" display="off"/>
-<attribute name="FREQ-TOLERANCE" value="20 ppm" x="30" y="47" size="1.778" layer="27" display="off"/>
-<attribute name="MPN" value="ECS-.327-7-34B-TR" x="30" y="47" size="1.778" layer="27" display="off"/>
-<attribute name="MF" value="ECS" x="30" y="47" size="1.778" layer="27" display="off"/>
+<element name="X1" library="MainBoard" package="FOX924" value="FOX924B" x="34" y="39" rot="R90">
+<attribute name="DIGI-KEY#" value="631-1073-1-ND" x="34" y="39" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="FREQ" value="20 MHz" x="34" y="39" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MPN" value="FOX924B-20.000" x="34" y="39" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MF" value="Fox Electronics" x="34" y="39" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="X2" library="MainBoard" package="ECX-2236" value="ECX-2236-200" x="36" y="52">
-<attribute name="CLOAD" value="8pF" x="36" y="52" size="1.778" layer="27" display="off"/>
-<attribute name="DIGI-KEY#" value="XC1552CT-ND" x="36" y="52" size="1.778" layer="27" display="off"/>
-<attribute name="FREQ" value="20 MHz" x="36" y="52" size="1.778" layer="27" display="off"/>
-<attribute name="FREQ-TOLERANCE" value="10 ppm" x="36" y="52" size="1.778" layer="27" display="off"/>
-<attribute name="MPN" value="ECS-200-8-36CKM " x="36" y="52" size="1.778" layer="27" display="off"/>
-<attribute name="MF" value="ECS" x="36" y="52" size="1.778" layer="27" display="off"/>
-<attribute name="FREQ-STAB" value="10 ppm" x="36" y="52" size="1.778" layer="27" display="off"/>
+<element name="X3" library="MainBoard" package="ECX-31B" value="ECX-31B" x="33" y="47" rot="R90">
+<attribute name="CLOAD" value="7pF" x="33" y="47" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DIGI-KEY#" value="XC1656CT-ND" x="33" y="47" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="FREQ" value="32.7kHz" x="33" y="47" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="FREQ-TOLERANCE" value="20 ppm" x="33" y="47" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MPN" value="ECS-.327-7-34B-TR" x="33" y="47" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MF" value="ECS" x="33" y="47" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="C1" library="MainBoard" package="C0603" value="10pF" x="39" y="52.5"/>
-<element name="C2" library="MainBoard" package="C0603" value="10pF" x="33" y="51.5" rot="R180"/>
-<element name="C3" library="MainBoard" package="C0603" value="4pF" x="33.5" y="47">
-<attribute name="PAGE3" value="Clocks" x="33.5" y="47" size="1.778" layer="27" display="off"/>
-<attribute name="PAGE4" value="Ethernet" x="33.5" y="47" size="1.778" layer="27" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="33.5" y="47" size="1.778" layer="27" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="33.5" y="47" size="1.778" layer="27" display="off"/>
-<attribute name="PAGE6" value="Analog Signal" x="33.5" y="47" size="1.778" layer="27" display="off"/>
-<attribute name="TITLE" value="Main Board" x="33.5" y="47" size="1.778" layer="27" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="33.5" y="47" size="1.778" layer="27" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="33.5" y="47" size="1.778" layer="27" display="off"/>
-<attribute name="REVISION" value="A" x="33.5" y="47" size="1.778" layer="27" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="33.5" y="47" size="1.778" layer="27" display="off"/>
-<attribute name="PAGE2" value="Power Supply" x="33.5" y="47" size="1.778" layer="27" display="off"/>
+<element name="C3" library="MainBoard" package="C0402" value="4pF" x="30.25" y="48.25" rot="R180">
+<attribute name="PAGE3" value="Clocks" x="30.25" y="48.25" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE4" value="Ethernet" x="30.25" y="48.25" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="30.25" y="48.25" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="30.25" y="48.25" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE6" value="Analog Signal" x="30.25" y="48.25" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TITLE" value="Main Board" x="30.25" y="48.25" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="30.25" y="48.25" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="30.25" y="48.25" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="REVISION" value="A" x="30.25" y="48.25" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="30.25" y="48.25" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE2" value="Power Supply" x="30.25" y="48.25" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="C4" library="MainBoard" package="C0603" value="4pF" x="26.5" y="47" rot="R180">
-<attribute name="PAGE3" value="Clocks" x="26.5" y="47" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE4" value="Ethernet" x="26.5" y="47" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="26.5" y="47" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="26.5" y="47" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE6" value="Analog Signal" x="26.5" y="47" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="TITLE" value="Main Board" x="26.5" y="47" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="26.5" y="47" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="26.5" y="47" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="REVISION" value="A" x="26.5" y="47" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="26.5" y="47" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE2" value="Power Supply" x="26.5" y="47" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="C4" library="MainBoard" package="C0402" value="4pF" x="30.25" y="45.75" rot="R180">
+<attribute name="PAGE3" value="Clocks" x="30.25" y="45.75" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE4" value="Ethernet" x="30.25" y="45.75" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="30.25" y="45.75" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="30.25" y="45.75" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE6" value="Analog Signal" x="30.25" y="45.75" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TITLE" value="Main Board" x="30.25" y="45.75" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="30.25" y="45.75" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="30.25" y="45.75" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="REVISION" value="A" x="30.25" y="45.75" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="30.25" y="45.75" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE2" value="Power Supply" x="30.25" y="45.75" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="R1" library="MainBoard" package="R0603" value="39" x="62" y="45">
+<element name="R1" library="MainBoard" package="R0402" value="39" x="62" y="45">
 <attribute name="TOLERANCE" value="" x="62" y="45" size="1.778" layer="27" display="off"/>
 </element>
-<element name="R2" library="MainBoard" package="R0603" value="39" x="62" y="43">
+<element name="R2" library="MainBoard" package="R0402" value="39" x="62" y="43">
 <attribute name="TOLERANCE" value="" x="62" y="43" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C5" library="MainBoard" package="C0402" value="" x="37.25" y="15" rot="R180"/>
@@ -11601,11 +11559,11 @@ design rules under a new name.</description>
 <element name="R25" library="MainBoard" package="R0402" value="100k" x="56" y="28" rot="MR0">
 <attribute name="TOLERANCE" value="" x="56" y="28" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="C65" library="MainBoard" package="C0603" value="" x="28" y="21" rot="R180">
-<attribute name="DNP" value="ON" x="28" y="21" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="C65" library="MainBoard" package="C0603" value="" x="30" y="14" rot="R180">
+<attribute name="DNP" value="ON" x="30" y="14" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="C66" library="MainBoard" package="C0603" value="" x="28" y="23" rot="R180">
-<attribute name="DNP" value="ON" x="28" y="23" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="C66" library="MainBoard" package="C0603" value="" x="30" y="16" rot="R180">
+<attribute name="DNP" value="ON" x="30" y="16" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="Q1" library="MainBoard" package="SOT23-3L" value="MMBT3904" x="57" y="40"/>
 <element name="R49" library="MainBoard" package="R0603" value="0" x="46" y="51">
@@ -11615,41 +11573,41 @@ design rules under a new name.</description>
 <attribute name="TOLERANCE" value="" x="49" y="51" size="1.778" layer="27" display="off"/>
 <attribute name="DNP" value="ON" x="49" y="51" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C67" library="MainBoard" package="C0603" value="" x="28" y="25" rot="R180">
-<attribute name="PAGE3" value="Clock and Reset" x="28" y="25" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE4" value="Ethernet" x="28" y="25" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="28" y="25" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="28" y="25" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="28" y="25" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="TITLE" value="Main Board" x="28" y="25" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="28" y="25" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="28" y="25" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="28" y="25" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="REVISION" value="A" x="28" y="25" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="28" y="25" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="28" y="25" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DNP" value="ON" x="28" y="25" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="C67" library="MainBoard" package="C0603" value="" x="30" y="18" rot="R180">
+<attribute name="PAGE3" value="Clock and Reset" x="30" y="18" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE4" value="Ethernet" x="30" y="18" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="30" y="18" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="30" y="18" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="30" y="18" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TITLE" value="Main Board" x="30" y="18" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="30" y="18" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="30" y="18" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="30" y="18" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="REVISION" value="A" x="30" y="18" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="30" y="18" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="30" y="18" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DNP" value="ON" x="30" y="18" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="C68" library="MainBoard" package="C0603" value="" x="28" y="27" rot="R180">
-<attribute name="PAGE3" value="Clock and Reset" x="28" y="27" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE4" value="Ethernet" x="28" y="27" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="28" y="27" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="28" y="27" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="28" y="27" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="TITLE" value="Main Board" x="28" y="27" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="28" y="27" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="28" y="27" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="28" y="27" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="REVISION" value="A" x="28" y="27" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="28" y="27" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="28" y="27" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DNP" value="ON" x="28" y="27" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="C68" library="MainBoard" package="C0603" value="" x="30" y="20" rot="R180">
+<attribute name="PAGE3" value="Clock and Reset" x="30" y="20" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE4" value="Ethernet" x="30" y="20" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="30" y="20" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="30" y="20" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="30" y="20" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TITLE" value="Main Board" x="30" y="20" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="30" y="20" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="30" y="20" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="30" y="20" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="REVISION" value="A" x="30" y="20" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="30" y="20" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="30" y="20" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DNP" value="ON" x="30" y="20" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="C69" library="MainBoard" package="C0603" value="" x="28" y="29" rot="R180">
-<attribute name="DNP" value="ON" x="28" y="29" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="C69" library="MainBoard" package="C0603" value="" x="30" y="22" rot="R180">
+<attribute name="DNP" value="ON" x="30" y="22" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="C70" library="MainBoard" package="C0603" value="" x="28" y="31" rot="R180">
-<attribute name="DNP" value="ON" x="28" y="31" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="C70" library="MainBoard" package="C0603" value="" x="30" y="24" rot="R180">
+<attribute name="DNP" value="ON" x="30" y="24" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="R51" library="MainBoard" package="R0603" value="0" x="32" y="25" rot="R180">
 <attribute name="TOLERANCE" value="" x="32" y="25" size="1.778" layer="27" rot="R180" display="off"/>
@@ -11708,102 +11666,102 @@ design rules under a new name.</description>
 <attribute name="MPN" value="71742-3003" x="45" y="7" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="MF" value="Molex" x="45" y="7" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
-<element name="R55" library="MainBoard" package="R0603" value="0" x="22" y="45">
-<attribute name="TOLERANCE" value="" x="22" y="45" size="1.778" layer="27" display="off"/>
+<element name="R55" library="MainBoard" package="R0402" value="0" x="12" y="46.75" rot="R270">
+<attribute name="TOLERANCE" value="" x="12" y="46.75" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="R56" library="MainBoard" package="R0603" value="0" x="22" y="47" rot="R180">
-<attribute name="TOLERANCE" value="" x="22" y="47" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="R56" library="MainBoard" package="R0402" value="0" x="13.25" y="44.75" rot="R270">
+<attribute name="TOLERANCE" value="" x="13.25" y="44.75" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="R57" library="MainBoard" package="R0603" value="1.5k" x="16" y="43">
-<attribute name="TOLERANCE" value="" x="16" y="43" size="1.778" layer="27" display="off"/>
+<element name="R57" library="MainBoard" package="R0603" value="1.5k" x="24.5" y="46.25" rot="R180">
+<attribute name="TOLERANCE" value="" x="24.5" y="46.25" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="R58" library="MainBoard" package="R0603" value="39k" x="17" y="37.5" rot="R180">
-<attribute name="TOLERANCE" value="" x="17" y="37.5" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="R58" library="MainBoard" package="R0402" value="39k" x="27" y="48.5" rot="R180">
+<attribute name="TOLERANCE" value="" x="27" y="48.5" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="R59" library="MainBoard" package="R0603" value="12k" x="31" y="37" rot="R180">
-<attribute name="TOLERANCE" value="1%" x="31" y="37" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="R59" library="MainBoard" package="R0402" value="12k" x="18.5" y="37.75" rot="MR0">
+<attribute name="TOLERANCE" value="1%" x="18.5" y="37.75" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="X5" library="MainBoard" package="ECX-42" value="ECX-42-120" x="31" y="33">
-<attribute name="CLOAD" value="20 pF" x="31" y="33" size="1.778" layer="27" display="off"/>
-<attribute name="DIGI-KEY#" value="XC1608CT-ND" x="31" y="33" size="1.778" layer="27" display="off"/>
-<attribute name="FREQ-TOLERANCE" value="10 ppm" x="31" y="33" size="1.778" layer="27" display="off"/>
-<attribute name="MPN" value="ECS-120-9-42-CKM-TR" x="31" y="33" size="1.778" layer="27" display="off"/>
-<attribute name="FREQ-STABILITY" value="10 ppm" x="31" y="33" size="1.778" layer="27" display="off"/>
-<attribute name="MF" value="ECS" x="31" y="33" size="1.778" layer="27" display="off"/>
+<element name="X5" library="MainBoard" package="ECX-42" value="ECX-42-120" x="12.75" y="40.5" rot="R270">
+<attribute name="CLOAD" value="20 pF" x="12.75" y="40.5" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DIGI-KEY#" value="XC1608CT-ND" x="12.75" y="40.5" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="FREQ-TOLERANCE" value="10 ppm" x="12.75" y="40.5" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value="ECS-120-9-42-CKM-TR" x="12.75" y="40.5" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="FREQ-STABILITY" value="10 ppm" x="12.75" y="40.5" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value="ECS" x="12.75" y="40.5" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="C71" library="MainBoard" package="C0603" value="10pF" x="33" y="35" rot="R180"/>
-<element name="C72" library="MainBoard" package="C0603" value="10pF" x="25" y="31" rot="R180"/>
-<element name="U7" library="MainBoard" package="SOT23-6L" value="93LC56BT-OT" x="22" y="31" rot="R270"/>
-<element name="R60" library="MainBoard" package="R0603" value="2k" x="25" y="30" rot="MR0">
-<attribute name="TOLERANCE" value="" x="25" y="30" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="C71" library="MainBoard" package="C0402" value="10pF" x="8" y="39" rot="R180"/>
+<element name="C72" library="MainBoard" package="C0402" value="10pF" x="27" y="24" rot="R180"/>
+<element name="U7" library="MainBoard" package="SOT23-6L" value="93LC56BT-OT" x="24.5" y="47.5"/>
+<element name="R60" library="MainBoard" package="R0402" value="2k" x="27" y="23" rot="MR0">
+<attribute name="TOLERANCE" value="" x="27" y="23" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="R61" library="MainBoard" package="R0603" value="10k" x="25" y="28" rot="MR0">
-<attribute name="TOLERANCE" value="" x="25" y="28" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE3" value="Clock and Reset" x="25" y="28" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE4" value="Ethernet" x="25" y="28" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="25" y="28" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="25" y="28" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="25" y="28" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="TITLE" value="Main Board" x="25" y="28" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="25" y="28" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="25" y="28" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="25" y="28" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="REVISION" value="A" x="25" y="28" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="25" y="28" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="25" y="28" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="R61" library="MainBoard" package="R0402" value="10k" x="27" y="21" rot="MR0">
+<attribute name="TOLERANCE" value="" x="27" y="21" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE3" value="Clock and Reset" x="27" y="21" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE4" value="Ethernet" x="27" y="21" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="27" y="21" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="27" y="21" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="27" y="21" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="TITLE" value="Main Board" x="27" y="21" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="27" y="21" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="27" y="21" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="27" y="21" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="REVISION" value="A" x="27" y="21" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="27" y="21" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="27" y="21" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="R62" library="MainBoard" package="R0603" value="10k" x="25" y="26" rot="MR0">
-<attribute name="TOLERANCE" value="" x="25" y="26" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE3" value="Clock and Reset" x="25" y="26" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE4" value="Ethernet" x="25" y="26" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="25" y="26" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="25" y="26" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="25" y="26" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="TITLE" value="Main Board" x="25" y="26" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="25" y="26" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="25" y="26" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="25" y="26" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="REVISION" value="A" x="25" y="26" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="25" y="26" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="25" y="26" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="DNP" value="ON" x="25" y="26" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="R62" library="MainBoard" package="R0402" value="10k" x="27" y="19" rot="MR0">
+<attribute name="TOLERANCE" value="" x="27" y="19" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE3" value="Clock and Reset" x="27" y="19" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE4" value="Ethernet" x="27" y="19" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="27" y="19" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="27" y="19" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="27" y="19" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="TITLE" value="Main Board" x="27" y="19" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="27" y="19" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="27" y="19" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="27" y="19" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="REVISION" value="A" x="27" y="19" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="27" y="19" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="27" y="19" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="DNP" value="ON" x="27" y="19" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="C73" library="MainBoard" package="C0603" value="0.1uF" x="16" y="28" rot="R180"/>
-<element name="R64" library="MainBoard" package="R0603" value="1k" x="19" y="28" rot="R180">
-<attribute name="TOLERANCE" value="" x="19" y="28" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="C73" library="MainBoard" package="C0402" value="0.1uF" x="18" y="21" rot="R180"/>
+<element name="R64" library="MainBoard" package="R0402" value="1k" x="21" y="21" rot="R180">
+<attribute name="TOLERANCE" value="" x="21" y="21" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="R65" library="MainBoard" package="R0603" value="1k" x="19" y="30" rot="R180">
-<attribute name="TOLERANCE" value="" x="19" y="30" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="R65" library="MainBoard" package="R0402" value="1k" x="21" y="23" rot="R180">
+<attribute name="TOLERANCE" value="" x="21" y="23" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="C74" library="MainBoard" package="C0603" value="0.1uF" x="16" y="30"/>
-<element name="C75" library="MainBoard" package="C0603" value="0.33uF" x="68" y="29">
+<element name="C74" library="MainBoard" package="C0603" value="0.1uF" x="18" y="23"/>
+<element name="C75" library="MainBoard" package="C0402" value="0.33uF" x="68" y="29">
 <attribute name="VOTLAGE-RATING" value="16V" x="68" y="29" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C76" library="MainBoard" package="C0603" value="0.01uF" x="16" y="34">
+<element name="C76" library="MainBoard" package="C0402" value="0.01uF" x="16" y="34">
 <attribute name="VOLTAGE-RATING" value="16V" x="16" y="34" size="1.778" layer="27" display="off"/>
 </element>
-<element name="R66" library="MainBoard" package="R0603" value="1k" x="22" y="18" rot="R90">
-<attribute name="TOLERANCE" value="" x="22" y="18" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="R66" library="MainBoard" package="R0402" value="1k" x="29" y="27" rot="R180">
+<attribute name="TOLERANCE" value="" x="29" y="27" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="R67" library="MainBoard" package="R0603" value="1k" x="16" y="32" rot="R180">
-<attribute name="TOLERANCE" value="" x="16" y="32" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE3" value="Clock and Reset" x="16" y="32" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE4" value="Ethernet" x="16" y="32" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="16" y="32" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="16" y="32" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="16" y="32" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="TITLE" value="Main Board" x="16" y="32" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="16" y="32" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="16" y="32" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="16" y="32" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="REVISION" value="A" x="16" y="32" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="16" y="32" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="16" y="32" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="R67" library="MainBoard" package="R0402" value="1k" x="19" y="27" rot="R180">
+<attribute name="TOLERANCE" value="" x="19" y="27" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE3" value="Clock and Reset" x="19" y="27" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE4" value="Ethernet" x="19" y="27" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="19" y="27" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="19" y="27" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="19" y="27" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TITLE" value="Main Board" x="19" y="27" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="19" y="27" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="19" y="27" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="19" y="27" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="REVISION" value="A" x="19" y="27" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="19" y="27" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="19" y="27" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="R68" library="MainBoard" package="R0603" value="4.87k" x="77" y="24" rot="R90">
 <attribute name="TOLERANCE" value="1%" x="77" y="24" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="J7" library="MainBoard" package="J0G-0007NL" value="CON-RJ45-J0G-0007NL" x="70" y="46"/>
+<element name="J7" library="MainBoard" package="J0G-0007NL" value="CON-RJ45-J0G-0007NL" x="69" y="45.75" locked="yes"/>
 <element name="R69" library="MainBoard" package="R0603" value="110" x="81" y="53" rot="R180">
 <attribute name="TOLERANCE" value="" x="81" y="53" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
@@ -12040,290 +11998,290 @@ design rules under a new name.</description>
 <element name="C87" library="MainBoard" package="C0603" value="0.1uF" x="84" y="21" rot="MR90"/>
 <element name="C88" library="MainBoard" package="C0603" value="10uF" x="80" y="21" rot="MR90"/>
 <element name="C89" library="MainBoard" package="C0603" value="0.1uF" x="82" y="21" rot="MR90"/>
-<element name="C90" library="MainBoard" package="C0603" value="" x="13" y="20">
-<attribute name="DNP" value="ON" x="13" y="20" size="1.778" layer="27" display="off"/>
+<element name="C90" library="MainBoard" package="C0402" value="" x="14" y="17">
+<attribute name="DNP" value="ON" x="14" y="17" size="1.778" layer="27" display="off"/>
 </element>
-<element name="R91" library="MainBoard" package="R0603" value="10k" x="14" y="22" rot="R90">
-<attribute name="TOLERANCE" value="" x="14" y="22" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="R91" library="MainBoard" package="R0402" value="10k" x="15" y="19" rot="R90">
+<attribute name="TOLERANCE" value="" x="15" y="19" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="R92" library="MainBoard" package="R0603" value="39" x="12" y="22" rot="R90">
-<attribute name="TOLERANCE" value="" x="12" y="22" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="R92" library="MainBoard" package="R0402" value="39" x="13" y="19" rot="R90">
+<attribute name="TOLERANCE" value="" x="13" y="19" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="SW1" library="MainBoard" package="SWITCH-KSC-J-LEAD" value="SWITCH-KSC-201J" x="7" y="21" rot="R90">
-<attribute name="ACT-HEIGHT" value="3.5 mm" x="7" y="21" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="SW1" library="MainBoard" package="SWITCH-KSC-J-LEAD" value="SWITCH-KSC-201J" x="24" y="15" rot="R90">
+<attribute name="ACT-HEIGHT" value="3.5 mm" x="24" y="15" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="SW2" library="MainBoard" package="SWITCH-KSC-J-LEAD" value="SWITCH-KSC-201J" x="7" y="9" rot="R90">
-<attribute name="ACT-HEIGHT" value="3.5 mm" x="7" y="9" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE3" value="Clock and Reset" x="7" y="9" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE4" value="Ethernet (RMII)" x="7" y="9" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="7" y="9" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="7" y="9" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="7" y="9" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="TITLE" value="Main Board" x="7" y="9" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="7" y="9" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="7" y="9" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="7" y="9" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="REVISION" value="A" x="7" y="9" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="7" y="9" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="7" y="9" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="SW2" library="MainBoard" package="SWITCH-KSC-J-LEAD" value="SWITCH-KSC-201J" x="6.5" y="18" rot="R90">
+<attribute name="ACT-HEIGHT" value="3.5 mm" x="6.5" y="18" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PAGE3" value="Clock and Reset" x="6.5" y="18" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PAGE4" value="Ethernet (RMII)" x="6.5" y="18" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="6.5" y="18" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="6.5" y="18" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="6.5" y="18" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="TITLE" value="Main Board" x="6.5" y="18" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="6.5" y="18" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="6.5" y="18" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="6.5" y="18" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="REVISION" value="A" x="6.5" y="18" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="6.5" y="18" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="6.5" y="18" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="R93" library="MainBoard" package="R0603" value="0" x="13" y="18">
-<attribute name="TOLERANCE" value="" x="13" y="18" size="1.778" layer="27" display="off"/>
-<attribute name="PAGE3" value="Clock and Reset" x="13" y="18" size="1.778" layer="27" display="off"/>
-<attribute name="PAGE4" value="Ethernet (RMII)" x="13" y="18" size="1.778" layer="27" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="13" y="18" size="1.778" layer="27" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="13" y="18" size="1.778" layer="27" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="13" y="18" size="1.778" layer="27" display="off"/>
-<attribute name="TITLE" value="Main Board" x="13" y="18" size="1.778" layer="27" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="13" y="18" size="1.778" layer="27" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="13" y="18" size="1.778" layer="27" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="13" y="18" size="1.778" layer="27" display="off"/>
-<attribute name="REVISION" value="A" x="13" y="18" size="1.778" layer="27" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="13" y="18" size="1.778" layer="27" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="13" y="18" size="1.778" layer="27" display="off"/>
+<element name="R93" library="MainBoard" package="R0402" value="0" x="14" y="15">
+<attribute name="TOLERANCE" value="" x="14" y="15" size="1.778" layer="27" display="off"/>
+<attribute name="PAGE3" value="Clock and Reset" x="14" y="15" size="1.778" layer="27" display="off"/>
+<attribute name="PAGE4" value="Ethernet (RMII)" x="14" y="15" size="1.778" layer="27" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="14" y="15" size="1.778" layer="27" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="14" y="15" size="1.778" layer="27" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="14" y="15" size="1.778" layer="27" display="off"/>
+<attribute name="TITLE" value="Main Board" x="14" y="15" size="1.778" layer="27" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="14" y="15" size="1.778" layer="27" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="14" y="15" size="1.778" layer="27" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="14" y="15" size="1.778" layer="27" display="off"/>
+<attribute name="REVISION" value="A" x="14" y="15" size="1.778" layer="27" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="14" y="15" size="1.778" layer="27" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="14" y="15" size="1.778" layer="27" display="off"/>
 </element>
-<element name="R94" library="MainBoard" package="R0603" value="10k" x="14" y="14" rot="R180">
-<attribute name="TOLERANCE" value="" x="14" y="14" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE3" value="Clock and Reset" x="14" y="14" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE4" value="Ethernet (RMII)" x="14" y="14" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="14" y="14" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="14" y="14" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="14" y="14" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="TITLE" value="Main Board" x="14" y="14" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="14" y="14" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="14" y="14" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="14" y="14" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="REVISION" value="A" x="14" y="14" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="14" y="14" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="14" y="14" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="R94" library="MainBoard" package="R0402" value="10k" x="15" y="11" rot="R180">
+<attribute name="TOLERANCE" value="" x="15" y="11" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE3" value="Clock and Reset" x="15" y="11" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE4" value="Ethernet (RMII)" x="15" y="11" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="15" y="11" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="15" y="11" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="15" y="11" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TITLE" value="Main Board" x="15" y="11" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="15" y="11" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="15" y="11" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="15" y="11" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="REVISION" value="A" x="15" y="11" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="15" y="11" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="15" y="11" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="C91" library="MainBoard" package="C0603" value="2.2u" x="53" y="30" rot="MR0">
-<attribute name="DIGI-KEY#" value="587-1263-1-ND " x="53" y="30" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="MPN" value="EMK107F225ZA-T" x="53" y="30" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="C91" library="MainBoard" package="C0402" value="2.2u" x="55" y="45" rot="MR90">
+<attribute name="DIGI-KEY#" value="587-1263-1-ND " x="55" y="45" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="MPN" value="EMK107F225ZA-T" x="55" y="45" size="1.778" layer="28" rot="MR90" display="off"/>
 </element>
-<element name="U8" library="MainBoard" package="SOT23-3L" value="DS1818-10-SOT-23" x="17" y="19">
-<attribute name="TRIP-POINT" value="2.88 V" x="17" y="19" size="1.778" layer="27" display="off"/>
-<attribute name="DIGI-KEY#" value="DS1818R-10+CT-ND" x="17" y="19" size="1.778" layer="27" display="off"/>
-<attribute name="MPN" value="DS1818R-10+T&amp;R" x="17" y="19" size="1.778" layer="27" display="off"/>
-<attribute name="MF" value="Maxim" x="17" y="19" size="1.778" layer="27" display="off"/>
+<element name="U8" library="MainBoard" package="SOT23-3L" value="DS1818-10-SOT-23" x="18" y="16">
+<attribute name="TRIP-POINT" value="2.88 V" x="18" y="16" size="1.778" layer="27" display="off"/>
+<attribute name="DIGI-KEY#" value="DS1818R-10+CT-ND" x="18" y="16" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="DS1818R-10+T&amp;R" x="18" y="16" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value="Maxim" x="18" y="16" size="1.778" layer="27" display="off"/>
 </element>
-<element name="R95" library="MainBoard" package="R0603" value="10k" x="17" y="36">
-<attribute name="TOLERANCE" value="" x="17" y="36" size="1.778" layer="27" display="off"/>
+<element name="R95" library="MainBoard" package="R0402" value="10k" x="10" y="41" rot="MR0">
+<attribute name="TOLERANCE" value="" x="10" y="41" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="R96" library="MainBoard" package="R0603" value="27" x="17" y="39" rot="R180">
-<attribute name="TOLERANCE" value="" x="17" y="39" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE3" value="Clock and Reset" x="17" y="39" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE4" value="Ethernet (RMII)" x="17" y="39" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="17" y="39" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="17" y="39" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="17" y="39" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="TITLE" value="Main Board" x="17" y="39" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="17" y="39" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="17" y="39" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="17" y="39" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="REVISION" value="A" x="17" y="39" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="17" y="39" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="17" y="39" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="R96" library="MainBoard" package="R0402" value="27" x="27.25" y="37.25">
+<attribute name="TOLERANCE" value="" x="27.25" y="37.25" size="1.778" layer="27" display="off"/>
+<attribute name="PAGE3" value="Clock and Reset" x="27.25" y="37.25" size="1.778" layer="27" display="off"/>
+<attribute name="PAGE4" value="Ethernet (RMII)" x="27.25" y="37.25" size="1.778" layer="27" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="27.25" y="37.25" size="1.778" layer="27" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="27.25" y="37.25" size="1.778" layer="27" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="27.25" y="37.25" size="1.778" layer="27" display="off"/>
+<attribute name="TITLE" value="Main Board" x="27.25" y="37.25" size="1.778" layer="27" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="27.25" y="37.25" size="1.778" layer="27" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="27.25" y="37.25" size="1.778" layer="27" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="27.25" y="37.25" size="1.778" layer="27" display="off"/>
+<attribute name="REVISION" value="A" x="27.25" y="37.25" size="1.778" layer="27" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="27.25" y="37.25" size="1.778" layer="27" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="27.25" y="37.25" size="1.778" layer="27" display="off"/>
 </element>
-<element name="B2" library="MainBoard" package="L0603" value="600R/0.5A" x="16" y="28" rot="MR0">
-<attribute name="DIGI-KEY#" value="490-3994-2-ND" x="16" y="28" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="MPN" value="BLM18EG601SN1D" x="16" y="28" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="MF" value="Murata" x="16" y="28" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="IMPEDANCE" value="600 Ohm @ 100 MHz" x="16" y="28" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="CURRENT-RATING" value="0.5 A" x="16" y="28" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="B2" library="MainBoard" package="L0603" value="600R/0.5A" x="20" y="46" rot="MR270">
+<attribute name="DIGI-KEY#" value="490-3994-2-ND" x="20" y="46" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="MPN" value="BLM18EG601SN1D" x="20" y="46" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="MF" value="Murata" x="20" y="46" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="IMPEDANCE" value="600 Ohm @ 100 MHz" x="20" y="46" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="CURRENT-RATING" value="0.5 A" x="20" y="46" size="1.778" layer="28" rot="MR270" display="off"/>
 </element>
-<element name="C92" library="MainBoard" package="C0603" value="10nF" x="19" y="32" rot="R180"/>
-<element name="C93" library="MainBoard" package="C0603" value="4.7uF" x="16" y="31" rot="MR0">
-<attribute name="PAGE3" value="Clock and Reset" x="16" y="31" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE4" value="Ethernet (RMII)" x="16" y="31" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="16" y="31" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="16" y="31" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="16" y="31" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="TITLE" value="Main Board" x="16" y="31" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="16" y="31" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="16" y="31" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="16" y="31" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="REVISION" value="A" x="16" y="31" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="16" y="31" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="16" y="31" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="C92" library="MainBoard" package="C0402" value="10nF" x="15" y="50" rot="R180"/>
+<element name="C93" library="MainBoard" package="C0402" value="4.7uF" x="22" y="45" rot="MR0">
+<attribute name="PAGE3" value="Clock and Reset" x="22" y="45" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE4" value="Ethernet (RMII)" x="22" y="45" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="22" y="45" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="22" y="45" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="22" y="45" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="TITLE" value="Main Board" x="22" y="45" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="22" y="45" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="22" y="45" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="22" y="45" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="REVISION" value="A" x="22" y="45" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="22" y="45" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="22" y="45" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="C94" library="MainBoard" package="C0603" value="0.1uF" x="16" y="33" rot="MR0">
-<attribute name="PAGE3" value="Clock and Reset" x="16" y="33" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE4" value="Ethernet (RMII)" x="16" y="33" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="16" y="33" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="16" y="33" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="16" y="33" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="TITLE" value="Main Board" x="16" y="33" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="16" y="33" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="16" y="33" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="16" y="33" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="REVISION" value="A" x="16" y="33" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="16" y="33" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="16" y="33" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="C94" library="MainBoard" package="C0402" value="0.1uF" x="22" y="47" rot="MR180">
+<attribute name="PAGE3" value="Clock and Reset" x="22" y="47" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE4" value="Ethernet (RMII)" x="22" y="47" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="22" y="47" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="22" y="47" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="22" y="47" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="TITLE" value="Main Board" x="22" y="47" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="22" y="47" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="22" y="47" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="22" y="47" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="REVISION" value="A" x="22" y="47" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="22" y="47" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="22" y="47" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
-<element name="C95" library="MainBoard" package="C0603" value="0.1uF" x="16" y="35" rot="MR0">
-<attribute name="PAGE3" value="Clock and Reset" x="16" y="35" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE4" value="Ethernet (RMII)" x="16" y="35" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="16" y="35" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="16" y="35" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="16" y="35" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="TITLE" value="Main Board" x="16" y="35" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="16" y="35" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="16" y="35" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="16" y="35" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="REVISION" value="A" x="16" y="35" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="16" y="35" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="16" y="35" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="C95" library="MainBoard" package="C0402" value="0.1uF" x="11" y="34" rot="MR0">
+<attribute name="PAGE3" value="Clock and Reset" x="11" y="34" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE4" value="Ethernet (RMII)" x="11" y="34" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="11" y="34" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="11" y="34" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="11" y="34" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="TITLE" value="Main Board" x="11" y="34" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="11" y="34" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="11" y="34" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="11" y="34" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="REVISION" value="A" x="11" y="34" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="11" y="34" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="11" y="34" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="B3" library="MainBoard" package="L0603" value="600R/0.5A" x="16" y="37" rot="MR0">
-<attribute name="IMPEDANCE" value="600 Ohm @ 100 MHz" x="16" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="DIGI-KEY#" value="490-3994-2-ND" x="16" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="MPN" value="BLM18EG601SN1D" x="16" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="MF" value="Murata" x="16" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="CURRENT-RATING" value="0.5 A" x="16" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE3" value="Clock and Reset" x="16" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE4" value="Ethernet (RMII)" x="16" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="16" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="16" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="16" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="TITLE" value="Main Board" x="16" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="16" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="16" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="16" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="REVISION" value="A" x="16" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="16" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="16" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="B3" library="MainBoard" package="L0603" value="600R/0.5A" x="9" y="37" rot="MR0">
+<attribute name="IMPEDANCE" value="600 Ohm @ 100 MHz" x="9" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="DIGI-KEY#" value="490-3994-2-ND" x="9" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="MPN" value="BLM18EG601SN1D" x="9" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="MF" value="Murata" x="9" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="CURRENT-RATING" value="0.5 A" x="9" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE3" value="Clock and Reset" x="9" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE4" value="Ethernet (RMII)" x="9" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="9" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="9" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="9" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="TITLE" value="Main Board" x="9" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="9" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="9" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="9" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="REVISION" value="A" x="9" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="9" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="9" y="37" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="C96" library="MainBoard" package="C0603" value="4.7uF" x="16" y="39" rot="MR0">
-<attribute name="PAGE3" value="Clock and Reset" x="16" y="39" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE4" value="Ethernet (RMII)" x="16" y="39" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="16" y="39" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="16" y="39" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="16" y="39" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="TITLE" value="Main Board" x="16" y="39" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="16" y="39" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="16" y="39" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="16" y="39" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="REVISION" value="A" x="16" y="39" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="16" y="39" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="16" y="39" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="DNP" value="ON" x="16" y="39" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="C96" library="MainBoard" package="C0402" value="4.7uF" x="18.5" y="39" rot="MR180">
+<attribute name="PAGE3" value="Clock and Reset" x="18.5" y="39" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE4" value="Ethernet (RMII)" x="18.5" y="39" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="18.5" y="39" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="18.5" y="39" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="18.5" y="39" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="TITLE" value="Main Board" x="18.5" y="39" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="18.5" y="39" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="18.5" y="39" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="18.5" y="39" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="REVISION" value="A" x="18.5" y="39" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="18.5" y="39" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="18.5" y="39" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="DNP" value="ON" x="18.5" y="39" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
-<element name="C97" library="MainBoard" package="C0603" value="0.1uF" x="16" y="41" rot="MR0">
-<attribute name="PAGE3" value="Clock and Reset" x="16" y="41" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE4" value="Ethernet (RMII)" x="16" y="41" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="16" y="41" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="16" y="41" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="16" y="41" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="TITLE" value="Main Board" x="16" y="41" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="16" y="41" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="16" y="41" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="16" y="41" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="REVISION" value="A" x="16" y="41" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="16" y="41" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="16" y="41" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="C97" library="MainBoard" package="C0402" value="0.1uF" x="18.5" y="40.5" rot="MR180">
+<attribute name="PAGE3" value="Clock and Reset" x="18.5" y="40.5" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE4" value="Ethernet (RMII)" x="18.5" y="40.5" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="18.5" y="40.5" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="18.5" y="40.5" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="18.5" y="40.5" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="TITLE" value="Main Board" x="18.5" y="40.5" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="18.5" y="40.5" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="18.5" y="40.5" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="18.5" y="40.5" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="REVISION" value="A" x="18.5" y="40.5" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="18.5" y="40.5" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="18.5" y="40.5" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
-<element name="B4" library="MainBoard" package="L0603" value="600R/0.5A" x="27" y="39" rot="MR0">
-<attribute name="IMPEDANCE" value="600 Ohm @ 100 MHz" x="27" y="39" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="DIGI-KEY#" value="490-3994-2-ND" x="27" y="39" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="MPN" value="BLM18EG601SN1D" x="27" y="39" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="MF" value="Murata" x="27" y="39" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="CURRENT-RATING" value="0.5 A" x="27" y="39" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="B4" library="MainBoard" package="L0603" value="600R/0.5A" x="12.25" y="35.5" rot="R90">
+<attribute name="IMPEDANCE" value="600 Ohm @ 100 MHz" x="12.25" y="35.5" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DIGI-KEY#" value="490-3994-2-ND" x="12.25" y="35.5" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MPN" value="BLM18EG601SN1D" x="12.25" y="35.5" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MF" value="Murata" x="12.25" y="35.5" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="CURRENT-RATING" value="0.5 A" x="12.25" y="35.5" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="C99" library="MainBoard" package="C0603" value="0.1uF" x="13" y="41" rot="MR0"/>
-<element name="C100" library="MainBoard" package="C0603" value="4.7uF" x="13" y="39" rot="MR0"/>
-<element name="C101" library="MainBoard" package="C0603" value="0.1uF" x="13" y="37" rot="MR0"/>
-<element name="C98" library="MainBoard" package="C0603" value="4.7uF" x="13" y="35" rot="MR0">
-<attribute name="DNP" value="ON" x="13" y="35" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE3" value="Clock and Reset" x="13" y="35" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE4" value="Ethernet (RMII)" x="13" y="35" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="13" y="35" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="13" y="35" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="13" y="35" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="TITLE" value="Main Board" x="13" y="35" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="13" y="35" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="13" y="35" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="13" y="35" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="REVISION" value="A" x="13" y="35" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="13" y="35" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="13" y="35" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="C99" library="MainBoard" package="C0402" value="0.1uF" x="12.25" y="37.25" rot="MR0"/>
+<element name="C100" library="MainBoard" package="C0402" value="4.7uF" x="11" y="39" rot="MR0"/>
+<element name="C101" library="MainBoard" package="C0402" value="0.1uF" x="6" y="37" rot="MR0"/>
+<element name="C98" library="MainBoard" package="C0402" value="4.7uF" x="12.25" y="36" rot="MR0">
+<attribute name="DNP" value="ON" x="12.25" y="36" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE3" value="Clock and Reset" x="12.25" y="36" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE4" value="Ethernet (RMII)" x="12.25" y="36" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="12.25" y="36" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="12.25" y="36" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="12.25" y="36" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="TITLE" value="Main Board" x="12.25" y="36" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="12.25" y="36" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="12.25" y="36" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="12.25" y="36" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="REVISION" value="A" x="12.25" y="36" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="12.25" y="36" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="12.25" y="36" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="C102" library="MainBoard" package="C0603" value="0.1uF" x="13" y="33" rot="MR0">
-<attribute name="PAGE3" value="Clock and Reset" x="13" y="33" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE4" value="Ethernet (RMII)" x="13" y="33" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="13" y="33" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="13" y="33" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="13" y="33" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="TITLE" value="Main Board" x="13" y="33" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="13" y="33" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="13" y="33" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="13" y="33" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="REVISION" value="A" x="13" y="33" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="13" y="33" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="13" y="33" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="C102" library="MainBoard" package="C0402" value="0.1uF" x="15.25" y="35.25" rot="MR0">
+<attribute name="PAGE3" value="Clock and Reset" x="15.25" y="35.25" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE4" value="Ethernet (RMII)" x="15.25" y="35.25" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="15.25" y="35.25" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="15.25" y="35.25" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="15.25" y="35.25" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="TITLE" value="Main Board" x="15.25" y="35.25" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="15.25" y="35.25" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="15.25" y="35.25" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="15.25" y="35.25" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="REVISION" value="A" x="15.25" y="35.25" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="15.25" y="35.25" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="15.25" y="35.25" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="C103" library="MainBoard" package="C0603" value="0.1uF" x="13" y="31" rot="MR0">
-<attribute name="PAGE3" value="Clock and Reset" x="13" y="31" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE4" value="Ethernet (RMII)" x="13" y="31" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="13" y="31" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="13" y="31" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="13" y="31" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="TITLE" value="Main Board" x="13" y="31" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="13" y="31" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="13" y="31" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="13" y="31" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="REVISION" value="A" x="13" y="31" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="13" y="31" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="13" y="31" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="C103" library="MainBoard" package="C0402" value="0.1uF" x="15" y="24" rot="MR0">
+<attribute name="PAGE3" value="Clock and Reset" x="15" y="24" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE4" value="Ethernet (RMII)" x="15" y="24" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="15" y="24" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="15" y="24" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="15" y="24" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="TITLE" value="Main Board" x="15" y="24" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="15" y="24" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="15" y="24" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="15" y="24" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="REVISION" value="A" x="15" y="24" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="15" y="24" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="15" y="24" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="C104" library="MainBoard" package="C0603" value="0.1uF" x="13" y="29" rot="MR0">
-<attribute name="PAGE3" value="Clock and Reset" x="13" y="29" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE4" value="Ethernet (RMII)" x="13" y="29" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="13" y="29" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="13" y="29" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="13" y="29" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="TITLE" value="Main Board" x="13" y="29" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="13" y="29" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="13" y="29" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="13" y="29" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="REVISION" value="A" x="13" y="29" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="13" y="29" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="13" y="29" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="C104" library="MainBoard" package="C0402" value="0.1uF" x="15" y="22" rot="MR0">
+<attribute name="PAGE3" value="Clock and Reset" x="15" y="22" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE4" value="Ethernet (RMII)" x="15" y="22" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="15" y="22" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="15" y="22" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="15" y="22" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="TITLE" value="Main Board" x="15" y="22" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="15" y="22" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="15" y="22" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="15" y="22" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="REVISION" value="A" x="15" y="22" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="15" y="22" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="15" y="22" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="R63" library="MainBoard" package="R0603" value="10k" x="28" y="28" rot="MR180">
-<attribute name="DNP" value="ON" x="28" y="28" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="TOLERANCE" value="" x="28" y="28" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="PAGE3" value="Clock and Reset" x="28" y="28" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="PAGE4" value="Ethernet (RMII)" x="28" y="28" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="28" y="28" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="28" y="28" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="28" y="28" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="TITLE" value="Main Board" x="28" y="28" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="28" y="28" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="28" y="28" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="28" y="28" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="REVISION" value="A" x="28" y="28" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="28" y="28" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="28" y="28" size="1.778" layer="28" rot="MR180" display="off"/>
+<element name="R63" library="MainBoard" package="R0402" value="10k" x="30" y="21" rot="MR180">
+<attribute name="DNP" value="ON" x="30" y="21" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="TOLERANCE" value="" x="30" y="21" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE3" value="Clock and Reset" x="30" y="21" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE4" value="Ethernet (RMII)" x="30" y="21" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="30" y="21" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="30" y="21" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="30" y="21" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="TITLE" value="Main Board" x="30" y="21" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="30" y="21" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="30" y="21" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="30" y="21" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="REVISION" value="A" x="30" y="21" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="30" y="21" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="30" y="21" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
-<element name="C105" library="MainBoard" package="C0603" value="0.1uF" x="20" y="34" rot="MR180"/>
-<element name="C106" library="MainBoard" package="C0603" value="10nF" x="20" y="36" rot="MR180"/>
-<element name="C107" library="MainBoard" package="C0603" value="0.1uF" x="20" y="38" rot="MR180"/>
-<element name="LED2" library="MainBoard" package="LED1208-RA" value="" x="12" y="54">
-<attribute name="MPN" value="APECVA3010SECK" x="12" y="54" size="1.778" layer="27" display="off"/>
-<attribute name="MF" value="Kingbright" x="12" y="54" size="1.778" layer="27" display="off"/>
-<attribute name="COLOR" value="Orange" x="12" y="54" size="1.778" layer="27" display="off"/>
+<element name="C105" library="MainBoard" package="C0402" value="0.1uF" x="20" y="34" rot="MR180"/>
+<element name="C106" library="MainBoard" package="C0402" value="10nF" x="27" y="35" rot="MR180"/>
+<element name="C107" library="MainBoard" package="C0402" value="0.1uF" x="26" y="43" rot="MR180"/>
+<element name="LED2" library="MainBoard" package="LED1208-RA" value="" x="10.5" y="54" locked="yes">
+<attribute name="MPN" value="APECVA3010SECK" x="10.5" y="54" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value="Kingbright" x="10.5" y="54" size="1.778" layer="27" display="off"/>
+<attribute name="COLOR" value="Orange" x="10.5" y="54" size="1.778" layer="27" display="off"/>
 </element>
-<element name="LED1" library="MainBoard" package="LED1208-RA" value="" x="6" y="54">
-<attribute name="MPN" value="APECVA3010MGC" x="6" y="54" size="1.778" layer="27" display="off"/>
-<attribute name="MF" value="Kingbright" x="6" y="54" size="1.778" layer="27" display="off"/>
-<attribute name="COLOR" value="Green" x="6" y="54" size="1.778" layer="27" display="off"/>
+<element name="LED1" library="MainBoard" package="LED1208-RA" value="" x="4.5" y="54" locked="yes">
+<attribute name="MPN" value="APECVA3010MGC" x="4.5" y="54" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value="Kingbright" x="4.5" y="54" size="1.778" layer="27" display="off"/>
+<attribute name="COLOR" value="Green" x="4.5" y="54" size="1.778" layer="27" display="off"/>
 </element>
-<element name="R97" library="MainBoard" package="R0603" value="" x="12" y="49">
-<attribute name="TOLERANCE" value="" x="12" y="49" size="1.778" layer="27" display="off"/>
+<element name="R97" library="MainBoard" package="R0603" value="" x="7" y="51" rot="MR180">
+<attribute name="TOLERANCE" value="" x="7" y="51" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
-<element name="R98" library="MainBoard" package="R0603" value="" x="12" y="46">
-<attribute name="TOLERANCE" value="" x="12" y="46" size="1.778" layer="27" display="off"/>
+<element name="R98" library="MainBoard" package="R0603" value="" x="11.25" y="51" rot="MR0">
+<attribute name="TOLERANCE" value="" x="11.25" y="51" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
 <element name="R26" library="MainBoard" package="R0603" value="0" x="62" y="33">
 <attribute name="TOLERANCE" value="" x="62" y="33" size="1.778" layer="27" display="off"/>
@@ -12345,8 +12303,8 @@ design rules under a new name.</description>
 <element name="C110" library="MainBoard" package="C0603" value="10uF" x="49" y="53"/>
 <element name="C111" library="MainBoard" package="C0603" value="10uF" x="46" y="53" rot="R180"/>
 <element name="C112" library="MainBoard" package="C0603" value="10uF" x="43" y="52" rot="R90"/>
-<element name="U9" library="MainBoard" package="LLP-8" value="LMV112" x="38" y="48" rot="R180">
-<attribute name="FREQ" value="40 MHz" x="38" y="48" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="U9" library="MainBoard" package="LLP-8" value="LMV112" x="39" y="49" rot="R270">
+<attribute name="FREQ" value="40 MHz" x="39" y="49" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="M1" library="MainBoard" package="3,3" value="MOUNT-HOLE3.3" x="5" y="5"/>
 <element name="M2" library="MainBoard" package="3,3" value="MOUNT-HOLE3.3" x="5" y="45"/>
@@ -12356,13 +12314,13 @@ design rules under a new name.</description>
 <element name="M6" library="MainBoard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="2" y="48"/>
 <element name="M7" library="MainBoard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="88" y="48"/>
 <element name="M8" library="MainBoard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="88" y="2"/>
-<element name="R3" library="MainBoard" package="R0402" value="330" x="33" y="44">
+<element name="R3" library="MainBoard" package="R0402" value="330" x="33" y="42.75">
+<attribute name="TOLERANCE" value="" x="33" y="42.75" size="1.778" layer="27" display="off"/>
+</element>
+<element name="R4" library="MainBoard" package="R0402" value="330" x="33" y="44">
 <attribute name="TOLERANCE" value="" x="33" y="44" size="1.778" layer="27" display="off"/>
 </element>
-<element name="R4" library="MainBoard" package="R0402" value="330" x="33" y="42">
-<attribute name="TOLERANCE" value="" x="33" y="42" size="1.778" layer="27" display="off"/>
-</element>
-<element name="J8" library="MainBoard" package="SWITCH-DIP-CJS" value="SWITCH-CJS-1200-1200" x="13" y="32" rot="R270"/>
+<element name="J8" library="MainBoard" package="SWITCH-DIP-CJS" value="SWITCH-CJS-1200-1200" x="24" y="29"/>
 </elements>
 <signals>
 <signal name="DGND">
@@ -12411,10 +12369,6 @@ design rules under a new name.</description>
 <contactref element="U1" pad="M4"/>
 <contactref element="U1" pad="N15"/>
 <contactref element="U1" pad="G16"/>
-<contactref element="X2" pad="2"/>
-<contactref element="X2" pad="4"/>
-<contactref element="C2" pad="2"/>
-<contactref element="C1" pad="2"/>
 <contactref element="C3" pad="2"/>
 <contactref element="C4" pad="2"/>
 <contactref element="U2" pad="19"/>
@@ -12531,24 +12485,38 @@ design rules under a new name.</description>
 <via x="56.75" y="25.25" extent="1-16" drill="0.13"/>
 <wire x1="39.75" y1="24.5" x2="39.75" y2="25.25" width="0.1524" layer="1"/>
 <via x="39.75" y="25.25" extent="1-16" drill="0.13"/>
-<wire x1="73.75" y1="36.2" x2="75.75" y2="36.2" width="0" layer="19" extent="1-1"/>
-<wire x1="69.8" y1="29.75" x2="73.75" y2="36.2" width="0" layer="19" extent="1-1"/>
-<wire x1="69.8" y1="29.25" x2="69.8" y2="29.75" width="0" layer="19" extent="1-1"/>
-<wire x1="68.85" y1="29" x2="69.8" y2="29.25" width="0" layer="19" extent="1-1"/>
-<wire x1="67.15" y1="27" x2="68.85" y2="29" width="0" layer="19" extent="1-1"/>
-<wire x1="67.15" y1="25" x2="67.15" y2="27" width="0" layer="19" extent="1-1"/>
-<wire x1="67" y1="22.15" x2="67.15" y2="25" width="0" layer="19" extent="1-16"/>
-<wire x1="69" y1="22.15" x2="67" y2="22.15" width="0" layer="19" extent="16-16"/>
-<wire x1="71" y1="22.15" x2="69" y2="22.15" width="0" layer="19" extent="16-16"/>
-<wire x1="65" y1="22.15" x2="67" y2="22.15" width="0" layer="19" extent="16-16"/>
-<wire x1="77" y1="22.15" x2="71" y2="22.15" width="0" layer="19" extent="16-16"/>
+<wire x1="11.6" y1="36" x2="11.6" y2="37.25" width="0.1524" layer="16"/>
+<wire x1="15.8" y1="36.75" x2="16.75" y2="36.75" width="0.1524" layer="1"/>
+<wire x1="16.75" y1="36.75" x2="17.25" y2="36.25" width="0.1524" layer="1"/>
+<via x="17.25" y="36.25" extent="1-16" drill="0.13"/>
+<wire x1="15.8" y1="36.25" x2="17.25" y2="36.25" width="0.1524" layer="1"/>
+<wire x1="15.8" y1="35.75" x2="16.75" y2="35.75" width="0.1524" layer="1"/>
+<wire x1="16.75" y1="35.75" x2="17.25" y2="36.25" width="0.1524" layer="1"/>
+<wire x1="19.15" y1="37.75" x2="19.15" y2="39" width="0.1524" layer="16"/>
+<wire x1="19.15" y1="39" x2="19.15" y2="40.5" width="0.1524" layer="16"/>
+<wire x1="22.25" y1="33.8" x2="22.25" y2="35" width="0.1524" layer="1"/>
+<wire x1="22.25" y1="35" x2="22" y2="35.25" width="0.1524" layer="1"/>
+<via x="22" y="35.25" extent="1-16" drill="0.13"/>
+<wire x1="21.75" y1="33.8" x2="21.75" y2="35" width="0.1524" layer="1"/>
+<wire x1="21.75" y1="35" x2="22" y2="35.25" width="0.1524" layer="1"/>
+<wire x1="82" y1="21.85" x2="84" y2="21.85" width="0" layer="19" extent="16-16"/>
+<wire x1="80" y1="21.85" x2="82" y2="21.85" width="0" layer="19" extent="16-16"/>
+<wire x1="79" y1="22.15" x2="80" y2="21.85" width="0" layer="19" extent="16-16"/>
+<wire x1="77" y1="22.15" x2="79" y2="22.15" width="0" layer="19" extent="16-16"/>
+<wire x1="76.25" y1="21.8" x2="77" y2="22.15" width="0" layer="19" extent="1-16"/>
 <wire x1="77" y1="23.15" x2="77" y2="22.15" width="0" layer="19" extent="1-16"/>
-<wire x1="79" y1="22.15" x2="77" y2="22.15" width="0" layer="19" extent="16-16"/>
-<wire x1="80" y1="21.85" x2="79" y2="22.15" width="0" layer="19" extent="16-16"/>
-<wire x1="82" y1="21.85" x2="80" y2="21.85" width="0" layer="19" extent="16-16"/>
-<wire x1="84" y1="21.85" x2="82" y2="21.85" width="0" layer="19" extent="16-16"/>
 <wire x1="84" y1="18.85" x2="84" y2="21.85" width="0" layer="19" extent="16-16"/>
-<wire x1="76.25" y1="27.8" x2="77" y2="23.15" width="0" layer="19" extent="1-1"/>
+<wire x1="71" y1="22.15" x2="76.25" y2="21.8" width="0" layer="19" extent="1-16"/>
+<wire x1="69.8" y1="23.25" x2="71" y2="22.15" width="0" layer="19" extent="1-16"/>
+<wire x1="69.8" y1="23.75" x2="69.8" y2="23.25" width="0" layer="19" extent="1-1"/>
+<wire x1="69" y1="22.15" x2="69.8" y2="23.25" width="0" layer="19" extent="1-16"/>
+<wire x1="67" y1="22.15" x2="69" y2="22.15" width="0" layer="19" extent="16-16"/>
+<wire x1="65" y1="22.15" x2="67" y2="22.15" width="0" layer="19" extent="16-16"/>
+<wire x1="67.15" y1="25" x2="67" y2="22.15" width="0" layer="19" extent="1-16"/>
+<wire x1="67.15" y1="27" x2="67.15" y2="25" width="0" layer="19" extent="1-1"/>
+<wire x1="68.65" y1="29" x2="67.15" y2="27" width="0" layer="19" extent="1-1"/>
+<wire x1="73.75" y1="30.2" x2="68.65" y2="29" width="0" layer="19" extent="1-1"/>
+<wire x1="75.75" y1="30.2" x2="73.75" y2="30.2" width="0" layer="19" extent="1-1"/>
 <wire x1="56.75" y1="24.5" x2="65" y2="22.15" width="0" layer="19" extent="1-16"/>
 <wire x1="57" y1="26.35" x2="56.75" y2="25.25" width="0" layer="19" extent="1-16"/>
 <wire x1="50.65" y1="25.5" x2="56.75" y2="25.25" width="0" layer="19" extent="1-16"/>
@@ -12600,67 +12568,57 @@ design rules under a new name.</description>
 <wire x1="52.5" y1="40.5" x2="52.5" y2="37.5" width="0" layer="19" extent="1-1"/>
 <wire x1="37.5" y1="40.5" x2="37.5" y2="37.5" width="0" layer="19" extent="1-1"/>
 <wire x1="38.5" y1="42.5" x2="37.5" y2="40.5" width="0" layer="19" extent="1-1"/>
-<wire x1="32.5" y1="32.2" x2="37.5" y2="31.5" width="0" layer="19" extent="1-1"/>
-<wire x1="32.15" y1="35" x2="32.5" y2="32.2" width="0" layer="19" extent="1-1"/>
-<wire x1="31.85" y1="37" x2="32.15" y2="35" width="0" layer="19" extent="1-1"/>
-<wire x1="29.5" y1="33.8" x2="32.15" y2="35" width="0" layer="19" extent="1-1"/>
-<wire x1="26.75" y1="33.8" x2="29.5" y2="33.8" width="0" layer="19" extent="1-1"/>
-<wire x1="26.25" y1="33.8" x2="26.75" y2="33.8" width="0" layer="19" extent="1-1"/>
-<wire x1="23.25" y1="33.8" x2="26.25" y2="33.8" width="0" layer="19" extent="1-1"/>
-<wire x1="22" y1="32.15" x2="23.25" y2="33.8" width="0" layer="19" extent="1-1"/>
-<wire x1="20.85" y1="34" x2="22" y2="32.15" width="0" layer="19" extent="1-16"/>
-<wire x1="19.8" y1="35.25" x2="20.85" y2="34" width="0" layer="19" extent="1-16"/>
-<wire x1="19.8" y1="35.75" x2="19.8" y2="35.25" width="0" layer="19" extent="1-1"/>
-<wire x1="20.85" y1="36" x2="19.8" y2="35.75" width="0" layer="19" extent="1-16"/>
-<wire x1="20.85" y1="38" x2="20.85" y2="36" width="0" layer="19" extent="16-16"/>
-<wire x1="24.15" y1="31" x2="22" y2="32.15" width="0" layer="19" extent="1-1"/>
-<wire x1="19.85" y1="30" x2="22" y2="32.15" width="0" layer="19" extent="1-1"/>
-<wire x1="19.85" y1="28" x2="19.85" y2="30" width="0" layer="19" extent="1-1"/>
-<wire x1="18.15" y1="32" x2="19.85" y2="30" width="0" layer="19" extent="1-1"/>
-<wire x1="16.85" y1="34" x2="18.15" y2="32" width="0" layer="19" extent="1-1"/>
-<wire x1="15.15" y1="35" x2="16.85" y2="34" width="0" layer="19" extent="1-16"/>
-<wire x1="15.15" y1="33" x2="16.85" y2="34" width="0" layer="19" extent="1-16"/>
-<wire x1="15.15" y1="31" x2="15.15" y2="33" width="0" layer="19" extent="16-16"/>
-<wire x1="16.85" y1="30" x2="15.15" y2="31" width="0" layer="19" extent="1-16"/>
-<wire x1="15.15" y1="28" x2="16.85" y2="30" width="0" layer="19" extent="1-1"/>
-<wire x1="12.15" y1="35" x2="15.15" y2="35" width="0" layer="19" extent="16-16"/>
-<wire x1="12.15" y1="37" x2="12.15" y2="35" width="0" layer="19" extent="16-16"/>
-<wire x1="12.15" y1="39" x2="12.15" y2="37" width="0" layer="19" extent="16-16"/>
-<wire x1="12.15" y1="41" x2="12.15" y2="39" width="0" layer="19" extent="16-16"/>
-<wire x1="12.15" y1="33" x2="12.15" y2="35" width="0" layer="19" extent="16-16"/>
-<wire x1="12.15" y1="31" x2="12.15" y2="33" width="0" layer="19" extent="16-16"/>
-<wire x1="12.15" y1="29" x2="12.15" y2="31" width="0" layer="19" extent="16-16"/>
-<wire x1="15.15" y1="41" x2="12.15" y2="41" width="0" layer="19" extent="16-16"/>
-<wire x1="15.15" y1="39" x2="15.15" y2="41" width="0" layer="19" extent="16-16"/>
-<wire x1="28.2" y1="36.75" x2="29.5" y2="33.8" width="0" layer="19" extent="1-1"/>
-<wire x1="28.2" y1="39.25" x2="28.2" y2="36.75" width="0" layer="19" extent="1-1"/>
-<wire x1="28.2" y1="39.75" x2="28.2" y2="39.25" width="0" layer="19" extent="1-1"/>
-<wire x1="28.2" y1="40.25" x2="28.2" y2="39.75" width="0" layer="19" extent="1-1"/>
-<wire x1="30.65" y1="41" x2="28.2" y2="40.25" width="0" layer="19" extent="1-16"/>
-<wire x1="30.65" y1="43" x2="30.65" y2="41" width="0" layer="19" extent="16-16"/>
-<wire x1="8.5609" y1="29.08" x2="12.15" y2="29" width="0" layer="19" extent="1-16"/>
-<wire x1="8.5609" y1="34.16" x2="12.15" y2="35" width="0" layer="19" extent="1-16"/>
-<wire x1="21.75" y1="42.2" x2="20.85" y2="38" width="0" layer="19" extent="1-16"/>
-<wire x1="22.25" y1="42.2" x2="21.75" y2="42.2" width="0" layer="19" extent="1-1"/>
 <wire x1="41" y1="25.35" x2="41.5" y2="30.5" width="0" layer="19" extent="1-16"/>
 <wire x1="39.75" y1="25.25" x2="41" y2="25.35" width="0" layer="19" extent="1-16"/>
-<wire x1="18.15" y1="46" x2="21.75" y2="42.2" width="0" layer="19" extent="1-1"/>
-<wire x1="34.35" y1="47" x2="30.65" y2="43" width="0" layer="19" extent="1-16"/>
-<wire x1="37.25" y1="49.4" x2="34.35" y2="47" width="0" layer="19" extent="1-1"/>
-<wire x1="36.85" y1="51.35" x2="37.25" y2="49.4" width="0" layer="19" extent="1-1"/>
-<wire x1="35.15" y1="52.65" x2="36.85" y2="51.35" width="0" layer="19" extent="1-1"/>
-<wire x1="39.85" y1="52.5" x2="36.85" y2="51.35" width="0" layer="19" extent="1-1"/>
-<wire x1="32.15" y1="51.5" x2="35.15" y2="52.65" width="0" layer="19" extent="1-1"/>
-<wire x1="25.65" y1="47" x2="22.25" y2="42.2" width="0" layer="19" extent="1-1"/>
-<wire x1="23.3" y1="51.325" x2="25.65" y2="47" width="0" layer="19" extent="1-1"/>
-<wire x1="5" y1="23.9" x2="8.5609" y2="29.08" width="0" layer="19" extent="1-1"/>
-<wire x1="5" y1="18.1" x2="5" y2="23.9" width="0" layer="19" extent="1-1"/>
-<wire x1="5" y1="11.9" x2="5" y2="18.1" width="0" layer="19" extent="1-1"/>
-<wire x1="5" y1="6.1" x2="5" y2="11.9" width="0" layer="19" extent="1-1"/>
-<wire x1="13.85" y1="20" x2="15.15" y2="28" width="0" layer="19" extent="1-1"/>
-<wire x1="18.15" y1="19" x2="13.85" y2="20" width="0" layer="19" extent="1-1"/>
-<wire x1="22" y1="17.15" x2="18.15" y2="19" width="0" layer="19" extent="1-1"/>
-<wire x1="24.5" y1="10.5" x2="22" y2="17.15" width="0" layer="19" extent="1-1"/>
+<wire x1="37.6" y1="48.25" x2="38.5" y2="42.5" width="0" layer="19" extent="1-1"/>
+<wire x1="30.65" y1="41" x2="37.5" y2="40.5" width="0" layer="19" extent="1-16"/>
+<wire x1="30.65" y1="43" x2="30.65" y2="41" width="0" layer="19" extent="16-16"/>
+<wire x1="29.6" y1="45.75" x2="30.65" y2="43" width="0" layer="19" extent="1-16"/>
+<wire x1="29.6" y1="48.25" x2="29.6" y2="45.75" width="0" layer="19" extent="1-1"/>
+<wire x1="26.65" y1="43" x2="30.65" y2="43" width="0" layer="19" extent="16-16"/>
+<wire x1="24.2" y1="40.75" x2="26.65" y2="43" width="0" layer="19" extent="1-16"/>
+<wire x1="24.2" y1="40.25" x2="24.2" y2="40.75" width="0" layer="19" extent="1-1"/>
+<wire x1="20.75" y1="42.2" x2="24.2" y2="40.75" width="0" layer="19" extent="1-1"/>
+<wire x1="19.15" y1="40.5" x2="20.75" y2="42.2" width="0" layer="19" extent="1-16"/>
+<wire x1="17.75" y1="42.2" x2="19.15" y2="40.5" width="0" layer="19" extent="1-16"/>
+<wire x1="17.25" y1="42.2" x2="17.75" y2="42.2" width="0" layer="19" extent="1-1"/>
+<wire x1="17.25" y1="36.25" x2="19.15" y2="37.75" width="0" layer="19" extent="1-16"/>
+<wire x1="14.6" y1="35.25" x2="15.8" y2="35.75" width="0" layer="19" extent="1-16"/>
+<wire x1="16.65" y1="34" x2="16.75" y2="35.75" width="0" layer="19" extent="1-1"/>
+<wire x1="15.8" y1="39.25" x2="15.8" y2="36.75" width="0" layer="19" extent="1-1"/>
+<wire x1="21.35" y1="45" x2="20.75" y2="42.2" width="0" layer="19" extent="1-16"/>
+<wire x1="22.65" y1="47" x2="21.35" y2="45" width="0" layer="19" extent="16-16"/>
+<wire x1="23.35" y1="47.5" x2="22.65" y2="47" width="0" layer="19" extent="1-16"/>
+<wire x1="11.6" y1="36" x2="14.6" y2="35.25" width="0" layer="19" extent="16-16"/>
+<wire x1="11.95" y1="39" x2="11.6" y2="37.25" width="0" layer="19" extent="1-16"/>
+<wire x1="10.35" y1="39" x2="11.95" y2="39" width="0" layer="19" extent="1-16"/>
+<wire x1="10.35" y1="34" x2="11.6" y2="36" width="0" layer="19" extent="16-16"/>
+<wire x1="7.35" y1="39" x2="10.35" y2="39" width="0" layer="19" extent="1-16"/>
+<wire x1="5.35" y1="37" x2="7.35" y2="39" width="0" layer="19" extent="1-16"/>
+<wire x1="13.55" y1="42" x2="11.95" y2="39" width="0" layer="19" extent="1-1"/>
+<wire x1="21.75" y1="35" x2="19.15" y2="37.75" width="0" layer="19" extent="1-16"/>
+<wire x1="20.65" y1="34" x2="21.75" y2="33.8" width="0" layer="19" extent="1-16"/>
+<wire x1="3.8791" y1="32.54" x2="5.35" y2="37" width="0" layer="19" extent="1-16"/>
+<wire x1="20.3" y1="51.325" x2="23.35" y2="47.5" width="0" layer="19" extent="1-1"/>
+<wire x1="3.8791" y1="27.46" x2="3.8791" y2="32.54" width="0" layer="19" extent="1-1"/>
+<wire x1="27.65" y1="35" x2="22.25" y2="35" width="0" layer="19" extent="1-16"/>
+<wire x1="14.85" y1="47.5" x2="13.55" y2="42" width="0" layer="19" extent="1-1"/>
+<wire x1="14.35" y1="50" x2="14.85" y2="47.5" width="0" layer="19" extent="1-1"/>
+<wire x1="4.5" y1="20.9" x2="3.8791" y2="27.46" width="0" layer="19" extent="1-1"/>
+<wire x1="4.5" y1="15.1" x2="4.5" y2="20.9" width="0" layer="19" extent="1-1"/>
+<wire x1="29.65" y1="27" x2="27.65" y2="35" width="0" layer="19" extent="1-16"/>
+<wire x1="26.35" y1="24" x2="29.65" y2="27" width="0" layer="19" extent="1-1"/>
+<wire x1="21.65" y1="23" x2="26.35" y2="24" width="0" layer="19" extent="1-1"/>
+<wire x1="21.65" y1="21" x2="21.65" y2="23" width="0" layer="19" extent="1-1"/>
+<wire x1="18.85" y1="23" x2="21.65" y2="23" width="0" layer="19" extent="1-1"/>
+<wire x1="17.35" y1="21" x2="18.85" y2="23" width="0" layer="19" extent="1-1"/>
+<wire x1="22" y1="17.9" x2="21.65" y2="21" width="0" layer="19" extent="1-1"/>
+<wire x1="14.35" y1="22" x2="17.35" y2="21" width="0" layer="19" extent="1-16"/>
+<wire x1="14.35" y1="24" x2="14.35" y2="22" width="0" layer="19" extent="16-16"/>
+<wire x1="19.15" y1="16" x2="22" y2="17.9" width="0" layer="19" extent="1-1"/>
+<wire x1="14.65" y1="17" x2="19.15" y2="16" width="0" layer="19" extent="1-1"/>
+<wire x1="22" y1="12.1" x2="19.15" y2="16" width="0" layer="19" extent="1-1"/>
+<wire x1="24.5" y1="10.5" x2="22" y2="12.1" width="0" layer="19" extent="1-1"/>
 <wire x1="61.15" y1="41" x2="52.5" y2="40.5" width="0" layer="19" extent="1-1"/>
 <wire x1="62.85" y1="39" x2="61.15" y2="41" width="0" layer="19" extent="1-1"/>
 </signal>
@@ -12800,15 +12758,15 @@ design rules under a new name.</description>
 <wire x1="83.15" y1="36" x2="81.85" y2="35" width="0" layer="19" extent="1-16"/>
 <wire x1="81.85" y1="32" x2="81.85" y2="35" width="0" layer="19" extent="16-16"/>
 <wire x1="81.85" y1="29" x2="81.85" y2="32" width="0" layer="19" extent="16-16"/>
-<wire x1="76.75" y1="27.8" x2="81.85" y2="29" width="0" layer="19" extent="1-16"/>
-<wire x1="69.8" y1="31.25" x2="76.75" y2="27.8" width="0" layer="19" extent="1-1"/>
-<wire x1="67.15" y1="29" x2="69.8" y2="31.25" width="0" layer="19" extent="1-1"/>
-<wire x1="67" y1="36.85" x2="69.8" y2="31.25" width="0" layer="19" extent="1-1"/>
-<wire x1="80" y1="20.15" x2="76.75" y2="27.8" width="0" layer="19" extent="1-16"/>
+<wire x1="76.75" y1="21.8" x2="81.85" y2="29" width="0" layer="19" extent="1-16"/>
+<wire x1="80" y1="20.15" x2="76.75" y2="21.8" width="0" layer="19" extent="1-16"/>
 <wire x1="82" y1="20.15" x2="80" y2="20.15" width="0" layer="19" extent="16-16"/>
 <wire x1="84" y1="20.15" x2="82" y2="20.15" width="0" layer="19" extent="16-16"/>
 <wire x1="84" y1="17.15" x2="84" y2="20.15" width="0" layer="19" extent="16-16"/>
-<wire x1="58.25" y1="27.65" x2="67.15" y2="29" width="0" layer="19" extent="1-16"/>
+<wire x1="69.8" y1="25.25" x2="76.75" y2="21.8" width="0" layer="19" extent="1-1"/>
+<wire x1="67.35" y1="29" x2="69.8" y2="25.25" width="0" layer="19" extent="1-1"/>
+<wire x1="67" y1="36.85" x2="67.35" y2="29" width="0" layer="19" extent="1-1"/>
+<wire x1="58.25" y1="27.65" x2="67.35" y2="29" width="0" layer="19" extent="1-16"/>
 <wire x1="57" y1="27.65" x2="58.25" y2="27.65" width="0" layer="19" extent="16-16"/>
 <wire x1="55.35" y1="28" x2="57" y2="27.65" width="0" layer="19" extent="16-16"/>
 <wire x1="56.25" y1="25.75" x2="57" y2="27.65" width="0" layer="19" extent="16-16"/>
@@ -12841,20 +12799,20 @@ design rules under a new name.</description>
 <wire x1="41" y1="26.65" x2="38.5" y2="30.5" width="0" layer="19" extent="1-16"/>
 <wire x1="42" y1="26.65" x2="41" y2="26.65" width="0" layer="19" extent="16-16"/>
 <wire x1="39.25" y1="25.75" x2="41" y2="26.65" width="0" layer="19" extent="16-16"/>
-<wire x1="38.75" y1="46.6" x2="39.5" y2="41.5" width="0" layer="19" extent="1-1"/>
+<wire x1="40.4" y1="49.75" x2="39.5" y2="41.5" width="0" layer="19" extent="1-1"/>
 <wire x1="29.35" y1="39" x2="38.5" y2="38.5" width="0" layer="19" extent="1-16"/>
+<wire x1="23.65" y1="46.25" x2="29.35" y2="39" width="0" layer="19" extent="1-16"/>
 <wire x1="58.15" y1="53" x2="51.5" y2="42.5" width="0" layer="19" extent="1-1"/>
-<wire x1="16.85" y1="43" x2="29.35" y2="39" width="0" layer="19" extent="1-16"/>
-<wire x1="12.85" y1="46" x2="16.85" y2="43" width="0" layer="19" extent="1-1"/>
-<wire x1="12.85" y1="49" x2="12.85" y2="46" width="0" layer="19" extent="1-1"/>
-<wire x1="15.15" y1="34" x2="16.85" y2="43" width="0" layer="19" extent="1-1"/>
-<wire x1="15.15" y1="32" x2="15.15" y2="34" width="0" layer="19" extent="1-1"/>
-<wire x1="15.15" y1="30" x2="15.15" y2="32" width="0" layer="19" extent="1-1"/>
-<wire x1="16.85" y1="28" x2="15.15" y2="30" width="0" layer="19" extent="1-1"/>
-<wire x1="14" y1="22.85" x2="16.85" y2="28" width="0" layer="19" extent="1-1"/>
-<wire x1="15.85" y1="18.05" x2="14" y2="22.85" width="0" layer="19" extent="1-1"/>
-<wire x1="14.85" y1="14" x2="15.85" y2="18.05" width="0" layer="19" extent="1-1"/>
-<wire x1="26.5" y1="10.5" x2="14.85" y2="14" width="0" layer="19" extent="1-1"/>
+<wire x1="10.4" y1="51" x2="23.65" y2="46.25" width="0" layer="19" extent="1-16"/>
+<wire x1="7.85" y1="51" x2="10.4" y2="51" width="0" layer="19" extent="16-16"/>
+<wire x1="15.35" y1="34" x2="23.65" y2="46.25" width="0" layer="19" extent="1-1"/>
+<wire x1="18.35" y1="27" x2="15.35" y2="34" width="0" layer="19" extent="1-1"/>
+<wire x1="17.15" y1="23" x2="18.35" y2="27" width="0" layer="19" extent="1-1"/>
+<wire x1="18.65" y1="21" x2="17.15" y2="23" width="0" layer="19" extent="1-1"/>
+<wire x1="15" y1="19.65" x2="18.65" y2="21" width="0" layer="19" extent="1-1"/>
+<wire x1="16.85" y1="15.05" x2="15" y2="19.65" width="0" layer="19" extent="1-1"/>
+<wire x1="15.65" y1="11" x2="16.85" y2="15.05" width="0" layer="19" extent="1-1"/>
+<wire x1="26.5" y1="10.5" x2="16.85" y2="15.05" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="A3V3">
 <contactref element="X4" pad="4"/>
@@ -12972,19 +12930,19 @@ design rules under a new name.</description>
 <wire x1="52.5" y1="21" x2="52.75" y2="20.75" width="0.1524" layer="16"/>
 <wire x1="51.65" y1="22.5" x2="51.65" y2="21" width="0.1524" layer="16"/>
 <wire x1="51.65" y1="18" x2="51.65" y2="19.5" width="0.1524" layer="16"/>
-<wire x1="46.5" y1="44.5" x2="49.85" y2="51" width="0" layer="19" extent="1-1"/>
-<wire x1="45.5" y1="42.5" x2="46.5" y2="44.5" width="0" layer="19" extent="1-1"/>
-<wire x1="49.5" y1="42.5" x2="46.5" y2="44.5" width="0" layer="19" extent="1-1"/>
-<wire x1="51.5" y1="43.5" x2="49.5" y2="42.5" width="0" layer="19" extent="1-1"/>
+<wire x1="51.5" y1="43.5" x2="55.95" y2="45.95" width="0" layer="19" extent="1-1"/>
+<wire x1="49.5" y1="42.5" x2="51.5" y2="43.5" width="0" layer="19" extent="1-1"/>
 <wire x1="48.5" y1="39.5" x2="49.5" y2="42.5" width="0" layer="19" extent="1-1"/>
+<wire x1="46.5" y1="44.5" x2="49.5" y2="42.5" width="0" layer="19" extent="1-1"/>
+<wire x1="45.5" y1="42.5" x2="46.5" y2="44.5" width="0" layer="19" extent="1-1"/>
 <wire x1="41.5" y1="43.5" x2="45.5" y2="42.5" width="0" layer="19" extent="1-1"/>
 <wire x1="39.5" y1="43.5" x2="41.5" y2="43.5" width="0" layer="19" extent="1-1"/>
 <wire x1="39.5" y1="42.5" x2="39.5" y2="43.5" width="0" layer="19" extent="1-1"/>
 <wire x1="38.5" y1="45.5" x2="39.5" y2="43.5" width="0" layer="19" extent="1-1"/>
 <wire x1="37.5" y1="44.5" x2="38.5" y2="45.5" width="0" layer="19" extent="1-1"/>
-<wire x1="35.25" y1="39" x2="39.5" y2="42.5" width="0" layer="19" extent="1-1"/>
-<wire x1="57.05" y1="42.95" x2="51.5" y2="43.5" width="0" layer="19" extent="1-1"/>
-<wire x1="34.65" y1="22.5" x2="35.25" y2="39" width="0" layer="19" extent="1-16"/>
+<wire x1="49.85" y1="51" x2="46.5" y2="44.5" width="0" layer="19" extent="1-1"/>
+<wire x1="32.75" y1="37" x2="39.5" y2="42.5" width="0" layer="19" extent="1-1"/>
+<wire x1="34.65" y1="22.5" x2="32.75" y2="37" width="0" layer="19" extent="1-16"/>
 <wire x1="36.5" y1="19.75" x2="36.5" y2="20.75" width="0" layer="19" extent="1-1"/>
 <wire x1="39" y1="18.35" x2="36.5" y2="19.75" width="0" layer="19" extent="1-16"/>
 <wire x1="38.25" y1="17.5" x2="39" y2="18.35" width="0" layer="19" extent="1-16"/>
@@ -13271,7 +13229,8 @@ design rules under a new name.</description>
 <wire x1="50.35" y1="19.5" x2="50.35" y2="18" width="0.1524" layer="16"/>
 <wire x1="60.5" y1="23.75" x2="61.25" y2="23.75" width="0.1524" layer="1"/>
 <via x="61.25" y="23.75" extent="1-16" drill="0.13"/>
-<wire x1="52.5" y1="43.5" x2="58.95" y2="45.05" width="0" layer="19" extent="1-1"/>
+<wire x1="55.85" y1="39.05" x2="58.05" y2="44.05" width="0" layer="19" extent="1-1"/>
+<wire x1="52.5" y1="43.5" x2="58.05" y2="44.05" width="0" layer="19" extent="1-1"/>
 <wire x1="49.5" y1="43.5" x2="52.5" y2="43.5" width="0" layer="19" extent="1-1"/>
 <wire x1="48.5" y1="43.5" x2="49.5" y2="43.5" width="0" layer="19" extent="1-1"/>
 <wire x1="49.5" y1="45.5" x2="49.5" y2="43.5" width="0" layer="19" extent="1-1"/>
@@ -13291,7 +13250,7 @@ design rules under a new name.</description>
 <wire x1="49.5" y1="38.5" x2="47.5" y2="41.5" width="0" layer="19" extent="1-1"/>
 <wire x1="51.5" y1="33.5" x2="49.5" y2="38.5" width="0" layer="19" extent="1-1"/>
 <wire x1="53.85" y1="32" x2="51.5" y2="33.5" width="0" layer="19" extent="1-16"/>
-<wire x1="55.85" y1="39.05" x2="52.5" y2="43.5" width="0" layer="19" extent="1-1"/>
+<wire x1="35.25" y1="41" x2="40.5" y2="42.5" width="0" layer="19" extent="1-1"/>
 <wire x1="49.85" y1="53" x2="49.5" y2="45.5" width="0" layer="19" extent="1-1"/>
 <wire x1="45.15" y1="53" x2="49.85" y2="53" width="0" layer="19" extent="1-1"/>
 <wire x1="43" y1="52.85" x2="45.15" y2="53" width="0" layer="19" extent="1-1"/>
@@ -13346,13 +13305,12 @@ design rules under a new name.</description>
 <wire x1="33.35" y1="21" x2="35.75" y2="20.25" width="0" layer="19" extent="16-16"/>
 <wire x1="51.35" y1="13.5" x2="54.25" y2="14.35" width="0" layer="19" extent="1-16"/>
 <wire x1="56.5" y1="10.5" x2="55.65" y2="13.5" width="0" layer="19" extent="1-1"/>
-<wire x1="27.15" y1="23" x2="33.35" y2="22.5" width="0" layer="19" extent="1-16"/>
-<wire x1="27.15" y1="25" x2="27.15" y2="23" width="0" layer="19" extent="1-1"/>
-<wire x1="27.15" y1="27" x2="27.15" y2="25" width="0" layer="19" extent="1-1"/>
-<wire x1="27.15" y1="29" x2="27.15" y2="27" width="0" layer="19" extent="1-1"/>
-<wire x1="27.15" y1="31" x2="27.15" y2="29" width="0" layer="19" extent="1-1"/>
-<wire x1="27.15" y1="21" x2="27.15" y2="23" width="0" layer="19" extent="1-1"/>
-<wire x1="32.75" y1="35" x2="27.15" y2="31" width="0" layer="19" extent="1-1"/>
+<wire x1="29.15" y1="18" x2="33.35" y2="18" width="0" layer="19" extent="1-16"/>
+<wire x1="29.15" y1="20" x2="29.15" y2="18" width="0" layer="19" extent="1-1"/>
+<wire x1="29.15" y1="22" x2="29.15" y2="20" width="0" layer="19" extent="1-1"/>
+<wire x1="29.15" y1="24" x2="29.15" y2="22" width="0" layer="19" extent="1-1"/>
+<wire x1="29.15" y1="16" x2="29.15" y2="18" width="0" layer="19" extent="1-1"/>
+<wire x1="29.15" y1="14" x2="29.15" y2="16" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="GND">
 <contactref element="J5" pad="GGG2"/>
@@ -13377,9 +13335,11 @@ design rules under a new name.</description>
 <contactref element="U4" pad="5"/>
 <contactref element="B2" pad="1"/>
 <contactref element="C92" pad="1"/>
-<wire x1="15.85" y1="46" x2="20.7" y2="51.325" width="0" layer="19" extent="1-1"/>
-<wire x1="19.85" y1="32" x2="15.85" y2="46" width="0" layer="19" extent="1-1"/>
-<wire x1="16.85" y1="28" x2="19.85" y2="32" width="0" layer="19" extent="1-16"/>
+<wire x1="17.7" y1="51.325" x2="17.7" y2="50.7" width="0.3048" layer="1"/>
+<wire x1="17.7" y1="50.7" x2="17" y2="50" width="0.3048" layer="1"/>
+<wire x1="17.15" y1="47.5" x2="20" y2="46.85" width="0" layer="19" extent="1-16"/>
+<wire x1="17" y1="50" x2="17.15" y2="47.5" width="0" layer="19" extent="1-1"/>
+<wire x1="15.65" y1="50" x2="17" y2="50" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="DAC1+">
 <contactref element="C5" pad="1"/>
@@ -13586,8 +13546,8 @@ design rules under a new name.</description>
 <contactref element="X4" pad="3"/>
 <contactref element="R1" pad="1"/>
 <contactref element="R2" pad="1"/>
-<wire x1="61.15" y1="43" x2="61.15" y2="45" width="0" layer="19" extent="1-1"/>
-<wire x1="57.05" y1="45.05" x2="61.15" y2="45" width="0" layer="19" extent="1-1"/>
+<wire x1="61.35" y1="43" x2="61.35" y2="45" width="0" layer="19" extent="1-1"/>
+<wire x1="58.05" y1="45.95" x2="61.35" y2="45" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MAC_EN">
 <contactref element="X4" pad="1"/>
@@ -13595,62 +13555,49 @@ design rules under a new name.</description>
 <signal name="EXT_CLK_IN">
 <contactref element="J5" pad="PINAAA"/>
 <contactref element="U1" pad="G4"/>
-<wire x1="49.5" y1="36.5" x2="37" y2="53.9426" width="0" layer="19" extent="1-1"/>
+<wire x1="49.5" y1="36.5" x2="49" y2="53.9426" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="EXT_CLK_OUT">
 <contactref element="U9" pad="2"/>
 <contactref element="U1" pad="E12"/>
-<wire x1="41.5" y1="34.5" x2="38.25" y2="46.6" width="0" layer="19" extent="1-1"/>
+<wire x1="41.5" y1="34.5" x2="40.4" y2="49.25" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="LPXOUT">
 <contactref element="U1" pad="R15"/>
 <contactref element="X3" pad="1"/>
 <contactref element="C4" pad="1"/>
-<wire x1="28.75" y1="47" x2="38.5" y2="44.5" width="0" layer="19" extent="1-1"/>
-<wire x1="27.35" y1="47" x2="28.75" y2="47" width="0" layer="19" extent="1-1"/>
+<wire x1="33" y1="45.75" x2="38.5" y2="44.5" width="0" layer="19" extent="1-1"/>
+<wire x1="30.9" y1="45.75" x2="33" y2="45.75" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="LPXIN">
 <contactref element="X3" pad="2"/>
 <contactref element="U1" pad="R14"/>
 <contactref element="C3" pad="1"/>
-<wire x1="32.65" y1="47" x2="39.5" y2="44.5" width="0" layer="19" extent="1-1"/>
-<wire x1="31.25" y1="47" x2="32.65" y2="47" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="MAINXOUT">
-<contactref element="U1" pad="R13"/>
-<contactref element="X2" pad="1"/>
-<contactref element="C2" pad="1"/>
-<wire x1="33.85" y1="51.5" x2="35.15" y2="51.35" width="0" layer="19" extent="1-1"/>
-<wire x1="40.5" y1="44.5" x2="35.15" y2="51.35" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="MAINXIN">
-<contactref element="U1" pad="R12"/>
-<contactref element="X2" pad="3"/>
-<contactref element="C1" pad="1"/>
-<wire x1="36.85" y1="52.65" x2="38.15" y2="52.5" width="0" layer="19" extent="1-1"/>
-<wire x1="41.5" y1="44.5" x2="38.15" y2="52.5" width="0" layer="19" extent="1-1"/>
+<wire x1="33" y1="48.25" x2="39.5" y2="44.5" width="0" layer="19" extent="1-1"/>
+<wire x1="30.9" y1="48.25" x2="33" y2="48.25" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="PHY_RMII_CLK">
 <contactref element="U6" pad="34"/>
 <contactref element="R2" pad="2"/>
-<wire x1="69.8" y1="30.25" x2="62.85" y2="43" width="0" layer="19" extent="1-1"/>
+<wire x1="69.8" y1="24.25" x2="62.65" y2="43" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MSS_RMII_CLK">
 <contactref element="R1" pad="2"/>
 <contactref element="U1" pad="L5"/>
-<wire x1="48.5" y1="40.5" x2="62.85" y2="45" width="0" layer="19" extent="1-1"/>
+<wire x1="48.5" y1="40.5" x2="62.65" y2="45" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MAIN_CLK_IN">
 <contactref element="X1" pad="3"/>
 <contactref element="U1" pad="E3"/>
-<wire x1="35.25" y1="35" x2="50.5" y2="34.5" width="0" layer="19" extent="1-1"/>
+<wire x1="32.75" y1="41" x2="50.5" y2="34.5" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="USB_CLK">
-<contactref element="U5" pad="29"/>
 <contactref element="U1" pad="C15"/>
-<contactref element="R96" pad="1"/>
-<wire x1="19.8" y1="38.75" x2="38.5" y2="32.5" width="0" layer="19" extent="1-1"/>
-<wire x1="17.85" y1="39" x2="19.8" y2="38.75" width="0" layer="19" extent="1-1"/>
+<wire x1="38.5" y1="32.5" x2="38" y2="33" width="0.1524" layer="1"/>
+<wire x1="38" y1="33" x2="34" y2="33" width="0.1524" layer="1"/>
+<wire x1="34" y1="33" x2="29.75" y2="37.25" width="0.1524" layer="1"/>
+<contactref element="R96" pad="2"/>
+<wire x1="29.75" y1="37.25" x2="27.9" y2="37.25" width="0.1524" layer="1"/>
 </signal>
 <signal name="SF_DAC1">
 <contactref element="U1" pad="T12"/>
@@ -13659,8 +13606,8 @@ design rules under a new name.</description>
 <wire x1="40.5" y1="5.15" x2="40.5" y2="3.5" width="0.1524" layer="1"/>
 <via x="40.5" y="3.5" extent="1-16" drill="0.13"/>
 <wire x1="40.5" y1="3.5" x2="40.5" y2="11" width="0.1524" layer="16"/>
-<wire x1="28.85" y1="21" x2="41.5" y2="45.5" width="0" layer="19" extent="1-1"/>
-<wire x1="40.5" y1="11" x2="28.85" y2="21" width="0" layer="19" extent="1-16"/>
+<wire x1="30.85" y1="14" x2="41.5" y2="45.5" width="0" layer="19" extent="1-1"/>
+<wire x1="40.5" y1="11" x2="30.85" y2="14" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="SF_ADC1">
 <contactref element="U1" pad="R6"/>
@@ -13671,8 +13618,8 @@ design rules under a new name.</description>
 <via x="43.5" y="3.5" extent="1-16" drill="0.13"/>
 <wire x1="43.5" y1="3.5" x2="43.5" y2="11" width="0.1524" layer="16"/>
 <wire x1="31.15" y1="25" x2="47.5" y2="44.5" width="0" layer="19" extent="1-1"/>
-<wire x1="28.85" y1="25" x2="31.15" y2="25" width="0" layer="19" extent="1-1"/>
-<wire x1="43.5" y1="11" x2="31.15" y2="25" width="0" layer="19" extent="1-16"/>
+<wire x1="30.85" y1="18" x2="31.15" y2="25" width="0" layer="19" extent="1-1"/>
+<wire x1="43.5" y1="11" x2="30.85" y2="18" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="SF_ADC2">
 <contactref element="U1" pad="P7"/>
@@ -13691,8 +13638,8 @@ design rules under a new name.</description>
 <via x="46.5" y="3.5" extent="1-16" drill="0.13"/>
 <wire x1="46.5" y1="3.5" x2="46.5" y2="11" width="0.1524" layer="16"/>
 <wire x1="31.15" y1="27" x2="48.5" y2="41.5" width="0" layer="19" extent="1-1"/>
-<wire x1="28.85" y1="27" x2="31.15" y2="27" width="0" layer="19" extent="1-1"/>
-<wire x1="46.5" y1="11" x2="31.15" y2="27" width="0" layer="19" extent="1-16"/>
+<wire x1="30.85" y1="20" x2="31.15" y2="27" width="0" layer="19" extent="1-1"/>
+<wire x1="46.5" y1="11" x2="30.85" y2="20" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="SF_ADC4">
 <contactref element="U1" pad="M9"/>
@@ -13711,8 +13658,8 @@ design rules under a new name.</description>
 <via x="49.5" y="3.5" extent="1-16" drill="0.13"/>
 <wire x1="49.5" y1="3.5" x2="49.5" y2="11" width="0.1524" layer="16"/>
 <wire x1="31.15" y1="29" x2="44.5" y2="42.5" width="0" layer="19" extent="1-1"/>
-<wire x1="28.85" y1="29" x2="31.15" y2="29" width="0" layer="19" extent="1-1"/>
-<wire x1="49.5" y1="11" x2="31.15" y2="29" width="0" layer="19" extent="1-16"/>
+<wire x1="30.85" y1="22" x2="31.15" y2="29" width="0" layer="19" extent="1-1"/>
+<wire x1="49.5" y1="11" x2="30.85" y2="22" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="SF_ADC6">
 <contactref element="U1" pad="P9"/>
@@ -14097,8 +14044,8 @@ design rules under a new name.</description>
 <wire x1="39.5" y1="5.15" x2="39.5" y2="3.5" width="0.1524" layer="1"/>
 <via x="39.5" y="3.5" extent="1-16" drill="0.13"/>
 <wire x1="39.5" y1="3.5" x2="39.5" y2="11" width="0.1524" layer="16"/>
-<wire x1="28.85" y1="23" x2="51.5" y2="44.5" width="0" layer="19" extent="1-1"/>
-<wire x1="39.5" y1="11" x2="28.85" y2="23" width="0" layer="19" extent="1-16"/>
+<wire x1="30.85" y1="16" x2="51.5" y2="44.5" width="0" layer="19" extent="1-1"/>
+<wire x1="39.5" y1="11" x2="30.85" y2="16" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="VBAT">
 <contactref element="R58" pad="2"/>
@@ -14167,8 +14114,8 @@ design rules under a new name.</description>
 <via x="52.5" y="3.5" extent="1-16" drill="0.13"/>
 <wire x1="52.5" y1="3.5" x2="52.5" y2="11" width="0.1524" layer="16"/>
 <wire x1="31.15" y1="31" x2="44.5" y2="44.5" width="0" layer="19" extent="1-1"/>
-<wire x1="28.85" y1="31" x2="31.15" y2="31" width="0" layer="19" extent="1-1"/>
-<wire x1="52.5" y1="11" x2="31.15" y2="31" width="0" layer="19" extent="1-16"/>
+<wire x1="30.85" y1="24" x2="31.15" y2="31" width="0" layer="19" extent="1-1"/>
+<wire x1="52.5" y1="11" x2="30.85" y2="24" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="SF_ABPS6">
 <contactref element="U1" pad="T10"/>
@@ -14215,62 +14162,93 @@ design rules under a new name.</description>
 <signal name="N$15">
 <contactref element="J4" pad="2"/>
 <contactref element="U4" pad="6"/>
-<wire x1="15.85" y1="45.05" x2="21.35" y2="51.325" width="0" layer="19" extent="1-1"/>
+<wire x1="18.35" y1="51.325" x2="18.35" y2="48.6" width="0.3048" layer="1"/>
+<wire x1="17.45" y1="48.45" x2="17.15" y2="48.45" width="0.3048" layer="1"/>
+<wire x1="18.35" y1="48.6" x2="18.2" y2="48.45" width="0.3048" layer="1"/>
+<wire x1="18.2" y1="48.45" x2="17.15" y2="48.45" width="0.3048" layer="1"/>
 </signal>
 <signal name="N$19">
 <contactref element="J4" pad="3"/>
 <contactref element="U4" pad="4"/>
-<wire x1="15.85" y1="46.95" x2="22" y2="51.325" width="0" layer="19" extent="1-1"/>
+<wire x1="19" y1="51.325" x2="19" y2="47.5" width="0.3048" layer="1"/>
+<wire x1="19" y1="47.5" x2="18.05" y2="46.55" width="0.3048" layer="1"/>
+<wire x1="18.05" y1="46.55" x2="17.15" y2="46.55" width="0.3048" layer="1"/>
 </signal>
 <signal name="N$25">
 <contactref element="U4" pad="1"/>
 <contactref element="R55" pad="1"/>
-<wire x1="18.15" y1="45.05" x2="21.15" y2="45" width="0" layer="19" extent="1-1"/>
+<wire x1="14.85" y1="48.45" x2="13.05" y2="48.45" width="0.3048" layer="1"/>
+<wire x1="13.05" y1="48.45" x2="12" y2="47.4" width="0.3048" layer="1"/>
 </signal>
 <signal name="N$26">
 <contactref element="U4" pad="3"/>
 <contactref element="R56" pad="1"/>
-<wire x1="18.15" y1="46.95" x2="22.85" y2="47" width="0" layer="19" extent="1-1"/>
+<wire x1="14.85" y1="46.55" x2="13.8" y2="46.55" width="0.3048" layer="1"/>
+<wire x1="13.8" y1="46.55" x2="13.25" y2="46" width="0.3048" layer="1"/>
+<wire x1="13.25" y1="46" x2="13.25" y2="45.4" width="0.3048" layer="1"/>
 </signal>
 <signal name="USBDM">
 <contactref element="R55" pad="2"/>
 <contactref element="U5" pad="6"/>
-<wire x1="28.2" y1="37.75" x2="22.85" y2="45" width="0" layer="19" extent="1-1"/>
+<wire x1="12" y1="46.1" x2="12" y2="45.25" width="0.3048" layer="1"/>
+<via x="12" y="45.25" extent="1-16" drill="0.13"/>
+<wire x1="12" y1="45.25" x2="14.5" y2="42.75" width="0.3048" layer="16"/>
+<wire x1="14.5" y1="42.75" x2="14.5" y2="38.25" width="0.3048" layer="16"/>
+<via x="14.5" y="38.25" extent="1-16" drill="0.13"/>
+<wire x1="14.5" y1="38.25" x2="15.8" y2="38.25" width="0.3048" layer="1"/>
 </signal>
 <signal name="USBDP">
 <contactref element="R56" pad="2"/>
 <contactref element="R57" pad="1"/>
 <contactref element="U5" pad="7"/>
-<wire x1="15.15" y1="43" x2="21.15" y2="47" width="0" layer="19" extent="1-1"/>
-<wire x1="28.2" y1="38.25" x2="21.15" y2="47" width="0" layer="19" extent="1-1"/>
+<wire x1="13.25" y1="44.1" x2="13.25" y2="43.25" width="0.3048" layer="1"/>
+<via x="13.25" y="43.25" extent="1-16" drill="0.13"/>
+<wire x1="13.25" y1="43.25" x2="13.25" y2="38.5" width="0.3048" layer="16"/>
+<wire x1="13.25" y1="38.5" x2="14" y2="37.75" width="0.3048" layer="16"/>
+<via x="14" y="37.75" extent="1-16" drill="0.13"/>
+<wire x1="14" y1="37.75" x2="15.8" y2="37.75" width="0.3048" layer="1"/>
+<wire x1="13.25" y1="44.1" x2="25.35" y2="46.25" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="USBDB7">
+<signal name="USB_DB7">
 <contactref element="U5" pad="20"/>
+<contactref element="U1" pad="C14"/>
+<wire x1="20.75" y1="33.8" x2="20.75" y2="32.75" width="0.1524" layer="1"/>
+<wire x1="20.75" y1="32.75" x2="39.5" y2="32.5" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="USBDB6">
+<signal name="USB_DB6">
 <contactref element="U5" pad="19"/>
+<contactref element="U1" pad="D13"/>
+<wire x1="20.25" y1="33.8" x2="20.25" y2="32.75" width="0.1524" layer="1"/>
+<wire x1="20.25" y1="33.8" x2="40.5" y2="33.5" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="USBDB5">
+<signal name="USB_DB5">
 <contactref element="U5" pad="18"/>
+<contactref element="U1" pad="C12"/>
+<wire x1="19.75" y1="33.8" x2="19.75" y2="32.75" width="0.1524" layer="1"/>
+<wire x1="19.75" y1="32.75" x2="41.5" y2="32.5" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="USBDB4">
-<contactref element="U5" pad="17"/>
-</signal>
-<signal name="USBDB3">
+<signal name="USB_DB3">
 <contactref element="U5" pad="16"/>
+<contactref element="U1" pad="C11"/>
+<wire x1="18.75" y1="33.8" x2="18.75" y2="32.75" width="0.1524" layer="1"/>
+<wire x1="18.75" y1="32.75" x2="42.5" y2="32.5" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="USBDB2">
+<signal name="USB_DB2">
 <contactref element="U5" pad="15"/>
+<contactref element="U1" pad="D10"/>
+<wire x1="18.25" y1="33.8" x2="18.25" y2="32.75" width="0.1524" layer="1"/>
+<wire x1="18.25" y1="33.8" x2="43.5" y2="33.5" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="USBDB1">
-<contactref element="U5" pad="14"/>
 <contactref element="R3" pad="1"/>
-<wire x1="26.25" y1="42.2" x2="32.35" y2="44" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="USBDB0">
+<signal name="USB_DB0">
 <contactref element="U5" pad="13"/>
 <contactref element="R4" pad="1"/>
-<wire x1="26.75" y1="42.2" x2="32.35" y2="42" width="0" layer="19" extent="1-1"/>
+<wire x1="17.25" y1="33.8" x2="17.25" y2="32.75" width="0.1524" layer="1"/>
+<contactref element="U1" pad="C9"/>
+<wire x1="32.35" y1="44" x2="44.5" y2="32.5" width="0" layer="19" extent="1-1"/>
+<wire x1="17.25" y1="33.8" x2="32.35" y2="44" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="!RXF">
 <contactref element="U5" pad="21"/>
@@ -14293,33 +14271,39 @@ design rules under a new name.</description>
 <signal name="!PWRSAV">
 <contactref element="U5" pad="31"/>
 <contactref element="R58" pad="1"/>
-<wire x1="17.85" y1="37.5" x2="19.8" y2="37.75" width="0" layer="19" extent="1-1"/>
+<wire x1="24.2" y1="38.25" x2="27.65" y2="48.5" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="!USB_RESET">
 <contactref element="U5" pad="34"/>
 <contactref element="R95" pad="2"/>
 <contactref element="C106" pad="1"/>
-<wire x1="19.15" y1="36" x2="19.8" y2="36.25" width="0" layer="19" extent="1-16"/>
-<wire x1="17.85" y1="36" x2="19.15" y2="36" width="0" layer="19" extent="1-16"/>
+<wire x1="26.35" y1="35" x2="24.2" y2="39.75" width="0" layer="19" extent="1-16"/>
+<wire x1="9.35" y1="41" x2="24.2" y2="39.75" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="N$23">
 <contactref element="U5" pad="5"/>
 <contactref element="R59" pad="2"/>
-<wire x1="30.15" y1="37" x2="28.2" y2="37.25" width="0" layer="19" extent="1-1"/>
+<wire x1="15.8" y1="38.75" x2="17" y2="38.75" width="0.1524" layer="1"/>
+<via x="17" y="38.75" extent="1-16" drill="0.13"/>
+<wire x1="17.85" y1="37.75" x2="17" y2="38.6" width="0.1524" layer="16"/>
+<wire x1="17" y1="38.6" x2="17" y2="38.75" width="0.1524" layer="16"/>
 </signal>
-<signal name="N$21">
+<signal name="UXCSI">
 <contactref element="X5" pad="1"/>
 <contactref element="U5" pad="1"/>
 <contactref element="C72" pad="1"/>
-<wire x1="29.5" y1="32.2" x2="28.2" y2="35.25" width="0" layer="19" extent="1-1"/>
-<wire x1="25.85" y1="31" x2="29.5" y2="32.2" width="0" layer="19" extent="1-1"/>
+<wire x1="11.95" y1="42" x2="11.95" y2="41.8" width="0.1524" layer="1"/>
+<wire x1="11.95" y1="41.8" x2="13" y2="40.75" width="0.1524" layer="1"/>
+<wire x1="13" y1="40.75" x2="15.8" y2="40.75" width="0.1524" layer="1"/>
+<wire x1="27.65" y1="24" x2="15.8" y2="40.75" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="N$24">
+<signal name="UXCSO">
 <contactref element="U5" pad="2"/>
 <contactref element="X5" pad="3"/>
 <contactref element="C71" pad="1"/>
-<wire x1="32.5" y1="33.8" x2="33.85" y2="35" width="0" layer="19" extent="1-1"/>
-<wire x1="28.2" y1="35.75" x2="32.5" y2="33.8" width="0" layer="19" extent="1-1"/>
+<wire x1="13.55" y1="39" x2="14.8" y2="40.25" width="0.1524" layer="1"/>
+<wire x1="14.8" y1="40.25" x2="15.8" y2="40.25" width="0.1524" layer="1"/>
+<wire x1="8.65" y1="39" x2="13.55" y2="39" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$27">
 <contactref element="U5" pad="42"/>
@@ -14328,34 +14312,34 @@ design rules under a new name.</description>
 <contactref element="U5" pad="45"/>
 <contactref element="U7" pad="5"/>
 <contactref element="R63" pad="1"/>
-<wire x1="22" y1="29.85" x2="25.25" y2="33.8" width="0" layer="19" extent="1-1"/>
-<wire x1="27.15" y1="28" x2="22" y2="29.85" width="0" layer="19" extent="1-16"/>
+<wire x1="18.75" y1="42.2" x2="25.65" y2="47.5" width="0" layer="19" extent="1-1"/>
+<wire x1="29.35" y1="21" x2="18.75" y2="42.2" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="EECLK">
 <contactref element="U5" pad="44"/>
 <contactref element="U7" pad="4"/>
 <contactref element="R62" pad="1"/>
-<wire x1="21.05" y1="29.85" x2="24.75" y2="33.8" width="0" layer="19" extent="1-1"/>
-<wire x1="25.85" y1="26" x2="21.05" y2="29.85" width="0" layer="19" extent="1-16"/>
+<wire x1="19.25" y1="42.2" x2="25.65" y2="46.55" width="0" layer="19" extent="1-1"/>
+<wire x1="27.65" y1="19" x2="19.25" y2="42.2" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="EEDATA">
 <contactref element="U5" pad="43"/>
 <contactref element="U7" pad="3"/>
 <contactref element="R60" pad="2"/>
-<wire x1="21.05" y1="32.15" x2="24.25" y2="33.8" width="0" layer="19" extent="1-1"/>
-<wire x1="24.15" y1="30" x2="21.05" y2="32.15" width="0" layer="19" extent="1-16"/>
+<wire x1="19.75" y1="42.2" x2="23.35" y2="46.55" width="0" layer="19" extent="1-1"/>
+<wire x1="26.35" y1="23" x2="19.75" y2="42.2" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="N$53">
 <contactref element="U7" pad="1"/>
 <contactref element="R60" pad="1"/>
 <contactref element="R61" pad="1"/>
-<wire x1="25.85" y1="30" x2="22.95" y2="32.15" width="0" layer="19" extent="1-16"/>
-<wire x1="25.85" y1="28" x2="25.85" y2="30" width="0" layer="19" extent="16-16"/>
+<wire x1="27.65" y1="23" x2="23.35" y2="48.45" width="0" layer="19" extent="1-16"/>
+<wire x1="27.65" y1="21" x2="27.65" y2="23" width="0" layer="19" extent="16-16"/>
 </signal>
 <signal name="TDI">
 <contactref element="J3" pad="9"/>
 <contactref element="U1" pad="H14"/>
-<wire x1="4.3191" y1="29.08" x2="39.5" y2="37.5" width="0" layer="19" extent="1-1"/>
+<wire x1="8.1209" y1="32.54" x2="39.5" y2="37.5" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="VPUMP">
 <contactref element="J3" pad="7"/>
@@ -14363,19 +14347,22 @@ design rules under a new name.</description>
 <signal name="TMS">
 <contactref element="J3" pad="5"/>
 <contactref element="U1" pad="G14"/>
-<wire x1="4.3191" y1="31.62" x2="39.5" y2="36.5" width="0" layer="19" extent="1-1"/>
+<wire x1="8.1209" y1="30" x2="11" y2="30" width="0.1524" layer="1"/>
+<wire x1="11" y1="30" x2="39.5" y2="36.5" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="TDO">
 <contactref element="J3" pad="3"/>
 <contactref element="U1" pad="H13"/>
-<wire x1="4.3191" y1="32.89" x2="40.5" y2="37.5" width="0" layer="19" extent="1-1"/>
+<wire x1="8.1209" y1="28.73" x2="10.98" y2="28.73" width="0.1524" layer="1"/>
+<wire x1="10.98" y1="28.73" x2="11" y2="28.75" width="0.1524" layer="1"/>
+<wire x1="11" y1="28.75" x2="40.5" y2="37.5" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="TCK">
 <contactref element="J3" pad="1"/>
 <contactref element="U1" pad="G15"/>
 <contactref element="R65" pad="2"/>
-<wire x1="18.15" y1="30" x2="38.5" y2="36.5" width="0" layer="19" extent="1-1"/>
-<wire x1="4.3191" y1="34.16" x2="18.15" y2="30" width="0" layer="19" extent="1-1"/>
+<wire x1="20.35" y1="23" x2="38.5" y2="36.5" width="0" layer="19" extent="1-1"/>
+<wire x1="8.1209" y1="27.46" x2="20.35" y2="23" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="VJTAG">
 <contactref element="J3" pad="6"/>
@@ -14384,75 +14371,75 @@ design rules under a new name.</description>
 <contactref element="J3" pad="8"/>
 <contactref element="U1" pad="G13"/>
 <contactref element="R64" pad="2"/>
-<wire x1="18.15" y1="28" x2="40.5" y2="36.5" width="0" layer="19" extent="1-1"/>
-<wire x1="8.5609" y1="30.35" x2="18.15" y2="28" width="0" layer="19" extent="1-1"/>
+<wire x1="20.35" y1="21" x2="40.5" y2="36.5" width="0" layer="19" extent="1-1"/>
+<wire x1="3.8791" y1="31.27" x2="20.35" y2="21" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="JTAGSEL">
 <contactref element="U1" pad="H15"/>
 <contactref element="J8" pad="2"/>
-<wire x1="14.15" y1="32" x2="38.5" y2="37.5" width="0" layer="19" extent="1-1"/>
+<wire x1="24" y1="30.15" x2="38.5" y2="37.5" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$47">
 <contactref element="U6" pad="24"/>
 <contactref element="R68" pad="2"/>
-<wire x1="77" y1="24.85" x2="71.25" y2="36.2" width="0" layer="19" extent="1-1"/>
+<wire x1="77" y1="24.85" x2="71.25" y2="30.2" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$51">
 <contactref element="U6" pad="17"/>
 <contactref element="J7" pad="11"/>
 <contactref element="R74" pad="1"/>
-<wire x1="74.064" y1="36.856" x2="74.75" y2="36.2" width="0" layer="19" extent="1-1"/>
-<wire x1="83.15" y1="28" x2="74.75" y2="36.2" width="0" layer="19" extent="1-1"/>
+<wire x1="74.75" y1="30.2" x2="83.15" y2="28" width="0" layer="19" extent="1-1"/>
+<wire x1="73.064" y1="36.606" x2="74.75" y2="30.2" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$52">
 <contactref element="U6" pad="16"/>
 <contactref element="J7" pad="10"/>
 <contactref element="R75" pad="1"/>
-<wire x1="72.032" y1="36.856" x2="75.25" y2="36.2" width="0" layer="19" extent="1-1"/>
-<wire x1="83.15" y1="30" x2="75.25" y2="36.2" width="0" layer="19" extent="1-1"/>
+<wire x1="75.25" y1="30.2" x2="83.15" y2="30" width="0" layer="19" extent="1-1"/>
+<wire x1="71.032" y1="36.606" x2="75.25" y2="30.2" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$54">
 <contactref element="U6" pad="14"/>
 <contactref element="J7" pad="4"/>
 <contactref element="R76" pad="1"/>
-<wire x1="71.016" y1="39.396" x2="76.25" y2="36.2" width="0" layer="19" extent="1-1"/>
-<wire x1="83.15" y1="32" x2="76.25" y2="36.2" width="0" layer="19" extent="1-1"/>
+<wire x1="76.25" y1="30.2" x2="83.15" y2="32" width="0" layer="19" extent="1-1"/>
+<wire x1="70.016" y1="39.146" x2="76.25" y2="30.2" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$55">
 <contactref element="U6" pad="13"/>
 <contactref element="J7" pad="5"/>
 <contactref element="R77" pad="1"/>
-<wire x1="76.75" y1="36.2" x2="83.15" y2="34" width="0" layer="19" extent="1-1"/>
-<wire x1="73.048" y1="39.396" x2="76.75" y2="36.2" width="0" layer="19" extent="1-1"/>
+<wire x1="76.75" y1="30.2" x2="83.15" y2="34" width="0" layer="19" extent="1-1"/>
+<wire x1="72.048" y1="39.146" x2="76.75" y2="30.2" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$58">
 <contactref element="J7" pad="14"/>
 <contactref element="R70" pad="1"/>
-<wire x1="59.85" y1="53" x2="62.4816" y2="54.89" width="0" layer="19" extent="1-1"/>
+<wire x1="59.85" y1="53" x2="61.4816" y2="54.64" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$59">
 <contactref element="J7" pad="16"/>
 <contactref element="R69" pad="1"/>
-<wire x1="77.5184" y1="52.35" x2="81.85" y2="53" width="0" layer="19" extent="1-1"/>
+<wire x1="76.5184" y1="52.1" x2="81.85" y2="53" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="LED_ETH_ACT">
 <contactref element="J7" pad="13"/>
 <contactref element="U6" pad="26"/>
 <contactref element="R71" pad="1"/>
-<wire x1="69.8" y1="34.25" x2="62.4816" y2="52.35" width="0" layer="19" extent="1-1"/>
-<wire x1="80.15" y1="29" x2="69.8" y2="34.25" width="0" layer="19" extent="1-16"/>
+<wire x1="69.8" y1="28.25" x2="61.4816" y2="52.1" width="0" layer="19" extent="1-1"/>
+<wire x1="80.15" y1="29" x2="69.8" y2="28.25" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="MAC_LED_LINK">
 <contactref element="U6" pad="28"/>
 <contactref element="J7" pad="17"/>
 <contactref element="R73" pad="1"/>
-<wire x1="80.15" y1="35" x2="77.5184" y2="54.89" width="0" layer="19" extent="16-16"/>
-<wire x1="69.8" y1="33.25" x2="80.15" y2="35" width="0" layer="19" extent="1-16"/>
+<wire x1="80.15" y1="35" x2="76.5184" y2="54.64" width="0" layer="19" extent="16-16"/>
+<wire x1="69.8" y1="27.25" x2="80.15" y2="35" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="LED_ETH_SPD">
 <contactref element="J7" pad="15"/>
 <contactref element="R26" pad="2"/>
-<wire x1="62.85" y1="33" x2="77.5184" y2="49.81" width="0" layer="19" extent="1-1"/>
+<wire x1="62.85" y1="33" x2="76.5184" y2="49.56" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="E3V3">
 <contactref element="J7" pad="6"/>
@@ -14480,32 +14467,40 @@ design rules under a new name.</description>
 <wire x1="73" y1="22.15" x2="75" y2="23.85" width="0" layer="19" extent="16-16"/>
 <wire x1="68.85" y1="25" x2="73" y2="22.15" width="0" layer="19" extent="1-16"/>
 <wire x1="68.85" y1="27" x2="68.85" y2="25" width="0" layer="19" extent="1-1"/>
-<wire x1="76.096" y1="36.856" x2="84.85" y2="36" width="0" layer="19" extent="1-1"/>
-<wire x1="75.08" y1="39.396" x2="76.096" y2="36.856" width="0" layer="19" extent="1-1"/>
-<wire x1="72.25" y1="36.2" x2="76.096" y2="36.856" width="0" layer="19" extent="1-1"/>
-<wire x1="61.15" y1="39" x2="72.25" y2="36.2" width="0" layer="19" extent="1-1"/>
+<wire x1="72.25" y1="30.2" x2="68.85" y2="27" width="0" layer="19" extent="1-1"/>
+<wire x1="75.096" y1="36.606" x2="72.25" y2="30.2" width="0" layer="19" extent="1-1"/>
+<wire x1="74.08" y1="39.146" x2="75.096" y2="36.606" width="0" layer="19" extent="1-1"/>
+<wire x1="61.15" y1="39" x2="74.08" y2="39.146" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MAC_MDC">
 <contactref element="U1" pad="K2"/>
 <contactref element="U6" pad="31"/>
-<wire x1="51.5" y1="39.5" x2="69.8" y2="31.75" width="0" layer="19" extent="1-1"/>
+<wire x1="51.5" y1="39.5" x2="52" y2="39" width="0.1524" layer="1"/>
+<wire x1="52" y1="39" x2="55.25" y2="39" width="0.1524" layer="1"/>
+<wire x1="55.25" y1="39" x2="57" y2="37.25" width="0.1524" layer="1"/>
+<wire x1="57" y1="37.25" x2="69.8" y2="25.75" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MAC_MDIO">
 <contactref element="U1" pad="K1"/>
 <contactref element="U6" pad="30"/>
 <contactref element="R84" pad="1"/>
-<wire x1="67" y1="35.15" x2="69.8" y2="32.25" width="0" layer="19" extent="1-1"/>
-<wire x1="52.5" y1="39.5" x2="67" y2="35.15" width="0" layer="19" extent="1-1"/>
+<wire x1="52.5" y1="39.5" x2="55.5" y2="39.5" width="0.1524" layer="1"/>
+<wire x1="55.5" y1="39.5" x2="57" y2="38" width="0.1524" layer="1"/>
+<wire x1="69.8" y1="26.25" x2="67" y2="35.15" width="0" layer="19" extent="1-1"/>
+<wire x1="57" y1="38" x2="67" y2="35.15" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MAC_TXEN">
 <contactref element="U1" pad="L2"/>
 <contactref element="R83" pad="1"/>
-<wire x1="51.5" y1="40.5" x2="61.15" y2="31" width="0" layer="19" extent="1-1"/>
+<wire x1="51.5" y1="40.5" x2="52" y2="41" width="0.1524" layer="1"/>
+<wire x1="52" y1="41" x2="55.75" y2="41" width="0.1524" layer="1"/>
+<wire x1="55.75" y1="41" x2="61.15" y2="31" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MAC_TXD0">
 <contactref element="U1" pad="M1"/>
 <contactref element="R82" pad="1"/>
-<wire x1="58.15" y1="31" x2="52.5" y2="41.5" width="0" layer="19" extent="1-1"/>
+<wire x1="52.5" y1="41.5" x2="55.75" y2="41.5" width="0.1524" layer="1"/>
+<wire x1="58.15" y1="31" x2="55.75" y2="41.5" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MAC_TXD1">
 <contactref element="U1" pad="M2"/>
@@ -14517,9 +14512,11 @@ design rules under a new name.</description>
 <contactref element="U6" pad="40"/>
 <contactref element="R86" pad="2"/>
 <contactref element="R86" pad="1"/>
-<wire x1="62.85" y1="29" x2="72.75" y2="27.8" width="0" layer="19" extent="1-1"/>
+<wire x1="50.5" y1="40.5" x2="51" y2="40" width="0.1524" layer="1"/>
+<wire x1="51" y1="40" x2="56" y2="40" width="0.1524" layer="1"/>
+<wire x1="62.85" y1="29" x2="72.75" y2="21.8" width="0" layer="19" extent="1-1"/>
 <wire x1="61.15" y1="29" x2="62.85" y2="29" width="0" layer="19" extent="1-1"/>
-<wire x1="50.5" y1="40.5" x2="61.15" y2="29" width="0" layer="19" extent="1-1"/>
+<wire x1="56" y1="40" x2="61.15" y2="29" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MAC_RXER">
 <contactref element="U1" pad="L4"/>
@@ -14539,37 +14536,37 @@ design rules under a new name.</description>
 <signal name="N$56">
 <contactref element="U6" pad="3"/>
 <contactref element="R82" pad="2"/>
-<wire x1="59.85" y1="31" x2="78.2" y2="30.25" width="0" layer="19" extent="1-1"/>
+<wire x1="59.85" y1="31" x2="78.2" y2="24.25" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$57">
 <contactref element="U6" pad="2"/>
 <contactref element="R83" pad="2"/>
-<wire x1="62.85" y1="31" x2="78.2" y2="29.75" width="0" layer="19" extent="1-1"/>
+<wire x1="62.85" y1="31" x2="78.2" y2="23.75" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$60">
 <contactref element="U6" pad="4"/>
 <contactref element="R81" pad="2"/>
-<wire x1="59.85" y1="33" x2="78.2" y2="30.75" width="0" layer="19" extent="1-1"/>
+<wire x1="59.85" y1="33" x2="78.2" y2="24.75" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$61">
 <contactref element="U6" pad="41"/>
 <contactref element="R78" pad="2"/>
-<wire x1="59.85" y1="35" x2="73.25" y2="27.8" width="0" layer="19" extent="1-1"/>
+<wire x1="59.85" y1="35" x2="73.25" y2="21.8" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$62">
 <contactref element="U6" pad="39"/>
 <contactref element="R85" pad="1"/>
-<wire x1="72.25" y1="27.8" x2="79.15" y2="37" width="0" layer="19" extent="1-1"/>
+<wire x1="72.25" y1="21.8" x2="79.15" y2="37" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$66">
 <contactref element="R79" pad="2"/>
 <contactref element="U6" pad="43"/>
-<wire x1="59.85" y1="37" x2="74.25" y2="27.8" width="0" layer="19" extent="1-1"/>
+<wire x1="74.25" y1="21.8" x2="59.85" y2="37" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$67">
 <contactref element="U6" pad="44"/>
 <contactref element="R80" pad="2"/>
-<wire x1="59.85" y1="39" x2="74.75" y2="27.8" width="0" layer="19" extent="1-1"/>
+<wire x1="74.75" y1="21.8" x2="59.85" y2="39" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="PFBOUT">
 <contactref element="U6" pad="23"/>
@@ -14579,27 +14576,27 @@ design rules under a new name.</description>
 <contactref element="U6" pad="18"/>
 <contactref element="C85" pad="1"/>
 <contactref element="C84" pad="1"/>
-<wire x1="71.75" y1="36.2" x2="74.25" y2="36.2" width="0" layer="19" extent="1-1"/>
-<wire x1="71.25" y1="27.8" x2="71.75" y2="36.2" width="0" layer="19" extent="1-1"/>
-<wire x1="71" y1="23.85" x2="71.25" y2="27.8" width="0" layer="19" extent="1-16"/>
+<wire x1="71.75" y1="30.2" x2="74.25" y2="30.2" width="0" layer="19" extent="1-1"/>
+<wire x1="71" y1="23.85" x2="71.75" y2="30.2" width="0" layer="19" extent="1-16"/>
 <wire x1="69" y1="23.85" x2="71" y2="23.85" width="0" layer="19" extent="16-16"/>
 <wire x1="67" y1="23.85" x2="69" y2="23.85" width="0" layer="19" extent="16-16"/>
 <wire x1="65" y1="23.85" x2="67" y2="23.85" width="0" layer="19" extent="16-16"/>
+<wire x1="71.25" y1="21.8" x2="71" y2="23.85" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="!MAC_PWDN">
 <contactref element="U6" pad="7"/>
-<contactref element="U1" pad="D11"/>
-<wire x1="42.5" y1="33.5" x2="78.2" y2="32.25" width="0" layer="19" extent="1-1"/>
+<contactref element="U1" pad="F1"/>
+<wire x1="52.5" y1="35.5" x2="78.2" y2="26.25" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$63">
 <contactref element="U6" pad="21"/>
 <contactref element="R89" pad="1"/>
-<wire x1="75" y1="22.15" x2="72.75" y2="36.2" width="0" layer="19" extent="1-16"/>
+<wire x1="75" y1="22.15" x2="72.75" y2="30.2" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="N$64">
 <contactref element="U6" pad="20"/>
 <contactref element="R88" pad="1"/>
-<wire x1="73" y1="23.85" x2="73.25" y2="36.2" width="0" layer="19" extent="1-16"/>
+<wire x1="73" y1="23.85" x2="73.25" y2="30.2" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="N$65">
 <contactref element="C90" pad="1"/>
@@ -14608,23 +14605,23 @@ design rules under a new name.</description>
 <contactref element="SW1" pad="2$1"/>
 <contactref element="SW1" pad="2$2"/>
 <contactref element="R93" pad="2"/>
-<wire x1="12" y1="21.15" x2="14" y2="21.15" width="0" layer="19" extent="1-1"/>
-<wire x1="12.15" y1="20" x2="12" y2="21.15" width="0" layer="19" extent="1-1"/>
-<wire x1="13.85" y1="18" x2="12.15" y2="20" width="0" layer="19" extent="1-1"/>
-<wire x1="9" y1="18.1" x2="12.15" y2="20" width="0" layer="19" extent="1-1"/>
-<wire x1="9" y1="23.9" x2="12" y2="21.15" width="0" layer="19" extent="1-1"/>
+<wire x1="26" y1="12.1" x2="26" y2="17.9" width="0" layer="19" extent="1-1"/>
+<wire x1="15" y1="18.35" x2="26" y2="17.9" width="0" layer="19" extent="1-1"/>
+<wire x1="13" y1="18.35" x2="15" y2="18.35" width="0" layer="19" extent="1-1"/>
+<wire x1="13.35" y1="17" x2="13" y2="18.35" width="0" layer="19" extent="1-1"/>
+<wire x1="14.65" y1="15" x2="13.35" y2="17" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="!MSS_RESET">
 <contactref element="R92" pad="2"/>
 <contactref element="U1" pad="K4"/>
 <contactref element="U6" pad="29"/>
-<wire x1="49.5" y1="39.5" x2="69.8" y2="32.75" width="0" layer="19" extent="1-1"/>
-<wire x1="12" y1="22.85" x2="49.5" y2="39.5" width="0" layer="19" extent="1-1"/>
+<wire x1="49.5" y1="39.5" x2="69.8" y2="26.75" width="0" layer="19" extent="1-1"/>
+<wire x1="13" y1="19.65" x2="49.5" y2="39.5" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$69">
 <contactref element="R93" pad="1"/>
 <contactref element="U8" pad="1"/>
-<wire x1="12.15" y1="18" x2="15.85" y2="19.95" width="0" layer="19" extent="1-1"/>
+<wire x1="13.35" y1="15" x2="16.85" y2="16.95" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$70">
 <contactref element="J2" pad="14"/>
@@ -14648,9 +14645,9 @@ design rules under a new name.</description>
 <via x="34.5" y="10.5" extent="1-16" drill="0.13"/>
 <wire x1="34.5" y1="10.5" x2="34.5" y2="8.75" width="0.1524" layer="16"/>
 <wire x1="34.5" y1="10.5" x2="37.5" y2="45.5" width="0" layer="19" extent="1-1"/>
-<wire x1="13.15" y1="14" x2="34.5" y2="10.5" width="0" layer="19" extent="1-1"/>
-<wire x1="9" y1="11.9" x2="13.15" y2="14" width="0" layer="19" extent="1-1"/>
-<wire x1="9" y1="6.1" x2="9" y2="11.9" width="0" layer="19" extent="1-1"/>
+<wire x1="14.35" y1="11" x2="34.5" y2="10.5" width="0" layer="19" extent="1-1"/>
+<wire x1="8.5" y1="15.1" x2="14.35" y2="11" width="0" layer="19" extent="1-1"/>
+<wire x1="8.5" y1="20.9" x2="8.5" y2="15.1" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="CLK1">
 <contactref element="J2" pad="24"/>
@@ -14661,17 +14658,17 @@ design rules under a new name.</description>
 <signal name="N$68">
 <contactref element="U1" pad="R1"/>
 <contactref element="C91" pad="1"/>
-<wire x1="53.85" y1="30" x2="52.5" y2="44.5" width="0" layer="19" extent="1-16"/>
+<wire x1="52.5" y1="44.5" x2="55" y2="44.35" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="N$74">
 <contactref element="U1" pad="T1"/>
 <contactref element="C91" pad="2"/>
-<wire x1="52.15" y1="30" x2="52.5" y2="45.5" width="0" layer="19" extent="1-16"/>
+<wire x1="52.5" y1="45.5" x2="55" y2="45.65" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="MAIN_CLK_IN_EN">
 <contactref element="X1" pad="1"/>
 <contactref element="U1" pad="F14"/>
-<wire x1="32.75" y1="39" x2="39.5" y2="35.5" width="0" layer="19" extent="1-1"/>
+<wire x1="35.25" y1="37" x2="39.5" y2="35.5" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="U3V3">
 <contactref element="U5" pad="39"/>
@@ -14691,62 +14688,79 @@ design rules under a new name.</description>
 <contactref element="C104" pad="1"/>
 <contactref element="R63" pad="2"/>
 <contactref element="C105" pad="1"/>
-<wire x1="27.85" y1="39" x2="28.2" y2="40.75" width="0" layer="19" extent="1-16"/>
-<wire x1="25.75" y1="33.8" x2="27.85" y2="39" width="0" layer="19" extent="1-16"/>
-<wire x1="22.25" y1="33.8" x2="25.75" y2="33.8" width="0" layer="19" extent="1-1"/>
-<wire x1="19.15" y1="34" x2="22.25" y2="33.8" width="0" layer="19" extent="1-16"/>
-<wire x1="16.15" y1="36" x2="19.15" y2="34" width="0" layer="19" extent="1-16"/>
-<wire x1="16.85" y1="37" x2="16.15" y2="36" width="0" layer="19" extent="1-16"/>
-<wire x1="13.85" y1="37" x2="16.15" y2="36" width="0" layer="19" extent="1-16"/>
-<wire x1="13.85" y1="39" x2="13.85" y2="37" width="0" layer="19" extent="16-16"/>
-<wire x1="13.85" y1="33" x2="16.15" y2="36" width="0" layer="19" extent="1-16"/>
-<wire x1="13.85" y1="31" x2="13.85" y2="33" width="0" layer="19" extent="16-16"/>
-<wire x1="13.85" y1="29" x2="13.85" y2="31" width="0" layer="19" extent="16-16"/>
-<wire x1="22.95" y1="29.85" x2="22.25" y2="33.8" width="0" layer="19" extent="1-1"/>
-<wire x1="24.15" y1="28" x2="22.95" y2="29.85" width="0" layer="19" extent="1-16"/>
-<wire x1="24.15" y1="26" x2="24.15" y2="28" width="0" layer="19" extent="16-16"/>
-<wire x1="28.85" y1="28" x2="24.15" y2="28" width="0" layer="19" extent="16-16"/>
-<wire x1="21.25" y1="42.2" x2="16.85" y2="37" width="0" layer="19" extent="1-16"/>
-</signal>
-<signal name="N$75">
-<contactref element="R96" pad="2"/>
+<wire x1="15.8" y1="35.25" x2="17.25" y2="35.25" width="0.3048" layer="1"/>
+<via x="17.25" y="35.25" extent="1-16" drill="0.13"/>
+<via x="22.75" y="35.25" extent="1-16" drill="0.13"/>
+<wire x1="22.75" y1="35.25" x2="22.75" y2="33.8" width="0.3048" layer="1"/>
+<wire x1="21.75" y1="42.2" x2="21.75" y2="40.75" width="0.3048" layer="1"/>
+<via x="21.75" y="40.75" extent="1-16" drill="0.13"/>
+<wire x1="18.25" y1="42.2" x2="18.25" y2="40.75" width="0.3048" layer="1"/>
+<via x="18.25" y="40.75" extent="1-16" drill="0.13"/>
+<wire x1="18.25" y1="40.75" x2="21.75" y2="40.75" width="0.3048" layer="3"/>
+<wire x1="21.75" y1="40.75" x2="21.75" y2="37.25" width="0.3048" layer="3"/>
+<wire x1="17.25" y1="35.25" x2="19.75" y2="35.25" width="0.3048" layer="3"/>
+<wire x1="17.25" y1="35.25" x2="15.9" y2="35.25" width="0.1524" layer="16"/>
+<wire x1="22.75" y1="35.25" x2="22.75" y2="36.25" width="0.3048" layer="3"/>
+<wire x1="22.75" y1="36.25" x2="21.75" y2="37.25" width="0.3048" layer="3"/>
+<wire x1="21.75" y1="37.25" x2="19.75" y2="35.25" width="0.3048" layer="3"/>
+<wire x1="21.75" y1="42.2" x2="25.65" y2="48.45" width="0" layer="19" extent="1-1"/>
+<wire x1="19.35" y1="34" x2="19.75" y2="35.25" width="0" layer="19" extent="3-16"/>
+<wire x1="12.25" y1="34.65" x2="15.8" y2="35.25" width="0" layer="19" extent="1-1"/>
+<wire x1="9.85" y1="37" x2="12.25" y2="34.65" width="0" layer="19" extent="1-16"/>
+<wire x1="11.65" y1="39" x2="9.85" y2="37" width="0" layer="19" extent="16-16"/>
+<wire x1="10.65" y1="41" x2="11.65" y2="39" width="0" layer="19" extent="16-16"/>
+<wire x1="6.65" y1="37" x2="9.85" y2="37" width="0" layer="19" extent="16-16"/>
+<wire x1="15.65" y1="24" x2="19.35" y2="34" width="0" layer="19" extent="16-16"/>
+<wire x1="15.65" y1="22" x2="15.65" y2="24" width="0" layer="19" extent="16-16"/>
+<wire x1="26.35" y1="21" x2="15.65" y2="22" width="0" layer="19" extent="16-16"/>
+<wire x1="26.35" y1="19" x2="26.35" y2="21" width="0" layer="19" extent="16-16"/>
+<wire x1="30.65" y1="21" x2="26.35" y2="21" width="0" layer="19" extent="16-16"/>
 </signal>
 <signal name="VREGIN">
 <contactref element="B2" pad="2"/>
 <contactref element="U5" pad="40"/>
 <contactref element="C94" pad="1"/>
 <contactref element="C93" pad="1"/>
-<wire x1="16.85" y1="33" x2="22.75" y2="33.8" width="0" layer="19" extent="1-16"/>
-<wire x1="16.85" y1="31" x2="16.85" y2="33" width="0" layer="19" extent="16-16"/>
-<wire x1="15.15" y1="28" x2="16.85" y2="31" width="0" layer="19" extent="16-16"/>
+<wire x1="20" y1="45.15" x2="21.35" y2="47" width="0" layer="19" extent="16-16"/>
+<wire x1="22.65" y1="45" x2="21.35" y2="47" width="0" layer="19" extent="16-16"/>
+<wire x1="21.25" y1="42.2" x2="22.65" y2="45" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="VCORE">
 <contactref element="U5" pad="38"/>
 <contactref element="C95" pad="1"/>
-<wire x1="16.85" y1="35" x2="21.75" y2="33.8" width="0" layer="19" extent="1-16"/>
+<wire x1="11.65" y1="34" x2="22.25" y2="42.2" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="VCCA">
 <contactref element="U5" pad="37"/>
 <contactref element="C107" pad="1"/>
-<wire x1="19.15" y1="38" x2="21.25" y2="33.8" width="0" layer="19" extent="1-16"/>
+<wire x1="22.75" y1="42.2" x2="25.35" y2="43" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="VPHY">
 <contactref element="B3" pad="2"/>
 <contactref element="C96" pad="1"/>
 <contactref element="C97" pad="1"/>
 <contactref element="U5" pad="3"/>
-<wire x1="16.85" y1="39" x2="28.2" y2="36.25" width="0" layer="19" extent="1-16"/>
-<wire x1="16.85" y1="41" x2="16.85" y2="39" width="0" layer="19" extent="16-16"/>
-<wire x1="15.15" y1="37" x2="16.85" y2="39" width="0" layer="19" extent="16-16"/>
+<wire x1="15.8" y1="39.75" x2="17" y2="39.75" width="0.1524" layer="1"/>
+<via x="17" y="39.75" extent="1-16" drill="0.13"/>
+<wire x1="17.85" y1="40.5" x2="17.1" y2="39.75" width="0.1524" layer="16"/>
+<wire x1="17.85" y1="39" x2="17.1" y2="39.75" width="0.1524" layer="16"/>
+<wire x1="17.1" y1="39.75" x2="17" y2="39.75" width="0.1524" layer="16"/>
+<wire x1="8.15" y1="37" x2="15.8" y2="39.75" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="VPLL">
 <contactref element="B4" pad="2"/>
 <contactref element="C99" pad="1"/>
 <contactref element="C98" pad="1"/>
 <contactref element="U5" pad="8"/>
-<wire x1="26.15" y1="39" x2="28.2" y2="38.75" width="0" layer="19" extent="1-16"/>
-<wire x1="13.85" y1="41" x2="26.15" y2="39" width="0" layer="19" extent="16-16"/>
-<wire x1="13.85" y1="35" x2="13.85" y2="41" width="0" layer="19" extent="16-16"/>
+<wire x1="12.9" y1="37.25" x2="14.5" y2="37.25" width="0.1524" layer="16"/>
+<via x="14.5" y="37.25" extent="1-16" drill="0.13"/>
+<wire x1="14.5" y1="37.25" x2="15.75" y2="37.25" width="0.1524" layer="1"/>
+<wire x1="12.9" y1="36" x2="13.75" y2="36" width="0.1524" layer="16"/>
+<wire x1="13.75" y1="36" x2="14.5" y2="36.75" width="0.1524" layer="16"/>
+<wire x1="14.5" y1="36.75" x2="14.5" y2="37.25" width="0.1524" layer="16"/>
+<wire x1="12.25" y1="36.35" x2="13.15" y2="37.25" width="0.1524" layer="1"/>
+<wire x1="13.15" y1="37.25" x2="14.5" y2="37.25" width="0.1524" layer="1"/>
+<wire x1="15.75" y1="37.25" x2="15.8" y2="37.25" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="ACBUS8">
 <contactref element="U5" pad="32"/>
@@ -14757,22 +14771,22 @@ design rules under a new name.</description>
 <signal name="N$78">
 <contactref element="LED2" pad="2"/>
 <contactref element="R98" pad="1"/>
-<wire x1="11.15" y1="46" x2="13.75" y2="54" width="0" layer="19" extent="1-1"/>
+<wire x1="12.1" y1="51" x2="12.25" y2="54" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="N$79">
 <contactref element="LED1" pad="2"/>
 <contactref element="R97" pad="1"/>
-<wire x1="11.15" y1="49" x2="7.75" y2="54" width="0" layer="19" extent="1-1"/>
+<wire x1="6.15" y1="51" x2="6.25" y2="54" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="LED2">
 <contactref element="U1" pad="D15"/>
 <contactref element="LED2" pad="1"/>
-<wire x1="10.25" y1="54" x2="38.5" y2="33.5" width="0" layer="19" extent="1-1"/>
+<wire x1="8.75" y1="54" x2="38.5" y2="33.5" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="LED1">
 <contactref element="U1" pad="D14"/>
 <contactref element="LED1" pad="1"/>
-<wire x1="4.25" y1="54" x2="39.5" y2="33.5" width="0" layer="19" extent="1-1"/>
+<wire x1="2.75" y1="54" x2="39.5" y2="33.5" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SF_CM1">
 <contactref element="U1" pad="P6"/>
@@ -14816,26 +14830,26 @@ design rules under a new name.</description>
 <signal name="N$9">
 <contactref element="R67" pad="1"/>
 <contactref element="J8" pad="1"/>
-<wire x1="11.85" y1="33.75" x2="16.85" y2="32" width="0" layer="19" extent="1-1"/>
+<wire x1="19.65" y1="27" x2="22.25" y2="27.85" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$13">
 <contactref element="R66" pad="2"/>
 <contactref element="J8" pad="3"/>
-<wire x1="11.85" y1="30.25" x2="22" y2="18.85" width="0" layer="19" extent="1-1"/>
+<wire x1="25.75" y1="27.85" x2="28.35" y2="27" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$17">
 <contactref element="U6" pad="27"/>
 <contactref element="R26" pad="1"/>
 <contactref element="R72" pad="1"/>
-<wire x1="69.8" y1="33.75" x2="80.15" y2="32" width="0" layer="19" extent="1-16"/>
-<wire x1="61.15" y1="33" x2="69.8" y2="33.75" width="0" layer="19" extent="1-1"/>
+<wire x1="69.8" y1="27.75" x2="80.15" y2="32" width="0" layer="19" extent="1-16"/>
+<wire x1="61.15" y1="33" x2="69.8" y2="27.75" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="EGND">
 <contactref element="J7" pad="H$1"/>
 <contactref element="J7" pad="H$2"/>
 <contactref element="C108" pad="2"/>
-<wire x1="62.85" y1="41" x2="78.79" y2="46" width="0" layer="19" extent="1-1"/>
-<wire x1="61.21" y1="46" x2="62.85" y2="41" width="0" layer="19" extent="1-1"/>
+<wire x1="62.85" y1="41" x2="77.79" y2="45.75" width="0" layer="19" extent="1-1"/>
+<wire x1="60.21" y1="45.75" x2="62.85" y2="41" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="VCCRCOSC">
 </signal>
@@ -14847,12 +14861,12 @@ design rules under a new name.</description>
 <signal name="EXT_CLK_OUT_EN">
 <contactref element="U9" pad="8"/>
 <contactref element="U1" pad="F12"/>
-<wire x1="41.5" y1="35.5" x2="38.75" y2="49.4" width="0" layer="19" extent="1-1"/>
+<wire x1="41.5" y1="35.5" x2="37.6" y2="49.75" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="EXT_CLK_OUT_BUF">
 <contactref element="J6" pad="PINAAA"/>
 <contactref element="U9" pad="7"/>
-<wire x1="38.25" y1="49.4" x2="49" y2="53.9426" width="0" layer="19" extent="1-1"/>
+<wire x1="37.6" y1="49.25" x2="37" y2="53.9426" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="AUX_ADC3">
 <contactref element="U3" pad="35"/>
@@ -14863,12 +14877,12 @@ design rules under a new name.</description>
 <signal name="N$1">
 <contactref element="U1" pad="K16"/>
 <contactref element="R3" pad="2"/>
-<wire x1="37.5" y1="39.5" x2="33.65" y2="44" width="0" layer="19" extent="1-1"/>
+<wire x1="37.5" y1="39.5" x2="33.65" y2="42.75" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$5">
 <contactref element="U1" pad="K12"/>
 <contactref element="R4" pad="2"/>
-<wire x1="33.65" y1="42" x2="41.5" y2="39.5" width="0" layer="19" extent="1-1"/>
+<wire x1="33.65" y1="44" x2="41.5" y2="39.5" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="I2C0_SDA">
 <contactref element="U1" pad="J13"/>
@@ -14883,7 +14897,6 @@ design rules under a new name.</description>
 <contactref element="U1" pad="E16"/>
 </signal>
 <signal name="AFE1_CLK">
-<contactref element="U1" pad="C14"/>
 <contactref element="U2" pad="6"/>
 <wire x1="43.5" y1="20.75" x2="44.25" y2="20.75" width="0.1524" layer="1"/>
 <via x="44.25" y="20.75" extent="1-16" drill="0.13"/>
@@ -14894,10 +14907,8 @@ design rules under a new name.</description>
 <wire x1="43.25" y1="24.5" x2="43.25" y2="25.25" width="0.1524" layer="1"/>
 <wire x1="43.25" y1="25.25" x2="46.5" y2="28.5" width="0.1524" layer="1"/>
 <wire x1="46.5" y1="30.5" x2="46.5" y2="28.5" width="0.1524" layer="1"/>
-<wire x1="46.5" y1="30.5" x2="39.5" y2="32.5" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="AFE2_CLK">
-<contactref element="U1" pad="D13"/>
 <contactref element="U3" pad="6"/>
 <wire x1="60.5" y1="20.75" x2="61.25" y2="20.75" width="0.1524" layer="1"/>
 <via x="61.25" y="20.75" extent="1-16" drill="0.13"/>
@@ -14908,7 +14919,6 @@ design rules under a new name.</description>
 <contactref element="U1" pad="E1"/>
 <wire x1="60.25" y1="27.75" x2="53.5" y2="34.5" width="0.1524" layer="1"/>
 <wire x1="53.5" y1="34.5" x2="52.5" y2="34.5" width="0.1524" layer="1"/>
-<wire x1="40.5" y1="33.5" x2="52.5" y2="34.5" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="AFE2_DB0">
 <contactref element="U3" pad="13"/>
@@ -14966,6 +14976,23 @@ design rules under a new name.</description>
 </signal>
 <signal name="N$6">
 <contactref element="U1" pad="G5"/>
+</signal>
+<signal name="USB_CLKF">
+<contactref element="U5" pad="29"/>
+<contactref element="R96" pad="1"/>
+<wire x1="26.6" y1="37.25" x2="24.2" y2="37.25" width="0.1524" layer="1"/>
+</signal>
+<signal name="USB_DB1">
+<contactref element="U5" pad="14"/>
+<wire x1="17.75" y1="33.8" x2="17.75" y2="32.75" width="0.1524" layer="1"/>
+<contactref element="U1" pad="D9"/>
+<wire x1="17.75" y1="33.8" x2="44.5" y2="33.5" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="USB_DB4">
+<contactref element="U1" pad="D11"/>
+<contactref element="U5" pad="17"/>
+<wire x1="19.25" y1="33.8" x2="19.25" y2="32.75" width="0.1524" layer="1"/>
+<wire x1="19.25" y1="33.8" x2="42.5" y2="33.5" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 </board>
