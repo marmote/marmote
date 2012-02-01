@@ -23473,10 +23473,13 @@ Source: &lt;a href="http://www.ndk.com/images/products/catalog/c_NX3225GA-STD-CR
 </libraries>
 <attributes>
 <attribute name="DESIGNER" value="Sandor Szilvasi"/>
+<attribute name="DESIGNEREMAIL" value="sandor.szilvasi@gmail.com"/>
 <attribute name="PAGE1" value="Cover Page"/>
 <attribute name="PAGE2" value="Radio and Antenna"/>
 <attribute name="REVISION" value="A"/>
 <attribute name="TITLE" value="M6-RF315"/>
+<attribute name="VERIFIER" value=" "/>
+<attribute name="VERIFIEREMAIL" value=" "/>
 </attributes>
 <variantdefs>
 </variantdefs>
@@ -23611,6 +23614,10 @@ Source: &lt;a href="http://www.ndk.com/images/products/catalog/c_NX3225GA-STD-CR
 <text x="73.66" y="106.68" size="5.08" layer="97">315 MHz radio transceiver module</text>
 <text x="74.93" y="83.82" size="5.08" layer="97">http://marmote.googlecode.com</text>
 <text x="86.36" y="99.06" size="5.08" layer="97">for the Marmote platform</text>
+<text x="161.29" y="20.32" size="2.54" layer="95" rot="MR0">&gt;DESIGNEREMAIL</text>
+<text x="85.09" y="20.32" size="2.54" layer="95">&gt;DESIGNER</text>
+<text x="85.09" y="5.08" size="2.54" layer="95">&gt;VERIFIER</text>
+<text x="161.29" y="5.08" size="2.54" layer="95" rot="MR0">&gt;VERIFIEREMAIL</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
