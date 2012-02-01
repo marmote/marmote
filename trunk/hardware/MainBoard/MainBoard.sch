@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.05" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="no"/>
@@ -48,8 +48,8 @@
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="yes" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="no"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="51" name="tDocu" color="14" fill="1" visible="yes" active="no"/>
+<layer number="52" name="bDocu" color="11" fill="1" visible="yes" active="no"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="yes" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="yes" active="no"/>
 <layer number="56" name="wert" color="7" fill="1" visible="yes" active="no"/>
@@ -20426,37 +20426,6 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ecx-31b.pdf"&gt;http://www.
 <text x="-1" y="1.25" size="0.4064" layer="25">&gt;NAME</text>
 <text x="-1" y="-1.5" size="0.4064" layer="27">&gt;VALUE</text>
 </package>
-<package name="ECX-2236">
-<description>&lt;b&gt;ECX-2236&lt;/b&gt;
-&lt;p&gt;
-ECS ECX-2236 2.5mm X 2.0mm ceramic package for SMD quartz crystals.
-&lt;p&gt;
-&lt;i&gt;Source: http://www.ecsxtal.com/store/pdf/ECX-2236.pdf&lt;/i&gt;</description>
-<wire x1="-1.573" y1="1.283" x2="1.573" y2="1.283" width="0.0508" layer="39"/>
-<wire x1="1.573" y1="1.283" x2="1.573" y2="-1.283" width="0.0508" layer="39"/>
-<wire x1="1.573" y1="-1.283" x2="-1.573" y2="-1.283" width="0.0508" layer="39"/>
-<wire x1="-1.573" y1="-1.283" x2="-1.573" y2="1.283" width="0.0508" layer="39"/>
-<wire x1="-1.25" y1="1" x2="1.25" y2="1" width="0.127" layer="51"/>
-<wire x1="1.25" y1="1" x2="1.25" y2="-1" width="0.127" layer="51"/>
-<wire x1="1.25" y1="-1" x2="-0.6" y2="-1" width="0.127" layer="51"/>
-<wire x1="-0.6" y1="-1" x2="-1.25" y2="-1" width="0.127" layer="51"/>
-<wire x1="-1.25" y1="-1" x2="-1.25" y2="1" width="0.127" layer="51"/>
-<wire x1="-1.2" y1="-0.4" x2="-0.8" y2="-0.4" width="0.127" layer="51"/>
-<wire x1="-0.8" y1="-0.4" x2="-0.6" y2="-0.6" width="0.127" layer="51"/>
-<wire x1="-0.6" y1="-0.6" x2="-0.6" y2="-1" width="0.127" layer="51"/>
-<circle x="-1.8" y="-1.5" radius="0.1" width="0.2032" layer="21"/>
-<smd name="4" x="-0.85" y="0.65" dx="1.2" dy="1" layer="1"/>
-<smd name="3" x="0.85" y="0.65" dx="1.2" dy="1" layer="1"/>
-<smd name="2" x="0.85" y="-0.65" dx="1.2" dy="1" layer="1"/>
-<smd name="1" x="-0.85" y="-0.65" dx="1.2" dy="1" layer="1"/>
-<text x="-0.889" y="1.3858" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-1.089" y="-1.743" size="0.4064" layer="27">&gt;VALUE</text>
-<rectangle x1="0.45" y1="-0.975" x2="1.25" y2="-0.325" layer="51"/>
-<rectangle x1="-1.25" y1="0.325" x2="-0.45" y2="0.975" layer="51"/>
-<rectangle x1="0.45" y1="0.325" x2="1.25" y2="0.975" layer="51"/>
-<rectangle x1="-1.2" y1="-1" x2="-0.8" y2="-0.4" layer="51"/>
-<rectangle x1="-0.8" y1="-1" x2="-0.6" y2="-0.5" layer="51"/>
-</package>
 <package name="C0402">
 <description>&lt;b&gt;C0402&lt;/b&gt;
 &lt;p&gt;
@@ -23783,48 +23752,6 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ecx-31b.pdf"&gt;http://www.
 </device>
 </devices>
 </deviceset>
-<deviceset name="ECX-2236" prefix="X">
-<description>&lt;b&gt;ECX-2236&lt;/b&gt;
-&lt;p&gt;
-Compact SMD crystal in 2.5 x 2.0 x 0.55 mm ceramic package.
-&lt;p&gt;
-Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://www.ecsxtal.com/store/pdf/ECX-2236.pdf&lt;/a&gt;
-&lt;p&gt;
-&lt;i&gt;&lt;b&gt;Note:&lt;/b&gt; Device has two GND pins named DGND&lt;/i&gt;</description>
-<gates>
-<gate name="P" symbol="CRYSTAL-4" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="ECX-2236">
-<connects>
-<connect gate="P" pin="1" pad="1"/>
-<connect gate="P" pin="2" pad="3"/>
-<connect gate="P" pin="DGND@1" pad="2"/>
-<connect gate="P" pin="DGND@2" pad="4"/>
-</connects>
-<technologies>
-<technology name="-160">
-<attribute name="CLOAD" value="8pF"/>
-<attribute name="DIGI-KEY#" value="XC1552CT-ND"/>
-<attribute name="FREQ" value="16 MHz"/>
-<attribute name="FREQ-STAB" value="10 ppm"/>
-<attribute name="FREQ-TOLERANCE" value="10 ppm"/>
-<attribute name="MF" value="ECS"/>
-<attribute name="MPN" value="ECS-160-8-36CKM "/>
-</technology>
-<technology name="-200">
-<attribute name="CLOAD" value="8pF"/>
-<attribute name="DIGI-KEY#" value="XC1552CT-ND"/>
-<attribute name="FREQ" value="20 MHz"/>
-<attribute name="FREQ-STAB" value="10 ppm"/>
-<attribute name="FREQ-TOLERANCE" value="10 ppm"/>
-<attribute name="MF" value="ECS"/>
-<attribute name="MPN" value="ECS-200-8-36CKM "/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="C" prefix="C" uservalue="yes">
 <description>&lt;b&gt;CAPACITOR&lt;/b&gt;</description>
 <gates>
@@ -24500,17 +24427,14 @@ Source:
 <part name="PORT48" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="X1" library="MainBoard" deviceset="FOX924B" device=""/>
 <part name="X3" library="MainBoard" deviceset="ECX-31B" device=""/>
-<part name="X2" library="MainBoard" deviceset="ECX-2236" device="" technology="-200"/>
 <part name="PORT49" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT50" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="U$20" library="MainBoard" deviceset="AGND" device=""/>
-<part name="C1" library="MainBoard" deviceset="C" device="0603" value="10pF"/>
-<part name="C2" library="MainBoard" deviceset="C" device="0603" value="10pF"/>
 <part name="U$22" library="MainBoard" deviceset="DGND" device=""/>
-<part name="C3" library="MainBoard" deviceset="C" device="0603" value="4pF"/>
-<part name="C4" library="MainBoard" deviceset="C" device="0603" value="4pF"/>
-<part name="R1" library="MainBoard" deviceset="R" device="0603" value="39"/>
-<part name="R2" library="MainBoard" deviceset="R" device="0603" value="39"/>
+<part name="C3" library="MainBoard" deviceset="C" device="0402" value="4pF"/>
+<part name="C4" library="MainBoard" deviceset="C" device="0402" value="4pF"/>
+<part name="R1" library="MainBoard" deviceset="R" device="0402" value="39"/>
+<part name="R2" library="MainBoard" deviceset="R" device="0402" value="39"/>
 <part name="PORT51" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT52" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="U$18" library="MainBoard" deviceset="A3V3" device=""/>
@@ -24808,8 +24732,8 @@ Source:
 </part>
 <part name="J1" library="MainBoard" deviceset="CON-71741" device="84-BOT" technology="-21"/>
 <part name="U$68" library="MainBoard" deviceset="DGND" device=""/>
-<part name="R55" library="MainBoard" deviceset="R" device="0603" value="0"/>
-<part name="R56" library="MainBoard" deviceset="R" device="0603" value="0"/>
+<part name="R55" library="MainBoard" deviceset="R" device="0402" value="0"/>
+<part name="R56" library="MainBoard" deviceset="R" device="0402" value="0"/>
 <part name="PORT172" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT173" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT174" library="MainBoard" deviceset="PORT5" device=""/>
@@ -24824,34 +24748,34 @@ Source:
 <part name="PORT181" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT190" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT191" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="R58" library="MainBoard" deviceset="R" device="0603" value="39k"/>
+<part name="R58" library="MainBoard" deviceset="R" device="0402" value="39k"/>
 <part name="U$72" library="MainBoard" deviceset="VBUS" device=""/>
 <part name="U$73" library="MainBoard" deviceset="DGND" device=""/>
-<part name="R59" library="MainBoard" deviceset="R" device="0603" value="12k">
+<part name="R59" library="MainBoard" deviceset="R" device="0402" value="12k">
 <attribute name="TOLERANCE" value="1%"/>
 </part>
 <part name="U$74" library="MainBoard" deviceset="DGND" device=""/>
 <part name="U$75" library="MainBoard" deviceset="DGND" device=""/>
 <part name="X5" library="MainBoard" deviceset="ECX-42" device="" technology="-120"/>
-<part name="C71" library="MainBoard" deviceset="C" device="0603" value="10pF"/>
-<part name="C72" library="MainBoard" deviceset="C" device="0603" value="10pF"/>
+<part name="C71" library="MainBoard" deviceset="C" device="0402" value="10pF"/>
+<part name="C72" library="MainBoard" deviceset="C" device="0402" value="10pF"/>
 <part name="U7" library="MainBoard" deviceset="93LC56BT" device="-OT"/>
 <part name="U$77" library="MainBoard" deviceset="DGND" device=""/>
 <part name="PORT192" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT193" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT194" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="R60" library="MainBoard" deviceset="R" device="0603" value="2k"/>
-<part name="R61" library="MainBoard" deviceset="R" device="0603" value="10k">
+<part name="R60" library="MainBoard" deviceset="R" device="0402" value="2k"/>
+<part name="R61" library="MainBoard" deviceset="R" device="0402" value="10k">
 <attribute name="TOLERANCE" value=""/>
 </part>
-<part name="R62" library="MainBoard" deviceset="R" device="0603" value="10k">
+<part name="R62" library="MainBoard" deviceset="R" device="0402" value="10k">
 <attribute name="DNP" value="ON"/>
 <attribute name="TOLERANCE" value=""/>
 </part>
 <part name="PORT195" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT196" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT197" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="C73" library="MainBoard" deviceset="C" device="0603" value="0.1uF"/>
+<part name="C73" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
 <part name="U$80" library="MainBoard" deviceset="DGND" device=""/>
 <part name="U$81" library="MainBoard" deviceset="D3V3" device=""/>
 <part name="U$83" library="MainBoard" deviceset="DGND" device=""/>
@@ -24866,18 +24790,18 @@ Source:
 <part name="PORT207" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT208" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="U$82" library="MainBoard" deviceset="DGND" device=""/>
-<part name="R64" library="MainBoard" deviceset="R" device="0603" value="1k"/>
+<part name="R64" library="MainBoard" deviceset="R" device="0402" value="1k"/>
 <part name="U$84" library="MainBoard" deviceset="DGND" device=""/>
-<part name="R65" library="MainBoard" deviceset="R" device="0603" value="1k"/>
+<part name="R65" library="MainBoard" deviceset="R" device="0402" value="1k"/>
 <part name="U$85" library="MainBoard" deviceset="D3V3" device=""/>
 <part name="U$86" library="MainBoard" deviceset="D3V3" device=""/>
 <part name="C74" library="MainBoard" deviceset="C" device="0603" value="0.1uF"/>
 <part name="U$87" library="MainBoard" deviceset="DGND" device=""/>
 <part name="U$88" library="MainBoard" deviceset="D3V3" device=""/>
-<part name="C75" library="MainBoard" deviceset="C" device="0603" value="0.33uF">
+<part name="C75" library="MainBoard" deviceset="C" device="0402" value="0.33uF">
 <attribute name="VOTLAGE-RATING" value="16V"/>
 </part>
-<part name="C76" library="MainBoard" deviceset="C" device="0603" value="0.01uF">
+<part name="C76" library="MainBoard" deviceset="C" device="0402" value="0.01uF">
 <attribute name="VOLTAGE-RATING" value="16V"/>
 </part>
 <part name="U$91" library="MainBoard" deviceset="DGND" device=""/>
@@ -24886,8 +24810,8 @@ Source:
 <part name="PORT209" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT214" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="U$89" library="MainBoard" deviceset="DGND" device=""/>
-<part name="R66" library="MainBoard" deviceset="R" device="0603" value="1k"/>
-<part name="R67" library="MainBoard" deviceset="R" device="0603" value="1k">
+<part name="R66" library="MainBoard" deviceset="R" device="0402" value="1k"/>
+<part name="R67" library="MainBoard" deviceset="R" device="0402" value="1k">
 <attribute name="TOLERANCE" value=""/>
 </part>
 <part name="U$90" library="MainBoard" deviceset="D3V3" device=""/>
@@ -24980,7 +24904,6 @@ Source:
 <part name="U$109" library="MainBoard" deviceset="DGND" device=""/>
 <part name="C85" library="MainBoard" deviceset="C" device="0603" value="0.1uF"/>
 <part name="PORT248" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="PORT249" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="U$107" library="MainBoard" deviceset="D3V3" device=""/>
 <part name="R84" library="MainBoard" deviceset="R" device="0603" value="1.5k"/>
 <part name="R86" library="MainBoard" deviceset="R" device="0603" value="22">
@@ -25002,12 +24925,12 @@ Source:
 <part name="U$113" library="MainBoard" deviceset="D3V3" device=""/>
 <part name="U$114" library="MainBoard" deviceset="DGND" device=""/>
 <part name="U$115" library="MainBoard" deviceset="DGND" device=""/>
-<part name="C90" library="MainBoard" deviceset="C" device="0603">
+<part name="C90" library="MainBoard" deviceset="C" device="0402">
 <attribute name="DNP" value="ON"/>
 </part>
-<part name="R91" library="MainBoard" deviceset="R" device="0603" value="10k"/>
+<part name="R91" library="MainBoard" deviceset="R" device="0402" value="10k"/>
 <part name="U$116" library="MainBoard" deviceset="D3V3" device=""/>
-<part name="R92" library="MainBoard" deviceset="R" device="0603" value="39"/>
+<part name="R92" library="MainBoard" deviceset="R" device="0402" value="39"/>
 <part name="PORT243" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="U$117" library="MainBoard" deviceset="DGND" device=""/>
 <part name="PORT244" library="MainBoard" deviceset="PORT7" device=""/>
@@ -25016,7 +24939,7 @@ Source:
 <attribute name="ACT-HEIGHT" value="3.5 mm"/>
 </part>
 <part name="U$118" library="MainBoard" deviceset="DGND" device=""/>
-<part name="R93" library="MainBoard" deviceset="R" device="0603" value="0">
+<part name="R93" library="MainBoard" deviceset="R" device="0402" value="0">
 <attribute name="TOLERANCE" value=""/>
 </part>
 <part name="PORT246" library="MainBoard" deviceset="PORT5" device=""/>
@@ -25027,20 +24950,20 @@ Source:
 <part name="PORT253" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT254" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT255" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="R94" library="MainBoard" deviceset="R" device="0603" value="10k">
+<part name="R94" library="MainBoard" deviceset="R" device="0402" value="10k">
 <attribute name="TOLERANCE" value=""/>
 </part>
 <part name="U$119" library="MainBoard" deviceset="D3V3" device=""/>
-<part name="C91" library="MainBoard" deviceset="C" device="0603" value="2.2u">
+<part name="C91" library="MainBoard" deviceset="C" device="0402" value="2.2u">
 <attribute name="DIGI-KEY#" value="587-1263-1-ND "/>
 <attribute name="MPN" value="EMK107F225ZA-T"/>
 </part>
 <part name="PORT256" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="U8" library="MainBoard" deviceset="DS1818" device="-SOT-23" technology="-10"/>
-<part name="R95" library="MainBoard" deviceset="R" device="0603" value="10k"/>
+<part name="R95" library="MainBoard" deviceset="R" device="0402" value="10k"/>
 <part name="PORT182" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT257" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="R96" library="MainBoard" deviceset="R" device="0603" value="27">
+<part name="R96" library="MainBoard" deviceset="R" device="0402" value="27">
 <attribute name="TOLERANCE" value=""/>
 </part>
 <part name="PORT258" library="MainBoard" deviceset="PORT5" device=""/>
@@ -25052,16 +24975,16 @@ Source:
 <attribute name="IMPEDANCE" value="600 Ohm @ 100 MHz"/>
 <attribute name="MPN" value="BLM18EG601SN1D"/>
 </part>
-<part name="C92" library="MainBoard" deviceset="C" device="0603" value="10nF"/>
+<part name="C92" library="MainBoard" deviceset="C" device="0402" value="10nF"/>
 <part name="U$71" library="MainBoard" deviceset="DGND" device=""/>
-<part name="C93" library="MainBoard" deviceset="C" device="0603" value="4.7uF"/>
-<part name="C94" library="MainBoard" deviceset="C" device="0603" value="0.1uF"/>
+<part name="C93" library="MainBoard" deviceset="C" device="0402" value="4.7uF"/>
+<part name="C94" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
 <part name="U$76" library="MainBoard" deviceset="DGND" device=""/>
 <part name="PORT262" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT263" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT264" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT265" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="C95" library="MainBoard" deviceset="C" device="0603" value="0.1uF"/>
+<part name="C95" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
 <part name="U$78" library="MainBoard" deviceset="DGND" device=""/>
 <part name="PORT266" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="B3" library="MainBoard" deviceset="BEAD" device="0603" technology="-BLM18EG601SN1D" value="600R/0.5A">
@@ -25071,10 +24994,10 @@ Source:
 <attribute name="MF" value="Murata"/>
 <attribute name="MPN" value="BLM18EG601SN1D"/>
 </part>
-<part name="C96" library="MainBoard" deviceset="C" device="0603" value="4.7uF">
+<part name="C96" library="MainBoard" deviceset="C" device="0402" value="4.7uF">
 <attribute name="DNP" value="ON"/>
 </part>
-<part name="C97" library="MainBoard" deviceset="C" device="0603" value="0.1uF"/>
+<part name="C97" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
 <part name="U$79" library="MainBoard" deviceset="DGND" device=""/>
 <part name="PORT267" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT268" library="MainBoard" deviceset="PORT5" device=""/>
@@ -25085,35 +25008,35 @@ Source:
 <attribute name="MF" value="Murata"/>
 <attribute name="MPN" value="BLM18EG601SN1D"/>
 </part>
-<part name="C99" library="MainBoard" deviceset="C" device="0603" value="0.1uF"/>
+<part name="C99" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
 <part name="U$112" library="MainBoard" deviceset="DGND" device=""/>
 <part name="PORT269" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT270" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT261" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="C100" library="MainBoard" deviceset="C" device="0603" value="4.7uF"/>
-<part name="C101" library="MainBoard" deviceset="C" device="0603" value="0.1uF"/>
+<part name="C100" library="MainBoard" deviceset="C" device="0402" value="4.7uF"/>
+<part name="C101" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
 <part name="U$120" library="MainBoard" deviceset="DGND" device=""/>
 <part name="PORT271" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="U$121" library="MainBoard" deviceset="DGND" device=""/>
 <part name="PORT272" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="C98" library="MainBoard" deviceset="C" device="0603" value="4.7uF">
+<part name="C98" library="MainBoard" deviceset="C" device="0402" value="4.7uF">
 <attribute name="DNP" value="ON"/>
 </part>
-<part name="C102" library="MainBoard" deviceset="C" device="0603" value="0.1uF"/>
-<part name="C103" library="MainBoard" deviceset="C" device="0603" value="0.1uF"/>
-<part name="C104" library="MainBoard" deviceset="C" device="0603" value="0.1uF"/>
+<part name="C102" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
+<part name="C103" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
+<part name="C104" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
 <part name="U$122" library="MainBoard" deviceset="DGND" device=""/>
-<part name="R63" library="MainBoard" deviceset="R" device="0603" value="10k">
+<part name="R63" library="MainBoard" deviceset="R" device="0402" value="10k">
 <attribute name="DNP" value="ON"/>
 <attribute name="TOLERANCE" value=""/>
 </part>
-<part name="C105" library="MainBoard" deviceset="C" device="0603" value="0.1uF"/>
+<part name="C105" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
 <part name="U$123" library="MainBoard" deviceset="DGND" device=""/>
 <part name="PORT273" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="C106" library="MainBoard" deviceset="C" device="0603" value="10nF"/>
+<part name="C106" library="MainBoard" deviceset="C" device="0402" value="10nF"/>
 <part name="U$124" library="MainBoard" deviceset="DGND" device=""/>
 <part name="PORT274" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="C107" library="MainBoard" deviceset="C" device="0603" value="0.1uF"/>
+<part name="C107" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
 <part name="U$125" library="MainBoard" deviceset="DGND" device=""/>
 <part name="PORT275" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT276" library="MainBoard" deviceset="PORT5" device=""/>
@@ -25183,7 +25106,6 @@ Source:
 <part name="PORT296" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="J8" library="MainBoard" deviceset="SWITCH-CJS-1200" device="-1200"/>
 <part name="PORT7" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="PORT8" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT11" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT12" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT18" library="MainBoard" deviceset="PORT7" device=""/>
@@ -25219,6 +25141,14 @@ Source:
 <part name="PORT304" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT305" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT306" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT307" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT308" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT309" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT310" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT311" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT312" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT249" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT8" library="MainBoard" deviceset="PORT7" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -25829,10 +25759,7 @@ Source:
 <instance part="PORT46" gate="G$1" x="96.52" y="78.74"/>
 <instance part="X1" gate="G$1" x="48.26" y="43.18"/>
 <instance part="X3" gate="G$1" x="38.1" y="124.46" rot="R90"/>
-<instance part="X2" gate="P" x="38.1" y="139.7" rot="R90"/>
 <instance part="U$20" gate="G$1" x="30.48" y="33.02"/>
-<instance part="C1" gate="G$1" x="33.02" y="144.78" rot="R270"/>
-<instance part="C2" gate="G$1" x="33.02" y="134.62" rot="R270"/>
 <instance part="U$22" gate="G$1" x="25.4" y="114.3"/>
 <instance part="C3" gate="G$1" x="33.02" y="129.54" rot="R270"/>
 <instance part="C4" gate="G$1" x="33.02" y="119.38" rot="R270"/>
@@ -25979,39 +25906,11 @@ Source:
 <junction x="38.1" y="129.54"/>
 </segment>
 </net>
-<net name="MAINXOUT" class="0">
-<segment>
-<pinref part="U1" gate="-MISC" pin="MAINXOUT"/>
-<pinref part="X2" gate="P" pin="1"/>
-<wire x1="43.18" y1="134.62" x2="38.1" y2="134.62" width="0.1524" layer="91"/>
-<pinref part="C2" gate="G$1" pin="1"/>
-<wire x1="38.1" y1="134.62" x2="38.1" y2="137.16" width="0.1524" layer="91"/>
-<wire x1="38.1" y1="134.62" x2="35.56" y2="134.62" width="0.1524" layer="91"/>
-<junction x="38.1" y="134.62"/>
-</segment>
-</net>
-<net name="MAINXIN" class="0">
-<segment>
-<pinref part="U1" gate="-MISC" pin="MAINXIN"/>
-<wire x1="43.18" y1="144.78" x2="38.1" y2="144.78" width="0.1524" layer="91"/>
-<pinref part="X2" gate="P" pin="2"/>
-<wire x1="38.1" y1="144.78" x2="38.1" y2="142.24" width="0.1524" layer="91"/>
-<pinref part="C1" gate="G$1" pin="1"/>
-<wire x1="38.1" y1="144.78" x2="35.56" y2="144.78" width="0.1524" layer="91"/>
-<junction x="38.1" y="144.78"/>
-</segment>
-</net>
 <net name="DGND" class="0">
 <segment>
-<pinref part="C2" gate="G$1" pin="2"/>
 <pinref part="U$22" gate="G$1" pin="DGND"/>
-<wire x1="27.94" y1="134.62" x2="25.4" y2="134.62" width="0.1524" layer="91"/>
-<wire x1="25.4" y1="134.62" x2="25.4" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="129.54" x2="25.4" y2="119.38" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="119.38" x2="25.4" y2="116.84" width="0.1524" layer="91"/>
-<wire x1="25.4" y1="134.62" x2="25.4" y2="144.78" width="0.1524" layer="91"/>
-<pinref part="C1" gate="G$1" pin="2"/>
-<wire x1="25.4" y1="144.78" x2="27.94" y2="144.78" width="0.1524" layer="91"/>
 <pinref part="C3" gate="G$1" pin="2"/>
 <wire x1="27.94" y1="129.54" x2="25.4" y2="129.54" width="0.1524" layer="91"/>
 <pinref part="C4" gate="G$1" pin="2"/>
@@ -29197,7 +29096,6 @@ Source:
 <rectangle x1="218.44" y1="86.36" x2="238.76" y2="99.06" layer="98"/>
 <rectangle x1="114.3" y1="88.9" x2="134.62" y2="96.52" layer="98"/>
 <text x="167.64" y="38.1" size="2.54" layer="97">EEPROM</text>
-<rectangle x1="114.3" y1="96.52" x2="132.08" y2="99.06" layer="98"/>
 <text x="91.44" y="30.48" size="1.778" layer="97" rot="R90">VCCIO</text>
 <text x="53.34" y="63.5" size="50.8" layer="208">USB</text>
 <text x="132.08" y="33.02" size="2.54" layer="97" rot="R90">93LC56BT</text>
@@ -29212,7 +29110,6 @@ Source:
 <text x="104.14" y="91.44" size="1.778" layer="98">To Bank2</text>
 <text x="104.14" y="93.98" size="1.778" layer="98">To Bank2</text>
 <text x="127" y="139.7" size="1.778" layer="98" rot="R90">Move USB signals to the same IO bank</text>
-<rectangle x1="106.68" y1="157.48" x2="121.92" y2="165.1" layer="101"/>
 <rectangle x1="93.98" y1="106.68" x2="104.14" y2="157.48" layer="101"/>
 </plain>
 <instances>
@@ -29259,7 +29156,6 @@ Source:
 <instance part="PORT195" gate="G$1" x="210.82" y="58.42"/>
 <instance part="PORT196" gate="G$1" x="210.82" y="55.88"/>
 <instance part="PORT197" gate="G$1" x="210.82" y="53.34"/>
-<instance part="PORT249" gate="G$1" x="119.38" y="96.52" rot="MR0"/>
 <instance part="R95" gate="G$1" x="33.02" y="132.08"/>
 <instance part="PORT182" gate="G$1" x="25.4" y="154.94" rot="MR0"/>
 <instance part="PORT257" gate="G$1" x="68.58" y="177.8" rot="R90"/>
@@ -29346,6 +29242,13 @@ Source:
 <instance part="PORT304" gate="G$1" x="119.38" y="149.86" rot="MR0"/>
 <instance part="PORT305" gate="G$1" x="119.38" y="154.94" rot="MR0"/>
 <instance part="PORT306" gate="G$1" x="119.38" y="152.4" rot="MR0"/>
+<instance part="PORT307" gate="G$1" x="119.38" y="127" rot="MR0"/>
+<instance part="PORT308" gate="G$1" x="119.38" y="129.54" rot="MR0"/>
+<instance part="PORT309" gate="G$1" x="119.38" y="99.06" rot="MR0"/>
+<instance part="PORT310" gate="G$1" x="119.38" y="111.76" rot="MR0"/>
+<instance part="PORT311" gate="G$1" x="119.38" y="106.68" rot="MR0"/>
+<instance part="PORT312" gate="G$1" x="236.22" y="132.08"/>
+<instance part="PORT249" gate="G$1" x="119.38" y="96.52" rot="MR0"/>
 </instances>
 <busses>
 <bus name="AFE1_DB[0..9]">
@@ -29366,20 +29269,12 @@ Source:
 <segment>
 <wire x1="99.06" y1="139.7" x2="99.06" y2="160.02" width="0.762" layer="92"/>
 <wire x1="99.06" y1="160.02" x2="101.6" y2="162.56" width="0.762" layer="92"/>
-<wire x1="101.6" y1="162.56" x2="129.54" y2="162.56" width="0.762" layer="92"/>
+<wire x1="101.6" y1="162.56" x2="124.46" y2="162.56" width="0.762" layer="92"/>
 <label x="109.22" y="163.83" size="1.778" layer="95"/>
 </segment>
 </bus>
 </busses>
 <nets>
-<net name="USB_CLK" class="0">
-<segment>
-<pinref part="U5" gate="G$1" pin="ACBUS5"/>
-<wire x1="91.44" y1="119.38" x2="96.52" y2="119.38" width="0.1524" layer="91"/>
-<label x="109.22" y="119.38" size="1.778" layer="95"/>
-<pinref part="R96" gate="G$1" pin="1"/>
-</segment>
-</net>
 <net name="AFE1_DB0" class="0">
 <segment>
 <wire x1="223.52" y1="157.48" x2="220.98" y2="154.94" width="0.1524" layer="91"/>
@@ -29472,9 +29367,6 @@ Source:
 </net>
 <net name="AFE1_DB9" class="0">
 <segment>
-<wire x1="223.52" y1="134.62" x2="220.98" y2="132.08" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[21]/IO21PDB0V0"/>
 <wire x1="139.7" y1="101.6" x2="134.62" y2="101.6" width="0.1524" layer="91"/>
 <label x="132.08" y="101.6" size="1.778" layer="95" rot="MR0"/>
@@ -29541,60 +29433,66 @@ Source:
 <label x="223.52" y="101.6" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="USBDB7" class="0">
+<net name="USB_DB7" class="0">
 <segment>
 <pinref part="U5" gate="G$1" pin="ADBUS7"/>
 <wire x1="99.06" y1="139.7" x2="96.52" y2="137.16" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="137.16" x2="91.44" y2="137.16" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="USBDB6" class="0">
+<net name="USB_DB6" class="0">
 <segment>
 <pinref part="U5" gate="G$1" pin="ADBUS6"/>
 <wire x1="99.06" y1="142.24" x2="96.52" y2="139.7" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="139.7" x2="91.44" y2="139.7" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="USBDB5" class="0">
+<net name="USB_DB5" class="0">
 <segment>
 <pinref part="U5" gate="G$1" pin="ADBUS5"/>
 <wire x1="99.06" y1="144.78" x2="96.52" y2="142.24" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="142.24" x2="91.44" y2="142.24" width="0.1524" layer="91"/>
 </segment>
-</net>
-<net name="USBDB4" class="0">
 <segment>
-<pinref part="U5" gate="G$1" pin="ADBUS4"/>
-<wire x1="99.06" y1="147.32" x2="96.52" y2="144.78" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="144.78" x2="91.44" y2="144.78" width="0.1524" layer="91"/>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[19]/IO18PDB0V0"/>
+<wire x1="139.7" y1="106.68" x2="134.62" y2="106.68" width="0.1524" layer="91"/>
+<label x="132.08" y="106.68" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="USBDB3" class="0">
+<net name="USB_DB3" class="0">
 <segment>
 <pinref part="U5" gate="G$1" pin="ADBUS3"/>
 <wire x1="99.06" y1="149.86" x2="96.52" y2="147.32" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="147.32" x2="91.44" y2="147.32" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[17]/IO17PDB0V0"/>
+<wire x1="139.7" y1="111.76" x2="134.62" y2="111.76" width="0.1524" layer="91"/>
+<label x="132.08" y="111.76" size="1.778" layer="95" rot="MR0"/>
+</segment>
 </net>
-<net name="USBDB2" class="0">
+<net name="USB_DB2" class="0">
 <segment>
 <pinref part="U5" gate="G$1" pin="ADBUS2"/>
 <wire x1="99.06" y1="152.4" x2="96.52" y2="149.86" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="149.86" x2="91.44" y2="149.86" width="0.1524" layer="91"/>
 </segment>
-</net>
-<net name="USBDB1" class="0">
 <segment>
-<pinref part="U5" gate="G$1" pin="ADBUS1"/>
-<wire x1="99.06" y1="154.94" x2="96.52" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="152.4" x2="91.44" y2="152.4" width="0.1524" layer="91"/>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[22]/IO19NDB0V0"/>
+<wire x1="139.7" y1="99.06" x2="134.62" y2="99.06" width="0.1524" layer="91"/>
+<label x="132.08" y="99.06" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="USBDB0" class="0">
+<net name="USB_DB0" class="0">
 <segment>
 <pinref part="U5" gate="G$1" pin="ADBUS0"/>
 <wire x1="99.06" y1="157.48" x2="96.52" y2="154.94" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="154.94" x2="91.44" y2="154.94" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[11]/IO11PDB0V0"/>
+<wire x1="139.7" y1="127" x2="134.62" y2="127" width="0.1524" layer="91"/>
+<label x="132.08" y="127" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
 <net name="!RXF" class="0">
@@ -29848,7 +29746,7 @@ Source:
 <pinref part="R59" gate="G$1" pin="2"/>
 </segment>
 </net>
-<net name="N$21" class="0">
+<net name="UXCSI" class="0">
 <segment>
 <pinref part="X5" gate="P" pin="1"/>
 <wire x1="35.56" y1="109.22" x2="35.56" y2="111.76" width="0.1524" layer="91"/>
@@ -29859,7 +29757,7 @@ Source:
 <junction x="35.56" y="111.76"/>
 </segment>
 </net>
-<net name="N$24" class="0">
+<net name="UXCSO" class="0">
 <segment>
 <pinref part="U5" gate="G$1" pin="XCSO"/>
 <wire x1="40.64" y1="101.6" x2="35.56" y2="101.6" width="0.1524" layer="91"/>
@@ -29938,9 +29836,9 @@ Source:
 </net>
 <net name="!MAC_PWDN" class="0">
 <segment>
-<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[23]/IO19PDB0V0"/>
-<wire x1="139.7" y1="96.52" x2="134.62" y2="96.52" width="0.1524" layer="91"/>
-<label x="132.08" y="96.52" size="1.778" layer="97" rot="MR0"/>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[9]/GEC1/IO80PDB5V0"/>
+<wire x1="215.9" y1="132.08" x2="220.98" y2="132.08" width="0.1524" layer="91"/>
+<label x="223.52" y="132.08" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="VBUS" class="0">
@@ -30039,10 +29937,11 @@ Source:
 <label x="104.14" y="30.48" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
-<net name="N$75" class="0">
+<net name="USB_CLK" class="0">
 <segment>
 <pinref part="R96" gate="G$1" pin="2"/>
 <wire x1="104.14" y1="119.38" x2="106.68" y2="119.38" width="0.1524" layer="91"/>
+<label x="109.22" y="119.38" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="VREGIN" class="0">
@@ -30224,6 +30123,37 @@ Source:
 <label x="132.08" y="91.44" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
+<net name="USB_CLKF" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="ACBUS5"/>
+<wire x1="91.44" y1="119.38" x2="96.52" y2="119.38" width="0.1524" layer="91"/>
+<pinref part="R96" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="USB_DB1" class="0">
+<segment>
+<pinref part="U5" gate="G$1" pin="ADBUS1"/>
+<wire x1="99.06" y1="154.94" x2="96.52" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="152.4" x2="91.44" y2="152.4" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[10]/IO11NDB0V0"/>
+<wire x1="139.7" y1="129.54" x2="134.62" y2="129.54" width="0.1524" layer="91"/>
+<label x="132.08" y="129.54" size="1.778" layer="95" rot="MR0"/>
+</segment>
+</net>
+<net name="USB_DB4" class="0">
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[23]/IO19PDB0V0"/>
+<wire x1="139.7" y1="96.52" x2="134.62" y2="96.52" width="0.1524" layer="91"/>
+<label x="132.08" y="96.52" size="1.778" layer="95" rot="MR0"/>
+</segment>
+<segment>
+<pinref part="U5" gate="G$1" pin="ADBUS4"/>
+<wire x1="99.06" y1="147.32" x2="96.52" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="144.78" x2="91.44" y2="144.78" width="0.1524" layer="91"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>
@@ -30285,11 +30215,11 @@ Source:
 <instance part="PORT295" gate="G$1" x="22.86" y="154.94" rot="MR0"/>
 <instance part="PORT296" gate="G$1" x="22.86" y="157.48" rot="MR0"/>
 <instance part="PORT7" gate="G$1" x="231.14" y="73.66"/>
-<instance part="PORT8" gate="G$1" x="129.54" y="88.9" rot="MR0"/>
 <instance part="PORT11" gate="G$1" x="129.54" y="86.36" rot="MR0"/>
 <instance part="PORT116" gate="G$1" x="231.14" y="71.12"/>
 <instance part="PORT299" gate="G$1" x="231.14" y="86.36"/>
 <instance part="PORT300" gate="G$1" x="231.14" y="88.9"/>
+<instance part="PORT8" gate="G$1" x="129.54" y="88.9" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -30459,7 +30389,7 @@ Source:
 <wire x1="48.26" y1="154.94" x2="50.8" y2="154.94" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="USBDB0" class="0">
+<net name="USB_DB0" class="0">
 <segment>
 <pinref part="R4" gate="G$1" pin="1"/>
 <wire x1="40.64" y1="154.94" x2="38.1" y2="154.94" width="0.1524" layer="91"/>
@@ -30487,20 +30417,6 @@ Source:
 <label x="35.56" y="157.48" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="AFE1_CLK" class="0">
-<segment>
-<pinref part="U1" gate="-IOB" pin="GBA2/IO27PPB1V0"/>
-<wire x1="149.86" y1="88.9" x2="144.78" y2="88.9" width="0.1524" layer="91"/>
-<label x="142.24" y="88.9" size="1.778" layer="95" rot="MR0"/>
-</segment>
-</net>
-<net name="AFE2_CLK" class="0">
-<segment>
-<pinref part="U1" gate="-IOB" pin="GBB2/IO27NPB1V0"/>
-<wire x1="149.86" y1="86.36" x2="144.78" y2="86.36" width="0.1524" layer="91"/>
-<label x="142.24" y="86.36" size="1.778" layer="95" rot="MR0"/>
-</segment>
-</net>
 <net name="EXT_CLK_OUT" class="0">
 <segment>
 <pinref part="U1" gate="-IOB" pin="GCA1/IO36PDB1V0"/>
@@ -30519,6 +30435,20 @@ Source:
 <segment>
 <pinref part="U1" gate="-IOB" pin="IO84NDB5V0"/>
 <wire x1="210.82" y1="71.12" x2="215.9" y2="71.12" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="USB_DB7" class="0">
+<segment>
+<pinref part="U1" gate="-IOB" pin="GBA2/IO27PPB1V0"/>
+<wire x1="149.86" y1="88.9" x2="144.78" y2="88.9" width="0.1524" layer="91"/>
+<label x="142.24" y="88.9" size="1.778" layer="95" rot="MR0"/>
+</segment>
+</net>
+<net name="USB_DB6" class="0">
+<segment>
+<pinref part="U1" gate="-IOB" pin="GBB2/IO27NPB1V0"/>
+<wire x1="149.86" y1="86.36" x2="144.78" y2="86.36" width="0.1524" layer="91"/>
+<label x="142.24" y="86.36" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
 </nets>
