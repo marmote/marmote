@@ -24737,9 +24737,6 @@ Source:
 <part name="PORT172" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT173" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT174" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="R57" library="MainBoard" deviceset="R" device="0603" value="1.5k"/>
-<part name="PORT175" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="U$69" library="MainBoard" deviceset="D3V3" device=""/>
 <part name="PORT176" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT177" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT178" library="MainBoard" deviceset="PORT5" device=""/>
@@ -25157,6 +25154,7 @@ Source:
 </part>
 <part name="PORT316" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT317" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT318" library="MainBoard" deviceset="PORT5" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -29127,14 +29125,30 @@ Source:
 <text x="91.44" y="30.48" size="1.778" layer="97" rot="R90">VCCIO</text>
 <text x="53.34" y="63.5" size="50.8" layer="208">USB</text>
 <text x="106.68" y="27.94" size="1.778" layer="97" rot="R90">93LC56BT</text>
-<text x="143.51" y="33.02" size="2.54" layer="97" rot="R90">EEPROM</text>
-<rectangle x1="139.7" y1="7.62" x2="149.86" y2="53.34" layer="97"/>
-<text x="149.86" y="2.54" size="1.778" layer="97" rot="R90">Check if internally available</text>
 <text x="236.22" y="114.3" size="1.778" layer="98" rot="R90">Move EXT AFE data signals to the same IO bank</text>
 <text x="104.14" y="91.44" size="1.778" layer="98">To Bank2</text>
 <text x="104.14" y="93.98" size="1.778" layer="98">To Bank2</text>
 <text x="127" y="139.7" size="1.778" layer="98" rot="R90">Move USB signals to the same IO bank</text>
 <rectangle x1="93.98" y1="106.68" x2="104.14" y2="157.48" layer="101"/>
+<rectangle x1="45.72" y1="43.18" x2="73.66" y2="78.74" layer="116"/>
+<rectangle x1="30.48" y1="43.18" x2="43.18" y2="76.2" layer="116"/>
+<rectangle x1="78.74" y1="45.72" x2="106.68" y2="78.74" layer="116"/>
+<rectangle x1="15.24" y1="7.62" x2="48.26" y2="40.64" layer="116"/>
+<rectangle x1="50.8" y1="7.62" x2="66.04" y2="40.64" layer="116"/>
+<rectangle x1="68.58" y1="7.62" x2="78.74" y2="40.64" layer="116"/>
+<rectangle x1="81.28" y1="7.62" x2="96.52" y2="40.64" layer="116"/>
+<rectangle x1="99.06" y1="7.62" x2="111.76" y2="40.64" layer="116"/>
+<rectangle x1="17.78" y1="43.18" x2="27.94" y2="86.36" layer="116"/>
+<rectangle x1="25.4" y1="124.46" x2="38.1" y2="129.54" layer="116"/>
+<rectangle x1="17.78" y1="99.06" x2="40.64" y2="114.3" layer="116"/>
+<rectangle x1="55.88" y1="147.32" x2="73.66" y2="180.34" layer="116"/>
+<rectangle x1="25.4" y1="142.24" x2="55.88" y2="160.02" layer="116"/>
+<rectangle x1="17.78" y1="134.62" x2="53.34" y2="142.24" layer="116"/>
+<rectangle x1="12.7" y1="129.54" x2="58.42" y2="134.62" layer="116"/>
+<rectangle x1="53.34" y1="81.28" x2="81.28" y2="104.14" layer="116"/>
+<rectangle x1="30.48" y1="88.9" x2="43.18" y2="99.06" layer="116"/>
+<rectangle x1="147.32" y1="38.1" x2="215.9" y2="78.74" layer="116"/>
+<rectangle x1="17.78" y1="114.3" x2="43.18" y2="124.46" layer="116"/>
 </plain>
 <instances>
 <instance part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" x="177.8" y="124.46"/>
@@ -29180,7 +29194,7 @@ Source:
 <instance part="PORT195" gate="G$1" x="210.82" y="58.42"/>
 <instance part="PORT196" gate="G$1" x="210.82" y="55.88"/>
 <instance part="PORT197" gate="G$1" x="210.82" y="53.34"/>
-<instance part="R95" gate="G$1" x="33.02" y="132.08"/>
+<instance part="R95" gate="G$1" x="25.4" y="66.04" rot="R270"/>
 <instance part="PORT182" gate="G$1" x="25.4" y="154.94" rot="MR0"/>
 <instance part="PORT257" gate="G$1" x="68.58" y="177.8" rot="R90"/>
 <instance part="R96" gate="G$1" x="101.6" y="119.38"/>
@@ -29194,7 +29208,7 @@ Source:
 <instance part="C94" gate="G$1" x="71.12" y="55.88"/>
 <instance part="U$76" gate="G$1" x="68.58" y="45.72"/>
 <instance part="PORT262" gate="G$1" x="25.4" y="149.86" rot="MR0"/>
-<instance part="PORT263" gate="G$1" x="15.24" y="132.08" rot="MR0"/>
+<instance part="PORT263" gate="G$1" x="25.4" y="83.82" rot="MR90"/>
 <instance part="PORT264" gate="G$1" x="25.4" y="147.32" rot="MR0"/>
 <instance part="PORT265" gate="G$1" x="25.4" y="144.78" rot="MR0"/>
 <instance part="C95" gate="G$1" x="73.66" y="20.32"/>
@@ -29235,7 +29249,7 @@ Source:
 <instance part="PORT273" gate="G$1" x="104.14" y="38.1" rot="R90"/>
 <instance part="C106" gate="G$1" x="25.4" y="55.88"/>
 <instance part="U$124" gate="G$1" x="25.4" y="45.72"/>
-<instance part="PORT274" gate="G$1" x="25.4" y="73.66" rot="R90"/>
+<instance part="PORT274" gate="G$1" x="12.7" y="60.96" rot="R180"/>
 <instance part="C107" gate="G$1" x="35.56" y="55.88"/>
 <instance part="U$125" gate="G$1" x="35.56" y="45.72"/>
 <instance part="PORT275" gate="G$1" x="35.56" y="73.66" rot="R90"/>
@@ -29243,9 +29257,6 @@ Source:
 <instance part="PORT277" gate="G$1" x="63.5" y="177.8" rot="R90"/>
 <instance part="PORT189" gate="G$1" x="106.68" y="111.76"/>
 <instance part="PORT278" gate="G$1" x="106.68" y="109.22"/>
-<instance part="R57" gate="G$1" x="144.78" y="35.56" rot="R90"/>
-<instance part="PORT175" gate="G$1" x="144.78" y="10.16" rot="R270"/>
-<instance part="U$69" gate="G$1" x="144.78" y="43.18"/>
 <instance part="PORT188" gate="G$1" x="119.38" y="101.6" rot="MR0"/>
 <instance part="PORT279" gate="G$1" x="119.38" y="104.14" rot="MR0"/>
 <instance part="PORT280" gate="G$1" x="119.38" y="109.22" rot="MR0"/>
@@ -29272,6 +29283,7 @@ Source:
 <instance part="PORT249" gate="G$1" x="119.38" y="96.52" rot="MR0"/>
 <instance part="PORT314" gate="G$1" x="236.22" y="154.94"/>
 <instance part="PORT315" gate="G$1" x="236.22" y="152.4"/>
+<instance part="PORT318" gate="G$1" x="25.4" y="132.08" rot="MR0"/>
 </instances>
 <busses>
 <bus name="AFE2_DB[0..9]">
@@ -29547,11 +29559,6 @@ Source:
 <wire x1="40.64" y1="137.16" x2="35.56" y2="137.16" width="0.1524" layer="91"/>
 <label x="33.02" y="137.16" size="1.778" layer="97" rot="MR0"/>
 </segment>
-<segment>
-<pinref part="R57" gate="G$1" pin="1"/>
-<wire x1="144.78" y1="30.48" x2="144.78" y2="25.4" width="0.1524" layer="91"/>
-<label x="144.78" y="22.86" size="1.778" layer="95" rot="R270"/>
-</segment>
 </net>
 <net name="VBAT" class="0">
 <segment>
@@ -29562,14 +29569,18 @@ Source:
 </net>
 <net name="!USB_RESET" class="0">
 <segment>
-<pinref part="U5" gate="G$1" pin="!RESET"/>
-<wire x1="40.64" y1="132.08" x2="35.56" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="60.96" x2="25.4" y2="63.5" width="0.1524" layer="91"/>
 <pinref part="R95" gate="G$1" pin="2"/>
+<wire x1="22.86" y1="60.96" x2="25.4" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="60.96" x2="25.4" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="C106" gate="G$1" pin="1"/>
+<label x="20.32" y="60.96" size="1.778" layer="95" rot="R180"/>
+<junction x="25.4" y="60.96"/>
 </segment>
 <segment>
-<wire x1="25.4" y1="63.5" x2="25.4" y2="58.42" width="0.1524" layer="91"/>
-<pinref part="C106" gate="G$1" pin="1"/>
-<label x="25.4" y="66.04" size="1.778" layer="95" rot="R90"/>
+<pinref part="U5" gate="G$1" pin="!RESET"/>
+<wire x1="40.64" y1="132.08" x2="35.56" y2="132.08" width="0.1524" layer="91"/>
+<label x="33.02" y="132.08" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
 <net name="DGND" class="0">
@@ -29697,6 +29708,8 @@ Source:
 <segment>
 <pinref part="U$73" gate="G$1" pin="DGND"/>
 <wire x1="35.56" y1="93.98" x2="35.56" y2="96.52" width="0.1524" layer="91"/>
+<pinref part="U5" gate="G$1" pin="TEST"/>
+<wire x1="35.56" y1="96.52" x2="40.64" y2="96.52" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C72" gate="G$1" pin="2"/>
@@ -29750,12 +29763,6 @@ Source:
 <wire x1="35.56" y1="101.6" x2="30.48" y2="101.6" width="0.1524" layer="91"/>
 <pinref part="C71" gate="G$1" pin="1"/>
 <junction x="35.56" y="101.6"/>
-</segment>
-</net>
-<net name="N$27" class="0">
-<segment>
-<pinref part="U5" gate="G$1" pin="TEST"/>
-<wire x1="40.64" y1="96.52" x2="35.56" y2="96.52" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="EECS" class="0">
@@ -29876,8 +29883,8 @@ Source:
 </segment>
 <segment>
 <pinref part="R95" gate="G$1" pin="1"/>
-<wire x1="27.94" y1="132.08" x2="25.4" y2="132.08" width="0.1524" layer="91"/>
-<label x="22.86" y="132.08" size="1.778" layer="95" rot="MR0"/>
+<wire x1="25.4" y1="71.12" x2="25.4" y2="73.66" width="0.1524" layer="91"/>
+<label x="25.4" y="76.2" size="1.778" layer="95" rot="MR90"/>
 </segment>
 <segment>
 <pinref part="B3" gate="G$1" pin="1"/>
@@ -30024,13 +30031,6 @@ Source:
 <pinref part="U5" gate="G$1" pin="ACBUS9"/>
 <wire x1="91.44" y1="109.22" x2="96.52" y2="109.22" width="0.1524" layer="91"/>
 <label x="99.06" y="109.22" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="D3V3" class="0">
-<segment>
-<pinref part="R57" gate="G$1" pin="2"/>
-<wire x1="144.78" y1="38.1" x2="144.78" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="U$69" gate="G$1" pin="D3V3"/>
 </segment>
 </net>
 <net name="AFE2_DB4" class="0">
