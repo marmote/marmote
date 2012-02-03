@@ -24937,8 +24937,6 @@ Source:
 <attribute name="TOLERANCE" value=""/>
 </part>
 <part name="PORT246" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="PORT247" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="PORT250" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT251" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT252" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT253" library="MainBoard" deviceset="PORT5" device=""/>
@@ -25157,6 +25155,21 @@ Source:
 <part name="PORT318" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT175" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT319" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT247" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT250" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT320" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT321" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT323" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT324" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT325" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT326" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT327" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT328" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT329" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT322" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT330" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT331" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT332" library="MainBoard" deviceset="PORT7" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -29120,18 +29133,16 @@ Source:
 <sheet>
 <plain>
 <text x="198.12" y="20.32" size="5.08" layer="97">USB</text>
-<rectangle x1="220.98" y1="93.98" x2="231.14" y2="167.64" layer="98"/>
 <rectangle x1="218.44" y1="86.36" x2="238.76" y2="99.06" layer="98"/>
 <rectangle x1="114.3" y1="88.9" x2="134.62" y2="96.52" layer="98"/>
 <text x="167.64" y="38.1" size="2.54" layer="97">EEPROM</text>
 <text x="91.44" y="30.48" size="1.778" layer="97" rot="R90">VCCIO</text>
 <text x="53.34" y="63.5" size="50.8" layer="208">USB</text>
 <text x="106.68" y="27.94" size="1.778" layer="97" rot="R90">93LC56BT</text>
-<text x="236.22" y="114.3" size="1.778" layer="98" rot="R90">Move EXT AFE data signals to the same IO bank</text>
+<text x="246.38" y="104.14" size="1.778" layer="98" rot="R90">Move EXT AFE data signals to the same IO bank</text>
 <text x="104.14" y="91.44" size="1.778" layer="98">To Bank2</text>
 <text x="104.14" y="93.98" size="1.778" layer="98">To Bank2</text>
 <text x="127" y="139.7" size="1.778" layer="98" rot="R90">Move USB signals to the same IO bank</text>
-<rectangle x1="93.98" y1="106.68" x2="104.14" y2="157.48" layer="101"/>
 <rectangle x1="45.72" y1="43.18" x2="73.66" y2="78.74" layer="116"/>
 <rectangle x1="30.48" y1="43.18" x2="43.18" y2="76.2" layer="116"/>
 <rectangle x1="78.74" y1="45.72" x2="106.68" y2="78.74" layer="116"/>
@@ -29151,7 +29162,8 @@ Source:
 <rectangle x1="30.48" y1="88.9" x2="43.18" y2="99.06" layer="116"/>
 <rectangle x1="147.32" y1="38.1" x2="215.9" y2="78.74" layer="116"/>
 <rectangle x1="17.78" y1="114.3" x2="43.18" y2="124.46" layer="116"/>
-<rectangle x1="251.46" y1="124.46" x2="264.16" y2="127" layer="98" rot="R180"/>
+<rectangle x1="231.14" y1="124.46" x2="243.84" y2="127" layer="98" rot="R180"/>
+<rectangle x1="109.22" y1="111.76" x2="116.84" y2="116.84" layer="101"/>
 </plain>
 <instances>
 <instance part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" x="177.8" y="124.46"/>
@@ -29289,16 +29301,19 @@ Source:
 <instance part="PORT318" gate="G$1" x="25.4" y="132.08" rot="MR0"/>
 <instance part="PORT175" gate="G$1" x="119.38" y="134.62" rot="MR0"/>
 <instance part="PORT319" gate="G$1" x="119.38" y="137.16" rot="MR0"/>
-<instance part="PORT281" gate="G$1" x="256.54" y="124.46"/>
+<instance part="PORT281" gate="G$1" x="236.22" y="124.46"/>
+<instance part="PORT321" gate="G$1" x="236.22" y="111.76"/>
+<instance part="PORT323" gate="G$1" x="236.22" y="127"/>
+<instance part="PORT324" gate="G$1" x="236.22" y="121.92"/>
+<instance part="PORT325" gate="G$1" x="236.22" y="119.38"/>
+<instance part="PORT326" gate="G$1" x="236.22" y="116.84"/>
+<instance part="PORT327" gate="G$1" x="236.22" y="109.22"/>
+<instance part="PORT328" gate="G$1" x="236.22" y="106.68"/>
+<instance part="PORT329" gate="G$1" x="236.22" y="104.14"/>
+<instance part="PORT299" gate="G$1" x="236.22" y="144.78"/>
+<instance part="PORT300" gate="G$1" x="236.22" y="147.32"/>
 </instances>
 <busses>
-<bus name="AFE2_DB[0..9]">
-<segment>
-<wire x1="223.52" y1="106.68" x2="223.52" y2="132.08" width="0.762" layer="92"/>
-<wire x1="223.52" y1="132.08" x2="226.06" y2="134.62" width="0.762" layer="92"/>
-<label x="226.06" y="114.3" size="1.778" layer="95"/>
-</segment>
-</bus>
 <bus name="USB_DB[0..7]">
 <segment>
 <wire x1="99.06" y1="139.7" x2="99.06" y2="160.02" width="0.762" layer="92"/>
@@ -29382,41 +29397,41 @@ Source:
 <net name="AFE2_DB0" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[14]/GAB2/IO88NDB5V0"/>
-<wire x1="223.52" y1="121.92" x2="220.98" y2="119.38" width="0.1524" layer="91"/>
 <wire x1="220.98" y1="119.38" x2="215.9" y2="119.38" width="0.1524" layer="91"/>
+<label x="223.52" y="119.38" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="AFE2_DB1" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[11]/IO86PPB5V0"/>
-<wire x1="223.52" y1="129.54" x2="220.98" y2="127" width="0.1524" layer="91"/>
 <wire x1="220.98" y1="127" x2="215.9" y2="127" width="0.1524" layer="91"/>
+<label x="223.52" y="127" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_BYTEN[0]/GAC0/IO07NDB0V0"/>
-<wire x1="223.52" y1="109.22" x2="220.98" y2="106.68" width="0.1524" layer="91"/>
 <wire x1="220.98" y1="106.68" x2="215.9" y2="106.68" width="0.1524" layer="91"/>
+<label x="223.52" y="106.68" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="AFE2_DB2" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[15]/GAA2/IO88PDB5V0"/>
-<wire x1="223.52" y1="119.38" x2="220.98" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="220.98" y1="116.84" x2="215.9" y2="116.84" width="0.1524" layer="91"/>
+<label x="223.52" y="116.84" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="AFE2_DB3" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_BYTEN[1]/GAC1/IO07PDB0V0"/>
-<wire x1="223.52" y1="106.68" x2="220.98" y2="104.14" width="0.1524" layer="91"/>
 <wire x1="220.98" y1="104.14" x2="215.9" y2="104.14" width="0.1524" layer="91"/>
+<label x="223.52" y="104.14" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="AFE2_DB7" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_OEN1_N/IO08PDB0V0"/>
-<wire x1="223.52" y1="111.76" x2="220.98" y2="109.22" width="0.1524" layer="91"/>
 <wire x1="220.98" y1="109.22" x2="215.9" y2="109.22" width="0.1524" layer="91"/>
+<label x="223.52" y="109.22" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="!AFE2_SHDN" class="0">
@@ -30059,8 +30074,8 @@ Source:
 <net name="AFE2_DB5" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_OEN0_N/IO08NDB0V0"/>
-<wire x1="223.52" y1="114.3" x2="220.98" y2="111.76" width="0.1524" layer="91"/>
 <wire x1="220.98" y1="111.76" x2="215.9" y2="111.76" width="0.1524" layer="91"/>
+<label x="223.52" y="111.76" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="AFE2_DB6" class="0">
@@ -30088,6 +30103,7 @@ Source:
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[13]/GAC2/IO87PDB5V0"/>
 <wire x1="220.98" y1="121.92" x2="215.9" y2="121.92" width="0.1524" layer="91"/>
+<label x="223.52" y="121.92" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="!AFE1_SHDN" class="0">
@@ -30165,9 +30181,23 @@ Source:
 </net>
 <net name="MAIN_CLK_IN_EN" class="0">
 <segment>
-<label x="243.84" y="124.46" size="1.778" layer="97"/>
+<label x="223.52" y="124.46" size="1.778" layer="97"/>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[12]/IO87NDB5V0"/>
-<wire x1="241.3" y1="124.46" x2="215.9" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="220.98" y1="124.46" x2="215.9" y2="124.46" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="EXT_CLK_OUT_EN" class="0">
+<segment>
+<label x="223.52" y="147.32" size="1.778" layer="95"/>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[3]/GEC2/IO77PDB5V0"/>
+<wire x1="220.98" y1="147.32" x2="215.9" y2="147.32" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="EXT_CLK_OUT" class="0">
+<segment>
+<label x="223.52" y="144.78" size="1.778" layer="95"/>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[4]/GEA0/IO78NPB5V0"/>
+<wire x1="220.98" y1="144.78" x2="215.9" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
@@ -30191,6 +30221,8 @@ Source:
 <rectangle x1="184.404" y1="65.278" x2="234.442" y2="67.564" layer="114"/>
 <rectangle x1="184.658" y1="73.152" x2="233.172" y2="75.692" layer="114"/>
 <rectangle x1="212.09" y1="72.39" x2="233.68" y2="76.2" layer="98"/>
+<rectangle x1="215.9" y1="83.82" x2="233.68" y2="88.9" layer="101"/>
+<rectangle x1="215.9" y1="68.58" x2="223.52" y2="73.66" layer="98"/>
 </plain>
 <instances>
 <instance part="U1" gate="-UART" x="71.12" y="152.4"/>
@@ -30229,10 +30261,12 @@ Source:
 <instance part="PORT7" gate="G$1" x="231.14" y="73.66"/>
 <instance part="PORT11" gate="G$1" x="129.54" y="86.36" rot="MR0"/>
 <instance part="PORT116" gate="G$1" x="231.14" y="71.12"/>
-<instance part="PORT299" gate="G$1" x="231.14" y="86.36"/>
-<instance part="PORT300" gate="G$1" x="231.14" y="88.9"/>
 <instance part="PORT8" gate="G$1" x="129.54" y="88.9" rot="MR0"/>
 <instance part="PORT313" gate="G$1" x="129.54" y="63.5" rot="MR0"/>
+<instance part="PORT322" gate="G$1" x="231.14" y="88.9"/>
+<instance part="PORT330" gate="G$1" x="231.14" y="86.36"/>
+<instance part="PORT331" gate="G$1" x="231.14" y="81.28"/>
+<instance part="PORT332" gate="G$1" x="231.14" y="78.74"/>
 </instances>
 <busses>
 </busses>
@@ -30413,38 +30447,11 @@ Source:
 <label x="35.56" y="157.48" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="EXT_CLK_OUT_EN" class="0">
-<segment>
-<pinref part="U1" gate="-IOB" pin="GCA1/IO36PDB1V0"/>
-<wire x1="210.82" y1="88.9" x2="215.9" y2="88.9" width="0.1524" layer="91"/>
-<label x="218.44" y="88.9" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="N$6" class="0">
 <segment>
 <pinref part="U1" gate="-IOB" pin="IO84NDB5V0"/>
 <wire x1="210.82" y1="71.12" x2="215.9" y2="71.12" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="USB_DB7" class="0">
-<segment>
-<pinref part="U1" gate="-IOB" pin="GBA2/IO27PPB1V0"/>
-<wire x1="149.86" y1="88.9" x2="144.78" y2="88.9" width="0.1524" layer="91"/>
-<label x="142.24" y="88.9" size="1.778" layer="95" rot="MR0"/>
-</segment>
-</net>
-<net name="!RXF" class="0">
-<segment>
-<label x="142.24" y="63.5" size="1.778" layer="95" rot="MR0"/>
-<pinref part="U1" gate="-IOB" pin="GCB0/IO34NDB1V0"/>
-<wire x1="144.78" y1="63.5" x2="149.86" y2="63.5" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="!RD" class="0">
-<segment>
-<pinref part="U1" gate="-IOB" pin="GCB2/IO33PDB1V0"/>
-<wire x1="149.86" y1="73.66" x2="144.78" y2="73.66" width="0.1524" layer="91"/>
-<label x="142.24" y="73.66" size="1.778" layer="95" rot="MR0"/>
+<label x="218.44" y="71.12" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="!TXE" class="0">
@@ -30454,30 +30461,60 @@ Source:
 <label x="142.24" y="71.12" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="ASDF" class="0">
+<net name="!SIWU" class="0">
 <segment>
-<pinref part="U1" gate="-IOB" pin="GBB2/IO27NPB1V0"/>
-<wire x1="149.86" y1="86.36" x2="144.78" y2="86.36" width="0.1524" layer="91"/>
-<label x="142.24" y="86.36" size="1.778" layer="95" rot="MR0"/>
+<pinref part="U1" gate="-IOB" pin="GDC1/IO38PDB1V0"/>
+<wire x1="210.82" y1="81.28" x2="215.9" y2="81.28" width="0.1524" layer="91"/>
+<label x="218.44" y="81.28" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="EXT_CLK_OUT" class="0">
+<net name="ACBUS8" class="0">
+<segment>
+<pinref part="U1" gate="-IOB" pin="GCA1/IO36PDB1V0"/>
+<wire x1="210.82" y1="88.9" x2="215.9" y2="88.9" width="0.1524" layer="91"/>
+<label x="218.44" y="88.9" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="ACBUS9" class="0">
 <segment>
 <pinref part="U1" gate="-IOB" pin="GCA0/IO36NDB1V0"/>
 <wire x1="210.82" y1="86.36" x2="215.9" y2="86.36" width="0.1524" layer="91"/>
 <label x="218.44" y="86.36" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$2" class="0">
+<net name="!WR" class="0">
 <segment>
-<pinref part="U1" gate="-IOB" pin="GDC1/IO38PDB1V0"/>
-<wire x1="210.82" y1="81.28" x2="215.9" y2="81.28" width="0.1524" layer="91"/>
+<pinref part="U1" gate="-IOB" pin="GCB2/IO33PDB1V0"/>
+<wire x1="149.86" y1="73.66" x2="144.78" y2="73.66" width="0.1524" layer="91"/>
+<label x="142.24" y="73.66" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="N$3" class="0">
+<net name="!PWRSAV" class="0">
+<segment>
+<label x="142.24" y="63.5" size="1.778" layer="95" rot="MR0"/>
+<pinref part="U1" gate="-IOB" pin="GCB0/IO34NDB1V0"/>
+<wire x1="144.78" y1="63.5" x2="149.86" y2="63.5" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="!OE" class="0">
 <segment>
 <pinref part="U1" gate="-IOB" pin="GDC0/IO38NDB1V0"/>
 <wire x1="210.82" y1="78.74" x2="215.9" y2="78.74" width="0.1524" layer="91"/>
+<label x="218.44" y="78.74" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="!RD" class="0">
+<segment>
+<pinref part="U1" gate="-IOB" pin="GBB2/IO27NPB1V0"/>
+<wire x1="149.86" y1="86.36" x2="144.78" y2="86.36" width="0.1524" layer="91"/>
+<label x="142.24" y="86.36" size="1.778" layer="95" rot="MR0"/>
+</segment>
+</net>
+<net name="!RXF" class="0">
+<segment>
+<pinref part="U1" gate="-IOB" pin="GBA2/IO27PPB1V0"/>
+<wire x1="149.86" y1="88.9" x2="144.78" y2="88.9" width="0.1524" layer="91"/>
+<label x="142.24" y="88.9" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
 </nets>
@@ -30498,11 +30535,9 @@ Source:
 <text x="64.77" y="149.86" size="1.778" layer="97">NC</text>
 <text x="45.72" y="76.2" size="50.8" layer="208">CON</text>
 <text x="116.84" y="114.3" size="2.54" layer="97" rot="R90">I2C0, SPI0, UART</text>
-<rectangle x1="218.44" y1="132.08" x2="241.3" y2="137.16" layer="98"/>
-<text x="241.3" y="134.62" size="1.778" layer="98">Consider moving CLK away from the analog signals</text>
-<text x="241.3" y="147.32" size="1.778" layer="98">CLK</text>
-<text x="241.3" y="142.24" size="1.778" layer="98">SPI</text>
-<text x="241.3" y="137.16" size="1.778" layer="98">I2C</text>
+<text x="234.95" y="146.05" size="1.778" layer="98">CLK moved away from the analog signals</text>
+<text x="241.3" y="139.7" size="1.778" layer="98">SPI</text>
+<text x="241.3" y="132.08" size="1.778" layer="98">I2C</text>
 </plain>
 <instances>
 <instance part="J2" gate="G$1" x="200.66" y="114.3"/>
@@ -30591,8 +30626,6 @@ Source:
 <instance part="PORT199" gate="G$1" x="83.82" y="147.32"/>
 <instance part="PORT200" gate="G$1" x="83.82" y="144.78"/>
 <instance part="PORT246" gate="G$1" x="228.6" y="137.16"/>
-<instance part="PORT247" gate="G$1" x="228.6" y="134.62"/>
-<instance part="PORT250" gate="G$1" x="228.6" y="132.08"/>
 <instance part="PORT251" gate="G$1" x="228.6" y="147.32"/>
 <instance part="PORT252" gate="G$1" x="228.6" y="144.78"/>
 <instance part="PORT253" gate="G$1" x="228.6" y="142.24"/>
@@ -30605,6 +30638,9 @@ Source:
 <instance part="M6" gate="G$1" x="73.66" y="22.86"/>
 <instance part="M7" gate="G$1" x="81.28" y="22.86"/>
 <instance part="M8" gate="G$1" x="88.9" y="22.86"/>
+<instance part="PORT247" gate="G$1" x="228.6" y="129.54"/>
+<instance part="PORT250" gate="G$1" x="228.6" y="134.62"/>
+<instance part="PORT320" gate="G$1" x="228.6" y="132.08"/>
 </instances>
 <busses>
 </busses>
@@ -31192,18 +31228,6 @@ Source:
 <label x="76.2" y="144.78" size="1.778" layer="97"/>
 </segment>
 </net>
-<net name="N$70" class="0">
-<segment>
-<pinref part="J2" gate="G$1" pin="14"/>
-<wire x1="208.28" y1="147.32" x2="218.44" y2="147.32" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$71" class="0">
-<segment>
-<pinref part="J2" gate="G$1" pin="16"/>
-<wire x1="208.28" y1="144.78" x2="218.44" y2="144.78" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$72" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="18"/>
@@ -31267,16 +31291,34 @@ Source:
 </net>
 <net name="REF_CLK-" class="0">
 <segment>
-<pinref part="J2" gate="G$1" pin="24"/>
-<wire x1="208.28" y1="134.62" x2="218.44" y2="134.62" width="0.1524" layer="91"/>
-<label x="220.98" y="134.62" size="1.778" layer="95"/>
+<pinref part="J2" gate="G$1" pin="14"/>
+<wire x1="208.28" y1="147.32" x2="218.44" y2="147.32" width="0.1524" layer="91"/>
+<label x="220.98" y="147.32" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="REF_CLK+" class="0">
 <segment>
+<pinref part="J2" gate="G$1" pin="16"/>
+<wire x1="208.28" y1="144.78" x2="218.44" y2="144.78" width="0.1524" layer="91"/>
+<label x="220.98" y="144.78" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$7" class="0">
+<segment>
+<pinref part="J2" gate="G$1" pin="28"/>
+<wire x1="208.28" y1="129.54" x2="218.44" y2="129.54" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$10" class="0">
+<segment>
 <pinref part="J2" gate="G$1" pin="26"/>
 <wire x1="208.28" y1="132.08" x2="218.44" y2="132.08" width="0.1524" layer="91"/>
-<label x="220.98" y="132.08" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$11" class="0">
+<segment>
+<pinref part="J2" gate="G$1" pin="24"/>
+<wire x1="208.28" y1="134.62" x2="218.44" y2="134.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
