@@ -25784,6 +25784,9 @@ Source:
 <text x="39.37" y="87.63" size="1.778" layer="101">Check if it should be negated</text>
 <rectangle x1="22.86" y1="68.58" x2="101.6" y2="91.44" layer="116"/>
 <rectangle x1="137.16" y1="121.92" x2="228.6" y2="165.1" layer="116"/>
+<rectangle x1="172.72" y1="43.18" x2="195.58" y2="78.74" layer="116"/>
+<rectangle x1="205.74" y1="43.18" x2="215.9" y2="78.74" layer="116"/>
+<rectangle x1="132.08" y1="81.28" x2="231.14" y2="119.38" layer="116"/>
 </plain>
 <instances>
 <instance part="U1" gate="-MISC" x="63.5" y="134.62"/>
