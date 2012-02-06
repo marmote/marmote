@@ -8,24 +8,24 @@
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.05" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
-<layer number="2" name="Route2" color="1" fill="3" visible="yes" active="no"/>
-<layer number="3" name="Route3" color="4" fill="3" visible="yes" active="no"/>
-<layer number="14" name="Route14" color="1" fill="6" visible="yes" active="no"/>
-<layer number="15" name="Route15" color="4" fill="6" visible="yes" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="no"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="no"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="no"/>
-<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="no"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="no"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="no"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="no"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="no"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="no"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="no"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="no"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="no"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="no"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="no"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="no" active="no"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="no"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="no"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="no"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="no"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="no" active="no"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="no" active="no"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="no" active="no"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="no" active="no"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="no"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="no"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="no"/>
@@ -34,8 +34,8 @@
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="no"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="no"/>
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="no"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="no"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="no"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="no" active="no"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="no"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="no"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="no"/>
@@ -43,16 +43,16 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="no"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="no"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="no"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="no"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="no"/>
-<layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
-<layer number="50" name="dxf" color="7" fill="1" visible="yes" active="no"/>
-<layer number="51" name="tDocu" color="14" fill="1" visible="yes" active="no"/>
-<layer number="52" name="bDocu" color="11" fill="1" visible="yes" active="no"/>
-<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="yes" active="no"/>
-<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="yes" active="no"/>
-<layer number="56" name="wert" color="7" fill="1" visible="yes" active="no"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="no" active="no"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="no" active="no"/>
+<layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
+<layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
+<layer number="51" name="tDocu" color="14" fill="1" visible="no" active="no"/>
+<layer number="52" name="bDocu" color="11" fill="1" visible="no" active="no"/>
+<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
+<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
+<layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="93" name="Pins" color="2" fill="1" visible="no" active="yes"/>
@@ -20687,6 +20687,10 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <wire x1="5.5" y1="10" x2="5" y2="1" width="0.127" layer="51"/>
 <wire x1="5" y1="1" x2="3" y2="1" width="0.127" layer="51"/>
 <wire x1="3" y1="1" x2="2.5" y2="10" width="0.127" layer="51"/>
+<wire x1="-9.525" y1="11.43" x2="9.525" y2="11.43" width="0.127" layer="39"/>
+<wire x1="9.525" y1="11.43" x2="9.525" y2="-13.97" width="0.127" layer="39"/>
+<wire x1="9.525" y1="-13.97" x2="-9.525" y2="-13.97" width="0.127" layer="39"/>
+<wire x1="-9.525" y1="-13.97" x2="-9.525" y2="11.43" width="0.127" layer="39"/>
 </package>
 <package name="L0402">
 <description>&lt;b&gt;L0402&lt;/b&gt;
@@ -25170,7 +25174,6 @@ Source:
 <part name="PORT330" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT331" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT332" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="PORT333" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT334" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT335" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT336" library="MainBoard" deviceset="PORT5" device=""/>
@@ -25178,6 +25181,17 @@ Source:
 <part name="PORT338" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT339" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT340" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT343" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT344" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT333" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT341" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT342" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT345" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT346" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT347" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT348" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT349" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT350" library="MainBoard" deviceset="PORT7" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -30213,8 +30227,6 @@ Source:
 <text x="218.44" y="130.81" size="1.778" layer="97" rot="R90">ORANGE</text>
 <text x="205.74" y="130.81" size="1.778" layer="97" rot="R90">GREEN</text>
 <rectangle x1="129.54" y1="66.04" x2="142.24" y2="68.58" layer="98"/>
-<text x="45.72" y="149.86" size="1.778" layer="97">NC</text>
-<text x="45.72" y="147.32" size="1.778" layer="97">NC</text>
 <text x="40.64" y="114.3" size="1.778" layer="97">NC</text>
 <text x="40.64" y="111.76" size="1.778" layer="97">NC</text>
 <rectangle x1="184.404" y1="65.278" x2="234.442" y2="67.564" layer="114"/>
@@ -30269,6 +30281,8 @@ Source:
 <instance part="R21" gate="G$1" x="38.1" y="38.1" rot="R90"/>
 <instance part="PORT127" gate="G$1" x="38.1" y="12.7" rot="R270"/>
 <instance part="U$48" gate="G$1" x="38.1" y="45.72"/>
+<instance part="PORT343" gate="G$1" x="22.86" y="149.86" rot="MR0"/>
+<instance part="PORT344" gate="G$1" x="22.86" y="147.32" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -30529,6 +30543,18 @@ Source:
 <label x="142.24" y="88.9" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
+<net name="UART1_TXD" class="0">
+<segment>
+<pinref part="U1" gate="-UART" pin="UART_1_TXD/GPIO_28"/>
+<wire x1="50.8" y1="149.86" x2="38.1" y2="149.86" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="UART1_RXD" class="0">
+<segment>
+<pinref part="U1" gate="-UART" pin="UART_1_RXD/GPIO_29"/>
+<wire x1="50.8" y1="147.32" x2="38.1" y2="147.32" width="0.1524" layer="91"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>
@@ -30541,14 +30567,12 @@ Source:
 <text x="60.96" y="45.72" size="2.54" layer="97">CLK OUT SMA connector</text>
 <text x="45.72" y="76.2" size="2.54" layer="97">USB connector</text>
 <rectangle x1="167.64" y1="66.04" x2="180.34" y2="129.54" layer="97"/>
-<rectangle x1="127" y1="132.08" x2="144.78" y2="147.32" layer="97"/>
 <text x="64.77" y="149.86" size="1.778" layer="97">NC</text>
 <text x="45.72" y="76.2" size="50.8" layer="208">CON</text>
 <text x="116.84" y="114.3" size="2.54" layer="97" rot="R90">I2C0, SPI0, UART</text>
-<text x="234.95" y="148.59" size="1.778" layer="98">CLK moved away from the analog signals</text>
-<text x="180.34" y="142.24" size="1.778" layer="98">UART?</text>
-<rectangle x1="149.86" y1="127" x2="167.64" y2="147.32" layer="98"/>
-<rectangle x1="215.9" y1="129.54" x2="233.68" y2="149.86" layer="98"/>
+<rectangle x1="160.02" y1="66.04" x2="172.72" y2="81.28" layer="98"/>
+<text x="157.48" y="68.58" size="1.778" layer="98" rot="R90">2 pairs CM/TM</text>
+<rectangle x1="167.64" y1="137.16" x2="187.96" y2="151.13" layer="98"/>
 </plain>
 <instances>
 <instance part="J2" gate="G$1" x="200.66" y="114.3"/>
@@ -30571,7 +30595,7 @@ Source:
 <instance part="J6" gate="G1" x="66.04" y="60.96"/>
 <instance part="J4" gate="G$1" x="35.56" y="101.6" rot="MR0"/>
 <instance part="U4" gate="G$1" x="55.88" y="101.6"/>
-<instance part="U$13" gate="G$1" x="170.18" y="149.86"/>
+<instance part="U$13" gate="G$1" x="165.1" y="149.86"/>
 <instance part="PORT15" gate="G$1" x="175.26" y="160.02" rot="MR0"/>
 <instance part="PORT16" gate="G$1" x="175.26" y="157.48" rot="MR0"/>
 <instance part="PORT17" gate="G$1" x="175.26" y="154.94" rot="MR0"/>
@@ -30636,11 +30660,11 @@ Source:
 <instance part="PORT205" gate="G$1" x="30.48" y="142.24" rot="MR0"/>
 <instance part="PORT199" gate="G$1" x="83.82" y="147.32"/>
 <instance part="PORT200" gate="G$1" x="83.82" y="144.78"/>
-<instance part="PORT246" gate="G$1" x="228.6" y="139.7"/>
+<instance part="PORT246" gate="G$1" x="228.6" y="137.16"/>
 <instance part="PORT251" gate="G$1" x="228.6" y="149.86"/>
 <instance part="PORT252" gate="G$1" x="228.6" y="147.32"/>
-<instance part="PORT253" gate="G$1" x="228.6" y="144.78"/>
-<instance part="PORT254" gate="G$1" x="228.6" y="142.24"/>
+<instance part="PORT253" gate="G$1" x="228.6" y="142.24"/>
+<instance part="PORT254" gate="G$1" x="228.6" y="139.7"/>
 <instance part="M1" gate="G$1" x="25.4" y="22.86"/>
 <instance part="M2" gate="G$1" x="33.02" y="22.86"/>
 <instance part="M3" gate="G$1" x="40.64" y="22.86"/>
@@ -30649,17 +30673,25 @@ Source:
 <instance part="M6" gate="G$1" x="73.66" y="22.86"/>
 <instance part="M7" gate="G$1" x="81.28" y="22.86"/>
 <instance part="M8" gate="G$1" x="88.9" y="22.86"/>
-<instance part="PORT247" gate="G$1" x="228.6" y="132.08"/>
-<instance part="PORT250" gate="G$1" x="228.6" y="137.16"/>
-<instance part="PORT320" gate="G$1" x="228.6" y="134.62"/>
-<instance part="PORT333" gate="G$1" x="228.6" y="129.54"/>
-<instance part="PORT334" gate="G$1" x="162.56" y="139.7"/>
-<instance part="PORT335" gate="G$1" x="162.56" y="144.78"/>
-<instance part="PORT336" gate="G$1" x="162.56" y="142.24"/>
-<instance part="PORT337" gate="G$1" x="162.56" y="132.08"/>
-<instance part="PORT338" gate="G$1" x="162.56" y="137.16"/>
-<instance part="PORT339" gate="G$1" x="162.56" y="134.62"/>
-<instance part="PORT340" gate="G$1" x="162.56" y="129.54"/>
+<instance part="PORT247" gate="G$1" x="228.6" y="129.54"/>
+<instance part="PORT250" gate="G$1" x="228.6" y="134.62"/>
+<instance part="PORT320" gate="G$1" x="228.6" y="132.08"/>
+<instance part="PORT334" gate="G$1" x="162.56" y="137.16"/>
+<instance part="PORT335" gate="G$1" x="162.56" y="142.24"/>
+<instance part="PORT336" gate="G$1" x="162.56" y="139.7"/>
+<instance part="PORT337" gate="G$1" x="162.56" y="129.54"/>
+<instance part="PORT338" gate="G$1" x="162.56" y="134.62"/>
+<instance part="PORT339" gate="G$1" x="162.56" y="132.08"/>
+<instance part="PORT340" gate="G$1" x="109.22" y="129.54" rot="MR0"/>
+<instance part="PORT333" gate="G$1" x="170.18" y="129.54" rot="MR0"/>
+<instance part="PORT341" gate="G$1" x="170.18" y="132.08" rot="MR0"/>
+<instance part="PORT342" gate="G$1" x="170.18" y="134.62" rot="MR0"/>
+<instance part="PORT345" gate="G$1" x="170.18" y="137.16" rot="MR0"/>
+<instance part="PORT346" gate="G$1" x="170.18" y="139.7" rot="MR0"/>
+<instance part="PORT347" gate="G$1" x="170.18" y="142.24" rot="MR0"/>
+<instance part="PORT348" gate="G$1" x="170.18" y="144.78" rot="MR0"/>
+<instance part="PORT349" gate="G$1" x="170.18" y="147.32" rot="MR0"/>
+<instance part="PORT350" gate="G$1" x="170.18" y="149.86" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -30753,12 +30785,13 @@ Source:
 </segment>
 <segment>
 <wire x1="193.04" y1="152.4" x2="193.04" y2="162.56" width="0.1524" layer="91"/>
-<wire x1="193.04" y1="152.4" x2="170.18" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="152.4" x2="165.1" y2="152.4" width="0.1524" layer="91"/>
 <pinref part="U$13" gate="G$1" pin="DGND"/>
 <pinref part="J2" gate="G$1" pin="9"/>
 <wire x1="195.58" y1="152.4" x2="193.04" y2="152.4" width="0.1524" layer="91"/>
 <pinref part="J2" gate="G$1" pin="1"/>
 <wire x1="193.04" y1="162.56" x2="195.58" y2="162.56" width="0.1524" layer="91"/>
+<junction x="193.04" y="152.4"/>
 </segment>
 <segment>
 <wire x1="210.82" y1="152.4" x2="236.22" y2="152.4" width="0.1524" layer="91"/>
@@ -30768,6 +30801,10 @@ Source:
 <wire x1="208.28" y1="152.4" x2="210.82" y2="152.4" width="0.1524" layer="91"/>
 <pinref part="J2" gate="G$1" pin="2"/>
 <wire x1="210.82" y1="162.56" x2="208.28" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="210.82" y1="152.4" x2="210.82" y2="144.78" width="0.1524" layer="91"/>
+<pinref part="J2" gate="G$1" pin="16"/>
+<wire x1="208.28" y1="144.78" x2="210.82" y2="144.78" width="0.1524" layer="91"/>
+<junction x="210.82" y="152.4"/>
 </segment>
 <segment>
 <pinref part="U4" gate="G$1" pin="GND"/>
@@ -31249,18 +31286,6 @@ Source:
 </net>
 <net name="I2C0_SCL" class="0">
 <segment>
-<label x="220.98" y="144.78" size="1.778" layer="95"/>
-<pinref part="J2" gate="G$1" pin="16"/>
-<wire x1="218.44" y1="144.78" x2="208.28" y2="144.78" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<label x="154.94" y="144.78" size="1.778" layer="95"/>
-<wire x1="152.4" y1="144.78" x2="142.24" y2="144.78" width="0.1524" layer="91"/>
-<pinref part="J1" gate="G$1" pin="16"/>
-</segment>
-</net>
-<net name="I2C0_SDA" class="0">
-<segment>
 <label x="220.98" y="142.24" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="18"/>
 <wire x1="218.44" y1="142.24" x2="208.28" y2="142.24" width="0.1524" layer="91"/>
@@ -31271,16 +31296,28 @@ Source:
 <pinref part="J1" gate="G$1" pin="18"/>
 </segment>
 </net>
-<net name="!WAKEUP" class="0">
+<net name="I2C0_SDA" class="0">
 <segment>
-<label x="220.98" y="129.54" size="1.778" layer="95"/>
-<pinref part="J2" gate="G$1" pin="28"/>
-<wire x1="218.44" y1="129.54" x2="208.28" y2="129.54" width="0.1524" layer="91"/>
+<label x="220.98" y="139.7" size="1.778" layer="95"/>
+<pinref part="J2" gate="G$1" pin="20"/>
+<wire x1="218.44" y1="139.7" x2="208.28" y2="139.7" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="J1" gate="G$1" pin="28"/>
-<wire x1="142.24" y1="129.54" x2="152.4" y2="129.54" width="0.1524" layer="91"/>
-<label x="154.94" y="129.54" size="1.778" layer="95"/>
+<label x="154.94" y="139.7" size="1.778" layer="95"/>
+<wire x1="152.4" y1="139.7" x2="142.24" y2="139.7" width="0.1524" layer="91"/>
+<pinref part="J1" gate="G$1" pin="20"/>
+</segment>
+</net>
+<net name="!WAKEUP" class="0">
+<segment>
+<label x="182.88" y="129.54" size="1.778" layer="95" rot="MR0"/>
+<wire x1="185.42" y1="129.54" x2="195.58" y2="129.54" width="0.1524" layer="91"/>
+<pinref part="J2" gate="G$1" pin="27"/>
+</segment>
+<segment>
+<label x="116.84" y="129.54" size="1.778" layer="95" rot="MR0"/>
+<pinref part="J1" gate="G$1" pin="27"/>
+<wire x1="119.38" y1="129.54" x2="129.54" y2="129.54" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="EXT_CLK_OUT_BUF" class="0">
@@ -31341,58 +31378,108 @@ Source:
 </net>
 <net name="SPI1_SS" class="0">
 <segment>
+<label x="220.98" y="129.54" size="1.778" layer="95"/>
+<pinref part="J2" gate="G$1" pin="28"/>
+<wire x1="218.44" y1="129.54" x2="208.28" y2="129.54" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="SPI1_MISO" class="0">
+<segment>
 <label x="220.98" y="132.08" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="26"/>
 <wire x1="218.44" y1="132.08" x2="208.28" y2="132.08" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="SPI1_MISO" class="0">
+<net name="SPI1_MOSI" class="0">
 <segment>
 <label x="220.98" y="134.62" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="24"/>
 <wire x1="218.44" y1="134.62" x2="208.28" y2="134.62" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="SPI1_MOSI" class="0">
+<net name="SPI1_SCLK" class="0">
 <segment>
 <label x="220.98" y="137.16" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="22"/>
 <wire x1="218.44" y1="137.16" x2="208.28" y2="137.16" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="SPI1_SCLK" class="0">
-<segment>
-<label x="220.98" y="139.7" size="1.778" layer="95"/>
-<pinref part="J2" gate="G$1" pin="20"/>
-<wire x1="218.44" y1="139.7" x2="208.28" y2="139.7" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="SPI0_SCLK" class="0">
-<segment>
-<label x="154.94" y="139.7" size="1.778" layer="95"/>
-<wire x1="152.4" y1="139.7" x2="142.24" y2="139.7" width="0.1524" layer="91"/>
-<pinref part="J1" gate="G$1" pin="20"/>
-</segment>
-</net>
-<net name="SPI0_MOSI" class="0">
 <segment>
 <label x="154.94" y="137.16" size="1.778" layer="95"/>
 <wire x1="152.4" y1="137.16" x2="142.24" y2="137.16" width="0.1524" layer="91"/>
 <pinref part="J1" gate="G$1" pin="22"/>
 </segment>
 </net>
-<net name="SPI0_MISO" class="0">
+<net name="SPI0_MOSI" class="0">
 <segment>
 <label x="154.94" y="134.62" size="1.778" layer="95"/>
 <wire x1="152.4" y1="134.62" x2="142.24" y2="134.62" width="0.1524" layer="91"/>
 <pinref part="J1" gate="G$1" pin="24"/>
 </segment>
 </net>
-<net name="SPI0_SS" class="0">
+<net name="SPI0_MISO" class="0">
 <segment>
 <label x="154.94" y="132.08" size="1.778" layer="95"/>
 <wire x1="152.4" y1="132.08" x2="142.24" y2="132.08" width="0.1524" layer="91"/>
 <pinref part="J1" gate="G$1" pin="26"/>
+</segment>
+</net>
+<net name="SPI0_SS" class="0">
+<segment>
+<label x="154.94" y="129.54" size="1.778" layer="95"/>
+<wire x1="152.4" y1="129.54" x2="142.24" y2="129.54" width="0.1524" layer="91"/>
+<pinref part="J1" gate="G$1" pin="28"/>
+</segment>
+</net>
+<net name="UART1_RXD" class="0">
+<segment>
+<pinref part="J2" gate="G$1" pin="25"/>
+<wire x1="195.58" y1="132.08" x2="185.42" y2="132.08" width="0.1524" layer="91"/>
+<label x="182.88" y="132.08" size="1.778" layer="95" rot="MR0"/>
+</segment>
+</net>
+<net name="UART1_TXD" class="0">
+<segment>
+<pinref part="J2" gate="G$1" pin="23"/>
+<wire x1="195.58" y1="134.62" x2="185.42" y2="134.62" width="0.1524" layer="91"/>
+<label x="182.88" y="134.62" size="1.778" layer="95" rot="MR0"/>
+</segment>
+</net>
+<net name="N$3" class="0">
+<segment>
+<pinref part="J2" gate="G$1" pin="21"/>
+<wire x1="195.58" y1="137.16" x2="185.42" y2="137.16" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$5" class="0">
+<segment>
+<pinref part="J2" gate="G$1" pin="19"/>
+<wire x1="195.58" y1="139.7" x2="185.42" y2="139.7" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$7" class="0">
+<segment>
+<pinref part="J2" gate="G$1" pin="17"/>
+<wire x1="195.58" y1="142.24" x2="185.42" y2="142.24" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="J2" gate="G$1" pin="15"/>
+<wire x1="195.58" y1="144.78" x2="185.42" y2="144.78" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="J2" gate="G$1" pin="13"/>
+<wire x1="195.58" y1="147.32" x2="185.42" y2="147.32" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$10" class="0">
+<segment>
+<pinref part="J2" gate="G$1" pin="11"/>
+<wire x1="195.58" y1="149.86" x2="185.42" y2="149.86" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

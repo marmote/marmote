@@ -2860,6 +2860,10 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <wire x1="5.5" y1="10" x2="5" y2="1" width="0.127" layer="51"/>
 <wire x1="5" y1="1" x2="3" y2="1" width="0.127" layer="51"/>
 <wire x1="3" y1="1" x2="2.5" y2="10" width="0.127" layer="51"/>
+<wire x1="-9.525" y1="11.43" x2="9.525" y2="11.43" width="0.127" layer="39"/>
+<wire x1="9.525" y1="11.43" x2="9.525" y2="-13.97" width="0.127" layer="39"/>
+<wire x1="9.525" y1="-13.97" x2="-9.525" y2="-13.97" width="0.127" layer="39"/>
+<wire x1="-9.525" y1="-13.97" x2="-9.525" y2="11.43" width="0.127" layer="39"/>
 </package>
 <package name="LED0603">
 <description>&lt;b&gt;LED0603&lt;/b&gt;
