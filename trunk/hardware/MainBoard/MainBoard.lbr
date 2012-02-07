@@ -2819,12 +2819,12 @@ Height: 11.3 mm
 Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;http://ww2.pulseeng.com/products/datasheets/J423.pdf&lt;/a&gt;</description>
 <text x="-8.5" y="11.885" size="0.4064" layer="25">&gt;NAME</text>
 <text x="-8.5" y="-14" size="0.4064" layer="27">&gt;VALUE</text>
-<wire x1="-8.79" y1="-13.208" x2="-8.79" y2="10.922" width="0.127" layer="51"/>
+<wire x1="-8.79" y1="-13.208" x2="-8.79" y2="10.922" width="0.127" layer="21"/>
 <wire x1="-8.79" y1="10.922" x2="-6.79" y2="10.922" width="0.127" layer="51"/>
 <wire x1="-6.79" y1="10.922" x2="6.79" y2="10.922" width="0.127" layer="51"/>
 <wire x1="6.79" y1="10.922" x2="8.79" y2="10.922" width="0.127" layer="51"/>
-<wire x1="8.79" y1="10.922" x2="8.79" y2="-13.208" width="0.127" layer="51"/>
-<wire x1="8.79" y1="-13.208" x2="-8.79" y2="-13.208" width="0.127" layer="51"/>
+<wire x1="8.79" y1="10.922" x2="8.79" y2="-13.208" width="0.127" layer="21"/>
+<wire x1="8.79" y1="-13.208" x2="-8.79" y2="-13.208" width="0.127" layer="21"/>
 <pad name="H$2" x="8.79" y="0" drill="1.5748"/>
 <pad name="H$1" x="-8.79" y="0" drill="1.5748"/>
 <pad name="14" x="-7.5184" y="8.89" drill="1.27"/>
