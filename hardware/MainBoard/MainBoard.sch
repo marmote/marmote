@@ -29187,7 +29187,7 @@ Source:
 <instance part="PORT121" gate="G$1" x="236.22" y="101.6"/>
 <instance part="PORT122" gate="G$1" x="236.22" y="99.06"/>
 <instance part="PORT125" gate="G$1" x="236.22" y="96.52"/>
-<instance part="PORT126" gate="G$1" x="236.22" y="91.44"/>
+<instance part="PORT126" gate="G$1" x="119.38" y="139.7" rot="MR0"/>
 <instance part="PORT129" gate="G$1" x="119.38" y="93.98" rot="MR0"/>
 <instance part="PORT130" gate="G$1" x="119.38" y="91.44" rot="MR0"/>
 <instance part="PORT176" gate="G$1" x="106.68" y="132.08"/>
@@ -29447,25 +29447,18 @@ Source:
 <label x="223.52" y="109.22" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="!AFE2_SHDN" class="0">
-<segment>
-<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_CS1_N/GAB1/IO05PDB0V0"/>
-<wire x1="215.9" y1="99.06" x2="220.98" y2="99.06" width="0.1524" layer="91"/>
-<label x="223.52" y="99.06" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="!SPI1_SS_AFE1" class="0">
 <segment>
-<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_CLK/GAA0/IO02NDB0V0"/>
-<wire x1="215.9" y1="91.44" x2="220.98" y2="91.44" width="0.1524" layer="91"/>
-<label x="223.52" y="91.44" size="1.778" layer="95"/>
+<label x="132.08" y="139.7" size="1.778" layer="95" rot="MR0"/>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[6]/IO12NDB0V0"/>
+<wire x1="134.62" y1="139.7" x2="139.7" y2="139.7" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="!SPI1_SS_AFE2" class="0">
 <segment>
-<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_CS0_N/GAB0/IO05NDB0V0"/>
-<wire x1="215.9" y1="101.6" x2="220.98" y2="101.6" width="0.1524" layer="91"/>
-<label x="223.52" y="101.6" size="1.778" layer="95"/>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_RW_N/GAA1/IO02PDB0V0"/>
+<wire x1="215.9" y1="96.52" x2="220.98" y2="96.52" width="0.1524" layer="91"/>
+<label x="223.52" y="96.52" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="USB_DB7" class="0">
@@ -30128,9 +30121,9 @@ Source:
 </net>
 <net name="AFE2_T/!R" class="0">
 <segment>
-<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_RW_N/GAA1/IO02PDB0V0"/>
-<wire x1="215.9" y1="96.52" x2="220.98" y2="96.52" width="0.1524" layer="91"/>
-<label x="223.52" y="96.52" size="1.778" layer="95"/>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_CS1_N/GAB1/IO05PDB0V0"/>
+<wire x1="215.9" y1="99.06" x2="220.98" y2="99.06" width="0.1524" layer="91"/>
+<label x="223.52" y="99.06" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="AFE1_T/!R" class="0">
@@ -30211,6 +30204,13 @@ Source:
 <label x="223.52" y="124.46" size="1.778" layer="97"/>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[12]/IO87NDB5V0"/>
 <wire x1="220.98" y1="124.46" x2="215.9" y2="124.46" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="!AFE2_SHDN" class="0">
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_CS0_N/GAB0/IO05NDB0V0"/>
+<wire x1="215.9" y1="101.6" x2="220.98" y2="101.6" width="0.1524" layer="91"/>
+<label x="223.52" y="101.6" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
