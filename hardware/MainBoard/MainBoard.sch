@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.05" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -25763,8 +25763,8 @@ Source:
 <sheet>
 <plain>
 <text x="170.18" y="20.32" size="5.08" layer="97">Clock, Reset and JTAG</text>
-<text x="53.34" y="60.96" size="2.54" layer="97">Ethernet oscillator - 50 MHz</text>
-<text x="45.72" y="22.86" size="2.54" layer="97">Main oscillator - 20 MHz</text>
+<text x="45.72" y="63.5" size="2.54" layer="97">Ethernet oscillator - 50 MHz</text>
+<text x="45.72" y="25.4" size="2.54" layer="97">Main oscillator - 20 MHz</text>
 <text x="40.64" y="104.14" size="2.54" layer="97">Internal oscillators - 20 MHz / 32 kHz</text>
 <text x="180.34" y="124.46" size="2.54" layer="97">Reset logic</text>
 <rectangle x1="182.88" y1="144.78" x2="190.5" y2="152.4" layer="97"/>
