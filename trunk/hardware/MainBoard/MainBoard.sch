@@ -24433,7 +24433,6 @@ Source:
 <part name="X2" library="MainBoard" deviceset="ECX-31B" device=""/>
 <part name="PORT49" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT50" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="U$20" library="MainBoard" deviceset="DGND" device=""/>
 <part name="U$22" library="MainBoard" deviceset="DGND" device=""/>
 <part name="C3" library="MainBoard" deviceset="C" device="0402" value="4pF"/>
 <part name="C4" library="MainBoard" deviceset="C" device="0402" value="4pF"/>
@@ -25192,6 +25191,7 @@ Source:
 <part name="PORT348" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT349" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT350" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="U$20" library="MainBoard" deviceset="DGND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -25810,7 +25810,6 @@ Source:
 <instance part="PORT46" gate="G$1" x="96.52" y="78.74"/>
 <instance part="X1" gate="G$1" x="48.26" y="43.18"/>
 <instance part="X2" gate="G$1" x="38.1" y="124.46" rot="R90"/>
-<instance part="U$20" gate="G$1" x="30.48" y="33.02"/>
 <instance part="U$22" gate="G$1" x="25.4" y="114.3"/>
 <instance part="C3" gate="G$1" x="33.02" y="129.54" rot="R270"/>
 <instance part="C4" gate="G$1" x="33.02" y="119.38" rot="R270"/>
@@ -25889,6 +25888,7 @@ Source:
 <instance part="R8" gate="G$1" x="193.04" y="66.04" rot="R90"/>
 <instance part="PORT316" gate="G$1" x="210.82" y="45.72" rot="R270"/>
 <instance part="PORT317" gate="G$1" x="193.04" y="45.72" rot="R270"/>
+<instance part="U$20" gate="G$1" x="30.48" y="33.02"/>
 </instances>
 <busses>
 </busses>
@@ -25909,20 +25909,6 @@ Source:
 <pinref part="X3" gate="G$1" pin="OE"/>
 <wire x1="63.5" y1="83.82" x2="81.28" y2="83.82" width="0.1524" layer="91"/>
 <label x="83.82" y="83.82" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="AGND" class="0">
-<segment>
-<pinref part="X3" gate="G$1" pin="GND"/>
-<wire x1="35.56" y1="73.66" x2="30.48" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="73.66" x2="30.48" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="U$17" gate="G$1" pin="DGND"/>
-</segment>
-<segment>
-<pinref part="X1" gate="G$1" pin="GND"/>
-<pinref part="U$20" gate="G$1" pin="DGND"/>
-<wire x1="35.56" y1="38.1" x2="30.48" y2="38.1" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="38.1" x2="30.48" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="LPXOUT" class="0">
@@ -26023,6 +26009,18 @@ Source:
 <wire x1="137.16" y1="7.62" x2="139.7" y2="7.62" width="0.1524" layer="91"/>
 <wire x1="139.7" y1="7.62" x2="139.7" y2="5.08" width="0.1524" layer="91"/>
 <pinref part="U$134" gate="G$1" pin="DGND"/>
+</segment>
+<segment>
+<pinref part="U$17" gate="G$1" pin="DGND"/>
+<wire x1="30.48" y1="71.12" x2="30.48" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="X3" gate="G$1" pin="GND"/>
+<wire x1="30.48" y1="73.66" x2="35.56" y2="73.66" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$20" gate="G$1" pin="DGND"/>
+<pinref part="X1" gate="G$1" pin="GND"/>
+<wire x1="30.48" y1="35.56" x2="30.48" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="38.1" x2="35.56" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="MSS_RMII_CLK" class="0">
