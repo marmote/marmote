@@ -26114,7 +26114,7 @@ Source:
 <wire x1="30.48" y1="83.82" x2="35.56" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$65" class="0">
+<net name="!MSS_RESET_PB" class="0">
 <segment>
 <pinref part="C90" gate="G$1" pin="1"/>
 <wire x1="182.88" y1="142.24" x2="187.96" y2="142.24" width="0.1524" layer="91"/>
@@ -28426,10 +28426,24 @@ Source:
 <text x="133.35" y="34.29" size="1.778" layer="97" rot="R90">IOVDD (48)</text>
 <text x="143.51" y="34.29" size="1.778" layer="97" rot="R90">IOVDD (32)</text>
 <text x="53.34" y="66.04" size="50.8" layer="208">ETH</text>
-<rectangle x1="50.8" y1="167.64" x2="58.42" y2="177.8" layer="206"/>
 <text x="48.895" y="133.985" size="1.778" layer="97">NC</text>
 <text x="120.65" y="162.56" size="1.778" layer="97">Place close to ETH PHY device</text>
 <rectangle x1="119.38" y1="111.76" x2="139.7" y2="127" layer="206"/>
+<rectangle x1="96.52" y1="104.14" x2="106.68" y2="114.3" layer="116"/>
+<rectangle x1="104.14" y1="111.76" x2="121.92" y2="127" layer="116"/>
+<rectangle x1="124.46" y1="106.68" x2="134.62" y2="114.3" layer="116"/>
+<rectangle x1="17.78" y1="160.02" x2="58.42" y2="177.8" layer="116"/>
+<rectangle x1="93.98" y1="157.48" x2="116.84" y2="180.34" layer="116"/>
+<rectangle x1="48.26" y1="76.2" x2="63.5" y2="81.28" layer="116"/>
+<rectangle x1="48.26" y1="81.28" x2="60.96" y2="83.82" layer="116"/>
+<rectangle x1="88.9" y1="68.58" x2="109.22" y2="73.66" layer="116"/>
+<rectangle x1="50.8" y1="93.98" x2="68.58" y2="96.52" layer="116"/>
+<rectangle x1="48.26" y1="129.54" x2="63.5" y2="132.08" layer="116"/>
+<rectangle x1="7.62" y1="127" x2="17.78" y2="142.24" layer="116"/>
+<rectangle x1="53.086" y1="123.698" x2="79.248" y2="125.476" layer="116"/>
+<rectangle x1="17.78" y1="125.73" x2="78.232" y2="129.54" layer="116"/>
+<rectangle x1="17.78" y1="152.4" x2="58.42" y2="160.02" layer="116"/>
+<rectangle x1="17.78" y1="114.3" x2="78.74" y2="124.46" layer="116"/>
 </plain>
 <instances>
 <instance part="U6" gate="G$1" x="78.74" y="119.38"/>
