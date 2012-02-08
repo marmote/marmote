@@ -8,24 +8,24 @@
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
-<layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
-<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
-<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
-<layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
-<layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="no"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="no" active="no"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="no"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="no" active="no"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="yes" active="no"/>
+<layer number="3" name="Route3" color="13" fill="3" visible="yes" active="no"/>
+<layer number="14" name="Route14" color="10" fill="6" visible="yes" active="no"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="yes" active="no"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="no"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="no"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="no"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="no"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="no"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="no"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="no"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="no"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="no"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="no"/>
@@ -34,8 +34,8 @@
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="no"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="no"/>
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="no"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="no" active="no"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="no"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="no"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="no"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="no"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="no"/>
@@ -43,16 +43,16 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="no"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="no"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="no"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="no"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="no"/>
-<layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
-<layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="14" fill="1" visible="no" active="no"/>
-<layer number="52" name="bDocu" color="11" fill="1" visible="no" active="no"/>
-<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
-<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
-<layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="no"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="no"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
+<layer number="50" name="dxf" color="7" fill="1" visible="yes" active="no"/>
+<layer number="51" name="tDocu" color="14" fill="1" visible="yes" active="no"/>
+<layer number="52" name="bDocu" color="11" fill="1" visible="yes" active="no"/>
+<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="yes" active="no"/>
+<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="yes" active="no"/>
+<layer number="56" name="wert" color="7" fill="1" visible="yes" active="no"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="93" name="Pins" color="2" fill="1" visible="no" active="yes"/>
@@ -21143,6 +21143,29 @@ Source: &lt;a href="http://media.digikey.com/pdf/Data%20Sheets/COPAL%20Electroni
 <text x="-3" y="-3" size="0.4064" layer="25">&gt;NAME</text>
 <text x="-3" y="2.25" size="0.4064" layer="27">&gt;VALUE</text>
 </package>
+<package name="R0402-IPC">
+<description>&lt;b&gt;IPC standard 0402 chip resistor footprint&lt;/b&gt;
+&lt;p&gt;
+Source:
+&lt;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href="http://tinymicros.com/mediawiki/images/3/3c/IPC-SM-782A.pdf"&gt;IPC-SM-782A&lt;/a&gt; (dimensions for the LP calculator)
+&lt;li&gt;IPC-7351 LP Calculator
+&lt;/ul&gt;</description>
+<smd name="1" x="-0.51" y="0" dx="0.55" dy="0.67" layer="1"/>
+<smd name="2" x="0.51" y="0" dx="0.55" dy="0.67" layer="1"/>
+<wire x1="-0.95" y1="0.5" x2="0.95" y2="0.5" width="0.05" layer="41"/>
+<wire x1="0.95" y1="0.5" x2="0.95" y2="-0.5" width="0.05" layer="41"/>
+<wire x1="0.95" y1="-0.5" x2="-0.95" y2="-0.5" width="0.05" layer="41"/>
+<wire x1="-0.95" y1="-0.5" x2="-0.95" y2="0.5" width="0.05" layer="41"/>
+<text x="-1" y="0.6" size="0.4064" layer="25">&gt;NAME</text>
+<text x="-1" y="-1" size="0.4064" layer="27">&gt;VALUE</text>
+<wire x1="-0.245" y1="0.224" x2="0.245" y2="0.224" width="0.1524" layer="51"/>
+<wire x1="0.245" y1="-0.224" x2="-0.245" y2="-0.224" width="0.1524" layer="51"/>
+<rectangle x1="-0.554" y1="-0.3048" x2="-0.254" y2="0.2951" layer="51"/>
+<rectangle x1="0.2588" y1="-0.3048" x2="0.5588" y2="0.2951" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="DGND">
@@ -23850,6 +23873,15 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ecx-31b.pdf"&gt;http://www.
 </technology>
 </technologies>
 </device>
+<device name="0402-IPC" package="R0402-IPC">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
 </devices>
 </deviceset>
 <deviceset name="FRAME-LETTER" prefix="FRAME">
@@ -24476,12 +24508,8 @@ Source:
 <part name="C8" library="MainBoard" deviceset="C" device="0402"/>
 <part name="C9" library="MainBoard" deviceset="C" device="0402"/>
 <part name="U$23" library="MainBoard" deviceset="AGND" device=""/>
-<part name="R5" library="MainBoard" deviceset="R" device="0402" value="0">
-<attribute name="TOLERANCE" value=""/>
-</part>
-<part name="R6" library="MainBoard" deviceset="R" device="0402" value="0">
-<attribute name="TOLERANCE" value=""/>
-</part>
+<part name="R5" library="MainBoard" deviceset="R" device="0402-IPC" value="0"/>
+<part name="R6" library="MainBoard" deviceset="R" device="0402-IPC" value="0"/>
 <part name="C10" library="MainBoard" deviceset="C" device="0402"/>
 <part name="C11" library="MainBoard" deviceset="C" device="0402"/>
 <part name="C12" library="MainBoard" deviceset="C" device="0402"/>
@@ -24489,12 +24517,8 @@ Source:
 <part name="C13" library="MainBoard" deviceset="C" device="0402"/>
 <part name="C14" library="MainBoard" deviceset="C" device="0402"/>
 <part name="U$25" library="MainBoard" deviceset="AGND" device=""/>
-<part name="R9" library="MainBoard" deviceset="R" device="0402" value="0">
-<attribute name="TOLERANCE" value=""/>
-</part>
-<part name="R10" library="MainBoard" deviceset="R" device="0402" value="0">
-<attribute name="TOLERANCE" value=""/>
-</part>
+<part name="R9" library="MainBoard" deviceset="R" device="0402-IPC" value="0"/>
+<part name="R10" library="MainBoard" deviceset="R" device="0402-IPC" value="0"/>
 <part name="C15" library="MainBoard" deviceset="C" device="0402"/>
 <part name="C16" library="MainBoard" deviceset="C" device="0402"/>
 <part name="C17" library="MainBoard" deviceset="C" device="0402"/>
@@ -24506,21 +24530,13 @@ Source:
 <part name="C21" library="MainBoard" deviceset="C" device="0402"/>
 <part name="C22" library="MainBoard" deviceset="C" device="0402"/>
 <part name="U$28" library="MainBoard" deviceset="AGND" device=""/>
-<part name="R15" library="MainBoard" deviceset="R" device="0402" value="0">
-<attribute name="TOLERANCE" value=""/>
-</part>
-<part name="R16" library="MainBoard" deviceset="R" device="0402" value="0">
-<attribute name="TOLERANCE" value=""/>
-</part>
+<part name="R15" library="MainBoard" deviceset="R" device="0402-IPC" value="0"/>
+<part name="R16" library="MainBoard" deviceset="R" device="0402-IPC" value="0"/>
 <part name="C23" library="MainBoard" deviceset="C" device="0402"/>
 <part name="C24" library="MainBoard" deviceset="C" device="0402"/>
 <part name="U$29" library="MainBoard" deviceset="AGND" device=""/>
-<part name="R17" library="MainBoard" deviceset="R" device="0402" value="0">
-<attribute name="TOLERANCE" value=""/>
-</part>
-<part name="R18" library="MainBoard" deviceset="R" device="0402" value="0">
-<attribute name="TOLERANCE" value=""/>
-</part>
+<part name="R17" library="MainBoard" deviceset="R" device="0402-IPC" value="0"/>
+<part name="R18" library="MainBoard" deviceset="R" device="0402-IPC" value="0"/>
 <part name="PORT77" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT78" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT79" library="MainBoard" deviceset="PORT5" device=""/>
@@ -24812,7 +24828,7 @@ Source:
 <attribute name="TOLERANCE" value=""/>
 </part>
 <part name="U$90" library="MainBoard" deviceset="D3V3" device=""/>
-<part name="R68" library="MainBoard" deviceset="R" device="0603" value="4.87k">
+<part name="R68" library="MainBoard" deviceset="R" device="0402" value="4.87k">
 <attribute name="TOLERANCE" value="1%"/>
 </part>
 <part name="U$93" library="MainBoard" deviceset="DGND" device=""/>
@@ -24823,40 +24839,36 @@ Source:
 <part name="U$97" library="MainBoard" deviceset="D3V3" device=""/>
 <part name="U$98" library="MainBoard" deviceset="D3V3" device=""/>
 <part name="PORT216" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="C77" library="MainBoard" deviceset="C" device="0603" value="0.1uF"/>
-<part name="C78" library="MainBoard" deviceset="C" device="0603" value="0.1uF"/>
+<part name="C77" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
+<part name="C78" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
 <part name="U$99" library="MainBoard" deviceset="DGND" device=""/>
 <part name="PORT217" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="R71" library="MainBoard" deviceset="R" device="0603" value="2.2k">
+<part name="R71" library="MainBoard" deviceset="R" device="0402" value="2.2k">
 <attribute name="TOLERANCE" value=""/>
 </part>
-<part name="R72" library="MainBoard" deviceset="R" device="0603" value="2.2k">
+<part name="R72" library="MainBoard" deviceset="R" device="0402" value="2.2k">
 <attribute name="TOLERANCE" value=""/>
 </part>
-<part name="R73" library="MainBoard" deviceset="R" device="0603" value="2.2k">
-<attribute name="TOLERANCE" value=""/>
-</part>
+<part name="R73" library="MainBoard" deviceset="R" device="0402-IPC" value="2.2k"/>
 <part name="U$100" library="MainBoard" deviceset="D3V3" device=""/>
-<part name="C79" library="MainBoard" deviceset="C" device="0603" value="0.1uF"/>
-<part name="C80" library="MainBoard" deviceset="C" device="0603" value="0.1uF"/>
+<part name="C79" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
+<part name="C80" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
 <part name="U$101" library="MainBoard" deviceset="DGND" device=""/>
 <part name="PORT218" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="R74" library="MainBoard" deviceset="R" device="0603" value="49.9">
+<part name="R74" library="MainBoard" deviceset="R" device="0402-IPC" value="49.9"/>
+<part name="R75" library="MainBoard" deviceset="R" device="0402" value="49.9">
 <attribute name="TOLERANCE" value=""/>
 </part>
-<part name="R75" library="MainBoard" deviceset="R" device="0603" value="49.9">
+<part name="R76" library="MainBoard" deviceset="R" device="0402" value="49.9">
 <attribute name="TOLERANCE" value=""/>
 </part>
-<part name="R76" library="MainBoard" deviceset="R" device="0603" value="49.9">
-<attribute name="TOLERANCE" value=""/>
-</part>
-<part name="R77" library="MainBoard" deviceset="R" device="0603" value="49.9">
+<part name="R77" library="MainBoard" deviceset="R" device="0402" value="49.9">
 <attribute name="TOLERANCE" value=""/>
 </part>
 <part name="PORT219" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="U$102" library="MainBoard" deviceset="D3V3" device=""/>
 <part name="PORT220" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="C81" library="MainBoard" deviceset="C" device="0603" value="0.1uF"/>
+<part name="C81" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
 <part name="U$103" library="MainBoard" deviceset="DGND" device=""/>
 <part name="PORT221" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="U$104" library="MainBoard" deviceset="D3V3" device=""/>
@@ -24874,18 +24886,12 @@ Source:
 <part name="PORT232" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT233" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT234" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="R78" library="MainBoard" deviceset="R" device="0603" value="22"/>
-<part name="R79" library="MainBoard" deviceset="R" device="0603" value="22"/>
-<part name="R80" library="MainBoard" deviceset="R" device="0603" value="22"/>
-<part name="R81" library="MainBoard" deviceset="R" device="0603" value="22">
-<attribute name="TOLERANCE" value=""/>
-</part>
-<part name="R82" library="MainBoard" deviceset="R" device="0603" value="22">
-<attribute name="TOLERANCE" value=""/>
-</part>
-<part name="R83" library="MainBoard" deviceset="R" device="0603" value="22">
-<attribute name="TOLERANCE" value=""/>
-</part>
+<part name="R78" library="MainBoard" deviceset="R" device="0402-IPC" value="22"/>
+<part name="R79" library="MainBoard" deviceset="R" device="0402-IPC" value="22"/>
+<part name="R80" library="MainBoard" deviceset="R" device="0402-IPC" value="22"/>
+<part name="R81" library="MainBoard" deviceset="R" device="0402-IPC" value="22"/>
+<part name="R82" library="MainBoard" deviceset="R" device="0402-IPC" value="22"/>
+<part name="R83" library="MainBoard" deviceset="R" device="0402-IPC" value="22"/>
 <part name="PORT236" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT237" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT238" library="MainBoard" deviceset="PORT7" device=""/>
@@ -24893,32 +24899,30 @@ Source:
 <part name="PORT241" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT242" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="U$106" library="MainBoard" deviceset="D3V3" device=""/>
-<part name="R85" library="MainBoard" deviceset="R" device="0603" value="2.2k"/>
-<part name="C82" library="MainBoard" deviceset="C" device="0603" value="10uF"/>
-<part name="C83" library="MainBoard" deviceset="C" device="0603" value="0.1uF"/>
+<part name="R85" library="MainBoard" deviceset="R" device="0402" value="2.2k"/>
+<part name="C82" library="MainBoard" deviceset="C" device="0402" value="10uF"/>
+<part name="C83" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
 <part name="PORT245" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="C84" library="MainBoard" deviceset="C" device="0603" value="0.1uF"/>
+<part name="C84" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
 <part name="U$109" library="MainBoard" deviceset="DGND" device=""/>
-<part name="C85" library="MainBoard" deviceset="C" device="0603" value="0.1uF"/>
+<part name="C85" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
 <part name="PORT248" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="U$107" library="MainBoard" deviceset="D3V3" device=""/>
-<part name="R84" library="MainBoard" deviceset="R" device="0603" value="1.5k"/>
-<part name="R86" library="MainBoard" deviceset="R" device="0603" value="22">
-<attribute name="TOLERANCE" value=""/>
-</part>
+<part name="R84" library="MainBoard" deviceset="R" device="0402" value="1.5k"/>
+<part name="R86" library="MainBoard" deviceset="R" device="0402-IPC" value="22"/>
 <part name="PORT235" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="R88" library="MainBoard" deviceset="R" device="0603" value="2.2k">
+<part name="R88" library="MainBoard" deviceset="R" device="0402" value="2.2k">
 <attribute name="TOLERANCE" value=""/>
 </part>
-<part name="R89" library="MainBoard" deviceset="R" device="0603" value="2.2k">
+<part name="R89" library="MainBoard" deviceset="R" device="0402" value="2.2k">
 <attribute name="TOLERANCE" value=""/>
 </part>
-<part name="C86" library="MainBoard" deviceset="C" device="0603" value="10uF"/>
-<part name="C87" library="MainBoard" deviceset="C" device="0603" value="0.1uF"/>
+<part name="C86" library="MainBoard" deviceset="C" device="0402" value="10uF"/>
+<part name="C87" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
 <part name="PORT240" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="C88" library="MainBoard" deviceset="C" device="0603" value="10uF"/>
+<part name="C88" library="MainBoard" deviceset="C" device="0402" value="10uF"/>
 <part name="U$110" library="MainBoard" deviceset="DGND" device=""/>
-<part name="C89" library="MainBoard" deviceset="C" device="0603" value="0.1uF"/>
+<part name="C89" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
 <part name="U$113" library="MainBoard" deviceset="D3V3" device=""/>
 <part name="U$114" library="MainBoard" deviceset="DGND" device=""/>
 <part name="U$115" library="MainBoard" deviceset="DGND" device=""/>
@@ -25056,14 +25060,14 @@ Source:
 <part name="PORT210" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT211" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT212" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="R26" library="MainBoard" deviceset="R" device="0603" value="0">
+<part name="R26" library="MainBoard" deviceset="R" device="0402" value="0">
 <attribute name="TOLERANCE" value=""/>
 </part>
 <part name="U$95" library="MainBoard" deviceset="EGND" device=""/>
 <part name="U$96" library="MainBoard" deviceset="EGND" device=""/>
 <part name="U$127" library="MainBoard" deviceset="DGND" device=""/>
 <part name="U$128" library="MainBoard" deviceset="EGND" device=""/>
-<part name="C108" library="MainBoard" deviceset="C" device="0603" value="1000pF"/>
+<part name="C108" library="MainBoard" deviceset="C" device="0402" value="1000pF"/>
 <part name="U$108" library="MainBoard" deviceset="AGND" device=""/>
 <part name="U$111" library="MainBoard" deviceset="A3V3" device=""/>
 <part name="C109" library="MainBoard" deviceset="C" device="0603" value="2.2uF"/>
@@ -28424,8 +28428,6 @@ Source:
 <text x="53.34" y="66.04" size="50.8" layer="208">ETH</text>
 <rectangle x1="50.8" y1="167.64" x2="58.42" y2="177.8" layer="206"/>
 <text x="48.895" y="133.985" size="1.778" layer="97">NC</text>
-<rectangle x1="15.24" y1="127" x2="22.86" y2="137.16" layer="206"/>
-<rectangle x1="38.1" y1="114.3" x2="50.8" y2="162.56" layer="201"/>
 <text x="120.65" y="162.56" size="1.778" layer="97">Place close to ETH PHY device</text>
 <rectangle x1="119.38" y1="111.76" x2="139.7" y2="127" layer="206"/>
 </plain>
@@ -28953,11 +28955,6 @@ Source:
 <label x="226.06" y="71.12" size="1.778" layer="97"/>
 </segment>
 <segment>
-<pinref part="U6" gate="G$1" pin="CRS/CRS_DV/LED_CFG"/>
-<wire x1="53.34" y1="157.48" x2="48.26" y2="157.48" width="0.1524" layer="91"/>
-<pinref part="R86" gate="G$1" pin="2"/>
-</segment>
-<segment>
 <pinref part="R86" gate="G$1" pin="1"/>
 <wire x1="40.64" y1="157.48" x2="35.56" y2="157.48" width="0.1524" layer="91"/>
 <label x="33.02" y="157.48" size="1.778" layer="97" rot="MR0"/>
@@ -28999,35 +28996,35 @@ Source:
 <label x="33.02" y="119.38" size="1.778" layer="97" rot="MR0"/>
 </segment>
 </net>
-<net name="N$56" class="0">
+<net name="TXD_0" class="0">
 <segment>
 <pinref part="U6" gate="G$1" pin="TXD_0"/>
 <pinref part="R82" gate="G$1" pin="2"/>
 <wire x1="53.34" y1="142.24" x2="48.26" y2="142.24" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$57" class="0">
+<net name="TX_EN" class="0">
 <segment>
 <pinref part="U6" gate="G$1" pin="TX_EN"/>
 <pinref part="R83" gate="G$1" pin="2"/>
 <wire x1="53.34" y1="144.78" x2="48.26" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$60" class="0">
+<net name="TXD_1" class="0">
 <segment>
 <pinref part="U6" gate="G$1" pin="TXD_1"/>
 <pinref part="R81" gate="G$1" pin="2"/>
 <wire x1="53.34" y1="139.7" x2="48.26" y2="139.7" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$61" class="0">
+<net name="RX_ER" class="0">
 <segment>
 <pinref part="U6" gate="G$1" pin="RX_ER/MDIX_EN"/>
 <wire x1="53.34" y1="127" x2="48.26" y2="127" width="0.1524" layer="91"/>
 <pinref part="R78" gate="G$1" pin="2"/>
 </segment>
 </net>
-<net name="N$62" class="0">
+<net name="RX_DV" class="0">
 <segment>
 <pinref part="U6" gate="G$1" pin="RX_DV/MII_MODE"/>
 <wire x1="53.34" y1="124.46" x2="12.7" y2="124.46" width="0.1524" layer="91"/>
@@ -29035,14 +29032,14 @@ Source:
 <wire x1="12.7" y1="127" x2="12.7" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$66" class="0">
+<net name="RXD_0/PHYAD1" class="0">
 <segment>
 <pinref part="R79" gate="G$1" pin="2"/>
 <pinref part="U6" gate="G$1" pin="RXD_0/PHYAD1"/>
 <wire x1="48.26" y1="121.92" x2="53.34" y2="121.92" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$67" class="0">
+<net name="RXD_1/PHYAD2" class="0">
 <segment>
 <pinref part="U6" gate="G$1" pin="RXD_1/PHYAD2"/>
 <pinref part="R80" gate="G$1" pin="2"/>
@@ -29136,6 +29133,13 @@ Source:
 <wire x1="35.56" y1="17.78" x2="35.56" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="C108" gate="G$1" pin="2"/>
 <wire x1="29.21" y1="20.32" x2="35.56" y2="20.32" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="CRS" class="0">
+<segment>
+<pinref part="U6" gate="G$1" pin="CRS/CRS_DV/LED_CFG"/>
+<wire x1="53.34" y1="157.48" x2="48.26" y2="157.48" width="0.1524" layer="91"/>
+<pinref part="R86" gate="G$1" pin="2"/>
 </segment>
 </net>
 </nets>
