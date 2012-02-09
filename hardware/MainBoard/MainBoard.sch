@@ -28431,6 +28431,14 @@ Source:
 <rectangle x1="15.24" y1="104.14" x2="63.5" y2="106.68" layer="116"/>
 <rectangle x1="15.24" y1="78.74" x2="40.64" y2="83.82" layer="116"/>
 <rectangle x1="30.48" y1="60.96" x2="50.8" y2="68.58" layer="116"/>
+<rectangle x1="121.92" y1="55.88" x2="243.84" y2="76.2" layer="116"/>
+<rectangle x1="139.7" y1="17.78" x2="152.4" y2="40.64" layer="116"/>
+<rectangle x1="104.14" y1="20.32" x2="114.3" y2="35.56" layer="116"/>
+<rectangle x1="76.2" y1="12.7" x2="86.36" y2="48.26" layer="116"/>
+<rectangle x1="58.42" y1="12.7" x2="68.58" y2="48.26" layer="116"/>
+<rectangle x1="43.18" y1="12.7" x2="55.88" y2="50.8" layer="116"/>
+<rectangle x1="10.16" y1="10.16" x2="43.18" y2="50.8" layer="116"/>
+<rectangle x1="167.64" y1="96.52" x2="238.76" y2="180.34" layer="116"/>
 </plain>
 <instances>
 <instance part="U6" gate="G$1" x="78.74" y="119.38"/>
@@ -28645,7 +28653,7 @@ Source:
 <pinref part="C108" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="N$51" class="0">
+<net name="TD+" class="0">
 <segment>
 <pinref part="U6" gate="G$1" pin="TD+"/>
 <pinref part="J7" gate="G$1" pin="TD+"/>
@@ -28656,7 +28664,7 @@ Source:
 <junction x="139.7" y="149.86"/>
 </segment>
 </net>
-<net name="N$52" class="0">
+<net name="TD-" class="0">
 <segment>
 <pinref part="U6" gate="G$1" pin="TD-"/>
 <pinref part="J7" gate="G$1" pin="TD-"/>
@@ -28667,7 +28675,7 @@ Source:
 <junction x="134.62" y="144.78"/>
 </segment>
 </net>
-<net name="N$54" class="0">
+<net name="RD+" class="0">
 <segment>
 <pinref part="U6" gate="G$1" pin="RD+"/>
 <pinref part="J7" gate="G$1" pin="RD+"/>
@@ -28678,7 +28686,7 @@ Source:
 <junction x="129.54" y="137.16"/>
 </segment>
 </net>
-<net name="N$55" class="0">
+<net name="RD-" class="0">
 <segment>
 <pinref part="U6" gate="G$1" pin="RD-"/>
 <pinref part="J7" gate="G$1" pin="RD-"/>
@@ -28689,7 +28697,7 @@ Source:
 <junction x="124.46" y="132.08"/>
 </segment>
 </net>
-<net name="N$58" class="0">
+<net name="YEL+" class="0">
 <segment>
 <pinref part="J7" gate="G$1" pin="YEL+"/>
 <wire x1="220.98" y1="157.48" x2="226.06" y2="157.48" width="0.1524" layer="91"/>
@@ -28697,7 +28705,7 @@ Source:
 <pinref part="R70" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="N$59" class="0">
+<net name="COM+" class="0">
 <segment>
 <pinref part="J7" gate="G$1" pin="COM+"/>
 <wire x1="220.98" y1="121.92" x2="226.06" y2="121.92" width="0.1524" layer="91"/>
