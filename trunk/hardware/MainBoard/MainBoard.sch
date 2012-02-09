@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.05" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -76,7 +76,7 @@
 <layer number="112" name="Route12" color="7" fill="1" visible="no" active="no"/>
 <layer number="113" name="Route13" color="7" fill="1" visible="no" active="no"/>
 <layer number="114" name="FIXED_SF_PIN" color="2" fill="3" visible="yes" active="yes"/>
-<layer number="116" name="Patch_BOT" color="9" fill="4" visible="yes" active="yes"/>
+<layer number="116" name="Patch_BOT" color="9" fill="4" visible="no" active="yes"/>
 <layer number="117" name="mPads" color="7" fill="1" visible="no" active="no"/>
 <layer number="118" name="mVias" color="7" fill="1" visible="no" active="no"/>
 <layer number="119" name="mUnrouted" color="7" fill="1" visible="no" active="no"/>
@@ -25166,6 +25166,9 @@ Source:
 <part name="PORT349" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT350" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="U$20" library="MainBoard" deviceset="DGND" device=""/>
+<part name="PORT323" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT351" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT352" library="MainBoard" deviceset="PORT7" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -30573,8 +30576,8 @@ Source:
 <rectangle x1="167.64" y1="66.04" x2="180.34" y2="129.54" layer="97"/>
 <text x="64.77" y="149.86" size="1.778" layer="97">NC</text>
 <text x="45.72" y="76.2" size="50.8" layer="208">CON</text>
-<text x="116.84" y="114.3" size="2.54" layer="97" rot="R90">I2C0, SPI0, UART</text>
-<rectangle x1="167.64" y1="137.16" x2="187.96" y2="151.13" layer="98"/>
+<rectangle x1="170.18" y1="147.32" x2="187.96" y2="152.4" layer="98"/>
+<text x="172.72" y="149.86" size="1.778" layer="98" rot="R90">Make it a differential FPGAIO</text>
 </plain>
 <instances>
 <instance part="J2" gate="G$1" x="200.66" y="114.3"/>
@@ -30691,9 +30694,12 @@ Source:
 <instance part="PORT345" gate="G$1" x="170.18" y="137.16" rot="MR0"/>
 <instance part="PORT346" gate="G$1" x="170.18" y="139.7" rot="MR0"/>
 <instance part="PORT347" gate="G$1" x="170.18" y="142.24" rot="MR0"/>
-<instance part="PORT348" gate="G$1" x="170.18" y="144.78" rot="MR0"/>
+<instance part="PORT348" gate="G$1" x="104.14" y="142.24" rot="MR0"/>
 <instance part="PORT349" gate="G$1" x="170.18" y="147.32" rot="MR0"/>
 <instance part="PORT350" gate="G$1" x="170.18" y="149.86" rot="MR0"/>
+<instance part="PORT323" gate="G$1" x="104.14" y="134.62" rot="MR0"/>
+<instance part="PORT351" gate="G$1" x="104.14" y="137.16" rot="MR0"/>
+<instance part="PORT352" gate="G$1" x="104.14" y="139.7" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -30774,6 +30780,9 @@ Source:
 <pinref part="J1" gate="G$1" pin="9"/>
 <wire x1="127" y1="152.4" x2="129.54" y2="152.4" width="0.1524" layer="91"/>
 <junction x="127" y="152.4"/>
+<wire x1="127" y1="152.4" x2="127" y2="144.78" width="0.1524" layer="91"/>
+<pinref part="J1" gate="G$1" pin="15"/>
+<wire x1="127" y1="144.78" x2="129.54" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="144.78" y1="152.4" x2="152.4" y2="152.4" width="0.1524" layer="91"/>
@@ -30784,6 +30793,9 @@ Source:
 <pinref part="J1" gate="G$1" pin="10"/>
 <wire x1="142.24" y1="152.4" x2="144.78" y2="152.4" width="0.1524" layer="91"/>
 <junction x="144.78" y="152.4"/>
+<pinref part="J1" gate="G$1" pin="16"/>
+<wire x1="142.24" y1="144.78" x2="144.78" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="144.78" x2="144.78" y2="152.4" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="193.04" y1="152.4" x2="193.04" y2="162.56" width="0.1524" layer="91"/>
@@ -30794,6 +30806,9 @@ Source:
 <pinref part="J2" gate="G$1" pin="1"/>
 <wire x1="193.04" y1="162.56" x2="195.58" y2="162.56" width="0.1524" layer="91"/>
 <junction x="193.04" y="152.4"/>
+<pinref part="J2" gate="G$1" pin="15"/>
+<wire x1="195.58" y1="144.78" x2="193.04" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="144.78" x2="193.04" y2="152.4" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="210.82" y1="152.4" x2="236.22" y2="152.4" width="0.1524" layer="91"/>
@@ -31371,40 +31386,46 @@ Source:
 <label x="182.88" y="134.62" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="N$3" class="0">
+<net name="NGPIO0" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="21"/>
 <wire x1="195.58" y1="137.16" x2="185.42" y2="137.16" width="0.1524" layer="91"/>
+<label x="182.88" y="137.16" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="N$5" class="0">
+<net name="NGPIO1" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="19"/>
 <wire x1="195.58" y1="139.7" x2="185.42" y2="139.7" width="0.1524" layer="91"/>
+<label x="182.88" y="139.7" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="N$7" class="0">
+<net name="NGPIO2" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="17"/>
 <wire x1="195.58" y1="142.24" x2="185.42" y2="142.24" width="0.1524" layer="91"/>
+<label x="182.88" y="142.24" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="N$1" class="0">
+<net name="SGPIO3" class="0">
 <segment>
-<pinref part="J2" gate="G$1" pin="15"/>
-<wire x1="195.58" y1="144.78" x2="185.42" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="142.24" x2="119.38" y2="142.24" width="0.1524" layer="91"/>
+<label x="116.84" y="142.24" size="1.778" layer="95" rot="MR0"/>
+<pinref part="J1" gate="G$1" pin="17"/>
 </segment>
 </net>
-<net name="N$2" class="0">
+<net name="NGPIO3" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="13"/>
 <wire x1="195.58" y1="147.32" x2="185.42" y2="147.32" width="0.1524" layer="91"/>
+<label x="182.88" y="147.32" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="N$10" class="0">
+<net name="NGPIO4" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="11"/>
 <wire x1="195.58" y1="149.86" x2="185.42" y2="149.86" width="0.1524" layer="91"/>
+<label x="182.88" y="149.86" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
 <net name="SF_TM1" class="0">
@@ -31482,6 +31503,27 @@ Source:
 <label x="182.88" y="91.44" size="1.778" layer="95" rot="MR0"/>
 <pinref part="J2" gate="G$1" pin="57"/>
 <wire x1="185.42" y1="91.44" x2="195.58" y2="91.44" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="SGPIO0" class="0">
+<segment>
+<pinref part="J1" gate="G$1" pin="23"/>
+<wire x1="129.54" y1="134.62" x2="119.38" y2="134.62" width="0.1524" layer="91"/>
+<label x="116.84" y="134.62" size="1.778" layer="95" rot="MR0"/>
+</segment>
+</net>
+<net name="SGPIO1" class="0">
+<segment>
+<pinref part="J1" gate="G$1" pin="21"/>
+<wire x1="129.54" y1="137.16" x2="119.38" y2="137.16" width="0.1524" layer="91"/>
+<label x="116.84" y="137.16" size="1.778" layer="95" rot="MR0"/>
+</segment>
+</net>
+<net name="SGPIO2" class="0">
+<segment>
+<pinref part="J1" gate="G$1" pin="19"/>
+<wire x1="129.54" y1="139.7" x2="119.38" y2="139.7" width="0.1524" layer="91"/>
+<label x="116.84" y="139.7" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
 </nets>
