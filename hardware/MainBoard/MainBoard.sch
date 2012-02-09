@@ -25070,7 +25070,7 @@ Source:
 <part name="C108" library="MainBoard" deviceset="C" device="0402" value="1000pF"/>
 <part name="U$108" library="MainBoard" deviceset="AGND" device=""/>
 <part name="U$111" library="MainBoard" deviceset="A3V3" device=""/>
-<part name="C109" library="MainBoard" deviceset="C" device="0603" value="2.2uF"/>
+<part name="C109" library="MainBoard" deviceset="C" device="0402" value="2.2uF"/>
 <part name="U$129" library="MainBoard" deviceset="AGND" device=""/>
 <part name="U$130" library="MainBoard" deviceset="A1V5" device=""/>
 <part name="C110" library="MainBoard" deviceset="C" device="0402" value="10uF"/>
@@ -28444,6 +28444,19 @@ Source:
 <rectangle x1="17.78" y1="125.73" x2="78.232" y2="129.54" layer="116"/>
 <rectangle x1="17.78" y1="152.4" x2="58.42" y2="160.02" layer="116"/>
 <rectangle x1="17.78" y1="114.3" x2="78.74" y2="124.46" layer="116"/>
+<rectangle x1="88.9" y1="63.5" x2="111.76" y2="68.58" layer="116"/>
+<rectangle x1="127" y1="17.78" x2="137.16" y2="38.1" layer="116"/>
+<rectangle x1="111.76" y1="20.32" x2="121.92" y2="45.72" layer="116"/>
+<rectangle x1="48.26" y1="146.05" x2="71.12" y2="149.86" layer="116"/>
+<rectangle x1="17.78" y1="132.08" x2="60.96" y2="147.32" layer="116"/>
+<rectangle x1="17.78" y1="106.68" x2="60.96" y2="109.22" layer="116"/>
+<rectangle x1="86.36" y1="86.36" x2="106.68" y2="101.6" layer="116"/>
+<rectangle x1="88.9" y1="73.66" x2="111.76" y2="78.74" layer="116"/>
+<rectangle x1="83.82" y1="78.74" x2="121.92" y2="86.36" layer="116"/>
+<rectangle x1="45.72" y1="88.9" x2="66.04" y2="93.98" layer="116"/>
+<rectangle x1="96.52" y1="20.32" x2="104.14" y2="35.56" layer="116"/>
+<rectangle x1="88.9" y1="129.54" x2="109.22" y2="152.4" layer="116"/>
+<rectangle x1="121.92" y1="152.4" x2="144.78" y2="167.64" layer="116"/>
 </plain>
 <instances>
 <instance part="U6" gate="G$1" x="78.74" y="119.38"/>
