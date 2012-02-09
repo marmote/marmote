@@ -1,0 +1,18 @@
+#summary Notes and comments on the design of the Main Board
+#labels Phase-Design,Phase-Implementation
+
+= Rev A =
+
+== Priorities ==
+
+Throughout the design of the SmartFusion FPGA-based Main Board the priorities were the following:
+
+  # External Analog Front-End (highest)
+  # USB streaming interface
+  # SmartFusion Analog Front-End and Ethernet
+
+==  Known possible issues ==
+
+ * The external AFE and USB digital data buses should have series resistors to minimize the digital transient currents. Due to board space limitations, these resistors were omitted.
+
+ * The external AFE and USB were given priority over the SmartFusion AFE, thus the signals of the latter one might be noisy due to routing limitations.
