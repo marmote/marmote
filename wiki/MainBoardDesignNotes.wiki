@@ -1,8 +1,6 @@
 #summary Notes and comments on the design of the Main Board
 #labels Phase-Design,Phase-Implementation
 
-= Rev A =
-
 == Priorities ==
 
 Throughout the design of the SmartFusion FPGA-based Main Board the priorities were the following:
