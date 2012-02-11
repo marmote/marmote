@@ -76,7 +76,7 @@
 <layer number="112" name="Route12" color="7" fill="1" visible="no" active="no"/>
 <layer number="113" name="Route13" color="7" fill="1" visible="no" active="no"/>
 <layer number="114" name="FIXED_SF_PIN" color="2" fill="3" visible="yes" active="yes"/>
-<layer number="116" name="Patch_BOT" color="9" fill="4" visible="no" active="yes"/>
+<layer number="116" name="Patch_BOT" color="9" fill="4" visible="yes" active="yes"/>
 <layer number="117" name="mPads" color="7" fill="1" visible="no" active="no"/>
 <layer number="118" name="mVias" color="7" fill="1" visible="no" active="no"/>
 <layer number="119" name="mUnrouted" color="7" fill="1" visible="no" active="no"/>
@@ -25169,6 +25169,14 @@ Source:
 <part name="PORT323" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT351" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT352" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT353" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT354" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT355" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT356" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT357" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT358" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT359" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT360" library="MainBoard" deviceset="PORT7" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -29159,7 +29167,6 @@ Source:
 <sheet>
 <plain>
 <text x="198.12" y="20.32" size="5.08" layer="97">USB</text>
-<rectangle x1="218.44" y1="86.36" x2="238.76" y2="99.06" layer="98"/>
 <rectangle x1="114.3" y1="88.9" x2="134.62" y2="96.52" layer="98"/>
 <text x="167.64" y="38.1" size="2.54" layer="97">EEPROM</text>
 <text x="91.44" y="30.48" size="1.778" layer="97" rot="R90">VCCIO</text>
@@ -29190,6 +29197,10 @@ Source:
 <rectangle x1="17.78" y1="114.3" x2="43.18" y2="124.46" layer="116"/>
 <rectangle x1="109.22" y1="111.76" x2="116.84" y2="116.84" layer="101"/>
 <rectangle x1="76.2" y1="109.22" x2="104.14" y2="160.02" layer="116"/>
+<rectangle x1="218.44" y1="149.86" x2="238.76" y2="151.13" layer="116"/>
+<rectangle x1="218.44" y1="134.62" x2="238.76" y2="144.78" layer="116"/>
+<rectangle x1="220.98" y1="127" x2="238.76" y2="132.08" layer="116"/>
+<rectangle x1="218.44" y1="91.44" x2="238.76" y2="93.98" layer="116"/>
 </plain>
 <instances>
 <instance part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" x="177.8" y="124.46"/>
@@ -29337,6 +29348,14 @@ Source:
 <instance part="PORT329" gate="G$1" x="236.22" y="104.14"/>
 <instance part="PORT299" gate="G$1" x="236.22" y="144.78"/>
 <instance part="PORT300" gate="G$1" x="236.22" y="147.32"/>
+<instance part="PORT353" gate="G$1" x="236.22" y="142.24"/>
+<instance part="PORT354" gate="G$1" x="236.22" y="139.7"/>
+<instance part="PORT355" gate="G$1" x="236.22" y="149.86"/>
+<instance part="PORT356" gate="G$1" x="236.22" y="137.16"/>
+<instance part="PORT357" gate="G$1" x="236.22" y="134.62"/>
+<instance part="PORT358" gate="G$1" x="236.22" y="129.54"/>
+<instance part="PORT359" gate="G$1" x="236.22" y="127"/>
+<instance part="PORT360" gate="G$1" x="236.22" y="91.44"/>
 </instances>
 <busses>
 <bus name="USB_DB[0..7]">
@@ -30220,6 +30239,62 @@ Source:
 <label x="223.52" y="101.6" size="1.778" layer="95"/>
 </segment>
 </net>
+<net name="NGPIO0" class="0">
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[2]/IO77NDB5V0"/>
+<wire x1="215.9" y1="149.86" x2="220.98" y2="149.86" width="0.1524" layer="91"/>
+<label x="223.52" y="149.86" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="NGPIO1" class="0">
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[5]/GEA1/IO78PPB5V0"/>
+<wire x1="215.9" y1="142.24" x2="220.98" y2="142.24" width="0.1524" layer="91"/>
+<label x="223.52" y="142.24" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="NGPIO3" class="0">
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[6]/GEB0/IO79NDB5V0"/>
+<wire x1="215.9" y1="139.7" x2="220.98" y2="139.7" width="0.1524" layer="91"/>
+<label x="223.52" y="139.7" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="NGPIO4" class="0">
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[7]/GEB1/IO79PDB5V0"/>
+<wire x1="215.9" y1="137.16" x2="220.98" y2="137.16" width="0.1524" layer="91"/>
+<label x="223.52" y="137.16" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SGPIO0" class="0">
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[10]/IO86NPB5V0"/>
+<wire x1="215.9" y1="129.54" x2="220.98" y2="129.54" width="0.1524" layer="91"/>
+<label x="223.52" y="129.54" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SGPIO1" class="0">
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[11]/IO86PPB5V0"/>
+<wire x1="215.9" y1="127" x2="220.98" y2="127" width="0.1524" layer="91"/>
+<label x="223.52" y="127" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="NGPIO2" class="0">
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[8]/GEC0/IO80NDB5V0"/>
+<wire x1="215.9" y1="134.62" x2="220.98" y2="134.62" width="0.1524" layer="91"/>
+<label x="223.52" y="134.62" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SGPIO2" class="0">
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_CLK/GAA0/IO02NDB0V0"/>
+<wire x1="215.9" y1="91.44" x2="220.98" y2="91.44" width="0.1524" layer="91"/>
+<label x="223.52" y="91.44" size="1.778" layer="95"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>
@@ -30241,6 +30316,7 @@ Source:
 <rectangle x1="212.09" y1="72.39" x2="233.68" y2="76.2" layer="98"/>
 <rectangle x1="215.9" y1="83.82" x2="233.68" y2="88.9" layer="101"/>
 <rectangle x1="215.9" y1="68.58" x2="223.52" y2="73.66" layer="98"/>
+<rectangle x1="203.2" y1="71.12" x2="233.68" y2="73.66" layer="116"/>
 </plain>
 <instances>
 <instance part="U1" gate="-UART" x="71.12" y="152.4"/>
@@ -30480,7 +30556,7 @@ Source:
 <label x="35.56" y="157.48" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="N$6" class="0">
+<net name="SGPIO3" class="0">
 <segment>
 <pinref part="U1" gate="-IOB" pin="IO84NDB5V0"/>
 <wire x1="210.82" y1="71.12" x2="215.9" y2="71.12" width="0.1524" layer="91"/>
@@ -30578,6 +30654,8 @@ Source:
 <text x="45.72" y="76.2" size="50.8" layer="208">CON</text>
 <rectangle x1="170.18" y1="147.32" x2="187.96" y2="152.4" layer="98"/>
 <text x="172.72" y="149.86" size="1.778" layer="98" rot="R90">Make it a differential FPGAIO</text>
+<text x="170.18" y="149.86" size="1.778" layer="98" rot="R90">Make it a differential GCL IN</text>
+<text x="233.68" y="149.86" size="1.778" layer="98" rot="R90">Make it a differential GCL IN</text>
 </plain>
 <instances>
 <instance part="J2" gate="G$1" x="200.66" y="114.3"/>
