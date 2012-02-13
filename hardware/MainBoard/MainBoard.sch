@@ -25787,6 +25787,8 @@ Source:
 <rectangle x1="132.08" y1="81.28" x2="231.14" y2="119.38" layer="116"/>
 <rectangle x1="25.4" y1="71.12" x2="63.5" y2="91.44" layer="116"/>
 <rectangle x1="63.5" y1="71.12" x2="104.14" y2="81.28" layer="116"/>
+<rectangle x1="81.28" y1="2.54" x2="160.02" y2="33.02" layer="116"/>
+<rectangle x1="22.86" y1="129.54" x2="119.38" y2="175.26" layer="116"/>
 </plain>
 <instances>
 <instance part="U1" gate="-MISC" x="63.5" y="134.62"/>
@@ -26313,7 +26315,7 @@ Source:
 <text x="69.85" y="29.21" size="1.778" layer="97">DAC generated comparator reference</text>
 <text x="134.62" y="62.23" size="1.778" layer="97">DAC LPF 4th pole (DNP)</text>
 <text x="175.26" y="111.76" size="1.778" layer="97">Check NPN BJT parameters</text>
-<text x="185.42" y="121.92" size="1.778" layer="97">NC</text>
+<text x="165.1" y="134.62" size="1.778" layer="97">NC</text>
 <text x="45.72" y="142.24" size="1.778" layer="97" rot="MR0">to North Bridge</text>
 <text x="180.34" y="86.36" size="1.778" layer="97">to North Bridge</text>
 <wire x1="175.26" y1="91.44" x2="177.8" y2="91.44" width="0.1524" layer="97"/>
@@ -26336,6 +26338,21 @@ Source:
 <rectangle x1="132.08" y1="63.5" x2="154.94" y2="83.82" layer="116"/>
 <rectangle x1="182.88" y1="38.1" x2="226.06" y2="73.66" layer="116"/>
 <rectangle x1="142.24" y1="99.06" x2="185.42" y2="119.38" layer="116"/>
+<text x="76.2" y="139.7" size="1.778" layer="97">NC</text>
+<text x="76.2" y="137.16" size="1.778" layer="97">NC</text>
+<text x="165.1" y="144.78" size="1.778" layer="97">NC</text>
+<text x="165.1" y="142.24" size="1.778" layer="97">NC</text>
+<text x="165.1" y="139.7" size="1.778" layer="97">NC</text>
+<text x="165.1" y="137.16" size="1.778" layer="97">NC</text>
+<text x="165.1" y="124.46" size="1.778" layer="97">NC</text>
+<rectangle x1="137.16" y1="91.44" x2="195.58" y2="99.06" layer="116"/>
+<rectangle x1="137.16" y1="119.38" x2="165.1" y2="127" layer="116"/>
+<rectangle x1="139.7" y1="134.62" x2="187.96" y2="147.32" layer="116"/>
+<rectangle x1="71.12" y1="137.16" x2="101.6" y2="149.86" layer="116"/>
+<rectangle x1="71.12" y1="124.46" x2="101.6" y2="137.16" layer="116"/>
+<rectangle x1="71.12" y1="111.76" x2="101.6" y2="124.46" layer="116"/>
+<rectangle x1="43.18" y1="78.74" x2="104.14" y2="104.14" layer="116"/>
+<rectangle x1="127" y1="83.82" x2="180.34" y2="91.44" layer="116"/>
 </plain>
 <instances>
 <instance part="FRAME10" gate="G$1" x="0" y="0"/>
@@ -26807,6 +26824,29 @@ Source:
 <text x="222.885" y="103.505" size="1.778" layer="97">Buffer?</text>
 <text x="58.42" y="104.14" size="50.8" layer="208">EXT</text>
 <text x="55.88" y="25.4" size="50.8" layer="208">AFE</text>
+<rectangle x1="10.16" y1="109.22" x2="48.26" y2="165.1" layer="116"/>
+<rectangle x1="83.82" y1="109.22" x2="119.38" y2="165.1" layer="116"/>
+<rectangle x1="7.62" y1="58.42" x2="60.96" y2="93.98" layer="116"/>
+<rectangle x1="12.7" y1="93.98" x2="48.26" y2="99.06" layer="116"/>
+<rectangle x1="129.54" y1="60.96" x2="167.64" y2="93.98" layer="116"/>
+<rectangle x1="129.54" y1="93.98" x2="167.64" y2="101.6" layer="116"/>
+<rectangle x1="127" y1="109.22" x2="165.1" y2="162.56" layer="116"/>
+<rectangle x1="200.66" y1="109.22" x2="233.68" y2="162.56" layer="116"/>
+<rectangle x1="193.04" y1="63.5" x2="231.14" y2="78.74" layer="116"/>
+<rectangle x1="193.04" y1="81.28" x2="233.68" y2="86.36" layer="116"/>
+<rectangle x1="193.04" y1="88.9" x2="228.6" y2="99.06" layer="116"/>
+<rectangle x1="73.66" y1="66.04" x2="114.3" y2="78.74" layer="116"/>
+<rectangle x1="73.66" y1="81.28" x2="111.76" y2="86.36" layer="116"/>
+<rectangle x1="73.66" y1="86.36" x2="111.76" y2="99.06" layer="116"/>
+<text x="6.985" y="106.045" size="1.778" layer="97">NC</text>
+<text x="6.985" y="103.505" size="1.778" layer="97">NC</text>
+<text x="123.825" y="103.505" size="1.778" layer="97">NC</text>
+<text x="123.825" y="106.045" size="1.778" layer="97">NC</text>
+<rectangle x1="5.08" y1="101.6" x2="48.26" y2="109.22" layer="116"/>
+<rectangle x1="127" y1="104.14" x2="165.1" y2="109.22" layer="116"/>
+<rectangle x1="73.66" y1="101.6" x2="116.84" y2="106.68" layer="116"/>
+<rectangle x1="190.5" y1="101.6" x2="231.14" y2="109.22" layer="116"/>
+<rectangle x1="12.7" y1="7.62" x2="144.78" y2="53.34" layer="116"/>
 </plain>
 <instances>
 <instance part="U2" gate="-AFE" x="68.58" y="116.84"/>
@@ -27800,6 +27840,7 @@ Source:
 <text x="48.26" y="68.58" size="50.8" layer="208">CAP</text>
 <rectangle x1="30.48" y1="132.08" x2="203.2" y2="170.18" layer="116"/>
 <rectangle x1="30.48" y1="91.44" x2="203.2" y2="127" layer="116"/>
+<rectangle x1="10.16" y1="15.24" x2="121.92" y2="68.58" layer="116"/>
 </plain>
 <instances>
 <instance part="FRAME9" gate="G$1" x="0" y="0"/>
@@ -30261,20 +30302,6 @@ Source:
 <label x="223.52" y="127" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SGPIO3" class="0">
-<segment>
-<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[7]/GEB1/IO79PDB5V0"/>
-<wire x1="215.9" y1="137.16" x2="220.98" y2="137.16" width="0.1524" layer="91"/>
-<label x="223.52" y="137.16" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="SGPIO2" class="0">
-<segment>
-<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[2]/IO77NDB5V0"/>
-<wire x1="215.9" y1="149.86" x2="220.98" y2="149.86" width="0.1524" layer="91"/>
-<label x="223.52" y="149.86" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="NGPIO3" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_CLK/GAA0/IO02NDB0V0"/>
@@ -30284,13 +30311,6 @@ Source:
 </net>
 <net name="SGPIO1" class="0">
 <segment>
-<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[8]/GEC0/IO80NDB5V0"/>
-<wire x1="215.9" y1="134.62" x2="220.98" y2="134.62" width="0.1524" layer="91"/>
-<label x="223.52" y="134.62" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="SGPIO0" class="0">
-<segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[5]/GEA1/IO78PPB5V0"/>
 <wire x1="215.9" y1="142.24" x2="220.98" y2="142.24" width="0.1524" layer="91"/>
 <label x="223.52" y="142.24" size="1.778" layer="95"/>
@@ -30298,9 +30318,30 @@ Source:
 </net>
 <net name="NGPIO0" class="0">
 <segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[7]/GEB1/IO79PDB5V0"/>
+<wire x1="215.9" y1="137.16" x2="220.98" y2="137.16" width="0.1524" layer="91"/>
+<label x="223.52" y="137.16" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SGPIO3" class="0">
+<segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[6]/GEB0/IO79NDB5V0"/>
 <wire x1="215.9" y1="139.7" x2="220.98" y2="139.7" width="0.1524" layer="91"/>
 <label x="223.52" y="139.7" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SGPIO0" class="0">
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[2]/IO77NDB5V0"/>
+<wire x1="215.9" y1="149.86" x2="220.98" y2="149.86" width="0.1524" layer="91"/>
+<label x="223.52" y="149.86" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SGPIO2" class="0">
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[8]/GEC0/IO80NDB5V0"/>
+<wire x1="215.9" y1="134.62" x2="220.98" y2="134.62" width="0.1524" layer="91"/>
+<label x="223.52" y="134.62" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
@@ -30325,6 +30366,11 @@ Source:
 <rectangle x1="215.9" y1="83.82" x2="233.68" y2="88.9" layer="101"/>
 <rectangle x1="215.9" y1="68.58" x2="223.52" y2="73.66" layer="98"/>
 <rectangle x1="203.2" y1="71.12" x2="233.68" y2="73.66" layer="116"/>
+<rectangle x1="22.86" y1="53.34" x2="88.9" y2="91.44" layer="116"/>
+<rectangle x1="20.32" y1="101.6" x2="88.9" y2="129.54" layer="116"/>
+<rectangle x1="20.32" y1="139.7" x2="88.9" y2="167.64" layer="116"/>
+<rectangle x1="170.18" y1="114.3" x2="223.52" y2="160.02" layer="116"/>
+<rectangle x1="30.48" y1="10.16" x2="45.72" y2="50.8" layer="116"/>
 </plain>
 <instances>
 <instance part="U1" gate="-UART" x="71.12" y="152.4"/>
@@ -30631,12 +30677,14 @@ Source:
 <segment>
 <pinref part="U1" gate="-UART" pin="UART_1_TXD/GPIO_28"/>
 <wire x1="50.8" y1="149.86" x2="38.1" y2="149.86" width="0.1524" layer="91"/>
+<label x="35.56" y="149.86" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
 <net name="UART1_RXD" class="0">
 <segment>
 <pinref part="U1" gate="-UART" pin="UART_1_RXD/GPIO_29"/>
 <wire x1="50.8" y1="147.32" x2="38.1" y2="147.32" width="0.1524" layer="91"/>
+<label x="35.56" y="147.32" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
 <net name="NGPIO4" class="0">
@@ -30664,6 +30712,11 @@ Source:
 <text x="172.72" y="149.86" size="1.778" layer="98" rot="R90">Make it a differential FPGAIO</text>
 <text x="170.18" y="149.86" size="1.778" layer="98" rot="R90">Make it a differential GCL IN</text>
 <text x="233.68" y="149.86" size="1.778" layer="98" rot="R90">Make it a differential GCL IN</text>
+<rectangle x1="27.94" y1="127" x2="83.82" y2="162.56" layer="116"/>
+<rectangle x1="22.86" y1="76.2" x2="99.06" y2="119.38" layer="116"/>
+<rectangle x1="17.78" y1="53.34" x2="58.42" y2="66.04" layer="116"/>
+<rectangle x1="60.96" y1="55.88" x2="96.52" y2="68.58" layer="116"/>
+<rectangle x1="17.78" y1="17.78" x2="104.14" y2="30.48" layer="116"/>
 </plain>
 <instances>
 <instance part="J2" gate="G$1" x="200.66" y="114.3"/>
