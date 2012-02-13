@@ -26329,6 +26329,13 @@ Source:
 <text x="48.26" y="25.4" size="2.54" layer="97">Comparator reference voltages</text>
 <text x="205.74" y="60.96" size="1.778" layer="97" rot="R90">VAREF0</text>
 <text x="213.36" y="60.96" size="1.778" layer="97" rot="R90">VAREF1</text>
+<rectangle x1="73.66" y1="53.34" x2="106.68" y2="63.5" layer="98"/>
+<text x="71.12" y="50.8" size="1.778" layer="98">Check assignment order (routing!)</text>
+<rectangle x1="40.64" y1="50.8" x2="71.12" y2="68.58" layer="116"/>
+<rectangle x1="71.12" y1="35.56" x2="111.76" y2="50.8" layer="116"/>
+<rectangle x1="132.08" y1="63.5" x2="154.94" y2="83.82" layer="116"/>
+<rectangle x1="182.88" y1="38.1" x2="226.06" y2="73.66" layer="116"/>
+<rectangle x1="142.24" y1="99.06" x2="185.42" y2="119.38" layer="116"/>
 </plain>
 <instances>
 <instance part="FRAME10" gate="G$1" x="0" y="0"/>
@@ -26435,11 +26442,11 @@ Source:
 <pinref part="C67" gate="G$1" pin="1"/>
 <wire x1="101.6" y1="96.52" x2="73.66" y2="96.52" width="0.1524" layer="91"/>
 <junction x="101.6" y="96.52"/>
-<wire x1="101.6" y1="48.26" x2="101.6" y2="63.5" width="0.1524" layer="91"/>
-<pinref part="R51" gate="G$1" pin="2"/>
-<wire x1="101.6" y1="63.5" x2="101.6" y2="96.52" width="0.1524" layer="91"/>
-<wire x1="68.58" y1="63.5" x2="101.6" y2="63.5" width="0.1524" layer="91"/>
-<junction x="101.6" y="63.5"/>
+<wire x1="101.6" y1="48.26" x2="101.6" y2="55.88" width="0.1524" layer="91"/>
+<pinref part="R54" gate="G$1" pin="2"/>
+<wire x1="101.6" y1="55.88" x2="101.6" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="55.88" x2="101.6" y2="55.88" width="0.1524" layer="91"/>
+<junction x="101.6" y="55.88"/>
 </segment>
 </net>
 <net name="SF_ADC2" class="0">
@@ -26457,11 +26464,11 @@ Source:
 <pinref part="C68" gate="G$1" pin="1"/>
 <wire x1="93.98" y1="91.44" x2="73.66" y2="91.44" width="0.1524" layer="91"/>
 <junction x="93.98" y="91.44"/>
-<wire x1="93.98" y1="48.26" x2="93.98" y2="60.96" width="0.1524" layer="91"/>
-<pinref part="R52" gate="G$1" pin="2"/>
-<wire x1="93.98" y1="60.96" x2="93.98" y2="91.44" width="0.1524" layer="91"/>
-<wire x1="68.58" y1="60.96" x2="93.98" y2="60.96" width="0.1524" layer="91"/>
-<junction x="93.98" y="60.96"/>
+<wire x1="93.98" y1="48.26" x2="93.98" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="R53" gate="G$1" pin="2"/>
+<wire x1="93.98" y1="58.42" x2="93.98" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="58.42" x2="93.98" y2="58.42" width="0.1524" layer="91"/>
+<junction x="93.98" y="58.42"/>
 </segment>
 </net>
 <net name="SF_ADC4" class="0">
@@ -26479,11 +26486,11 @@ Source:
 <pinref part="C69" gate="G$1" pin="1"/>
 <wire x1="86.36" y1="86.36" x2="73.66" y2="86.36" width="0.1524" layer="91"/>
 <junction x="86.36" y="86.36"/>
-<wire x1="86.36" y1="48.26" x2="86.36" y2="58.42" width="0.1524" layer="91"/>
-<pinref part="R53" gate="G$1" pin="2"/>
-<wire x1="86.36" y1="58.42" x2="86.36" y2="86.36" width="0.1524" layer="91"/>
-<wire x1="68.58" y1="58.42" x2="86.36" y2="58.42" width="0.1524" layer="91"/>
-<junction x="86.36" y="58.42"/>
+<wire x1="86.36" y1="48.26" x2="86.36" y2="60.96" width="0.1524" layer="91"/>
+<pinref part="R52" gate="G$1" pin="2"/>
+<wire x1="86.36" y1="60.96" x2="86.36" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="60.96" x2="86.36" y2="60.96" width="0.1524" layer="91"/>
+<junction x="86.36" y="60.96"/>
 </segment>
 </net>
 <net name="SF_DAC0" class="0">
@@ -26692,11 +26699,11 @@ Source:
 <pinref part="C70" gate="G$1" pin="1"/>
 <wire x1="78.74" y1="81.28" x2="73.66" y2="81.28" width="0.1524" layer="91"/>
 <junction x="78.74" y="81.28"/>
-<wire x1="78.74" y1="48.26" x2="78.74" y2="55.88" width="0.1524" layer="91"/>
-<pinref part="R54" gate="G$1" pin="2"/>
-<wire x1="78.74" y1="55.88" x2="78.74" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="68.58" y1="55.88" x2="78.74" y2="55.88" width="0.1524" layer="91"/>
-<junction x="78.74" y="55.88"/>
+<wire x1="78.74" y1="48.26" x2="78.74" y2="63.5" width="0.1524" layer="91"/>
+<pinref part="R51" gate="G$1" pin="2"/>
+<wire x1="78.74" y1="63.5" x2="78.74" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="63.5" x2="78.74" y2="63.5" width="0.1524" layer="91"/>
+<junction x="78.74" y="63.5"/>
 </segment>
 </net>
 <net name="AUX_DAC2" class="0">
@@ -30240,39 +30247,18 @@ Source:
 <label x="223.52" y="101.6" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="NGPIO0" class="0">
-<segment>
-<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[2]/IO77NDB5V0"/>
-<wire x1="215.9" y1="149.86" x2="220.98" y2="149.86" width="0.1524" layer="91"/>
-<label x="223.52" y="149.86" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="NGPIO1" class="0">
-<segment>
-<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[5]/GEA1/IO78PPB5V0"/>
-<wire x1="215.9" y1="142.24" x2="220.98" y2="142.24" width="0.1524" layer="91"/>
-<label x="223.52" y="142.24" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="SGPIO0" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[10]/IO86NPB5V0"/>
 <wire x1="215.9" y1="129.54" x2="220.98" y2="129.54" width="0.1524" layer="91"/>
 <label x="223.52" y="129.54" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SGPIO1" class="0">
+<net name="NGPIO2" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[11]/IO86PPB5V0"/>
 <wire x1="215.9" y1="127" x2="220.98" y2="127" width="0.1524" layer="91"/>
 <label x="223.52" y="127" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="NGPIO2" class="0">
-<segment>
-<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[8]/GEC0/IO80NDB5V0"/>
-<wire x1="215.9" y1="134.62" x2="220.98" y2="134.62" width="0.1524" layer="91"/>
-<label x="223.52" y="134.62" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SGPIO3" class="0">
@@ -30284,9 +30270,9 @@ Source:
 </net>
 <net name="SGPIO2" class="0">
 <segment>
-<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[6]/GEB0/IO79NDB5V0"/>
-<wire x1="215.9" y1="139.7" x2="220.98" y2="139.7" width="0.1524" layer="91"/>
-<label x="223.52" y="139.7" size="1.778" layer="95"/>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[2]/IO77NDB5V0"/>
+<wire x1="215.9" y1="149.86" x2="220.98" y2="149.86" width="0.1524" layer="91"/>
+<label x="223.52" y="149.86" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="NGPIO3" class="0">
@@ -30294,6 +30280,27 @@ Source:
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_CLK/GAA0/IO02NDB0V0"/>
 <wire x1="215.9" y1="91.44" x2="220.98" y2="91.44" width="0.1524" layer="91"/>
 <label x="223.52" y="91.44" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SGPIO1" class="0">
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[8]/GEC0/IO80NDB5V0"/>
+<wire x1="215.9" y1="134.62" x2="220.98" y2="134.62" width="0.1524" layer="91"/>
+<label x="223.52" y="134.62" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SGPIO0" class="0">
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[5]/GEA1/IO78PPB5V0"/>
+<wire x1="215.9" y1="142.24" x2="220.98" y2="142.24" width="0.1524" layer="91"/>
+<label x="223.52" y="142.24" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="NGPIO0" class="0">
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[6]/GEB0/IO79NDB5V0"/>
+<wire x1="215.9" y1="139.7" x2="220.98" y2="139.7" width="0.1524" layer="91"/>
+<label x="223.52" y="139.7" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
