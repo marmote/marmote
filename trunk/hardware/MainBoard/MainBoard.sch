@@ -24781,7 +24781,6 @@ Source:
 <part name="U$86" library="MainBoard" deviceset="D3V3" device=""/>
 <part name="C74" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
 <part name="U$87" library="MainBoard" deviceset="DGND" device=""/>
-<part name="U$88" library="MainBoard" deviceset="D3V3" device=""/>
 <part name="C75" library="MainBoard" deviceset="C" device="0402" value="0.33uF">
 <attribute name="VOTLAGE-RATING" value="16V"/>
 </part>
@@ -24789,7 +24788,6 @@ Source:
 <attribute name="VOLTAGE-RATING" value="16V"/>
 </part>
 <part name="U$91" library="MainBoard" deviceset="DGND" device=""/>
-<part name="U$92" library="MainBoard" deviceset="D3V3" device=""/>
 <part name="PORT198" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT209" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT214" library="MainBoard" deviceset="PORT7" device=""/>
@@ -25177,6 +25175,8 @@ Source:
 <part name="PORT358" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT359" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT360" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT361" library="MainBoard" deviceset="PORT5" device=""/>
+<part name="PORT362" library="MainBoard" deviceset="PORT5" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -25781,11 +25781,12 @@ Source:
 <rectangle x1="20.32" y1="33.02" x2="104.14" y2="58.42" layer="116"/>
 <rectangle x1="50.8" y1="81.28" x2="60.96" y2="83.82" layer="101"/>
 <text x="39.37" y="87.63" size="1.778" layer="101">Check if it should be negated</text>
-<rectangle x1="22.86" y1="68.58" x2="101.6" y2="91.44" layer="116"/>
 <rectangle x1="137.16" y1="121.92" x2="228.6" y2="165.1" layer="116"/>
 <rectangle x1="172.72" y1="43.18" x2="195.58" y2="78.74" layer="116"/>
 <rectangle x1="205.74" y1="43.18" x2="215.9" y2="78.74" layer="116"/>
 <rectangle x1="132.08" y1="81.28" x2="231.14" y2="119.38" layer="116"/>
+<rectangle x1="25.4" y1="71.12" x2="63.5" y2="91.44" layer="116"/>
+<rectangle x1="63.5" y1="71.12" x2="104.14" y2="81.28" layer="116"/>
 </plain>
 <instances>
 <instance part="U1" gate="-MISC" x="63.5" y="134.62"/>
@@ -25851,7 +25852,6 @@ Source:
 <instance part="R65" gate="G$1" x="182.88" y="55.88" rot="R90"/>
 <instance part="C74" gate="G$1" x="200.66" y="55.88"/>
 <instance part="U$87" gate="G$1" x="200.66" y="43.18"/>
-<instance part="U$88" gate="G$1" x="200.66" y="63.5"/>
 <instance part="C75" gate="G$1" x="218.44" y="55.88">
 <attribute name="VOTLAGE-RATING" x="218.44" y="55.88" size="1.778" layer="96" display="off"/>
 </instance>
@@ -25859,7 +25859,6 @@ Source:
 <attribute name="VOLTAGE-RATING" x="223.52" y="55.88" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="U$91" gate="G$1" x="220.98" y="43.18"/>
-<instance part="U$92" gate="G$1" x="220.98" y="63.5"/>
 <instance part="PORT198" gate="G$1" x="175.26" y="73.66" rot="R90"/>
 <instance part="PORT209" gate="G$1" x="182.88" y="73.66" rot="R90"/>
 <instance part="U9" gate="G$1" x="124.46" y="17.78"/>
@@ -25874,6 +25873,8 @@ Source:
 <instance part="PORT316" gate="G$1" x="210.82" y="45.72" rot="R270"/>
 <instance part="PORT317" gate="G$1" x="193.04" y="45.72" rot="R270"/>
 <instance part="U$20" gate="G$1" x="30.48" y="33.02"/>
+<instance part="PORT361" gate="G$1" x="200.66" y="73.66" rot="R90"/>
+<instance part="PORT362" gate="G$1" x="220.98" y="73.66" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -26050,22 +26051,6 @@ Source:
 <pinref part="R67" gate="G$1" pin="2"/>
 <wire x1="220.98" y1="114.3" x2="220.98" y2="116.84" width="0.1524" layer="91"/>
 <pinref part="U$90" gate="G$1" pin="D3V3"/>
-</segment>
-<segment>
-<pinref part="C74" gate="G$1" pin="1"/>
-<wire x1="200.66" y1="58.42" x2="200.66" y2="63.5" width="0.1524" layer="91"/>
-<pinref part="U$88" gate="G$1" pin="D3V3"/>
-</segment>
-<segment>
-<pinref part="C75" gate="G$1" pin="1"/>
-<wire x1="218.44" y1="58.42" x2="218.44" y2="60.96" width="0.1524" layer="91"/>
-<pinref part="C76" gate="G$1" pin="1"/>
-<wire x1="223.52" y1="58.42" x2="223.52" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="223.52" y1="60.96" x2="220.98" y2="60.96" width="0.1524" layer="91"/>
-<pinref part="U$92" gate="G$1" pin="D3V3"/>
-<wire x1="220.98" y1="60.96" x2="218.44" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="63.5" x2="220.98" y2="60.96" width="0.1524" layer="91"/>
-<junction x="220.98" y="60.96"/>
 </segment>
 <segment>
 <pinref part="U9" gate="G$1" pin="VCC"/>
@@ -26276,6 +26261,11 @@ Source:
 <wire x1="152.4" y1="106.68" x2="147.32" y2="106.68" width="0.1524" layer="91"/>
 <label x="144.78" y="106.68" size="1.778" layer="95" rot="MR0"/>
 </segment>
+<segment>
+<pinref part="C74" gate="G$1" pin="1"/>
+<wire x1="200.66" y1="58.42" x2="200.66" y2="63.5" width="0.1524" layer="91"/>
+<label x="200.66" y="66.04" size="1.778" layer="95" rot="R90"/>
+</segment>
 </net>
 <net name="VPUMP" class="0">
 <segment>
@@ -26287,6 +26277,17 @@ Source:
 <pinref part="U1" gate="-JTAG" pin="VPP"/>
 <wire x1="193.04" y1="106.68" x2="198.12" y2="106.68" width="0.1524" layer="91"/>
 <label x="200.66" y="106.68" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="C75" gate="G$1" pin="1"/>
+<wire x1="218.44" y1="58.42" x2="218.44" y2="60.96" width="0.1524" layer="91"/>
+<pinref part="C76" gate="G$1" pin="1"/>
+<wire x1="223.52" y1="58.42" x2="223.52" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="223.52" y1="60.96" x2="220.98" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="220.98" y1="60.96" x2="218.44" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="220.98" y1="63.5" x2="220.98" y2="60.96" width="0.1524" layer="91"/>
+<junction x="220.98" y="60.96"/>
+<label x="220.98" y="66.04" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 </nets>
