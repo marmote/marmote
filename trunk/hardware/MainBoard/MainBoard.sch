@@ -25197,6 +25197,13 @@ Source:
 <part name="U$137" library="MainBoard" deviceset="D1V5" device=""/>
 <part name="C120" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
 <part name="U$138" library="MainBoard" deviceset="DGND" device=""/>
+<part name="C119" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
+<part name="C121" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
+<part name="C122" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
+<part name="C123" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
+<part name="U$140" library="MainBoard" deviceset="DGND" device=""/>
+<part name="U$139" library="MainBoard" deviceset="A3V3" device=""/>
+<part name="C124" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
 </parts>
 <sheets>
 <sheet>
@@ -25246,6 +25253,12 @@ Source:
 <text x="100.33" y="31.75" size="1.778" layer="97" rot="R90">VCCPLL0</text>
 <text x="92.71" y="31.75" size="1.778" layer="97" rot="R90">VCCENVM</text>
 <rectangle x1="86.36" y1="15.24" x2="116.84" y2="45.72" layer="116"/>
+<rectangle x1="12.7" y1="66.04" x2="88.9" y2="99.06" layer="116"/>
+<rectangle x1="200.66" y1="147.32" x2="228.6" y2="165.1" layer="116"/>
+<rectangle x1="96.52" y1="83.82" x2="154.94" y2="165.1" layer="116"/>
+<rectangle x1="165.1" y1="53.34" x2="236.22" y2="104.14" layer="116"/>
+<rectangle x1="218.44" y1="109.22" x2="236.22" y2="124.46" layer="116"/>
+<text x="64.77" y="36.83" size="1.778" layer="97" rot="R90">VCC33SDD0</text>
 </plain>
 <instances>
 <instance part="U$1" gate="G$1" x="104.14" y="86.36"/>
@@ -25290,6 +25303,13 @@ Source:
 <instance part="U$137" gate="G$1" x="93.98" y="38.1"/>
 <instance part="C120" gate="G$1" x="93.98" y="30.48"/>
 <instance part="U$138" gate="G$1" x="93.98" y="17.78"/>
+<instance part="C119" gate="G$1" x="63.5" y="30.48"/>
+<instance part="C121" gate="G$1" x="68.58" y="30.48"/>
+<instance part="C122" gate="G$1" x="73.66" y="30.48"/>
+<instance part="C123" gate="G$1" x="78.74" y="30.48"/>
+<instance part="U$140" gate="G$1" x="71.12" y="17.78"/>
+<instance part="U$139" gate="G$1" x="71.12" y="38.1"/>
+<instance part="C124" gate="G$1" x="58.42" y="30.48"/>
 </instances>
 <busses>
 </busses>
@@ -25524,6 +25544,29 @@ Source:
 <pinref part="C120" gate="G$1" pin="2"/>
 <wire x1="93.98" y1="25.4" x2="93.98" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="U$138" gate="G$1" pin="DGND"/>
+</segment>
+<segment>
+<pinref part="C119" gate="G$1" pin="2"/>
+<wire x1="63.5" y1="25.4" x2="63.5" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="22.86" x2="68.58" y2="22.86" width="0.1524" layer="91"/>
+<pinref part="C123" gate="G$1" pin="2"/>
+<wire x1="68.58" y1="22.86" x2="71.12" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="71.12" y1="22.86" x2="73.66" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="22.86" x2="78.74" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="78.74" y1="22.86" x2="78.74" y2="25.4" width="0.1524" layer="91"/>
+<pinref part="C121" gate="G$1" pin="2"/>
+<wire x1="68.58" y1="25.4" x2="68.58" y2="22.86" width="0.1524" layer="91"/>
+<pinref part="C122" gate="G$1" pin="2"/>
+<wire x1="73.66" y1="25.4" x2="73.66" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="71.12" y1="22.86" x2="71.12" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="U$140" gate="G$1" pin="DGND"/>
+<junction x="68.58" y="22.86"/>
+<junction x="71.12" y="22.86"/>
+<junction x="73.66" y="22.86"/>
+<pinref part="C124" gate="G$1" pin="2"/>
+<wire x1="58.42" y1="25.4" x2="58.42" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="22.86" x2="63.5" y2="22.86" width="0.1524" layer="91"/>
+<junction x="63.5" y="22.86"/>
 </segment>
 </net>
 <net name="D1V5" class="0">
@@ -25884,6 +25927,29 @@ Source:
 <junction x="170.18" y="129.54"/>
 <junction x="170.18" y="134.62"/>
 <junction x="170.18" y="137.16"/>
+</segment>
+<segment>
+<wire x1="71.12" y1="38.1" x2="71.12" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="71.12" y1="35.56" x2="68.58" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="35.56" x2="63.5" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="71.12" y1="35.56" x2="73.66" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="C119" gate="G$1" pin="1"/>
+<wire x1="73.66" y1="35.56" x2="78.74" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="33.02" x2="63.5" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="C121" gate="G$1" pin="1"/>
+<wire x1="68.58" y1="33.02" x2="68.58" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="C122" gate="G$1" pin="1"/>
+<wire x1="73.66" y1="33.02" x2="73.66" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="C123" gate="G$1" pin="1"/>
+<wire x1="78.74" y1="33.02" x2="78.74" y2="35.56" width="0.1524" layer="91"/>
+<junction x="68.58" y="35.56"/>
+<junction x="71.12" y="35.56"/>
+<junction x="73.66" y="35.56"/>
+<pinref part="U$139" gate="G$1" pin="A3V3"/>
+<pinref part="C124" gate="G$1" pin="1"/>
+<wire x1="58.42" y1="33.02" x2="58.42" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="35.56" x2="63.5" y2="35.56" width="0.1524" layer="91"/>
+<junction x="63.5" y="35.56"/>
 </segment>
 </net>
 <net name="VCC3N" class="0">
