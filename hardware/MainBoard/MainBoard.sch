@@ -21852,11 +21852,11 @@ Source: &lt;a href="http://media.digikey.com/pdf/Data%20Sheets/COPAL%20Electroni
 Single channel hi-speed USB to multi-purpose UART/FIFO IC
 &lt;p&gt;
 Source: &lt;a href="http://www.ftdichip.com/Support/Documents/DataSheets/ICs/DS_FT232H.pdf"&gt;http://www.ftdichip.com/Support/Documents/DataSheets/ICs/DS_FT232H.pdf&lt;/a&gt;</description>
-<pin name="XCSI" x="-25.4" y="-15.24" length="middle"/>
-<pin name="XCSO" x="-25.4" y="-25.4" length="middle"/>
+<pin name="XCSI" x="-25.4" y="-15.24" length="middle" direction="in"/>
+<pin name="XCSO" x="-25.4" y="-25.4" length="middle" direction="out"/>
 <pin name="VPHY" x="-5.08" y="35.56" length="middle" direction="pwr" rot="R270"/>
 <pin name="AGND@1" x="-10.16" y="-38.1" length="middle" direction="pwr" rot="R90"/>
-<pin name="REF" x="-25.4" y="0" length="middle"/>
+<pin name="REF" x="-25.4" y="0" length="middle" direction="in"/>
 <pin name="DM" x="-25.4" y="12.7" length="middle"/>
 <pin name="DP" x="-25.4" y="10.16" length="middle"/>
 <pin name="VPLL" x="-2.54" y="35.56" length="middle" direction="pwr" rot="R270"/>
@@ -21885,7 +21885,7 @@ Source: &lt;a href="http://www.ftdichip.com/Support/Documents/DataSheets/ICs/DS_
 <pin name="ACBUS7" x="25.4" y="-12.7" length="middle" rot="R180"/>
 <pin name="ACBUS8" x="25.4" y="-15.24" length="middle" rot="R180"/>
 <pin name="ACBUS9" x="25.4" y="-17.78" length="middle" rot="R180"/>
-<pin name="!RESET" x="-25.4" y="5.08" length="middle"/>
+<pin name="!RESET" x="-25.4" y="5.08" length="middle" direction="in" function="dot"/>
 <pin name="GND@5" x="7.62" y="-38.1" length="middle" direction="pwr" rot="R90"/>
 <pin name="GND@6" x="10.16" y="-38.1" length="middle" direction="pwr" rot="R90"/>
 <pin name="VCCA" x="-25.4" y="17.78" length="middle" direction="pwr"/>
@@ -21895,8 +21895,8 @@ Source: &lt;a href="http://www.ftdichip.com/Support/Documents/DataSheets/ICs/DS_
 <pin name="AGND@3" x="-5.08" y="-38.1" length="middle" direction="pwr" rot="R90"/>
 <pin name="TEST" x="-25.4" y="-30.48" length="middle"/>
 <pin name="EEDATA" x="-25.4" y="-10.16" length="middle"/>
-<pin name="EECLK" x="-25.4" y="-7.62" length="middle"/>
-<pin name="EECS" x="-25.4" y="-5.08" length="middle"/>
+<pin name="EECLK" x="-25.4" y="-7.62" length="middle" direction="out"/>
+<pin name="EECS" x="-25.4" y="-5.08" length="middle" direction="out"/>
 <pin name="VCCIO@3" x="5.08" y="35.56" length="middle" direction="pwr" rot="R270"/>
 <pin name="GND@7" x="12.7" y="-38.1" length="middle" direction="pwr" rot="R90"/>
 <pin name="GND@8" x="15.24" y="-38.1" length="middle" direction="pwr" rot="R90"/>
@@ -23390,6 +23390,7 @@ Source: &lt;a href="http://www.ftdichip.com/Support/Documents/DataSheets/ICs/DS_
 <technology name="">
 <attribute name="DIGI-KEY#" value="768-1101-1-ND"/>
 <attribute name="MF" value="FTDI"/>
+<attribute name="MOUSER#" value="895-FT232HL-REEL"/>
 <attribute name="MPN" value="768-1101-1-ND"/>
 </technology>
 </technologies>
@@ -23923,7 +23924,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX_42.pdf"&gt; http://www.
 </connects>
 <technologies>
 <technology name="-120">
-<attribute name="CLOAD" value="20 pF"/>
+<attribute name="CLOAD" value="9 pF"/>
 <attribute name="DIGI-KEY#" value="XC1608CT-ND"/>
 <attribute name="FREQ-STABILITY" value="10 ppm"/>
 <attribute name="FREQ-TOLERANCE" value="10 ppm"/>
@@ -23954,7 +23955,11 @@ Source: &lt;a href="http://ww1.microchip.com/downloads/en/DeviceDoc/21794F.pdf"&
 <connect gate="G$1" pin="VCC" pad="6"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="DIGI-KEY#" value="93LC56BT-I/OTCT-ND"/>
+<attribute name="MF" value="Microchip Technology"/>
+<attribute name="MPN" value="93LC56BT-I/OT"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -24742,7 +24747,9 @@ Source:
 </part>
 <part name="U$74" library="MainBoard" deviceset="DGND" device=""/>
 <part name="U$75" library="MainBoard" deviceset="DGND" device=""/>
-<part name="X5" library="MainBoard" deviceset="ECX-42" device="" technology="-120"/>
+<part name="X5" library="MainBoard" deviceset="ECX-42" device="" technology="-120">
+<attribute name="CLOAD" value="9 pF"/>
+</part>
 <part name="C71" library="MainBoard" deviceset="C" device="0402" value="10pF"/>
 <part name="C72" library="MainBoard" deviceset="C" device="0402" value="10pF"/>
 <part name="U7" library="MainBoard" deviceset="93LC56BT" device="-OT"/>
