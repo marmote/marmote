@@ -53,7 +53,7 @@ Specification
 
 == Oscillator ==
 
-*[http://www.st.com/stonline/products/literature/an/15287.pdf ST AN2867] - Oscillator design guide for ST microcontrollers*
+*[http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/APPLICATION_NOTE/CD00221665.pdf ST AN2867] - Oscillator design guide for ST microcontrollers*
 
  * Quartz crystal properties and model
  * Oscillator theory
