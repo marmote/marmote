@@ -15019,10 +15019,10 @@ design rules under a new name.</description>
 <via x="24" y="47" extent="1-16" drill="0.13"/>
 <wire x1="24" y1="47" x2="25.15" y2="47" width="0.1524" layer="1"/>
 <wire x1="25.35" y1="47" x2="24" y2="47" width="0.1524" layer="16"/>
-<wire x1="24" y1="47" x2="23.5" y2="46.5" width="0.1524" layer="3"/>
-<wire x1="23.5" y1="46.5" x2="21.5" y2="46.5" width="0.1524" layer="3"/>
 <wire x1="21.5" y1="46.5" x2="18.75" y2="43.75" width="0.1524" layer="3"/>
 <wire x1="18.75" y1="43.75" x2="18.75" y2="43.5" width="0.1524" layer="3"/>
+<wire x1="21.5" y1="46.5" x2="23.5" y2="46.5" width="0.1524" layer="3"/>
+<wire x1="23.5" y1="46.5" x2="24" y2="47" width="0.1524" layer="3"/>
 </signal>
 <signal name="EECLK">
 <contactref element="U5" pad="44"/>
@@ -15031,11 +15031,11 @@ design rules under a new name.</description>
 <wire x1="19.25" y1="42.2" x2="19.25" y2="43.5" width="0.1524" layer="1"/>
 <via x="19.25" y="43.5" extent="1-16" drill="0.13"/>
 <wire x1="19.25" y1="43.5" x2="21.75" y2="46" width="0.1524" layer="3"/>
-<wire x1="21.75" y1="46" x2="24" y2="46" width="0.1524" layer="3"/>
 <via x="24" y="46" extent="1-16" drill="0.13"/>
 <wire x1="24" y1="46" x2="25.1" y2="46" width="0.1524" layer="1"/>
 <wire x1="25.1" y1="46" x2="25.15" y2="46.05" width="0.1524" layer="1"/>
 <wire x1="25.35" y1="46" x2="24" y2="46" width="0.1524" layer="16"/>
+<wire x1="21.75" y1="46" x2="24" y2="46" width="0.1524" layer="3"/>
 </signal>
 <signal name="EEDATA">
 <contactref element="U5" pad="43"/>
@@ -15044,7 +15044,7 @@ design rules under a new name.</description>
 <wire x1="19.75" y1="42.2" x2="19.75" y2="45.1" width="0.1524" layer="1"/>
 <wire x1="21.3" y1="46.05" x2="22.85" y2="46.05" width="0.1524" layer="1"/>
 <wire x1="21" y1="46.35" x2="21.3" y2="46.05" width="0.1524" layer="1"/>
-<wire x1="21" y1="46.35" x2="19.75" y2="45.1" width="0.1524" layer="1"/>
+<wire x1="19.75" y1="45.1" x2="21" y2="46.35" width="0.1524" layer="1"/>
 </signal>
 <signal name="N$53">
 <contactref element="U7" pad="1"/>
