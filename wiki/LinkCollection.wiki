@@ -78,7 +78,7 @@ _Note:_ Several PCB layout guidelines can be found in other sections such as ADC
 
 [http://www.st.com/stonline/books/pdf/docs/4967.pdf ST AN901] - EMC guidelines for microcontroller-based applications
 
-[www.nxp.com/documents/application_note/AN10897.pdf NXP AN10897] - A guide to designing for ESD and EMC
+[http://www.nxp.com/documents/application_note/AN10897.pdf NXP AN10897] - A guide to designing for ESD and EMC
 
 = External Collections =
 
