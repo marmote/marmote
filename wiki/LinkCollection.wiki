@@ -62,6 +62,10 @@ Specification
  * Easy guideline for the selection of suitable crystal and external components
  * Some recommended crystals for STM32™ microcontrollers
 
+== Op Amp ==
+
+[http://www.ti.com/litv/pdf/sloa058 TI Application Report] - A Single-Supply Op-Amp Circuit Collection
+
 == PCB Layout ==
 
 _Note:_ Several PCB layout guidelines can be found in other sections such as ADC, Oscillator, etc.
