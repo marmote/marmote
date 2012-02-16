@@ -26008,13 +26008,11 @@ Source:
 <text x="59.055" y="52.07" size="1.778" layer="97">Note: The enable pin is N/A on FOX924B</text>
 <text x="50.8" y="104.14" size="50.8" layer="208">CLK</text>
 <text x="55.88" y="40.64" size="50.8" layer="208">RST</text>
-<text x="170.18" y="81.28" size="2.54" layer="97">JTAG</text>
-<text x="198.12" y="66.04" size="2.54" layer="97" rot="R90">VJTAG</text>
+<text x="167.64" y="88.9" size="2.54" layer="97">JTAG</text>
 <wire x1="167.64" y1="40.64" x2="231.14" y2="40.64" width="0.1524" layer="97" style="shortdash"/>
 <wire x1="231.14" y1="40.64" x2="231.14" y2="78.74" width="0.1524" layer="97" style="shortdash"/>
 <wire x1="231.14" y1="78.74" x2="167.64" y2="78.74" width="0.1524" layer="97" style="shortdash"/>
 <wire x1="167.64" y1="78.74" x2="167.64" y2="40.64" width="0.1524" layer="97" style="shortdash"/>
-<text x="218.44" y="66.04" size="2.54" layer="97" rot="R90">VPUMP</text>
 <text x="106.68" y="12.7" size="1.778" layer="97">NC</text>
 <text x="139.7" y="12.7" size="1.778" layer="97">NC</text>
 <text x="106.68" y="7.62" size="1.778" layer="97">NC</text>
@@ -29495,6 +29493,8 @@ Source:
 <rectangle x1="218.44" y1="134.62" x2="238.76" y2="144.78" layer="116"/>
 <rectangle x1="220.98" y1="127" x2="238.76" y2="132.08" layer="116"/>
 <rectangle x1="218.44" y1="91.44" x2="238.76" y2="93.98" layer="116"/>
+<text x="101.6" y="154.94" size="1.778" layer="97">TXD</text>
+<text x="101.6" y="152.4" size="1.778" layer="97">RXD</text>
 </plain>
 <instances>
 <instance part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" x="177.8" y="124.46"/>
@@ -30093,7 +30093,7 @@ Source:
 <pinref part="U$125" gate="G$1" pin="DGND"/>
 </segment>
 </net>
-<net name="N$23" class="0">
+<net name="UREF" class="0">
 <segment>
 <pinref part="U5" gate="G$1" pin="REF"/>
 <wire x1="40.64" y1="127" x2="35.56" y2="127" width="0.1524" layer="91"/>
@@ -30171,7 +30171,7 @@ Source:
 <label x="203.2" y="53.34" size="1.778" layer="97"/>
 </segment>
 </net>
-<net name="N$53" class="0">
+<net name="EEDO" class="0">
 <segment>
 <pinref part="U7" gate="G$1" pin="DO"/>
 <wire x1="182.88" y1="50.8" x2="185.42" y2="50.8" width="0.1524" layer="91"/>
@@ -31573,7 +31573,7 @@ Source:
 <wire x1="66.04" y1="101.6" x2="68.58" y2="101.6" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$26" class="0">
+<net name="USBDP-OUT" class="0">
 <segment>
 <pinref part="U4" gate="G$1" pin="IO2@1"/>
 <pinref part="R56" gate="G$1" pin="1"/>
