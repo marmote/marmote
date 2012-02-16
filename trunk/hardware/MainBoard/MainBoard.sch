@@ -20603,10 +20603,10 @@ Source:&lt;p&gt;
 &lt;a href="http://www.vishay.com/docs/71196/71196.pdf"&gt;http://www.vishay.com/docs/71196/71196.pdf&lt;/a&gt;
 &lt;br&gt;
 &lt;a href="http://www.analog.com/static/imported-files/footprints/SOT-23/rt-3.pdf"&gt;http://www.analog.com/static/imported-files/footprints/SOT-23/rt-3.pdf&lt;/a&gt;</description>
-<wire x1="-0.65" y1="-1.45" x2="-0.65" y2="1.45" width="0.1524" layer="21"/>
-<wire x1="-0.65" y1="1.45" x2="0.65" y2="1.45" width="0.1524" layer="21"/>
-<wire x1="0.65" y1="1.45" x2="0.65" y2="-1.45" width="0.1524" layer="21"/>
-<wire x1="0.65" y1="-1.45" x2="-0.65" y2="-1.45" width="0.1524" layer="21"/>
+<wire x1="-0.65" y1="-1.45" x2="-0.65" y2="1.45" width="0.1524" layer="51"/>
+<wire x1="-0.65" y1="1.45" x2="0.65" y2="1.45" width="0.1524" layer="51"/>
+<wire x1="0.65" y1="1.45" x2="0.65" y2="-1.45" width="0.1524" layer="51"/>
+<wire x1="0.65" y1="-1.45" x2="-0.65" y2="-1.45" width="0.1524" layer="51"/>
 <smd name="1" x="-1.15" y="0.95" dx="0.55" dy="1" layer="1" rot="R90"/>
 <smd name="2" x="-1.15" y="-0.95" dx="0.55" dy="1" layer="1" rot="R90"/>
 <smd name="3" x="1.15" y="0" dx="0.55" dy="1" layer="1" rot="R90"/>
@@ -28058,14 +28058,11 @@ Source:
 <text x="81.28" y="63.5" size="2.54" layer="97">AFE2</text>
 <text x="142.24" y="157.48" size="2.54" layer="97" rot="R90">VDD</text>
 <text x="200.66" y="157.48" size="2.54" layer="97" rot="R90">OVDD</text>
-<rectangle x1="17.78" y1="17.78" x2="30.48" y2="33.02" layer="97"/>
-<text x="20.32" y="30.48" size="1.778" layer="97" rot="R90">Shut-down by default</text>
+<text x="20.32" y="30.48" size="1.778" layer="97" rot="R90">Disable AFE by default</text>
 <text x="76.2" y="157.48" size="2.54" layer="97" rot="R90">REFIN</text>
 <text x="142.24" y="114.3" size="2.54" layer="97" rot="R90">VDD</text>
 <text x="200.66" y="114.3" size="2.54" layer="97" rot="R90">OVDD</text>
 <text x="76.2" y="114.3" size="2.54" layer="97" rot="R90">REFIN</text>
-<rectangle x1="66.04" y1="17.78" x2="78.74" y2="33.02" layer="97"/>
-<text x="68.58" y="30.48" size="1.778" layer="97" rot="R90">Shut-down by default</text>
 <text x="50.8" y="15.24" size="1.778" layer="97" rot="R90">AFE1 DB lines are internally pulled-up</text>
 <text x="53.34" y="17.78" size="1.778" layer="97" rot="R90">both in AFE1 and SmartFusion</text>
 <text x="99.06" y="15.24" size="1.778" layer="97" rot="R90">AFE2 DB lines are internally pulled-up</text>
@@ -28084,6 +28081,9 @@ Source:
 <rectangle x1="30.48" y1="132.08" x2="203.2" y2="170.18" layer="116"/>
 <rectangle x1="30.48" y1="91.44" x2="203.2" y2="127" layer="116"/>
 <rectangle x1="10.16" y1="15.24" x2="121.92" y2="68.58" layer="116"/>
+<text x="68.58" y="30.48" size="1.778" layer="97" rot="R90">Disable AFE by default</text>
+<rectangle x1="76.2" y1="17.78" x2="86.36" y2="58.42" layer="98"/>
+<rectangle x1="27.94" y1="17.78" x2="38.1" y2="58.42" layer="98"/>
 </plain>
 <instances>
 <instance part="FRAME9" gate="G$1" x="0" y="0"/>
