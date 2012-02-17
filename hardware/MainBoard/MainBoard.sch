@@ -48,7 +48,7 @@
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="yes" active="no"/>
-<layer number="51" name="tDocu" color="14" fill="1" visible="yes" active="no"/>
+<layer number="51" name="tDocu" color="12" fill="1" visible="yes" active="no"/>
 <layer number="52" name="bDocu" color="11" fill="1" visible="yes" active="no"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="yes" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="yes" active="no"/>
@@ -22563,8 +22563,8 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <wire x1="7.62" y1="5.08" x2="7.62" y2="-5.08" width="0.254" layer="94"/>
 <wire x1="7.62" y1="-5.08" x2="-7.62" y2="-5.08" width="0.254" layer="94"/>
 <wire x1="-7.62" y1="-5.08" x2="-7.62" y2="5.08" width="0.254" layer="94"/>
-<text x="-7.62" y="-7.62" size="1.778" layer="95">&gt;NAME</text>
-<text x="-7.62" y="5.715" size="1.778" layer="96">&gt;VALUE</text>
+<text x="-7.62" y="5.842" size="1.778" layer="95">&gt;NAME</text>
+<text x="-7.62" y="-7.747" size="1.778" layer="96">&gt;VALUE</text>
 </symbol>
 <symbol name="LED">
 <wire x1="1.27" y1="1.27" x2="0" y2="-1.27" width="0.254" layer="94"/>
@@ -25053,8 +25053,8 @@ Source:
 <part name="PORT281" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="LED2" library="MainBoard" deviceset="LED" device="-3010" technology="-ECK"/>
 <part name="LED1" library="MainBoard" deviceset="LED" device="-3010" technology="-MGC"/>
-<part name="R97" library="MainBoard" deviceset="R" device="0603"/>
-<part name="R98" library="MainBoard" deviceset="R" device="0603"/>
+<part name="R97" library="MainBoard" deviceset="R" device="0402"/>
+<part name="R98" library="MainBoard" deviceset="R" device="0402"/>
 <part name="U$70" library="MainBoard" deviceset="D3V3" device=""/>
 <part name="PORT282" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT283" library="MainBoard" deviceset="PORT5" device=""/>
@@ -25248,14 +25248,27 @@ Source:
 <part name="C126" library="MainBoard" deviceset="C" device="0402"/>
 <part name="U$143" library="MainBoard" deviceset="D1V5" device=""/>
 <part name="U$69" library="MainBoard" deviceset="D3V3" device=""/>
-<part name="C127" library="MainBoard" deviceset="C" device="0402"/>
+<part name="C127" library="MainBoard" deviceset="C" device="0402" value="0.01uF"/>
 <part name="U$80" library="MainBoard" deviceset="DGND" device=""/>
 <part name="U$144" library="MainBoard" deviceset="D3V3" device=""/>
-<part name="C128" library="MainBoard" deviceset="C" device="0402"/>
+<part name="C128" library="MainBoard" deviceset="C" device="0402" value="0.01uF"/>
 <part name="U$145" library="MainBoard" deviceset="DGND" device=""/>
 <part name="R11" library="MainBoard" deviceset="R" device="0402" value="100k"/>
 <part name="PORT363" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="U$146" library="MainBoard" deviceset="D3V3" device=""/>
+<part name="R12" library="MainBoard" deviceset="R" device="0402" value="10k">
+<attribute name="TOLERANCE" value=""/>
+</part>
+<part name="U$147" library="MainBoard" deviceset="DGND" device=""/>
+<part name="U$148" library="MainBoard" deviceset="D3V3" device=""/>
+<part name="C129" library="MainBoard" deviceset="C" device="0402" value="0.01uF"/>
+<part name="U$149" library="MainBoard" deviceset="DGND" device=""/>
+<part name="U$150" library="MainBoard" deviceset="D3V3" device=""/>
+<part name="C130" library="MainBoard" deviceset="C" device="0402" value="0.01uF"/>
+<part name="U$151" library="MainBoard" deviceset="DGND" device=""/>
+<part name="U$152" library="MainBoard" deviceset="DGND" device=""/>
+<part name="R13" library="MainBoard" deviceset="R" device="0402" value="1k"/>
+<part name="PORT364" library="MainBoard" deviceset="PORT5" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -26033,7 +26046,7 @@ Source:
 <text x="170.18" y="20.32" size="5.08" layer="97">Clock, Reset and JTAG</text>
 <text x="45.72" y="63.5" size="2.54" layer="97">Ethernet oscillator - 50 MHz</text>
 <text x="45.72" y="25.4" size="2.54" layer="97">Main oscillator - 20 MHz</text>
-<text x="40.64" y="104.14" size="2.54" layer="97">Internal oscillators - 20 MHz / 32 kHz</text>
+<text x="44.45" y="109.22" size="2.54" layer="97">Internal oscillator - 32 kHz</text>
 <text x="180.34" y="124.46" size="2.54" layer="97">Reset logic</text>
 <rectangle x1="182.88" y1="144.78" x2="190.5" y2="152.4" layer="97"/>
 <text x="182.88" y="152.4" size="1.778" layer="97" rot="R90">DS1818 5.5k internal pull-up</text>
@@ -26056,12 +26069,9 @@ Source:
 <text x="106.68" y="12.7" size="1.778" layer="97">NC</text>
 <text x="139.7" y="12.7" size="1.778" layer="97">NC</text>
 <text x="106.68" y="7.62" size="1.778" layer="97">NC</text>
-<rectangle x1="81.28" y1="81.28" x2="99.06" y2="88.9" layer="98"/>
 <rectangle x1="22.86" y1="109.22" x2="43.18" y2="137.16" layer="116"/>
 <rectangle x1="86.36" y1="116.84" x2="99.06" y2="129.54" layer="116"/>
 <rectangle x1="20.32" y1="33.02" x2="104.14" y2="58.42" layer="116"/>
-<rectangle x1="50.8" y1="81.28" x2="60.96" y2="83.82" layer="101"/>
-<text x="39.37" y="87.63" size="1.778" layer="101">Check if it should be negated</text>
 <rectangle x1="137.16" y1="121.92" x2="228.6" y2="165.1" layer="116"/>
 <rectangle x1="172.72" y1="43.18" x2="195.58" y2="78.74" layer="116"/>
 <rectangle x1="205.74" y1="43.18" x2="215.9" y2="78.74" layer="116"/>
@@ -26072,8 +26082,13 @@ Source:
 <rectangle x1="22.86" y1="129.54" x2="119.38" y2="175.26" layer="116"/>
 <rectangle x1="53.34" y1="48.26" x2="106.68" y2="53.34" layer="101"/>
 <text x="55.88" y="55.88" size="1.778" layer="101">This is a VC pin, not an EN!</text>
-<text x="149.86" y="58.42" size="1.778" layer="97" rot="R90">ASEM1</text>
-<text x="139.7" y="58.42" size="1.778" layer="97" rot="R90">LMV112</text>
+<text x="114.3" y="58.42" size="1.778" layer="97" rot="R90">ASEM1</text>
+<text x="144.78" y="58.42" size="1.778" layer="97" rot="R90">LMV112</text>
+<text x="127" y="58.42" size="1.778" layer="97" rot="R90">FOX924B</text>
+<rectangle x1="127" y1="50.8" x2="137.16" y2="53.34" layer="98"/>
+<rectangle x1="147.32" y1="50.8" x2="154.94" y2="53.34" layer="98"/>
+<text x="157.48" y="58.42" size="1.778" layer="97" rot="R90">DS1818</text>
+<rectangle x1="160.02" y1="50.8" x2="167.64" y2="53.34" layer="98"/>
 </plain>
 <instances>
 <instance part="U1" gate="-MISC" x="63.5" y="134.62"/>
@@ -26162,12 +26177,21 @@ Source:
 <instance part="PORT361" gate="G$1" x="200.66" y="73.66" rot="R90"/>
 <instance part="PORT362" gate="G$1" x="220.98" y="73.66" rot="R90"/>
 <instance part="U$22" gate="G$1" x="25.4" y="114.3"/>
-<instance part="U$69" gate="G$1" x="152.4" y="63.5"/>
-<instance part="C127" gate="G$1" x="152.4" y="55.88"/>
-<instance part="U$80" gate="G$1" x="152.4" y="43.18"/>
-<instance part="U$144" gate="G$1" x="142.24" y="63.5"/>
-<instance part="C128" gate="G$1" x="142.24" y="55.88"/>
-<instance part="U$145" gate="G$1" x="142.24" y="43.18"/>
+<instance part="U$69" gate="G$1" x="116.84" y="63.5"/>
+<instance part="C127" gate="G$1" x="116.84" y="55.88"/>
+<instance part="U$80" gate="G$1" x="116.84" y="43.18"/>
+<instance part="U$144" gate="G$1" x="147.32" y="63.5"/>
+<instance part="C128" gate="G$1" x="147.32" y="55.88"/>
+<instance part="U$145" gate="G$1" x="147.32" y="43.18"/>
+<instance part="U$148" gate="G$1" x="129.54" y="63.5"/>
+<instance part="C129" gate="G$1" x="129.54" y="55.88"/>
+<instance part="U$149" gate="G$1" x="129.54" y="43.18"/>
+<instance part="U$150" gate="G$1" x="160.02" y="63.5"/>
+<instance part="C130" gate="G$1" x="160.02" y="55.88"/>
+<instance part="U$151" gate="G$1" x="160.02" y="43.18"/>
+<instance part="U$152" gate="G$1" x="139.7" y="43.18"/>
+<instance part="R13" gate="G$1" x="139.7" y="55.88" rot="R90"/>
+<instance part="PORT364" gate="G$1" x="139.7" y="73.66" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -26183,7 +26207,7 @@ Source:
 <wire x1="66.04" y1="73.66" x2="66.04" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="!MAC_PWDN" class="0">
+<net name="MAC_EN" class="0">
 <segment>
 <pinref part="X3" gate="G$1" pin="OE"/>
 <wire x1="63.5" y1="83.82" x2="81.28" y2="83.82" width="0.1524" layer="91"/>
@@ -26294,13 +26318,28 @@ Source:
 </segment>
 <segment>
 <pinref part="C127" gate="G$1" pin="2"/>
-<wire x1="152.4" y1="50.8" x2="152.4" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="50.8" x2="116.84" y2="45.72" width="0.1524" layer="91"/>
 <pinref part="U$80" gate="G$1" pin="DGND"/>
 </segment>
 <segment>
 <pinref part="C128" gate="G$1" pin="2"/>
-<wire x1="142.24" y1="50.8" x2="142.24" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="50.8" x2="147.32" y2="45.72" width="0.1524" layer="91"/>
 <pinref part="U$145" gate="G$1" pin="DGND"/>
+</segment>
+<segment>
+<pinref part="C129" gate="G$1" pin="2"/>
+<wire x1="129.54" y1="50.8" x2="129.54" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="U$149" gate="G$1" pin="DGND"/>
+</segment>
+<segment>
+<pinref part="C130" gate="G$1" pin="2"/>
+<wire x1="160.02" y1="50.8" x2="160.02" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="U$151" gate="G$1" pin="DGND"/>
+</segment>
+<segment>
+<pinref part="R13" gate="G$1" pin="1"/>
+<wire x1="139.7" y1="50.8" x2="139.7" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="U$152" gate="G$1" pin="DGND"/>
 </segment>
 </net>
 <net name="MSS_RMII_CLK" class="0">
@@ -26377,12 +26416,22 @@ Source:
 <segment>
 <pinref part="C127" gate="G$1" pin="1"/>
 <pinref part="U$69" gate="G$1" pin="D3V3"/>
-<wire x1="152.4" y1="58.42" x2="152.4" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="58.42" x2="116.84" y2="63.5" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C128" gate="G$1" pin="1"/>
 <pinref part="U$144" gate="G$1" pin="D3V3"/>
-<wire x1="142.24" y1="58.42" x2="142.24" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="58.42" x2="147.32" y2="63.5" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C129" gate="G$1" pin="1"/>
+<pinref part="U$148" gate="G$1" pin="D3V3"/>
+<wire x1="129.54" y1="58.42" x2="129.54" y2="63.5" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C130" gate="G$1" pin="1"/>
+<pinref part="U$150" gate="G$1" pin="D3V3"/>
+<wire x1="160.02" y1="58.42" x2="160.02" y2="63.5" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="!MSS_RESET_PB" class="0">
@@ -26552,6 +26601,11 @@ Source:
 <pinref part="U9" gate="G$1" pin="EN1"/>
 <wire x1="111.76" y1="27.94" x2="109.22" y2="27.94" width="0.1524" layer="91"/>
 <label x="106.68" y="27.94" size="1.778" layer="95" rot="MR0"/>
+</segment>
+<segment>
+<pinref part="R13" gate="G$1" pin="2"/>
+<wire x1="139.7" y1="58.42" x2="139.7" y2="63.5" width="0.1524" layer="91"/>
+<label x="139.7" y="66.04" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="VJTAG" class="0">
@@ -28812,8 +28866,6 @@ Source:
 <rectangle x1="43.18" y1="12.7" x2="55.88" y2="50.8" layer="116"/>
 <rectangle x1="10.16" y1="10.16" x2="43.18" y2="50.8" layer="116"/>
 <rectangle x1="167.64" y1="96.52" x2="238.76" y2="180.34" layer="116"/>
-<rectangle x1="17.78" y1="105.41" x2="63.5" y2="107.95" layer="98"/>
-<text x="17.78" y="109.22" size="1.778" layer="98">Check assertion value</text>
 </plain>
 <instances>
 <instance part="U6" gate="G$1" x="78.74" y="119.38"/>
@@ -28910,6 +28962,8 @@ Source:
 <instance part="U$127" gate="G$1" x="15.24" y="15.24"/>
 <instance part="U$128" gate="G$1" x="35.56" y="15.24"/>
 <instance part="C108" gate="G$1" x="24.13" y="20.32" rot="R90"/>
+<instance part="R12" gate="G$1" x="40.64" y="99.06" rot="R90"/>
+<instance part="U$147" gate="G$1" x="40.64" y="88.9"/>
 </instances>
 <busses>
 </busses>
@@ -29026,6 +29080,11 @@ Source:
 <wire x1="15.24" y1="17.78" x2="15.24" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="20.32" x2="21.59" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="C108" gate="G$1" pin="1"/>
+</segment>
+<segment>
+<pinref part="R12" gate="G$1" pin="1"/>
+<wire x1="40.64" y1="93.98" x2="40.64" y2="91.44" width="0.1524" layer="91"/>
+<pinref part="U$147" gate="G$1" pin="DGND"/>
 </segment>
 </net>
 <net name="TD+" class="0">
@@ -29467,11 +29526,15 @@ Source:
 <wire x1="35.56" y1="104.14" x2="53.34" y2="104.14" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="!MAC_PWDN" class="0">
+<net name="MAC_EN" class="0">
 <segment>
 <pinref part="U6" gate="G$1" pin="PWR_DOWN/INT"/>
-<wire x1="53.34" y1="106.68" x2="35.56" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="106.68" x2="40.64" y2="106.68" width="0.1524" layer="91"/>
 <label x="33.02" y="106.68" size="1.778" layer="97" rot="MR0"/>
+<pinref part="R12" gate="G$1" pin="2"/>
+<wire x1="40.64" y1="106.68" x2="35.56" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="101.6" x2="40.64" y2="106.68" width="0.1524" layer="91"/>
+<junction x="40.64" y="106.68"/>
 </segment>
 </net>
 <net name="N$63" class="0">
@@ -29536,7 +29599,6 @@ Source:
 <text x="91.44" y="30.48" size="1.778" layer="97" rot="R90">VCCIO</text>
 <text x="53.34" y="63.5" size="50.8" layer="208">USB</text>
 <text x="106.68" y="27.94" size="1.778" layer="97" rot="R90">93LC56BT</text>
-<text x="246.38" y="104.14" size="1.778" layer="98" rot="R90">Move EXT AFE data signals to the same IO bank</text>
 <text x="104.14" y="91.44" size="1.778" layer="98">To Bank2</text>
 <text x="104.14" y="93.98" size="1.778" layer="98">To Bank2</text>
 <text x="127" y="139.7" size="1.778" layer="98" rot="R90">Move USB signals to the same IO bank</text>
@@ -29567,6 +29629,7 @@ Source:
 <rectangle x1="218.44" y1="91.44" x2="238.76" y2="93.98" layer="116"/>
 <text x="101.6" y="154.94" size="1.778" layer="97">TXD</text>
 <text x="101.6" y="152.4" size="1.778" layer="97">RXD</text>
+<rectangle x1="96.52" y1="106.68" x2="114.3" y2="116.84" layer="98"/>
 </plain>
 <instances>
 <instance part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" x="177.8" y="124.46"/>
@@ -30591,7 +30654,7 @@ Source:
 <wire x1="220.98" y1="144.78" x2="215.9" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="!MAC_PWDN" class="0">
+<net name="MAC_EN" class="0">
 <segment>
 <label x="223.52" y="124.46" size="1.778" layer="97"/>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[12]/IO87NDB5V0"/>
@@ -31049,6 +31112,8 @@ Source:
 <rectangle x1="17.78" y1="53.34" x2="58.42" y2="66.04" layer="116"/>
 <rectangle x1="60.96" y1="55.88" x2="96.52" y2="68.58" layer="116"/>
 <rectangle x1="17.78" y1="17.78" x2="104.14" y2="30.48" layer="116"/>
+<rectangle x1="45.72" y1="134.62" x2="63.5" y2="160.02" layer="98"/>
+<text x="38.1" y="162.56" size="1.778" layer="98">Different pinout than ULINK2</text>
 </plain>
 <instances>
 <instance part="J2" gate="G$1" x="200.66" y="114.3"/>
