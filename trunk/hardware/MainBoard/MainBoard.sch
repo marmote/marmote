@@ -6,26 +6,26 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.05" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
-<layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
-<layer number="3" name="Route3" color="13" fill="3" visible="no" active="no"/>
-<layer number="14" name="Route14" color="10" fill="6" visible="no" active="no"/>
-<layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
-<layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="no"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="no" active="no"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="no"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="no" active="no"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="yes" active="no"/>
+<layer number="3" name="Route3" color="13" fill="3" visible="yes" active="no"/>
+<layer number="14" name="Route14" color="10" fill="6" visible="yes" active="no"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="yes" active="no"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="no"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="no"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="no"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="no"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="no"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="no"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="no"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="no"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="no"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="no"/>
@@ -34,8 +34,8 @@
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="no"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="no"/>
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="no"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="no" active="no"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="no"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="no"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="no"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="no"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="no"/>
@@ -43,16 +43,16 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="no"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="no"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="no"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="no"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="no"/>
-<layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
-<layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="14" fill="1" visible="no" active="no"/>
-<layer number="52" name="bDocu" color="11" fill="1" visible="no" active="no"/>
-<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
-<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
-<layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="no"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="no"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
+<layer number="50" name="dxf" color="7" fill="1" visible="yes" active="no"/>
+<layer number="51" name="tDocu" color="14" fill="1" visible="yes" active="no"/>
+<layer number="52" name="bDocu" color="11" fill="1" visible="yes" active="no"/>
+<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="yes" active="no"/>
+<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="yes" active="no"/>
+<layer number="56" name="wert" color="7" fill="1" visible="yes" active="no"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="93" name="Pins" color="2" fill="1" visible="no" active="yes"/>
@@ -20794,9 +20794,17 @@ Source: &lt;a href="http://www.ck-components.com/index.php?module=media&amp;acti
 <smd name="1$2" x="2.9" y="2" dx="2.8" dy="1" layer="1"/>
 <smd name="2$2" x="2.9" y="-2" dx="2.8" dy="1" layer="1"/>
 <wire x1="-3" y1="3" x2="-3" y2="-3" width="0.127" layer="51"/>
-<wire x1="-3" y1="-3" x2="3" y2="-3" width="0.127" layer="51"/>
+<wire x1="-3" y1="-3" x2="-2" y2="-3" width="0.127" layer="51"/>
+<wire x1="-2" y1="-3" x2="-1.75" y2="-3.25" width="0.127" layer="51"/>
+<wire x1="-1.75" y1="-3.25" x2="1.75" y2="-3.25" width="0.127" layer="51"/>
+<wire x1="1.75" y1="-3.25" x2="2" y2="-3" width="0.127" layer="51"/>
+<wire x1="2" y1="-3" x2="3" y2="-3" width="0.127" layer="51"/>
 <wire x1="3" y1="-3" x2="3" y2="3" width="0.127" layer="51"/>
-<wire x1="3" y1="3" x2="-3" y2="3" width="0.127" layer="51"/>
+<wire x1="3" y1="3" x2="2" y2="3" width="0.127" layer="51"/>
+<wire x1="2" y1="3" x2="1.75" y2="3.25" width="0.127" layer="51"/>
+<wire x1="1.75" y1="3.25" x2="-1.75" y2="3.25" width="0.127" layer="51"/>
+<wire x1="-1.75" y1="3.25" x2="-2" y2="3" width="0.127" layer="51"/>
+<wire x1="-2" y1="3" x2="-3" y2="3" width="0.127" layer="51"/>
 <circle x="0" y="0" radius="1.5" width="0.127" layer="51"/>
 <text x="-3" y="-4" size="0.4064" layer="25">&gt;NAME</text>
 <text x="-3" y="3.5" size="0.4064" layer="27">&gt;VALUE</text>
@@ -20941,27 +20949,22 @@ Source: &lt;a href="http://www.kingbrightusa.com/images/catalog/SPEC/APECVA3010M
 &lt;p&gt;
 Source: &lt;a href="http://www.ti.com/lit/ds/symlink/lmv112.pdf"&gt;http://www.ti.com/lit/ds/symlink/lmv112.pdf&lt;/a&gt;</description>
 <smd name="EXP" x="0" y="0" dx="2" dy="1.6" layer="1" cream="no"/>
-<smd name="8" x="-0.75" y="-1.4" dx="0.25" dy="0.6" layer="1"/>
-<smd name="7" x="-0.25" y="-1.4" dx="0.25" dy="0.6" layer="1"/>
-<smd name="5" x="0.75" y="-1.4" dx="0.25" dy="0.6" layer="1"/>
-<smd name="6" x="0.25" y="-1.4" dx="0.25" dy="0.6" layer="1"/>
-<smd name="1" x="-0.75" y="1.4" dx="0.25" dy="0.6" layer="1"/>
-<smd name="2" x="-0.25" y="1.4" dx="0.25" dy="0.6" layer="1"/>
-<smd name="4" x="0.75" y="1.4" dx="0.25" dy="0.6" layer="1"/>
-<smd name="3" x="0.25" y="1.4" dx="0.25" dy="0.6" layer="1"/>
+<smd name="8" x="-0.75" y="1.4" dx="0.25" dy="0.6" layer="1"/>
+<smd name="7" x="-0.25" y="1.4" dx="0.25" dy="0.6" layer="1"/>
+<smd name="5" x="0.75" y="1.4" dx="0.25" dy="0.6" layer="1"/>
+<smd name="6" x="0.25" y="1.4" dx="0.25" dy="0.6" layer="1"/>
+<smd name="1" x="-0.75" y="-1.4" dx="0.25" dy="0.6" layer="1"/>
+<smd name="2" x="-0.25" y="-1.4" dx="0.25" dy="0.6" layer="1"/>
+<smd name="4" x="0.75" y="-1.4" dx="0.25" dy="0.6" layer="1"/>
+<smd name="3" x="0.25" y="-1.4" dx="0.25" dy="0.6" layer="1"/>
 <rectangle x1="-0.7" y1="-0.5" x2="0.7" y2="0.5" layer="31"/>
 <wire x1="-1.5" y1="-1.5" x2="-1.5" y2="1.5" width="0.127" layer="51"/>
 <wire x1="-1.5" y1="1.5" x2="1.5" y2="1.5" width="0.127" layer="51"/>
 <wire x1="1.5" y1="1.5" x2="1.5" y2="-1.5" width="0.127" layer="51"/>
 <wire x1="1.5" y1="-1.5" x2="-1.5" y2="-1.5" width="0.127" layer="51"/>
-<wire x1="-1" y1="-0.8" x2="-1" y2="0.5" width="0.127" layer="51"/>
-<wire x1="-0.7" y1="0.8" x2="1" y2="0.8" width="0.127" layer="51"/>
-<wire x1="1" y1="0.8" x2="1" y2="-0.8" width="0.127" layer="51"/>
-<wire x1="1" y1="-0.8" x2="-1" y2="-0.8" width="0.127" layer="51"/>
-<wire x1="-1" y1="0.5" x2="-0.7" y2="0.8" width="0.127" layer="51"/>
-<wire x1="-1.9" y1="1.2" x2="-1.7" y2="1.4" width="0.127" layer="21"/>
-<wire x1="-1.7" y1="1.4" x2="-1.9" y2="1.6" width="0.127" layer="21"/>
-<wire x1="-1.9" y1="1.6" x2="-1.9" y2="1.2" width="0.127" layer="21"/>
+<wire x1="-1.65" y1="-1.55" x2="-1.45" y2="-1.35" width="0.127" layer="21"/>
+<wire x1="-1.45" y1="-1.35" x2="-1.65" y2="-1.15" width="0.127" layer="21"/>
+<wire x1="-1.65" y1="-1.15" x2="-1.65" y2="-1.55" width="0.127" layer="21"/>
 <text x="-2.54" y="0" size="0.2032" layer="51">Check if EXP should be soldered to PCB</text>
 </package>
 <package name="2,8">
@@ -21177,40 +21180,42 @@ Source: &lt;a href="http://media.digikey.com/pdf/Data%20Sheets/COPAL%20Electroni
 <pin name="VCCFPGAIOB5@4" x="25.4" y="-10.16" length="middle" direction="pwr" rot="R180"/>
 </symbol>
 <symbol name="A2F500M3G-FPGA-CORE-SUPPLY">
-<wire x1="-20.32" y1="-12.7" x2="-20.32" y2="10.16" width="0.254" layer="94"/>
-<wire x1="-20.32" y1="10.16" x2="20.32" y2="10.16" width="0.254" layer="94"/>
-<wire x1="20.32" y1="10.16" x2="20.32" y2="-12.7" width="0.254" layer="94"/>
-<wire x1="20.32" y1="-12.7" x2="-20.32" y2="-12.7" width="0.254" layer="94"/>
-<text x="-20.32" y="10.795" size="1.778" layer="95">&gt;NAME</text>
-<text x="-20.32" y="-15.24" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="VCC@0" x="-25.4" y="7.62" length="middle" direction="pwr"/>
-<pin name="VCC@1" x="-25.4" y="5.08" length="middle" direction="pwr"/>
-<pin name="VCC@2" x="-25.4" y="2.54" length="middle" direction="pwr"/>
-<pin name="VCC@3" x="-25.4" y="0" length="middle" direction="pwr"/>
-<pin name="VCC@4" x="-25.4" y="-2.54" length="middle" direction="pwr"/>
-<pin name="VCC@5" x="-25.4" y="-5.08" length="middle" direction="pwr"/>
-<pin name="VCC@6" x="25.4" y="7.62" length="middle" direction="pwr" rot="R180"/>
-<pin name="VCC@7" x="25.4" y="5.08" length="middle" direction="pwr" rot="R180"/>
-<pin name="VCC@8" x="25.4" y="2.54" length="middle" direction="pwr" rot="R180"/>
-<pin name="VCC@9" x="25.4" y="0" length="middle" direction="pwr" rot="R180"/>
-<pin name="VCC@10" x="25.4" y="-2.54" length="middle" direction="pwr" rot="R180"/>
-<pin name="VCC@11" x="25.4" y="-5.08" length="middle" direction="pwr" rot="R180"/>
-<pin name="VCCENVM" x="-25.4" y="-10.16" length="middle" direction="pwr"/>
+<wire x1="-20.32" y1="-15.24" x2="-20.32" y2="7.62" width="0.254" layer="94"/>
+<wire x1="-20.32" y1="7.62" x2="20.32" y2="7.62" width="0.254" layer="94"/>
+<wire x1="20.32" y1="7.62" x2="20.32" y2="-15.24" width="0.254" layer="94"/>
+<wire x1="20.32" y1="-15.24" x2="-20.32" y2="-15.24" width="0.254" layer="94"/>
+<text x="-20.32" y="8.255" size="1.778" layer="95">&gt;NAME</text>
+<text x="-20.32" y="-17.78" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="VCC@0" x="-25.4" y="5.08" length="middle" direction="pwr"/>
+<pin name="VCC@1" x="-25.4" y="2.54" length="middle" direction="pwr"/>
+<pin name="VCC@2" x="-25.4" y="0" length="middle" direction="pwr"/>
+<pin name="VCC@3" x="-25.4" y="-2.54" length="middle" direction="pwr"/>
+<pin name="VCC@4" x="-25.4" y="-5.08" length="middle" direction="pwr"/>
+<pin name="VCC@5" x="-25.4" y="-7.62" length="middle" direction="pwr"/>
+<pin name="VCC@6" x="25.4" y="5.08" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCC@7" x="25.4" y="2.54" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCC@8" x="25.4" y="0" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCC@9" x="25.4" y="-2.54" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCC@10" x="25.4" y="-5.08" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCC@11" x="25.4" y="-7.62" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCCPLL0" x="-25.4" y="-12.7" length="middle" direction="pwr"/>
 </symbol>
-<symbol name="A2F500M3G-MSS-IOB-SUPPLY">
-<wire x1="-20.32" y1="-7.62" x2="-20.32" y2="5.08" width="0.254" layer="94"/>
-<wire x1="20.32" y1="-7.62" x2="20.32" y2="5.08" width="0.254" layer="94"/>
-<wire x1="-20.32" y1="5.08" x2="20.32" y2="5.08" width="0.254" layer="94"/>
-<wire x1="-20.32" y1="-7.62" x2="20.32" y2="-7.62" width="0.254" layer="94"/>
-<text x="-20.32" y="-10.16" size="1.778" layer="96">&gt;VALUE</text>
-<text x="-20.32" y="5.715" size="1.778" layer="95">&gt;NAME</text>
-<pin name="VCCMSSIOB2@0" x="-25.4" y="2.54" length="middle" direction="pwr"/>
-<pin name="VCCMSSIOB2@1" x="-25.4" y="0" length="middle" direction="pwr"/>
-<pin name="VCCMSSIOB2@2" x="-25.4" y="-2.54" length="middle" direction="pwr"/>
-<pin name="VCCMSSIOB2@3" x="-25.4" y="-5.08" length="middle" direction="pwr"/>
-<pin name="VCCMSSIOB4@0" x="25.4" y="2.54" length="middle" direction="pwr" rot="R180"/>
-<pin name="VCCMSSIOB4@1" x="25.4" y="0" length="middle" direction="pwr" rot="R180"/>
-<pin name="VCCMSSIOB4@2" x="25.4" y="-2.54" length="middle" direction="pwr" rot="R180"/>
+<symbol name="A2F500M3G-MSS-SUPPLY">
+<wire x1="-20.32" y1="-10.16" x2="-20.32" y2="7.62" width="0.254" layer="94"/>
+<wire x1="20.32" y1="-10.16" x2="20.32" y2="7.62" width="0.254" layer="94"/>
+<wire x1="-20.32" y1="7.62" x2="20.32" y2="7.62" width="0.254" layer="94"/>
+<wire x1="-20.32" y1="-10.16" x2="20.32" y2="-10.16" width="0.254" layer="94"/>
+<text x="-20.32" y="-12.7" size="1.778" layer="96">&gt;VALUE</text>
+<text x="-20.32" y="8.255" size="1.778" layer="95">&gt;NAME</text>
+<pin name="VCCMSSIOB2@0" x="-25.4" y="5.08" length="middle" direction="pwr"/>
+<pin name="VCCMSSIOB2@1" x="-25.4" y="2.54" length="middle" direction="pwr"/>
+<pin name="VCCMSSIOB2@2" x="-25.4" y="0" length="middle" direction="pwr"/>
+<pin name="VCCMSSIOB2@3" x="-25.4" y="-2.54" length="middle" direction="pwr"/>
+<pin name="VCCMSSIOB4@0" x="25.4" y="5.08" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCCMSSIOB4@1" x="25.4" y="2.54" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCCMSSIOB4@2" x="25.4" y="0" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCCENVM" x="25.4" y="-7.62" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCCRCOSC" x="-25.4" y="-7.62" length="middle" direction="pwr"/>
 </symbol>
 <symbol name="A2F500M3G-DIGITAL-GROUND">
 <wire x1="-12.7" y1="33.02" x2="12.7" y2="33.02" width="0.254" layer="94"/>
@@ -21268,12 +21273,12 @@ Source: &lt;a href="http://media.digikey.com/pdf/Data%20Sheets/COPAL%20Electroni
 <pin name="GNDQ@5" x="17.78" y="-25.4" length="middle" direction="pwr" rot="R180"/>
 </symbol>
 <symbol name="A2F500M3G-ANALOG-SUPPLY">
-<wire x1="-17.78" y1="-22.86" x2="-17.78" y2="17.78" width="0.254" layer="94"/>
-<wire x1="17.78" y1="-22.86" x2="17.78" y2="17.78" width="0.254" layer="94"/>
+<wire x1="-17.78" y1="-17.78" x2="-17.78" y2="17.78" width="0.254" layer="94"/>
+<wire x1="17.78" y1="-17.78" x2="17.78" y2="17.78" width="0.254" layer="94"/>
 <wire x1="-17.78" y1="17.78" x2="17.78" y2="17.78" width="0.254" layer="94"/>
-<wire x1="-17.78" y1="-22.86" x2="17.78" y2="-22.86" width="0.254" layer="94"/>
+<wire x1="-17.78" y1="-17.78" x2="17.78" y2="-17.78" width="0.254" layer="94"/>
 <text x="-17.78" y="18.415" size="1.778" layer="95">&gt;NAME</text>
-<text x="-17.78" y="-25.4" size="1.778" layer="96">&gt;VALUE</text>
+<text x="-17.78" y="-20.32" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="VCC15A" x="22.86" y="7.62" length="middle" direction="pwr" rot="R180"/>
 <pin name="VCC15ADC0" x="22.86" y="15.24" length="middle" direction="pwr" rot="R180"/>
 <pin name="VCC15ADC1" x="22.86" y="12.7" length="middle" direction="pwr" rot="R180"/>
@@ -21281,14 +21286,12 @@ Source: &lt;a href="http://media.digikey.com/pdf/Data%20Sheets/COPAL%20Electroni
 <pin name="VCC33ADC0" x="-22.86" y="15.24" length="middle" direction="pwr"/>
 <pin name="VCC33ADC1" x="-22.86" y="12.7" length="middle" direction="pwr"/>
 <pin name="VCC33AP" x="-22.86" y="5.08" length="middle" direction="pwr"/>
-<pin name="VCC33N" x="22.86" y="-20.32" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCC33N" x="22.86" y="-15.24" length="middle" direction="pwr" rot="R180"/>
 <pin name="VCC33SDD0" x="-22.86" y="-5.08" length="middle" direction="pwr"/>
 <pin name="VCC33SDD1" x="-22.86" y="-7.62" length="middle" direction="pwr"/>
 <pin name="VCCLPXTAL" x="-22.86" y="-12.7" length="middle" direction="pwr"/>
 <pin name="VCCMAINXTAL" x="-22.86" y="-15.24" length="middle" direction="pwr"/>
 <pin name="VDDBAT" x="-22.86" y="0" length="middle" direction="pwr"/>
-<pin name="VCCPLL0" x="22.86" y="2.54" length="middle" direction="pwr" rot="R180"/>
-<pin name="VCCRCOSC" x="-22.86" y="-20.32" length="middle" direction="pwr"/>
 </symbol>
 <symbol name="A2F500M3G-ANALOG-GROUND">
 <wire x1="-17.78" y1="-17.78" x2="-17.78" y2="15.24" width="0.254" layer="94"/>
@@ -22205,7 +22208,7 @@ Clock oscillator with output enable.</description>
 <text x="-6.985" y="-5.842" size="1.524" layer="95">GND</text>
 <text x="-6.985" y="4.318" size="1.524" layer="95">VDD</text>
 <text x="5.08" y="-3.302" size="1.524" layer="95">OUT</text>
-<text x="6.096" y="2.794" size="1.524" layer="95">!EN</text>
+<text x="6.096" y="2.794" size="1.524" layer="95">OE</text>
 <pin name="GND" x="-12.7" y="-5.08" visible="pad" length="middle" direction="pwr"/>
 <pin name="VDD" x="-12.7" y="5.08" visible="pad" length="middle" direction="pwr"/>
 <pin name="FO" x="15.24" y="0" visible="pad" length="middle" direction="out" rot="R180"/>
@@ -22611,8 +22614,8 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <wire x1="7.62" y1="12.7" x2="7.62" y2="-12.7" width="0.254" layer="94"/>
 <wire x1="7.62" y1="-12.7" x2="-7.62" y2="-12.7" width="0.254" layer="94"/>
 <wire x1="-7.62" y1="-12.7" x2="-7.62" y2="-10.16" width="0.254" layer="94"/>
-<text x="-7.62" y="-15.24" size="1.778" layer="95">&gt;NAME</text>
-<text x="-7.62" y="13.335" size="1.778" layer="96">&gt;VALUE</text>
+<text x="-7.62" y="13.208" size="1.778" layer="95">&gt;NAME</text>
+<text x="-7.62" y="-15.24" size="1.778" layer="96">&gt;VALUE</text>
 <wire x1="-7.62" y1="-10.16" x2="-7.62" y2="10.16" width="0.254" layer="94"/>
 <wire x1="-7.62" y1="10.16" x2="-7.62" y2="12.7" width="0.254" layer="94"/>
 <wire x1="-2.54" y1="-7.62" x2="-2.54" y2="-5.08" width="0.254" layer="94"/>
@@ -22686,7 +22689,7 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 </device>
 </devices>
 </deviceset>
-<deviceset name="A2F500M3G-FG256" prefix="U">
+<deviceset name="A2F500M3G" prefix="U">
 <description>&lt;b&gt;A2F500M3G FG256&lt;/b&gt;&lt;p&gt;
 SmartFusion A2F500M3G device in FG256 package with organized block symbols
 &lt;p&gt;
@@ -22697,7 +22700,7 @@ Sources:&lt;p&gt;
 <gates>
 <gate name="-FPGA-IOB-SUPPLY" symbol="A2F500M3G-FPGA-IOB-SUPPLY" x="-40.64" y="93.98"/>
 <gate name="-FPGA-CORE-SUPPLY" symbol="A2F500M3G-FPGA-CORE-SUPPLY" x="-40.64" y="45.72"/>
-<gate name="-MSS-IOB-SUPPLY" symbol="A2F500M3G-MSS-IOB-SUPPLY" x="-40.64" y="5.08"/>
+<gate name="-MSS-SUPPLY" symbol="A2F500M3G-MSS-SUPPLY" x="-40.64" y="5.08"/>
 <gate name="-DIGITAL-GROUND" symbol="A2F500M3G-DIGITAL-GROUND" x="-40.64" y="-55.88"/>
 <gate name="-ANALOG-SUPPLY" symbol="A2F500M3G-ANALOG-SUPPLY" x="7.62" y="91.44"/>
 <gate name="-ANALOG-GROUND" symbol="A2F500M3G-ANALOG-GROUND" x="7.62" y="27.94"/>
@@ -22712,7 +22715,7 @@ Sources:&lt;p&gt;
 <gate name="-IOB" symbol="A2F500M3G-IOB" x="127" y="-2.54"/>
 </gates>
 <devices>
-<device name="" package="FG256">
+<device name="FGG256" package="FG256">
 <connects>
 <connect gate="-ANALOG-FRONT-END" pin="ABPS0" pad="R3"/>
 <connect gate="-ANALOG-FRONT-END" pin="ABPS1" pad="T2"/>
@@ -22774,8 +22777,6 @@ Sources:&lt;p&gt;
 <connect gate="-ANALOG-SUPPLY" pin="VCC33SDD1" pad="N14"/>
 <connect gate="-ANALOG-SUPPLY" pin="VCCLPXTAL" pad="T15"/>
 <connect gate="-ANALOG-SUPPLY" pin="VCCMAINXTAL" pad="P12"/>
-<connect gate="-ANALOG-SUPPLY" pin="VCCPLL0" pad="C2"/>
-<connect gate="-ANALOG-SUPPLY" pin="VCCRCOSC" pad="K5"/>
 <connect gate="-ANALOG-SUPPLY" pin="VDDBAT" pad="P14"/>
 <connect gate="-DIGITAL-GROUND" pin="GND@0" pad="A1"/>
 <connect gate="-DIGITAL-GROUND" pin="GND@1" pad="A12"/>
@@ -22896,7 +22897,7 @@ Sources:&lt;p&gt;
 <connect gate="-FPGA-CORE-SUPPLY" pin="VCC@7" pad="J9"/>
 <connect gate="-FPGA-CORE-SUPPLY" pin="VCC@8" pad="K10"/>
 <connect gate="-FPGA-CORE-SUPPLY" pin="VCC@9" pad="K8"/>
-<connect gate="-FPGA-CORE-SUPPLY" pin="VCCENVM" pad="F16"/>
+<connect gate="-FPGA-CORE-SUPPLY" pin="VCCPLL0" pad="C2"/>
 <connect gate="-FPGA-IOB-SUPPLY" pin="VCCFPGAIOB0@0" pad="A15"/>
 <connect gate="-FPGA-IOB-SUPPLY" pin="VCCFPGAIOB0@1" pad="A2"/>
 <connect gate="-FPGA-IOB-SUPPLY" pin="VCCFPGAIOB0@2" pad="A8"/>
@@ -22951,13 +22952,15 @@ Sources:&lt;p&gt;
 <connect gate="-MISC" pin="PTBASE" pad="P16"/>
 <connect gate="-MISC" pin="PTEM" pad="P15"/>
 <connect gate="-MISC" pin="PU_N" pad="T16"/>
-<connect gate="-MSS-IOB-SUPPLY" pin="VCCMSSIOB2@0" pad="J11"/>
-<connect gate="-MSS-IOB-SUPPLY" pin="VCCMSSIOB2@1" pad="J15"/>
-<connect gate="-MSS-IOB-SUPPLY" pin="VCCMSSIOB2@2" pad="L11"/>
-<connect gate="-MSS-IOB-SUPPLY" pin="VCCMSSIOB2@3" pad="M14"/>
-<connect gate="-MSS-IOB-SUPPLY" pin="VCCMSSIOB4@0" pad="K3"/>
-<connect gate="-MSS-IOB-SUPPLY" pin="VCCMSSIOB4@1" pad="K6"/>
-<connect gate="-MSS-IOB-SUPPLY" pin="VCCMSSIOB4@2" pad="N2"/>
+<connect gate="-MSS-SUPPLY" pin="VCCENVM" pad="F16"/>
+<connect gate="-MSS-SUPPLY" pin="VCCMSSIOB2@0" pad="J11"/>
+<connect gate="-MSS-SUPPLY" pin="VCCMSSIOB2@1" pad="J15"/>
+<connect gate="-MSS-SUPPLY" pin="VCCMSSIOB2@2" pad="L11"/>
+<connect gate="-MSS-SUPPLY" pin="VCCMSSIOB2@3" pad="M14"/>
+<connect gate="-MSS-SUPPLY" pin="VCCMSSIOB4@0" pad="K3"/>
+<connect gate="-MSS-SUPPLY" pin="VCCMSSIOB4@1" pad="K6"/>
+<connect gate="-MSS-SUPPLY" pin="VCCMSSIOB4@2" pad="N2"/>
+<connect gate="-MSS-SUPPLY" pin="VCCRCOSC" pad="K5"/>
 <connect gate="-SPI" pin="SPI_0_CLK/GPIO_18" pad="M15"/>
 <connect gate="-SPI" pin="SPI_0_DI/GPIO_17" pad="M16"/>
 <connect gate="-SPI" pin="SPI_0_DO/GPIO_16" pad="N16"/>
@@ -22972,7 +22975,18 @@ Sources:&lt;p&gt;
 <connect gate="-UART" pin="UART_1_TXD/GPIO_28" pad="K14"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="-">
+<attribute name="DIGI-KEY#" value="1100-1009-ND"/>
+<attribute name="MF" value="Microsemi"/>
+<attribute name="MPN" value="A2F500M3G-FGG256"/>
+<attribute name="SPEED" value="80 MHz"/>
+</technology>
+<technology name="-1">
+<attribute name="DIGI-KEY#" value="1100-1007-ND"/>
+<attribute name="MF" value="Microsemi"/>
+<attribute name="MPN" value="A2F500M3G-1FGG256"/>
+<attribute name="SPEED" value="100 MHz"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -24079,9 +24093,24 @@ Source: &lt;a href="http://www.ck-components.com/index.php?module=media&amp;acti
 <technologies>
 <technology name="-201">
 <attribute name="ACT-HEIGHT" value="3.5 mm"/>
+<attribute name="DIGI-KEY#" value="401-1756-1-ND"/>
+<attribute name="MF" value="C&amp;K Components"/>
+<attribute name="MPN" value="KSC201JLFS"/>
+<attribute name="OP-FORCE" value="120gf"/>
+</technology>
+<technology name="-241">
+<attribute name="ACT-HEIGHT" value="3.5 mm"/>
+<attribute name="DIGI-KEY#" value="401-1762-1-ND"/>
+<attribute name="MF" value="C&amp;K Components"/>
+<attribute name="MPN" value="KSC241JLFS"/>
+<attribute name="OP-FORCE" value="300gf"/>
 </technology>
 <technology name="-403">
-<attribute name="ACT-HEIGHT" value="5.2 mm" constant="no"/>
+<attribute name="ACT-HEIGHT" value="5.2 mm"/>
+<attribute name="DIGI-KEY#" value="401-1776-1-ND"/>
+<attribute name="MF" value="C&amp;K Components"/>
+<attribute name="MPN" value="KSC403J 50SH LFG"/>
+<attribute name="OP-FORCE" value="120gf"/>
 </technology>
 </technologies>
 </device>
@@ -24365,7 +24394,7 @@ Source:
 <part name="U$2" library="MainBoard" deviceset="DGND" device=""/>
 <part name="U$3" library="MainBoard" deviceset="D1V5" device=""/>
 <part name="U$4" library="MainBoard" deviceset="D1V5" device=""/>
-<part name="U1" library="MainBoard" deviceset="A2F500M3G-FG256" device=""/>
+<part name="U1" library="MainBoard" deviceset="A2F500M3G" device="FGG256" technology="-1"/>
 <part name="U$9" library="MainBoard" deviceset="D3V3" device=""/>
 <part name="U$10" library="MainBoard" deviceset="D3V3" device=""/>
 <part name="U$12" library="MainBoard" deviceset="AGND" device=""/>
@@ -24910,7 +24939,11 @@ Source:
 <part name="PORT243" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="U$117" library="MainBoard" deviceset="DGND" device=""/>
 <part name="PORT244" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="SW1" library="MainBoard" deviceset="SWITCH-KSC" device="J" technology="-201"/>
+<part name="SW1" library="MainBoard" deviceset="SWITCH-KSC" device="J" technology="-241">
+<attribute name="DIGI-KEY#" value="401-1762-1-ND"/>
+<attribute name="MPN" value="KSC241JLFS"/>
+<attribute name="OP-FORCE" value="300gf"/>
+</part>
 <part name="SW2" library="MainBoard" deviceset="SWITCH-KSC" device="J" technology="-201">
 <attribute name="ACT-HEIGHT" value="3.5 mm"/>
 </part>
@@ -25184,8 +25217,6 @@ Source:
 <part name="PORT361" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT362" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="U$22" library="MainBoard" deviceset="AGND" device=""/>
-<part name="U$69" library="MainBoard" deviceset="D3V3" device=""/>
-<part name="U$80" library="MainBoard" deviceset="D1V5" device=""/>
 <part name="C1" library="MainBoard" deviceset="C" device="0402"/>
 <part name="C2" library="MainBoard" deviceset="C" device="0402"/>
 <part name="U$81" library="MainBoard" deviceset="AGND" device=""/>
@@ -25215,6 +25246,16 @@ Source:
 <part name="U$140" library="MainBoard" deviceset="AGND" device=""/>
 <part name="C125" library="MainBoard" deviceset="C" device="0402"/>
 <part name="C126" library="MainBoard" deviceset="C" device="0402"/>
+<part name="U$143" library="MainBoard" deviceset="D1V5" device=""/>
+<part name="U$69" library="MainBoard" deviceset="D3V3" device=""/>
+<part name="C127" library="MainBoard" deviceset="C" device="0402"/>
+<part name="U$80" library="MainBoard" deviceset="DGND" device=""/>
+<part name="U$144" library="MainBoard" deviceset="D3V3" device=""/>
+<part name="C128" library="MainBoard" deviceset="C" device="0402"/>
+<part name="U$145" library="MainBoard" deviceset="DGND" device=""/>
+<part name="R11" library="MainBoard" deviceset="R" device="0402" value="100k"/>
+<part name="PORT363" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="U$146" library="MainBoard" deviceset="D3V3" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -25248,14 +25289,14 @@ Source:
 <plain>
 <text x="175.26" y="20.32" size="5.08" layer="97">&gt;PAGE2</text>
 <text x="38.1" y="127" size="2.54" layer="97">FPGA-IOB-SUPPLY</text>
-<text x="38.1" y="99.06" size="2.54" layer="97">MSS-IOB-SUPPLY</text>
-<text x="35.56" y="60.96" size="2.54" layer="97">FPGA-CORE-SUPPLY</text>
+<text x="40.64" y="93.98" size="2.54" layer="97">MSS-SUPPLY</text>
+<text x="33.02" y="55.88" size="2.54" layer="97">FPGA-CORE-SUPPLY</text>
 <text x="111.76" y="83.82" size="2.54" layer="97">DIGITAL-GROUND</text>
 <text x="182.88" y="60.96" size="2.54" layer="97">ANALOG-GROUND</text>
-<text x="182.88" y="111.76" size="2.54" layer="97">ANALOG-SUPPLY</text>
+<text x="182.88" y="116.84" size="2.54" layer="97">ANALOG-SUPPLY</text>
 <text x="53.34" y="78.74" size="50.8" layer="208">SUP</text>
-<rectangle x1="223.52" y1="143.51" x2="231.14" y2="146.05" layer="101"/>
-<rectangle x1="167.64" y1="120.65" x2="175.26" y2="123.19" layer="101"/>
+<rectangle x1="17.78" y1="64.77" x2="25.4" y2="67.31" layer="101" rot="R180"/>
+<rectangle x1="17.78" y1="102.87" x2="25.4" y2="105.41" layer="101"/>
 <text x="138.43" y="31.75" size="1.778" layer="97" rot="R90">VCC15ADC0</text>
 <text x="140.97" y="31.75" size="1.778" layer="97" rot="R90">VCC15ADC1</text>
 <text x="149.86" y="31.75" size="1.778" layer="97" rot="R90">VCC15A</text>
@@ -25274,11 +25315,11 @@ Source:
 <instances>
 <instance part="U$1" gate="G$1" x="104.14" y="86.36"/>
 <instance part="U$2" gate="G$1" x="149.86" y="86.36"/>
-<instance part="U$3" gate="G$1" x="20.32" y="91.44"/>
-<instance part="U$4" gate="G$1" x="81.28" y="91.44"/>
+<instance part="U$3" gate="G$1" x="20.32" y="86.36"/>
+<instance part="U$4" gate="G$1" x="81.28" y="86.36"/>
 <instance part="U1" gate="-FPGA-IOB-SUPPLY" x="50.8" y="147.32"/>
-<instance part="U1" gate="-FPGA-CORE-SUPPLY" x="50.8" y="81.28"/>
-<instance part="U1" gate="-MSS-IOB-SUPPLY" x="50.8" y="114.3"/>
+<instance part="U1" gate="-FPGA-CORE-SUPPLY" x="50.8" y="78.74"/>
+<instance part="U1" gate="-MSS-SUPPLY" x="50.8" y="111.76"/>
 <instance part="U1" gate="-DIGITAL-GROUND" x="127" y="127"/>
 <instance part="U1" gate="-ANALOG-SUPPLY" x="198.12" y="142.24"/>
 <instance part="U1" gate="-ANALOG-GROUND" x="198.12" y="86.36"/>
@@ -25289,13 +25330,11 @@ Source:
 <instance part="FRAME1" gate="G$2" x="165.1" y="0"/>
 <instance part="U$108" gate="G$1" x="170.18" y="66.04"/>
 <instance part="U$111" gate="G$1" x="170.18" y="160.02"/>
-<instance part="C109" gate="G$1" x="226.06" y="119.38"/>
-<instance part="U$129" gate="G$1" x="226.06" y="111.76"/>
+<instance part="C109" gate="G$1" x="226.06" y="124.46"/>
+<instance part="U$129" gate="G$1" x="226.06" y="116.84"/>
 <instance part="U$130" gate="G$1" x="226.06" y="160.02"/>
 <instance part="U$11" gate="G$1" x="81.28" y="160.02"/>
 <instance part="U$105" gate="G$1" x="81.28" y="119.38"/>
-<instance part="U$69" gate="G$1" x="162.56" y="124.46"/>
-<instance part="U$80" gate="G$1" x="233.68" y="147.32"/>
 <instance part="C1" gate="G$1" x="142.24" y="30.48"/>
 <instance part="C2" gate="G$1" x="149.86" y="30.48"/>
 <instance part="U$81" gate="G$1" x="146.05" y="17.78"/>
@@ -25325,6 +25364,7 @@ Source:
 <instance part="U$140" gate="G$1" x="68.58" y="17.78"/>
 <instance part="C125" gate="G$1" x="27.94" y="30.48"/>
 <instance part="C126" gate="G$1" x="33.02" y="30.48"/>
+<instance part="U$143" gate="G$1" x="81.28" y="106.68"/>
 </instances>
 <busses>
 </busses>
@@ -25570,23 +25610,23 @@ Source:
 </net>
 <net name="D1V5" class="0">
 <segment>
-<wire x1="76.2" y1="76.2" x2="81.28" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="71.12" x2="81.28" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="71.12" x2="81.28" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="73.66" x2="81.28" y2="76.2" width="0.1524" layer="91"/>
 <wire x1="81.28" y1="76.2" x2="81.28" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="81.28" y1="78.74" x2="81.28" y2="81.28" width="0.1524" layer="91"/>
 <wire x1="81.28" y1="81.28" x2="81.28" y2="83.82" width="0.1524" layer="91"/>
-<wire x1="81.28" y1="83.82" x2="81.28" y2="86.36" width="0.1524" layer="91"/>
-<wire x1="81.28" y1="86.36" x2="81.28" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="81.28" y1="88.9" x2="76.2" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="76.2" y1="86.36" x2="81.28" y2="86.36" width="0.1524" layer="91"/>
-<wire x1="76.2" y1="83.82" x2="81.28" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="83.82" x2="76.2" y2="83.82" width="0.1524" layer="91"/>
 <wire x1="76.2" y1="81.28" x2="81.28" y2="81.28" width="0.1524" layer="91"/>
 <wire x1="76.2" y1="78.74" x2="81.28" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="81.28" y1="88.9" x2="81.28" y2="91.44" width="0.1524" layer="91"/>
-<junction x="81.28" y="86.36"/>
-<junction x="81.28" y="83.82"/>
+<wire x1="76.2" y1="76.2" x2="81.28" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="73.66" x2="81.28" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="83.82" x2="81.28" y2="86.36" width="0.1524" layer="91"/>
 <junction x="81.28" y="81.28"/>
 <junction x="81.28" y="78.74"/>
-<junction x="81.28" y="88.9"/>
+<junction x="81.28" y="76.2"/>
+<junction x="81.28" y="73.66"/>
+<junction x="81.28" y="83.82"/>
 <pinref part="U$4" gate="G$1" pin="D1V5"/>
 <pinref part="U1" gate="-FPGA-CORE-SUPPLY" pin="VCC@6"/>
 <pinref part="U1" gate="-FPGA-CORE-SUPPLY" pin="VCC@7"/>
@@ -25596,23 +25636,23 @@ Source:
 <pinref part="U1" gate="-FPGA-CORE-SUPPLY" pin="VCC@11"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="88.9" x2="25.4" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="20.32" y1="86.36" x2="20.32" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="25.4" y1="86.36" x2="20.32" y2="86.36" width="0.1524" layer="91"/>
-<wire x1="20.32" y1="83.82" x2="20.32" y2="86.36" width="0.1524" layer="91"/>
-<wire x1="25.4" y1="83.82" x2="20.32" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="83.82" x2="25.4" y2="83.82" width="0.1524" layer="91"/>
 <wire x1="20.32" y1="81.28" x2="20.32" y2="83.82" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="81.28" x2="20.32" y2="81.28" width="0.1524" layer="91"/>
 <wire x1="20.32" y1="78.74" x2="20.32" y2="81.28" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="78.74" x2="20.32" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="20.32" y1="76.2" x2="20.32" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="76.2" x2="20.32" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="20.32" y1="88.9" x2="20.32" y2="91.44" width="0.1524" layer="91"/>
-<junction x="20.32" y="86.36"/>
-<junction x="20.32" y="83.82"/>
+<wire x1="20.32" y1="73.66" x2="20.32" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="73.66" x2="20.32" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="71.12" x2="20.32" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="71.12" x2="20.32" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="83.82" x2="20.32" y2="86.36" width="0.1524" layer="91"/>
 <junction x="20.32" y="81.28"/>
 <junction x="20.32" y="78.74"/>
-<junction x="20.32" y="88.9"/>
+<junction x="20.32" y="76.2"/>
+<junction x="20.32" y="73.66"/>
+<junction x="20.32" y="83.82"/>
 <pinref part="U$3" gate="G$1" pin="D1V5"/>
 <pinref part="U1" gate="-FPGA-CORE-SUPPLY" pin="VCC@0"/>
 <pinref part="U1" gate="-FPGA-CORE-SUPPLY" pin="VCC@1"/>
@@ -25620,16 +25660,10 @@ Source:
 <pinref part="U1" gate="-FPGA-CORE-SUPPLY" pin="VCC@3"/>
 <pinref part="U1" gate="-FPGA-CORE-SUPPLY" pin="VCC@4"/>
 <pinref part="U1" gate="-FPGA-CORE-SUPPLY" pin="VCC@5"/>
-<pinref part="U1" gate="-FPGA-CORE-SUPPLY" pin="VCCENVM"/>
-<wire x1="25.4" y1="71.12" x2="20.32" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="20.32" y1="71.12" x2="20.32" y2="76.2" width="0.1524" layer="91"/>
-<junction x="20.32" y="76.2"/>
-</segment>
-<segment>
-<pinref part="U1" gate="-ANALOG-SUPPLY" pin="VCCPLL0"/>
-<wire x1="220.98" y1="144.78" x2="233.68" y2="144.78" width="0.1524" layer="91"/>
-<wire x1="233.68" y1="144.78" x2="233.68" y2="147.32" width="0.1524" layer="91"/>
-<pinref part="U$80" gate="G$1" pin="D1V5"/>
+<pinref part="U1" gate="-FPGA-CORE-SUPPLY" pin="VCCPLL0"/>
+<wire x1="25.4" y1="66.04" x2="20.32" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="66.04" x2="20.32" y2="71.12" width="0.1524" layer="91"/>
+<junction x="20.32" y="71.12"/>
 </segment>
 <segment>
 <pinref part="U$92" gate="G$1" pin="D1V5"/>
@@ -25669,6 +25703,12 @@ Source:
 <pinref part="C120" gate="G$1" pin="1"/>
 <wire x1="93.98" y1="33.02" x2="93.98" y2="38.1" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="U1" gate="-MSS-SUPPLY" pin="VCCENVM"/>
+<pinref part="U$143" gate="G$1" pin="D1V5"/>
+<wire x1="76.2" y1="104.14" x2="81.28" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="104.14" x2="81.28" y2="106.68" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="D3V3" class="0">
 <segment>
@@ -25707,21 +25747,25 @@ Source:
 </segment>
 <segment>
 <pinref part="U$10" gate="G$1" pin="D3V3"/>
-<pinref part="U1" gate="-MSS-IOB-SUPPLY" pin="VCCMSSIOB2@3"/>
+<pinref part="U1" gate="-MSS-SUPPLY" pin="VCCMSSIOB2@3"/>
 <wire x1="25.4" y1="109.22" x2="20.32" y2="109.22" width="0.1524" layer="91"/>
 <wire x1="20.32" y1="109.22" x2="20.32" y2="111.76" width="0.1524" layer="91"/>
-<pinref part="U1" gate="-MSS-IOB-SUPPLY" pin="VCCMSSIOB2@2"/>
+<pinref part="U1" gate="-MSS-SUPPLY" pin="VCCMSSIOB2@2"/>
 <wire x1="20.32" y1="111.76" x2="20.32" y2="114.3" width="0.1524" layer="91"/>
 <wire x1="20.32" y1="114.3" x2="20.32" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="20.32" y1="116.84" x2="20.32" y2="119.38" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="111.76" x2="20.32" y2="111.76" width="0.1524" layer="91"/>
-<pinref part="U1" gate="-MSS-IOB-SUPPLY" pin="VCCMSSIOB2@1"/>
+<pinref part="U1" gate="-MSS-SUPPLY" pin="VCCMSSIOB2@1"/>
 <wire x1="25.4" y1="114.3" x2="20.32" y2="114.3" width="0.1524" layer="91"/>
-<pinref part="U1" gate="-MSS-IOB-SUPPLY" pin="VCCMSSIOB2@0"/>
+<pinref part="U1" gate="-MSS-SUPPLY" pin="VCCMSSIOB2@0"/>
 <wire x1="25.4" y1="116.84" x2="20.32" y2="116.84" width="0.1524" layer="91"/>
 <junction x="20.32" y="111.76"/>
 <junction x="20.32" y="114.3"/>
 <junction x="20.32" y="116.84"/>
+<pinref part="U1" gate="-MSS-SUPPLY" pin="VCCRCOSC"/>
+<wire x1="25.4" y1="104.14" x2="20.32" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="104.14" x2="20.32" y2="109.22" width="0.1524" layer="91"/>
+<junction x="20.32" y="109.22"/>
 </segment>
 <segment>
 <pinref part="U1" gate="-FPGA-IOB-SUPPLY" pin="VCCFPGAIOB5@4"/>
@@ -25758,22 +25802,18 @@ Source:
 <junction x="81.28" y="157.48"/>
 </segment>
 <segment>
-<pinref part="U1" gate="-MSS-IOB-SUPPLY" pin="VCCMSSIOB4@2"/>
+<pinref part="U1" gate="-MSS-SUPPLY" pin="VCCMSSIOB4@2"/>
 <wire x1="76.2" y1="111.76" x2="81.28" y2="111.76" width="0.1524" layer="91"/>
 <wire x1="81.28" y1="111.76" x2="81.28" y2="114.3" width="0.1524" layer="91"/>
-<pinref part="U1" gate="-MSS-IOB-SUPPLY" pin="VCCMSSIOB4@1"/>
+<pinref part="U1" gate="-MSS-SUPPLY" pin="VCCMSSIOB4@1"/>
 <wire x1="81.28" y1="114.3" x2="81.28" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="81.28" y1="116.84" x2="81.28" y2="119.38" width="0.1524" layer="91"/>
 <wire x1="76.2" y1="114.3" x2="81.28" y2="114.3" width="0.1524" layer="91"/>
-<pinref part="U1" gate="-MSS-IOB-SUPPLY" pin="VCCMSSIOB4@0"/>
+<pinref part="U1" gate="-MSS-SUPPLY" pin="VCCMSSIOB4@0"/>
 <wire x1="76.2" y1="116.84" x2="81.28" y2="116.84" width="0.1524" layer="91"/>
 <pinref part="U$105" gate="G$1" pin="D3V3"/>
-</segment>
-<segment>
-<pinref part="U1" gate="-ANALOG-SUPPLY" pin="VCCRCOSC"/>
-<wire x1="175.26" y1="121.92" x2="162.56" y2="121.92" width="0.1524" layer="91"/>
-<wire x1="162.56" y1="121.92" x2="162.56" y2="124.46" width="0.1524" layer="91"/>
-<pinref part="U$69" gate="G$1" pin="D3V3"/>
+<junction x="81.28" y="114.3"/>
+<junction x="81.28" y="116.84"/>
 </segment>
 <segment>
 <pinref part="U$141" gate="G$1" pin="D3V3"/>
@@ -25983,7 +26023,7 @@ Source:
 <segment>
 <pinref part="C109" gate="G$1" pin="1"/>
 <pinref part="U1" gate="-ANALOG-SUPPLY" pin="VCC33N"/>
-<wire x1="226.06" y1="121.92" x2="220.98" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="226.06" y1="127" x2="220.98" y2="127" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
@@ -26032,6 +26072,8 @@ Source:
 <rectangle x1="22.86" y1="129.54" x2="119.38" y2="175.26" layer="116"/>
 <rectangle x1="53.34" y1="48.26" x2="106.68" y2="53.34" layer="101"/>
 <text x="55.88" y="55.88" size="1.778" layer="101">This is a VC pin, not an EN!</text>
+<text x="149.86" y="58.42" size="1.778" layer="97" rot="R90">ASEM1</text>
+<text x="139.7" y="58.42" size="1.778" layer="97" rot="R90">LMV112</text>
 </plain>
 <instances>
 <instance part="U1" gate="-MISC" x="63.5" y="134.62"/>
@@ -26120,6 +26162,12 @@ Source:
 <instance part="PORT361" gate="G$1" x="200.66" y="73.66" rot="R90"/>
 <instance part="PORT362" gate="G$1" x="220.98" y="73.66" rot="R90"/>
 <instance part="U$22" gate="G$1" x="25.4" y="114.3"/>
+<instance part="U$69" gate="G$1" x="152.4" y="63.5"/>
+<instance part="C127" gate="G$1" x="152.4" y="55.88"/>
+<instance part="U$80" gate="G$1" x="152.4" y="43.18"/>
+<instance part="U$144" gate="G$1" x="142.24" y="63.5"/>
+<instance part="C128" gate="G$1" x="142.24" y="55.88"/>
+<instance part="U$145" gate="G$1" x="142.24" y="43.18"/>
 </instances>
 <busses>
 </busses>
@@ -26244,6 +26292,16 @@ Source:
 <wire x1="30.48" y1="35.56" x2="30.48" y2="38.1" width="0.1524" layer="91"/>
 <wire x1="30.48" y1="38.1" x2="35.56" y2="38.1" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="C127" gate="G$1" pin="2"/>
+<wire x1="152.4" y1="50.8" x2="152.4" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="U$80" gate="G$1" pin="DGND"/>
+</segment>
+<segment>
+<pinref part="C128" gate="G$1" pin="2"/>
+<wire x1="142.24" y1="50.8" x2="142.24" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="U$145" gate="G$1" pin="DGND"/>
+</segment>
 </net>
 <net name="MSS_RMII_CLK" class="0">
 <segment>
@@ -26315,6 +26373,16 @@ Source:
 <pinref part="X3" gate="G$1" pin="VDD"/>
 <wire x1="30.48" y1="86.36" x2="30.48" y2="83.82" width="0.1524" layer="91"/>
 <wire x1="30.48" y1="83.82" x2="35.56" y2="83.82" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C127" gate="G$1" pin="1"/>
+<pinref part="U$69" gate="G$1" pin="D3V3"/>
+<wire x1="152.4" y1="58.42" x2="152.4" y2="63.5" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C128" gate="G$1" pin="1"/>
+<pinref part="U$144" gate="G$1" pin="D3V3"/>
+<wire x1="142.24" y1="58.42" x2="142.24" y2="63.5" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="!MSS_RESET_PB" class="0">
@@ -28744,6 +28812,8 @@ Source:
 <rectangle x1="43.18" y1="12.7" x2="55.88" y2="50.8" layer="116"/>
 <rectangle x1="10.16" y1="10.16" x2="43.18" y2="50.8" layer="116"/>
 <rectangle x1="167.64" y1="96.52" x2="238.76" y2="180.34" layer="116"/>
+<rectangle x1="17.78" y1="105.41" x2="63.5" y2="107.95" layer="98"/>
+<text x="17.78" y="109.22" size="1.778" layer="98">Check assertion value</text>
 </plain>
 <instances>
 <instance part="U6" gate="G$1" x="78.74" y="119.38"/>
@@ -30618,6 +30688,8 @@ Source:
 <rectangle x1="20.32" y1="139.7" x2="88.9" y2="167.64" layer="116"/>
 <rectangle x1="170.18" y1="114.3" x2="223.52" y2="160.02" layer="116"/>
 <rectangle x1="30.48" y1="10.16" x2="45.72" y2="50.8" layer="116"/>
+<rectangle x1="55.88" y1="10.16" x2="86.36" y2="45.72" layer="98"/>
+<text x="63.5" y="48.26" size="1.778" layer="98">I2C pull-ups</text>
 </plain>
 <instances>
 <instance part="U1" gate="-UART" x="71.12" y="152.4"/>
@@ -30667,6 +30739,9 @@ Source:
 <instance part="U$48" gate="G$1" x="38.1" y="45.72"/>
 <instance part="PORT343" gate="G$1" x="22.86" y="149.86" rot="MR0"/>
 <instance part="PORT344" gate="G$1" x="22.86" y="147.32" rot="MR0"/>
+<instance part="R11" gate="G$1" x="27.94" y="38.1" rot="R90"/>
+<instance part="PORT363" gate="G$1" x="27.94" y="12.7" rot="R270"/>
+<instance part="U$146" gate="G$1" x="27.94" y="45.72"/>
 </instances>
 <busses>
 </busses>
@@ -30759,6 +30834,11 @@ Source:
 <wire x1="45.72" y1="86.36" x2="40.64" y2="86.36" width="0.1524" layer="91"/>
 <label x="38.1" y="86.36" size="1.778" layer="95" rot="MR0"/>
 </segment>
+<segment>
+<pinref part="R11" gate="G$1" pin="1"/>
+<wire x1="27.94" y1="33.02" x2="27.94" y2="27.94" width="0.1524" layer="91"/>
+<label x="27.94" y="25.4" size="1.778" layer="95" rot="R270"/>
+</segment>
 </net>
 <net name="D3V3" class="0">
 <segment>
@@ -30776,6 +30856,11 @@ Source:
 <pinref part="R21" gate="G$1" pin="2"/>
 <wire x1="38.1" y1="40.64" x2="38.1" y2="45.72" width="0.1524" layer="91"/>
 <pinref part="U$48" gate="G$1" pin="D3V3"/>
+</segment>
+<segment>
+<pinref part="R11" gate="G$1" pin="2"/>
+<wire x1="27.94" y1="40.64" x2="27.94" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="U$146" gate="G$1" pin="D3V3"/>
 </segment>
 </net>
 <net name="N$78" class="0">
