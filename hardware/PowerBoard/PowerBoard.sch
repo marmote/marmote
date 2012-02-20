@@ -34684,6 +34684,8 @@ v1.0 Initial design</description>
 <text x="166.37" y="57.15" size="1.778" layer="97">16 MHz</text>
 <text x="91.44" y="12.7" size="1.778" layer="97">I2C 1100100</text>
 <text x="214.63" y="57.15" size="1.778" layer="97">32.768 kHz</text>
+<rectangle x1="35.56" y1="149.86" x2="45.72" y2="154.94" layer="98"/>
+<rectangle x1="88.9" y1="17.78" x2="109.22" y2="20.32" layer="98"/>
 </plain>
 <instances>
 <instance part="FRAME2" gate="G$1" x="0" y="0"/>
@@ -36295,6 +36297,7 @@ v1.0 Initial design</description>
 <text x="111.76" y="132.08" size="2.54" layer="97">WALL connector</text>
 <text x="111.76" y="86.36" size="2.54" layer="97">Battery connector</text>
 <text x="115.57" y="46.99" size="2.54" layer="97">Slide switch</text>
+<rectangle x1="160.02" y1="121.92" x2="177.8" y2="124.46" layer="98"/>
 </plain>
 <instances>
 <instance part="FRAME4" gate="G$1" x="0" y="0"/>
