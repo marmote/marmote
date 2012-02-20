@@ -133,3 +133,4 @@ _The external memory has been replaced with a simple high-speed external interfa
  * Battery operation
  * Charging through USB
  * External 5V power input as connector
+ * JTAG programming through FTDI chip (add analog multiplexer)
