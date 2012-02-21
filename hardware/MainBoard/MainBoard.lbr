@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.25" altunitdist="mm" altunit="mm"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="12" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
@@ -4556,15 +4556,15 @@ Source: &lt;a href="http://industrial.panasonic.com/www-data/pdf/AOC0000/AOC0000
 <text x="-33.02" y="8.255" size="1.778" layer="95">&gt;NAME</text>
 <text x="-33.02" y="-10.16" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="MAC_MDIO/IO58RSB4V0" x="-38.1" y="2.54" length="middle"/>
-<pin name="MAC_MDC/IO57RSB4V0" x="-38.1" y="5.08" length="middle"/>
-<pin name="MAC_TXEN/IO61RSB4V0" x="-38.1" y="0" length="middle"/>
-<pin name="MAC_CRSDV/IO60RSB4V0" x="38.1" y="5.08" length="middle" rot="R180"/>
-<pin name="MAC_RXER/IO59RSB4V0" x="38.1" y="2.54" length="middle" rot="R180"/>
-<pin name="MAC_TXD[0]/IO65RSB4V0" x="-38.1" y="-2.54" length="middle"/>
-<pin name="MAC_TXD[1]/IO64RSB4V0" x="-38.1" y="-5.08" length="middle"/>
-<pin name="MAC_RXD[0]/IO63RSB4V0" x="38.1" y="0" length="middle" rot="R180"/>
-<pin name="MAC_RXD[1]/IO62RSB4V0" x="38.1" y="-2.54" length="middle" rot="R180"/>
-<pin name="MAC_CLK" x="38.1" y="-5.08" length="middle" direction="pas" rot="R180"/>
+<pin name="MAC_MDC/IO57RSB4V0" x="-38.1" y="5.08" length="middle" direction="out"/>
+<pin name="MAC_TXEN/IO61RSB4V0" x="-38.1" y="0" length="middle" direction="out"/>
+<pin name="MAC_CRSDV/IO60RSB4V0" x="38.1" y="5.08" length="middle" direction="in" rot="R180"/>
+<pin name="MAC_RXER/IO59RSB4V0" x="38.1" y="2.54" length="middle" direction="in" rot="R180"/>
+<pin name="MAC_TXD[0]/IO65RSB4V0" x="-38.1" y="-2.54" length="middle" direction="out"/>
+<pin name="MAC_TXD[1]/IO64RSB4V0" x="-38.1" y="-5.08" length="middle" direction="out"/>
+<pin name="MAC_RXD[0]/IO63RSB4V0" x="38.1" y="0" length="middle" direction="in" rot="R180"/>
+<pin name="MAC_RXD[1]/IO62RSB4V0" x="38.1" y="-2.54" length="middle" direction="in" rot="R180"/>
+<pin name="MAC_CLK" x="38.1" y="-5.08" length="middle" direction="in" rot="R180"/>
 </symbol>
 <symbol name="A2F500M3G-IOB">
 <wire x1="-25.4" y1="-15.24" x2="25.4" y2="-15.24" width="0.254" layer="94"/>
