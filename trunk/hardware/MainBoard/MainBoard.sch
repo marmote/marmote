@@ -55,7 +55,7 @@
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
-<layer number="93" name="Pins" color="2" fill="1" visible="no" active="yes"/>
+<layer number="93" name="Pins" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="94" name="Symbols" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="95" name="Names" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
@@ -25366,7 +25366,7 @@ Source:
 <part name="R11" library="MainBoard" deviceset="R" device="0402" value="100k"/>
 <part name="PORT363" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="U$146" library="MainBoard" deviceset="D3V3" device=""/>
-<part name="R12" library="MainBoard" deviceset="R" device="0402" value="10k">
+<part name="R12" library="MainBoard" deviceset="R" device="0402" value="2.2k">
 <attribute name="TOLERANCE" value=""/>
 </part>
 <part name="U$147" library="MainBoard" deviceset="DGND" device=""/>
@@ -29097,8 +29097,8 @@ Source:
 <instance part="U$109" gate="G$1" x="105.41" y="15.24"/>
 <instance part="C85" gate="G$1" x="116.84" y="27.94"/>
 <instance part="PORT248" gate="G$1" x="20.32" y="106.68" rot="MR0"/>
-<instance part="U$107" gate="G$1" x="45.72" y="177.8"/>
-<instance part="R84" gate="G$1" x="45.72" y="172.72" rot="R90"/>
+<instance part="U$107" gate="G$1" x="40.64" y="177.8"/>
+<instance part="R84" gate="G$1" x="40.64" y="172.72" rot="R90"/>
 <instance part="R86" gate="G$1" x="45.72" y="157.48"/>
 <instance part="PORT235" gate="G$1" x="121.92" y="96.52" rot="R90"/>
 <instance part="R88" gate="G$1" x="114.3" y="83.82"/>
@@ -29348,7 +29348,7 @@ Source:
 <segment>
 <pinref part="R84" gate="G$1" pin="2"/>
 <pinref part="U$107" gate="G$1" pin="D3V3"/>
-<wire x1="45.72" y1="175.26" x2="45.72" y2="177.8" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="175.26" x2="40.64" y2="177.8" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C86" gate="G$1" pin="1"/>
@@ -29500,12 +29500,12 @@ Source:
 </segment>
 <segment>
 <pinref part="U6" gate="G$1" pin="MDIO"/>
-<wire x1="53.34" y1="165.1" x2="45.72" y2="165.1" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="165.1" x2="40.64" y2="165.1" width="0.1524" layer="91"/>
 <label x="33.02" y="165.1" size="1.778" layer="97" rot="MR0"/>
 <pinref part="R84" gate="G$1" pin="1"/>
-<wire x1="45.72" y1="165.1" x2="35.56" y2="165.1" width="0.1524" layer="91"/>
-<wire x1="45.72" y1="167.64" x2="45.72" y2="165.1" width="0.1524" layer="91"/>
-<junction x="45.72" y="165.1"/>
+<wire x1="40.64" y1="165.1" x2="35.56" y2="165.1" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="167.64" x2="40.64" y2="165.1" width="0.1524" layer="91"/>
+<junction x="40.64" y="165.1"/>
 </segment>
 </net>
 <net name="MAC_TXEN" class="0">
@@ -31333,6 +31333,8 @@ Source:
 <rectangle x1="17.78" y1="17.78" x2="104.14" y2="30.48" layer="116"/>
 <rectangle x1="45.72" y1="134.62" x2="63.5" y2="160.02" layer="98"/>
 <text x="35.56" y="162.56" size="1.778" layer="98">Different pinout compared to ULINK2</text>
+<text x="152.4" y="124.46" size="1.778" layer="98">RESET_N</text>
+<text x="152.4" y="121.92" size="1.778" layer="98">PWDN_N</text>
 </plain>
 <instances>
 <instance part="J2" gate="G$1" x="200.66" y="114.3"/>
