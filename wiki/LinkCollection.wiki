@@ -72,6 +72,10 @@ _Note:_ Several PCB layout guidelines can be found in other sections such as ADC
 
 [http://www.pcbexpress.com/technical/faq.php Drill Sizes] - List of available drills at Screaming Circuits (Sunstone)
 
+== Soldering ==
+
+[http://store.curiousinventor.com/guides/Surface_Mount_Soldering/QFN Surface mount soldering of QFN chips]
+
 == EMC ==
 
 [http://www.freescale.com/files/microcontrollers/doc/app_note/AN2321.pdf Freescale AN2321] - Designing for Board Level Electromagnetic Compatibility
