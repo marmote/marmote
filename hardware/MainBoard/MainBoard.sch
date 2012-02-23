@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -25201,9 +25201,9 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <text x="182.88" y="60.96" size="2.54" layer="97">ANALOG-GROUND</text>
 <text x="182.88" y="116.84" size="2.54" layer="97">ANALOG-SUPPLY</text>
 <text x="53.34" y="78.74" size="50.8" layer="208">SUP</text>
-<text x="138.43" y="31.75" size="1.778" layer="97" rot="R90">VCC15ADC0</text>
-<text x="140.97" y="31.75" size="1.778" layer="97" rot="R90">VCC15ADC1</text>
-<text x="149.86" y="31.75" size="1.778" layer="97" rot="R90">VCC15A</text>
+<text x="138.43" y="36.83" size="1.778" layer="97" rot="R90">VCC15ADC0</text>
+<text x="140.97" y="36.83" size="1.778" layer="97" rot="R90">VCC15ADC1</text>
+<text x="149.86" y="36.83" size="1.778" layer="97" rot="R90">VCC15A</text>
 <rectangle x1="137.16" y1="12.7" x2="157.48" y2="48.26" layer="116"/>
 <text x="118.11" y="31.75" size="1.778" layer="97" rot="R90">CORE SUPPLY</text>
 <text x="92.71" y="31.75" size="1.778" layer="97" rot="R90">VCCENVM</text>
@@ -26318,21 +26318,21 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <junction x="86.36" y="152.4"/>
 </segment>
 </net>
-<net name="N$69" class="0">
+<net name="EXTIC-RST" class="0">
 <segment>
 <pinref part="R93" gate="G$1" pin="1"/>
 <wire x1="172.72" y1="142.24" x2="175.26" y2="142.24" width="0.1524" layer="91"/>
 <pinref part="U8" gate="G$1" pin="!RST"/>
 </segment>
 </net>
-<net name="N$68" class="0">
+<net name="PCAP" class="0">
 <segment>
 <pinref part="U1" gate="-MISC" pin="PCAP"/>
 <pinref part="C91" gate="G$1" pin="1"/>
 <wire x1="83.82" y1="127" x2="91.44" y2="127" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$74" class="0">
+<net name="NCAP" class="0">
 <segment>
 <pinref part="U1" gate="-MISC" pin="NCAP"/>
 <pinref part="C91" gate="G$1" pin="2"/>
@@ -26392,7 +26392,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <pinref part="J8" gate="G$1" pin="2"/>
 </segment>
 </net>
-<net name="N$9" class="0">
+<net name="FPGATAP" class="0">
 <segment>
 <pinref part="R67" gate="G$1" pin="1"/>
 <pinref part="J8" gate="G$1" pin="1"/>
@@ -26400,7 +26400,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <wire x1="220.98" y1="101.6" x2="220.98" y2="106.68" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$13" class="0">
+<net name="MSSTAP" class="0">
 <segment>
 <pinref part="R66" gate="G$1" pin="2"/>
 <wire x1="220.98" y1="93.98" x2="220.98" y2="96.52" width="0.1524" layer="91"/>
@@ -26468,7 +26468,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <junction x="25.4" y="119.38"/>
 </segment>
 </net>
-<net name="N$10" class="0">
+<net name="MAINXOUT" class="0">
 <segment>
 <pinref part="U1" gate="-MISC" pin="MAINXOUT"/>
 <wire x1="43.18" y1="134.62" x2="38.1" y2="134.62" width="0.1524" layer="91"/>
@@ -26479,7 +26479,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <junction x="38.1" y="134.62"/>
 </segment>
 </net>
-<net name="N$11" class="0">
+<net name="MAINXIN" class="0">
 <segment>
 <pinref part="U1" gate="-MISC" pin="MAINXIN"/>
 <wire x1="43.18" y1="144.78" x2="38.1" y2="144.78" width="0.1524" layer="91"/>
@@ -27312,7 +27312,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <label x="22.86" y="139.7" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="QAP" class="0">
+<net name="ADC2-QAP" class="0">
 <segment>
 <pinref part="R5" gate="G$1" pin="1"/>
 <wire x1="35.56" y1="132.08" x2="40.64" y2="132.08" width="0.1524" layer="91"/>
@@ -27323,7 +27323,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <junction x="40.64" y="132.08"/>
 </segment>
 </net>
-<net name="QAN" class="0">
+<net name="ADC2-QAN" class="0">
 <segment>
 <pinref part="R6" gate="G$1" pin="1"/>
 <wire x1="35.56" y1="111.76" x2="40.64" y2="111.76" width="0.1524" layer="91"/>
@@ -27364,7 +27364,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <junction x="88.9" y="139.7"/>
 </segment>
 </net>
-<net name="IAP" class="0">
+<net name="ADC1-IAP" class="0">
 <segment>
 <pinref part="R9" gate="G$1" pin="1"/>
 <wire x1="35.56" y1="160.02" x2="40.64" y2="160.02" width="0.1524" layer="91"/>
@@ -27375,7 +27375,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <junction x="40.64" y="160.02"/>
 </segment>
 </net>
-<net name="IAN" class="0">
+<net name="ADC1-IAN" class="0">
 <segment>
 <pinref part="R10" gate="G$1" pin="1"/>
 <wire x1="35.56" y1="139.7" x2="40.64" y2="139.7" width="0.1524" layer="91"/>
@@ -27430,7 +27430,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <label x="139.7" y="139.7" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="N$45" class="0">
+<net name="ADC4-QAP" class="0">
 <segment>
 <pinref part="R15" gate="G$1" pin="1"/>
 <wire x1="152.4" y1="132.08" x2="157.48" y2="132.08" width="0.1524" layer="91"/>
@@ -27441,7 +27441,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <junction x="157.48" y="132.08"/>
 </segment>
 </net>
-<net name="N$46" class="0">
+<net name="ADC4-QAN" class="0">
 <segment>
 <pinref part="R16" gate="G$1" pin="1"/>
 <wire x1="152.4" y1="111.76" x2="157.48" y2="111.76" width="0.1524" layer="91"/>
@@ -27452,7 +27452,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <junction x="157.48" y="111.76"/>
 </segment>
 </net>
-<net name="N$49" class="0">
+<net name="ADC3-IAP" class="0">
 <segment>
 <pinref part="R17" gate="G$1" pin="1"/>
 <wire x1="152.4" y1="160.02" x2="157.48" y2="160.02" width="0.1524" layer="91"/>
@@ -27463,7 +27463,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <junction x="157.48" y="160.02"/>
 </segment>
 </net>
-<net name="N$50" class="0">
+<net name="ADC3-IAN" class="0">
 <segment>
 <pinref part="R18" gate="G$1" pin="1"/>
 <wire x1="152.4" y1="139.7" x2="157.48" y2="139.7" width="0.1524" layer="91"/>
@@ -28403,12 +28403,6 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <junction x="63.5" y="99.06"/>
 </segment>
 </net>
-<net name="N$16" class="0">
-<segment>
-<pinref part="C41" gate="G$1" pin="2"/>
-<wire x1="195.58" y1="142.24" x2="195.58" y2="139.7" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="DGND" class="0">
 <segment>
 <pinref part="C40" gate="G$1" pin="2"/>
@@ -28418,6 +28412,8 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <wire x1="193.04" y1="139.7" x2="193.04" y2="137.16" width="0.1524" layer="91"/>
 <pinref part="U$44" gate="G$1" pin="DGND"/>
 <junction x="193.04" y="139.7"/>
+<pinref part="C41" gate="G$1" pin="2"/>
+<wire x1="195.58" y1="139.7" x2="195.58" y2="142.24" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R19" gate="G$1" pin="1"/>
@@ -28437,6 +28433,8 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <wire x1="193.04" y1="99.06" x2="193.04" y2="96.52" width="0.1524" layer="91"/>
 <pinref part="U$54" gate="G$1" pin="DGND"/>
 <junction x="193.04" y="99.06"/>
+<pinref part="C61" gate="G$1" pin="2"/>
+<wire x1="195.58" y1="99.06" x2="195.58" y2="101.6" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R23" gate="G$1" pin="1"/>
@@ -28502,12 +28500,6 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <pinref part="R22" gate="G$1" pin="1"/>
 <wire x1="40.64" y1="40.64" x2="40.64" y2="35.56" width="0.1524" layer="91"/>
 <label x="40.64" y="33.02" size="1.778" layer="95" rot="R270"/>
-</segment>
-</net>
-<net name="N$8" class="0">
-<segment>
-<pinref part="C61" gate="G$1" pin="2"/>
-<wire x1="195.58" y1="101.6" x2="195.58" y2="99.06" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="!AFE2_SHDN" class="0">
@@ -28804,7 +28796,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <label x="226.06" y="60.96" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$47" class="0">
+<net name="ETH-RBIAS" class="0">
 <segment>
 <pinref part="U6" gate="G$1" pin="RBIAS"/>
 <wire x1="53.34" y1="66.04" x2="48.26" y2="66.04" width="0.1524" layer="91"/>
@@ -29359,21 +29351,21 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <junction x="40.64" y="106.68"/>
 </segment>
 </net>
-<net name="N$63" class="0">
+<net name="RSVD-P21" class="0">
 <segment>
 <pinref part="R89" gate="G$1" pin="1"/>
 <pinref part="U6" gate="G$1" pin="RESERVED@7"/>
 <wire x1="104.14" y1="81.28" x2="109.22" y2="81.28" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$64" class="0">
+<net name="RSVD-P20" class="0">
 <segment>
 <pinref part="R88" gate="G$1" pin="1"/>
 <pinref part="U6" gate="G$1" pin="RESERVED@6"/>
 <wire x1="104.14" y1="83.82" x2="109.22" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$17" class="0">
+<net name="LED_PHY_SPEED" class="0">
 <segment>
 <pinref part="U6" gate="G$1" pin="LED_SPEED/AN1"/>
 <pinref part="R26" gate="G$1" pin="1"/>
@@ -30502,12 +30494,6 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <label x="223.52" y="134.62" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$6" class="0">
-<segment>
-<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[3]/GEC2/IO77PDB5V0"/>
-<wire x1="215.9" y1="147.32" x2="220.98" y2="147.32" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="SGPIO4" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[10]/IO86NPB5V0"/>
@@ -30519,12 +30505,6 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_CLK/GAA0/IO02NDB0V0"/>
 <wire x1="215.9" y1="91.44" x2="220.98" y2="91.44" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$1" class="0">
-<segment>
-<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[11]/IO86PPB5V0"/>
-<wire x1="215.9" y1="127" x2="220.98" y2="127" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="NGPIO2" class="0">
@@ -30749,14 +30729,14 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <junction x="86.36" y="40.64"/>
 </segment>
 </net>
-<net name="N$78" class="0">
+<net name="LED2H" class="0">
 <segment>
 <pinref part="LED2" gate="G$1" pin="A"/>
 <wire x1="213.36" y1="137.16" x2="213.36" y2="139.7" width="0.1524" layer="91"/>
 <pinref part="R98" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="N$79" class="0">
+<net name="LED1H" class="0">
 <segment>
 <pinref part="LED1" gate="G$1" pin="A"/>
 <wire x1="200.66" y1="137.16" x2="200.66" y2="139.7" width="0.1524" layer="91"/>
@@ -30958,23 +30938,11 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <label x="218.44" y="66.04" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$3" class="0">
-<segment>
-<pinref part="U1" gate="-IOB" pin="GFC2/IO84PDB5V0"/>
-<wire x1="210.82" y1="73.66" x2="215.9" y2="73.66" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="NGPIO0" class="0">
 <segment>
 <pinref part="U1" gate="-IOB" pin="GFB2/IO85NDB5V0"/>
 <wire x1="210.82" y1="63.5" x2="215.9" y2="63.5" width="0.1524" layer="91"/>
 <label x="218.44" y="63.5" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="N$4" class="0">
-<segment>
-<pinref part="U1" gate="-IOB" pin="IO84NDB5V0"/>
-<wire x1="210.82" y1="71.12" x2="215.9" y2="71.12" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
