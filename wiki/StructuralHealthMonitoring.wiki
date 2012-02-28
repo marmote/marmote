@@ -1,0 +1,7 @@
+#Links and ideas on structural health monitoring
+
+= Structural Health Monitoring=
+
+
+== Papers ==
+* http://www.vallen.de/sites/default/files/pdf/7e.bridge.kosnik.pdf
