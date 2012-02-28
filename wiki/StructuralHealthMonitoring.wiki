@@ -1,4 +1,4 @@
-# Links and ideas on structural health monitoring
+#summary Links and ideas on structural health monitoring
 
 = Structural Health Monitoring=
 
