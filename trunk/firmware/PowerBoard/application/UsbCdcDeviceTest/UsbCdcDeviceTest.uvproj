@@ -461,6 +461,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\library\board\source\power_monitor.c</FilePath>
             </File>
+            <File>
+              <FileName>m6_rf315.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\library\board\source\m6_rf315.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

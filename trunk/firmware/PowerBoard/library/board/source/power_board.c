@@ -1,6 +1,6 @@
 //-----------------------------------------------------------------------------
-// Title         : <+title+>
-// Project       : Power Board
+// Title         : M6-RF315 board C file
+// Project       : Marmote Power Supply Board
 //-----------------------------------------------------------------------------
 // File          : power_board.c
 // Author        : Sandor Szilvasi
@@ -167,82 +167,82 @@ void CON_GPIO_Clear(uint32_t gpio)
 }
 
 
-void CON_SPI_Init(void)
-{
-	SPI_InitTypeDef  SPI_InitStructure;
-	GPIO_InitTypeDef  GPIO_InitStructure;
-
-	//RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
-    RCC_APB2PeriphClockCmd( CON_SPI_NSS_GPIO_CLK  |
-                            CON_SPI_SCK_GPIO_CLK  |
-                            CON_SPI_MISO_GPIO_CLK |
-                            CON_SPI_MOSI_GPIO_CLK,
-                            ENABLE);
-
-    // Enable peripheral clock
-	//RCC->APB2ENR |= RCC_APB2ENR_SPI1EN;
-    RCC_APB2PeriphClockCmd(CON_SPI_CLK, ENABLE);
-    
-    // Initialize NSS, SCK, MISO and MOSI pins
-
-    // NSS
-	CON_SPI_NSS_GPIO_PORT->BSRR = CON_SPI_NSS_PIN;
-    //GPIO_SetBits(CON_SPI_NSS_GPIO_PORT, CON_SPI_NSS_PIN);
-
-	GPIO_InitStructure.GPIO_Pin = CON_SPI_NSS_PIN;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-    GPIO_Init(CON_SPI_NSS_GPIO_PORT, &GPIO_InitStructure); 
-
-    // SCK
-    GPIO_InitStructure.GPIO_Pin = CON_SPI_SCK_PIN;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
-    GPIO_Init(CON_SPI_SCK_GPIO_PORT, &GPIO_InitStructure);
-
-    // MISO
-    GPIO_InitStructure.GPIO_Pin = CON_SPI_MISO_PIN;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; // !
-    GPIO_Init(CON_SPI_MISO_GPIO_PORT, &GPIO_InitStructure);
-
-    // MOSI
-    GPIO_InitStructure.GPIO_Pin = CON_SPI_MOSI_PIN;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
-    GPIO_Init(CON_SPI_MOSI_GPIO_PORT, &GPIO_InitStructure);
-
-    // Initialize SPI
-    // NOTE: SPI1 is initialized as master for hardware testing only, it is
-    // supposed to act as slave later on
-    // TODO: Calculate prescaler value based on SYSCLK > APB2CLK
-    SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
-    SPI_InitStructure.SPI_Mode = SPI_Mode_Master;
-    SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;
-    SPI_InitStructure.SPI_CPOL = SPI_CPOL_Low;
-    SPI_InitStructure.SPI_CPHA = SPI_CPHA_1Edge;
-    SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
-    SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_8;
-    SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
-    SPI_InitStructure.SPI_CRCPolynomial = 7;
-    SPI_Init(SPI1, &SPI_InitStructure);
-
-    // Enable NSS as output
-    SPI_SSOutputCmd(CON_SPI, ENABLE);
-
-    // Enable SPI
-    SPI_Cmd(CON_SPI, ENABLE);
-}
-
-void CON_SPI_SendData(uint16_t data)
-{
-	CON_SPI_NSS_GPIO_PORT->BRR = CON_SPI_NSS_PIN;
-    //GPIO_ResetBits(CON_SPI_NSS_GPIO_PORT, CON_SPI_NSS_PIN);
-    SPI_I2S_SendData(SPI1, data);
-	while (CON_SPI->SR & SPI_SR_BSY); // wait for busy flag
-	CON_SPI_NSS_GPIO_PORT->BSRR = CON_SPI_NSS_PIN;
-    //GPIO_SetBits(CON_SPI_NSS_GPIO_PORT, CON_SPI_NSS_PIN);
-}
+//void CON_SPI_Init(void)
+//{
+//	SPI_InitTypeDef  SPI_InitStructure;
+//	GPIO_InitTypeDef  GPIO_InitStructure;
+//
+//	//RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
+//    RCC_APB2PeriphClockCmd( CON_SPI_NSS_GPIO_CLK  |
+//                            CON_SPI_SCK_GPIO_CLK  |
+//                            CON_SPI_MISO_GPIO_CLK |
+//                            CON_SPI_MOSI_GPIO_CLK,
+//                            ENABLE);
+//
+//    // Enable peripheral clock
+//	//RCC->APB2ENR |= RCC_APB2ENR_SPI1EN;
+//    RCC_APB2PeriphClockCmd(CON_SPI_CLK, ENABLE);
+//    
+//    // Initialize NSS, SCK, MISO and MOSI pins
+//
+//    // NSS
+//	CON_SPI_NSS_GPIO_PORT->BSRR = CON_SPI_NSS_PIN;
+//    //GPIO_SetBits(CON_SPI_NSS_GPIO_PORT, CON_SPI_NSS_PIN);
+//
+//	GPIO_InitStructure.GPIO_Pin = CON_SPI_NSS_PIN;
+//    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+//    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+//    GPIO_Init(CON_SPI_NSS_GPIO_PORT, &GPIO_InitStructure); 
+//
+//    // SCK
+//    GPIO_InitStructure.GPIO_Pin = CON_SPI_SCK_PIN;
+//    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+//    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+//    GPIO_Init(CON_SPI_SCK_GPIO_PORT, &GPIO_InitStructure);
+//
+//    // MISO
+//    GPIO_InitStructure.GPIO_Pin = CON_SPI_MISO_PIN;
+//    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+//    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; // !
+//    GPIO_Init(CON_SPI_MISO_GPIO_PORT, &GPIO_InitStructure);
+//
+//    // MOSI
+//    GPIO_InitStructure.GPIO_Pin = CON_SPI_MOSI_PIN;
+//    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+//    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+//    GPIO_Init(CON_SPI_MOSI_GPIO_PORT, &GPIO_InitStructure);
+//
+//    // Initialize SPI
+//    // NOTE: SPI1 is initialized as master for hardware testing only, it is
+//    // supposed to act as slave later on
+//    // TODO: Calculate prescaler value based on SYSCLK > APB2CLK
+//    SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
+//    SPI_InitStructure.SPI_Mode = SPI_Mode_Master;
+//    SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;
+//    SPI_InitStructure.SPI_CPOL = SPI_CPOL_Low;
+//    SPI_InitStructure.SPI_CPHA = SPI_CPHA_1Edge;
+//    SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
+//    SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_8;
+//    SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
+//    SPI_InitStructure.SPI_CRCPolynomial = 7;
+//    SPI_Init(SPI1, &SPI_InitStructure);
+//
+//    // Enable NSS as output
+//    SPI_SSOutputCmd(CON_SPI, ENABLE);
+//
+//    // Enable SPI
+//    SPI_Cmd(CON_SPI, ENABLE);
+//}
+//
+//void CON_SPI_SendData(uint16_t data)
+//{
+//	CON_SPI_NSS_GPIO_PORT->BRR = CON_SPI_NSS_PIN;
+//    //GPIO_ResetBits(CON_SPI_NSS_GPIO_PORT, CON_SPI_NSS_PIN);
+//    SPI_I2S_SendData(SPI1, data);
+//	while (CON_SPI->SR & SPI_SR_BSY); // wait for busy flag
+//	CON_SPI_NSS_GPIO_PORT->BSRR = CON_SPI_NSS_PIN;
+//    //GPIO_SetBits(CON_SPI_NSS_GPIO_PORT, CON_SPI_NSS_PIN);
+//}
 
 
 // Connector I2C

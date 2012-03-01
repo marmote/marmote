@@ -45,7 +45,6 @@
 #include "power_control.h"
 #include "power_monitor.h"
 
-extern uint8_t LED1_Enabled; // Power supply TEST ONLY
 
 // Board - Initialize board peripherals and GPIOs with default values
 void M6RF315_Init(void); // 
@@ -67,9 +66,12 @@ typedef enum
 #define CON_LED_TX_GPIO_CLK         RCC_APB2Periph_GPIOB
 
 void CON_LED_Init(void);
-void CON_LED_On (uint32_t led);
-void CON_LED_Off (uint32_t led);
-void CON_LED_Toggle (uint32_t led);
+void CON_RX_LED_On(void);
+void CON_RX_LED_Off(void);
+void CON_RX_LED_Toggle(void);
+void CON_TX_LED_On(void);
+void CON_TX_LED_Off(void);
+void CON_TX_LED_Toggle(void);
 
 
 // CC1101 serial TX and RX data lines
@@ -81,7 +83,7 @@ void CON_LED_Toggle (uint32_t led);
 #define CON_RXD_GPIO_PORT    		GPIOB
 #define CON_RXD_GPIO_CLK    		RCC_APB2Periph_GPIOB
 
-void CON_GPIO_Init(void);
+void CON_TXRX_Init(void);
 void CON_TXD_Set(uint32_t gpio);
 void CON_TXD_Clear(uint32_t gpio);
 uint8_t CON_RXD_Get(void);

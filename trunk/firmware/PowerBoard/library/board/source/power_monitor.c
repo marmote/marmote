@@ -141,6 +141,52 @@ void LED_Toggle (uint32_t led)
 /*                              ADC MONITOR                                */
 /*-------------------------------------------------------------------------*/
 
+
+
+void ADC_Init(void)
+{
+//	ADC_InitTypeDef  ADC_InitStructure;
+//	
+//	/* ADCCLK = PCLK2/4 */
+//    RCC_ADCCLKConfig(RCC_PCLK2_Div4); 
+//
+//	/* Enable ADC peripheral clock */
+//	RCC_APB2PeriphClockCmd(ADC_CLK, ENABLE);
+//	
+//	/* Initialize ADC */
+//	ADC_InitStructure.ADC_Mode = ADC_Mode_Independent;
+//  	ADC_InitStructure.ADC_ScanConvMode = DISABLE;
+//  	ADC_InitStructure.ADC_ContinuousConvMode = ENABLE;
+//  	ADC_InitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_None;
+//  	ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;
+// 	ADC_InitStructure.ADC_NbrOfChannel = 1;
+//  	ADC_Init(ADC1, &ADC_InitStructure);
+//
+//	/* ADC1 regular channels configuration */ 
+//	ADC_RegularChannelConfig(ADC1, ADC_Channel_14, 1, ADC_SampleTime_28Cycles5);    
+//	  
+//	/* Enable ADC1 EOC interupt */
+//	ADC_ITConfig(ADC1, ADC_IT_EOC, ENABLE);
+//	  
+//	/* Enable ADC1 */
+//	ADC_Cmd(ADC1, ENABLE);
+//	  
+//	/* Enable ADC1 reset calibaration register */   
+//	ADC_ResetCalibration(ADC1);
+//	  
+//	/* Check the end of ADC1 reset calibration register */
+//	while(ADC_GetResetCalibrationStatus(ADC1));
+//	
+//	/* Start ADC1 calibaration */
+//	ADC_StartCalibration(ADC1);
+//	  
+//	/* Check the end of ADC1 calibration */
+//	while(ADC_GetCalibrationStatus(ADC1));
+//	     
+//	/* Start ADC1 Software Conversion */ 
+//	ADC_SoftwareStartConvCmd(ADC1, ENABLE);	
+}
+
 // TODO: make it in a sort of subscriber style so that it can be logged to:
 //       - USB CDC (Virtual COM port)
 //       - USB Audio
