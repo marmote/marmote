@@ -98,30 +98,31 @@ void CON_GPIO_Clear(uint32_t gpio);
 
 // SmartFusion connector SPI
 
-#define CON_SPI_NSS_PIN               GPIO_Pin_4                     /* PA.4  */
-#define CON_SPI_NSS_GPIO_PORT         GPIOA                          /* GPIOA */
-#define CON_SPI_NSS_GPIO_CLK          RCC_APB2Periph_GPIOA 
 
-#define CON_SPI_SCK_PIN               GPIO_Pin_5                     /* PA.5  */
-#define CON_SPI_SCK_GPIO_PORT         GPIOA                          /* GPIOA */
-#define CON_SPI_SCK_GPIO_CLK          RCC_APB2Periph_GPIOA  
-
-#define CON_SPI_SCK_AF                GPIO_AF_SPI1
-#define CON_SPI_MISO_PIN              GPIO_Pin_6                     /* PA.6 */
-#define CON_SPI_MISO_GPIO_PORT        GPIOA                          /* GPIOA */
-#define CON_SPI_MISO_GPIO_CLK         RCC_APB2Periph_GPIOA  
-
-#define CON_SPI_MISO_AF               GPIO_AF_SPI1
-#define CON_SPI_MOSI_PIN              GPIO_Pin_7                     /* PA.7  */
-#define CON_SPI_MOSI_GPIO_PORT        GPIOA                          /* GPIOA */
-#define CON_SPI_MOSI_GPIO_CLK         RCC_APB2Periph_GPIOA  
-
-#define CON_SPI_MOSI_AF               GPIO_AF_SPI1
-#define CON_SPI                       SPI1
-#define CON_SPI_CLK                   RCC_APB2Periph_SPI1
-
-void CON_SPI_Init(void);
-void CON_SPI_SendData(uint16_t data);
+//#define CON_SPI_NSS_PIN               GPIO_Pin_4                     /* PA.4  */
+//#define CON_SPI_NSS_GPIO_PORT         GPIOA                          /* GPIOA */
+//#define CON_SPI_NSS_GPIO_CLK          RCC_APB2Periph_GPIOA 
+//
+//#define CON_SPI_SCK_PIN               GPIO_Pin_5                     /* PA.5  */
+//#define CON_SPI_SCK_GPIO_PORT         GPIOA                          /* GPIOA */
+//#define CON_SPI_SCK_GPIO_CLK          RCC_APB2Periph_GPIOA  
+//
+//#define CON_SPI_SCK_AF                GPIO_AF_SPI1
+//#define CON_SPI_MISO_PIN              GPIO_Pin_6                     /* PA.6 */
+//#define CON_SPI_MISO_GPIO_PORT        GPIOA                          /* GPIOA */
+//#define CON_SPI_MISO_GPIO_CLK         RCC_APB2Periph_GPIOA  
+//
+//#define CON_SPI_MISO_AF               GPIO_AF_SPI1
+//#define CON_SPI_MOSI_PIN              GPIO_Pin_7                     /* PA.7  */
+//#define CON_SPI_MOSI_GPIO_PORT        GPIOA                          /* GPIOA */
+//#define CON_SPI_MOSI_GPIO_CLK         RCC_APB2Periph_GPIOA  
+//
+//#define CON_SPI_MOSI_AF               GPIO_AF_SPI1
+//#define CON_SPI                       SPI1
+//#define CON_SPI_CLK                   RCC_APB2Periph_SPI1
+//
+//void CON_SPI_Init(void);
+//void CON_SPI_SendData(uint16_t data);
 
 
 // SmartFusion connector I2C

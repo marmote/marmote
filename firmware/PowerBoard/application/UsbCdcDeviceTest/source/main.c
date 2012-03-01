@@ -2,6 +2,7 @@
 #include "stm32f10x.h"
 
 #include "power_board.h"
+#include "m6_rf315.h"
 #include "cmd_def.h"
 #include "usb_fs.h"
 
@@ -28,6 +29,17 @@ int main (void) {
 	PowerMonitor_Init();	
 	//LED_Init();
 
+	// Initialize M6-RF315 board
+	M6RF315_Init();
+
+	// Enable power
+	POW_EnableMasterSwitch();
+
+	// Turn on LEDs
+	CON_RX_LED_On();
+	CON_TX_LED_On();
+
+	for (;;) ;
 
 	CMD_ListLength = sizeof(CMD_List)/sizeof(CMD_Type);
 				
