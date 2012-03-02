@@ -125,7 +125,7 @@
 <layer number="202" name="202bmp" color="3" fill="10" visible="yes" active="yes"/>
 <layer number="203" name="203bmp" color="4" fill="10" visible="yes" active="yes"/>
 <layer number="204" name="ConnectorCheck" color="5" fill="7" visible="no" active="yes"/>
-<layer number="205" name="205bmp" color="6" fill="10" visible="yes" active="yes"/>
+<layer number="205" name="PDC_Check" color="3" fill="14" visible="yes" active="yes"/>
 <layer number="206" name="206bmp" color="7" fill="10" visible="yes" active="yes"/>
 <layer number="207" name="207bmp" color="8" fill="10" visible="yes" active="yes"/>
 <layer number="208" name="ThumbnailText" color="9" fill="10" visible="no" active="yes"/>
@@ -24259,7 +24259,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <attribute name="PAGE1" value="Cover Page"/>
 <attribute name="PAGE2" value="FPGA Power Supply"/>
 <attribute name="PAGE3" value="Clock and Reset"/>
-<attribute name="PAGE4" value="Ethernet (RMII)"/>
+<attribute name="PAGE4" value="Ethernet"/>
 <attribute name="PAGE5" value="Digital Signal"/>
 <attribute name="PAGE6" value="Analog Front-Ends"/>
 <attribute name="PAGE7" value="Connectors"/>
@@ -24988,7 +24988,6 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <part name="PORT295" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT296" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="J8" library="MainBoard" deviceset="SWITCH-CJS-1200" device="-1200"/>
-<part name="PORT7" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT11" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT12" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT18" library="MainBoard" deviceset="PORT7" device=""/>
@@ -25004,9 +25003,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <part name="PORT120" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT297" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT298" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="PORT116" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT299" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="PORT300" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT188" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT279" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT280" library="MainBoard" deviceset="PORT7" device=""/>
@@ -25086,7 +25083,6 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <part name="PORT356" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT357" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT358" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="PORT359" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT360" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT361" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT362" library="MainBoard" deviceset="PORT5" device=""/>
@@ -25160,8 +25156,6 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <part name="X1" library="MainBoard" deviceset="ECX-2236" device="" technology="-200"/>
 <part name="PORT49" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT50" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="PORT256" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="PORT289" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="C132" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
 <part name="C133" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
 <part name="U$19" library="MainBoard" deviceset="AGND" device=""/>
@@ -25186,6 +25180,8 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <part name="C147" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
 <part name="U$152" library="MainBoard" deviceset="D3V3" device=""/>
 <part name="U$149" library="MainBoard" deviceset="DGND" device=""/>
+<part name="PORT290" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT291" library="MainBoard" deviceset="PORT7" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -26712,8 +26708,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <plain>
 <text x="177.8" y="20.32" size="5.08" layer="97">SmartFusion AFE</text>
 <rectangle x1="154.94" y1="104.14" x2="172.72" y2="119.38" layer="97" rot="R180"/>
-<rectangle x1="71.12" y1="35.56" x2="104.14" y2="48.26" layer="97"/>
-<text x="43.18" y="50.8" size="1.778" layer="97">AUX_DAC as reference</text>
+<text x="43.18" y="50.8" size="1.778" layer="97">AUX DACs as reference</text>
 <text x="185.42" y="139.7" size="1.778" layer="97">to North Bridge</text>
 <wire x1="180.34" y1="144.78" x2="182.88" y2="144.78" width="0.1524" layer="97"/>
 <wire x1="182.88" y1="144.78" x2="182.88" y2="137.16" width="0.1524" layer="97"/>
@@ -26725,7 +26720,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <text x="198.12" y="101.6" size="1.778" layer="97">External 3.3V reference</text>
 <text x="195.58" y="99.06" size="1.778" layer="97">(internal reference is 2.56V)</text>
 <text x="71.12" y="31.75" size="1.778" layer="97">Optional capacitors to hold internal</text>
-<text x="69.85" y="29.21" size="1.778" layer="97">DAC generated comparator reference</text>
+<text x="67.31" y="29.21" size="1.778" layer="97">SF DAC generated comparator reference</text>
 <text x="134.62" y="62.23" size="1.778" layer="97">DAC LPF 4th pole (DNP)</text>
 <text x="175.26" y="111.76" size="1.778" layer="97">Check NPN BJT parameters</text>
 <text x="165.1" y="134.62" size="1.778" layer="97">NC</text>
@@ -26734,7 +26729,6 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <wire x1="175.26" y1="91.44" x2="177.8" y2="91.44" width="0.1524" layer="97"/>
 <wire x1="177.8" y1="91.44" x2="177.8" y2="81.28" width="0.1524" layer="97"/>
 <wire x1="177.8" y1="81.28" x2="175.26" y2="81.28" width="0.1524" layer="97"/>
-<text x="85.09" y="26.67" size="1.778" layer="97">(DNP)</text>
 <wire x1="33.02" y1="71.12" x2="114.3" y2="71.12" width="0.1524" layer="97" style="shortdash"/>
 <wire x1="114.3" y1="71.12" x2="114.3" y2="22.86" width="0.1524" layer="97" style="shortdash"/>
 <wire x1="114.3" y1="22.86" x2="33.02" y2="22.86" width="0.1524" layer="97" style="shortdash"/>
@@ -26744,8 +26738,6 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <text x="48.26" y="25.4" size="2.54" layer="97">Comparator reference voltages</text>
 <text x="205.74" y="60.96" size="1.778" layer="97" rot="R90">VAREF0</text>
 <text x="213.36" y="60.96" size="1.778" layer="97" rot="R90">VAREF1</text>
-<rectangle x1="73.66" y1="53.34" x2="106.68" y2="63.5" layer="98"/>
-<text x="71.12" y="50.8" size="1.778" layer="98">Check assignment order (routing!)</text>
 <rectangle x1="40.64" y1="50.8" x2="71.12" y2="68.58" layer="116"/>
 <rectangle x1="71.12" y1="35.56" x2="111.76" y2="50.8" layer="116"/>
 <rectangle x1="132.08" y1="63.5" x2="154.94" y2="83.82" layer="116"/>
@@ -26809,18 +26801,18 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <instance part="PORT167" gate="G$1" x="190.5" y="101.6"/>
 <instance part="U$63" gate="G$1" x="147.32" y="91.44"/>
 <instance part="C67" gate="G$1" x="101.6" y="45.72">
-<attribute name="DNP" x="101.6" y="45.72" size="1.778" layer="96" display="name"/>
+<attribute name="DNP" x="99.06" y="38.1" size="1.778" layer="96" rot="R90" display="name"/>
 </instance>
 <instance part="C68" gate="G$1" x="93.98" y="45.72">
-<attribute name="DNP" x="93.98" y="45.72" size="1.778" layer="96" display="name"/>
+<attribute name="DNP" x="91.44" y="38.1" size="1.778" layer="96" rot="R90" display="name"/>
 </instance>
 <instance part="U$64" gate="G$1" x="101.6" y="38.1"/>
 <instance part="U$65" gate="G$1" x="93.98" y="38.1"/>
 <instance part="C69" gate="G$1" x="86.36" y="45.72">
-<attribute name="DNP" x="86.36" y="45.72" size="1.778" layer="96" display="name"/>
+<attribute name="DNP" x="83.82" y="38.1" size="1.778" layer="96" rot="R90" display="name"/>
 </instance>
 <instance part="C70" gate="G$1" x="78.74" y="45.72">
-<attribute name="DNP" x="78.74" y="45.72" size="1.778" layer="96" display="name"/>
+<attribute name="DNP" x="76.2" y="38.1" size="1.778" layer="96" rot="R90" display="name"/>
 </instance>
 <instance part="U$66" gate="G$1" x="86.36" y="38.1"/>
 <instance part="U$67" gate="G$1" x="78.74" y="38.1"/>
@@ -26829,7 +26821,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <instance part="PORT170" gate="G$1" x="40.64" y="58.42" rot="MR0"/>
 <instance part="PORT171" gate="G$1" x="40.64" y="55.88" rot="MR0"/>
 <instance part="R51" gate="G$1" x="66.04" y="63.5">
-<attribute name="DNP" x="66.04" y="63.5" size="1.778" layer="96" display="name"/>
+<attribute name="DNP" x="68.58" y="63.5" size="1.778" layer="96" display="name"/>
 </instance>
 <instance part="R52" gate="G$1" x="66.04" y="60.96">
 <attribute name="DNP" x="68.58" y="60.96" size="1.778" layer="96" display="name"/>
@@ -28785,7 +28777,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 </sheet>
 <sheet>
 <plain>
-<text x="182.88" y="20.32" size="5.08" layer="97">&gt;PAGE4</text>
+<text x="193.04" y="20.32" size="5.08" layer="97">&gt;PAGE4</text>
 <text x="68.58" y="55.88" size="2.54" layer="97">Ethernet PHY</text>
 <text x="48.895" y="78.105" size="1.778" layer="97">NC</text>
 <text x="48.895" y="70.485" size="1.778" layer="97">NC</text>
@@ -29628,7 +29620,6 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <text x="91.44" y="30.48" size="1.778" layer="97" rot="R90">VCCIO</text>
 <text x="53.34" y="63.5" size="50.8" layer="208">USB</text>
 <text x="106.68" y="27.94" size="1.778" layer="97" rot="R90">93LC56BT</text>
-<text x="127" y="139.7" size="1.778" layer="98" rot="R90">Move USB signals to the same IO bank</text>
 <rectangle x1="45.72" y1="43.18" x2="73.66" y2="78.74" layer="116"/>
 <rectangle x1="30.48" y1="43.18" x2="43.18" y2="76.2" layer="116"/>
 <rectangle x1="78.74" y1="45.72" x2="106.68" y2="78.74" layer="116"/>
@@ -29657,7 +29648,6 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <text x="99.06" y="154.94" size="1.778" layer="97">TXD</text>
 <text x="99.06" y="152.4" size="1.778" layer="97">RXD</text>
 <rectangle x1="93.98" y1="106.68" x2="111.76" y2="116.84" layer="98"/>
-<rectangle x1="215.9" y1="147.32" x2="238.76" y2="149.86" layer="114"/>
 <rectangle x1="73.66" y1="111.76" x2="81.28" y2="116.84" layer="101"/>
 </plain>
 <instances>
@@ -29805,14 +29795,12 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <instance part="PORT328" gate="G$1" x="236.22" y="106.68"/>
 <instance part="PORT329" gate="G$1" x="236.22" y="104.14"/>
 <instance part="PORT299" gate="G$1" x="236.22" y="144.78"/>
-<instance part="PORT300" gate="G$1" x="236.22" y="147.32"/>
 <instance part="PORT353" gate="G$1" x="236.22" y="142.24"/>
 <instance part="PORT354" gate="G$1" x="236.22" y="139.7"/>
 <instance part="PORT355" gate="G$1" x="236.22" y="149.86"/>
 <instance part="PORT356" gate="G$1" x="236.22" y="137.16"/>
 <instance part="PORT357" gate="G$1" x="236.22" y="134.62"/>
 <instance part="PORT358" gate="G$1" x="236.22" y="129.54"/>
-<instance part="PORT359" gate="G$1" x="236.22" y="127"/>
 <instance part="PORT360" gate="G$1" x="236.22" y="91.44"/>
 </instances>
 <busses>
@@ -29936,13 +29924,6 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <label x="132.08" y="139.7" size="1.778" layer="95" rot="MR0"/>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[6]/IO12NDB0V0"/>
 <wire x1="134.62" y1="139.7" x2="139.7" y2="139.7" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="!SPI1_SS_AFE2" class="0">
-<segment>
-<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_RW_N/GAA1/IO02PDB0V0"/>
-<wire x1="215.9" y1="96.52" x2="220.98" y2="96.52" width="0.1524" layer="91"/>
-<label x="223.52" y="96.52" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="USB_DB7" class="0">
@@ -30669,13 +30650,6 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <label x="223.52" y="149.86" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="!AFE2_SHDN" class="0">
-<segment>
-<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_CS0_N/GAB0/IO05NDB0V0"/>
-<wire x1="215.9" y1="101.6" x2="220.98" y2="101.6" width="0.1524" layer="91"/>
-<label x="223.52" y="101.6" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="NGPIO3" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[9]/GEC1/IO80PDB5V0"/>
@@ -30683,7 +30657,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <label x="223.52" y="132.08" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SGPIO1" class="0">
+<net name="SGPIO4" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[7]/GEB1/IO79PDB5V0"/>
 <wire x1="215.9" y1="137.16" x2="220.98" y2="137.16" width="0.1524" layer="91"/>
@@ -30697,31 +30671,18 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <label x="223.52" y="144.78" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SGPIO3" class="0">
+<net name="SGPIO2" class="0">
 <segment>
 <label x="223.52" y="124.46" size="1.778" layer="97"/>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[12]/IO87NDB5V0"/>
 <wire x1="220.98" y1="124.46" x2="215.9" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="SGPIO2" class="0">
+<net name="SGPIO3" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[8]/GEC0/IO80NDB5V0"/>
 <wire x1="215.9" y1="134.62" x2="220.98" y2="134.62" width="0.1524" layer="91"/>
 <label x="223.52" y="134.62" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="SGPIO4" class="0">
-<segment>
-<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[10]/IO86NPB5V0"/>
-<wire x1="215.9" y1="129.54" x2="220.98" y2="129.54" width="0.1524" layer="91"/>
-<label x="223.52" y="129.54" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="SGPIO5" class="0">
-<segment>
-<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_CLK/GAA0/IO02NDB0V0"/>
-<wire x1="215.9" y1="91.44" x2="220.98" y2="91.44" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="NGPIO2" class="0">
@@ -30731,11 +30692,39 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <label x="223.52" y="139.7" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SGPIO0" class="0">
+<net name="SGPIO5" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[5]/GEA1/IO78PPB5V0"/>
 <wire x1="215.9" y1="142.24" x2="220.98" y2="142.24" width="0.1524" layer="91"/>
 <label x="223.52" y="142.24" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="!AFE2_SHDN" class="0">
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_RW_N/GAA1/IO02PDB0V0"/>
+<wire x1="215.9" y1="96.52" x2="220.98" y2="96.52" width="0.1524" layer="91"/>
+<label x="223.52" y="96.52" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="!SPI1_SS_AFE2" class="0">
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_CS0_N/GAB0/IO05NDB0V0"/>
+<wire x1="215.9" y1="101.6" x2="220.98" y2="101.6" width="0.1524" layer="91"/>
+<label x="223.52" y="101.6" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="NGPIO0" class="0">
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_CLK/GAA0/IO02NDB0V0"/>
+<wire x1="215.9" y1="91.44" x2="220.98" y2="91.44" width="0.1524" layer="91"/>
+<label x="223.52" y="91.44" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SGPIO0" class="0">
+<segment>
+<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[10]/IO86NPB5V0"/>
+<wire x1="215.9" y1="129.54" x2="220.98" y2="129.54" width="0.1524" layer="91"/>
+<label x="223.52" y="129.54" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
@@ -30759,11 +30748,11 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <rectangle x1="20.32" y1="139.7" x2="88.9" y2="167.64" layer="116"/>
 <rectangle x1="170.18" y1="114.3" x2="223.52" y2="160.02" layer="116"/>
 <rectangle x1="30.48" y1="10.16" x2="45.72" y2="50.8" layer="116"/>
-<rectangle x1="213.36" y1="73.66" x2="233.68" y2="76.2" layer="114"/>
 <rectangle x1="121.92" y1="63.5" x2="147.32" y2="66.04" layer="101"/>
 <text x="233.68" y="64.77" size="1.778" layer="98">Consider swapping with REF CLK</text>
 <rectangle x1="127" y1="78.74" x2="144.78" y2="83.185" layer="98"/>
 <rectangle x1="215.9" y1="63.5" x2="233.045" y2="67.945" layer="98"/>
+<text x="233.68" y="62.23" size="1.778" layer="98">if used as differential clock</text>
 </plain>
 <instances>
 <instance part="U1" gate="-UART" x="71.12" y="152.4"/>
@@ -30799,9 +30788,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <instance part="PORT287" gate="G$1" x="25.4" y="119.38" rot="MR0"/>
 <instance part="PORT295" gate="G$1" x="22.86" y="154.94" rot="MR0"/>
 <instance part="PORT296" gate="G$1" x="22.86" y="157.48" rot="MR0"/>
-<instance part="PORT7" gate="G$1" x="231.14" y="73.66"/>
 <instance part="PORT11" gate="G$1" x="129.54" y="86.36" rot="MR0"/>
-<instance part="PORT116" gate="G$1" x="231.14" y="71.12"/>
 <instance part="PORT8" gate="G$1" x="129.54" y="88.9" rot="MR0"/>
 <instance part="PORT313" gate="G$1" x="129.54" y="63.5" rot="MR0"/>
 <instance part="PORT322" gate="G$1" x="231.14" y="88.9"/>
@@ -31148,14 +31135,14 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <label x="35.56" y="147.32" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="NGPIO1" class="0">
+<net name="SGPIO1" class="0">
 <segment>
 <pinref part="U1" gate="-IOB" pin="GFA2/IO85PDB5V0"/>
 <wire x1="210.82" y1="66.04" x2="215.9" y2="66.04" width="0.1524" layer="91"/>
 <label x="218.44" y="66.04" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="NGPIO0" class="0">
+<net name="NGPIO1" class="0">
 <segment>
 <pinref part="U1" gate="-IOB" pin="GFB2/IO85NDB5V0"/>
 <wire x1="210.82" y1="63.5" x2="215.9" y2="63.5" width="0.1524" layer="91"/>
@@ -31198,7 +31185,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <instances>
 <instance part="J2" gate="G$1" x="200.66" y="114.3"/>
 <instance part="J3" gate="G$1" x="55.88" y="129.54"/>
-<instance part="U$5" gate="G$1" x="116.84" y="149.86"/>
+<instance part="U$5" gate="G$1" x="99.06" y="149.86"/>
 <instance part="U$6" gate="G$1" x="157.48" y="149.86"/>
 <instance part="PORT1" gate="G$1" x="149.86" y="160.02"/>
 <instance part="PORT2" gate="G$1" x="149.86" y="157.48"/>
@@ -31313,8 +31300,8 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <instance part="PORT352" gate="G$1" x="101.6" y="139.7" rot="MR0"/>
 <instance part="PORT49" gate="G$1" x="101.6" y="134.62" rot="MR0"/>
 <instance part="PORT50" gate="G$1" x="101.6" y="129.54" rot="MR0"/>
-<instance part="PORT256" gate="G$1" x="149.86" y="149.86"/>
-<instance part="PORT289" gate="G$1" x="149.86" y="147.32"/>
+<instance part="PORT290" gate="G$1" x="101.6" y="149.86" rot="MR0"/>
+<instance part="PORT291" gate="G$1" x="101.6" y="147.32" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -31389,7 +31376,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <segment>
 <wire x1="121.92" y1="162.56" x2="119.38" y2="162.56" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="152.4" x2="119.38" y2="162.56" width="0.1524" layer="91"/>
-<wire x1="119.38" y1="152.4" x2="116.84" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="152.4" x2="99.06" y2="152.4" width="0.1524" layer="91"/>
 <pinref part="U$5" gate="G$1" pin="DGND"/>
 <pinref part="J1" gate="G$1" pin="1"/>
 <pinref part="J1" gate="G$1" pin="9"/>
@@ -32009,7 +31996,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <label x="182.88" y="142.24" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="SGPIO3" class="0">
+<net name="SGPIO2" class="0">
 <segment>
 <label x="114.3" y="142.24" size="1.778" layer="95" rot="MR0"/>
 <pinref part="J1" gate="G$1" pin="17"/>
@@ -32072,42 +32059,28 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <wire x1="185.42" y1="121.92" x2="195.58" y2="121.92" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="SF_ADC3" class="0">
-<segment>
-<label x="182.88" y="101.6" size="1.778" layer="95" rot="MR0"/>
-<pinref part="J2" gate="G$1" pin="49"/>
-<wire x1="185.42" y1="101.6" x2="195.58" y2="101.6" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="SF_ADC2" class="0">
+<net name="SF_ADC1" class="0">
 <segment>
 <label x="182.88" y="99.06" size="1.778" layer="95" rot="MR0"/>
 <pinref part="J2" gate="G$1" pin="51"/>
 <wire x1="185.42" y1="99.06" x2="195.58" y2="99.06" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="SF_ADC1" class="0">
-<segment>
-<label x="182.88" y="93.98" size="1.778" layer="95" rot="MR0"/>
-<pinref part="J2" gate="G$1" pin="55"/>
-<wire x1="185.42" y1="93.98" x2="195.58" y2="93.98" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="SF_ADC0" class="0">
 <segment>
-<label x="182.88" y="91.44" size="1.778" layer="95" rot="MR0"/>
-<pinref part="J2" gate="G$1" pin="57"/>
-<wire x1="185.42" y1="91.44" x2="195.58" y2="91.44" width="0.1524" layer="91"/>
+<label x="182.88" y="101.6" size="1.778" layer="95" rot="MR0"/>
+<pinref part="J2" gate="G$1" pin="49"/>
+<wire x1="185.42" y1="101.6" x2="195.58" y2="101.6" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="SGPIO1" class="0">
+<net name="SGPIO4" class="0">
 <segment>
 <label x="114.3" y="137.16" size="1.778" layer="95" rot="MR0"/>
 <pinref part="J1" gate="G$1" pin="21"/>
 <wire x1="116.84" y1="137.16" x2="121.92" y2="137.16" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="SGPIO2" class="0">
+<net name="SGPIO3" class="0">
 <segment>
 <label x="114.3" y="139.7" size="1.778" layer="95" rot="MR0"/>
 <pinref part="J1" gate="G$1" pin="19"/>
@@ -32126,7 +32099,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <wire x1="116.84" y1="132.08" x2="121.92" y2="132.08" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="SGPIO0" class="0">
+<net name="SGPIO5" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="23"/>
 <wire x1="121.92" y1="134.62" x2="116.84" y2="134.62" width="0.1524" layer="91"/>
@@ -32140,18 +32113,32 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <label x="182.88" y="149.86" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="SGPIO4" class="0">
+<net name="SGPIO1" class="0">
 <segment>
-<pinref part="J1" gate="G$1" pin="14"/>
-<wire x1="134.62" y1="147.32" x2="139.7" y2="147.32" width="0.1524" layer="91"/>
-<label x="142.24" y="147.32" size="1.778" layer="95"/>
+<pinref part="J1" gate="G$1" pin="13"/>
+<wire x1="121.92" y1="147.32" x2="116.84" y2="147.32" width="0.1524" layer="91"/>
+<label x="114.3" y="147.32" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="SGPIO5" class="0">
+<net name="SGPIO0" class="0">
 <segment>
-<pinref part="J1" gate="G$1" pin="12"/>
-<wire x1="134.62" y1="149.86" x2="139.7" y2="149.86" width="0.1524" layer="91"/>
-<label x="142.24" y="149.86" size="1.778" layer="95"/>
+<pinref part="J1" gate="G$1" pin="11"/>
+<wire x1="121.92" y1="149.86" x2="116.84" y2="149.86" width="0.1524" layer="91"/>
+<label x="114.3" y="149.86" size="1.778" layer="95" rot="MR0"/>
+</segment>
+</net>
+<net name="SF_ADC3" class="0">
+<segment>
+<label x="182.88" y="91.44" size="1.778" layer="95" rot="MR0"/>
+<pinref part="J2" gate="G$1" pin="57"/>
+<wire x1="185.42" y1="91.44" x2="195.58" y2="91.44" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="SF_ADC2" class="0">
+<segment>
+<label x="182.88" y="93.98" size="1.778" layer="95" rot="MR0"/>
+<pinref part="J2" gate="G$1" pin="55"/>
+<wire x1="185.42" y1="93.98" x2="195.58" y2="93.98" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
