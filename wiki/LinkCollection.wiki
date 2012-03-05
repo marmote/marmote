@@ -66,13 +66,13 @@ Specification
 
 [http://www.ti.com/litv/pdf/sloa058 TI Application Report] - A Single-Supply Op-Amp Circuit Collection
 
-== PCB Layout ==
+== PCB Layout and soldering==
 
 _Note:_ Several PCB layout guidelines can be found in other sections such as ADC, Oscillator, etc.
 
 [http://www.pcbexpress.com/technical/faq.php Drill Sizes] - List of available drills at Screaming Circuits (Sunstone)
 
-== Soldering ==
+[http://www.altera.com/literature/an/an114.pdf Altera AN114] - Designing with High-Density BGA Packages for Altera Devices
 
 [http://store.curiousinventor.com/guides/Surface_Mount_Soldering/QFN Surface mount soldering of QFN chips]
 
