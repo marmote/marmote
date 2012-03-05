@@ -76,6 +76,8 @@ _Note:_ Several PCB layout guidelines can be found in other sections such as ADC
 
 [http://www.fairchildsemi.com/an/AN/AN-5026.pdf Fairchild Semiconductor AN5026] - Using BGA Packages
 
+[http://www.actel.com/documents/RecPCBdesign.pdf Actel Recommended BGA Layout Drawings] - EIA Standard Board Layout Drawing for BGA, CCGA, CSP, and QFN
+
 [http://store.curiousinventor.com/guides/Surface_Mount_Soldering/QFN Surface mount soldering of QFN chips]
 
 == EMC ==
