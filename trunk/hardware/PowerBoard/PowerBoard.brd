@@ -6,10 +6,10 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.1" altunitdist="mm" altunit="mm"/>
+<grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.5" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
-<layer number="2" name="GND" color="2" fill="3" visible="no" active="yes"/>
+<layer number="2" name="GND" color="2" fill="3" visible="yes" active="yes"/>
 <layer number="3" name="D3V3_STM" color="14" fill="1" visible="no" active="yes"/>
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
 <layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
@@ -154,14 +154,14 @@
 <circle x="84.5" y="24" radius="1" width="0.2032" layer="22"/>
 <text x="60.75" y="54" size="1.27" layer="21" font="vector" rot="R180">OFF</text>
 <text x="80" y="54" size="1.27" layer="21" font="vector" rot="R180">ON</text>
-<text x="4.9" y="20.4" size="1.27" layer="21" font="vector">BOOT0</text>
+<text x="4.8" y="22.8" size="1.27" layer="21" font="vector">BOOT0</text>
 <text x="8.6" y="11.4" size="1.27" layer="21" font="vector" rot="R90">RESET</text>
 <text x="11.75" y="32.55" size="1.27" layer="21" font="vector" rot="R90">SWD</text>
 <text x="55.75" y="43" size="1.27" layer="21" font="vector">WALL</text>
 <text x="85.25" y="37.25" size="1.27" layer="22" font="vector" rot="MR0">PWR SW</text>
 <text x="82.25" y="23.25" size="1.27" layer="22" font="vector" rot="MR0">BAT</text>
-<text x="1.3" y="25.9" size="1.27" layer="21" font="vector">SRAM</text>
-<text x="8.5" y="25.9" size="1.27" layer="21" font="vector">FLASH</text>
+<text x="6.3" y="25.9" size="1.27" layer="21" font="vector">SRAM</text>
+<text x="6.3" y="19.8" size="1.27" layer="21" font="vector">FLASH</text>
 <text x="67.25" y="12" size="1.27" layer="21" font="vector">AGND</text>
 <text x="10.5" y="12" size="1.27" layer="21" font="vector">DGND</text>
 <text x="70.25" y="35.75" size="1.27" layer="21" font="vector">VBAT</text>
@@ -185,10 +185,10 @@
 <text x="65.75" y="4.75" size="1.27" layer="22" font="vector" rot="MR0">Copyright c 2012</text>
 <text x="70.75" y="2.75" size="1.27" layer="22" font="vector" rot="MR0">Vanderbilt University, ISIS</text>
 <circle x="54.5" y="5.2" radius="0.85" width="0.127" layer="22"/>
-<wire x1="10.65" y1="24.5" x2="11.15" y2="25" width="0.254" layer="21"/>
-<wire x1="11.15" y1="25" x2="11.15" y2="25.65" width="0.254" layer="21"/>
-<wire x1="4.3" y1="24.5" x2="3.8" y2="25" width="0.254" layer="21"/>
-<wire x1="3.8" y1="25" x2="3.8" y2="25.65" width="0.254" layer="21"/>
+<wire x1="4.5" y1="20.35" x2="5" y2="19.85" width="0.254" layer="21"/>
+<wire x1="5" y1="19.85" x2="5.65" y2="19.85" width="0.254" layer="21"/>
+<wire x1="4.5" y1="26.7" x2="5" y2="27.2" width="0.254" layer="21"/>
+<wire x1="5" y1="27.2" x2="5.65" y2="27.2" width="0.254" layer="21"/>
 </plain>
 <libraries>
 <library name="powerboard">
@@ -12133,7 +12133,7 @@ design rules under a new name.</description>
 <element name="R23" library="powerboard" package="R0603" value="330" x="11.5" y="51" rot="MR0">
 <attribute name="TOLERANCE" value="" x="11.5" y="51" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="JP1" library="powerboard" package="1X03" value="JUMPER-3PTH" x="5" y="23.2"/>
+<element name="JP1" library="powerboard" package="1X03" value="JUMPER-3PTH" x="3.2" y="26" rot="R270"/>
 <element name="LED1" library="powerboard" package="LED1208-RA" value="GREEN" x="4.5" y="54" smashed="yes">
 <attribute name="NAME" x="2.25" y="51" size="1.27" layer="21" font="vector"/>
 <attribute name="VALUE" x="3.5" y="52.25" size="0.4064" layer="27"/>
@@ -12174,15 +12174,15 @@ design rules under a new name.</description>
 <attribute name="MF" value="ECS" x="24.2" y="20.15" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MPN" value="ECS-160-8-36CKM " x="24.2" y="20.15" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="R45" library="powerboard" package="R0603" value="0" x="73.5" y="29.5" rot="R270">
-<attribute name="TOLERANCE" value="" x="73.5" y="29.5" size="1.778" layer="27" rot="R270" display="off"/>
+<element name="R45" library="powerboard" package="R0603" value="0" x="73.3" y="25" rot="R270">
+<attribute name="TOLERANCE" value="" x="73.3" y="25" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="C17" library="powerboard" package="C0603" value="0.1uF" x="31" y="32"/>
 <element name="C18" library="powerboard" package="C0603" value="0.1uF" x="20.7" y="34.4" rot="R180"/>
-<element name="C19" library="powerboard" package="C0603" value="0.1uF" x="17.8" y="25.5" rot="R90"/>
+<element name="C19" library="powerboard" package="C0603" value="0.1uF" x="17.8" y="25" rot="R90"/>
 <element name="C21" library="powerboard" package="C0603" value="1uF" x="25.8" y="22.8" rot="MR270"/>
 <element name="C22" library="powerboard" package="C0603" value="10nF" x="27.8" y="22.8" rot="MR270"/>
-<element name="C20" library="powerboard" package="C0603" value="4.7uF" x="15.8" y="25.5" rot="R90"/>
+<element name="C20" library="powerboard" package="C0603" value="4.7uF" x="15.8" y="25" rot="R90"/>
 <element name="TP1" library="powerboard" package="TESTPOINT" value="TESTPOINT" x="69.5" y="15">
 <attribute name="MF" value="Keystone" x="69.5" y="15" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="5009" x="69.5" y="15" size="1.778" layer="27" display="off"/>
@@ -12268,8 +12268,8 @@ design rules under a new name.</description>
 <element name="C13" library="powerboard" package="C0603" value="10uF" x="58.5" y="26.5" rot="R180"/>
 <element name="C14" library="powerboard" package="C0603" value="4.7uF" x="65.25" y="27.05" rot="R90"/>
 <element name="C15" library="powerboard" package="C0603" value="0.1uF" x="68.25" y="30" rot="R180"/>
-<element name="R28" library="powerboard" package="R0603" value="100k" x="13.2" y="24.05" rot="R90">
-<attribute name="TOLERANCE" value="" x="13.2" y="24.05" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="R28" library="powerboard" package="R0603" value="100k" x="13.5" y="26.95" rot="R270">
+<attribute name="TOLERANCE" value="" x="13.5" y="26.95" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="R29" library="powerboard" package="R0603" value="4.7k" x="13.25" y="42" rot="R270">
 <attribute name="TOLERANCE" value="" x="13.25" y="42" size="1.778" layer="27" rot="R270" display="off"/>
@@ -12514,8 +12514,8 @@ design rules under a new name.</description>
 <element name="J6" library="powerboard" package="71741-0002" value="CON-71741-0002-TOP" x="45" y="7"/>
 <element name="LOGO5" library="Logo" package="LOGO-VANDERBILT-10MM-GOLD" value="LOGO-VANDERBILT-600MIL-10MM-AU" x="71" y="1.5"/>
 <element name="LOGO6" library="Logo" package="LOGO-ISIS-10MM-GOLD" value="LOGO-ISIS-600MIL-10MM-AU" x="9" y="1.5"/>
-<element name="LOGO7" library="Logo" package="LOGO-MARMOTE-10MM-GOLD" value="LOGO-MARMOTE-600MIL-10MM-AU" x="75" y="26.5"/>
-<element name="LOGO1" library="Logo" package="LOGO-BATTERY-10MM-GOLD" value="LOGO-BATTERY-600MIL-10MM-AU" x="75" y="14.25"/>
+<element name="LOGO7" library="Logo" package="LOGO-MARMOTE-10MM-GOLD" value="LOGO-MARMOTE-600MIL-10MM-AU" x="75" y="28"/>
+<element name="LOGO1" library="Logo" package="LOGO-BATTERY-10MM-GOLD" value="LOGO-BATTERY-600MIL-10MM-AU" x="75" y="12.25"/>
 <element name="R2" library="powerboard" package="R0603" value="100k" x="33.375" y="27.425" rot="R270">
 <attribute name="TOLERANCE" value="1%" x="33.375" y="27.425" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="PAGE3" value="Current Monitor" x="33.375" y="27.425" size="1.778" layer="27" rot="R270" display="off"/>
@@ -12533,6 +12533,81 @@ design rules under a new name.</description>
 </element>
 <element name="SW3" library="powerboard" package="SWITCH-KSC-J-LEAD" value="SWITCH-KSC-201J" x="4" y="14" rot="R90">
 <attribute name="ACT-HEIGHT" value="3.5 mm" x="4" y="14" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
+<element name="R3" library="powerboard" package="R0603" value="0" x="84.3" y="25" rot="R270">
+<attribute name="TOLERANCE" value="" x="84.3" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PAGE3" value="Current Monitor" x="84.3" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="REVIEWER" value="Benjamin Babjak" x="84.3" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PAGE4" value="Caps, Pulls and Misc" x="84.3" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="84.3" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PAGE5" value="Connector" x="84.3" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="COPYRIGHT" value="Copyright © 2011 Vanderbilt University, ISIS" x="84.3" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="TITLE" value="Power Board" x="84.3" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="REVIEWEREMAIL" value="benjamin.babjak@vanderbilt.edu" x="84.3" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="84.3" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="REVISION" value="B" x="84.3" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="84.3" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PAGE2" value="Power Supply" x="84.3" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
+<element name="R54" library="powerboard" package="R0603" value="0" x="82.1" y="25" rot="R270">
+<attribute name="TOLERANCE" value="" x="82.1" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PAGE3" value="Current Monitor" x="82.1" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="REVIEWER" value="Benjamin Babjak" x="82.1" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PAGE4" value="Caps, Pulls and Misc" x="82.1" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="82.1" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PAGE5" value="Connector" x="82.1" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="COPYRIGHT" value="Copyright © 2011 Vanderbilt University, ISIS" x="82.1" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="TITLE" value="Power Board" x="82.1" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="REVIEWEREMAIL" value="benjamin.babjak@vanderbilt.edu" x="82.1" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="82.1" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="REVISION" value="B" x="82.1" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="82.1" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PAGE2" value="Power Supply" x="82.1" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
+<element name="R55" library="powerboard" package="R0603" value="0" x="79.9" y="25" rot="R270">
+<attribute name="TOLERANCE" value="" x="79.9" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PAGE3" value="Current Monitor" x="79.9" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="REVIEWER" value="Benjamin Babjak" x="79.9" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PAGE4" value="Caps, Pulls and Misc" x="79.9" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="79.9" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PAGE5" value="Connector" x="79.9" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="COPYRIGHT" value="Copyright © 2011 Vanderbilt University, ISIS" x="79.9" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="TITLE" value="Power Board" x="79.9" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="REVIEWEREMAIL" value="benjamin.babjak@vanderbilt.edu" x="79.9" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="79.9" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="REVISION" value="B" x="79.9" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="79.9" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PAGE2" value="Power Supply" x="79.9" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
+<element name="R56" library="powerboard" package="R0603" value="0" x="77.7" y="25" rot="R270">
+<attribute name="TOLERANCE" value="" x="77.7" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PAGE3" value="Current Monitor" x="77.7" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="REVIEWER" value="Benjamin Babjak" x="77.7" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PAGE4" value="Caps, Pulls and Misc" x="77.7" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="77.7" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PAGE5" value="Connector" x="77.7" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="COPYRIGHT" value="Copyright © 2011 Vanderbilt University, ISIS" x="77.7" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="TITLE" value="Power Board" x="77.7" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="REVIEWEREMAIL" value="benjamin.babjak@vanderbilt.edu" x="77.7" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="77.7" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="REVISION" value="B" x="77.7" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="77.7" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PAGE2" value="Power Supply" x="77.7" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
+<element name="R57" library="powerboard" package="R0603" value="0" x="75.5" y="25" rot="R270">
+<attribute name="TOLERANCE" value="" x="75.5" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PAGE3" value="Current Monitor" x="75.5" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="REVIEWER" value="Benjamin Babjak" x="75.5" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PAGE4" value="Caps, Pulls and Misc" x="75.5" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="75.5" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PAGE5" value="Connector" x="75.5" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="COPYRIGHT" value="Copyright © 2011 Vanderbilt University, ISIS" x="75.5" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="TITLE" value="Power Board" x="75.5" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="REVIEWEREMAIL" value="benjamin.babjak@vanderbilt.edu" x="75.5" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="75.5" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="REVISION" value="B" x="75.5" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="75.5" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PAGE2" value="Power Supply" x="75.5" y="25" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 </elements>
 <signals>
@@ -12603,7 +12678,6 @@ design rules under a new name.</description>
 <wire x1="54.5" y1="37" x2="54.5" y2="37.675" width="0.254" layer="1"/>
 <wire x1="54.5" y1="37.675" x2="53.575" y2="37.675" width="0.254" layer="1"/>
 <wire x1="54.5" y1="37.675" x2="54.5" y2="38.25" width="0.2032" layer="1"/>
-<wire x1="73.5" y1="30.35" x2="73.4" y2="30.25" width="0.254" layer="1"/>
 <wire x1="51.25" y1="26.65" x2="52.75" y2="26.65" width="0.254" layer="16"/>
 <wire x1="52.75" y1="26.65" x2="53.25" y2="26.15" width="0.254" layer="16"/>
 <wire x1="53.25" y1="26.15" x2="55.25" y2="26.15" width="0.254" layer="16"/>
@@ -12611,7 +12685,6 @@ design rules under a new name.</description>
 <wire x1="67.15" y1="29.75" x2="67.4" y2="30" width="0.254" layer="1"/>
 <wire x1="68.5" y1="28.9" x2="68.5" y2="28.425" width="0.254" layer="1"/>
 <wire x1="67.4" y1="30" x2="68.5" y2="28.9" width="0.254" layer="1"/>
-<wire x1="73.5" y1="31.5" x2="73.5" y2="30.5" width="0.254" layer="1"/>
 <wire x1="61.6" y1="33.75" x2="62.75" y2="33.75" width="0.254" layer="16"/>
 <wire x1="60.5" y1="37.85" x2="60.5" y2="39" width="0.4064" layer="1"/>
 <via x="74.5" y="33" extent="1-16" drill="0.4064"/>
@@ -12630,9 +12703,9 @@ design rules under a new name.</description>
 <via x="56.55" y="26.5" extent="1-16" drill="0.254"/>
 <via x="32.8" y="32.05" extent="1-16" drill="0.254"/>
 <via x="19.85" y="35.4" extent="1-16" drill="0.254"/>
-<via x="72.5" y="31.5" extent="1-16" drill="0.254"/>
-<via x="74.5" y="31.5" extent="1-16" drill="0.254"/>
-<via x="73.5" y="31.5" extent="1-16" drill="0.254"/>
+<via x="72.8" y="26.9" extent="1-16" drill="0.254"/>
+<via x="74.8" y="26.9" extent="1-16" drill="0.254"/>
+<via x="73.8" y="26.9" extent="1-16" drill="0.254"/>
 <via x="46.625" y="26" extent="1-16" drill="0.254"/>
 <via x="62.75" y="33.75" extent="1-16" drill="0.254"/>
 <via x="55.5" y="33" extent="1-16" drill="0.254"/>
@@ -12665,10 +12738,8 @@ design rules under a new name.</description>
 <vertex x="0" y="0"/>
 <vertex x="0" y="56"/>
 <vertex x="90" y="56"/>
-<vertex x="90" y="29.75"/>
-<vertex x="68.5" y="29.75"/>
-<vertex x="64.25" y="25.5"/>
-<vertex x="40.5" y="25.5"/>
+<vertex x="90" y="25.3"/>
+<vertex x="40.7" y="25.3"/>
 <vertex x="35.5" y="30.5"/>
 <vertex x="28.75" y="30.5"/>
 <vertex x="24" y="25.75"/>
@@ -12704,7 +12775,22 @@ design rules under a new name.</description>
 <wire x1="31.5" y1="3.5" x2="31.5" y2="10.5" width="0.6096" layer="1"/>
 <wire x1="28.5" y1="10.5" x2="28.5" y2="3.5" width="0.6096" layer="1"/>
 <wire x1="24.5" y1="3.5" x2="24.5" y2="10.5" width="0.6096" layer="1"/>
-<wire x1="23.35" y1="20.8" x2="25.05" y2="19.5" width="0" layer="19" extent="1-1"/>
+<contactref element="R57" pad="1"/>
+<contactref element="R56" pad="1"/>
+<contactref element="R55" pad="1"/>
+<contactref element="R54" pad="1"/>
+<contactref element="R3" pad="1"/>
+<via x="75.8" y="26.9" extent="1-16" drill="0.254"/>
+<via x="76.8" y="26.9" extent="1-16" drill="0.254"/>
+<via x="77.8" y="26.9" extent="1-16" drill="0.254"/>
+<via x="79.8" y="26.9" extent="1-16" drill="0.254"/>
+<via x="78.8" y="26.9" extent="1-16" drill="0.254"/>
+<via x="80.8" y="26.9" extent="1-16" drill="0.254"/>
+<via x="83.8" y="26.9" extent="1-16" drill="0.254"/>
+<via x="81.8" y="26.9" extent="1-16" drill="0.254"/>
+<via x="82.8" y="26.9" extent="1-16" drill="0.254"/>
+<via x="84.8" y="26.9" extent="1-16" drill="0.254"/>
+<wire x1="25.05" y1="19.5" x2="23.35" y2="20.8" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="VSUP_I">
 <contactref element="R16" pad="2"/>
@@ -12994,9 +13080,9 @@ design rules under a new name.</description>
 <wire x1="22.2" y1="17.1" x2="22.4" y2="16.7" width="0" layer="19" extent="16-16"/>
 <wire x1="21.5" y1="24.75" x2="21.1" y2="25.1" width="0" layer="19" extent="1-1"/>
 <wire x1="39.85" y1="29.25" x2="40.55" y2="28.55" width="0" layer="19" extent="1-1"/>
-<wire x1="15.8" y1="24.65" x2="14.7" y2="24.6" width="0" layer="19" extent="1-1"/>
+<wire x1="15.8" y1="24.15" x2="14.7" y2="24.6" width="0" layer="19" extent="1-1"/>
 <wire x1="27.8" y1="23.65" x2="25.8" y2="23.65" width="0" layer="19" extent="16-16"/>
-<wire x1="17.8" y1="24.65" x2="15.8" y2="24.65" width="0" layer="19" extent="1-1"/>
+<wire x1="17.8" y1="24.15" x2="15.8" y2="24.15" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="I2C2_SDA">
 <contactref element="R39" pad="2"/>
@@ -13144,7 +13230,6 @@ design rules under a new name.</description>
 <contactref element="C21" pad="2"/>
 <contactref element="C22" pad="2"/>
 <contactref element="TP1" pad="1"/>
-<wire x1="73.5" y1="27.5" x2="73.5" y2="28.65" width="0.254" layer="1"/>
 <wire x1="56" y1="18.95" x2="56" y2="19" width="0.254" layer="1"/>
 <wire x1="56" y1="18" x2="56" y2="18.95" width="0.254" layer="1"/>
 <wire x1="48.2" y1="18" x2="48.2" y2="18.95" width="0.254" layer="1"/>
@@ -13154,14 +13239,14 @@ design rules under a new name.</description>
 <wire x1="29.5" y1="18.95" x2="29.5" y2="19" width="0.254" layer="1"/>
 <wire x1="29.5" y1="18" x2="29.5" y2="18.95" width="0.254" layer="1"/>
 <via x="62.5" y="7" extent="1-16" drill="0.234"/>
-<via x="73.5" y="27.5" extent="1-16" drill="0.254"/>
+<via x="73.8" y="23.1" extent="1-16" drill="0.254"/>
 <via x="57.25" y="18.6" extent="1-16" drill="0.234"/>
 <via x="49.45" y="18.6" extent="1-16" drill="0.234"/>
 <via x="37.45" y="19.7" extent="1-16" drill="0.234"/>
 <via x="29.45" y="19.7" extent="1-16" drill="0.234"/>
 <via x="27.3" y="25.1" extent="1-16" drill="0.254"/>
-<via x="74.5" y="27.5" extent="1-16" drill="0.254"/>
-<via x="72.5" y="27.5" extent="1-16" drill="0.254"/>
+<via x="74.8" y="23.1" extent="1-16" drill="0.254"/>
+<via x="72.8" y="23.1" extent="1-16" drill="0.254"/>
 <polygon width="0.3048" layer="2" isolate="0.1524">
 <vertex x="90" y="0"/>
 <vertex x="90" y="29.25"/>
@@ -13179,10 +13264,8 @@ design rules under a new name.</description>
 </polygon>
 <polygon width="0.3048" layer="1" isolate="0.1524" rank="2">
 <vertex x="90" y="0"/>
-<vertex x="90" y="29.25"/>
-<vertex x="69" y="29.25"/>
-<vertex x="64.75" y="25"/>
-<vertex x="40" y="25"/>
+<vertex x="90" y="24.8"/>
+<vertex x="40.2" y="24.8"/>
 <vertex x="35" y="30"/>
 <vertex x="29" y="30"/>
 <vertex x="24.5" y="25.5"/>
@@ -13252,6 +13335,21 @@ design rules under a new name.</description>
 <wire x1="62.5" y1="3.5" x2="62.5" y2="10.5" width="0.6096" layer="1"/>
 <wire x1="65.5" y1="10.5" x2="65.5" y2="3.5" width="0.6096" layer="1"/>
 <via x="38.5" y="10.5" extent="1-16" drill="0.254"/>
+<contactref element="R57" pad="2"/>
+<contactref element="R56" pad="2"/>
+<contactref element="R55" pad="2"/>
+<contactref element="R54" pad="2"/>
+<contactref element="R3" pad="2"/>
+<via x="75.8" y="23.1" extent="1-16" drill="0.254"/>
+<via x="76.8" y="23.1" extent="1-16" drill="0.254"/>
+<via x="77.8" y="23.1" extent="1-16" drill="0.254"/>
+<via x="78.8" y="23.1" extent="1-16" drill="0.254"/>
+<via x="79.8" y="23.1" extent="1-16" drill="0.254"/>
+<via x="80.8" y="23.1" extent="1-16" drill="0.254"/>
+<via x="81.8" y="23.1" extent="1-16" drill="0.254"/>
+<via x="82.8" y="23.1" extent="1-16" drill="0.254"/>
+<via x="83.8" y="23.1" extent="1-16" drill="0.254"/>
+<via x="84.8" y="23.1" extent="1-16" drill="0.254"/>
 <wire x1="25" y1="23.75" x2="25.8" y2="21.95" width="0" layer="19" extent="1-16"/>
 <wire x1="27.8" y1="21.95" x2="25.8" y2="21.95" width="0" layer="19" extent="16-16"/>
 <wire x1="27.3" y1="25.1" x2="25" y2="23.75" width="0" layer="19" extent="1-1"/>
@@ -13693,11 +13791,11 @@ design rules under a new name.</description>
 <contactref element="JP1" pad="2"/>
 <contactref element="R28" pad="2"/>
 <wire x1="15" y1="27.5" x2="19.75" y2="27.5" width="0.2032" layer="1"/>
-<wire x1="15" y1="27.5" x2="12.5" y2="25" width="0.2032" layer="1"/>
-<wire x1="12.5" y1="25" x2="9.3" y2="25" width="0.254" layer="1"/>
-<wire x1="9.3" y1="25" x2="7.8" y2="23.5" width="0.254" layer="1"/>
-<wire x1="12.5" y1="25" x2="13.2" y2="24.9" width="0" layer="19" extent="1-1"/>
-<wire x1="7.54" y1="23.2" x2="7.8" y2="23.5" width="0" layer="19" extent="1-1"/>
+<wire x1="15" y1="27.5" x2="13.5" y2="26" width="0.2032" layer="1"/>
+<wire x1="13.5" y1="26" x2="11" y2="23.5" width="0.254" layer="1"/>
+<wire x1="11" y1="23.5" x2="3.8" y2="23.5" width="0.254" layer="1"/>
+<wire x1="13.5" y1="26" x2="13.5" y2="26.1" width="0" layer="19" extent="1-1"/>
+<wire x1="3.2" y1="23.46" x2="3.8" y2="23.5" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$29">
 <contactref element="LED1" pad="2"/>
