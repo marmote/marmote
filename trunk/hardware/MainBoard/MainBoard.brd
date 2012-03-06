@@ -8,19 +8,19 @@
 </settings>
 <grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.25" altunitdist="mm" altunit="mm"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
 <layer number="2" name="GND" color="1" fill="3" visible="no" active="yes"/>
 <layer number="3" name="Inner1" color="13" fill="3" visible="no" active="yes"/>
 <layer number="14" name="Inner2" color="10" fill="6" visible="no" active="yes"/>
 <layer number="15" name="SUP" color="4" fill="6" visible="no" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="no" active="yes"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
@@ -39,7 +39,7 @@
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="yes"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="yes"/>
-<layer number="42" name="bRestrict" color="1" fill="10" visible="no" active="yes"/>
+<layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
@@ -140,7 +140,7 @@
 <wire x1="90" y1="0" x2="90" y2="56" width="0" layer="20"/>
 <wire x1="90" y1="56" x2="0" y2="56" width="0" layer="20"/>
 <wire x1="0" y1="56" x2="0" y2="0" width="0" layer="20"/>
-<rectangle x1="50" y1="42" x2="78" y2="56" layer="42"/>
+<rectangle x1="50" y1="42" x2="78" y2="56" layer="40"/>
 <wire x1="45" y1="58" x2="45" y2="-2" width="0.1" layer="48" style="dashdot"/>
 <wire x1="-2" y1="28" x2="92" y2="28" width="0.1" layer="48" style="dashdot"/>
 <rectangle x1="35" y1="41.25" x2="37.25" y2="41.75" layer="46"/>
@@ -153,6 +153,7 @@
 <rectangle x1="44.25" y1="38.5" x2="45.75" y2="41.5" layer="116"/>
 <rectangle x1="41.5" y1="37.25" x2="44.5" y2="38.5" layer="116"/>
 <rectangle x1="39.000021875" y1="35.00001875" x2="40.000021875" y2="36.00001875" layer="101"/>
+<rectangle x1="28" y1="2" x2="31" y2="8" layer="116"/>
 </plain>
 <libraries>
 <library name="Logo">
@@ -11952,33 +11953,33 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <element name="R68" library="MainBoard" package="R0402" value="4.87k" x="81.25" y="28.25" rot="R180">
 <attribute name="TOLERANCE" value="1%" x="81.25" y="28.25" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="J7" library="MainBoard" package="J0G-0007NL" value="CON-RJ45-J0G-0007NL" x="70" y="45.75">
-<attribute name="DIGI-KEY#" value="553-1662-ND" x="70" y="45.75" size="1.778" layer="27" display="off"/>
-<attribute name="MPN" value="J0G-0007NL" x="70" y="45.75" size="1.778" layer="27" display="off"/>
-<attribute name="MF" value="Pulse Electronics Corporation" x="70" y="45.75" size="1.778" layer="27" display="off"/>
+<element name="J7" library="MainBoard" package="J0G-0007NL" value="CON-RJ45-J0G-0007NL" x="70" y="45">
+<attribute name="DIGI-KEY#" value="553-1662-ND" x="70" y="45" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="J0G-0007NL" x="70" y="45" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value="Pulse Electronics Corporation" x="70" y="45" size="1.778" layer="27" display="off"/>
 </element>
-<element name="R69" library="MainBoard" package="R0402" value="110" x="80" y="51.5" rot="MR270">
-<attribute name="TOLERANCE" value="" x="80" y="51.5" size="1.778" layer="28" rot="MR270" display="off"/>
+<element name="R69" library="MainBoard" package="R0402" value="110" x="80" y="50.75" rot="MR270">
+<attribute name="TOLERANCE" value="" x="80" y="50.75" size="1.778" layer="28" rot="MR270" display="off"/>
 </element>
-<element name="R70" library="MainBoard" package="R0402" value="110" x="60" y="51.5" rot="MR270">
-<attribute name="TOLERANCE" value="" x="60" y="51.5" size="1.778" layer="28" rot="MR270" display="off"/>
+<element name="R70" library="MainBoard" package="R0402" value="110" x="60" y="49.25" rot="MR270">
+<attribute name="TOLERANCE" value="" x="60" y="49.25" size="1.778" layer="28" rot="MR270" display="off"/>
 </element>
-<element name="C77" library="MainBoard" package="C0402" value="0.1uF" x="75.5" y="34.75" rot="MR0"/>
-<element name="C78" library="MainBoard" package="C0402" value="0.1uF" x="74.25" y="41" rot="MR0"/>
-<element name="R71" library="MainBoard" package="R0402" value="2.2k" x="74.5" y="44.25" rot="MR270">
-<attribute name="TOLERANCE" value="" x="74.5" y="44.25" size="1.778" layer="28" rot="MR270" display="off"/>
-<attribute name="PAGE3" value="Clock and Reset" x="74.5" y="44.25" size="1.778" layer="28" rot="MR270" display="off"/>
-<attribute name="PAGE4" value="Ethernet" x="74.5" y="44.25" size="1.778" layer="28" rot="MR270" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="74.5" y="44.25" size="1.778" layer="28" rot="MR270" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="74.5" y="44.25" size="1.778" layer="28" rot="MR270" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="74.5" y="44.25" size="1.778" layer="28" rot="MR270" display="off"/>
-<attribute name="TITLE" value="Main Board" x="74.5" y="44.25" size="1.778" layer="28" rot="MR270" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="74.5" y="44.25" size="1.778" layer="28" rot="MR270" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="74.5" y="44.25" size="1.778" layer="28" rot="MR270" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="74.5" y="44.25" size="1.778" layer="28" rot="MR270" display="off"/>
-<attribute name="REVISION" value="A" x="74.5" y="44.25" size="1.778" layer="28" rot="MR270" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="74.5" y="44.25" size="1.778" layer="28" rot="MR270" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="74.5" y="44.25" size="1.778" layer="28" rot="MR270" display="off"/>
+<element name="C77" library="MainBoard" package="C0402" value="0.1uF" x="75.5" y="34.25" rot="MR0"/>
+<element name="C78" library="MainBoard" package="C0402" value="0.1uF" x="72.75" y="40" rot="MR0"/>
+<element name="R71" library="MainBoard" package="R0402" value="2.2k" x="71" y="44.75" rot="MR90">
+<attribute name="TOLERANCE" value="" x="71" y="44.75" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="PAGE3" value="Clock and Reset" x="71" y="44.75" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="PAGE4" value="Ethernet" x="71" y="44.75" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="71" y="44.75" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="71" y="44.75" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="71" y="44.75" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="TITLE" value="Main Board" x="71" y="44.75" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="71" y="44.75" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="71" y="44.75" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="71" y="44.75" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="REVISION" value="A" x="71" y="44.75" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="71" y="44.75" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="71" y="44.75" size="1.778" layer="28" rot="MR90" display="off"/>
 </element>
 <element name="R72" library="MainBoard" package="R0402" value="2.2k" x="77.5" y="30.5" rot="MR180">
 <attribute name="TOLERANCE" value="" x="77.5" y="30.5" size="1.778" layer="28" rot="MR180" display="off"/>
@@ -11995,20 +11996,20 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="PAGE1" value="Cover Page" x="77.5" y="30.5" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="PAGE2" value="FPGA Power Supply" x="77.5" y="30.5" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
-<element name="R73" library="MainBoard" package="R0402" value="2.2k" x="74.5" y="47" rot="MR0">
-<attribute name="PAGE3" value="Clock and Reset" x="74.5" y="47" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE4" value="Ethernet" x="74.5" y="47" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="74.5" y="47" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="74.5" y="47" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="74.5" y="47" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="TITLE" value="Main Board" x="74.5" y="47" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="74.5" y="47" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="74.5" y="47" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="74.5" y="47" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="REVISION" value="A" x="74.5" y="47" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="74.5" y="47" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="74.5" y="47" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="TOLERANCE" value="" x="74.5" y="47" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="R73" library="MainBoard" package="R0402" value="2.2k" x="71.25" y="47.5" rot="MR0">
+<attribute name="PAGE3" value="Clock and Reset" x="71.25" y="47.5" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE4" value="Ethernet" x="71.25" y="47.5" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="71.25" y="47.5" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="71.25" y="47.5" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="71.25" y="47.5" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="TITLE" value="Main Board" x="71.25" y="47.5" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="71.25" y="47.5" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="71.25" y="47.5" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="71.25" y="47.5" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="REVISION" value="A" x="71.25" y="47.5" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="71.25" y="47.5" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="71.25" y="47.5" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="TOLERANCE" value="" x="71.25" y="47.5" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
 <element name="C79" library="MainBoard" package="C0402" value="0.1uF" x="77.5" y="28.25" rot="MR180"/>
 <element name="C80" library="MainBoard" package="C0402" value="0.1uF" x="77.5" y="18.5" rot="MR180"/>
@@ -12073,12 +12074,12 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="PAGE2" value="FPGA Power Supply" x="76.75" y="20.5" size="1.778" layer="28" rot="MR270" display="off"/>
 </element>
 <element name="C81" library="MainBoard" package="C0402" value="0.1uF" x="81.25" y="26.5" rot="MR180"/>
-<element name="B1" library="MainBoard" package="L0603" value="" x="65" y="42" rot="MR180">
-<attribute name="DIGI-KEY#" value="490-5224-1-ND" x="65" y="42" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="MPN" value="BLM18SG700TN1D" x="65" y="42" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="MF" value="Murata" x="65" y="42" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="IMPEDANCE" value="70 Ohm @ 100 MHz" x="65" y="42" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="CURRENT-RATING" value="4 A" x="65" y="42" size="1.778" layer="28" rot="MR180" display="off"/>
+<element name="B1" library="MainBoard" package="L0603" value="" x="66.75" y="41.25" rot="MR180">
+<attribute name="DIGI-KEY#" value="490-5224-1-ND" x="66.75" y="41.25" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="MPN" value="BLM18SG700TN1D" x="66.75" y="41.25" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="MF" value="Murata" x="66.75" y="41.25" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="IMPEDANCE" value="70 Ohm @ 100 MHz" x="66.75" y="41.25" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="CURRENT-RATING" value="4 A" x="66.75" y="41.25" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
 <element name="R78" library="MainBoard" package="R0402" value="22" x="66.5" y="28" rot="R270">
 <attribute name="TOLERANCE" value="" x="66.5" y="28" size="1.778" layer="27" rot="R270" display="off"/>
@@ -12501,7 +12502,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="PAGE1" value="Cover Page" x="79" y="36" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="PAGE2" value="FPGA Power Supply" x="79" y="36" size="1.778" layer="28" rot="MR90" display="off"/>
 </element>
-<element name="C108" library="MainBoard" package="C0402" value="1000pF" x="69" y="43" rot="MR90"/>
+<element name="C108" library="MainBoard" package="C0402" value="1000pF" x="68.75" y="42.5" rot="MR90"/>
 <element name="C109" library="MainBoard" package="C0402" value="2.2uF" x="54" y="45.5" rot="MR180"/>
 <element name="C110" library="MainBoard" package="C0402" value="10uF" x="46.5" y="48.25" rot="MR270"/>
 <element name="C111" library="MainBoard" package="C0402" value="10uF" x="45.5" y="48.25" rot="MR270"/>
@@ -12659,42 +12660,42 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="PAGE1" value="Cover Page" x="33.25" y="40" size="1.778" layer="27" display="off"/>
 <attribute name="PAGE2" value="FPGA Power Supply" x="33.25" y="40" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C128" library="MainBoard" package="C0402" value="10pF" x="42.75" y="52" rot="R90">
-<attribute name="PAGE3" value="Clock and Reset" x="42.75" y="52" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE4" value="Ethernet (RMII)" x="42.75" y="52" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="42.75" y="52" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="42.75" y="52" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="42.75" y="52" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="TITLE" value="Main Board" x="42.75" y="52" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="42.75" y="52" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="42.75" y="52" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="42.75" y="52" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="REVISION" value="A" x="42.75" y="52" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="42.75" y="52" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="42.75" y="52" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="C128" library="MainBoard" package="C0402" value="10pF" x="43" y="52" rot="R90">
+<attribute name="PAGE3" value="Clock and Reset" x="43" y="52" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PAGE4" value="Ethernet (RMII)" x="43" y="52" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="43" y="52" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="43" y="52" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="43" y="52" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="TITLE" value="Main Board" x="43" y="52" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="43" y="52" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="43" y="52" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="43" y="52" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="REVISION" value="A" x="43" y="52" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="43" y="52" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="43" y="52" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="C129" library="MainBoard" package="C0402" value="10pF" x="40.25" y="52" rot="R90">
-<attribute name="PAGE3" value="Clock and Reset" x="40.25" y="52" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE4" value="Ethernet (RMII)" x="40.25" y="52" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="40.25" y="52" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="40.25" y="52" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="40.25" y="52" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="TITLE" value="Main Board" x="40.25" y="52" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="40.25" y="52" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="40.25" y="52" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="40.25" y="52" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="REVISION" value="A" x="40.25" y="52" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="40.25" y="52" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="40.25" y="52" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="C129" library="MainBoard" package="C0402" value="10pF" x="41" y="52" rot="R90">
+<attribute name="PAGE3" value="Clock and Reset" x="41" y="52" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PAGE4" value="Ethernet (RMII)" x="41" y="52" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="41" y="52" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="41" y="52" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="41" y="52" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="TITLE" value="Main Board" x="41" y="52" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="41" y="52" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="41" y="52" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="41" y="52" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="REVISION" value="A" x="41" y="52" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="41" y="52" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="41" y="52" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="X1" library="MainBoard" package="ECX-2236" value="ECX-2236-200" x="42" y="49">
-<attribute name="CLOAD" value="8pF" x="42" y="49" size="1.778" layer="27" display="off"/>
-<attribute name="DIGI-KEY#" value="XC1552CT-ND" x="42" y="49" size="1.778" layer="27" display="off"/>
-<attribute name="FREQ" value="20 MHz" x="42" y="49" size="1.778" layer="27" display="off"/>
-<attribute name="FREQ-TOLERANCE" value="10 ppm" x="42" y="49" size="1.778" layer="27" display="off"/>
-<attribute name="MPN" value="ECS-200-8-36CKM " x="42" y="49" size="1.778" layer="27" display="off"/>
-<attribute name="MF" value="ECS" x="42" y="49" size="1.778" layer="27" display="off"/>
-<attribute name="FREQ-STAB" value="10 ppm" x="42" y="49" size="1.778" layer="27" display="off"/>
+<element name="X1" library="MainBoard" package="ECX-2236" value="ECX-2236-200" x="41.5" y="48.75" rot="R270">
+<attribute name="CLOAD" value="8pF" x="41.5" y="48.75" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DIGI-KEY#" value="XC1552CT-ND" x="41.5" y="48.75" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="FREQ" value="20 MHz" x="41.5" y="48.75" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="FREQ-TOLERANCE" value="10 ppm" x="41.5" y="48.75" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value="ECS-200-8-36CKM " x="41.5" y="48.75" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value="ECS" x="41.5" y="48.75" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="FREQ-STAB" value="10 ppm" x="41.5" y="48.75" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="C132" library="MainBoard" package="C0402" value="0.1uF" x="45.5" y="43" rot="MR0">
 <attribute name="PAGE3" value="Clock and Reset" x="45.5" y="43" size="1.778" layer="28" rot="MR0" display="off"/>
@@ -12993,7 +12994,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="22" y="35.25" extent="1-16" drill="0.2032"/>
 <wire x1="21.75" y1="33.8" x2="21.75" y2="35" width="0.3048" layer="1"/>
 <wire x1="21.75" y1="35" x2="22" y2="35.25" width="0.3048" layer="1"/>
-<wire x1="20.3" y1="51.325" x2="20.3" y2="50.55" width="0.3048" layer="1"/>
+<wire x1="20.3" y1="51.325" x2="20.3" y2="50.45" width="0.3048" layer="1"/>
 <via x="19.85" y="50" extent="1-16" drill="0.2032"/>
 <wire x1="22.85" y1="47" x2="21.75" y2="47" width="0.1524" layer="1"/>
 <via x="21.75" y="47" extent="1-16" drill="0.2032"/>
@@ -13197,32 +13198,31 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="C146" pad="2"/>
 <contactref element="C143" pad="2"/>
 <via x="20.75" y="50" extent="1-16" drill="0.2032"/>
-<wire x1="20.3" y1="50.55" x2="20.3" y2="50.45" width="0.3048" layer="1"/>
 <wire x1="20.3" y1="50.45" x2="19.85" y2="50" width="0.3048" layer="1"/>
 <wire x1="20.75" y1="50" x2="20.3" y2="50.45" width="0.3048" layer="1"/>
 <contactref element="R13" pad="1"/>
-<wire x1="69" y1="42.35" x2="73.6" y2="41" width="0" layer="19" extent="16-16"/>
-<wire x1="74.85" y1="34.75" x2="73.6" y2="41" width="0" layer="19" extent="16-16"/>
-<wire x1="74.25" y1="32.9" x2="74.85" y2="34.75" width="0" layer="19" extent="16-16"/>
-<wire x1="73.25" y1="32.9" x2="74.25" y2="32.9" width="0" layer="19" extent="16-16"/>
-<wire x1="71.5" y1="30.5" x2="73.25" y2="32.9" width="0" layer="19" extent="1-16"/>
-<wire x1="65.85" y1="28.5" x2="71.25" y2="29.2" width="0" layer="19" extent="1-16"/>
-<wire x1="70.75" y1="23.4" x2="71.25" y2="29.2" width="0" layer="19" extent="1-16"/>
-<wire x1="69.8" y1="22.75" x2="70.75" y2="23.4" width="0" layer="19" extent="1-16"/>
-<wire x1="69.5" y1="23.4" x2="69.8" y2="22.75" width="0" layer="19" extent="1-16"/>
-<wire x1="72.85" y1="18.25" x2="69.8" y2="22.75" width="0" layer="19" extent="1-1"/>
+<wire x1="81.9" y1="28.5" x2="81.9" y2="28.25" width="0" layer="19" extent="1-16"/>
+<wire x1="81.9" y1="27.5" x2="81.9" y2="28.25" width="0" layer="19" extent="1-16"/>
+<wire x1="81.9" y1="26.5" x2="81.9" y2="27.5" width="0" layer="19" extent="16-16"/>
+<wire x1="81.9" y1="24.75" x2="81.9" y2="26.5" width="0" layer="19" extent="16-16"/>
+<wire x1="79.5" y1="25.25" x2="81.9" y2="24.75" width="0" layer="19" extent="16-16"/>
+<wire x1="79.5" y1="23.25" x2="79.5" y2="25.25" width="0" layer="19" extent="1-1"/>
+<wire x1="78.15" y1="28.25" x2="78.2" y2="25.25" width="0" layer="19" extent="1-16"/>
+<wire x1="78.15" y1="18.5" x2="78.2" y2="23.25" width="0" layer="19" extent="1-16"/>
+<wire x1="72.85" y1="18.25" x2="78.15" y2="18.5" width="0" layer="19" extent="1-16"/>
 <wire x1="71.6" y1="15.25" x2="72.85" y2="18.25" width="0" layer="19" extent="1-1"/>
 <wire x1="69.35" y1="17" x2="71.6" y2="15.25" width="0" layer="19" extent="1-1"/>
-<wire x1="78.15" y1="18.5" x2="72.85" y2="18.25" width="0" layer="19" extent="1-16"/>
-<wire x1="78.2" y1="23.25" x2="78.15" y2="18.5" width="0" layer="19" extent="1-16"/>
-<wire x1="79.5" y1="25.25" x2="79.5" y2="23.25" width="0" layer="19" extent="1-1"/>
-<wire x1="81.9" y1="24.75" x2="79.5" y2="25.25" width="0" layer="19" extent="16-16"/>
-<wire x1="81.9" y1="26.5" x2="81.9" y2="24.75" width="0" layer="19" extent="16-16"/>
-<wire x1="81.9" y1="27.5" x2="81.9" y2="26.5" width="0" layer="19" extent="16-16"/>
-<wire x1="81.9" y1="28.25" x2="81.9" y2="27.5" width="0" layer="19" extent="1-16"/>
-<wire x1="81.9" y1="28.5" x2="81.9" y2="28.25" width="0" layer="19" extent="1-16"/>
-<wire x1="78.15" y1="28.25" x2="78.2" y2="25.25" width="0" layer="19" extent="1-16"/>
+<wire x1="69.8" y1="22.75" x2="72.85" y2="18.25" width="0" layer="19" extent="1-1"/>
+<wire x1="69.5" y1="23.4" x2="69.8" y2="22.75" width="0" layer="19" extent="1-16"/>
+<wire x1="70.75" y1="23.4" x2="69.8" y2="22.75" width="0" layer="19" extent="1-16"/>
 <wire x1="86" y1="20.9" x2="81.9" y2="24.75" width="0" layer="19" extent="1-16"/>
+<wire x1="71.25" y1="29.2" x2="70.75" y2="23.4" width="0" layer="19" extent="1-16"/>
+<wire x1="73.25" y1="32.9" x2="71.5" y2="30.5" width="0" layer="19" extent="1-16"/>
+<wire x1="74.25" y1="32.9" x2="73.25" y2="32.9" width="0" layer="19" extent="16-16"/>
+<wire x1="74.85" y1="34.25" x2="74.25" y2="32.9" width="0" layer="19" extent="16-16"/>
+<wire x1="65.85" y1="28.5" x2="71.25" y2="29.2" width="0" layer="19" extent="1-16"/>
+<wire x1="72.1" y1="40" x2="74.85" y2="34.25" width="0" layer="19" extent="16-16"/>
+<wire x1="68.75" y1="41.85" x2="72.1" y2="40" width="0" layer="19" extent="16-16"/>
 <wire x1="79.25" y1="11.35" x2="78.15" y2="18.5" width="0" layer="19" extent="16-16"/>
 <wire x1="58.35" y1="36.75" x2="65.85" y2="28.5" width="0" layer="19" extent="16-16"/>
 <wire x1="55.15" y1="36.5" x2="58.35" y2="36.75" width="0" layer="19" extent="16-16"/>
@@ -13331,9 +13331,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="15.85" y1="47.5" x2="17.5" y2="43.5" width="0" layer="19" extent="1-16"/>
 <wire x1="14.85" y1="47.5" x2="15.85" y2="47.5" width="0" layer="19" extent="1-16"/>
 <wire x1="26.5" y1="50.4" x2="22.85" y2="47" width="0" layer="19" extent="1-16"/>
+<wire x1="40.85" y1="47.9" x2="38" y2="43" width="0" layer="19" extent="1-1"/>
+<wire x1="42.15" y1="49.6" x2="40.85" y2="47.9" width="0" layer="19" extent="1-1"/>
 <wire x1="13.5" y1="26.6" x2="12" y2="32.4" width="0" layer="19" extent="16-16"/>
-<wire x1="42.85" y1="48.35" x2="42.9" y2="42" width="0" layer="19" extent="1-16"/>
-<wire x1="41.15" y1="49.65" x2="42.85" y2="48.35" width="0" layer="19" extent="1-1"/>
 <wire x1="4" y1="32.6609" x2="12" y2="32.4" width="0" layer="19" extent="1-16"/>
 <wire x1="3.8791" y1="27.46" x2="3.8791" y2="32.54" width="0" layer="19" extent="1-1"/>
 <wire x1="4" y1="20.9" x2="4" y2="26.5" width="0" layer="19" extent="1-1"/>
@@ -13682,10 +13682,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="49" y1="38" x2="48.5" y2="37.5" width="0.1524" layer="16"/>
 <wire x1="78.15" y1="30.5" x2="79" y2="30.5" width="0.1524" layer="16"/>
 <via x="79" y="30.5" extent="1-16" drill="0.2032"/>
-<wire x1="73.85" y1="47" x2="80" y2="50.85" width="0" layer="19" extent="16-16"/>
-<wire x1="74.5" y1="43.6" x2="73.85" y2="47" width="0" layer="19" extent="16-16"/>
-<wire x1="64.15" y1="42" x2="74.5" y2="43.6" width="0" layer="19" extent="16-16"/>
-<wire x1="62.5" y1="37.6" x2="64.15" y2="42" width="0" layer="19" extent="16-16"/>
+<wire x1="70.6" y1="47.5" x2="80" y2="50.1" width="0" layer="19" extent="16-16"/>
+<wire x1="71" y1="45.4" x2="70.6" y2="47.5" width="0" layer="19" extent="16-16"/>
+<wire x1="65.9" y1="41.25" x2="71" y2="45.4" width="0" layer="19" extent="16-16"/>
+<wire x1="62.5" y1="37.6" x2="65.9" y2="41.25" width="0" layer="19" extent="16-16"/>
 <wire x1="57.35" y1="38.75" x2="62.5" y2="37.6" width="0" layer="19" extent="16-16"/>
 <wire x1="54.1" y1="40" x2="57.35" y2="38.75" width="0" layer="19" extent="16-16"/>
 <wire x1="50.5" y1="37.5" x2="50.5" y2="39.5" width="0" layer="19" extent="1-1"/>
@@ -13711,8 +13711,8 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="36.9" y1="24.75" x2="37.9" y2="30" width="0" layer="19" extent="16-16"/>
 <wire x1="37.4" y1="21.75" x2="38.25" y2="23.5" width="0" layer="19" extent="1-16"/>
 <wire x1="58.2" y1="48.05" x2="54.1" y2="43" width="0" layer="19" extent="1-16"/>
+<wire x1="60" y1="48.6" x2="58.2" y2="48.05" width="0" layer="19" extent="1-16"/>
 <wire x1="57.65" y1="50" x2="58.2" y2="48.05" width="0" layer="19" extent="1-1"/>
-<wire x1="60" y1="50.85" x2="57.65" y2="50" width="0" layer="19" extent="1-16"/>
 <wire x1="28.85" y1="22.5" x2="36.9" y2="23.75" width="0" layer="19" extent="16-16"/>
 <wire x1="28.85" y1="21.5" x2="28.85" y2="22.5" width="0" layer="19" extent="16-16"/>
 <wire x1="28.85" y1="18.25" x2="28.85" y2="21.5" width="0" layer="19" extent="16-16"/>
@@ -14093,7 +14093,6 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="38.5" y1="3.5" x2="38.5" y2="5" width="0.3048" layer="1"/>
 <wire x1="41.5" y1="5.15" x2="41.5" y2="3.5" width="0.3048" layer="1"/>
 <via x="41.5" y="3.5" extent="1-16" drill="0.2032"/>
-<wire x1="41.5" y1="3.5" x2="41.5" y2="10.5" width="0.3048" layer="16"/>
 <via x="41.5" y="10.5" extent="1-16" drill="0.2032"/>
 <wire x1="41.5" y1="10.5" x2="41.5" y2="8.85" width="0.3048" layer="1"/>
 <wire x1="65.5" y1="8.85" x2="65.5" y2="10.5" width="0.3048" layer="16"/>
@@ -14101,7 +14100,6 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="65.5" y1="10.5" x2="65.5" y2="8.85" width="0.3048" layer="1"/>
 <wire x1="44.5" y1="5.15" x2="44.5" y2="3.5" width="0.3048" layer="1"/>
 <via x="44.5" y="3.5" extent="1-16" drill="0.2032"/>
-<wire x1="44.5" y1="3.5" x2="44.5" y2="10.5" width="0.3048" layer="16"/>
 <via x="44.5" y="10.5" extent="1-16" drill="0.2032"/>
 <wire x1="44.5" y1="10.5" x2="44.5" y2="8.85" width="0.3048" layer="1"/>
 <wire x1="38.5" y1="3.5" x2="38.5" y2="2.75" width="0.3048" layer="1"/>
@@ -14132,27 +14130,22 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="62.5" y1="3.5" x2="62.5" y2="2.5" width="0.3048" layer="1"/>
 <wire x1="50.5" y1="8.85" x2="50.5" y2="10.5" width="0.3048" layer="1"/>
 <via x="50.5" y="10.5" extent="1-16" drill="0.2032"/>
-<wire x1="50.5" y1="10.5" x2="50.5" y2="3.5" width="0.3048" layer="16"/>
 <via x="50.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="50.5" y1="3.5" x2="50.5" y2="5.15" width="0.3048" layer="1"/>
 <via x="47.5" y="10.5" extent="1-16" drill="0.2032"/>
 <wire x1="47.5" y1="8.85" x2="47.5" y2="10.5" width="0.3048" layer="1"/>
-<wire x1="47.5" y1="10.5" x2="47.5" y2="3.5" width="0.3048" layer="16"/>
 <via x="47.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="47.5" y1="3.5" x2="47.5" y2="8.85" width="0.3048" layer="1"/>
 <wire x1="53.5" y1="5.15" x2="53.5" y2="3.5" width="0.3048" layer="1"/>
 <via x="53.5" y="3.5" extent="1-16" drill="0.2032"/>
-<wire x1="53.5" y1="3.5" x2="53.5" y2="10.5" width="0.3048" layer="16"/>
 <via x="53.5" y="10.5" extent="1-16" drill="0.2032"/>
 <wire x1="53.5" y1="10.5" x2="53.5" y2="3.5" width="0.3048" layer="1"/>
 <via x="56.5" y="10.5" extent="1-16" drill="0.2032"/>
 <wire x1="56.5" y1="8.85" x2="56.5" y2="10.5" width="0.3048" layer="1"/>
-<wire x1="56.5" y1="10.5" x2="56.5" y2="3.5" width="0.3048" layer="16"/>
 <via x="56.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="56.5" y1="3.5" x2="56.5" y2="8.85" width="0.3048" layer="1"/>
 <wire x1="59.5" y1="8.85" x2="59.5" y2="10.5" width="0.3048" layer="1"/>
 <via x="59.5" y="10.5" extent="1-16" drill="0.2032"/>
-<wire x1="59.5" y1="10.5" x2="59.5" y2="3.5" width="0.3048" layer="16"/>
 <via x="59.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="59.5" y1="3.5" x2="59.5" y2="5.15" width="0.3048" layer="1"/>
 <wire x1="58.5" y1="20.25" x2="59.75" y2="20.25" width="0.1524" layer="1"/>
@@ -14307,9 +14300,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="53.25" y1="43.5" x2="54.65" y2="44.5" width="0" layer="19" extent="1-16"/>
 <wire x1="47.65" y1="51.95" x2="47.5" y2="48.9" width="0" layer="19" extent="1-16"/>
 <wire x1="50" y1="39" x2="47.5" y2="41.5" width="0" layer="19" extent="1-1"/>
-<wire x1="42.75" y1="52.65" x2="42.5" y2="48.9" width="0" layer="19" extent="1-16"/>
-<wire x1="40.25" y1="52.65" x2="42.75" y2="52.65" width="0" layer="19" extent="1-1"/>
-<wire x1="39" y1="52.65" x2="40.25" y2="52.65" width="0" layer="19" extent="1-1"/>
+<wire x1="43" y1="52.65" x2="43.5" y2="48.9" width="0" layer="19" extent="1-16"/>
+<wire x1="41" y1="52.65" x2="43" y2="52.65" width="0" layer="19" extent="1-1"/>
+<wire x1="39" y1="52.65" x2="41" y2="52.65" width="0" layer="19" extent="1-1"/>
 <wire x1="36.5" y1="52.65" x2="39" y2="52.65" width="0" layer="19" extent="1-1"/>
 <wire x1="34.35" y1="44.5" x2="39" y2="45.4" width="0" layer="19" extent="16-16"/>
 <wire x1="52" y1="34" x2="49.5" y2="38.5" width="0" layer="19" extent="1-1"/>
@@ -14595,9 +14588,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="72.25" y1="29.2" x2="72.25" y2="30.5" width="0.1524" layer="1"/>
 <via x="72.25" y="30.5" extent="1-16" drill="0.2032"/>
 <wire x1="72.25" y1="30.5" x2="68.25" y2="34.5" width="0.1524" layer="3"/>
-<wire x1="68.25" y1="34.5" x2="64.25" y2="34.5" width="0.1524" layer="3"/>
-<wire x1="64.25" y1="34.5" x2="61.75" y2="37" width="0.1524" layer="3"/>
-<wire x1="61.75" y1="37" x2="61.75" y2="39.5" width="0.1524" layer="3"/>
+<wire x1="68.25" y1="34.5" x2="63.75" y2="34.5" width="0.1524" layer="3"/>
+<wire x1="63.75" y1="34.5" x2="61.75" y2="36.5" width="0.1524" layer="3"/>
+<wire x1="61.75" y1="36.5" x2="61.75" y2="39.5" width="0.1524" layer="3"/>
 <wire x1="61.75" y1="39.5" x2="57.75" y2="43.5" width="0.1524" layer="3"/>
 <wire x1="57.75" y1="43.5" x2="58" y2="44.1" width="0" layer="19" extent="3-16"/>
 </signal>
@@ -15821,9 +15814,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="R74" pad="1"/>
 <wire x1="78.2" y1="24.25" x2="76.75" y2="24.25" width="0.1524" layer="1"/>
 <via x="76.75" y="24.25" extent="1-16" drill="0.2032"/>
-<wire x1="76.75" y1="24.25" x2="76.75" y2="33.92" width="0.1524" layer="3"/>
-<wire x1="76.75" y1="33.92" x2="74.064" y2="36.606" width="0.1524" layer="3"/>
+<wire x1="76.75" y1="24.25" x2="76.75" y2="32.25" width="0.1524" layer="3"/>
+<wire x1="74" y1="35" x2="74" y2="35.856" width="0.1524" layer="3"/>
+<wire x1="74" y1="35.856" x2="74.064" y2="35.856" width="0.1524" layer="3"/>
 <wire x1="76.75" y1="24.25" x2="76.75" y2="25.6" width="0.1524" layer="16"/>
+<wire x1="74" y1="35" x2="76.75" y2="32.25" width="0.1524" layer="3"/>
 </signal>
 <signal name="TD-">
 <contactref element="U6" pad="16"/>
@@ -15832,10 +15827,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="78.2" y1="23.75" x2="75.5" y2="23.75" width="0.1524" layer="1"/>
 <via x="75.5" y="23.75" extent="1-16" drill="0.2032"/>
 <wire x1="75.5" y1="23.75" x2="74.25" y2="25" width="0.1524" layer="3"/>
-<wire x1="74.25" y1="25" x2="74.25" y2="33.75" width="0.1524" layer="3"/>
-<wire x1="72.032" y1="36.606" x2="72.032" y2="35.968" width="0.1524" layer="3"/>
-<wire x1="72.032" y1="35.968" x2="74.25" y2="33.75" width="0.1524" layer="3"/>
+<wire x1="74.25" y1="25" x2="74.25" y2="32.75" width="0.1524" layer="3"/>
 <wire x1="75.5" y1="25.6" x2="75.5" y2="23.75" width="0.1524" layer="16"/>
+<wire x1="74.25" y1="32.75" x2="72.032" y2="34.968" width="0.1524" layer="3"/>
+<wire x1="72.032" y1="35.856" x2="72.032" y2="34.968" width="0.1524" layer="3"/>
 </signal>
 <signal name="RD+">
 <contactref element="U6" pad="14"/>
@@ -15844,9 +15839,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="78.2" y1="22.75" x2="75.5" y2="22.75" width="0.1524" layer="1"/>
 <via x="75.5" y="22.75" extent="1-16" drill="0.2032"/>
 <wire x1="75.5" y1="22.75" x2="73.75" y2="24.5" width="0.1524" layer="3"/>
-<wire x1="73.75" y1="24.5" x2="73.75" y2="33" width="0.1524" layer="3"/>
-<wire x1="71.016" y1="39.146" x2="71.016" y2="35.734" width="0.1524" layer="3"/>
-<wire x1="71.016" y1="35.734" x2="73.75" y2="33" width="0.1524" layer="3"/>
+<wire x1="73.75" y1="24.5" x2="73.75" y2="32.25" width="0.1524" layer="3"/>
+<wire x1="71.016" y1="38.396" x2="71.016" y2="34.984" width="0.1524" layer="3"/>
+<wire x1="71.016" y1="34.984" x2="73.75" y2="32.25" width="0.1524" layer="3"/>
 <wire x1="75.5" y1="21.15" x2="75.5" y2="22.75" width="0.1524" layer="16"/>
 </signal>
 <signal name="RD-">
@@ -15856,59 +15851,64 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="78.2" y1="22.25" x2="76.75" y2="22.25" width="0.1524" layer="1"/>
 <via x="76.75" y="22.25" extent="1-16" drill="0.2032"/>
 <wire x1="76.75" y1="22.25" x2="76.25" y2="22.75" width="0.1524" layer="3"/>
-<wire x1="76.25" y1="22.75" x2="76.25" y2="33" width="0.1524" layer="3"/>
-<wire x1="73.048" y1="39.146" x2="73.048" y2="36.202" width="0.1524" layer="3"/>
-<wire x1="73.048" y1="36.202" x2="76.25" y2="33" width="0.1524" layer="3"/>
+<wire x1="76.25" y1="22.75" x2="76.25" y2="31.75" width="0.1524" layer="3"/>
+<wire x1="73.048" y1="38.396" x2="73.048" y2="34.952" width="0.1524" layer="3"/>
+<wire x1="73.048" y1="34.952" x2="76.25" y2="31.75" width="0.1524" layer="3"/>
 <wire x1="76.75" y1="21.15" x2="76.75" y2="22.25" width="0.1524" layer="16"/>
 </signal>
 <signal name="YEL+">
 <contactref element="J7" pad="14"/>
 <contactref element="R70" pad="1"/>
-<wire x1="60" y1="52.15" x2="60" y2="52.1584" width="0.1524" layer="16"/>
-<wire x1="60" y1="52.1584" x2="62.4816" y2="54.64" width="0.1524" layer="16"/>
+<wire x1="60" y1="49.9" x2="60" y2="51.4084" width="0.1524" layer="16"/>
+<wire x1="60" y1="51.4084" x2="62.4816" y2="53.89" width="0.1524" layer="16"/>
 </signal>
 <signal name="COM+">
 <contactref element="J7" pad="16"/>
 <contactref element="R69" pad="1"/>
-<wire x1="77.5184" y1="52.1" x2="79.95" y2="52.1" width="0.1524" layer="16"/>
-<wire x1="79.95" y1="52.1" x2="80" y2="52.15" width="0.1524" layer="16"/>
+<wire x1="77.5184" y1="51.35" x2="79.95" y2="51.35" width="0.1524" layer="16"/>
+<wire x1="79.95" y1="51.35" x2="80" y2="51.4" width="0.1524" layer="16"/>
 </signal>
 <signal name="LED_ETH_ACT">
 <contactref element="J7" pad="13"/>
 <contactref element="U6" pad="26"/>
 <contactref element="R71" pad="1"/>
-<wire x1="62.4816" y1="52.1" x2="67.4" y2="52.1" width="0.1524" layer="16"/>
-<wire x1="67.4" y1="52.1" x2="72.5" y2="47" width="0.1524" layer="16"/>
-<wire x1="72.5" y1="47" x2="77.5" y2="42" width="0.1524" layer="16"/>
-<wire x1="77.5" y1="42" x2="77.5" y2="34.25" width="0.1524" layer="16"/>
+<wire x1="62.4816" y1="51.35" x2="63.65" y2="51.35" width="0.1524" layer="16"/>
+<wire x1="63.65" y1="51.35" x2="71" y2="44" width="0.1524" layer="16"/>
+<wire x1="71" y1="44" x2="74" y2="41" width="0.1524" layer="16"/>
+<wire x1="74" y1="41" x2="77.5" y2="37.5" width="0.1524" layer="16"/>
+<wire x1="77.5" y1="37.5" x2="77.5" y2="34.25" width="0.1524" layer="16"/>
 <via x="77.5" y="34.25" extent="1-16" drill="0.2032"/>
 <wire x1="77.5" y1="34.25" x2="77.5" y2="32" width="0.1524" layer="1"/>
 <wire x1="77.5" y1="32" x2="76.25" y2="30.75" width="0.1524" layer="1"/>
 <wire x1="76.25" y1="30.75" x2="76.25" y2="29.2" width="0.1524" layer="1"/>
-<wire x1="74.5" y1="44.9" x2="72.5" y2="47" width="0.1524" layer="16"/>
+<wire x1="71" y1="44.1" x2="71" y2="44" width="0.1524" layer="16"/>
 </signal>
 <signal name="LED_ETH_LINK">
 <contactref element="U6" pad="28"/>
 <contactref element="J7" pad="17"/>
 <contactref element="R73" pad="1"/>
-<wire x1="77.5184" y1="54.64" x2="76" y2="53.1216" width="0.1524" layer="16"/>
-<wire x1="76" y1="53.1216" x2="76" y2="47" width="0.1524" layer="16"/>
-<wire x1="76" y1="47" x2="76" y2="44.25" width="0.1524" layer="16"/>
-<wire x1="76" y1="44.25" x2="78.25" y2="42" width="0.1524" layer="16"/>
-<wire x1="78.25" y1="42" x2="78.25" y2="34.25" width="0.1524" layer="16"/>
+<wire x1="77.5184" y1="53.89" x2="76" y2="52.3716" width="0.1524" layer="16"/>
+<wire x1="72" y1="47.5" x2="72" y2="43.75" width="0.1524" layer="16"/>
+<wire x1="72" y1="43.75" x2="74.25" y2="41.5" width="0.1524" layer="16"/>
+<wire x1="74.25" y1="41.5" x2="78.25" y2="37.5" width="0.1524" layer="16"/>
+<wire x1="78.25" y1="37.5" x2="78.25" y2="34.25" width="0.1524" layer="16"/>
 <wire x1="75.25" y1="29.2" x2="75.25" y2="30.5" width="0.1524" layer="1"/>
 <via x="75.25" y="30.5" extent="1-16" drill="0.2032"/>
 <wire x1="75.25" y1="30.5" x2="75.25" y2="31.25" width="0.1524" layer="16"/>
 <wire x1="75.25" y1="31.25" x2="78.25" y2="34.25" width="0.1524" layer="16"/>
-<wire x1="75.15" y1="47" x2="76" y2="47" width="0.1524" layer="16"/>
+<wire x1="76" y1="52.3716" x2="72" y2="48.3716" width="0.1524" layer="16"/>
+<wire x1="72" y1="48.3716" x2="72" y2="47.5" width="0.1524" layer="16"/>
+<wire x1="72" y1="47.5" x2="71.9" y2="47.5" width="0.1524" layer="16"/>
 </signal>
 <signal name="LED_ETH_SPD">
 <contactref element="J7" pad="15"/>
 <contactref element="R26" pad="2"/>
-<wire x1="77" y1="49.0416" x2="77.5184" y2="49.56" width="0.1524" layer="16"/>
+<wire x1="80.5" y1="46.5416" x2="78.25" y2="48.75" width="0.1524" layer="16"/>
+<wire x1="78.25" y1="48.75" x2="77.5184" y2="48.75" width="0.1524" layer="16"/>
+<wire x1="77.5184" y1="48.75" x2="77.5184" y2="48.81" width="0.1524" layer="16"/>
 <wire x1="79" y1="36.65" x2="79" y2="42" width="0.1524" layer="16"/>
-<wire x1="79" y1="42" x2="77" y2="44" width="0.1524" layer="16"/>
-<wire x1="77" y1="44" x2="77" y2="49.0416" width="0.1524" layer="16"/>
+<wire x1="79" y1="42" x2="80.5" y2="43.5" width="0.1524" layer="16"/>
+<wire x1="80.5" y1="43.5" x2="80.5" y2="46.5416" width="0.1524" layer="16"/>
 </signal>
 <signal name="E3V3">
 <contactref element="J7" pad="6"/>
@@ -15932,10 +15932,8 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="83" y="26.5" extent="1-16" drill="0.2032"/>
 <wire x1="81.9" y1="25.5" x2="83" y2="25.5" width="0.1524" layer="1"/>
 <via x="83" y="25.5" extent="1-16" drill="0.2032"/>
-<wire x1="76.096" y1="36.606" x2="76.15" y2="36.552" width="0.1524" layer="16"/>
-<wire x1="76.15" y1="36.552" x2="76.15" y2="34.75" width="0.1524" layer="16"/>
-<wire x1="75.08" y1="39.146" x2="74.9" y2="39.326" width="0.1524" layer="16"/>
-<wire x1="74.9" y1="39.326" x2="74.9" y2="41" width="0.1524" layer="16"/>
+<wire x1="76.096" y1="35.856" x2="76.15" y2="35.802" width="0.1524" layer="16"/>
+<wire x1="76.15" y1="35.802" x2="76.15" y2="34.25" width="0.1524" layer="16"/>
 <wire x1="75.5" y1="19.85" x2="76.75" y2="19.85" width="0.1524" layer="16"/>
 <wire x1="76.75" y1="26.9" x2="75.5" y2="26.9" width="0.1524" layer="16"/>
 <wire x1="79.5" y1="26.75" x2="79.75" y2="26.5" width="0.1524" layer="16"/>
@@ -15944,13 +15942,15 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="76.75" y1="18.6" x2="76.75" y2="19.85" width="0.1524" layer="16"/>
 <wire x1="76.75" y1="26.9" x2="76.75" y2="28.15" width="0.1524" layer="16"/>
 <wire x1="76.75" y1="28.15" x2="76.85" y2="28.25" width="0.1524" layer="16"/>
-<wire x1="76.096" y1="36.606" x2="75.08" y2="39.146" width="0" layer="19" extent="1-1"/>
-<wire x1="76.85" y1="28.25" x2="76.15" y2="34.75" width="0" layer="19" extent="16-16"/>
+<wire x1="73.4" y1="40" x2="73.476" y2="40" width="0.1524" layer="16"/>
+<wire x1="73.476" y1="40" x2="75.08" y2="38.396" width="0.1524" layer="16"/>
+<wire x1="76.096" y1="35.856" x2="75.08" y2="38.396" width="0" layer="19" extent="1-1"/>
+<wire x1="67.6" y1="41.25" x2="73.4" y2="40" width="0" layer="19" extent="16-16"/>
+<wire x1="76.85" y1="28.25" x2="76.15" y2="34.25" width="0" layer="19" extent="16-16"/>
 <wire x1="78.2" y1="26.75" x2="76.75" y2="26.9" width="0" layer="19" extent="1-16"/>
 <wire x1="81.9" y1="26.5" x2="80.6" y2="26.5" width="0" layer="19" extent="1-16"/>
 <wire x1="81.9" y1="25.5" x2="81.9" y2="26.5" width="0" layer="19" extent="1-1"/>
 <wire x1="76.75" y1="19.85" x2="76.75" y2="26.9" width="0" layer="19" extent="16-16"/>
-<wire x1="65.85" y1="42" x2="74.9" y2="41" width="0" layer="19" extent="16-16"/>
 </signal>
 <signal name="MAC_MDC">
 <contactref element="U1" pad="K2"/>
@@ -15961,9 +15961,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="53" y1="40" x2="52" y2="40" width="0.1524" layer="1"/>
 <wire x1="71" y1="33.5" x2="68" y2="33.5" width="0.1524" layer="1"/>
 <via x="68" y="33.5" extent="1-16" drill="0.2032"/>
-<wire x1="68" y1="33.5" x2="63.75" y2="33.5" width="0.1524" layer="3"/>
-<wire x1="63.75" y1="33.5" x2="60.75" y2="36.5" width="0.1524" layer="3"/>
-<wire x1="60.75" y1="36.5" x2="60.75" y2="39.5" width="0.1524" layer="3"/>
+<wire x1="68" y1="33.5" x2="63.25" y2="33.5" width="0.1524" layer="3"/>
+<wire x1="63.25" y1="33.5" x2="60.75" y2="36" width="0.1524" layer="3"/>
+<wire x1="60.75" y1="36" x2="60.75" y2="39.5" width="0.1524" layer="3"/>
 <wire x1="53" y1="40" x2="53.5" y2="39.5" width="0.1524" layer="1"/>
 <wire x1="53.5" y1="39.5" x2="60.75" y2="39.5" width="0.1524" layer="1"/>
 <via x="60.75" y="39.5" extent="1-16" drill="0.2032"/>
@@ -15976,9 +15976,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="74.25" y1="31" x2="71.25" y2="34" width="0.1524" layer="1"/>
 <wire x1="71.25" y1="34" x2="68" y2="34" width="0.1524" layer="1"/>
 <via x="68" y="34" extent="1-16" drill="0.2032"/>
-<wire x1="68" y1="34" x2="64" y2="34" width="0.1524" layer="3"/>
-<wire x1="64" y1="34" x2="61.25" y2="36.75" width="0.1524" layer="3"/>
-<wire x1="61.25" y1="36.75" x2="61.25" y2="39" width="0.1524" layer="3"/>
+<wire x1="68" y1="34" x2="63.5" y2="34" width="0.1524" layer="3"/>
+<wire x1="63.5" y1="34" x2="61.25" y2="36.25" width="0.1524" layer="3"/>
+<wire x1="61.25" y1="36.25" x2="61.25" y2="39" width="0.1524" layer="3"/>
 <wire x1="52.5" y1="39.5" x2="53" y2="39" width="0.1524" layer="1"/>
 <wire x1="53" y1="39" x2="61.25" y2="39" width="0.1524" layer="1"/>
 <via x="61.25" y="39" extent="1-16" drill="0.2032"/>
@@ -16012,12 +16012,12 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="51" y="41" extent="1-16" drill="0.2032"/>
 <wire x1="51" y1="41" x2="54.5" y2="41" width="0.1524" layer="3"/>
 <wire x1="54.5" y1="41" x2="57.75" y2="37.75" width="0.1524" layer="3"/>
-<wire x1="57.75" y1="37.75" x2="57.75" y2="35" width="0.1524" layer="3"/>
-<wire x1="57.75" y1="35" x2="62.25" y2="30.5" width="0.1524" layer="3"/>
+<wire x1="57.75" y1="37.75" x2="57.75" y2="34.5" width="0.1524" layer="3"/>
+<wire x1="57.75" y1="34.5" x2="61.75" y2="30.5" width="0.1524" layer="3"/>
 <wire x1="67.5" y1="28.65" x2="67.5" y2="29.5" width="0.1524" layer="1"/>
 <via x="67.5" y="29.5" extent="1-16" drill="0.2032"/>
 <wire x1="67.5" y1="29.5" x2="66.5" y2="30.5" width="0.1524" layer="3"/>
-<wire x1="66.5" y1="30.5" x2="62.25" y2="30.5" width="0.1524" layer="3"/>
+<wire x1="66.5" y1="30.5" x2="61.75" y2="30.5" width="0.1524" layer="3"/>
 </signal>
 <signal name="MAC_RXER">
 <contactref element="U1" pad="L4"/>
@@ -16029,12 +16029,12 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="52.5" y1="40.5" x2="53" y2="40" width="0.1524" layer="3"/>
 <wire x1="53" y1="40" x2="54.75" y2="40" width="0.1524" layer="3"/>
 <wire x1="54.75" y1="40" x2="57.25" y2="37.5" width="0.1524" layer="3"/>
-<wire x1="57.25" y1="37.5" x2="57.25" y2="34.75" width="0.1524" layer="3"/>
-<wire x1="57.25" y1="34.75" x2="62" y2="30" width="0.1524" layer="3"/>
+<wire x1="57.25" y1="37.5" x2="57.25" y2="34.25" width="0.1524" layer="3"/>
+<wire x1="57.25" y1="34.25" x2="61.5" y2="30" width="0.1524" layer="3"/>
 <wire x1="66.5" y1="28.65" x2="66.5" y2="29.5" width="0.1524" layer="1"/>
 <via x="66.5" y="29.5" extent="1-16" drill="0.2032"/>
 <wire x1="66.5" y1="29.5" x2="66" y2="30" width="0.1524" layer="3"/>
-<wire x1="66" y1="30" x2="62" y2="30" width="0.1524" layer="3"/>
+<wire x1="66" y1="30" x2="61.5" y2="30" width="0.1524" layer="3"/>
 </signal>
 <signal name="MAC_RXD0">
 <contactref element="U1" pad="M3"/>
@@ -16046,9 +16046,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="69.5" y1="26.65" x2="69.5" y2="28.5" width="0.1524" layer="16"/>
 <via x="69.5" y="28.5" extent="1-16" drill="0.2032"/>
 <wire x1="69.5" y1="28.5" x2="67" y2="31" width="0.1524" layer="3"/>
-<wire x1="67" y1="31" x2="62.5" y2="31" width="0.1524" layer="3"/>
-<wire x1="62.5" y1="31" x2="58.25" y2="35.25" width="0.1524" layer="3"/>
-<wire x1="58.25" y1="35.25" x2="58.25" y2="38" width="0.1524" layer="3"/>
+<wire x1="67" y1="31" x2="62" y2="31" width="0.1524" layer="3"/>
+<wire x1="62" y1="31" x2="58.25" y2="34.75" width="0.1524" layer="3"/>
+<wire x1="58.25" y1="34.75" x2="58.25" y2="38" width="0.1524" layer="3"/>
 </signal>
 <signal name="MAC_RXD1">
 <contactref element="U1" pad="N1"/>
@@ -16061,9 +16061,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="71" y1="27.75" x2="70.25" y2="28.5" width="0.1524" layer="16"/>
 <via x="70.25" y="28.5" extent="1-16" drill="0.2032"/>
 <wire x1="70.25" y1="28.5" x2="67.25" y2="31.5" width="0.1524" layer="3"/>
-<wire x1="58.75" y1="38.5" x2="58.75" y2="35.5" width="0.1524" layer="3"/>
-<wire x1="58.75" y1="35.5" x2="62.75" y2="31.5" width="0.1524" layer="3"/>
-<wire x1="62.75" y1="31.5" x2="67.25" y2="31.5" width="0.1524" layer="3"/>
+<wire x1="58.75" y1="38.5" x2="58.75" y2="35" width="0.1524" layer="3"/>
+<wire x1="58.75" y1="35" x2="62.25" y2="31.5" width="0.1524" layer="3"/>
+<wire x1="62.25" y1="31.5" x2="67.25" y2="31.5" width="0.1524" layer="3"/>
 </signal>
 <signal name="TXD_0">
 <contactref element="U6" pad="3"/>
@@ -16075,9 +16075,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="56.65" y1="41.5" x2="57.75" y2="41.5" width="0.1524" layer="1"/>
 <via x="57.75" y="41.5" extent="1-16" drill="0.2032"/>
 <wire x1="57.75" y1="41.5" x2="59.75" y2="39.5" width="0.1524" layer="3"/>
-<wire x1="67.75" y1="32.5" x2="63.25" y2="32.5" width="0.1524" layer="3"/>
-<wire x1="63.25" y1="32.5" x2="59.75" y2="36" width="0.1524" layer="3"/>
-<wire x1="59.75" y1="36" x2="59.75" y2="39.5" width="0.1524" layer="3"/>
+<wire x1="67.75" y1="32.5" x2="62.75" y2="32.5" width="0.1524" layer="3"/>
+<wire x1="62.75" y1="32.5" x2="59.75" y2="35.5" width="0.1524" layer="3"/>
+<wire x1="59.75" y1="35.5" x2="59.75" y2="39.5" width="0.1524" layer="3"/>
 </signal>
 <signal name="TX_EN">
 <contactref element="U6" pad="2"/>
@@ -16089,9 +16089,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="56.65" y1="40.5" x2="57.75" y2="40.5" width="0.1524" layer="1"/>
 <via x="57.75" y="40.5" extent="1-16" drill="0.2032"/>
 <wire x1="57.75" y1="40.5" x2="59.25" y2="39" width="0.1524" layer="3"/>
-<wire x1="59.25" y1="39" x2="59.25" y2="35.75" width="0.1524" layer="3"/>
-<wire x1="59.25" y1="35.75" x2="63" y2="32" width="0.1524" layer="3"/>
-<wire x1="63" y1="32" x2="67.5" y2="32" width="0.1524" layer="3"/>
+<wire x1="59.25" y1="39" x2="59.25" y2="35.25" width="0.1524" layer="3"/>
+<wire x1="59.25" y1="35.25" x2="62.5" y2="32" width="0.1524" layer="3"/>
+<wire x1="62.5" y1="32" x2="67.5" y2="32" width="0.1524" layer="3"/>
 </signal>
 <signal name="TXD_1">
 <contactref element="U6" pad="4"/>
@@ -16100,12 +16100,12 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="72.75" y="22.25" extent="1-16" drill="0.2032"/>
 <wire x1="72.75" y1="22.25" x2="72.75" y2="28.25" width="0.1524" layer="3"/>
 <wire x1="72.75" y1="28.25" x2="68" y2="33" width="0.1524" layer="3"/>
-<wire x1="68" y1="33" x2="63.5" y2="33" width="0.1524" layer="3"/>
+<wire x1="68" y1="33" x2="63" y2="33" width="0.1524" layer="3"/>
 <wire x1="56.65" y1="42.5" x2="57.75" y2="42.5" width="0.1524" layer="1"/>
 <via x="57.75" y="42.5" extent="1-16" drill="0.2032"/>
 <wire x1="57.75" y1="42.5" x2="60.25" y2="40" width="0.1524" layer="3"/>
-<wire x1="60.25" y1="40" x2="60.25" y2="36.25" width="0.1524" layer="3"/>
-<wire x1="60.25" y1="36.25" x2="63.5" y2="33" width="0.1524" layer="3"/>
+<wire x1="60.25" y1="40" x2="60.25" y2="35.75" width="0.1524" layer="3"/>
+<wire x1="60.25" y1="35.75" x2="63" y2="33" width="0.1524" layer="3"/>
 </signal>
 <signal name="RX_ER">
 <contactref element="U6" pad="41"/>
@@ -16224,9 +16224,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="50" y1="40" x2="50.5" y2="40.5" width="0.1524" layer="16"/>
 <wire x1="74.75" y1="27.75" x2="72.25" y2="27.75" width="0.1524" layer="16"/>
 <wire x1="72.25" y1="27.75" x2="70" y2="30" width="0.1524" layer="16"/>
-<wire x1="70" y1="30" x2="70" y2="35" width="0.1524" layer="16"/>
-<wire x1="70" y1="35" x2="64" y2="41" width="0.1524" layer="16"/>
-<wire x1="64" y1="41" x2="52" y2="41" width="0.1524" layer="16"/>
+<wire x1="70" y1="30" x2="70" y2="39" width="0.1524" layer="16"/>
+<wire x1="70" y1="39" x2="68" y2="41" width="0.1524" layer="16"/>
+<wire x1="68" y1="41" x2="52" y2="41" width="0.1524" layer="16"/>
 <wire x1="52" y1="41" x2="51.5" y2="40.5" width="0.1524" layer="16"/>
 <wire x1="51.5" y1="40.5" x2="50.5" y2="40.5" width="0.1524" layer="16"/>
 <wire x1="75.5" y1="17" x2="75.5" y2="15.85" width="0.1524" layer="1"/>
@@ -16558,8 +16558,8 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="J7" pad="H$1"/>
 <contactref element="J7" pad="H$2"/>
 <contactref element="C108" pad="2"/>
-<wire x1="69" y1="43.65" x2="78.7884" y2="45.75" width="0" layer="19" extent="16-16"/>
-<wire x1="61.2116" y1="45.75" x2="69" y2="43.65" width="0" layer="19" extent="16-16"/>
+<wire x1="68.75" y1="43.15" x2="78.7884" y2="45" width="0" layer="19" extent="16-16"/>
+<wire x1="61.2116" y1="45" x2="68.75" y2="43.15" width="0" layer="19" extent="16-16"/>
 </signal>
 <signal name="VCC3N">
 <contactref element="C109" pad="1"/>
@@ -16822,16 +16822,14 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="J2" pad="13"/>
 <wire x1="30.5" y1="5.15" x2="30.5" y2="3.5" width="0.1524" layer="1"/>
 <via x="30.5" y="3.5" extent="1-16" drill="0.2032"/>
-<contactref element="U1" pad="F3"/>
-<wire x1="50.5" y1="35.5" x2="51" y2="35" width="0.1524" layer="1"/>
-<wire x1="30.5" y1="20" x2="36" y2="25.5" width="0.1524" layer="3"/>
-<wire x1="36" y1="25.5" x2="45.75" y2="25.5" width="0.1524" layer="3"/>
-<via x="51" y="35" extent="1-16" drill="0.2032"/>
-<wire x1="51" y1="35" x2="50.5" y2="34.5" width="0.1524" layer="3"/>
-<wire x1="50.5" y1="34.5" x2="50.5" y2="30.25" width="0.1524" layer="3"/>
-<wire x1="50.5" y1="30.25" x2="45.75" y2="25.5" width="0.1524" layer="3"/>
-<wire x1="30.5" y1="20" x2="30.5" y2="19" width="0.1524" layer="3"/>
-<wire x1="30.5" y1="19" x2="30.5" y2="3.5" width="0.1524" layer="3"/>
+<wire x1="30.5" y1="19.25" x2="36.25" y2="25" width="0.1524" layer="3"/>
+<wire x1="36.25" y1="25" x2="46.25" y2="25" width="0.1524" layer="3"/>
+<wire x1="51" y1="34" x2="51" y2="29.75" width="0.1524" layer="3"/>
+<wire x1="51" y1="29.75" x2="46.25" y2="25" width="0.1524" layer="3"/>
+<wire x1="30.5" y1="19.25" x2="30.5" y2="3.5" width="0.1524" layer="3"/>
+<contactref element="U1" pad="E3"/>
+<wire x1="50.5" y1="34.5" x2="51" y2="34" width="0.1524" layer="1"/>
+<via x="51" y="34" extent="1-16" drill="0.2286"/>
 </signal>
 <signal name="CRS">
 <contactref element="U6" pad="40"/>
@@ -16991,24 +16989,24 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <signal name="MAINXOUT">
 <contactref element="U1" pad="R13"/>
 <contactref element="C129" pad="1"/>
-<wire x1="40.5" y1="44.5" x2="41" y2="45" width="0.1524" layer="1"/>
-<wire x1="41" y1="45" x2="41" y2="48.2" width="0.1524" layer="1"/>
-<wire x1="41" y1="48.2" x2="41.15" y2="48.35" width="0.1524" layer="1"/>
-<wire x1="41.15" y1="48.35" x2="40.9" y2="48.35" width="0.1524" layer="1"/>
-<wire x1="40.9" y1="48.35" x2="40.25" y2="49" width="0.1524" layer="1"/>
-<wire x1="40.25" y1="51.35" x2="40.25" y2="49" width="0.1524" layer="1"/>
+<wire x1="40.5" y1="44.5" x2="40" y2="45" width="0.1524" layer="1"/>
 <contactref element="X1" pad="1"/>
+<wire x1="40" y1="45" x2="40" y2="47.75" width="0.1524" layer="1"/>
+<wire x1="40.85" y1="49.6" x2="40" y2="48.75" width="0.1524" layer="1"/>
+<wire x1="40" y1="48.75" x2="40" y2="47.75" width="0.1524" layer="1"/>
+<wire x1="40.85" y1="49.6" x2="41" y2="49.75" width="0.1524" layer="1"/>
+<wire x1="41" y1="49.75" x2="41" y2="51.35" width="0.1524" layer="1"/>
 </signal>
 <signal name="MAINXIN">
 <contactref element="U1" pad="R12"/>
 <contactref element="C128" pad="1"/>
 <wire x1="41.5" y1="44.5" x2="42" y2="45" width="0.1524" layer="1"/>
-<wire x1="42" y1="45" x2="42" y2="49" width="0.1524" layer="1"/>
-<wire x1="42" y1="49" x2="42.65" y2="49.65" width="0.1524" layer="1"/>
-<wire x1="42.65" y1="49.65" x2="42.85" y2="49.65" width="0.1524" layer="1"/>
-<wire x1="42.85" y1="49.65" x2="42.75" y2="49.75" width="0.1524" layer="1"/>
-<wire x1="42.75" y1="49.75" x2="42.75" y2="51.35" width="0.1524" layer="1"/>
 <contactref element="X1" pad="3"/>
+<wire x1="42" y1="45" x2="42" y2="47.75" width="0.1524" layer="1"/>
+<wire x1="42" y1="47.75" x2="42.15" y2="47.9" width="0.1524" layer="1"/>
+<wire x1="42.15" y1="47.9" x2="43" y2="48.75" width="0.1524" layer="1"/>
+<wire x1="43" y1="48.75" x2="43" y2="50" width="0.1524" layer="1"/>
+<wire x1="43" y1="51.35" x2="43" y2="50" width="0.1524" layer="1"/>
 </signal>
 <signal name="ALERT">
 <contactref element="J2" pad="25"/>
@@ -17033,50 +17031,47 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="J2" pad="11"/>
 <via x="29.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="29.5" y1="5.15" x2="29.5" y2="3.5" width="0.1524" layer="1"/>
-<contactref element="U1" pad="D5"/>
-<wire x1="48.5" y1="33.5" x2="48" y2="33" width="0.1524" layer="1"/>
-<via x="48" y="33" extent="1-16" drill="0.2032"/>
-<wire x1="48" y1="33" x2="48" y2="29.25" width="0.1524" layer="3"/>
-<wire x1="48" y1="29.25" x2="45.25" y2="26.5" width="0.1524" layer="3"/>
-<wire x1="45.25" y1="26.5" x2="35.5" y2="26.5" width="0.1524" layer="3"/>
-<wire x1="35.5" y1="26.5" x2="29.5" y2="20.5" width="0.1524" layer="3"/>
-<wire x1="29.5" y1="20.5" x2="29.5" y2="11.25" width="0.1524" layer="3"/>
-<wire x1="29.5" y1="11.25" x2="29.5" y2="3.5" width="0.1524" layer="3"/>
+<wire x1="50.5" y1="34.5" x2="50.5" y2="30" width="0.1524" layer="3"/>
+<wire x1="50.5" y1="30" x2="46" y2="25.5" width="0.1524" layer="3"/>
+<wire x1="46" y1="25.5" x2="36" y2="25.5" width="0.1524" layer="3"/>
+<wire x1="36" y1="25.5" x2="30" y2="19.5" width="0.1524" layer="3"/>
+<wire x1="30" y1="19.5" x2="30" y2="4" width="0.1524" layer="3"/>
+<wire x1="30" y1="4" x2="29.5" y2="3.5" width="0.1524" layer="3"/>
+<contactref element="U1" pad="F3"/>
+<wire x1="50.5" y1="35.5" x2="50" y2="35" width="0.1524" layer="1"/>
+<via x="50" y="35" extent="1-16" drill="0.2032"/>
+<wire x1="50.5" y1="34.5" x2="50" y2="35" width="0.1524" layer="3"/>
 </signal>
 <signal name="SGPIO1">
 <contactref element="J1" pad="13"/>
 <wire x1="30.5" y1="5.15" x2="30.5" y2="4.25" width="0.1524" layer="16"/>
-<wire x1="30.5" y1="4.25" x2="31" y2="3.75" width="0.1524" layer="16"/>
-<wire x1="31" y1="3.75" x2="31" y2="3" width="0.1524" layer="16"/>
-<contactref element="U1" pad="E3"/>
-<wire x1="31" y1="19.75" x2="36.25" y2="25" width="0.1524" layer="3"/>
-<wire x1="36.25" y1="25" x2="46" y2="25" width="0.1524" layer="3"/>
-<wire x1="50.5" y1="34.5" x2="51" y2="34" width="0.1524" layer="1"/>
-<via x="51" y="34" extent="1-16" drill="0.2032"/>
-<wire x1="51" y1="34" x2="51" y2="30" width="0.1524" layer="3"/>
-<wire x1="51" y1="30" x2="46" y2="25" width="0.1524" layer="3"/>
-<wire x1="31" y1="19.75" x2="31" y2="5.75" width="0.1524" layer="3"/>
-<via x="31" y="3" extent="1-16" drill="0.2032"/>
-<wire x1="31" y1="3" x2="31" y2="5.75" width="0.1524" layer="3"/>
-</signal>
-<signal name="SGPIO0">
-<contactref element="J1" pad="11"/>
-<wire x1="29.5" y1="5.15" x2="29.5" y2="4.5" width="0.1524" layer="16"/>
-<wire x1="29.5" y1="4.5" x2="29.5" y2="4.25" width="0.1524" layer="16"/>
-<wire x1="29.5" y1="4.25" x2="30" y2="3.75" width="0.1524" layer="16"/>
-<wire x1="30" y1="3.75" x2="30" y2="3" width="0.1524" layer="16"/>
+<wire x1="30.5" y1="4.25" x2="30.5" y2="6" width="0.1524" layer="16"/>
+<wire x1="30.5" y1="6" x2="29.5" y2="7" width="0.1524" layer="16"/>
+<wire x1="35.75" y1="26" x2="45.75" y2="26" width="0.1524" layer="3"/>
+<wire x1="49.5" y1="33.5" x2="49.5" y2="29.75" width="0.1524" layer="3"/>
+<wire x1="49.5" y1="29.75" x2="45.75" y2="26" width="0.1524" layer="3"/>
+<wire x1="35.75" y1="26" x2="29.5" y2="19.75" width="0.1524" layer="3"/>
+<via x="29.5" y="7" extent="1-16" drill="0.2032"/>
+<wire x1="29.5" y1="7" x2="29.5" y2="19.75" width="0.1524" layer="3"/>
 <contactref element="U1" pad="E4"/>
 <wire x1="49.5" y1="34.5" x2="50" y2="34" width="0.1524" layer="1"/>
 <via x="50" y="34" extent="1-16" drill="0.2032"/>
-<wire x1="50" y1="34" x2="49.5" y2="33.5" width="0.1524" layer="3"/>
-<wire x1="49.5" y1="33.5" x2="49.5" y2="30" width="0.1524" layer="3"/>
-<wire x1="49.5" y1="30" x2="45.5" y2="26" width="0.1524" layer="3"/>
-<wire x1="45.5" y1="26" x2="35.75" y2="26" width="0.1524" layer="3"/>
-<wire x1="35.75" y1="26" x2="30" y2="20.25" width="0.1524" layer="3"/>
-<wire x1="30" y1="20.25" x2="30" y2="13.75" width="0.1524" layer="3"/>
-<via x="30" y="3" extent="1-16" drill="0.2032"/>
-<wire x1="30" y1="3" x2="30" y2="11.75" width="0.1524" layer="3"/>
-<wire x1="30" y1="11.75" x2="30" y2="13.75" width="0.1524" layer="3"/>
+<wire x1="49.5" y1="33.5" x2="50" y2="34" width="0.1524" layer="3"/>
+</signal>
+<signal name="SGPIO0">
+<contactref element="J1" pad="11"/>
+<wire x1="29.5" y1="5.15" x2="29.5" y2="4.25" width="0.1524" layer="16"/>
+<wire x1="29.5" y1="4.25" x2="29" y2="3.75" width="0.1524" layer="16"/>
+<wire x1="29" y1="3.75" x2="29" y2="3" width="0.1524" layer="16"/>
+<wire x1="48" y1="33" x2="48" y2="29" width="0.1524" layer="3"/>
+<wire x1="48" y1="29" x2="45.5" y2="26.5" width="0.1524" layer="3"/>
+<wire x1="45.5" y1="26.5" x2="35.5" y2="26.5" width="0.1524" layer="3"/>
+<wire x1="35.5" y1="26.5" x2="29" y2="20" width="0.1524" layer="3"/>
+<via x="29" y="3" extent="1-16" drill="0.2032"/>
+<wire x1="29" y1="3" x2="29" y2="20" width="0.1524" layer="3"/>
+<contactref element="U1" pad="D5"/>
+<via x="48" y="33" extent="1-16" drill="0.2032"/>
+<wire x1="48" y1="33" x2="48.5" y2="33.5" width="0.1524" layer="1"/>
 </signal>
 <signal name="N$1">
 <contactref element="C139" pad="2"/>
