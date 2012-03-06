@@ -6,27 +6,27 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="39.3701" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="0.25" altunitdist="mm" altunit="mm"/>
+<grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.25" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
-<layer number="2" name="GND" color="1" fill="3" visible="no" active="yes"/>
-<layer number="3" name="Inner1" color="13" fill="3" visible="yes" active="yes"/>
-<layer number="14" name="Inner2" color="10" fill="6" visible="yes" active="yes"/>
+<layer number="2" name="GND" color="1" fill="3" visible="yes" active="yes"/>
+<layer number="3" name="Inner1" color="13" fill="3" visible="no" active="yes"/>
+<layer number="14" name="Inner2" color="10" fill="6" visible="no" active="yes"/>
 <layer number="15" name="SUP" color="4" fill="6" visible="no" active="yes"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="no" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="yes"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="no" active="yes"/>
 <layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
 <layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
 <layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
@@ -48,7 +48,7 @@
 <layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="yes"/>
-<layer number="51" name="tDocu" color="14" fill="1" visible="yes" active="yes"/>
+<layer number="51" name="tDocu" color="14" fill="1" visible="no" active="yes"/>
 <layer number="52" name="bDocu" color="11" fill="1" visible="no" active="yes"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
@@ -62,7 +62,7 @@
 <layer number="97" name="Info" color="7" fill="1" visible="no" active="no"/>
 <layer number="98" name="Guide" color="6" fill="1" visible="no" active="no"/>
 <layer number="100" name="Muster" color="7" fill="1" visible="no" active="no"/>
-<layer number="101" name="Patch_Top" color="12" fill="4" visible="yes" active="yes"/>
+<layer number="101" name="Patch_Top" color="12" fill="4" visible="no" active="yes"/>
 <layer number="102" name="Vscore" color="7" fill="1" visible="no" active="yes"/>
 <layer number="103" name="tMap" color="7" fill="1" visible="no" active="yes"/>
 <layer number="104" name="Name" color="7" fill="1" visible="no" active="yes"/>
@@ -76,7 +76,7 @@
 <layer number="112" name="Route12" color="7" fill="1" visible="no" active="no"/>
 <layer number="113" name="Route13" color="7" fill="1" visible="no" active="no"/>
 <layer number="114" name="FIXED_SF_PIN" color="2" fill="3" visible="no" active="yes"/>
-<layer number="116" name="Patch_BOT" color="9" fill="4" visible="yes" active="yes"/>
+<layer number="116" name="Patch_BOT" color="9" fill="4" visible="no" active="yes"/>
 <layer number="117" name="mPads" color="7" fill="1" visible="no" active="no"/>
 <layer number="118" name="mVias" color="7" fill="1" visible="no" active="no"/>
 <layer number="119" name="mUnrouted" color="7" fill="1" visible="no" active="no"/>
@@ -152,6 +152,7 @@
 <rectangle x1="44.25" y1="34.5" x2="45.75" y2="37.5" layer="116"/>
 <rectangle x1="44.25" y1="38.5" x2="45.75" y2="41.5" layer="116"/>
 <rectangle x1="41.5" y1="37.25" x2="44.5" y2="38.5" layer="116"/>
+<rectangle x1="39.000021875" y1="35.00001875" x2="40.000021875" y2="36.00001875" layer="101"/>
 </plain>
 <libraries>
 <library name="Logo">
@@ -9533,7 +9534,10 @@ Preliminary top-layer10 x 10 mm  logo for the Marmote platform main module</desc
 Fine Pitch Ball Grid Array (1.0 mm pitch) 256-pin Package
 &lt;p&gt;
 Auto generated by &lt;i&gt;make-symbol-device-package-bsdl.ulp Rev. 34&lt;/i&gt;&lt;br&gt;
-Source: A2F500M3G_FG256.bsd</description>
+Source: &lt;a href="http://www.actel.com/documents/bsdl/A2F500M3G_FG256.bsd"&gt;http://www.actel.com/documents/bsdl/A2F500M3G_FG256.bsd&lt;/a&gt;
+&lt;p&gt;
+Parameters updated based on Actel's recommended BGA layout drawings&lt;br&gt;
+Source: &lt;a href="http://www.actel.com/documents/RecPCBdesign.pdf"&gt;http://www.actel.com/documents/RecPCBdesign.pdf&lt;/a&gt;</description>
 <wire x1="-8.3984" y1="-8.3984" x2="8.3984" y2="-8.3984" width="0.2032" layer="51"/>
 <wire x1="8.3984" y1="-8.3984" x2="8.3984" y2="8.3984" width="0.2032" layer="51"/>
 <wire x1="8.3984" y1="8.3984" x2="-7.5" y2="8.3984" width="0.2032" layer="51"/>
@@ -9541,520 +9545,776 @@ Source: A2F500M3G_FG256.bsd</description>
 <wire x1="-8.3984" y1="8.3984" x2="-8.3984" y2="7.5" width="0.2032" layer="51"/>
 <wire x1="-8.3984" y1="7.5" x2="-8.3984" y2="-8.3984" width="0.2032" layer="51"/>
 <wire x1="-8.3984" y1="7.5" x2="-7.5" y2="8.3984" width="0.2032" layer="51"/>
-<circle x="7.5" y="-7.5" radius="0.25" width="0" layer="29"/>
-<circle x="6.5" y="-7.5" radius="0.25" width="0" layer="29"/>
-<circle x="5.5" y="-7.5" radius="0.25" width="0" layer="29"/>
-<circle x="4.5" y="-7.5" radius="0.25" width="0" layer="29"/>
-<circle x="3.5" y="-7.5" radius="0.25" width="0" layer="29"/>
-<circle x="2.5" y="-7.5" radius="0.25" width="0" layer="29"/>
-<circle x="1.5" y="-7.5" radius="0.25" width="0" layer="29"/>
-<circle x="0.5" y="-7.5" radius="0.25" width="0" layer="29"/>
-<circle x="-0.5" y="-7.5" radius="0.25" width="0" layer="29"/>
-<circle x="-1.5" y="-7.5" radius="0.25" width="0" layer="29"/>
-<circle x="-2.5" y="-7.5" radius="0.25" width="0" layer="29"/>
-<circle x="-3.5" y="-7.5" radius="0.25" width="0" layer="29"/>
-<circle x="-4.5" y="-7.5" radius="0.25" width="0" layer="29"/>
-<circle x="-5.5" y="-7.5" radius="0.25" width="0" layer="29"/>
-<circle x="-6.5" y="-7.5" radius="0.25" width="0" layer="29"/>
-<circle x="-7.5" y="-7.5" radius="0.25" width="0" layer="29"/>
-<circle x="7.5" y="-6.5" radius="0.25" width="0" layer="29"/>
-<circle x="6.5" y="-6.5" radius="0.25" width="0" layer="29"/>
-<circle x="5.5" y="-6.5" radius="0.25" width="0" layer="29"/>
-<circle x="4.5" y="-6.5" radius="0.25" width="0" layer="29"/>
-<circle x="3.5" y="-6.5" radius="0.25" width="0" layer="29"/>
-<circle x="2.5" y="-6.5" radius="0.25" width="0" layer="29"/>
-<circle x="1.5" y="-6.5" radius="0.25" width="0" layer="29"/>
-<circle x="0.5" y="-6.5" radius="0.25" width="0" layer="29"/>
-<circle x="-0.5" y="-6.5" radius="0.25" width="0" layer="29"/>
-<circle x="-1.5" y="-6.5" radius="0.25" width="0" layer="29"/>
-<circle x="-2.5" y="-6.5" radius="0.25" width="0" layer="29"/>
-<circle x="-3.5" y="-6.5" radius="0.25" width="0" layer="29"/>
-<circle x="-4.5" y="-6.5" radius="0.25" width="0" layer="29"/>
-<circle x="-5.5" y="-6.5" radius="0.25" width="0" layer="29"/>
-<circle x="-6.5" y="-6.5" radius="0.25" width="0" layer="29"/>
-<circle x="-7.5" y="-6.5" radius="0.25" width="0" layer="29"/>
-<circle x="7.5" y="-5.5" radius="0.25" width="0" layer="29"/>
-<circle x="6.5" y="-5.5" radius="0.25" width="0" layer="29"/>
-<circle x="5.5" y="-5.5" radius="0.25" width="0" layer="29"/>
-<circle x="4.5" y="-5.5" radius="0.25" width="0" layer="29"/>
-<circle x="3.5" y="-5.5" radius="0.25" width="0" layer="29"/>
-<circle x="2.5" y="-5.5" radius="0.25" width="0" layer="29"/>
-<circle x="1.5" y="-5.5" radius="0.25" width="0" layer="29"/>
-<circle x="0.5" y="-5.5" radius="0.25" width="0" layer="29"/>
-<circle x="-0.5" y="-5.5" radius="0.25" width="0" layer="29"/>
-<circle x="-1.5" y="-5.5" radius="0.25" width="0" layer="29"/>
-<circle x="-2.5" y="-5.5" radius="0.25" width="0" layer="29"/>
-<circle x="-3.5" y="-5.5" radius="0.25" width="0" layer="29"/>
-<circle x="-4.5" y="-5.5" radius="0.25" width="0" layer="29"/>
-<circle x="-5.5" y="-5.5" radius="0.25" width="0" layer="29"/>
-<circle x="-6.5" y="-5.5" radius="0.25" width="0" layer="29"/>
-<circle x="-7.5" y="-5.5" radius="0.25" width="0" layer="29"/>
-<circle x="7.5" y="-4.5" radius="0.25" width="0" layer="29"/>
-<circle x="6.5" y="-4.5" radius="0.25" width="0" layer="29"/>
-<circle x="5.5" y="-4.5" radius="0.25" width="0" layer="29"/>
-<circle x="4.5" y="-4.5" radius="0.25" width="0" layer="29"/>
-<circle x="3.5" y="-4.5" radius="0.25" width="0" layer="29"/>
-<circle x="2.5" y="-4.5" radius="0.25" width="0" layer="29"/>
-<circle x="1.5" y="-4.5" radius="0.25" width="0" layer="29"/>
-<circle x="0.5" y="-4.5" radius="0.25" width="0" layer="29"/>
-<circle x="-0.5" y="-4.5" radius="0.25" width="0" layer="29"/>
-<circle x="-1.5" y="-4.5" radius="0.25" width="0" layer="29"/>
-<circle x="-2.5" y="-4.5" radius="0.25" width="0" layer="29"/>
-<circle x="-3.5" y="-4.5" radius="0.25" width="0" layer="29"/>
-<circle x="-4.5" y="-4.5" radius="0.25" width="0" layer="29"/>
-<circle x="-5.5" y="-4.5" radius="0.25" width="0" layer="29"/>
-<circle x="-6.5" y="-4.5" radius="0.25" width="0" layer="29"/>
-<circle x="-7.5" y="-4.5" radius="0.25" width="0" layer="29"/>
-<circle x="7.5" y="-3.5" radius="0.25" width="0" layer="29"/>
-<circle x="6.5" y="-3.5" radius="0.25" width="0" layer="29"/>
-<circle x="5.5" y="-3.5" radius="0.25" width="0" layer="29"/>
-<circle x="4.5" y="-3.5" radius="0.25" width="0" layer="29"/>
-<circle x="3.5" y="-3.5" radius="0.25" width="0" layer="29"/>
-<circle x="2.5" y="-3.5" radius="0.25" width="0" layer="29"/>
-<circle x="1.5" y="-3.5" radius="0.25" width="0" layer="29"/>
-<circle x="0.5" y="-3.5" radius="0.25" width="0" layer="29"/>
-<circle x="-0.5" y="-3.5" radius="0.25" width="0" layer="29"/>
-<circle x="-1.5" y="-3.5" radius="0.25" width="0" layer="29"/>
-<circle x="-2.5" y="-3.5" radius="0.25" width="0" layer="29"/>
-<circle x="-3.5" y="-3.5" radius="0.25" width="0" layer="29"/>
-<circle x="-4.5" y="-3.5" radius="0.25" width="0" layer="29"/>
-<circle x="-5.5" y="-3.5" radius="0.25" width="0" layer="29"/>
-<circle x="-6.5" y="-3.5" radius="0.25" width="0" layer="29"/>
-<circle x="-7.5" y="-3.5" radius="0.25" width="0" layer="29"/>
-<circle x="7.5" y="-2.5" radius="0.25" width="0" layer="29"/>
-<circle x="6.5" y="-2.5" radius="0.25" width="0" layer="29"/>
-<circle x="5.5" y="-2.5" radius="0.25" width="0" layer="29"/>
-<circle x="4.5" y="-2.5" radius="0.25" width="0" layer="29"/>
-<circle x="3.5" y="-2.5" radius="0.25" width="0" layer="29"/>
-<circle x="2.5" y="-2.5" radius="0.25" width="0" layer="29"/>
-<circle x="1.5" y="-2.5" radius="0.25" width="0" layer="29"/>
-<circle x="0.5" y="-2.5" radius="0.25" width="0" layer="29"/>
-<circle x="-0.5" y="-2.5" radius="0.25" width="0" layer="29"/>
-<circle x="-1.5" y="-2.5" radius="0.25" width="0" layer="29"/>
-<circle x="-2.5" y="-2.5" radius="0.25" width="0" layer="29"/>
-<circle x="-3.5" y="-2.5" radius="0.25" width="0" layer="29"/>
-<circle x="-4.5" y="-2.5" radius="0.25" width="0" layer="29"/>
-<circle x="-5.5" y="-2.5" radius="0.25" width="0" layer="29"/>
-<circle x="-6.5" y="-2.5" radius="0.25" width="0" layer="29"/>
-<circle x="-7.5" y="-2.5" radius="0.25" width="0" layer="29"/>
-<circle x="7.5" y="-1.5" radius="0.25" width="0" layer="29"/>
-<circle x="6.5" y="-1.5" radius="0.25" width="0" layer="29"/>
-<circle x="5.5" y="-1.5" radius="0.25" width="0" layer="29"/>
-<circle x="4.5" y="-1.5" radius="0.25" width="0" layer="29"/>
-<circle x="3.5" y="-1.5" radius="0.25" width="0" layer="29"/>
-<circle x="2.5" y="-1.5" radius="0.25" width="0" layer="29"/>
-<circle x="1.5" y="-1.5" radius="0.25" width="0" layer="29"/>
-<circle x="0.5" y="-1.5" radius="0.25" width="0" layer="29"/>
-<circle x="-0.5" y="-1.5" radius="0.25" width="0" layer="29"/>
-<circle x="-1.5" y="-1.5" radius="0.25" width="0" layer="29"/>
-<circle x="-2.5" y="-1.5" radius="0.25" width="0" layer="29"/>
-<circle x="-3.5" y="-1.5" radius="0.25" width="0" layer="29"/>
-<circle x="-4.5" y="-1.5" radius="0.25" width="0" layer="29"/>
-<circle x="-5.5" y="-1.5" radius="0.25" width="0" layer="29"/>
-<circle x="-6.5" y="-1.5" radius="0.25" width="0" layer="29"/>
-<circle x="-7.5" y="-1.5" radius="0.25" width="0" layer="29"/>
-<circle x="7.5" y="-0.5" radius="0.25" width="0" layer="29"/>
-<circle x="6.5" y="-0.5" radius="0.25" width="0" layer="29"/>
-<circle x="5.5" y="-0.5" radius="0.25" width="0" layer="29"/>
-<circle x="4.5" y="-0.5" radius="0.25" width="0" layer="29"/>
-<circle x="3.5" y="-0.5" radius="0.25" width="0" layer="29"/>
-<circle x="2.5" y="-0.5" radius="0.25" width="0" layer="29"/>
-<circle x="1.5" y="-0.5" radius="0.25" width="0" layer="29"/>
-<circle x="0.5" y="-0.5" radius="0.25" width="0" layer="29"/>
-<circle x="-0.5" y="-0.5" radius="0.25" width="0" layer="29"/>
-<circle x="-1.5" y="-0.5" radius="0.25" width="0" layer="29"/>
-<circle x="-2.5" y="-0.5" radius="0.25" width="0" layer="29"/>
-<circle x="-3.5" y="-0.5" radius="0.25" width="0" layer="29"/>
-<circle x="-4.5" y="-0.5" radius="0.25" width="0" layer="29"/>
-<circle x="-5.5" y="-0.5" radius="0.25" width="0" layer="29"/>
-<circle x="-6.5" y="-0.5" radius="0.25" width="0" layer="29"/>
-<circle x="-7.5" y="-0.5" radius="0.25" width="0" layer="29"/>
-<circle x="7.5" y="0.5" radius="0.25" width="0" layer="29"/>
-<circle x="6.5" y="0.5" radius="0.25" width="0" layer="29"/>
-<circle x="5.5" y="0.5" radius="0.25" width="0" layer="29"/>
-<circle x="4.5" y="0.5" radius="0.25" width="0" layer="29"/>
-<circle x="3.5" y="0.5" radius="0.25" width="0" layer="29"/>
-<circle x="2.5" y="0.5" radius="0.25" width="0" layer="29"/>
-<circle x="1.5" y="0.5" radius="0.25" width="0" layer="29"/>
-<circle x="0.5" y="0.5" radius="0.25" width="0" layer="29"/>
-<circle x="-0.5" y="0.5" radius="0.25" width="0" layer="29"/>
-<circle x="-1.5" y="0.5" radius="0.25" width="0" layer="29"/>
-<circle x="-2.5" y="0.5" radius="0.25" width="0" layer="29"/>
-<circle x="-3.5" y="0.5" radius="0.25" width="0" layer="29"/>
-<circle x="-4.5" y="0.5" radius="0.25" width="0" layer="29"/>
-<circle x="-5.5" y="0.5" radius="0.25" width="0" layer="29"/>
-<circle x="-6.5" y="0.5" radius="0.25" width="0" layer="29"/>
-<circle x="-7.5" y="0.5" radius="0.25" width="0" layer="29"/>
-<circle x="7.5" y="1.5" radius="0.25" width="0" layer="29"/>
-<circle x="6.5" y="1.5" radius="0.25" width="0" layer="29"/>
-<circle x="5.5" y="1.5" radius="0.25" width="0" layer="29"/>
-<circle x="4.5" y="1.5" radius="0.25" width="0" layer="29"/>
-<circle x="3.5" y="1.5" radius="0.25" width="0" layer="29"/>
-<circle x="2.5" y="1.5" radius="0.25" width="0" layer="29"/>
-<circle x="1.5" y="1.5" radius="0.25" width="0" layer="29"/>
-<circle x="0.5" y="1.5" radius="0.25" width="0" layer="29"/>
-<circle x="-0.5" y="1.5" radius="0.25" width="0" layer="29"/>
-<circle x="-1.5" y="1.5" radius="0.25" width="0" layer="29"/>
-<circle x="-2.5" y="1.5" radius="0.25" width="0" layer="29"/>
-<circle x="-3.5" y="1.5" radius="0.25" width="0" layer="29"/>
-<circle x="-4.5" y="1.5" radius="0.25" width="0" layer="29"/>
-<circle x="-5.5" y="1.5" radius="0.25" width="0" layer="29"/>
-<circle x="-6.5" y="1.5" radius="0.25" width="0" layer="29"/>
-<circle x="-7.5" y="1.5" radius="0.25" width="0" layer="29"/>
-<circle x="7.5" y="2.5" radius="0.25" width="0" layer="29"/>
-<circle x="6.5" y="2.5" radius="0.25" width="0" layer="29"/>
-<circle x="5.5" y="2.5" radius="0.25" width="0" layer="29"/>
-<circle x="4.5" y="2.5" radius="0.25" width="0" layer="29"/>
-<circle x="3.5" y="2.5" radius="0.25" width="0" layer="29"/>
-<circle x="2.5" y="2.5" radius="0.25" width="0" layer="29"/>
-<circle x="1.5" y="2.5" radius="0.25" width="0" layer="29"/>
-<circle x="0.5" y="2.5" radius="0.25" width="0" layer="29"/>
-<circle x="-0.5" y="2.5" radius="0.25" width="0" layer="29"/>
-<circle x="-1.5" y="2.5" radius="0.25" width="0" layer="29"/>
-<circle x="-2.5" y="2.5" radius="0.25" width="0" layer="29"/>
-<circle x="-3.5" y="2.5" radius="0.25" width="0" layer="29"/>
-<circle x="-4.5" y="2.5" radius="0.25" width="0" layer="29"/>
-<circle x="-5.5" y="2.5" radius="0.25" width="0" layer="29"/>
-<circle x="-6.5" y="2.5" radius="0.25" width="0" layer="29"/>
-<circle x="-7.5" y="2.5" radius="0.25" width="0" layer="29"/>
-<circle x="7.5" y="3.5" radius="0.25" width="0" layer="29"/>
-<circle x="6.5" y="3.5" radius="0.25" width="0" layer="29"/>
-<circle x="5.5" y="3.5" radius="0.25" width="0" layer="29"/>
-<circle x="4.5" y="3.5" radius="0.25" width="0" layer="29"/>
-<circle x="3.5" y="3.5" radius="0.25" width="0" layer="29"/>
-<circle x="2.5" y="3.5" radius="0.25" width="0" layer="29"/>
-<circle x="1.5" y="3.5" radius="0.25" width="0" layer="29"/>
-<circle x="0.5" y="3.5" radius="0.25" width="0" layer="29"/>
-<circle x="-0.5" y="3.5" radius="0.25" width="0" layer="29"/>
-<circle x="-1.5" y="3.5" radius="0.25" width="0" layer="29"/>
-<circle x="-2.5" y="3.5" radius="0.25" width="0" layer="29"/>
-<circle x="-3.5" y="3.5" radius="0.25" width="0" layer="29"/>
-<circle x="-4.5" y="3.5" radius="0.25" width="0" layer="29"/>
-<circle x="-5.5" y="3.5" radius="0.25" width="0" layer="29"/>
-<circle x="-6.5" y="3.5" radius="0.25" width="0" layer="29"/>
-<circle x="-7.5" y="3.5" radius="0.25" width="0" layer="29"/>
-<circle x="7.5" y="4.5" radius="0.25" width="0" layer="29"/>
-<circle x="6.5" y="4.5" radius="0.25" width="0" layer="29"/>
-<circle x="5.5" y="4.5" radius="0.25" width="0" layer="29"/>
-<circle x="4.5" y="4.5" radius="0.25" width="0" layer="29"/>
-<circle x="3.5" y="4.5" radius="0.25" width="0" layer="29"/>
-<circle x="2.5" y="4.5" radius="0.25" width="0" layer="29"/>
-<circle x="1.5" y="4.5" radius="0.25" width="0" layer="29"/>
-<circle x="0.5" y="4.5" radius="0.25" width="0" layer="29"/>
-<circle x="-0.5" y="4.5" radius="0.25" width="0" layer="29"/>
-<circle x="-1.5" y="4.5" radius="0.25" width="0" layer="29"/>
-<circle x="-2.5" y="4.5" radius="0.25" width="0" layer="29"/>
-<circle x="-3.5" y="4.5" radius="0.25" width="0" layer="29"/>
-<circle x="-4.5" y="4.5" radius="0.25" width="0" layer="29"/>
-<circle x="-5.5" y="4.5" radius="0.25" width="0" layer="29"/>
-<circle x="-6.5" y="4.5" radius="0.25" width="0" layer="29"/>
-<circle x="-7.5" y="4.5" radius="0.25" width="0" layer="29"/>
-<circle x="7.5" y="5.5" radius="0.25" width="0" layer="29"/>
-<circle x="6.5" y="5.5" radius="0.25" width="0" layer="29"/>
-<circle x="5.5" y="5.5" radius="0.25" width="0" layer="29"/>
-<circle x="4.5" y="5.5" radius="0.25" width="0" layer="29"/>
-<circle x="3.5" y="5.5" radius="0.25" width="0" layer="29"/>
-<circle x="2.5" y="5.5" radius="0.25" width="0" layer="29"/>
-<circle x="1.5" y="5.5" radius="0.25" width="0" layer="29"/>
-<circle x="0.5" y="5.5" radius="0.25" width="0" layer="29"/>
-<circle x="-0.5" y="5.5" radius="0.25" width="0" layer="29"/>
-<circle x="-1.5" y="5.5" radius="0.25" width="0" layer="29"/>
-<circle x="-2.5" y="5.5" radius="0.25" width="0" layer="29"/>
-<circle x="-3.5" y="5.5" radius="0.25" width="0" layer="29"/>
-<circle x="-4.5" y="5.5" radius="0.25" width="0" layer="29"/>
-<circle x="-5.5" y="5.5" radius="0.25" width="0" layer="29"/>
-<circle x="-6.5" y="5.5" radius="0.25" width="0" layer="29"/>
-<circle x="-7.5" y="5.5" radius="0.25" width="0" layer="29"/>
-<circle x="7.5" y="6.5" radius="0.25" width="0" layer="29"/>
-<circle x="6.5" y="6.5" radius="0.25" width="0" layer="29"/>
-<circle x="5.5" y="6.5" radius="0.25" width="0" layer="29"/>
-<circle x="4.5" y="6.5" radius="0.25" width="0" layer="29"/>
-<circle x="3.5" y="6.5" radius="0.25" width="0" layer="29"/>
-<circle x="2.5" y="6.5" radius="0.25" width="0" layer="29"/>
-<circle x="1.5" y="6.5" radius="0.25" width="0" layer="29"/>
-<circle x="0.5" y="6.5" radius="0.25" width="0" layer="29"/>
-<circle x="-0.5" y="6.5" radius="0.25" width="0" layer="29"/>
-<circle x="-1.5" y="6.5" radius="0.25" width="0" layer="29"/>
-<circle x="-2.5" y="6.5" radius="0.25" width="0" layer="29"/>
-<circle x="-3.5" y="6.5" radius="0.25" width="0" layer="29"/>
-<circle x="-4.5" y="6.5" radius="0.25" width="0" layer="29"/>
-<circle x="-5.5" y="6.5" radius="0.25" width="0" layer="29"/>
-<circle x="-6.5" y="6.5" radius="0.25" width="0" layer="29"/>
-<circle x="-7.5" y="6.5" radius="0.25" width="0" layer="29"/>
-<circle x="7.5" y="7.5" radius="0.25" width="0" layer="29"/>
-<circle x="6.5" y="7.5" radius="0.25" width="0" layer="29"/>
-<circle x="5.5" y="7.5" radius="0.25" width="0" layer="29"/>
-<circle x="4.5" y="7.5" radius="0.25" width="0" layer="29"/>
-<circle x="3.5" y="7.5" radius="0.25" width="0" layer="29"/>
-<circle x="2.5" y="7.5" radius="0.25" width="0" layer="29"/>
-<circle x="1.5" y="7.5" radius="0.25" width="0" layer="29"/>
-<circle x="0.5" y="7.5" radius="0.25" width="0" layer="29"/>
-<circle x="-0.5" y="7.5" radius="0.25" width="0" layer="29"/>
-<circle x="-1.5" y="7.5" radius="0.25" width="0" layer="29"/>
-<circle x="-2.5" y="7.5" radius="0.25" width="0" layer="29"/>
-<circle x="-3.5" y="7.5" radius="0.25" width="0" layer="29"/>
-<circle x="-4.5" y="7.5" radius="0.25" width="0" layer="29"/>
-<circle x="-5.5" y="7.5" radius="0.25" width="0" layer="29"/>
-<circle x="-6.5" y="7.5" radius="0.25" width="0" layer="29"/>
-<circle x="-7.5" y="7.5" radius="0.25" width="0" layer="29"/>
-<smd name="T16" x="7.5" y="-7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="T15" x="6.5" y="-7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="T14" x="5.5" y="-7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="T13" x="4.5" y="-7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="T12" x="3.5" y="-7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="T11" x="2.5" y="-7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="T10" x="1.5" y="-7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="T9" x="0.5" y="-7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="T8" x="-0.5" y="-7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="T7" x="-1.5" y="-7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="T6" x="-2.5" y="-7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="T5" x="-3.5" y="-7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="T4" x="-4.5" y="-7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="T3" x="-5.5" y="-7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="T2" x="-6.5" y="-7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="T1" x="-7.5" y="-7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="R16" x="7.5" y="-6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="R15" x="6.5" y="-6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="R14" x="5.5" y="-6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="R13" x="4.5" y="-6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="R12" x="3.5" y="-6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="R11" x="2.5" y="-6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="R10" x="1.5" y="-6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="R9" x="0.5" y="-6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="R8" x="-0.5" y="-6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="R7" x="-1.5" y="-6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="R6" x="-2.5" y="-6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="R5" x="-3.5" y="-6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="R4" x="-4.5" y="-6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="R3" x="-5.5" y="-6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="R2" x="-6.5" y="-6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="R1" x="-7.5" y="-6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="P16" x="7.5" y="-5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="P15" x="6.5" y="-5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="P14" x="5.5" y="-5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="P13" x="4.5" y="-5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="P12" x="3.5" y="-5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="P11" x="2.5" y="-5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="P10" x="1.5" y="-5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="P9" x="0.5" y="-5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="P8" x="-0.5" y="-5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="P7" x="-1.5" y="-5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="P6" x="-2.5" y="-5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="P5" x="-3.5" y="-5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="P4" x="-4.5" y="-5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="P3" x="-5.5" y="-5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="P2" x="-6.5" y="-5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="P1" x="-7.5" y="-5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="N16" x="7.5" y="-4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="N15" x="6.5" y="-4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="N14" x="5.5" y="-4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="N13" x="4.5" y="-4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="N12" x="3.5" y="-4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="N11" x="2.5" y="-4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="N10" x="1.5" y="-4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="N9" x="0.5" y="-4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="N8" x="-0.5" y="-4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="N7" x="-1.5" y="-4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="N6" x="-2.5" y="-4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="N5" x="-3.5" y="-4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="N4" x="-4.5" y="-4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="N3" x="-5.5" y="-4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="N2" x="-6.5" y="-4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="N1" x="-7.5" y="-4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="M16" x="7.5" y="-3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="M15" x="6.5" y="-3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="M14" x="5.5" y="-3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="M13" x="4.5" y="-3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="M12" x="3.5" y="-3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="M11" x="2.5" y="-3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="M10" x="1.5" y="-3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="M9" x="0.5" y="-3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="M8" x="-0.5" y="-3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="M7" x="-1.5" y="-3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="M6" x="-2.5" y="-3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="M5" x="-3.5" y="-3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="M4" x="-4.5" y="-3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="M3" x="-5.5" y="-3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="M2" x="-6.5" y="-3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="M1" x="-7.5" y="-3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="L16" x="7.5" y="-2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="L15" x="6.5" y="-2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="L14" x="5.5" y="-2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="L13" x="4.5" y="-2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="L12" x="3.5" y="-2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="L11" x="2.5" y="-2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="L10" x="1.5" y="-2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="L9" x="0.5" y="-2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="L8" x="-0.5" y="-2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="L7" x="-1.5" y="-2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="L6" x="-2.5" y="-2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="L5" x="-3.5" y="-2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="L4" x="-4.5" y="-2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="L3" x="-5.5" y="-2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="L2" x="-6.5" y="-2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="L1" x="-7.5" y="-2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="K16" x="7.5" y="-1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="K15" x="6.5" y="-1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="K14" x="5.5" y="-1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="K13" x="4.5" y="-1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="K12" x="3.5" y="-1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="K11" x="2.5" y="-1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="K10" x="1.5" y="-1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="K9" x="0.5" y="-1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="K8" x="-0.5" y="-1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="K7" x="-1.5" y="-1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="K6" x="-2.5" y="-1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="K5" x="-3.5" y="-1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="K4" x="-4.5" y="-1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="K3" x="-5.5" y="-1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="K2" x="-6.5" y="-1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="K1" x="-7.5" y="-1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="J16" x="7.5" y="-0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="J15" x="6.5" y="-0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="J14" x="5.5" y="-0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="J13" x="4.5" y="-0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="J12" x="3.5" y="-0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="J11" x="2.5" y="-0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="J10" x="1.5" y="-0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="J9" x="0.5" y="-0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="J8" x="-0.5" y="-0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="J7" x="-1.5" y="-0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="J6" x="-2.5" y="-0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="J5" x="-3.5" y="-0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="J4" x="-4.5" y="-0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="J3" x="-5.5" y="-0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="J2" x="-6.5" y="-0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="J1" x="-7.5" y="-0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="H16" x="7.5" y="0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="H15" x="6.5" y="0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="H14" x="5.5" y="0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="H13" x="4.5" y="0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="H12" x="3.5" y="0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="H11" x="2.5" y="0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="H10" x="1.5" y="0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="H9" x="0.5" y="0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="H8" x="-0.5" y="0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="H7" x="-1.5" y="0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="H6" x="-2.5" y="0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="H5" x="-3.5" y="0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="H4" x="-4.5" y="0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="H3" x="-5.5" y="0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="H2" x="-6.5" y="0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="H1" x="-7.5" y="0.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="G16" x="7.5" y="1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="G15" x="6.5" y="1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="G14" x="5.5" y="1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="G13" x="4.5" y="1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="G12" x="3.5" y="1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="G11" x="2.5" y="1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="G10" x="1.5" y="1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="G9" x="0.5" y="1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="G8" x="-0.5" y="1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="G7" x="-1.5" y="1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="G6" x="-2.5" y="1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="G5" x="-3.5" y="1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="G4" x="-4.5" y="1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="G3" x="-5.5" y="1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="G2" x="-6.5" y="1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="G1" x="-7.5" y="1.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="F16" x="7.5" y="2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="F15" x="6.5" y="2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="F14" x="5.5" y="2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="F13" x="4.5" y="2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="F12" x="3.5" y="2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="F11" x="2.5" y="2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="F10" x="1.5" y="2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="F9" x="0.5" y="2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="F8" x="-0.5" y="2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="F7" x="-1.5" y="2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="F6" x="-2.5" y="2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="F5" x="-3.5" y="2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="F4" x="-4.5" y="2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="F3" x="-5.5" y="2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="F2" x="-6.5" y="2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="F1" x="-7.5" y="2.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="E16" x="7.5" y="3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="E15" x="6.5" y="3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="E14" x="5.5" y="3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="E13" x="4.5" y="3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="E12" x="3.5" y="3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="E11" x="2.5" y="3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="E10" x="1.5" y="3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="E9" x="0.5" y="3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="E8" x="-0.5" y="3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="E7" x="-1.5" y="3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="E6" x="-2.5" y="3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="E5" x="-3.5" y="3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="E4" x="-4.5" y="3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="E3" x="-5.5" y="3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="E2" x="-6.5" y="3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="E1" x="-7.5" y="3.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="D16" x="7.5" y="4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="D15" x="6.5" y="4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="D14" x="5.5" y="4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="D13" x="4.5" y="4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="D12" x="3.5" y="4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="D11" x="2.5" y="4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="D10" x="1.5" y="4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="D9" x="0.5" y="4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="D8" x="-0.5" y="4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="D7" x="-1.5" y="4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="D6" x="-2.5" y="4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="D5" x="-3.5" y="4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="D4" x="-4.5" y="4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="D3" x="-5.5" y="4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="D2" x="-6.5" y="4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="D1" x="-7.5" y="4.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="C16" x="7.5" y="5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="C15" x="6.5" y="5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="C14" x="5.5" y="5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="C13" x="4.5" y="5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="C12" x="3.5" y="5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="C11" x="2.5" y="5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="C10" x="1.5" y="5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="C9" x="0.5" y="5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="C8" x="-0.5" y="5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="C7" x="-1.5" y="5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="C6" x="-2.5" y="5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="C5" x="-3.5" y="5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="C4" x="-4.5" y="5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="C3" x="-5.5" y="5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="C2" x="-6.5" y="5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="C1" x="-7.5" y="5.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="B16" x="7.5" y="6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="B15" x="6.5" y="6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="B14" x="5.5" y="6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="B13" x="4.5" y="6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="B12" x="3.5" y="6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="B11" x="2.5" y="6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="B10" x="1.5" y="6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="B9" x="0.5" y="6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="B8" x="-0.5" y="6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="B7" x="-1.5" y="6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="B6" x="-2.5" y="6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="B5" x="-3.5" y="6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="B4" x="-4.5" y="6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="B3" x="-5.5" y="6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="B2" x="-6.5" y="6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="B1" x="-7.5" y="6.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="A16" x="7.5" y="7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="A15" x="6.5" y="7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="A14" x="5.5" y="7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="A13" x="4.5" y="7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="A12" x="3.5" y="7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="A11" x="2.5" y="7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="A10" x="1.5" y="7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="A9" x="0.5" y="7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="A8" x="-0.5" y="7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="A7" x="-1.5" y="7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="A6" x="-2.5" y="7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="A5" x="-3.5" y="7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="A4" x="-4.5" y="7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="A3" x="-5.5" y="7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="A2" x="-6.5" y="7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
-<smd name="A1" x="-7.5" y="7.5" dx="0.5" dy="0.5" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="T16" x="7.5" y="-7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="T15" x="6.5" y="-7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="T14" x="5.5" y="-7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="T13" x="4.5" y="-7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="T12" x="3.5" y="-7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="T11" x="2.5" y="-7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="T10" x="1.5" y="-7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="T9" x="0.5" y="-7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="T8" x="-0.5" y="-7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="T7" x="-1.5" y="-7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="T6" x="-2.5" y="-7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="T5" x="-3.5" y="-7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="T4" x="-4.5" y="-7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="T3" x="-5.5" y="-7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="T2" x="-6.5" y="-7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="T1" x="-7.5" y="-7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="R16" x="7.5" y="-6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="R15" x="6.5" y="-6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="R14" x="5.5" y="-6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="R13" x="4.5" y="-6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="R12" x="3.5" y="-6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="R11" x="2.5" y="-6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="R10" x="1.5" y="-6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="R9" x="0.5" y="-6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="R8" x="-0.5" y="-6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="R7" x="-1.5" y="-6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="R6" x="-2.5" y="-6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="R5" x="-3.5" y="-6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="R4" x="-4.5" y="-6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="R3" x="-5.5" y="-6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="R2" x="-6.5" y="-6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="R1" x="-7.5" y="-6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="P16" x="7.5" y="-5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="P15" x="6.5" y="-5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="P14" x="5.5" y="-5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="P13" x="4.5" y="-5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="P12" x="3.5" y="-5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="P11" x="2.5" y="-5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="P10" x="1.5" y="-5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="P9" x="0.5" y="-5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="P8" x="-0.5" y="-5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="P7" x="-1.5" y="-5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="P6" x="-2.5" y="-5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="P5" x="-3.5" y="-5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="P4" x="-4.5" y="-5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="P3" x="-5.5" y="-5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="P2" x="-6.5" y="-5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="P1" x="-7.5" y="-5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="N16" x="7.5" y="-4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="N15" x="6.5" y="-4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="N14" x="5.5" y="-4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="N13" x="4.5" y="-4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="N12" x="3.5" y="-4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="N11" x="2.5" y="-4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="N10" x="1.5" y="-4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="N9" x="0.5" y="-4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="N8" x="-0.5" y="-4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="N7" x="-1.5" y="-4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="N6" x="-2.5" y="-4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="N5" x="-3.5" y="-4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="N4" x="-4.5" y="-4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="N3" x="-5.5" y="-4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="N2" x="-6.5" y="-4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="N1" x="-7.5" y="-4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="M16" x="7.5" y="-3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="M15" x="6.5" y="-3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="M14" x="5.5" y="-3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="M13" x="4.5" y="-3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="M12" x="3.5" y="-3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="M11" x="2.5" y="-3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="M10" x="1.5" y="-3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="M9" x="0.5" y="-3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="M8" x="-0.5" y="-3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="M7" x="-1.5" y="-3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="M6" x="-2.5" y="-3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="M5" x="-3.5" y="-3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="M4" x="-4.5" y="-3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="M3" x="-5.5" y="-3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="M2" x="-6.5" y="-3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="M1" x="-7.5" y="-3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="L16" x="7.5" y="-2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="L15" x="6.5" y="-2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="L14" x="5.5" y="-2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="L13" x="4.5" y="-2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="L12" x="3.5" y="-2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="L11" x="2.5" y="-2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="L10" x="1.5" y="-2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="L9" x="0.5" y="-2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="L8" x="-0.5" y="-2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="L7" x="-1.5" y="-2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="L6" x="-2.5" y="-2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="L5" x="-3.5" y="-2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="L4" x="-4.5" y="-2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="L3" x="-5.5" y="-2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="L2" x="-6.5" y="-2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="L1" x="-7.5" y="-2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="K16" x="7.5" y="-1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="K15" x="6.5" y="-1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="K14" x="5.5" y="-1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="K13" x="4.5" y="-1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="K12" x="3.5" y="-1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="K11" x="2.5" y="-1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="K10" x="1.5" y="-1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="K9" x="0.5" y="-1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="K8" x="-0.5" y="-1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="K7" x="-1.5" y="-1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="K6" x="-2.5" y="-1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="K5" x="-3.5" y="-1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="K4" x="-4.5" y="-1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="K3" x="-5.5" y="-1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="K2" x="-6.5" y="-1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="K1" x="-7.5" y="-1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="J16" x="7.5" y="-0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="J15" x="6.5" y="-0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="J14" x="5.5" y="-0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="J13" x="4.5" y="-0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="J12" x="3.5" y="-0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="J11" x="2.5" y="-0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="J10" x="1.5" y="-0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="J9" x="0.5" y="-0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="J8" x="-0.5" y="-0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="J7" x="-1.5" y="-0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="J6" x="-2.5" y="-0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="J5" x="-3.5" y="-0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="J4" x="-4.5" y="-0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="J3" x="-5.5" y="-0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="J2" x="-6.5" y="-0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="J1" x="-7.5" y="-0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="H16" x="7.5" y="0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="H15" x="6.5" y="0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="H14" x="5.5" y="0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="H13" x="4.5" y="0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="H12" x="3.5" y="0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="H11" x="2.5" y="0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="H10" x="1.5" y="0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="H9" x="0.5" y="0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="H8" x="-0.5" y="0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="H7" x="-1.5" y="0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="H6" x="-2.5" y="0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="H5" x="-3.5" y="0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="H4" x="-4.5" y="0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="H3" x="-5.5" y="0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="H2" x="-6.5" y="0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="H1" x="-7.5" y="0.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="G16" x="7.5" y="1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="G15" x="6.5" y="1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="G14" x="5.5" y="1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="G13" x="4.5" y="1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="G12" x="3.5" y="1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="G11" x="2.5" y="1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="G10" x="1.5" y="1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="G9" x="0.5" y="1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="G8" x="-0.5" y="1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="G7" x="-1.5" y="1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="G6" x="-2.5" y="1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="G5" x="-3.5" y="1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="G4" x="-4.5" y="1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="G3" x="-5.5" y="1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="G2" x="-6.5" y="1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="G1" x="-7.5" y="1.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="F16" x="7.5" y="2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="F15" x="6.5" y="2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="F14" x="5.5" y="2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="F13" x="4.5" y="2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="F12" x="3.5" y="2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="F11" x="2.5" y="2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="F10" x="1.5" y="2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="F9" x="0.5" y="2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="F8" x="-0.5" y="2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="F7" x="-1.5" y="2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="F6" x="-2.5" y="2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="F5" x="-3.5" y="2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="F4" x="-4.5" y="2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="F3" x="-5.5" y="2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="F2" x="-6.5" y="2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="F1" x="-7.5" y="2.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="E16" x="7.5" y="3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="E15" x="6.5" y="3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="E14" x="5.5" y="3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="E13" x="4.5" y="3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="E12" x="3.5" y="3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="E11" x="2.5" y="3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="E10" x="1.5" y="3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="E9" x="0.5" y="3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="E8" x="-0.5" y="3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="E7" x="-1.5" y="3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="E6" x="-2.5" y="3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="E5" x="-3.5" y="3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="E4" x="-4.5" y="3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="E3" x="-5.5" y="3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="E2" x="-6.5" y="3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="E1" x="-7.5" y="3.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="D16" x="7.5" y="4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="D15" x="6.5" y="4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="D14" x="5.5" y="4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="D13" x="4.5" y="4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="D12" x="3.5" y="4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="D11" x="2.5" y="4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="D10" x="1.5" y="4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="D9" x="0.5" y="4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="D8" x="-0.5" y="4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="D7" x="-1.5" y="4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="D6" x="-2.5" y="4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="D5" x="-3.5" y="4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="D4" x="-4.5" y="4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="D3" x="-5.5" y="4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="D2" x="-6.5" y="4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="D1" x="-7.5" y="4.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="C16" x="7.5" y="5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="C15" x="6.5" y="5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="C14" x="5.5" y="5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="C13" x="4.5" y="5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="C12" x="3.5" y="5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="C11" x="2.5" y="5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="C10" x="1.5" y="5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="C9" x="0.5" y="5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="C8" x="-0.5" y="5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="C7" x="-1.5" y="5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="C6" x="-2.5" y="5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="C5" x="-3.5" y="5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="C4" x="-4.5" y="5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="C3" x="-5.5" y="5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="C2" x="-6.5" y="5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="C1" x="-7.5" y="5.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="B16" x="7.5" y="6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="B15" x="6.5" y="6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="B14" x="5.5" y="6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="B13" x="4.5" y="6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="B12" x="3.5" y="6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="B11" x="2.5" y="6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="B10" x="1.5" y="6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="B9" x="0.5" y="6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="B8" x="-0.5" y="6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="B7" x="-1.5" y="6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="B6" x="-2.5" y="6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="B5" x="-3.5" y="6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="B4" x="-4.5" y="6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="B3" x="-5.5" y="6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="B2" x="-6.5" y="6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="B1" x="-7.5" y="6.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="A16" x="7.5" y="7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="A15" x="6.5" y="7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="A14" x="5.5" y="7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="A13" x="4.5" y="7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="A12" x="3.5" y="7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="A11" x="2.5" y="7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="A10" x="1.5" y="7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="A9" x="0.5" y="7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="A8" x="-0.5" y="7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="A7" x="-1.5" y="7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="A6" x="-2.5" y="7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="A5" x="-3.5" y="7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="A4" x="-4.5" y="7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="A3" x="-5.5" y="7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="A2" x="-6.5" y="7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
+<smd name="A1" x="-7.5" y="7.5" dx="0.4" dy="0.4" layer="1" roundness="100" stop="no" cream="no"/>
 <text x="-8.5" y="8.75" size="0.4064" layer="25">&gt;NAME</text>
 <text x="-8.5" y="-9.25" size="0.4064" layer="27">&gt;VALUE</text>
+<circle x="7.5" y="-7.5" radius="0.15" width="0" layer="31"/>
+<circle x="6.5" y="-7.5" radius="0.15" width="0" layer="31"/>
+<circle x="5.5" y="-7.5" radius="0.15" width="0" layer="31"/>
+<circle x="4.5" y="-7.5" radius="0.15" width="0" layer="31"/>
+<circle x="3.5" y="-7.5" radius="0.15" width="0" layer="31"/>
+<circle x="2.5" y="-7.5" radius="0.15" width="0" layer="31"/>
+<circle x="1.5" y="-7.5" radius="0.15" width="0" layer="31"/>
+<circle x="0.5" y="-7.5" radius="0.15" width="0" layer="31"/>
+<circle x="-0.5" y="-7.5" radius="0.15" width="0" layer="31"/>
+<circle x="-1.5" y="-7.5" radius="0.15" width="0" layer="31"/>
+<circle x="-2.5" y="-7.5" radius="0.15" width="0" layer="31"/>
+<circle x="-3.5" y="-7.5" radius="0.15" width="0" layer="31"/>
+<circle x="-4.5" y="-7.5" radius="0.15" width="0" layer="31"/>
+<circle x="-5.5" y="-7.5" radius="0.15" width="0" layer="31"/>
+<circle x="-6.5" y="-7.5" radius="0.15" width="0" layer="31"/>
+<circle x="-7.5" y="-7.5" radius="0.15" width="0" layer="31"/>
+<circle x="7.5" y="-6.5" radius="0.15" width="0" layer="31"/>
+<circle x="6.5" y="-6.5" radius="0.15" width="0" layer="31"/>
+<circle x="5.5" y="-6.5" radius="0.15" width="0" layer="31"/>
+<circle x="4.5" y="-6.5" radius="0.15" width="0" layer="31"/>
+<circle x="3.5" y="-6.5" radius="0.15" width="0" layer="31"/>
+<circle x="2.5" y="-6.5" radius="0.15" width="0" layer="31"/>
+<circle x="1.5" y="-6.5" radius="0.15" width="0" layer="31"/>
+<circle x="0.5" y="-6.5" radius="0.15" width="0" layer="31"/>
+<circle x="-0.5" y="-6.5" radius="0.15" width="0" layer="31"/>
+<circle x="-1.5" y="-6.5" radius="0.15" width="0" layer="31"/>
+<circle x="-2.5" y="-6.5" radius="0.15" width="0" layer="31"/>
+<circle x="-3.5" y="-6.5" radius="0.15" width="0" layer="31"/>
+<circle x="-4.5" y="-6.5" radius="0.15" width="0" layer="31"/>
+<circle x="-5.5" y="-6.5" radius="0.15" width="0" layer="31"/>
+<circle x="-6.5" y="-6.5" radius="0.15" width="0" layer="31"/>
+<circle x="-7.5" y="-6.5" radius="0.15" width="0" layer="31"/>
+<circle x="7.5" y="-5.5" radius="0.15" width="0" layer="31"/>
+<circle x="6.5" y="-5.5" radius="0.15" width="0" layer="31"/>
+<circle x="5.5" y="-5.5" radius="0.15" width="0" layer="31"/>
+<circle x="4.5" y="-5.5" radius="0.15" width="0" layer="31"/>
+<circle x="3.5" y="-5.5" radius="0.15" width="0" layer="31"/>
+<circle x="2.5" y="-5.5" radius="0.15" width="0" layer="31"/>
+<circle x="1.5" y="-5.5" radius="0.15" width="0" layer="31"/>
+<circle x="0.5" y="-5.5" radius="0.15" width="0" layer="31"/>
+<circle x="-0.5" y="-5.5" radius="0.15" width="0" layer="31"/>
+<circle x="-1.5" y="-5.5" radius="0.15" width="0" layer="31"/>
+<circle x="-2.5" y="-5.5" radius="0.15" width="0" layer="31"/>
+<circle x="-3.5" y="-5.5" radius="0.15" width="0" layer="31"/>
+<circle x="-4.5" y="-5.5" radius="0.15" width="0" layer="31"/>
+<circle x="-5.5" y="-5.5" radius="0.15" width="0" layer="31"/>
+<circle x="-6.5" y="-5.5" radius="0.15" width="0" layer="31"/>
+<circle x="-7.5" y="-5.5" radius="0.15" width="0" layer="31"/>
+<circle x="7.5" y="-4.5" radius="0.15" width="0" layer="31"/>
+<circle x="6.5" y="-4.5" radius="0.15" width="0" layer="31"/>
+<circle x="5.5" y="-4.5" radius="0.15" width="0" layer="31"/>
+<circle x="4.5" y="-4.5" radius="0.15" width="0" layer="31"/>
+<circle x="3.5" y="-4.5" radius="0.15" width="0" layer="31"/>
+<circle x="2.5" y="-4.5" radius="0.15" width="0" layer="31"/>
+<circle x="1.5" y="-4.5" radius="0.15" width="0" layer="31"/>
+<circle x="0.5" y="-4.5" radius="0.15" width="0" layer="31"/>
+<circle x="-0.5" y="-4.5" radius="0.15" width="0" layer="31"/>
+<circle x="-1.5" y="-4.5" radius="0.15" width="0" layer="31"/>
+<circle x="-2.5" y="-4.5" radius="0.15" width="0" layer="31"/>
+<circle x="-3.5" y="-4.5" radius="0.15" width="0" layer="31"/>
+<circle x="-4.5" y="-4.5" radius="0.15" width="0" layer="31"/>
+<circle x="-5.5" y="-4.5" radius="0.15" width="0" layer="31"/>
+<circle x="-6.5" y="-4.5" radius="0.15" width="0" layer="31"/>
+<circle x="-7.5" y="-4.5" radius="0.15" width="0" layer="31"/>
+<circle x="7.5" y="-3.5" radius="0.15" width="0" layer="31"/>
+<circle x="6.5" y="-3.5" radius="0.15" width="0" layer="31"/>
+<circle x="5.5" y="-3.5" radius="0.15" width="0" layer="31"/>
+<circle x="4.5" y="-3.5" radius="0.15" width="0" layer="31"/>
+<circle x="3.5" y="-3.5" radius="0.15" width="0" layer="31"/>
+<circle x="2.5" y="-3.5" radius="0.15" width="0" layer="31"/>
+<circle x="1.5" y="-3.5" radius="0.15" width="0" layer="31"/>
+<circle x="0.5" y="-3.5" radius="0.15" width="0" layer="31"/>
+<circle x="-0.5" y="-3.5" radius="0.15" width="0" layer="31"/>
+<circle x="-1.5" y="-3.5" radius="0.15" width="0" layer="31"/>
+<circle x="-2.5" y="-3.5" radius="0.15" width="0" layer="31"/>
+<circle x="-3.5" y="-3.5" radius="0.15" width="0" layer="31"/>
+<circle x="-4.5" y="-3.5" radius="0.15" width="0" layer="31"/>
+<circle x="-5.5" y="-3.5" radius="0.15" width="0" layer="31"/>
+<circle x="-6.5" y="-3.5" radius="0.15" width="0" layer="31"/>
+<circle x="-7.5" y="-3.5" radius="0.15" width="0" layer="31"/>
+<circle x="7.5" y="-2.5" radius="0.15" width="0" layer="31"/>
+<circle x="6.5" y="-2.5" radius="0.15" width="0" layer="31"/>
+<circle x="5.5" y="-2.5" radius="0.15" width="0" layer="31"/>
+<circle x="4.5" y="-2.5" radius="0.15" width="0" layer="31"/>
+<circle x="3.5" y="-2.5" radius="0.15" width="0" layer="31"/>
+<circle x="2.5" y="-2.5" radius="0.15" width="0" layer="31"/>
+<circle x="1.5" y="-2.5" radius="0.15" width="0" layer="31"/>
+<circle x="0.5" y="-2.5" radius="0.15" width="0" layer="31"/>
+<circle x="-0.5" y="-2.5" radius="0.15" width="0" layer="31"/>
+<circle x="-1.5" y="-2.5" radius="0.15" width="0" layer="31"/>
+<circle x="-2.5" y="-2.5" radius="0.15" width="0" layer="31"/>
+<circle x="-3.5" y="-2.5" radius="0.15" width="0" layer="31"/>
+<circle x="-4.5" y="-2.5" radius="0.15" width="0" layer="31"/>
+<circle x="-5.5" y="-2.5" radius="0.15" width="0" layer="31"/>
+<circle x="-6.5" y="-2.5" radius="0.15" width="0" layer="31"/>
+<circle x="-7.5" y="-2.5" radius="0.15" width="0" layer="31"/>
+<circle x="7.5" y="-1.5" radius="0.15" width="0" layer="31"/>
+<circle x="6.5" y="-1.5" radius="0.15" width="0" layer="31"/>
+<circle x="5.5" y="-1.5" radius="0.15" width="0" layer="31"/>
+<circle x="4.5" y="-1.5" radius="0.15" width="0" layer="31"/>
+<circle x="3.5" y="-1.5" radius="0.15" width="0" layer="31"/>
+<circle x="2.5" y="-1.5" radius="0.15" width="0" layer="31"/>
+<circle x="1.5" y="-1.5" radius="0.15" width="0" layer="31"/>
+<circle x="0.5" y="-1.5" radius="0.15" width="0" layer="31"/>
+<circle x="-0.5" y="-1.5" radius="0.15" width="0" layer="31"/>
+<circle x="-1.5" y="-1.5" radius="0.15" width="0" layer="31"/>
+<circle x="-2.5" y="-1.5" radius="0.15" width="0" layer="31"/>
+<circle x="-3.5" y="-1.5" radius="0.15" width="0" layer="31"/>
+<circle x="-4.5" y="-1.5" radius="0.15" width="0" layer="31"/>
+<circle x="-5.5" y="-1.5" radius="0.15" width="0" layer="31"/>
+<circle x="-6.5" y="-1.5" radius="0.15" width="0" layer="31"/>
+<circle x="-7.5" y="-1.5" radius="0.15" width="0" layer="31"/>
+<circle x="7.5" y="-0.5" radius="0.15" width="0" layer="31"/>
+<circle x="6.5" y="-0.5" radius="0.15" width="0" layer="31"/>
+<circle x="5.5" y="-0.5" radius="0.15" width="0" layer="31"/>
+<circle x="4.5" y="-0.5" radius="0.15" width="0" layer="31"/>
+<circle x="3.5" y="-0.5" radius="0.15" width="0" layer="31"/>
+<circle x="2.5" y="-0.5" radius="0.15" width="0" layer="31"/>
+<circle x="1.5" y="-0.5" radius="0.15" width="0" layer="31"/>
+<circle x="0.5" y="-0.5" radius="0.15" width="0" layer="31"/>
+<circle x="-0.5" y="-0.5" radius="0.15" width="0" layer="31"/>
+<circle x="-1.5" y="-0.5" radius="0.15" width="0" layer="31"/>
+<circle x="-2.5" y="-0.5" radius="0.15" width="0" layer="31"/>
+<circle x="-3.5" y="-0.5" radius="0.15" width="0" layer="31"/>
+<circle x="-4.5" y="-0.5" radius="0.15" width="0" layer="31"/>
+<circle x="-5.5" y="-0.5" radius="0.15" width="0" layer="31"/>
+<circle x="-6.5" y="-0.5" radius="0.15" width="0" layer="31"/>
+<circle x="-7.5" y="-0.5" radius="0.15" width="0" layer="31"/>
+<circle x="7.5" y="0.5" radius="0.15" width="0" layer="31"/>
+<circle x="6.5" y="0.5" radius="0.15" width="0" layer="31"/>
+<circle x="5.5" y="0.5" radius="0.15" width="0" layer="31"/>
+<circle x="4.5" y="0.5" radius="0.15" width="0" layer="31"/>
+<circle x="3.5" y="0.5" radius="0.15" width="0" layer="31"/>
+<circle x="2.5" y="0.5" radius="0.15" width="0" layer="31"/>
+<circle x="1.5" y="0.5" radius="0.15" width="0" layer="31"/>
+<circle x="0.5" y="0.5" radius="0.15" width="0" layer="31"/>
+<circle x="-0.5" y="0.5" radius="0.15" width="0" layer="31"/>
+<circle x="-1.5" y="0.5" radius="0.15" width="0" layer="31"/>
+<circle x="-2.5" y="0.5" radius="0.15" width="0" layer="31"/>
+<circle x="-3.5" y="0.5" radius="0.15" width="0" layer="31"/>
+<circle x="-4.5" y="0.5" radius="0.15" width="0" layer="31"/>
+<circle x="-5.5" y="0.5" radius="0.15" width="0" layer="31"/>
+<circle x="-6.5" y="0.5" radius="0.15" width="0" layer="31"/>
+<circle x="-7.5" y="0.5" radius="0.15" width="0" layer="31"/>
+<circle x="7.5" y="1.5" radius="0.15" width="0" layer="31"/>
+<circle x="6.5" y="1.5" radius="0.15" width="0" layer="31"/>
+<circle x="5.5" y="1.5" radius="0.15" width="0" layer="31"/>
+<circle x="4.5" y="1.5" radius="0.15" width="0" layer="31"/>
+<circle x="3.5" y="1.5" radius="0.15" width="0" layer="31"/>
+<circle x="2.5" y="1.5" radius="0.15" width="0" layer="31"/>
+<circle x="1.5" y="1.5" radius="0.15" width="0" layer="31"/>
+<circle x="0.5" y="1.5" radius="0.15" width="0" layer="31"/>
+<circle x="-0.5" y="1.5" radius="0.15" width="0" layer="31"/>
+<circle x="-1.5" y="1.5" radius="0.15" width="0" layer="31"/>
+<circle x="-2.5" y="1.5" radius="0.15" width="0" layer="31"/>
+<circle x="-3.5" y="1.5" radius="0.15" width="0" layer="31"/>
+<circle x="-4.5" y="1.5" radius="0.15" width="0" layer="31"/>
+<circle x="-5.5" y="1.5" radius="0.15" width="0" layer="31"/>
+<circle x="-6.5" y="1.5" radius="0.15" width="0" layer="31"/>
+<circle x="-7.5" y="1.5" radius="0.15" width="0" layer="31"/>
+<circle x="7.5" y="2.5" radius="0.15" width="0" layer="31"/>
+<circle x="6.5" y="2.5" radius="0.15" width="0" layer="31"/>
+<circle x="5.5" y="2.5" radius="0.15" width="0" layer="31"/>
+<circle x="4.5" y="2.5" radius="0.15" width="0" layer="31"/>
+<circle x="3.5" y="2.5" radius="0.15" width="0" layer="31"/>
+<circle x="2.5" y="2.5" radius="0.15" width="0" layer="31"/>
+<circle x="1.5" y="2.5" radius="0.15" width="0" layer="31"/>
+<circle x="0.5" y="2.5" radius="0.15" width="0" layer="31"/>
+<circle x="-0.5" y="2.5" radius="0.15" width="0" layer="31"/>
+<circle x="-1.5" y="2.5" radius="0.15" width="0" layer="31"/>
+<circle x="-2.5" y="2.5" radius="0.15" width="0" layer="31"/>
+<circle x="-3.5" y="2.5" radius="0.15" width="0" layer="31"/>
+<circle x="-4.5" y="2.5" radius="0.15" width="0" layer="31"/>
+<circle x="-5.5" y="2.5" radius="0.15" width="0" layer="31"/>
+<circle x="-6.5" y="2.5" radius="0.15" width="0" layer="31"/>
+<circle x="-7.5" y="2.5" radius="0.15" width="0" layer="31"/>
+<circle x="7.5" y="3.5" radius="0.15" width="0" layer="31"/>
+<circle x="6.5" y="3.5" radius="0.15" width="0" layer="31"/>
+<circle x="5.5" y="3.5" radius="0.15" width="0" layer="31"/>
+<circle x="4.5" y="3.5" radius="0.15" width="0" layer="31"/>
+<circle x="3.5" y="3.5" radius="0.15" width="0" layer="31"/>
+<circle x="2.5" y="3.5" radius="0.15" width="0" layer="31"/>
+<circle x="1.5" y="3.5" radius="0.15" width="0" layer="31"/>
+<circle x="0.5" y="3.5" radius="0.15" width="0" layer="31"/>
+<circle x="-0.5" y="3.5" radius="0.15" width="0" layer="31"/>
+<circle x="-1.5" y="3.5" radius="0.15" width="0" layer="31"/>
+<circle x="-2.5" y="3.5" radius="0.15" width="0" layer="31"/>
+<circle x="-3.5" y="3.5" radius="0.15" width="0" layer="31"/>
+<circle x="-4.5" y="3.5" radius="0.15" width="0" layer="31"/>
+<circle x="-5.5" y="3.5" radius="0.15" width="0" layer="31"/>
+<circle x="-6.5" y="3.5" radius="0.15" width="0" layer="31"/>
+<circle x="-7.5" y="3.5" radius="0.15" width="0" layer="31"/>
+<circle x="7.5" y="4.5" radius="0.15" width="0" layer="31"/>
+<circle x="6.5" y="4.5" radius="0.15" width="0" layer="31"/>
+<circle x="5.5" y="4.5" radius="0.15" width="0" layer="31"/>
+<circle x="4.5" y="4.5" radius="0.15" width="0" layer="31"/>
+<circle x="3.5" y="4.5" radius="0.15" width="0" layer="31"/>
+<circle x="2.5" y="4.5" radius="0.15" width="0" layer="31"/>
+<circle x="1.5" y="4.5" radius="0.15" width="0" layer="31"/>
+<circle x="0.5" y="4.5" radius="0.15" width="0" layer="31"/>
+<circle x="-0.5" y="4.5" radius="0.15" width="0" layer="31"/>
+<circle x="-1.5" y="4.5" radius="0.15" width="0" layer="31"/>
+<circle x="-2.5" y="4.5" radius="0.15" width="0" layer="31"/>
+<circle x="-3.5" y="4.5" radius="0.15" width="0" layer="31"/>
+<circle x="-4.5" y="4.5" radius="0.15" width="0" layer="31"/>
+<circle x="-5.5" y="4.5" radius="0.15" width="0" layer="31"/>
+<circle x="-6.5" y="4.5" radius="0.15" width="0" layer="31"/>
+<circle x="-7.5" y="4.5" radius="0.15" width="0" layer="31"/>
+<circle x="7.5" y="5.5" radius="0.15" width="0" layer="31"/>
+<circle x="6.5" y="5.5" radius="0.15" width="0" layer="31"/>
+<circle x="5.5" y="5.5" radius="0.15" width="0" layer="31"/>
+<circle x="4.5" y="5.5" radius="0.15" width="0" layer="31"/>
+<circle x="3.5" y="5.5" radius="0.15" width="0" layer="31"/>
+<circle x="2.5" y="5.5" radius="0.15" width="0" layer="31"/>
+<circle x="1.5" y="5.5" radius="0.15" width="0" layer="31"/>
+<circle x="0.5" y="5.5" radius="0.15" width="0" layer="31"/>
+<circle x="-0.5" y="5.5" radius="0.15" width="0" layer="31"/>
+<circle x="-1.5" y="5.5" radius="0.15" width="0" layer="31"/>
+<circle x="-2.5" y="5.5" radius="0.15" width="0" layer="31"/>
+<circle x="-3.5" y="5.5" radius="0.15" width="0" layer="31"/>
+<circle x="-4.5" y="5.5" radius="0.15" width="0" layer="31"/>
+<circle x="-5.5" y="5.5" radius="0.15" width="0" layer="31"/>
+<circle x="-6.5" y="5.5" radius="0.15" width="0" layer="31"/>
+<circle x="-7.5" y="5.5" radius="0.15" width="0" layer="31"/>
+<circle x="7.5" y="6.5" radius="0.15" width="0" layer="31"/>
+<circle x="6.5" y="6.5" radius="0.15" width="0" layer="31"/>
+<circle x="5.5" y="6.5" radius="0.15" width="0" layer="31"/>
+<circle x="4.5" y="6.5" radius="0.15" width="0" layer="31"/>
+<circle x="3.5" y="6.5" radius="0.15" width="0" layer="31"/>
+<circle x="2.5" y="6.5" radius="0.15" width="0" layer="31"/>
+<circle x="1.5" y="6.5" radius="0.15" width="0" layer="31"/>
+<circle x="0.5" y="6.5" radius="0.15" width="0" layer="31"/>
+<circle x="-0.5" y="6.5" radius="0.15" width="0" layer="31"/>
+<circle x="-1.5" y="6.5" radius="0.15" width="0" layer="31"/>
+<circle x="-2.5" y="6.5" radius="0.15" width="0" layer="31"/>
+<circle x="-3.5" y="6.5" radius="0.15" width="0" layer="31"/>
+<circle x="-4.5" y="6.5" radius="0.15" width="0" layer="31"/>
+<circle x="-5.5" y="6.5" radius="0.15" width="0" layer="31"/>
+<circle x="-6.5" y="6.5" radius="0.15" width="0" layer="31"/>
+<circle x="-7.5" y="6.5" radius="0.15" width="0" layer="31"/>
+<circle x="7.5" y="7.5" radius="0.15" width="0" layer="31"/>
+<circle x="6.5" y="7.5" radius="0.15" width="0" layer="31"/>
+<circle x="5.5" y="7.5" radius="0.15" width="0" layer="31"/>
+<circle x="4.5" y="7.5" radius="0.15" width="0" layer="31"/>
+<circle x="3.5" y="7.5" radius="0.15" width="0" layer="31"/>
+<circle x="2.5" y="7.5" radius="0.15" width="0" layer="31"/>
+<circle x="1.5" y="7.5" radius="0.15" width="0" layer="31"/>
+<circle x="0.5" y="7.5" radius="0.15" width="0" layer="31"/>
+<circle x="-0.5" y="7.5" radius="0.15" width="0" layer="31"/>
+<circle x="-1.5" y="7.5" radius="0.15" width="0" layer="31"/>
+<circle x="-2.5" y="7.5" radius="0.15" width="0" layer="31"/>
+<circle x="-3.5" y="7.5" radius="0.15" width="0" layer="31"/>
+<circle x="-4.5" y="7.5" radius="0.15" width="0" layer="31"/>
+<circle x="-5.5" y="7.5" radius="0.15" width="0" layer="31"/>
+<circle x="-6.5" y="7.5" radius="0.15" width="0" layer="31"/>
+<circle x="-7.5" y="7.5" radius="0.15" width="0" layer="31"/>
+<circle x="7.5" y="-7.5" radius="0.275" width="0" layer="29"/>
+<circle x="6.5" y="-7.5" radius="0.275" width="0" layer="29"/>
+<circle x="5.5" y="-7.5" radius="0.275" width="0" layer="29"/>
+<circle x="4.5" y="-7.5" radius="0.275" width="0" layer="29"/>
+<circle x="3.5" y="-7.5" radius="0.275" width="0" layer="29"/>
+<circle x="2.5" y="-7.5" radius="0.275" width="0" layer="29"/>
+<circle x="1.5" y="-7.5" radius="0.275" width="0" layer="29"/>
+<circle x="0.5" y="-7.5" radius="0.275" width="0" layer="29"/>
+<circle x="-0.5" y="-7.5" radius="0.275" width="0" layer="29"/>
+<circle x="-1.5" y="-7.5" radius="0.275" width="0" layer="29"/>
+<circle x="-2.5" y="-7.5" radius="0.275" width="0" layer="29"/>
+<circle x="-3.5" y="-7.5" radius="0.275" width="0" layer="29"/>
+<circle x="-4.5" y="-7.5" radius="0.275" width="0" layer="29"/>
+<circle x="-5.5" y="-7.5" radius="0.275" width="0" layer="29"/>
+<circle x="-6.5" y="-7.5" radius="0.275" width="0" layer="29"/>
+<circle x="-7.5" y="-7.5" radius="0.275" width="0" layer="29"/>
+<circle x="7.5" y="-6.5" radius="0.275" width="0" layer="29"/>
+<circle x="6.5" y="-6.5" radius="0.275" width="0" layer="29"/>
+<circle x="5.5" y="-6.5" radius="0.275" width="0" layer="29"/>
+<circle x="4.5" y="-6.5" radius="0.275" width="0" layer="29"/>
+<circle x="3.5" y="-6.5" radius="0.275" width="0" layer="29"/>
+<circle x="2.5" y="-6.5" radius="0.275" width="0" layer="29"/>
+<circle x="1.5" y="-6.5" radius="0.275" width="0" layer="29"/>
+<circle x="0.5" y="-6.5" radius="0.275" width="0" layer="29"/>
+<circle x="-0.5" y="-6.5" radius="0.275" width="0" layer="29"/>
+<circle x="-1.5" y="-6.5" radius="0.275" width="0" layer="29"/>
+<circle x="-2.5" y="-6.5" radius="0.275" width="0" layer="29"/>
+<circle x="-3.5" y="-6.5" radius="0.275" width="0" layer="29"/>
+<circle x="-4.5" y="-6.5" radius="0.275" width="0" layer="29"/>
+<circle x="-5.5" y="-6.5" radius="0.275" width="0" layer="29"/>
+<circle x="-6.5" y="-6.5" radius="0.275" width="0" layer="29"/>
+<circle x="-7.5" y="-6.5" radius="0.275" width="0" layer="29"/>
+<circle x="7.5" y="-5.5" radius="0.275" width="0" layer="29"/>
+<circle x="6.5" y="-5.5" radius="0.275" width="0" layer="29"/>
+<circle x="5.5" y="-5.5" radius="0.275" width="0" layer="29"/>
+<circle x="4.5" y="-5.5" radius="0.275" width="0" layer="29"/>
+<circle x="3.5" y="-5.5" radius="0.275" width="0" layer="29"/>
+<circle x="2.5" y="-5.5" radius="0.275" width="0" layer="29"/>
+<circle x="1.5" y="-5.5" radius="0.275" width="0" layer="29"/>
+<circle x="0.5" y="-5.5" radius="0.275" width="0" layer="29"/>
+<circle x="-0.5" y="-5.5" radius="0.275" width="0" layer="29"/>
+<circle x="-1.5" y="-5.5" radius="0.275" width="0" layer="29"/>
+<circle x="-2.5" y="-5.5" radius="0.275" width="0" layer="29"/>
+<circle x="-3.5" y="-5.5" radius="0.275" width="0" layer="29"/>
+<circle x="-4.5" y="-5.5" radius="0.275" width="0" layer="29"/>
+<circle x="-5.5" y="-5.5" radius="0.275" width="0" layer="29"/>
+<circle x="-6.5" y="-5.5" radius="0.275" width="0" layer="29"/>
+<circle x="-7.5" y="-5.5" radius="0.275" width="0" layer="29"/>
+<circle x="7.5" y="-4.5" radius="0.275" width="0" layer="29"/>
+<circle x="6.5" y="-4.5" radius="0.275" width="0" layer="29"/>
+<circle x="5.5" y="-4.5" radius="0.275" width="0" layer="29"/>
+<circle x="4.5" y="-4.5" radius="0.275" width="0" layer="29"/>
+<circle x="3.5" y="-4.5" radius="0.275" width="0" layer="29"/>
+<circle x="2.5" y="-4.5" radius="0.275" width="0" layer="29"/>
+<circle x="1.5" y="-4.5" radius="0.275" width="0" layer="29"/>
+<circle x="0.5" y="-4.5" radius="0.275" width="0" layer="29"/>
+<circle x="-0.5" y="-4.5" radius="0.275" width="0" layer="29"/>
+<circle x="-1.5" y="-4.5" radius="0.275" width="0" layer="29"/>
+<circle x="-2.5" y="-4.5" radius="0.275" width="0" layer="29"/>
+<circle x="-3.5" y="-4.5" radius="0.275" width="0" layer="29"/>
+<circle x="-4.5" y="-4.5" radius="0.275" width="0" layer="29"/>
+<circle x="-5.5" y="-4.5" radius="0.275" width="0" layer="29"/>
+<circle x="-6.5" y="-4.5" radius="0.275" width="0" layer="29"/>
+<circle x="-7.5" y="-4.5" radius="0.275" width="0" layer="29"/>
+<circle x="7.5" y="-3.5" radius="0.275" width="0" layer="29"/>
+<circle x="6.5" y="-3.5" radius="0.275" width="0" layer="29"/>
+<circle x="5.5" y="-3.5" radius="0.275" width="0" layer="29"/>
+<circle x="4.5" y="-3.5" radius="0.275" width="0" layer="29"/>
+<circle x="3.5" y="-3.5" radius="0.275" width="0" layer="29"/>
+<circle x="2.5" y="-3.5" radius="0.275" width="0" layer="29"/>
+<circle x="1.5" y="-3.5" radius="0.275" width="0" layer="29"/>
+<circle x="0.5" y="-3.5" radius="0.275" width="0" layer="29"/>
+<circle x="-0.5" y="-3.5" radius="0.275" width="0" layer="29"/>
+<circle x="-1.5" y="-3.5" radius="0.275" width="0" layer="29"/>
+<circle x="-2.5" y="-3.5" radius="0.275" width="0" layer="29"/>
+<circle x="-3.5" y="-3.5" radius="0.275" width="0" layer="29"/>
+<circle x="-4.5" y="-3.5" radius="0.275" width="0" layer="29"/>
+<circle x="-5.5" y="-3.5" radius="0.275" width="0" layer="29"/>
+<circle x="-6.5" y="-3.5" radius="0.275" width="0" layer="29"/>
+<circle x="-7.5" y="-3.5" radius="0.275" width="0" layer="29"/>
+<circle x="7.5" y="-2.5" radius="0.275" width="0" layer="29"/>
+<circle x="6.5" y="-2.5" radius="0.275" width="0" layer="29"/>
+<circle x="5.5" y="-2.5" radius="0.275" width="0" layer="29"/>
+<circle x="4.5" y="-2.5" radius="0.275" width="0" layer="29"/>
+<circle x="3.5" y="-2.5" radius="0.275" width="0" layer="29"/>
+<circle x="2.5" y="-2.5" radius="0.275" width="0" layer="29"/>
+<circle x="1.5" y="-2.5" radius="0.275" width="0" layer="29"/>
+<circle x="0.5" y="-2.5" radius="0.275" width="0" layer="29"/>
+<circle x="-0.5" y="-2.5" radius="0.275" width="0" layer="29"/>
+<circle x="-1.5" y="-2.5" radius="0.275" width="0" layer="29"/>
+<circle x="-2.5" y="-2.5" radius="0.275" width="0" layer="29"/>
+<circle x="-3.5" y="-2.5" radius="0.275" width="0" layer="29"/>
+<circle x="-4.5" y="-2.5" radius="0.275" width="0" layer="29"/>
+<circle x="-5.5" y="-2.5" radius="0.275" width="0" layer="29"/>
+<circle x="-6.5" y="-2.5" radius="0.275" width="0" layer="29"/>
+<circle x="-7.5" y="-2.5" radius="0.275" width="0" layer="29"/>
+<circle x="7.5" y="-1.5" radius="0.275" width="0" layer="29"/>
+<circle x="6.5" y="-1.5" radius="0.275" width="0" layer="29"/>
+<circle x="5.5" y="-1.5" radius="0.275" width="0" layer="29"/>
+<circle x="4.5" y="-1.5" radius="0.275" width="0" layer="29"/>
+<circle x="3.5" y="-1.5" radius="0.275" width="0" layer="29"/>
+<circle x="2.5" y="-1.5" radius="0.275" width="0" layer="29"/>
+<circle x="1.5" y="-1.5" radius="0.275" width="0" layer="29"/>
+<circle x="0.5" y="-1.5" radius="0.275" width="0" layer="29"/>
+<circle x="-0.5" y="-1.5" radius="0.275" width="0" layer="29"/>
+<circle x="-1.5" y="-1.5" radius="0.275" width="0" layer="29"/>
+<circle x="-2.5" y="-1.5" radius="0.275" width="0" layer="29"/>
+<circle x="-3.5" y="-1.5" radius="0.275" width="0" layer="29"/>
+<circle x="-4.5" y="-1.5" radius="0.275" width="0" layer="29"/>
+<circle x="-5.5" y="-1.5" radius="0.275" width="0" layer="29"/>
+<circle x="-6.5" y="-1.5" radius="0.275" width="0" layer="29"/>
+<circle x="-7.5" y="-1.5" radius="0.275" width="0" layer="29"/>
+<circle x="7.5" y="-0.5" radius="0.275" width="0" layer="29"/>
+<circle x="6.5" y="-0.5" radius="0.275" width="0" layer="29"/>
+<circle x="5.5" y="-0.5" radius="0.275" width="0" layer="29"/>
+<circle x="4.5" y="-0.5" radius="0.275" width="0" layer="29"/>
+<circle x="3.5" y="-0.5" radius="0.275" width="0" layer="29"/>
+<circle x="2.5" y="-0.5" radius="0.275" width="0" layer="29"/>
+<circle x="1.5" y="-0.5" radius="0.275" width="0" layer="29"/>
+<circle x="0.5" y="-0.5" radius="0.275" width="0" layer="29"/>
+<circle x="-0.5" y="-0.5" radius="0.275" width="0" layer="29"/>
+<circle x="-1.5" y="-0.5" radius="0.275" width="0" layer="29"/>
+<circle x="-2.5" y="-0.5" radius="0.275" width="0" layer="29"/>
+<circle x="-3.5" y="-0.5" radius="0.275" width="0" layer="29"/>
+<circle x="-4.5" y="-0.5" radius="0.275" width="0" layer="29"/>
+<circle x="-5.5" y="-0.5" radius="0.275" width="0" layer="29"/>
+<circle x="-6.5" y="-0.5" radius="0.275" width="0" layer="29"/>
+<circle x="-7.5" y="-0.5" radius="0.275" width="0" layer="29"/>
+<circle x="7.5" y="0.5" radius="0.275" width="0" layer="29"/>
+<circle x="6.5" y="0.5" radius="0.275" width="0" layer="29"/>
+<circle x="5.5" y="0.5" radius="0.275" width="0" layer="29"/>
+<circle x="4.5" y="0.5" radius="0.275" width="0" layer="29"/>
+<circle x="3.5" y="0.5" radius="0.275" width="0" layer="29"/>
+<circle x="2.5" y="0.5" radius="0.275" width="0" layer="29"/>
+<circle x="1.5" y="0.5" radius="0.275" width="0" layer="29"/>
+<circle x="0.5" y="0.5" radius="0.275" width="0" layer="29"/>
+<circle x="-0.5" y="0.5" radius="0.275" width="0" layer="29"/>
+<circle x="-1.5" y="0.5" radius="0.275" width="0" layer="29"/>
+<circle x="-2.5" y="0.5" radius="0.275" width="0" layer="29"/>
+<circle x="-3.5" y="0.5" radius="0.275" width="0" layer="29"/>
+<circle x="-4.5" y="0.5" radius="0.275" width="0" layer="29"/>
+<circle x="-5.5" y="0.5" radius="0.275" width="0" layer="29"/>
+<circle x="-6.5" y="0.5" radius="0.275" width="0" layer="29"/>
+<circle x="-7.5" y="0.5" radius="0.275" width="0" layer="29"/>
+<circle x="7.5" y="1.5" radius="0.275" width="0" layer="29"/>
+<circle x="6.5" y="1.5" radius="0.275" width="0" layer="29"/>
+<circle x="5.5" y="1.5" radius="0.275" width="0" layer="29"/>
+<circle x="4.5" y="1.5" radius="0.275" width="0" layer="29"/>
+<circle x="3.5" y="1.5" radius="0.275" width="0" layer="29"/>
+<circle x="2.5" y="1.5" radius="0.275" width="0" layer="29"/>
+<circle x="1.5" y="1.5" radius="0.275" width="0" layer="29"/>
+<circle x="0.5" y="1.5" radius="0.275" width="0" layer="29"/>
+<circle x="-0.5" y="1.5" radius="0.275" width="0" layer="29"/>
+<circle x="-1.5" y="1.5" radius="0.275" width="0" layer="29"/>
+<circle x="-2.5" y="1.5" radius="0.275" width="0" layer="29"/>
+<circle x="-3.5" y="1.5" radius="0.275" width="0" layer="29"/>
+<circle x="-4.5" y="1.5" radius="0.275" width="0" layer="29"/>
+<circle x="-5.5" y="1.5" radius="0.275" width="0" layer="29"/>
+<circle x="-6.5" y="1.5" radius="0.275" width="0" layer="29"/>
+<circle x="-7.5" y="1.5" radius="0.275" width="0" layer="29"/>
+<circle x="7.5" y="2.5" radius="0.275" width="0" layer="29"/>
+<circle x="6.5" y="2.5" radius="0.275" width="0" layer="29"/>
+<circle x="5.5" y="2.5" radius="0.275" width="0" layer="29"/>
+<circle x="4.5" y="2.5" radius="0.275" width="0" layer="29"/>
+<circle x="3.5" y="2.5" radius="0.275" width="0" layer="29"/>
+<circle x="2.5" y="2.5" radius="0.275" width="0" layer="29"/>
+<circle x="1.5" y="2.5" radius="0.275" width="0" layer="29"/>
+<circle x="0.5" y="2.5" radius="0.275" width="0" layer="29"/>
+<circle x="-0.5" y="2.5" radius="0.275" width="0" layer="29"/>
+<circle x="-1.5" y="2.5" radius="0.275" width="0" layer="29"/>
+<circle x="-2.5" y="2.5" radius="0.275" width="0" layer="29"/>
+<circle x="-3.5" y="2.5" radius="0.275" width="0" layer="29"/>
+<circle x="-4.5" y="2.5" radius="0.275" width="0" layer="29"/>
+<circle x="-5.5" y="2.5" radius="0.275" width="0" layer="29"/>
+<circle x="-6.5" y="2.5" radius="0.275" width="0" layer="29"/>
+<circle x="-7.5" y="2.5" radius="0.275" width="0" layer="29"/>
+<circle x="7.5" y="3.5" radius="0.275" width="0" layer="29"/>
+<circle x="6.5" y="3.5" radius="0.275" width="0" layer="29"/>
+<circle x="5.5" y="3.5" radius="0.275" width="0" layer="29"/>
+<circle x="4.5" y="3.5" radius="0.275" width="0" layer="29"/>
+<circle x="3.5" y="3.5" radius="0.275" width="0" layer="29"/>
+<circle x="2.5" y="3.5" radius="0.275" width="0" layer="29"/>
+<circle x="1.5" y="3.5" radius="0.275" width="0" layer="29"/>
+<circle x="0.5" y="3.5" radius="0.275" width="0" layer="29"/>
+<circle x="-0.5" y="3.5" radius="0.275" width="0" layer="29"/>
+<circle x="-1.5" y="3.5" radius="0.275" width="0" layer="29"/>
+<circle x="-2.5" y="3.5" radius="0.275" width="0" layer="29"/>
+<circle x="-3.5" y="3.5" radius="0.275" width="0" layer="29"/>
+<circle x="-4.5" y="3.5" radius="0.275" width="0" layer="29"/>
+<circle x="-5.5" y="3.5" radius="0.275" width="0" layer="29"/>
+<circle x="-6.5" y="3.5" radius="0.275" width="0" layer="29"/>
+<circle x="-7.5" y="3.5" radius="0.275" width="0" layer="29"/>
+<circle x="7.5" y="4.5" radius="0.275" width="0" layer="29"/>
+<circle x="6.5" y="4.5" radius="0.275" width="0" layer="29"/>
+<circle x="5.5" y="4.5" radius="0.275" width="0" layer="29"/>
+<circle x="4.5" y="4.5" radius="0.275" width="0" layer="29"/>
+<circle x="3.5" y="4.5" radius="0.275" width="0" layer="29"/>
+<circle x="2.5" y="4.5" radius="0.275" width="0" layer="29"/>
+<circle x="1.5" y="4.5" radius="0.275" width="0" layer="29"/>
+<circle x="0.5" y="4.5" radius="0.275" width="0" layer="29"/>
+<circle x="-0.5" y="4.5" radius="0.275" width="0" layer="29"/>
+<circle x="-1.5" y="4.5" radius="0.275" width="0" layer="29"/>
+<circle x="-2.5" y="4.5" radius="0.275" width="0" layer="29"/>
+<circle x="-3.5" y="4.5" radius="0.275" width="0" layer="29"/>
+<circle x="-4.5" y="4.5" radius="0.275" width="0" layer="29"/>
+<circle x="-5.5" y="4.5" radius="0.275" width="0" layer="29"/>
+<circle x="-6.5" y="4.5" radius="0.275" width="0" layer="29"/>
+<circle x="-7.5" y="4.5" radius="0.275" width="0" layer="29"/>
+<circle x="7.5" y="5.5" radius="0.275" width="0" layer="29"/>
+<circle x="6.5" y="5.5" radius="0.275" width="0" layer="29"/>
+<circle x="5.5" y="5.5" radius="0.275" width="0" layer="29"/>
+<circle x="4.5" y="5.5" radius="0.275" width="0" layer="29"/>
+<circle x="3.5" y="5.5" radius="0.275" width="0" layer="29"/>
+<circle x="2.5" y="5.5" radius="0.275" width="0" layer="29"/>
+<circle x="1.5" y="5.5" radius="0.275" width="0" layer="29"/>
+<circle x="0.5" y="5.5" radius="0.275" width="0" layer="29"/>
+<circle x="-0.5" y="5.5" radius="0.275" width="0" layer="29"/>
+<circle x="-1.5" y="5.5" radius="0.275" width="0" layer="29"/>
+<circle x="-2.5" y="5.5" radius="0.275" width="0" layer="29"/>
+<circle x="-3.5" y="5.5" radius="0.275" width="0" layer="29"/>
+<circle x="-4.5" y="5.5" radius="0.275" width="0" layer="29"/>
+<circle x="-5.5" y="5.5" radius="0.275" width="0" layer="29"/>
+<circle x="-6.5" y="5.5" radius="0.275" width="0" layer="29"/>
+<circle x="-7.5" y="5.5" radius="0.275" width="0" layer="29"/>
+<circle x="7.5" y="6.5" radius="0.275" width="0" layer="29"/>
+<circle x="6.5" y="6.5" radius="0.275" width="0" layer="29"/>
+<circle x="5.5" y="6.5" radius="0.275" width="0" layer="29"/>
+<circle x="4.5" y="6.5" radius="0.275" width="0" layer="29"/>
+<circle x="3.5" y="6.5" radius="0.275" width="0" layer="29"/>
+<circle x="2.5" y="6.5" radius="0.275" width="0" layer="29"/>
+<circle x="1.5" y="6.5" radius="0.275" width="0" layer="29"/>
+<circle x="0.5" y="6.5" radius="0.275" width="0" layer="29"/>
+<circle x="-0.5" y="6.5" radius="0.275" width="0" layer="29"/>
+<circle x="-1.5" y="6.5" radius="0.275" width="0" layer="29"/>
+<circle x="-2.5" y="6.5" radius="0.275" width="0" layer="29"/>
+<circle x="-3.5" y="6.5" radius="0.275" width="0" layer="29"/>
+<circle x="-4.5" y="6.5" radius="0.275" width="0" layer="29"/>
+<circle x="-5.5" y="6.5" radius="0.275" width="0" layer="29"/>
+<circle x="-6.5" y="6.5" radius="0.275" width="0" layer="29"/>
+<circle x="-7.5" y="6.5" radius="0.275" width="0" layer="29"/>
+<circle x="7.5" y="7.5" radius="0.275" width="0" layer="29"/>
+<circle x="6.5" y="7.5" radius="0.275" width="0" layer="29"/>
+<circle x="5.5" y="7.5" radius="0.275" width="0" layer="29"/>
+<circle x="4.5" y="7.5" radius="0.275" width="0" layer="29"/>
+<circle x="3.5" y="7.5" radius="0.275" width="0" layer="29"/>
+<circle x="2.5" y="7.5" radius="0.275" width="0" layer="29"/>
+<circle x="1.5" y="7.5" radius="0.275" width="0" layer="29"/>
+<circle x="0.5" y="7.5" radius="0.275" width="0" layer="29"/>
+<circle x="-0.5" y="7.5" radius="0.275" width="0" layer="29"/>
+<circle x="-1.5" y="7.5" radius="0.275" width="0" layer="29"/>
+<circle x="-2.5" y="7.5" radius="0.275" width="0" layer="29"/>
+<circle x="-3.5" y="7.5" radius="0.275" width="0" layer="29"/>
+<circle x="-4.5" y="7.5" radius="0.275" width="0" layer="29"/>
+<circle x="-5.5" y="7.5" radius="0.275" width="0" layer="29"/>
+<circle x="-6.5" y="7.5" radius="0.275" width="0" layer="29"/>
+<circle x="-7.5" y="7.5" radius="0.275" width="0" layer="29"/>
 </package>
 <package name="71741-0002">
 <description>&lt;b&gt;Board-to-Board Connector&lt;/b&gt;
@@ -11311,12 +11571,18 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <element name="R2" library="MainBoard" package="R0402" value="39" x="58" y="44.75" rot="MR270">
 <attribute name="TOLERANCE" value="" x="58" y="44.75" size="1.778" layer="28" rot="MR270" display="off"/>
 </element>
-<element name="C5" library="MainBoard" package="C0402" value="" x="37.5" y="13.75" rot="R180"/>
-<element name="C6" library="MainBoard" package="C0402" value="" x="39.5" y="13" rot="R90"/>
-<element name="C7" library="MainBoard" package="C0402" value="" x="37.5" y="12.25"/>
-<element name="C8" library="MainBoard" package="C0402" value="" x="45.5" y="23"/>
-<element name="C9" library="MainBoard" package="C0402" value="" x="45.5" y="20" rot="R180"/>
-<element name="R5" library="MainBoard" package="R0402" value="0" x="45.5" y="22">
+<element name="C5" library="MainBoard" package="C0402" value="" x="37.5" y="13.75" rot="R180">
+<attribute name="DNP" value="on" x="37.5" y="13.75" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
+<element name="C6" library="MainBoard" package="C0402" value="" x="39.5" y="13" rot="R90">
+<attribute name="DNP" value="on" x="39.5" y="13" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
+<element name="C7" library="MainBoard" package="C0402" value="" x="37.5" y="12.25">
+<attribute name="DNP" value="on" x="37.5" y="12.25" size="1.778" layer="27" display="off"/>
+</element>
+<element name="C8" library="MainBoard" package="C0402" value="22pF" x="45.5" y="23"/>
+<element name="C9" library="MainBoard" package="C0402" value="22pF" x="45.5" y="20" rot="R180"/>
+<element name="R5" library="MainBoard" package="R0402" value="24.9" x="45.5" y="22">
 <attribute name="PAGE3" value="Clock and Reset" x="45.5" y="22" size="1.778" layer="27" display="off"/>
 <attribute name="PAGE4" value="Ethernet" x="45.5" y="22" size="1.778" layer="27" display="off"/>
 <attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="45.5" y="22" size="1.778" layer="27" display="off"/>
@@ -11330,7 +11596,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="PAGE2" value="FPGA Power Supply" x="45.5" y="22" size="1.778" layer="27" display="off"/>
 <attribute name="TOLERANCE" value="" x="45.5" y="22" size="1.778" layer="27" display="off"/>
 </element>
-<element name="R6" library="MainBoard" package="R0402" value="0" x="45.5" y="21">
+<element name="R6" library="MainBoard" package="R0402" value="24.9" x="45.5" y="21">
 <attribute name="PAGE3" value="Clock and Reset" x="45.5" y="21" size="1.778" layer="27" display="off"/>
 <attribute name="PAGE4" value="Ethernet" x="45.5" y="21" size="1.778" layer="27" display="off"/>
 <attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="45.5" y="21" size="1.778" layer="27" display="off"/>
@@ -11344,37 +11610,55 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="PAGE2" value="FPGA Power Supply" x="45.5" y="21" size="1.778" layer="27" display="off"/>
 <attribute name="TOLERANCE" value="" x="45.5" y="21" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C10" library="MainBoard" package="C0402" value="" x="41.5" y="13.75" rot="R180"/>
-<element name="C11" library="MainBoard" package="C0402" value="" x="43.5" y="13" rot="R90"/>
-<element name="C12" library="MainBoard" package="C0402" value="" x="41.5" y="12.25"/>
-<element name="C13" library="MainBoard" package="C0402" value="" x="44.5" y="15" rot="R270"/>
-<element name="C14" library="MainBoard" package="C0402" value="" x="47.5" y="15" rot="R90"/>
-<element name="R9" library="MainBoard" package="R0402" value="0" x="45.5" y="15" rot="R270">
+<element name="C10" library="MainBoard" package="C0402" value="" x="41.5" y="13.75" rot="R180">
+<attribute name="DNP" value="on" x="41.5" y="13.75" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
+<element name="C11" library="MainBoard" package="C0402" value="" x="43.5" y="13" rot="R90">
+<attribute name="DNP" value="on" x="43.5" y="13" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
+<element name="C12" library="MainBoard" package="C0402" value="" x="41.5" y="12.25">
+<attribute name="DNP" value="on" x="41.5" y="12.25" size="1.778" layer="27" display="off"/>
+</element>
+<element name="C13" library="MainBoard" package="C0402" value="22pF" x="44.5" y="15" rot="R270"/>
+<element name="C14" library="MainBoard" package="C0402" value="22pF" x="47.5" y="15" rot="R90"/>
+<element name="R9" library="MainBoard" package="R0402" value="24.9" x="45.5" y="15" rot="R270">
 <attribute name="TOLERANCE" value="" x="45.5" y="15" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="R10" library="MainBoard" package="R0402" value="0" x="46.5" y="15" rot="R270">
+<element name="R10" library="MainBoard" package="R0402" value="24.9" x="46.5" y="15" rot="R270">
 <attribute name="TOLERANCE" value="" x="46.5" y="15" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="C15" library="MainBoard" package="C0402" value="" x="53.5" y="13.75" rot="R180"/>
-<element name="C16" library="MainBoard" package="C0402" value="" x="53.5" y="12.25"/>
-<element name="C17" library="MainBoard" package="C0402" value="" x="51.5" y="13" rot="R270"/>
-<element name="C18" library="MainBoard" package="C0402" value="" x="57.5" y="13.75" rot="R180"/>
-<element name="C19" library="MainBoard" package="C0402" value="" x="57.5" y="12.25"/>
-<element name="C20" library="MainBoard" package="C0402" value="" x="55.5" y="13" rot="R270"/>
-<element name="C21" library="MainBoard" package="C0402" value="" x="61.5" y="23"/>
-<element name="C22" library="MainBoard" package="C0402" value="" x="61.5" y="20" rot="R180"/>
-<element name="R15" library="MainBoard" package="R0402" value="0" x="61.5" y="22">
+<element name="C15" library="MainBoard" package="C0402" value="" x="53.5" y="13.75" rot="R180">
+<attribute name="DNP" value="on" x="53.5" y="13.75" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
+<element name="C16" library="MainBoard" package="C0402" value="" x="53.5" y="12.25">
+<attribute name="DNP" value="on" x="53.5" y="12.25" size="1.778" layer="27" display="off"/>
+</element>
+<element name="C17" library="MainBoard" package="C0402" value="" x="51.5" y="13" rot="R270">
+<attribute name="DNP" value="on" x="51.5" y="13" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
+<element name="C18" library="MainBoard" package="C0402" value="" x="57.5" y="13.75" rot="R180">
+<attribute name="DNP" value="on" x="57.5" y="13.75" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
+<element name="C19" library="MainBoard" package="C0402" value="" x="57.5" y="12.25">
+<attribute name="DNP" value="on" x="57.5" y="12.25" size="1.778" layer="27" display="off"/>
+</element>
+<element name="C20" library="MainBoard" package="C0402" value="" x="55.5" y="13" rot="R270">
+<attribute name="DNP" value="on" x="55.5" y="13" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
+<element name="C21" library="MainBoard" package="C0402" value="22pF" x="61.5" y="23"/>
+<element name="C22" library="MainBoard" package="C0402" value="22pF" x="61.5" y="20" rot="R180"/>
+<element name="R15" library="MainBoard" package="R0402" value="24.9" x="61.5" y="22">
 <attribute name="TOLERANCE" value="" x="61.5" y="22" size="1.778" layer="27" display="off"/>
 </element>
-<element name="R16" library="MainBoard" package="R0402" value="0" x="61.5" y="21">
+<element name="R16" library="MainBoard" package="R0402" value="24.9" x="61.5" y="21">
 <attribute name="TOLERANCE" value="" x="61.5" y="21" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C23" library="MainBoard" package="C0402" value="" x="59.5" y="15" rot="R270"/>
-<element name="C24" library="MainBoard" package="C0402" value="" x="62.5" y="15" rot="R90"/>
-<element name="R17" library="MainBoard" package="R0402" value="0" x="60.5" y="15" rot="R270">
+<element name="C23" library="MainBoard" package="C0402" value="22pF" x="59.5" y="15" rot="R270"/>
+<element name="C24" library="MainBoard" package="C0402" value="22pF" x="62.5" y="15" rot="R90"/>
+<element name="R17" library="MainBoard" package="R0402" value="24.9" x="60.5" y="15" rot="R270">
 <attribute name="TOLERANCE" value="" x="60.5" y="15" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="R18" library="MainBoard" package="R0402" value="0" x="61.5" y="15" rot="R270">
+<element name="R18" library="MainBoard" package="R0402" value="24.9" x="61.5" y="15" rot="R270">
 <attribute name="TOLERANCE" value="" x="61.5" y="15" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="C25" library="MainBoard" package="C0402" value="0.33uF" x="44.25" y="16.25" rot="MR180"/>
@@ -11410,9 +11694,6 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <element name="R19" library="MainBoard" package="R0402" value="100k" x="33" y="24" rot="MR180">
 <attribute name="TOLERANCE" value="" x="33" y="24" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
-<element name="R20" library="MainBoard" package="R0402" value="100k" x="33" y="23" rot="MR180">
-<attribute name="TOLERANCE" value="" x="33" y="23" size="1.778" layer="28" rot="MR180" display="off"/>
-</element>
 <element name="R21" library="MainBoard" package="R0402" value="100k" x="29.5" y="18.25" rot="MR0">
 <attribute name="TOLERANCE" value="" x="29.5" y="18.25" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
@@ -11444,9 +11725,6 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <element name="C64" library="MainBoard" package="C0402" value="0.1uF" x="56.5" y="13.75" rot="MR270"/>
 <element name="R23" library="MainBoard" package="R0402" value="100k" x="47.75" y="27" rot="MR0">
 <attribute name="TOLERANCE" value="" x="47.75" y="27" size="1.778" layer="28" rot="MR0" display="off"/>
-</element>
-<element name="R24" library="MainBoard" package="R0402" value="100k" x="53" y="28" rot="MR0">
-<attribute name="TOLERANCE" value="" x="53" y="28" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
 <element name="R25" library="MainBoard" package="R0402" value="100k" x="54" y="22.25" rot="MR180">
 <attribute name="TOLERANCE" value="" x="54" y="22.25" size="1.778" layer="28" rot="MR180" display="off"/>
@@ -11564,8 +11842,8 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <element name="R56" library="MainBoard" package="R0402" value="0" x="13.25" y="45.75" rot="R270">
 <attribute name="TOLERANCE" value="" x="13.25" y="45.75" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="R58" library="MainBoard" package="R0402" value="39k" x="32.25" y="35" rot="R180">
-<attribute name="TOLERANCE" value="" x="32.25" y="35" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="R58" library="MainBoard" package="R0402" value="39k" x="27.25" y="38.25">
+<attribute name="TOLERANCE" value="" x="27.25" y="38.25" size="1.778" layer="27" display="off"/>
 </element>
 <element name="R59" library="MainBoard" package="R0402" value="12k" x="19" y="38.25" rot="MR0">
 <attribute name="TOLERANCE" value="1%" x="19" y="38.25" size="1.778" layer="28" rot="MR0" display="off"/>
@@ -12582,10 +12860,8 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U3" pad="19"/>
 <contactref element="C40" pad="2"/>
 <contactref element="R19" pad="1"/>
-<contactref element="R20" pad="1"/>
 <contactref element="C60" pad="2"/>
 <contactref element="R23" pad="1"/>
-<contactref element="R24" pad="1"/>
 <contactref element="J1" pad="1"/>
 <contactref element="J1" pad="2"/>
 <contactref element="U4" pad="2"/>
@@ -12708,17 +12984,17 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="3.8791" y1="27.46" x2="4" y2="27.3391" width="0.1524" layer="1"/>
 <wire x1="4" y1="27.3391" x2="4" y2="26.5" width="0.1524" layer="1"/>
 <via x="4" y="26.5" extent="1-16" drill="0.13"/>
-<via x="41" y="33" extent="1-16" drill="0.13"/>
+<via x="41" y="33" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="41" y1="33" x2="41.5" y2="33.5" width="0.1524" layer="1"/>
 <wire x1="41.5" y1="30.5" x2="41.5" y2="29.75" width="0.1524" layer="1"/>
 <via x="41.5" y="29.75" extent="1-16" drill="0.13"/>
 <wire x1="40.5" y1="32.5" x2="40" y2="32" width="0.1524" layer="1"/>
-<via x="40" y="32" extent="1-16" drill="0.13"/>
+<via x="40" y="32" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="37.5" y1="31.5" x2="37" y2="31" width="0.1524" layer="1"/>
 <via x="37" y="31" extent="1-16" drill="0.13"/>
 <wire x1="38.5" y1="35.5" x2="38" y2="36" width="0.1524" layer="1"/>
 <wire x1="38" y1="36" x2="37.5" y2="36.5" width="0.1524" layer="1"/>
-<via x="38" y="36" extent="1-16" drill="0.13"/>
+<via x="38" y="36" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="37.5" y1="37.5" x2="36.5" y2="37.5" width="0.1524" layer="1"/>
 <via x="36.5" y="37.5" extent="1-16" drill="0.13"/>
 <via x="25.75" y="40.5" extent="1-16" drill="0.13"/>
@@ -12740,7 +13016,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="20.5" y="43.5" extent="1-16" drill="0.13"/>
 <wire x1="37.5" y1="30.5" x2="37" y2="31" width="0.1524" layer="1"/>
 <wire x1="40.5" y1="39.5" x2="40" y2="40" width="0.1524" layer="1"/>
-<via x="40" y="40" extent="1-16" drill="0.13"/>
+<via x="40" y="40" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="37.5" y1="40.5" x2="36.5" y2="40.5" width="0.1524" layer="1"/>
 <via x="36.5" y="40.5" extent="1-16" drill="0.13"/>
 <wire x1="51.5" y1="31.5" x2="52" y2="31" width="0.1524" layer="1"/>
@@ -12748,71 +13024,71 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="52.5" y1="40.5" x2="53.25" y2="40.5" width="0.1524" layer="1"/>
 <via x="53.25" y="40.5" extent="1-16" drill="0.13"/>
 <wire x1="42.5" y1="37.5" x2="42" y2="37" width="0.1524" layer="1"/>
-<via x="42" y="37" extent="1-16" drill="0.13"/>
+<via x="42" y="37" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="43.5" y1="38.5" x2="43" y2="39" width="0.1524" layer="1"/>
-<via x="43" y="39" extent="1-16" drill="0.13"/>
+<via x="43" y="39" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="42.5" y1="39.5" x2="42" y2="40" width="0.1524" layer="1"/>
-<via x="42" y="40" extent="1-16" drill="0.13"/>
+<via x="42" y="40" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="43.5" y1="40.5" x2="43" y2="41" width="0.1524" layer="1"/>
-<via x="43" y="41" extent="1-16" drill="0.13"/>
+<via x="43" y="41" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="43.5" y1="36.5" x2="43" y2="36" width="0.1524" layer="1"/>
-<via x="43" y="36" extent="1-16" drill="0.13"/>
+<via x="43" y="36" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="42.5" y1="35.5" x2="42" y2="35" width="0.1524" layer="1"/>
-<via x="42" y="35" extent="1-16" drill="0.13"/>
+<via x="42" y="35" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="43.5" y1="34.5" x2="43" y2="34" width="0.1524" layer="1"/>
-<via x="43" y="34" extent="1-16" drill="0.13"/>
+<via x="43" y="34" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="44.5" y1="35.5" x2="44" y2="35" width="0.1524" layer="1"/>
-<via x="44" y="35" extent="1-16" drill="0.13"/>
+<via x="44" y="35" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="44.5" y1="37.5" x2="44" y2="37" width="0.1524" layer="1"/>
-<via x="44" y="37" extent="1-16" drill="0.13"/>
+<via x="44" y="37" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="45.5" y1="36.5" x2="46" y2="36" width="0.1524" layer="1"/>
-<via x="46" y="36" extent="1-16" drill="0.13"/>
+<via x="46" y="36" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="45.5" y1="34.5" x2="46" y2="34" width="0.1524" layer="1"/>
-<via x="46" y="34" extent="1-16" drill="0.13"/>
+<via x="46" y="34" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="44.5" y1="39.5" x2="44" y2="40" width="0.1524" layer="1"/>
-<via x="44" y="40" extent="1-16" drill="0.13"/>
+<via x="44" y="40" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <contactref element="J2" pad="16"/>
 <wire x1="31.5" y1="8.85" x2="31.5" y2="10.5" width="0.3048" layer="1"/>
 <via x="31.5" y="10.5" extent="1-16" drill="0.13"/>
 <wire x1="46.5" y1="32.5" x2="46" y2="32" width="0.1524" layer="1"/>
-<via x="46" y="32" extent="1-16" drill="0.13"/>
+<via x="46" y="32" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="38.5" y1="42.5" x2="38" y2="43" width="0.1524" layer="1"/>
-<via x="38" y="43" extent="1-16" drill="0.13"/>
+<via x="38" y="43" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="40.5" y1="35.5" x2="40" y2="36" width="0.1524" layer="1"/>
-<via x="40" y="36" extent="1-16" drill="0.13"/>
+<via x="40" y="36" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="45.5" y1="40.5" x2="46" y2="41" width="0.1524" layer="1"/>
-<via x="46" y="41" extent="1-16" drill="0.13"/>
+<via x="46" y="41" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="45.5" y1="38.5" x2="46" y2="39" width="0.1524" layer="1"/>
-<via x="46" y="39" extent="1-16" drill="0.13"/>
+<via x="46" y="39" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="46.5" y1="37.5" x2="47" y2="37" width="0.1524" layer="1"/>
-<via x="47" y="37" extent="1-16" drill="0.13"/>
+<via x="47" y="37" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="47.5" y1="38.5" x2="48" y2="39" width="0.1524" layer="1"/>
-<via x="48" y="39" extent="1-16" drill="0.13"/>
+<via x="48" y="39" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="48.5" y1="38.5" x2="49" y2="39" width="0.1524" layer="1"/>
-<via x="49" y="39" extent="1-16" drill="0.13"/>
+<via x="49" y="39" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="47.5" y1="40.5" x2="48" y2="41" width="0.1524" layer="1"/>
-<via x="48" y="41" extent="1-16" drill="0.13"/>
+<via x="48" y="41" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="47.5" y1="36.5" x2="48" y2="36" width="0.1524" layer="1"/>
-<via x="48" y="36" extent="1-16" drill="0.13"/>
+<via x="48" y="36" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="46.5" y1="35.5" x2="47" y2="35" width="0.1524" layer="1"/>
-<via x="47" y="35" extent="1-16" drill="0.13"/>
+<via x="47" y="35" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="47.5" y1="34.5" x2="48" y2="34" width="0.1524" layer="1"/>
-<via x="48" y="34" extent="1-16" drill="0.13"/>
+<via x="48" y="34" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="49.5" y1="33.5" x2="50" y2="33" width="0.1524" layer="1"/>
-<via x="50" y="33" extent="1-16" drill="0.13"/>
+<via x="50" y="33" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="48.5" y1="30.5" x2="48.5" y2="29.75" width="0.1524" layer="1"/>
 <via x="48.5" y="29.75" extent="1-16" drill="0.13"/>
 <wire x1="51.5" y1="35.5" x2="52" y2="36" width="0.1524" layer="1"/>
-<via x="52" y="36" extent="1-16" drill="0.13"/>
+<via x="52" y="36" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="52.5" y1="37.5" x2="53.25" y2="37.5" width="0.1524" layer="1"/>
 <via x="53.25" y="37.5" extent="1-16" drill="0.13"/>
 <wire x1="49.5" y1="41.5" x2="50" y2="42" width="0.1524" layer="1"/>
-<via x="50" y="42" extent="1-16" drill="0.13"/>
+<via x="50" y="42" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <contactref element="X3" pad="2"/>
 <wire x1="44.5" y1="30.5" x2="44.5" y2="29" width="0.1524" layer="1"/>
 <via x="44.5" y="29" extent="1-16" drill="0.13"/>
 <wire x1="46.5" y1="39.5" x2="47" y2="40" width="0.1524" layer="1"/>
-<via x="47" y="40" extent="1-16" drill="0.13"/>
+<via x="47" y="40" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="86" y1="15.1" x2="86" y2="17.25" width="0.1524" layer="1"/>
 <via x="86" y="17.25" extent="1-16" drill="0.13"/>
 <wire x1="86" y1="20.9" x2="86" y2="18.75" width="0.1524" layer="1"/>
@@ -12983,14 +13259,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="54.4" y1="30" x2="54" y2="31.1" width="0" layer="19" extent="16-16"/>
 <wire x1="50" y1="29.6" x2="51" y2="31.1" width="0" layer="19" extent="16-16"/>
 <wire x1="48.5" y1="29.75" x2="50" y2="29.6" width="0" layer="19" extent="1-16"/>
-<wire x1="53.65" y1="28" x2="54.4" y2="30" width="0" layer="19" extent="16-16"/>
-<wire x1="53.75" y1="26.65" x2="53.65" y2="28" width="0" layer="19" extent="16-16"/>
-<wire x1="54.75" y1="26.65" x2="53.75" y2="26.65" width="0" layer="19" extent="16-16"/>
 <wire x1="35" y1="30.1" x2="37" y2="31" width="0" layer="19" extent="16-16"/>
 <wire x1="34" y1="30.1" x2="35" y2="30.1" width="0" layer="19" extent="16-16"/>
 <wire x1="38.5" y1="42.5" x2="37.5" y2="40.5" width="0" layer="19" extent="1-1"/>
 <wire x1="33.35" y1="38.25" x2="35.6" y2="39" width="0" layer="19" extent="1-16"/>
-<wire x1="54.75" y1="24.25" x2="54.75" y2="26.65" width="0" layer="19" extent="1-16"/>
 <wire x1="34.35" y1="36" x2="33.35" y2="38.25" width="0" layer="19" extent="1-1"/>
 <wire x1="55.15" y1="33.5" x2="54" y2="31.1" width="0" layer="19" extent="16-16"/>
 <wire x1="35.35" y1="43" x2="38" y2="43" width="0" layer="19" extent="1-16"/>
@@ -12999,12 +13271,14 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="55.4" y1="40" x2="53.25" y2="40.5" width="0" layer="19" extent="1-16"/>
 <wire x1="55.4" y1="43" x2="55.4" y2="40" width="0" layer="19" extent="16-16"/>
 <wire x1="56.3" y1="45.95" x2="55.4" y2="43" width="0" layer="19" extent="1-16"/>
+<wire x1="54.75" y1="26.65" x2="54.4" y2="30" width="0" layer="19" extent="16-16"/>
+<wire x1="53.75" y1="26.65" x2="54.75" y2="26.65" width="0" layer="19" extent="16-16"/>
+<wire x1="54.75" y1="24.25" x2="54.75" y2="26.65" width="0" layer="19" extent="1-16"/>
 <wire x1="56.35" y1="50" x2="56.3" y2="45.95" width="0" layer="19" extent="1-1"/>
 <wire x1="35.6" y1="24.75" x2="35" y2="30.1" width="0" layer="19" extent="16-16"/>
 <wire x1="35.6" y1="23.75" x2="35.6" y2="24.75" width="0" layer="19" extent="16-16"/>
 <wire x1="38.75" y1="23.5" x2="35.6" y2="23.75" width="0" layer="19" extent="1-16"/>
 <wire x1="32.35" y1="24" x2="35.6" y2="23.75" width="0" layer="19" extent="16-16"/>
-<wire x1="32.35" y1="23" x2="32.35" y2="24" width="0" layer="19" extent="16-16"/>
 <wire x1="28.15" y1="40.25" x2="33.35" y2="38.25" width="0" layer="19" extent="1-16"/>
 <wire x1="25.75" y1="40.5" x2="28.15" y2="40.25" width="0" layer="19" extent="16-16"/>
 <wire x1="24.15" y1="40" x2="24.2" y2="40.25" width="0" layer="19" extent="1-16"/>
@@ -13042,7 +13316,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="4" y1="20.9" x2="4" y2="26.5" width="0" layer="19" extent="1-1"/>
 <wire x1="4" y1="15.1" x2="4" y2="20.9" width="0" layer="19" extent="1-1"/>
 <wire x1="11" y1="18.1" x2="4" y2="20.9" width="0" layer="19" extent="1-1"/>
-<wire x1="31.5" y1="10.5" x2="32.35" y2="23" width="0" layer="19" extent="1-16"/>
+<wire x1="31.5" y1="10.5" x2="32.35" y2="24" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="D1V5">
 <contactref element="U1" pad="J7"/>
@@ -13071,29 +13345,29 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="27.5" y1="10.5" x2="27.5" y2="8.85" width="0.3048" layer="16"/>
 <via x="36.75" y="35.5" extent="1-16" drill="0.13"/>
 <wire x1="43.5" y1="39.5" x2="43" y2="40" width="0.1524" layer="1"/>
-<via x="43" y="40" extent="1-16" drill="0.13"/>
+<via x="43" y="40" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="44.5" y1="38.5" x2="44" y2="39" width="0.1524" layer="1"/>
-<via x="44" y="39" extent="1-16" drill="0.13"/>
+<via x="44" y="39" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="43.5" y1="37.5" x2="43" y2="37" width="0.1524" layer="1"/>
-<via x="43" y="37" extent="1-16" drill="0.13"/>
+<via x="43" y="37" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="43.5" y1="35.5" x2="43" y2="35" width="0.1524" layer="1"/>
-<via x="43" y="35" extent="1-16" drill="0.13"/>
+<via x="43" y="35" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="44.5" y1="36.5" x2="44" y2="36" width="0.1524" layer="1"/>
-<via x="44" y="36" extent="1-16" drill="0.13"/>
+<via x="44" y="36" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="45.5" y1="37.5" x2="46" y2="37" width="0.1524" layer="1"/>
-<via x="46" y="37" extent="1-16" drill="0.13"/>
+<via x="46" y="37" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="45.5" y1="35.5" x2="46" y2="35" width="0.1524" layer="1"/>
-<via x="46" y="35" extent="1-16" drill="0.13"/>
+<via x="46" y="35" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="44.5" y1="40.5" x2="44" y2="41" width="0.1524" layer="1"/>
-<via x="44" y="41" extent="1-16" drill="0.13"/>
+<via x="44" y="41" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="46.5" y1="36.5" x2="47" y2="36" width="0.1524" layer="1"/>
-<via x="47" y="36" extent="1-16" drill="0.13"/>
+<via x="47" y="36" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="46.5" y1="38.5" x2="47" y2="39" width="0.1524" layer="1"/>
-<via x="47" y="39" extent="1-16" drill="0.13"/>
+<via x="47" y="39" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="46.5" y1="40.5" x2="47" y2="41" width="0.1524" layer="1"/>
-<via x="47" y="41" extent="1-16" drill="0.13"/>
+<via x="47" y="41" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="45.5" y1="39.5" x2="46" y2="40" width="0.1524" layer="1"/>
-<via x="46" y="40" extent="1-16" drill="0.13"/>
+<via x="46" y="40" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="27.5" y1="10.5" x2="27.5" y2="26.25" width="0.3048" layer="16"/>
 <polygon width="0.2032" layer="15" pour="cutout">
 <vertex x="42.5" y="34.5"/>
@@ -13245,44 +13519,44 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="37.5" y1="33.5" x2="36.5" y2="33.5" width="0.1524" layer="1"/>
 <via x="36.5" y="33.5" extent="1-16" drill="0.13"/>
 <wire x1="43.5" y1="32.5" x2="43" y2="32" width="0.1524" layer="1"/>
-<via x="43" y="32" extent="1-16" drill="0.13"/>
+<via x="43" y="32" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="40.5" y1="34.5" x2="40" y2="34" width="0.1524" layer="1"/>
-<via x="40" y="34" extent="1-16" drill="0.13"/>
+<via x="40" y="34" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="39.5" y1="41.5" x2="39" y2="42" width="0.1524" layer="1"/>
-<via x="39" y="42" extent="1-16" drill="0.13"/>
+<via x="39" y="42" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="51.5" y1="30.5" x2="52" y2="30" width="0.1524" layer="1"/>
 <via x="52" y="30" extent="1-16" drill="0.13"/>
 <contactref element="X3" pad="4"/>
 <wire x1="42.5" y1="38.5" x2="42" y2="39" width="0.1524" layer="1"/>
-<via x="42" y="39" extent="1-16" drill="0.13"/>
+<via x="42" y="39" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="42.5" y1="40.5" x2="42" y2="41" width="0.1524" layer="1"/>
-<via x="42" y="41" extent="1-16" drill="0.13"/>
+<via x="42" y="41" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="42.5" y1="34.5" x2="42" y2="34" width="0.1524" layer="1"/>
-<via x="42" y="34" extent="1-16" drill="0.13"/>
+<via x="42" y="34" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="44.5" y1="34.5" x2="44" y2="34" width="0.1524" layer="1"/>
-<via x="44" y="34" extent="1-16" drill="0.13"/>
+<via x="44" y="34" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="38.5" y1="38.5" x2="38" y2="39" width="0.1524" layer="1"/>
-<via x="38" y="39" extent="1-16" drill="0.13"/>
+<via x="38" y="39" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="46.5" y1="34.5" x2="47" y2="34" width="0.1524" layer="1"/>
-<via x="47" y="34" extent="1-16" drill="0.13"/>
+<via x="47" y="34" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="49.5" y1="32.5" x2="50" y2="32" width="0.1524" layer="1"/>
-<via x="50" y="32" extent="1-16" drill="0.13"/>
+<via x="50" y="32" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="52.5" y1="33.5" x2="53" y2="33.5" width="0.1524" layer="1"/>
 <via x="53" y="33.5" extent="1-16" drill="0.13"/>
 <wire x1="47.5" y1="35.5" x2="48" y2="35" width="0.1524" layer="1"/>
-<via x="48" y="35" extent="1-16" drill="0.13"/>
+<via x="48" y="35" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="49.5" y1="35.5" x2="50" y2="36" width="0.1524" layer="1"/>
-<via x="50" y="36" extent="1-16" drill="0.13"/>
+<via x="50" y="36" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="47.5" y1="37.5" x2="48" y2="37" width="0.1524" layer="1"/>
-<via x="48" y="37" extent="1-16" drill="0.13"/>
+<via x="48" y="37" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="50.5" y1="37.5" x2="51" y2="37" width="0.1524" layer="1"/>
-<via x="51" y="37" extent="1-16" drill="0.13"/>
+<via x="51" y="37" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="47.5" y1="39.5" x2="48" y2="40" width="0.1524" layer="1"/>
-<via x="48" y="40" extent="1-16" drill="0.13"/>
+<via x="48" y="40" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="50.5" y1="39.5" x2="51" y2="40" width="0.1524" layer="1"/>
-<via x="51" y="40" extent="1-16" drill="0.13"/>
+<via x="51" y="40" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="51.5" y1="42.5" x2="52" y2="43" width="0.1524" layer="1"/>
-<via x="52" y="43" extent="1-16" drill="0.13"/>
+<via x="52" y="43" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="45.5" y1="30.5" x2="45.5" y2="29.75" width="0.1524" layer="1"/>
 <via x="45.5" y="29.75" extent="1-16" drill="0.13"/>
 <wire x1="73.25" y1="29.2" x2="73.25" y2="30.5" width="0.3048" layer="1"/>
@@ -13292,7 +13566,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="73.25" y1="31.6" x2="74.25" y2="31.6" width="0.3048" layer="16"/>
 <wire x1="73.25" y1="31.6" x2="73.25" y2="30.5" width="0.3048" layer="16"/>
 <wire x1="42.5" y1="36.5" x2="42" y2="36" width="0.1524" layer="1"/>
-<via x="42" y="36" extent="1-16" drill="0.13"/>
+<via x="42" y="36" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="38.5" y1="30.5" x2="38" y2="31" width="0.1524" layer="1"/>
 <via x="38" y="31" extent="1-16" drill="0.13"/>
 <wire x1="36.9" y1="24.75" x2="37.4" y2="24.25" width="0.1524" layer="16"/>
@@ -13539,18 +13813,18 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="37.5" y1="44.5" x2="36.75" y2="44.5" width="0.1524" layer="1"/>
 <via x="36.75" y="44.5" extent="1-16" drill="0.13"/>
 <wire x1="46.5" y1="44.5" x2="46" y2="44" width="0.1524" layer="1"/>
-<via x="46" y="44" extent="1-16" drill="0.13"/>
+<via x="46" y="44" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="39.5" y1="42.5" x2="39" y2="43" width="0.1524" layer="1"/>
-<via x="39" y="43" extent="1-16" drill="0.13"/>
+<via x="39" y="43" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="45.5" y1="42.5" x2="46" y2="43" width="0.1524" layer="1"/>
 <wire x1="36.1" y1="19.75" x2="36.1" y2="20.75" width="0.1524" layer="16"/>
 <wire x1="34.75" y1="19.75" x2="36.1" y2="19.75" width="0.1524" layer="16"/>
 <wire x1="41.5" y1="43.5" x2="41" y2="43" width="0.1524" layer="1"/>
-<via x="41" y="43" extent="1-16" drill="0.13"/>
+<via x="41" y="43" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="49.5" y1="42.5" x2="50" y2="43" width="0.1524" layer="1"/>
-<via x="50" y="43" extent="1-16" drill="0.13"/>
+<via x="50" y="43" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="51.5" y1="43.5" x2="52" y2="44" width="0.1524" layer="1"/>
-<via x="52" y="44" extent="1-16" drill="0.13"/>
+<via x="52" y="44" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="39" y1="43" x2="39.5" y2="43.5" width="0.1524" layer="1"/>
 <contactref element="C119" pad="1"/>
 <contactref element="C121" pad="1"/>
@@ -13901,25 +14175,25 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="39.5" y="46.5" extent="1-16" drill="0.13"/>
 <via x="40.5" y="46.5" extent="1-16" drill="0.13"/>
 <wire x1="40.5" y1="42.5" x2="40" y2="43" width="0.1524" layer="1"/>
-<via x="40" y="43" extent="1-16" drill="0.13"/>
+<via x="40" y="43" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="42.5" y1="42.5" x2="43" y2="43" width="0.1524" layer="1"/>
-<via x="43" y="43" extent="1-16" drill="0.13"/>
+<via x="43" y="43" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="43.5" y1="41.5" x2="44" y2="42" width="0.1524" layer="1"/>
-<via x="44" y="42" extent="1-16" drill="0.13"/>
+<via x="44" y="42" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="46.5" y1="41.5" x2="47" y2="42" width="0.1524" layer="1"/>
-<via x="47" y="42" extent="1-16" drill="0.13"/>
+<via x="47" y="42" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="45.5" y1="41.5" x2="46" y2="42" width="0.1524" layer="1"/>
-<via x="46" y="42" extent="1-16" drill="0.13"/>
+<via x="46" y="42" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="49.5" y1="38.5" x2="50" y2="39" width="0.1524" layer="1"/>
-<via x="50" y="39" extent="1-16" drill="0.13"/>
+<via x="50" y="39" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="49.5" y1="43.5" x2="49" y2="44" width="0.1524" layer="1"/>
-<via x="49" y="44" extent="1-16" drill="0.13"/>
+<via x="49" y="44" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="49.5" y1="45.5" x2="49.5" y2="46.5" width="0.1524" layer="1"/>
 <via x="49.5" y="46.5" extent="1-16" drill="0.13"/>
 <wire x1="52.5" y1="43.5" x2="53.25" y2="43.5" width="0.1524" layer="1"/>
 <via x="53.25" y="43.5" extent="1-16" drill="0.13"/>
 <wire x1="51.5" y1="33.5" x2="52" y2="34" width="0.1524" layer="1"/>
-<via x="52" y="34" extent="1-16" drill="0.13"/>
+<via x="52" y="34" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="42.5" y1="43.5" x2="43" y2="43" width="0.1524" layer="1"/>
 <wire x1="40.5" y1="43.5" x2="40" y2="43" width="0.1524" layer="1"/>
 <wire x1="46.5" y1="42.5" x2="46" y2="42" width="0.1524" layer="1"/>
@@ -14299,7 +14573,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="R1" pad="2"/>
 <contactref element="U1" pad="L5"/>
 <wire x1="49.5" y1="41.5" x2="49" y2="41" width="0.1524" layer="16"/>
-<via x="49" y="41" extent="1-16" drill="0.13"/>
+<via x="49" y="41" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="49" y1="41" x2="48.5" y2="40.5" width="0.1524" layer="1"/>
 <wire x1="49.5" y1="41.5" x2="55.75" y2="41.5" width="0.1524" layer="16"/>
 <wire x1="55.75" y1="41.5" x2="56.75" y2="42.5" width="0.1524" layer="16"/>
@@ -14309,7 +14583,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="R96" pad="2"/>
 <contactref element="U1" pad="E14"/>
 <wire x1="39.5" y1="34.5" x2="39" y2="34" width="0.1524" layer="1"/>
-<via x="39" y="34" extent="1-16" drill="0.13"/>
+<via x="39" y="34" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="39" y1="34" x2="33.5" y2="34" width="0.1524" layer="3"/>
 <via x="33.5" y="34" extent="1-16" drill="0.13"/>
 <wire x1="27.9" y1="37.25" x2="28" y2="37.25" width="0.1524" layer="1"/>
@@ -14334,7 +14608,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="R6"/>
 <contactref element="C67" pad="1"/>
 <wire x1="47.5" y1="44.5" x2="48" y2="44" width="0.1524" layer="1"/>
-<via x="48" y="44" extent="1-16" drill="0.13"/>
+<via x="48" y="44" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="48" y1="44" x2="47" y2="44" width="0.1524" layer="14"/>
 <contactref element="R54" pad="2"/>
 <wire x1="47.5" y1="47.6" x2="47.5" y2="44.5" width="0.1524" layer="16"/>
@@ -14357,7 +14631,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <signal name="SF_ADC2">
 <contactref element="U1" pad="P7"/>
 <wire x1="46.5" y1="43.5" x2="47" y2="43" width="0.1524" layer="1"/>
-<via x="47" y="43" extent="1-16" drill="0.13"/>
+<via x="47" y="43" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="47" y1="43" x2="47.5" y2="42.5" width="0.1524" layer="14"/>
 <contactref element="J2" pad="55"/>
 <wire x1="47.5" y1="38.5" x2="48.5" y2="37.5" width="0.1524" layer="14"/>
@@ -14374,7 +14648,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="M5"/>
 <contactref element="C68" pad="1"/>
 <wire x1="48.5" y1="41.5" x2="49" y2="42" width="0.1524" layer="1"/>
-<via x="49" y="42" extent="1-16" drill="0.13"/>
+<via x="49" y="42" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="49" y1="42" x2="49.5" y2="41.5" width="0.1524" layer="14"/>
 <wire x1="49.5" y1="41.5" x2="49.5" y2="19.25" width="0.1524" layer="14"/>
 <contactref element="R53" pad="2"/>
@@ -14394,7 +14668,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <signal name="SF_ADC4">
 <contactref element="U1" pad="M9"/>
 <wire x1="44.5" y1="41.5" x2="45" y2="42" width="0.1524" layer="1"/>
-<via x="45" y="42" extent="1-16" drill="0.13"/>
+<via x="45" y="42" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="45" y1="42" x2="45" y2="38" width="0.1524" layer="14"/>
 <wire x1="45" y1="38" x2="45.5" y2="37.5" width="0.1524" layer="14"/>
 <wire x1="45.5" y1="37.5" x2="45.5" y2="31.5" width="0.1524" layer="14"/>
@@ -14410,7 +14684,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="N9"/>
 <contactref element="C69" pad="1"/>
 <wire x1="44.5" y1="42.5" x2="44" y2="43" width="0.1524" layer="1"/>
-<via x="44" y="43" extent="1-16" drill="0.13"/>
+<via x="44" y="43" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="44" y1="43" x2="44.5" y2="42.5" width="0.1524" layer="14"/>
 <wire x1="44.5" y1="42.5" x2="44.5" y2="31.5" width="0.1524" layer="14"/>
 <wire x1="44.5" y1="31.5" x2="45" y2="31" width="0.1524" layer="14"/>
@@ -14433,7 +14707,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <signal name="SF_ADC6">
 <contactref element="U1" pad="P9"/>
 <wire x1="44.5" y1="43.5" x2="44" y2="44" width="0.1524" layer="1"/>
-<via x="44" y="44" extent="1-16" drill="0.13"/>
+<via x="44" y="44" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="44" y1="44" x2="43.5" y2="43.5" width="0.1524" layer="14"/>
 <wire x1="43.5" y1="43.5" x2="43.5" y2="3.5" width="0.1524" layer="14"/>
 <contactref element="J2" pad="39"/>
@@ -14596,7 +14870,6 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 </signal>
 <signal name="AFE1_T/!R">
 <contactref element="U2" pad="27"/>
-<contactref element="R20" pad="2"/>
 <wire x1="35.5" y1="21.75" x2="34.5" y2="21.75" width="0.1524" layer="1"/>
 <wire x1="34.5" y1="21.75" x2="34.25" y2="22" width="0.1524" layer="1"/>
 <wire x1="34.25" y1="22" x2="34.25" y2="25.5" width="0.1524" layer="1"/>
@@ -14604,7 +14877,6 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="B14"/>
 <wire x1="39" y1="30.25" x2="39" y2="31" width="0.1524" layer="1"/>
 <wire x1="39" y1="31" x2="39.5" y2="31.5" width="0.1524" layer="1"/>
-<wire x1="34.25" y1="22" x2="33.65" y2="23" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="!AFE2_SHDN">
 <contactref element="U3" pad="25"/>
@@ -14613,7 +14885,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="50.25" y="22.75" extent="1-16" drill="0.13"/>
 <contactref element="U1" pad="D6"/>
 <wire x1="47.5" y1="33.5" x2="47" y2="33" width="0.1524" layer="1"/>
-<via x="47" y="33" extent="1-16" drill="0.13"/>
+<via x="47" y="33" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="50.25" y1="22.75" x2="47" y2="26" width="0.1524" layer="16"/>
 <wire x1="47" y1="26" x2="47" y2="27" width="0.1524" layer="16"/>
 <wire x1="47" y1="27" x2="47" y2="33" width="0.1524" layer="16"/>
@@ -14621,7 +14893,6 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 </signal>
 <signal name="AFE2_T/!R">
 <contactref element="U3" pad="27"/>
-<contactref element="R24" pad="2"/>
 <wire x1="51.5" y1="21.75" x2="50" y2="21.75" width="0.1524" layer="1"/>
 <contactref element="U1" pad="C6"/>
 <wire x1="47.5" y1="32.5" x2="47" y2="32" width="0.1524" layer="1"/>
@@ -14629,13 +14900,12 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="47" y1="28.75" x2="49.5" y2="26.25" width="0.1524" layer="1"/>
 <wire x1="49.5" y1="26.25" x2="49.5" y2="22.25" width="0.1524" layer="1"/>
 <wire x1="49.5" y1="22.25" x2="50" y2="21.75" width="0.1524" layer="1"/>
-<wire x1="49.5" y1="26.25" x2="52.35" y2="28" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="SPI1_SS">
 <contactref element="U1" pad="L13"/>
 <contactref element="R21" pad="1"/>
 <wire x1="40.5" y1="40.5" x2="40" y2="41" width="0.1524" layer="1"/>
-<via x="40" y="41" extent="1-16" drill="0.13"/>
+<via x="40" y="41" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <via x="35.5" y="10.5" extent="1-16" drill="0.13"/>
 <wire x1="35.5" y1="10.5" x2="35.5" y2="14.5" width="0.1524" layer="14"/>
 <wire x1="35.5" y1="14.5" x2="31" y2="19" width="0.1524" layer="14"/>
@@ -14656,7 +14926,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="51.5" y1="20.75" x2="50.25" y2="20.75" width="0.1524" layer="1"/>
 <wire x1="35.5" y1="20.75" x2="33.5" y2="20.75" width="0.1524" layer="1"/>
 <wire x1="39.5" y1="40.5" x2="39" y2="41" width="0.1524" layer="1"/>
-<via x="39" y="41" extent="1-16" drill="0.13"/>
+<via x="39" y="41" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="39" y1="41" x2="36.25" y2="41" width="0.1524" layer="16"/>
 <via x="32.5" y="10.5" extent="1-16" drill="0.13"/>
 <wire x1="32.5" y1="10.5" x2="32.5" y2="13" width="0.1524" layer="14"/>
@@ -14715,7 +14985,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="51.5" y1="21.25" x2="50" y2="21.25" width="0.1524" layer="1"/>
 <wire x1="35.5" y1="21.25" x2="34.25" y2="21.25" width="0.1524" layer="1"/>
 <wire x1="41.5" y1="40.5" x2="41" y2="41" width="0.1524" layer="1"/>
-<via x="41" y="41" extent="1-16" drill="0.13"/>
+<via x="41" y="41" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="41" y1="41" x2="40.5" y2="41.5" width="0.1524" layer="16"/>
 <wire x1="40.5" y1="41.5" x2="34.25" y2="41.5" width="0.1524" layer="16"/>
 <via x="33.5" y="10.5" extent="1-16" drill="0.13"/>
@@ -14771,7 +15041,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <signal name="SPI0_SCLK">
 <contactref element="U1" pad="M15"/>
 <wire x1="38.5" y1="41.5" x2="38" y2="42" width="0.1524" layer="1"/>
-<via x="38" y="42" extent="1-16" drill="0.13"/>
+<via x="38" y="42" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="38" y1="42" x2="32.5" y2="42" width="0.1524" layer="16"/>
 <contactref element="J1" pad="18"/>
 <wire x1="32.5" y1="8.85" x2="32.5" y2="9.75" width="0.1524" layer="16"/>
@@ -14788,7 +15058,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <signal name="SPI0_SS">
 <contactref element="U1" pad="M13"/>
 <wire x1="40.5" y1="41.5" x2="40" y2="42" width="0.1524" layer="1"/>
-<via x="40" y="42" extent="1-16" drill="0.13"/>
+<via x="40" y="42" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="40" y1="42" x2="39.5" y2="41.5" width="0.1524" layer="14"/>
 <wire x1="39.5" y1="41.5" x2="36.5" y2="41.5" width="0.1524" layer="14"/>
 <contactref element="J1" pad="24"/>
@@ -14876,7 +15146,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="D7"/>
 <wire x1="35.5" y1="20.25" x2="34.75" y2="20.25" width="0.1524" layer="1"/>
 <wire x1="46.5" y1="33.5" x2="46" y2="33" width="0.1524" layer="1"/>
-<via x="46" y="33" extent="1-16" drill="0.13"/>
+<via x="46" y="33" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="46" y1="33" x2="45.5" y2="32.5" width="0.1524" layer="3"/>
 <wire x1="45.5" y1="32.5" x2="45.5" y2="28.25" width="0.1524" layer="3"/>
 <via x="34.75" y="20.25" extent="1-16" drill="0.13"/>
@@ -14896,7 +15166,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="50.75" y="20.25" extent="1-16" drill="0.13"/>
 <wire x1="50.75" y1="20.25" x2="51.5" y2="20.25" width="0.1524" layer="1"/>
 <contactref element="U1" pad="C5"/>
-<via x="49" y="32" extent="1-16" drill="0.13"/>
+<via x="49" y="32" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="48.5" y1="32.5" x2="49" y2="32" width="0.1524" layer="1"/>
 <wire x1="50.75" y1="27.5" x2="49" y2="29.25" width="0.1524" layer="16"/>
 <wire x1="49" y1="29.25" x2="49" y2="32" width="0.1524" layer="16"/>
@@ -14928,7 +15198,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <signal name="SF_ADC0">
 <contactref element="U1" pad="T5"/>
 <wire x1="48.5" y1="45.5" x2="48" y2="45" width="0.1524" layer="1"/>
-<via x="48" y="45" extent="1-16" drill="0.13"/>
+<via x="48" y="45" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="48" y1="45" x2="46" y2="45" width="0.1524" layer="14"/>
 <wire x1="46" y1="45" x2="45.5" y2="44.5" width="0.1524" layer="14"/>
 <wire x1="45.5" y1="44.5" x2="45.5" y2="43.5" width="0.1524" layer="14"/>
@@ -14946,7 +15216,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="C66" pad="1"/>
 <contactref element="U1" pad="R2"/>
 <wire x1="51.5" y1="44.5" x2="51" y2="45" width="0.1524" layer="1"/>
-<via x="51" y="45" extent="1-16" drill="0.13"/>
+<via x="51" y="45" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <contactref element="J2" pad="33"/>
 <wire x1="40.5" y1="5.15" x2="40.5" y2="3.5" width="0.1524" layer="1"/>
 <via x="40.5" y="3.5" extent="1-16" drill="0.13"/>
@@ -14976,7 +15246,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="Q1" pad="1"/>
 <contactref element="Q1" pad="3"/>
 <wire x1="43.5" y1="43.5" x2="43" y2="44" width="0.1524" layer="1"/>
-<via x="43" y="44" extent="1-16" drill="0.13"/>
+<via x="43" y="44" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="43" y1="44" x2="42.5" y2="44.5" width="0.1524" layer="16"/>
 <wire x1="45.35" y1="51" x2="47.65" y2="50.05" width="0" layer="19" extent="1-1"/>
 <wire x1="42.5" y1="44.5" x2="45.35" y2="51" width="0" layer="19" extent="1-16"/>
@@ -14984,7 +15254,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <signal name="SF_TM1">
 <contactref element="U1" pad="N6"/>
 <wire x1="47.5" y1="42.5" x2="48" y2="42" width="0.1524" layer="1"/>
-<via x="48" y="42" extent="1-16" drill="0.13"/>
+<via x="48" y="42" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="48" y1="42" x2="48.5" y2="42.5" width="0.1524" layer="14"/>
 <wire x1="48.5" y1="42.5" x2="52.5" y2="42.5" width="0.1524" layer="14"/>
 <wire x1="52.5" y1="42.5" x2="54.5" y2="40.5" width="0.1524" layer="14"/>
@@ -15004,7 +15274,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="R49" pad="1"/>
 <contactref element="C112" pad="1"/>
 <wire x1="41.5" y1="42.5" x2="42" y2="43" width="0.1524" layer="1"/>
-<via x="42" y="43" extent="1-16" drill="0.13"/>
+<via x="42" y="43" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="42.5" y1="47.6" x2="44.35" y2="48.25" width="0" layer="19" extent="1-16"/>
 <wire x1="42" y1="43" x2="42.5" y2="47.6" width="0" layer="19" extent="1-16"/>
 </signal>
@@ -15025,7 +15295,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="R9"/>
 <contactref element="C70" pad="1"/>
 <wire x1="44.5" y1="44.5" x2="44" y2="45" width="0.1524" layer="1"/>
-<via x="44" y="45" extent="1-16" drill="0.13"/>
+<via x="44" y="45" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="44" y1="45" x2="43" y2="45" width="0.1524" layer="14"/>
 <wire x1="43" y1="45" x2="42.5" y2="44.5" width="0.1524" layer="14"/>
 <wire x1="42.5" y1="44.5" x2="42.5" y2="16.355021875" width="0.1524" layer="14"/>
@@ -15072,10 +15342,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="63.5" y1="3.5" x2="63.5" y2="10.5" width="0.3048" layer="1"/>
 <via x="63.5" y="10.5" extent="1-16" drill="0.13"/>
 <wire x1="63.5" y1="10.5" x2="63.5" y2="5.15" width="0.3048" layer="16"/>
-<via x="45" y="44" extent="1-16" drill="0.13"/>
+<via x="45" y="44" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="45" y1="44" x2="45.5" y2="43.5" width="0.1524" layer="1"/>
 <wire x1="50.5" y1="42.5" x2="51" y2="43" width="0.1524" layer="1"/>
-<via x="51" y="43" extent="1-16" drill="0.13"/>
+<via x="51" y="43" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="63.5" y1="10.5" x2="63.5" y2="28.5" width="0.3048" layer="16"/>
 <wire x1="63.5" y1="28.5" x2="55.75" y2="36.25" width="0.3048" layer="16"/>
 <wire x1="55.75" y1="36.25" x2="55.75" y2="40" width="0.3048" layer="15"/>
@@ -15152,7 +15422,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="36" y1="31" x2="36.5" y2="31.5" width="0.1524" layer="3"/>
 <wire x1="36.5" y1="31.5" x2="40.5" y2="31.5" width="0.1524" layer="3"/>
 <wire x1="40.5" y1="31.5" x2="41" y2="32" width="0.1524" layer="3"/>
-<via x="41" y="32" extent="1-16" drill="0.13"/>
+<via x="41" y="32" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="41" y1="32" x2="41.5" y2="32.5" width="0.1524" layer="1"/>
 <via x="20.75" y="32.5" extent="1-16" drill="0.13"/>
 </signal>
@@ -15163,7 +15433,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="22.25" y1="30.5" x2="40.25" y2="30.5" width="0.1524" layer="3"/>
 <contactref element="U1" pad="D11"/>
 <wire x1="42.5" y1="33.5" x2="42" y2="33" width="0.1524" layer="1"/>
-<via x="42" y="33" extent="1-16" drill="0.13"/>
+<via x="42" y="33" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="42" y1="33" x2="41.5" y2="32.5" width="0.1524" layer="3"/>
 <wire x1="41.5" y1="32.5" x2="41.5" y2="31.75" width="0.1524" layer="3"/>
 <wire x1="41.5" y1="31.75" x2="40.25" y2="30.5" width="0.1524" layer="3"/>
@@ -15177,7 +15447,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="C11"/>
 <wire x1="40.5" y1="30" x2="42" y2="31.5" width="0.1524" layer="3"/>
 <wire x1="42" y1="31.5" x2="42" y2="32" width="0.1524" layer="3"/>
-<via x="42" y="32" extent="1-16" drill="0.13"/>
+<via x="42" y="32" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="42" y1="32" x2="42.5" y2="32.5" width="0.1524" layer="1"/>
 <via x="19.75" y="32.5" extent="1-16" drill="0.13"/>
 </signal>
@@ -15188,7 +15458,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="22.25" y1="29" x2="41.75" y2="29" width="0.1524" layer="3"/>
 <contactref element="U1" pad="D9"/>
 <wire x1="44.5" y1="33.5" x2="44" y2="33" width="0.1524" layer="1"/>
-<via x="44" y="33" extent="1-16" drill="0.13"/>
+<via x="44" y="33" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="44" y1="33" x2="43.5" y2="32.5" width="0.1524" layer="3"/>
 <wire x1="43.5" y1="32.5" x2="43.5" y2="30.75" width="0.1524" layer="3"/>
 <wire x1="43.5" y1="30.75" x2="41.75" y2="29" width="0.1524" layer="3"/>
@@ -15201,7 +15471,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="22.25" y1="28.5" x2="42.25" y2="28.5" width="0.1524" layer="3"/>
 <contactref element="U1" pad="C9"/>
 <wire x1="44.5" y1="32.5" x2="44" y2="32" width="0.1524" layer="1"/>
-<via x="44" y="32" extent="1-16" drill="0.13"/>
+<via x="44" y="32" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="44" y1="32" x2="44" y2="30.25" width="0.1524" layer="3"/>
 <wire x1="44" y1="30.25" x2="42.25" y2="28.5" width="0.1524" layer="3"/>
 <via x="18.25" y="32.5" extent="1-16" drill="0.13"/>
@@ -15214,7 +15484,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="43.75" y1="27.5" x2="22.25" y2="27.5" width="0.1524" layer="3"/>
 <contactref element="U1" pad="C8"/>
 <wire x1="45.5" y1="32.5" x2="45" y2="32" width="0.1524" layer="1"/>
-<via x="45" y="32" extent="1-16" drill="0.13"/>
+<via x="45" y="32" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="45" y1="32" x2="45" y2="28.75" width="0.1524" layer="3"/>
 <wire x1="45" y1="28.75" x2="43.75" y2="27.5" width="0.1524" layer="3"/>
 <via x="17.25" y="32.5" extent="1-16" drill="0.13"/>
@@ -15229,7 +15499,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="22.25" y1="31.5" x2="35.5" y2="31.5" width="0.1524" layer="3"/>
 <contactref element="U1" pad="C14"/>
 <wire x1="39" y1="32" x2="39.5" y2="32.5" width="0.1524" layer="1"/>
-<via x="39" y="32" extent="1-16" drill="0.13"/>
+<via x="39" y="32" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="39" y1="32" x2="36" y2="32" width="0.1524" layer="3"/>
 <wire x1="36" y1="32" x2="35.5" y2="31.5" width="0.1524" layer="3"/>
 <via x="21.25" y="32.5" extent="1-16" drill="0.13"/>
@@ -15252,7 +15522,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="25.5" y1="35.75" x2="28.75" y2="32.5" width="0.1524" layer="3"/>
 <contactref element="U1" pad="D13"/>
 <wire x1="40.5" y1="33.5" x2="40" y2="33" width="0.1524" layer="1"/>
-<via x="40" y="33" extent="1-16" drill="0.13"/>
+<via x="40" y="33" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="40" y1="33" x2="39.5" y2="32.5" width="0.1524" layer="3"/>
 <wire x1="39.5" y1="32.5" x2="28.75" y2="32.5" width="0.1524" layer="3"/>
 <via x="25.5" y="35.75" extent="1-16" drill="0.13"/>
@@ -15264,7 +15534,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="28.75" y1="33" x2="39" y2="33" width="0.1524" layer="3"/>
 <contactref element="U1" pad="D14"/>
 <wire x1="39.5" y1="33.5" x2="39" y2="33" width="0.1524" layer="1"/>
-<via x="39" y="33" extent="1-16" drill="0.13"/>
+<via x="39" y="33" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <via x="25.5" y="36.25" extent="1-16" drill="0.13"/>
 </signal>
 <signal name="!SIWU">
@@ -15293,14 +15563,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U5" pad="31"/>
 <contactref element="R58" pad="1"/>
 <wire x1="24.2" y1="38.25" x2="25.5" y2="38.25" width="0.1524" layer="1"/>
-<wire x1="25.5" y1="38.25" x2="28.75" y2="35" width="0.1524" layer="3"/>
-<contactref element="U1" pad="F14"/>
-<wire x1="39.5" y1="35.5" x2="39" y2="35" width="0.1524" layer="1"/>
-<wire x1="39" y1="35" x2="34.5" y2="35" width="0.1524" layer="1"/>
-<via x="25.5" y="38.25" extent="1-16" drill="0.13"/>
-<wire x1="34.5" y1="35" x2="28.75" y2="35" width="0.1524" layer="3"/>
-<via x="34.5" y="35" extent="1-16" drill="0.13"/>
-<wire x1="32.9" y1="35" x2="34.5" y2="35" width="0.1524" layer="1"/>
+<wire x1="26.6" y1="38.25" x2="25.5" y2="38.25" width="0.1524" layer="1"/>
 </signal>
 <signal name="!USB_RESET">
 <contactref element="R95" pad="2"/>
@@ -15393,7 +15656,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="8.1209" y1="32.54" x2="8.1609" y2="32.5" width="0.1524" layer="1"/>
 <wire x1="8.1609" y1="32.5" x2="12.5" y2="32.5" width="0.1524" layer="1"/>
 <wire x1="39.5" y1="37.5" x2="39" y2="38" width="0.1524" layer="1"/>
-<via x="39" y="38" extent="1-16" drill="0.13"/>
+<via x="39" y="38" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="39" y1="38" x2="36.25" y2="38" width="0.1524" layer="16"/>
 <wire x1="36.25" y1="38" x2="35.75" y2="37.5" width="0.1524" layer="16"/>
 <wire x1="35.75" y1="37.5" x2="34" y2="37.5" width="0.1524" layer="16"/>
@@ -15407,7 +15670,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="R7" pad="1"/>
 <contactref element="U1" pad="G12"/>
 <wire x1="41.5" y1="36.5" x2="41" y2="36" width="0.1524" layer="1"/>
-<via x="41" y="36" extent="1-16" drill="0.13"/>
+<via x="41" y="36" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="41" y1="36" x2="39.5" y2="34.5" width="0.1524" layer="16"/>
 <wire x1="39.5" y1="34.5" x2="35.5" y2="34.5" width="0.1524" layer="16"/>
 <wire x1="35.5" y1="34.5" x2="34" y2="33" width="0.1524" layer="16"/>
@@ -15429,7 +15692,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="G14"/>
 <wire x1="8.1209" y1="30" x2="10.5" y2="30" width="0.1524" layer="1"/>
 <wire x1="39.5" y1="36.5" x2="39" y2="36" width="0.1524" layer="1"/>
-<via x="39" y="36" extent="1-16" drill="0.13"/>
+<via x="39" y="36" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="39" y1="36" x2="38" y2="35" width="0.1524" layer="16"/>
 <wire x1="38" y1="35" x2="35.25" y2="35" width="0.1524" layer="16"/>
 <wire x1="35.25" y1="35" x2="33.75" y2="33.5" width="0.1524" layer="16"/>
@@ -15447,7 +15710,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="34.5" y1="36.5" x2="36.5" y2="36.5" width="0.1524" layer="16"/>
 <wire x1="36.5" y1="36.5" x2="37.5" y2="37.5" width="0.1524" layer="16"/>
 <wire x1="37.5" y1="37.5" x2="40.5" y2="37.5" width="0.1524" layer="16"/>
-<via x="41" y="37" extent="1-16" drill="0.13"/>
+<via x="41" y="37" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="41" y1="37" x2="40.5" y2="37.5" width="0.1524" layer="1"/>
 <wire x1="40.5" y1="37.5" x2="41" y2="37" width="0.1524" layer="16"/>
 <wire x1="34.5" y1="36.5" x2="27.5" y2="29.5" width="0.1524" layer="16"/>
@@ -15478,7 +15741,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="R8" pad="1"/>
 <contactref element="U1" pad="H12"/>
 <wire x1="41.5" y1="37.5" x2="41" y2="38" width="0.1524" layer="1"/>
-<via x="41" y="38" extent="1-16" drill="0.13"/>
+<via x="41" y="38" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="3.8791" y1="30" x2="5.5" y2="30" width="0.1524" layer="1"/>
 <wire x1="5.5" y1="30" x2="6" y2="29.5" width="0.1524" layer="1"/>
 <via x="6" y="29.5" extent="1-16" drill="0.13"/>
@@ -15506,7 +15769,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="6" y="30.75" extent="1-16" drill="0.13"/>
 <wire x1="6" y1="30.75" x2="9" y2="30.75" width="0.1524" layer="16"/>
 <wire x1="40.5" y1="36.5" x2="40" y2="37" width="0.1524" layer="1"/>
-<via x="40" y="37" extent="1-16" drill="0.13"/>
+<via x="40" y="37" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="40" y1="37" x2="39.5" y2="36.5" width="0.1524" layer="16"/>
 <wire x1="39.5" y1="36.5" x2="37.5" y2="36.5" width="0.1524" layer="16"/>
 <wire x1="37.5" y1="36.5" x2="37" y2="36" width="0.1524" layer="16"/>
@@ -15731,7 +15994,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="L3"/>
 <contactref element="R86" pad="1"/>
 <wire x1="50.5" y1="40.5" x2="51" y2="41" width="0.1524" layer="1"/>
-<via x="51" y="41" extent="1-16" drill="0.13"/>
+<via x="51" y="41" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="51" y1="41" x2="54.5" y2="41" width="0.1524" layer="3"/>
 <wire x1="54.5" y1="41" x2="57.75" y2="37.75" width="0.1524" layer="3"/>
 <wire x1="57.75" y1="37.75" x2="57.75" y2="35" width="0.1524" layer="3"/>
@@ -15745,7 +16008,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="L4"/>
 <contactref element="R78" pad="1"/>
 <wire x1="49.5" y1="40.5" x2="50" y2="41" width="0.1524" layer="1"/>
-<via x="50" y="41" extent="1-16" drill="0.13"/>
+<via x="50" y="41" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="50" y1="41" x2="50.5" y2="40.5" width="0.1524" layer="3"/>
 <wire x1="50.5" y1="40.5" x2="52.5" y2="40.5" width="0.1524" layer="3"/>
 <wire x1="52.5" y1="40.5" x2="53" y2="40" width="0.1524" layer="3"/>
@@ -15762,7 +16025,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="M3"/>
 <contactref element="R79" pad="1"/>
 <wire x1="50.5" y1="41.5" x2="51" y2="42" width="0.1524" layer="1"/>
-<via x="51" y="42" extent="1-16" drill="0.13"/>
+<via x="51" y="42" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="58.25" y1="38" x2="54.25" y2="42" width="0.1524" layer="3"/>
 <wire x1="54.25" y1="42" x2="51" y2="42" width="0.1524" layer="3"/>
 <wire x1="69.5" y1="26.65" x2="69.5" y2="28.5" width="0.1524" layer="16"/>
@@ -15890,7 +16153,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="R12" pad="2"/>
 <contactref element="U1" pad="J3"/>
 <wire x1="50.5" y1="38.5" x2="51" y2="39" width="0.1524" layer="1"/>
-<via x="51" y="39" extent="1-16" drill="0.13"/>
+<via x="51" y="39" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="51" y1="39" x2="55" y2="39" width="0.1524" layer="3"/>
 <wire x1="55" y1="39" x2="56.75" y2="37.25" width="0.1524" layer="3"/>
 <wire x1="56.75" y1="37.25" x2="56.75" y2="33" width="0.1524" layer="3"/>
@@ -15938,7 +16201,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="K4"/>
 <contactref element="U6" pad="29"/>
 <wire x1="49.5" y1="39.5" x2="50" y2="40" width="0.1524" layer="1"/>
-<via x="50" y="40" extent="1-16" drill="0.13"/>
+<via x="50" y="40" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="74.75" y1="29.2" x2="74.75" y2="27.75" width="0.1524" layer="1"/>
 <via x="75.5" y="17" extent="1-16" drill="0.13"/>
 <wire x1="74.75" y1="20" x2="74.75" y2="27.75" width="0.1524" layer="16"/>
@@ -16135,7 +16398,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="28.75" y1="35.5" x2="34.75" y2="35.5" width="0.1524" layer="3"/>
 <contactref element="U1" pad="E12"/>
 <wire x1="41.5" y1="34.5" x2="41" y2="34" width="0.1524" layer="1"/>
-<via x="41" y="34" extent="1-16" drill="0.13"/>
+<via x="41" y="34" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="41" y1="34" x2="40.5" y2="34.5" width="0.1524" layer="3"/>
 <wire x1="40.5" y1="34.5" x2="35.75" y2="34.5" width="0.1524" layer="3"/>
 <wire x1="35.75" y1="34.5" x2="34.75" y2="35.5" width="0.1524" layer="3"/>
@@ -16147,7 +16410,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="25.5" y1="39.25" x2="28.75" y2="36" width="0.1524" layer="3"/>
 <contactref element="U1" pad="F12"/>
 <wire x1="41.5" y1="35.5" x2="41" y2="35" width="0.1524" layer="1"/>
-<via x="41" y="35" extent="1-16" drill="0.13"/>
+<via x="41" y="35" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="41" y1="35" x2="36" y2="35" width="0.1524" layer="3"/>
 <wire x1="28.75" y1="36" x2="35" y2="36" width="0.1524" layer="3"/>
 <wire x1="35" y1="36" x2="36" y2="35" width="0.1524" layer="3"/>
@@ -16173,7 +16436,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="LED2" pad="1"/>
 <contactref element="U1" pad="H4"/>
 <wire x1="49.5" y1="37.5" x2="50" y2="37" width="0.1524" layer="1"/>
-<via x="50" y="37" extent="1-16" drill="0.13"/>
+<via x="50" y="37" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="50" y1="37" x2="49.5" y2="37.5" width="0.1524" layer="3"/>
 <wire x1="49.5" y1="37.5" x2="49.5" y2="44.5" width="0.1524" layer="3"/>
 <wire x1="49.5" y1="44.5" x2="44.5" y2="49.5" width="0.1524" layer="3"/>
@@ -16186,7 +16449,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="LED1" pad="1"/>
 <contactref element="U1" pad="H5"/>
 <wire x1="48.5" y1="37.5" x2="49" y2="37" width="0.1524" layer="1"/>
-<via x="49" y="37" extent="1-16" drill="0.13"/>
+<via x="49" y="37" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="49" y1="37" x2="48.5" y2="37.5" width="0.1524" layer="3"/>
 <wire x1="2.75" y1="54" x2="2.75" y2="52.5" width="0.1524" layer="1"/>
 <via x="2.75" y="52.5" extent="1-16" drill="0.13"/>
@@ -16198,7 +16461,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <signal name="SF_CM1">
 <contactref element="U1" pad="P6"/>
 <wire x1="47.5" y1="43.5" x2="48" y2="43" width="0.1524" layer="1"/>
-<via x="48" y="43" extent="1-16" drill="0.13"/>
+<via x="48" y="43" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="48" y1="43" x2="48.5" y2="43.5" width="0.1524" layer="14"/>
 <wire x1="48.5" y1="43.5" x2="52.5" y2="43.5" width="0.1524" layer="14"/>
 <wire x1="52.5" y1="43.5" x2="53" y2="43" width="0.1524" layer="14"/>
@@ -16213,7 +16476,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <signal name="SF_TM0">
 <contactref element="U1" pad="R4"/>
 <wire x1="49.5" y1="44.5" x2="50" y2="44" width="0.1524" layer="1"/>
-<via x="50" y="44" extent="1-16" drill="0.13"/>
+<via x="50" y="44" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="50" y1="44" x2="50.5" y2="44.5" width="0.1524" layer="14"/>
 <wire x1="50.5" y1="44.5" x2="53.5" y2="44.5" width="0.1524" layer="14"/>
 <wire x1="53.5" y1="44.5" x2="57.5" y2="40.5" width="0.1524" layer="14"/>
@@ -16300,7 +16563,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="C109" pad="1"/>
 <contactref element="U1" pad="P3"/>
 <wire x1="50.5" y1="43.5" x2="51" y2="44" width="0.1524" layer="1"/>
-<via x="51" y="44" extent="1-16" drill="0.13"/>
+<via x="51" y="44" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="51" y1="44" x2="52.5" y2="45.5" width="0.1524" layer="16"/>
 <wire x1="52.5" y1="45.5" x2="53.35" y2="45.5" width="0.1524" layer="16"/>
 </signal>
@@ -16324,7 +16587,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="K12"/>
 <contactref element="R4" pad="2"/>
 <wire x1="41.5" y1="39.5" x2="41" y2="40" width="0.1524" layer="1"/>
-<via x="41" y="40" extent="1-16" drill="0.13"/>
+<via x="41" y="40" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="41" y1="40" x2="40.5" y2="39.5" width="0.1524" layer="16"/>
 <wire x1="40.5" y1="39.5" x2="33" y2="39.5" width="0.1524" layer="16"/>
 <wire x1="33" y1="39.5" x2="27.75" y2="34.25" width="0.1524" layer="16"/>
@@ -16451,7 +16714,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="22.25" y1="28" x2="42.75" y2="28" width="0.1524" layer="3"/>
 <contactref element="U1" pad="D8"/>
 <wire x1="45.5" y1="33.5" x2="45" y2="33" width="0.1524" layer="1"/>
-<via x="45" y="33" extent="1-16" drill="0.13"/>
+<via x="45" y="33" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="45" y1="33" x2="44.5" y2="32.5" width="0.1524" layer="3"/>
 <wire x1="44.5" y1="32.5" x2="44.5" y2="29.75" width="0.1524" layer="3"/>
 <wire x1="44.5" y1="29.75" x2="42.75" y2="28" width="0.1524" layer="3"/>
@@ -16468,7 +16731,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="22.25" y1="29.5" x2="40.75" y2="29.5" width="0.1524" layer="3"/>
 <contactref element="U1" pad="D10"/>
 <wire x1="43.5" y1="33.5" x2="43" y2="33" width="0.1524" layer="1"/>
-<via x="43" y="33" extent="1-16" drill="0.13"/>
+<via x="43" y="33" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="43" y1="33" x2="42.5" y2="32.5" width="0.1524" layer="3"/>
 <wire x1="42.5" y1="32.5" x2="42.5" y2="31.25" width="0.1524" layer="3"/>
 <wire x1="42.5" y1="31.25" x2="40.75" y2="29.5" width="0.1524" layer="3"/>
@@ -16523,7 +16786,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="51.5" y1="29.5" x2="51.5" y2="35.5" width="0.1524" layer="3"/>
 <contactref element="U1" pad="G3"/>
 <wire x1="50.5" y1="36.5" x2="51" y2="36" width="0.1524" layer="1"/>
-<via x="51" y="36" extent="1-16" drill="0.13"/>
+<via x="51" y="36" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="51" y1="36" x2="51.5" y2="35.5" width="0.1524" layer="3"/>
 </signal>
 <signal name="UART1_TXD">
@@ -16561,7 +16824,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="50.5" y1="35.5" x2="51" y2="35" width="0.1524" layer="1"/>
 <wire x1="30.5" y1="20" x2="36" y2="25.5" width="0.1524" layer="3"/>
 <wire x1="36" y1="25.5" x2="45.75" y2="25.5" width="0.1524" layer="3"/>
-<via x="51" y="35" extent="1-16" drill="0.13"/>
+<via x="51" y="35" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="51" y1="35" x2="50.5" y2="34.5" width="0.1524" layer="3"/>
 <wire x1="50.5" y1="34.5" x2="50.5" y2="30.25" width="0.1524" layer="3"/>
 <wire x1="50.5" y1="30.25" x2="45.75" y2="25.5" width="0.1524" layer="3"/>
@@ -16609,7 +16872,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="34.5" y1="4.25" x2="34.5" y2="5.15" width="0.1524" layer="16"/>
 <contactref element="U1" pad="G2"/>
 <wire x1="51.5" y1="36.5" x2="52" y2="37" width="0.1524" layer="1"/>
-<via x="52" y="37" extent="1-16" drill="0.13"/>
+<via x="52" y="37" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="52" y1="37" x2="53" y2="37" width="0.1524" layer="3"/>
 <wire x1="53" y1="37" x2="54.5" y2="35.5" width="0.1524" layer="3"/>
 </signal>
@@ -16647,7 +16910,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="32.5" y1="4.25" x2="32.5" y2="5.15" width="0.1524" layer="16"/>
 <contactref element="U1" pad="E2"/>
 <wire x1="51.5" y1="34.5" x2="52" y2="35" width="0.1524" layer="1"/>
-<via x="52" y="35" extent="1-16" drill="0.13"/>
+<via x="52" y="35" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="52" y1="35" x2="52.5" y2="34.5" width="0.1524" layer="3"/>
 <wire x1="52.5" y1="34.5" x2="52.5" y2="29.75" width="0.1524" layer="3"/>
 </signal>
@@ -16658,7 +16921,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="C117" pad="1"/>
 <contactref element="C118" pad="1"/>
 <wire x1="51.5" y1="32.5" x2="52" y2="33" width="0.1524" layer="1"/>
-<via x="52" y="33" extent="1-16" drill="0.13"/>
+<via x="52" y="33" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="54" y1="32.4" x2="53" y2="32.4" width="0.3048" layer="16"/>
 <wire x1="53" y1="32.4" x2="52.6" y2="32.4" width="0.3048" layer="16"/>
 <wire x1="52.6" y1="32.4" x2="52" y2="33" width="0.3048" layer="16"/>
@@ -16675,7 +16938,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="L1" pad="1"/>
 <contactref element="U1" pad="K5"/>
 <wire x1="48.5" y1="39.5" x2="49" y2="40" width="0.1524" layer="1"/>
-<via x="49" y="40" extent="1-16" drill="0.13"/>
+<via x="49" y="40" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="49" y1="40" x2="49.5" y2="39.5" width="0.1524" layer="16"/>
 <wire x1="49.5" y1="39.5" x2="52.5" y2="39.5" width="0.1524" layer="16"/>
 <wire x1="52.5" y1="39.5" x2="53" y2="39" width="0.1524" layer="16"/>
@@ -16688,7 +16951,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="J12"/>
 <wire x1="41.5" y1="38.5" x2="41" y2="39" width="0.1524" layer="1"/>
 <wire x1="41" y1="39" x2="40" y2="39" width="0.1524" layer="1"/>
-<via x="40" y="39" extent="1-16" drill="0.13"/>
+<via x="40" y="39" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="40" y1="39" x2="39" y2="39" width="0.1524" layer="14"/>
 <wire x1="39" y1="39" x2="36.5" y2="36.5" width="0.1524" layer="14"/>
 <wire x1="36.5" y1="36.5" x2="33" y2="36.5" width="0.1524" layer="14"/>
@@ -16700,7 +16963,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="R14" pad="1"/>
 <contactref element="U1" pad="J13"/>
 <wire x1="40.5" y1="38.5" x2="40" y2="38" width="0.1524" layer="1"/>
-<via x="40" y="38" extent="1-16" drill="0.13"/>
+<via x="40" y="38" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="40" y1="38" x2="38.5" y2="36.5" width="0.1524" layer="14"/>
 <wire x1="38.5" y1="36.5" x2="37.5" y2="36.5" width="0.1524" layer="14"/>
 <wire x1="37.5" y1="36.5" x2="37" y2="36" width="0.1524" layer="14"/>
@@ -16713,7 +16976,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="K14"/>
 <contactref element="R30" pad="2"/>
 <wire x1="39.5" y1="39.5" x2="39" y2="40" width="0.1524" layer="1"/>
-<via x="39" y="40" extent="1-16" drill="0.13"/>
+<via x="39" y="40" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="39" y1="40" x2="31.4" y2="40" width="0.1524" layer="16"/>
 <wire x1="30.65" y1="39.25" x2="31.4" y2="40" width="0.1524" layer="16"/>
 </signal>
@@ -16770,7 +17033,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="29.5" y1="5.15" x2="29.5" y2="3.5" width="0.1524" layer="1"/>
 <contactref element="U1" pad="D5"/>
 <wire x1="48.5" y1="33.5" x2="48" y2="33" width="0.1524" layer="1"/>
-<via x="48" y="33" extent="1-16" drill="0.13"/>
+<via x="48" y="33" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="48" y1="33" x2="48" y2="29.25" width="0.1524" layer="3"/>
 <wire x1="48" y1="29.25" x2="45.25" y2="26.5" width="0.1524" layer="3"/>
 <wire x1="45.25" y1="26.5" x2="35.5" y2="26.5" width="0.1524" layer="3"/>
@@ -16787,7 +17050,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="31" y1="19.75" x2="36.25" y2="25" width="0.1524" layer="3"/>
 <wire x1="36.25" y1="25" x2="46" y2="25" width="0.1524" layer="3"/>
 <wire x1="50.5" y1="34.5" x2="51" y2="34" width="0.1524" layer="1"/>
-<via x="51" y="34" extent="1-16" drill="0.13"/>
+<via x="51" y="34" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="51" y1="34" x2="51" y2="30" width="0.1524" layer="3"/>
 <wire x1="51" y1="30" x2="46" y2="25" width="0.1524" layer="3"/>
 <wire x1="31" y1="19.75" x2="31" y2="5.75" width="0.1524" layer="3"/>
@@ -16802,7 +17065,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="30" y1="3.75" x2="30" y2="3" width="0.1524" layer="16"/>
 <contactref element="U1" pad="E4"/>
 <wire x1="49.5" y1="34.5" x2="50" y2="34" width="0.1524" layer="1"/>
-<via x="50" y="34" extent="1-16" drill="0.13"/>
+<via x="50" y="34" extent="1-16" drill="0.3048" diameter="0.6096"/>
 <wire x1="50" y1="34" x2="49.5" y2="33.5" width="0.1524" layer="3"/>
 <wire x1="49.5" y1="33.5" x2="49.5" y2="30" width="0.1524" layer="3"/>
 <wire x1="49.5" y1="30" x2="45.5" y2="26" width="0.1524" layer="3"/>
