@@ -10,18 +10,18 @@
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="GND" color="1" fill="3" visible="yes" active="yes"/>
-<layer number="3" name="Inner1" color="13" fill="3" visible="no" active="yes"/>
-<layer number="14" name="Inner2" color="10" fill="6" visible="no" active="yes"/>
-<layer number="15" name="SUP" color="4" fill="6" visible="no" active="yes"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="no" active="yes"/>
+<layer number="3" name="Inner1" color="13" fill="3" visible="yes" active="yes"/>
+<layer number="14" name="Inner2" color="10" fill="6" visible="yes" active="yes"/>
+<layer number="15" name="SUP" color="4" fill="6" visible="yes" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
-<layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="yes"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="no" active="yes"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
@@ -36,10 +36,10 @@
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
 <layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
 <layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
-<layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="yes"/>
-<layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="yes"/>
-<layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="yes"/>
-<layer number="42" name="bRestrict" color="1" fill="10" visible="no" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
+<layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
+<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
+<layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
@@ -13135,9 +13135,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="X1" pad="2"/>
 <contactref element="X1" pad="4"/>
 <wire x1="25" y1="2.5" x2="28.5" y2="2.5" width="0.3048" layer="1"/>
-<wire x1="28.5" y1="2.5" x2="31" y2="2.5" width="0.3048" layer="1"/>
-<wire x1="31" y1="2.5" x2="31.5" y2="3" width="0.3048" layer="1"/>
-<wire x1="31.5" y1="3" x2="31.5" y2="3.5" width="0.3048" layer="1"/>
+<wire x1="28.5" y1="2.5" x2="31.25" y2="2.5" width="0.3048" layer="1"/>
+<wire x1="31.25" y1="2.5" x2="31.5" y2="2.75" width="0.3048" layer="1"/>
+<wire x1="31.5" y1="2.75" x2="31.5" y2="3.5" width="0.3048" layer="1"/>
 <wire x1="28.5" y1="3.5" x2="28.5" y2="2.5" width="0.3048" layer="1"/>
 <wire x1="31.5" y1="8.85" x2="31.5" y2="5.15" width="0.3048" layer="1"/>
 <wire x1="31.5" y1="10.5" x2="31.5" y2="3.5" width="0.3048" layer="16"/>
@@ -14397,8 +14397,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="40.25" y1="16.5" x2="40.25" y2="15.5" width="0.3048" layer="1"/>
 <wire x1="42.15" y1="13.75" x2="43.5" y2="12.4" width="0.3048" layer="1"/>
 <wire x1="43.5" y1="12.4" x2="43.5" y2="12.35" width="0.1524" layer="1"/>
-<wire x1="40.25" y1="15.5" x2="42" y2="13.75" width="0.3048" layer="1"/>
-<wire x1="42" y1="13.75" x2="42.15" y2="13.75" width="0.1524" layer="1"/>
+<wire x1="40.25" y1="15.5" x2="41.25" y2="14.5" width="0.3048" layer="1"/>
+<wire x1="41.25" y1="14.5" x2="41.5" y2="14.5" width="0.3048" layer="1"/>
+<wire x1="41.5" y1="14.5" x2="42" y2="14" width="0.3048" layer="1"/>
+<wire x1="42.15" y1="13.75" x2="42" y2="13.9" width="0.3048" layer="1"/>
+<wire x1="42" y1="13.9" x2="42" y2="14" width="0.3048" layer="1"/>
 </signal>
 <signal name="DAC2-">
 <contactref element="C10" pad="2"/>
@@ -14514,7 +14517,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="56.85" y1="12.25" x2="56.85" y2="11.85" width="0.3048" layer="1"/>
 <wire x1="56.25" y1="15.5" x2="56.25" y2="16.5" width="0.3048" layer="1"/>
 <wire x1="58.15" y1="13.75" x2="58" y2="13.75" width="0.3048" layer="1"/>
-<wire x1="58" y1="13.75" x2="56.25" y2="15.5" width="0.3048" layer="1"/>
+<wire x1="58" y1="13.75" x2="58" y2="14" width="0.3048" layer="1"/>
+<wire x1="58" y1="14" x2="57.5" y2="14.5" width="0.3048" layer="1"/>
+<wire x1="57.5" y1="14.5" x2="57.25" y2="14.5" width="0.3048" layer="1"/>
+<wire x1="57.25" y1="14.5" x2="56.25" y2="15.5" width="0.3048" layer="1"/>
 <wire x1="56.85" y1="12.25" x2="58.15" y2="13.55" width="0.3048" layer="1"/>
 <wire x1="58.15" y1="13.55" x2="58.15" y2="13.75" width="0.1524" layer="1"/>
 </signal>
