@@ -9,11 +9,11 @@
 <grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.25" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
-<layer number="2" name="GND" color="1" fill="3" visible="no" active="yes"/>
-<layer number="3" name="Inner1" color="13" fill="3" visible="no" active="yes"/>
-<layer number="14" name="Inner2" color="10" fill="6" visible="no" active="yes"/>
-<layer number="15" name="SUP" color="4" fill="6" visible="no" active="yes"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
+<layer number="2" name="GND" color="1" fill="3" visible="yes" active="yes"/>
+<layer number="3" name="Inner1" color="13" fill="3" visible="yes" active="yes"/>
+<layer number="14" name="Inner2" color="10" fill="6" visible="yes" active="yes"/>
+<layer number="15" name="SUP" color="4" fill="6" visible="yes" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
@@ -21,7 +21,7 @@
 <layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
@@ -36,9 +36,9 @@
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
 <layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
 <layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
-<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="yes"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="yes"/>
-<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
+<layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="yes"/>
 <layer number="42" name="bRestrict" color="1" fill="10" visible="no" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
@@ -153,6 +153,10 @@
 <rectangle x1="41.5" y1="37.25" x2="44.5" y2="38.5" layer="116"/>
 <rectangle x1="39.000021875" y1="35.00001875" x2="40.000021875" y2="36.00001875" layer="101"/>
 <rectangle x1="28" y1="2" x2="31" y2="8" layer="116"/>
+<rectangle x1="83" y1="14" x2="91" y2="22" layer="101"/>
+<text x="93" y="13" size="0.8128" layer="101" rot="R90">Consider:</text>
+<text x="94" y="13" size="0.8128" layer="101" rot="R90">-moving this switch to the west side</text>
+<text x="95" y="13" size="0.8128" layer="101" rot="R90">-using a larger switch (e.g. KSC421 V30 ACT2.95 LFS)</text>
 </plain>
 <libraries>
 <library name="Logo">
@@ -11158,32 +11162,6 @@ Chip inductor
 <rectangle x1="-0.254" y1="0.3048" x2="0.254" y2="0.4572" layer="21"/>
 <rectangle x1="-0.254" y1="-0.4572" x2="0.254" y2="-0.3048" layer="21"/>
 </package>
-<package name="SWITCH-KSC-J-LEAD">
-<description>&lt;b&gt;KSC J-Lead Button&lt;/b&gt;
-&lt;p&gt;
-KSC Series Sealed Tact Switch for SMT
-&lt;p&gt;
-Source: &lt;a href="http://www.ck-components.com/index.php?module=media&amp;action=Display&amp;cmpref=14422&amp;lang=en"&gt;http://www.ck-components.com/index.php?module=media&amp;action=Display&amp;cmpref=14422&amp;lang=en&lt;/a&gt;</description>
-<smd name="2$1" x="-2.9" y="-2" dx="2.8" dy="1" layer="1"/>
-<smd name="1$1" x="-2.9" y="2" dx="2.8" dy="1" layer="1"/>
-<smd name="1$2" x="2.9" y="2" dx="2.8" dy="1" layer="1"/>
-<smd name="2$2" x="2.9" y="-2" dx="2.8" dy="1" layer="1"/>
-<wire x1="-3" y1="3" x2="-3" y2="-3" width="0.127" layer="51"/>
-<wire x1="-3" y1="-3" x2="-2" y2="-3" width="0.127" layer="51"/>
-<wire x1="-2" y1="-3" x2="-1.75" y2="-3.25" width="0.127" layer="51"/>
-<wire x1="-1.75" y1="-3.25" x2="1.75" y2="-3.25" width="0.127" layer="51"/>
-<wire x1="1.75" y1="-3.25" x2="2" y2="-3" width="0.127" layer="51"/>
-<wire x1="2" y1="-3" x2="3" y2="-3" width="0.127" layer="51"/>
-<wire x1="3" y1="-3" x2="3" y2="3" width="0.127" layer="51"/>
-<wire x1="3" y1="3" x2="2" y2="3" width="0.127" layer="51"/>
-<wire x1="2" y1="3" x2="1.75" y2="3.25" width="0.127" layer="51"/>
-<wire x1="1.75" y1="3.25" x2="-1.75" y2="3.25" width="0.127" layer="51"/>
-<wire x1="-1.75" y1="3.25" x2="-2" y2="3" width="0.127" layer="51"/>
-<wire x1="-2" y1="3" x2="-3" y2="3" width="0.127" layer="51"/>
-<circle x="0" y="0" radius="1.5" width="0.127" layer="51"/>
-<text x="-3" y="-4" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-3" y="3.5" size="0.4064" layer="27">&gt;VALUE</text>
-</package>
 <package name="LED1208-RA">
 <description>&lt;b&gt;Right Angle LED 1208&lt;/b&gt;
 &lt;p&gt;
@@ -12224,32 +12202,6 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <element name="R92" library="MainBoard" package="R0402" value="39" x="76.25" y="15.75" rot="R180">
 <attribute name="TOLERANCE" value="" x="76.25" y="15.75" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="SW1" library="MainBoard" package="SWITCH-KSC-J-LEAD" value="SWITCH-KSC-241J" x="84" y="18" locked="yes" rot="R270">
-<attribute name="ACT-HEIGHT" value="3.5 mm" x="84" y="18" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="DIGI-KEY#" value="401-1762-1-ND" x="84" y="18" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MPN" value="KSC241JLFS" x="84" y="18" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MF" value="C&amp;K Components" x="84" y="18" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="OP-FORCE" value="300gf" x="84" y="18" size="1.778" layer="27" rot="R270" display="off"/>
-</element>
-<element name="SW2" library="MainBoard" package="SWITCH-KSC-J-LEAD" value="SWITCH-KSC-201J" x="6" y="18" locked="yes" rot="R90">
-<attribute name="ACT-HEIGHT" value="3.5 mm" x="6" y="18" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE3" value="Clock and Reset" x="6" y="18" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE4" value="Ethernet (RMII)" x="6" y="18" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="6" y="18" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="6" y="18" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="6" y="18" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="TITLE" value="Main Board" x="6" y="18" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="6" y="18" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="6" y="18" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="6" y="18" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="REVISION" value="A" x="6" y="18" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="6" y="18" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="6" y="18" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="DIGI-KEY#" value="401-1756-1-ND" x="6" y="18" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MPN" value="KSC201JLFS" x="6" y="18" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MF" value="C&amp;K Components" x="6" y="18" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="OP-FORCE" value="120gf" x="6" y="18" size="1.778" layer="27" rot="R90" display="off"/>
-</element>
 <element name="R93" library="MainBoard" package="R0402" value="0" x="76.25" y="14.25">
 <attribute name="TOLERANCE" value="" x="76.25" y="14.25" size="1.778" layer="27" display="off"/>
 <attribute name="PAGE3" value="Clock and Reset" x="76.25" y="14.25" size="1.778" layer="27" display="off"/>
@@ -12536,11 +12488,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <element name="M6" library="MainBoard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="2" y="48"/>
 <element name="M7" library="MainBoard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="88" y="48"/>
 <element name="M8" library="MainBoard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="88" y="2"/>
-<element name="R3" library="MainBoard" package="R0402" value="39" x="24" y="33.25" rot="MR180">
-<attribute name="TOLERANCE" value="" x="24" y="33.25" size="1.778" layer="28" rot="MR180" display="off"/>
+<element name="R3" library="MainBoard" package="R0402" value="39" x="26" y="33.25" rot="MR180">
+<attribute name="TOLERANCE" value="" x="26" y="33.25" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
-<element name="R4" library="MainBoard" package="R0402" value="39" x="24" y="34.25" rot="MR180">
-<attribute name="TOLERANCE" value="" x="24" y="34.25" size="1.778" layer="28" rot="MR180" display="off"/>
+<element name="R4" library="MainBoard" package="R0402" value="39" x="19" y="34.25" rot="MR180">
+<attribute name="TOLERANCE" value="" x="19" y="34.25" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
 <element name="J8" library="MainBoard" package="SWITCH-DIP-CJS" value="SWITCH-CJS-1200-1200" x="14.5" y="21.5" rot="R270"/>
 <element name="R7" library="MainBoard" package="R0402" value="0" x="16" y="26.25" rot="MR270">
@@ -12855,7 +12807,8 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="TOLERANCE" value="" x="34" y="15" size="1.778" layer="28" rot="MR0" display="off"/>
 <attribute name="DNP" value="on" x="34" y="15" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="SW3" library="MainBoard" package="TL3340" value="SWITCH-ESWITCH-TL3340G" x="2" y="20" rot="R270"/>
+<element name="SW1" library="MainBoard" package="TL3340" value="SWITCH-ESWITCH-TL3340G" x="88" y="18" rot="R90"/>
+<element name="SW2" library="MainBoard" package="TL3340" value="SWITCH-ESWITCH-TL3340G" x="2.75" y="18" rot="R270"/>
 </elements>
 <signals>
 <signal name="DGND">
@@ -12944,10 +12897,6 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="C87" pad="2"/>
 <contactref element="C89" pad="2"/>
 <contactref element="C90" pad="2"/>
-<contactref element="SW2" pad="1$1"/>
-<contactref element="SW2" pad="1$2"/>
-<contactref element="SW1" pad="1$1"/>
-<contactref element="SW1" pad="1$2"/>
 <contactref element="U8" pad="3"/>
 <contactref element="U5" pad="10"/>
 <contactref element="U5" pad="48"/>
@@ -13136,11 +13085,6 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="44.5" y="29" extent="1-16" drill="0.2032"/>
 <wire x1="46.5" y1="39.5" x2="47" y2="40" width="0.1524" layer="1"/>
 <via x="47" y="40" extent="1-16" drill="0.2032"/>
-<wire x1="86" y1="15.1" x2="86" y2="17.25" width="0.1524" layer="1"/>
-<via x="86" y="17.25" extent="1-16" drill="0.2032"/>
-<wire x1="86" y1="20.9" x2="86" y2="18.75" width="0.1524" layer="1"/>
-<via x="86" y="18.75" extent="1-16" drill="0.2032"/>
-<wire x1="86" y1="18.75" x2="86" y2="17.25" width="0.1524" layer="1"/>
 <wire x1="71.75" y1="29.2" x2="71.75" y2="30.25" width="0.1524" layer="1"/>
 <wire x1="71.75" y1="30.25" x2="71.5" y2="30.5" width="0.1524" layer="1"/>
 <wire x1="71.5" y1="30.5" x2="71.25" y2="30.25" width="0.1524" layer="1"/>
@@ -13187,7 +13131,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="31.5" y1="8.85" x2="31.5" y2="5.15" width="0.3048" layer="1"/>
 <wire x1="31.5" y1="10.5" x2="31.5" y2="3.5" width="0.3048" layer="16"/>
 <wire x1="50.5" y1="33.5" x2="50" y2="33" width="0.1524" layer="1"/>
-<polygon width="0.2032" layer="2" isolate="0.2032" rank="2">
+<polygon width="0.2032" layer="2" pour="cutout" isolate="0.2032" rank="2">
 <vertex x="3" y="53"/>
 <vertex x="3" y="3"/>
 <vertex x="87" y="3"/>
@@ -13221,7 +13165,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="20.3" y1="50.45" x2="19.85" y2="50" width="0.3048" layer="1"/>
 <wire x1="20.75" y1="50" x2="20.3" y2="50.45" width="0.3048" layer="1"/>
 <contactref element="R13" pad="1"/>
-<polygon width="0.2032" layer="16" isolate="0.2032" rank="2">
+<polygon width="0.2032" layer="16" pour="cutout" isolate="0.2032" rank="2">
 <vertex x="3" y="53"/>
 <vertex x="3" y="3"/>
 <vertex x="87" y="3"/>
@@ -13238,24 +13182,163 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="20.75" y="38.25" extent="1-16" drill="0.2032"/>
 <wire x1="22.75" y1="37.65" x2="22.75" y2="38.75" width="0.3048" layer="16"/>
 <via x="22.75" y="38.75" extent="1-16" drill="0.2032"/>
+<contactref element="SW1" pad="1"/>
+<contactref element="SW1" pad="3"/>
+<contactref element="SW2" pad="1"/>
+<contactref element="SW2" pad="3"/>
+<wire x1="85.6" y1="16.775" x2="84.025" y2="16.775" width="0.1524" layer="1"/>
+<wire x1="84.025" y1="16.775" x2="84" y2="16.75" width="0.1524" layer="1"/>
+<via x="84" y="16.75" extent="1-16" drill="0.2286"/>
+<wire x1="85.6" y1="19.225" x2="84.025" y2="19.225" width="0.1524" layer="1"/>
+<wire x1="84.025" y1="19.225" x2="84" y2="19.25" width="0.1524" layer="1"/>
+<via x="84" y="19.25" extent="1-16" drill="0.2032"/>
+<wire x1="5.15" y1="19.225" x2="6.725" y2="19.225" width="0.1524" layer="1"/>
+<wire x1="6.725" y1="19.225" x2="6.75" y2="19.25" width="0.1524" layer="1"/>
+<via x="6.75" y="19.25" extent="1-16" drill="0.2032"/>
+<wire x1="5.15" y1="16.775" x2="6.725" y2="16.775" width="0.1524" layer="1"/>
+<wire x1="6.725" y1="16.775" x2="6.75" y2="16.75" width="0.1524" layer="1"/>
+<via x="6.75" y="16.75" extent="1-16" drill="0.2032"/>
 <wire x1="81.9" y1="28.5" x2="81.9" y2="28.25" width="0" layer="19" extent="1-16"/>
-<wire x1="20.25" y1="42.2" x2="20.25" y2="42.25" width="0" layer="19" extent="1-1"/>
-<wire x1="15.8" y1="39.25" x2="15.75" y2="37.85" width="0" layer="19" extent="1-16"/>
-<wire x1="49.5" y1="41.5" x2="48" y2="41" width="0" layer="19" extent="1-1"/>
-<wire x1="35.6" y1="39" x2="36.5" y2="37.5" width="0" layer="19" extent="1-16"/>
-<wire x1="33.35" y1="38.25" x2="35.6" y2="39" width="0" layer="19" extent="1-16"/>
-<wire x1="34.35" y1="36" x2="33.35" y2="38.25" width="0" layer="19" extent="1-1"/>
-<wire x1="56.3" y1="45.95" x2="55.4" y2="43" width="0" layer="19" extent="1-16"/>
-<wire x1="32.35" y1="24" x2="35.6" y2="23.75" width="0" layer="19" extent="16-16"/>
-<wire x1="56.35" y1="50" x2="56.3" y2="45.95" width="0" layer="19" extent="1-1"/>
+<wire x1="81.9" y1="27.5" x2="81.9" y2="28.25" width="0" layer="19" extent="1-16"/>
+<wire x1="81.9" y1="26.5" x2="81.9" y2="27.5" width="0" layer="19" extent="16-16"/>
+<wire x1="81.9" y1="24.75" x2="81.9" y2="26.5" width="0" layer="19" extent="16-16"/>
+<wire x1="79.5" y1="25.25" x2="81.9" y2="24.75" width="0" layer="19" extent="16-16"/>
+<wire x1="79.5" y1="23.25" x2="79.5" y2="25.25" width="0" layer="19" extent="1-1"/>
+<wire x1="78.15" y1="28.25" x2="78.2" y2="25.25" width="0" layer="19" extent="1-16"/>
+<wire x1="78.15" y1="18.5" x2="78.2" y2="23.25" width="0" layer="19" extent="1-16"/>
+<wire x1="84" y1="19.25" x2="78.15" y2="18.5" width="0" layer="19" extent="1-16"/>
+<wire x1="85.6" y1="16.775" x2="85.6" y2="19.225" width="0" layer="19" extent="1-1"/>
 <wire x1="72.85" y1="18.25" x2="78.15" y2="18.5" width="0" layer="19" extent="1-16"/>
 <wire x1="71.6" y1="15.25" x2="72.85" y2="18.25" width="0" layer="19" extent="1-1"/>
 <wire x1="69.35" y1="17" x2="71.6" y2="15.25" width="0" layer="19" extent="1-1"/>
-<wire x1="4" y1="20.9" x2="4" y2="26.5" width="0" layer="19" extent="1-1"/>
+<wire x1="69.8" y1="22.75" x2="72.85" y2="18.25" width="0" layer="19" extent="1-1"/>
+<wire x1="69.5" y1="23.4" x2="69.8" y2="22.75" width="0" layer="19" extent="1-16"/>
+<wire x1="70.75" y1="23.4" x2="69.8" y2="22.75" width="0" layer="19" extent="1-16"/>
+<wire x1="71.25" y1="29.2" x2="70.75" y2="23.4" width="0" layer="19" extent="1-16"/>
+<wire x1="73.25" y1="32.9" x2="71.5" y2="30.5" width="0" layer="19" extent="1-16"/>
+<wire x1="74.25" y1="32.9" x2="73.25" y2="32.9" width="0" layer="19" extent="16-16"/>
+<wire x1="74.85" y1="34.25" x2="74.25" y2="32.9" width="0" layer="19" extent="16-16"/>
+<wire x1="65.85" y1="28.5" x2="71.25" y2="29.2" width="0" layer="19" extent="1-16"/>
+<wire x1="72.1" y1="40" x2="74.85" y2="34.25" width="0" layer="19" extent="16-16"/>
+<wire x1="68.75" y1="41.85" x2="72.1" y2="40" width="0" layer="19" extent="16-16"/>
+<wire x1="79.25" y1="11.35" x2="84" y2="16.75" width="0" layer="19" extent="1-16"/>
+<wire x1="58.35" y1="36.75" x2="65.85" y2="28.5" width="0" layer="19" extent="16-16"/>
+<wire x1="55.15" y1="36.5" x2="58.35" y2="36.75" width="0" layer="19" extent="16-16"/>
+<wire x1="53.25" y1="37.5" x2="55.15" y2="36.5" width="0" layer="19" extent="1-16"/>
+<wire x1="52" y1="36" x2="52.5" y2="37.5" width="0" layer="19" extent="1-1"/>
+<wire x1="50.4" y1="38" x2="52.5" y2="37.5" width="0" layer="19" extent="1-16"/>
+<wire x1="49" y1="39" x2="50.4" y2="38" width="0" layer="19" extent="1-16"/>
+<wire x1="48" y1="39" x2="48.5" y2="38.5" width="0" layer="19" extent="1-1"/>
+<wire x1="47.65" y1="38" x2="47.5" y2="38.5" width="0" layer="19" extent="1-16"/>
+<wire x1="47" y1="37" x2="47.65" y2="38" width="0" layer="19" extent="1-16"/>
+<wire x1="47.5" y1="36.5" x2="47" y2="37" width="0" layer="19" extent="1-1"/>
+<wire x1="49" y1="35.9" x2="48" y2="36" width="0" layer="19" extent="1-16"/>
+<wire x1="46.5" y1="39.5" x2="47.5" y2="38.5" width="0" layer="19" extent="1-1"/>
+<wire x1="47.5" y1="40.5" x2="47" y2="40" width="0" layer="19" extent="1-1"/>
+<wire x1="46" y1="39" x2="46.5" y2="39.5" width="0" layer="19" extent="1-1"/>
+<wire x1="45" y1="39.35" x2="45.5" y2="38.5" width="0" layer="19" extent="1-16"/>
+<wire x1="44.5" y1="39.5" x2="45" y2="39.35" width="0" layer="19" extent="1-16"/>
+<wire x1="43.5" y1="40.5" x2="44" y2="40" width="0" layer="19" extent="1-1"/>
+<wire x1="42.9" y1="42" x2="43" y2="41" width="0" layer="19" extent="1-16"/>
+<wire x1="45.5" y1="40.5" x2="45" y2="39.35" width="0" layer="19" extent="1-16"/>
+<wire x1="43.5" y1="38.5" x2="44.5" y2="39.5" width="0" layer="19" extent="1-1"/>
+<wire x1="42.5" y1="39.5" x2="43" y2="39" width="0" layer="19" extent="1-1"/>
+<wire x1="42.35" y1="38" x2="43" y2="39" width="0" layer="19" extent="1-16"/>
+<wire x1="42.5" y1="37.5" x2="42.35" y2="38" width="0" layer="19" extent="1-16"/>
+<wire x1="44.5" y1="37.5" x2="45.5" y2="38.5" width="0" layer="19" extent="1-1"/>
+<wire x1="43.5" y1="36.5" x2="44" y2="37" width="0" layer="19" extent="1-1"/>
+<wire x1="42.5" y1="35.5" x2="43" y2="36" width="0" layer="19" extent="1-1"/>
+<wire x1="45" y1="36.65" x2="44.5" y2="37.5" width="0" layer="19" extent="1-16"/>
+<wire x1="45.5" y1="36.5" x2="45" y2="36.65" width="0" layer="19" extent="1-16"/>
+<wire x1="46.5" y1="35.5" x2="46" y2="36" width="0" layer="19" extent="1-1"/>
+<wire x1="47.5" y1="34.5" x2="47" y2="35" width="0" layer="19" extent="1-1"/>
+<wire x1="44.5" y1="35.5" x2="45" y2="36.65" width="0" layer="19" extent="1-16"/>
+<wire x1="43.5" y1="34.5" x2="44" y2="35" width="0" layer="19" extent="1-1"/>
+<wire x1="49.5" y1="33.5" x2="48.5" y2="34.5" width="0" layer="19" extent="1-1"/>
+<wire x1="46" y1="34" x2="47" y2="35" width="0" layer="19" extent="1-1"/>
+<wire x1="49.5" y1="41.5" x2="48" y2="41" width="0" layer="19" extent="1-1"/>
+<wire x1="40.5" y1="39.5" x2="42" y2="40" width="0" layer="19" extent="1-1"/>
+<wire x1="46.5" y1="32.5" x2="46" y2="34" width="0" layer="19" extent="1-1"/>
+<wire x1="41.5" y1="33.5" x2="42" y2="35" width="0" layer="19" extent="1-1"/>
+<wire x1="40.5" y1="32.5" x2="41" y2="33" width="0" layer="19" extent="1-1"/>
+<wire x1="40.1" y1="31" x2="40" y2="32" width="0" layer="19" extent="1-16"/>
+<wire x1="41.5" y1="30.5" x2="40.1" y2="31" width="0" layer="19" extent="1-16"/>
+<wire x1="42.75" y1="29.6" x2="41.5" y2="29.75" width="0" layer="19" extent="1-16"/>
+<wire x1="40.5" y1="35.5" x2="42" y2="35" width="0" layer="19" extent="1-1"/>
+<wire x1="38.5" y1="35.5" x2="40" y2="36" width="0" layer="19" extent="1-1"/>
+<wire x1="37.5" y1="37.5" x2="37.5" y2="36.5" width="0" layer="19" extent="1-1"/>
+<wire x1="38.5" y1="31.5" x2="40" y2="32" width="0" layer="19" extent="1-1"/>
+<wire x1="37.75" y1="32.1" x2="37.5" y2="31.5" width="0" layer="19" extent="1-16"/>
+<wire x1="44.1" y1="30.5" x2="42.75" y2="29.6" width="0" layer="19" extent="16-16"/>
+<wire x1="44.5" y1="30.5" x2="44.1" y2="30.5" width="0" layer="19" extent="1-16"/>
+<wire x1="35.6" y1="39" x2="36.5" y2="37.5" width="0" layer="19" extent="1-16"/>
+<wire x1="36.5" y1="40.5" x2="35.6" y2="39" width="0" layer="19" extent="1-16"/>
+<wire x1="51.5" y1="31.5" x2="50" y2="33" width="0" layer="19" extent="1-1"/>
+<wire x1="51" y1="31.1" x2="51.5" y2="31.5" width="0" layer="19" extent="1-16"/>
+<wire x1="53" y1="31.1" x2="52.5" y2="30.5" width="0" layer="19" extent="1-16"/>
+<wire x1="54" y1="31.1" x2="53" y2="31.1" width="0" layer="19" extent="16-16"/>
+<wire x1="54.4" y1="30" x2="54" y2="31.1" width="0" layer="19" extent="16-16"/>
+<wire x1="50" y1="29.6" x2="51" y2="31.1" width="0" layer="19" extent="16-16"/>
+<wire x1="48.5" y1="29.75" x2="50" y2="29.6" width="0" layer="19" extent="1-16"/>
+<wire x1="35" y1="30.1" x2="37" y2="31" width="0" layer="19" extent="16-16"/>
+<wire x1="34" y1="30.1" x2="35" y2="30.1" width="0" layer="19" extent="16-16"/>
+<wire x1="38.5" y1="42.5" x2="37.5" y2="40.5" width="0" layer="19" extent="1-1"/>
+<wire x1="33.35" y1="38.25" x2="35.6" y2="39" width="0" layer="19" extent="1-16"/>
+<wire x1="34.35" y1="36" x2="33.35" y2="38.25" width="0" layer="19" extent="1-1"/>
+<wire x1="55.15" y1="33.5" x2="54" y2="31.1" width="0" layer="19" extent="16-16"/>
+<wire x1="35.35" y1="43" x2="38" y2="43" width="0" layer="19" extent="1-16"/>
+<wire x1="48.4" y1="27" x2="48.5" y2="29.75" width="0" layer="19" extent="1-16"/>
+<wire x1="52.5" y1="40.5" x2="50" y2="42" width="0" layer="19" extent="1-1"/>
+<wire x1="55.4" y1="40" x2="53.25" y2="40.5" width="0" layer="19" extent="1-16"/>
+<wire x1="55.4" y1="43" x2="55.4" y2="40" width="0" layer="19" extent="16-16"/>
+<wire x1="56.3" y1="45.95" x2="55.4" y2="43" width="0" layer="19" extent="1-16"/>
+<wire x1="54.75" y1="26.65" x2="54.4" y2="30" width="0" layer="19" extent="16-16"/>
+<wire x1="53.75" y1="26.65" x2="54.75" y2="26.65" width="0" layer="19" extent="16-16"/>
+<wire x1="54.75" y1="24.25" x2="54.75" y2="26.65" width="0" layer="19" extent="1-16"/>
+<wire x1="56.35" y1="50" x2="56.3" y2="45.95" width="0" layer="19" extent="1-1"/>
+<wire x1="35.6" y1="24.75" x2="35" y2="30.1" width="0" layer="19" extent="16-16"/>
+<wire x1="35.6" y1="23.75" x2="35.6" y2="24.75" width="0" layer="19" extent="16-16"/>
+<wire x1="38.75" y1="23.5" x2="35.6" y2="23.75" width="0" layer="19" extent="1-16"/>
+<wire x1="32.35" y1="24" x2="35.6" y2="23.75" width="0" layer="19" extent="16-16"/>
+<wire x1="28.15" y1="40.25" x2="33.35" y2="38.25" width="0" layer="19" extent="1-16"/>
+<wire x1="25.75" y1="40.5" x2="28.15" y2="40.25" width="0" layer="19" extent="16-16"/>
+<wire x1="24.15" y1="40" x2="24.2" y2="40.25" width="0" layer="19" extent="1-16"/>
+<wire x1="24.15" y1="41.5" x2="24.2" y2="40.75" width="0" layer="19" extent="1-16"/>
+<wire x1="22.75" y1="38.75" x2="24.15" y2="40" width="0" layer="19" extent="16-16"/>
+<wire x1="20.75" y1="38.25" x2="22.75" y2="38.75" width="0" layer="19" extent="1-1"/>
+<wire x1="25.15" y1="43.5" x2="24.15" y2="41.5" width="0" layer="19" extent="16-16"/>
+<wire x1="22" y1="35.25" x2="22.75" y2="37.65" width="0" layer="19" extent="1-16"/>
+<wire x1="20.75" y1="42.2" x2="24.15" y2="41.5" width="0" layer="19" extent="1-16"/>
+<wire x1="20.25" y1="42.2" x2="20.25" y2="42.25" width="0" layer="19" extent="1-1"/>
+<wire x1="18.25" y1="42.9" x2="20.25" y2="43.25" width="0" layer="19" extent="1-16"/>
+<wire x1="17.75" y1="43.25" x2="18.25" y2="42.9" width="0" layer="19" extent="1-16"/>
+<wire x1="15.75" y1="41.9" x2="17.25" y2="42.2" width="0" layer="19" extent="1-16"/>
+<wire x1="14.75" y1="42" x2="15.75" y2="41.9" width="0" layer="19" extent="1-16"/>
+<wire x1="21" y1="45.9" x2="20.5" y2="43.5" width="0" layer="19" extent="1-16"/>
+<wire x1="22.25" y1="45.9" x2="21" y2="45.9" width="0" layer="19" extent="16-16"/>
+<wire x1="21.75" y1="47" x2="22.25" y2="45.9" width="0" layer="19" extent="1-16"/>
+<wire x1="15.8" y1="39.25" x2="15.75" y2="41.9" width="0" layer="19" extent="1-16"/>
+<wire x1="15.75" y1="37.85" x2="15.8" y2="39.25" width="0" layer="19" extent="1-16"/>
+<wire x1="15.8" y1="36.75" x2="15.75" y2="37.85" width="0" layer="19" extent="1-16"/>
+<wire x1="14.85" y1="34.5" x2="15" y2="35.75" width="0" layer="19" extent="1-16"/>
+<wire x1="12.35" y1="36.75" x2="14.5" y2="36.25" width="0" layer="19" extent="16-16"/>
+<wire x1="11.85" y1="37" x2="12.35" y2="36.75" width="0" layer="19" extent="1-16"/>
+<wire x1="11.7" y1="39" x2="11.85" y2="37" width="0" layer="19" extent="1-1"/>
+<wire x1="12" y1="32.4" x2="12.35" y2="35.5" width="0" layer="19" extent="16-16"/>
+<wire x1="20.75" y1="50" x2="21.75" y2="47" width="0" layer="19" extent="1-1"/>
+<wire x1="15.85" y1="47.5" x2="17.5" y2="43.5" width="0" layer="19" extent="1-16"/>
+<wire x1="14.85" y1="47.5" x2="15.85" y2="47.5" width="0" layer="19" extent="1-16"/>
+<wire x1="26.5" y1="50.4" x2="22.85" y2="47" width="0" layer="19" extent="1-16"/>
 <wire x1="40.85" y1="47.9" x2="38" y2="43" width="0" layer="19" extent="1-1"/>
 <wire x1="42.15" y1="49.6" x2="40.85" y2="47.9" width="0" layer="19" extent="1-1"/>
-<wire x1="4" y1="15.1" x2="4" y2="20.9" width="0" layer="19" extent="1-1"/>
-<wire x1="11" y1="18.1" x2="4" y2="20.9" width="0" layer="19" extent="1-1"/>
+<wire x1="13.5" y1="26.6" x2="12" y2="32.4" width="0" layer="19" extent="16-16"/>
+<wire x1="4" y1="33.5" x2="11" y2="37" width="0" layer="19" extent="1-1"/>
+<wire x1="3.8791" y1="27.46" x2="3.8791" y2="32.54" width="0" layer="19" extent="1-1"/>
+<wire x1="5.15" y1="19.225" x2="4" y2="26.5" width="0" layer="19" extent="1-1"/>
+<wire x1="5.15" y1="16.775" x2="5.15" y2="19.225" width="0" layer="19" extent="1-1"/>
+<wire x1="11" y1="18.1" x2="6.75" y2="19.25" width="0" layer="19" extent="1-1"/>
+<wire x1="34.85" y1="15" x2="35.6" y2="23.75" width="0" layer="19" extent="16-16"/>
+<wire x1="31.5" y1="10.5" x2="34.85" y2="15" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="D1V5">
 <contactref element="U1" pad="J7"/>
@@ -13521,7 +13604,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="69.35" y1="22.25" x2="68.5" y2="22.25" width="0.1524" layer="16"/>
 <wire x1="70.75" y1="22.1" x2="70.6" y2="22.25" width="0.1524" layer="16"/>
 <wire x1="70.6" y1="22.25" x2="69.5" y2="22.25" width="0.1524" layer="16"/>
-<polygon width="0.2032" layer="15" isolate="0.2032" rank="2">
+<polygon width="0.2032" layer="15" pour="cutout" isolate="0.2032" rank="2">
 <vertex x="3" y="53"/>
 <vertex x="3" y="3"/>
 <vertex x="87" y="3"/>
@@ -13612,27 +13695,48 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="62.5" y1="37.6" x2="65.9" y2="41.25" width="0" layer="19" extent="16-16"/>
 <wire x1="57.35" y1="38.75" x2="62.5" y2="37.6" width="0" layer="19" extent="16-16"/>
 <wire x1="54.1" y1="40" x2="57.35" y2="38.75" width="0" layer="19" extent="16-16"/>
-<wire x1="69.5" y1="22.25" x2="69.5" y2="22.1" width="0" layer="19" extent="16-16"/>
-<wire x1="41.5" y1="34" x2="40.5" y2="34.5" width="0" layer="19" extent="1-16"/>
-<wire x1="54.75" y1="25.35" x2="54.25" y2="24.25" width="0" layer="19" extent="1-16"/>
-<wire x1="53.75" y1="25.35" x2="54.75" y2="25.35" width="0" layer="19" extent="16-16"/>
-<wire x1="54.65" y1="22.25" x2="54.25" y2="23.5" width="0" layer="19" extent="1-16"/>
-<wire x1="37.4" y1="21.75" x2="38.25" y2="23.5" width="0" layer="19" extent="1-16"/>
+<wire x1="50.5" y1="37.5" x2="50.5" y2="39.5" width="0" layer="19" extent="1-1"/>
+<wire x1="48.6" y1="35" x2="49.5" y2="35.5" width="0" layer="19" extent="1-16"/>
+<wire x1="49.1" y1="38" x2="50.5" y2="37.5" width="0" layer="19" extent="1-16"/>
+<wire x1="44.5" y1="34.5" x2="46.5" y2="34.5" width="0" layer="19" extent="1-1"/>
+<wire x1="41.5" y1="31.15" x2="42.75" y2="30.9" width="0" layer="19" extent="16-16"/>
+<wire x1="40.5" y1="34.5" x2="41.5" y2="34" width="0" layer="19" extent="1-16"/>
 <wire x1="42.5" y1="38.5" x2="42.5" y2="36.5" width="0" layer="19" extent="1-1"/>
+<wire x1="39.5" y1="41.5" x2="41.5" y2="41.9" width="0" layer="19" extent="1-16"/>
+<wire x1="49.5" y1="32.5" x2="48.9" y2="34.5" width="0" layer="19" extent="1-16"/>
+<wire x1="51.5" y1="30.5" x2="50" y2="30.9" width="0" layer="19" extent="1-16"/>
+<wire x1="45.4" y1="30.5" x2="43.5" y2="31.65" width="0" layer="19" extent="16-16"/>
+<wire x1="38" y1="31" x2="37.75" y2="33.4" width="0" layer="19" extent="1-16"/>
 <wire x1="51.5" y1="42.5" x2="51" y2="40" width="0" layer="19" extent="1-16"/>
+<wire x1="52.5" y1="33.5" x2="50" y2="32" width="0" layer="19" extent="1-1"/>
+<wire x1="38" y1="39" x2="39.5" y2="41.5" width="0" layer="19" extent="1-1"/>
 <wire x1="34.35" y1="45.5" x2="36.65" y2="43" width="0" layer="19" extent="16-16"/>
-<wire x1="11" y1="23.9" x2="16" y2="24.5" width="0" layer="19" extent="1-16"/>
-<wire x1="70.65" y1="17" x2="70.75" y2="22.1" width="0" layer="19" extent="1-16"/>
-<wire x1="73.9" y1="16.2" x2="70.65" y2="17" width="0" layer="19" extent="1-1"/>
-<wire x1="65.85" y1="27.25" x2="68.5" y2="22.25" width="0" layer="19" extent="1-16"/>
-<wire x1="77.75" y1="11.35" x2="73.9" y2="16.2" width="0" layer="19" extent="1-16"/>
+<wire x1="53.75" y1="25.35" x2="53.1" y2="30" width="0" layer="19" extent="16-16"/>
+<wire x1="54.75" y1="25.35" x2="53.75" y2="25.35" width="0" layer="19" extent="16-16"/>
+<wire x1="54.25" y1="24.25" x2="53.75" y2="25.35" width="0" layer="19" extent="1-16"/>
+<wire x1="54.65" y1="22.25" x2="54.25" y2="23.5" width="0" layer="19" extent="1-16"/>
+<wire x1="36.9" y1="24.75" x2="37.9" y2="30" width="0" layer="19" extent="16-16"/>
+<wire x1="37.4" y1="21.75" x2="38.25" y2="23.5" width="0" layer="19" extent="1-16"/>
 <wire x1="58.2" y1="48.05" x2="54.1" y2="43" width="0" layer="19" extent="1-16"/>
 <wire x1="60" y1="48.6" x2="58.2" y2="48.05" width="0" layer="19" extent="1-16"/>
 <wire x1="57.65" y1="50" x2="58.2" y2="48.05" width="0" layer="19" extent="1-1"/>
-<wire x1="28.85" y1="17" x2="26.5" y2="10.5" width="0" layer="19" extent="16-16"/>
-<wire x1="28.85" y1="18.25" x2="28.85" y2="17" width="0" layer="19" extent="16-16"/>
-<wire x1="28.85" y1="21.5" x2="28.85" y2="18.25" width="0" layer="19" extent="16-16"/>
-<wire x1="28.85" y1="22.5" x2="28.85" y2="21.5" width="0" layer="19" extent="16-16"/>
+<wire x1="28.85" y1="22.5" x2="36.9" y2="23.75" width="0" layer="19" extent="16-16"/>
+<wire x1="28.85" y1="21.5" x2="28.85" y2="22.5" width="0" layer="19" extent="16-16"/>
+<wire x1="28.85" y1="18.25" x2="28.85" y2="21.5" width="0" layer="19" extent="16-16"/>
+<wire x1="28.85" y1="17" x2="28.85" y2="18.25" width="0" layer="19" extent="16-16"/>
+<wire x1="26.5" y1="10.5" x2="28.85" y2="17" width="0" layer="19" extent="16-16"/>
+<wire x1="65.85" y1="27.25" x2="62.5" y2="37.6" width="0" layer="19" extent="16-16"/>
+<wire x1="68.5" y1="22.25" x2="65.85" y2="27.25" width="0" layer="19" extent="1-16"/>
+<wire x1="69.5" y1="22.25" x2="69.5" y2="22.1" width="0" layer="19" extent="16-16"/>
+<wire x1="70.65" y1="17" x2="70.75" y2="22.1" width="0" layer="19" extent="1-16"/>
+<wire x1="73.9" y1="16.2" x2="70.65" y2="17" width="0" layer="19" extent="1-1"/>
+<wire x1="77.75" y1="11.35" x2="73.9" y2="16.2" width="0" layer="19" extent="1-16"/>
+<wire x1="73.25" y1="29.2" x2="70.6" y2="22.25" width="0" layer="19" extent="1-16"/>
+<wire x1="78.15" y1="30.5" x2="74.25" y2="31.6" width="0" layer="19" extent="16-16"/>
+<wire x1="16" y1="24.5" x2="28.85" y2="22.5" width="0" layer="19" extent="16-16"/>
+<wire x1="11" y1="23.9" x2="16" y2="24.5" width="0" layer="19" extent="1-16"/>
+<wire x1="14.622" y1="32.502" x2="16" y2="25.6" width="0" layer="19" extent="16-16"/>
+<wire x1="10.85" y1="51" x2="13.502" y2="32.502" width="0" layer="19" extent="16-16"/>
 </signal>
 <signal name="A3V3">
 <contactref element="U2" pad="46"/>
@@ -15397,7 +15501,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="45" y1="32" x2="45" y2="28.75" width="0.1524" layer="3"/>
 <wire x1="45" y1="28.75" x2="43.75" y2="27.5" width="0.1524" layer="3"/>
 <via x="17.25" y="32.5" extent="1-16" drill="0.2032"/>
-<wire x1="23.35" y1="34.25" x2="18.25" y2="34.25" width="0.1524" layer="16"/>
+<wire x1="18.35" y1="34.25" x2="18.25" y2="34.25" width="0.1524" layer="16"/>
 <wire x1="18.25" y1="34.25" x2="17.25" y2="33.25" width="0.1524" layer="16"/>
 <wire x1="17.25" y1="33.25" x2="17.25" y2="32.5" width="0.1524" layer="16"/>
 </signal>
@@ -16097,22 +16201,18 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="C90" pad="1"/>
 <contactref element="R91" pad="1"/>
 <contactref element="R92" pad="1"/>
-<contactref element="SW1" pad="2$1"/>
-<contactref element="SW1" pad="2$2"/>
 <contactref element="R93" pad="2"/>
-<wire x1="82" y1="20.9" x2="82" y2="15.1" width="0.1524" layer="1"/>
-<wire x1="81.9" y1="15" x2="82" y2="15.1" width="0.1524" layer="1"/>
 <wire x1="76.9" y1="14.25" x2="78.15" y2="14.25" width="0.1524" layer="1"/>
 <via x="78.5" y="14.25" extent="1-16" drill="0.2032"/>
 <wire x1="77.75" y1="12.65" x2="78.5" y2="13.4" width="0.1524" layer="16"/>
 <wire x1="79.25" y1="12.65" x2="78.5" y2="13.4" width="0.1524" layer="16"/>
 <wire x1="78.5" y1="13.4" x2="78.5" y2="14.25" width="0.1524" layer="16"/>
 <wire x1="78.15" y1="14.25" x2="78.5" y2="14.25" width="0.1524" layer="1"/>
-<wire x1="78.5" y1="14.25" x2="81.75" y2="14.25" width="0.1524" layer="1"/>
-<wire x1="81.9" y1="15" x2="81.9" y2="14.4" width="0.1524" layer="1"/>
-<wire x1="81.9" y1="14.4" x2="81.75" y2="14.25" width="0.1524" layer="1"/>
 <wire x1="78.15" y1="14.25" x2="78.5" y2="14.25" width="0.1524" layer="1"/>
 <wire x1="76.9" y1="14.25" x2="76.9" y2="15.75" width="0.1524" layer="1"/>
+<contactref element="SW1" pad="2"/>
+<wire x1="85.6" y1="18" x2="82.25" y2="18" width="0.1524" layer="1"/>
+<wire x1="82.25" y1="18" x2="78.5" y2="14.25" width="0.1524" layer="1"/>
 </signal>
 <signal name="!MSS_RESET">
 <contactref element="R92" pad="2"/>
@@ -16144,8 +16244,6 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="73.95" y1="14.25" x2="75.6" y2="14.25" width="0.1524" layer="1"/>
 </signal>
 <signal name="!WAKEUP">
-<contactref element="SW2" pad="2$1"/>
-<contactref element="SW2" pad="2$2"/>
 <contactref element="U1" pad="T16"/>
 <contactref element="R94" pad="2"/>
 <wire x1="37.5" y1="45.5" x2="36.75" y2="45.5" width="0.1524" layer="1"/>
@@ -16162,8 +16260,8 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="27" y1="17" x2="27" y2="37.25" width="0.1524" layer="14"/>
 <wire x1="35.25" y1="45.5" x2="27" y2="37.25" width="0.1524" layer="14"/>
 <wire x1="36.75" y1="45.5" x2="35.25" y2="45.5" width="0.1524" layer="14"/>
-<wire x1="8" y1="15.1" x2="27" y2="17" width="0" layer="19" extent="1-14"/>
-<wire x1="8" y1="20.9" x2="8" y2="15.1" width="0" layer="19" extent="1-1"/>
+<contactref element="SW2" pad="2"/>
+<wire x1="5.15" y1="18" x2="27" y2="17" width="0" layer="19" extent="1-14"/>
 </signal>
 <signal name="PCAP">
 <contactref element="U1" pad="R1"/>
@@ -16487,7 +16585,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="34.5" y="39" extent="1-16" drill="0.2032"/>
 <wire x1="34.5" y1="39" x2="33.25" y2="39" width="0.1524" layer="16"/>
 <wire x1="33.25" y1="39" x2="27.5" y2="33.25" width="0.1524" layer="16"/>
-<wire x1="27.5" y1="33.25" x2="24.65" y2="33.25" width="0.1524" layer="16"/>
+<wire x1="27.5" y1="33.25" x2="26.65" y2="33.25" width="0.1524" layer="16"/>
 </signal>
 <signal name="UART0_RXD">
 <contactref element="U1" pad="K12"/>
@@ -16497,7 +16595,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="41" y1="40" x2="40.5" y2="39.5" width="0.1524" layer="16"/>
 <wire x1="40.5" y1="39.5" x2="33" y2="39.5" width="0.1524" layer="16"/>
 <wire x1="33" y1="39.5" x2="27.75" y2="34.25" width="0.1524" layer="16"/>
-<wire x1="27.75" y1="34.25" x2="24.65" y2="34.25" width="0.1524" layer="16"/>
+<wire x1="27.75" y1="34.25" x2="19.65" y2="34.25" width="0.1524" layer="16"/>
 </signal>
 <signal name="I2C0_SDA">
 <via x="37.5" y="10.5" extent="1-16" drill="0.2032"/>
@@ -16626,7 +16724,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="44.5" y1="29.75" x2="42.75" y2="28" width="0.1524" layer="3"/>
 <contactref element="R3" pad="1"/>
 <via x="17.75" y="32.5" extent="1-16" drill="0.2032"/>
-<wire x1="23.35" y1="33.25" x2="18" y2="33.25" width="0.1524" layer="16"/>
+<wire x1="25.35" y1="33.25" x2="18" y2="33.25" width="0.1524" layer="16"/>
 <wire x1="18" y1="33.25" x2="17.75" y2="33" width="0.1524" layer="16"/>
 <wire x1="17.75" y1="33" x2="17.75" y2="32.5" width="0.1524" layer="16"/>
 </signal>

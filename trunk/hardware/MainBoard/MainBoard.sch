@@ -20957,32 +20957,6 @@ Chip inductor
 <rectangle x1="-0.508" y1="0.762" x2="0.508" y2="0.9144" layer="21"/>
 <rectangle x1="-0.508" y1="-0.9144" x2="0.508" y2="-0.762" layer="21"/>
 </package>
-<package name="SWITCH-KSC-J-LEAD">
-<description>&lt;b&gt;KSC J-Lead Button&lt;/b&gt;
-&lt;p&gt;
-KSC Series Sealed Tact Switch for SMT
-&lt;p&gt;
-Source: &lt;a href="http://www.ck-components.com/index.php?module=media&amp;action=Display&amp;cmpref=14422&amp;lang=en"&gt;http://www.ck-components.com/index.php?module=media&amp;action=Display&amp;cmpref=14422&amp;lang=en&lt;/a&gt;</description>
-<smd name="2$1" x="-2.9" y="-2" dx="2.8" dy="1" layer="1"/>
-<smd name="1$1" x="-2.9" y="2" dx="2.8" dy="1" layer="1"/>
-<smd name="1$2" x="2.9" y="2" dx="2.8" dy="1" layer="1"/>
-<smd name="2$2" x="2.9" y="-2" dx="2.8" dy="1" layer="1"/>
-<wire x1="-3" y1="3" x2="-3" y2="-3" width="0.127" layer="51"/>
-<wire x1="-3" y1="-3" x2="-2" y2="-3" width="0.127" layer="51"/>
-<wire x1="-2" y1="-3" x2="-1.75" y2="-3.25" width="0.127" layer="51"/>
-<wire x1="-1.75" y1="-3.25" x2="1.75" y2="-3.25" width="0.127" layer="51"/>
-<wire x1="1.75" y1="-3.25" x2="2" y2="-3" width="0.127" layer="51"/>
-<wire x1="2" y1="-3" x2="3" y2="-3" width="0.127" layer="51"/>
-<wire x1="3" y1="-3" x2="3" y2="3" width="0.127" layer="51"/>
-<wire x1="3" y1="3" x2="2" y2="3" width="0.127" layer="51"/>
-<wire x1="2" y1="3" x2="1.75" y2="3.25" width="0.127" layer="51"/>
-<wire x1="1.75" y1="3.25" x2="-1.75" y2="3.25" width="0.127" layer="51"/>
-<wire x1="-1.75" y1="3.25" x2="-2" y2="3" width="0.127" layer="51"/>
-<wire x1="-2" y1="3" x2="-3" y2="3" width="0.127" layer="51"/>
-<circle x="0" y="0" radius="1.5" width="0.127" layer="51"/>
-<text x="-3" y="-4" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-3" y="3.5" size="0.4064" layer="27">&gt;VALUE</text>
-</package>
 <package name="LED0603">
 <description>&lt;b&gt;LED0603&lt;/b&gt;
 &lt;p&gt;
@@ -22697,29 +22671,6 @@ Source: &lt;a href="http://ww1.microchip.com/downloads/en/DeviceDoc/21794F.pdf"&
 <wire x1="0" y1="-5.08" x2="0" y2="-3.81" width="0.254" layer="94"/>
 <wire x1="1.905" y1="3.81" x2="1.905" y2="-3.81" width="0.254" layer="94"/>
 </symbol>
-<symbol name="PUSH-BUTTON">
-<description>&lt;b&gt;Pushbutton&lt;/b&gt;</description>
-<pin name="2" x="-7.62" y="2.54" visible="pin" length="short" direction="pas"/>
-<pin name="4" x="-7.62" y="-2.54" visible="pin" length="short" direction="pas"/>
-<pin name="1" x="7.62" y="2.54" visible="pin" length="short" direction="pas" rot="R180"/>
-<pin name="3" x="7.62" y="-2.54" visible="pin" length="short" direction="pas" rot="R180"/>
-<wire x1="-5.08" y1="2.54" x2="-5.08" y2="0" width="0.254" layer="94"/>
-<wire x1="-5.08" y1="0" x2="-5.08" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="5.08" y1="-2.54" x2="5.08" y2="0" width="0.254" layer="94"/>
-<wire x1="5.08" y1="0" x2="5.08" y2="2.54" width="0.254" layer="94"/>
-<wire x1="-5.08" y1="0" x2="-3.175" y2="0" width="0.254" layer="94"/>
-<wire x1="5.08" y1="0" x2="3.175" y2="0" width="0.254" layer="94"/>
-<circle x="-2.54" y="0" radius="0.635" width="0.254" layer="94"/>
-<circle x="2.54" y="0" radius="0.635" width="0.254" layer="94"/>
-<wire x1="-3.175" y1="1.905" x2="-0.635" y2="1.905" width="0.254" layer="94"/>
-<wire x1="-0.635" y1="1.905" x2="0.635" y2="1.905" width="0.254" layer="94"/>
-<wire x1="0.635" y1="1.905" x2="3.175" y2="1.905" width="0.254" layer="94"/>
-<wire x1="-0.635" y1="1.905" x2="-0.635" y2="2.54" width="0.254" layer="94"/>
-<wire x1="-0.635" y1="2.54" x2="0.635" y2="2.54" width="0.254" layer="94"/>
-<wire x1="0.635" y1="2.54" x2="0.635" y2="1.905" width="0.254" layer="94"/>
-<text x="-7.62" y="-5.08" size="1.27" layer="95">&gt;NAME</text>
-<text x="-7.62" y="4.318" size="1.27" layer="96">&gt;VALUE</text>
-</symbol>
 <symbol name="DS1818">
 <description>&lt;b&gt;DS1818 Reset IC&lt;/b&gt;
 &lt;p&gt;
@@ -24189,47 +24140,6 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 </device>
 </devices>
 </deviceset>
-<deviceset name="SWITCH-KSC" prefix="SW">
-<description>&lt;b&gt;KSC Series Sealed Tact Switch for SMT&lt;/b&gt;
-&lt;p&gt;
-Source: &lt;a href="http://www.ck-components.com/index.php?module=media&amp;action=Display&amp;cmpref=14422&amp;lang=en&amp;width=&amp;height=&amp;format=&amp;alt="&gt;http://www.ck-components.com/index.php?module=media&amp;action=Display&amp;cmpref=14422&amp;lang=en&lt;/a&gt;</description>
-<gates>
-<gate name="G$1" symbol="PUSH-BUTTON" x="0" y="0"/>
-</gates>
-<devices>
-<device name="J" package="SWITCH-KSC-J-LEAD">
-<connects>
-<connect gate="G$1" pin="1" pad="1$1"/>
-<connect gate="G$1" pin="2" pad="2$1"/>
-<connect gate="G$1" pin="3" pad="1$2"/>
-<connect gate="G$1" pin="4" pad="2$2"/>
-</connects>
-<technologies>
-<technology name="-201">
-<attribute name="ACT-HEIGHT" value="3.5 mm"/>
-<attribute name="DIGI-KEY#" value="401-1756-1-ND"/>
-<attribute name="MF" value="C&amp;K Components"/>
-<attribute name="MPN" value="KSC201JLFS"/>
-<attribute name="OP-FORCE" value="120gf"/>
-</technology>
-<technology name="-241">
-<attribute name="ACT-HEIGHT" value="3.5 mm"/>
-<attribute name="DIGI-KEY#" value="401-1762-1-ND"/>
-<attribute name="MF" value="C&amp;K Components"/>
-<attribute name="MPN" value="KSC241JLFS"/>
-<attribute name="OP-FORCE" value="300gf"/>
-</technology>
-<technology name="-403">
-<attribute name="ACT-HEIGHT" value="5.2 mm"/>
-<attribute name="DIGI-KEY#" value="401-1776-1-ND"/>
-<attribute name="MF" value="C&amp;K Components"/>
-<attribute name="MPN" value="KSC403J 50SH LFG"/>
-<attribute name="OP-FORCE" value="120gf"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="DS1818" prefix="U">
 <description>&lt;b&gt;DS1818 Reset IC&lt;/b&gt;
 &lt;p&gt;
@@ -25149,14 +25059,6 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <part name="PORT243" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="U$117" library="MainBoard" deviceset="DGND" device=""/>
 <part name="PORT244" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="SW1" library="MainBoard" deviceset="SWITCH-KSC" device="J" technology="-241">
-<attribute name="DIGI-KEY#" value="401-1762-1-ND"/>
-<attribute name="MPN" value="KSC241JLFS"/>
-<attribute name="OP-FORCE" value="300gf"/>
-</part>
-<part name="SW2" library="MainBoard" deviceset="SWITCH-KSC" device="J" technology="-201">
-<attribute name="ACT-HEIGHT" value="3.5 mm"/>
-</part>
 <part name="U$118" library="MainBoard" deviceset="DGND" device=""/>
 <part name="R93" library="MainBoard" deviceset="R" device="0402" value="0">
 <attribute name="TOLERANCE" value=""/>
@@ -25512,7 +25414,8 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 </part>
 <part name="U$46" library="MainBoard" deviceset="AGND" device=""/>
 <part name="U$57" library="MainBoard" deviceset="DGND" device=""/>
-<part name="SW3" library="MainBoard" deviceset="SWITCH-ESWITCH-TL3340" device="G"/>
+<part name="SW1" library="MainBoard" deviceset="SWITCH-ESWITCH-TL3340" device="G"/>
+<part name="SW2" library="MainBoard" deviceset="SWITCH-ESWITCH-TL3340" device="G"/>
 </parts>
 <sheets>
 <sheet>
@@ -26533,9 +26436,10 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <rectangle x1="22.86" y1="129.54" x2="119.38" y2="175.26" layer="116"/>
 <text x="114.3" y="58.42" size="1.778" layer="97" rot="R90">ASEM1</text>
 <text x="127" y="58.42" size="1.778" layer="97" rot="R90">DS1818</text>
-<rectangle x1="88.9" y1="139.7" x2="106.68" y2="149.86" layer="98"/>
-<rectangle x1="203.2" y1="137.16" x2="218.44" y2="147.32" layer="98"/>
-<rectangle x1="99.06" y1="101.6" x2="119.38" y2="116.84" layer="98"/>
+<rectangle x1="91.44" y1="142.24" x2="106.68" y2="149.86" layer="98"/>
+<rectangle x1="203.2" y1="139.7" x2="218.44" y2="147.32" layer="98"/>
+<text x="93.98" y="139.7" size="1.778" layer="98">Consider replacing with a larger switch</text>
+<text x="203.2" y="137.16" size="1.778" layer="98">Consider replacing with a larger switch</text>
 </plain>
 <instances>
 <instance part="U1" gate="-MISC" x="63.5" y="134.62"/>
@@ -26564,8 +26468,6 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <instance part="PORT243" gate="G$1" x="218.44" y="157.48"/>
 <instance part="U$117" gate="G$1" x="223.52" y="129.54"/>
 <instance part="PORT244" gate="G$1" x="106.68" y="132.08"/>
-<instance part="SW1" gate="G$1" x="210.82" y="142.24"/>
-<instance part="SW2" gate="G$1" x="99.06" y="144.78"/>
 <instance part="U$118" gate="G$1" x="111.76" y="139.7"/>
 <instance part="R93" gate="G$1" x="180.34" y="142.24"/>
 <instance part="PORT255" gate="G$1" x="106.68" y="152.4"/>
@@ -26622,7 +26524,8 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <instance part="C128" gate="G$1" x="33.02" y="144.78" rot="R270"/>
 <instance part="C129" gate="G$1" x="33.02" y="134.62" rot="R270"/>
 <instance part="X1" gate="P" x="38.1" y="139.7" rot="R90"/>
-<instance part="SW3" gate="G$1" x="109.22" y="109.22"/>
+<instance part="SW1" gate="G$1" x="210.82" y="142.24"/>
+<instance part="SW2" gate="G$1" x="99.06" y="144.78"/>
 </instances>
 <busses>
 </busses>
@@ -26681,22 +26584,16 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <segment>
 <wire x1="223.52" y1="142.24" x2="223.52" y2="132.08" width="0.1524" layer="91"/>
 <pinref part="U$117" gate="G$1" pin="DGND"/>
-<pinref part="SW1" gate="G$1" pin="1"/>
-<pinref part="SW1" gate="G$1" pin="3"/>
-<wire x1="218.44" y1="139.7" x2="218.44" y2="142.24" width="0.1524" layer="91"/>
-<wire x1="218.44" y1="142.24" x2="218.44" y2="144.78" width="0.1524" layer="91"/>
 <wire x1="218.44" y1="142.24" x2="223.52" y2="142.24" width="0.1524" layer="91"/>
-<junction x="218.44" y="142.24"/>
+<pinref part="SW1" gate="G$1" pin="1"/>
+<wire x1="215.9" y1="142.24" x2="218.44" y2="142.24" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="SW2" gate="G$1" pin="1"/>
-<pinref part="SW2" gate="G$1" pin="3"/>
-<wire x1="106.68" y1="147.32" x2="106.68" y2="144.78" width="0.1524" layer="91"/>
-<junction x="106.68" y="144.78"/>
-<wire x1="106.68" y1="144.78" x2="106.68" y2="142.24" width="0.1524" layer="91"/>
 <wire x1="106.68" y1="144.78" x2="111.76" y2="144.78" width="0.1524" layer="91"/>
 <wire x1="111.76" y1="144.78" x2="111.76" y2="142.24" width="0.1524" layer="91"/>
 <pinref part="U$118" gate="G$1" pin="DGND"/>
+<pinref part="SW2" gate="G$1" pin="1"/>
+<wire x1="104.14" y1="144.78" x2="106.68" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R66" gate="G$1" pin="1"/>
@@ -26819,14 +26716,11 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <wire x1="187.96" y1="142.24" x2="198.12" y2="142.24" width="0.1524" layer="91"/>
 <pinref part="R92" gate="G$1" pin="1"/>
 <wire x1="198.12" y1="142.24" x2="198.12" y2="144.78" width="0.1524" layer="91"/>
-<pinref part="SW1" gate="G$1" pin="2"/>
-<pinref part="SW1" gate="G$1" pin="4"/>
-<wire x1="203.2" y1="139.7" x2="203.2" y2="142.24" width="0.1524" layer="91"/>
-<wire x1="203.2" y1="142.24" x2="203.2" y2="144.78" width="0.1524" layer="91"/>
 <wire x1="198.12" y1="142.24" x2="203.2" y2="142.24" width="0.1524" layer="91"/>
-<junction x="203.2" y="142.24"/>
 <pinref part="R93" gate="G$1" pin="2"/>
 <junction x="198.12" y="142.24"/>
+<pinref part="SW1" gate="G$1" pin="2"/>
+<wire x1="205.74" y1="142.24" x2="203.2" y2="142.24" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="!MSS_RESET" class="0">
@@ -26844,13 +26738,8 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 </net>
 <net name="!WAKEUP" class="0">
 <segment>
-<pinref part="SW2" gate="G$1" pin="2"/>
-<pinref part="SW2" gate="G$1" pin="4"/>
-<wire x1="91.44" y1="147.32" x2="91.44" y2="144.78" width="0.1524" layer="91"/>
 <pinref part="U1" gate="-MISC" pin="PU_N"/>
-<wire x1="91.44" y1="144.78" x2="91.44" y2="142.24" width="0.1524" layer="91"/>
 <wire x1="83.82" y1="144.78" x2="86.36" y2="144.78" width="0.1524" layer="91"/>
-<junction x="91.44" y="144.78"/>
 <wire x1="86.36" y1="144.78" x2="91.44" y2="144.78" width="0.1524" layer="91"/>
 <wire x1="86.36" y1="144.78" x2="86.36" y2="152.4" width="0.1524" layer="91"/>
 <wire x1="86.36" y1="152.4" x2="91.44" y2="152.4" width="0.1524" layer="91"/>
@@ -26859,6 +26748,8 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <wire x1="86.36" y1="152.4" x2="86.36" y2="154.94" width="0.1524" layer="91"/>
 <junction x="86.36" y="144.78"/>
 <junction x="86.36" y="152.4"/>
+<pinref part="SW2" gate="G$1" pin="2"/>
+<wire x1="93.98" y1="144.78" x2="91.44" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="EXTIC-RST" class="0">
