@@ -21356,6 +21356,28 @@ ECS ECX-2236 2.5mm X 2.0mm ceramic package for SMD quartz crystals.
 <rectangle x1="-1.2" y1="-1" x2="-0.8" y2="-0.4" layer="51"/>
 <rectangle x1="-0.8" y1="-1" x2="-0.6" y2="-0.5" layer="51"/>
 </package>
+<package name="TL3340">
+<description>&lt;b&gt;E-Switch TL3340 series right angle momentary switch layout (gull wing)&lt;/b&gt;
+&lt;p&gt;
+Source: &lt;a href="http://spec.e-switch.com/P-J/P021301B.pdf"&gt;http://spec.e-switch.com/P-J/P021301B.pdf&lt;/a&gt;</description>
+<rectangle x1="-1" y1="0" x2="1" y2="1.2" layer="39"/>
+<smd name="3" x="-1.225" y="2.4" dx="0.75" dy="1.8" layer="1"/>
+<smd name="1" x="1.225" y="2.4" dx="0.75" dy="1.8" layer="1"/>
+<smd name="2" x="0" y="2.4" dx="0.6" dy="1.8" layer="1"/>
+<smd name="MNT$2" x="1.85" y="0.45" dx="1.3" dy="0.9" layer="1"/>
+<smd name="MNT$1" x="-1.85" y="0.45" dx="1.3" dy="0.9" layer="1"/>
+<hole x="2.125" y="1.5" drill="0.9"/>
+<hole x="-2.125" y="1.5" drill="0.9"/>
+<wire x1="-2.25" y1="3" x2="2.25" y2="3" width="0.127" layer="51"/>
+<wire x1="2.25" y1="3" x2="2.25" y2="0" width="0.127" layer="51"/>
+<wire x1="2.25" y1="0" x2="1" y2="0" width="0.127" layer="51"/>
+<wire x1="1" y1="0" x2="-1" y2="0" width="0.127" layer="51"/>
+<wire x1="-1" y1="0" x2="-2.25" y2="0" width="0.127" layer="51"/>
+<wire x1="-2.25" y1="0" x2="-2.25" y2="3" width="0.127" layer="51"/>
+<wire x1="-1" y1="0" x2="-1" y2="-0.85" width="0.127" layer="51"/>
+<wire x1="-1" y1="-0.85" x2="1" y2="-0.85" width="0.127" layer="51"/>
+<wire x1="1" y1="-0.85" x2="1" y2="0" width="0.127" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="DGND">
@@ -22799,6 +22821,23 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <pin name="1" x="0" y="5.08" visible="off" length="point" direction="pas" swaplevel="1" rot="R270"/>
 <wire x1="0" y1="5.08" x2="0" y2="3.81" width="0.254" layer="94"/>
 <wire x1="0" y1="-5.08" x2="0" y2="-3.81" width="0.254" layer="94"/>
+</symbol>
+<symbol name="SWITCH-SPST-OFF-MOM">
+<description>&lt;b&gt;SPST momentary switch symbol&lt;/b&gt;</description>
+<pin name="2" x="-5.08" y="0" visible="pin" length="point" direction="pas"/>
+<pin name="1" x="5.08" y="0" visible="pin" length="point" direction="pas" rot="R180"/>
+<wire x1="-5.08" y1="0" x2="-3.175" y2="0" width="0.254" layer="94"/>
+<wire x1="5.08" y1="0" x2="3.175" y2="0" width="0.254" layer="94"/>
+<circle x="-2.54" y="0" radius="0.635" width="0.254" layer="94"/>
+<circle x="2.54" y="0" radius="0.635" width="0.254" layer="94"/>
+<wire x1="-3.175" y1="1.905" x2="-0.635" y2="1.905" width="0.254" layer="94"/>
+<wire x1="-0.635" y1="1.905" x2="0.635" y2="1.905" width="0.254" layer="94"/>
+<wire x1="0.635" y1="1.905" x2="3.175" y2="1.905" width="0.254" layer="94"/>
+<wire x1="-0.635" y1="1.905" x2="-0.635" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-0.635" y1="2.54" x2="0.635" y2="2.54" width="0.254" layer="94"/>
+<wire x1="0.635" y1="2.54" x2="0.635" y2="1.905" width="0.254" layer="94"/>
+<text x="-7.62" y="-3.81" size="1.27" layer="95">&gt;NAME</text>
+<text x="-7.62" y="3.683" size="1.27" layer="96">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -24509,6 +24548,25 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 </device>
 </devices>
 </deviceset>
+<deviceset name="SWITCH-ESWITCH-TL3340" prefix="SW">
+<description>&lt;b&gt;E-Switch TL3340 series momentary switch&lt;/b&gt;
+&lt;p&gt;
+Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="SWITCH-SPST-OFF-MOM" x="0" y="0"/>
+</gates>
+<devices>
+<device name="G" package="TL3340">
+<connects>
+<connect gate="G$1" pin="1" pad="1 3"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -25454,6 +25512,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 </part>
 <part name="U$46" library="MainBoard" deviceset="AGND" device=""/>
 <part name="U$57" library="MainBoard" deviceset="DGND" device=""/>
+<part name="SW3" library="MainBoard" deviceset="SWITCH-ESWITCH-TL3340" device="G"/>
 </parts>
 <sheets>
 <sheet>
@@ -26476,6 +26535,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <text x="127" y="58.42" size="1.778" layer="97" rot="R90">DS1818</text>
 <rectangle x1="88.9" y1="139.7" x2="106.68" y2="149.86" layer="98"/>
 <rectangle x1="203.2" y1="137.16" x2="218.44" y2="147.32" layer="98"/>
+<rectangle x1="99.06" y1="101.6" x2="119.38" y2="116.84" layer="98"/>
 </plain>
 <instances>
 <instance part="U1" gate="-MISC" x="63.5" y="134.62"/>
@@ -26562,6 +26622,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <instance part="C128" gate="G$1" x="33.02" y="144.78" rot="R270"/>
 <instance part="C129" gate="G$1" x="33.02" y="134.62" rot="R270"/>
 <instance part="X1" gate="P" x="38.1" y="139.7" rot="R90"/>
+<instance part="SW3" gate="G$1" x="109.22" y="109.22"/>
 </instances>
 <busses>
 </busses>
@@ -30924,9 +30985,6 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <rectangle x1="20.32" y1="139.7" x2="88.9" y2="167.64" layer="116"/>
 <rectangle x1="170.18" y1="114.3" x2="223.52" y2="160.02" layer="116"/>
 <rectangle x1="30.48" y1="10.16" x2="45.72" y2="50.8" layer="116"/>
-<text x="233.68" y="64.77" size="1.778" layer="98">Consider swapping with REF CLK</text>
-<rectangle x1="215.9" y1="63.5" x2="233.045" y2="67.945" layer="98"/>
-<text x="233.68" y="62.23" size="1.778" layer="98">if used as differential clock</text>
 </plain>
 <instances>
 <instance part="U1" gate="-UART" x="71.12" y="152.4"/>
@@ -31326,7 +31384,6 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <text x="43.18" y="78.74" size="2.54" layer="97">USB connector</text>
 <text x="62.23" y="152.4" size="1.778" layer="97">NC</text>
 <text x="45.72" y="76.2" size="50.8" layer="208">CON</text>
-<text x="167.64" y="147.32" size="1.778" layer="98" rot="R90">Make it a differential GCL IN</text>
 <rectangle x1="27.94" y1="127" x2="83.82" y2="162.56" layer="116"/>
 <rectangle x1="22.86" y1="76.2" x2="99.06" y2="119.38" layer="116"/>
 <rectangle x1="17.78" y1="53.34" x2="58.42" y2="66.04" layer="116"/>
@@ -31345,7 +31402,6 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <rectangle x1="144.78" y1="134.62" x2="162.56" y2="144.78" layer="204"/>
 <rectangle x1="165.1" y1="139.7" x2="185.42" y2="144.78" layer="204"/>
 <rectangle x1="93.98" y1="134.62" x2="114.3" y2="144.78" layer="204"/>
-<rectangle x1="170.18" y1="147.32" x2="185.42" y2="152.4" layer="98"/>
 <rectangle x1="114.3" y1="76.2" x2="142.24" y2="119.38" layer="98"/>
 <text x="144.78" y="96.52" size="1.778" layer="98">AGNDs?</text>
 </plain>

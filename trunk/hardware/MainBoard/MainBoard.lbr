@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.5" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.25" altunitdist="mm" altunit="mm"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="12" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -36,13 +36,13 @@
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
 <layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
 <layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
-<layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="yes"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="yes"/>
 <layer number="42" name="bRestrict" color="1" fill="10" visible="no" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
@@ -3565,6 +3565,28 @@ Source: &lt;a href="http://industrial.panasonic.com/www-data/pdf/AOC0000/AOC0000
 <text x="-3" y="-3" size="1.27" layer="25">&gt;NAME</text>
 <text x="-3" y="2" size="1.27" layer="27">&gt;VALUE</text>
 </package>
+<package name="TL3340">
+<description>&lt;b&gt;E-Switch TL3340 series right angle momentary switch layout (gull wing)&lt;/b&gt;
+&lt;p&gt;
+Source: &lt;a href="http://spec.e-switch.com/P-J/P021301B.pdf"&gt;http://spec.e-switch.com/P-J/P021301B.pdf&lt;/a&gt;</description>
+<rectangle x1="-1" y1="0" x2="1" y2="1.2" layer="39"/>
+<smd name="3" x="-1.225" y="2.4" dx="0.75" dy="1.8" layer="1"/>
+<smd name="1" x="1.225" y="2.4" dx="0.75" dy="1.8" layer="1"/>
+<smd name="2" x="0" y="2.4" dx="0.6" dy="1.8" layer="1"/>
+<smd name="MNT$2" x="1.85" y="0.45" dx="1.3" dy="0.9" layer="1"/>
+<smd name="MNT$1" x="-1.85" y="0.45" dx="1.3" dy="0.9" layer="1"/>
+<hole x="2.125" y="1.5" drill="0.9"/>
+<hole x="-2.125" y="1.5" drill="0.9"/>
+<wire x1="-2.25" y1="3" x2="2.25" y2="3" width="0.127" layer="51"/>
+<wire x1="2.25" y1="3" x2="2.25" y2="0" width="0.127" layer="51"/>
+<wire x1="2.25" y1="0" x2="1" y2="0" width="0.127" layer="51"/>
+<wire x1="1" y1="0" x2="-1" y2="0" width="0.127" layer="51"/>
+<wire x1="-1" y1="0" x2="-2.25" y2="0" width="0.127" layer="51"/>
+<wire x1="-2.25" y1="0" x2="-2.25" y2="3" width="0.127" layer="51"/>
+<wire x1="-1" y1="0" x2="-1" y2="-0.85" width="0.127" layer="51"/>
+<wire x1="-1" y1="-0.85" x2="1" y2="-0.85" width="0.127" layer="51"/>
+<wire x1="1" y1="-0.85" x2="1" y2="0" width="0.127" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="A2F500M3G-CS288">
@@ -6328,6 +6350,23 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <wire x1="0" y1="5.08" x2="0" y2="3.81" width="0.254" layer="94"/>
 <wire x1="0" y1="-5.08" x2="0" y2="-3.81" width="0.254" layer="94"/>
 <wire x1="1.905" y1="3.81" x2="1.905" y2="-3.81" width="0.254" layer="94"/>
+</symbol>
+<symbol name="SWITCH-SPST-OFF-MOM">
+<description>&lt;b&gt;SPST momentary switch symbol&lt;/b&gt;</description>
+<pin name="2" x="-5.08" y="0" visible="pin" length="point" direction="pas"/>
+<pin name="1" x="5.08" y="0" visible="pin" length="point" direction="pas" rot="R180"/>
+<wire x1="-5.08" y1="0" x2="-3.175" y2="0" width="0.254" layer="94"/>
+<wire x1="5.08" y1="0" x2="3.175" y2="0" width="0.254" layer="94"/>
+<circle x="-2.54" y="0" radius="0.635" width="0.254" layer="94"/>
+<circle x="2.54" y="0" radius="0.635" width="0.254" layer="94"/>
+<wire x1="-3.175" y1="1.905" x2="-0.635" y2="1.905" width="0.254" layer="94"/>
+<wire x1="-0.635" y1="1.905" x2="0.635" y2="1.905" width="0.254" layer="94"/>
+<wire x1="0.635" y1="1.905" x2="3.175" y2="1.905" width="0.254" layer="94"/>
+<wire x1="-0.635" y1="1.905" x2="-0.635" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-0.635" y1="2.54" x2="0.635" y2="2.54" width="0.254" layer="94"/>
+<wire x1="0.635" y1="2.54" x2="0.635" y2="1.905" width="0.254" layer="94"/>
+<text x="-7.62" y="-3.81" size="1.27" layer="95">&gt;NAME</text>
+<text x="-7.62" y="3.683" size="1.27" layer="96">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -9372,6 +9411,25 @@ Source:
 </gates>
 <devices>
 <device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SWITCH-ESWITCH-TL3340" prefix="SW">
+<description>&lt;b&gt;E-Switch TL3340 series momentary switch&lt;/b&gt;
+&lt;p&gt;
+Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="SWITCH-SPST-OFF-MOM" x="0" y="0"/>
+</gates>
+<devices>
+<device name="G" package="TL3340">
+<connects>
+<connect gate="G$1" pin="1" pad="1 3"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
 <technologies>
 <technology name=""/>
 </technologies>
