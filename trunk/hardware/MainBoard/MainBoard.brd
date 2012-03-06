@@ -9,17 +9,17 @@
 <grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.25" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
-<layer number="2" name="GND" color="1" fill="3" visible="yes" active="yes"/>
-<layer number="3" name="Inner1" color="13" fill="3" visible="yes" active="yes"/>
-<layer number="14" name="Inner2" color="10" fill="6" visible="yes" active="yes"/>
-<layer number="15" name="SUP" color="4" fill="6" visible="yes" active="yes"/>
+<layer number="2" name="GND" color="1" fill="3" visible="no" active="yes"/>
+<layer number="3" name="Inner1" color="13" fill="3" visible="no" active="yes"/>
+<layer number="14" name="Inner2" color="10" fill="6" visible="no" active="yes"/>
+<layer number="15" name="SUP" color="4" fill="6" visible="no" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="no" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
@@ -36,10 +36,10 @@
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
 <layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
 <layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
-<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="yes"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
-<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
-<layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
+<layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="yes"/>
+<layer number="42" name="bRestrict" color="1" fill="10" visible="no" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
@@ -11236,6 +11236,27 @@ Small fiducial for automated assembly
 &lt;i&gt;Source: Sparkfun EAGLE library&lt;/i&gt;</description>
 <smd name="1" x="0" y="0" dx="1" dy="1" layer="1" roundness="100" cream="no"/>
 </package>
+<package name="R0603">
+<description>&lt;b&gt;R0603&lt;/b&gt;
+&lt;p&gt;
+Chip resistor
+&lt;p&gt;
+&lt;i&gt;Source: EAGLE 5.11 'rlc.lbr'&lt;/i&gt;</description>
+<wire x1="-0.432" y1="-0.356" x2="0.432" y2="-0.356" width="0.1524" layer="51"/>
+<wire x1="0.432" y1="0.356" x2="-0.432" y2="0.356" width="0.1524" layer="51"/>
+<wire x1="-1.46" y1="0.97" x2="1.46" y2="0.97" width="0.0508" layer="39"/>
+<wire x1="1.46" y1="0.97" x2="1.46" y2="-0.97" width="0.0508" layer="39"/>
+<wire x1="1.46" y1="-0.97" x2="-1.46" y2="-0.97" width="0.0508" layer="39"/>
+<wire x1="-1.46" y1="-0.97" x2="-1.46" y2="0.97" width="0.0508" layer="39"/>
+<smd name="1" x="-0.85" y="0" dx="1" dy="1.1" layer="1"/>
+<smd name="2" x="0.85" y="0" dx="1" dy="1.1" layer="1"/>
+<text x="-0.889" y="0.6858" size="0.4064" layer="25">&gt;NAME</text>
+<text x="-0.889" y="-1.143" size="0.4064" layer="27">&gt;VALUE</text>
+<rectangle x1="0.4318" y1="-0.4318" x2="0.8382" y2="0.4318" layer="51"/>
+<rectangle x1="-0.8382" y1="-0.4318" x2="-0.4318" y2="0.4318" layer="51"/>
+<rectangle x1="-0.1999" y1="-0.4001" x2="0.1999" y2="0.4001" layer="35"/>
+<rectangle x1="-0.254" y1="-0.4064" x2="0.254" y2="0.4064" layer="21"/>
+</package>
 <package name="R0402">
 <description>&lt;b&gt;R0402&lt;/b&gt;
 &lt;p&gt;
@@ -12247,8 +12268,8 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="MPN" value="DS1818R-10+T&amp;R" x="72.75" y="15.25" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MF" value="Maxim" x="72.75" y="15.25" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="R95" library="MainBoard" package="R0402" value="10k" x="26.75" y="42.25" rot="MR270">
-<attribute name="TOLERANCE" value="" x="26.75" y="42.25" size="1.778" layer="28" rot="MR270" display="off"/>
+<element name="R95" library="MainBoard" package="R0402" value="10k" x="26.5" y="42.25" rot="MR270">
+<attribute name="TOLERANCE" value="" x="26.5" y="42.25" size="1.778" layer="28" rot="MR270" display="off"/>
 </element>
 <element name="R96" library="MainBoard" package="R0402" value="27" x="27.25" y="37.25">
 <attribute name="TOLERANCE" value="" x="27.25" y="37.25" size="1.778" layer="27" display="off"/>
@@ -12808,6 +12829,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="PAGE1" value="Cover Page" x="53.75" y="30" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="PAGE2" value="FPGA Power Supply" x="53.75" y="30" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
+<element name="R13" library="MainBoard" package="R0603" value="0" x="34" y="15" rot="MR0">
+<attribute name="TOLERANCE" value="" x="34" y="15" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="DNP" value="on" x="34" y="15" size="1.778" layer="28" rot="MR0" display="off"/>
+</element>
 </elements>
 <signals>
 <signal name="DGND">
@@ -12942,62 +12967,61 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="28.5" y1="5.15" x2="28.5" y2="8.85" width="0.3048" layer="1"/>
 <wire x1="24.5" y1="5.15" x2="24.5" y2="8.85" width="0.3048" layer="1"/>
 <wire x1="24.5" y1="5.15" x2="24.5" y2="3.5" width="0.3048" layer="1"/>
-<via x="24.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="24.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="24.5" y1="3.5" x2="24.5" y2="5.15" width="0.3048" layer="16"/>
 <wire x1="24.5" y1="5.15" x2="24.5" y2="8.85" width="0.3048" layer="16"/>
 <wire x1="28.5" y1="5.15" x2="28.5" y2="3.5" width="0.3048" layer="16"/>
-<via x="28.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="28.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="28.5" y1="3.5" x2="28.5" y2="5.15" width="0.3048" layer="1"/>
 <wire x1="24.5" y1="8.85" x2="24.5" y2="10.5" width="0.3048" layer="1"/>
 <wire x1="28.5" y1="8.85" x2="28.5" y2="10.5" width="0.3048" layer="16"/>
-<via x="28.5" y="10.5" extent="1-16" drill="0.13"/>
+<via x="28.5" y="10.5" extent="1-16" drill="0.2032"/>
 <wire x1="28.5" y1="10.5" x2="28.5" y2="8.85" width="0.3048" layer="1"/>
-<via x="24.5" y="10.5" extent="1-16" drill="0.13"/>
+<via x="24.5" y="10.5" extent="1-16" drill="0.2032"/>
 <wire x1="24.5" y1="10.5" x2="24.5" y2="8.85" width="0.3048" layer="16"/>
 <wire x1="28.5" y1="3.5" x2="28.5" y2="10.5" width="0.3048" layer="16"/>
-<wire x1="24.5" y1="3.5" x2="24.5" y2="3" width="0.3048" layer="1"/>
-<wire x1="24.5" y1="3" x2="25" y2="2.5" width="0.3048" layer="1"/>
+<wire x1="24.5" y1="3.5" x2="24.5" y2="2.75" width="0.3048" layer="1"/>
+<wire x1="24.5" y1="2.75" x2="24.75" y2="2.5" width="0.3048" layer="1"/>
 <wire x1="54.75" y1="23.5" x2="54.75" y2="24.25" width="0.1524" layer="1"/>
-<via x="54.75" y="24.25" extent="1-16" drill="0.13"/>
+<via x="54.75" y="24.25" extent="1-16" drill="0.2032"/>
 <wire x1="38.75" y1="23.5" x2="38.75" y2="24.25" width="0.1524" layer="1"/>
-<via x="38.75" y="24.25" extent="1-16" drill="0.13"/>
+<via x="38.75" y="24.25" extent="1-16" drill="0.2032"/>
 <wire x1="12.35" y1="35.5" x2="12.35" y2="36.75" width="0.1524" layer="16"/>
-<via x="14.5" y="36.25" extent="1-16" drill="0.13"/>
+<via x="14.5" y="36.25" extent="1-16" drill="0.2032"/>
 <wire x1="22.25" y1="33.8" x2="22.25" y2="35" width="0.3048" layer="1"/>
 <wire x1="22.25" y1="35" x2="22" y2="35.25" width="0.3048" layer="1"/>
-<via x="22" y="35.25" extent="1-16" drill="0.13"/>
+<via x="22" y="35.25" extent="1-16" drill="0.2032"/>
 <wire x1="21.75" y1="33.8" x2="21.75" y2="35" width="0.3048" layer="1"/>
 <wire x1="21.75" y1="35" x2="22" y2="35.25" width="0.3048" layer="1"/>
-<wire x1="20.3" y1="51.325" x2="20.3" y2="50.05" width="0.3048" layer="1"/>
-<wire x1="20.3" y1="50.05" x2="20.25" y2="50" width="0.3048" layer="1"/>
-<via x="20.25" y="50" extent="1-16" drill="0.13"/>
+<wire x1="20.3" y1="51.325" x2="20.3" y2="50.55" width="0.3048" layer="1"/>
+<via x="19.85" y="50" extent="1-16" drill="0.2032"/>
 <wire x1="22.85" y1="47" x2="21.75" y2="47" width="0.1524" layer="1"/>
-<via x="21.75" y="47" extent="1-16" drill="0.13"/>
+<via x="21.75" y="47" extent="1-16" drill="0.2032"/>
 <wire x1="17.25" y1="42.2" x2="17.25" y2="43.25" width="0.3048" layer="1"/>
 <wire x1="17.25" y1="43.25" x2="17.5" y2="43.5" width="0.3048" layer="1"/>
 <wire x1="17.5" y1="43.5" x2="17.75" y2="43.25" width="0.3048" layer="1"/>
 <wire x1="17.75" y1="43.25" x2="17.75" y2="42.2" width="0.3048" layer="1"/>
-<via x="17.5" y="43.5" extent="1-16" drill="0.13"/>
+<via x="17.5" y="43.5" extent="1-16" drill="0.2032"/>
 <wire x1="3.8791" y1="32.54" x2="4" y2="32.6609" width="0.1524" layer="1"/>
 <wire x1="4" y1="32.6609" x2="4" y2="33.5" width="0.1524" layer="1"/>
-<via x="4" y="33.5" extent="1-16" drill="0.13"/>
+<via x="4" y="33.5" extent="1-16" drill="0.2032"/>
 <wire x1="3.8791" y1="27.46" x2="4" y2="27.3391" width="0.1524" layer="1"/>
 <wire x1="4" y1="27.3391" x2="4" y2="26.5" width="0.1524" layer="1"/>
-<via x="4" y="26.5" extent="1-16" drill="0.13"/>
-<via x="41" y="33" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="4" y="26.5" extent="1-16" drill="0.2032"/>
+<via x="41" y="33" extent="1-16" drill="0.2032"/>
 <wire x1="41" y1="33" x2="41.5" y2="33.5" width="0.1524" layer="1"/>
 <wire x1="41.5" y1="30.5" x2="41.5" y2="29.75" width="0.1524" layer="1"/>
-<via x="41.5" y="29.75" extent="1-16" drill="0.13"/>
+<via x="41.5" y="29.75" extent="1-16" drill="0.2032"/>
 <wire x1="40.5" y1="32.5" x2="40" y2="32" width="0.1524" layer="1"/>
-<via x="40" y="32" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="40" y="32" extent="1-16" drill="0.2032"/>
 <wire x1="37.5" y1="31.5" x2="37" y2="31" width="0.1524" layer="1"/>
-<via x="37" y="31" extent="1-16" drill="0.13"/>
+<via x="37" y="31" extent="1-16" drill="0.2032"/>
 <wire x1="38.5" y1="35.5" x2="38" y2="36" width="0.1524" layer="1"/>
 <wire x1="38" y1="36" x2="37.5" y2="36.5" width="0.1524" layer="1"/>
-<via x="38" y="36" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="38" y="36" extent="1-16" drill="0.2032"/>
 <wire x1="37.5" y1="37.5" x2="36.5" y2="37.5" width="0.1524" layer="1"/>
-<via x="36.5" y="37.5" extent="1-16" drill="0.13"/>
-<via x="25.75" y="40.5" extent="1-16" drill="0.13"/>
+<via x="36.5" y="37.5" extent="1-16" drill="0.2032"/>
+<via x="25.75" y="40.5" extent="1-16" drill="0.2032"/>
 <wire x1="24.2" y1="40.75" x2="25.5" y2="40.75" width="0.3048" layer="1"/>
 <wire x1="25.5" y1="40.75" x2="25.75" y2="40.5" width="0.3048" layer="1"/>
 <wire x1="24.2" y1="40.25" x2="25.5" y2="40.25" width="0.3048" layer="1"/>
@@ -13013,103 +13037,103 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U5" pad="42"/>
 <wire x1="20.5" y1="43.5" x2="20.25" y2="43.25" width="0.3048" layer="1"/>
 <wire x1="20.25" y1="42.25" x2="20.25" y2="43.25" width="0.3048" layer="1"/>
-<via x="20.5" y="43.5" extent="1-16" drill="0.13"/>
+<via x="20.5" y="43.5" extent="1-16" drill="0.2032"/>
 <wire x1="37.5" y1="30.5" x2="37" y2="31" width="0.1524" layer="1"/>
 <wire x1="40.5" y1="39.5" x2="40" y2="40" width="0.1524" layer="1"/>
-<via x="40" y="40" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="40" y="40" extent="1-16" drill="0.2032"/>
 <wire x1="37.5" y1="40.5" x2="36.5" y2="40.5" width="0.1524" layer="1"/>
-<via x="36.5" y="40.5" extent="1-16" drill="0.13"/>
+<via x="36.5" y="40.5" extent="1-16" drill="0.2032"/>
 <wire x1="51.5" y1="31.5" x2="52" y2="31" width="0.1524" layer="1"/>
-<via x="52" y="31" extent="1-16" drill="0.13"/>
+<via x="52" y="31" extent="1-16" drill="0.2032"/>
 <wire x1="52.5" y1="40.5" x2="53.25" y2="40.5" width="0.1524" layer="1"/>
-<via x="53.25" y="40.5" extent="1-16" drill="0.13"/>
+<via x="53.25" y="40.5" extent="1-16" drill="0.2032"/>
 <wire x1="42.5" y1="37.5" x2="42" y2="37" width="0.1524" layer="1"/>
-<via x="42" y="37" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="42" y="37" extent="1-16" drill="0.2032"/>
 <wire x1="43.5" y1="38.5" x2="43" y2="39" width="0.1524" layer="1"/>
-<via x="43" y="39" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="43" y="39" extent="1-16" drill="0.2032"/>
 <wire x1="42.5" y1="39.5" x2="42" y2="40" width="0.1524" layer="1"/>
-<via x="42" y="40" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="42" y="40" extent="1-16" drill="0.2032"/>
 <wire x1="43.5" y1="40.5" x2="43" y2="41" width="0.1524" layer="1"/>
-<via x="43" y="41" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="43" y="41" extent="1-16" drill="0.2032"/>
 <wire x1="43.5" y1="36.5" x2="43" y2="36" width="0.1524" layer="1"/>
-<via x="43" y="36" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="43" y="36" extent="1-16" drill="0.2032"/>
 <wire x1="42.5" y1="35.5" x2="42" y2="35" width="0.1524" layer="1"/>
-<via x="42" y="35" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="42" y="35" extent="1-16" drill="0.2032"/>
 <wire x1="43.5" y1="34.5" x2="43" y2="34" width="0.1524" layer="1"/>
-<via x="43" y="34" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="43" y="34" extent="1-16" drill="0.2032"/>
 <wire x1="44.5" y1="35.5" x2="44" y2="35" width="0.1524" layer="1"/>
-<via x="44" y="35" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="44" y="35" extent="1-16" drill="0.2032"/>
 <wire x1="44.5" y1="37.5" x2="44" y2="37" width="0.1524" layer="1"/>
-<via x="44" y="37" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="44" y="37" extent="1-16" drill="0.2032"/>
 <wire x1="45.5" y1="36.5" x2="46" y2="36" width="0.1524" layer="1"/>
-<via x="46" y="36" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="46" y="36" extent="1-16" drill="0.2032"/>
 <wire x1="45.5" y1="34.5" x2="46" y2="34" width="0.1524" layer="1"/>
-<via x="46" y="34" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="46" y="34" extent="1-16" drill="0.2032"/>
 <wire x1="44.5" y1="39.5" x2="44" y2="40" width="0.1524" layer="1"/>
-<via x="44" y="40" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="44" y="40" extent="1-16" drill="0.2032"/>
 <contactref element="J2" pad="16"/>
 <wire x1="31.5" y1="8.85" x2="31.5" y2="10.5" width="0.3048" layer="1"/>
-<via x="31.5" y="10.5" extent="1-16" drill="0.13"/>
+<via x="31.5" y="10.5" extent="1-16" drill="0.2032"/>
 <wire x1="46.5" y1="32.5" x2="46" y2="32" width="0.1524" layer="1"/>
-<via x="46" y="32" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="46" y="32" extent="1-16" drill="0.2032"/>
 <wire x1="38.5" y1="42.5" x2="38" y2="43" width="0.1524" layer="1"/>
-<via x="38" y="43" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="38" y="43" extent="1-16" drill="0.2032"/>
 <wire x1="40.5" y1="35.5" x2="40" y2="36" width="0.1524" layer="1"/>
-<via x="40" y="36" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="40" y="36" extent="1-16" drill="0.2032"/>
 <wire x1="45.5" y1="40.5" x2="46" y2="41" width="0.1524" layer="1"/>
-<via x="46" y="41" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="46" y="41" extent="1-16" drill="0.2032"/>
 <wire x1="45.5" y1="38.5" x2="46" y2="39" width="0.1524" layer="1"/>
-<via x="46" y="39" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="46" y="39" extent="1-16" drill="0.2032"/>
 <wire x1="46.5" y1="37.5" x2="47" y2="37" width="0.1524" layer="1"/>
-<via x="47" y="37" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="47" y="37" extent="1-16" drill="0.2032"/>
 <wire x1="47.5" y1="38.5" x2="48" y2="39" width="0.1524" layer="1"/>
-<via x="48" y="39" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="48" y="39" extent="1-16" drill="0.2032"/>
 <wire x1="48.5" y1="38.5" x2="49" y2="39" width="0.1524" layer="1"/>
-<via x="49" y="39" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="49" y="39" extent="1-16" drill="0.2032"/>
 <wire x1="47.5" y1="40.5" x2="48" y2="41" width="0.1524" layer="1"/>
-<via x="48" y="41" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="48" y="41" extent="1-16" drill="0.2032"/>
 <wire x1="47.5" y1="36.5" x2="48" y2="36" width="0.1524" layer="1"/>
-<via x="48" y="36" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="48" y="36" extent="1-16" drill="0.2032"/>
 <wire x1="46.5" y1="35.5" x2="47" y2="35" width="0.1524" layer="1"/>
-<via x="47" y="35" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="47" y="35" extent="1-16" drill="0.2032"/>
 <wire x1="47.5" y1="34.5" x2="48" y2="34" width="0.1524" layer="1"/>
-<via x="48" y="34" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="48" y="34" extent="1-16" drill="0.2032"/>
 <wire x1="49.5" y1="33.5" x2="50" y2="33" width="0.1524" layer="1"/>
-<via x="50" y="33" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="50" y="33" extent="1-16" drill="0.2032"/>
 <wire x1="48.5" y1="30.5" x2="48.5" y2="29.75" width="0.1524" layer="1"/>
-<via x="48.5" y="29.75" extent="1-16" drill="0.13"/>
+<via x="48.5" y="29.75" extent="1-16" drill="0.2032"/>
 <wire x1="51.5" y1="35.5" x2="52" y2="36" width="0.1524" layer="1"/>
-<via x="52" y="36" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="52" y="36" extent="1-16" drill="0.2032"/>
 <wire x1="52.5" y1="37.5" x2="53.25" y2="37.5" width="0.1524" layer="1"/>
-<via x="53.25" y="37.5" extent="1-16" drill="0.13"/>
+<via x="53.25" y="37.5" extent="1-16" drill="0.2032"/>
 <wire x1="49.5" y1="41.5" x2="50" y2="42" width="0.1524" layer="1"/>
-<via x="50" y="42" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="50" y="42" extent="1-16" drill="0.2032"/>
 <contactref element="X3" pad="2"/>
 <wire x1="44.5" y1="30.5" x2="44.5" y2="29" width="0.1524" layer="1"/>
-<via x="44.5" y="29" extent="1-16" drill="0.13"/>
+<via x="44.5" y="29" extent="1-16" drill="0.2032"/>
 <wire x1="46.5" y1="39.5" x2="47" y2="40" width="0.1524" layer="1"/>
-<via x="47" y="40" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="47" y="40" extent="1-16" drill="0.2032"/>
 <wire x1="86" y1="15.1" x2="86" y2="17.25" width="0.1524" layer="1"/>
-<via x="86" y="17.25" extent="1-16" drill="0.13"/>
+<via x="86" y="17.25" extent="1-16" drill="0.2032"/>
 <wire x1="86" y1="20.9" x2="86" y2="18.75" width="0.1524" layer="1"/>
-<via x="86" y="18.75" extent="1-16" drill="0.13"/>
+<via x="86" y="18.75" extent="1-16" drill="0.2032"/>
 <wire x1="86" y1="18.75" x2="86" y2="17.25" width="0.1524" layer="1"/>
 <wire x1="71.75" y1="29.2" x2="71.75" y2="30.25" width="0.1524" layer="1"/>
 <wire x1="71.75" y1="30.25" x2="71.5" y2="30.5" width="0.1524" layer="1"/>
 <wire x1="71.5" y1="30.5" x2="71.25" y2="30.25" width="0.1524" layer="1"/>
 <wire x1="71.25" y1="30.25" x2="71.25" y2="29.2" width="0.1524" layer="1"/>
-<via x="71.5" y="30.5" extent="1-16" drill="0.13"/>
+<via x="71.5" y="30.5" extent="1-16" drill="0.2032"/>
 <wire x1="69.8" y1="22.75" x2="68.5" y2="22.75" width="0.1524" layer="1"/>
-<via x="68.5" y="22.75" extent="1-16" drill="0.13"/>
+<via x="68.5" y="22.75" extent="1-16" drill="0.2032"/>
 <wire x1="78.2" y1="23.25" x2="79.5" y2="23.25" width="0.1524" layer="1"/>
-<via x="79.5" y="23.25" extent="1-16" drill="0.13"/>
+<via x="79.5" y="23.25" extent="1-16" drill="0.2032"/>
 <wire x1="78.2" y1="25.25" x2="79.5" y2="25.25" width="0.1524" layer="1"/>
-<via x="79.5" y="25.25" extent="1-16" drill="0.13"/>
+<via x="79.5" y="25.25" extent="1-16" drill="0.2032"/>
 <contactref element="J2" pad="15"/>
 <contactref element="J1" pad="15"/>
 <contactref element="J1" pad="16"/>
 <wire x1="31.5" y1="5.15" x2="31.5" y2="3.5" width="0.3048" layer="16"/>
-<via x="31.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="31.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="31.5" y1="3.5" x2="31.5" y2="5.15" width="0.3048" layer="1"/>
 <wire x1="31.5" y1="8.85" x2="31.5" y2="10.5" width="0.3048" layer="16"/>
 <wire x1="38.5" y1="31.5" x2="37.5" y2="31.5" width="0.1524" layer="1"/>
@@ -13123,7 +13147,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="C120" pad="2"/>
 <wire x1="52.5" y1="30.5" x2="52" y2="31" width="0.1524" layer="1"/>
 <wire x1="14.85" y1="47.5" x2="13.75" y2="47.5" width="0.3048" layer="1"/>
-<via x="13.75" y="47.5" extent="1-16" drill="0.13"/>
+<via x="13.75" y="47.5" extent="1-16" drill="0.2032"/>
 <wire x1="13.3" y1="42" x2="13.65" y2="42.35" width="0.3048" layer="1"/>
 <wire x1="13.65" y1="42.35" x2="15.25" y2="42.35" width="0.3048" layer="1"/>
 <contactref element="X5" pad="2"/>
@@ -13134,7 +13158,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="C131" pad="2"/>
 <contactref element="X1" pad="2"/>
 <contactref element="X1" pad="4"/>
-<wire x1="25" y1="2.5" x2="28.5" y2="2.5" width="0.3048" layer="1"/>
+<wire x1="24.75" y1="2.5" x2="28.5" y2="2.5" width="0.3048" layer="1"/>
 <wire x1="28.5" y1="2.5" x2="31.25" y2="2.5" width="0.3048" layer="1"/>
 <wire x1="31.25" y1="2.5" x2="31.5" y2="2.75" width="0.3048" layer="1"/>
 <wire x1="31.5" y1="2.75" x2="31.5" y2="3.5" width="0.3048" layer="1"/>
@@ -13147,12 +13171,6 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <vertex x="3" y="3"/>
 <vertex x="87" y="3"/>
 <vertex x="87" y="53"/>
-</polygon>
-<polygon width="0.2032" layer="2" pour="cutout">
-<vertex x="10" y="50"/>
-<vertex x="10" y="32"/>
-<vertex x="27" y="32"/>
-<vertex x="27" y="50"/>
 </polygon>
 <polygon width="0.2032" layer="1" pour="cutout" isolate="0.2032" rank="2">
 <vertex x="3" y="53"/>
@@ -13178,6 +13196,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="C147" pad="2"/>
 <contactref element="C146" pad="2"/>
 <contactref element="C143" pad="2"/>
+<via x="20.75" y="50" extent="1-16" drill="0.2032"/>
+<wire x1="20.3" y1="50.55" x2="20.3" y2="50.45" width="0.3048" layer="1"/>
+<wire x1="20.3" y1="50.45" x2="19.85" y2="50" width="0.3048" layer="1"/>
+<wire x1="20.75" y1="50" x2="20.3" y2="50.45" width="0.3048" layer="1"/>
+<contactref element="R13" pad="1"/>
 <wire x1="69" y1="42.35" x2="73.6" y2="41" width="0" layer="19" extent="16-16"/>
 <wire x1="74.85" y1="34.75" x2="73.6" y2="41" width="0" layer="19" extent="16-16"/>
 <wire x1="74.25" y1="32.9" x2="74.85" y2="34.75" width="0" layer="19" extent="16-16"/>
@@ -13304,7 +13327,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="11.35" y1="37" x2="12.35" y2="36.75" width="0" layer="19" extent="1-16"/>
 <wire x1="11.7" y1="39" x2="11.35" y2="37" width="0" layer="19" extent="1-1"/>
 <wire x1="12" y1="32.4" x2="12.35" y2="35.5" width="0" layer="19" extent="16-16"/>
-<wire x1="20.3" y1="50.05" x2="21.75" y2="47" width="0" layer="19" extent="1-1"/>
+<wire x1="20.75" y1="50" x2="21.75" y2="47" width="0" layer="19" extent="1-1"/>
 <wire x1="15.85" y1="47.5" x2="17.5" y2="43.5" width="0" layer="19" extent="1-16"/>
 <wire x1="14.85" y1="47.5" x2="15.85" y2="47.5" width="0" layer="19" extent="1-16"/>
 <wire x1="26.5" y1="50.4" x2="22.85" y2="47" width="0" layer="19" extent="1-16"/>
@@ -13316,7 +13339,8 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="4" y1="20.9" x2="4" y2="26.5" width="0" layer="19" extent="1-1"/>
 <wire x1="4" y1="15.1" x2="4" y2="20.9" width="0" layer="19" extent="1-1"/>
 <wire x1="11" y1="18.1" x2="4" y2="20.9" width="0" layer="19" extent="1-1"/>
-<wire x1="31.5" y1="10.5" x2="32.35" y2="24" width="0" layer="19" extent="1-16"/>
+<wire x1="34.85" y1="15" x2="35.6" y2="23.75" width="0" layer="19" extent="16-16"/>
+<wire x1="31.5" y1="10.5" x2="34.85" y2="15" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="D1V5">
 <contactref element="U1" pad="J7"/>
@@ -13337,37 +13361,37 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="J2" pad="8"/>
 <contactref element="J2" pad="7"/>
 <wire x1="27.5" y1="5.15" x2="27.5" y2="3.5" width="0.3048" layer="1"/>
-<via x="27.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="27.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="27.5" y1="3.5" x2="27.5" y2="5.15" width="0.3048" layer="16"/>
 <wire x1="27.5" y1="5.15" x2="27.5" y2="8.85" width="0.3048" layer="1"/>
 <wire x1="27.5" y1="8.85" x2="27.5" y2="10.5" width="0.3048" layer="1"/>
-<via x="27.5" y="10.5" extent="1-16" drill="0.13"/>
+<via x="27.5" y="10.5" extent="1-16" drill="0.2032"/>
 <wire x1="27.5" y1="10.5" x2="27.5" y2="8.85" width="0.3048" layer="16"/>
-<via x="36.75" y="35.5" extent="1-16" drill="0.13"/>
+<via x="36.75" y="35.5" extent="1-16" drill="0.2032"/>
 <wire x1="43.5" y1="39.5" x2="43" y2="40" width="0.1524" layer="1"/>
-<via x="43" y="40" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="43" y="40" extent="1-16" drill="0.2032"/>
 <wire x1="44.5" y1="38.5" x2="44" y2="39" width="0.1524" layer="1"/>
-<via x="44" y="39" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="44" y="39" extent="1-16" drill="0.2032"/>
 <wire x1="43.5" y1="37.5" x2="43" y2="37" width="0.1524" layer="1"/>
-<via x="43" y="37" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="43" y="37" extent="1-16" drill="0.2032"/>
 <wire x1="43.5" y1="35.5" x2="43" y2="35" width="0.1524" layer="1"/>
-<via x="43" y="35" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="43" y="35" extent="1-16" drill="0.2032"/>
 <wire x1="44.5" y1="36.5" x2="44" y2="36" width="0.1524" layer="1"/>
-<via x="44" y="36" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="44" y="36" extent="1-16" drill="0.2032"/>
 <wire x1="45.5" y1="37.5" x2="46" y2="37" width="0.1524" layer="1"/>
-<via x="46" y="37" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="46" y="37" extent="1-16" drill="0.2032"/>
 <wire x1="45.5" y1="35.5" x2="46" y2="35" width="0.1524" layer="1"/>
-<via x="46" y="35" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="46" y="35" extent="1-16" drill="0.2032"/>
 <wire x1="44.5" y1="40.5" x2="44" y2="41" width="0.1524" layer="1"/>
-<via x="44" y="41" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="44" y="41" extent="1-16" drill="0.2032"/>
 <wire x1="46.5" y1="36.5" x2="47" y2="36" width="0.1524" layer="1"/>
-<via x="47" y="36" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="47" y="36" extent="1-16" drill="0.2032"/>
 <wire x1="46.5" y1="38.5" x2="47" y2="39" width="0.1524" layer="1"/>
-<via x="47" y="39" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="47" y="39" extent="1-16" drill="0.2032"/>
 <wire x1="46.5" y1="40.5" x2="47" y2="41" width="0.1524" layer="1"/>
-<via x="47" y="41" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="47" y="41" extent="1-16" drill="0.2032"/>
 <wire x1="45.5" y1="39.5" x2="46" y2="40" width="0.1524" layer="1"/>
-<via x="46" y="40" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="46" y="40" extent="1-16" drill="0.2032"/>
 <wire x1="27.5" y1="10.5" x2="27.5" y2="26.25" width="0.3048" layer="16"/>
 <polygon width="0.2032" layer="15" pour="cutout">
 <vertex x="42.5" y="34.5"/>
@@ -13410,7 +13434,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="28.25" y1="27" x2="35" y2="27" width="0.3048" layer="16"/>
 <wire x1="35" y1="27" x2="36" y2="28" width="0.3048" layer="16"/>
 <wire x1="36" y1="28" x2="38.4" y2="28" width="0.3048" layer="16"/>
-<via x="35" y="27" extent="1-16" drill="0.13"/>
+<via x="35" y="27" extent="1-16" drill="0.2032"/>
 <wire x1="36" y1="28" x2="36" y2="35" width="0.3048" layer="15"/>
 <wire x1="36" y1="35" x2="36.75" y2="35.5" width="0.3048" layer="15"/>
 <wire x1="35" y1="27" x2="36" y2="28" width="0.3048" layer="15"/>
@@ -13436,13 +13460,13 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="J1" pad="4"/>
 <wire x1="25.5" y1="5.15" x2="25.5" y2="8.85" width="0.3048" layer="16"/>
 <wire x1="25.5" y1="5.15" x2="25.5" y2="3.5" width="0.3048" layer="16"/>
-<via x="25.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="25.5" y="3.5" extent="1-16" drill="0.2032"/>
 <contactref element="J2" pad="3"/>
 <contactref element="J2" pad="4"/>
 <wire x1="25.5" y1="3.5" x2="25.5" y2="5.15" width="0.3048" layer="1"/>
 <wire x1="25.5" y1="5.15" x2="25.5" y2="8.85" width="0.3048" layer="1"/>
 <wire x1="25.5" y1="8.85" x2="25.5" y2="10.5" width="0.3048" layer="1"/>
-<via x="25.5" y="10.5" extent="1-16" drill="0.13"/>
+<via x="25.5" y="10.5" extent="1-16" drill="0.2032"/>
 <wire x1="25.5" y1="10.5" x2="25.5" y2="8.85" width="0.3048" layer="16"/>
 </signal>
 <signal name="D3V3">
@@ -13502,73 +13526,73 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="K3"/>
 <wire x1="26.5" y1="5.15" x2="26.5" y2="8.85" width="0.3048" layer="16"/>
 <wire x1="26.5" y1="5.15" x2="26.5" y2="3.5" width="0.3048" layer="16"/>
-<via x="26.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="26.5" y="3.5" extent="1-16" drill="0.2032"/>
 <contactref element="J2" pad="5"/>
 <contactref element="J2" pad="6"/>
 <wire x1="26.5" y1="5.15" x2="26.5" y2="8.85" width="0.3048" layer="1"/>
 <wire x1="26.5" y1="5.15" x2="26.5" y2="3.5" width="0.3048" layer="1"/>
 <wire x1="26.5" y1="8.85" x2="26.5" y2="10.5" width="0.3048" layer="1"/>
-<via x="26.5" y="10.5" extent="1-16" drill="0.13"/>
+<via x="26.5" y="10.5" extent="1-16" drill="0.2032"/>
 <wire x1="26.5" y1="10.5" x2="26.5" y2="8.85" width="0.3048" layer="16"/>
 <wire x1="54.25" y1="23.5" x2="54.25" y2="24.25" width="0.1524" layer="1"/>
-<via x="54.25" y="24.25" extent="1-16" drill="0.13"/>
+<via x="54.25" y="24.25" extent="1-16" drill="0.2032"/>
 <wire x1="38.25" y1="23.5" x2="38.25" y2="24.25" width="0.1524" layer="1"/>
-<via x="38.25" y="24.25" extent="1-16" drill="0.13"/>
+<via x="38.25" y="24.25" extent="1-16" drill="0.2032"/>
 <contactref element="R8" pad="2"/>
 <contactref element="R7" pad="2"/>
 <wire x1="37.5" y1="33.5" x2="36.5" y2="33.5" width="0.1524" layer="1"/>
-<via x="36.5" y="33.5" extent="1-16" drill="0.13"/>
+<via x="36.5" y="33.5" extent="1-16" drill="0.2032"/>
 <wire x1="43.5" y1="32.5" x2="43" y2="32" width="0.1524" layer="1"/>
-<via x="43" y="32" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="43" y="32" extent="1-16" drill="0.2032"/>
 <wire x1="40.5" y1="34.5" x2="40" y2="34" width="0.1524" layer="1"/>
-<via x="40" y="34" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="40" y="34" extent="1-16" drill="0.2032"/>
 <wire x1="39.5" y1="41.5" x2="39" y2="42" width="0.1524" layer="1"/>
-<via x="39" y="42" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="39" y="42" extent="1-16" drill="0.2032"/>
 <wire x1="51.5" y1="30.5" x2="52" y2="30" width="0.1524" layer="1"/>
-<via x="52" y="30" extent="1-16" drill="0.13"/>
+<via x="52" y="30" extent="1-16" drill="0.2032"/>
 <contactref element="X3" pad="4"/>
 <wire x1="42.5" y1="38.5" x2="42" y2="39" width="0.1524" layer="1"/>
-<via x="42" y="39" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="42" y="39" extent="1-16" drill="0.2032"/>
 <wire x1="42.5" y1="40.5" x2="42" y2="41" width="0.1524" layer="1"/>
-<via x="42" y="41" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="42" y="41" extent="1-16" drill="0.2032"/>
 <wire x1="42.5" y1="34.5" x2="42" y2="34" width="0.1524" layer="1"/>
-<via x="42" y="34" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="42" y="34" extent="1-16" drill="0.2032"/>
 <wire x1="44.5" y1="34.5" x2="44" y2="34" width="0.1524" layer="1"/>
-<via x="44" y="34" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="44" y="34" extent="1-16" drill="0.2032"/>
 <wire x1="38.5" y1="38.5" x2="38" y2="39" width="0.1524" layer="1"/>
-<via x="38" y="39" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="38" y="39" extent="1-16" drill="0.2032"/>
 <wire x1="46.5" y1="34.5" x2="47" y2="34" width="0.1524" layer="1"/>
-<via x="47" y="34" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="47" y="34" extent="1-16" drill="0.2032"/>
 <wire x1="49.5" y1="32.5" x2="50" y2="32" width="0.1524" layer="1"/>
-<via x="50" y="32" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="50" y="32" extent="1-16" drill="0.2032"/>
 <wire x1="52.5" y1="33.5" x2="53" y2="33.5" width="0.1524" layer="1"/>
-<via x="53" y="33.5" extent="1-16" drill="0.13"/>
+<via x="53" y="33.5" extent="1-16" drill="0.2032"/>
 <wire x1="47.5" y1="35.5" x2="48" y2="35" width="0.1524" layer="1"/>
-<via x="48" y="35" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="48" y="35" extent="1-16" drill="0.2032"/>
 <wire x1="49.5" y1="35.5" x2="50" y2="36" width="0.1524" layer="1"/>
-<via x="50" y="36" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="50" y="36" extent="1-16" drill="0.2032"/>
 <wire x1="47.5" y1="37.5" x2="48" y2="37" width="0.1524" layer="1"/>
-<via x="48" y="37" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="48" y="37" extent="1-16" drill="0.2032"/>
 <wire x1="50.5" y1="37.5" x2="51" y2="37" width="0.1524" layer="1"/>
-<via x="51" y="37" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="51" y="37" extent="1-16" drill="0.2032"/>
 <wire x1="47.5" y1="39.5" x2="48" y2="40" width="0.1524" layer="1"/>
-<via x="48" y="40" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="48" y="40" extent="1-16" drill="0.2032"/>
 <wire x1="50.5" y1="39.5" x2="51" y2="40" width="0.1524" layer="1"/>
-<via x="51" y="40" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="51" y="40" extent="1-16" drill="0.2032"/>
 <wire x1="51.5" y1="42.5" x2="52" y2="43" width="0.1524" layer="1"/>
-<via x="52" y="43" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="52" y="43" extent="1-16" drill="0.2032"/>
 <wire x1="45.5" y1="30.5" x2="45.5" y2="29.75" width="0.1524" layer="1"/>
-<via x="45.5" y="29.75" extent="1-16" drill="0.13"/>
+<via x="45.5" y="29.75" extent="1-16" drill="0.2032"/>
 <wire x1="73.25" y1="29.2" x2="73.25" y2="30.5" width="0.3048" layer="1"/>
-<via x="73.25" y="30.5" extent="1-16" drill="0.13"/>
+<via x="73.25" y="30.5" extent="1-16" drill="0.2032"/>
 <wire x1="69.8" y1="22.25" x2="68.5" y2="22.25" width="0.3048" layer="1"/>
-<via x="68.5" y="22.25" extent="1-16" drill="0.13"/>
+<via x="68.5" y="22.25" extent="1-16" drill="0.2032"/>
 <wire x1="73.25" y1="31.6" x2="74.25" y2="31.6" width="0.3048" layer="16"/>
 <wire x1="73.25" y1="31.6" x2="73.25" y2="30.5" width="0.3048" layer="16"/>
 <wire x1="42.5" y1="36.5" x2="42" y2="36" width="0.1524" layer="1"/>
-<via x="42" y="36" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="42" y="36" extent="1-16" drill="0.2032"/>
 <wire x1="38.5" y1="30.5" x2="38" y2="31" width="0.1524" layer="1"/>
-<via x="38" y="31" extent="1-16" drill="0.13"/>
+<via x="38" y="31" extent="1-16" drill="0.2032"/>
 <wire x1="36.9" y1="24.75" x2="37.4" y2="24.25" width="0.1524" layer="16"/>
 <wire x1="36.9" y1="23.75" x2="37.4" y2="24.25" width="0.1524" layer="16"/>
 <wire x1="37.4" y1="24.25" x2="38.25" y2="24.25" width="0.1524" layer="16"/>
@@ -13657,7 +13681,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="49.1" y1="38" x2="49" y2="38" width="0.1524" layer="16"/>
 <wire x1="49" y1="38" x2="48.5" y2="37.5" width="0.1524" layer="16"/>
 <wire x1="78.15" y1="30.5" x2="79" y2="30.5" width="0.1524" layer="16"/>
-<via x="79" y="30.5" extent="1-16" drill="0.13"/>
+<via x="79" y="30.5" extent="1-16" drill="0.2032"/>
 <wire x1="73.85" y1="47" x2="80" y2="50.85" width="0" layer="19" extent="16-16"/>
 <wire x1="74.5" y1="43.6" x2="73.85" y2="47" width="0" layer="19" extent="16-16"/>
 <wire x1="64.15" y1="42" x2="74.5" y2="43.6" width="0" layer="19" extent="16-16"/>
@@ -13767,64 +13791,64 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="T15"/>
 <contactref element="U1" pad="P12"/>
 <wire x1="64.5" y1="8.85" x2="64.5" y2="10.5" width="0.3048" layer="16"/>
-<via x="64.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="64.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="64.5" y1="5.15" x2="64.5" y2="3.5" width="0.3048" layer="16"/>
 <wire x1="64.5" y1="8.85" x2="64.5" y2="5.15" width="0.3048" layer="16"/>
-<via x="64.5" y="10.5" extent="1-16" drill="0.13"/>
+<via x="64.5" y="10.5" extent="1-16" drill="0.2032"/>
 <wire x1="64.5" y1="10.5" x2="64.5" y2="3.5" width="0.3048" layer="1"/>
 <wire x1="58.5" y1="22.25" x2="59.75" y2="22.25" width="0.1524" layer="1"/>
-<via x="59.75" y="22.25" extent="1-16" drill="0.13"/>
+<via x="59.75" y="22.25" extent="1-16" drill="0.2032"/>
 <wire x1="58.5" y1="20.75" x2="59.25" y2="20.75" width="0.1524" layer="1"/>
-<via x="59.25" y="20.75" extent="1-16" drill="0.13"/>
+<via x="59.25" y="20.75" extent="1-16" drill="0.2032"/>
 <wire x1="58.5" y1="17.75" x2="59.75" y2="17.75" width="0.1524" layer="1"/>
-<via x="59.75" y="17.75" extent="1-16" drill="0.13"/>
+<via x="59.75" y="17.75" extent="1-16" drill="0.2032"/>
 <wire x1="56.75" y1="16.5" x2="56.75" y2="15.75" width="0.1524" layer="1"/>
-<via x="56.75" y="15.75" extent="1-16" drill="0.13"/>
+<via x="56.75" y="15.75" extent="1-16" drill="0.2032"/>
 <wire x1="55.25" y1="16.5" x2="55.25" y2="15.75" width="0.1524" layer="1"/>
-<via x="55.25" y="15.75" extent="1-16" drill="0.13"/>
+<via x="55.25" y="15.75" extent="1-16" drill="0.2032"/>
 <wire x1="53.25" y1="16.5" x2="53.25" y2="15.75" width="0.1524" layer="1"/>
-<via x="53.25" y="15.75" extent="1-16" drill="0.13"/>
+<via x="53.25" y="15.75" extent="1-16" drill="0.2032"/>
 <wire x1="51.5" y1="18.75" x2="50.75" y2="18.75" width="0.1524" layer="1"/>
-<via x="50.75" y="18.75" extent="1-16" drill="0.13"/>
+<via x="50.75" y="18.75" extent="1-16" drill="0.2032"/>
 <wire x1="51.5" y1="19.75" x2="50.75" y2="19.75" width="0.1524" layer="1"/>
-<via x="50.75" y="19.75" extent="1-16" drill="0.13"/>
+<via x="50.75" y="19.75" extent="1-16" drill="0.2032"/>
 <wire x1="42.5" y1="17.75" x2="43.75" y2="17.75" width="0.1524" layer="1"/>
-<via x="43.75" y="17.75" extent="1-16" drill="0.13"/>
+<via x="43.75" y="17.75" extent="1-16" drill="0.2032"/>
 <wire x1="42.5" y1="20.75" x2="43.25" y2="20.75" width="0.1524" layer="1"/>
-<via x="43.25" y="20.75" extent="1-16" drill="0.13"/>
+<via x="43.25" y="20.75" extent="1-16" drill="0.2032"/>
 <wire x1="42.5" y1="22.25" x2="43.75" y2="22.25" width="0.1524" layer="1"/>
-<via x="43.75" y="22.25" extent="1-16" drill="0.13"/>
+<via x="43.75" y="22.25" extent="1-16" drill="0.2032"/>
 <wire x1="35.5" y1="19.75" x2="34.75" y2="19.75" width="0.1524" layer="1"/>
-<via x="34.75" y="19.75" extent="1-16" drill="0.13"/>
+<via x="34.75" y="19.75" extent="1-16" drill="0.2032"/>
 <wire x1="35.5" y1="18.75" x2="34.75" y2="18.75" width="0.1524" layer="1"/>
-<via x="34.75" y="18.75" extent="1-16" drill="0.13"/>
+<via x="34.75" y="18.75" extent="1-16" drill="0.2032"/>
 <wire x1="37.25" y1="16.5" x2="37.25" y2="15.75" width="0.1524" layer="1"/>
-<via x="37.25" y="15.75" extent="1-16" drill="0.13"/>
+<via x="37.25" y="15.75" extent="1-16" drill="0.2032"/>
 <wire x1="39.25" y1="16.5" x2="39.25" y2="15.75" width="0.1524" layer="1"/>
-<via x="39.25" y="15.75" extent="1-16" drill="0.13"/>
+<via x="39.25" y="15.75" extent="1-16" drill="0.2032"/>
 <wire x1="40.75" y1="16.5" x2="40.75" y2="15.75" width="0.1524" layer="1"/>
-<via x="40.75" y="15.75" extent="1-16" drill="0.13"/>
+<via x="40.75" y="15.75" extent="1-16" drill="0.2032"/>
 <contactref element="C44" pad="1"/>
 <wire x1="33.4" y1="18.75" x2="33.4" y2="19.75" width="0.1524" layer="16"/>
 <wire x1="49.65" y1="19.75" x2="49.65" y2="18.75" width="0.1524" layer="16"/>
 <wire x1="40.75" y1="15.75" x2="40.75" y2="15.4" width="0.1524" layer="16"/>
 <wire x1="38.5" y1="45.5" x2="38.5" y2="46.5" width="0.1524" layer="1"/>
-<via x="38.5" y="46.5" extent="1-16" drill="0.13"/>
+<via x="38.5" y="46.5" extent="1-16" drill="0.2032"/>
 <wire x1="37.5" y1="44.5" x2="36.75" y2="44.5" width="0.1524" layer="1"/>
-<via x="36.75" y="44.5" extent="1-16" drill="0.13"/>
+<via x="36.75" y="44.5" extent="1-16" drill="0.2032"/>
 <wire x1="46.5" y1="44.5" x2="46" y2="44" width="0.1524" layer="1"/>
-<via x="46" y="44" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="46" y="44" extent="1-16" drill="0.2032"/>
 <wire x1="39.5" y1="42.5" x2="39" y2="43" width="0.1524" layer="1"/>
-<via x="39" y="43" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="39" y="43" extent="1-16" drill="0.2032"/>
 <wire x1="45.5" y1="42.5" x2="46" y2="43" width="0.1524" layer="1"/>
 <wire x1="36.1" y1="19.75" x2="36.1" y2="20.75" width="0.1524" layer="16"/>
 <wire x1="34.75" y1="19.75" x2="36.1" y2="19.75" width="0.1524" layer="16"/>
 <wire x1="41.5" y1="43.5" x2="41" y2="43" width="0.1524" layer="1"/>
-<via x="41" y="43" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="41" y="43" extent="1-16" drill="0.2032"/>
 <wire x1="49.5" y1="42.5" x2="50" y2="43" width="0.1524" layer="1"/>
-<via x="50" y="43" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="50" y="43" extent="1-16" drill="0.2032"/>
 <wire x1="51.5" y1="43.5" x2="52" y2="44" width="0.1524" layer="1"/>
-<via x="52" y="44" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="52" y="44" extent="1-16" drill="0.2032"/>
 <wire x1="39" y1="43" x2="39.5" y2="43.5" width="0.1524" layer="1"/>
 <contactref element="C119" pad="1"/>
 <contactref element="C121" pad="1"/>
@@ -13892,7 +13916,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="56.5" y1="36.75" x2="56.5" y2="41.5" width="0.3048" layer="15"/>
 <wire x1="52.5" y1="44.5" x2="52" y2="44" width="0.3048" layer="15"/>
 <wire x1="64.5" y1="28.75" x2="56.5" y2="36.75" width="0.3048" layer="16"/>
-<via x="56.5" y="36.75" extent="1-16" drill="0.13"/>
+<via x="56.5" y="36.75" extent="1-16" drill="0.2032"/>
 <contactref element="C133" pad="1"/>
 <contactref element="C132" pad="1"/>
 <wire x1="56.5" y1="41.5" x2="56.35" y2="41.5" width="0.3048" layer="15"/>
@@ -14049,10 +14073,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="65.5" y1="8.85" x2="65.5" y2="5.15" width="0.3048" layer="1"/>
 <wire x1="62.5" y1="5.15" x2="62.5" y2="8.85" width="0.3048" layer="1"/>
 <wire x1="62.5" y1="5.15" x2="62.5" y2="3.5" width="0.3048" layer="1"/>
-<via x="62.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="62.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="62.5" y1="3.5" x2="62.5" y2="5.15" width="0.3048" layer="16"/>
 <wire x1="65.5" y1="5.15" x2="65.5" y2="3.5" width="0.3048" layer="1"/>
-<via x="65.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="65.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="65.5" y1="3.5" x2="65.5" y2="5.15" width="0.3048" layer="16"/>
 <wire x1="59.5" y1="5.15" x2="59.5" y2="8.85" width="0.3048" layer="1"/>
 <wire x1="53.5" y1="5.15" x2="53.5" y2="8.85" width="0.3048" layer="1"/>
@@ -14063,31 +14087,31 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="38.5" y1="5.15" x2="38.5" y2="8.85" width="0.3048" layer="1"/>
 <wire x1="62.5" y1="5.15" x2="62.5" y2="8.85" width="0.3048" layer="16"/>
 <wire x1="38.5" y1="8.85" x2="38.5" y2="10.5" width="0.3048" layer="1"/>
-<via x="38.5" y="10.5" extent="1-16" drill="0.13"/>
-<via x="38.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="38.5" y="10.5" extent="1-16" drill="0.2032"/>
+<via x="38.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="38.5" y1="8.85" x2="38.5" y2="5.15" width="0.3048" layer="16"/>
 <wire x1="38.5" y1="3.5" x2="38.5" y2="5" width="0.3048" layer="1"/>
 <wire x1="41.5" y1="5.15" x2="41.5" y2="3.5" width="0.3048" layer="1"/>
-<via x="41.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="41.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="41.5" y1="3.5" x2="41.5" y2="10.5" width="0.3048" layer="16"/>
-<via x="41.5" y="10.5" extent="1-16" drill="0.13"/>
+<via x="41.5" y="10.5" extent="1-16" drill="0.2032"/>
 <wire x1="41.5" y1="10.5" x2="41.5" y2="8.85" width="0.3048" layer="1"/>
 <wire x1="65.5" y1="8.85" x2="65.5" y2="10.5" width="0.3048" layer="16"/>
-<via x="65.5" y="10.5" extent="1-16" drill="0.13"/>
+<via x="65.5" y="10.5" extent="1-16" drill="0.2032"/>
 <wire x1="65.5" y1="10.5" x2="65.5" y2="8.85" width="0.3048" layer="1"/>
 <wire x1="44.5" y1="5.15" x2="44.5" y2="3.5" width="0.3048" layer="1"/>
-<via x="44.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="44.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="44.5" y1="3.5" x2="44.5" y2="10.5" width="0.3048" layer="16"/>
-<via x="44.5" y="10.5" extent="1-16" drill="0.13"/>
+<via x="44.5" y="10.5" extent="1-16" drill="0.2032"/>
 <wire x1="44.5" y1="10.5" x2="44.5" y2="8.85" width="0.3048" layer="1"/>
-<wire x1="38.5" y1="3.5" x2="38.5" y2="3" width="0.3048" layer="1"/>
-<wire x1="38.5" y1="3" x2="39" y2="2.5" width="0.3048" layer="1"/>
-<wire x1="65.5" y1="3.5" x2="65.5" y2="3" width="0.3048" layer="1"/>
-<wire x1="65.5" y1="3" x2="65" y2="2.5" width="0.3048" layer="1"/>
+<wire x1="38.5" y1="3.5" x2="38.5" y2="2.75" width="0.3048" layer="1"/>
+<wire x1="38.5" y1="2.75" x2="38.75" y2="2.5" width="0.3048" layer="1"/>
+<wire x1="65.5" y1="3.5" x2="65.5" y2="2.75" width="0.3048" layer="1"/>
+<wire x1="65.5" y1="2.75" x2="65.25" y2="2.5" width="0.3048" layer="1"/>
 <wire x1="62.5" y1="8.85" x2="62.5" y2="10.5" width="0.3048" layer="1"/>
-<via x="62.5" y="10.5" extent="1-16" drill="0.13"/>
+<via x="62.5" y="10.5" extent="1-16" drill="0.2032"/>
 <wire x1="62.5" y1="10.5" x2="62.5" y2="3.5" width="0.3048" layer="16"/>
-<wire x1="65" y1="2.5" x2="62.5" y2="2.5" width="0.3048" layer="1"/>
+<wire x1="65.25" y1="2.5" x2="62.5" y2="2.5" width="0.3048" layer="1"/>
 <wire x1="62.5" y1="2.5" x2="59.5" y2="2.5" width="0.3048" layer="1"/>
 <wire x1="59.5" y1="2.5" x2="56.5" y2="2.5" width="0.3048" layer="1"/>
 <wire x1="56.5" y1="2.5" x2="53.5" y2="2.5" width="0.3048" layer="1"/>
@@ -14095,7 +14119,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="50.5" y1="2.5" x2="47.5" y2="2.5" width="0.3048" layer="1"/>
 <wire x1="47.5" y1="2.5" x2="44.5" y2="2.5" width="0.3048" layer="1"/>
 <wire x1="44.5" y1="2.5" x2="41.5" y2="2.5" width="0.3048" layer="1"/>
-<wire x1="41.5" y1="2.5" x2="39" y2="2.5" width="0.3048" layer="1"/>
+<wire x1="41.5" y1="2.5" x2="38.75" y2="2.5" width="0.3048" layer="1"/>
 <wire x1="41.5" y1="3.5" x2="41.5" y2="2.5" width="0.3048" layer="1"/>
 <wire x1="44.5" y1="3.5" x2="44.5" y2="2.5" width="0.3048" layer="1"/>
 <wire x1="50.5" y1="3.5" x2="50.5" y2="2.5" width="0.3048" layer="1"/>
@@ -14107,58 +14131,58 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="59.5" y1="3.5" x2="59.5" y2="2.5" width="0.3048" layer="1"/>
 <wire x1="62.5" y1="3.5" x2="62.5" y2="2.5" width="0.3048" layer="1"/>
 <wire x1="50.5" y1="8.85" x2="50.5" y2="10.5" width="0.3048" layer="1"/>
-<via x="50.5" y="10.5" extent="1-16" drill="0.13"/>
+<via x="50.5" y="10.5" extent="1-16" drill="0.2032"/>
 <wire x1="50.5" y1="10.5" x2="50.5" y2="3.5" width="0.3048" layer="16"/>
-<via x="50.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="50.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="50.5" y1="3.5" x2="50.5" y2="5.15" width="0.3048" layer="1"/>
-<via x="47.5" y="10.5" extent="1-16" drill="0.13"/>
+<via x="47.5" y="10.5" extent="1-16" drill="0.2032"/>
 <wire x1="47.5" y1="8.85" x2="47.5" y2="10.5" width="0.3048" layer="1"/>
 <wire x1="47.5" y1="10.5" x2="47.5" y2="3.5" width="0.3048" layer="16"/>
-<via x="47.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="47.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="47.5" y1="3.5" x2="47.5" y2="8.85" width="0.3048" layer="1"/>
 <wire x1="53.5" y1="5.15" x2="53.5" y2="3.5" width="0.3048" layer="1"/>
-<via x="53.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="53.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="53.5" y1="3.5" x2="53.5" y2="10.5" width="0.3048" layer="16"/>
-<via x="53.5" y="10.5" extent="1-16" drill="0.13"/>
+<via x="53.5" y="10.5" extent="1-16" drill="0.2032"/>
 <wire x1="53.5" y1="10.5" x2="53.5" y2="3.5" width="0.3048" layer="1"/>
-<via x="56.5" y="10.5" extent="1-16" drill="0.13"/>
+<via x="56.5" y="10.5" extent="1-16" drill="0.2032"/>
 <wire x1="56.5" y1="8.85" x2="56.5" y2="10.5" width="0.3048" layer="1"/>
 <wire x1="56.5" y1="10.5" x2="56.5" y2="3.5" width="0.3048" layer="16"/>
-<via x="56.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="56.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="56.5" y1="3.5" x2="56.5" y2="8.85" width="0.3048" layer="1"/>
 <wire x1="59.5" y1="8.85" x2="59.5" y2="10.5" width="0.3048" layer="1"/>
-<via x="59.5" y="10.5" extent="1-16" drill="0.13"/>
+<via x="59.5" y="10.5" extent="1-16" drill="0.2032"/>
 <wire x1="59.5" y1="10.5" x2="59.5" y2="3.5" width="0.3048" layer="16"/>
-<via x="59.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="59.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="59.5" y1="3.5" x2="59.5" y2="5.15" width="0.3048" layer="1"/>
 <wire x1="58.5" y1="20.25" x2="59.75" y2="20.25" width="0.1524" layer="1"/>
-<via x="59.75" y="20.25" extent="1-16" drill="0.13"/>
+<via x="59.75" y="20.25" extent="1-16" drill="0.2032"/>
 <wire x1="58.5" y1="19.25" x2="59.75" y2="19.25" width="0.1524" layer="1"/>
-<via x="59.75" y="19.25" extent="1-16" drill="0.13"/>
+<via x="59.75" y="19.25" extent="1-16" drill="0.2032"/>
 <wire x1="58.5" y1="20.25" x2="55.25" y2="20.25" width="0.1524" layer="1"/>
 <wire x1="55.25" y1="20.25" x2="55" y2="20" width="0.1524" layer="1"/>
 <wire x1="58.5" y1="19.25" x2="55.75" y2="19.25" width="0.1524" layer="1"/>
 <wire x1="55.75" y1="19.25" x2="55" y2="20" width="0.1524" layer="1"/>
 <wire x1="54.75" y1="16.5" x2="54.75" y2="15.75" width="0.1524" layer="1"/>
-<via x="54.75" y="15.75" extent="1-16" drill="0.13"/>
+<via x="54.75" y="15.75" extent="1-16" drill="0.2032"/>
 <wire x1="54.75" y1="16.5" x2="54.75" y2="19.75" width="0.1524" layer="1"/>
 <wire x1="54.75" y1="19.75" x2="55" y2="20" width="0.1524" layer="1"/>
 <wire x1="54.75" y1="19.75" x2="54.25" y2="19.25" width="0.1524" layer="1"/>
 <wire x1="54.25" y1="19.25" x2="51.5" y2="19.25" width="0.1524" layer="1"/>
 <wire x1="51.5" y1="19.25" x2="50.75" y2="19.25" width="0.1524" layer="1"/>
-<via x="50.75" y="19.25" extent="1-16" drill="0.13"/>
+<via x="50.75" y="19.25" extent="1-16" drill="0.2032"/>
 <wire x1="42.5" y1="19.25" x2="43.75" y2="19.25" width="0.1524" layer="1"/>
-<via x="43.75" y="19.25" extent="1-16" drill="0.13"/>
+<via x="43.75" y="19.25" extent="1-16" drill="0.2032"/>
 <wire x1="42.5" y1="20.25" x2="43.75" y2="20.25" width="0.1524" layer="1"/>
-<via x="43.75" y="20.25" extent="1-16" drill="0.13"/>
+<via x="43.75" y="20.25" extent="1-16" drill="0.2032"/>
 <wire x1="42.5" y1="22.75" x2="43.25" y2="22.75" width="0.1524" layer="1"/>
-<via x="43.25" y="22.75" extent="1-16" drill="0.13"/>
+<via x="43.25" y="22.75" extent="1-16" drill="0.2032"/>
 <wire x1="35.5" y1="19.25" x2="38.25" y2="19.25" width="0.1524" layer="1"/>
 <wire x1="38.25" y1="19.25" x2="39" y2="20" width="0.1524" layer="1"/>
 <wire x1="35.5" y1="19.25" x2="34.75" y2="19.25" width="0.1524" layer="1"/>
-<via x="34.75" y="19.25" extent="1-16" drill="0.13"/>
+<via x="34.75" y="19.25" extent="1-16" drill="0.2032"/>
 <wire x1="38.75" y1="16.5" x2="38.75" y2="15.75" width="0.1524" layer="1"/>
-<via x="38.75" y="15.75" extent="1-16" drill="0.13"/>
+<via x="38.75" y="15.75" extent="1-16" drill="0.2032"/>
 <wire x1="38.75" y1="16.5" x2="38.75" y2="19.75" width="0.1524" layer="1"/>
 <wire x1="38.75" y1="19.75" x2="39" y2="20" width="0.1524" layer="1"/>
 <wire x1="42.5" y1="20.25" x2="39.25" y2="20.25" width="0.1524" layer="1"/>
@@ -14167,33 +14191,33 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="39.75" y1="19.25" x2="39" y2="20" width="0.1524" layer="1"/>
 <wire x1="32.1" y1="18.75" x2="32.1" y2="19.75" width="0.1524" layer="16"/>
 <wire x1="58.5" y1="22.75" x2="59.25" y2="22.75" width="0.1524" layer="1"/>
-<via x="59.25" y="22.75" extent="1-16" drill="0.13"/>
+<via x="59.25" y="22.75" extent="1-16" drill="0.2032"/>
 <wire x1="45.5" y1="45.5" x2="46" y2="46" width="0.1524" layer="1"/>
-<via x="46" y="46" extent="1-16" drill="0.13"/>
+<via x="46" y="46" extent="1-16" drill="0.2032"/>
 <wire x1="40.5" y1="45.5" x2="40.5" y2="46.5" width="0.1524" layer="1"/>
 <wire x1="39.5" y1="45.5" x2="39.5" y2="46.5" width="0.1524" layer="1"/>
-<via x="39.5" y="46.5" extent="1-16" drill="0.13"/>
-<via x="40.5" y="46.5" extent="1-16" drill="0.13"/>
+<via x="39.5" y="46.5" extent="1-16" drill="0.2032"/>
+<via x="40.5" y="46.5" extent="1-16" drill="0.2032"/>
 <wire x1="40.5" y1="42.5" x2="40" y2="43" width="0.1524" layer="1"/>
-<via x="40" y="43" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="40" y="43" extent="1-16" drill="0.2032"/>
 <wire x1="42.5" y1="42.5" x2="43" y2="43" width="0.1524" layer="1"/>
-<via x="43" y="43" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="43" y="43" extent="1-16" drill="0.2032"/>
 <wire x1="43.5" y1="41.5" x2="44" y2="42" width="0.1524" layer="1"/>
-<via x="44" y="42" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="44" y="42" extent="1-16" drill="0.2032"/>
 <wire x1="46.5" y1="41.5" x2="47" y2="42" width="0.1524" layer="1"/>
-<via x="47" y="42" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="47" y="42" extent="1-16" drill="0.2032"/>
 <wire x1="45.5" y1="41.5" x2="46" y2="42" width="0.1524" layer="1"/>
-<via x="46" y="42" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="46" y="42" extent="1-16" drill="0.2032"/>
 <wire x1="49.5" y1="38.5" x2="50" y2="39" width="0.1524" layer="1"/>
-<via x="50" y="39" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="50" y="39" extent="1-16" drill="0.2032"/>
 <wire x1="49.5" y1="43.5" x2="49" y2="44" width="0.1524" layer="1"/>
-<via x="49" y="44" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="49" y="44" extent="1-16" drill="0.2032"/>
 <wire x1="49.5" y1="45.5" x2="49.5" y2="46.5" width="0.1524" layer="1"/>
-<via x="49.5" y="46.5" extent="1-16" drill="0.13"/>
+<via x="49.5" y="46.5" extent="1-16" drill="0.2032"/>
 <wire x1="52.5" y1="43.5" x2="53.25" y2="43.5" width="0.1524" layer="1"/>
-<via x="53.25" y="43.5" extent="1-16" drill="0.13"/>
+<via x="53.25" y="43.5" extent="1-16" drill="0.2032"/>
 <wire x1="51.5" y1="33.5" x2="52" y2="34" width="0.1524" layer="1"/>
-<via x="52" y="34" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="52" y="34" extent="1-16" drill="0.2032"/>
 <wire x1="42.5" y1="43.5" x2="43" y2="43" width="0.1524" layer="1"/>
 <wire x1="40.5" y1="43.5" x2="40" y2="43" width="0.1524" layer="1"/>
 <wire x1="46.5" y1="42.5" x2="46" y2="42" width="0.1524" layer="1"/>
@@ -14254,6 +14278,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 </polygon>
 <contactref element="C132" pad="2"/>
 <contactref element="C133" pad="2"/>
+<contactref element="R13" pad="2"/>
 <wire x1="50.5" y1="48.9" x2="51.5" y2="48.9" width="0" layer="19" extent="16-16"/>
 <wire x1="48.5" y1="48.9" x2="50.5" y2="48.9" width="0" layer="19" extent="16-16"/>
 <wire x1="47.5" y1="48.9" x2="48.5" y2="48.9" width="0" layer="19" extent="16-16"/>
@@ -14344,6 +14369,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="62.15" y1="23.25" x2="62.15" y2="23" width="0" layer="19" extent="1-16"/>
 <wire x1="32.1" y1="18.75" x2="34.75" y2="19.25" width="0" layer="19" extent="1-16"/>
 <wire x1="47.5" y1="14.35" x2="44.5" y2="14.35" width="0" layer="19" extent="1-1"/>
+<wire x1="33.15" y1="15" x2="36.25" y2="13.1" width="0" layer="19" extent="16-16"/>
 </signal>
 <signal name="VBUS">
 <contactref element="U4" pad="5"/>
@@ -14353,7 +14379,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="C92" pad="1"/>
 <wire x1="17.7" y1="51.325" x2="17.7" y2="50.7" width="0.3048" layer="1"/>
 <wire x1="17.15" y1="47.5" x2="18.25" y2="47.5" width="0.3048" layer="1"/>
-<via x="18.25" y="47.5" extent="1-16" drill="0.13"/>
+<via x="18.25" y="47.5" extent="1-16" drill="0.2032"/>
 <wire x1="18.5" y1="46.35" x2="18.5" y2="47.25" width="0.3048" layer="16"/>
 <wire x1="18.5" y1="47.25" x2="18.25" y2="47.5" width="0.3048" layer="16"/>
 <wire x1="16" y1="49" x2="16" y2="48" width="0.3048" layer="1"/>
@@ -14417,10 +14443,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 </signal>
 <signal name="ADC1+">
 <contactref element="R9" pad="2"/>
-<via x="46.5" y="10.5" extent="1-16" drill="0.13"/>
+<via x="46.5" y="10.5" extent="1-16" drill="0.2032"/>
 <contactref element="J2" pad="46"/>
 <wire x1="46.5" y1="10.5" x2="46.5" y2="8.85" width="0.3048" layer="1"/>
-<via x="45.5" y="11.5" extent="1-16" drill="0.13"/>
+<via x="45.5" y="11.5" extent="1-16" drill="0.2032"/>
 <wire x1="45.5" y1="11.5" x2="45.5" y2="14.35" width="0.3048" layer="1"/>
 <wire x1="46.5" y1="10.5" x2="45.5" y2="11.5" width="0.3048" layer="3"/>
 </signal>
@@ -14457,10 +14483,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="J2" pad="68"/>
 <wire x1="57.5" y1="10.5" x2="57.5" y2="8.85" width="0.3048" layer="1"/>
 <wire x1="57.5" y1="10.5" x2="58" y2="11" width="0.3048" layer="1"/>
-<via x="58" y="11" extent="1-16" drill="0.13"/>
+<via x="58" y="11" extent="1-16" drill="0.2032"/>
 <wire x1="58" y1="11" x2="59" y2="12" width="0.3048" layer="3"/>
 <wire x1="59" y1="12" x2="61" y2="12" width="0.3048" layer="3"/>
-<via x="61" y="12" extent="1-16" drill="0.13"/>
+<via x="61" y="12" extent="1-16" drill="0.2032"/>
 <wire x1="61" y1="12" x2="61.5" y2="12.5" width="0.3048" layer="1"/>
 <wire x1="61.5" y1="12.5" x2="61.5" y2="14.35" width="0.3048" layer="1"/>
 </signal>
@@ -14567,7 +14593,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U6" pad="34"/>
 <contactref element="R2" pad="2"/>
 <wire x1="72.25" y1="29.2" x2="72.25" y2="30.5" width="0.1524" layer="1"/>
-<via x="72.25" y="30.5" extent="1-16" drill="0.13"/>
+<via x="72.25" y="30.5" extent="1-16" drill="0.2032"/>
 <wire x1="72.25" y1="30.5" x2="68.25" y2="34.5" width="0.1524" layer="3"/>
 <wire x1="68.25" y1="34.5" x2="64.25" y2="34.5" width="0.1524" layer="3"/>
 <wire x1="64.25" y1="34.5" x2="61.75" y2="37" width="0.1524" layer="3"/>
@@ -14579,7 +14605,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="R1" pad="2"/>
 <contactref element="U1" pad="L5"/>
 <wire x1="49.5" y1="41.5" x2="49" y2="41" width="0.1524" layer="16"/>
-<via x="49" y="41" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="49" y="41" extent="1-16" drill="0.2032"/>
 <wire x1="49" y1="41" x2="48.5" y2="40.5" width="0.1524" layer="1"/>
 <wire x1="49.5" y1="41.5" x2="55.75" y2="41.5" width="0.1524" layer="16"/>
 <wire x1="55.75" y1="41.5" x2="56.75" y2="42.5" width="0.1524" layer="16"/>
@@ -14589,9 +14615,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="R96" pad="2"/>
 <contactref element="U1" pad="E14"/>
 <wire x1="39.5" y1="34.5" x2="39" y2="34" width="0.1524" layer="1"/>
-<via x="39" y="34" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="39" y="34" extent="1-16" drill="0.2032"/>
 <wire x1="39" y1="34" x2="33.5" y2="34" width="0.1524" layer="3"/>
-<via x="33.5" y="34" extent="1-16" drill="0.13"/>
+<via x="33.5" y="34" extent="1-16" drill="0.2032"/>
 <wire x1="27.9" y1="37.25" x2="28" y2="37.25" width="0.1524" layer="1"/>
 <wire x1="28" y1="37.25" x2="31.25" y2="34" width="0.1524" layer="1"/>
 <wire x1="31.25" y1="34" x2="33.5" y2="34" width="0.1524" layer="1"/>
@@ -14600,21 +14626,21 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="T12"/>
 <contactref element="C65" pad="1"/>
 <wire x1="41.5" y1="45.5" x2="41.5" y2="46.5" width="0.1524" layer="1"/>
-<via x="41.5" y="46.5" extent="1-16" drill="0.13"/>
+<via x="41.5" y="46.5" extent="1-16" drill="0.2032"/>
 <wire x1="41.5" y1="46.5" x2="40.5" y2="45.5" width="0.1524" layer="14"/>
 <wire x1="40.5" y1="45.5" x2="40.5" y2="31" width="0.1524" layer="14"/>
 <wire x1="40.5" y1="31" x2="39.5" y2="30" width="0.1524" layer="14"/>
 <wire x1="39.5" y1="30" x2="39.5" y2="3.5" width="0.1524" layer="14"/>
 <contactref element="J2" pad="31"/>
 <wire x1="39.5" y1="5.15" x2="39.5" y2="3.5" width="0.1524" layer="1"/>
-<via x="39.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="39.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="41.5" y1="46.5" x2="41.5" y2="47.6" width="0.1524" layer="16"/>
 </signal>
 <signal name="SF_ADC1">
 <contactref element="U1" pad="R6"/>
 <contactref element="C67" pad="1"/>
 <wire x1="47.5" y1="44.5" x2="48" y2="44" width="0.1524" layer="1"/>
-<via x="48" y="44" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="48" y="44" extent="1-16" drill="0.2032"/>
 <wire x1="48" y1="44" x2="47" y2="44" width="0.1524" layer="14"/>
 <contactref element="R54" pad="2"/>
 <wire x1="47.5" y1="47.6" x2="47.5" y2="44.5" width="0.1524" layer="16"/>
@@ -14625,11 +14651,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="47.5" y1="17.29519375" x2="47.5" y2="13" width="0.1524" layer="14"/>
 <wire x1="47.5" y1="13" x2="49.5" y2="11" width="0.1524" layer="14"/>
 <wire x1="49.5" y1="5.15" x2="49.5" y2="3.5" width="0.1524" layer="1"/>
-<via x="49.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="49.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="49.5" y1="3.5" x2="49.5" y2="11" width="0.1524" layer="14"/>
 <wire x1="47" y1="44" x2="46.5" y2="43.5" width="0.1524" layer="14"/>
 <wire x1="46.5" y1="43.5" x2="46.5" y2="38.5" width="0.1524" layer="14"/>
-<via x="47.5" y="17.29519375" extent="1-16" drill="0.13"/>
+<via x="47.5" y="17.29519375" extent="1-16" drill="0.2032"/>
 <wire x1="47.5" y1="17.29519375" x2="48.20480625" y2="17.29519375" width="0.1524" layer="16"/>
 <wire x1="48.20480625" y1="17.29519375" x2="48.25" y2="17.25" width="0.1524" layer="16"/>
 <wire x1="48.25" y1="17.25" x2="48.35" y2="17.25" width="0.1524" layer="16"/>
@@ -14637,7 +14663,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <signal name="SF_ADC2">
 <contactref element="U1" pad="P7"/>
 <wire x1="46.5" y1="43.5" x2="47" y2="43" width="0.1524" layer="1"/>
-<via x="47" y="43" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="47" y="43" extent="1-16" drill="0.2032"/>
 <wire x1="47" y1="43" x2="47.5" y2="42.5" width="0.1524" layer="14"/>
 <contactref element="J2" pad="55"/>
 <wire x1="47.5" y1="38.5" x2="48.5" y2="37.5" width="0.1524" layer="14"/>
@@ -14646,7 +14672,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="49" y1="30.25" x2="49" y2="13.5" width="0.1524" layer="14"/>
 <wire x1="49" y1="13.5" x2="51.5" y2="11" width="0.1524" layer="14"/>
 <wire x1="51.5" y1="5.15" x2="51.5" y2="3.5" width="0.1524" layer="1"/>
-<via x="51.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="51.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="51.5" y1="3.5" x2="51.5" y2="11" width="0.1524" layer="14"/>
 <wire x1="47.5" y1="42.5" x2="47.5" y2="38.5" width="0.1524" layer="14"/>
 </signal>
@@ -14654,7 +14680,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="M5"/>
 <contactref element="C68" pad="1"/>
 <wire x1="48.5" y1="41.5" x2="49" y2="42" width="0.1524" layer="1"/>
-<via x="49" y="42" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="49" y="42" extent="1-16" drill="0.2032"/>
 <wire x1="49" y1="42" x2="49.5" y2="41.5" width="0.1524" layer="14"/>
 <wire x1="49.5" y1="41.5" x2="49.5" y2="19.25" width="0.1524" layer="14"/>
 <contactref element="R53" pad="2"/>
@@ -14662,11 +14688,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="48.5" y1="42.5" x2="49" y2="42" width="0.1524" layer="16"/>
 <contactref element="J2" pad="57"/>
 <wire x1="52.5" y1="5.15" x2="52.5" y2="3.5" width="0.1524" layer="1"/>
-<via x="52.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="52.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="52.5" y1="3.5" x2="52.5" y2="11" width="0.1524" layer="14"/>
 <wire x1="52.5" y1="11" x2="50.5" y2="13" width="0.1524" layer="14"/>
 <wire x1="50.5" y1="13" x2="50.5" y2="13.5" width="0.1524" layer="14"/>
-<via x="50.5" y="13.5" extent="1-16" drill="0.13"/>
+<via x="50.5" y="13.5" extent="1-16" drill="0.2032"/>
 <wire x1="50.5" y1="13.5" x2="50.5" y2="13.6" width="0.1524" layer="16"/>
 <wire x1="50.5" y1="13.6" x2="51.25" y2="14.35" width="0.1524" layer="16"/>
 <wire x1="51.25" y1="14.35" x2="49.5" y2="19.25" width="0" layer="19" extent="14-16"/>
@@ -14674,7 +14700,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <signal name="SF_ADC4">
 <contactref element="U1" pad="M9"/>
 <wire x1="44.5" y1="41.5" x2="45" y2="42" width="0.1524" layer="1"/>
-<via x="45" y="42" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="45" y="42" extent="1-16" drill="0.2032"/>
 <wire x1="45" y1="42" x2="45" y2="38" width="0.1524" layer="14"/>
 <wire x1="45" y1="38" x2="45.5" y2="37.5" width="0.1524" layer="14"/>
 <wire x1="45.5" y1="37.5" x2="45.5" y2="31.5" width="0.1524" layer="14"/>
@@ -14684,13 +14710,13 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="46.5" y1="9.5" x2="46.5" y2="3.5" width="0.1524" layer="14"/>
 <contactref element="J2" pad="45"/>
 <wire x1="46.5" y1="5.15" x2="46.5" y2="3.5" width="0.1524" layer="1"/>
-<via x="46.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="46.5" y="3.5" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="SF_ADC5">
 <contactref element="U1" pad="N9"/>
 <contactref element="C69" pad="1"/>
 <wire x1="44.5" y1="42.5" x2="44" y2="43" width="0.1524" layer="1"/>
-<via x="44" y="43" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="44" y="43" extent="1-16" drill="0.2032"/>
 <wire x1="44" y1="43" x2="44.5" y2="42.5" width="0.1524" layer="14"/>
 <wire x1="44.5" y1="42.5" x2="44.5" y2="31.5" width="0.1524" layer="14"/>
 <wire x1="44.5" y1="31.5" x2="45" y2="31" width="0.1524" layer="14"/>
@@ -14700,7 +14726,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="45.5" y1="9.5" x2="45.5" y2="3.5" width="0.1524" layer="14"/>
 <contactref element="J2" pad="43"/>
 <wire x1="45.5" y1="5.15" x2="45.5" y2="3.5" width="0.1524" layer="1"/>
-<via x="45.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="45.5" y="3.5" extent="1-16" drill="0.2032"/>
 <contactref element="R52" pad="2"/>
 <wire x1="44" y1="43" x2="43.5" y2="43.5" width="0.1524" layer="16"/>
 <wire x1="43.5" y1="43.5" x2="43.5" y2="46.5" width="0.1524" layer="16"/>
@@ -14708,17 +14734,17 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="43.5" y1="47.6" x2="43.5" y2="46.75" width="0.1524" layer="16"/>
 <wire x1="39" y1="21.4" x2="41.6" y2="24" width="0.1524" layer="16"/>
 <wire x1="41.6" y1="24" x2="45" y2="24" width="0.1524" layer="16"/>
-<via x="45" y="24" extent="1-16" drill="0.13"/>
+<via x="45" y="24" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="SF_ADC6">
 <contactref element="U1" pad="P9"/>
 <wire x1="44.5" y1="43.5" x2="44" y2="44" width="0.1524" layer="1"/>
-<via x="44" y="44" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="44" y="44" extent="1-16" drill="0.2032"/>
 <wire x1="44" y1="44" x2="43.5" y2="43.5" width="0.1524" layer="14"/>
 <wire x1="43.5" y1="43.5" x2="43.5" y2="3.5" width="0.1524" layer="14"/>
 <contactref element="J2" pad="39"/>
 <wire x1="43.5" y1="5.15" x2="43.5" y2="3.5" width="0.1524" layer="1"/>
-<via x="43.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="43.5" y="3.5" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="ADC2-QAP">
 <contactref element="R5" pad="1"/>
@@ -14888,10 +14914,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U3" pad="25"/>
 <contactref element="R23" pad="2"/>
 <wire x1="51.5" y1="22.75" x2="50.25" y2="22.75" width="0.1524" layer="1"/>
-<via x="50.25" y="22.75" extent="1-16" drill="0.13"/>
+<via x="50.25" y="22.75" extent="1-16" drill="0.2032"/>
 <contactref element="U1" pad="D6"/>
 <wire x1="47.5" y1="33.5" x2="47" y2="33" width="0.1524" layer="1"/>
-<via x="47" y="33" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="47" y="33" extent="1-16" drill="0.2032"/>
 <wire x1="50.25" y1="22.75" x2="47" y2="26" width="0.1524" layer="16"/>
 <wire x1="47" y1="26" x2="47" y2="27" width="0.1524" layer="16"/>
 <wire x1="47" y1="27" x2="47" y2="33" width="0.1524" layer="16"/>
@@ -14911,8 +14937,8 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="L13"/>
 <contactref element="R21" pad="1"/>
 <wire x1="40.5" y1="40.5" x2="40" y2="41" width="0.1524" layer="1"/>
-<via x="40" y="41" extent="1-16" drill="0.3048" diameter="0.6096"/>
-<via x="35.5" y="10.5" extent="1-16" drill="0.13"/>
+<via x="40" y="41" extent="1-16" drill="0.2032"/>
+<via x="35.5" y="10.5" extent="1-16" drill="0.2032"/>
 <wire x1="35.5" y1="10.5" x2="35.5" y2="14.5" width="0.1524" layer="14"/>
 <wire x1="35.5" y1="14.5" x2="31" y2="19" width="0.1524" layer="14"/>
 <wire x1="31" y1="19" x2="31" y2="35.25" width="0.1524" layer="14"/>
@@ -14932,29 +14958,29 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="51.5" y1="20.75" x2="50.25" y2="20.75" width="0.1524" layer="1"/>
 <wire x1="35.5" y1="20.75" x2="33.5" y2="20.75" width="0.1524" layer="1"/>
 <wire x1="39.5" y1="40.5" x2="39" y2="41" width="0.1524" layer="1"/>
-<via x="39" y="41" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="39" y="41" extent="1-16" drill="0.2032"/>
 <wire x1="39" y1="41" x2="36.25" y2="41" width="0.1524" layer="16"/>
-<via x="32.5" y="10.5" extent="1-16" drill="0.13"/>
+<via x="32.5" y="10.5" extent="1-16" drill="0.2032"/>
 <wire x1="32.5" y1="10.5" x2="32.5" y2="13" width="0.1524" layer="14"/>
 <wire x1="32.5" y1="13" x2="28" y2="17.5" width="0.1524" layer="14"/>
 <wire x1="28" y1="36.75" x2="28" y2="25.5" width="0.1524" layer="14"/>
-<via x="50.25" y="20.75" extent="1-16" drill="0.13"/>
+<via x="50.25" y="20.75" extent="1-16" drill="0.2032"/>
 <wire x1="28" y1="25.5" x2="28" y2="17.5" width="0.1524" layer="14"/>
 <wire x1="50.25" y1="20.75" x2="49.5" y2="20.75" width="0.1524" layer="16"/>
 <wire x1="49.5" y1="20.75" x2="44.75" y2="25.5" width="0.1524" layer="16"/>
 <wire x1="44.75" y1="25.5" x2="33" y2="25.5" width="0.1524" layer="16"/>
-<via x="33.5" y="20.75" extent="1-16" drill="0.13"/>
+<via x="33.5" y="20.75" extent="1-16" drill="0.2032"/>
 <contactref element="J2" pad="18"/>
 <wire x1="33" y1="25.5" x2="28" y2="25.5" width="0.1524" layer="16"/>
 <wire x1="32.5" y1="8.85" x2="32.5" y2="10.5" width="0.1524" layer="1"/>
 <wire x1="28" y1="36.75" x2="31.75" y2="40.5" width="0.1524" layer="14"/>
-<via x="28" y="25.5" extent="1-16" drill="0.13"/>
+<via x="28" y="25.5" extent="1-16" drill="0.2032"/>
 <wire x1="36.25" y1="41" x2="35.75" y2="40.5" width="0.1524" layer="16"/>
 <wire x1="35.75" y1="40.5" x2="31.75" y2="40.5" width="0.1524" layer="16"/>
-<via x="31.75" y="40.5" extent="1-16" drill="0.13"/>
+<via x="31.75" y="40.5" extent="1-16" drill="0.2032"/>
 <wire x1="33.5" y1="20.75" x2="33" y2="21.25" width="0.1524" layer="14"/>
 <wire x1="33" y1="21.25" x2="33" y2="25.5" width="0.1524" layer="14"/>
-<via x="33" y="25.5" extent="1-16" drill="0.13"/>
+<via x="33" y="25.5" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="SPI1_MISO">
 <contactref element="U1" pad="L15"/>
@@ -14964,13 +14990,13 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="35.5" y1="22.25" x2="34.75" y2="22.25" width="0.1524" layer="1"/>
 <wire x1="38.5" y1="40.5" x2="38" y2="41" width="0.1524" layer="1"/>
 <wire x1="38" y1="41" x2="35.25" y2="41" width="0.1524" layer="1"/>
-<via x="34.5" y="10.5" extent="1-16" drill="0.13"/>
+<via x="34.5" y="10.5" extent="1-16" drill="0.2032"/>
 <wire x1="34.5" y1="10.5" x2="34.5" y2="14" width="0.1524" layer="14"/>
 <wire x1="34.5" y1="14" x2="30" y2="18.5" width="0.1524" layer="14"/>
-<via x="34.75" y="22.25" extent="1-16" drill="0.13"/>
-<via x="35.25" y="41" extent="1-16" drill="0.13"/>
+<via x="34.75" y="22.25" extent="1-16" drill="0.2032"/>
+<via x="35.25" y="41" extent="1-16" drill="0.2032"/>
 <wire x1="30" y1="35.75" x2="30" y2="26.5" width="0.1524" layer="14"/>
-<via x="50.25" y="22.25" extent="1-16" drill="0.13"/>
+<via x="50.25" y="22.25" extent="1-16" drill="0.2032"/>
 <wire x1="30" y1="26.5" x2="30" y2="18.5" width="0.1524" layer="14"/>
 <wire x1="50.25" y1="22.25" x2="50" y2="22.25" width="0.1524" layer="16"/>
 <wire x1="50" y1="22.25" x2="45.75" y2="26.5" width="0.1524" layer="16"/>
@@ -14979,10 +15005,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="34.5" y1="26.5" x2="30" y2="26.5" width="0.1524" layer="16"/>
 <wire x1="34.5" y1="10.5" x2="34.5" y2="8.85" width="0.1524" layer="1"/>
 <wire x1="30" y1="35.75" x2="35.25" y2="41" width="0.1524" layer="14"/>
-<via x="30" y="26.5" extent="1-16" drill="0.13"/>
+<via x="30" y="26.5" extent="1-16" drill="0.2032"/>
 <wire x1="34.75" y1="22.25" x2="34.5" y2="22.5" width="0.1524" layer="14"/>
 <wire x1="34.5" y1="22.5" x2="34.5" y2="26.5" width="0.1524" layer="14"/>
-<via x="34.5" y="26.5" extent="1-16" drill="0.13"/>
+<via x="34.5" y="26.5" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="SPI1_MOSI">
 <contactref element="U1" pad="L12"/>
@@ -14991,28 +15017,28 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="51.5" y1="21.25" x2="50" y2="21.25" width="0.1524" layer="1"/>
 <wire x1="35.5" y1="21.25" x2="34.25" y2="21.25" width="0.1524" layer="1"/>
 <wire x1="41.5" y1="40.5" x2="41" y2="41" width="0.1524" layer="1"/>
-<via x="41" y="41" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="41" y="41" extent="1-16" drill="0.2032"/>
 <wire x1="41" y1="41" x2="40.5" y2="41.5" width="0.1524" layer="16"/>
 <wire x1="40.5" y1="41.5" x2="34.25" y2="41.5" width="0.1524" layer="16"/>
-<via x="33.5" y="10.5" extent="1-16" drill="0.13"/>
+<via x="33.5" y="10.5" extent="1-16" drill="0.2032"/>
 <wire x1="33.5" y1="10.5" x2="33.5" y2="13.5" width="0.1524" layer="14"/>
 <wire x1="33.5" y1="13.5" x2="29" y2="18" width="0.1524" layer="14"/>
-<via x="50" y="21.25" extent="1-16" drill="0.13"/>
+<via x="50" y="21.25" extent="1-16" drill="0.2032"/>
 <wire x1="50" y1="21.25" x2="45.25" y2="26" width="0.1524" layer="16"/>
 <wire x1="45.25" y1="26" x2="33.75" y2="26" width="0.1524" layer="16"/>
-<via x="34.25" y="21.25" extent="1-16" drill="0.13"/>
+<via x="34.25" y="21.25" extent="1-16" drill="0.2032"/>
 <wire x1="33.75" y1="26" x2="29" y2="26" width="0.1524" layer="16"/>
 <wire x1="29" y1="36.25" x2="29" y2="26" width="0.1524" layer="14"/>
 <contactref element="J2" pad="20"/>
 <wire x1="29" y1="26" x2="29" y2="18" width="0.1524" layer="14"/>
 <wire x1="33.5" y1="8.85" x2="33.5" y2="10.5" width="0.1524" layer="1"/>
 <wire x1="29" y1="36.25" x2="33.75" y2="41" width="0.1524" layer="14"/>
-<via x="29" y="26" extent="1-16" drill="0.13"/>
+<via x="29" y="26" extent="1-16" drill="0.2032"/>
 <wire x1="34.25" y1="41.5" x2="33.75" y2="41" width="0.1524" layer="16"/>
-<via x="33.75" y="41" extent="1-16" drill="0.13"/>
+<via x="33.75" y="41" extent="1-16" drill="0.2032"/>
 <wire x1="34.25" y1="21.25" x2="33.75" y2="21.75" width="0.1524" layer="14"/>
 <wire x1="33.75" y1="21.75" x2="33.75" y2="26" width="0.1524" layer="14"/>
-<via x="33.75" y="26" extent="1-16" drill="0.13"/>
+<via x="33.75" y="26" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="SPI0_MOSI">
 <contactref element="U1" pad="N16"/>
@@ -15021,13 +15047,13 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="33.5" y1="8.85" x2="33.5" y2="9.75" width="0.1524" layer="16"/>
 <wire x1="33.5" y1="9.75" x2="33" y2="10.25" width="0.1524" layer="16"/>
 <wire x1="33" y1="10.25" x2="33" y2="11" width="0.1524" layer="16"/>
-<via x="33" y="11" extent="1-16" drill="0.13"/>
+<via x="33" y="11" extent="1-16" drill="0.2032"/>
 <wire x1="33" y1="11" x2="33" y2="13.25" width="0.1524" layer="14"/>
 <wire x1="33" y1="13.25" x2="28.5" y2="17.75" width="0.1524" layer="14"/>
 <wire x1="28.5" y1="17.75" x2="28.5" y2="36.5" width="0.1524" layer="14"/>
 <wire x1="28.5" y1="36.5" x2="33" y2="41" width="0.1524" layer="14"/>
 <wire x1="34.5" y1="42.5" x2="33" y2="41" width="0.1524" layer="1"/>
-<via x="33" y="41" extent="1-16" drill="0.13"/>
+<via x="33" y="41" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="SPI0_MISO">
 <contactref element="U1" pad="M16"/>
@@ -15036,42 +15062,42 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="34.5" y1="8.85" x2="34.5" y2="9.75" width="0.1524" layer="16"/>
 <wire x1="34.5" y1="9.75" x2="34" y2="10.25" width="0.1524" layer="16"/>
 <wire x1="34" y1="10.25" x2="34" y2="11" width="0.1524" layer="16"/>
-<via x="34" y="11" extent="1-16" drill="0.13"/>
+<via x="34" y="11" extent="1-16" drill="0.2032"/>
 <wire x1="34" y1="11" x2="34" y2="13.75" width="0.1524" layer="14"/>
 <wire x1="34" y1="13.75" x2="29.5" y2="18.25" width="0.1524" layer="14"/>
 <wire x1="29.5" y1="18.25" x2="29.5" y2="36" width="0.1524" layer="14"/>
 <wire x1="29.5" y1="36" x2="34.5" y2="41" width="0.1524" layer="14"/>
-<via x="34.5" y="41" extent="1-16" drill="0.13"/>
+<via x="34.5" y="41" extent="1-16" drill="0.2032"/>
 <wire x1="34.5" y1="41" x2="35" y2="41.5" width="0.1524" layer="1"/>
 </signal>
 <signal name="SPI0_SCLK">
 <contactref element="U1" pad="M15"/>
 <wire x1="38.5" y1="41.5" x2="38" y2="42" width="0.1524" layer="1"/>
-<via x="38" y="42" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="38" y="42" extent="1-16" drill="0.2032"/>
 <wire x1="38" y1="42" x2="32.5" y2="42" width="0.1524" layer="16"/>
 <contactref element="J1" pad="18"/>
 <wire x1="32.5" y1="8.85" x2="32.5" y2="9.75" width="0.1524" layer="16"/>
 <wire x1="32.5" y1="9.75" x2="32" y2="10.25" width="0.1524" layer="16"/>
 <wire x1="32" y1="10.25" x2="32" y2="11" width="0.1524" layer="16"/>
-<via x="32" y="11" extent="1-16" drill="0.13"/>
+<via x="32" y="11" extent="1-16" drill="0.2032"/>
 <wire x1="32" y1="11" x2="32" y2="12.75" width="0.1524" layer="14"/>
 <wire x1="32" y1="12.75" x2="27.5" y2="17.25" width="0.1524" layer="14"/>
 <wire x1="27.5" y1="17.25" x2="27.5" y2="37" width="0.1524" layer="14"/>
 <wire x1="27.5" y1="37" x2="31" y2="40.5" width="0.1524" layer="14"/>
-<via x="31" y="40.5" extent="1-16" drill="0.13"/>
+<via x="31" y="40.5" extent="1-16" drill="0.2032"/>
 <wire x1="31" y1="40.5" x2="32.5" y2="42" width="0.1524" layer="16"/>
 </signal>
 <signal name="SPI0_SS">
 <contactref element="U1" pad="M13"/>
 <wire x1="40.5" y1="41.5" x2="40" y2="42" width="0.1524" layer="1"/>
-<via x="40" y="42" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="40" y="42" extent="1-16" drill="0.2032"/>
 <wire x1="40" y1="42" x2="39.5" y2="41.5" width="0.1524" layer="14"/>
 <wire x1="39.5" y1="41.5" x2="36.5" y2="41.5" width="0.1524" layer="14"/>
 <contactref element="J1" pad="24"/>
 <wire x1="35.5" y1="8.85" x2="35.5" y2="9.75" width="0.1524" layer="16"/>
 <wire x1="35.5" y1="9.75" x2="35" y2="10.25" width="0.1524" layer="16"/>
 <wire x1="35" y1="10.25" x2="35" y2="11" width="0.1524" layer="16"/>
-<via x="35" y="11" extent="1-16" drill="0.13"/>
+<via x="35" y="11" extent="1-16" drill="0.2032"/>
 <wire x1="35" y1="11" x2="35" y2="14.25" width="0.1524" layer="14"/>
 <wire x1="35" y1="14.25" x2="30.5" y2="18.75" width="0.1524" layer="14"/>
 <wire x1="30.5" y1="18.75" x2="30.5" y2="35.5" width="0.1524" layer="14"/>
@@ -15152,14 +15178,14 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="D7"/>
 <wire x1="35.5" y1="20.25" x2="34.75" y2="20.25" width="0.1524" layer="1"/>
 <wire x1="46.5" y1="33.5" x2="46" y2="33" width="0.1524" layer="1"/>
-<via x="46" y="33" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="46" y="33" extent="1-16" drill="0.2032"/>
 <wire x1="46" y1="33" x2="45.5" y2="32.5" width="0.1524" layer="3"/>
 <wire x1="45.5" y1="32.5" x2="45.5" y2="28.25" width="0.1524" layer="3"/>
-<via x="34.75" y="20.25" extent="1-16" drill="0.13"/>
-<via x="34.75" y="20.25" extent="1-16" drill="0.13"/>
+<via x="34.75" y="20.25" extent="1-16" drill="0.2032"/>
+<via x="34.75" y="20.25" extent="1-16" drill="0.2032"/>
 <wire x1="45.5" y1="28.25" x2="44.25" y2="27" width="0.1524" layer="3"/>
 <wire x1="44.25" y1="27" x2="38" y2="27" width="0.1524" layer="3"/>
-<via x="38" y="27" extent="1-16" drill="0.13"/>
+<via x="38" y="27" extent="1-16" drill="0.2032"/>
 <wire x1="38" y1="27" x2="36" y2="25" width="0.1524" layer="14"/>
 <wire x1="36" y1="25" x2="36" y2="21.5" width="0.1524" layer="14"/>
 <wire x1="36" y1="21.5" x2="34.75" y2="20.25" width="0.1524" layer="14"/>
@@ -15169,10 +15195,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U3" pad="30"/>
 <contactref element="R25" pad="1"/>
 <wire x1="50.75" y1="27.5" x2="50.75" y2="20.25" width="0.1524" layer="16"/>
-<via x="50.75" y="20.25" extent="1-16" drill="0.13"/>
+<via x="50.75" y="20.25" extent="1-16" drill="0.2032"/>
 <wire x1="50.75" y1="20.25" x2="51.5" y2="20.25" width="0.1524" layer="1"/>
 <contactref element="U1" pad="C5"/>
-<via x="49" y="32" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="49" y="32" extent="1-16" drill="0.2032"/>
 <wire x1="48.5" y1="32.5" x2="49" y2="32" width="0.1524" layer="1"/>
 <wire x1="50.75" y1="27.5" x2="49" y2="29.25" width="0.1524" layer="16"/>
 <wire x1="49" y1="29.25" x2="49" y2="32" width="0.1524" layer="16"/>
@@ -15182,7 +15208,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U2" pad="37"/>
 <contactref element="R51" pad="1"/>
 <wire x1="36.25" y1="16.5" x2="36.25" y2="15.75" width="0.1524" layer="1"/>
-<via x="36.25" y="15.75" extent="1-16" drill="0.13"/>
+<via x="36.25" y="15.75" extent="1-16" drill="0.2032"/>
 <wire x1="38.6" y1="16.75" x2="37.25" y2="16.75" width="0.1524" layer="16"/>
 <wire x1="37.25" y1="16.75" x2="36.25" y2="15.75" width="0.1524" layer="16"/>
 </signal>
@@ -15190,7 +15216,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U2" pad="36"/>
 <contactref element="R52" pad="1"/>
 <wire x1="35.5" y1="17.25" x2="34.75" y2="17.25" width="0.1524" layer="1"/>
-<via x="34.75" y="17.25" extent="1-16" drill="0.13"/>
+<via x="34.75" y="17.25" extent="1-16" drill="0.2032"/>
 <wire x1="39" y1="19.5" x2="36.75" y2="17.25" width="0.1524" layer="16"/>
 <wire x1="36.75" y1="17.25" x2="34.75" y2="17.25" width="0.1524" layer="16"/>
 <wire x1="39" y1="20.1" x2="39" y2="19.5" width="0.1524" layer="16"/>
@@ -15204,7 +15230,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <signal name="SF_ADC0">
 <contactref element="U1" pad="T5"/>
 <wire x1="48.5" y1="45.5" x2="48" y2="45" width="0.1524" layer="1"/>
-<via x="48" y="45" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="48" y="45" extent="1-16" drill="0.2032"/>
 <wire x1="48" y1="45" x2="46" y2="45" width="0.1524" layer="14"/>
 <wire x1="46" y1="45" x2="45.5" y2="44.5" width="0.1524" layer="14"/>
 <wire x1="45.5" y1="44.5" x2="45.5" y2="43.5" width="0.1524" layer="14"/>
@@ -15213,7 +15239,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="46.5" y1="37.5" x2="46.5" y2="25.5" width="0.1524" layer="14"/>
 <contactref element="J2" pad="49"/>
 <wire x1="48.5" y1="5.15" x2="48.5" y2="3.5" width="0.1524" layer="1"/>
-<via x="48.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="48.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="48.5" y1="3.5" x2="48.5" y2="11" width="0.1524" layer="14"/>
 <wire x1="48.5" y1="11" x2="46.5" y2="13" width="0.1524" layer="14"/>
 <wire x1="46.5" y1="13" x2="46.5" y2="25.5" width="0.1524" layer="14"/>
@@ -15222,10 +15248,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="C66" pad="1"/>
 <contactref element="U1" pad="R2"/>
 <wire x1="51.5" y1="44.5" x2="51" y2="45" width="0.1524" layer="1"/>
-<via x="51" y="45" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="51" y="45" extent="1-16" drill="0.2032"/>
 <contactref element="J2" pad="33"/>
 <wire x1="40.5" y1="5.15" x2="40.5" y2="3.5" width="0.1524" layer="1"/>
-<via x="40.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="40.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="51" y1="45" x2="50.5" y2="45.5" width="0.1524" layer="14"/>
 <wire x1="50.5" y1="45.5" x2="42.5" y2="45.5" width="0.1524" layer="14"/>
 <wire x1="42.5" y1="45.5" x2="41.5" y2="44.5" width="0.1524" layer="14"/>
@@ -15238,21 +15264,12 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <signal name="VBAT">
 <contactref element="R58" pad="2"/>
 </signal>
-<signal name="SF_TM2">
-<contactref element="U1" pad="M11"/>
-</signal>
-<signal name="SF_ABPS7">
-<contactref element="U1" pad="R10"/>
-</signal>
-<signal name="SF_CM3">
-<contactref element="U1" pad="N10"/>
-</signal>
 <signal name="SF_TM3">
 <contactref element="U1" pad="P10"/>
 <contactref element="Q1" pad="1"/>
 <contactref element="Q1" pad="3"/>
 <wire x1="43.5" y1="43.5" x2="43" y2="44" width="0.1524" layer="1"/>
-<via x="43" y="44" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="43" y="44" extent="1-16" drill="0.2032"/>
 <wire x1="43" y1="44" x2="42.5" y2="44.5" width="0.1524" layer="16"/>
 <wire x1="45.35" y1="51" x2="47.65" y2="50.05" width="0" layer="19" extent="1-1"/>
 <wire x1="42.5" y1="44.5" x2="45.35" y2="51" width="0" layer="19" extent="1-16"/>
@@ -15260,27 +15277,21 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <signal name="SF_TM1">
 <contactref element="U1" pad="N6"/>
 <wire x1="47.5" y1="42.5" x2="48" y2="42" width="0.1524" layer="1"/>
-<via x="48" y="42" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="48" y="42" extent="1-16" drill="0.2032"/>
 <wire x1="48" y1="42" x2="48.5" y2="42.5" width="0.1524" layer="14"/>
 <wire x1="48.5" y1="42.5" x2="52.5" y2="42.5" width="0.1524" layer="14"/>
 <wire x1="52.5" y1="42.5" x2="54.5" y2="40.5" width="0.1524" layer="14"/>
 <wire x1="54.5" y1="40.5" x2="54.5" y2="3.5" width="0.1524" layer="14"/>
 <contactref element="J2" pad="61"/>
 <wire x1="54.5" y1="5.15" x2="54.5" y2="3.5" width="0.1524" layer="1"/>
-<via x="54.5" y="3.5" extent="1-16" drill="0.13"/>
-</signal>
-<signal name="SF_ABPS5">
-<contactref element="U1" pad="T11"/>
-</signal>
-<signal name="SF_ABPS3">
-<contactref element="U1" pad="N5"/>
+<via x="54.5" y="3.5" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="VAREFOUT">
 <contactref element="U1" pad="N12"/>
 <contactref element="R49" pad="1"/>
 <contactref element="C112" pad="1"/>
 <wire x1="41.5" y1="42.5" x2="42" y2="43" width="0.1524" layer="1"/>
-<via x="42" y="43" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="42" y="43" extent="1-16" drill="0.2032"/>
 <wire x1="42.5" y1="47.6" x2="44.35" y2="48.25" width="0" layer="19" extent="1-16"/>
 <wire x1="42" y1="43" x2="42.5" y2="47.6" width="0" layer="19" extent="1-16"/>
 </signal>
@@ -15301,31 +15312,28 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="R9"/>
 <contactref element="C70" pad="1"/>
 <wire x1="44.5" y1="44.5" x2="44" y2="45" width="0.1524" layer="1"/>
-<via x="44" y="45" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="44" y="45" extent="1-16" drill="0.2032"/>
 <wire x1="44" y1="45" x2="43" y2="45" width="0.1524" layer="14"/>
 <wire x1="43" y1="45" x2="42.5" y2="44.5" width="0.1524" layer="14"/>
 <wire x1="42.5" y1="44.5" x2="42.5" y2="16.355021875" width="0.1524" layer="14"/>
 <contactref element="J2" pad="37"/>
 <wire x1="42.5" y1="16.355021875" x2="42.5" y2="3.5" width="0.1524" layer="14"/>
 <wire x1="42.5" y1="5.15" x2="42.5" y2="3.5" width="0.1524" layer="1"/>
-<via x="42.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="42.5" y="3.5" extent="1-16" drill="0.2032"/>
 <contactref element="R51" pad="2"/>
 <wire x1="44.5" y1="47.6" x2="44.5" y2="47" width="0.1524" layer="16"/>
 <wire x1="44.5" y1="47" x2="44" y2="46.5" width="0.1524" layer="16"/>
 <wire x1="44" y1="46.5" x2="44" y2="45" width="0.1524" layer="16"/>
-<via x="42.5" y="16.355021875" extent="1-16" drill="0.13"/>
+<via x="42.5" y="16.355021875" extent="1-16" drill="0.2032"/>
 <wire x1="42.5" y1="16.355021875" x2="42.105021875" y2="16.75" width="0.1524" layer="16"/>
 <wire x1="42.105021875" y1="16.75" x2="40" y2="16.75" width="0.1524" layer="16"/>
 <wire x1="40" y1="16.75" x2="39.9" y2="16.75" width="0.1524" layer="16"/>
-</signal>
-<signal name="SF_ABPS6">
-<contactref element="U1" pad="T10"/>
 </signal>
 <signal name="AUX_DAC3">
 <contactref element="R53" pad="1"/>
 <contactref element="U3" pad="37"/>
 <wire x1="52.25" y1="16.5" x2="52.25" y2="15.75" width="0.1524" layer="1"/>
-<via x="52.25" y="15.75" extent="1-16" drill="0.13"/>
+<via x="52.25" y="15.75" extent="1-16" drill="0.2032"/>
 <wire x1="52.25" y1="15.75" x2="51.25" y2="15.75" width="0.1524" layer="16"/>
 <wire x1="51.25" y1="15.65" x2="51.25" y2="15.75" width="0.1524" layer="16"/>
 </signal>
@@ -15333,7 +15341,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="R54" pad="1"/>
 <contactref element="U3" pad="36"/>
 <wire x1="51.5" y1="17.25" x2="50.75" y2="17.25" width="0.1524" layer="1"/>
-<via x="50.75" y="17.25" extent="1-16" drill="0.13"/>
+<via x="50.75" y="17.25" extent="1-16" drill="0.2032"/>
 <wire x1="49.65" y1="17.25" x2="50.75" y2="17.25" width="0.1524" layer="16"/>
 </signal>
 <signal name="A1V5">
@@ -15343,15 +15351,15 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="P8"/>
 <contactref element="U1" pad="R8"/>
 <wire x1="63.5" y1="5.15" x2="63.5" y2="8.85" width="0.3048" layer="16"/>
-<via x="63.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="63.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="63.5" y1="5.15" x2="63.5" y2="3.5" width="0.3048" layer="16"/>
 <wire x1="63.5" y1="3.5" x2="63.5" y2="10.5" width="0.3048" layer="1"/>
-<via x="63.5" y="10.5" extent="1-16" drill="0.13"/>
+<via x="63.5" y="10.5" extent="1-16" drill="0.2032"/>
 <wire x1="63.5" y1="10.5" x2="63.5" y2="5.15" width="0.3048" layer="16"/>
-<via x="45" y="44" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="45" y="44" extent="1-16" drill="0.2032"/>
 <wire x1="45" y1="44" x2="45.5" y2="43.5" width="0.1524" layer="1"/>
 <wire x1="50.5" y1="42.5" x2="51" y2="43" width="0.1524" layer="1"/>
-<via x="51" y="43" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="51" y="43" extent="1-16" drill="0.2032"/>
 <wire x1="63.5" y1="10.5" x2="63.5" y2="28.5" width="0.3048" layer="16"/>
 <wire x1="63.5" y1="28.5" x2="55.75" y2="36.25" width="0.3048" layer="16"/>
 <wire x1="55.75" y1="36.25" x2="55.75" y2="40" width="0.3048" layer="15"/>
@@ -15367,7 +15375,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="51" y1="43" x2="50" y2="43.5" width="0.3048" layer="15"/>
 <wire x1="50.5" y1="47.6" x2="50.5" y2="43.5" width="0.1524" layer="16"/>
 <wire x1="50.5" y1="43.5" x2="51" y2="43" width="0.1524" layer="16"/>
-<via x="55.75" y="36.25" extent="1-16" drill="0.13"/>
+<via x="55.75" y="36.25" extent="1-16" drill="0.2032"/>
 <wire x1="45" y1="44.85" x2="45" y2="44" width="0.1524" layer="16"/>
 </signal>
 <signal name="USBDM-IN">
@@ -15400,11 +15408,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <signal name="USBDM">
 <contactref element="R55" pad="2"/>
 <contactref element="U5" pad="6"/>
-<via x="12.25" y="45.5" extent="1-16" drill="0.13"/>
+<via x="12.25" y="45.5" extent="1-16" drill="0.2032"/>
 <wire x1="12.25" y1="45.5" x2="14" y2="43.75" width="0.3048" layer="3"/>
 <wire x1="14" y1="43.75" x2="14" y2="39" width="0.3048" layer="3"/>
 <wire x1="14" y1="39" x2="14.5" y2="38.5" width="0.3048" layer="3"/>
-<via x="14.5" y="38.5" extent="1-16" drill="0.13"/>
+<via x="14.5" y="38.5" extent="1-16" drill="0.2032"/>
 <wire x1="14.5" y1="38.5" x2="14.75" y2="38.25" width="0.3048" layer="1"/>
 <wire x1="14.75" y1="38.25" x2="15.8" y2="38.25" width="0.3048" layer="1"/>
 <wire x1="12.25" y1="46.6" x2="12.25" y2="45.5" width="0.3048" layer="1"/>
@@ -15413,10 +15421,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="R56" pad="2"/>
 <contactref element="U5" pad="7"/>
 <wire x1="13.25" y1="45.1" x2="13.25" y2="43.5" width="0.3048" layer="1"/>
-<via x="13.25" y="43.5" extent="1-16" drill="0.13"/>
+<via x="13.25" y="43.5" extent="1-16" drill="0.2032"/>
 <wire x1="13.25" y1="43.5" x2="13.25" y2="38.75" width="0.3048" layer="3"/>
 <wire x1="13.25" y1="38.75" x2="14.25" y2="37.75" width="0.3048" layer="3"/>
-<via x="14.25" y="37.75" extent="1-16" drill="0.13"/>
+<via x="14.25" y="37.75" extent="1-16" drill="0.2032"/>
 <wire x1="14.25" y1="37.75" x2="15.8" y2="37.75" width="0.3048" layer="1"/>
 </signal>
 <signal name="USB_DB7">
@@ -15428,9 +15436,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="36" y1="31" x2="36.5" y2="31.5" width="0.1524" layer="3"/>
 <wire x1="36.5" y1="31.5" x2="40.5" y2="31.5" width="0.1524" layer="3"/>
 <wire x1="40.5" y1="31.5" x2="41" y2="32" width="0.1524" layer="3"/>
-<via x="41" y="32" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="41" y="32" extent="1-16" drill="0.2032"/>
 <wire x1="41" y1="32" x2="41.5" y2="32.5" width="0.1524" layer="1"/>
-<via x="20.75" y="32.5" extent="1-16" drill="0.13"/>
+<via x="20.75" y="32.5" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="USB_DB6">
 <contactref element="U5" pad="19"/>
@@ -15439,11 +15447,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="22.25" y1="30.5" x2="40.25" y2="30.5" width="0.1524" layer="3"/>
 <contactref element="U1" pad="D11"/>
 <wire x1="42.5" y1="33.5" x2="42" y2="33" width="0.1524" layer="1"/>
-<via x="42" y="33" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="42" y="33" extent="1-16" drill="0.2032"/>
 <wire x1="42" y1="33" x2="41.5" y2="32.5" width="0.1524" layer="3"/>
 <wire x1="41.5" y1="32.5" x2="41.5" y2="31.75" width="0.1524" layer="3"/>
 <wire x1="41.5" y1="31.75" x2="40.25" y2="30.5" width="0.1524" layer="3"/>
-<via x="20.25" y="32.5" extent="1-16" drill="0.13"/>
+<via x="20.25" y="32.5" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="USB_DB5">
 <contactref element="U5" pad="18"/>
@@ -15453,9 +15461,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="C11"/>
 <wire x1="40.5" y1="30" x2="42" y2="31.5" width="0.1524" layer="3"/>
 <wire x1="42" y1="31.5" x2="42" y2="32" width="0.1524" layer="3"/>
-<via x="42" y="32" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="42" y="32" extent="1-16" drill="0.2032"/>
 <wire x1="42" y1="32" x2="42.5" y2="32.5" width="0.1524" layer="1"/>
-<via x="19.75" y="32.5" extent="1-16" drill="0.13"/>
+<via x="19.75" y="32.5" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="USB_DB3">
 <contactref element="U5" pad="16"/>
@@ -15464,11 +15472,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="22.25" y1="29" x2="41.75" y2="29" width="0.1524" layer="3"/>
 <contactref element="U1" pad="D9"/>
 <wire x1="44.5" y1="33.5" x2="44" y2="33" width="0.1524" layer="1"/>
-<via x="44" y="33" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="44" y="33" extent="1-16" drill="0.2032"/>
 <wire x1="44" y1="33" x2="43.5" y2="32.5" width="0.1524" layer="3"/>
 <wire x1="43.5" y1="32.5" x2="43.5" y2="30.75" width="0.1524" layer="3"/>
 <wire x1="43.5" y1="30.75" x2="41.75" y2="29" width="0.1524" layer="3"/>
-<via x="18.75" y="32.5" extent="1-16" drill="0.13"/>
+<via x="18.75" y="32.5" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="USB_DB2">
 <contactref element="U5" pad="15"/>
@@ -15477,10 +15485,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="22.25" y1="28.5" x2="42.25" y2="28.5" width="0.1524" layer="3"/>
 <contactref element="U1" pad="C9"/>
 <wire x1="44.5" y1="32.5" x2="44" y2="32" width="0.1524" layer="1"/>
-<via x="44" y="32" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="44" y="32" extent="1-16" drill="0.2032"/>
 <wire x1="44" y1="32" x2="44" y2="30.25" width="0.1524" layer="3"/>
 <wire x1="44" y1="30.25" x2="42.25" y2="28.5" width="0.1524" layer="3"/>
-<via x="18.25" y="32.5" extent="1-16" drill="0.13"/>
+<via x="18.25" y="32.5" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="USB_DB0">
 <contactref element="U5" pad="13"/>
@@ -15490,10 +15498,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="43.75" y1="27.5" x2="22.25" y2="27.5" width="0.1524" layer="3"/>
 <contactref element="U1" pad="C8"/>
 <wire x1="45.5" y1="32.5" x2="45" y2="32" width="0.1524" layer="1"/>
-<via x="45" y="32" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="45" y="32" extent="1-16" drill="0.2032"/>
 <wire x1="45" y1="32" x2="45" y2="28.75" width="0.1524" layer="3"/>
 <wire x1="45" y1="28.75" x2="43.75" y2="27.5" width="0.1524" layer="3"/>
-<via x="17.25" y="32.5" extent="1-16" drill="0.13"/>
+<via x="17.25" y="32.5" extent="1-16" drill="0.2032"/>
 <wire x1="23.35" y1="34.25" x2="18.25" y2="34.25" width="0.1524" layer="16"/>
 <wire x1="18.25" y1="34.25" x2="17.25" y2="33.25" width="0.1524" layer="16"/>
 <wire x1="17.25" y1="33.25" x2="17.25" y2="32.5" width="0.1524" layer="16"/>
@@ -15505,10 +15513,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="22.25" y1="31.5" x2="35.5" y2="31.5" width="0.1524" layer="3"/>
 <contactref element="U1" pad="C14"/>
 <wire x1="39" y1="32" x2="39.5" y2="32.5" width="0.1524" layer="1"/>
-<via x="39" y="32" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="39" y="32" extent="1-16" drill="0.2032"/>
 <wire x1="39" y1="32" x2="36" y2="32" width="0.1524" layer="3"/>
 <wire x1="36" y1="32" x2="35.5" y2="31.5" width="0.1524" layer="3"/>
-<via x="21.25" y="32.5" extent="1-16" drill="0.13"/>
+<via x="21.25" y="32.5" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="!TXE">
 <contactref element="U5" pad="25"/>
@@ -15519,8 +15527,8 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="28.75" y1="32" x2="33" y2="32" width="0.1524" layer="3"/>
 <wire x1="33" y1="32" x2="34" y2="33" width="0.1524" layer="1"/>
 <wire x1="34" y1="33" x2="38" y2="33" width="0.1524" layer="1"/>
-<via x="25.5" y="35.25" extent="1-16" drill="0.13"/>
-<via x="33" y="32" extent="1-16" drill="0.13"/>
+<via x="25.5" y="35.25" extent="1-16" drill="0.2032"/>
+<via x="33" y="32" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="!RD">
 <contactref element="U5" pad="26"/>
@@ -15528,10 +15536,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="25.5" y1="35.75" x2="28.75" y2="32.5" width="0.1524" layer="3"/>
 <contactref element="U1" pad="D13"/>
 <wire x1="40.5" y1="33.5" x2="40" y2="33" width="0.1524" layer="1"/>
-<via x="40" y="33" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="40" y="33" extent="1-16" drill="0.2032"/>
 <wire x1="40" y1="33" x2="39.5" y2="32.5" width="0.1524" layer="3"/>
 <wire x1="39.5" y1="32.5" x2="28.75" y2="32.5" width="0.1524" layer="3"/>
-<via x="25.5" y="35.75" extent="1-16" drill="0.13"/>
+<via x="25.5" y="35.75" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="!WR">
 <contactref element="U5" pad="27"/>
@@ -15540,8 +15548,8 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="28.75" y1="33" x2="39" y2="33" width="0.1524" layer="3"/>
 <contactref element="U1" pad="D14"/>
 <wire x1="39.5" y1="33.5" x2="39" y2="33" width="0.1524" layer="1"/>
-<via x="39" y="33" extent="1-16" drill="0.3048" diameter="0.6096"/>
-<via x="25.5" y="36.25" extent="1-16" drill="0.13"/>
+<via x="39" y="33" extent="1-16" drill="0.2032"/>
+<via x="25.5" y="36.25" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="!SIWU">
 <contactref element="U5" pad="28"/>
@@ -15552,8 +15560,8 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="38" y1="34" x2="36" y2="34" width="0.1524" layer="1"/>
 <wire x1="36" y1="34" x2="35.5" y2="33.5" width="0.1524" layer="1"/>
 <wire x1="35.5" y1="33.5" x2="28.75" y2="33.5" width="0.1524" layer="3"/>
-<via x="25.5" y="36.75" extent="1-16" drill="0.13"/>
-<via x="35.5" y="33.5" extent="1-16" drill="0.13"/>
+<via x="25.5" y="36.75" extent="1-16" drill="0.2032"/>
+<via x="35.5" y="33.5" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="!OE">
 <contactref element="U5" pad="30"/>
@@ -15561,9 +15569,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="25.5" y1="37.75" x2="28.75" y2="34.5" width="0.1524" layer="3"/>
 <contactref element="U1" pad="E16"/>
 <wire x1="37.5" y1="34.5" x2="34" y2="34.5" width="0.1524" layer="1"/>
-<via x="25.5" y="37.75" extent="1-16" drill="0.13"/>
+<via x="25.5" y="37.75" extent="1-16" drill="0.2032"/>
 <wire x1="34" y1="34.5" x2="28.75" y2="34.5" width="0.1524" layer="3"/>
-<via x="34" y="34.5" extent="1-16" drill="0.13"/>
+<via x="34" y="34.5" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="!PWRSAV">
 <contactref element="U5" pad="31"/>
@@ -15576,17 +15584,18 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="C106" pad="1"/>
 <contactref element="U5" pad="34"/>
 <wire x1="24.2" y1="39.75" x2="25.75" y2="39.75" width="0.3048" layer="1"/>
-<via x="25.75" y="39.75" extent="1-16" drill="0.13"/>
+<via x="25.75" y="39.75" extent="1-16" drill="0.2032"/>
 <wire x1="25.75" y1="39.75" x2="26.35" y2="39.75" width="0.3048" layer="16"/>
 <wire x1="26.35" y1="39.75" x2="26.85" y2="40.25" width="0.3048" layer="16"/>
-<wire x1="26.75" y1="41.6" x2="26.75" y2="40.25" width="0.3048" layer="16"/>
-<wire x1="26.85" y1="40.25" x2="26.75" y2="40.25" width="0" layer="19" extent="16-16"/>
+<wire x1="26.5" y1="41.6" x2="26.5" y2="41.5" width="0.3048" layer="16"/>
+<wire x1="26.85" y1="40.25" x2="26.85" y2="41.15" width="0.3048" layer="16"/>
+<wire x1="26.85" y1="41.15" x2="26.5" y2="41.5" width="0.3048" layer="16"/>
 </signal>
 <signal name="UREF">
 <contactref element="U5" pad="5"/>
 <contactref element="R59" pad="2"/>
 <wire x1="15.8" y1="38.75" x2="17" y2="38.75" width="0.3048" layer="1"/>
-<via x="17" y="38.75" extent="1-16" drill="0.13"/>
+<via x="17" y="38.75" extent="1-16" drill="0.2032"/>
 <wire x1="18.35" y1="38.25" x2="17.35" y2="38.25" width="0.3048" layer="16"/>
 <wire x1="17.35" y1="38.25" x2="17" y2="38.75" width="0.3048" layer="16"/>
 </signal>
@@ -15613,8 +15622,8 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U7" pad="5"/>
 <contactref element="R63" pad="1"/>
 <wire x1="18.75" y1="42.2" x2="18.75" y2="43.5" width="0.1524" layer="1"/>
-<via x="18.75" y="43.5" extent="1-16" drill="0.13"/>
-<via x="24" y="47" extent="1-16" drill="0.13"/>
+<via x="18.75" y="43.5" extent="1-16" drill="0.2032"/>
+<via x="24" y="47" extent="1-16" drill="0.2032"/>
 <wire x1="24" y1="47" x2="25.15" y2="47" width="0.1524" layer="1"/>
 <wire x1="25.1" y1="47" x2="24" y2="47" width="0.1524" layer="16"/>
 <wire x1="21.5" y1="46.5" x2="18.75" y2="43.75" width="0.1524" layer="3"/>
@@ -15627,9 +15636,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U7" pad="4"/>
 <contactref element="R62" pad="1"/>
 <wire x1="19.25" y1="42.2" x2="19.25" y2="43.5" width="0.1524" layer="1"/>
-<via x="19.25" y="43.5" extent="1-16" drill="0.13"/>
+<via x="19.25" y="43.5" extent="1-16" drill="0.2032"/>
 <wire x1="19.25" y1="43.5" x2="21.75" y2="46" width="0.1524" layer="3"/>
-<via x="24" y="46" extent="1-16" drill="0.13"/>
+<via x="24" y="46" extent="1-16" drill="0.2032"/>
 <wire x1="24" y1="46" x2="25.1" y2="46" width="0.1524" layer="1"/>
 <wire x1="25.1" y1="46" x2="25.15" y2="46.05" width="0.1524" layer="1"/>
 <wire x1="25.1" y1="46" x2="24" y2="46" width="0.1524" layer="16"/>
@@ -15650,7 +15659,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="R61" pad="1"/>
 <wire x1="21" y1="47.65" x2="21.3" y2="47.95" width="0.1524" layer="1"/>
 <wire x1="21.3" y1="47.95" x2="22.85" y2="47.95" width="0.1524" layer="1"/>
-<via x="24" y="48" extent="1-16" drill="0.13"/>
+<via x="24" y="48" extent="1-16" drill="0.2032"/>
 <wire x1="22.85" y1="47.95" x2="23.95" y2="47.95" width="0.1524" layer="1"/>
 <wire x1="23.95" y1="47.95" x2="24" y2="48" width="0.1524" layer="1"/>
 <wire x1="23.9" y1="49" x2="24" y2="48.85" width="0.1524" layer="16"/>
@@ -15662,21 +15671,21 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="8.1209" y1="32.54" x2="8.1609" y2="32.5" width="0.1524" layer="1"/>
 <wire x1="8.1609" y1="32.5" x2="12.5" y2="32.5" width="0.1524" layer="1"/>
 <wire x1="39.5" y1="37.5" x2="39" y2="38" width="0.1524" layer="1"/>
-<via x="39" y="38" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="39" y="38" extent="1-16" drill="0.2032"/>
 <wire x1="39" y1="38" x2="36.25" y2="38" width="0.1524" layer="16"/>
 <wire x1="36.25" y1="38" x2="35.75" y2="37.5" width="0.1524" layer="16"/>
 <wire x1="35.75" y1="37.5" x2="34" y2="37.5" width="0.1524" layer="16"/>
 <wire x1="34" y1="37.5" x2="27" y2="30.5" width="0.1524" layer="16"/>
 <wire x1="27" y1="30.5" x2="14.5" y2="30.5" width="0.1524" layer="16"/>
 <wire x1="12.5" y1="32.5" x2="14.5" y2="30.5" width="0.1524" layer="1"/>
-<via x="14.5" y="30.5" extent="1-16" drill="0.13"/>
+<via x="14.5" y="30.5" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="VPUMP">
 <contactref element="J3" pad="7"/>
 <contactref element="R7" pad="1"/>
 <contactref element="U1" pad="G12"/>
 <wire x1="41.5" y1="36.5" x2="41" y2="36" width="0.1524" layer="1"/>
-<via x="41" y="36" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="41" y="36" extent="1-16" drill="0.2032"/>
 <wire x1="41" y1="36" x2="39.5" y2="34.5" width="0.1524" layer="16"/>
 <wire x1="39.5" y1="34.5" x2="35.5" y2="34.5" width="0.1524" layer="16"/>
 <wire x1="35.5" y1="34.5" x2="34" y2="33" width="0.1524" layer="16"/>
@@ -15685,7 +15694,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="8.1209" y1="31.27" x2="8.1409" y2="31.25" width="0.1524" layer="1"/>
 <wire x1="8.1409" y1="31.25" x2="12.75" y2="31.25" width="0.1524" layer="1"/>
 <wire x1="28.25" y1="28" x2="16" y2="28" width="0.1524" layer="16"/>
-<via x="16" y="28" extent="1-16" drill="0.13"/>
+<via x="16" y="28" extent="1-16" drill="0.2032"/>
 <wire x1="16" y1="28" x2="12.75" y2="31.25" width="0.1524" layer="1"/>
 <contactref element="C75" pad="1"/>
 <contactref element="C76" pad="1"/>
@@ -15698,7 +15707,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="G14"/>
 <wire x1="8.1209" y1="30" x2="10.5" y2="30" width="0.1524" layer="1"/>
 <wire x1="39.5" y1="36.5" x2="39" y2="36" width="0.1524" layer="1"/>
-<via x="39" y="36" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="39" y="36" extent="1-16" drill="0.2032"/>
 <wire x1="39" y1="36" x2="38" y2="35" width="0.1524" layer="16"/>
 <wire x1="38" y1="35" x2="35.25" y2="35" width="0.1524" layer="16"/>
 <wire x1="35.25" y1="35" x2="33.75" y2="33.5" width="0.1524" layer="16"/>
@@ -15708,7 +15717,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="10.5" y1="30" x2="11" y2="30.5" width="0.1524" layer="1"/>
 <wire x1="11" y1="30.5" x2="12.5" y2="30.5" width="0.1524" layer="1"/>
 <wire x1="12.5" y1="30.5" x2="14.5" y2="28.5" width="0.1524" layer="1"/>
-<via x="14.5" y="28.5" extent="1-16" drill="0.13"/>
+<via x="14.5" y="28.5" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="TDO">
 <contactref element="J3" pad="3"/>
@@ -15716,12 +15725,12 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="34.5" y1="36.5" x2="36.5" y2="36.5" width="0.1524" layer="16"/>
 <wire x1="36.5" y1="36.5" x2="37.5" y2="37.5" width="0.1524" layer="16"/>
 <wire x1="37.5" y1="37.5" x2="40.5" y2="37.5" width="0.1524" layer="16"/>
-<via x="41" y="37" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="41" y="37" extent="1-16" drill="0.2032"/>
 <wire x1="41" y1="37" x2="40.5" y2="37.5" width="0.1524" layer="1"/>
 <wire x1="40.5" y1="37.5" x2="41" y2="37" width="0.1524" layer="16"/>
 <wire x1="34.5" y1="36.5" x2="27.5" y2="29.5" width="0.1524" layer="16"/>
 <wire x1="27.5" y1="29.5" x2="11.25" y2="29.5" width="0.1524" layer="16"/>
-<via x="11.25" y="29.5" extent="1-16" drill="0.13"/>
+<via x="11.25" y="29.5" extent="1-16" drill="0.2032"/>
 <wire x1="11.25" y1="29.5" x2="10.48" y2="28.73" width="0.1524" layer="1"/>
 <wire x1="10.48" y1="28.73" x2="8.1209" y2="28.73" width="0.1524" layer="1"/>
 </signal>
@@ -15731,13 +15740,13 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="R65" pad="2"/>
 <wire x1="38.5" y1="36.5" x2="38" y2="37" width="0.1524" layer="1"/>
 <wire x1="38" y1="37" x2="35.5" y2="37" width="0.1524" layer="1"/>
-<via x="35.5" y="37" extent="1-16" drill="0.13"/>
+<via x="35.5" y="37" extent="1-16" drill="0.2032"/>
 <wire x1="10.5" y1="27.5" x2="8.1609" y2="27.5" width="0.1524" layer="1"/>
 <wire x1="8.1609" y1="27.5" x2="8.1209" y2="27.46" width="0.1524" layer="1"/>
 <wire x1="35.5" y1="37" x2="34.25" y2="37" width="0.1524" layer="16"/>
 <wire x1="34.25" y1="37" x2="27.25" y2="30" width="0.1524" layer="16"/>
 <wire x1="27.25" y1="30" x2="12" y2="30" width="0.1524" layer="16"/>
-<via x="12" y="30" extent="1-16" drill="0.13"/>
+<via x="12" y="30" extent="1-16" drill="0.2032"/>
 <wire x1="12" y1="30" x2="12" y2="29" width="0.1524" layer="1"/>
 <wire x1="12" y1="29" x2="10.5" y2="27.5" width="0.1524" layer="1"/>
 <wire x1="12" y1="31.1" x2="12" y2="30" width="0.1524" layer="16"/>
@@ -15747,19 +15756,19 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="R8" pad="1"/>
 <contactref element="U1" pad="H12"/>
 <wire x1="41.5" y1="37.5" x2="41" y2="38" width="0.1524" layer="1"/>
-<via x="41" y="38" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="41" y="38" extent="1-16" drill="0.2032"/>
 <wire x1="3.8791" y1="30" x2="5.5" y2="30" width="0.1524" layer="1"/>
 <wire x1="5.5" y1="30" x2="6" y2="29.5" width="0.1524" layer="1"/>
-<via x="6" y="29.5" extent="1-16" drill="0.13"/>
+<via x="6" y="29.5" extent="1-16" drill="0.2032"/>
 <wire x1="33.5" y1="38.5" x2="26.5" y2="31.5" width="0.1524" layer="16"/>
 <wire x1="26.5" y1="31.5" x2="16.5" y2="31.5" width="0.1524" layer="16"/>
 <wire x1="6" y1="29.5" x2="5.5" y2="30" width="0.1524" layer="16"/>
-<via x="16.5" y="31.5" extent="1-16" drill="0.13"/>
+<via x="16.5" y="31.5" extent="1-16" drill="0.2032"/>
 <wire x1="6" y1="29.5" x2="7.75" y2="31.5" width="0.1524" layer="3"/>
 <wire x1="7.75" y1="31.5" x2="16.5" y2="31.5" width="0.1524" layer="3"/>
 <wire x1="33.5" y1="38.5" x2="40.5" y2="38.5" width="0.1524" layer="16"/>
 <wire x1="40.5" y1="38.5" x2="41" y2="38" width="0.1524" layer="16"/>
-<via x="5.5" y="30" extent="1-16" drill="0.13"/>
+<via x="5.5" y="30" extent="1-16" drill="0.2032"/>
 <contactref element="C74" pad="1"/>
 <wire x1="16.5" y1="31.5" x2="16.5" y2="32.424" width="0.1524" layer="16"/>
 <wire x1="16.5" y1="32.424" x2="16.422" y2="32.502" width="0.1524" layer="16"/>
@@ -15772,10 +15781,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="3.8791" y1="31.27" x2="3.8991" y2="31.25" width="0.1524" layer="1"/>
 <wire x1="3.8991" y1="31.25" x2="5.5" y2="31.25" width="0.1524" layer="1"/>
 <wire x1="5.5" y1="31.25" x2="6" y2="30.75" width="0.1524" layer="1"/>
-<via x="6" y="30.75" extent="1-16" drill="0.13"/>
+<via x="6" y="30.75" extent="1-16" drill="0.2032"/>
 <wire x1="6" y1="30.75" x2="9" y2="30.75" width="0.1524" layer="16"/>
 <wire x1="40.5" y1="36.5" x2="40" y2="37" width="0.1524" layer="1"/>
-<via x="40" y="37" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="40" y="37" extent="1-16" drill="0.2032"/>
 <wire x1="40" y1="37" x2="39.5" y2="36.5" width="0.1524" layer="16"/>
 <wire x1="39.5" y1="36.5" x2="37.5" y2="36.5" width="0.1524" layer="16"/>
 <wire x1="37.5" y1="36.5" x2="37" y2="36" width="0.1524" layer="16"/>
@@ -15791,12 +15800,12 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="J8" pad="2"/>
 <wire x1="38.5" y1="37.5" x2="38" y2="38" width="0.1524" layer="1"/>
 <wire x1="38" y1="38" x2="35.5" y2="38" width="0.1524" layer="1"/>
-<via x="35.5" y="38" extent="1-16" drill="0.13"/>
+<via x="35.5" y="38" extent="1-16" drill="0.2032"/>
 <wire x1="35.5" y1="38" x2="33.75" y2="38" width="0.1524" layer="16"/>
 <wire x1="33.75" y1="38" x2="26.75" y2="31" width="0.1524" layer="16"/>
 <wire x1="26.75" y1="31" x2="17.25" y2="31" width="0.1524" layer="16"/>
 <wire x1="17.25" y1="22.85" x2="17.25" y2="31" width="0.1524" layer="1"/>
-<via x="17.25" y="31" extent="1-16" drill="0.13"/>
+<via x="17.25" y="31" extent="1-16" drill="0.2032"/>
 <wire x1="17.25" y1="22.85" x2="15.9" y2="21.5" width="0.1524" layer="1"/>
 <wire x1="15.9" y1="21.5" x2="15.65" y2="21.5" width="0.1524" layer="1"/>
 </signal>
@@ -15811,7 +15820,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="J7" pad="11"/>
 <contactref element="R74" pad="1"/>
 <wire x1="78.2" y1="24.25" x2="76.75" y2="24.25" width="0.1524" layer="1"/>
-<via x="76.75" y="24.25" extent="1-16" drill="0.13"/>
+<via x="76.75" y="24.25" extent="1-16" drill="0.2032"/>
 <wire x1="76.75" y1="24.25" x2="76.75" y2="33.92" width="0.1524" layer="3"/>
 <wire x1="76.75" y1="33.92" x2="74.064" y2="36.606" width="0.1524" layer="3"/>
 <wire x1="76.75" y1="24.25" x2="76.75" y2="25.6" width="0.1524" layer="16"/>
@@ -15821,7 +15830,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="J7" pad="10"/>
 <contactref element="R75" pad="1"/>
 <wire x1="78.2" y1="23.75" x2="75.5" y2="23.75" width="0.1524" layer="1"/>
-<via x="75.5" y="23.75" extent="1-16" drill="0.13"/>
+<via x="75.5" y="23.75" extent="1-16" drill="0.2032"/>
 <wire x1="75.5" y1="23.75" x2="74.25" y2="25" width="0.1524" layer="3"/>
 <wire x1="74.25" y1="25" x2="74.25" y2="33.75" width="0.1524" layer="3"/>
 <wire x1="72.032" y1="36.606" x2="72.032" y2="35.968" width="0.1524" layer="3"/>
@@ -15833,7 +15842,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="J7" pad="4"/>
 <contactref element="R76" pad="1"/>
 <wire x1="78.2" y1="22.75" x2="75.5" y2="22.75" width="0.1524" layer="1"/>
-<via x="75.5" y="22.75" extent="1-16" drill="0.13"/>
+<via x="75.5" y="22.75" extent="1-16" drill="0.2032"/>
 <wire x1="75.5" y1="22.75" x2="73.75" y2="24.5" width="0.1524" layer="3"/>
 <wire x1="73.75" y1="24.5" x2="73.75" y2="33" width="0.1524" layer="3"/>
 <wire x1="71.016" y1="39.146" x2="71.016" y2="35.734" width="0.1524" layer="3"/>
@@ -15845,7 +15854,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="J7" pad="5"/>
 <contactref element="R77" pad="1"/>
 <wire x1="78.2" y1="22.25" x2="76.75" y2="22.25" width="0.1524" layer="1"/>
-<via x="76.75" y="22.25" extent="1-16" drill="0.13"/>
+<via x="76.75" y="22.25" extent="1-16" drill="0.2032"/>
 <wire x1="76.75" y1="22.25" x2="76.25" y2="22.75" width="0.1524" layer="3"/>
 <wire x1="76.25" y1="22.75" x2="76.25" y2="33" width="0.1524" layer="3"/>
 <wire x1="73.048" y1="39.146" x2="73.048" y2="36.202" width="0.1524" layer="3"/>
@@ -15872,7 +15881,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="67.4" y1="52.1" x2="72.5" y2="47" width="0.1524" layer="16"/>
 <wire x1="72.5" y1="47" x2="77.5" y2="42" width="0.1524" layer="16"/>
 <wire x1="77.5" y1="42" x2="77.5" y2="34.25" width="0.1524" layer="16"/>
-<via x="77.5" y="34.25" extent="1-16" drill="0.13"/>
+<via x="77.5" y="34.25" extent="1-16" drill="0.2032"/>
 <wire x1="77.5" y1="34.25" x2="77.5" y2="32" width="0.1524" layer="1"/>
 <wire x1="77.5" y1="32" x2="76.25" y2="30.75" width="0.1524" layer="1"/>
 <wire x1="76.25" y1="30.75" x2="76.25" y2="29.2" width="0.1524" layer="1"/>
@@ -15888,7 +15897,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="76" y1="44.25" x2="78.25" y2="42" width="0.1524" layer="16"/>
 <wire x1="78.25" y1="42" x2="78.25" y2="34.25" width="0.1524" layer="16"/>
 <wire x1="75.25" y1="29.2" x2="75.25" y2="30.5" width="0.1524" layer="1"/>
-<via x="75.25" y="30.5" extent="1-16" drill="0.13"/>
+<via x="75.25" y="30.5" extent="1-16" drill="0.2032"/>
 <wire x1="75.25" y1="30.5" x2="75.25" y2="31.25" width="0.1524" layer="16"/>
 <wire x1="75.25" y1="31.25" x2="78.25" y2="34.25" width="0.1524" layer="16"/>
 <wire x1="75.15" y1="47" x2="76" y2="47" width="0.1524" layer="16"/>
@@ -15918,11 +15927,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="R88" pad="2"/>
 <contactref element="R89" pad="2"/>
 <wire x1="78.2" y1="26.75" x2="79.5" y2="26.75" width="0.1524" layer="1"/>
-<via x="79.5" y="26.75" extent="1-16" drill="0.13"/>
+<via x="79.5" y="26.75" extent="1-16" drill="0.2032"/>
 <wire x1="81.9" y1="26.5" x2="83" y2="26.5" width="0.1524" layer="1"/>
-<via x="83" y="26.5" extent="1-16" drill="0.13"/>
+<via x="83" y="26.5" extent="1-16" drill="0.2032"/>
 <wire x1="81.9" y1="25.5" x2="83" y2="25.5" width="0.1524" layer="1"/>
-<via x="83" y="25.5" extent="1-16" drill="0.13"/>
+<via x="83" y="25.5" extent="1-16" drill="0.2032"/>
 <wire x1="76.096" y1="36.606" x2="76.15" y2="36.552" width="0.1524" layer="16"/>
 <wire x1="76.15" y1="36.552" x2="76.15" y2="34.75" width="0.1524" layer="16"/>
 <wire x1="75.08" y1="39.146" x2="74.9" y2="39.326" width="0.1524" layer="16"/>
@@ -15951,13 +15960,13 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="73.75" y1="30.75" x2="71" y2="33.5" width="0.1524" layer="1"/>
 <wire x1="53" y1="40" x2="52" y2="40" width="0.1524" layer="1"/>
 <wire x1="71" y1="33.5" x2="68" y2="33.5" width="0.1524" layer="1"/>
-<via x="68" y="33.5" extent="1-16" drill="0.13"/>
+<via x="68" y="33.5" extent="1-16" drill="0.2032"/>
 <wire x1="68" y1="33.5" x2="63.75" y2="33.5" width="0.1524" layer="3"/>
 <wire x1="63.75" y1="33.5" x2="60.75" y2="36.5" width="0.1524" layer="3"/>
 <wire x1="60.75" y1="36.5" x2="60.75" y2="39.5" width="0.1524" layer="3"/>
 <wire x1="53" y1="40" x2="53.5" y2="39.5" width="0.1524" layer="1"/>
 <wire x1="53.5" y1="39.5" x2="60.75" y2="39.5" width="0.1524" layer="1"/>
-<via x="60.75" y="39.5" extent="1-16" drill="0.13"/>
+<via x="60.75" y="39.5" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="MAC_MDIO">
 <contactref element="U1" pad="K1"/>
@@ -15966,13 +15975,13 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="74.25" y1="29.2" x2="74.25" y2="31" width="0.1524" layer="1"/>
 <wire x1="74.25" y1="31" x2="71.25" y2="34" width="0.1524" layer="1"/>
 <wire x1="71.25" y1="34" x2="68" y2="34" width="0.1524" layer="1"/>
-<via x="68" y="34" extent="1-16" drill="0.13"/>
+<via x="68" y="34" extent="1-16" drill="0.2032"/>
 <wire x1="68" y1="34" x2="64" y2="34" width="0.1524" layer="3"/>
 <wire x1="64" y1="34" x2="61.25" y2="36.75" width="0.1524" layer="3"/>
 <wire x1="61.25" y1="36.75" x2="61.25" y2="39" width="0.1524" layer="3"/>
 <wire x1="52.5" y1="39.5" x2="53" y2="39" width="0.1524" layer="1"/>
 <wire x1="53" y1="39" x2="61.25" y2="39" width="0.1524" layer="1"/>
-<via x="61.25" y="39" extent="1-16" drill="0.13"/>
+<via x="61.25" y="39" extent="1-16" drill="0.2032"/>
 <wire x1="61.25" y1="39" x2="62.5" y2="38.9" width="0" layer="19" extent="3-16"/>
 </signal>
 <signal name="MAC_TXEN">
@@ -16000,13 +16009,13 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="L3"/>
 <contactref element="R86" pad="1"/>
 <wire x1="50.5" y1="40.5" x2="51" y2="41" width="0.1524" layer="1"/>
-<via x="51" y="41" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="51" y="41" extent="1-16" drill="0.2032"/>
 <wire x1="51" y1="41" x2="54.5" y2="41" width="0.1524" layer="3"/>
 <wire x1="54.5" y1="41" x2="57.75" y2="37.75" width="0.1524" layer="3"/>
 <wire x1="57.75" y1="37.75" x2="57.75" y2="35" width="0.1524" layer="3"/>
 <wire x1="57.75" y1="35" x2="62.25" y2="30.5" width="0.1524" layer="3"/>
 <wire x1="67.5" y1="28.65" x2="67.5" y2="29.5" width="0.1524" layer="1"/>
-<via x="67.5" y="29.5" extent="1-16" drill="0.13"/>
+<via x="67.5" y="29.5" extent="1-16" drill="0.2032"/>
 <wire x1="67.5" y1="29.5" x2="66.5" y2="30.5" width="0.1524" layer="3"/>
 <wire x1="66.5" y1="30.5" x2="62.25" y2="30.5" width="0.1524" layer="3"/>
 </signal>
@@ -16014,7 +16023,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="L4"/>
 <contactref element="R78" pad="1"/>
 <wire x1="49.5" y1="40.5" x2="50" y2="41" width="0.1524" layer="1"/>
-<via x="50" y="41" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="50" y="41" extent="1-16" drill="0.2032"/>
 <wire x1="50" y1="41" x2="50.5" y2="40.5" width="0.1524" layer="3"/>
 <wire x1="50.5" y1="40.5" x2="52.5" y2="40.5" width="0.1524" layer="3"/>
 <wire x1="52.5" y1="40.5" x2="53" y2="40" width="0.1524" layer="3"/>
@@ -16023,7 +16032,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="57.25" y1="37.5" x2="57.25" y2="34.75" width="0.1524" layer="3"/>
 <wire x1="57.25" y1="34.75" x2="62" y2="30" width="0.1524" layer="3"/>
 <wire x1="66.5" y1="28.65" x2="66.5" y2="29.5" width="0.1524" layer="1"/>
-<via x="66.5" y="29.5" extent="1-16" drill="0.13"/>
+<via x="66.5" y="29.5" extent="1-16" drill="0.2032"/>
 <wire x1="66.5" y1="29.5" x2="66" y2="30" width="0.1524" layer="3"/>
 <wire x1="66" y1="30" x2="62" y2="30" width="0.1524" layer="3"/>
 </signal>
@@ -16031,11 +16040,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="M3"/>
 <contactref element="R79" pad="1"/>
 <wire x1="50.5" y1="41.5" x2="51" y2="42" width="0.1524" layer="1"/>
-<via x="51" y="42" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="51" y="42" extent="1-16" drill="0.2032"/>
 <wire x1="58.25" y1="38" x2="54.25" y2="42" width="0.1524" layer="3"/>
 <wire x1="54.25" y1="42" x2="51" y2="42" width="0.1524" layer="3"/>
 <wire x1="69.5" y1="26.65" x2="69.5" y2="28.5" width="0.1524" layer="16"/>
-<via x="69.5" y="28.5" extent="1-16" drill="0.13"/>
+<via x="69.5" y="28.5" extent="1-16" drill="0.2032"/>
 <wire x1="69.5" y1="28.5" x2="67" y2="31" width="0.1524" layer="3"/>
 <wire x1="67" y1="31" x2="62.5" y2="31" width="0.1524" layer="3"/>
 <wire x1="62.5" y1="31" x2="58.25" y2="35.25" width="0.1524" layer="3"/>
@@ -16045,12 +16054,12 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="N1"/>
 <contactref element="R80" pad="1"/>
 <wire x1="52.5" y1="42.5" x2="53.25" y2="42.5" width="0.1524" layer="1"/>
-<via x="53.25" y="42.5" extent="1-16" drill="0.13"/>
+<via x="53.25" y="42.5" extent="1-16" drill="0.2032"/>
 <wire x1="58.75" y1="38.5" x2="54.75" y2="42.5" width="0.1524" layer="3"/>
 <wire x1="54.75" y1="42.5" x2="53.25" y2="42.5" width="0.1524" layer="3"/>
 <wire x1="71" y1="26.65" x2="71" y2="27.75" width="0.1524" layer="16"/>
 <wire x1="71" y1="27.75" x2="70.25" y2="28.5" width="0.1524" layer="16"/>
-<via x="70.25" y="28.5" extent="1-16" drill="0.13"/>
+<via x="70.25" y="28.5" extent="1-16" drill="0.2032"/>
 <wire x1="70.25" y1="28.5" x2="67.25" y2="31.5" width="0.1524" layer="3"/>
 <wire x1="58.75" y1="38.5" x2="58.75" y2="35.5" width="0.1524" layer="3"/>
 <wire x1="58.75" y1="35.5" x2="62.75" y2="31.5" width="0.1524" layer="3"/>
@@ -16060,11 +16069,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U6" pad="3"/>
 <contactref element="R82" pad="2"/>
 <wire x1="72.25" y1="20.8" x2="72.25" y2="22.25" width="0.1524" layer="1"/>
-<via x="72.25" y="22.25" extent="1-16" drill="0.13"/>
+<via x="72.25" y="22.25" extent="1-16" drill="0.2032"/>
 <wire x1="72.25" y1="22.25" x2="72.25" y2="28" width="0.1524" layer="3"/>
 <wire x1="72.25" y1="28" x2="67.75" y2="32.5" width="0.1524" layer="3"/>
 <wire x1="56.65" y1="41.5" x2="57.75" y2="41.5" width="0.1524" layer="1"/>
-<via x="57.75" y="41.5" extent="1-16" drill="0.13"/>
+<via x="57.75" y="41.5" extent="1-16" drill="0.2032"/>
 <wire x1="57.75" y1="41.5" x2="59.75" y2="39.5" width="0.1524" layer="3"/>
 <wire x1="67.75" y1="32.5" x2="63.25" y2="32.5" width="0.1524" layer="3"/>
 <wire x1="63.25" y1="32.5" x2="59.75" y2="36" width="0.1524" layer="3"/>
@@ -16074,11 +16083,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U6" pad="2"/>
 <contactref element="R83" pad="2"/>
 <wire x1="71.75" y1="20.8" x2="71.75" y2="22.25" width="0.1524" layer="1"/>
-<via x="71.75" y="22.25" extent="1-16" drill="0.13"/>
+<via x="71.75" y="22.25" extent="1-16" drill="0.2032"/>
 <wire x1="71.75" y1="22.25" x2="71.75" y2="27.75" width="0.1524" layer="3"/>
 <wire x1="67.5" y1="32" x2="71.75" y2="27.75" width="0.1524" layer="3"/>
 <wire x1="56.65" y1="40.5" x2="57.75" y2="40.5" width="0.1524" layer="1"/>
-<via x="57.75" y="40.5" extent="1-16" drill="0.13"/>
+<via x="57.75" y="40.5" extent="1-16" drill="0.2032"/>
 <wire x1="57.75" y1="40.5" x2="59.25" y2="39" width="0.1524" layer="3"/>
 <wire x1="59.25" y1="39" x2="59.25" y2="35.75" width="0.1524" layer="3"/>
 <wire x1="59.25" y1="35.75" x2="63" y2="32" width="0.1524" layer="3"/>
@@ -16088,12 +16097,12 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U6" pad="4"/>
 <contactref element="R81" pad="2"/>
 <wire x1="72.75" y1="20.8" x2="72.75" y2="22.25" width="0.1524" layer="1"/>
-<via x="72.75" y="22.25" extent="1-16" drill="0.13"/>
+<via x="72.75" y="22.25" extent="1-16" drill="0.2032"/>
 <wire x1="72.75" y1="22.25" x2="72.75" y2="28.25" width="0.1524" layer="3"/>
 <wire x1="72.75" y1="28.25" x2="68" y2="33" width="0.1524" layer="3"/>
 <wire x1="68" y1="33" x2="63.5" y2="33" width="0.1524" layer="3"/>
 <wire x1="56.65" y1="42.5" x2="57.75" y2="42.5" width="0.1524" layer="1"/>
-<via x="57.75" y="42.5" extent="1-16" drill="0.13"/>
+<via x="57.75" y="42.5" extent="1-16" drill="0.2032"/>
 <wire x1="57.75" y1="42.5" x2="60.25" y2="40" width="0.1524" layer="3"/>
 <wire x1="60.25" y1="40" x2="60.25" y2="36.25" width="0.1524" layer="3"/>
 <wire x1="60.25" y1="36.25" x2="63.5" y2="33" width="0.1524" layer="3"/>
@@ -16109,7 +16118,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U6" pad="39"/>
 <contactref element="R85" pad="1"/>
 <wire x1="69.8" y1="26.75" x2="68.5" y2="26.75" width="0.1524" layer="1"/>
-<via x="68.5" y="26.75" extent="1-16" drill="0.13"/>
+<via x="68.5" y="26.75" extent="1-16" drill="0.2032"/>
 <wire x1="67.15" y1="27.25" x2="68" y2="27.25" width="0.1524" layer="16"/>
 <wire x1="68" y1="27.25" x2="68.5" y2="26.75" width="0.1524" layer="16"/>
 </signal>
@@ -16117,7 +16126,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="R79" pad="2"/>
 <contactref element="U6" pad="43"/>
 <wire x1="69.8" y1="24.75" x2="68.5" y2="24.75" width="0.1524" layer="1"/>
-<via x="68.5" y="24.75" extent="1-16" drill="0.13"/>
+<via x="68.5" y="24.75" extent="1-16" drill="0.2032"/>
 <wire x1="69.5" y1="25.35" x2="68.9" y2="24.75" width="0.1524" layer="16"/>
 <wire x1="68.9" y1="24.75" x2="68.5" y2="24.75" width="0.1524" layer="16"/>
 </signal>
@@ -16125,7 +16134,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U6" pad="44"/>
 <contactref element="R80" pad="2"/>
 <wire x1="69.8" y1="24.25" x2="71" y2="24.25" width="0.1524" layer="1"/>
-<via x="71" y="24.25" extent="1-16" drill="0.13"/>
+<via x="71" y="24.25" extent="1-16" drill="0.2032"/>
 <wire x1="71" y1="25.35" x2="71" y2="24.25" width="0.1524" layer="16"/>
 </signal>
 <signal name="PFBOUT">
@@ -16137,16 +16146,16 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="C85" pad="1"/>
 <contactref element="C84" pad="1"/>
 <wire x1="69.8" y1="27.75" x2="68.5" y2="27.75" width="0.1524" layer="1"/>
-<via x="68.5" y="27.75" extent="1-16" drill="0.13"/>
+<via x="68.5" y="27.75" extent="1-16" drill="0.2032"/>
 <wire x1="78.2" y1="27.25" x2="79.5" y2="27.25" width="0.1524" layer="1"/>
-<via x="79.5" y="27.25" extent="1-16" drill="0.13"/>
+<via x="79.5" y="27.25" extent="1-16" drill="0.2032"/>
 <wire x1="79.5" y1="27.25" x2="79.75" y2="27.5" width="0.1524" layer="16"/>
 <wire x1="79.75" y1="27.5" x2="80.6" y2="27.5" width="0.1524" layer="16"/>
 <wire x1="80.6" y1="27.5" x2="80.6" y2="28.5" width="0.1524" layer="16"/>
 <wire x1="68.5" y1="27.75" x2="67.75" y2="28.5" width="0.1524" layer="16"/>
 <wire x1="67.75" y1="28.5" x2="67.15" y2="28.5" width="0.1524" layer="16"/>
 <wire x1="78.2" y1="24.75" x2="79.5" y2="24.75" width="0.1524" layer="1"/>
-<via x="79.5" y="24.75" extent="1-16" drill="0.13"/>
+<via x="79.5" y="24.75" extent="1-16" drill="0.2032"/>
 <wire x1="79.5" y1="24.75" x2="80.6" y2="24.75" width="0.1524" layer="16"/>
 <wire x1="79.5" y1="24.75" x2="79.5" y2="27.25" width="0" layer="19" extent="16-16"/>
 <wire x1="69.8" y1="27.75" x2="78.2" y2="27.25" width="0" layer="19" extent="1-1"/>
@@ -16155,11 +16164,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U6" pad="7"/>
 <contactref element="X3" pad="1"/>
 <wire x1="74.25" y1="20.8" x2="74.25" y2="19.5" width="0.1524" layer="1"/>
-<via x="74.25" y="19.5" extent="1-16" drill="0.13"/>
+<via x="74.25" y="19.5" extent="1-16" drill="0.2032"/>
 <contactref element="R12" pad="2"/>
 <contactref element="U1" pad="J3"/>
 <wire x1="50.5" y1="38.5" x2="51" y2="39" width="0.1524" layer="1"/>
-<via x="51" y="39" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="51" y="39" extent="1-16" drill="0.2032"/>
 <wire x1="51" y1="39" x2="55" y2="39" width="0.1524" layer="3"/>
 <wire x1="55" y1="39" x2="56.75" y2="37.25" width="0.1524" layer="3"/>
 <wire x1="56.75" y1="37.25" x2="56.75" y2="33" width="0.1524" layer="3"/>
@@ -16191,7 +16200,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="82" y1="20.9" x2="82" y2="15.1" width="0.1524" layer="1"/>
 <wire x1="81.9" y1="15" x2="82" y2="15.1" width="0.1524" layer="1"/>
 <wire x1="76.9" y1="14.25" x2="78.15" y2="14.25" width="0.1524" layer="1"/>
-<via x="78.5" y="14.25" extent="1-16" drill="0.13"/>
+<via x="78.5" y="14.25" extent="1-16" drill="0.2032"/>
 <wire x1="77.75" y1="12.65" x2="78.5" y2="13.4" width="0.1524" layer="16"/>
 <wire x1="79.25" y1="12.65" x2="78.5" y2="13.4" width="0.1524" layer="16"/>
 <wire x1="78.5" y1="13.4" x2="78.5" y2="14.25" width="0.1524" layer="16"/>
@@ -16207,11 +16216,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="K4"/>
 <contactref element="U6" pad="29"/>
 <wire x1="49.5" y1="39.5" x2="50" y2="40" width="0.1524" layer="1"/>
-<via x="50" y="40" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="50" y="40" extent="1-16" drill="0.2032"/>
 <wire x1="74.75" y1="29.2" x2="74.75" y2="27.75" width="0.1524" layer="1"/>
-<via x="75.5" y="17" extent="1-16" drill="0.13"/>
+<via x="75.5" y="17" extent="1-16" drill="0.2032"/>
 <wire x1="74.75" y1="20" x2="74.75" y2="27.75" width="0.1524" layer="16"/>
-<via x="74.75" y="27.75" extent="1-16" drill="0.13"/>
+<via x="74.75" y="27.75" extent="1-16" drill="0.2032"/>
 <wire x1="50" y1="40" x2="50.5" y2="40.5" width="0.1524" layer="16"/>
 <wire x1="74.75" y1="27.75" x2="72.25" y2="27.75" width="0.1524" layer="16"/>
 <wire x1="72.25" y1="27.75" x2="70" y2="30" width="0.1524" layer="16"/>
@@ -16237,10 +16246,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="T16"/>
 <contactref element="R94" pad="2"/>
 <wire x1="37.5" y1="45.5" x2="36.75" y2="45.5" width="0.1524" layer="1"/>
-<via x="36.75" y="45.5" extent="1-16" drill="0.13"/>
+<via x="36.75" y="45.5" extent="1-16" drill="0.2032"/>
 <wire x1="35.65" y1="45.5" x2="36.75" y2="45.5" width="0.1524" layer="16"/>
 <contactref element="J1" pad="27"/>
-<via x="37.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="37.5" y="3.5" extent="1-16" drill="0.2032"/>
 <contactref element="J2" pad="27"/>
 <wire x1="37.5" y1="5.15" x2="37.5" y2="3.5" width="0.1524" layer="1"/>
 <wire x1="37.5" y1="5.15" x2="37.5" y2="3.5" width="0.1524" layer="16"/>
@@ -16284,13 +16293,13 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="R63" pad="2"/>
 <contactref element="C105" pad="1"/>
 <wire x1="15.8" y1="35.25" x2="17.25" y2="35.25" width="0.3048" layer="1"/>
-<via x="17.25" y="35.25" extent="1-16" drill="0.13"/>
-<via x="22.75" y="35.25" extent="1-16" drill="0.13"/>
+<via x="17.25" y="35.25" extent="1-16" drill="0.2032"/>
+<via x="22.75" y="35.25" extent="1-16" drill="0.2032"/>
 <wire x1="22.75" y1="35.25" x2="22.75" y2="33.8" width="0.3048" layer="1"/>
 <wire x1="21.75" y1="42.2" x2="21.75" y2="40.75" width="0.3048" layer="1"/>
-<via x="21.75" y="40.75" extent="1-16" drill="0.13"/>
+<via x="21.75" y="40.75" extent="1-16" drill="0.2032"/>
 <wire x1="18.25" y1="42.2" x2="18.25" y2="40.75" width="0.3048" layer="1"/>
-<via x="18.25" y="40.75" extent="1-16" drill="0.13"/>
+<via x="18.25" y="40.75" extent="1-16" drill="0.2032"/>
 <wire x1="19.85" y1="39.75" x2="20" y2="39.75" width="0.3048" layer="16"/>
 <wire x1="22.1" y1="40.75" x2="22.85" y2="41.5" width="0.3048" layer="16"/>
 <wire x1="22.85" y1="40" x2="22.1" y2="40.75" width="0.3048" layer="16"/>
@@ -16310,23 +16319,15 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="18.25" y1="40.75" x2="18.25" y2="41.6" width="0.3048" layer="16"/>
 <wire x1="25.15" y1="47.95" x2="26.2" y2="47.95" width="0.3048" layer="1"/>
 <wire x1="26.2" y1="47.95" x2="26.25" y2="48" width="0.3048" layer="1"/>
-<via x="26.25" y="48" extent="1-16" drill="0.13"/>
+<via x="26.25" y="48" extent="1-16" drill="0.2032"/>
 <wire x1="26.5" y1="49.1" x2="26.5" y2="48.25" width="0.3048" layer="16"/>
 <wire x1="26.5" y1="48.25" x2="26.25" y2="48" width="0.3048" layer="16"/>
 <wire x1="26.5" y1="49.1" x2="26.4" y2="49" width="0.3048" layer="16"/>
-<polygon width="0.2032" layer="15" pour="cutout">
-<vertex x="10" y="50"/>
-<vertex x="10" y="32"/>
-<vertex x="27" y="32"/>
-<vertex x="27" y="50"/>
-</polygon>
 <wire x1="17.25" y1="35.25" x2="16.9" y2="35.25" width="0.3048" layer="16"/>
 <wire x1="16.9" y1="35.25" x2="16.15" y2="34.5" width="0.3048" layer="16"/>
-<wire x1="26.75" y1="42.9" x2="26.75" y2="43.75" width="0.3048" layer="16"/>
-<via x="26.75" y="43.75" extent="1-16" drill="0.13"/>
+<wire x1="26.5" y1="42.9" x2="26.5" y2="43.75" width="0.3048" layer="16"/>
 <wire x1="26.4" y1="46" x2="26.5" y2="45.9" width="0.3048" layer="16"/>
 <wire x1="26.5" y1="45.9" x2="26.5" y2="45.25" width="0.3048" layer="16"/>
-<via x="26.5" y="45.25" extent="1-16" drill="0.13"/>
 <wire x1="26.4" y1="46" x2="26.5" y2="46.1" width="0.3048" layer="16"/>
 <wire x1="26.5" y1="46.1" x2="26.5" y2="47" width="0.3048" layer="16"/>
 <wire x1="26.5" y1="47" x2="26.4" y2="47" width="0.3048" layer="16"/>
@@ -16334,9 +16335,13 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="26.5" y1="47.1" x2="26.5" y2="47.5" width="0.3048" layer="16"/>
 <wire x1="26.5" y1="47.5" x2="26.5" y2="47.75" width="0.3048" layer="16"/>
 <wire x1="26.5" y1="47.75" x2="26.25" y2="48" width="0.3048" layer="16"/>
+<wire x1="26.5" y1="45.25" x2="26.5" y2="45" width="0.3048" layer="16"/>
+<wire x1="26.5" y1="45" x2="26.5" y2="43.75" width="0.3048" layer="16"/>
+<wire x1="26.5" y1="42.9" x2="26.1" y2="42.5" width="0.3048" layer="16"/>
+<wire x1="26.1" y1="42.5" x2="25.25" y2="42.5" width="0.3048" layer="16"/>
+<wire x1="25.25" y1="42.5" x2="23.85" y2="42.5" width="0.3048" layer="16"/>
+<wire x1="23.85" y1="42.5" x2="22.85" y2="41.5" width="0.3048" layer="16"/>
 <wire x1="25.15" y1="47.95" x2="22.6" y2="49" width="0" layer="19" extent="1-16"/>
-<wire x1="26.75" y1="43.75" x2="26.5" y2="45.25" width="0" layer="19" extent="16-16"/>
-<wire x1="22.85" y1="41.5" x2="26.75" y2="42.9" width="0" layer="19" extent="16-16"/>
 </signal>
 <signal name="VREGIN">
 <contactref element="B2" pad="2"/>
@@ -16347,7 +16352,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="19.05" y1="44.6" x2="20" y2="44.6" width="0.3048" layer="16"/>
 <wire x1="20" y1="44.6" x2="21" y2="44.6" width="0.3048" layer="16"/>
 <wire x1="21.25" y1="42.2" x2="21.25" y2="43.5" width="0.3048" layer="1"/>
-<via x="21.25" y="43.5" extent="1-16" drill="0.13"/>
+<via x="21.25" y="43.5" extent="1-16" drill="0.2032"/>
 <wire x1="21.25" y1="43.5" x2="21" y2="43.75" width="0.3048" layer="16"/>
 <wire x1="21" y1="43.75" x2="21" y2="44" width="0.3048" layer="16"/>
 <wire x1="21" y1="44" x2="21" y2="44.6" width="0.3048" layer="16"/>
@@ -16356,7 +16361,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U5" pad="38"/>
 <contactref element="C95" pad="1"/>
 <wire x1="22.25" y1="42.2" x2="22.25" y2="43.5" width="0.3048" layer="1"/>
-<via x="22.25" y="43.5" extent="1-16" drill="0.13"/>
+<via x="22.25" y="43.5" extent="1-16" drill="0.2032"/>
 <wire x1="22.25" y1="43.5" x2="22.25" y2="44.6" width="0.3048" layer="16"/>
 </signal>
 <signal name="VCCA">
@@ -16364,7 +16369,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="C107" pad="1"/>
 <wire x1="22.75" y1="42.2" x2="22.75" y2="43" width="0.3048" layer="1"/>
 <wire x1="22.75" y1="43" x2="23" y2="43.25" width="0.3048" layer="1"/>
-<via x="23" y="43.25" extent="1-16" drill="0.13"/>
+<via x="23" y="43.25" extent="1-16" drill="0.2032"/>
 <wire x1="23" y1="43.25" x2="23.25" y2="43.5" width="0.3048" layer="16"/>
 <wire x1="23.25" y1="43.5" x2="23.85" y2="43.5" width="0.3048" layer="16"/>
 </signal>
@@ -16373,7 +16378,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="C96" pad="1"/>
 <contactref element="C97" pad="1"/>
 <contactref element="U5" pad="3"/>
-<via x="17" y="39.75" extent="1-16" drill="0.13"/>
+<via x="17" y="39.75" extent="1-16" drill="0.2032"/>
 <wire x1="15.8" y1="39.75" x2="17" y2="39.75" width="0.3048" layer="1"/>
 <wire x1="18.15" y1="39.75" x2="17" y2="39.75" width="0.3048" layer="16"/>
 <wire x1="15.75" y1="39.15" x2="16.35" y2="39.75" width="0.3048" layer="16"/>
@@ -16388,7 +16393,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U5" pad="8"/>
 <wire x1="15.8" y1="37.25" x2="14.75" y2="37.25" width="0.3048" layer="1"/>
 <wire x1="14.75" y1="37.25" x2="14.5" y2="37" width="0.3048" layer="1"/>
-<via x="14.5" y="37" extent="1-16" drill="0.13"/>
+<via x="14.5" y="37" extent="1-16" drill="0.2032"/>
 <wire x1="14.5" y1="37" x2="14.75" y2="36.75" width="0.3048" layer="16"/>
 <wire x1="14.75" y1="36.75" x2="18.15" y2="36.75" width="0.3048" layer="16"/>
 <wire x1="13.65" y1="35.5" x2="13.65" y2="36.65" width="0.3048" layer="16"/>
@@ -16404,11 +16409,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="28.75" y1="35.5" x2="34.75" y2="35.5" width="0.1524" layer="3"/>
 <contactref element="U1" pad="E12"/>
 <wire x1="41.5" y1="34.5" x2="41" y2="34" width="0.1524" layer="1"/>
-<via x="41" y="34" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="41" y="34" extent="1-16" drill="0.2032"/>
 <wire x1="41" y1="34" x2="40.5" y2="34.5" width="0.1524" layer="3"/>
 <wire x1="40.5" y1="34.5" x2="35.75" y2="34.5" width="0.1524" layer="3"/>
 <wire x1="35.75" y1="34.5" x2="34.75" y2="35.5" width="0.1524" layer="3"/>
-<via x="25.5" y="38.75" extent="1-16" drill="0.13"/>
+<via x="25.5" y="38.75" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="ACBUS9">
 <contactref element="U5" pad="33"/>
@@ -16416,17 +16421,17 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="25.5" y1="39.25" x2="28.75" y2="36" width="0.1524" layer="3"/>
 <contactref element="U1" pad="F12"/>
 <wire x1="41.5" y1="35.5" x2="41" y2="35" width="0.1524" layer="1"/>
-<via x="41" y="35" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="41" y="35" extent="1-16" drill="0.2032"/>
 <wire x1="41" y1="35" x2="36" y2="35" width="0.1524" layer="3"/>
 <wire x1="28.75" y1="36" x2="35" y2="36" width="0.1524" layer="3"/>
 <wire x1="35" y1="36" x2="36" y2="35" width="0.1524" layer="3"/>
-<via x="25.5" y="39.25" extent="1-16" drill="0.13"/>
+<via x="25.5" y="39.25" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="LED2H">
 <contactref element="LED2" pad="2"/>
 <contactref element="R98" pad="1"/>
 <wire x1="12.25" y1="54" x2="12.25" y2="52.75" width="0.1524" layer="1"/>
-<via x="12.25" y="52.75" extent="1-16" drill="0.13"/>
+<via x="12.25" y="52.75" extent="1-16" drill="0.2032"/>
 <wire x1="12.25" y1="52.75" x2="12.25" y2="51.15" width="0.1524" layer="16"/>
 <wire x1="12.25" y1="51.15" x2="12.15" y2="51" width="0.1524" layer="16"/>
 </signal>
@@ -16434,7 +16439,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="LED1" pad="2"/>
 <contactref element="R97" pad="1"/>
 <wire x1="6.25" y1="54" x2="6.25" y2="52.5" width="0.1524" layer="1"/>
-<via x="6.25" y="52.5" extent="1-16" drill="0.13"/>
+<via x="6.25" y="52.5" extent="1-16" drill="0.2032"/>
 <wire x1="6.25" y1="52.5" x2="6.25" y2="51.15" width="0.1524" layer="16"/>
 <wire x1="6.25" y1="51.15" x2="6.35" y2="51" width="0.1524" layer="16"/>
 </signal>
@@ -16442,23 +16447,23 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="LED2" pad="1"/>
 <contactref element="U1" pad="H4"/>
 <wire x1="49.5" y1="37.5" x2="50" y2="37" width="0.1524" layer="1"/>
-<via x="50" y="37" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="50" y="37" extent="1-16" drill="0.2032"/>
 <wire x1="50" y1="37" x2="49.5" y2="37.5" width="0.1524" layer="3"/>
 <wire x1="49.5" y1="37.5" x2="49.5" y2="44.5" width="0.1524" layer="3"/>
 <wire x1="49.5" y1="44.5" x2="44.5" y2="49.5" width="0.1524" layer="3"/>
 <wire x1="44.5" y1="49.5" x2="11.75" y2="49.5" width="0.1524" layer="3"/>
 <wire x1="11.75" y1="49.5" x2="8.75" y2="52.5" width="0.1524" layer="3"/>
 <wire x1="8.75" y1="54" x2="8.75" y2="52.5" width="0.1524" layer="1"/>
-<via x="8.75" y="52.5" extent="1-16" drill="0.13"/>
+<via x="8.75" y="52.5" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="LED1">
 <contactref element="LED1" pad="1"/>
 <contactref element="U1" pad="H5"/>
 <wire x1="48.5" y1="37.5" x2="49" y2="37" width="0.1524" layer="1"/>
-<via x="49" y="37" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="49" y="37" extent="1-16" drill="0.2032"/>
 <wire x1="49" y1="37" x2="48.5" y2="37.5" width="0.1524" layer="3"/>
 <wire x1="2.75" y1="54" x2="2.75" y2="52.5" width="0.1524" layer="1"/>
-<via x="2.75" y="52.5" extent="1-16" drill="0.13"/>
+<via x="2.75" y="52.5" extent="1-16" drill="0.2032"/>
 <wire x1="2.75" y1="52.5" x2="6.25" y2="49" width="0.1524" layer="3"/>
 <wire x1="6.25" y1="49" x2="44" y2="49" width="0.1524" layer="3"/>
 <wire x1="48.5" y1="37.5" x2="48.5" y2="44.5" width="0.1524" layer="3"/>
@@ -16467,7 +16472,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <signal name="SF_CM1">
 <contactref element="U1" pad="P6"/>
 <wire x1="47.5" y1="43.5" x2="48" y2="43" width="0.1524" layer="1"/>
-<via x="48" y="43" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="48" y="43" extent="1-16" drill="0.2032"/>
 <wire x1="48" y1="43" x2="48.5" y2="43.5" width="0.1524" layer="14"/>
 <wire x1="48.5" y1="43.5" x2="52.5" y2="43.5" width="0.1524" layer="14"/>
 <wire x1="52.5" y1="43.5" x2="53" y2="43" width="0.1524" layer="14"/>
@@ -16477,64 +16482,55 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="55.5" y1="40.5" x2="55.5" y2="3.5" width="0.1524" layer="14"/>
 <contactref element="J2" pad="63"/>
 <wire x1="55.5" y1="5.15" x2="55.5" y2="3.5" width="0.1524" layer="1"/>
-<via x="55.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="55.5" y="3.5" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="SF_TM0">
 <contactref element="U1" pad="R4"/>
 <wire x1="49.5" y1="44.5" x2="50" y2="44" width="0.1524" layer="1"/>
-<via x="50" y="44" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="50" y="44" extent="1-16" drill="0.2032"/>
 <wire x1="50" y1="44" x2="50.5" y2="44.5" width="0.1524" layer="14"/>
 <wire x1="50.5" y1="44.5" x2="53.5" y2="44.5" width="0.1524" layer="14"/>
 <wire x1="53.5" y1="44.5" x2="57.5" y2="40.5" width="0.1524" layer="14"/>
 <wire x1="57.5" y1="40.5" x2="57.5" y2="3.5" width="0.1524" layer="14"/>
 <contactref element="J2" pad="67"/>
 <wire x1="57.5" y1="5.15" x2="57.5" y2="3.5" width="0.1524" layer="1"/>
-<via x="57.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="57.5" y="3.5" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="SF_CM0">
 <contactref element="U1" pad="T3"/>
 <wire x1="50.5" y1="45.5" x2="51" y2="46" width="0.1524" layer="1"/>
-<via x="51" y="46" extent="1-16" drill="0.13"/>
+<via x="51" y="46" extent="1-16" drill="0.2032"/>
 <wire x1="51" y1="46" x2="51.5" y2="45.5" width="0.1524" layer="14"/>
 <wire x1="51.5" y1="45.5" x2="53.5" y2="45.5" width="0.1524" layer="14"/>
 <wire x1="53.5" y1="45.5" x2="58.5" y2="40.5" width="0.1524" layer="14"/>
 <wire x1="58.5" y1="40.5" x2="58.5" y2="3.5" width="0.1524" layer="14"/>
 <contactref element="J2" pad="69"/>
 <wire x1="58.5" y1="5.15" x2="58.5" y2="3.5" width="0.1524" layer="1"/>
-<via x="58.5" y="3.5" extent="1-16" drill="0.13"/>
-</signal>
-<signal name="SF_CM2">
-<contactref element="U1" pad="M12"/>
-</signal>
-<signal name="SF_ABPS4">
-<contactref element="U1" pad="R11"/>
-</signal>
-<signal name="SF_ABPS2">
-<contactref element="U1" pad="R5"/>
+<via x="58.5" y="3.5" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="SF_ABPS1">
 <contactref element="U1" pad="T2"/>
 <wire x1="51.5" y1="45.5" x2="52" y2="46" width="0.1524" layer="1"/>
-<via x="52" y="46" extent="1-16" drill="0.13"/>
+<via x="52" y="46" extent="1-16" drill="0.2032"/>
 <wire x1="52" y1="46" x2="55" y2="46" width="0.1524" layer="14"/>
 <wire x1="55" y1="46" x2="60.5" y2="40.5" width="0.1524" layer="14"/>
 <wire x1="60.5" y1="40.5" x2="60.5" y2="3.5" width="0.1524" layer="14"/>
 <contactref element="J2" pad="73"/>
 <wire x1="60.5" y1="5.15" x2="60.5" y2="3.5" width="0.1524" layer="1"/>
-<via x="60.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="60.5" y="3.5" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="SF_ABPS0">
 <contactref element="U1" pad="R3"/>
 <wire x1="50.5" y1="44.5" x2="50" y2="45" width="0.1524" layer="1"/>
 <wire x1="50" y1="45" x2="50" y2="46" width="0.1524" layer="1"/>
-<via x="50" y="46" extent="1-16" drill="0.13"/>
+<via x="50" y="46" extent="1-16" drill="0.2032"/>
 <wire x1="50" y1="46" x2="50.5" y2="46.5" width="0.1524" layer="14"/>
 <wire x1="50.5" y1="46.5" x2="55.5" y2="46.5" width="0.1524" layer="14"/>
 <wire x1="55.5" y1="46.5" x2="61.5" y2="40.5" width="0.1524" layer="14"/>
 <wire x1="61.5" y1="40.5" x2="61.5" y2="3.5" width="0.1524" layer="14"/>
 <contactref element="J2" pad="75"/>
 <wire x1="61.5" y1="5.15" x2="61.5" y2="3.5" width="0.1524" layer="1"/>
-<via x="61.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="61.5" y="3.5" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="FPGATAP">
 <contactref element="R67" pad="1"/>
@@ -16551,7 +16547,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="R26" pad="1"/>
 <contactref element="R72" pad="1"/>
 <wire x1="75.75" y1="29.2" x2="75.75" y2="30.5" width="0.1524" layer="1"/>
-<via x="75.75" y="30.5" extent="1-16" drill="0.13"/>
+<via x="75.75" y="30.5" extent="1-16" drill="0.2032"/>
 <wire x1="75.75" y1="30.5" x2="75.75" y2="31" width="0.1524" layer="16"/>
 <wire x1="75.75" y1="31" x2="79" y2="34.25" width="0.1524" layer="16"/>
 <wire x1="79" y1="34.25" x2="79" y2="35.35" width="0.1524" layer="16"/>
@@ -16569,7 +16565,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="C109" pad="1"/>
 <contactref element="U1" pad="P3"/>
 <wire x1="50.5" y1="43.5" x2="51" y2="44" width="0.1524" layer="1"/>
-<via x="51" y="44" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="51" y="44" extent="1-16" drill="0.2032"/>
 <wire x1="51" y1="44" x2="52.5" y2="45.5" width="0.1524" layer="16"/>
 <wire x1="52.5" y1="45.5" x2="53.35" y2="45.5" width="0.1524" layer="16"/>
 </signal>
@@ -16584,7 +16580,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="R3" pad="2"/>
 <wire x1="37.5" y1="39.5" x2="35" y2="39.5" width="0.1524" layer="1"/>
 <wire x1="35" y1="39.5" x2="34.5" y2="39" width="0.1524" layer="1"/>
-<via x="34.5" y="39" extent="1-16" drill="0.13"/>
+<via x="34.5" y="39" extent="1-16" drill="0.2032"/>
 <wire x1="34.5" y1="39" x2="33.25" y2="39" width="0.1524" layer="16"/>
 <wire x1="33.25" y1="39" x2="27.5" y2="33.25" width="0.1524" layer="16"/>
 <wire x1="27.5" y1="33.25" x2="24.65" y2="33.25" width="0.1524" layer="16"/>
@@ -16593,14 +16589,14 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="K12"/>
 <contactref element="R4" pad="2"/>
 <wire x1="41.5" y1="39.5" x2="41" y2="40" width="0.1524" layer="1"/>
-<via x="41" y="40" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="41" y="40" extent="1-16" drill="0.2032"/>
 <wire x1="41" y1="40" x2="40.5" y2="39.5" width="0.1524" layer="16"/>
 <wire x1="40.5" y1="39.5" x2="33" y2="39.5" width="0.1524" layer="16"/>
 <wire x1="33" y1="39.5" x2="27.75" y2="34.25" width="0.1524" layer="16"/>
 <wire x1="27.75" y1="34.25" x2="24.65" y2="34.25" width="0.1524" layer="16"/>
 </signal>
 <signal name="I2C0_SDA">
-<via x="37.5" y="10.5" extent="1-16" drill="0.13"/>
+<via x="37.5" y="10.5" extent="1-16" drill="0.2032"/>
 <contactref element="J2" pad="28"/>
 <contactref element="J1" pad="28"/>
 <wire x1="37.5" y1="8.85" x2="37.5" y2="10.5" width="0.1524" layer="1"/>
@@ -16614,7 +16610,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="30.15" y1="21.5" x2="32" y2="21.5" width="0" layer="19" extent="14-16"/>
 </signal>
 <signal name="I2C0_SCL">
-<via x="36.5" y="10.5" extent="1-16" drill="0.13"/>
+<via x="36.5" y="10.5" extent="1-16" drill="0.2032"/>
 <contactref element="J2" pad="26"/>
 <contactref element="J1" pad="26"/>
 <wire x1="36.5" y1="8.85" x2="36.5" y2="10.5" width="0.1524" layer="1"/>
@@ -16630,7 +16626,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <signal name="AFE1_CLK">
 <contactref element="U2" pad="6"/>
 <wire x1="42.5" y1="19.75" x2="43.25" y2="19.75" width="0.1524" layer="1"/>
-<via x="43.25" y="19.75" extent="1-16" drill="0.13"/>
+<via x="43.25" y="19.75" extent="1-16" drill="0.2032"/>
 <wire x1="43.25" y1="19.75" x2="41.5" y2="19.75" width="0.1524" layer="3"/>
 <wire x1="41.5" y1="19.75" x2="41" y2="20.25" width="0.1524" layer="3"/>
 <wire x1="41" y1="20.25" x2="41" y2="23.25" width="0.1524" layer="3"/>
@@ -16638,18 +16634,18 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="A7"/>
 <wire x1="42.25" y1="24.5" x2="46.5" y2="28.75" width="0.1524" layer="1"/>
 <wire x1="46.5" y1="28.75" x2="46.5" y2="30.5" width="0.1524" layer="1"/>
-<via x="42.25" y="24.5" extent="1-16" drill="0.13"/>
+<via x="42.25" y="24.5" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="AFE2_CLK">
 <contactref element="U3" pad="6"/>
 <wire x1="58.5" y1="19.75" x2="59.25" y2="19.75" width="0.1524" layer="1"/>
-<via x="59.25" y="19.75" extent="1-16" drill="0.13"/>
+<via x="59.25" y="19.75" extent="1-16" drill="0.2032"/>
 <wire x1="59.25" y1="19.75" x2="56.5" y2="22.5" width="0.1524" layer="3"/>
 <wire x1="56.5" y1="22.5" x2="56.5" y2="31.5" width="0.1524" layer="3"/>
 <contactref element="U1" pad="E1"/>
 <wire x1="56.5" y1="31.5" x2="53.5" y2="34.5" width="0.1524" layer="1"/>
 <wire x1="53.5" y1="34.5" x2="52.5" y2="34.5" width="0.1524" layer="1"/>
-<via x="56.5" y="31.5" extent="1-16" drill="0.13"/>
+<via x="56.5" y="31.5" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="AFE2_DB0">
 <contactref element="U3" pad="13"/>
@@ -16662,7 +16658,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U2" pad="1"/>
 <contactref element="C25" pad="1"/>
 <wire x1="42.5" y1="17.25" x2="43.25" y2="17.25" width="0.1524" layer="1"/>
-<via x="43.25" y="17.25" extent="1-16" drill="0.13"/>
+<via x="43.25" y="17.25" extent="1-16" drill="0.2032"/>
 <wire x1="43.6" y1="16.25" x2="43.6" y2="16.85" width="0.1524" layer="16"/>
 <wire x1="43.6" y1="16.85" x2="43.25" y2="17.25" width="0.1524" layer="16"/>
 </signal>
@@ -16670,7 +16666,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U2" pad="48"/>
 <contactref element="C42" pad="1"/>
 <wire x1="41.75" y1="16.5" x2="41.75" y2="15.75" width="0.1524" layer="1"/>
-<via x="41.75" y="15.75" extent="1-16" drill="0.13"/>
+<via x="41.75" y="15.75" extent="1-16" drill="0.2032"/>
 <wire x1="41.75" y1="15.75" x2="42.5" y2="15" width="0.1524" layer="16"/>
 <wire x1="42.5" y1="14.4" x2="42.5" y2="15" width="0.1524" layer="16"/>
 </signal>
@@ -16678,7 +16674,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U2" pad="47"/>
 <contactref element="C43" pad="1"/>
 <wire x1="41.25" y1="16.5" x2="41.25" y2="15.75" width="0.1524" layer="1"/>
-<via x="41.25" y="15.75" extent="1-16" drill="0.13"/>
+<via x="41.25" y="15.75" extent="1-16" drill="0.2032"/>
 <wire x1="41.5" y1="14.4" x2="41.5" y2="15" width="0.1524" layer="16"/>
 <wire x1="41.5" y1="15" x2="41.25" y2="15.25" width="0.1524" layer="16"/>
 <wire x1="41.25" y1="15.25" x2="41.25" y2="15.75" width="0.1524" layer="16"/>
@@ -16687,7 +16683,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U3" pad="1"/>
 <contactref element="C45" pad="1"/>
 <wire x1="58.5" y1="17.25" x2="59.25" y2="17.25" width="0.1524" layer="1"/>
-<via x="59.25" y="17.25" extent="1-16" drill="0.13"/>
+<via x="59.25" y="17.25" extent="1-16" drill="0.2032"/>
 <wire x1="59.25" y1="17.25" x2="59.1" y2="17.1" width="0.1524" layer="16"/>
 <wire x1="59.1" y1="17.1" x2="59.1" y2="16.25" width="0.1524" layer="16"/>
 </signal>
@@ -16695,7 +16691,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U3" pad="48"/>
 <contactref element="C62" pad="1"/>
 <wire x1="57.75" y1="16.5" x2="57.75" y2="15.75" width="0.1524" layer="1"/>
-<via x="57.75" y="15.75" extent="1-16" drill="0.13"/>
+<via x="57.75" y="15.75" extent="1-16" drill="0.2032"/>
 <wire x1="59.1" y1="15.25" x2="58.25" y2="15.25" width="0.1524" layer="16"/>
 <wire x1="58.25" y1="15.25" x2="57.75" y2="15.75" width="0.1524" layer="16"/>
 </signal>
@@ -16703,7 +16699,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U3" pad="47"/>
 <contactref element="C63" pad="1"/>
 <wire x1="57.25" y1="16.5" x2="57.25" y2="15.75" width="0.1524" layer="1"/>
-<via x="57.25" y="15.75" extent="1-16" drill="0.13"/>
+<via x="57.25" y="15.75" extent="1-16" drill="0.2032"/>
 <wire x1="57.25" y1="15.75" x2="57.25" y2="15.25" width="0.1524" layer="16"/>
 <wire x1="57.25" y1="15.25" x2="57.5" y2="15" width="0.1524" layer="16"/>
 <wire x1="57.5" y1="15" x2="57.5" y2="14.4" width="0.1524" layer="16"/>
@@ -16720,12 +16716,12 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="22.25" y1="28" x2="42.75" y2="28" width="0.1524" layer="3"/>
 <contactref element="U1" pad="D8"/>
 <wire x1="45.5" y1="33.5" x2="45" y2="33" width="0.1524" layer="1"/>
-<via x="45" y="33" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="45" y="33" extent="1-16" drill="0.2032"/>
 <wire x1="45" y1="33" x2="44.5" y2="32.5" width="0.1524" layer="3"/>
 <wire x1="44.5" y1="32.5" x2="44.5" y2="29.75" width="0.1524" layer="3"/>
 <wire x1="44.5" y1="29.75" x2="42.75" y2="28" width="0.1524" layer="3"/>
 <contactref element="R3" pad="1"/>
-<via x="17.75" y="32.5" extent="1-16" drill="0.13"/>
+<via x="17.75" y="32.5" extent="1-16" drill="0.2032"/>
 <wire x1="23.35" y1="33.25" x2="18" y2="33.25" width="0.1524" layer="16"/>
 <wire x1="18" y1="33.25" x2="17.75" y2="33" width="0.1524" layer="16"/>
 <wire x1="17.75" y1="33" x2="17.75" y2="32.5" width="0.1524" layer="16"/>
@@ -16737,11 +16733,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="22.25" y1="29.5" x2="40.75" y2="29.5" width="0.1524" layer="3"/>
 <contactref element="U1" pad="D10"/>
 <wire x1="43.5" y1="33.5" x2="43" y2="33" width="0.1524" layer="1"/>
-<via x="43" y="33" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="43" y="33" extent="1-16" drill="0.2032"/>
 <wire x1="43" y1="33" x2="42.5" y2="32.5" width="0.1524" layer="3"/>
 <wire x1="42.5" y1="32.5" x2="42.5" y2="31.25" width="0.1524" layer="3"/>
 <wire x1="42.5" y1="31.25" x2="40.75" y2="29.5" width="0.1524" layer="3"/>
-<via x="19.25" y="32.5" extent="1-16" drill="0.13"/>
+<via x="19.25" y="32.5" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="REF_CLK-">
 <contactref element="U1" pad="C16"/>
@@ -16762,7 +16758,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <signal name="NGPIO3">
 <contactref element="J2" pad="19"/>
 <wire x1="33.5" y1="5.15" x2="33.5" y2="3.5" width="0.1524" layer="1"/>
-<via x="33.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="33.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="33.5" y1="3.5" x2="33.5" y2="4.5" width="0.1524" layer="3"/>
 <wire x1="33.5" y1="4.5" x2="38" y2="9" width="0.1524" layer="3"/>
 <wire x1="38" y1="9" x2="38" y2="10.75" width="0.1524" layer="3"/>
@@ -16774,13 +16770,13 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="53.5" y1="30" x2="53.5" y2="34.5" width="0.1524" layer="3"/>
 <contactref element="U1" pad="F1"/>
 <wire x1="52.5" y1="35.5" x2="53" y2="35" width="0.1524" layer="1"/>
-<via x="53" y="35" extent="1-16" drill="0.13"/>
+<via x="53" y="35" extent="1-16" drill="0.2032"/>
 <wire x1="53" y1="35" x2="53.5" y2="34.5" width="0.1524" layer="3"/>
 </signal>
 <signal name="NGPIO2">
 <contactref element="J2" pad="17"/>
 <wire x1="32.5" y1="5.15" x2="32.5" y2="3.5" width="0.1524" layer="1"/>
-<via x="32.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="32.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="32.5" y1="3.5" x2="32.5" y2="5.5" width="0.1524" layer="3"/>
 <wire x1="32.5" y1="5.5" x2="36" y2="9" width="0.1524" layer="3"/>
 <wire x1="36" y1="9" x2="36" y2="10.75" width="0.1524" layer="3"/>
@@ -16792,27 +16788,27 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="51.5" y1="29.5" x2="51.5" y2="35.5" width="0.1524" layer="3"/>
 <contactref element="U1" pad="G3"/>
 <wire x1="50.5" y1="36.5" x2="51" y2="36" width="0.1524" layer="1"/>
-<via x="51" y="36" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="51" y="36" extent="1-16" drill="0.2032"/>
 <wire x1="51" y1="36" x2="51.5" y2="35.5" width="0.1524" layer="3"/>
 </signal>
 <signal name="UART1_TXD">
 <contactref element="R30" pad="1"/>
 <contactref element="J2" pad="21"/>
 <wire x1="34.5" y1="5.15" x2="34.5" y2="3.5" width="0.1524" layer="1"/>
-<via x="34.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="34.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="34.5" y1="3.5" x2="30" y2="8" width="0.1524" layer="14"/>
 <wire x1="30" y1="8" x2="30" y2="12.5" width="0.1524" layer="14"/>
 <wire x1="30" y1="12.5" x2="26" y2="16.5" width="0.1524" layer="14"/>
 <wire x1="26" y1="16.5" x2="26" y2="37.75" width="0.1524" layer="14"/>
 <wire x1="26" y1="37.75" x2="27.5" y2="39.25" width="0.1524" layer="14"/>
-<via x="27.5" y="39.25" extent="1-16" drill="0.13"/>
+<via x="27.5" y="39.25" extent="1-16" drill="0.2032"/>
 <wire x1="27.5" y1="39.25" x2="29.35" y2="39.25" width="0.1524" layer="16"/>
 </signal>
 <signal name="UART1_RXD">
 <contactref element="R31" pad="1"/>
 <contactref element="J2" pad="23"/>
 <wire x1="35.5" y1="5.15" x2="35.5" y2="3.5" width="0.1524" layer="1"/>
-<via x="35.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="35.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="35.5" y1="3.5" x2="30.5" y2="8.5" width="0.1524" layer="14"/>
 <wire x1="30.5" y1="8.5" x2="30.5" y2="12.75" width="0.1524" layer="14"/>
 <wire x1="30.5" y1="12.75" x2="26.5" y2="16.75" width="0.1524" layer="14"/>
@@ -16820,17 +16816,17 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="26.5" y1="16.75" x2="26.5" y2="37.5" width="0.1524" layer="14"/>
 <wire x1="26.5" y1="37.5" x2="29" y2="40" width="0.1524" layer="14"/>
 <wire x1="30" y1="40" x2="29" y2="40" width="0.1524" layer="1"/>
-<via x="29" y="40" extent="1-16" drill="0.13"/>
+<via x="29" y="40" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="NGPIO1">
 <contactref element="J2" pad="13"/>
 <wire x1="30.5" y1="5.15" x2="30.5" y2="3.5" width="0.1524" layer="1"/>
-<via x="30.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="30.5" y="3.5" extent="1-16" drill="0.2032"/>
 <contactref element="U1" pad="F3"/>
 <wire x1="50.5" y1="35.5" x2="51" y2="35" width="0.1524" layer="1"/>
 <wire x1="30.5" y1="20" x2="36" y2="25.5" width="0.1524" layer="3"/>
 <wire x1="36" y1="25.5" x2="45.75" y2="25.5" width="0.1524" layer="3"/>
-<via x="51" y="35" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="51" y="35" extent="1-16" drill="0.2032"/>
 <wire x1="51" y1="35" x2="50.5" y2="34.5" width="0.1524" layer="3"/>
 <wire x1="50.5" y1="34.5" x2="50.5" y2="30.25" width="0.1524" layer="3"/>
 <wire x1="50.5" y1="30.25" x2="45.75" y2="25.5" width="0.1524" layer="3"/>
@@ -16846,7 +16842,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 </signal>
 <signal name="SGPIO5">
 <contactref element="J1" pad="23"/>
-<via x="36" y="3" extent="1-16" drill="0.13"/>
+<via x="36" y="3" extent="1-16" drill="0.2032"/>
 <wire x1="36" y1="3" x2="36" y2="3.75" width="0.1524" layer="16"/>
 <wire x1="36" y1="3.75" x2="35.5" y2="4.25" width="0.1524" layer="16"/>
 <wire x1="35.5" y1="4.25" x2="35.5" y2="5.15" width="0.1524" layer="16"/>
@@ -16861,12 +16857,12 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="H2"/>
 <wire x1="51.5" y1="37.5" x2="52" y2="38" width="0.1524" layer="1"/>
 <wire x1="52" y1="38" x2="53.75" y2="38" width="0.1524" layer="1"/>
-<via x="53.75" y="38" extent="1-16" drill="0.13"/>
+<via x="53.75" y="38" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="SGPIO4">
 <wire x1="34.5" y1="4.25" x2="35" y2="3.75" width="0.1524" layer="16"/>
 <wire x1="35" y1="3.75" x2="35" y2="3" width="0.1524" layer="16"/>
-<via x="35" y="3" extent="1-16" drill="0.13"/>
+<via x="35" y="3" extent="1-16" drill="0.2032"/>
 <wire x1="35" y1="3" x2="35" y2="4" width="0.1524" layer="3"/>
 <wire x1="35" y1="4" x2="38" y2="7" width="0.1524" layer="3"/>
 <wire x1="38" y1="7" x2="39.25" y2="7" width="0.1524" layer="3"/>
@@ -16878,14 +16874,14 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="34.5" y1="4.25" x2="34.5" y2="5.15" width="0.1524" layer="16"/>
 <contactref element="U1" pad="G2"/>
 <wire x1="51.5" y1="36.5" x2="52" y2="37" width="0.1524" layer="1"/>
-<via x="52" y="37" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="52" y="37" extent="1-16" drill="0.2032"/>
 <wire x1="52" y1="37" x2="53" y2="37" width="0.1524" layer="3"/>
 <wire x1="53" y1="37" x2="54.5" y2="35.5" width="0.1524" layer="3"/>
 </signal>
 <signal name="SGPIO3">
 <wire x1="33.5" y1="4.25" x2="34" y2="3.75" width="0.1524" layer="16"/>
 <wire x1="34" y1="3.75" x2="34" y2="3" width="0.1524" layer="16"/>
-<via x="34" y="3" extent="1-16" drill="0.13"/>
+<via x="34" y="3" extent="1-16" drill="0.2032"/>
 <wire x1="34" y1="3" x2="34" y2="4" width="0.1524" layer="3"/>
 <wire x1="34" y1="4" x2="42.25" y2="12.25" width="0.1524" layer="3"/>
 <wire x1="42.25" y1="12.25" x2="43.75" y2="12.25" width="0.1524" layer="3"/>
@@ -16894,7 +16890,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="46" y1="21.75" x2="54" y2="29.75" width="0.1524" layer="3"/>
 <contactref element="U1" pad="G1"/>
 <wire x1="52.5" y1="36.5" x2="53" y2="36" width="0.1524" layer="1"/>
-<via x="53" y="36" extent="1-16" drill="0.13"/>
+<via x="53" y="36" extent="1-16" drill="0.2032"/>
 <wire x1="53" y1="36" x2="54" y2="35" width="0.1524" layer="3"/>
 <wire x1="54" y1="35" x2="54" y2="29.75" width="0.1524" layer="3"/>
 <contactref element="J1" pad="19"/>
@@ -16902,7 +16898,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 </signal>
 <signal name="SGPIO2">
 <wire x1="33" y1="3.75" x2="33" y2="3" width="0.1524" layer="16"/>
-<via x="33" y="3" extent="1-16" drill="0.13"/>
+<via x="33" y="3" extent="1-16" drill="0.2032"/>
 <wire x1="33" y1="3" x2="33" y2="5" width="0.1524" layer="3"/>
 <wire x1="33" y1="5" x2="37" y2="9" width="0.1524" layer="3"/>
 <wire x1="37" y1="9" x2="37" y2="10.75" width="0.1524" layer="3"/>
@@ -16916,7 +16912,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="32.5" y1="4.25" x2="32.5" y2="5.15" width="0.1524" layer="16"/>
 <contactref element="U1" pad="E2"/>
 <wire x1="51.5" y1="34.5" x2="52" y2="35" width="0.1524" layer="1"/>
-<via x="52" y="35" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="52" y="35" extent="1-16" drill="0.2032"/>
 <wire x1="52" y1="35" x2="52.5" y2="34.5" width="0.1524" layer="3"/>
 <wire x1="52.5" y1="34.5" x2="52.5" y2="29.75" width="0.1524" layer="3"/>
 </signal>
@@ -16927,7 +16923,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="C117" pad="1"/>
 <contactref element="C118" pad="1"/>
 <wire x1="51.5" y1="32.5" x2="52" y2="33" width="0.1524" layer="1"/>
-<via x="52" y="33" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="52" y="33" extent="1-16" drill="0.2032"/>
 <wire x1="54" y1="32.4" x2="53" y2="32.4" width="0.3048" layer="16"/>
 <wire x1="53" y1="32.4" x2="52.6" y2="32.4" width="0.3048" layer="16"/>
 <wire x1="52.6" y1="32.4" x2="52" y2="33" width="0.3048" layer="16"/>
@@ -16944,7 +16940,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="L1" pad="1"/>
 <contactref element="U1" pad="K5"/>
 <wire x1="48.5" y1="39.5" x2="49" y2="40" width="0.1524" layer="1"/>
-<via x="49" y="40" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="49" y="40" extent="1-16" drill="0.2032"/>
 <wire x1="49" y1="40" x2="49.5" y2="39.5" width="0.1524" layer="16"/>
 <wire x1="49.5" y1="39.5" x2="52.5" y2="39.5" width="0.1524" layer="16"/>
 <wire x1="52.5" y1="39.5" x2="53" y2="39" width="0.1524" layer="16"/>
@@ -16957,7 +16953,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="J12"/>
 <wire x1="41.5" y1="38.5" x2="41" y2="39" width="0.1524" layer="1"/>
 <wire x1="41" y1="39" x2="40" y2="39" width="0.1524" layer="1"/>
-<via x="40" y="39" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="40" y="39" extent="1-16" drill="0.2032"/>
 <wire x1="40" y1="39" x2="39" y2="39" width="0.1524" layer="14"/>
 <wire x1="39" y1="39" x2="36.5" y2="36.5" width="0.1524" layer="14"/>
 <wire x1="36.5" y1="36.5" x2="33" y2="36.5" width="0.1524" layer="14"/>
@@ -16969,7 +16965,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="R14" pad="1"/>
 <contactref element="U1" pad="J13"/>
 <wire x1="40.5" y1="38.5" x2="40" y2="38" width="0.1524" layer="1"/>
-<via x="40" y="38" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="40" y="38" extent="1-16" drill="0.2032"/>
 <wire x1="40" y1="38" x2="38.5" y2="36.5" width="0.1524" layer="14"/>
 <wire x1="38.5" y1="36.5" x2="37.5" y2="36.5" width="0.1524" layer="14"/>
 <wire x1="37.5" y1="36.5" x2="37" y2="36" width="0.1524" layer="14"/>
@@ -16982,7 +16978,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="K14"/>
 <contactref element="R30" pad="2"/>
 <wire x1="39.5" y1="39.5" x2="39" y2="40" width="0.1524" layer="1"/>
-<via x="39" y="40" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="39" y="40" extent="1-16" drill="0.2032"/>
 <wire x1="39" y1="40" x2="31.4" y2="40" width="0.1524" layer="16"/>
 <wire x1="30.65" y1="39.25" x2="31.4" y2="40" width="0.1524" layer="16"/>
 </signal>
@@ -17024,22 +17020,22 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="48.5" y1="9.5" x2="48.5" y2="22" width="0.1524" layer="3"/>
 <wire x1="48.5" y1="22" x2="55.5" y2="29" width="0.1524" layer="3"/>
 <wire x1="36.5" y1="5.15" x2="36.5" y2="3.5" width="0.1524" layer="16"/>
-<via x="36.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="36.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="36.5" y1="3.5" x2="36.5" y2="5.15" width="0.1524" layer="1"/>
 <wire x1="55.5" y1="29" x2="55.5" y2="37" width="0.1524" layer="3"/>
 <contactref element="U1" pad="J1"/>
 <wire x1="52.5" y1="38.5" x2="53.25" y2="38.5" width="0.1524" layer="1"/>
-<via x="53.25" y="38.5" extent="1-16" drill="0.13"/>
+<via x="53.25" y="38.5" extent="1-16" drill="0.2032"/>
 <wire x1="53.25" y1="38.5" x2="54" y2="38.5" width="0.1524" layer="3"/>
 <wire x1="54" y1="38.5" x2="55.5" y2="37" width="0.1524" layer="3"/>
 </signal>
 <signal name="NGPIO0">
 <contactref element="J2" pad="11"/>
-<via x="29.5" y="3.5" extent="1-16" drill="0.13"/>
+<via x="29.5" y="3.5" extent="1-16" drill="0.2032"/>
 <wire x1="29.5" y1="5.15" x2="29.5" y2="3.5" width="0.1524" layer="1"/>
 <contactref element="U1" pad="D5"/>
 <wire x1="48.5" y1="33.5" x2="48" y2="33" width="0.1524" layer="1"/>
-<via x="48" y="33" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="48" y="33" extent="1-16" drill="0.2032"/>
 <wire x1="48" y1="33" x2="48" y2="29.25" width="0.1524" layer="3"/>
 <wire x1="48" y1="29.25" x2="45.25" y2="26.5" width="0.1524" layer="3"/>
 <wire x1="45.25" y1="26.5" x2="35.5" y2="26.5" width="0.1524" layer="3"/>
@@ -17056,11 +17052,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="31" y1="19.75" x2="36.25" y2="25" width="0.1524" layer="3"/>
 <wire x1="36.25" y1="25" x2="46" y2="25" width="0.1524" layer="3"/>
 <wire x1="50.5" y1="34.5" x2="51" y2="34" width="0.1524" layer="1"/>
-<via x="51" y="34" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="51" y="34" extent="1-16" drill="0.2032"/>
 <wire x1="51" y1="34" x2="51" y2="30" width="0.1524" layer="3"/>
 <wire x1="51" y1="30" x2="46" y2="25" width="0.1524" layer="3"/>
 <wire x1="31" y1="19.75" x2="31" y2="5.75" width="0.1524" layer="3"/>
-<via x="31" y="3" extent="1-16" drill="0.13"/>
+<via x="31" y="3" extent="1-16" drill="0.2032"/>
 <wire x1="31" y1="3" x2="31" y2="5.75" width="0.1524" layer="3"/>
 </signal>
 <signal name="SGPIO0">
@@ -17071,14 +17067,14 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="30" y1="3.75" x2="30" y2="3" width="0.1524" layer="16"/>
 <contactref element="U1" pad="E4"/>
 <wire x1="49.5" y1="34.5" x2="50" y2="34" width="0.1524" layer="1"/>
-<via x="50" y="34" extent="1-16" drill="0.3048" diameter="0.6096"/>
+<via x="50" y="34" extent="1-16" drill="0.2032"/>
 <wire x1="50" y1="34" x2="49.5" y2="33.5" width="0.1524" layer="3"/>
 <wire x1="49.5" y1="33.5" x2="49.5" y2="30" width="0.1524" layer="3"/>
 <wire x1="49.5" y1="30" x2="45.5" y2="26" width="0.1524" layer="3"/>
 <wire x1="45.5" y1="26" x2="35.75" y2="26" width="0.1524" layer="3"/>
 <wire x1="35.75" y1="26" x2="30" y2="20.25" width="0.1524" layer="3"/>
 <wire x1="30" y1="20.25" x2="30" y2="13.75" width="0.1524" layer="3"/>
-<via x="30" y="3" extent="1-16" drill="0.13"/>
+<via x="30" y="3" extent="1-16" drill="0.2032"/>
 <wire x1="30" y1="3" x2="30" y2="11.75" width="0.1524" layer="3"/>
 <wire x1="30" y1="11.75" x2="30" y2="13.75" width="0.1524" layer="3"/>
 </signal>
