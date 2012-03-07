@@ -66,19 +66,24 @@ Specification
 
 [http://www.ti.com/litv/pdf/sloa058 TI Application Report] - A Single-Supply Op-Amp Circuit Collection
 
+
 == PCB Layout and soldering==
 
 _Note:_ Several PCB layout guidelines can be found in other sections such as ADC, Oscillator, etc.
 
 [http://www.pcbexpress.com/technical/faq.php Drill Sizes] - List of available drills at Screaming Circuits (Sunstone)
 
-[http://www.altera.com/literature/an/an114.pdf Altera AN114] - Designing with High-Density BGA Packages for Altera Devices
+=== BGA ===
 
-[http://www.fairchildsemi.com/an/AN/AN-5026.pdf Fairchild Semiconductor AN5026] - Using BGA Packages
+ * [http://www.altera.com/literature/an/an114.pdf Altera AN114] - Designing with High-Density BGA Packages for Altera Devices
+ * [http://www.fairchildsemi.com/an/AN/AN-5026.pdf Fairchild Semiconductor AN5026] - Using BGA Packages
+ * [http://www.actel.com/documents/RecPCBdesign.pdf Actel Recommended BGA Layout Drawings] - EIA Standard Board Layout Drawing for BGA, CCGA, CSP, and QFN
 
-[http://www.actel.com/documents/RecPCBdesign.pdf Actel Recommended BGA Layout Drawings] - EIA Standard Board Layout Drawing for BGA, CCGA, CSP, and QFN
+=== QFN and DFN ===
 
-[http://store.curiousinventor.com/guides/Surface_Mount_Soldering/QFN Surface mount soldering of QFN chips]
+ * [http://www.ti.com/general/docs/lit/getliterature.tsp?baseLiteratureNumber=SLOA122 Texas Instruments SLO122] - QFN Layout Guidelines
+ * [http://www.intersil.com/data/tb/TB389.pdf Intersil TB389] - PCB Land Pattern Design and Surface Mount Guidelines for QFN Packages
+ * [http://store.curiousinventor.com/guides/Surface_Mount_Soldering/QFN Surface mount soldering of QFN chips]
 
 == EMC ==
 
