@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.05" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -29526,7 +29526,7 @@ Sources:
 <circle x="-3.5" y="3.5" radius="0.1" width="0.1016" layer="21"/>
 <text x="-3" y="4.25" size="0.4064" layer="25">&gt;NAME</text>
 <text x="-3" y="-4.75" size="0.4064" layer="27">&gt;VALUE</text>
-<rectangle x1="-2" y1="-2" x2="2" y2="2" layer="31"/>
+<rectangle x1="-0.75" y1="-0.75" x2="0.75" y2="0.75" layer="31"/>
 <rectangle x1="-3.5" y1="2.6" x2="-3.1" y2="2.9" layer="51"/>
 <rectangle x1="-3.5" y1="2.1" x2="-3.1" y2="2.4" layer="51"/>
 <rectangle x1="-3.5" y1="2.1" x2="-3.1" y2="2.4" layer="51"/>
@@ -29578,6 +29578,14 @@ Sources:
 <rectangle x1="-2.9" y1="3.1" x2="-2.6" y2="3.5" layer="51"/>
 <wire x1="-3" y1="3.5" x2="-3.5" y2="3.5" width="0.127" layer="51"/>
 <wire x1="-3" y1="3.5" x2="-3.5" y2="3" width="0.127" layer="51"/>
+<rectangle x1="1.05" y1="-0.75" x2="2.55" y2="0.75" layer="31"/>
+<rectangle x1="1.05" y1="1.05" x2="2.55" y2="2.55" layer="31"/>
+<rectangle x1="-0.75" y1="1.05" x2="0.75" y2="2.55" layer="31"/>
+<rectangle x1="-2.55" y1="1.05" x2="-1.05" y2="2.55" layer="31"/>
+<rectangle x1="-2.55" y1="-0.75" x2="-1.05" y2="0.75" layer="31"/>
+<rectangle x1="-2.55" y1="-2.55" x2="-1.05" y2="-1.05" layer="31"/>
+<rectangle x1="-0.75" y1="-2.55" x2="0.75" y2="-1.05" layer="31"/>
+<rectangle x1="1.05" y1="-2.55" x2="2.55" y2="-1.05" layer="31"/>
 </package>
 <package name="ZX62R-B-5P">
 <description>&lt;b&gt;ZX62R-B-5P&lt;/b&gt;
@@ -34791,6 +34799,7 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <part name="SW2" library="MainBoard" deviceset="SWITCH-ESWITCH-TL3340" device="G"/>
 <part name="PORT7" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT11" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="C148" library="MainBoard" deviceset="C" device="0402" value="1000pF"/>
 </parts>
 <sheets>
 <sheet>
@@ -35216,8 +35225,9 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <segment>
 <pinref part="C138" gate="G$1" pin="2"/>
 <wire x1="50.8" y1="25.4" x2="50.8" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="50.8" y1="22.86" x2="58.42" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="50.8" y1="22.86" x2="55.88" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="U$144" gate="G$1" pin="DGND"/>
+<wire x1="55.88" y1="22.86" x2="58.42" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="20.32" x2="58.42" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="C140" gate="G$1" pin="2"/>
 <wire x1="58.42" y1="22.86" x2="60.96" y2="22.86" width="0.1524" layer="91"/>
@@ -35226,6 +35236,10 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <wire x1="60.96" y1="22.86" x2="66.04" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="66.04" y1="22.86" x2="66.04" y2="25.4" width="0.1524" layer="91"/>
 <junction x="58.42" y="22.86"/>
+<pinref part="C139" gate="G$1" pin="2"/>
+<wire x1="55.88" y1="25.4" x2="55.88" y2="22.86" width="0.1524" layer="91"/>
+<junction x="55.88" y="22.86"/>
+<junction x="60.96" y="22.86"/>
 </segment>
 <segment>
 <pinref part="C142" gate="G$1" pin="2"/>
@@ -35474,7 +35488,8 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 </segment>
 <segment>
 <pinref part="C138" gate="G$1" pin="1"/>
-<wire x1="58.42" y1="35.56" x2="50.8" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="35.56" x2="55.88" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="35.56" x2="50.8" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="35.56" x2="50.8" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="35.56" x2="58.42" y2="38.1" width="0.1524" layer="91"/>
 <pinref part="U$145" gate="G$1" pin="D3V3"/>
@@ -35488,6 +35503,8 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <pinref part="C141" gate="G$1" pin="1"/>
 <wire x1="60.96" y1="35.56" x2="66.04" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="66.04" y1="35.56" x2="66.04" y2="33.02" width="0.1524" layer="91"/>
+<junction x="55.88" y="35.56"/>
+<junction x="60.96" y="35.56"/>
 </segment>
 <segment>
 <pinref part="C142" gate="G$1" pin="1"/>
@@ -35773,12 +35790,6 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <pinref part="L1" gate="G$1" pin="1"/>
 <pinref part="U1" gate="-MSS-SUPPLY" pin="VCCRCOSC"/>
 <wire x1="27.94" y1="104.14" x2="17.78" y2="104.14" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$1" class="0">
-<segment>
-<pinref part="C139" gate="G$1" pin="2"/>
-<wire x1="55.88" y1="25.4" x2="55.88" y2="22.86" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
@@ -38437,9 +38448,9 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <instance part="C81" gate="G$1" x="48.26" y="27.94"/>
 <instance part="U$103" gate="G$1" x="48.26" y="15.24"/>
 <instance part="PORT221" gate="G$1" x="48.26" y="45.72" rot="R90"/>
-<instance part="U$104" gate="G$1" x="15.24" y="35.56"/>
-<instance part="B1" gate="G$1" x="25.4" y="30.48" rot="R90"/>
-<instance part="PORT222" gate="G$1" x="35.56" y="45.72" rot="R90"/>
+<instance part="U$104" gate="G$1" x="15.24" y="40.64"/>
+<instance part="B1" gate="G$1" x="25.4" y="35.56" rot="R90"/>
+<instance part="PORT222" gate="G$1" x="35.56" y="50.8" rot="R90"/>
 <instance part="PORT223" gate="G$1" x="238.76" y="63.5"/>
 <instance part="PORT224" gate="G$1" x="238.76" y="68.58"/>
 <instance part="PORT225" gate="G$1" x="238.76" y="71.12"/>
@@ -38493,6 +38504,7 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <instance part="C108" gate="G$1" x="24.13" y="20.32" rot="R90"/>
 <instance part="R12" gate="G$1" x="40.64" y="99.06" rot="R90"/>
 <instance part="U$147" gate="G$1" x="40.64" y="88.9"/>
+<instance part="C148" gate="G$1" x="24.13" y="25.4" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -38556,6 +38568,7 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <wire x1="83.82" y1="20.32" x2="83.82" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="81.28" y1="20.32" x2="81.28" y2="17.78" width="0.1524" layer="91"/>
 <pinref part="U$99" gate="G$1" pin="DGND"/>
+<junction x="81.28" y="20.32"/>
 </segment>
 <segment>
 <pinref part="C79" gate="G$1" pin="2"/>
@@ -38566,6 +38579,7 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <wire x1="66.04" y1="20.32" x2="66.04" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="63.5" y1="20.32" x2="63.5" y2="17.78" width="0.1524" layer="91"/>
 <pinref part="U$101" gate="G$1" pin="DGND"/>
+<junction x="63.5" y="20.32"/>
 </segment>
 <segment>
 <pinref part="C81" gate="G$1" pin="2"/>
@@ -38587,6 +38601,9 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <wire x1="116.84" y1="20.32" x2="116.84" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="U$109" gate="G$1" pin="DGND"/>
 <wire x1="105.41" y1="17.78" x2="105.41" y2="20.32" width="0.1524" layer="91"/>
+<junction x="101.6" y="20.32"/>
+<junction x="105.41" y="20.32"/>
+<junction x="109.22" y="20.32"/>
 </segment>
 <segment>
 <pinref part="C88" gate="G$1" pin="2"/>
@@ -38609,6 +38626,11 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <wire x1="15.24" y1="17.78" x2="15.24" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="20.32" x2="21.59" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="C108" gate="G$1" pin="1"/>
+<wire x1="20.32" y1="25.4" x2="15.24" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="25.4" x2="15.24" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="C148" gate="G$1" pin="1"/>
+<wire x1="20.32" y1="25.4" x2="21.59" y2="25.4" width="0.1524" layer="91"/>
+<junction x="15.24" y="20.32"/>
 </segment>
 <segment>
 <pinref part="R12" gate="G$1" pin="1"/>
@@ -38712,9 +38734,9 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 </segment>
 <segment>
 <pinref part="U$104" gate="G$1" pin="D3V3"/>
-<wire x1="15.24" y1="35.56" x2="15.24" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="40.64" x2="15.24" y2="35.56" width="0.1524" layer="91"/>
 <pinref part="B1" gate="G$1" pin="1"/>
-<wire x1="15.24" y1="30.48" x2="20.32" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="35.56" x2="20.32" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R85" gate="G$1" pin="2"/>
@@ -38789,6 +38811,7 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <wire x1="83.82" y1="33.02" x2="83.82" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="81.28" y1="33.02" x2="81.28" y2="35.56" width="0.1524" layer="91"/>
 <label x="81.28" y="38.1" size="1.778" layer="97" rot="R90"/>
+<junction x="81.28" y="33.02"/>
 </segment>
 <segment>
 <pinref part="J7" gate="G$1" pin="RCT"/>
@@ -38809,6 +38832,7 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <wire x1="66.04" y1="33.02" x2="66.04" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="63.5" y1="33.02" x2="63.5" y2="35.56" width="0.1524" layer="91"/>
 <label x="63.5" y="38.1" size="1.778" layer="97" rot="R90"/>
+<junction x="63.5" y="33.02"/>
 </segment>
 <segment>
 <pinref part="R77" gate="G$1" pin="2"/>
@@ -38842,9 +38866,9 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 </segment>
 <segment>
 <pinref part="B1" gate="G$1" pin="2"/>
-<wire x1="30.48" y1="30.48" x2="35.56" y2="30.48" width="0.1524" layer="91"/>
-<wire x1="35.56" y1="30.48" x2="35.56" y2="35.56" width="0.1524" layer="91"/>
-<label x="35.56" y="38.1" size="1.778" layer="97" rot="R90"/>
+<wire x1="30.48" y1="35.56" x2="35.56" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="35.56" x2="35.56" y2="40.64" width="0.1524" layer="91"/>
+<label x="35.56" y="43.18" size="1.778" layer="97" rot="R90"/>
 </segment>
 <segment>
 <wire x1="116.84" y1="83.82" x2="121.92" y2="83.82" width="0.1524" layer="91"/>
@@ -39046,6 +39070,8 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <wire x1="109.22" y1="30.48" x2="109.22" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="105.41" y1="35.56" x2="105.41" y2="33.02" width="0.1524" layer="91"/>
 <junction x="105.41" y="33.02"/>
+<junction x="101.6" y="33.02"/>
+<junction x="109.22" y="33.02"/>
 </segment>
 </net>
 <net name="!MSS_RESET" class="0">
@@ -39109,6 +39135,10 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <wire x1="35.56" y1="17.78" x2="35.56" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="C108" gate="G$1" pin="2"/>
 <wire x1="29.21" y1="20.32" x2="35.56" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="C148" gate="G$1" pin="2"/>
+<wire x1="29.21" y1="25.4" x2="35.56" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="25.4" x2="35.56" y2="20.32" width="0.1524" layer="91"/>
+<junction x="35.56" y="20.32"/>
 </segment>
 </net>
 <net name="CRS" class="0">
