@@ -34816,7 +34816,6 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <rectangle x1="165.1" y1="53.34" x2="236.22" y2="104.14" layer="116"/>
 <rectangle x1="218.44" y1="109.22" x2="236.22" y2="124.46" layer="116"/>
 <text x="140.97" y="59.69" size="1.778" layer="97" rot="R90">VCC33SDD0</text>
-<rectangle x1="15.24" y1="104.14" x2="20.32" y2="116.84" layer="97"/>
 <text x="135.89" y="59.69" size="1.778" layer="97" rot="R90">VCCLPXTAL</text>
 <text x="146.05" y="59.69" size="1.778" layer="97" rot="R90">VCCMAINXTAL</text>
 <text x="151.13" y="59.69" size="1.778" layer="97" rot="R90">VDDBAT</text>
