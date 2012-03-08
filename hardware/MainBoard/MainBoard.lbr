@@ -28,7 +28,7 @@
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
-<layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
+<layer number="31" name="tCream" color="7" fill="4" visible="yes" active="yes"/>
 <layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
 <layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="yes"/>
@@ -1996,7 +1996,7 @@ Sources:
 <circle x="-3.5" y="3.5" radius="0.1" width="0.1016" layer="21"/>
 <text x="-3" y="4.25" size="0.4064" layer="25">&gt;NAME</text>
 <text x="-3" y="-4.75" size="0.4064" layer="27">&gt;VALUE</text>
-<rectangle x1="-2" y1="-2" x2="2" y2="2" layer="31"/>
+<rectangle x1="-0.75" y1="-0.75" x2="0.75" y2="0.75" layer="31"/>
 <rectangle x1="-3.5" y1="2.6" x2="-3.1" y2="2.9" layer="51"/>
 <rectangle x1="-3.5" y1="2.1" x2="-3.1" y2="2.4" layer="51"/>
 <rectangle x1="-3.5" y1="2.1" x2="-3.1" y2="2.4" layer="51"/>
@@ -2048,6 +2048,14 @@ Sources:
 <rectangle x1="-2.9" y1="3.1" x2="-2.6" y2="3.5" layer="51"/>
 <wire x1="-3" y1="3.5" x2="-3.5" y2="3.5" width="0.127" layer="51"/>
 <wire x1="-3" y1="3.5" x2="-3.5" y2="3" width="0.127" layer="51"/>
+<rectangle x1="1.05" y1="-0.75" x2="2.55" y2="0.75" layer="31"/>
+<rectangle x1="1.05" y1="1.05" x2="2.55" y2="2.55" layer="31"/>
+<rectangle x1="-0.75" y1="1.05" x2="0.75" y2="2.55" layer="31"/>
+<rectangle x1="-2.55" y1="1.05" x2="-1.05" y2="2.55" layer="31"/>
+<rectangle x1="-2.55" y1="-0.75" x2="-1.05" y2="0.75" layer="31"/>
+<rectangle x1="-2.55" y1="-2.55" x2="-1.05" y2="-1.05" layer="31"/>
+<rectangle x1="-0.75" y1="-2.55" x2="0.75" y2="-1.05" layer="31"/>
+<rectangle x1="1.05" y1="-2.55" x2="2.55" y2="-1.05" layer="31"/>
 </package>
 <package name="SOT23-6L">
 <description>&lt;b&gt;SOT23-6L&lt;/b&gt;
