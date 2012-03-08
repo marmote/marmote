@@ -55,7 +55,7 @@
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
-<layer number="93" name="Pins" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="93" name="Pins" color="2" fill="1" visible="no" active="yes"/>
 <layer number="94" name="Symbols" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="95" name="Names" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
@@ -34822,7 +34822,7 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <text x="151.13" y="59.69" size="1.778" layer="97" rot="R90">VDDBAT</text>
 <text x="153.67" y="59.69" size="1.778" layer="97" rot="R90">VCC33SDD1</text>
 <text x="158.75" y="59.69" size="1.778" layer="97" rot="R90">VCC33A</text>
-<text x="130.81" y="59.69" size="1.778" layer="97" rot="R90">VCCL33AP</text>
+<text x="130.81" y="59.69" size="1.778" layer="97" rot="R90">VCC33AP</text>
 <text x="125.73" y="59.69" size="1.778" layer="97" rot="R90">VCC33ADC1</text>
 <text x="123.19" y="59.69" size="1.778" layer="97" rot="R90">VCC33ADC0</text>
 <rectangle x1="119.38" y1="48.26" x2="134.62" y2="55.88" layer="98"/>
@@ -34902,8 +34902,8 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <instance part="L2" gate="G$1" x="17.78" y="74.93" rot="R180"/>
 <instance part="PORT366" gate="G$1" x="185.42" y="76.2" rot="R90"/>
 <instance part="PORT365" gate="G$1" x="109.22" y="50.8" rot="R90"/>
-<instance part="C132" gate="G$1" x="129.54" y="53.34"/>
-<instance part="C133" gate="G$1" x="124.46" y="53.34"/>
+<instance part="C132" gate="G$1" x="124.46" y="53.34"/>
+<instance part="C133" gate="G$1" x="129.54" y="53.34"/>
 <instance part="U$19" gate="G$1" x="127" y="40.64"/>
 <instance part="U$20" gate="G$1" x="127" y="60.96"/>
 <instance part="C134" gate="G$1" x="15.24" y="30.48"/>
@@ -35612,11 +35612,11 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 </segment>
 <segment>
 <pinref part="C132" gate="G$1" pin="2"/>
-<wire x1="129.54" y1="48.26" x2="129.54" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="129.54" y1="45.72" x2="127" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="48.26" x2="124.46" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="45.72" x2="127" y2="45.72" width="0.1524" layer="91"/>
 <pinref part="C133" gate="G$1" pin="2"/>
-<wire x1="127" y1="45.72" x2="124.46" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="124.46" y1="45.72" x2="124.46" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="127" y1="45.72" x2="129.54" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="45.72" x2="129.54" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="127" y1="45.72" x2="127" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="U$19" gate="G$1" pin="AGND"/>
 </segment>
@@ -35711,11 +35711,11 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 </segment>
 <segment>
 <pinref part="C133" gate="G$1" pin="1"/>
-<wire x1="124.46" y1="55.88" x2="124.46" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="55.88" x2="129.54" y2="58.42" width="0.1524" layer="91"/>
 <pinref part="C132" gate="G$1" pin="1"/>
-<wire x1="124.46" y1="58.42" x2="127" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="127" y1="58.42" x2="129.54" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="129.54" y1="58.42" x2="129.54" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="58.42" x2="127" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="127" y1="58.42" x2="124.46" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="58.42" x2="124.46" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="127" y1="58.42" x2="127" y2="60.96" width="0.1524" layer="91"/>
 <pinref part="U$20" gate="G$1" pin="A3V3"/>
 </segment>
