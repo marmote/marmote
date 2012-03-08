@@ -33827,21 +33827,17 @@ v1.0 Initial design</description>
 <part name="U8" library="powerboard" deviceset="MAX9938" device="UK" technology="FE"/>
 <part name="U13" library="powerboard" deviceset="STM32F10XCXT6" device=""/>
 <part name="U$2" library="powerboard" deviceset="DGND" device=""/>
-<part name="U$18" library="powerboard" deviceset="AGND" device=""/>
 <part name="R16" library="powerboard" deviceset="R" device="0603" value="50m">
 <attribute name="TOLERANCE" value="1%"/>
 </part>
 <part name="U9" library="powerboard" deviceset="MAX9938" device="UK" technology="FE"/>
-<part name="U$21" library="powerboard" deviceset="AGND" device=""/>
 <part name="R17" library="powerboard" deviceset="R" device="0603" value="50m">
 <attribute name="TOLERANCE" value="1%"/>
 </part>
 <part name="U10" library="powerboard" deviceset="MAX9938" device="UK" technology="FE"/>
-<part name="U$22" library="powerboard" deviceset="AGND" device=""/>
 <part name="R18" library="powerboard" deviceset="R" device="0603" value="50m">
 <attribute name="TOLERANCE" value="1%"/>
 </part>
-<part name="U$23" library="powerboard" deviceset="AGND" device=""/>
 <part name="R15" library="powerboard" deviceset="R" device="0603" value="100k">
 <attribute name="TOLERANCE" value="1%"/>
 </part>
@@ -33922,8 +33918,6 @@ v1.0 Initial design</description>
 <part name="PORT61" library="powerboard" deviceset="PORT7" device=""/>
 <part name="PORT67" library="powerboard" deviceset="PORT5" device=""/>
 <part name="PORT37" library="powerboard" deviceset="PORT3" device=""/>
-<part name="PORT65" library="powerboard" deviceset="PORT5" device=""/>
-<part name="R21" library="powerboard" deviceset="R" device="0603" value="0"/>
 <part name="PORT110" library="powerboard" deviceset="PORT7" device=""/>
 <part name="PORT111" library="powerboard" deviceset="PORT7" device=""/>
 <part name="PORT112" library="powerboard" deviceset="PORT7" device=""/>
@@ -34085,12 +34079,6 @@ v1.0 Initial design</description>
 <part name="PORT98" library="powerboard" deviceset="PORT7" device=""/>
 <part name="PORT99" library="powerboard" deviceset="PORT7" device=""/>
 <part name="PORT100" library="powerboard" deviceset="PORT7" device=""/>
-<part name="PORT101" library="powerboard" deviceset="PORT3" device=""/>
-<part name="R48" library="powerboard" deviceset="R" device="0603" value="0"/>
-<part name="R51" library="powerboard" deviceset="R" device="0603" value="DNP"/>
-<part name="R52" library="powerboard" deviceset="R" device="0603" value="DNP"/>
-<part name="PORT92" library="powerboard" deviceset="PORT5" device=""/>
-<part name="PORT93" library="powerboard" deviceset="PORT5" device=""/>
 <part name="PORT115" library="powerboard" deviceset="PORT7" device=""/>
 <part name="PORT117" library="powerboard" deviceset="PORT7" device=""/>
 <part name="U$61" library="powerboard" deviceset="AGND" device=""/>
@@ -34152,6 +34140,17 @@ v1.0 Initial design</description>
 <part name="R57" library="powerboard" deviceset="R" device="0603" value="0">
 <attribute name="TOLERANCE" value=""/>
 </part>
+<part name="TP14" library="powerboard" deviceset="TESTPOINT" device="" technology="-BLUE" value="TESTPOINT">
+<attribute name="DIGI-KEY#" value="5122K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5122"/>
+</part>
+<part name="PORT85" library="powerboard" deviceset="PORT5" device=""/>
+<part name="PORT92" library="powerboard" deviceset="PORT7" device=""/>
+<part name="U$67" library="powerboard" deviceset="DGND" device=""/>
+<part name="U$68" library="powerboard" deviceset="DGND" device=""/>
+<part name="U$69" library="powerboard" deviceset="DGND" device=""/>
+<part name="U$70" library="powerboard" deviceset="DGND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -34739,21 +34738,17 @@ v1.0 Initial design</description>
 <instance part="U13" gate="-APWR" x="142.24" y="81.28"/>
 <instance part="U13" gate="-RESET" x="226.06" y="111.76" rot="MR0"/>
 <instance part="U$2" gate="G$1" x="144.78" y="12.7" rot="MR0"/>
-<instance part="U$18" gate="G$1" x="27.94" y="124.46"/>
 <instance part="R16" gate="G$1" x="43.18" y="144.78">
 <attribute name="TOLERANCE" x="45.085" y="141.605" size="1.778" layer="96"/>
 </instance>
 <instance part="U9" gate="G$1" x="43.18" y="106.68"/>
-<instance part="U$21" gate="G$1" x="27.94" y="96.52"/>
 <instance part="R17" gate="G$1" x="43.18" y="116.84">
 <attribute name="TOLERANCE" x="45.085" y="113.665" size="1.778" layer="96"/>
 </instance>
 <instance part="U10" gate="G$1" x="43.18" y="78.74"/>
-<instance part="U$22" gate="G$1" x="27.94" y="68.58"/>
 <instance part="R18" gate="G$1" x="43.18" y="88.9">
 <attribute name="TOLERANCE" x="45.085" y="85.725" size="1.778" layer="96"/>
 </instance>
-<instance part="U$23" gate="G$1" x="40.64" y="152.4"/>
 <instance part="R15" gate="G$1" x="40.64" y="175.26" rot="R90">
 <attribute name="TOLERANCE" x="43.815" y="177.165" size="1.778" layer="96" rot="R90"/>
 </instance>
@@ -34850,8 +34845,6 @@ v1.0 Initial design</description>
 <instance part="PORT61" gate="G$1" x="91.44" y="17.78" rot="MR0"/>
 <instance part="PORT67" gate="G$1" x="154.94" y="27.94"/>
 <instance part="PORT37" gate="G$1" x="182.88" y="73.66" rot="MR0"/>
-<instance part="PORT65" gate="G$1" x="228.6" y="142.24"/>
-<instance part="R21" gate="G$1" x="187.96" y="147.32"/>
 <instance part="PORT110" gate="G$1" x="91.44" y="20.32" rot="MR0"/>
 <instance part="PORT111" gate="G$1" x="91.44" y="22.86" rot="MR0"/>
 <instance part="PORT112" gate="G$1" x="170.18" y="127"/>
@@ -34868,6 +34861,10 @@ v1.0 Initial design</description>
 <instance part="PORT18" gate="G$1" x="10.16" y="177.8" rot="MR0"/>
 <instance part="SW3" gate="G$1" x="205.74" y="99.06"/>
 <instance part="U$15" gate="G$1" x="195.58" y="91.44" rot="MR0"/>
+<instance part="U$67" gate="G$1" x="40.64" y="152.4"/>
+<instance part="U$68" gate="G$1" x="27.94" y="124.46"/>
+<instance part="U$69" gate="G$1" x="27.94" y="96.52"/>
+<instance part="U$70" gate="G$1" x="27.94" y="68.58"/>
 </instances>
 <busses>
 <bus name="D3V3_STM_SENSE,VSUP_SENSE,D3V3_SENSE,D1V5_SENSE,A3V3_SENSE,A1V5_SENSE">
@@ -34940,37 +34937,37 @@ v1.0 Initial design</description>
 <pinref part="U$15" gate="G$1" pin="DGND"/>
 <wire x1="195.58" y1="96.52" x2="195.58" y2="93.98" width="0.1524" layer="91"/>
 </segment>
-</net>
-<net name="AGND" class="0">
+<segment>
+<wire x1="40.64" y1="157.48" x2="40.64" y2="154.94" width="0.1524" layer="91"/>
+<pinref part="R2" gate="G$1" pin="1"/>
+<pinref part="U$67" gate="G$1" pin="DGND"/>
+</segment>
 <segment>
 <wire x1="27.94" y1="127" x2="27.94" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="27.94" y1="132.08" x2="27.94" y2="129.54" width="0.1524" layer="91"/>
 <junction x="27.94" y="129.54"/>
-<pinref part="U$18" gate="G$1" pin="AGND"/>
 <pinref part="U8" gate="G$1" pin="GND"/>
 <pinref part="U8" gate="G$1" pin="GND@1"/>
+<pinref part="U$68" gate="G$1" pin="DGND"/>
 </segment>
 <segment>
 <wire x1="27.94" y1="99.06" x2="27.94" y2="101.6" width="0.1524" layer="91"/>
 <wire x1="27.94" y1="104.14" x2="27.94" y2="101.6" width="0.1524" layer="91"/>
 <junction x="27.94" y="101.6"/>
-<pinref part="U$21" gate="G$1" pin="AGND"/>
 <pinref part="U9" gate="G$1" pin="GND"/>
 <pinref part="U9" gate="G$1" pin="GND@1"/>
+<pinref part="U$69" gate="G$1" pin="DGND"/>
 </segment>
 <segment>
 <wire x1="27.94" y1="71.12" x2="27.94" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="27.94" y1="76.2" x2="27.94" y2="73.66" width="0.1524" layer="91"/>
 <junction x="27.94" y="73.66"/>
-<pinref part="U$22" gate="G$1" pin="AGND"/>
 <pinref part="U10" gate="G$1" pin="GND"/>
 <pinref part="U10" gate="G$1" pin="GND@1"/>
+<pinref part="U$70" gate="G$1" pin="DGND"/>
 </segment>
-<segment>
-<wire x1="40.64" y1="157.48" x2="40.64" y2="154.94" width="0.1524" layer="91"/>
-<pinref part="U$23" gate="G$1" pin="AGND"/>
-<pinref part="R2" gate="G$1" pin="1"/>
-</segment>
+</net>
+<net name="AGND" class="0">
 <segment>
 <wire x1="27.94" y1="43.18" x2="27.94" y2="45.72" width="0.1524" layer="91"/>
 <wire x1="27.94" y1="48.26" x2="27.94" y2="45.72" width="0.1524" layer="91"/>
@@ -35256,19 +35253,6 @@ v1.0 Initial design</description>
 <pinref part="U13" gate="-PORTA_H" pin="PA14"/>
 </segment>
 </net>
-<net name="PA15" class="0">
-<segment>
-<wire x1="180.34" y1="142.24" x2="180.34" y2="147.32" width="0.1524" layer="91"/>
-<wire x1="180.34" y1="147.32" x2="152.4" y2="147.32" width="0.1524" layer="91"/>
-<wire x1="180.34" y1="147.32" x2="182.88" y2="147.32" width="0.1524" layer="91"/>
-<wire x1="218.44" y1="142.24" x2="180.34" y2="142.24" width="0.1524" layer="91"/>
-<junction x="180.34" y="147.32"/>
-<label x="157.48" y="147.32" size="1.778" layer="95"/>
-<label x="220.98" y="142.24" size="1.778" layer="95"/>
-<pinref part="U13" gate="-PORTA_H" pin="PA15"/>
-<pinref part="R21" gate="G$1" pin="1"/>
-</segment>
-</net>
 <net name="TRACESWO" class="0">
 <segment>
 <wire x1="114.3" y1="127" x2="116.84" y2="127" width="0.1524" layer="91"/>
@@ -35457,12 +35441,13 @@ v1.0 Initial design</description>
 <pinref part="U13" gate="-PORTC" pin="PC13"/>
 </segment>
 </net>
-<net name="PA15-LED1" class="0">
+<net name="PA15" class="0">
 <segment>
-<wire x1="190.5" y1="147.32" x2="195.58" y2="147.32" width="0.1524" layer="91"/>
 <wire x1="195.58" y1="147.32" x2="195.58" y2="152.4" width="0.1524" layer="91"/>
 <pinref part="LED1" gate="G$1" pin="C"/>
-<pinref part="R21" gate="G$1" pin="2"/>
+<wire x1="195.58" y1="147.32" x2="152.4" y2="147.32" width="0.1524" layer="91"/>
+<label x="157.48" y="147.32" size="1.778" layer="95"/>
+<pinref part="U13" gate="-PORTA_H" pin="PA15"/>
 </segment>
 </net>
 <net name="I2C1_SCLI" class="0">
@@ -35656,18 +35641,18 @@ v1.0 Initial design</description>
 <instance part="U$32" gate="G$1" x="227.33" y="121.92"/>
 <instance part="U$33" gate="G$1" x="227.33" y="139.7"/>
 <instance part="C20" gate="G$1" x="213.36" y="132.08"/>
-<instance part="U$58" gate="G$1" x="22.86" y="20.32"/>
-<instance part="U$59" gate="G$1" x="33.02" y="20.32"/>
-<instance part="TP1" gate="G$1" x="22.86" y="27.94" smashed="yes">
+<instance part="U$58" gate="G$1" x="12.7" y="20.32"/>
+<instance part="U$59" gate="G$1" x="22.86" y="20.32"/>
+<instance part="TP1" gate="G$1" x="12.7" y="27.94" smashed="yes">
+<attribute name="NAME" x="15.24" y="17.78" size="1.778" layer="95" rot="R180"/>
+</instance>
+<instance part="TP2" gate="G$1" x="22.86" y="27.94" smashed="yes">
 <attribute name="NAME" x="25.4" y="17.78" size="1.778" layer="95" rot="R180"/>
 </instance>
-<instance part="TP2" gate="G$1" x="33.02" y="27.94" smashed="yes">
-<attribute name="NAME" x="35.56" y="17.78" size="1.778" layer="95" rot="R180"/>
+<instance part="U$38" gate="G$1" x="33.02" y="27.94" smashed="yes">
+<attribute name="VALUE" x="30.48" y="31.75" size="1.778" layer="96"/>
 </instance>
-<instance part="U$38" gate="G$1" x="43.18" y="27.94" smashed="yes">
-<attribute name="VALUE" x="40.64" y="31.75" size="1.778" layer="96"/>
-</instance>
-<instance part="TP3" gate="G$1" x="43.18" y="20.32" rot="R180"/>
+<instance part="TP3" gate="G$1" x="33.02" y="20.32" rot="R180"/>
 <instance part="TP4" gate="G$1" x="53.34" y="20.32" rot="R180"/>
 <instance part="TP5" gate="G$1" x="63.5" y="20.32" rot="R180"/>
 <instance part="TP6" gate="G$1" x="73.66" y="20.32" rot="R180"/>
@@ -35809,6 +35794,8 @@ v1.0 Initial design</description>
 <instance part="R55" gate="G$1" x="198.12" y="48.26" rot="R90"/>
 <instance part="R56" gate="G$1" x="190.5" y="48.26" rot="R90"/>
 <instance part="R57" gate="G$1" x="182.88" y="48.26" rot="R90"/>
+<instance part="TP14" gate="G$1" x="43.18" y="20.32" rot="R180"/>
+<instance part="PORT85" gate="G$1" x="43.18" y="35.56" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -35851,8 +35838,8 @@ v1.0 Initial design</description>
 <pinref part="U$32" gate="G$1" pin="AGND"/>
 </segment>
 <segment>
-<wire x1="22.86" y1="22.86" x2="22.86" y2="25.4" width="0.1524" layer="91"/>
-<label x="19.304" y="31.75" size="1.778" layer="95"/>
+<wire x1="12.7" y1="22.86" x2="12.7" y2="25.4" width="0.1524" layer="91"/>
+<label x="9.144" y="31.75" size="1.778" layer="95"/>
 <pinref part="U$58" gate="G$1" pin="AGND"/>
 <pinref part="TP1" gate="G$1" pin="1"/>
 </segment>
@@ -35903,8 +35890,8 @@ v1.0 Initial design</description>
 <pinref part="C18" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<wire x1="33.02" y1="22.86" x2="33.02" y2="25.4" width="0.1524" layer="91"/>
-<label x="29.464" y="31.75" size="1.778" layer="95"/>
+<wire x1="22.86" y1="22.86" x2="22.86" y2="25.4" width="0.1524" layer="91"/>
+<label x="19.304" y="31.75" size="1.778" layer="95"/>
 <pinref part="U$59" gate="G$1" pin="DGND"/>
 <pinref part="TP2" gate="G$1" pin="1"/>
 </segment>
@@ -36089,7 +36076,7 @@ v1.0 Initial design</description>
 </net>
 <net name="VBAT" class="0">
 <segment>
-<wire x1="43.18" y1="22.86" x2="43.18" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="22.86" x2="33.02" y2="27.94" width="0.1524" layer="91"/>
 <pinref part="U$38" gate="G$1" pin="VBAT"/>
 <pinref part="TP3" gate="G$1" pin="1"/>
 </segment>
@@ -36280,6 +36267,11 @@ v1.0 Initial design</description>
 <label x="43.18" y="146.05" size="1.778" layer="95" rot="R90"/>
 <pinref part="C7" gate="G$1" pin="1"/>
 </segment>
+<segment>
+<pinref part="TP14" gate="G$1" pin="1"/>
+<wire x1="43.18" y1="22.86" x2="43.18" y2="25.4" width="0.1524" layer="91"/>
+<label x="43.18" y="27.94" size="1.778" layer="95" rot="R90"/>
+</segment>
 </net>
 <net name="N$1" class="0">
 <segment>
@@ -36374,7 +36366,7 @@ v1.0 Initial design</description>
 <plain>
 <text x="190.5" y="20.32" size="5.08" layer="97">&gt;PAGE5</text>
 <text x="38.1" y="121.92" size="2.54" layer="97">MicroSD card connector</text>
-<text x="185.42" y="38.1" size="2.54" layer="97">West bridge</text>
+<text x="185.42" y="38.1" size="2.54" layer="97">South bridge</text>
 <text x="33.02" y="40.64" size="2.54" layer="97">Programmer connector</text>
 <text x="43.18" y="73.66" size="2.54" layer="97">USB connector</text>
 <text x="111.76" y="132.08" size="2.54" layer="97">WALL connector</text>
@@ -36422,21 +36414,6 @@ v1.0 Initial design</description>
 <instance part="PORT98" gate="G$1" x="165.1" y="132.08" rot="MR0"/>
 <instance part="PORT99" gate="G$1" x="165.1" y="129.54" rot="MR0"/>
 <instance part="PORT100" gate="G$1" x="165.1" y="124.46" rot="MR0"/>
-<instance part="PORT101" gate="G$1" x="165.1" y="121.92" rot="MR0"/>
-<instance part="R48" gate="G$1" x="180.34" y="121.92" smashed="yes" rot="MR0">
-<attribute name="NAME" x="177.8" y="122.1486" size="1.778" layer="95" rot="MR0"/>
-<attribute name="VALUE" x="177.8" y="119.253" size="1.778" layer="96" rot="MR0"/>
-</instance>
-<instance part="R51" gate="G$1" x="58.42" y="53.34" smashed="yes">
-<attribute name="NAME" x="49.53" y="53.34" size="1.778" layer="95"/>
-<attribute name="VALUE" x="60.96" y="53.34" size="1.778" layer="96"/>
-</instance>
-<instance part="R52" gate="G$1" x="58.42" y="50.8" smashed="yes">
-<attribute name="NAME" x="49.53" y="50.8" size="1.778" layer="95"/>
-<attribute name="VALUE" x="60.96" y="50.8" size="1.778" layer="96"/>
-</instance>
-<instance part="PORT92" gate="G$1" x="76.2" y="50.8"/>
-<instance part="PORT93" gate="G$1" x="76.2" y="53.34"/>
 <instance part="PORT115" gate="G$1" x="165.1" y="144.78" rot="MR0"/>
 <instance part="PORT117" gate="G$1" x="223.52" y="144.78"/>
 <instance part="U$61" gate="G$1" x="177.8" y="43.18"/>
@@ -36473,6 +36450,7 @@ v1.0 Initial design</description>
 <instance part="J6" gate="G$1" x="190.5" y="154.94"/>
 <instance part="PORT2" gate="G$1" x="223.52" y="121.92"/>
 <instance part="PORT24" gate="G$1" x="223.52" y="119.38"/>
+<instance part="PORT92" gate="G$1" x="165.1" y="121.92" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -36891,22 +36869,13 @@ v1.0 Initial design</description>
 <net name="JTDI" class="0">
 <segment>
 <wire x1="48.26" y1="53.34" x2="53.34" y2="53.34" width="0.1524" layer="91"/>
-<pinref part="R51" gate="G$1" pin="1"/>
 <pinref part="J3" gate="G$1" pin="8"/>
 </segment>
 </net>
 <net name="JNTRST" class="0">
 <segment>
 <wire x1="48.26" y1="50.8" x2="53.34" y2="50.8" width="0.1524" layer="91"/>
-<pinref part="R52" gate="G$1" pin="1"/>
 <pinref part="J3" gate="G$1" pin="10"/>
-</segment>
-</net>
-<net name="PA15" class="0">
-<segment>
-<wire x1="60.96" y1="53.34" x2="66.04" y2="53.34" width="0.1524" layer="91"/>
-<label x="68.58" y="53.34" size="1.778" layer="95"/>
-<pinref part="R51" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="PA10" class="0">
@@ -36941,13 +36910,6 @@ v1.0 Initial design</description>
 <pinref part="J2" gate="G$1" pin="D-"/>
 </segment>
 </net>
-<net name="PB4-SF" class="0">
-<segment>
-<wire x1="185.42" y1="121.92" x2="187.96" y2="121.92" width="0.1524" layer="91"/>
-<pinref part="R48" gate="G$1" pin="1"/>
-<pinref part="J6" gate="G$1" pin="25"/>
-</segment>
-</net>
 <net name="D3V3_STM-EN-SW" class="0">
 <segment>
 <wire x1="127" y1="55.88" x2="121.92" y2="55.88" width="0.1524" layer="91"/>
@@ -36971,14 +36933,9 @@ v1.0 Initial design</description>
 </net>
 <net name="PB5" class="0">
 <segment>
-<wire x1="177.8" y1="121.92" x2="172.72" y2="121.92" width="0.1524" layer="91"/>
-<label x="170.18" y="121.92" size="1.778" layer="95" rot="MR0"/>
-<pinref part="R48" gate="G$1" pin="2"/>
-</segment>
-<segment>
-<wire x1="60.96" y1="50.8" x2="66.04" y2="50.8" width="0.1524" layer="91"/>
-<label x="68.58" y="50.8" size="1.778" layer="95"/>
-<pinref part="R52" gate="G$1" pin="2"/>
+<label x="177.8" y="121.92" size="1.778" layer="95" rot="MR0"/>
+<pinref part="J6" gate="G$1" pin="25"/>
+<wire x1="180.34" y1="121.92" x2="187.96" y2="121.92" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
