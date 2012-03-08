@@ -55,7 +55,7 @@
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
-<layer number="93" name="Pins" color="2" fill="1" visible="no" active="yes"/>
+<layer number="93" name="Pins" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="94" name="Symbols" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="95" name="Names" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
@@ -31822,8 +31822,7 @@ Clock oscillator with output enable.</description>
 <text x="1.524" y="-1.143" size="0.8636" layer="93">2</text>
 <pin name="2" x="2.54" y="0" visible="off" length="point" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="1" x="-2.54" y="0" visible="off" length="point" direction="pas" swaplevel="1"/>
-<pin name="DGND@1" x="-2.54" y="2.54" visible="off" length="point" direction="pwr" rot="R180"/>
-<pin name="DGND@2" x="-2.54" y="-2.54" visible="off" length="point" direction="pwr" rot="R180"/>
+<pin name="GND" x="0" y="2.54" visible="pin" length="point" direction="pwr" rot="R180"/>
 </symbol>
 <symbol name="C">
 <wire x1="0" y1="0" x2="0" y2="-0.508" width="0.1524" layer="94"/>
@@ -32094,15 +32093,6 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <vertex x="-2.921" y="-1.143"/>
 <vertex x="-2.413" y="-1.651"/>
 </polygon>
-</symbol>
-<symbol name="EGND">
-<description>&lt;b&gt;EGND symbol&lt;/b&gt;</description>
-<pin name="EGND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
-<wire x1="-1.778" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
-<wire x1="0" y1="0" x2="1.778" y2="0" width="0.254" layer="94"/>
-<wire x1="0" y1="0" x2="-0.762" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="-1.778" y1="0" x2="-2.54" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="1.778" y1="0" x2="1.016" y2="-1.27" width="0.254" layer="94"/>
 </symbol>
 <symbol name="A1V5">
 <description>&lt;b&gt;Analog 1.5V Supply Symbol&lt;/b&gt;</description>
@@ -33376,8 +33366,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX_42.pdf"&gt; http://www.
 <connects>
 <connect gate="P" pin="1" pad="1"/>
 <connect gate="P" pin="2" pad="3"/>
-<connect gate="P" pin="DGND@1" pad="2"/>
-<connect gate="P" pin="DGND@2" pad="4"/>
+<connect gate="P" pin="GND" pad="2 4"/>
 </connects>
 <technologies>
 <technology name="-120">
@@ -33616,21 +33605,6 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 </device>
 </devices>
 </deviceset>
-<deviceset name="EGND">
-<description>&lt;b&gt;Ethernet ground&lt;/b&gt;
-&lt;p&gt;
-Ground for the galvanically decoupled Ethernet chassis.</description>
-<gates>
-<gate name="G$1" symbol="EGND" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="A1V5">
 <description>&lt;b&gt;Analog 1.5V Supply&lt;/b&gt;</description>
 <gates>
@@ -33814,8 +33788,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 <connects>
 <connect gate="P" pin="1" pad="1"/>
 <connect gate="P" pin="2" pad="3"/>
-<connect gate="P" pin="DGND@1" pad="2"/>
-<connect gate="P" pin="DGND@2" pad="4"/>
+<connect gate="P" pin="GND" pad="2 4"/>
 </connects>
 <technologies>
 <technology name="-160">
@@ -34133,7 +34106,6 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <part name="R19" library="MainBoard" deviceset="R" device="0402" value="100k"/>
 <part name="PORT123" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT125" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="PORT126" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="R21" library="MainBoard" deviceset="R" device="0402" value="100k"/>
 <part name="PORT127" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="U$48" library="MainBoard" deviceset="D3V3" device=""/>
@@ -34563,10 +34535,6 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <part name="R26" library="MainBoard" deviceset="R" device="0402" value="0">
 <attribute name="TOLERANCE" value=""/>
 </part>
-<part name="U$95" library="MainBoard" deviceset="EGND" device=""/>
-<part name="U$96" library="MainBoard" deviceset="EGND" device=""/>
-<part name="U$127" library="MainBoard" deviceset="DGND" device=""/>
-<part name="U$128" library="MainBoard" deviceset="EGND" device=""/>
 <part name="C108" library="MainBoard" deviceset="C" device="0402" value="1000pF"/>
 <part name="U$108" library="MainBoard" deviceset="AGND" device=""/>
 <part name="U$111" library="MainBoard" deviceset="A3V3" device=""/>
@@ -34800,6 +34768,8 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <part name="PORT7" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT11" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="C148" library="MainBoard" deviceset="C" device="0402" value="1000pF"/>
+<part name="U$95" library="MainBoard" deviceset="DGND" device=""/>
+<part name="U$96" library="MainBoard" deviceset="DGND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -35826,6 +35796,7 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <rectangle x1="203.2" y1="139.7" x2="218.44" y2="147.32" layer="98"/>
 <text x="93.98" y="139.7" size="1.778" layer="98">Consider replacing with a larger switch</text>
 <text x="203.2" y="137.16" size="1.778" layer="98">Consider replacing with a larger switch</text>
+<rectangle x1="22.86" y1="137.16" x2="40.64" y2="142.24" layer="98"/>
 </plain>
 <instances>
 <instance part="U1" gate="-MISC" x="63.5" y="134.62"/>
@@ -35859,9 +35830,9 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <instance part="PORT255" gate="G$1" x="106.68" y="152.4"/>
 <instance part="R94" gate="G$1" x="86.36" y="157.48" rot="R270"/>
 <instance part="U$119" gate="G$1" x="86.36" y="165.1"/>
-<instance part="C91" gate="G$1" x="91.44" y="124.46">
-<attribute name="DIGI-KEY#" x="91.44" y="124.46" size="1.778" layer="96" display="off"/>
-<attribute name="MPN" x="91.44" y="124.46" size="1.778" layer="96"/>
+<instance part="C91" gate="G$1" x="88.9" y="124.46">
+<attribute name="DIGI-KEY#" x="88.9" y="124.46" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="88.9" y="124.46" size="1.778" layer="96"/>
 </instance>
 <instance part="U8" gate="G$1" x="160.02" y="142.24"/>
 <instance part="U1" gate="-JTAG" x="172.72" y="101.6"/>
@@ -36149,14 +36120,14 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <segment>
 <pinref part="U1" gate="-MISC" pin="PCAP"/>
 <pinref part="C91" gate="G$1" pin="1"/>
-<wire x1="83.82" y1="127" x2="91.44" y2="127" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="127" x2="88.9" y2="127" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="NCAP" class="0">
 <segment>
 <pinref part="U1" gate="-MISC" pin="NCAP"/>
 <pinref part="C91" gate="G$1" pin="2"/>
-<wire x1="83.82" y1="119.38" x2="91.44" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="119.38" x2="88.9" y2="119.38" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="TMS" class="0">
@@ -36279,13 +36250,17 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <pinref part="U$22" gate="G$1" pin="AGND"/>
 <pinref part="C128" gate="G$1" pin="2"/>
 <wire x1="27.94" y1="144.78" x2="25.4" y2="144.78" width="0.1524" layer="91"/>
-<wire x1="25.4" y1="144.78" x2="25.4" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="144.78" x2="25.4" y2="139.7" width="0.1524" layer="91"/>
 <pinref part="C129" gate="G$1" pin="2"/>
+<wire x1="25.4" y1="139.7" x2="25.4" y2="134.62" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="134.62" x2="27.94" y2="134.62" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="134.62" x2="25.4" y2="129.54" width="0.1524" layer="91"/>
 <junction x="25.4" y="134.62"/>
 <junction x="25.4" y="129.54"/>
 <junction x="25.4" y="119.38"/>
+<pinref part="X1" gate="P" pin="GND"/>
+<wire x1="35.56" y1="139.7" x2="25.4" y2="139.7" width="0.1524" layer="91"/>
+<junction x="25.4" y="139.7"/>
 </segment>
 </net>
 <net name="MAINXOUT" class="0">
@@ -38497,14 +38472,12 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <instance part="U$110" gate="G$1" x="138.43" y="15.24"/>
 <instance part="C89" gate="G$1" x="147.32" y="27.94"/>
 <instance part="R26" gate="G$1" x="132.08" y="109.22"/>
-<instance part="U$95" gate="G$1" x="180.34" y="109.22"/>
-<instance part="U$96" gate="G$1" x="226.06" y="109.22"/>
-<instance part="U$127" gate="G$1" x="15.24" y="15.24"/>
-<instance part="U$128" gate="G$1" x="35.56" y="15.24"/>
-<instance part="C108" gate="G$1" x="24.13" y="20.32" rot="R90"/>
+<instance part="C108" gate="G$1" x="226.06" y="109.22"/>
 <instance part="R12" gate="G$1" x="40.64" y="99.06" rot="R90"/>
 <instance part="U$147" gate="G$1" x="40.64" y="88.9"/>
-<instance part="C148" gate="G$1" x="24.13" y="25.4" rot="R90"/>
+<instance part="C148" gate="G$1" x="180.34" y="109.22"/>
+<instance part="U$95" gate="G$1" x="180.34" y="99.06"/>
+<instance part="U$96" gate="G$1" x="226.06" y="99.06"/>
 </instances>
 <busses>
 </busses>
@@ -38622,20 +38595,19 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <wire x1="138.43" y1="17.78" x2="138.43" y2="20.32" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$127" gate="G$1" pin="DGND"/>
-<wire x1="15.24" y1="17.78" x2="15.24" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="15.24" y1="20.32" x2="21.59" y2="20.32" width="0.1524" layer="91"/>
-<pinref part="C108" gate="G$1" pin="1"/>
-<wire x1="20.32" y1="25.4" x2="15.24" y2="25.4" width="0.1524" layer="91"/>
-<wire x1="15.24" y1="25.4" x2="15.24" y2="20.32" width="0.1524" layer="91"/>
-<pinref part="C148" gate="G$1" pin="1"/>
-<wire x1="20.32" y1="25.4" x2="21.59" y2="25.4" width="0.1524" layer="91"/>
-<junction x="15.24" y="20.32"/>
-</segment>
-<segment>
 <pinref part="R12" gate="G$1" pin="1"/>
 <wire x1="40.64" y1="93.98" x2="40.64" y2="91.44" width="0.1524" layer="91"/>
 <pinref part="U$147" gate="G$1" pin="DGND"/>
+</segment>
+<segment>
+<pinref part="C148" gate="G$1" pin="2"/>
+<wire x1="180.34" y1="104.14" x2="180.34" y2="101.6" width="0.1524" layer="91"/>
+<pinref part="U$95" gate="G$1" pin="DGND"/>
+</segment>
+<segment>
+<pinref part="C108" gate="G$1" pin="2"/>
+<wire x1="226.06" y1="104.14" x2="226.06" y2="101.6" width="0.1524" layer="91"/>
+<pinref part="U$96" gate="G$1" pin="DGND"/>
 </segment>
 </net>
 <net name="TD+" class="0">
@@ -39117,35 +39089,27 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <junction x="114.3" y="109.22"/>
 </segment>
 </net>
-<net name="EGND" class="0">
-<segment>
-<pinref part="J7" gate="G$1" pin="CHS@1"/>
-<wire x1="185.42" y1="114.3" x2="180.34" y2="114.3" width="0.1524" layer="91"/>
-<wire x1="180.34" y1="114.3" x2="180.34" y2="111.76" width="0.1524" layer="91"/>
-<pinref part="U$95" gate="G$1" pin="EGND"/>
-</segment>
-<segment>
-<pinref part="J7" gate="G$1" pin="CHS@2"/>
-<wire x1="220.98" y1="114.3" x2="226.06" y2="114.3" width="0.1524" layer="91"/>
-<wire x1="226.06" y1="114.3" x2="226.06" y2="111.76" width="0.1524" layer="91"/>
-<pinref part="U$96" gate="G$1" pin="EGND"/>
-</segment>
-<segment>
-<pinref part="U$128" gate="G$1" pin="EGND"/>
-<wire x1="35.56" y1="17.78" x2="35.56" y2="20.32" width="0.1524" layer="91"/>
-<pinref part="C108" gate="G$1" pin="2"/>
-<wire x1="29.21" y1="20.32" x2="35.56" y2="20.32" width="0.1524" layer="91"/>
-<pinref part="C148" gate="G$1" pin="2"/>
-<wire x1="29.21" y1="25.4" x2="35.56" y2="25.4" width="0.1524" layer="91"/>
-<wire x1="35.56" y1="25.4" x2="35.56" y2="20.32" width="0.1524" layer="91"/>
-<junction x="35.56" y="20.32"/>
-</segment>
-</net>
 <net name="CRS" class="0">
 <segment>
 <pinref part="U6" gate="G$1" pin="CRS/CRS_DV/LED_CFG"/>
 <wire x1="53.34" y1="157.48" x2="48.26" y2="157.48" width="0.1524" layer="91"/>
 <pinref part="R86" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="RJ45-CHS-1" class="0">
+<segment>
+<pinref part="J7" gate="G$1" pin="CHS@1"/>
+<wire x1="185.42" y1="114.3" x2="180.34" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="114.3" x2="180.34" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="C148" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="RJ45-CHS-2" class="0">
+<segment>
+<pinref part="J7" gate="G$1" pin="CHS@2"/>
+<wire x1="220.98" y1="114.3" x2="226.06" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="226.06" y1="114.3" x2="226.06" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="C108" gate="G$1" pin="1"/>
 </segment>
 </net>
 </nets>
@@ -39183,6 +39147,7 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <rectangle x1="218.44" y1="91.44" x2="238.76" y2="93.98" layer="116"/>
 <text x="99.06" y="154.94" size="1.778" layer="97">TXD</text>
 <text x="99.06" y="152.4" size="1.778" layer="97">RXD</text>
+<rectangle x1="33.02" y1="93.98" x2="38.1" y2="109.22" layer="98"/>
 </plain>
 <instances>
 <instance part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" x="177.8" y="124.46"/>
@@ -39193,7 +39158,6 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <instance part="PORT121" gate="G$1" x="236.22" y="101.6"/>
 <instance part="PORT122" gate="G$1" x="236.22" y="99.06"/>
 <instance part="PORT125" gate="G$1" x="236.22" y="96.52"/>
-<instance part="PORT126" gate="G$1" x="119.38" y="139.7" rot="MR0"/>
 <instance part="PORT129" gate="G$1" x="119.38" y="93.98" rot="MR0"/>
 <instance part="PORT130" gate="G$1" x="119.38" y="91.44" rot="MR0"/>
 <instance part="PORT176" gate="G$1" x="101.6" y="132.08"/>
@@ -39451,13 +39415,6 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_OEN1_N/IO08PDB0V0"/>
 <wire x1="220.98" y1="109.22" x2="215.9" y2="109.22" width="0.1524" layer="91"/>
 <label x="223.52" y="109.22" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="!SPI1_SS_AFE1" class="0">
-<segment>
-<label x="132.08" y="139.7" size="1.778" layer="95" rot="MR0"/>
-<pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_AB[6]/IO12NDB0V0"/>
-<wire x1="134.62" y1="139.7" x2="139.7" y2="139.7" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="USB_DB7" class="0">
@@ -39745,13 +39702,18 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <pinref part="U$73" gate="G$1" pin="DGND"/>
 <wire x1="33.02" y1="93.98" x2="33.02" y2="96.52" width="0.1524" layer="91"/>
 <pinref part="U5" gate="G$1" pin="TEST"/>
-<wire x1="33.02" y1="96.52" x2="38.1" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="96.52" x2="35.56" y2="96.52" width="0.1524" layer="91"/>
+<pinref part="X5" gate="P" pin="GND"/>
+<wire x1="35.56" y1="96.52" x2="38.1" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="106.68" x2="35.56" y2="96.52" width="0.1524" layer="91"/>
+<junction x="35.56" y="96.52"/>
 </segment>
 <segment>
 <pinref part="C72" gate="G$1" pin="2"/>
 <wire x1="20.32" y1="111.76" x2="17.78" y2="111.76" width="0.1524" layer="91"/>
-<wire x1="17.78" y1="111.76" x2="17.78" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="111.76" x2="17.78" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="C71" gate="G$1" pin="2"/>
+<wire x1="17.78" y1="106.68" x2="17.78" y2="101.6" width="0.1524" layer="91"/>
 <wire x1="17.78" y1="101.6" x2="20.32" y2="101.6" width="0.1524" layer="91"/>
 <wire x1="17.78" y1="93.98" x2="17.78" y2="101.6" width="0.1524" layer="91"/>
 <pinref part="U$122" gate="G$1" pin="DGND"/>
