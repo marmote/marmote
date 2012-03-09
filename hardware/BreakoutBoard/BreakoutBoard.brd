@@ -9,11 +9,11 @@
 <grid distance="1" unitdist="mm" unit="mm" style="dots" multiple="1" display="yes" altdistance="0.5" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
-<layer number="2" name="Even" color="2" fill="1" visible="no" active="yes"/>
-<layer number="3" name="Odd" color="4" fill="1" visible="no" active="yes"/>
+<layer number="2" name="Even" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="3" name="Odd" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
 <layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
@@ -161,15 +161,13 @@
 <text x="30.25" y="33" size="1.778" layer="22" font="vector" rot="MR0">&gt;REVISION</text>
 <text x="3" y="50" size="1.27" layer="21" font="vector" rot="R90">DGND</text>
 <text x="88" y="50" size="1.27" layer="21" font="vector" rot="R90">AGND</text>
-<text x="1.8" y="12.4" size="1.27" layer="21" font="vector">DGND</text>
-<text x="83.9" y="12.4" size="1.27" layer="21" font="vector">AGND</text>
-<text x="26.7" y="49" size="1.27" layer="21" font="vector">A1V5</text>
-<text x="32" y="49" size="1.27" layer="21" font="vector">A3V3</text>
-<text x="12.75" y="49" size="1.27" layer="21" font="vector">D3V3</text>
-<text x="18.35" y="49" size="1.27" layer="21" font="vector">D1V5</text>
-<text x="7.5" y="49" size="1.27" layer="21" font="vector">VSUP</text>
-<text x="74.5" y="3.5" size="1.27" layer="21" font="vector">+</text>
-<text x="79.5" y="3.5" size="1.27" layer="21" font="vector">+</text>
+<text x="3" y="8.3" size="1.27" layer="21" font="vector" rot="R90">DGND</text>
+<text x="88" y="8.4" size="1.27" layer="21" font="vector" rot="R90">AGND</text>
+<text x="26.7" y="54" size="1.27" layer="21" font="vector">A1V5</text>
+<text x="32" y="54" size="1.27" layer="21" font="vector">A3V3</text>
+<text x="12.75" y="54" size="1.27" layer="21" font="vector">D3V3</text>
+<text x="18.35" y="54" size="1.27" layer="21" font="vector">D1V5</text>
+<text x="7.5" y="54" size="1.27" layer="21" font="vector">VSUP</text>
 <wire x1="39.95" y1="47.55" x2="39.95" y2="48.45" width="0.2032" layer="21"/>
 <wire x1="45.05" y1="47.55" x2="45.05" y2="48.45" width="0.2032" layer="21"/>
 <wire x1="48.95" y1="47.55" x2="48.95" y2="48.45" width="0.2032" layer="21"/>
@@ -10056,15 +10054,15 @@ design rules under a new name.</description>
 <attribute name="MF" value="Keystone" x="31.2" y="65" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="5121" x="31.2" y="65" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP11" library="BreakoutBoard" package="TESTPOINT" value="TESTPOINT-YELLOW" x="3" y="10.5">
-<attribute name="DIGI-KEY#" value="5009K-ND" x="3" y="10.5" size="1.778" layer="27" display="off"/>
-<attribute name="MF" value="Keystone" x="3" y="10.5" size="1.778" layer="27" display="off"/>
-<attribute name="MPN" value="5009" x="3" y="10.5" size="1.778" layer="27" display="off"/>
+<element name="TP11" library="BreakoutBoard" package="TESTPOINT" value="TESTPOINT-YELLOW" x="5" y="10.5">
+<attribute name="DIGI-KEY#" value="5009K-ND" x="5" y="10.5" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value="Keystone" x="5" y="10.5" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="5009" x="5" y="10.5" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP14" library="BreakoutBoard" package="TESTPOINT" value="TESTPOINT-YELLOW" x="87" y="10.5">
-<attribute name="DIGI-KEY#" value="5009K-ND" x="87" y="10.5" size="1.778" layer="27" display="off"/>
-<attribute name="MF" value="Keystone" x="87" y="10.5" size="1.778" layer="27" display="off"/>
-<attribute name="MPN" value="5009" x="87" y="10.5" size="1.778" layer="27" display="off"/>
+<element name="TP14" library="BreakoutBoard" package="TESTPOINT" value="TESTPOINT-YELLOW" x="85" y="10.5">
+<attribute name="DIGI-KEY#" value="5009K-ND" x="85" y="10.5" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value="Keystone" x="85" y="10.5" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="5009" x="85" y="10.5" size="1.778" layer="27" display="off"/>
 </element>
 <element name="TP13" library="BreakoutBoard" package="TESTPOINT" value="TESTPOINT-YELLOW" x="5" y="52">
 <attribute name="DIGI-KEY#" value="5009K-ND" x="5" y="52" size="1.778" layer="27" display="off"/>
@@ -11598,6 +11596,110 @@ design rules under a new name.</description>
 <wire x1="65.54" y1="8.85" x2="65.5" y2="8.85" width="0" layer="19" extent="16-16"/>
 </signal>
 </signals>
+<errors>
+<approved hash="2,20,933d9cc19ab7954b"/>
+<approved hash="2,20,43213cdd3aa94555"/>
+<approved hash="18,29,db13ac32d348a469"/>
+<approved hash="18,29,da93a712d668abe9"/>
+<approved hash="18,29,5dac9910b6ad945a"/>
+<approved hash="18,29,5dac9910b6ad945a"/>
+<approved hash="18,29,8d47a687434ca0ff"/>
+<approved hash="18,29,8d47a687434ca0ff"/>
+<approved hash="18,29,cf1aeb3797c87b96"/>
+<approved hash="18,29,7a34a52fb5e08cb0"/>
+<approved hash="18,29,cf1aeb3797c87b96"/>
+<approved hash="18,29,7a34a52fb5e08cb0"/>
+<approved hash="18,29,1b1f6c3e13746455"/>
+<approved hash="18,29,1a9f671e16546bd5"/>
+<approved hash="6,1,b6348b5c47fad33b"/>
+<approved hash="6,1,8e29a0bb0be4b10f"/>
+<approved hash="4,1,bbc8fc69ff8a0f56"/>
+<approved hash="4,1,fc59fb3a9b30f48d"/>
+<approved hash="4,1,bbc8fc69ff8a0f56"/>
+<approved hash="4,1,fc59fb3a9b30f48d"/>
+<approved hash="4,1,fa743ef70855fec4"/>
+<approved hash="4,1,fa743ef70855fec4"/>
+<approved hash="4,1,2d0d24fae7c70381"/>
+<approved hash="4,1,2d0d24fae7c70381"/>
+<approved hash="6,1,65fe5793857a2e84"/>
+<approved hash="6,1,a2ad44ad36c8748b"/>
+<approved hash="5,3,441d81747cec49e6"/>
+<approved hash="5,3,b7537d34e04cda48"/>
+<approved hash="5,3,2616e37438ec0ded"/>
+<approved hash="5,3,55549f34e84cd24f"/>
+<approved hash="5,3,000bc57444ec71f0"/>
+<approved hash="5,3,6b49a134e84cd252"/>
+<approved hash="5,3,e20c277448ec7df7"/>
+<approved hash="5,3,0942c334e04cda59"/>
+<approved hash="5,3,fc0139744cec79fa"/>
+<approved hash="5,3,2f47e534e04cda5c"/>
+<approved hash="5,3,de3a1b7448ec7dc1"/>
+<approved hash="5,3,cd7b0737184f2260"/>
+<approved hash="5,3,b83f7d7444ec71c4"/>
+<approved hash="5,3,e37c2934d84ce267"/>
+<approved hash="5,3,9a305f7458ec6dcb"/>
+<approved hash="5,3,81714b34e04cda6a"/>
+<approved hash="5,3,7434b1745cec69cf"/>
+<approved hash="5,3,a76a6d34e04cda71"/>
+<approved hash="5,3,5629937458ec6dd2"/>
+<approved hash="5,3,456f8f34e84cd274"/>
+<approved hash="5,3,1227d77448ec7ddc"/>
+<approved hash="5,3,7965b334e04cda7e"/>
+<approved hash="5,3,ec5829744cec79a3"/>
+<approved hash="5,3,1f1ed534e04cda05"/>
+<approved hash="5,3,ce5d0b7448ec7da6"/>
+<approved hash="5,3,3d13f734f84cc208"/>
+<approved hash="5,3,a8566d7444ec71ad"/>
+<approved hash="5,3,d3171934f84cc20c"/>
+<approved hash="5,3,8a4b4f7478ec4db0"/>
+<approved hash="5,3,f1083b34e04cda13"/>
+<approved hash="5,3,644fa177bcef89b4"/>
+<approved hash="5,3,970d5d34e04cda16"/>
+<approved hash="5,3,4640837478ec4dbb"/>
+<approved hash="5,3,b5067f34e84cd21d"/>
+<approved hash="5,3,2045e57444ec71be"/>
+<approved hash="5,3,4b3b8134e84cd220"/>
+<approved hash="5,3,027ec77448ec7d85"/>
+<approved hash="5,3,693ca334e04cda27"/>
+<approved hash="5,3,1c73d9744cec7988"/>
+<approved hash="5,3,0f31c534e04cda2a"/>
+<approved hash="5,3,fe743b7448ec7d8f"/>
+<approved hash="5,3,2d2ae734d84ce231"/>
+<approved hash="5,3,d8691d7444ec7192"/>
+<approved hash="5,3,c32e0935184d2235"/>
+<approved hash="5,3,ba627f7458ec6d99"/>
+<approved hash="5,3,e1232b34e04cda38"/>
+<approved hash="5,3,946751745cec699c"/>
+<approved hash="5,3,87244d34e04cda3f"/>
+<approved hash="5,3,779bb37458ec6c60"/>
+<approved hash="5,3,a4d96f34e84cd3c2"/>
+<approved hash="5,3,519c957444ec7067"/>
+<approved hash="5,3,bad27134e84cd3c9"/>
+<approved hash="5,3,3391f77448ec7c6a"/>
+<approved hash="5,3,58d79334e04cdbcc"/>
+<approved hash="5,3,0d8ac9744cec7871"/>
+<approved hash="5,3,7ec8b534e04cdbd3"/>
+<approved hash="5,3,ef8f2b7448ec7c74"/>
+<approved hash="5,3,1ccdd734f84cc3d6"/>
+<approved hash="5,3,c9800d7444ec707b"/>
+<approved hash="5,3,32c6f934f84cc3dd"/>
+<approved hash="5,3,ab856f7438ec0c7e"/>
+<approved hash="5,3,d0fa1b34e04cdbe1"/>
+<approved hash="5,3,85be41747cec4845"/>
+<approved hash="5,3,f6ff3d34e04cdbe4"/>
+<approved hash="5,3,67b2a375b8ed8c49"/>
+<approved hash="5,3,94f05f34e84cd3eb"/>
+<approved hash="5,3,41b7857444ec704c"/>
+<approved hash="5,3,aaf56134e84cd3ee"/>
+<approved hash="4,16,bbc8fc69ff8a0f56"/>
+<approved hash="4,16,fc59fb3a9b30f48d"/>
+<approved hash="4,16,bbc8fc69ff8a0f56"/>
+<approved hash="4,16,fc59fb3a9b30f48d"/>
+<approved hash="4,16,fa743ef70855fec4"/>
+<approved hash="4,16,fa743ef70855fec4"/>
+<approved hash="4,16,2d0d24fae7c70381"/>
+<approved hash="4,16,2d0d24fae7c70381"/>
+</errors>
 </board>
 </drawing>
 </eagle>
