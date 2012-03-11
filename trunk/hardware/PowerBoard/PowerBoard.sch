@@ -34151,6 +34151,7 @@ v1.0 Initial design</description>
 <part name="U$68" library="powerboard" deviceset="DGND" device=""/>
 <part name="U$69" library="powerboard" deviceset="DGND" device=""/>
 <part name="U$70" library="powerboard" deviceset="DGND" device=""/>
+<part name="PORT65" library="powerboard" deviceset="PORT7" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -34290,6 +34291,7 @@ v1.0 Initial design</description>
 <instance part="U$63" gate="G$1" x="40.64" y="63.5"/>
 <instance part="PORT84" gate="G$1" x="203.2" y="149.86"/>
 <instance part="PORT27" gate="G$1" x="20.32" y="71.12" rot="MR0"/>
+<instance part="PORT65" gate="G$1" x="43.18" y="30.48" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -34661,14 +34663,17 @@ v1.0 Initial design</description>
 </net>
 <net name="D1V5-EN" class="0">
 <segment>
-<wire x1="53.34" y1="50.8" x2="58.42" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="58.42" y1="50.8" x2="58.42" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="58.42" y1="40.64" x2="66.04" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="58.42" y1="40.64" x2="53.34" y2="40.64" width="0.1524" layer="91"/>
-<junction x="58.42" y="40.64"/>
+<wire x1="53.34" y1="50.8" x2="60.96" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="50.8" x2="60.96" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="40.64" x2="66.04" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="40.64" x2="53.34" y2="40.64" width="0.1524" layer="91"/>
+<junction x="60.96" y="40.64"/>
 <pinref part="R13" gate="G$1" pin="2"/>
 <pinref part="R14" gate="G$1" pin="2"/>
 <pinref part="U5" gate="G$1" pin="CE"/>
+<wire x1="60.96" y1="40.64" x2="60.96" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="30.48" x2="58.42" y2="30.48" width="0.1524" layer="91"/>
+<label x="43.18" y="30.48" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$5" class="0">
