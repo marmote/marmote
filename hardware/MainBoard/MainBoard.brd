@@ -8,20 +8,20 @@
 </settings>
 <grid distance="100" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="25" altunitdist="mil" altunit="mil"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="GND" color="1" fill="3" visible="no" active="yes"/>
 <layer number="3" name="Inner1" color="13" fill="3" visible="no" active="yes"/>
 <layer number="14" name="Inner2" color="10" fill="6" visible="no" active="yes"/>
-<layer number="15" name="D3V3" color="4" fill="6" visible="yes" active="yes"/>
+<layer number="15" name="D3V3" color="4" fill="6" visible="no" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
@@ -48,7 +48,7 @@
 <layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="yes"/>
-<layer number="51" name="tDocu" color="14" fill="1" visible="no" active="yes"/>
+<layer number="51" name="tDocu" color="14" fill="1" visible="yes" active="yes"/>
 <layer number="52" name="bDocu" color="11" fill="1" visible="no" active="yes"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
@@ -62,7 +62,7 @@
 <layer number="97" name="Info" color="7" fill="1" visible="no" active="no"/>
 <layer number="98" name="Guide" color="6" fill="1" visible="no" active="no"/>
 <layer number="100" name="Muster" color="7" fill="1" visible="no" active="no"/>
-<layer number="101" name="Patch_Top" color="12" fill="4" visible="no" active="yes"/>
+<layer number="101" name="Patch_Top" color="12" fill="4" visible="yes" active="yes"/>
 <layer number="102" name="Vscore" color="7" fill="1" visible="no" active="yes"/>
 <layer number="103" name="tMap" color="7" fill="1" visible="no" active="yes"/>
 <layer number="104" name="Name" color="7" fill="1" visible="no" active="yes"/>
@@ -76,7 +76,7 @@
 <layer number="112" name="Route12" color="7" fill="1" visible="no" active="no"/>
 <layer number="113" name="Route13" color="7" fill="1" visible="no" active="no"/>
 <layer number="114" name="FIXED_SF_PIN" color="2" fill="3" visible="no" active="yes"/>
-<layer number="116" name="Patch_BOT" color="9" fill="4" visible="no" active="yes"/>
+<layer number="116" name="Patch_BOT" color="9" fill="4" visible="yes" active="yes"/>
 <layer number="117" name="mPads" color="7" fill="1" visible="no" active="no"/>
 <layer number="118" name="mVias" color="7" fill="1" visible="no" active="no"/>
 <layer number="119" name="mUnrouted" color="7" fill="1" visible="no" active="no"/>
@@ -143,14 +143,11 @@
 <wire x1="45" y1="58" x2="45" y2="-2" width="0.1" layer="48" style="dashdot"/>
 <wire x1="-2" y1="28" x2="92" y2="28" width="0.1" layer="48" style="dashdot"/>
 <rectangle x1="35" y1="41.25" x2="37.25" y2="41.75" layer="46"/>
-<rectangle x1="55" y1="33" x2="59" y2="38" layer="101"/>
-<rectangle x1="36" y1="30" x2="39" y2="32" layer="101"/>
 <rectangle x1="25" y1="10" x2="28" y2="12" layer="101"/>
 <rectangle x1="62" y1="10" x2="66" y2="11" layer="101"/>
-<rectangle x1="39.000021875" y1="35.00001875" x2="40.000021875" y2="36.00001875" layer="101"/>
 <rectangle x1="28" y1="2" x2="31" y2="8" layer="116"/>
-<text x="-3" y="11" size="0.8128" layer="101" rot="R90">Consider:</text>
-<text x="-2" y="11" size="0.8128" layer="101" rot="R90">-using a larger switch (e.g. KSC421 V30 ACT2.95 LFS)</text>
+<text x="-3" y="13.54" size="0.8128" layer="101" rot="R90">Consider:</text>
+<text x="-2" y="13.54" size="0.8128" layer="101" rot="R90">-using a larger switch (e.g. KSC421 V30 ACT2.95 LFS)</text>
 <rectangle x1="62" y1="6" x2="67" y2="8" layer="101"/>
 <rectangle x1="23" y1="6" x2="28" y2="8" layer="101"/>
 <rectangle x1="25" y1="32" x2="36" y2="42" layer="101"/>
@@ -164,6 +161,8 @@
 <text x="16.75" y="24.75" size="1.27" layer="21" font="vector" align="bottom-right">FPGA</text>
 <text x="36.75" y="25.25" size="1.27" layer="21" font="vector">AFE1</text>
 <text x="52.75" y="25.25" size="1.27" layer="21" font="vector">AFE2</text>
+<text x="91.98" y="18.62" size="0.8128" layer="101" rot="R90">Should planes be closer to board edge?</text>
+<text x="-0.73" y="13.54" size="0.8128" layer="101" rot="R90">-moving the FTSH header 0.5 mm north</text>
 </plain>
 <libraries>
 <library name="Logo">
@@ -17104,6 +17103,74 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="78.7884" y1="42.6116" x2="78.7884" y2="43.1884" width="0.3048" layer="16"/>
 </signal>
 </signals>
+<errors>
+<approved hash="2,20,933d9cc19ab7954b"/>
+<approved hash="2,20,43213cdd3aa94555"/>
+<approved hash="6,1,8e29a0bb0be4b10f"/>
+<approved hash="6,1,b6348b5c47fad33b"/>
+<approved hash="4,1,dbc2a5d4e99962fc"/>
+<approved hash="4,1,78d6b9cbec5f48a0"/>
+<approved hash="4,1,4fcd961ae2be2cf1"/>
+<approved hash="4,1,cf03910de5423dd5"/>
+<approved hash="4,1,1dd9e102302e0aff"/>
+<approved hash="4,1,6f29d4c16e6df404"/>
+<approved hash="4,1,6e23d6c54c36ebbc"/>
+<approved hash="4,1,1b9bd296512309d3"/>
+<approved hash="4,1,78ff7b3522e82f9e"/>
+<approved hash="4,1,d1c993aa8d43ce6e"/>
+<approved hash="4,1,45327ba53caa0e53"/>
+<approved hash="4,1,055571761fc97e44"/>
+<approved hash="4,1,24dc4ce81d411f7d"/>
+<approved hash="4,1,dc0796a7f342dce8"/>
+<approved hash="4,1,3329150d6bfdcd12"/>
+<approved hash="4,1,4cb3981f8b76a4d9"/>
+<approved hash="4,1,e4617d0b7ade5be1"/>
+<approved hash="4,1,56568ee4bef7b065"/>
+<approved hash="4,1,c61781954006478c"/>
+<approved hash="4,1,0a3e199f467c175e"/>
+<approved hash="4,1,02d2edfd51778f31"/>
+<approved hash="4,1,18ceb653a39e3a30"/>
+<approved hash="4,1,8fde3b7a587b3ecd"/>
+<approved hash="4,1,85ddeb8051779f42"/>
+<approved hash="4,1,fc59fb3a9b30f48d"/>
+<approved hash="4,1,bbc8fc69ff8a0f56"/>
+<approved hash="4,1,8918453a64808ec2"/>
+<approved hash="4,1,fc59fb3a9b30f48d"/>
+<approved hash="4,1,bbc8fc69ff8a0f56"/>
+<approved hash="4,1,8918453a64808ec2"/>
+<approved hash="4,1,2d0d24fae7c70381"/>
+<approved hash="4,1,2d0d24fae7c70381"/>
+<approved hash="4,1,fa743ef70855fec4"/>
+<approved hash="4,1,fa743ef70855fec4"/>
+<approved hash="4,1,dca293848c5fe519"/>
+<approved hash="4,1,dca293848c5fe519"/>
+<approved hash="6,1,65fe5793857a2e84"/>
+<approved hash="6,1,a2ad44ad36c8748b"/>
+<approved hash="4,2,c61781954006478c"/>
+<approved hash="4,2,18ceb653a39e3a30"/>
+<approved hash="4,3,18ceb653a39e3a30"/>
+<approved hash="4,3,c61781954006478c"/>
+<approved hash="4,3,6e9249c400ed17be"/>
+<approved hash="4,14,18ceb653a39e3a30"/>
+<approved hash="4,14,c61781954006478c"/>
+<approved hash="4,15,18ceb653a39e3a30"/>
+<approved hash="4,15,c61781954006478c"/>
+<approved hash="4,16,18ceb653a39e3a30"/>
+<approved hash="4,16,c37b39e2868a813f"/>
+<approved hash="4,16,c61781954006478c"/>
+<approved hash="4,16,fc59fb3a9b30f48d"/>
+<approved hash="4,16,bbc8fc69ff8a0f56"/>
+<approved hash="4,16,8918453a64808ec2"/>
+<approved hash="4,16,fc59fb3a9b30f48d"/>
+<approved hash="4,16,bbc8fc69ff8a0f56"/>
+<approved hash="4,16,8918453a64808ec2"/>
+<approved hash="4,16,fa743ef70855fec4"/>
+<approved hash="4,16,fa743ef70855fec4"/>
+<approved hash="4,16,2d0d24fae7c70381"/>
+<approved hash="4,16,2d0d24fae7c70381"/>
+<approved hash="4,16,dca293848c5fe519"/>
+<approved hash="4,16,dca293848c5fe519"/>
+</errors>
 </board>
 </drawing>
 </eagle>
