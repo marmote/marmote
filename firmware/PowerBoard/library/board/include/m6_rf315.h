@@ -45,6 +45,9 @@
 #include "power_control.h"
 #include "power_monitor.h"
 
+// Global variables
+static uint8_t status;
+
 
 // Board - Initialize board peripherals and GPIOs with default values
 void M6RF315_Init(void); // 
@@ -66,12 +69,12 @@ typedef enum
 #define CON_LED_TX_GPIO_CLK         RCC_APB2Periph_GPIOB
 
 void CON_LED_Init(void);
-void CON_RX_LED_On(void);
-void CON_RX_LED_Off(void);
-void CON_RX_LED_Toggle(void);
-void CON_TX_LED_On(void);
-void CON_TX_LED_Off(void);
-void CON_TX_LED_Toggle(void);
+uint8_t CON_RX_LED_On(void);
+uint8_t CON_RX_LED_Off(void);
+uint8_t CON_RX_LED_Toggle(void);
+uint8_t CON_TX_LED_On(void);
+uint8_t CON_TX_LED_Off(void);
+uint8_t CON_TX_LED_Toggle(void);
 
 
 // CC1101 serial TX and RX data lines
@@ -84,8 +87,8 @@ void CON_TX_LED_Toggle(void);
 #define CON_RXD_GPIO_CLK    		RCC_APB2Periph_GPIOB
 
 void CON_TXRX_Init(void);
-void CON_TXD_Set(uint32_t gpio);
-void CON_TXD_Clear(uint32_t gpio);
+uint8_t CON_TXD_Set(void);
+uint8_t CON_TXD_Clear(void);
 uint8_t CON_RXD_Get(void);
 
 
@@ -98,23 +101,26 @@ uint8_t CON_RXD_Get(void);
 #define CON_SPI_SCK_PIN               GPIO_Pin_5                     /* PA.5  */
 #define CON_SPI_SCK_GPIO_PORT         GPIOA                          /* GPIOA */
 #define CON_SPI_SCK_GPIO_CLK          RCC_APB2Periph_GPIOA  
-
 #define CON_SPI_SCK_AF                GPIO_AF_SPI1
+
 #define CON_SPI_MISO_PIN              GPIO_Pin_6                     /* PA.6 */
 #define CON_SPI_MISO_GPIO_PORT        GPIOA                          /* GPIOA */
 #define CON_SPI_MISO_GPIO_CLK         RCC_APB2Periph_GPIOA  
-
 #define CON_SPI_MISO_AF               GPIO_AF_SPI1
+
 #define CON_SPI_MOSI_PIN              GPIO_Pin_7                     /* PA.7  */
 #define CON_SPI_MOSI_GPIO_PORT        GPIOA                          /* GPIOA */
 #define CON_SPI_MOSI_GPIO_CLK         RCC_APB2Periph_GPIOA  
-
 #define CON_SPI_MOSI_AF               GPIO_AF_SPI1
+
 #define CON_SPI                       SPI1
 #define CON_SPI_CLK                   RCC_APB2Periph_SPI1
 
 void CON_SPI_Init(void);
-void CON_SPI_SendData(uint16_t data);
+void CON_SPI_WriteRegister(uint8_t addr, uint8_t data);
+uint8_t OCN_SPI_ReadRegister(uint8_t addr);
+uint8_t CON_SPI_TestWrite(void);
+uint8_t CON_SPI_TestRead(void);
 
 #endif // __M6_RF315_H
 
