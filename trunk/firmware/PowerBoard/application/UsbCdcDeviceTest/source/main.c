@@ -13,6 +13,7 @@ uint8_t CMD_ParseResult;
 
 uint8_t i, j;		  
 uint8_t CMD_ListLength;  	
+uint32_t c;
 
 
 extern CMD_Type CMD_List[];
@@ -36,10 +37,14 @@ int main (void) {
 	POW_EnableMasterSwitch();
 
 	// Turn on LEDs
+	CON_TX_LED_Off();
 	CON_RX_LED_On();
-	CON_TX_LED_On();
+	for (c = 0 ; c < 1600000; c++) ;
+	CON_RX_LED_Toggle();
+	//for (c = 0 ; c < 1600000; c++) ;
+	//CON_RX_LED_Toggle();
 
-	for (;;) ;
+	//for (;;) ;
 
 	CMD_ListLength = sizeof(CMD_List)/sizeof(CMD_Type);
 				

@@ -303,6 +303,20 @@
       </DebugFlag>
       <LintExecutable></LintExecutable>
       <LintConfigFile></LintConfigFile>
+      <SystemViewers>
+        <Entry>
+          <Name>System Viewer\GPIOA</Name>
+          <WinId>35903</WinId>
+        </Entry>
+        <Entry>
+          <Name>System Viewer\GPIOB</Name>
+          <WinId>35904</WinId>
+        </Entry>
+        <Entry>
+          <Name>System Viewer\SPI1</Name>
+          <WinId>35905</WinId>
+        </Entry>
+      </SystemViewers>
     </TargetOption>
   </Target>
 
@@ -317,10 +331,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>56</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>56</TopLine>
-      <CurrentLine>56</CurrentLine>
+      <TopLine>7</TopLine>
+      <CurrentLine>7</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\source\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -443,10 +457,10 @@
       <FileType>2</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>108</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>133</TopLine>
+      <CurrentLine>133</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\CMSIS\source\arm\startup_stm32f10x_md.s</PathWithFileName>
       <FilenameWithoutPath>startup_stm32f10x_md.s</FilenameWithoutPath>
@@ -464,10 +478,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>1</ColumnNumber>
+      <ColumnNumber>87</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>218</TopLine>
-      <CurrentLine>245</CurrentLine>
+      <TopLine>168</TopLine>
+      <CurrentLine>193</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\board\source\power_board.c</PathWithFileName>
       <FilenameWithoutPath>power_board.c</FilenameWithoutPath>
@@ -492,24 +506,24 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>43</ColumnNumber>
+      <ColumnNumber>9</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>145</TopLine>
-      <CurrentLine>164</CurrentLine>
+      <TopLine>105</TopLine>
+      <CurrentLine>123</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\board\source\power_monitor.c</PathWithFileName>
       <FilenameWithoutPath>power_monitor.c</FilenameWithoutPath>
     </File>
     <File>
       <GroupNumber>4</GroupNumber>
-      <FileNumber>0</FileNumber>
+      <FileNumber>13</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>13</ColumnNumber>
+      <ColumnNumber>70</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>97</TopLine>
-      <CurrentLine>104</CurrentLine>
+      <TopLine>178</TopLine>
+      <CurrentLine>216</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\board\source\m6_rf315.c</PathWithFileName>
       <FilenameWithoutPath>m6_rf315.c</FilenameWithoutPath>
@@ -523,11 +537,11 @@
     <cbSel>0</cbSel>
     <File>
       <GroupNumber>5</GroupNumber>
-      <FileNumber>13</FileNumber>
+      <FileNumber>14</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>31</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>0</TopLine>
       <CurrentLine>0</CurrentLine>
@@ -537,11 +551,11 @@
     </File>
     <File>
       <GroupNumber>5</GroupNumber>
-      <FileNumber>14</FileNumber>
+      <FileNumber>15</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>5</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>0</TopLine>
       <CurrentLine>0</CurrentLine>
@@ -551,11 +565,11 @@
     </File>
     <File>
       <GroupNumber>5</GroupNumber>
-      <FileNumber>15</FileNumber>
+      <FileNumber>16</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>9</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>0</TopLine>
       <CurrentLine>0</CurrentLine>
@@ -565,11 +579,11 @@
     </File>
     <File>
       <GroupNumber>5</GroupNumber>
-      <FileNumber>16</FileNumber>
+      <FileNumber>17</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>5</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>0</TopLine>
       <CurrentLine>0</CurrentLine>
@@ -579,11 +593,11 @@
     </File>
     <File>
       <GroupNumber>5</GroupNumber>
-      <FileNumber>17</FileNumber>
+      <FileNumber>18</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>29</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>0</TopLine>
       <CurrentLine>0</CurrentLine>
@@ -593,11 +607,11 @@
     </File>
     <File>
       <GroupNumber>5</GroupNumber>
-      <FileNumber>18</FileNumber>
+      <FileNumber>19</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>84</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>0</TopLine>
       <CurrentLine>0</CurrentLine>
@@ -614,7 +628,7 @@
     <cbSel>0</cbSel>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>19</FileNumber>
+      <FileNumber>20</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -628,7 +642,7 @@
     </File>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>20</FileNumber>
+      <FileNumber>21</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -642,7 +656,7 @@
     </File>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>21</FileNumber>
+      <FileNumber>22</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -656,7 +670,7 @@
     </File>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>22</FileNumber>
+      <FileNumber>23</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -670,7 +684,7 @@
     </File>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>23</FileNumber>
+      <FileNumber>24</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -684,14 +698,14 @@
     </File>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>24</FileNumber>
+      <FileNumber>25</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>14</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>187</TopLine>
-      <CurrentLine>200</CurrentLine>
+      <TopLine>0</TopLine>
+      <CurrentLine>0</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\peripheral\source\misc.c</PathWithFileName>
       <FilenameWithoutPath>misc.c</FilenameWithoutPath>
@@ -699,87 +713,9 @@
   </Group>
 
   <AlienFiles>
-    <PathWithFilename>D:\firmware\PowerBoard\library\board\include\power_board.h</PathWithFilename>
-    <TopLine>85</TopLine>
-    <CurrentLine>85</CurrentLine>
-    <Constant>0</Constant>
-    <WindowPosition>
-      <length>0</length>
-      <flags>0</flags>
-      <showCmd>0</showCmd>
-      <MinPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MinPosition>
-      <MaxPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MaxPosition>
-      <NormalPosition>
-        <Top>0</Top>
-        <Left>0</Left>
-        <Right>0</Right>
-        <Bottom>0</Bottom>
-      </NormalPosition>
-    </WindowPosition>
-  </AlienFiles>
-
-  <AlienFiles>
-    <PathWithFilename>D:\firmware\PowerBoard\library\peripheral\include\stm32f10x_rcc.h</PathWithFilename>
-    <TopLine>481</TopLine>
-    <CurrentLine>505</CurrentLine>
-    <Constant>0</Constant>
-    <WindowPosition>
-      <length>0</length>
-      <flags>0</flags>
-      <showCmd>0</showCmd>
-      <MinPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MinPosition>
-      <MaxPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MaxPosition>
-      <NormalPosition>
-        <Top>0</Top>
-        <Left>0</Left>
-        <Right>0</Right>
-        <Bottom>0</Bottom>
-      </NormalPosition>
-    </WindowPosition>
-  </AlienFiles>
-
-  <AlienFiles>
     <PathWithFilename>D:\firmware\PowerBoard\library\board\include\power_monitor.h</PathWithFilename>
-    <TopLine>56</TopLine>
-    <CurrentLine>78</CurrentLine>
-    <Constant>0</Constant>
-    <WindowPosition>
-      <length>0</length>
-      <flags>0</flags>
-      <showCmd>0</showCmd>
-      <MinPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MinPosition>
-      <MaxPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MaxPosition>
-      <NormalPosition>
-        <Top>0</Top>
-        <Left>0</Left>
-        <Right>0</Right>
-        <Bottom>0</Bottom>
-      </NormalPosition>
-    </WindowPosition>
-  </AlienFiles>
-
-  <AlienFiles>
-    <PathWithFilename>D:\firmware\PowerBoard\library\board\include\power_control.h</PathWithFilename>
-    <TopLine>42</TopLine>
-    <CurrentLine>82</CurrentLine>
+    <TopLine>31</TopLine>
+    <CurrentLine>31</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -804,8 +740,8 @@
 
   <AlienFiles>
     <PathWithFilename>D:\firmware\PowerBoard\library\board\include\m6_rf315.h</PathWithFilename>
-    <TopLine>55</TopLine>
-    <CurrentLine>86</CurrentLine>
+    <TopLine>73</TopLine>
+    <CurrentLine>94</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -829,9 +765,9 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>D:\firmware\PowerBoard\application\UsbCdcDeviceTest\m6_rf315.crf</PathWithFilename>
-    <TopLine>1</TopLine>
-    <CurrentLine>1</CurrentLine>
+    <PathWithFilename>D:\firmware\PowerBoard\library\peripheral\include\stm32f10x_gpio.h</PathWithFilename>
+    <TopLine>65</TopLine>
+    <CurrentLine>73</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -855,9 +791,9 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>D:\firmware\PowerBoard\application\UsbCdcDeviceTest\main.crf</PathWithFilename>
-    <TopLine>1</TopLine>
-    <CurrentLine>1</CurrentLine>
+    <PathWithFilename>D:\firmware\PowerBoard\library\peripheral\include\stm32f10x_spi.h</PathWithFilename>
+    <TopLine>179</TopLine>
+    <CurrentLine>218</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -885,91 +821,61 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>13</ActiveTab>
+      <ActiveTab>4</ActiveTab>
       <Documents>
         <Doc>
-          <Name>..\..\library\board\include\power_board.h</Name>
-          <ColumnNumber>44</ColumnNumber>
-          <TopLine>85</TopLine>
-          <CurrentLine>85</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>..\..\library\board\include\power_monitor.h</Name>
-          <ColumnNumber>15</ColumnNumber>
-          <TopLine>56</TopLine>
-          <CurrentLine>78</CurrentLine>
+          <Name>..\..\library\board\source\m6_rf315.c</Name>
+          <ColumnNumber>70</ColumnNumber>
+          <TopLine>178</TopLine>
+          <CurrentLine>216</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\library\board\source\power_monitor.c</Name>
-          <ColumnNumber>43</ColumnNumber>
-          <TopLine>145</TopLine>
-          <CurrentLine>164</CurrentLine>
+          <ColumnNumber>9</ColumnNumber>
+          <TopLine>105</TopLine>
+          <CurrentLine>123</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\library\board\include\power_monitor.h</Name>
+          <ColumnNumber>36</ColumnNumber>
+          <TopLine>31</TopLine>
+          <CurrentLine>31</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\source\main.c</Name>
-          <ColumnNumber>56</ColumnNumber>
-          <TopLine>56</TopLine>
-          <CurrentLine>56</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>..\..\library\board\source\power_control.c</Name>
-          <ColumnNumber>20</ColumnNumber>
-          <TopLine>62</TopLine>
-          <CurrentLine>62</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>..\..\library\CMSIS\source\system_stm32f10x.c</Name>
-          <ColumnNumber>79</ColumnNumber>
-          <TopLine>202</TopLine>
-          <CurrentLine>227</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>..\..\library\peripheral\include\stm32f10x_rcc.h</Name>
-          <ColumnNumber>27</ColumnNumber>
-          <TopLine>481</TopLine>
-          <CurrentLine>505</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>..\..\library\board\source\power_board.c</Name>
-          <ColumnNumber>1</ColumnNumber>
-          <TopLine>218</TopLine>
-          <CurrentLine>245</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>..\..\library\board\include\power_control.h</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>42</TopLine>
-          <CurrentLine>82</CurrentLine>
+          <TopLine>7</TopLine>
+          <CurrentLine>7</CurrentLine>
         </Doc>
         <Doc>
-          <Name>..\..\library\board\source\m6_rf315.c</Name>
-          <ColumnNumber>13</ColumnNumber>
-          <TopLine>97</TopLine>
-          <CurrentLine>104</CurrentLine>
+          <Name>..\..\library\CMSIS\source\arm\startup_stm32f10x_md.s</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>133</TopLine>
+          <CurrentLine>133</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\library\board\include\m6_rf315.h</Name>
-          <ColumnNumber>13</ColumnNumber>
-          <TopLine>55</TopLine>
-          <CurrentLine>86</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>D:\firmware\PowerBoard\application\UsbCdcDeviceTest\m6_rf315.crf</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>1</CurrentLine>
+          <TopLine>73</TopLine>
+          <CurrentLine>94</CurrentLine>
         </Doc>
         <Doc>
-          <Name>D:\firmware\PowerBoard\application\UsbCdcDeviceTest\main.crf</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>1</CurrentLine>
+          <Name>..\..\library\peripheral\include\stm32f10x_gpio.h</Name>
+          <ColumnNumber>23</ColumnNumber>
+          <TopLine>65</TopLine>
+          <CurrentLine>73</CurrentLine>
         </Doc>
         <Doc>
-          <Name>..\..\library\peripheral\source\misc.c</Name>
-          <ColumnNumber>51</ColumnNumber>
-          <TopLine>187</TopLine>
-          <CurrentLine>212</CurrentLine>
+          <Name>..\..\library\board\source\power_board.c</Name>
+          <ColumnNumber>87</ColumnNumber>
+          <TopLine>168</TopLine>
+          <CurrentLine>193</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\library\peripheral\include\stm32f10x_spi.h</Name>
+          <ColumnNumber>120</ColumnNumber>
+          <TopLine>179</TopLine>
+          <CurrentLine>218</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

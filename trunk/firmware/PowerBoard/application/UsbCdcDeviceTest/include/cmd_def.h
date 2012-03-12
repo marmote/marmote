@@ -2,6 +2,7 @@
 #define __CMD_DEF_H
 
 #include "power_board.h"
+#include "m6_rf315.h"
 
 #include "usb_fs.h"
 
@@ -74,6 +75,14 @@ CMD_Type CMD_List[] =
 	"led2 off", Led2Off,
 	"pwr on", CMD_PowerOn,
 	"pwr off", CMD_PowerOff,
+	"txled on", CON_TX_LED_On,
+	"txled off", CON_TX_LED_Off,
+	"rxled on", CON_RX_LED_On,
+	"rxled off", CON_RX_LED_Off,
+	"txd on", CON_TXD_Set,
+	"txd off", CON_TXD_Clear,
+	"spiw", CON_SPI_TestWrite,
+	"spir", CON_SPI_TestRead
 //	"mon on", CMD_MonitorOn,
 //	"mon off", CMD_MonitorOff
 };
