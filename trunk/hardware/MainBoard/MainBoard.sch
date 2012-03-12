@@ -140,23 +140,6 @@
 <packages>
 </packages>
 <symbols>
-<symbol name="FRAME-TOC">
-<wire x1="81.28" y1="30.48" x2="0" y2="30.48" width="0.254" layer="94"/>
-<wire x1="81.28" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
-<wire x1="0" y1="30.48" x2="0" y2="0" width="0.254" layer="94"/>
-<wire x1="81.28" y1="30.48" x2="81.28" y2="0" width="0.254" layer="94"/>
-<text x="24.13" y="24.13" size="2.54" layer="97">#1 - </text>
-<text x="24.13" y="19.05" size="2.54" layer="97">#2 - </text>
-<text x="24.13" y="13.97" size="2.54" layer="97">#3 - </text>
-<text x="24.13" y="8.89" size="2.54" layer="97">#4 - </text>
-<text x="24.13" y="3.81" size="2.54" layer="97">#5 - </text>
-<text x="2.54" y="26.67" size="2.54" layer="94">Pages:</text>
-<text x="31.242" y="24.13" size="2.54" layer="97">&gt;PAGE1</text>
-<text x="31.242" y="19.05" size="2.54" layer="97">&gt;PAGE2</text>
-<text x="31.242" y="13.97" size="2.54" layer="97">&gt;PAGE3</text>
-<text x="31.242" y="8.89" size="2.54" layer="97">&gt;PAGE4</text>
-<text x="31.242" y="3.81" size="2.54" layer="97">&gt;PAGE5</text>
-</symbol>
 <symbol name="AUTHOR-FIELD">
 <wire x1="0" y1="5.08" x2="0" y2="10.16" width="0.254" layer="94"/>
 <wire x1="83.82" y1="10.16" x2="83.82" y2="5.08" width="0.254" layer="94"/>
@@ -175,19 +158,6 @@
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="FRAME-TOC">
-<description>Frame Table of Content</description>
-<gates>
-<gate name="G$1" symbol="FRAME-TOC" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="FRATME-AUTHOR-FIELD">
 <description>Schematic Author Field</description>
 <gates>
@@ -31813,7 +31783,8 @@ Clock oscillator with output enable.</description>
 <wire x1="-0.381" y1="1.524" x2="-0.381" y2="-1.524" width="0.254" layer="94"/>
 <wire x1="-0.381" y1="-1.524" x2="0.381" y2="-1.524" width="0.254" layer="94"/>
 <wire x1="0.381" y1="-1.524" x2="0.381" y2="1.524" width="0.254" layer="94"/>
-<wire x1="0.381" y1="1.524" x2="-0.381" y2="1.524" width="0.254" layer="94"/>
+<wire x1="0.381" y1="1.524" x2="0" y2="1.524" width="0.254" layer="94"/>
+<wire x1="0" y1="1.524" x2="-0.381" y2="1.524" width="0.254" layer="94"/>
 <wire x1="1.016" y1="1.778" x2="1.016" y2="-1.778" width="0.254" layer="94"/>
 <wire x1="-1.016" y1="1.778" x2="-1.016" y2="-1.778" width="0.254" layer="94"/>
 <text x="2.54" y="1.016" size="1.778" layer="95">&gt;NAME</text>
@@ -31823,6 +31794,7 @@ Clock oscillator with output enable.</description>
 <pin name="2" x="2.54" y="0" visible="off" length="point" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="1" x="-2.54" y="0" visible="off" length="point" direction="pas" swaplevel="1"/>
 <pin name="GND" x="0" y="2.54" visible="pin" length="point" direction="pwr" rot="R180"/>
+<wire x1="0" y1="1.524" x2="0" y2="2.54" width="0.1524" layer="94"/>
 </symbol>
 <symbol name="C">
 <wire x1="0" y1="0" x2="0" y2="-0.508" width="0.1524" layer="94"/>
@@ -32161,6 +32133,13 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <wire x1="0.635" y1="2.54" x2="0.635" y2="1.905" width="0.254" layer="94"/>
 <text x="-7.62" y="-3.81" size="1.27" layer="95">&gt;NAME</text>
 <text x="-7.62" y="3.683" size="1.27" layer="96">&gt;VALUE</text>
+</symbol>
+<symbol name="FRAME-TOC">
+<wire x1="81.28" y1="30.48" x2="0" y2="30.48" width="0.254" layer="94"/>
+<wire x1="81.28" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="30.48" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="81.28" y1="30.48" x2="81.28" y2="0" width="0.254" layer="94"/>
+<text x="2.54" y="26.67" size="2.54" layer="94">Pages:</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -33832,20 +33811,35 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 </device>
 </devices>
 </deviceset>
+<deviceset name="FRAME-TOC">
+<description>Frame Table of Content</description>
+<gates>
+<gate name="G$1" symbol="FRAME-TOC" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
 <attributes>
 <attribute name="AUTHOR" value="Sandor Szilvasi"/>
 <attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu"/>
-<attribute name="PAGE1" value="Cover Page"/>
-<attribute name="PAGE2" value="FPGA Power Supply"/>
-<attribute name="PAGE3" value="Clock and Reset"/>
-<attribute name="PAGE4" value="Ethernet"/>
-<attribute name="PAGE5" value="Digital Signal"/>
-<attribute name="PAGE6" value="Analog Front-Ends"/>
-<attribute name="PAGE7" value="Connectors"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs"/>
+<attribute name="PAGE1" value="Cover page"/>
+<attribute name="PAGE10" value="Connectors"/>
+<attribute name="PAGE2" value="SF supply pins"/>
+<attribute name="PAGE3" value="Clock, reset, JTAG"/>
+<attribute name="PAGE4" value="SF AFE"/>
+<attribute name="PAGE5" value="External AFEs"/>
+<attribute name="PAGE6" value="External AFE caps"/>
+<attribute name="PAGE7" value="Ethernet"/>
+<attribute name="PAGE8" value="USB and AFE dig."/>
+<attribute name="PAGE9" value="I/O signals"/>
 <attribute name="REVISION" value="A"/>
 <attribute name="TITLE" value="Main Board"/>
 </attributes>
@@ -33857,7 +33851,7 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 </classes>
 <parts>
 <part name="AUTHOR-FIELD" library="powerboard" deviceset="FRATME-AUTHOR-FIELD" device=""/>
-<part name="TOC-FIELD" library="powerboard" deviceset="FRAME-TOC" device=""/>
+<part name="TOC-FIELD" library="MainBoard" deviceset="FRAME-TOC" device=""/>
 <part name="LOGO1" library="Logo" deviceset="LOGO-ISIS-600MIL" device="-10MM-PH"/>
 <part name="LOGO2" library="Logo" deviceset="LOGO-VANDERBILT-600MIL" device="-10MM-PH"/>
 <part name="LOGO3" library="Logo" deviceset="LOGO-MARMOTE-600MIL" device="-10MM-PH"/>
@@ -34782,7 +34776,26 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <text x="85.09" y="20.32" size="2.54" layer="95">&gt;AUTHOR</text>
 <text x="85.09" y="5.08" size="2.54" layer="95">&gt;VERIFIER</text>
 <text x="161.29" y="5.08" size="2.54" layer="95" rot="MR0">&gt;VERIFIEREMAIL</text>
-<rectangle x1="33.02" y1="-2.54" x2="71.12" y2="48.26" layer="97"/>
+<text x="5.08" y="19.685" size="2.54" layer="97">1 - </text>
+<text x="5.08" y="15.875" size="2.54" layer="97">2 - </text>
+<text x="5.08" y="12.065" size="2.54" layer="97">3 - </text>
+<text x="5.08" y="8.255" size="2.54" layer="97">4 - </text>
+<text x="5.08" y="4.445" size="2.54" layer="97">5 - </text>
+<text x="10.922" y="19.685" size="2.54" layer="97">&gt;PAGE1</text>
+<text x="10.922" y="15.875" size="2.54" layer="97">&gt;PAGE2</text>
+<text x="10.922" y="12.065" size="2.54" layer="97">&gt;PAGE3</text>
+<text x="10.922" y="8.255" size="2.54" layer="97">&gt;PAGE4</text>
+<text x="10.922" y="4.445" size="2.54" layer="97">&gt;PAGE5</text>
+<text x="43.18" y="19.685" size="2.54" layer="97">6 - </text>
+<text x="43.18" y="15.875" size="2.54" layer="97">7 - </text>
+<text x="43.18" y="12.065" size="2.54" layer="97">8 - </text>
+<text x="43.18" y="8.255" size="2.54" layer="97">9 - </text>
+<text x="41.275" y="4.445" size="2.54" layer="97">10 - </text>
+<text x="49.022" y="19.685" size="2.54" layer="97">&gt;PAGE6</text>
+<text x="49.022" y="15.875" size="2.54" layer="97">&gt;PAGE7</text>
+<text x="49.022" y="12.065" size="2.54" layer="97">&gt;PAGE8</text>
+<text x="49.022" y="8.255" size="2.54" layer="97">&gt;PAGE9</text>
+<text x="49.022" y="4.445" size="2.54" layer="97">&gt;PAGE10</text>
 </plain>
 <instances>
 <instance part="AUTHOR-FIELD" gate="G$1" x="81.28" y="0"/>
@@ -34801,7 +34814,7 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 </sheet>
 <sheet>
 <plain>
-<text x="175.26" y="20.32" size="5.08" layer="97">&gt;PAGE2</text>
+<text x="182.88" y="20.32" size="5.08" layer="97">&gt;PAGE2</text>
 <text x="53.34" y="78.74" size="50.8" layer="208">SUP</text>
 <text x="227.33" y="59.69" size="1.778" layer="97" rot="R90">VCC15ADC0</text>
 <text x="229.87" y="59.69" size="1.778" layer="97" rot="R90">VCC15ADC1</text>
@@ -34824,8 +34837,6 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <text x="130.81" y="59.69" size="1.778" layer="97" rot="R90">VCC33AP</text>
 <text x="125.73" y="59.69" size="1.778" layer="97" rot="R90">VCC33ADC1</text>
 <text x="123.19" y="59.69" size="1.778" layer="97" rot="R90">VCC33ADC0</text>
-<rectangle x1="119.38" y1="48.26" x2="134.62" y2="55.88" layer="98"/>
-<text x="132.08" y="45.72" size="1.778" layer="98" rot="R270">Check values</text>
 <text x="13.97" y="36.83" size="1.778" layer="97" rot="R90">M14</text>
 <text x="19.05" y="36.83" size="1.778" layer="97" rot="R90">J15</text>
 <text x="24.13" y="36.83" size="1.778" layer="97" rot="R90">L11, J11</text>
@@ -35765,7 +35776,7 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 </sheet>
 <sheet>
 <plain>
-<text x="170.18" y="20.32" size="5.08" layer="97">Clock, Reset and JTAG</text>
+<text x="177.8" y="20.32" size="5.08" layer="97">&gt;PAGE3</text>
 <text x="45.72" y="43.18" size="2.54" layer="97">Ethernet oscillator - 50 MHz</text>
 <text x="44.45" y="109.22" size="2.54" layer="97">Internal oscillator - 32 kHz</text>
 <text x="180.34" y="124.46" size="2.54" layer="97">Reset logic</text>
@@ -35795,7 +35806,6 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <rectangle x1="203.2" y1="139.7" x2="218.44" y2="147.32" layer="98"/>
 <text x="93.98" y="139.7" size="1.778" layer="98">Consider replacing with a larger switch</text>
 <text x="203.2" y="137.16" size="1.778" layer="98">Consider replacing with a larger switch</text>
-<rectangle x1="22.86" y1="137.16" x2="40.64" y2="142.24" layer="98"/>
 </plain>
 <instances>
 <instance part="U1" gate="-MISC" x="63.5" y="134.62"/>
@@ -36288,7 +36298,7 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 </sheet>
 <sheet>
 <plain>
-<text x="177.8" y="20.32" size="5.08" layer="97">SmartFusion AFE</text>
+<text x="193.04" y="20.32" size="5.08" layer="97">&gt;PAGE4</text>
 <text x="43.18" y="50.8" size="1.778" layer="97">AUX DACs as reference</text>
 <text x="29.21" y="90.17" size="1.778" layer="97">to North Bridge</text>
 <wire x1="50.8" y1="101.6" x2="48.26" y2="101.6" width="0.1524" layer="97"/>
@@ -36298,7 +36308,7 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <text x="195.58" y="99.06" size="1.778" layer="97">(internal reference is 2.56V)</text>
 <text x="71.12" y="31.75" size="1.778" layer="97">Optional capacitors to hold internal</text>
 <text x="67.31" y="29.21" size="1.778" layer="97">SF DAC generated comparator reference</text>
-<text x="134.62" y="62.23" size="1.778" layer="97">DAC LPF 4th pole (DNP)</text>
+<text x="135.89" y="62.23" size="1.778" layer="97">DAC LPF 4th pole</text>
 <text x="175.26" y="111.76" size="1.778" layer="97">Check NPN BJT parameters</text>
 <text x="180.34" y="86.36" size="1.778" layer="97">to North Bridge</text>
 <wire x1="175.26" y1="91.44" x2="177.8" y2="91.44" width="0.1524" layer="97"/>
@@ -36331,6 +36341,9 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <wire x1="48.26" y1="147.32" x2="48.26" y2="111.76" width="0.1524" layer="97"/>
 <wire x1="48.26" y1="111.76" x2="50.8" y2="111.76" width="0.1524" layer="97"/>
 <rectangle x1="154.94" y1="99.06" x2="170.18" y2="119.38" layer="98"/>
+<text x="175.26" y="119.38" size="1.778" layer="98">Check if thermal resistance is OK</text>
+<text x="175.26" y="116.84" size="1.778" layer="98">(2N3904: 200C/W, MMBT3904:357C/W, PZT3904: 125C/W)</text>
+<text x="27.94" y="104.14" size="1.778" layer="98">Add RC filter to ADC used for RSSI, straing gauge, etc?</text>
 </plain>
 <instances>
 <instance part="FRAME10" gate="G$1" x="0" y="0"/>
@@ -36349,10 +36362,10 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <instance part="PORT150" gate="G$1" x="83.82" y="144.78" rot="MR0"/>
 <instance part="PORT151" gate="G$1" x="83.82" y="142.24" rot="MR0"/>
 <instance part="C65" gate="G$1" x="149.86" y="76.2">
-<attribute name="DNP" x="149.86" y="76.2" size="1.778" layer="96" display="name"/>
+<attribute name="DNP" x="151.13" y="71.12" size="1.778" layer="96" display="name"/>
 </instance>
 <instance part="C66" gate="G$1" x="142.24" y="76.2">
-<attribute name="DNP" x="142.24" y="76.2" size="1.778" layer="96" display="name"/>
+<attribute name="DNP" x="143.51" y="71.12" size="1.778" layer="96" display="name"/>
 </instance>
 <instance part="U$61" gate="G$1" x="142.24" y="68.58"/>
 <instance part="U$62" gate="G$1" x="149.86" y="68.58"/>
@@ -36716,11 +36729,9 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 </sheet>
 <sheet>
 <plain>
-<text x="177.8" y="20.32" size="5.08" layer="97">&gt;PAGE6</text>
+<text x="182.88" y="20.32" size="5.08" layer="97">&gt;PAGE5</text>
 <text x="63.5" y="55.88" size="2.54" layer="97">AFE1</text>
 <text x="180.34" y="55.88" size="2.54" layer="97">AFE2</text>
-<rectangle x1="93.98" y1="76.2" x2="111.76" y2="78.74" layer="97"/>
-<rectangle x1="210.82" y1="76.2" x2="231.14" y2="78.74" layer="97"/>
 <text x="88.265" y="106.045" size="1.778" layer="97">NC</text>
 <text x="205.105" y="106.045" size="1.778" layer="97">NC</text>
 <text x="58.42" y="104.14" size="50.8" layer="208">EXT</text>
@@ -37730,7 +37741,7 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 </sheet>
 <sheet>
 <plain>
-<text x="175.26" y="20.32" size="5.08" layer="97">&gt;PAGE9</text>
+<text x="177.8" y="20.32" size="5.08" layer="97">&gt;PAGE6</text>
 <text x="91.44" y="167.64" size="5.08" layer="97">Decoupling capacitors</text>
 <text x="78.74" y="76.2" size="5.08" layer="97">Pull-up and pull-down resistors</text>
 <text x="33.02" y="147.32" size="2.54" layer="97">AFE1</text>
@@ -38269,7 +38280,7 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 </sheet>
 <sheet>
 <plain>
-<text x="193.04" y="20.32" size="5.08" layer="97">&gt;PAGE4</text>
+<text x="193.04" y="20.32" size="5.08" layer="97">&gt;PAGE7</text>
 <text x="68.58" y="55.88" size="2.54" layer="97">Ethernet PHY</text>
 <text x="48.895" y="78.105" size="1.778" layer="97">NC</text>
 <text x="48.895" y="70.485" size="1.778" layer="97">NC</text>
@@ -39115,7 +39126,7 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 </sheet>
 <sheet>
 <plain>
-<text x="198.12" y="20.32" size="5.08" layer="97">USB</text>
+<text x="180.34" y="20.32" size="5.08" layer="97">&gt;PAGE8</text>
 <text x="167.64" y="38.1" size="2.54" layer="97">EEPROM</text>
 <text x="91.44" y="30.48" size="1.778" layer="97" rot="R90">VCCIO</text>
 <text x="53.34" y="63.5" size="50.8" layer="208">USB</text>
@@ -39146,7 +39157,6 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <rectangle x1="218.44" y1="91.44" x2="238.76" y2="93.98" layer="116"/>
 <text x="99.06" y="154.94" size="1.778" layer="97">TXD</text>
 <text x="99.06" y="152.4" size="1.778" layer="97">RXD</text>
-<rectangle x1="33.02" y1="93.98" x2="38.1" y2="109.22" layer="98"/>
 </plain>
 <instances>
 <instance part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" x="177.8" y="124.46"/>
@@ -39175,7 +39185,7 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 </instance>
 <instance part="U$74" gate="G$1" x="17.78" y="121.92"/>
 <instance part="U$75" gate="G$1" x="66.04" y="81.28"/>
-<instance part="X5" gate="P" x="33.02" y="106.68" rot="R270"/>
+<instance part="X5" gate="P" x="33.02" y="106.68" rot="R90"/>
 <instance part="C71" gate="G$1" x="25.4" y="101.6" rot="R270"/>
 <instance part="C72" gate="G$1" x="25.4" y="111.76" rot="R270"/>
 <instance part="U7" gate="G$1" x="170.18" y="55.88"/>
@@ -39698,24 +39708,27 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <pinref part="C104" gate="G$1" pin="2"/>
 </segment>
 <segment>
+<pinref part="U5" gate="G$1" pin="TEST"/>
+<wire x1="33.02" y1="96.52" x2="38.1" y2="96.52" width="0.1524" layer="91"/>
 <pinref part="U$73" gate="G$1" pin="DGND"/>
 <wire x1="33.02" y1="93.98" x2="33.02" y2="96.52" width="0.1524" layer="91"/>
-<pinref part="U5" gate="G$1" pin="TEST"/>
-<wire x1="33.02" y1="96.52" x2="35.56" y2="96.52" width="0.1524" layer="91"/>
-<pinref part="X5" gate="P" pin="GND"/>
-<wire x1="35.56" y1="96.52" x2="38.1" y2="96.52" width="0.1524" layer="91"/>
-<wire x1="35.56" y1="106.68" x2="35.56" y2="96.52" width="0.1524" layer="91"/>
-<junction x="35.56" y="96.52"/>
 </segment>
 <segment>
-<pinref part="C72" gate="G$1" pin="2"/>
-<wire x1="20.32" y1="111.76" x2="17.78" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="X5" gate="P" pin="GND"/>
+<wire x1="30.48" y1="106.68" x2="25.4" y2="106.68" width="0.1524" layer="91"/>
 <wire x1="17.78" y1="111.76" x2="17.78" y2="106.68" width="0.1524" layer="91"/>
-<pinref part="C71" gate="G$1" pin="2"/>
-<wire x1="17.78" y1="106.68" x2="17.78" y2="101.6" width="0.1524" layer="91"/>
-<wire x1="17.78" y1="101.6" x2="20.32" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="106.68" x2="17.78" y2="111.76" width="0.1524" layer="91"/>
 <wire x1="17.78" y1="93.98" x2="17.78" y2="101.6" width="0.1524" layer="91"/>
 <pinref part="U$122" gate="G$1" pin="DGND"/>
+<wire x1="17.78" y1="101.6" x2="17.78" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="106.68" x2="17.78" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="106.68" x2="17.78" y2="106.68" width="0.1524" layer="91"/>
+<junction x="17.78" y="106.68"/>
+<pinref part="C72" gate="G$1" pin="2"/>
+<wire x1="20.32" y1="111.76" x2="17.78" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="C71" gate="G$1" pin="2"/>
+<wire x1="20.32" y1="101.6" x2="17.78" y2="101.6" width="0.1524" layer="91"/>
+<junction x="17.78" y="101.6"/>
 </segment>
 <segment>
 <pinref part="C105" gate="G$1" pin="2"/>
@@ -39742,24 +39755,24 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 </net>
 <net name="UXCSI" class="0">
 <segment>
-<pinref part="X5" gate="P" pin="1"/>
-<wire x1="33.02" y1="109.22" x2="33.02" y2="111.76" width="0.1524" layer="91"/>
 <pinref part="U5" gate="G$1" pin="XCSI"/>
 <wire x1="33.02" y1="111.76" x2="38.1" y2="111.76" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="111.76" x2="27.94" y2="111.76" width="0.1524" layer="91"/>
-<pinref part="C72" gate="G$1" pin="1"/>
 <junction x="33.02" y="111.76"/>
+<pinref part="X5" gate="P" pin="2"/>
+<wire x1="33.02" y1="111.76" x2="33.02" y2="109.22" width="0.1524" layer="91"/>
+<pinref part="C72" gate="G$1" pin="1"/>
+<wire x1="27.94" y1="111.76" x2="33.02" y2="111.76" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="UXCSO" class="0">
 <segment>
 <pinref part="U5" gate="G$1" pin="XCSO"/>
 <wire x1="38.1" y1="101.6" x2="33.02" y2="101.6" width="0.1524" layer="91"/>
-<pinref part="X5" gate="P" pin="2"/>
-<wire x1="33.02" y1="101.6" x2="33.02" y2="104.14" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="101.6" x2="27.94" y2="101.6" width="0.1524" layer="91"/>
-<pinref part="C71" gate="G$1" pin="1"/>
 <junction x="33.02" y="101.6"/>
+<pinref part="X5" gate="P" pin="1"/>
+<wire x1="33.02" y1="101.6" x2="33.02" y2="104.14" width="0.1524" layer="91"/>
+<pinref part="C71" gate="G$1" pin="1"/>
+<wire x1="27.94" y1="101.6" x2="33.02" y2="101.6" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="EECS" class="0">
@@ -40226,7 +40239,7 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 </sheet>
 <sheet>
 <plain>
-<text x="185.42" y="20.32" size="5.08" layer="97">&gt;PAGE5</text>
+<text x="190.5" y="20.32" size="5.08" layer="97">&gt;PAGE9</text>
 <text x="60.96" y="101.6" size="2.54" layer="97">I2C</text>
 <text x="60.96" y="55.88" size="2.54" layer="97">SPIs</text>
 <text x="195.58" y="116.84" size="2.54" layer="97">LEDs</text>
@@ -40644,7 +40657,7 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 </sheet>
 <sheet>
 <plain>
-<text x="187.96" y="20.32" size="5.08" layer="97">&gt;PAGE7</text>
+<text x="187.96" y="20.32" size="5.08" layer="97">&gt;PAGE10</text>
 <text x="43.18" y="132.08" size="2.54" layer="97">JTAG header</text>
 <text x="119.38" y="45.72" size="2.54" layer="97">South bridge</text>
 <text x="193.04" y="45.72" size="2.54" layer="97">North bridge</text>
