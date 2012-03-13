@@ -137,27 +137,6 @@
 <libraries>
 <library name="powerboard">
 <packages>
-<package name="R0402">
-<description>&lt;b&gt;R0402&lt;/b&gt;
-&lt;p&gt;
-Chip resistor
-&lt;p&gt;
-&lt;i&gt;Source: EAGLE 5.11 'rlc.lbr'&lt;/i&gt;</description>
-<wire x1="-0.245" y1="0.224" x2="0.245" y2="0.224" width="0.1524" layer="51"/>
-<wire x1="0.245" y1="-0.224" x2="-0.245" y2="-0.224" width="0.1524" layer="51"/>
-<wire x1="-1.473" y1="0.483" x2="1.473" y2="0.483" width="0.0508" layer="39"/>
-<wire x1="1.473" y1="0.483" x2="1.473" y2="-0.483" width="0.0508" layer="39"/>
-<wire x1="1.473" y1="-0.483" x2="-1.473" y2="-0.483" width="0.0508" layer="39"/>
-<wire x1="-1.473" y1="-0.483" x2="-1.473" y2="0.483" width="0.0508" layer="39"/>
-<smd name="1" x="-0.65" y="0" dx="0.7" dy="0.9" layer="1"/>
-<smd name="2" x="0.65" y="0" dx="0.7" dy="0.9" layer="1"/>
-<text x="-0.889" y="0.5842" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-0.889" y="-0.9906" size="0.4064" layer="27">&gt;VALUE</text>
-<rectangle x1="-0.554" y1="-0.3048" x2="-0.254" y2="0.2951" layer="51"/>
-<rectangle x1="0.2588" y1="-0.3048" x2="0.5588" y2="0.2951" layer="51"/>
-<rectangle x1="-0.1999" y1="-0.4001" x2="0.1999" y2="0.4001" layer="35"/>
-<rectangle x1="-0.2032" y1="-0.3048" x2="0.2032" y2="0.3048" layer="21"/>
-</package>
 <package name="R0805">
 <description>&lt;b&gt;R0805&lt;/b&gt;
 &lt;p&gt;
@@ -270,27 +249,6 @@ Chip LED
 <rectangle x1="-0.85" y1="0.95" x2="0.85" y2="1.25" layer="51"/>
 <rectangle x1="-0.85" y1="1.299" x2="-0.35" y2="1.649" layer="51" rot="R180"/>
 <rectangle x1="-0.8498" y1="1.2402" x2="-0.2498" y2="1.3652" layer="51"/>
-</package>
-<package name="C0402">
-<description>&lt;b&gt;C0402&lt;/b&gt;
-&lt;p&gt;
-Chip capacitor
-&lt;p&gt;
-&lt;i&gt;Source: EAGLE 5.11 'rlc.lbr'&lt;/i&gt;</description>
-<wire x1="-0.245" y1="0.224" x2="0.245" y2="0.224" width="0.1524" layer="51"/>
-<wire x1="0.245" y1="-0.224" x2="-0.245" y2="-0.224" width="0.1524" layer="51"/>
-<wire x1="-1.473" y1="0.483" x2="1.473" y2="0.483" width="0.0508" layer="39"/>
-<wire x1="1.473" y1="0.483" x2="1.473" y2="-0.483" width="0.0508" layer="39"/>
-<wire x1="1.473" y1="-0.483" x2="-1.473" y2="-0.483" width="0.0508" layer="39"/>
-<wire x1="-1.473" y1="-0.483" x2="-1.473" y2="0.483" width="0.0508" layer="39"/>
-<wire x1="0" y1="0.0305" x2="0" y2="-0.0305" width="0.4064" layer="21"/>
-<smd name="1" x="-0.65" y="0" dx="0.7" dy="0.9" layer="1"/>
-<smd name="2" x="0.65" y="0" dx="0.7" dy="0.9" layer="1"/>
-<text x="-0.889" y="0.5842" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-0.889" y="-0.9906" size="0.4064" layer="27">&gt;VALUE</text>
-<rectangle x1="-0.554" y1="-0.3048" x2="-0.254" y2="0.2951" layer="51"/>
-<rectangle x1="0.2588" y1="-0.3048" x2="0.5588" y2="0.2951" layer="51"/>
-<rectangle x1="-0.1999" y1="-0.4001" x2="0.1999" y2="0.4001" layer="35"/>
 </package>
 <package name="C0805">
 <description>&lt;b&gt;C0805&lt;/b&gt;
@@ -1608,6 +1566,48 @@ Source: &lt;a href="http://www.ck-components.com/index.php?module=media&amp;acti
 <circle x="0" y="0" radius="1.5" width="0.127" layer="51"/>
 <text x="-3" y="-4" size="0.4064" layer="25">&gt;NAME</text>
 <text x="-3" y="3.5" size="0.4064" layer="27">&gt;VALUE</text>
+</package>
+<package name="R0402">
+<description>&lt;b&gt;R0402&lt;/b&gt;
+&lt;p&gt;
+Chip resistor
+&lt;p&gt;
+&lt;i&gt;Source: EAGLE 5.11 'rlc.lbr'&lt;/i&gt;</description>
+<wire x1="-0.245" y1="0.224" x2="0.245" y2="0.224" width="0.1524" layer="51"/>
+<wire x1="0.245" y1="-0.224" x2="-0.245" y2="-0.224" width="0.1524" layer="51"/>
+<wire x1="-1.47" y1="0.47" x2="1.47" y2="0.47" width="0.05" layer="39"/>
+<wire x1="1.47" y1="0.47" x2="1.47" y2="-0.47" width="0.0508" layer="39"/>
+<wire x1="1.47" y1="-0.47" x2="-1.47" y2="-0.47" width="0.05" layer="39"/>
+<wire x1="-1.47" y1="-0.47" x2="-1.47" y2="0.47" width="0.0508" layer="39"/>
+<smd name="1" x="-0.65" y="0" dx="0.9" dy="0.7" layer="1"/>
+<smd name="2" x="0.65" y="0" dx="0.9" dy="0.7" layer="1"/>
+<text x="-0.889" y="0.5842" size="0.4064" layer="25">&gt;NAME</text>
+<text x="-0.889" y="-0.9906" size="0.4064" layer="27">&gt;VALUE</text>
+<rectangle x1="-0.554" y1="-0.3048" x2="-0.254" y2="0.2951" layer="51"/>
+<rectangle x1="0.2588" y1="-0.3048" x2="0.5588" y2="0.2951" layer="51"/>
+<rectangle x1="-0.1999" y1="-0.4001" x2="0.1999" y2="0.4001" layer="35"/>
+<rectangle x1="-0.125" y1="-0.15" x2="0.125" y2="0.15" layer="21"/>
+</package>
+<package name="C0402">
+<description>&lt;b&gt;C0402&lt;/b&gt;
+&lt;p&gt;
+Chip capacitor
+&lt;p&gt;
+&lt;i&gt;Source: EAGLE 5.11 'rlc.lbr'&lt;/i&gt;</description>
+<wire x1="-0.245" y1="0.224" x2="0.245" y2="0.224" width="0.1524" layer="51"/>
+<wire x1="0.245" y1="-0.224" x2="-0.245" y2="-0.224" width="0.1524" layer="51"/>
+<wire x1="-1.47" y1="0.47" x2="1.47" y2="0.47" width="0.05" layer="39"/>
+<wire x1="1.47" y1="0.47" x2="1.47" y2="-0.47" width="0.0508" layer="39"/>
+<wire x1="1.47" y1="-0.47" x2="-1.47" y2="-0.47" width="0.0508" layer="39"/>
+<wire x1="-1.47" y1="-0.47" x2="-1.47" y2="0.47" width="0.0508" layer="39"/>
+<wire x1="0" y1="0.0305" x2="0" y2="-0.0305" width="0.25" layer="21"/>
+<smd name="1" x="-0.65" y="0" dx="0.9" dy="0.7" layer="1"/>
+<smd name="2" x="0.65" y="0" dx="0.9" dy="0.7" layer="1"/>
+<text x="-0.889" y="0.5842" size="0.4064" layer="25">&gt;NAME</text>
+<text x="-0.889" y="-0.9906" size="0.4064" layer="27">&gt;VALUE</text>
+<rectangle x1="-0.554" y1="-0.3048" x2="-0.254" y2="0.2951" layer="51"/>
+<rectangle x1="0.2588" y1="-0.3048" x2="0.5588" y2="0.2951" layer="51"/>
+<rectangle x1="-0.1999" y1="-0.4001" x2="0.1999" y2="0.4001" layer="35"/>
 </package>
 </packages>
 <symbols>
