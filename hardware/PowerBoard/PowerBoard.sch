@@ -34577,13 +34577,6 @@ v1.0 Initial design</description>
 <pinref part="Q2" gate="G$1" pin="D"/>
 </segment>
 </net>
-<net name="PC13" class="0">
-<segment>
-<wire x1="149.86" y1="129.54" x2="147.32" y2="129.54" width="0.1524" layer="91"/>
-<label x="144.78" y="129.54" size="1.778" layer="95" rot="MR0"/>
-<pinref part="U2" gate="G$1" pin="SUSP"/>
-</segment>
-</net>
 <net name="D3V3_I" class="0">
 <segment>
 <wire x1="91.44" y1="66.04" x2="116.84" y2="66.04" width="0.1524" layer="91"/>
@@ -34703,6 +34696,13 @@ v1.0 Initial design</description>
 <wire x1="91.44" y1="20.32" x2="132.08" y2="20.32" width="0.1524" layer="91"/>
 <label x="134.62" y="20.32" size="1.778" layer="95"/>
 <pinref part="U6" gate="G$1" pin="VOUT"/>
+</segment>
+</net>
+<net name="PB4" class="0">
+<segment>
+<wire x1="149.86" y1="129.54" x2="147.32" y2="129.54" width="0.1524" layer="91"/>
+<label x="144.78" y="129.54" size="1.778" layer="95" rot="MR0"/>
+<pinref part="U2" gate="G$1" pin="SUSP"/>
 </segment>
 </net>
 </nets>
@@ -35265,11 +35265,6 @@ v1.0 Initial design</description>
 <label x="111.76" y="124.46" size="1.778" layer="95" rot="MR0"/>
 <pinref part="U13" gate="-PORTB_L" pin="PB4"/>
 </segment>
-<segment>
-<wire x1="109.22" y1="17.78" x2="106.68" y2="17.78" width="0.1524" layer="91"/>
-<label x="104.14" y="17.78" size="1.778" layer="95" rot="MR0"/>
-<pinref part="U14" gate="LTC3677-2" pin="!AL!/CC"/>
-</segment>
 </net>
 <net name="PB2" class="0">
 <segment>
@@ -35438,6 +35433,11 @@ v1.0 Initial design</description>
 <wire x1="215.9" y1="73.66" x2="190.5" y2="73.66" width="0.1524" layer="91"/>
 <label x="182.88" y="73.66" size="1.778" layer="95"/>
 <pinref part="U13" gate="-PORTC" pin="PC13"/>
+</segment>
+<segment>
+<wire x1="109.22" y1="17.78" x2="106.68" y2="17.78" width="0.1524" layer="91"/>
+<label x="104.14" y="17.78" size="1.778" layer="95" rot="MR0"/>
+<pinref part="U14" gate="LTC3677-2" pin="!AL!/CC"/>
 </segment>
 </net>
 <net name="PA15" class="0">
@@ -36296,13 +36296,6 @@ v1.0 Initial design</description>
 <pinref part="R42" gate="G$1" pin="2"/>
 </segment>
 </net>
-<net name="PC13" class="0">
-<segment>
-<wire x1="233.68" y1="81.28" x2="233.68" y2="86.36" width="0.1524" layer="91"/>
-<label x="231.14" y="87.63" size="1.778" layer="95" rot="R90"/>
-<pinref part="R43" gate="G$1" pin="2"/>
-</segment>
-</net>
 <net name="D1V5-EN" class="0">
 <segment>
 <wire x1="243.84" y1="81.28" x2="243.84" y2="86.36" width="0.1524" layer="91"/>
@@ -36335,6 +36328,13 @@ v1.0 Initial design</description>
 </segment>
 </net>
 <net name="PB4" class="0">
+<segment>
+<wire x1="233.68" y1="81.28" x2="233.68" y2="86.36" width="0.1524" layer="91"/>
+<label x="231.14" y="87.63" size="1.778" layer="95" rot="R90"/>
+<pinref part="R43" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="PC13" class="0">
 <segment>
 <wire x1="195.58" y1="78.74" x2="195.58" y2="76.2" width="0.1524" layer="91"/>
 <label x="198.12" y="73.66" size="1.778" layer="95" rot="R270"/>
