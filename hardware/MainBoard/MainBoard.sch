@@ -36309,7 +36309,6 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <text x="71.12" y="31.75" size="1.778" layer="97">Optional capacitors to hold internal</text>
 <text x="67.31" y="29.21" size="1.778" layer="97">SF DAC generated comparator reference</text>
 <text x="135.89" y="62.23" size="1.778" layer="97">DAC LPF 4th pole</text>
-<text x="175.26" y="111.76" size="1.778" layer="97">Check NPN BJT parameters</text>
 <text x="180.34" y="86.36" size="1.778" layer="97">to North Bridge</text>
 <wire x1="175.26" y1="91.44" x2="177.8" y2="91.44" width="0.1524" layer="97"/>
 <wire x1="177.8" y1="91.44" x2="177.8" y2="81.28" width="0.1524" layer="97"/>
@@ -36340,10 +36339,6 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <wire x1="50.8" y1="147.32" x2="48.26" y2="147.32" width="0.1524" layer="97"/>
 <wire x1="48.26" y1="147.32" x2="48.26" y2="111.76" width="0.1524" layer="97"/>
 <wire x1="48.26" y1="111.76" x2="50.8" y2="111.76" width="0.1524" layer="97"/>
-<rectangle x1="154.94" y1="99.06" x2="170.18" y2="119.38" layer="98"/>
-<text x="175.26" y="119.38" size="1.778" layer="98">Check if thermal resistance is OK</text>
-<text x="175.26" y="116.84" size="1.778" layer="98">(2N3904: 200C/W, MMBT3904:357C/W, PZT3904: 125C/W)</text>
-<text x="27.94" y="104.14" size="1.778" layer="98">Add RC filter to ADC used for RSSI, straing gauge, etc?</text>
 </plain>
 <instances>
 <instance part="FRAME10" gate="G$1" x="0" y="0"/>
