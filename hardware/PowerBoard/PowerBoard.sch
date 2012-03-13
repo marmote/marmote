@@ -34146,6 +34146,12 @@ v1.0 Initial design</description>
 <part name="U$69" library="powerboard" deviceset="DGND" device=""/>
 <part name="U$70" library="powerboard" deviceset="DGND" device=""/>
 <part name="PORT65" library="powerboard" deviceset="PORT7" device=""/>
+<part name="R3" library="powerboard" deviceset="R" device="0603" value="DNP">
+<attribute name="TOLERANCE" value=""/>
+</part>
+<part name="R21" library="powerboard" deviceset="R" device="0603" value="0">
+<attribute name="TOLERANCE" value=""/>
+</part>
 </parts>
 <sheets>
 <sheet>
@@ -34698,7 +34704,7 @@ v1.0 Initial design</description>
 <pinref part="U6" gate="G$1" pin="VOUT"/>
 </segment>
 </net>
-<net name="PB4" class="0">
+<net name="PC13" class="0">
 <segment>
 <wire x1="149.86" y1="129.54" x2="147.32" y2="129.54" width="0.1524" layer="91"/>
 <label x="144.78" y="129.54" size="1.778" layer="95" rot="MR0"/>
@@ -35265,6 +35271,11 @@ v1.0 Initial design</description>
 <label x="111.76" y="124.46" size="1.778" layer="95" rot="MR0"/>
 <pinref part="U13" gate="-PORTB_L" pin="PB4"/>
 </segment>
+<segment>
+<wire x1="109.22" y1="17.78" x2="106.68" y2="17.78" width="0.1524" layer="91"/>
+<label x="104.14" y="17.78" size="1.778" layer="95" rot="MR0"/>
+<pinref part="U14" gate="LTC3677-2" pin="!AL!/CC"/>
+</segment>
 </net>
 <net name="PB2" class="0">
 <segment>
@@ -35433,11 +35444,6 @@ v1.0 Initial design</description>
 <wire x1="215.9" y1="73.66" x2="190.5" y2="73.66" width="0.1524" layer="91"/>
 <label x="182.88" y="73.66" size="1.778" layer="95"/>
 <pinref part="U13" gate="-PORTC" pin="PC13"/>
-</segment>
-<segment>
-<wire x1="109.22" y1="17.78" x2="106.68" y2="17.78" width="0.1524" layer="91"/>
-<label x="104.14" y="17.78" size="1.778" layer="95" rot="MR0"/>
-<pinref part="U14" gate="LTC3677-2" pin="!AL!/CC"/>
 </segment>
 </net>
 <net name="PA15" class="0">
@@ -36329,16 +36335,16 @@ v1.0 Initial design</description>
 </net>
 <net name="PB4" class="0">
 <segment>
-<wire x1="233.68" y1="81.28" x2="233.68" y2="86.36" width="0.1524" layer="91"/>
-<label x="231.14" y="87.63" size="1.778" layer="95" rot="R90"/>
-<pinref part="R43" gate="G$1" pin="2"/>
+<wire x1="195.58" y1="78.74" x2="195.58" y2="76.2" width="0.1524" layer="91"/>
+<label x="198.12" y="73.66" size="1.778" layer="95" rot="R270"/>
+<pinref part="R40" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="PC13" class="0">
 <segment>
-<wire x1="195.58" y1="78.74" x2="195.58" y2="76.2" width="0.1524" layer="91"/>
-<label x="198.12" y="73.66" size="1.778" layer="95" rot="R270"/>
-<pinref part="R40" gate="G$1" pin="1"/>
+<wire x1="233.68" y1="81.28" x2="233.68" y2="86.36" width="0.1524" layer="91"/>
+<label x="231.14" y="87.63" size="1.778" layer="95" rot="R90"/>
+<pinref part="R43" gate="G$1" pin="2"/>
 </segment>
 </net>
 </nets>
@@ -36353,9 +36359,9 @@ v1.0 Initial design</description>
 <text x="111.76" y="132.08" size="2.54" layer="97">WALL connector</text>
 <text x="111.76" y="86.36" size="2.54" layer="97">Battery connector</text>
 <text x="115.57" y="46.99" size="2.54" layer="97">Slide switch</text>
-<text x="147.32" y="124.46" size="1.778" layer="97">USART1_TX</text>
-<text x="147.32" y="127" size="1.778" layer="97">USART1_RX</text>
-<text x="147.32" y="121.92" size="1.778" layer="97">I2C1_SMBA</text>
+<text x="142.24" y="124.46" size="1.778" layer="97">USART1_TX</text>
+<text x="142.24" y="127" size="1.778" layer="97">USART1_RX</text>
+<text x="142.24" y="121.92" size="1.778" layer="97">I2C1_SMBA</text>
 </plain>
 <instances>
 <instance part="FRAME4" gate="G$1" x="0" y="0"/>
@@ -36392,9 +36398,9 @@ v1.0 Initial design</description>
 <instance part="PORT95" gate="G$1" x="223.52" y="132.08"/>
 <instance part="PORT96" gate="G$1" x="223.52" y="127"/>
 <instance part="PORT97" gate="G$1" x="223.52" y="129.54"/>
-<instance part="PORT98" gate="G$1" x="165.1" y="132.08" rot="MR0"/>
-<instance part="PORT99" gate="G$1" x="165.1" y="129.54" rot="MR0"/>
-<instance part="PORT100" gate="G$1" x="165.1" y="124.46" rot="MR0"/>
+<instance part="PORT98" gate="G$1" x="160.02" y="132.08" rot="MR0"/>
+<instance part="PORT99" gate="G$1" x="160.02" y="129.54" rot="MR0"/>
+<instance part="PORT100" gate="G$1" x="160.02" y="124.46" rot="MR0"/>
 <instance part="PORT115" gate="G$1" x="165.1" y="144.78" rot="MR0"/>
 <instance part="PORT117" gate="G$1" x="223.52" y="144.78"/>
 <instance part="U$61" gate="G$1" x="177.8" y="43.18"/>
@@ -36403,7 +36409,7 @@ v1.0 Initial design</description>
 <instance part="PORT91" gate="G$1" x="165.1" y="50.8" rot="MR0"/>
 <instance part="PORT119" gate="G$1" x="223.52" y="53.34"/>
 <instance part="PORT120" gate="G$1" x="223.52" y="50.8"/>
-<instance part="PORT89" gate="G$1" x="165.1" y="127" rot="MR0"/>
+<instance part="PORT89" gate="G$1" x="160.02" y="127" rot="MR0"/>
 <instance part="U$4" gate="G$1" x="177.8" y="137.16"/>
 <instance part="U15" gate="G$1" x="53.34" y="99.06"/>
 <instance part="J4" gate="G$1" x="116.84" y="96.52"/>
@@ -36431,7 +36437,15 @@ v1.0 Initial design</description>
 <instance part="J6" gate="G$1" x="190.5" y="154.94"/>
 <instance part="PORT2" gate="G$1" x="223.52" y="121.92"/>
 <instance part="PORT24" gate="G$1" x="223.52" y="119.38"/>
-<instance part="PORT92" gate="G$1" x="165.1" y="121.92" rot="MR0"/>
+<instance part="PORT92" gate="G$1" x="160.02" y="121.92" rot="MR0"/>
+<instance part="R3" gate="G$1" x="180.34" y="119.38" smashed="yes" rot="R180">
+<attribute name="NAME" x="175.26" y="116.078" size="1.778" layer="95"/>
+<attribute name="VALUE" x="180.34" y="116.205" size="1.778" layer="96"/>
+</instance>
+<instance part="R21" gate="G$1" x="180.34" y="129.54" smashed="yes" rot="R180">
+<attribute name="NAME" x="175.26" y="130.81" size="1.778" layer="95"/>
+<attribute name="VALUE" x="183.134" y="130.683" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -36745,20 +36759,6 @@ v1.0 Initial design</description>
 <pinref part="J6" gate="G$1" pin="80"/>
 </segment>
 </net>
-<net name="PC14" class="0">
-<segment>
-<wire x1="180.34" y1="132.08" x2="187.96" y2="132.08" width="0.1524" layer="91"/>
-<label x="177.8" y="132.08" size="1.778" layer="95" rot="MR0"/>
-<pinref part="J6" gate="G$1" pin="17"/>
-</segment>
-</net>
-<net name="PC15" class="0">
-<segment>
-<wire x1="180.34" y1="129.54" x2="187.96" y2="129.54" width="0.1524" layer="91"/>
-<label x="177.8" y="129.54" size="1.778" layer="95" rot="MR0"/>
-<pinref part="J6" gate="G$1" pin="19"/>
-</segment>
-</net>
 <net name="AGND" class="0">
 <segment>
 <wire x1="200.66" y1="48.26" x2="203.2" y2="48.26" width="0.1524" layer="91"/>
@@ -36861,16 +36861,16 @@ v1.0 Initial design</description>
 </net>
 <net name="PA10" class="0">
 <segment>
-<label x="177.8" y="127" size="1.778" layer="95" rot="MR0"/>
+<label x="172.72" y="127" size="1.778" layer="95" rot="MR0"/>
 <pinref part="J6" gate="G$1" pin="21"/>
-<wire x1="180.34" y1="127" x2="187.96" y2="127" width="0.1524" layer="91"/>
+<wire x1="175.26" y1="127" x2="187.96" y2="127" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="PA9" class="0">
 <segment>
-<label x="177.8" y="124.46" size="1.778" layer="95" rot="MR0"/>
+<label x="172.72" y="124.46" size="1.778" layer="95" rot="MR0"/>
 <pinref part="J6" gate="G$1" pin="23"/>
-<wire x1="180.34" y1="124.46" x2="187.96" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="175.26" y1="124.46" x2="187.96" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="USBD+" class="0">
@@ -36914,9 +36914,40 @@ v1.0 Initial design</description>
 </net>
 <net name="PB5" class="0">
 <segment>
-<label x="177.8" y="121.92" size="1.778" layer="95" rot="MR0"/>
+<label x="172.72" y="121.92" size="1.778" layer="95" rot="MR0"/>
 <pinref part="J6" gate="G$1" pin="25"/>
-<wire x1="180.34" y1="121.92" x2="187.96" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="175.26" y1="121.92" x2="187.96" y2="121.92" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$7" class="0">
+<segment>
+<pinref part="J6" gate="G$1" pin="27"/>
+<pinref part="R3" gate="G$1" pin="1"/>
+<wire x1="187.96" y1="119.38" x2="185.42" y2="119.38" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="PC14" class="0">
+<segment>
+<pinref part="J6" gate="G$1" pin="17"/>
+<wire x1="187.96" y1="132.08" x2="175.26" y2="132.08" width="0.1524" layer="91"/>
+<label x="172.72" y="132.08" size="1.778" layer="95" rot="MR0"/>
+</segment>
+</net>
+<net name="N$9" class="0">
+<segment>
+<pinref part="J6" gate="G$1" pin="19"/>
+<pinref part="R21" gate="G$1" pin="1"/>
+<wire x1="187.96" y1="129.54" x2="185.42" y2="129.54" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="PC15" class="0">
+<segment>
+<pinref part="R21" gate="G$1" pin="2"/>
+<wire x1="177.8" y1="129.54" x2="175.26" y2="129.54" width="0.1524" layer="91"/>
+<label x="172.72" y="129.54" size="1.778" layer="95" rot="MR0"/>
+<pinref part="R3" gate="G$1" pin="2"/>
+<wire x1="177.8" y1="119.38" x2="177.8" y2="129.54" width="0.1524" layer="91"/>
+<junction x="177.8" y="129.54"/>
 </segment>
 </net>
 </nets>
