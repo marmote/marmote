@@ -85,6 +85,10 @@ _Note:_ Several PCB layout guidelines can be found in other sections such as ADC
  * [http://www.intersil.com/data/tb/TB389.pdf Intersil TB389] - PCB Land Pattern Design and Surface Mount Guidelines for QFN Packages
  * [http://store.curiousinventor.com/guides/Surface_Mount_Soldering/QFN Surface mount soldering of QFN chips]
 
+=== Laminates and prepreg ===
+
+ * [http://www.ieca-inc.com/images/Tutorial_-_Understanding_The_PCB_Laminate_and_Prepreg_Process.pdf Tutorial on PCB laminates and prepreg process]
+
 == EMC ==
 
 [http://www.freescale.com/files/microcontrollers/doc/app_note/AN2321.pdf Freescale AN2321] - Designing for Board Level Electromagnetic Compatibility
