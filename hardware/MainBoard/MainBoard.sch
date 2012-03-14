@@ -39029,15 +39029,15 @@ Source: &lt;p&gt;
 <description>&lt;b&gt;LQFP-48&lt;/b&gt;
 &lt;p&gt;
 48-pin LQFP package based on the IPC-7351 standard.</description>
-<wire x1="-3.375" y1="3.1" x2="-3.1" y2="3.375" width="0.254" layer="21"/>
-<wire x1="-3.1" y1="3.375" x2="3.1" y2="3.375" width="0.254" layer="21"/>
-<wire x1="3.1" y1="3.375" x2="3.375" y2="3.1" width="0.254" layer="21"/>
-<wire x1="3.375" y1="3.1" x2="3.375" y2="-3.1" width="0.254" layer="21"/>
-<wire x1="3.375" y1="-3.1" x2="3.1" y2="-3.375" width="0.254" layer="21"/>
-<wire x1="3.1" y1="-3.375" x2="-3.1" y2="-3.375" width="0.254" layer="21"/>
-<wire x1="-3.1" y1="-3.375" x2="-3.375" y2="-3.1" width="0.254" layer="21"/>
-<wire x1="-3.375" y1="-3.1" x2="-3.375" y2="3.1" width="0.254" layer="21"/>
-<circle x="-2" y="2" radius="0.1" width="0.2032" layer="21"/>
+<wire x1="-3.375" y1="3.1" x2="-3.1" y2="3.375" width="0.254" layer="51"/>
+<wire x1="-3.1" y1="3.375" x2="3.1" y2="3.375" width="0.254" layer="51"/>
+<wire x1="3.1" y1="3.375" x2="3.375" y2="3.1" width="0.254" layer="51"/>
+<wire x1="3.375" y1="3.1" x2="3.375" y2="-3.1" width="0.254" layer="51"/>
+<wire x1="3.375" y1="-3.1" x2="3.1" y2="-3.375" width="0.254" layer="51"/>
+<wire x1="3.1" y1="-3.375" x2="-3.1" y2="-3.375" width="0.254" layer="51"/>
+<wire x1="-3.1" y1="-3.375" x2="-3.375" y2="-3.1" width="0.254" layer="51"/>
+<wire x1="-3.375" y1="-3.1" x2="-3.375" y2="3.1" width="0.254" layer="51"/>
+<circle x="-3.5" y="3.5" radius="0.1" width="0.2032" layer="21"/>
 <smd name="1" x="-4.2" y="2.75" dx="0.3" dy="1.5" layer="1" rot="R270"/>
 <smd name="2" x="-4.2" y="2.25" dx="0.3" dy="1.5" layer="1" rot="R270"/>
 <smd name="3" x="-4.2" y="1.75" dx="0.3" dy="1.5" layer="1" rot="R270"/>
@@ -39453,9 +39453,11 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <wire x1="9.525" y1="13.97" x2="9.525" y2="-13.97" width="0.127" layer="39"/>
 <wire x1="9.525" y1="-13.97" x2="-9.525" y2="-13.97" width="0.127" layer="39"/>
 <wire x1="-9.525" y1="-13.97" x2="-9.525" y2="13.97" width="0.127" layer="39"/>
-<wire x1="-8.79" y1="-13.208" x2="-8.79" y2="10.922" width="0.127" layer="21"/>
-<wire x1="8.79" y1="10.922" x2="8.79" y2="-13.208" width="0.127" layer="21"/>
+<wire x1="-8.79" y1="-13.208" x2="-8.79" y2="-2.078" width="0.127" layer="21"/>
+<wire x1="8.79" y1="-2.078" x2="8.79" y2="-13.208" width="0.127" layer="21"/>
 <wire x1="8.79" y1="-13.208" x2="-8.79" y2="-13.208" width="0.127" layer="21"/>
+<wire x1="-8.79" y1="2.042" x2="-8.79" y2="8.172" width="0.127" layer="21"/>
+<wire x1="8.79" y1="8.172" x2="8.79" y2="2.042" width="0.127" layer="21"/>
 </package>
 <package name="L0402">
 <description>&lt;b&gt;L0402&lt;/b&gt;
@@ -39965,14 +39967,14 @@ Source: &lt;a href="http://spec.e-switch.com/P-J/P021301B.pdf"&gt;http://spec.e-
 &lt;/ul&gt;
 &lt;p&gt;
 Source: &lt;a href="http://www.ftdichip.com/Support/Documents/DataSheets/ICs/DS_FT232H.pdf"&gt;http://www.ftdichip.com/Support/Documents/DataSheets/ICs/DS_FT232H.pdf&lt;/a&gt;</description>
-<wire x1="-3.375" y1="3.1" x2="-3.1" y2="3.375" width="0.254" layer="21"/>
-<wire x1="-3.1" y1="3.375" x2="3.1" y2="3.375" width="0.254" layer="21"/>
-<wire x1="3.1" y1="3.375" x2="3.375" y2="3.1" width="0.254" layer="21"/>
-<wire x1="3.375" y1="3.1" x2="3.375" y2="-3.1" width="0.254" layer="21"/>
-<wire x1="3.375" y1="-3.1" x2="3.1" y2="-3.375" width="0.254" layer="21"/>
-<wire x1="3.1" y1="-3.375" x2="-3.1" y2="-3.375" width="0.254" layer="21"/>
-<wire x1="-3.1" y1="-3.375" x2="-3.375" y2="-3.1" width="0.254" layer="21"/>
-<wire x1="-3.375" y1="-3.1" x2="-3.375" y2="3.1" width="0.254" layer="21"/>
+<wire x1="-3.375" y1="3.1" x2="-3.1" y2="3.375" width="0.254" layer="51"/>
+<wire x1="-3.1" y1="3.375" x2="3.1" y2="3.375" width="0.254" layer="51"/>
+<wire x1="3.1" y1="3.375" x2="3.375" y2="3.1" width="0.254" layer="51"/>
+<wire x1="3.375" y1="3.1" x2="3.375" y2="-3.1" width="0.254" layer="51"/>
+<wire x1="3.375" y1="-3.1" x2="3.1" y2="-3.375" width="0.254" layer="51"/>
+<wire x1="3.1" y1="-3.375" x2="-3.1" y2="-3.375" width="0.254" layer="51"/>
+<wire x1="-3.1" y1="-3.375" x2="-3.375" y2="-3.1" width="0.254" layer="51"/>
+<wire x1="-3.375" y1="-3.1" x2="-3.375" y2="3.1" width="0.254" layer="51"/>
 <circle x="-4" y="-4" radius="0.1" width="0.2032" layer="21"/>
 <smd name="1" x="-2.75" y="-4.5" dx="0.2" dy="1" layer="1"/>
 <smd name="2" x="-2.25" y="-4.5" dx="0.2" dy="1" layer="1"/>
@@ -40072,6 +40074,11 @@ Source: &lt;a href="http://www.ftdichip.com/Support/Documents/DataSheets/ICs/DS_
 <rectangle x1="-4.5" y1="-1.85" x2="-3.45" y2="-1.65" layer="51"/>
 <rectangle x1="-4.5" y1="-2.35" x2="-3.45" y2="-2.15" layer="51"/>
 <rectangle x1="-4.5" y1="-2.85" x2="-3.45" y2="-2.65" layer="51"/>
+</package>
+<package name="TESTPOINT">
+<description>&lt;b&gt;.063 (1.6) Diameter Via&lt;/b&gt;</description>
+<pad name="1" x="0" y="0" drill="1.6002"/>
+<text x="-0.48" y="1.52" size="0.4064" layer="25">&gt;NAME</text>
 </package>
 </packages>
 <symbols>
@@ -41509,6 +41516,12 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <wire x1="0" y1="30.48" x2="0" y2="0" width="0.254" layer="94"/>
 <wire x1="81.28" y1="30.48" x2="81.28" y2="0" width="0.254" layer="94"/>
 <text x="2.54" y="26.67" size="2.54" layer="94">Pages:</text>
+</symbol>
+<symbol name="TESTPOINT">
+<wire x1="0" y1="-2.54" x2="0" y2="-1.778" width="0.1524" layer="94"/>
+<circle x="0" y="0" radius="1.796" width="0.254" layer="94"/>
+<text x="-2.54" y="2.54" size="1.778" layer="95">&gt;NAME</text>
+<pin name="1" x="0" y="-2.54" visible="off" length="point" direction="pwr" rot="R90"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -43193,6 +43206,81 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 </device>
 </devices>
 </deviceset>
+<deviceset name="TESTPOINT" prefix="TP">
+<description>&lt;b&gt;Test Point&lt;/b&gt;
+&lt;p&gt;
+Keystone compact through hole mount test point for SUPPLY and GROUND signals
+&lt;p&gt;
+&lt;b&gt;Terminal:&lt;/b&gt;
+.015 (.38) × .032 (.81) thick&lt;br&gt;
+Phosphor Bronze Wire, Silver Plate&lt;br&gt;
+&lt;b&gt;Base:&lt;/b&gt; Nylon 46, UL Rated 94V-0&lt;br&gt;
+&lt;b&gt;Mtg. Hole:&lt;/b&gt; .063 (1.6) Diameter
+&lt;p&gt;
+Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelco.com/pdfs/M55p51.pdf&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="TESTPOINT" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="TESTPOINT">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+</connects>
+<technologies>
+<technology name="-BLACK">
+<attribute name="DIGI-KEY#" value="5006K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5006"/>
+</technology>
+<technology name="-BLUE">
+<attribute name="DIGI-KEY#" value="5122K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5122"/>
+</technology>
+<technology name="-BROWN">
+<attribute name="DIGI-KEY#" value="5120K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5120"/>
+</technology>
+<technology name="-GREEN">
+<attribute name="DIGI-KEY#" value="5121K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5121"/>
+</technology>
+<technology name="-GREY">
+<attribute name="DIGI-KEY#" value="5123K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5123"/>
+</technology>
+<technology name="-ORANGE">
+<attribute name="DIGI-KEY#" value="5008K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5008"/>
+</technology>
+<technology name="-PURPLE">
+<attribute name="DIGI-KEY#" value="5124K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5124"/>
+</technology>
+<technology name="-RED">
+<attribute name="DIGI-KEY#" value="5005K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5005"/>
+</technology>
+<technology name="-WHITE">
+<attribute name="DIGI-KEY#" value="5007K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5007"/>
+</technology>
+<technology name="-YELLOW">
+<attribute name="DIGI-KEY#" value="5009K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5009"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -44137,6 +44225,14 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <part name="PORT116" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT124" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT126" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="TP1" library="MainBoard" deviceset="TESTPOINT" device="" technology="-YELLOW"/>
+<part name="TP2" library="MainBoard" deviceset="TESTPOINT" device="" technology="-YELLOW"/>
+<part name="TP3" library="MainBoard" deviceset="TESTPOINT" device="" technology="-GREEN"/>
+<part name="TP4" library="MainBoard" deviceset="TESTPOINT" device="" technology="-GREEN"/>
+<part name="U$127" library="MainBoard" deviceset="DGND" device=""/>
+<part name="U$128" library="MainBoard" deviceset="DGND" device=""/>
+<part name="U$148" library="MainBoard" deviceset="AGND" device=""/>
+<part name="U$154" library="MainBoard" deviceset="AGND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -50169,11 +50265,19 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <instance part="PORT50" gate="G$1" x="101.6" y="129.54" rot="MR0"/>
 <instance part="PORT290" gate="G$1" x="101.6" y="149.86" rot="MR0"/>
 <instance part="PORT291" gate="G$1" x="101.6" y="147.32" rot="MR0"/>
-<instance part="R13" gate="G$1" x="55.88" y="58.42">
-<attribute name="DNP" x="57.15" y="59.69" size="1.778" layer="96" display="name"/>
+<instance part="R13" gate="G$1" x="78.74" y="58.42">
+<attribute name="DNP" x="80.01" y="59.69" size="1.778" layer="96" display="name"/>
 </instance>
-<instance part="U$46" gate="G$1" x="63.5" y="53.34"/>
-<instance part="U$57" gate="G$1" x="45.72" y="53.34"/>
+<instance part="U$46" gate="G$1" x="86.36" y="53.34"/>
+<instance part="U$57" gate="G$1" x="68.58" y="53.34"/>
+<instance part="TP1" gate="G$1" x="25.4" y="58.42"/>
+<instance part="TP2" gate="G$1" x="33.02" y="58.42"/>
+<instance part="TP3" gate="G$1" x="40.64" y="58.42"/>
+<instance part="TP4" gate="G$1" x="48.26" y="58.42"/>
+<instance part="U$127" gate="G$1" x="25.4" y="50.8"/>
+<instance part="U$128" gate="G$1" x="33.02" y="50.8"/>
+<instance part="U$148" gate="G$1" x="40.64" y="50.8"/>
+<instance part="U$154" gate="G$1" x="48.26" y="50.8"/>
 </instances>
 <busses>
 </busses>
@@ -50321,8 +50425,18 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <segment>
 <pinref part="U$57" gate="G$1" pin="DGND"/>
 <pinref part="R13" gate="G$1" pin="1"/>
-<wire x1="45.72" y1="55.88" x2="45.72" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="45.72" y1="58.42" x2="50.8" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="55.88" x2="68.58" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="58.42" x2="73.66" y2="58.42" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$127" gate="G$1" pin="DGND"/>
+<pinref part="TP1" gate="G$1" pin="1"/>
+<wire x1="25.4" y1="53.34" x2="25.4" y2="55.88" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$128" gate="G$1" pin="DGND"/>
+<pinref part="TP2" gate="G$1" pin="1"/>
+<wire x1="33.02" y1="53.34" x2="33.02" y2="55.88" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="A1V5" class="0">
@@ -50549,8 +50663,18 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <segment>
 <pinref part="R13" gate="G$1" pin="2"/>
 <pinref part="U$46" gate="G$1" pin="AGND"/>
-<wire x1="58.42" y1="58.42" x2="63.5" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="63.5" y1="58.42" x2="63.5" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="58.42" x2="86.36" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="58.42" x2="86.36" y2="55.88" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$148" gate="G$1" pin="AGND"/>
+<pinref part="TP3" gate="G$1" pin="1"/>
+<wire x1="40.64" y1="53.34" x2="40.64" y2="55.88" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$154" gate="G$1" pin="AGND"/>
+<pinref part="TP4" gate="G$1" pin="1"/>
+<wire x1="48.26" y1="53.34" x2="48.26" y2="55.88" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="DAC1+" class="0">

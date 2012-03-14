@@ -6,15 +6,15 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="12" fill="1" visible="yes" active="yes"/>
+<layer number="1" name="Top" color="12" fill="1" visible="no" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
 <layer number="3" name="Route3" color="4" fill="3" visible="no" active="yes"/>
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="yes"/>
 <layer number="15" name="Route15" color="4" fill="6" visible="no" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="no" active="yes"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="no" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="no" active="yes"/>
@@ -22,13 +22,13 @@
 <layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
-<layer number="31" name="tCream" color="7" fill="4" visible="yes" active="yes"/>
+<layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
 <layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
 <layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="yes"/>
@@ -1822,14 +1822,14 @@ Source: &lt;a href="http://www.linxtechnologies.com/resources/diagrams/conrevsma
 &lt;/ul&gt;
 &lt;p&gt;
 Source: &lt;a href="http://www.ftdichip.com/Support/Documents/DataSheets/ICs/DS_FT232H.pdf"&gt;http://www.ftdichip.com/Support/Documents/DataSheets/ICs/DS_FT232H.pdf&lt;/a&gt;</description>
-<wire x1="-3.375" y1="3.1" x2="-3.1" y2="3.375" width="0.254" layer="21"/>
-<wire x1="-3.1" y1="3.375" x2="3.1" y2="3.375" width="0.254" layer="21"/>
-<wire x1="3.1" y1="3.375" x2="3.375" y2="3.1" width="0.254" layer="21"/>
-<wire x1="3.375" y1="3.1" x2="3.375" y2="-3.1" width="0.254" layer="21"/>
-<wire x1="3.375" y1="-3.1" x2="3.1" y2="-3.375" width="0.254" layer="21"/>
-<wire x1="3.1" y1="-3.375" x2="-3.1" y2="-3.375" width="0.254" layer="21"/>
-<wire x1="-3.1" y1="-3.375" x2="-3.375" y2="-3.1" width="0.254" layer="21"/>
-<wire x1="-3.375" y1="-3.1" x2="-3.375" y2="3.1" width="0.254" layer="21"/>
+<wire x1="-3.375" y1="3.1" x2="-3.1" y2="3.375" width="0.254" layer="51"/>
+<wire x1="-3.1" y1="3.375" x2="3.1" y2="3.375" width="0.254" layer="51"/>
+<wire x1="3.1" y1="3.375" x2="3.375" y2="3.1" width="0.254" layer="51"/>
+<wire x1="3.375" y1="3.1" x2="3.375" y2="-3.1" width="0.254" layer="51"/>
+<wire x1="3.375" y1="-3.1" x2="3.1" y2="-3.375" width="0.254" layer="51"/>
+<wire x1="3.1" y1="-3.375" x2="-3.1" y2="-3.375" width="0.254" layer="51"/>
+<wire x1="-3.1" y1="-3.375" x2="-3.375" y2="-3.1" width="0.254" layer="51"/>
+<wire x1="-3.375" y1="-3.1" x2="-3.375" y2="3.1" width="0.254" layer="51"/>
 <circle x="-4" y="-4" radius="0.1" width="0.2032" layer="21"/>
 <smd name="1" x="-2.75" y="-4.5" dx="0.2" dy="1" layer="1"/>
 <smd name="2" x="-2.25" y="-4.5" dx="0.2" dy="1" layer="1"/>
@@ -2519,15 +2519,15 @@ Source: &lt;p&gt;
 <description>&lt;b&gt;LQFP-48&lt;/b&gt;
 &lt;p&gt;
 48-pin LQFP package based on the IPC-7351 standard.</description>
-<wire x1="-3.375" y1="3.1" x2="-3.1" y2="3.375" width="0.254" layer="21"/>
-<wire x1="-3.1" y1="3.375" x2="3.1" y2="3.375" width="0.254" layer="21"/>
-<wire x1="3.1" y1="3.375" x2="3.375" y2="3.1" width="0.254" layer="21"/>
-<wire x1="3.375" y1="3.1" x2="3.375" y2="-3.1" width="0.254" layer="21"/>
-<wire x1="3.375" y1="-3.1" x2="3.1" y2="-3.375" width="0.254" layer="21"/>
-<wire x1="3.1" y1="-3.375" x2="-3.1" y2="-3.375" width="0.254" layer="21"/>
-<wire x1="-3.1" y1="-3.375" x2="-3.375" y2="-3.1" width="0.254" layer="21"/>
-<wire x1="-3.375" y1="-3.1" x2="-3.375" y2="3.1" width="0.254" layer="21"/>
-<circle x="-2" y="2" radius="0.1" width="0.2032" layer="21"/>
+<wire x1="-3.375" y1="3.1" x2="-3.1" y2="3.375" width="0.254" layer="51"/>
+<wire x1="-3.1" y1="3.375" x2="3.1" y2="3.375" width="0.254" layer="51"/>
+<wire x1="3.1" y1="3.375" x2="3.375" y2="3.1" width="0.254" layer="51"/>
+<wire x1="3.375" y1="3.1" x2="3.375" y2="-3.1" width="0.254" layer="51"/>
+<wire x1="3.375" y1="-3.1" x2="3.1" y2="-3.375" width="0.254" layer="51"/>
+<wire x1="3.1" y1="-3.375" x2="-3.1" y2="-3.375" width="0.254" layer="51"/>
+<wire x1="-3.1" y1="-3.375" x2="-3.375" y2="-3.1" width="0.254" layer="51"/>
+<wire x1="-3.375" y1="-3.1" x2="-3.375" y2="3.1" width="0.254" layer="51"/>
+<circle x="-3.5" y="3.5" radius="0.1" width="0.2032" layer="21"/>
 <smd name="1" x="-4.2" y="2.75" dx="0.3" dy="1.5" layer="1" rot="R270"/>
 <smd name="2" x="-4.2" y="2.25" dx="0.3" dy="1.5" layer="1" rot="R270"/>
 <smd name="3" x="-4.2" y="1.75" dx="0.3" dy="1.5" layer="1" rot="R270"/>
@@ -3134,9 +3134,11 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <wire x1="9.525" y1="13.97" x2="9.525" y2="-13.97" width="0.127" layer="39"/>
 <wire x1="9.525" y1="-13.97" x2="-9.525" y2="-13.97" width="0.127" layer="39"/>
 <wire x1="-9.525" y1="-13.97" x2="-9.525" y2="13.97" width="0.127" layer="39"/>
-<wire x1="-8.79" y1="-13.208" x2="-8.79" y2="10.922" width="0.127" layer="21"/>
-<wire x1="8.79" y1="10.922" x2="8.79" y2="-13.208" width="0.127" layer="21"/>
+<wire x1="-8.79" y1="-13.208" x2="-8.79" y2="-2.078" width="0.127" layer="21"/>
+<wire x1="8.79" y1="-2.078" x2="8.79" y2="-13.208" width="0.127" layer="21"/>
 <wire x1="8.79" y1="-13.208" x2="-8.79" y2="-13.208" width="0.127" layer="21"/>
+<wire x1="-8.79" y1="2.042" x2="-8.79" y2="8.172" width="0.127" layer="21"/>
+<wire x1="8.79" y1="8.172" x2="8.79" y2="2.042" width="0.127" layer="21"/>
 </package>
 <package name="LED0603">
 <description>&lt;b&gt;LED0603&lt;/b&gt;
@@ -3605,6 +3607,11 @@ Source: &lt;a href="http://spec.e-switch.com/P-J/P021301B.pdf"&gt;http://spec.e-
 <wire x1="-1" y1="0" x2="-1" y2="-0.85" width="0.127" layer="51"/>
 <wire x1="-1" y1="-0.85" x2="1" y2="-0.85" width="0.127" layer="51"/>
 <wire x1="1" y1="-0.85" x2="1" y2="0" width="0.127" layer="51"/>
+</package>
+<package name="TESTPOINT">
+<description>&lt;b&gt;.063 (1.6) Diameter Via&lt;/b&gt;</description>
+<pad name="1" x="0" y="0" drill="1.6002"/>
+<text x="-0.48" y="1.52" size="0.4064" layer="25">&gt;NAME</text>
 </package>
 </packages>
 <symbols>
@@ -6377,6 +6384,12 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <wire x1="0.635" y1="2.54" x2="0.635" y2="1.905" width="0.254" layer="94"/>
 <text x="-7.62" y="-3.81" size="1.27" layer="95">&gt;NAME</text>
 <text x="-7.62" y="3.683" size="1.27" layer="96">&gt;VALUE</text>
+</symbol>
+<symbol name="TESTPOINT">
+<wire x1="0" y1="-2.54" x2="0" y2="-1.778" width="0.1524" layer="94"/>
+<circle x="0" y="0" radius="1.796" width="0.254" layer="94"/>
+<text x="-2.54" y="2.54" size="1.778" layer="95">&gt;NAME</text>
+<pin name="1" x="0" y="-2.54" visible="off" length="point" direction="pwr" rot="R90"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -9440,6 +9453,81 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 </connects>
 <technologies>
 <technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TESTPOINT" prefix="TP">
+<description>&lt;b&gt;Test Point&lt;/b&gt;
+&lt;p&gt;
+Keystone compact through hole mount test point for SUPPLY and GROUND signals
+&lt;p&gt;
+&lt;b&gt;Terminal:&lt;/b&gt;
+.015 (.38) × .032 (.81) thick&lt;br&gt;
+Phosphor Bronze Wire, Silver Plate&lt;br&gt;
+&lt;b&gt;Base:&lt;/b&gt; Nylon 46, UL Rated 94V-0&lt;br&gt;
+&lt;b&gt;Mtg. Hole:&lt;/b&gt; .063 (1.6) Diameter
+&lt;p&gt;
+Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelco.com/pdfs/M55p51.pdf&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="TESTPOINT" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="TESTPOINT">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+</connects>
+<technologies>
+<technology name="-BLACK">
+<attribute name="DIGI-KEY#" value="5006K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5006"/>
+</technology>
+<technology name="-BLUE">
+<attribute name="DIGI-KEY#" value="5122K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5122"/>
+</technology>
+<technology name="-BROWN">
+<attribute name="DIGI-KEY#" value="5120K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5120"/>
+</technology>
+<technology name="-GREEN">
+<attribute name="DIGI-KEY#" value="5121K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5121"/>
+</technology>
+<technology name="-GREY">
+<attribute name="DIGI-KEY#" value="5123K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5123"/>
+</technology>
+<technology name="-ORANGE">
+<attribute name="DIGI-KEY#" value="5008K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5008"/>
+</technology>
+<technology name="-PURPLE">
+<attribute name="DIGI-KEY#" value="5124K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5124"/>
+</technology>
+<technology name="-RED">
+<attribute name="DIGI-KEY#" value="5005K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5005"/>
+</technology>
+<technology name="-WHITE">
+<attribute name="DIGI-KEY#" value="5007K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5007"/>
+</technology>
+<technology name="-YELLOW">
+<attribute name="DIGI-KEY#" value="5009K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5009"/>
+</technology>
 </technologies>
 </device>
 </devices>
