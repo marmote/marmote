@@ -292,41 +292,6 @@ Chip capacitor
 <rectangle x1="0.9525" y1="-0.8763" x2="1.6891" y2="0.8763" layer="51"/>
 <rectangle x1="-0.3" y1="-0.7" x2="0.3" y2="0.7" layer="35"/>
 </package>
-<package name="1X03">
-<description>&lt;b&gt;1X03&lt;/b&gt;
-&lt;p&gt;
-100mil jumper header
-&lt;p&gt;
-&lt;i&gt;Source: Sparkfun EAGLE library&lt;/i&gt;</description>
-<wire x1="3.81" y1="0.635" x2="4.445" y2="1.27" width="0.2032" layer="21"/>
-<wire x1="4.445" y1="1.27" x2="5.715" y2="1.27" width="0.2032" layer="21"/>
-<wire x1="5.715" y1="1.27" x2="6.35" y2="0.635" width="0.2032" layer="21"/>
-<wire x1="6.35" y1="-0.635" x2="5.715" y2="-1.27" width="0.2032" layer="21"/>
-<wire x1="5.715" y1="-1.27" x2="4.445" y2="-1.27" width="0.2032" layer="21"/>
-<wire x1="4.445" y1="-1.27" x2="3.81" y2="-0.635" width="0.2032" layer="21"/>
-<wire x1="-0.635" y1="1.27" x2="0.635" y2="1.27" width="0.2032" layer="21"/>
-<wire x1="0.635" y1="1.27" x2="1.27" y2="0.635" width="0.2032" layer="21"/>
-<wire x1="1.27" y1="-0.635" x2="0.635" y2="-1.27" width="0.2032" layer="21"/>
-<wire x1="1.27" y1="0.635" x2="1.905" y2="1.27" width="0.2032" layer="21"/>
-<wire x1="1.905" y1="1.27" x2="3.175" y2="1.27" width="0.2032" layer="21"/>
-<wire x1="3.175" y1="1.27" x2="3.81" y2="0.635" width="0.2032" layer="21"/>
-<wire x1="3.81" y1="-0.635" x2="3.175" y2="-1.27" width="0.2032" layer="21"/>
-<wire x1="3.175" y1="-1.27" x2="1.905" y2="-1.27" width="0.2032" layer="21"/>
-<wire x1="1.905" y1="-1.27" x2="1.27" y2="-0.635" width="0.2032" layer="21"/>
-<wire x1="-1.27" y1="0.635" x2="-1.27" y2="-0.635" width="0.2032" layer="21"/>
-<wire x1="-0.635" y1="1.27" x2="-1.27" y2="0.635" width="0.2032" layer="21"/>
-<wire x1="-1.27" y1="-0.635" x2="-0.635" y2="-1.27" width="0.2032" layer="21"/>
-<wire x1="0.635" y1="-1.27" x2="-0.635" y2="-1.27" width="0.2032" layer="21"/>
-<wire x1="6.35" y1="0.635" x2="6.35" y2="-0.635" width="0.2032" layer="21"/>
-<pad name="1" x="0" y="0" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="2" x="2.54" y="0" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="3" x="5.08" y="0" drill="1.016" diameter="1.8796" rot="R90"/>
-<text x="1.4224" y="1.5748" size="0.4064" layer="25" ratio="10">&gt;NAME</text>
-<text x="1.4224" y="-1.9812" size="0.4064" layer="27">&gt;VALUE</text>
-<rectangle x1="4.826" y1="-0.254" x2="5.334" y2="0.254" layer="51"/>
-<rectangle x1="2.286" y1="-0.254" x2="2.794" y2="0.254" layer="51"/>
-<rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
-</package>
 <package name="ZX62R-B-5P">
 <description>&lt;b&gt;ZX62R-B-5P&lt;/b&gt;
 &lt;p&gt;
@@ -1549,24 +1514,6 @@ Source: &lt;p&gt;
 <hole x="-22.2" y="0" drill="1.4"/>
 <hole x="22.2" y="0" drill="1.4"/>
 </package>
-<package name="SWITCH-KSC-J-LEAD">
-<description>&lt;b&gt;KSC J-Lead Button&lt;/b&gt;
-&lt;p&gt;
-KSC Series Sealed Tact Switch for SMT
-&lt;p&gt;
-Source: &lt;a href="http://www.ck-components.com/index.php?module=media&amp;action=Display&amp;cmpref=14422&amp;lang=en"&gt;http://www.ck-components.com/index.php?module=media&amp;action=Display&amp;cmpref=14422&amp;lang=en&lt;/a&gt;</description>
-<smd name="2$1" x="-2.9" y="-2" dx="2.8" dy="1" layer="1"/>
-<smd name="1$1" x="-2.9" y="2" dx="2.8" dy="1" layer="1"/>
-<smd name="1$2" x="2.9" y="2" dx="2.8" dy="1" layer="1"/>
-<smd name="2$2" x="2.9" y="-2" dx="2.8" dy="1" layer="1"/>
-<wire x1="-3" y1="3" x2="-3" y2="-3" width="0.127" layer="51"/>
-<wire x1="-3" y1="-3" x2="3" y2="-3" width="0.127" layer="51"/>
-<wire x1="3" y1="-3" x2="3" y2="3" width="0.127" layer="51"/>
-<wire x1="3" y1="3" x2="-3" y2="3" width="0.127" layer="51"/>
-<circle x="0" y="0" radius="1.5" width="0.127" layer="51"/>
-<text x="-3" y="-4" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-3" y="3.5" size="0.4064" layer="27">&gt;VALUE</text>
-</package>
 <package name="R0402">
 <description>&lt;b&gt;R0402&lt;/b&gt;
 &lt;p&gt;
@@ -1608,6 +1555,47 @@ Chip capacitor
 <rectangle x1="-0.554" y1="-0.3048" x2="-0.254" y2="0.2951" layer="51"/>
 <rectangle x1="0.2588" y1="-0.3048" x2="0.5588" y2="0.2951" layer="51"/>
 <rectangle x1="-0.1999" y1="-0.4001" x2="0.1999" y2="0.4001" layer="35"/>
+</package>
+<package name="TL3340">
+<description>&lt;b&gt;E-Switch TL3340 series right angle momentary switch layout (gull wing)&lt;/b&gt;
+&lt;p&gt;
+Source: &lt;a href="http://spec.e-switch.com/P-J/P021301B.pdf"&gt;http://spec.e-switch.com/P-J/P021301B.pdf&lt;/a&gt;</description>
+<rectangle x1="-1" y1="0" x2="1" y2="1.2" layer="39"/>
+<smd name="3" x="-1.225" y="2.4" dx="0.75" dy="1.8" layer="1"/>
+<smd name="1" x="1.225" y="2.4" dx="0.75" dy="1.8" layer="1"/>
+<smd name="2" x="0" y="2.4" dx="0.6" dy="1.8" layer="1"/>
+<smd name="MNT$2" x="1.85" y="0.45" dx="1.3" dy="0.9" layer="1"/>
+<smd name="MNT$1" x="-1.85" y="0.45" dx="1.3" dy="0.9" layer="1"/>
+<hole x="2.125" y="1.5" drill="0.9"/>
+<hole x="-2.125" y="1.5" drill="0.9"/>
+<wire x1="-2.25" y1="3" x2="2.25" y2="3" width="0.127" layer="51"/>
+<wire x1="2.25" y1="3" x2="2.25" y2="0" width="0.127" layer="51"/>
+<wire x1="2.25" y1="0" x2="1" y2="0" width="0.127" layer="51"/>
+<wire x1="1" y1="0" x2="-1" y2="0" width="0.127" layer="51"/>
+<wire x1="-1" y1="0" x2="-2.25" y2="0" width="0.127" layer="51"/>
+<wire x1="-2.25" y1="0" x2="-2.25" y2="3" width="0.127" layer="51"/>
+<wire x1="-1" y1="0" x2="-1" y2="-0.85" width="0.127" layer="51"/>
+<wire x1="-1" y1="-0.85" x2="1" y2="-0.85" width="0.127" layer="51"/>
+<wire x1="1" y1="-0.85" x2="1" y2="0" width="0.127" layer="51"/>
+</package>
+<package name="SWITCH-DIP-CJS">
+<description>&lt;b&gt;CJS DIP Switch&lt;/b&gt;
+&lt;p&gt;
+CJS sufrace mount SPDT DIP Switch.
+&lt;p&gt;
+Source: &lt;a href="http://media.digikey.com/pdf/Data%20Sheets/COPAL%20Electronics%20PDFs/CJS.pdf"&gt;http://media.digikey.com/pdf/Data%20Sheets/COPAL%20Electronics%20PDFs/CJS.pdf&lt;/a&gt;</description>
+<wire x1="-2.7" y1="1.25" x2="2.7" y2="1.25" width="0.127" layer="51"/>
+<wire x1="2.7" y1="1.25" x2="2.7" y2="-1.25" width="0.127" layer="51"/>
+<wire x1="2.7" y1="-1.25" x2="-2.7" y2="-1.25" width="0.127" layer="51"/>
+<wire x1="-2.7" y1="-1.25" x2="-2.7" y2="1.25" width="0.127" layer="51"/>
+<smd name="1" x="-1.75" y="-1.15" dx="1" dy="1.6" layer="1"/>
+<smd name="3" x="1.75" y="-1.15" dx="1" dy="1.6" layer="1"/>
+<smd name="2" x="0" y="1.15" dx="1" dy="1.6" layer="1"/>
+<wire x1="-3" y1="-1" x2="-2.75" y2="-1.25" width="0.127" layer="21"/>
+<wire x1="-2.75" y1="-1.25" x2="-3" y2="-1.5" width="0.127" layer="21"/>
+<wire x1="-3" y1="-1.5" x2="-3" y2="-1" width="0.127" layer="21"/>
+<text x="-3" y="-3" size="0.4064" layer="25">&gt;NAME</text>
+<text x="-3" y="2.25" size="0.4064" layer="27">&gt;VALUE</text>
 </package>
 </packages>
 <symbols>
@@ -1681,25 +1669,6 @@ Chip capacitor
 <wire x1="-9.144" y1="2.032" x2="-9.144" y2="0" width="0.2032" layer="95"/>
 <wire x1="-9.144" y1="0" x2="-9.144" y2="-0.254" width="0.2032" layer="95"/>
 <wire x1="-9.144" y1="0" x2="-10.16" y2="0" width="0.1524" layer="95"/>
-</symbol>
-<symbol name="JUMPER-3">
-<wire x1="0" y1="0" x2="0" y2="1.27" width="0.1524" layer="94"/>
-<wire x1="0" y1="2.54" x2="0" y2="1.27" width="0.4064" layer="94"/>
-<wire x1="2.54" y1="0" x2="2.54" y2="1.27" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="2.54" x2="2.54" y2="1.27" width="0.4064" layer="94"/>
-<wire x1="-0.635" y1="0" x2="2.54" y2="0" width="0.4064" layer="94"/>
-<wire x1="2.54" y1="0" x2="5.08" y2="0" width="0.4064" layer="94"/>
-<wire x1="5.08" y1="0" x2="5.715" y2="0" width="0.4064" layer="94"/>
-<wire x1="5.715" y1="0" x2="5.715" y2="0.635" width="0.4064" layer="94"/>
-<wire x1="5.715" y1="0.635" x2="-0.635" y2="0.635" width="0.4064" layer="94"/>
-<wire x1="-0.635" y1="0.635" x2="-0.635" y2="0" width="0.4064" layer="94"/>
-<wire x1="5.08" y1="2.54" x2="5.08" y2="1.27" width="0.4064" layer="94"/>
-<wire x1="5.08" y1="0" x2="5.08" y2="1.27" width="0.1524" layer="94"/>
-<text x="-1.27" y="0" size="1.778" layer="95" rot="R90">&gt;NAME</text>
-<text x="8.255" y="0" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
-<pin name="1" x="0" y="-2.54" visible="pad" length="short" direction="pas" rot="R90"/>
-<pin name="2" x="2.54" y="-2.54" visible="pad" length="short" direction="pas" rot="R90"/>
-<pin name="3" x="5.08" y="-2.54" visible="pad" length="short" direction="pas" rot="R90"/>
 </symbol>
 <symbol name="DGND">
 <wire x1="-1.905" y1="0" x2="1.905" y2="0" width="0.254" layer="94"/>
@@ -2662,16 +2631,19 @@ Chip capacitor
 <pin name="83" x="-2.54" y="-106.68" visible="pad" length="short" direction="pas"/>
 <pin name="84" x="10.16" y="-106.68" visible="pad" length="short" direction="pas" rot="R180"/>
 </symbol>
-<symbol name="PUSH-BUTTON">
-<description>&lt;b&gt;Pushbutton&lt;/b&gt;</description>
-<pin name="2" x="-7.62" y="2.54" visible="pin" length="short" direction="pas"/>
-<pin name="4" x="-7.62" y="-2.54" visible="pin" length="short" direction="pas"/>
-<pin name="1" x="7.62" y="2.54" visible="pin" length="short" direction="pas" rot="R180"/>
-<pin name="3" x="7.62" y="-2.54" visible="pin" length="short" direction="pas" rot="R180"/>
-<wire x1="-5.08" y1="2.54" x2="-5.08" y2="0" width="0.254" layer="94"/>
-<wire x1="-5.08" y1="0" x2="-5.08" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="5.08" y1="-2.54" x2="5.08" y2="0" width="0.254" layer="94"/>
-<wire x1="5.08" y1="0" x2="5.08" y2="2.54" width="0.254" layer="94"/>
+<symbol name="PORT15">
+<wire x1="-26.924" y1="-0.254" x2="0" y2="-0.254" width="0.2032" layer="95"/>
+<wire x1="1.651" y1="0.889" x2="0" y2="-0.254" width="0.2032" layer="95"/>
+<wire x1="1.651" y1="0.889" x2="0" y2="2.032" width="0.2032" layer="95"/>
+<wire x1="0" y1="2.032" x2="-26.924" y2="2.032" width="0.2032" layer="95"/>
+<wire x1="-26.924" y1="2.032" x2="-26.924" y2="0" width="0.2032" layer="95"/>
+<wire x1="-26.924" y1="0" x2="-26.924" y2="-0.254" width="0.2032" layer="95"/>
+<wire x1="-26.924" y1="0" x2="-27.94" y2="0" width="0.1524" layer="95"/>
+</symbol>
+<symbol name="SWITCH-SPST-OFF-MOM">
+<description>&lt;b&gt;SPST momentary switch symbol&lt;/b&gt;</description>
+<pin name="2" x="-5.08" y="0" visible="pin" length="point" direction="pas"/>
+<pin name="1" x="5.08" y="0" visible="pin" length="point" direction="pas" rot="R180"/>
 <wire x1="-5.08" y1="0" x2="-3.175" y2="0" width="0.254" layer="94"/>
 <wire x1="5.08" y1="0" x2="3.175" y2="0" width="0.254" layer="94"/>
 <circle x="-2.54" y="0" radius="0.635" width="0.254" layer="94"/>
@@ -2682,17 +2654,8 @@ Chip capacitor
 <wire x1="-0.635" y1="1.905" x2="-0.635" y2="2.54" width="0.254" layer="94"/>
 <wire x1="-0.635" y1="2.54" x2="0.635" y2="2.54" width="0.254" layer="94"/>
 <wire x1="0.635" y1="2.54" x2="0.635" y2="1.905" width="0.254" layer="94"/>
-<text x="-7.62" y="-5.08" size="1.27" layer="95">&gt;NAME</text>
-<text x="-7.62" y="4.318" size="1.27" layer="96">&gt;VALUE</text>
-</symbol>
-<symbol name="PORT15">
-<wire x1="-26.924" y1="-0.254" x2="0" y2="-0.254" width="0.2032" layer="95"/>
-<wire x1="1.651" y1="0.889" x2="0" y2="-0.254" width="0.2032" layer="95"/>
-<wire x1="1.651" y1="0.889" x2="0" y2="2.032" width="0.2032" layer="95"/>
-<wire x1="0" y1="2.032" x2="-26.924" y2="2.032" width="0.2032" layer="95"/>
-<wire x1="-26.924" y1="2.032" x2="-26.924" y2="0" width="0.2032" layer="95"/>
-<wire x1="-26.924" y1="0" x2="-26.924" y2="-0.254" width="0.2032" layer="95"/>
-<wire x1="-26.924" y1="0" x2="-27.94" y2="0" width="0.1524" layer="95"/>
+<text x="-7.62" y="-3.81" size="1.27" layer="95">&gt;NAME</text>
+<text x="-7.62" y="3.683" size="1.27" layer="96">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -2718,25 +2681,6 @@ Chip capacitor
 </gates>
 <devices>
 <device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="JUMPER-3" prefix="JP">
-<description>&lt;b&gt;Jumper&lt;/b&gt;
-Basic 0.1" spaced 3 pin jumper. Use with breakaway headers.</description>
-<gates>
-<gate name="G$1" symbol="JUMPER-3" x="-2.54" y="0"/>
-</gates>
-<devices>
-<device name="PTH" package="1X03">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-<connect gate="G$1" pin="3" pad="3"/>
-</connects>
 <technologies>
 <technology name=""/>
 </technologies>
@@ -4132,32 +4076,6 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </device>
 </devices>
 </deviceset>
-<deviceset name="SWITCH-KSC" prefix="SW">
-<description>&lt;b&gt;KSC Series Sealed Tact Switch for SMT&lt;/b&gt;
-&lt;p&gt;
-Source: &lt;a href="http://www.ck-components.com/index.php?module=media&amp;action=Display&amp;cmpref=14422&amp;lang=en&amp;width=&amp;height=&amp;format=&amp;alt="&gt;http://www.ck-components.com/index.php?module=media&amp;action=Display&amp;cmpref=14422&amp;lang=en&lt;/a&gt;</description>
-<gates>
-<gate name="G$1" symbol="PUSH-BUTTON" x="0" y="0"/>
-</gates>
-<devices>
-<device name="J" package="SWITCH-KSC-J-LEAD">
-<connects>
-<connect gate="G$1" pin="1" pad="1$1"/>
-<connect gate="G$1" pin="2" pad="2$1"/>
-<connect gate="G$1" pin="3" pad="1$2"/>
-<connect gate="G$1" pin="4" pad="2$2"/>
-</connects>
-<technologies>
-<technology name="-201">
-<attribute name="ACT-HEIGHT" value="3.5 mm"/>
-</technology>
-<technology name="-403">
-<attribute name="ACT-HEIGHT" value="5.2 mm" constant="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="PORT15" prefix="PORT">
 <description>&lt;b&gt;PORT SYMBOL&lt;/b&gt;&lt;p&gt;
  for net name (15 characters)</description>
@@ -4166,6 +4084,46 @@ Source: &lt;a href="http://www.ck-components.com/index.php?module=media&amp;acti
 </gates>
 <devices>
 <device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SWITCH-ESWITCH-TL3340" prefix="SW">
+<description>&lt;b&gt;E-Switch TL3340 series momentary switch&lt;/b&gt;
+&lt;p&gt;
+Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="SWITCH-SPST-OFF-MOM" x="0" y="0"/>
+</gates>
+<devices>
+<device name="G" package="TL3340">
+<connects>
+<connect gate="G$1" pin="1" pad="1 3"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SWITCH-CJS-1200" prefix="J">
+<description>&lt;b&gt;CJS-1200 SPDT Switch&lt;/b&gt;
+&lt;p&gt;
+Source:
+&lt;a href="http://media.digikey.com/pdf/Data%20Sheets/COPAL%20Electronics%20PDFs/CJS.pdf"&gt;http://media.digikey.com/pdf/Data%20Sheets/COPAL%20Electronics%20PDFs/CJS.pdf&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="SWITCH-SPDT" x="0" y="0"/>
+</gates>
+<devices>
+<device name="-1200" package="SWITCH-DIP-CJS">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+</connects>
 <technologies>
 <technology name=""/>
 </technologies>
@@ -33891,7 +33849,6 @@ v1.0 Initial design</description>
 <part name="PORT50" library="powerboard" deviceset="PORT7" device=""/>
 <part name="PORT51" library="powerboard" deviceset="PORT7" device=""/>
 <part name="PORT52" library="powerboard" deviceset="PORT7" device=""/>
-<part name="JP1" library="powerboard" deviceset="JUMPER-3" device="PTH"/>
 <part name="U$42" library="powerboard" deviceset="D3V3_STM" device=""/>
 <part name="U$48" library="powerboard" deviceset="D3V3_STM" device=""/>
 <part name="LED1" library="powerboard" deviceset="LED" device="-3010" technology="-MGC" value="GREEN"/>
@@ -34120,7 +34077,6 @@ v1.0 Initial design</description>
 <attribute name="TOLERANCE" value="1%"/>
 </part>
 <part name="PORT18" library="powerboard" deviceset="PORT7" device=""/>
-<part name="SW3" library="powerboard" deviceset="SWITCH-KSC" device="J" technology="-201"/>
 <part name="U$15" library="powerboard" deviceset="DGND" device=""/>
 <part name="PORT2" library="powerboard" deviceset="PORT7" device=""/>
 <part name="PORT24" library="powerboard" deviceset="PORT7" device=""/>
@@ -34152,6 +34108,8 @@ v1.0 Initial design</description>
 <part name="R21" library="powerboard" deviceset="R" device="0603" value="0">
 <attribute name="TOLERANCE" value=""/>
 </part>
+<part name="SW3" library="powerboard" deviceset="SWITCH-ESWITCH-TL3340" device="G"/>
+<part name="J7" library="powerboard" deviceset="SWITCH-CJS-1200" device="-1200"/>
 </parts>
 <sheets>
 <sheet>
@@ -34814,10 +34772,7 @@ v1.0 Initial design</description>
 <instance part="PORT50" gate="G$1" x="170.18" y="154.94"/>
 <instance part="PORT51" gate="G$1" x="170.18" y="134.62"/>
 <instance part="PORT52" gate="G$1" x="170.18" y="132.08"/>
-<instance part="JP1" gate="G$1" x="198.12" y="119.38" smashed="yes" rot="MR270">
-<attribute name="NAME" x="198.12" y="120.65" size="1.778" layer="95" rot="MR0"/>
-</instance>
-<instance part="U$42" gate="G$1" x="203.2" y="121.92" smashed="yes" rot="MR0"/>
+<instance part="U$42" gate="G$1" x="198.12" y="124.46" smashed="yes" rot="MR0"/>
 <instance part="U$48" gate="G$1" x="154.94" y="88.9" rot="MR0"/>
 <instance part="LED1" gate="G$1" x="195.58" y="154.94"/>
 <instance part="R22" gate="G$1" x="195.58" y="162.56" smashed="yes" rot="R90">
@@ -34845,7 +34800,7 @@ v1.0 Initial design</description>
 <instance part="R25" gate="G$1" x="195.58" y="63.5" rot="MR0"/>
 <instance part="PORT58" gate="G$1" x="182.88" y="68.58" rot="MR0"/>
 <instance part="PORT59" gate="G$1" x="182.88" y="63.5" rot="MR0"/>
-<instance part="U$37" gate="G$1" x="203.2" y="109.22" rot="MR0"/>
+<instance part="U$37" gate="G$1" x="198.12" y="111.76" rot="MR0"/>
 <instance part="PORT60" gate="G$1" x="228.6" y="147.32"/>
 <instance part="PORT61" gate="G$1" x="91.44" y="17.78" rot="MR0"/>
 <instance part="PORT67" gate="G$1" x="154.94" y="27.94"/>
@@ -34864,12 +34819,13 @@ v1.0 Initial design</description>
 <attribute name="TOLERANCE" x="43.815" y="164.465" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="PORT18" gate="G$1" x="10.16" y="177.8" rot="MR0"/>
-<instance part="SW3" gate="G$1" x="205.74" y="99.06"/>
-<instance part="U$15" gate="G$1" x="195.58" y="91.44" rot="MR0"/>
+<instance part="U$15" gate="G$1" x="198.12" y="99.06" rot="MR0"/>
 <instance part="U$67" gate="G$1" x="40.64" y="152.4"/>
 <instance part="U$68" gate="G$1" x="27.94" y="124.46"/>
 <instance part="U$69" gate="G$1" x="27.94" y="96.52"/>
 <instance part="U$70" gate="G$1" x="27.94" y="68.58"/>
+<instance part="SW3" gate="G$1" x="205.74" y="104.14" rot="MR0"/>
+<instance part="J7" gate="G$1" x="205.74" y="119.38" rot="MR0"/>
 </instances>
 <busses>
 <bus name="D3V3_STM_SENSE,VSUP_SENSE,D3V3_SENSE,D1V5_SENSE,A3V3_SENSE,A1V5_SENSE">
@@ -34928,19 +34884,16 @@ v1.0 Initial design</description>
 <pinref part="U14" gate="LTC3677-2" pin="GND"/>
 </segment>
 <segment>
-<wire x1="200.66" y1="114.3" x2="203.2" y2="114.3" width="0.1524" layer="91"/>
-<pinref part="JP1" gate="G$1" pin="3"/>
 <pinref part="U$37" gate="G$1" pin="DGND"/>
-<wire x1="203.2" y1="114.3" x2="203.2" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="200.66" y1="116.84" x2="198.12" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="198.12" y1="116.84" x2="198.12" y2="114.3" width="0.1524" layer="91"/>
+<pinref part="J7" gate="G$1" pin="3"/>
 </segment>
 <segment>
-<pinref part="SW3" gate="G$1" pin="2"/>
-<pinref part="SW3" gate="G$1" pin="4"/>
-<junction x="198.12" y="96.52"/>
-<wire x1="198.12" y1="101.6" x2="198.12" y2="96.52" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="96.52" x2="195.58" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="198.12" y1="104.14" x2="198.12" y2="101.6" width="0.1524" layer="91"/>
 <pinref part="U$15" gate="G$1" pin="DGND"/>
-<wire x1="195.58" y1="96.52" x2="195.58" y2="93.98" width="0.1524" layer="91"/>
+<pinref part="SW3" gate="G$1" pin="1"/>
+<wire x1="198.12" y1="104.14" x2="200.66" y2="104.14" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="40.64" y1="157.48" x2="40.64" y2="154.94" width="0.1524" layer="91"/>
@@ -35313,10 +35266,10 @@ v1.0 Initial design</description>
 <pinref part="U13" gate="-DPWR" pin="VDD_1"/>
 </segment>
 <segment>
-<wire x1="200.66" y1="119.38" x2="203.2" y2="119.38" width="0.1524" layer="91"/>
-<wire x1="203.2" y1="119.38" x2="203.2" y2="121.92" width="0.1524" layer="91"/>
-<pinref part="JP1" gate="G$1" pin="1"/>
+<wire x1="200.66" y1="121.92" x2="198.12" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="198.12" y1="121.92" x2="198.12" y2="124.46" width="0.1524" layer="91"/>
 <pinref part="U$42" gate="G$1" pin="D3V3_STM"/>
+<pinref part="J7" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <wire x1="152.4" y1="86.36" x2="154.94" y2="86.36" width="0.1524" layer="91"/>
@@ -35366,12 +35319,10 @@ v1.0 Initial design</description>
 <net name="NRST" class="0">
 <segment>
 <wire x1="215.9" y1="109.22" x2="213.36" y2="109.22" width="0.1524" layer="91"/>
-<wire x1="213.36" y1="109.22" x2="213.36" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="109.22" x2="213.36" y2="104.14" width="0.1524" layer="91"/>
 <pinref part="U13" gate="-RESET" pin="NRST"/>
-<pinref part="SW3" gate="G$1" pin="1"/>
-<wire x1="213.36" y1="101.6" x2="213.36" y2="96.52" width="0.1524" layer="91"/>
-<junction x="213.36" y="101.6"/>
-<pinref part="SW3" gate="G$1" pin="3"/>
+<pinref part="SW3" gate="G$1" pin="2"/>
+<wire x1="210.82" y1="104.14" x2="213.36" y2="104.14" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$25" class="0">
@@ -35384,9 +35335,10 @@ v1.0 Initial design</description>
 <segment>
 <wire x1="215.9" y1="114.3" x2="213.36" y2="114.3" width="0.1524" layer="91"/>
 <wire x1="213.36" y1="114.3" x2="213.36" y2="116.84" width="0.1524" layer="91"/>
-<wire x1="213.36" y1="116.84" x2="200.66" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="116.84" x2="213.36" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="119.38" x2="210.82" y2="119.38" width="0.1524" layer="91"/>
 <pinref part="U13" gate="-RESET" pin="BOOT0"/>
-<pinref part="JP1" gate="G$1" pin="2"/>
+<pinref part="J7" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$29" class="0">
