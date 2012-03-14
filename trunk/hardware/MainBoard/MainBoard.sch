@@ -43919,8 +43919,12 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <part name="M6" library="MainBoard" deviceset="FIDUCIAL" device="1X2"/>
 <part name="M7" library="MainBoard" deviceset="FIDUCIAL" device="1X2"/>
 <part name="M8" library="MainBoard" deviceset="FIDUCIAL" device="1X2"/>
-<part name="R3" library="MainBoard" deviceset="R" device="0402" value="39"/>
-<part name="R4" library="MainBoard" deviceset="R" device="0402" value="39"/>
+<part name="R3" library="MainBoard" deviceset="R" device="0402" value="39">
+<attribute name="DNP" value="on"/>
+</part>
+<part name="R4" library="MainBoard" deviceset="R" device="0402" value="39">
+<attribute name="DNP" value="on"/>
+</part>
 <part name="PORT286" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT287" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT295" library="MainBoard" deviceset="PORT7" device=""/>
@@ -46116,6 +46120,8 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <rectangle x1="73.66" y1="101.6" x2="116.84" y2="106.68" layer="116"/>
 <rectangle x1="190.5" y1="101.6" x2="231.14" y2="109.22" layer="116"/>
 <rectangle x1="12.7" y1="7.62" x2="144.78" y2="53.34" layer="116"/>
+<rectangle x1="93.98" y1="81.28" x2="109.22" y2="83.82" layer="98"/>
+<rectangle x1="213.36" y1="81.28" x2="228.6" y2="83.82" layer="98"/>
 </plain>
 <instances>
 <instance part="U2" gate="-AFE" x="68.58" y="116.84"/>
@@ -49640,8 +49646,12 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <instance part="PORT283" gate="G$1" x="134.62" y="71.12" rot="MR0"/>
 <instance part="PORT284" gate="G$1" x="162.56" y="127" rot="MR0"/>
 <instance part="PORT285" gate="G$1" x="162.56" y="132.08" rot="MR0"/>
-<instance part="R3" gate="G$1" x="45.72" y="157.48"/>
-<instance part="R4" gate="G$1" x="45.72" y="154.94"/>
+<instance part="R3" gate="G$1" x="45.72" y="157.48">
+<attribute name="DNP" x="45.72" y="157.48" size="1.778" layer="96" display="name"/>
+</instance>
+<instance part="R4" gate="G$1" x="45.72" y="154.94">
+<attribute name="DNP" x="45.72" y="154.94" size="1.778" layer="96" display="name"/>
+</instance>
 <instance part="PORT286" gate="G$1" x="30.48" y="121.92" rot="MR0"/>
 <instance part="PORT287" gate="G$1" x="30.48" y="119.38" rot="MR0"/>
 <instance part="PORT295" gate="G$1" x="22.86" y="154.94" rot="MR0"/>
