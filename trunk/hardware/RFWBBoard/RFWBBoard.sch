@@ -24909,6 +24909,39 @@ v1.0 Initial design</description>
 <sheet>
 <plain>
 <text x="190.5" y="20.32" size="5.08" layer="97">&gt;PAGE2</text>
+<text x="68.58" y="109.22" size="1.778" layer="97">SF_ADC6</text>
+<text x="68.58" y="137.16" size="1.778" layer="97">GPIO2</text>
+<text x="68.58" y="134.62" size="1.778" layer="97">GPIO3</text>
+<text x="68.58" y="142.24" size="1.778" layer="97">GPIO1</text>
+<text x="68.58" y="144.78" size="1.778" layer="97">GPIO0</text>
+<text x="55.88" y="132.08" size="1.778" layer="97">UART_TX / GPIO4</text>
+<text x="154.94" y="137.16" size="1.778" layer="97">ADC</text>
+<text x="154.94" y="134.62" size="1.778" layer="97">ADC</text>
+<text x="154.94" y="132.08" size="1.778" layer="97">ADC</text>
+<text x="154.94" y="129.54" size="1.778" layer="97">ADC</text>
+<text x="154.94" y="127" size="1.778" layer="97">ADC</text>
+<text x="154.94" y="124.46" size="1.778" layer="97">ADC</text>
+<text x="154.94" y="119.38" size="1.778" layer="97">ADC</text>
+<text x="154.94" y="116.84" size="1.778" layer="97">ADC</text>
+<text x="154.94" y="111.76" size="1.778" layer="97">ADC</text>
+<text x="154.94" y="109.22" size="1.778" layer="97">ADC</text>
+<text x="154.94" y="104.14" size="1.778" layer="97">ADC</text>
+<text x="154.94" y="101.6" size="1.778" layer="97">ADC</text>
+<text x="154.94" y="96.52" size="1.778" layer="97">ADC</text>
+<text x="154.94" y="93.98" size="1.778" layer="97">ADC</text>
+<text x="154.94" y="88.9" size="1.778" layer="97">ADC</text>
+<text x="154.94" y="86.36" size="1.778" layer="97">ADC</text>
+<text x="154.94" y="81.28" size="1.778" layer="97">ADC</text>
+<text x="154.94" y="78.74" size="1.778" layer="97">ADC</text>
+<text x="154.94" y="73.66" size="1.778" layer="97">ADC</text>
+<text x="154.94" y="71.12" size="1.778" layer="97">ADC</text>
+<text x="154.94" y="66.04" size="1.778" layer="97">ADC</text>
+<text x="154.94" y="63.5" size="1.778" layer="97">ADC</text>
+<text x="154.94" y="144.78" size="1.778" layer="97">ADC</text>
+<text x="154.94" y="142.24" size="1.778" layer="97">ADC</text>
+<text x="55.88" y="129.54" size="1.778" layer="97">UART_TX / GPIO5</text>
+<text x="58.42" y="127" size="1.778" layer="97">ALERT / GPIO6</text>
+<text x="68.58" y="124.46" size="1.778" layer="97">WAKEUP</text>
 </plain>
 <instances>
 <instance part="FRAME2" gate="G$1" x="0" y="0"/>
@@ -25240,9 +25273,9 @@ v1.0 Initial design</description>
 </net>
 <net name="RSSI" class="0">
 <segment>
-<wire x1="111.76" y1="119.38" x2="86.36" y2="119.38" width="0.1524" layer="91"/>
-<label x="88.9" y="119.38" size="1.778" layer="95"/>
-<pinref part="J1" gate="G$1" pin="31"/>
+<wire x1="111.76" y1="109.22" x2="86.36" y2="109.22" width="0.1524" layer="91"/>
+<label x="88.9" y="109.22" size="1.778" layer="95"/>
+<pinref part="J1" gate="G$1" pin="39"/>
 </segment>
 </net>
 <net name="DAC3-" class="0">
