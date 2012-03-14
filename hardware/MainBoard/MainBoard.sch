@@ -9544,10 +9544,6 @@ Preliminary top-layer10 x 10 mm  logo for the Marmote platform main module</desc
 <rectangle x1="-0.0139" y1="9.9583" x2="9.9861" y2="9.9861" layer="201"/>
 </package>
 <package name="LOGO-ISIS-10MM-SILKSCREEN">
-<wire x1="0" y1="0" x2="10" y2="0" width="0.127" layer="41"/>
-<wire x1="10" y1="0" x2="10" y2="10" width="0.127" layer="41"/>
-<wire x1="10" y1="10" x2="0" y2="10" width="0.127" layer="41"/>
-<wire x1="0" y1="10" x2="0" y2="0" width="0.127" layer="41"/>
 <rectangle x1="-0.0139" y1="-0.0139" x2="9.9861" y2="0.0139" layer="21"/>
 <rectangle x1="-0.0139" y1="0.0139" x2="9.9861" y2="0.0417" layer="21"/>
 <rectangle x1="-0.0139" y1="0.0417" x2="9.9861" y2="0.0694" layer="21"/>
@@ -12322,10 +12318,6 @@ Preliminary top-layer10 x 10 mm  logo for the Marmote platform main module</desc
 <rectangle x1="-0.0139" y1="9.9583" x2="9.9861" y2="9.9861" layer="21"/>
 </package>
 <package name="LOGO-VANDERBILT-10MM-SILKSCREEN">
-<wire x1="0" y1="0" x2="10" y2="0" width="0.127" layer="41"/>
-<wire x1="10" y1="0" x2="10" y2="10" width="0.127" layer="41"/>
-<wire x1="10" y1="10" x2="0" y2="10" width="0.127" layer="41"/>
-<wire x1="0" y1="10" x2="0" y2="0" width="0.127" layer="41"/>
 <rectangle x1="-0.0139" y1="-0.0139" x2="9.9861" y2="0.0139" layer="21"/>
 <rectangle x1="-0.0139" y1="0.0139" x2="9.9861" y2="0.0417" layer="21"/>
 <rectangle x1="-0.0139" y1="0.0417" x2="9.9861" y2="0.0694" layer="21"/>
@@ -14450,10 +14442,6 @@ Preliminary top-layer10 x 10 mm  logo for the Marmote platform main module</desc
 <rectangle x1="-0.0139" y1="9.9583" x2="9.9861" y2="9.9861" layer="21"/>
 </package>
 <package name="LOGO-MARMOTE-10MM-SILKSCREEN">
-<wire x1="0" y1="0" x2="10" y2="0" width="0.127" layer="41"/>
-<wire x1="10" y1="0" x2="10" y2="10" width="0.127" layer="41"/>
-<wire x1="10" y1="10" x2="0" y2="10" width="0.127" layer="41"/>
-<wire x1="0" y1="10" x2="0" y2="0" width="0.127" layer="41"/>
 <rectangle x1="-0.0139" y1="-0.0139" x2="9.9861" y2="0.0139" layer="21"/>
 <rectangle x1="-0.0139" y1="0.0139" x2="9.9861" y2="0.0417" layer="21"/>
 <rectangle x1="-0.0139" y1="0.0417" x2="9.9861" y2="0.0694" layer="21"/>
@@ -16710,10 +16698,6 @@ Preliminary top-layer10 x 10 mm  logo for the Marmote platform main module</desc
 <rectangle x1="-0.0139" y1="9.9583" x2="9.9861" y2="9.9861" layer="21"/>
 </package>
 <package name="LOGO-SMARTFUSION-10MM-SILKSCREEN">
-<wire x1="0" y1="0" x2="10" y2="0" width="0.127" layer="41"/>
-<wire x1="10" y1="0" x2="10" y2="10" width="0.127" layer="41"/>
-<wire x1="10" y1="10" x2="0" y2="10" width="0.127" layer="41"/>
-<wire x1="0" y1="10" x2="0" y2="0" width="0.127" layer="41"/>
 <rectangle x1="-0.0139" y1="-0.0139" x2="9.9861" y2="0.0139" layer="21"/>
 <rectangle x1="-0.0139" y1="0.0139" x2="9.9861" y2="0.0417" layer="21"/>
 <rectangle x1="-0.0139" y1="0.0417" x2="9.9861" y2="0.0694" layer="21"/>
@@ -45211,7 +45195,7 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <instance part="U$114" gate="G$1" x="142.24" y="129.54"/>
 <instance part="U$115" gate="G$1" x="187.96" y="129.54"/>
 <instance part="C90" gate="G$1" x="187.96" y="137.16">
-<attribute name="DNP" x="187.96" y="137.16" size="1.778" layer="96" display="name"/>
+<attribute name="DNP" x="188.976" y="132.588" size="1.778" layer="96" display="name"/>
 </instance>
 <instance part="R91" gate="G$1" x="187.96" y="149.86" rot="R90"/>
 <instance part="U$116" gate="G$1" x="187.96" y="154.94"/>
