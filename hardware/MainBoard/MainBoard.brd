@@ -6,30 +6,30 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.1" altunitdist="mm" altunit="mm"/>
+<grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.25" altunitdist="mm" altunit="mm"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="GND" color="1" fill="3" visible="no" active="yes"/>
 <layer number="3" name="Inner1" color="13" fill="3" visible="no" active="yes"/>
-<layer number="14" name="Inner2" color="10" fill="6" visible="no" active="yes"/>
+<layer number="14" name="Inner2" color="10" fill="6" visible="yes" active="yes"/>
 <layer number="15" name="D3V3" color="4" fill="3" visible="no" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
-<layer number="30" name="bStop" color="7" fill="6" visible="yes" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
-<layer number="32" name="bCream" color="7" fill="5" visible="yes" active="yes"/>
+<layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
 <layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="yes"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="yes"/>
@@ -45,10 +45,10 @@
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
-<layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="yes"/>
-<layer number="51" name="tDocu" color="14" fill="1" visible="no" active="yes"/>
+<layer number="51" name="tDocu" color="14" fill="1" visible="yes" active="yes"/>
 <layer number="52" name="bDocu" color="11" fill="1" visible="no" active="yes"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
@@ -14882,12 +14882,13 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <signal name="AFE1_T/!R">
 <contactref element="U2" pad="27"/>
 <wire x1="35.5" y1="21.75" x2="34.5" y2="21.75" width="0.1524" layer="1"/>
-<wire x1="34.5" y1="21.75" x2="34" y2="22.25" width="0.1524" layer="1"/>
-<wire x1="34" y1="22.25" x2="34" y2="25.25" width="0.1524" layer="1"/>
-<wire x1="34" y1="25.25" x2="39" y2="30.25" width="0.1524" layer="1"/>
+<wire x1="34.5" y1="21.75" x2="34.25" y2="22" width="0.1524" layer="1"/>
+<wire x1="34.25" y1="22" x2="34.25" y2="25.5" width="0.1524" layer="1"/>
+<wire x1="34.25" y1="25.5" x2="39" y2="30.25" width="0.1524" layer="1"/>
 <contactref element="U1" pad="B14"/>
 <wire x1="39" y1="30.25" x2="39" y2="31" width="0.1524" layer="1"/>
 <wire x1="39" y1="31" x2="39.5" y2="31.5" width="0.1524" layer="1"/>
+<via x="34.5" y="21.75" extent="1-16" drill="0.2032" alwaysstop="yes"/>
 </signal>
 <signal name="!AFE2_SHDN">
 <contactref element="U3" pad="25"/>
@@ -14906,13 +14907,14 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 </signal>
 <signal name="AFE2_T/!R">
 <contactref element="U3" pad="27"/>
-<wire x1="51.5" y1="21.75" x2="50.25" y2="21.75" width="0.1524" layer="1"/>
+<wire x1="51.5" y1="21.75" x2="50.5" y2="21.75" width="0.1524" layer="1"/>
 <contactref element="U1" pad="C6"/>
 <wire x1="47.5" y1="32.5" x2="47" y2="32" width="0.1524" layer="1"/>
 <wire x1="47" y1="32" x2="47" y2="28.75" width="0.1524" layer="1"/>
-<wire x1="47" y1="28.75" x2="49.75" y2="26" width="0.1524" layer="1"/>
-<wire x1="49.75" y1="26" x2="49.75" y2="22.25" width="0.1524" layer="1"/>
-<wire x1="49.75" y1="22.25" x2="50.25" y2="21.75" width="0.1524" layer="1"/>
+<wire x1="47" y1="28.75" x2="50" y2="25.75" width="0.1524" layer="1"/>
+<wire x1="50" y1="25.75" x2="50" y2="22.25" width="0.1524" layer="1"/>
+<wire x1="50" y1="22.25" x2="50.5" y2="21.75" width="0.1524" layer="1"/>
+<via x="50.5" y="21.75" extent="1-16" drill="0.2032" alwaysstop="yes"/>
 </signal>
 <signal name="SPI1_SS">
 <contactref element="U1" pad="L13"/>
@@ -14950,9 +14952,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="28.25" y1="37" x2="28.25" y2="25.5" width="0.1524" layer="14"/>
 <via x="50.5" y="20.75" extent="1-16" drill="0.2032"/>
 <wire x1="28.25" y1="25.5" x2="28.25" y2="16" width="0.1524" layer="14"/>
-<wire x1="50.5" y1="20.75" x2="50.25" y2="20.75" width="0.1524" layer="16"/>
-<wire x1="50.25" y1="20.75" x2="45.5" y2="25.5" width="0.1524" layer="16"/>
-<wire x1="45.5" y1="25.5" x2="33" y2="25.5" width="0.1524" layer="16"/>
+<wire x1="50.5" y1="20.75" x2="50" y2="20.75" width="0.1524" layer="16"/>
+<wire x1="50" y1="20.75" x2="45.25" y2="25.5" width="0.1524" layer="16"/>
+<wire x1="45.25" y1="25.5" x2="33" y2="25.5" width="0.1524" layer="16"/>
 <via x="34.5" y="20.75" extent="1-16" drill="0.2032"/>
 <contactref element="J2" pad="18"/>
 <wire x1="33" y1="25.5" x2="28.25" y2="25.5" width="0.1524" layer="16"/>
@@ -14962,8 +14964,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="36" y1="41" x2="35.5" y2="40.5" width="0.1524" layer="16"/>
 <wire x1="35.5" y1="40.5" x2="31.75" y2="40.5" width="0.1524" layer="16"/>
 <via x="31.75" y="40.5" extent="1-16" drill="0.2032"/>
-<wire x1="34.5" y1="20.75" x2="33" y2="22.25" width="0.1524" layer="14"/>
-<wire x1="33" y1="22.25" x2="33" y2="25.5" width="0.1524" layer="14"/>
+<wire x1="34.5" y1="20.75" x2="34" y2="20.75" width="0.1524" layer="14"/>
+<wire x1="34" y1="20.75" x2="33" y2="21.75" width="0.1524" layer="14"/>
+<wire x1="33" y1="21.75" x2="33" y2="25.5" width="0.1524" layer="14"/>
 <via x="33" y="25.5" extent="1-16" drill="0.2032" alwaysstop="yes"/>
 </signal>
 <signal name="SPI1_MISO">
@@ -15010,9 +15013,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="33.5" y1="10.5" x2="33.5" y2="12.25" width="0.1524" layer="14"/>
 <wire x1="33.5" y1="12.25" x2="29.25" y2="16.5" width="0.1524" layer="14"/>
 <via x="50.75" y="21.25" extent="1-16" drill="0.2032"/>
-<wire x1="50.75" y1="21.25" x2="50.5" y2="21.25" width="0.1524" layer="16"/>
-<wire x1="50.5" y1="21.25" x2="45.75" y2="26" width="0.1524" layer="16"/>
-<wire x1="45.75" y1="26" x2="33.5" y2="26" width="0.1524" layer="16"/>
+<wire x1="50.75" y1="21.25" x2="50.25" y2="21.25" width="0.1524" layer="16"/>
+<wire x1="50.25" y1="21.25" x2="45.5" y2="26" width="0.1524" layer="16"/>
+<wire x1="45.5" y1="26" x2="33.5" y2="26" width="0.1524" layer="16"/>
 <via x="34.75" y="21.25" extent="1-16" drill="0.2032"/>
 <wire x1="33.5" y1="26" x2="29.25" y2="26" width="0.1524" layer="16"/>
 <wire x1="29.25" y1="35.75" x2="29.25" y2="26" width="0.1524" layer="14"/>
@@ -15024,8 +15027,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="29.25" y="26" extent="1-16" drill="0.2032"/>
 <wire x1="34.25" y1="41.5" x2="33.75" y2="41" width="0.1524" layer="16"/>
 <via x="33.75" y="41" extent="1-16" drill="0.2032"/>
-<wire x1="34.75" y1="21.25" x2="33.5" y2="22.5" width="0.1524" layer="14"/>
-<wire x1="33.5" y1="22.5" x2="33.5" y2="26" width="0.1524" layer="14"/>
+<wire x1="34.75" y1="21.25" x2="34.25" y2="21.25" width="0.1524" layer="14"/>
+<wire x1="34.25" y1="21.25" x2="33.5" y2="22" width="0.1524" layer="14"/>
+<wire x1="33.5" y1="22" x2="33.5" y2="26" width="0.1524" layer="14"/>
 <via x="33.5" y="26" extent="1-16" drill="0.2032" alwaysstop="yes"/>
 </signal>
 <signal name="SPI0_MOSI">
@@ -17211,8 +17215,8 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <errors>
 <approved hash="2,20,933d9cc19ab7954b"/>
 <approved hash="2,20,43213cdd3aa94555"/>
-<approved hash="18,29,db13ac32d348a469"/>
 <approved hash="18,29,da93a712d668abe9"/>
+<approved hash="18,29,db13ac32d348a469"/>
 <approved hash="18,29,5dac9910b6ad945a"/>
 <approved hash="18,29,5dac9910b6ad945a"/>
 <approved hash="18,29,8d47a687434ca0ff"/>
@@ -17223,14 +17227,6 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <approved hash="18,29,7a34a52fb5e08cb0"/>
 <approved hash="18,29,1b1f6c3e13746455"/>
 <approved hash="18,29,1a9f671e16546bd5"/>
-<approved hash="18,30,ebb6f099bdd55b31"/>
-<approved hash="18,30,ebb6f099bdd55b31"/>
-<approved hash="18,30,37e21211ecd80e48"/>
-<approved hash="18,30,37e21211ecd80e48"/>
-<approved hash="18,30,422598080fc0128e"/>
-<approved hash="18,30,b308cd60ce4ca9cc"/>
-<approved hash="18,30,422598080fc0128e"/>
-<approved hash="18,30,b308cd60ce4ca9cc"/>
 <approved hash="6,1,b6348b5c47fad33b"/>
 <approved hash="6,1,8e29a0bb0be4b10f"/>
 <approved hash="4,1,981b9647cbd461bd"/>
@@ -17280,11 +17276,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <approved hash="4,3,18ceb653a39e3a30"/>
 <approved hash="4,14,18ceb653a39e3a30"/>
 <approved hash="4,14,c61781954006478c"/>
-<approved hash="4,15,18ceb653a39e3a30"/>
 <approved hash="4,15,c61781954006478c"/>
-<approved hash="4,16,c61781954006478c"/>
+<approved hash="4,15,18ceb653a39e3a30"/>
 <approved hash="4,16,18ceb653a39e3a30"/>
 <approved hash="4,16,c37b39e2868a813f"/>
+<approved hash="4,16,c61781954006478c"/>
 <approved hash="4,16,bbc8fc69ff8a0f56"/>
 <approved hash="4,16,fc59fb3a9b30f48d"/>
 <approved hash="4,16,8918453a64808ec2"/>
