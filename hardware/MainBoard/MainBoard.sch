@@ -76,7 +76,7 @@
 <layer number="112" name="Route12" color="7" fill="1" visible="no" active="no"/>
 <layer number="113" name="Route13" color="7" fill="1" visible="no" active="no"/>
 <layer number="114" name="FIXED_SF_PIN" color="2" fill="3" visible="yes" active="yes"/>
-<layer number="116" name="Patch_BOT" color="9" fill="4" visible="no" active="yes"/>
+<layer number="116" name="Patch_BOT" color="9" fill="4" visible="yes" active="yes"/>
 <layer number="117" name="mPads" color="7" fill="1" visible="no" active="no"/>
 <layer number="118" name="mVias" color="7" fill="1" visible="no" active="no"/>
 <layer number="119" name="mUnrouted" color="7" fill="1" visible="no" active="no"/>
@@ -44288,15 +44288,8 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <text x="227.33" y="59.69" size="1.778" layer="97" rot="R90">VCC15ADC0</text>
 <text x="229.87" y="59.69" size="1.778" layer="97" rot="R90">VCC15ADC1</text>
 <text x="236.22" y="59.69" size="1.778" layer="97" rot="R90">VCC15A</text>
-<rectangle x1="137.16" y1="12.7" x2="157.48" y2="48.26" layer="116"/>
 <text x="196.85" y="59.69" size="1.778" layer="97" rot="R90">CORE SUPPLY</text>
 <text x="171.45" y="59.69" size="1.778" layer="97" rot="R90">VCCENVM</text>
-<rectangle x1="86.36" y1="15.24" x2="116.84" y2="45.72" layer="116"/>
-<rectangle x1="12.7" y1="66.04" x2="88.9" y2="99.06" layer="116"/>
-<rectangle x1="200.66" y1="147.32" x2="228.6" y2="165.1" layer="116"/>
-<rectangle x1="96.52" y1="83.82" x2="154.94" y2="165.1" layer="116"/>
-<rectangle x1="165.1" y1="53.34" x2="236.22" y2="104.14" layer="116"/>
-<rectangle x1="218.44" y1="109.22" x2="236.22" y2="124.46" layer="116"/>
 <text x="140.97" y="59.69" size="1.778" layer="97" rot="R90">VCC33SDD0</text>
 <text x="135.89" y="59.69" size="1.778" layer="97" rot="R90">VCCLPXTAL</text>
 <text x="146.05" y="59.69" size="1.778" layer="97" rot="R90">VCCMAINXTAL</text>
@@ -45258,17 +45251,6 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <wire x1="231.14" y1="40.64" x2="231.14" y2="78.74" width="0.1524" layer="97" style="shortdash"/>
 <wire x1="231.14" y1="78.74" x2="167.64" y2="78.74" width="0.1524" layer="97" style="shortdash"/>
 <wire x1="167.64" y1="78.74" x2="167.64" y2="40.64" width="0.1524" layer="97" style="shortdash"/>
-<rectangle x1="22.86" y1="109.22" x2="43.18" y2="137.16" layer="116"/>
-<rectangle x1="86.36" y1="116.84" x2="99.06" y2="129.54" layer="116"/>
-<rectangle x1="20.32" y1="33.02" x2="104.14" y2="58.42" layer="116"/>
-<rectangle x1="137.16" y1="121.92" x2="228.6" y2="165.1" layer="116"/>
-<rectangle x1="172.72" y1="43.18" x2="195.58" y2="78.74" layer="116"/>
-<rectangle x1="205.74" y1="43.18" x2="215.9" y2="78.74" layer="116"/>
-<rectangle x1="132.08" y1="81.28" x2="231.14" y2="119.38" layer="116"/>
-<rectangle x1="25.4" y1="71.12" x2="63.5" y2="91.44" layer="116"/>
-<rectangle x1="63.5" y1="71.12" x2="104.14" y2="81.28" layer="116"/>
-<rectangle x1="81.28" y1="2.54" x2="160.02" y2="33.02" layer="116"/>
-<rectangle x1="22.86" y1="129.54" x2="119.38" y2="175.26" layer="116"/>
 <text x="114.3" y="58.42" size="1.778" layer="97" rot="R90">ASEM1</text>
 <text x="127" y="58.42" size="1.778" layer="97" rot="R90">DS1818</text>
 </plain>
@@ -45781,19 +45763,6 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <text x="50.8" y="22.86" size="2.54" layer="97">Comparator reference voltages</text>
 <text x="205.74" y="60.96" size="1.778" layer="97" rot="R90">VAREF0</text>
 <text x="213.36" y="60.96" size="1.778" layer="97" rot="R90">VAREF1</text>
-<rectangle x1="40.64" y1="50.8" x2="71.12" y2="68.58" layer="116"/>
-<rectangle x1="71.12" y1="35.56" x2="111.76" y2="50.8" layer="116"/>
-<rectangle x1="132.08" y1="63.5" x2="154.94" y2="83.82" layer="116"/>
-<rectangle x1="182.88" y1="38.1" x2="226.06" y2="73.66" layer="116"/>
-<rectangle x1="142.24" y1="99.06" x2="185.42" y2="119.38" layer="116"/>
-<rectangle x1="137.16" y1="91.44" x2="195.58" y2="99.06" layer="116"/>
-<rectangle x1="137.16" y1="119.38" x2="165.1" y2="127" layer="116"/>
-<rectangle x1="139.7" y1="134.62" x2="187.96" y2="147.32" layer="116"/>
-<rectangle x1="71.12" y1="137.16" x2="101.6" y2="149.86" layer="116"/>
-<rectangle x1="71.12" y1="124.46" x2="101.6" y2="137.16" layer="116"/>
-<rectangle x1="71.12" y1="111.76" x2="101.6" y2="124.46" layer="116"/>
-<rectangle x1="43.18" y1="78.74" x2="104.14" y2="104.14" layer="116"/>
-<rectangle x1="127" y1="83.82" x2="180.34" y2="91.44" layer="116"/>
 <text x="159.385" y="145.415" size="1.778" layer="97">Note:</text>
 <wire x1="156.21" y1="149.225" x2="193.04" y2="149.225" width="0.1524" layer="97" style="shortdash"/>
 <wire x1="193.04" y1="149.225" x2="193.04" y2="137.16" width="0.1524" layer="97" style="shortdash"/>
@@ -46193,29 +46162,10 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <text x="205.105" y="106.045" size="1.778" layer="97">NC</text>
 <text x="58.42" y="104.14" size="50.8" layer="208">EXT</text>
 <text x="55.88" y="25.4" size="50.8" layer="208">AFE</text>
-<rectangle x1="10.16" y1="109.22" x2="48.26" y2="165.1" layer="116"/>
-<rectangle x1="83.82" y1="109.22" x2="119.38" y2="165.1" layer="116"/>
-<rectangle x1="7.62" y1="58.42" x2="60.96" y2="93.98" layer="116"/>
-<rectangle x1="12.7" y1="93.98" x2="48.26" y2="99.06" layer="116"/>
-<rectangle x1="129.54" y1="60.96" x2="167.64" y2="93.98" layer="116"/>
-<rectangle x1="129.54" y1="93.98" x2="167.64" y2="101.6" layer="116"/>
-<rectangle x1="127" y1="109.22" x2="165.1" y2="162.56" layer="116"/>
-<rectangle x1="200.66" y1="109.22" x2="233.68" y2="162.56" layer="116"/>
-<rectangle x1="193.04" y1="63.5" x2="231.14" y2="78.74" layer="116"/>
-<rectangle x1="193.04" y1="81.28" x2="233.68" y2="86.36" layer="116"/>
-<rectangle x1="193.04" y1="88.9" x2="228.6" y2="99.06" layer="116"/>
-<rectangle x1="73.66" y1="66.04" x2="114.3" y2="78.74" layer="116"/>
-<rectangle x1="73.66" y1="81.28" x2="111.76" y2="86.36" layer="116"/>
-<rectangle x1="73.66" y1="86.36" x2="111.76" y2="99.06" layer="116"/>
 <text x="6.985" y="106.045" size="1.778" layer="97">NC</text>
 <text x="6.985" y="103.505" size="1.778" layer="97">NC</text>
 <text x="123.825" y="103.505" size="1.778" layer="97">NC</text>
 <text x="123.825" y="106.045" size="1.778" layer="97">NC</text>
-<rectangle x1="5.08" y1="101.6" x2="48.26" y2="109.22" layer="116"/>
-<rectangle x1="127" y1="104.14" x2="165.1" y2="109.22" layer="116"/>
-<rectangle x1="73.66" y1="101.6" x2="116.84" y2="106.68" layer="116"/>
-<rectangle x1="190.5" y1="101.6" x2="231.14" y2="109.22" layer="116"/>
-<rectangle x1="12.7" y1="7.62" x2="144.78" y2="53.34" layer="116"/>
 <rectangle x1="93.98" y1="81.28" x2="109.22" y2="83.82" layer="98"/>
 <rectangle x1="213.36" y1="81.28" x2="228.6" y2="83.82" layer="98"/>
 </plain>
@@ -47224,9 +47174,6 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <wire x1="213.36" y1="165.1" x2="33.02" y2="165.1" width="0.1524" layer="97" style="shortdash"/>
 <wire x1="33.02" y1="165.1" x2="33.02" y2="121.92" width="0.1524" layer="97" style="shortdash"/>
 <text x="48.26" y="68.58" size="50.8" layer="208">CAP</text>
-<rectangle x1="30.48" y1="132.08" x2="203.2" y2="170.18" layer="116"/>
-<rectangle x1="30.48" y1="91.44" x2="203.2" y2="127" layer="116"/>
-<rectangle x1="10.16" y1="15.24" x2="121.92" y2="68.58" layer="116"/>
 <text x="101.6" y="35.56" size="1.778" layer="97">-AFEs are disabled by default</text>
 <text x="99.06" y="39.37" size="1.778" layer="97">Notes:</text>
 <wire x1="96.52" y1="44.45" x2="144.78" y2="44.45" width="0.1524" layer="97" style="shortdash"/>
@@ -47813,45 +47760,6 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <text x="53.34" y="66.04" size="50.8" layer="208">ETH</text>
 <text x="48.895" y="133.985" size="1.778" layer="97">NC</text>
 <text x="120.65" y="162.56" size="1.778" layer="97">Place close to ETH PHY device</text>
-<rectangle x1="96.52" y1="104.14" x2="106.68" y2="114.3" layer="116"/>
-<rectangle x1="104.14" y1="111.76" x2="121.92" y2="127" layer="116"/>
-<rectangle x1="124.46" y1="106.68" x2="134.62" y2="114.3" layer="116"/>
-<rectangle x1="17.78" y1="160.02" x2="58.42" y2="177.8" layer="116"/>
-<rectangle x1="93.98" y1="157.48" x2="116.84" y2="180.34" layer="116"/>
-<rectangle x1="48.26" y1="76.2" x2="63.5" y2="81.28" layer="116"/>
-<rectangle x1="48.26" y1="81.28" x2="60.96" y2="83.82" layer="116"/>
-<rectangle x1="88.9" y1="68.58" x2="109.22" y2="73.66" layer="116"/>
-<rectangle x1="50.8" y1="93.98" x2="68.58" y2="96.52" layer="116"/>
-<rectangle x1="48.26" y1="129.54" x2="63.5" y2="132.08" layer="116"/>
-<rectangle x1="7.62" y1="127" x2="17.78" y2="142.24" layer="116"/>
-<rectangle x1="53.086" y1="123.698" x2="79.248" y2="125.476" layer="116"/>
-<rectangle x1="17.78" y1="125.73" x2="78.232" y2="129.54" layer="116"/>
-<rectangle x1="17.78" y1="152.4" x2="58.42" y2="160.02" layer="116"/>
-<rectangle x1="17.78" y1="114.3" x2="78.74" y2="124.46" layer="116"/>
-<rectangle x1="88.9" y1="63.5" x2="111.76" y2="68.58" layer="116"/>
-<rectangle x1="127" y1="17.78" x2="137.16" y2="38.1" layer="116"/>
-<rectangle x1="111.76" y1="20.32" x2="121.92" y2="45.72" layer="116"/>
-<rectangle x1="48.26" y1="146.05" x2="71.12" y2="149.86" layer="116"/>
-<rectangle x1="17.78" y1="132.08" x2="60.96" y2="147.32" layer="116"/>
-<rectangle x1="17.78" y1="106.68" x2="60.96" y2="109.22" layer="116"/>
-<rectangle x1="86.36" y1="86.36" x2="106.68" y2="101.6" layer="116"/>
-<rectangle x1="88.9" y1="73.66" x2="111.76" y2="78.74" layer="116"/>
-<rectangle x1="83.82" y1="78.74" x2="121.92" y2="86.36" layer="116"/>
-<rectangle x1="45.72" y1="88.9" x2="66.04" y2="93.98" layer="116"/>
-<rectangle x1="96.52" y1="20.32" x2="104.14" y2="35.56" layer="116"/>
-<rectangle x1="88.9" y1="129.54" x2="109.22" y2="152.4" layer="116"/>
-<rectangle x1="121.92" y1="152.4" x2="144.78" y2="167.64" layer="116"/>
-<rectangle x1="15.24" y1="104.14" x2="63.5" y2="106.68" layer="116"/>
-<rectangle x1="15.24" y1="78.74" x2="40.64" y2="83.82" layer="116"/>
-<rectangle x1="30.48" y1="60.96" x2="50.8" y2="68.58" layer="116"/>
-<rectangle x1="121.92" y1="55.88" x2="243.84" y2="76.2" layer="116"/>
-<rectangle x1="139.7" y1="17.78" x2="152.4" y2="40.64" layer="116"/>
-<rectangle x1="104.14" y1="20.32" x2="114.3" y2="35.56" layer="116"/>
-<rectangle x1="76.2" y1="12.7" x2="86.36" y2="48.26" layer="116"/>
-<rectangle x1="58.42" y1="12.7" x2="68.58" y2="48.26" layer="116"/>
-<rectangle x1="43.18" y1="12.7" x2="55.88" y2="50.8" layer="116"/>
-<rectangle x1="10.16" y1="10.16" x2="43.18" y2="50.8" layer="116"/>
-<rectangle x1="167.64" y1="96.52" x2="238.76" y2="180.34" layer="116"/>
 </plain>
 <instances>
 <instance part="U6" gate="G$1" x="78.74" y="119.38"/>
@@ -48592,30 +48500,6 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <text x="91.44" y="30.48" size="1.778" layer="97" rot="R90">VCCIO</text>
 <text x="53.34" y="63.5" size="50.8" layer="208">USB</text>
 <text x="106.68" y="27.94" size="1.778" layer="97" rot="R90">93LC56BT</text>
-<rectangle x1="45.72" y1="43.18" x2="73.66" y2="78.74" layer="116"/>
-<rectangle x1="30.48" y1="43.18" x2="43.18" y2="76.2" layer="116"/>
-<rectangle x1="78.74" y1="45.72" x2="106.68" y2="78.74" layer="116"/>
-<rectangle x1="15.24" y1="7.62" x2="48.26" y2="40.64" layer="116"/>
-<rectangle x1="50.8" y1="7.62" x2="66.04" y2="40.64" layer="116"/>
-<rectangle x1="68.58" y1="7.62" x2="78.74" y2="40.64" layer="116"/>
-<rectangle x1="81.28" y1="7.62" x2="96.52" y2="40.64" layer="116"/>
-<rectangle x1="99.06" y1="7.62" x2="111.76" y2="40.64" layer="116"/>
-<rectangle x1="17.78" y1="43.18" x2="27.94" y2="86.36" layer="116"/>
-<rectangle x1="25.4" y1="124.46" x2="38.1" y2="129.54" layer="116"/>
-<rectangle x1="17.78" y1="99.06" x2="40.64" y2="114.3" layer="116"/>
-<rectangle x1="55.88" y1="147.32" x2="73.66" y2="180.34" layer="116"/>
-<rectangle x1="25.4" y1="142.24" x2="55.88" y2="160.02" layer="116"/>
-<rectangle x1="17.78" y1="134.62" x2="53.34" y2="142.24" layer="116"/>
-<rectangle x1="12.7" y1="129.54" x2="58.42" y2="134.62" layer="116"/>
-<rectangle x1="53.34" y1="81.28" x2="81.28" y2="104.14" layer="116"/>
-<rectangle x1="30.48" y1="88.9" x2="43.18" y2="99.06" layer="116"/>
-<rectangle x1="147.32" y1="38.1" x2="215.9" y2="78.74" layer="116"/>
-<rectangle x1="17.78" y1="114.3" x2="43.18" y2="124.46" layer="116"/>
-<rectangle x1="76.2" y1="109.22" x2="104.14" y2="160.02" layer="116"/>
-<rectangle x1="218.44" y1="149.86" x2="238.76" y2="151.13" layer="116"/>
-<rectangle x1="218.44" y1="134.62" x2="238.76" y2="144.78" layer="116"/>
-<rectangle x1="220.98" y1="127" x2="238.76" y2="132.08" layer="116"/>
-<rectangle x1="218.44" y1="91.44" x2="238.76" y2="93.98" layer="116"/>
 <text x="99.06" y="154.94" size="1.778" layer="97">TXD</text>
 <text x="99.06" y="152.4" size="1.778" layer="97">RXD</text>
 </plain>
@@ -49707,12 +49591,6 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <text x="187.96" y="133.35" size="1.778" layer="97" rot="R90">GREEN</text>
 <text x="45.72" y="114.3" size="1.778" layer="97">NC</text>
 <text x="45.72" y="111.76" size="1.778" layer="97">NC</text>
-<rectangle x1="203.2" y1="71.12" x2="233.68" y2="73.66" layer="116"/>
-<rectangle x1="22.86" y1="53.34" x2="88.9" y2="91.44" layer="116"/>
-<rectangle x1="20.32" y1="101.6" x2="88.9" y2="129.54" layer="116"/>
-<rectangle x1="20.32" y1="139.7" x2="88.9" y2="167.64" layer="116"/>
-<rectangle x1="170.18" y1="114.3" x2="223.52" y2="160.02" layer="116"/>
-<rectangle x1="30.48" y1="10.16" x2="45.72" y2="50.8" layer="116"/>
 </plain>
 <instances>
 <instance part="U1" gate="-UART" x="71.12" y="152.4"/>
@@ -50126,11 +50004,6 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <text x="43.18" y="78.74" size="2.54" layer="97">USB connector</text>
 <text x="62.23" y="152.4" size="1.778" layer="97">NC</text>
 <text x="45.72" y="76.2" size="50.8" layer="208">CON</text>
-<rectangle x1="27.94" y1="127" x2="83.82" y2="162.56" layer="116"/>
-<rectangle x1="22.86" y1="76.2" x2="99.06" y2="119.38" layer="116"/>
-<rectangle x1="17.78" y1="53.34" x2="58.42" y2="66.04" layer="116"/>
-<rectangle x1="60.96" y1="55.88" x2="96.52" y2="68.58" layer="116"/>
-<rectangle x1="17.78" y1="17.78" x2="104.14" y2="30.48" layer="116"/>
 <rectangle x1="215.9" y1="128.905" x2="236.22" y2="133.985" layer="204"/>
 <rectangle x1="215.9" y1="134.62" x2="236.22" y2="144.145" layer="204"/>
 <rectangle x1="215.9" y1="146.685" x2="236.22" y2="152.4" layer="204"/>
