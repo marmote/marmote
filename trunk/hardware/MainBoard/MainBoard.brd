@@ -13,20 +13,20 @@
 <layer number="3" name="Inner1" color="13" fill="3" visible="no" active="yes"/>
 <layer number="14" name="Inner2" color="10" fill="6" visible="no" active="yes"/>
 <layer number="15" name="D3V3" color="4" fill="3" visible="no" active="yes"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
 <layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
 <layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
@@ -48,7 +48,7 @@
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="yes"/>
-<layer number="51" name="tDocu" color="14" fill="1" visible="yes" active="yes"/>
+<layer number="51" name="tDocu" color="14" fill="1" visible="no" active="yes"/>
 <layer number="52" name="bDocu" color="11" fill="1" visible="no" active="yes"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
@@ -12267,7 +12267,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="PAGE1" value="Cover Page" x="34.75" y="45.5" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="PAGE2" value="FPGA Power Supply" x="34.75" y="45.5" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
-<element name="C40" library="MainBoard" package="C0402" value="2.2u" x="54.5" y="45" rot="R90">
+<element name="C40" library="MainBoard" package="C0402" value="2.2uF" x="54.5" y="45" rot="R90">
 <attribute name="DIGI-KEY#" value="587-1263-1-ND " x="54.5" y="45" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="EMK107F225ZA-T" x="54.5" y="45" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
@@ -12483,11 +12483,15 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="MPN" value="APECVA3010SECK" x="10.5" y="54" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="Kingbright" x="10.5" y="54" size="1.778" layer="27" display="off"/>
 <attribute name="COLOR" value="Orange" x="10.5" y="54" size="1.778" layer="27" display="off"/>
+<attribute name="VF" value="2.1V" x="10.5" y="54" size="1.778" layer="27" display="off"/>
+<attribute name="IV" value="250mcd@20mA" x="10.5" y="54" size="1.778" layer="27" display="off"/>
 </element>
 <element name="LED1" library="MainBoard" package="LED1208-RA" value="" x="4.5" y="54" locked="yes">
 <attribute name="MPN" value="APECVA3010MGC" x="4.5" y="54" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="Kingbright" x="4.5" y="54" size="1.778" layer="27" display="off"/>
 <attribute name="COLOR" value="Green" x="4.5" y="54" size="1.778" layer="27" display="off"/>
+<attribute name="VF" value="2.1V" x="4.5" y="54" size="1.778" layer="27" display="off"/>
+<attribute name="IV" value="80mcd@20mA" x="4.5" y="54" size="1.778" layer="27" display="off"/>
 </element>
 <element name="R66" library="MainBoard" package="R0402" value="100" x="7" y="51.5" rot="MR180">
 <attribute name="TOLERANCE" value="" x="7" y="51.5" size="1.778" layer="28" rot="MR180" display="off"/>
@@ -17227,14 +17231,6 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <approved hash="18,29,7a34a52fb5e08cb0"/>
 <approved hash="18,29,1b1f6c3e13746455"/>
 <approved hash="18,29,1a9f671e16546bd5"/>
-<approved hash="18,30,ebb6f099bdd55b31"/>
-<approved hash="18,30,ebb6f099bdd55b31"/>
-<approved hash="18,30,37e21211ecd80e48"/>
-<approved hash="18,30,37e21211ecd80e48"/>
-<approved hash="18,30,422598080fc0128e"/>
-<approved hash="18,30,b308cd60ce4ca9cc"/>
-<approved hash="18,30,422598080fc0128e"/>
-<approved hash="18,30,b308cd60ce4ca9cc"/>
 <approved hash="6,1,b6348b5c47fad33b"/>
 <approved hash="6,1,8e29a0bb0be4b10f"/>
 <approved hash="4,1,981b9647cbd461bd"/>
