@@ -45,3 +45,7 @@ Either combine the two PDFs into `<ProjectName>_Asy.pdf`, or simply name them `<
 
   * [http://www.artwork.com/gerber/274x/rs274x.htm What's All This About RS274X Anyway?]
   * [http://www.artwork.com/gerber/appl2.htm D-codes, Apertures & Gerber Plot Files]
+
+= BOM =
+
+To export the Bill of Materials, use an advanced ULP script such as bom_w_attr_v1.03.ulp.
