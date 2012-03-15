@@ -43764,8 +43764,8 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <part name="U$93" library="MainBoard" deviceset="DGND" device=""/>
 <part name="U$94" library="MainBoard" deviceset="DGND" device=""/>
 <part name="J2" library="MainBoard" deviceset="CON-RJ45-J0G-0007NL" device=""/>
-<part name="R42" library="MainBoard" deviceset="R" device="0402" value="110"/>
-<part name="R32" library="MainBoard" deviceset="R" device="0402" value="110"/>
+<part name="R42" library="MainBoard" deviceset="R" device="0402" value="100"/>
+<part name="R32" library="MainBoard" deviceset="R" device="0402" value="100"/>
 <part name="U$97" library="MainBoard" deviceset="D3V3" device=""/>
 <part name="U$98" library="MainBoard" deviceset="D3V3" device=""/>
 <part name="PORT216" library="MainBoard" deviceset="PORT5" device=""/>

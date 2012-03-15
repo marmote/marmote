@@ -11992,10 +11992,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="MPN" value="J0G-0007NL" x="70" y="45" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="Pulse Electronics Corporation" x="70" y="45" size="1.778" layer="27" display="off"/>
 </element>
-<element name="R42" library="MainBoard" package="R0402" value="110" x="80" y="50.75" rot="MR270">
+<element name="R42" library="MainBoard" package="R0402" value="100" x="80" y="50.75" rot="MR270">
 <attribute name="TOLERANCE" value="" x="80" y="50.75" size="1.778" layer="28" rot="MR270" display="off"/>
 </element>
-<element name="R32" library="MainBoard" package="R0402" value="110" x="60" y="49.75" rot="MR270">
+<element name="R32" library="MainBoard" package="R0402" value="100" x="60" y="49.75" rot="MR270">
 <attribute name="TOLERANCE" value="" x="60" y="49.75" size="1.778" layer="28" rot="MR270" display="off"/>
 </element>
 <element name="C121" library="MainBoard" package="C0402" value="0.1uF" x="75.5" y="34.25" rot="MR0"/>
