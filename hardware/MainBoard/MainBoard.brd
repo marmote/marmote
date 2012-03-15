@@ -8,12 +8,12 @@
 </settings>
 <grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.25" altunitdist="mm" altunit="mm"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
 <layer number="2" name="GND" color="1" fill="3" visible="no" active="yes"/>
 <layer number="3" name="Inner1" color="13" fill="3" visible="no" active="yes"/>
-<layer number="14" name="Inner2" color="10" fill="6" visible="yes" active="yes"/>
+<layer number="14" name="Inner2" color="10" fill="6" visible="no" active="yes"/>
 <layer number="15" name="D3V3" color="4" fill="3" visible="no" active="yes"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="yes"/>
@@ -22,7 +22,7 @@
 <layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
@@ -12108,7 +12108,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="PAGE2" value="FPGA Power Supply" x="76.75" y="20.5" size="1.778" layer="28" rot="MR270" display="off"/>
 </element>
 <element name="C118" library="MainBoard" package="C0402" value="0.1uF" x="81.25" y="26.5" rot="MR180"/>
-<element name="B1" library="MainBoard" package="L0603" value="" x="73" y="32.25" rot="MR180">
+<element name="B1" library="MainBoard" package="L0603" value="70R/4A" x="73" y="32.25" rot="MR180">
 <attribute name="DIGI-KEY#" value="490-5224-1-ND" x="73" y="32.25" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="MPN" value="BLM18SG700TN1D" x="73" y="32.25" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="MF" value="Murata" x="73" y="32.25" size="1.778" layer="28" rot="MR180" display="off"/>
@@ -12228,7 +12228,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <element name="C128" library="MainBoard" package="C0402" value="0.1uF" x="69.5" y="22.75" rot="MR90"/>
 <element name="C129" library="MainBoard" package="C0402" value="10uF" x="74" y="28.75" rot="MR180"/>
 <element name="C130" library="MainBoard" package="C0402" value="0.1uF" x="74" y="29.75" rot="MR180"/>
-<element name="C37" library="MainBoard" package="C0402" value="" x="9" y="21" rot="MR180">
+<element name="C37" library="MainBoard" package="C0402" value="0.1uF" x="9" y="21" rot="MR180">
 <attribute name="DNP" value="ON" x="9" y="21" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
 <element name="R2" library="MainBoard" package="R0402" value="10k" x="9" y="20" rot="MR180">
@@ -12489,10 +12489,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="MF" value="Kingbright" x="4.5" y="54" size="1.778" layer="27" display="off"/>
 <attribute name="COLOR" value="Green" x="4.5" y="54" size="1.778" layer="27" display="off"/>
 </element>
-<element name="R66" library="MainBoard" package="R0402" value="" x="7" y="51.5" rot="MR180">
+<element name="R66" library="MainBoard" package="R0402" value="100" x="7" y="51.5" rot="MR180">
 <attribute name="TOLERANCE" value="" x="7" y="51.5" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
-<element name="R67" library="MainBoard" package="R0402" value="" x="11.5" y="51.5" rot="MR0">
+<element name="R67" library="MainBoard" package="R0402" value="330" x="11.5" y="51.5" rot="MR0">
 <attribute name="TOLERANCE" value="" x="11.5" y="51.5" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
 <element name="R49" library="MainBoard" package="R0402" value="0" x="79" y="36" rot="MR90">
@@ -12562,8 +12562,8 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="PAGE1" value="Cover Page" x="15.372" y="32.502" size="1.778" layer="28" rot="MR0" display="off"/>
 <attribute name="PAGE2" value="FPGA Power Supply" x="15.372" y="32.502" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="C34" library="MainBoard" package="C0402" value="" x="45.5" y="48.25" rot="MR90"/>
-<element name="C35" library="MainBoard" package="C0402" value="" x="50.5" y="48.25" rot="MR90"/>
+<element name="C34" library="MainBoard" package="C0402" value="0.1uF" x="45.5" y="48.25" rot="MR90"/>
+<element name="C35" library="MainBoard" package="C0402" value="0.1uF" x="50.5" y="48.25" rot="MR90"/>
 <element name="C30" library="MainBoard" package="C0402" value="0.1uF" x="43" y="38" rot="MR0"/>
 <element name="C31" library="MainBoard" package="C0402" value="0.1uF" x="47" y="38" rot="MR180"/>
 <element name="C32" library="MainBoard" package="C0402" value="0.1uF" x="45" y="40" rot="MR270"/>
@@ -17227,6 +17227,14 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <approved hash="18,29,7a34a52fb5e08cb0"/>
 <approved hash="18,29,1b1f6c3e13746455"/>
 <approved hash="18,29,1a9f671e16546bd5"/>
+<approved hash="18,30,ebb6f099bdd55b31"/>
+<approved hash="18,30,ebb6f099bdd55b31"/>
+<approved hash="18,30,37e21211ecd80e48"/>
+<approved hash="18,30,37e21211ecd80e48"/>
+<approved hash="18,30,422598080fc0128e"/>
+<approved hash="18,30,b308cd60ce4ca9cc"/>
+<approved hash="18,30,422598080fc0128e"/>
+<approved hash="18,30,b308cd60ce4ca9cc"/>
 <approved hash="6,1,b6348b5c47fad33b"/>
 <approved hash="6,1,8e29a0bb0be4b10f"/>
 <approved hash="4,1,981b9647cbd461bd"/>
