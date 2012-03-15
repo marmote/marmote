@@ -20,8 +20,8 @@
 <layer number="20" name="Dimension" color="15" fill="1" visible="no" active="yes"/>
 <layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
 <layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
@@ -12390,13 +12390,13 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 </element>
 <element name="C9" library="powerboard" package="C0603" value="10uF" x="41.1" y="35.3" rot="R90"/>
 <element name="C10" library="powerboard" package="C0603" value="4.7uF" x="35" y="35.3" rot="R90"/>
-<element name="R41" library="powerboard" package="R0603" value="100k" x="39.3" y="37.3" rot="MR270">
-<attribute name="TOLERANCE" value="" x="39.3" y="37.3" size="1.778" layer="28" rot="MR270" display="off"/>
+<element name="R41" library="powerboard" package="R0603" value="100k" x="38.8" y="37.3" rot="MR270">
+<attribute name="TOLERANCE" value="" x="38.8" y="37.3" size="1.778" layer="28" rot="MR270" display="off"/>
 </element>
 <element name="C11" library="powerboard" package="C0603" value="4.7uF" x="45.2" y="35.8" rot="R90"/>
 <element name="C12" library="powerboard" package="C0603" value="10uF" x="50.2" y="35.8" rot="R270"/>
-<element name="R12" library="powerboard" package="R0603" value="0" x="36.5" y="36.5" rot="MR180">
-<attribute name="TOLERANCE" value="" x="36.5" y="36.5" size="1.778" layer="28" rot="MR180" display="off"/>
+<element name="R12" library="powerboard" package="R0603" value="0" x="36" y="36.5" rot="MR180">
+<attribute name="TOLERANCE" value="" x="36" y="36.5" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
 <element name="U14" library="powerboard" package="DFN-6" value="LTC2942-1" x="71.3" y="24.5" rot="R270">
 <attribute name="DIGI-KEY#" value="LTC2942CDCB-1#TRMPBFCT-ND" x="71.3" y="24.5" size="1.778" layer="27" rot="R270" display="off"/>
@@ -12426,8 +12426,8 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="MF" value="Samtec" x="6" y="31" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MPN" value="FTSH-105-01-L-DV-K" x="6" y="31" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="R14" library="powerboard" package="R0603" value="0" x="42.1" y="36.5" rot="MR180">
-<attribute name="TOLERANCE" value="" x="42.1" y="36.5" size="1.778" layer="28" rot="MR180" display="off"/>
+<element name="R14" library="powerboard" package="R0603" value="0" x="41.6" y="36.5" rot="MR180">
+<attribute name="TOLERANCE" value="" x="41.6" y="36.5" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
 <element name="R13" library="powerboard" package="R0603" value="DNP" x="43.8" y="32.7" rot="MR180">
 <attribute name="TOLERANCE" value="" x="43.8" y="32.7" size="1.778" layer="28" rot="MR180" display="off"/>
@@ -12884,10 +12884,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="41" y1="30.2" x2="41" y2="31.9" width="0.8128" layer="1"/>
 <wire x1="41" y1="31.9" x2="41" y2="34.1" width="0.8128" layer="1"/>
 <wire x1="48.1" y1="28.5" x2="47.7" y2="28.9" width="0.8128" layer="1"/>
-<wire x1="47.7" y1="28.9" x2="47.7" y2="31.1" width="0.8128" layer="1"/>
-<wire x1="47.7" y1="31.1" x2="46.9" y2="31.9" width="0.8128" layer="1"/>
-<wire x1="46.6" y1="31.9" x2="41" y2="31.9" width="0.8128" layer="1"/>
-<wire x1="46.6" y1="34.7" x2="46.6" y2="31.9" width="0.8128" layer="1"/>
+<wire x1="47.7" y1="28.9" x2="47.7" y2="31" width="0.8128" layer="1"/>
+<wire x1="47.7" y1="31" x2="46.8" y2="31.9" width="0.8128" layer="1"/>
+<wire x1="46.8" y1="31.9" x2="45.8" y2="31.9" width="0.8128" layer="1"/>
+<wire x1="45.7" y1="31.9" x2="41" y2="31.9" width="0.8128" layer="1"/>
+<wire x1="45.7" y1="34.7" x2="45.7" y2="31.9" width="0.8128" layer="1"/>
 <wire x1="43.5" y1="32.2" x2="43.2" y2="32.5" width="0.254" layer="1"/>
 <wire x1="43.2" y1="32.5" x2="43.1" y2="32.5" width="0.254" layer="1"/>
 <wire x1="43.1" y1="32.5" x2="42.7" y2="32.1" width="0.254" layer="1"/>
@@ -12896,10 +12897,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="46.8" y1="35.6" x2="46.8" y2="34.9" width="0.254" layer="1"/>
 <wire x1="47.4" y1="37.8" x2="47.7" y2="37.95" width="0" layer="19" extent="16-16"/>
 <wire x1="46.75" y1="34.6" x2="46.8" y2="34.9" width="0" layer="19" extent="1-1"/>
-<wire x1="46.6" y1="34.7" x2="46.75" y2="34.6" width="0" layer="19" extent="1-1"/>
-<wire x1="46.45" y1="34.9" x2="46.6" y2="34.7" width="0" layer="19" extent="1-1"/>
+<wire x1="46.45" y1="34.9" x2="46.8" y2="34.9" width="0" layer="19" extent="1-1"/>
 <wire x1="45.2" y1="34.95" x2="45.4" y2="34.9" width="0" layer="19" extent="1-1"/>
-<wire x1="46.9" y1="31.9" x2="46.6" y2="31.9" width="0" layer="19" extent="1-1"/>
+<wire x1="45.7" y1="34.7" x2="45.4" y2="34.9" width="0" layer="19" extent="1-1"/>
+<wire x1="45.8" y1="31.9" x2="45.7" y2="31.9" width="0" layer="19" extent="1-1"/>
 <wire x1="40.9" y1="34.4" x2="41" y2="34.1" width="0" layer="19" extent="1-1"/>
 <wire x1="41.1" y1="34.45" x2="40.9" y2="34.4" width="0" layer="19" extent="1-1"/>
 <wire x1="39.2" y1="34.35" x2="39.7" y2="34.4" width="0" layer="19" extent="1-1"/>
@@ -13208,7 +13209,6 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="27.6" y1="39.4" x2="27.6" y2="38.7" width="0.254" layer="16"/>
 <via x="27.6" y="39.4" extent="1-16" drill="0.254"/>
 <via x="35" y="33.3" extent="1-16" drill="0.6"/>
-<wire x1="35.3" y1="34.4" x2="35" y2="34.1" width="0.8128" layer="1"/>
 <wire x1="35" y1="34.1" x2="35" y2="33.3" width="0.8128" layer="1"/>
 <via x="51.5" y="31.6" extent="1-16" drill="0.254"/>
 <via x="52" y="27.9" extent="1-16" drill="0.254"/>
@@ -13220,15 +13220,16 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="11.4" y="15.4" extent="1-16" drill="0.254"/>
 <wire x1="41.3" y1="41.2" x2="40.95" y2="40.8" width="0" layer="19" extent="16-16"/>
 <wire x1="22.45" y1="24.3" x2="22.4" y2="24.3" width="0" layer="19" extent="16-16"/>
-<wire x1="36.8" y1="34.35" x2="36.7" y2="34.4" width="0" layer="19" extent="1-1"/>
 <wire x1="24.3" y1="16.75" x2="24.4" y2="16.8" width="0" layer="19" extent="16-16"/>
 <wire x1="22.3" y1="16.75" x2="22.4" y2="16.6" width="0" layer="19" extent="16-16"/>
 <wire x1="50.65" y1="31.4" x2="50.6" y2="31.6" width="0" layer="19" extent="16-16"/>
 <wire x1="34.76" y1="38.76" x2="34.7" y2="39" width="0" layer="19" extent="1-1"/>
 <wire x1="23.35" y1="33.8" x2="23.5" y2="34" width="0" layer="19" extent="16-16"/>
 <wire x1="16.85" y1="26.4" x2="16.6" y2="26.4" width="0" layer="19" extent="1-1"/>
-<wire x1="35" y1="34.45" x2="35.3" y2="34.4" width="0" layer="19" extent="1-1"/>
 <wire x1="22.45" y1="26.3" x2="22.4" y2="26" width="0" layer="19" extent="16-16"/>
+<wire x1="35" y1="34.45" x2="35" y2="34.1" width="0" layer="19" extent="1-1"/>
+<wire x1="35.3" y1="34.4" x2="35" y2="34.45" width="0" layer="19" extent="1-1"/>
+<wire x1="36.8" y1="34.35" x2="36.7" y2="34.4" width="0" layer="19" extent="1-1"/>
 <wire x1="50.65" y1="28.5" x2="50.9" y2="28.2" width="0" layer="19" extent="16-16"/>
 <wire x1="44.05" y1="28.3" x2="43.7" y2="28.5" width="0" layer="19" extent="16-16"/>
 <wire x1="28.7" y1="32.45" x2="28.3" y2="32.5" width="0" layer="19" extent="1-1"/>
@@ -13385,7 +13386,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="24" y1="35" x2="25.1" y2="36.1" width="0.2032" layer="1"/>
 <wire x1="25.1" y1="36.1" x2="25.1" y2="37" width="0.2032" layer="1"/>
 <wire x1="25.1" y1="37" x2="24.4" y2="37.7" width="0.2032" layer="1"/>
-<wire x1="35.3" y1="36.1" x2="35.65" y2="36.5" width="0" layer="19" extent="16-16"/>
+<wire x1="35.3" y1="36.1" x2="35.15" y2="36.5" width="0" layer="19" extent="16-16"/>
 <wire x1="24" y1="38.6" x2="24.4" y2="37.7" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="AGND">
@@ -14324,23 +14325,23 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="R12" pad="2"/>
 <contactref element="R41" pad="2"/>
 <contactref element="R14" pad="1"/>
-<wire x1="41.3" y1="36.1" x2="38.2" y2="36.1" width="0.254" layer="16"/>
-<wire x1="38.2" y1="36.1" x2="37.6" y2="36.1" width="0.254" layer="16"/>
+<wire x1="40.8" y1="36.1" x2="37.7" y2="36.1" width="0.254" layer="16"/>
+<wire x1="37.7" y1="36.1" x2="37.1" y2="36.1" width="0.254" layer="16"/>
 <wire x1="48.6" y1="30.45" x2="48.6" y2="31.4" width="0.254" layer="1"/>
-<wire x1="48.6" y1="31.4" x2="47.5" y2="32.5" width="0.254" layer="1"/>
-<wire x1="47.5" y1="32.5" x2="47.5" y2="33.7" width="0.254" layer="1"/>
-<wire x1="47.5" y1="33.7" x2="38.2" y2="33.7" width="0.254" layer="16"/>
-<via x="47.5" y="33.7" extent="1-16" drill="0.254"/>
+<wire x1="48.6" y1="31.4" x2="46.9" y2="33.1" width="0.254" layer="1"/>
+<wire x1="46.9" y1="33.1" x2="46.9" y2="33.7" width="0.254" layer="1"/>
+<wire x1="46.9" y1="33.7" x2="37.7" y2="33.7" width="0.254" layer="16"/>
+<via x="46.9" y="33.7" extent="1-16" drill="0.254"/>
 <wire x1="43.9" y1="33.4" x2="44.2" y2="33.7" width="0.254" layer="1"/>
 <via x="44.2" y="33.7" extent="1-16" drill="0.254"/>
-<via x="38.2" y="33.7" extent="1-16" drill="0.254"/>
-<via x="38.2" y="36.1" extent="1-16" drill="0.254"/>
-<wire x1="38.2" y1="33.7" x2="38.2" y2="36.1" width="0.254" layer="1"/>
+<via x="37.7" y="33.7" extent="1-16" drill="0.254"/>
+<via x="37.7" y="36.1" extent="1-16" drill="0.254"/>
+<wire x1="37.7" y1="33.7" x2="37.7" y2="36.1" width="0.254" layer="1"/>
 <wire x1="48.6" y1="30.45" x2="48.9" y2="30.35" width="0" layer="19" extent="1-1"/>
-<wire x1="41.25" y1="36.5" x2="41.3" y2="36.1" width="0" layer="19" extent="16-16"/>
-<wire x1="37.35" y1="36.5" x2="37.6" y2="36.1" width="0" layer="19" extent="16-16"/>
-<wire x1="39.3" y1="36.45" x2="38.2" y2="36.1" width="0" layer="19" extent="16-16"/>
-<wire x1="44.2" y1="33.7" x2="47.5" y2="33.7" width="0" layer="19" extent="1-1"/>
+<wire x1="40.75" y1="36.5" x2="40.8" y2="36.1" width="0" layer="19" extent="16-16"/>
+<wire x1="36.85" y1="36.5" x2="37.1" y2="36.1" width="0" layer="19" extent="16-16"/>
+<wire x1="38.8" y1="36.45" x2="37.7" y2="36.1" width="0" layer="19" extent="16-16"/>
+<wire x1="44.2" y1="33.7" x2="46.9" y2="33.7" width="0" layer="19" extent="1-1"/>
 <wire x1="43.793465625" y1="33.1" x2="43.9" y2="33.4" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="USBD+">
@@ -14365,15 +14366,15 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="44.7" y1="33.1" x2="47.9" y2="33.1" width="0.254" layer="16"/>
 <wire x1="47.9" y1="33.1" x2="48.5" y2="33.7" width="0.254" layer="16"/>
 <via x="48.5" y="36.1" extent="1-16" drill="0.254"/>
-<wire x1="43.3" y1="36.1" x2="48.5" y2="36.1" width="0.254" layer="16"/>
+<wire x1="42.8" y1="36.1" x2="48.5" y2="36.1" width="0.254" layer="16"/>
 <wire x1="48.5" y1="36.1" x2="48.5" y2="35.1" width="0.254" layer="1"/>
 <via x="48.5" y="33.7" extent="1-16" drill="0.254"/>
 <wire x1="48.5" y1="33.7" x2="48.5" y2="34.2" width="0.254" layer="1"/>
 <wire x1="48.5" y1="34.2" x2="48.65" y2="34.6" width="0" layer="19" extent="1-1"/>
 <wire x1="44.65" y1="32.7" x2="44.7" y2="33.1" width="0" layer="19" extent="16-16"/>
 <wire x1="48.5" y1="35.1" x2="48.65" y2="34.6" width="0" layer="19" extent="1-1"/>
-<wire x1="42.95" y1="36.5" x2="43.3" y2="36.1" width="0" layer="19" extent="16-16"/>
-<wire x1="44.9" y1="36.55" x2="43.3" y2="36.1" width="0" layer="19" extent="16-16"/>
+<wire x1="42.45" y1="36.5" x2="42.8" y2="36.1" width="0" layer="19" extent="16-16"/>
+<wire x1="44.9" y1="36.55" x2="42.8" y2="36.1" width="0" layer="19" extent="16-16"/>
 </signal>
 <signal name="N$5">
 <contactref element="U5" pad="5"/>
@@ -14550,8 +14551,8 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <approved hash="19,1,3bc125bf275e3920"/>
 <approved hash="19,1,25c63bb8398727f9"/>
 <approved hash="4,1,e1c701ffe5d1e952"/>
-<approved hash="4,1,fa743ef70855fec4"/>
 <approved hash="4,1,2d0d24fae7c70381"/>
+<approved hash="4,1,fa743ef70855fec4"/>
 <approved hash="6,1,65fe5793857a2e84"/>
 <approved hash="6,1,a2ad44ad36c8748b"/>
 </errors>
