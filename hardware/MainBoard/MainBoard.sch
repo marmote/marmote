@@ -55,7 +55,7 @@
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
-<layer number="93" name="Pins" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="93" name="Pins" color="2" fill="1" visible="no" active="yes"/>
 <layer number="94" name="Symbols" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="95" name="Names" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
@@ -128,7 +128,7 @@
 <layer number="205" name="PDC_Check" color="3" fill="14" visible="yes" active="yes"/>
 <layer number="206" name="206bmp" color="7" fill="10" visible="yes" active="yes"/>
 <layer number="207" name="207bmp" color="8" fill="10" visible="yes" active="yes"/>
-<layer number="208" name="ThumbnailText" color="9" fill="10" visible="yes" active="yes"/>
+<layer number="208" name="ThumbnailText" color="9" fill="10" visible="no" active="yes"/>
 <layer number="216" name="SMD16" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="250" name="Descript" color="3" fill="1" visible="no" active="no"/>
 <layer number="251" name="SMDround" color="12" fill="11" visible="no" active="no"/>
@@ -42954,13 +42954,17 @@ Source: &lt;a href="http://datasheets.maxim-ic.com/en/ds/DS1818.pdf"&gt;http://d
 <technologies>
 <technology name="-ECK">
 <attribute name="COLOR" value="Orange"/>
+<attribute name="IV" value="250mcd@20mA"/>
 <attribute name="MF" value="Kingbright"/>
 <attribute name="MPN" value="APECVA3010SECK"/>
+<attribute name="VF" value="2.1V"/>
 </technology>
 <technology name="-MGC">
 <attribute name="COLOR" value="Green"/>
+<attribute name="IV" value="80mcd@20mA"/>
 <attribute name="MF" value="Kingbright"/>
 <attribute name="MPN" value="APECVA3010MGC"/>
+<attribute name="VF" value="2.1V"/>
 </technology>
 </technologies>
 </device>
@@ -43875,7 +43879,7 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <attribute name="TOLERANCE" value=""/>
 </part>
 <part name="U$119" library="MainBoard" deviceset="D3V3" device=""/>
-<part name="C40" library="MainBoard" deviceset="C" device="0402" value="2.2u">
+<part name="C40" library="MainBoard" deviceset="C" device="0402" value="2.2uF">
 <attribute name="DIGI-KEY#" value="587-1263-1-ND "/>
 <attribute name="MPN" value="EMK107F225ZA-T"/>
 </part>
