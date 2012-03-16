@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.05" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -62,7 +62,7 @@
 <layer number="97" name="Info" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="98" name="Guide" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="100" name="Muster" color="7" fill="1" visible="no" active="no"/>
-<layer number="101" name="Patch_Top" color="12" fill="4" visible="yes" active="yes"/>
+<layer number="101" name="Patch_Top" color="12" fill="4" visible="no" active="yes"/>
 <layer number="102" name="Vscore" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="103" name="tMap" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="104" name="Name" color="7" fill="1" visible="yes" active="yes"/>
@@ -76,7 +76,7 @@
 <layer number="112" name="Route12" color="7" fill="1" visible="no" active="no"/>
 <layer number="113" name="Route13" color="7" fill="1" visible="no" active="no"/>
 <layer number="114" name="FIXED_SF_PIN" color="2" fill="3" visible="yes" active="yes"/>
-<layer number="116" name="Patch_BOT" color="9" fill="4" visible="yes" active="yes"/>
+<layer number="116" name="Patch_BOT" color="9" fill="4" visible="no" active="yes"/>
 <layer number="117" name="mPads" color="7" fill="1" visible="no" active="no"/>
 <layer number="118" name="mVias" color="7" fill="1" visible="no" active="no"/>
 <layer number="119" name="mUnrouted" color="7" fill="1" visible="no" active="no"/>
@@ -128,7 +128,7 @@
 <layer number="205" name="PDC_Check" color="3" fill="14" visible="yes" active="yes"/>
 <layer number="206" name="206bmp" color="7" fill="10" visible="yes" active="yes"/>
 <layer number="207" name="207bmp" color="8" fill="10" visible="yes" active="yes"/>
-<layer number="208" name="ThumbnailText" color="9" fill="10" visible="no" active="yes"/>
+<layer number="208" name="ThumbnailText" color="9" fill="10" visible="yes" active="yes"/>
 <layer number="216" name="SMD16" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="250" name="Descript" color="3" fill="1" visible="no" active="no"/>
 <layer number="251" name="SMDround" color="12" fill="11" visible="no" active="no"/>
@@ -46160,20 +46160,20 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <text x="182.88" y="20.32" size="5.08" layer="97">&gt;PAGE5</text>
 <text x="102.235" y="103.505" size="1.778" layer="97">NC</text>
 <text x="58.42" y="104.14" size="50.8" layer="208">EXT</text>
-<text x="33.02" y="35.56" size="50.8" layer="208">AFE 1</text>
+<text x="36.195" y="35.56" size="50.8" layer="208">AFE1</text>
 <text x="20.955" y="103.505" size="1.778" layer="150">NC</text>
 <text x="20.955" y="100.965" size="1.778" layer="150">NC</text>
-<text x="103.505" y="38.1" size="2.54" layer="150" rot="R90">VDD</text>
+<text x="104.14" y="38.1" size="2.54" layer="150" rot="R90">VDD</text>
 <text x="156.845" y="38.1" size="2.54" layer="150" rot="R90">OVDD</text>
-<text x="50.165" y="38.1" size="2.54" layer="150" rot="R90">REFIN</text>
-<text x="179.07" y="87.63" size="1.778" layer="150">-AFE DB lines are pulled-up internally</text>
-<text x="179.705" y="85.09" size="1.778" layer="150">both in AFE and SmartFusion</text>
-<text x="179.07" y="90.17" size="1.778" layer="150">-AFEs are disabled by default</text>
-<text x="176.53" y="93.98" size="1.778" layer="150">Note:</text>
-<wire x1="173.99" y1="99.06" x2="222.25" y2="99.06" width="0.1524" layer="150" style="shortdash"/>
-<wire x1="222.25" y1="99.06" x2="222.25" y2="81.28" width="0.1524" layer="150" style="shortdash"/>
-<wire x1="222.25" y1="81.28" x2="173.99" y2="81.28" width="0.1524" layer="150" style="shortdash"/>
-<wire x1="173.99" y1="81.28" x2="173.99" y2="99.06" width="0.1524" layer="150" style="shortdash"/>
+<text x="50.8" y="38.1" size="2.54" layer="150" rot="R90">REFIN</text>
+<text x="177.8" y="87.63" size="1.778" layer="150">-AFE DB lines are pulled-up internally</text>
+<text x="178.435" y="85.09" size="1.778" layer="150">both in AFE and SmartFusion</text>
+<text x="177.8" y="90.17" size="1.778" layer="150">-AFEs are disabled by default</text>
+<text x="175.26" y="93.98" size="1.778" layer="150">Note:</text>
+<wire x1="172.72" y1="99.06" x2="220.98" y2="99.06" width="0.1524" layer="150" style="shortdash"/>
+<wire x1="220.98" y1="99.06" x2="220.98" y2="81.28" width="0.1524" layer="150" style="shortdash"/>
+<wire x1="220.98" y1="81.28" x2="172.72" y2="81.28" width="0.1524" layer="150" style="shortdash"/>
+<wire x1="172.72" y1="81.28" x2="172.72" y2="99.06" width="0.1524" layer="150" style="shortdash"/>
 </plain>
 <instances>
 <instance part="U2" gate="-AFE" x="82.55" y="114.3"/>
@@ -46240,41 +46240,41 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <instance part="PORT25" gate="G$1" x="120.65" y="81.28"/>
 <instance part="PORT26" gate="G$1" x="120.65" y="78.74"/>
 <instance part="PORT124" gate="G$1" x="29.21" y="60.96" rot="MR0"/>
-<instance part="C66" gate="G$1" x="22.225" y="27.94"/>
-<instance part="C70" gate="G$1" x="55.245" y="27.94"/>
-<instance part="C71" gate="G$1" x="60.325" y="27.94"/>
-<instance part="C72" gate="G$1" x="67.945" y="27.94"/>
-<instance part="C73" gate="G$1" x="73.025" y="27.94"/>
-<instance part="C74" gate="G$1" x="80.645" y="27.94"/>
-<instance part="C75" gate="G$1" x="85.725" y="27.94"/>
-<instance part="C76" gate="G$1" x="93.345" y="27.94"/>
-<instance part="C77" gate="G$1" x="98.425" y="27.94"/>
-<instance part="C78" gate="G$1" x="106.045" y="27.94"/>
-<instance part="C79" gate="G$1" x="111.125" y="27.94"/>
-<instance part="C80" gate="G$1" x="118.745" y="27.94"/>
-<instance part="C81" gate="G$1" x="123.825" y="27.94"/>
-<instance part="C82" gate="G$1" x="131.445" y="27.94"/>
-<instance part="C83" gate="G$1" x="136.525" y="27.94"/>
-<instance part="U$32" gate="G$1" x="45.085" y="35.56"/>
-<instance part="U$33" gate="G$1" x="95.885" y="35.56"/>
-<instance part="U$34" gate="G$1" x="33.655" y="15.24"/>
-<instance part="U$35" gate="G$1" x="95.885" y="15.24"/>
-<instance part="C84" gate="G$1" x="146.685" y="27.94"/>
-<instance part="C85" gate="G$1" x="151.765" y="27.94"/>
-<instance part="U$44" gate="G$1" x="149.225" y="15.24"/>
-<instance part="U$45" gate="G$1" x="149.225" y="35.56"/>
+<instance part="C66" gate="G$1" x="22.86" y="27.94"/>
+<instance part="C70" gate="G$1" x="55.88" y="27.94"/>
+<instance part="C71" gate="G$1" x="60.96" y="27.94"/>
+<instance part="C72" gate="G$1" x="68.58" y="27.94"/>
+<instance part="C73" gate="G$1" x="73.66" y="27.94"/>
+<instance part="C74" gate="G$1" x="81.28" y="27.94"/>
+<instance part="C75" gate="G$1" x="86.36" y="27.94"/>
+<instance part="C76" gate="G$1" x="93.98" y="27.94"/>
+<instance part="C77" gate="G$1" x="99.06" y="27.94"/>
+<instance part="C78" gate="G$1" x="106.68" y="27.94"/>
+<instance part="C79" gate="G$1" x="111.76" y="27.94"/>
+<instance part="C80" gate="G$1" x="119.38" y="27.94"/>
+<instance part="C81" gate="G$1" x="124.46" y="27.94"/>
+<instance part="C82" gate="G$1" x="132.08" y="27.94"/>
+<instance part="C83" gate="G$1" x="137.16" y="27.94"/>
+<instance part="U$32" gate="G$1" x="45.72" y="35.56"/>
+<instance part="U$33" gate="G$1" x="96.52" y="35.56"/>
+<instance part="U$34" gate="G$1" x="34.29" y="15.24"/>
+<instance part="U$35" gate="G$1" x="96.52" y="15.24"/>
+<instance part="C84" gate="G$1" x="147.32" y="27.94"/>
+<instance part="C85" gate="G$1" x="152.4" y="27.94"/>
+<instance part="U$44" gate="G$1" x="149.86" y="15.24"/>
+<instance part="U$45" gate="G$1" x="149.86" y="35.56"/>
 <instance part="U$47" gate="G$1" x="154.94" y="73.66"/>
 <instance part="R24" gate="G$1" x="154.94" y="86.36" rot="R90"/>
 <instance part="PORT123" gate="G$1" x="154.94" y="109.22" rot="R90"/>
 <instance part="R23" gate="G$1" x="162.56" y="99.06" rot="R90"/>
 <instance part="PORT128" gate="G$1" x="162.56" y="73.66" rot="R270"/>
 <instance part="U$49" gate="G$1" x="162.56" y="106.68"/>
-<instance part="C67" gate="G$1" x="29.845" y="27.94"/>
-<instance part="C68" gate="G$1" x="37.465" y="27.94"/>
-<instance part="C69" gate="G$1" x="45.085" y="27.94"/>
-<instance part="PORT117" gate="G$1" x="22.225" y="48.26" rot="R90"/>
-<instance part="PORT118" gate="G$1" x="29.845" y="48.26" rot="R90"/>
-<instance part="PORT119" gate="G$1" x="37.465" y="48.26" rot="R90"/>
+<instance part="C67" gate="G$1" x="30.48" y="27.94"/>
+<instance part="C68" gate="G$1" x="38.1" y="27.94"/>
+<instance part="C69" gate="G$1" x="45.72" y="27.94"/>
+<instance part="PORT117" gate="G$1" x="22.86" y="48.26" rot="R90"/>
+<instance part="PORT118" gate="G$1" x="30.48" y="48.26" rot="R90"/>
+<instance part="PORT119" gate="G$1" x="38.1" y="48.26" rot="R90"/>
 </instances>
 <busses>
 <bus name="AFE1_DB[0..9]">
@@ -46356,81 +46356,81 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 </segment>
 <segment>
 <pinref part="C70" gate="G$1" pin="2"/>
-<wire x1="55.245" y1="22.86" x2="55.245" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="55.245" y1="20.32" x2="60.325" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="22.86" x2="55.88" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="20.32" x2="60.96" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="C83" gate="G$1" pin="2"/>
-<wire x1="60.325" y1="20.32" x2="67.945" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="67.945" y1="20.32" x2="73.025" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="73.025" y1="20.32" x2="80.645" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="80.645" y1="20.32" x2="85.725" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="85.725" y1="20.32" x2="93.345" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="93.345" y1="20.32" x2="95.885" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="95.885" y1="20.32" x2="98.425" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="98.425" y1="20.32" x2="106.045" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="106.045" y1="20.32" x2="111.125" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="111.125" y1="20.32" x2="118.745" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="118.745" y1="20.32" x2="123.825" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="123.825" y1="20.32" x2="131.445" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="131.445" y1="20.32" x2="136.525" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="136.525" y1="20.32" x2="136.525" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="20.32" x2="68.58" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="20.32" x2="73.66" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="20.32" x2="81.28" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="20.32" x2="86.36" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="20.32" x2="93.98" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="20.32" x2="96.52" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="20.32" x2="99.06" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="20.32" x2="106.68" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="20.32" x2="111.76" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="20.32" x2="119.38" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="20.32" x2="124.46" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="20.32" x2="132.08" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="20.32" x2="137.16" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="20.32" x2="137.16" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="C71" gate="G$1" pin="2"/>
-<wire x1="60.325" y1="22.86" x2="60.325" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="22.86" x2="60.96" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="C72" gate="G$1" pin="2"/>
-<wire x1="67.945" y1="22.86" x2="67.945" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="22.86" x2="68.58" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="C73" gate="G$1" pin="2"/>
-<wire x1="73.025" y1="22.86" x2="73.025" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="22.86" x2="73.66" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="C74" gate="G$1" pin="2"/>
-<wire x1="80.645" y1="22.86" x2="80.645" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="22.86" x2="81.28" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="C75" gate="G$1" pin="2"/>
-<wire x1="85.725" y1="22.86" x2="85.725" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="22.86" x2="86.36" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="C76" gate="G$1" pin="2"/>
-<wire x1="93.345" y1="22.86" x2="93.345" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="22.86" x2="93.98" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="C77" gate="G$1" pin="2"/>
-<wire x1="98.425" y1="22.86" x2="98.425" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="22.86" x2="99.06" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="C78" gate="G$1" pin="2"/>
-<wire x1="106.045" y1="22.86" x2="106.045" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="22.86" x2="106.68" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="C79" gate="G$1" pin="2"/>
-<wire x1="111.125" y1="22.86" x2="111.125" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="22.86" x2="111.76" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="C80" gate="G$1" pin="2"/>
-<wire x1="118.745" y1="22.86" x2="118.745" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="22.86" x2="119.38" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="C81" gate="G$1" pin="2"/>
-<wire x1="123.825" y1="22.86" x2="123.825" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="22.86" x2="124.46" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="C82" gate="G$1" pin="2"/>
-<wire x1="131.445" y1="22.86" x2="131.445" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="95.885" y1="20.32" x2="95.885" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="22.86" x2="132.08" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="20.32" x2="96.52" y2="17.78" width="0.1524" layer="91"/>
 <pinref part="U$35" gate="G$1" pin="AGND"/>
-<junction x="60.325" y="20.32"/>
-<junction x="67.945" y="20.32"/>
-<junction x="73.025" y="20.32"/>
-<junction x="80.645" y="20.32"/>
-<junction x="85.725" y="20.32"/>
-<junction x="93.345" y="20.32"/>
-<junction x="98.425" y="20.32"/>
-<junction x="106.045" y="20.32"/>
-<junction x="111.125" y="20.32"/>
-<junction x="118.745" y="20.32"/>
-<junction x="123.825" y="20.32"/>
-<junction x="131.445" y="20.32"/>
-<junction x="95.885" y="20.32"/>
+<junction x="60.96" y="20.32"/>
+<junction x="68.58" y="20.32"/>
+<junction x="73.66" y="20.32"/>
+<junction x="81.28" y="20.32"/>
+<junction x="86.36" y="20.32"/>
+<junction x="93.98" y="20.32"/>
+<junction x="99.06" y="20.32"/>
+<junction x="106.68" y="20.32"/>
+<junction x="111.76" y="20.32"/>
+<junction x="119.38" y="20.32"/>
+<junction x="124.46" y="20.32"/>
+<junction x="132.08" y="20.32"/>
+<junction x="96.52" y="20.32"/>
 </segment>
 <segment>
 <pinref part="C68" gate="G$1" pin="2"/>
-<wire x1="37.465" y1="22.86" x2="37.465" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="22.86" x2="38.1" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="C66" gate="G$1" pin="2"/>
-<wire x1="22.225" y1="22.86" x2="22.225" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="37.465" y1="20.32" x2="33.655" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="22.86" x2="22.86" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="20.32" x2="34.29" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="U$34" gate="G$1" pin="AGND"/>
-<wire x1="33.655" y1="20.32" x2="29.845" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="29.845" y1="20.32" x2="22.225" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="33.655" y1="17.78" x2="33.655" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="34.29" y1="20.32" x2="30.48" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="20.32" x2="22.86" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="34.29" y1="17.78" x2="34.29" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="C67" gate="G$1" pin="2"/>
-<wire x1="29.845" y1="22.86" x2="29.845" y2="20.32" width="0.1524" layer="91"/>
-<junction x="29.845" y="20.32"/>
-<junction x="33.655" y="20.32"/>
+<wire x1="30.48" y1="22.86" x2="30.48" y2="20.32" width="0.1524" layer="91"/>
+<junction x="30.48" y="20.32"/>
+<junction x="34.29" y="20.32"/>
 <pinref part="C69" gate="G$1" pin="2"/>
-<wire x1="45.085" y1="22.86" x2="45.085" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="45.085" y1="20.32" x2="37.465" y2="20.32" width="0.1524" layer="91"/>
-<junction x="37.465" y="20.32"/>
+<wire x1="45.72" y1="22.86" x2="45.72" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="20.32" x2="38.1" y2="20.32" width="0.1524" layer="91"/>
+<junction x="38.1" y="20.32"/>
 </segment>
 </net>
 <net name="ADC1+" class="0">
@@ -46670,67 +46670,67 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 </segment>
 <segment>
 <pinref part="C70" gate="G$1" pin="1"/>
-<wire x1="55.245" y1="30.48" x2="55.245" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="55.245" y1="33.02" x2="60.325" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="30.48" x2="55.88" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="33.02" x2="60.96" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="C83" gate="G$1" pin="1"/>
-<wire x1="60.325" y1="33.02" x2="67.945" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="67.945" y1="33.02" x2="73.025" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="73.025" y1="33.02" x2="80.645" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="80.645" y1="33.02" x2="85.725" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="85.725" y1="33.02" x2="93.345" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="93.345" y1="33.02" x2="95.885" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="95.885" y1="33.02" x2="98.425" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="98.425" y1="33.02" x2="106.045" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="106.045" y1="33.02" x2="111.125" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="111.125" y1="33.02" x2="118.745" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="118.745" y1="33.02" x2="123.825" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="123.825" y1="33.02" x2="131.445" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="131.445" y1="33.02" x2="136.525" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="136.525" y1="33.02" x2="136.525" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="33.02" x2="68.58" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="33.02" x2="73.66" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="33.02" x2="81.28" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="33.02" x2="86.36" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="33.02" x2="93.98" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="33.02" x2="96.52" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="33.02" x2="99.06" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="33.02" x2="106.68" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="33.02" x2="111.76" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="33.02" x2="119.38" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="33.02" x2="124.46" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="33.02" x2="132.08" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="33.02" x2="137.16" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="33.02" x2="137.16" y2="30.48" width="0.1524" layer="91"/>
 <pinref part="C71" gate="G$1" pin="1"/>
-<wire x1="60.325" y1="30.48" x2="60.325" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="30.48" x2="60.96" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="C72" gate="G$1" pin="1"/>
-<wire x1="67.945" y1="30.48" x2="67.945" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="30.48" x2="68.58" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="C73" gate="G$1" pin="1"/>
-<wire x1="73.025" y1="30.48" x2="73.025" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="30.48" x2="73.66" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="C77" gate="G$1" pin="1"/>
-<wire x1="98.425" y1="30.48" x2="98.425" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="30.48" x2="99.06" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="C76" gate="G$1" pin="1"/>
-<wire x1="93.345" y1="30.48" x2="93.345" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="30.48" x2="93.98" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="C75" gate="G$1" pin="1"/>
-<wire x1="85.725" y1="30.48" x2="85.725" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="30.48" x2="86.36" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="C74" gate="G$1" pin="1"/>
-<wire x1="80.645" y1="30.48" x2="80.645" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="30.48" x2="81.28" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="C82" gate="G$1" pin="1"/>
-<wire x1="131.445" y1="30.48" x2="131.445" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="30.48" x2="132.08" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="C81" gate="G$1" pin="1"/>
-<wire x1="123.825" y1="30.48" x2="123.825" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="30.48" x2="124.46" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="C80" gate="G$1" pin="1"/>
-<wire x1="118.745" y1="30.48" x2="118.745" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="30.48" x2="119.38" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="C79" gate="G$1" pin="1"/>
-<wire x1="111.125" y1="30.48" x2="111.125" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="30.48" x2="111.76" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="C78" gate="G$1" pin="1"/>
-<wire x1="106.045" y1="30.48" x2="106.045" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="95.885" y1="33.02" x2="95.885" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="30.48" x2="106.68" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="33.02" x2="96.52" y2="35.56" width="0.1524" layer="91"/>
 <pinref part="U$33" gate="G$1" pin="A3V3"/>
-<junction x="60.325" y="33.02"/>
-<junction x="67.945" y="33.02"/>
-<junction x="73.025" y="33.02"/>
-<junction x="80.645" y="33.02"/>
-<junction x="85.725" y="33.02"/>
-<junction x="93.345" y="33.02"/>
-<junction x="98.425" y="33.02"/>
-<junction x="106.045" y="33.02"/>
-<junction x="111.125" y="33.02"/>
-<junction x="118.745" y="33.02"/>
-<junction x="123.825" y="33.02"/>
-<junction x="131.445" y="33.02"/>
-<junction x="95.885" y="33.02"/>
+<junction x="60.96" y="33.02"/>
+<junction x="68.58" y="33.02"/>
+<junction x="73.66" y="33.02"/>
+<junction x="81.28" y="33.02"/>
+<junction x="86.36" y="33.02"/>
+<junction x="93.98" y="33.02"/>
+<junction x="99.06" y="33.02"/>
+<junction x="106.68" y="33.02"/>
+<junction x="111.76" y="33.02"/>
+<junction x="119.38" y="33.02"/>
+<junction x="124.46" y="33.02"/>
+<junction x="132.08" y="33.02"/>
+<junction x="96.52" y="33.02"/>
 </segment>
 <segment>
 <pinref part="C69" gate="G$1" pin="1"/>
 <pinref part="U$32" gate="G$1" pin="A3V3"/>
-<wire x1="45.085" y1="35.56" x2="45.085" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="35.56" x2="45.72" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="D3V3" class="0">
@@ -46742,14 +46742,14 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 </segment>
 <segment>
 <pinref part="C84" gate="G$1" pin="1"/>
-<wire x1="146.685" y1="30.48" x2="146.685" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="30.48" x2="147.32" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="C85" gate="G$1" pin="1"/>
-<wire x1="151.765" y1="30.48" x2="151.765" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="146.685" y1="33.02" x2="149.225" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="149.225" y1="33.02" x2="151.765" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="149.225" y1="33.02" x2="149.225" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="30.48" x2="152.4" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="33.02" x2="149.86" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="149.86" y1="33.02" x2="152.4" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="149.86" y1="33.02" x2="149.86" y2="35.56" width="0.1524" layer="91"/>
 <pinref part="U$45" gate="G$1" pin="D3V3"/>
-<junction x="149.225" y="33.02"/>
+<junction x="149.86" y="33.02"/>
 </segment>
 <segment>
 <pinref part="R23" gate="G$1" pin="2"/>
@@ -46766,14 +46766,14 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 </segment>
 <segment>
 <pinref part="C84" gate="G$1" pin="2"/>
-<wire x1="146.685" y1="22.86" x2="146.685" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="146.685" y1="20.32" x2="149.225" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="149.225" y1="20.32" x2="151.765" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="149.225" y1="20.32" x2="149.225" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="22.86" x2="147.32" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="20.32" x2="149.86" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="149.86" y1="20.32" x2="152.4" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="149.86" y1="20.32" x2="149.86" y2="17.78" width="0.1524" layer="91"/>
 <pinref part="U$44" gate="G$1" pin="DGND"/>
-<junction x="149.225" y="20.32"/>
+<junction x="149.86" y="20.32"/>
 <pinref part="C85" gate="G$1" pin="2"/>
-<wire x1="151.765" y1="20.32" x2="151.765" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="20.32" x2="152.4" y2="22.86" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R24" gate="G$1" pin="1"/>
@@ -46880,8 +46880,8 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 </segment>
 <segment>
 <pinref part="C66" gate="G$1" pin="1"/>
-<wire x1="22.225" y1="30.48" x2="22.225" y2="33.02" width="0.1524" layer="91"/>
-<label x="22.225" y="35.56" size="1.778" layer="95" rot="R90"/>
+<wire x1="22.86" y1="30.48" x2="22.86" y2="33.02" width="0.1524" layer="91"/>
+<label x="22.86" y="35.56" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="AFE1_REFN" class="0">
@@ -46892,8 +46892,8 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 </segment>
 <segment>
 <pinref part="C67" gate="G$1" pin="1"/>
-<wire x1="29.845" y1="30.48" x2="29.845" y2="33.02" width="0.1524" layer="91"/>
-<label x="29.845" y="35.56" size="1.778" layer="95" rot="R90"/>
+<wire x1="30.48" y1="30.48" x2="30.48" y2="33.02" width="0.1524" layer="91"/>
+<label x="30.48" y="35.56" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="AFE1_COM" class="0">
@@ -46904,8 +46904,8 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 </segment>
 <segment>
 <pinref part="C68" gate="G$1" pin="1"/>
-<wire x1="37.465" y1="30.48" x2="37.465" y2="33.02" width="0.1524" layer="91"/>
-<label x="37.465" y="35.56" size="1.778" layer="95" rot="R90"/>
+<wire x1="38.1" y1="30.48" x2="38.1" y2="33.02" width="0.1524" layer="91"/>
+<label x="38.1" y="35.56" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 </nets>
@@ -46916,19 +46916,19 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <text x="104.14" y="38.1" size="2.54" layer="97" rot="R90">VDD</text>
 <text x="157.48" y="38.1" size="2.54" layer="97" rot="R90">OVDD</text>
 <text x="50.8" y="38.1" size="2.54" layer="97" rot="R90">REFIN</text>
-<text x="178.562" y="87.63" size="1.778" layer="150">-AFE DB lines are pulled-up internally</text>
-<text x="179.197" y="85.09" size="1.778" layer="150">both in AFE and SmartFusion</text>
-<text x="178.562" y="90.17" size="1.778" layer="150">-AFEs are disabled by default</text>
-<text x="176.022" y="93.98" size="1.778" layer="150">Note:</text>
-<wire x1="173.482" y1="99.06" x2="221.742" y2="99.06" width="0.1524" layer="150" style="shortdash"/>
-<wire x1="221.742" y1="99.06" x2="221.742" y2="81.28" width="0.1524" layer="150" style="shortdash"/>
-<wire x1="221.742" y1="81.28" x2="173.482" y2="81.28" width="0.1524" layer="150" style="shortdash"/>
-<wire x1="173.482" y1="81.28" x2="173.482" y2="99.06" width="0.1524" layer="150" style="shortdash"/>
+<text x="177.927" y="87.63" size="1.778" layer="150">-AFE DB lines are pulled-up internally</text>
+<text x="178.562" y="85.09" size="1.778" layer="150">both in AFE and SmartFusion</text>
+<text x="177.927" y="90.17" size="1.778" layer="150">-AFEs are disabled by default</text>
+<text x="175.387" y="93.98" size="1.778" layer="150">Note:</text>
+<wire x1="172.847" y1="99.06" x2="221.107" y2="99.06" width="0.1524" layer="150" style="shortdash"/>
+<wire x1="221.107" y1="99.06" x2="221.107" y2="81.28" width="0.1524" layer="150" style="shortdash"/>
+<wire x1="221.107" y1="81.28" x2="172.847" y2="81.28" width="0.1524" layer="150" style="shortdash"/>
+<wire x1="172.847" y1="81.28" x2="172.847" y2="99.06" width="0.1524" layer="150" style="shortdash"/>
 <text x="102.235" y="103.505" size="1.778" layer="97">NC</text>
 <text x="20.955" y="100.965" size="1.778" layer="97">NC</text>
 <text x="20.955" y="103.505" size="1.778" layer="97">NC</text>
 <text x="58.42" y="104.14" size="50.8" layer="208">EXT</text>
-<text x="26.67" y="35.56" size="50.8" layer="208">AFE 2</text>
+<text x="36.83" y="35.56" size="50.8" layer="208">AFE2</text>
 </plain>
 <instances>
 <instance part="FRAME9" gate="G$1" x="0" y="0"/>
