@@ -2392,6 +2392,65 @@ Small fiducial for automated assembly
 <circle x="0" y="0" radius="1.27" width="0.254" layer="94"/>
 <text x="-1.27" y="1.905" size="1.27" layer="95">&gt;NAME</text>
 </symbol>
+<symbol name="CLOCK-BUFFER-DIFF-SINGLE">
+<pin name="NC@1" x="15.24" y="0" length="middle" direction="nc" rot="R180"/>
+<pin name="CLK" x="-15.24" y="5.08" length="middle" direction="in"/>
+<pin name="NCLK" x="-15.24" y="2.54" length="middle" direction="in"/>
+<pin name="NC@2" x="15.24" y="-2.54" length="middle" direction="nc" rot="R180"/>
+<pin name="GND" x="-15.24" y="-5.08" length="middle" direction="sup"/>
+<pin name="NC@3" x="15.24" y="-5.08" length="middle" direction="nc" rot="R180"/>
+<pin name="Q0" x="15.24" y="5.08" length="middle" direction="out" rot="R180"/>
+<pin name="VDD" x="-15.24" y="-2.54" length="middle" direction="sup"/>
+<wire x1="-10.16" y1="7.62" x2="-10.16" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="5.08" x2="-10.16" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="2.54" x2="-10.16" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="-7.62" x2="10.16" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-7.62" x2="10.16" y2="5.08" width="0.254" layer="94"/>
+<wire x1="10.16" y1="5.08" x2="10.16" y2="7.62" width="0.254" layer="94"/>
+<wire x1="10.16" y1="7.62" x2="-10.16" y2="7.62" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="6.35" x2="-1.27" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="5.08" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="1.27" x2="3.81" y2="3.81" width="0.254" layer="94"/>
+<wire x1="3.81" y1="3.81" x2="-1.27" y2="6.35" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="5.08" x2="-1.27" y2="5.08" width="0.254" layer="94"/>
+<wire x1="3.81" y1="3.81" x2="8.89" y2="3.81" width="0.254" layer="94"/>
+<wire x1="8.89" y1="3.81" x2="8.89" y2="5.08" width="0.254" layer="94"/>
+<wire x1="8.89" y1="5.08" x2="10.16" y2="5.08" width="0.254" layer="94"/>
+<circle x="-2.032" y="2.54" radius="0.567959375" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="2.54" x2="-2.54" y2="2.54" width="0.254" layer="94"/>
+<text x="-10.16" y="8.89" size="1.778" layer="95">&gt;NAME</text>
+<text x="-10.16" y="-10.16" size="1.778" layer="96">&gt;VALUE</text>
+</symbol>
+<symbol name="CLOCK-BUFFER-SINGLE-DIFF">
+<wire x1="-10.16" y1="7.62" x2="10.16" y2="7.62" width="0.254" layer="94"/>
+<wire x1="10.16" y1="7.62" x2="10.16" y2="5.08" width="0.254" layer="94"/>
+<wire x1="10.16" y1="5.08" x2="10.16" y2="2.54" width="0.254" layer="94"/>
+<wire x1="10.16" y1="2.54" x2="10.16" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-7.62" x2="-10.16" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="-7.62" x2="-10.16" y2="5.08" width="0.254" layer="94"/>
+<pin name="NC@1" x="-15.24" y="0" length="middle" direction="nc"/>
+<pin name="Q" x="15.24" y="5.08" length="middle" direction="out" rot="R180"/>
+<pin name="NQ" x="15.24" y="2.54" length="middle" direction="out" rot="R180"/>
+<pin name="NC@2" x="-15.24" y="-2.54" length="middle" direction="nc"/>
+<pin name="VEE" x="15.24" y="-5.08" length="middle" direction="sup" rot="R180"/>
+<pin name="NC@3" x="-15.24" y="-5.08" length="middle" direction="nc"/>
+<pin name="CLK" x="-15.24" y="5.08" length="middle" direction="in"/>
+<pin name="VCC" x="15.24" y="-2.54" length="middle" direction="sup" rot="R180"/>
+<wire x1="-10.16" y1="5.08" x2="-10.16" y2="7.62" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="6.35" x2="-1.27" y2="3.81" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="3.81" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="1.27" x2="3.81" y2="3.81" width="0.254" layer="94"/>
+<wire x1="3.81" y1="3.81" x2="1.27" y2="5.08" width="0.254" layer="94"/>
+<wire x1="1.27" y1="5.08" x2="-1.27" y2="6.35" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="5.08" x2="-8.89" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-8.89" y1="5.08" x2="-8.89" y2="3.81" width="0.254" layer="94"/>
+<wire x1="-8.89" y1="3.81" x2="-1.27" y2="3.81" width="0.254" layer="94"/>
+<wire x1="10.16" y1="5.08" x2="1.27" y2="5.08" width="0.254" layer="94"/>
+<circle x="2.032" y="2.286" radius="0.567959375" width="0.254" layer="94"/>
+<wire x1="10.16" y1="2.54" x2="2.54" y2="2.54" width="0.254" layer="94"/>
+<text x="-10.16" y="8.89" size="1.778" layer="95">&gt;NAME</text>
+<text x="-10.16" y="-10.16" size="1.778" layer="96">&gt;VALUE</text>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="FRAME-AUTHOR-FIELD">
@@ -3816,6 +3875,93 @@ Various fiducial points for machine vision alignment.</description>
 </gates>
 <devices>
 <device name="1X2" package="FIDUCIAL-1X2">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="ICS85320I" prefix="U">
+<description>&lt;b&gt;ICS85320I  LVCMOS/LVTTL-to-differential 3.3V, 2.5V LVPECL translator&lt;/b&gt;
+&lt;p&gt;
+Integrated Device Technology
+&lt;p&gt;
+The ICS85320I is a LVCMOS / LVTTL-to-Differential 3.3V, 2.5V LVPECL translator and a member of the HiPerClocks™  family of High Performance Clocks Solutions from IDT. The ICS85320I has a single ended clock input. The single ended clock input accepts LVCMOS or LVTTL input levels and translates them to 3.3V or 2.5V LVPECL levels. The small outline 8-pin SOIC package makes this device ideal for applications where space, high performance and low power are important. 
+&lt;p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;One differential 2.5V/3.3V LVPECL output&lt;/li&gt;
+&lt;li&gt;LVCMOS/LVTTL CLK input&lt;/li&gt;
+&lt;li&gt;CLK accepts the following input levels:  LVCMOS or LVTTL&lt;/li&gt;
+&lt;li&gt;Maximum output frequency:  267MHz&lt;/li&gt;
+&lt;li&gt;Part-to-part skew:  275ps (maximum)&lt;/li&gt;
+&lt;li&gt;Additive phase jitter, RMS: 0.05ps (typical)&lt;/li&gt;
+&lt;li&gt;3.3V operating supply voltage (operating range 3.135V to 3.465V)&lt;/li&gt;
+&lt;li&gt;2.5V operating supply voltage (operating range 2.375V to 2.625V)&lt;/li&gt;
+&lt;li&gt;-40°C to 85°C ambient operating temperature&lt;/li&gt;
+&lt;li&gt;Available in both standard (RoHS 5) and lead-free (RoHS 6) packages&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+Source: &lt;a href="http://www.idt.com/sites/default/files/documents/IDT_85320I_DST_20061113.pdf"&gt;http://www.idt.com/sites/default/files/documents/IDT_85320I_DST_20061113.pdf&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="CLOCK-BUFFER-SINGLE-DIFF" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOIC8">
+<connects>
+<connect gate="G$1" pin="CLK" pad="7"/>
+<connect gate="G$1" pin="NC@1" pad="1"/>
+<connect gate="G$1" pin="NC@2" pad="4"/>
+<connect gate="G$1" pin="NC@3" pad="6"/>
+<connect gate="G$1" pin="NQ" pad="3"/>
+<connect gate="G$1" pin="Q" pad="2"/>
+<connect gate="G$1" pin="VCC" pad="8"/>
+<connect gate="G$1" pin="VEE" pad="5"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="ICS83021I" prefix="U">
+<description>&lt;b&gt;ICS83021I  1-to-1 differential-to-LVCMOS/LVTTL translator&lt;/b&gt;
+&lt;p&gt;
+Integrated Device Technology
+&lt;p&gt;
+The ICS83021I is a 1-to-1 Differential-to-LVCMOS/LVTTL Translator and a member of the HiPerClockS™    family of High Performance Clock Solutions from IDT. The differential input is highly flexible and can accept the following input types: LVPECL, LVDS, LVHSTL, SSTL, and HCSL. The small 8-lead SOIC footprint makes this device ideal for use in applications with limited board space.
+&lt;p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;One LVCMOS/LVTTL output&lt;/li&gt;
+&lt;li&gt;Differential CLK/nCLK input pair&lt;/li&gt;
+&lt;li&gt;CLK/nCLK pair can accept the following differential input levels:   LVPECL, LVDS, LVHSTL, SSTL, HCSL&lt;/li&gt;
+&lt;li&gt;Output frequency: 350MHz (typical)&lt;/li&gt;
+&lt;li&gt;Part-to-part skew: 500ps (maximum)&lt;/li&gt;
+&lt;li&gt;Additive phase jitter, RMS: 0.21ps (typical), 3.3V output&lt;/li&gt;
+&lt;li&gt;Full 3.3V and 2.5V operating supply&lt;/li&gt;
+&lt;li&gt;-40°C to 85°C ambient operating temperature&lt;/li&gt;
+&lt;li&gt;Available in both standard (RoHS 5) and lead-free (RoHS 6) packages&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+Source: &lt;a href="http://www.idt.com/sites/default/files/documents/IDT_83021I_DST_20100103.pdf"&gt;http://www.idt.com/sites/default/files/documents/IDT_83021I_DST_20100103.pdf&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="CLOCK-BUFFER-DIFF-SINGLE" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOIC8">
+<connects>
+<connect gate="G$1" pin="CLK" pad="2"/>
+<connect gate="G$1" pin="GND" pad="5"/>
+<connect gate="G$1" pin="NC@1" pad="1"/>
+<connect gate="G$1" pin="NC@2" pad="4"/>
+<connect gate="G$1" pin="NC@3" pad="6"/>
+<connect gate="G$1" pin="NCLK" pad="3"/>
+<connect gate="G$1" pin="Q0" pad="7"/>
+<connect gate="G$1" pin="VDD" pad="8"/>
+</connects>
 <technologies>
 <technology name=""/>
 </technologies>
