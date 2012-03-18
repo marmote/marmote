@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.05" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
@@ -1641,17 +1641,21 @@ Small fiducial for automated assembly
 <wire x1="81.28" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
 <wire x1="0" y1="30.48" x2="0" y2="0" width="0.254" layer="94"/>
 <wire x1="81.28" y1="30.48" x2="81.28" y2="0" width="0.254" layer="94"/>
-<text x="21.59" y="24.13" size="2.54" layer="97">#1 - </text>
-<text x="21.59" y="19.05" size="2.54" layer="97">#2 - </text>
+<text x="2.54" y="16.51" size="2.54" layer="97">#1 - </text>
+<text x="2.54" y="11.43" size="2.54" layer="97">#2 - </text>
 <text x="2.54" y="26.67" size="2.54" layer="94">Pages:</text>
-<text x="28.702" y="24.13" size="2.54" layer="97">&gt;PAGE1</text>
-<text x="28.702" y="19.05" size="2.54" layer="97">&gt;PAGE2</text>
-<text x="21.59" y="13.97" size="2.54" layer="97">#3 - </text>
-<text x="28.702" y="13.97" size="2.54" layer="97">&gt;PAGE3</text>
-<text x="21.59" y="8.89" size="2.54" layer="97">#4 - </text>
-<text x="21.59" y="3.81" size="2.54" layer="97">#5 - </text>
-<text x="28.702" y="8.89" size="2.54" layer="97">&gt;PAGE4</text>
-<text x="28.702" y="3.81" size="2.54" layer="97">&gt;PAGE5</text>
+<text x="9.652" y="16.51" size="2.54" layer="97">&gt;PAGE1</text>
+<text x="9.652" y="11.43" size="2.54" layer="97">&gt;PAGE2</text>
+<text x="2.54" y="6.35" size="2.54" layer="97">#3 - </text>
+<text x="9.652" y="6.35" size="2.54" layer="97">&gt;PAGE3</text>
+<text x="39.37" y="21.59" size="2.54" layer="97">#4 - </text>
+<text x="39.37" y="16.51" size="2.54" layer="97">#5 - </text>
+<text x="46.482" y="21.59" size="2.54" layer="97">&gt;PAGE4</text>
+<text x="46.482" y="16.51" size="2.54" layer="97">&gt;PAGE5</text>
+<text x="39.37" y="11.43" size="2.54" layer="97">#6 - </text>
+<text x="39.37" y="6.35" size="2.54" layer="97">#7 - </text>
+<text x="46.482" y="11.43" size="2.54" layer="97">&gt;PAGE6</text>
+<text x="46.482" y="6.35" size="2.54" layer="97">&gt;PAGE7</text>
 </symbol>
 <symbol name="MOUNT-HOLE">
 <wire x1="0" y1="1.27" x2="1.27" y2="0" width="1.524" layer="94" curve="-90" cap="flat"/>
