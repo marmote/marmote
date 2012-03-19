@@ -1,6 +1,6 @@
 SMD component position file.
 
-Centroid Data for pc board: "MainBoard.brd" as of: 3/16/2012 6:12:08 PM
+Centroid Data for pc board: "MainBoard.brd" as of: 3/19/2012 10:57:04 AM
 Measurements are in inches. Comma delimited
 Only surface mount components included
 
@@ -157,11 +157,10 @@ C145,Bottom,0.610,1.358,0
 C146,Bottom,0.896,1.457,90
 C147,Bottom,0.719,1.663,90
 C148,Bottom,1.043,1.959,90
-J1,Top,0.787,1.122,180
+J1,Top,0.748,2.126,180
 J3,Top,0.236,1.220,180
 J4,Bottom,1.772,0.276,180
 J5,Top,1.772,0.276,0
-J6,Top,0.748,2.126,180
 L1,Bottom,2.201,1.502,180
 L2,Bottom,1.545,1.102,0
 LED1,Top,0.177,2.126,0
@@ -249,6 +248,7 @@ R75,Top,0.630,1.703,270
 R76,Bottom,1.329,0.551,180
 SW1,Top,0.069,0.531,270
 SW2,Top,0.069,0.787,270
+SW3,Top,0.787,1.122,180
 U1,Top,1.772,1.496,180
 U2,Top,1.535,0.787,180
 U3,Top,2.165,0.787,180
