@@ -6,14 +6,14 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.25" altunitdist="mm" altunit="mm"/>
+<grid distance="100" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="25" altunitdist="mil" altunit="mil"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
-<layer number="2" name="GND" color="1" fill="3" visible="no" active="yes"/>
-<layer number="3" name="Inner1" color="13" fill="3" visible="no" active="yes"/>
-<layer number="14" name="Inner2" color="10" fill="6" visible="no" active="yes"/>
-<layer number="15" name="D3V3" color="4" fill="3" visible="no" active="yes"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="2" name="GND" color="1" fill="3" visible="yes" active="yes"/>
+<layer number="3" name="Inner1" color="13" fill="3" visible="yes" active="yes"/>
+<layer number="14" name="Inner2" color="10" fill="6" visible="yes" active="yes"/>
+<layer number="15" name="D3V3" color="4" fill="3" visible="yes" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="yes"/>
@@ -48,7 +48,7 @@
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="yes"/>
-<layer number="51" name="tDocu" color="14" fill="1" visible="yes" active="yes"/>
+<layer number="51" name="tDocu" color="14" fill="1" visible="no" active="yes"/>
 <layer number="52" name="bDocu" color="11" fill="1" visible="no" active="yes"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
@@ -13013,17 +13013,17 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="24.5" y1="5.15" x2="24.5" y2="7" width="0.6096" layer="1"/>
 <wire x1="24.5" y1="7" x2="24.5" y2="8.85" width="0.6096" layer="1"/>
 <wire x1="24.5" y1="5.15" x2="24.5" y2="3.5" width="0.6096" layer="1"/>
-<via x="24.5" y="3.5" extent="1-16" drill="0.2032"/>
+<via x="24.5" y="3.5" extent="1-16" drill="0.3048"/>
 <wire x1="24.5" y1="3.5" x2="24.5" y2="5.15" width="0.6096" layer="16"/>
 <wire x1="24.5" y1="5.15" x2="24.5" y2="7" width="0.6096" layer="16"/>
 <wire x1="24.5" y1="7" x2="24.5" y2="8.85" width="0.6096" layer="16"/>
 <wire x1="28.5" y1="5.15" x2="28.5" y2="3.5" width="0.3048" layer="16"/>
-<via x="28.5" y="3.5" extent="1-16" drill="0.2032"/>
+<via x="28.5" y="3.5" extent="1-16" drill="0.3048"/>
 <wire x1="28.5" y1="3.5" x2="28.5" y2="5.15" width="0.6096" layer="1"/>
 <wire x1="24.5" y1="8.85" x2="24.5" y2="10.5" width="0.6096" layer="1"/>
-<via x="28.5" y="10.5" extent="1-16" drill="0.2032"/>
+<via x="28.5" y="10.5" extent="1-16" drill="0.3048"/>
 <wire x1="28.5" y1="10.5" x2="28.5" y2="8.85" width="0.6096" layer="1"/>
-<via x="24.5" y="10.5" extent="1-16" drill="0.2032"/>
+<via x="24.5" y="10.5" extent="1-16" drill="0.3048"/>
 <wire x1="24.5" y1="10.5" x2="24.5" y2="8.85" width="0.6096" layer="16"/>
 <wire x1="28.5" y1="3.5" x2="28.5" y2="7" width="0.6096" layer="16"/>
 <wire x1="24.5" y1="3.5" x2="24.5" y2="2.75" width="0.3048" layer="1"/>
@@ -13118,8 +13118,8 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="44.5" y1="39.5" x2="44" y2="40" width="0.1524" layer="1"/>
 <via x="44" y="40" extent="1-16" drill="0.2032"/>
 <contactref element="J5" pad="16"/>
-<wire x1="31.5" y1="8.85" x2="31.5" y2="10.5" width="0.4064" layer="1"/>
-<via x="31.5" y="10.5" extent="1-16" drill="0.2032"/>
+<wire x1="31.5" y1="8.85" x2="31.5" y2="10.5" width="0.6096" layer="1"/>
+<via x="31.5" y="10.5" extent="1-16" drill="0.3048"/>
 <wire x1="46.5" y1="32.5" x2="46" y2="32" width="0.1524" layer="1"/>
 <via x="46" y="32" extent="1-16" drill="0.2032"/>
 <wire x1="38.5" y1="42.5" x2="38" y2="43" width="0.1524" layer="1"/>
@@ -13174,9 +13174,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="J4" pad="15"/>
 <contactref element="J4" pad="16"/>
 <wire x1="31.5" y1="5.15" x2="31.5" y2="3.5" width="0.3048" layer="16"/>
-<via x="31.5" y="3.5" extent="1-16" drill="0.2032"/>
+<via x="31.5" y="3.5" extent="1-16" drill="0.3048"/>
 <wire x1="31.5" y1="3.5" x2="31.5" y2="5.15" width="0.6096" layer="1"/>
-<wire x1="31.5" y1="8.85" x2="31.5" y2="10.5" width="0.3048" layer="16"/>
+<wire x1="31.5" y1="8.85" x2="31.5" y2="10.5" width="0.6096" layer="16"/>
 <wire x1="38.5" y1="31.5" x2="37.5" y2="31.5" width="0.1524" layer="1"/>
 <contactref element="C30" pad="2"/>
 <contactref element="C33" pad="2"/>
@@ -13312,9 +13312,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="36" y="11" extent="1-16" drill="0.2032"/>
 <contactref element="TP1" pad="1"/>
 <contactref element="TP2" pad="1"/>
-<via x="24.5" y="7" extent="1-16" drill="0.2032"/>
-<via x="28.5" y="7" extent="1-16" drill="0.2032"/>
-<via x="31.5" y="7" extent="1-16" drill="0.2032"/>
+<via x="24.5" y="7" extent="1-16" drill="0.3048"/>
+<via x="28.5" y="7" extent="1-16" drill="0.3048"/>
+<via x="31.5" y="7" extent="1-16" drill="0.3048"/>
 <via x="81.75" y="23.75" extent="1-16" drill="0.2032"/>
 <wire x1="28.5" y1="8.85" x2="28.5" y2="7" width="0.6096" layer="16"/>
 <wire x1="28.5" y1="8.85" x2="28.5" y2="10.5" width="0.6096" layer="16"/>
@@ -13340,13 +13340,13 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="J5" pad="7"/>
 <wire x1="27.5" y1="7" x2="27.5" y2="8.85" width="0.6096" layer="16"/>
 <wire x1="27.5" y1="5.15" x2="27.5" y2="3.5" width="0.6096" layer="1"/>
-<via x="27.5" y="3.5" extent="1-16" drill="0.2032" alwaysstop="yes"/>
+<via x="27.5" y="3.5" extent="1-16" drill="0.3048" alwaysstop="yes"/>
 <wire x1="27.5" y1="3.5" x2="27.5" y2="5.15" width="0.6096" layer="16"/>
 <wire x1="27.5" y1="5.15" x2="27.5" y2="7" width="0.6096" layer="1"/>
 <wire x1="27.5" y1="7" x2="27.5" y2="8.85" width="0.6096" layer="1"/>
 <wire x1="27.5" y1="8.85" x2="27.5" y2="10.5" width="0.6096" layer="1"/>
-<via x="27.5" y="10.5" extent="1-16" drill="0.2032" alwaysstop="yes"/>
-<wire x1="27.5" y1="10.5" x2="27.5" y2="8.85" width="0.4064" layer="16"/>
+<via x="27.5" y="10.5" extent="1-16" drill="0.3048" alwaysstop="yes"/>
+<wire x1="27.5" y1="10.5" x2="27.5" y2="8.85" width="0.6096" layer="16"/>
 <via x="37" y="36" extent="1-16" drill="0.2032"/>
 <wire x1="43.5" y1="39.5" x2="43" y2="40" width="0.1524" layer="1"/>
 <via x="43" y="40" extent="1-16" drill="0.2032"/>
@@ -13433,7 +13433,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="44.5" y1="34.5" x2="45" y2="35" width="0.3048" layer="15"/>
 <wire x1="45" y1="35" x2="46" y2="35" width="0.3048" layer="15"/>
 <wire x1="34.4" y1="36" x2="37" y2="36" width="0.1524" layer="1"/>
-<via x="27.5" y="7" extent="1-16" drill="0.2032"/>
+<via x="27.5" y="7" extent="1-16" drill="0.3048"/>
 </signal>
 <signal name="VSUP">
 <contactref element="J4" pad="3"/>
@@ -13441,16 +13441,16 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="25.5" y1="5.15" x2="25.5" y2="7" width="0.6096" layer="16"/>
 <wire x1="25.5" y1="7" x2="25.5" y2="8.85" width="0.6096" layer="16"/>
 <wire x1="25.5" y1="5.15" x2="25.5" y2="3.5" width="0.6096" layer="16"/>
-<via x="25.5" y="3.5" extent="1-16" drill="0.2032" alwaysstop="yes"/>
+<via x="25.5" y="3.5" extent="1-16" drill="0.3048" alwaysstop="yes"/>
 <contactref element="J5" pad="3"/>
 <contactref element="J5" pad="4"/>
 <wire x1="25.5" y1="3.5" x2="25.5" y2="5.15" width="0.6096" layer="1"/>
 <wire x1="25.5" y1="5.15" x2="25.5" y2="7" width="0.6096" layer="1"/>
 <wire x1="25.5" y1="7" x2="25.5" y2="8.85" width="0.6096" layer="1"/>
 <wire x1="25.5" y1="8.85" x2="25.5" y2="10.5" width="0.6096" layer="1"/>
-<via x="25.5" y="10.5" extent="1-16" drill="0.2032" alwaysstop="yes"/>
-<wire x1="25.5" y1="10.5" x2="25.5" y2="8.85" width="0.4064" layer="16"/>
-<via x="25.5" y="7" extent="1-16" drill="0.2032"/>
+<via x="25.5" y="10.5" extent="1-16" drill="0.3048" alwaysstop="yes"/>
+<wire x1="25.5" y1="10.5" x2="25.5" y2="8.85" width="0.6096" layer="16"/>
+<via x="25.5" y="7" extent="1-16" drill="0.3048"/>
 </signal>
 <signal name="D3V3">
 <contactref element="U1" pad="A15"/>
@@ -13510,7 +13510,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="26.5" y1="5.15" x2="26.5" y2="7" width="0.6096" layer="16"/>
 <wire x1="26.5" y1="7" x2="26.5" y2="8.85" width="0.6096" layer="16"/>
 <wire x1="26.5" y1="5.15" x2="26.5" y2="3.5" width="0.6096" layer="16"/>
-<via x="26.5" y="3.5" extent="1-16" drill="0.2032" alwaysstop="yes"/>
+<via x="26.5" y="3.5" extent="1-16" drill="0.3048" alwaysstop="yes"/>
 <contactref element="J5" pad="5"/>
 <contactref element="J5" pad="6"/>
 <wire x1="26.5" y1="5.15" x2="26.5" y2="7" width="0.6096" layer="1"/>
@@ -13518,9 +13518,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="26.5" y1="5.15" x2="26.5" y2="3.5" width="0.6096" layer="1"/>
 <wire x1="26.5" y1="8.85" x2="26.5" y2="10.5" width="0.6096" layer="1"/>
 <wire x1="26.5" y1="10.5" x2="26" y2="11" width="0.4064" layer="1"/>
-<via x="26" y="11" extent="1-16" drill="0.2032"/>
+<via x="26" y="11" extent="1-16" drill="0.3048"/>
 <wire x1="26" y1="11" x2="26.5" y2="10.5" width="0.4064" layer="16"/>
-<wire x1="26.5" y1="10.5" x2="26.5" y2="8.85" width="0.4064" layer="16"/>
+<wire x1="26.5" y1="10.5" x2="26.5" y2="8.85" width="0.6096" layer="16"/>
 <wire x1="54.25" y1="23.5" x2="54.25" y2="24.5" width="0.1524" layer="1"/>
 <via x="54.25" y="24.5" extent="1-16" drill="0.2032"/>
 <wire x1="38.25" y1="23.5" x2="38.25" y2="24.25" width="0.1524" layer="1"/>
@@ -13729,13 +13729,13 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="53.4" y1="21.75" x2="53.4" y2="22.35" width="0.1524" layer="16"/>
 <wire x1="53.4" y1="22.35" x2="52.25" y2="23.5" width="0.1524" layer="16"/>
 <wire x1="52.25" y1="23.5" x2="51.75" y2="23.5" width="0.1524" layer="16"/>
-<via x="27" y="11" extent="1-16" drill="0.2032"/>
+<via x="27" y="11" extent="1-16" drill="0.3048"/>
 <wire x1="27" y1="11" x2="26.5" y2="10.5" width="0.4064" layer="16"/>
 <wire x1="27" y1="11" x2="26.5" y2="10.5" width="0.4064" layer="1"/>
-<via x="26.5" y="10.5" extent="1-16" drill="0.2032" alwaysstop="yes"/>
+<via x="26.5" y="10.5" extent="1-16" drill="0.3048" alwaysstop="yes"/>
 <wire x1="12.45" y1="16.4" x2="12.45" y2="17.05" width="0.1524" layer="16"/>
 <wire x1="12.45" y1="17.05" x2="12" y2="17.5" width="0.1524" layer="16"/>
-<via x="26.5" y="7" extent="1-16" drill="0.2032"/>
+<via x="26.5" y="7" extent="1-16" drill="0.3048"/>
 </signal>
 <signal name="A3V3">
 <contactref element="U2" pad="46"/>
@@ -13796,9 +13796,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="T15"/>
 <contactref element="U1" pad="P12"/>
 <wire x1="64.5" y1="8.85" x2="64.5" y2="10.5" width="0.6096" layer="16"/>
-<via x="64.5" y="3.5" extent="1-16" drill="0.2032" alwaysstop="yes"/>
+<via x="64.5" y="3.5" extent="1-16" drill="0.3048" alwaysstop="yes"/>
 <wire x1="64.5" y1="5.15" x2="64.5" y2="3.5" width="0.6096" layer="16"/>
-<via x="64.5" y="10.5" extent="1-16" drill="0.2032" alwaysstop="yes"/>
+<via x="64.5" y="10.5" extent="1-16" drill="0.3048" alwaysstop="yes"/>
 <wire x1="58.5" y1="22.25" x2="59.75" y2="22.25" width="0.1524" layer="1"/>
 <via x="59.75" y="22.25" extent="1-16" drill="0.2032"/>
 <wire x1="58.5" y1="20.75" x2="59.25" y2="20.75" width="0.1524" layer="1"/>
@@ -13942,7 +13942,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="34.5" y1="19.75" x2="35.5" y2="19.75" width="0.1524" layer="16"/>
 <wire x1="35.5" y1="19.75" x2="35.65" y2="19.9" width="0.1524" layer="16"/>
 <wire x1="35.65" y1="19.9" x2="35.75" y2="19.9" width="0.1524" layer="16"/>
-<via x="64.5" y="7" extent="1-16" drill="0.2032"/>
+<via x="64.5" y="7" extent="1-16" drill="0.3048"/>
 </signal>
 <signal name="AGND">
 <contactref element="C64" pad="1"/>
@@ -14070,10 +14070,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="62.5" y1="5.15" x2="62.5" y2="7" width="0.6096" layer="1"/>
 <wire x1="62.5" y1="7" x2="62.5" y2="8.85" width="0.6096" layer="1"/>
 <wire x1="62.5" y1="5.15" x2="62.5" y2="3.5" width="0.6096" layer="1"/>
-<via x="62.5" y="3.5" extent="1-16" drill="0.2032"/>
+<via x="62.5" y="3.5" extent="1-16" drill="0.3048"/>
 <wire x1="62.5" y1="3.5" x2="62.5" y2="5.15" width="0.3048" layer="16"/>
 <wire x1="65.5" y1="5.15" x2="65.5" y2="3.5" width="0.6096" layer="1"/>
-<via x="65.5" y="3.5" extent="1-16" drill="0.2032"/>
+<via x="65.5" y="3.5" extent="1-16" drill="0.3048"/>
 <wire x1="65.5" y1="3.5" x2="65.5" y2="5.15" width="0.6096" layer="16"/>
 <wire x1="59.5" y1="5.15" x2="59.5" y2="7" width="0.6096" layer="1"/>
 <wire x1="59.5" y1="7" x2="59.5" y2="8.85" width="0.6096" layer="1"/>
@@ -14091,28 +14091,28 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="62.5" y1="5.15" x2="62.5" y2="7" width="0.3048" layer="16"/>
 <wire x1="62.5" y1="7" x2="62.5" y2="8.85" width="0.6096" layer="16"/>
 <wire x1="38.5" y1="8.85" x2="38.5" y2="10.5" width="0.6096" layer="1"/>
-<via x="38.5" y="10.5" extent="1-16" drill="0.2032"/>
-<via x="38.5" y="3.5" extent="1-16" drill="0.2032"/>
+<via x="38.5" y="10.5" extent="1-16" drill="0.3048"/>
+<via x="38.5" y="3.5" extent="1-16" drill="0.3048"/>
 <wire x1="38.5" y1="8.85" x2="38.5" y2="7" width="0.6096" layer="16"/>
 <wire x1="38.5" y1="7" x2="38.5" y2="5.15" width="0.6096" layer="16"/>
 <wire x1="38.5" y1="3.5" x2="38.5" y2="5" width="0.6096" layer="1"/>
 <wire x1="41.5" y1="5.15" x2="41.5" y2="3.5" width="0.6096" layer="1"/>
-<via x="41.5" y="3.5" extent="1-16" drill="0.2032"/>
-<via x="41.5" y="10.5" extent="1-16" drill="0.2032"/>
+<via x="41.5" y="3.5" extent="1-16" drill="0.3048"/>
+<via x="41.5" y="10.5" extent="1-16" drill="0.3048"/>
 <wire x1="41.5" y1="10.5" x2="41.5" y2="8.85" width="0.6096" layer="1"/>
 <wire x1="65.5" y1="8.85" x2="65.5" y2="10.5" width="0.6096" layer="16"/>
-<via x="65.5" y="10.5" extent="1-16" drill="0.2032"/>
-<wire x1="65.5" y1="10.5" x2="65.5" y2="8.85" width="0.4064" layer="1"/>
+<via x="65.5" y="10.5" extent="1-16" drill="0.3048"/>
+<wire x1="65.5" y1="10.5" x2="65.5" y2="8.85" width="0.6096" layer="1"/>
 <wire x1="44.5" y1="5.15" x2="44.5" y2="3.5" width="0.6096" layer="1"/>
-<via x="44.5" y="3.5" extent="1-16" drill="0.2032"/>
-<via x="44.5" y="10.5" extent="1-16" drill="0.2032"/>
+<via x="44.5" y="3.5" extent="1-16" drill="0.3048"/>
+<via x="44.5" y="10.5" extent="1-16" drill="0.3048"/>
 <wire x1="44.5" y1="10.5" x2="44.5" y2="8.85" width="0.6096" layer="1"/>
 <wire x1="38.5" y1="3.5" x2="38.5" y2="2.75" width="0.4064" layer="1"/>
 <wire x1="38.5" y1="2.75" x2="38.75" y2="2.5" width="0.4064" layer="1"/>
 <wire x1="65.5" y1="3.5" x2="65.5" y2="2.75" width="0.4064" layer="1"/>
 <wire x1="65.5" y1="2.75" x2="65.25" y2="2.5" width="0.4064" layer="1"/>
-<wire x1="62.5" y1="8.85" x2="62.5" y2="10.5" width="0.4064" layer="1"/>
-<via x="62.5" y="10.5" extent="1-16" drill="0.2032"/>
+<wire x1="62.5" y1="8.85" x2="62.5" y2="10.5" width="0.6096" layer="1"/>
+<via x="62.5" y="10.5" extent="1-16" drill="0.3048"/>
 <wire x1="62.5" y1="7" x2="62.5" y2="3.5" width="0.6096" layer="16"/>
 <wire x1="65.25" y1="2.5" x2="62.5" y2="2.5" width="0.4064" layer="1"/>
 <wire x1="62.5" y1="2.5" x2="59.5" y2="2.5" width="0.4064" layer="1"/>
@@ -14134,27 +14134,27 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="59.5" y1="3.5" x2="59.5" y2="2.5" width="0.4064" layer="1"/>
 <wire x1="62.5" y1="3.5" x2="62.5" y2="2.5" width="0.4064" layer="1"/>
 <wire x1="50.5" y1="8.85" x2="50.5" y2="10.5" width="0.6096" layer="1"/>
-<via x="50.5" y="10.5" extent="1-16" drill="0.2032"/>
-<via x="50.5" y="3.5" extent="1-16" drill="0.2032"/>
+<via x="50.5" y="10.5" extent="1-16" drill="0.3048"/>
+<via x="50.5" y="3.5" extent="1-16" drill="0.3048"/>
 <wire x1="50.5" y1="3.5" x2="50.5" y2="5.15" width="0.6096" layer="1"/>
-<via x="47.5" y="10.5" extent="1-16" drill="0.2032"/>
+<via x="47.5" y="10.5" extent="1-16" drill="0.3048"/>
 <wire x1="47.5" y1="8.85" x2="47.5" y2="10.5" width="0.6096" layer="1"/>
-<via x="47.5" y="3.5" extent="1-16" drill="0.2032"/>
+<via x="47.5" y="3.5" extent="1-16" drill="0.3048"/>
 <wire x1="47.5" y1="3.5" x2="47.5" y2="7" width="0.6096" layer="1"/>
 <wire x1="47.5" y1="7" x2="47.5" y2="8.85" width="0.6096" layer="1"/>
 <wire x1="53.5" y1="5.15" x2="53.5" y2="3.5" width="0.3048" layer="1"/>
-<via x="53.5" y="3.5" extent="1-16" drill="0.2032"/>
-<via x="53.5" y="10.5" extent="1-16" drill="0.2032"/>
+<via x="53.5" y="3.5" extent="1-16" drill="0.3048"/>
+<via x="53.5" y="10.5" extent="1-16" drill="0.3048"/>
 <wire x1="53.5" y1="10.5" x2="53.5" y2="7" width="0.6096" layer="1"/>
-<via x="56.5" y="10.5" extent="1-16" drill="0.2032"/>
+<via x="56.5" y="10.5" extent="1-16" drill="0.3048"/>
 <wire x1="53.5" y1="7" x2="53.5" y2="3.5" width="0.6096" layer="1"/>
 <wire x1="56.5" y1="8.85" x2="56.5" y2="10.5" width="0.6096" layer="1"/>
-<via x="56.5" y="3.5" extent="1-16" drill="0.2032"/>
+<via x="56.5" y="3.5" extent="1-16" drill="0.3048"/>
 <wire x1="56.5" y1="3.5" x2="56.5" y2="7" width="0.6096" layer="1"/>
 <wire x1="56.5" y1="7" x2="56.5" y2="8.85" width="0.6096" layer="1"/>
 <wire x1="59.5" y1="8.85" x2="59.5" y2="10.5" width="0.6096" layer="1"/>
-<via x="59.5" y="10.5" extent="1-16" drill="0.2032"/>
-<via x="59.5" y="3.5" extent="1-16" drill="0.2032"/>
+<via x="59.5" y="10.5" extent="1-16" drill="0.3048"/>
+<via x="59.5" y="3.5" extent="1-16" drill="0.3048"/>
 <wire x1="59.5" y1="3.5" x2="59.5" y2="5.15" width="0.6096" layer="1"/>
 <wire x1="58.5" y1="20.25" x2="59.75" y2="20.25" width="0.3048" layer="1"/>
 <via x="59.75" y="20.25" extent="1-16" drill="0.2032"/>
@@ -14368,16 +14368,16 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="TP3" pad="1"/>
 <contactref element="TP4" pad="1"/>
 <wire x1="68.25" y1="15.5" x2="66" y2="15.5" width="0.3048" layer="1"/>
-<via x="41.5" y="7" extent="1-16" drill="0.2032"/>
-<via x="44.5" y="7" extent="1-16" drill="0.2032"/>
-<via x="47.5" y="7" extent="1-16" drill="0.2032"/>
-<via x="50.5" y="7" extent="1-16" drill="0.2032"/>
-<via x="53.5" y="7" extent="1-16" drill="0.2032"/>
-<via x="56.5" y="7" extent="1-16" drill="0.2032"/>
-<via x="59.5" y="7" extent="1-16" drill="0.2032"/>
-<via x="62.5" y="7" extent="1-16" drill="0.2032"/>
-<via x="65.5" y="7" extent="1-16" drill="0.2032"/>
-<via x="38.5" y="7" extent="1-16" drill="0.2032"/>
+<via x="41.5" y="7" extent="1-16" drill="0.3048"/>
+<via x="44.5" y="7" extent="1-16" drill="0.3048"/>
+<via x="47.5" y="7" extent="1-16" drill="0.3048"/>
+<via x="50.5" y="7" extent="1-16" drill="0.3048"/>
+<via x="53.5" y="7" extent="1-16" drill="0.3048"/>
+<via x="56.5" y="7" extent="1-16" drill="0.3048"/>
+<via x="59.5" y="7" extent="1-16" drill="0.3048"/>
+<via x="62.5" y="7" extent="1-16" drill="0.3048"/>
+<via x="65.5" y="7" extent="1-16" drill="0.3048"/>
+<via x="38.5" y="7" extent="1-16" drill="0.3048"/>
 <wire x1="41.5" y1="7" x2="41.5" y2="5.15" width="0.6096" layer="16"/>
 <wire x1="41.5" y1="4" x2="41.5" y2="3.5" width="0.6096" layer="16"/>
 <wire x1="41.5" y1="5.15" x2="41.5" y2="4" width="0.6096" layer="16"/>
@@ -15456,9 +15456,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="N3"/>
 <contactref element="U1" pad="P8"/>
 <contactref element="U1" pad="R8"/>
-<via x="63.5" y="3.5" extent="1-16" drill="0.2032" alwaysstop="yes"/>
+<via x="63.5" y="3.5" extent="1-16" drill="0.3048" alwaysstop="yes"/>
 <wire x1="63.5" y1="5.15" x2="63.5" y2="3.5" width="0.6096" layer="16"/>
-<via x="63.5" y="10.5" extent="1-16" drill="0.2032" alwaysstop="yes"/>
+<via x="63.5" y="10.5" extent="1-16" drill="0.3048" alwaysstop="yes"/>
 <via x="45" y="44" extent="1-16" drill="0.2032"/>
 <wire x1="45" y1="44" x2="45.5" y2="43.5" width="0.1524" layer="1"/>
 <wire x1="50.5" y1="42.5" x2="51" y2="43" width="0.1524" layer="1"/>
@@ -15492,7 +15492,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="63.5" y1="10.5" x2="63.5" y2="8.85" width="0.6096" layer="1"/>
 <wire x1="63.5" y1="5.15" x2="63.5" y2="7" width="0.6096" layer="1"/>
 <wire x1="63.5" y1="7" x2="63.5" y2="8.85" width="0.6096" layer="1"/>
-<via x="63.5" y="7" extent="1-16" drill="0.2032"/>
+<via x="63.5" y="7" extent="1-16" drill="0.3048"/>
 </signal>
 <signal name="USBDM-IN">
 <contactref element="J6" pad="2"/>
@@ -17294,6 +17294,120 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="78.7884" y1="42.6116" x2="78.7884" y2="43.1884" width="0.3048" layer="16"/>
 </signal>
 </signals>
+<errors>
+<approved hash="2,20,933d9cc19ab7954b"/>
+<approved hash="2,20,43213cdd3aa94555"/>
+<approved hash="18,29,da93a712d668abe9"/>
+<approved hash="18,29,db13ac32d348a469"/>
+<approved hash="18,29,5dac9910b6ad945a"/>
+<approved hash="18,29,5dac9910b6ad945a"/>
+<approved hash="18,29,8d47a687434ca0ff"/>
+<approved hash="18,29,8d47a687434ca0ff"/>
+<approved hash="18,29,cf1aeb3797c87b96"/>
+<approved hash="18,29,7a34a52fb5e08cb0"/>
+<approved hash="18,29,cf1aeb3797c87b96"/>
+<approved hash="18,29,7a34a52fb5e08cb0"/>
+<approved hash="18,29,1b1f6c3e13746455"/>
+<approved hash="18,29,1a9f671e16546bd5"/>
+<approved hash="6,1,8e29a0bb0be4b10f"/>
+<approved hash="6,1,b6348b5c47fad33b"/>
+<approved hash="4,1,e3a39dfbd2518b8d"/>
+<approved hash="4,1,9f5592eba2896501"/>
+<approved hash="4,1,981b9647cbd461bd"/>
+<approved hash="4,1,e09d94afeeae8b05"/>
+<approved hash="4,1,dbc2a5d4e99962fc"/>
+<approved hash="4,1,cf03910de5423dd5"/>
+<approved hash="4,1,78d6b9cbec5f48a0"/>
+<approved hash="4,1,4fcd961ae2be2cf1"/>
+<approved hash="4,1,c9c98b7a700531b3"/>
+<approved hash="4,1,eb98791896873dce"/>
+<approved hash="4,1,b63de29502de5587"/>
+<approved hash="4,1,a7835af60344de00"/>
+<approved hash="4,1,d61ce067024e3b6e"/>
+<approved hash="4,1,c2ca5ce6005cbe45"/>
+<approved hash="4,1,e03c8052737b174e"/>
+<approved hash="4,1,cae37934972f1c6d"/>
+<approved hash="4,1,3329150d6bfdcd12"/>
+<approved hash="4,1,4cb3981f8b76a4d9"/>
+<approved hash="4,1,e4617d0b7ade5be1"/>
+<approved hash="4,1,56568ee4bef7b065"/>
+<approved hash="4,1,18ceb653a39e3a30"/>
+<approved hash="4,1,85ddeb8051779f42"/>
+<approved hash="4,1,8fde3b7a587b3ecd"/>
+<approved hash="4,1,c61781954006478c"/>
+<approved hash="4,1,02d2edfd51778f31"/>
+<approved hash="4,1,0a3e199f467c175e"/>
+<approved hash="4,1,960f139db1b6da11"/>
+<approved hash="4,1,992312bcb0f119e8"/>
+<approved hash="4,1,fc59fb3a9b30f48d"/>
+<approved hash="4,1,bbc8fc69ff8a0f56"/>
+<approved hash="4,1,01d630f37f57a5f9"/>
+<approved hash="4,1,960f139db1b6da11"/>
+<approved hash="4,1,992312bcb0f119e8"/>
+<approved hash="4,1,fc59fb3a9b30f48d"/>
+<approved hash="4,1,bbc8fc69ff8a0f56"/>
+<approved hash="4,1,01d630f37f57a5f9"/>
+<approved hash="4,1,84bdcc8f5fe38b32"/>
+<approved hash="4,1,84bdcc8f5fe38b32"/>
+<approved hash="4,1,7cabc8ab8dae69fe"/>
+<approved hash="4,1,7cabc8ab8dae69fe"/>
+<approved hash="4,1,fa743ef70855fec4"/>
+<approved hash="4,1,fa743ef70855fec4"/>
+<approved hash="4,1,2d0d24fae7c70381"/>
+<approved hash="4,1,2d0d24fae7c70381"/>
+<approved hash="4,1,bd4ab2318a076ef7"/>
+<approved hash="4,1,bd4ab2318a076ef7"/>
+<approved hash="6,1,65fe5793857a2e84"/>
+<approved hash="6,1,a2ad44ad36c8748b"/>
+<approved hash="4,2,18ceb653a39e3a30"/>
+<approved hash="4,2,c61781954006478c"/>
+<approved hash="4,2,01d630f37f57a5f9"/>
+<approved hash="4,2,01d630f37f57a5f9"/>
+<approved hash="4,2,bd4ab2318a076ef7"/>
+<approved hash="4,2,bd4ab2318a076ef7"/>
+<approved hash="4,3,18ceb653a39e3a30"/>
+<approved hash="4,3,c61781954006478c"/>
+<approved hash="4,3,6e9249c400ed17be"/>
+<approved hash="4,3,01d630f37f57a5f9"/>
+<approved hash="4,3,01d630f37f57a5f9"/>
+<approved hash="4,3,bd4ab2318a076ef7"/>
+<approved hash="4,3,bd4ab2318a076ef7"/>
+<approved hash="4,14,18ceb653a39e3a30"/>
+<approved hash="4,14,c61781954006478c"/>
+<approved hash="4,14,01d630f37f57a5f9"/>
+<approved hash="4,14,01d630f37f57a5f9"/>
+<approved hash="4,14,bd4ab2318a076ef7"/>
+<approved hash="4,14,bd4ab2318a076ef7"/>
+<approved hash="4,15,18ceb653a39e3a30"/>
+<approved hash="4,15,c61781954006478c"/>
+<approved hash="4,15,01d630f37f57a5f9"/>
+<approved hash="4,15,01d630f37f57a5f9"/>
+<approved hash="4,15,bd4ab2318a076ef7"/>
+<approved hash="4,15,bd4ab2318a076ef7"/>
+<approved hash="4,16,c61781954006478c"/>
+<approved hash="4,16,18ceb653a39e3a30"/>
+<approved hash="4,16,c37b39e2868a813f"/>
+<approved hash="4,16,992312bcb0f119e8"/>
+<approved hash="4,16,960f139db1b6da11"/>
+<approved hash="4,16,bbc8fc69ff8a0f56"/>
+<approved hash="4,16,fc59fb3a9b30f48d"/>
+<approved hash="4,16,01d630f37f57a5f9"/>
+<approved hash="4,16,992312bcb0f119e8"/>
+<approved hash="4,16,960f139db1b6da11"/>
+<approved hash="4,16,bbc8fc69ff8a0f56"/>
+<approved hash="4,16,fc59fb3a9b30f48d"/>
+<approved hash="4,16,01d630f37f57a5f9"/>
+<approved hash="4,16,84bdcc8f5fe38b32"/>
+<approved hash="4,16,84bdcc8f5fe38b32"/>
+<approved hash="4,16,7cabc8ab8dae69fe"/>
+<approved hash="4,16,7cabc8ab8dae69fe"/>
+<approved hash="4,16,fa743ef70855fec4"/>
+<approved hash="4,16,fa743ef70855fec4"/>
+<approved hash="4,16,2d0d24fae7c70381"/>
+<approved hash="4,16,2d0d24fae7c70381"/>
+<approved hash="4,16,bd4ab2318a076ef7"/>
+<approved hash="4,16,bd4ab2318a076ef7"/>
+</errors>
 </board>
 </drawing>
 </eagle>
