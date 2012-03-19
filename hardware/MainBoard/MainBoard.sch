@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -39956,6 +39956,8 @@ Source: &lt;a href="http://spec.e-switch.com/P-J/P021301B.pdf"&gt;http://spec.e-
 <wire x1="-1" y1="0" x2="-1" y2="-0.85" width="0.127" layer="51"/>
 <wire x1="-1" y1="-0.85" x2="1" y2="-0.85" width="0.127" layer="51"/>
 <wire x1="1" y1="-0.85" x2="1" y2="0" width="0.127" layer="51"/>
+<text x="-2.159" y="3.5908" size="0.4064" layer="25">&gt;NAME</text>
+<text x="1.451" y="-0.773" size="0.4064" layer="27">&gt;VALUE</text>
 </package>
 <package name="TQFP-48">
 <description>&lt;b&gt;TQFP-48 package&lt;/b&gt;
@@ -42692,7 +42694,11 @@ Standard 8.5x11 US Letter frame</description>
 <connect gate="G1" pin="E" pad="2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="DIGI-KEY#" value="MMBT3904FSCT-ND"/>
+<attribute name="MF" value="Fairchild Semiconductor "/>
+<attribute name="MPN" value="MMBT3904"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -43055,7 +43061,7 @@ Various fiducial points for machine vision alignment.</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="SWITCH-CJS-1200" prefix="J">
+<deviceset name="SWITCH-CJS-1200" prefix="SW">
 <description>&lt;b&gt;CJS-1200 SPDT Switch&lt;/b&gt;
 &lt;p&gt;
 Source:
@@ -43064,14 +43070,18 @@ Source:
 <gate name="G$1" symbol="SWITCH-SPDT" x="0" y="0"/>
 </gates>
 <devices>
-<device name="-1200" package="SWITCH-DIP-CJS">
+<device name="TA" package="SWITCH-DIP-CJS">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
 <connect gate="G$1" pin="3" pad="3"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="DIGI-KEY#" value="563-1021-1-ND"/>
+<attribute name="MF" value="CJS"/>
+<attribute name="MPN" value="CJS-1200TA"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -43192,7 +43202,11 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="DIGI-KEY#" value="EG4627CT-ND "/>
+<attribute name="MF" value="E-Switch"/>
+<attribute name="MPN" value="TL3340AF160QG "/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -43351,7 +43365,7 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 </part>
 <part name="U2" library="MainBoard" deviceset="MAX19706" device="-T4877-4"/>
 <part name="U3" library="MainBoard" deviceset="MAX19706" device="-T4877-4"/>
-<part name="J6" library="MainBoard" deviceset="CON-ZX62R-B-5P" device=""/>
+<part name="J1" library="MainBoard" deviceset="CON-ZX62R-B-5P" device=""/>
 <part name="U4" library="MainBoard" deviceset="USBLC6-2" device="SC6"/>
 <part name="U$13" library="MainBoard" deviceset="DGND" device=""/>
 <part name="PORT15" library="MainBoard" deviceset="PORT5" device=""/>
@@ -44021,7 +44035,7 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <part name="PORT287" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT295" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT296" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="J1" library="MainBoard" deviceset="SWITCH-CJS-1200" device="-1200"/>
+<part name="SW3" library="MainBoard" deviceset="SWITCH-CJS-1200" device="TA"/>
 <part name="PORT12" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT18" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT22" library="MainBoard" deviceset="PORT7" device=""/>
@@ -45322,7 +45336,7 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <instance part="U$91" gate="G$1" x="195.58" y="71.12"/>
 <instance part="PORT198" gate="G$1" x="149.86" y="101.6" rot="R90"/>
 <instance part="PORT209" gate="G$1" x="157.48" y="101.6" rot="R90"/>
-<instance part="J1" gate="G$1" x="213.36" y="127"/>
+<instance part="SW3" gate="G$1" x="213.36" y="127"/>
 <instance part="R12" gate="G$1" x="185.42" y="93.98" rot="R90"/>
 <instance part="R11" gate="G$1" x="167.64" y="93.98" rot="R90"/>
 <instance part="PORT316" gate="G$1" x="185.42" y="73.66" rot="R270"/>
@@ -45640,13 +45654,13 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <pinref part="U1" gate="-JTAG" pin="JTAGSEL"/>
 <label x="198.12" y="127" size="1.778" layer="97"/>
 <wire x1="193.04" y1="127" x2="208.28" y2="127" width="0.1524" layer="91"/>
-<pinref part="J1" gate="G$1" pin="2"/>
+<pinref part="SW3" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="FPGATAP" class="0">
 <segment>
 <pinref part="R5" gate="G$1" pin="1"/>
-<pinref part="J1" gate="G$1" pin="1"/>
+<pinref part="SW3" gate="G$1" pin="1"/>
 <wire x1="218.44" y1="129.54" x2="220.98" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="220.98" y1="129.54" x2="220.98" y2="134.62" width="0.1524" layer="91"/>
 </segment>
@@ -45655,7 +45669,7 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <segment>
 <pinref part="R6" gate="G$1" pin="2"/>
 <wire x1="220.98" y1="121.92" x2="220.98" y2="124.46" width="0.1524" layer="91"/>
-<pinref part="J1" gate="G$1" pin="3"/>
+<pinref part="SW3" gate="G$1" pin="3"/>
 <wire x1="218.44" y1="124.46" x2="220.98" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -49960,7 +49974,7 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <instance part="PORT10" gate="G$1" x="106.68" y="63.5" rot="MR0"/>
 <instance part="PORT13" gate="G$1" x="149.86" y="63.5"/>
 <instance part="PORT14" gate="G$1" x="149.86" y="60.96"/>
-<instance part="J6" gate="G$1" x="33.02" y="104.14" rot="MR0"/>
+<instance part="J1" gate="G$1" x="33.02" y="104.14" rot="MR0"/>
 <instance part="U4" gate="G$1" x="53.34" y="104.14"/>
 <instance part="U$13" gate="G$1" x="165.1" y="149.86"/>
 <instance part="PORT15" gate="G$1" x="175.26" y="160.02" rot="MR0"/>
@@ -50202,7 +50216,7 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <segment>
 <pinref part="U4" gate="G$1" pin="GND"/>
 <wire x1="53.34" y1="91.44" x2="53.34" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="J6" gate="G$1" pin="GND"/>
+<pinref part="J1" gate="G$1" pin="GND"/>
 <wire x1="53.34" y1="88.9" x2="53.34" y2="86.36" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="99.06" x2="40.64" y2="99.06" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="99.06" x2="40.64" y2="88.9" width="0.1524" layer="91"/>
@@ -50624,7 +50638,7 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 </net>
 <net name="USBDM-IN" class="0">
 <segment>
-<pinref part="J6" gate="G$1" pin="D-"/>
+<pinref part="J1" gate="G$1" pin="D-"/>
 <wire x1="35.56" y1="106.68" x2="40.64" y2="106.68" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="106.68" x2="40.64" y2="104.14" width="0.1524" layer="91"/>
 <pinref part="U4" gate="G$1" pin="IO1@2"/>
@@ -50633,7 +50647,7 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 </net>
 <net name="USBDP-IN" class="0">
 <segment>
-<pinref part="J6" gate="G$1" pin="D+"/>
+<pinref part="J1" gate="G$1" pin="D+"/>
 <wire x1="35.56" y1="104.14" x2="38.1" y2="104.14" width="0.1524" layer="91"/>
 <wire x1="38.1" y1="104.14" x2="38.1" y2="101.6" width="0.1524" layer="91"/>
 <pinref part="U4" gate="G$1" pin="IO2@2"/>
@@ -50644,7 +50658,7 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <segment>
 <label x="78.74" y="106.68" size="1.778" layer="97"/>
 <wire x1="76.2" y1="106.68" x2="66.04" y2="106.68" width="0.1524" layer="91"/>
-<pinref part="J6" gate="G$1" pin="VBUS"/>
+<pinref part="J1" gate="G$1" pin="VBUS"/>
 <wire x1="35.56" y1="109.22" x2="40.64" y2="109.22" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="109.22" x2="40.64" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="116.84" x2="53.34" y2="116.84" width="0.1524" layer="91"/>

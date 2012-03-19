@@ -22,9 +22,9 @@
 <layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
@@ -3607,6 +3607,8 @@ Source: &lt;a href="http://spec.e-switch.com/P-J/P021301B.pdf"&gt;http://spec.e-
 <wire x1="-1" y1="0" x2="-1" y2="-0.85" width="0.127" layer="51"/>
 <wire x1="-1" y1="-0.85" x2="1" y2="-0.85" width="0.127" layer="51"/>
 <wire x1="1" y1="-0.85" x2="1" y2="0" width="0.127" layer="51"/>
+<text x="-2.159" y="3.5908" size="0.4064" layer="25">&gt;NAME</text>
+<text x="1.451" y="-0.773" size="0.4064" layer="27">&gt;VALUE</text>
 </package>
 <package name="TESTPOINT">
 <description>&lt;b&gt;.063 (1.6) Diameter Via&lt;/b&gt;</description>
@@ -8929,7 +8931,7 @@ SUPPLY SYMBOL for the highest voltage available on board.</description>
 <technologies>
 <technology name="">
 <attribute name="DIGI-KEY#" value="MMBT3904FSCT-ND"/>
-<attribute name="MF" value="Fairchild Semiconductor	"/>
+<attribute name="MF" value="Fairchild Semiconductor "/>
 <attribute name="MPN" value="MMBT3904"/>
 </technology>
 </technologies>
@@ -9398,7 +9400,7 @@ Various fiducial points for machine vision alignment.</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="SWITCH-CJS-1200" prefix="J">
+<deviceset name="SWITCH-CJS-1200" prefix="SW">
 <description>&lt;b&gt;CJS-1200 SPDT Switch&lt;/b&gt;
 &lt;p&gt;
 Source:
@@ -9465,11 +9467,9 @@ Source: &lt;a href="http://www.e-switch.com/Portals/0/Series_Pdf/TL3340.pdf"&gt;
 </connects>
 <technologies>
 <technology name="">
-<attribute name="DIGI-KEY#" value="EG4627CT-ND
-"/>
+<attribute name="DIGI-KEY#" value="EG4627CT-ND "/>
 <attribute name="MF" value="E-Switch"/>
-<attribute name="MPN" value="TL3340AF160QG
-"/>
+<attribute name="MPN" value="TL3340AF160QG "/>
 </technology>
 </technologies>
 </device>
