@@ -34032,8 +34032,6 @@ v1.0 Initial design</description>
 <part name="PORT92" library="powerboard" deviceset="PORT7" device=""/>
 <part name="U$67" library="powerboard" deviceset="DGND" device=""/>
 <part name="U$68" library="powerboard" deviceset="DGND" device=""/>
-<part name="U$69" library="powerboard" deviceset="DGND" device=""/>
-<part name="U$70" library="powerboard" deviceset="DGND" device=""/>
 <part name="R3" library="powerboard" deviceset="R" device="0603" value="DNP">
 <attribute name="TOLERANCE" value=""/>
 </part>
@@ -34049,6 +34047,8 @@ v1.0 Initial design</description>
 <part name="U$6" library="powerboard" deviceset="DGND" device=""/>
 <part name="PORT1" library="powerboard" deviceset="PORT5" device=""/>
 <part name="U$31" library="powerboard" deviceset="D3V3_STM" device=""/>
+<part name="U$32" library="powerboard" deviceset="AGND" device=""/>
+<part name="U$33" library="powerboard" deviceset="AGND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -34860,8 +34860,6 @@ v1.0 Initial design</description>
 <instance part="U$15" gate="G$1" x="200.66" y="109.22" rot="MR0"/>
 <instance part="U$67" gate="G$1" x="40.64" y="152.4"/>
 <instance part="U$68" gate="G$1" x="27.94" y="124.46"/>
-<instance part="U$69" gate="G$1" x="27.94" y="96.52"/>
-<instance part="U$70" gate="G$1" x="27.94" y="68.58"/>
 <instance part="SW3" gate="G$1" x="205.74" y="119.38" rot="MR0"/>
 <instance part="J7" gate="G$1" x="205.74" y="134.62" rot="MR0"/>
 <instance part="C15" gate="G$1" x="147.32" y="22.86"/>
@@ -34882,6 +34880,8 @@ v1.0 Initial design</description>
 </instance>
 <instance part="R28" gate="G$1" x="215.9" y="132.08" rot="R90"/>
 <instance part="U$65" gate="G$1" x="215.9" y="124.46"/>
+<instance part="U$32" gate="G$1" x="27.94" y="68.58"/>
+<instance part="U$33" gate="G$1" x="27.94" y="96.52"/>
 </instances>
 <busses>
 <bus name="D3V3_STM_SENSE,VSUP_SENSE,D3V3_SENSE,D1V5_SENSE,A3V3_SENSE,A1V5_SENSE">
@@ -34966,22 +34966,6 @@ v1.0 Initial design</description>
 <pinref part="U$68" gate="G$1" pin="DGND"/>
 </segment>
 <segment>
-<wire x1="27.94" y1="99.06" x2="27.94" y2="101.6" width="0.1524" layer="91"/>
-<wire x1="27.94" y1="104.14" x2="27.94" y2="101.6" width="0.1524" layer="91"/>
-<junction x="27.94" y="101.6"/>
-<pinref part="U9" gate="G$1" pin="GND"/>
-<pinref part="U9" gate="G$1" pin="GND@1"/>
-<pinref part="U$69" gate="G$1" pin="DGND"/>
-</segment>
-<segment>
-<wire x1="27.94" y1="71.12" x2="27.94" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="27.94" y1="76.2" x2="27.94" y2="73.66" width="0.1524" layer="91"/>
-<junction x="27.94" y="73.66"/>
-<pinref part="U10" gate="G$1" pin="GND"/>
-<pinref part="U10" gate="G$1" pin="GND@1"/>
-<pinref part="U$70" gate="G$1" pin="DGND"/>
-</segment>
-<segment>
 <wire x1="147.32" y1="15.24" x2="147.32" y2="17.78" width="0.1524" layer="91"/>
 <pinref part="U$14" gate="G$1" pin="DGND"/>
 <pinref part="C15" gate="G$1" pin="2"/>
@@ -35042,6 +35026,22 @@ v1.0 Initial design</description>
 <pinref part="C22" gate="G$1" pin="2"/>
 <pinref part="U$22" gate="G$1" pin="AGND"/>
 <junction x="170.18" y="73.66"/>
+</segment>
+<segment>
+<wire x1="27.94" y1="71.12" x2="27.94" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="76.2" x2="27.94" y2="73.66" width="0.1524" layer="91"/>
+<junction x="27.94" y="73.66"/>
+<pinref part="U10" gate="G$1" pin="GND"/>
+<pinref part="U10" gate="G$1" pin="GND@1"/>
+<pinref part="U$32" gate="G$1" pin="AGND"/>
+</segment>
+<segment>
+<wire x1="27.94" y1="99.06" x2="27.94" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="104.14" x2="27.94" y2="101.6" width="0.1524" layer="91"/>
+<junction x="27.94" y="101.6"/>
+<pinref part="U9" gate="G$1" pin="GND"/>
+<pinref part="U9" gate="G$1" pin="GND@1"/>
+<pinref part="U$33" gate="G$1" pin="AGND"/>
 </segment>
 </net>
 <net name="D3V3" class="0">
