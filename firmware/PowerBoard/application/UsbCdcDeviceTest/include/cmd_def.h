@@ -68,7 +68,7 @@ uint8_t CMD_PowerOff(void)
 uint32_t CmdHelp(uint32_t argc, char** argv)
 {
 	// TODO: print help message
-	LED_Toggle(LED1);
+	CON_RX_LED_Toggle();
 	return 0;
 }
 
@@ -79,15 +79,17 @@ uint32_t CmdLed(uint32_t argc, char** argv)
 		return 1;
 	
 	// TODO: make it work for both LEDs
-	if (strcmp(*argv, "on"))
+	if (!strcmp(*(argv+1), "on"))
 	{			
 		LED_On(LED2);
+		USB_SendMsg("\nLED2 ON\n>", 6);
 		return 0;
 	}
 
-	if (strcmp(*argv, "off"))
+	if (!strcmp(*(argv+1), "off"))
 	{			
 		LED_Off(LED2);
+		USB_SendMsg("\nLED2OFF\n>", 6);
 		return 0;
 	}
 
