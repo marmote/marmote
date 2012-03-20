@@ -17,6 +17,7 @@ When printing the board assembly layout into PDF, include the following layers:
 
 == Top view ==
 {{{
+  * Dimension
   * tPlace
   * tNames
   * tDocu
@@ -28,6 +29,7 @@ _Note: Top side silk screen texts and graphics are assumed to reside in the {{{t
 
 == Bottom view ==
 {{{
+  * Dimension
   * bPlace
   * bNames
   * bDocu
@@ -35,7 +37,7 @@ _Note: Top side silk screen texts and graphics are assumed to reside in the {{{t
   * Pads
   * Vias
 }}}
-_Note: Bottom side silk screen texts and graphics are assumed to reside in the {{{bPlace}}} layer._
+_Note: Bottom side silk screen texts and graphics are assumed to reside in the {{{bPlace}}} layer._ Print the bottom assembly PDF mirrored.
 
 Either combine the two PDFs into `<ProjectName>_Asy.pdf`, or simply name them `<ProjectName>_AsyT.pdf` and `<ProjectName>_AsyB.pdf` respectively.
 
