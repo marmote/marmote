@@ -8,25 +8,25 @@
 </settings>
 <grid distance="0.5" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.1" altunitdist="mm" altunit="mm"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="GND" color="2" fill="1" visible="no" active="yes"/>
 <layer number="3" name="SUPPLY" color="14" fill="1" visible="no" active="yes"/>
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
 <layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="11" fill="1" visible="no" active="yes"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="no" active="yes"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="no" active="yes"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
 <layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
@@ -36,7 +36,7 @@
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
 <layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
 <layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
-<layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="yes"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="yes"/>
 <layer number="42" name="bRestrict" color="1" fill="10" visible="no" active="yes"/>
@@ -48,7 +48,7 @@
 <layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="yes"/>
-<layer number="51" name="tDocu" color="14" fill="1" visible="no" active="yes"/>
+<layer number="51" name="tDocu" color="14" fill="1" visible="yes" active="yes"/>
 <layer number="52" name="bDocu" color="9" fill="1" visible="no" active="yes"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
@@ -13630,13 +13630,12 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="39" y="1.5" extent="1-16" drill="0.5"/>
 <via x="50.5" y="25" extent="1-16" drill="0.5"/>
 <via x="59.5" y="26" extent="1-16" drill="0.5"/>
-<via x="36.5" y="23" extent="1-16" drill="0.5"/>
+<via x="35.5" y="23" extent="1-16" drill="0.5"/>
 <via x="39" y="18.5" extent="1-16" drill="0.5"/>
 <via x="29.5" y="26" extent="1-16" drill="0.5"/>
 <via x="39.5" y="26.5" extent="1-16" drill="0.5"/>
 <via x="42.5" y="24" extent="1-16" drill="0.5"/>
 <via x="28.3" y="24.6" extent="1-16" drill="0.5"/>
-<via x="28.2" y="23.4" extent="1-16" drill="0.3048"/>
 <via x="24.9" y="25.3" extent="1-16" drill="0.3048"/>
 <via x="24.1" y="25.3" extent="1-16" drill="0.3048"/>
 <via x="40" y="22.5" extent="1-16" drill="0.5"/>
@@ -13651,7 +13650,6 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U10" pad="2"/>
 <contactref element="U9" pad="1"/>
 <contactref element="U9" pad="2"/>
-<via x="28.3" y="22.6" extent="1-16" drill="0.254"/>
 <via x="28.3" y="21.6" extent="1-16" drill="0.254"/>
 <via x="28.6" y="20.5" extent="1-16" drill="0.254"/>
 <via x="35.8" y="20.3" extent="1-16" drill="0.5"/>
@@ -13665,6 +13663,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="79.5" y="12" extent="1-16" drill="0.5"/>
 <via x="72.5" y="3.5" extent="1-16" drill="0.5"/>
 <via x="80" y="5" extent="1-16" drill="0.5"/>
+<via x="29" y="23" extent="1-16" drill="0.5"/>
 </signal>
 <signal name="VSUP">
 <contactref element="TP4" pad="1"/>
@@ -14737,7 +14736,6 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <vertex x="38.1" y="10.6"/>
 <vertex x="38.1" y="21"/>
 <vertex x="36.1" y="23"/>
-<vertex x="27.9" y="23"/>
 <vertex x="36.1" y="23"/>
 <vertex x="38.1" y="21"/>
 </polygon>
@@ -14745,7 +14743,6 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <vertex x="38.1" y="10.6"/>
 <vertex x="38.1" y="21"/>
 <vertex x="36.1" y="23"/>
-<vertex x="27.9" y="23"/>
 <vertex x="36.1" y="23"/>
 <vertex x="38.1" y="21"/>
 </polygon>
@@ -14753,38 +14750,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <vertex x="38.1" y="10.6"/>
 <vertex x="38.1" y="21"/>
 <vertex x="36.1" y="23"/>
-<vertex x="27.9" y="23"/>
 <vertex x="36.1" y="23"/>
 <vertex x="38.1" y="21"/>
 </polygon>
 </signal>
 </signals>
-<errors>
-<approved hash="6,1,b6348b5c47fad33b"/>
-<approved hash="6,1,8e29a0bb0be4b10f"/>
-<approved hash="4,1,9f5592eba2896501"/>
-<approved hash="4,1,e09d94afeeae8b05"/>
-<approved hash="4,1,cf03910de5423dd5"/>
-<approved hash="4,1,dbc2a5d4e99962fc"/>
-<approved hash="4,1,78d6b9cbec5f48a0"/>
-<approved hash="4,1,4fcd961ae2be2cf1"/>
-<approved hash="4,1,e03c8052737b174e"/>
-<approved hash="4,1,d61ce067024e3b6e"/>
-<approved hash="4,1,85ddeb8051779f42"/>
-<approved hash="4,1,8fde3b7a587b3ecd"/>
-<approved hash="4,1,0a3e199f467c175e"/>
-<approved hash="4,1,02d2edfd51778f31"/>
-<approved hash="4,1,afe76a2edb38f24a"/>
-<approved hash="4,1,bbc8fc69ff8a0f56"/>
-<approved hash="4,1,fc59fb3a9b30f48d"/>
-<approved hash="19,1,3bc125bf275e3920"/>
-<approved hash="19,1,25c63bb8398727f9"/>
-<approved hash="4,1,e1c701ffe5d1e952"/>
-<approved hash="4,1,2d0d24fae7c70381"/>
-<approved hash="4,1,fa743ef70855fec4"/>
-<approved hash="6,1,a2ad44ad36c8748b"/>
-<approved hash="6,1,65fe5793857a2e84"/>
-</errors>
 </board>
 </drawing>
 </eagle>
