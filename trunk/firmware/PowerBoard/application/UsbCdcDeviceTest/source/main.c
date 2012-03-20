@@ -61,62 +61,36 @@ int main (void) {
 		{
 			CMD_ParseResult = 1;
 
-			// Tokenize command string
-			//argList = strtok("a b c d", " ");
-
-			argc = 0;
-			//argList[argc] = strtok((char *)CMD_Rx_Buffer, " ");
+			// Tokenize RX buffer content
 			cmdTok = strtok((char *)CMD_Rx_Buffer, " ");
-
-			CMD_ParseResult = 1;
-
-			while ( argList[argc] != NULL && argc < 10 )
+			if (cmdTok != NULL)
 			{
-				argc++;
-				argList[argc] = strtok(NULL, " ");
-			}
+				for ( j = 0; j < sizeof(CMD_List)/sizeof(CMD_Type); j++ )
+			    {
+			        if (!strcmp(cmdTok, CMD_List[j].CmdString))
+			        {
+						// Set the argList pointers to tokens
+			            argc = 0;			
+									
+			            while ( cmdTok != NULL && argc < 10 )
+			            {
+			                argList[argc++] = cmdTok;
+			                cmdTok = strtok(NULL, " ");
+			            }
 
-			if (argc > 0)
-			{
-				// Process command
-				for (i = 0; i < CMD_ListLength; i++)
-	            {
-	                // Compare CMD[i] with received command
-	                for (j = 0; j < strlen(argList[0]); j++)
-	                {
-	                    if (CMD_List[i].CmdString[j] == '\0')
-	                    {
-	                        CMD_ParseResult = 0;
-	                        (*CMD_List[i].CmdFunction)(argc, argList);
-	                        break;
-	                    }
-	
-	                    if (CMD_Rx_Buffer[j] != CMD_List[i].CmdString[j])
-	                    {
-	                        break;
-	                    }
-	                }
-	
-	                // Exit for loop as soon as a match is found
-					if (CMD_ParseResult == 0)
-					{
-						break;
-					}
-	        	}
-			}
-				else
-			{
-				CMD_ParseResult = 1;
-			}
+						USB_SendMsg("\nACK\n>", 6);
 
+						// Invoke associated command function
+				        CMD_List[j].CmdFunction(argc, argList);			
 
-
-			// Send ACK/NAK
-			if (CMD_ParseResult == 0)
-			{		
-				USB_SendMsg("\nACK\n>", 6);	
-			}
-			else
+						CMD_ParseResult = 0;
+			            break;
+			        }
+			    }
+			}							
+			
+			// Send NAK if no valid command identified
+			if (CMD_ParseResult == 1)
 			{		
 				USB_SendMsg("\nNAK\n>", 6);	
 			}
