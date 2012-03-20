@@ -864,7 +864,7 @@ Source: &lt;a href="http://www.diodes.com/datasheets/ap02001.pdf"&gt;http://www.
 <wire x1="-1.422" y1="-0.785" x2="-1.422" y2="0.785" width="0.1524" layer="21"/>
 <wire x1="-1.422" y1="0.785" x2="1.422" y2="0.785" width="0.1524" layer="51"/>
 <wire x1="-0.522" y1="0.785" x2="0.522" y2="0.785" width="0.1524" layer="21"/>
-<circle x="-1.75" y="-1.25" radius="0.1016" width="0.2032" layer="21"/>
+<circle x="-1.75" y="-1.885" radius="0.1016" width="0.2032" layer="21"/>
 <smd name="1" x="-0.95" y="-1.2" dx="0.55" dy="1" layer="1"/>
 <smd name="2" x="0" y="-1.2" dx="0.55" dy="1" layer="1"/>
 <smd name="3" x="0.95" y="-1.2" dx="0.55" dy="1" layer="1"/>
@@ -1507,10 +1507,6 @@ Source: &lt;p&gt;
 <smd name="70" x="13.5" y="1.85" dx="0.6" dy="2.3" layer="1"/>
 <text x="-23.08" y="-4" size="0.4064" layer="25">&gt;NAME</text>
 <text x="0" y="-4" size="0.4064" layer="27">&gt;VALUE</text>
-<text x="-24.58" y="-2.5" size="1.27" layer="21" font="vector">1</text>
-<text x="-24.58" y="1.25" size="1.27" layer="21" font="vector">2</text>
-<text x="26.08" y="2.5" size="1.27" layer="21" font="vector" rot="R180">84</text>
-<text x="26.08" y="-1.25" size="1.27" layer="21" font="vector" rot="R180">83</text>
 <hole x="-22.2" y="0" drill="1.4"/>
 <hole x="22.2" y="0" drill="1.4"/>
 </package>
