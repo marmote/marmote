@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.5" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.1" altunitdist="mm" altunit="mm"/>
+<grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.25" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="GND" color="2" fill="1" visible="no" active="yes"/>
@@ -154,22 +154,20 @@
 <circle x="84.5" y="24" radius="1" width="0.2032" layer="22"/>
 <text x="60.75" y="54" size="1.27" layer="21" font="vector" rot="R180">OFF</text>
 <text x="80" y="54" size="1.27" layer="21" font="vector" rot="R180">ON</text>
-<text x="7.3" y="15.3" size="1.27" layer="21" font="vector">BOOT0</text>
+<text x="13.95" y="17.05" size="1.27" layer="21" font="vector" rot="R90">BOOT0</text>
 <text x="7.25" y="17.25" size="1.27" layer="21" font="vector" rot="R90">RESET</text>
 <text x="12" y="29.35" size="1.27" layer="21" font="vector" rot="R90">SWD</text>
 <text x="55.75" y="47.7" size="1.27" layer="21" font="vector">WALL</text>
 <text x="85.25" y="37.25" size="1.27" layer="22" font="vector" rot="MR0">PWR SW</text>
 <text x="82.25" y="23.25" size="1.27" layer="22" font="vector" rot="MR0">BAT</text>
-<text x="14.4" y="11.8" size="1.27" layer="21" font="vector">SRAM</text>
-<text x="7.2" y="9.3" size="1.27" layer="21" font="vector" rot="R90">FLASH</text>
 <text x="82.15" y="13.4" size="1.27" layer="21" font="vector">AGND</text>
 <text x="1.1" y="13.4" size="1.27" layer="21" font="vector">DGND</text>
 <text x="67.25" y="35.75" size="1.27" layer="21" font="vector">VBAT</text>
-<text x="18" y="15.1" size="1.27" layer="21" font="vector">VSUP</text>
-<text x="31" y="15.1" size="1.27" layer="21" font="vector">D3V3</text>
-<text x="31" y="19.7" size="1.27" layer="21" font="vector">D1V5</text>
-<text x="62.6" y="15.1" size="1.27" layer="21" font="vector">A1V5</text>
-<text x="62.6" y="19.7" size="1.27" layer="21" font="vector">A3V3</text>
+<text x="17" y="12.6" size="1.27" layer="21" font="vector">VSUP</text>
+<text x="37.5" y="12.6" size="1.27" layer="21" font="vector">D3V3</text>
+<text x="37.5" y="17.7" size="1.27" layer="21" font="vector">D1V5</text>
+<text x="48.1" y="12.6" size="1.27" layer="21" font="vector">A1V5</text>
+<text x="48.1" y="17.7" size="1.27" layer="21" font="vector">A3V3</text>
 <text x="10.65" y="35.5" size="1.27" layer="21" font="vector">D3V3_STM</text>
 <text x="88" y="50" size="1.27" layer="21" font="vector" rot="R90">DGND</text>
 <text x="61.8" y="25.35" size="1.27" layer="21" font="vector">VSUP_R</text>
@@ -185,11 +183,9 @@
 <text x="65.75" y="4.75" size="1.27" layer="22" font="vector" rot="MR0">Copyright c 2012</text>
 <text x="70.75" y="2.75" size="1.27" layer="22" font="vector" rot="MR0">Vanderbilt University, ISIS</text>
 <circle x="54.5" y="5.2" radius="0.85" width="0.127" layer="22"/>
-<wire x1="13.9" y1="12.6" x2="13.4" y2="13.1" width="0.254" layer="21"/>
-<wire x1="13.4" y1="13.1" x2="12.8" y2="13.1" width="0.254" layer="21"/>
-<wire x1="8.6" y1="12.4" x2="8.1" y2="11.9" width="0.254" layer="21"/>
-<wire x1="8.1" y1="11.9" x2="7.5" y2="11.9" width="0.254" layer="21"/>
 <text x="11.9" y="44.65" size="1.27" layer="21" font="vector">VBUS</text>
+<text x="10.2" y="19.3" size="1.27" layer="21" font="vector" rot="R90">S</text>
+<text x="10.45" y="11.8" size="1.27" layer="21" font="vector" rot="R90">F</text>
 </plain>
 <libraries>
 <library name="powerboard">
@@ -12602,7 +12598,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="PAGE2" value="Power Supply" x="16.3" y="15.2" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="SW3" library="powerboard" package="TL3340" value="SWITCH-ESWITCH-TL3340G" x="1.75" y="20" rot="R270"/>
-<element name="J7" library="powerboard" package="SWITCH-DIP-CJS" value="SWITCH-CJS-1200-1200" x="10" y="12.5" rot="R180"/>
+<element name="J7" library="powerboard" package="SWITCH-DIP-CJS" value="SWITCH-CJS-1200-1200" x="10" y="16" rot="R90"/>
 </elements>
 <signals>
 <signal name="DGND">
@@ -13255,7 +13251,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="9.1" y1="28.4" x2="8.1209" y2="28.4" width="0.2032" layer="1"/>
 <wire x1="8.1209" y1="28.4" x2="8.1209" y2="28.46" width="0.2032" layer="1"/>
 <wire x1="11.4" y1="14.35" x2="11.75" y2="14.35" width="0.2032" layer="1"/>
-<wire x1="11.75" y1="14.35" x2="11.75" y2="13.65" width="0.2032" layer="1"/>
+<wire x1="11.75" y1="14.35" x2="11.15" y2="14.25" width="0.2032" layer="1"/>
 <wire x1="16.9" y1="26.8" x2="16.85" y2="26.8" width="0.2032" layer="1"/>
 <wire x1="16.85" y1="26.8" x2="16.85" y2="27.2" width="0.2032" layer="1"/>
 <wire x1="16.9" y1="25.5" x2="16.85" y2="25.5" width="0.2032" layer="1"/>
@@ -14156,7 +14152,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="13.6" y1="28" x2="13.3" y2="27.7" width="0.254" layer="1"/>
 <wire x1="13.3" y1="27.7" x2="10" y2="24.4" width="0.254" layer="1"/>
 <wire x1="10" y1="24.4" x2="10" y2="12.7" width="0.254" layer="16"/>
-<wire x1="10" y1="12.7" x2="10" y2="11.9" width="0.254" layer="1"/>
+<wire x1="10" y1="12.7" x2="10" y2="15.15" width="0.254" layer="1"/>
 <contactref element="J7" pad="2"/>
 <via x="10" y="24.4" extent="1-16" drill="0.254"/>
 <via x="10" y="12.7" extent="1-16" drill="0.254"/>
@@ -14165,7 +14161,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="13.6" y1="28" x2="13.5" y2="28" width="0.2032" layer="1"/>
 <wire x1="13.2" y1="28" x2="13.2" y2="27.7" width="0.2032" layer="1"/>
 <wire x1="13.2" y1="27.7" x2="13.3" y2="27.7" width="0.2032" layer="1"/>
-<wire x1="10" y1="11.9" x2="10" y2="11.35" width="0.2032" layer="1"/>
+<wire x1="10" y1="15.15" x2="8.85" y2="16" width="0.2032" layer="1"/>
 </signal>
 <signal name="N$29">
 <contactref element="LED1" pad="2"/>
