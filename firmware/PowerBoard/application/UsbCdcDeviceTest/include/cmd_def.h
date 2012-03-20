@@ -6,10 +6,12 @@
 
 #include "usb_fs.h"
 
+char* argList[10];
+
 typedef struct _CMD_Type
 {
 	uint8_t* CmdString;
-	uint8_t (*CmdFunction)(void);
+	uint32_t (*CmdFunction)(uint32_t argc, char** argv);
 } CMD_Type;
 
 uint8_t LED1_Enabled = 1; // Power supply TEST ONLY
@@ -22,6 +24,7 @@ uint8_t LED1_Enabled = 1; // Power supply TEST ONLY
 //uint8_t CMD_PowerOn(void);
 //uint8_t CMD_PowerOff(void);
 
+   /*
 uint8_t Led1On(void)
 {
 	LED1_Enabled = 1;
@@ -60,15 +63,44 @@ uint8_t CMD_PowerOff(void)
 	return 0;
 }
 
+	 */
 
+uint32_t CmdHelp(uint32_t argc, char** argv)
+{
+	// TODO: print help message
+	LED_Toggle(LED1);
+	return 0;
+}
 
-uint8_t PrintHelpMsg(void);
+uint32_t CmdLed(uint32_t argc, char** argv)
+{
+	if (argc != 2)
+		// TODO: print hint
+		return 1;
+	
+	// TODO: make it work for both LEDs
+	if (strcmp(*argv, "on"))
+	{			
+		LED_On(LED2);
+		return 0;
+	}
+
+	if (strcmp(*argv, "off"))
+	{			
+		LED_Off(LED2);
+		return 0;
+	}
+
+	return 0;
+}
 
 // List of command words and associated functions
 
 CMD_Type CMD_List[] =
 {
-	"help", PrintHelpMsg,
+	"help", CmdHelp,
+	"led",  CmdLed
+	/*,
 	"led1 on",  Led1On,
 	"led1 off", Led1Off,
 	"led2 on",  Led2On,
@@ -82,12 +114,13 @@ CMD_Type CMD_List[] =
 	"txd on", CON_TXD_Set,
 	"txd off", CON_TXD_Clear,
 	"spiw", CON_SPI_TestWrite,
-	"spir", CON_SPI_TestRead
+	"spir", CON_SPI_TestRead*/
 //	"mon on", CMD_MonitorOn,
 //	"mon off", CMD_MonitorOff
 };
 
 
+				   /*
 uint8_t PrintHelpMsg(void)
 {
 	uint8_t cmdIndex;
@@ -102,5 +135,6 @@ uint8_t PrintHelpMsg(void)
 
     return 0;
 }
+*/
 
 #endif // __CMD_DEF_H

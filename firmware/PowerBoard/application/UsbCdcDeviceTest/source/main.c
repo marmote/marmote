@@ -6,6 +6,13 @@
 #include "cmd_def.h"
 #include "usb_fs.h"
 
+#include <string.h>
+#include <stdio.h>
+
+//char cmd[20];
+uint32_t argc;
+char* cmdTok;
+
 uint8_t CMD_Rx_Buffer[32];
 uint8_t CMD_Rx_Length;
 uint8_t CMD_Rx_Valid;
@@ -54,31 +61,55 @@ int main (void) {
 		{
 			CMD_ParseResult = 1;
 
-			// Process command
-			for (i = 0; i < CMD_ListLength; i++)
-            {
-                // Compare CMD[i] with received command
-                for (j = 0; j < CMD_Rx_Length; j++)
-                {
-                    if (CMD_List[i].CmdString[j] == '\0')
-                    {
-                        CMD_ParseResult = 0;
-                        (*CMD_List[i].CmdFunction)();
-                        break;
-                    }
+			// Tokenize command string
+			//argList = strtok("a b c d", " ");
 
-                    if (CMD_Rx_Buffer[j] != CMD_List[i].CmdString[j])
-                    {
-                        break;
-                    }
-                }
+			argc = 0;
+			//argList[argc] = strtok((char *)CMD_Rx_Buffer, " ");
+			cmdTok = strtok((char *)CMD_Rx_Buffer, " ");
 
-                // Exit for loop as soon as a match is found
-				if (CMD_ParseResult == 0)
-				{
-					break;
-				}
-            }
+			CMD_ParseResult = 1;
+
+			while ( argList[argc] != NULL && argc < 10 )
+			{
+				argc++;
+				argList[argc] = strtok(NULL, " ");
+			}
+
+			if (argc > 0)
+			{
+				// Process command
+				for (i = 0; i < CMD_ListLength; i++)
+	            {
+	                // Compare CMD[i] with received command
+	                for (j = 0; j < strlen(argList[0]); j++)
+	                {
+	                    if (CMD_List[i].CmdString[j] == '\0')
+	                    {
+	                        CMD_ParseResult = 0;
+	                        (*CMD_List[i].CmdFunction)(argc, argList);
+	                        break;
+	                    }
+	
+	                    if (CMD_Rx_Buffer[j] != CMD_List[i].CmdString[j])
+	                    {
+	                        break;
+	                    }
+	                }
+	
+	                // Exit for loop as soon as a match is found
+					if (CMD_ParseResult == 0)
+					{
+						break;
+					}
+	        	}
+			}
+				else
+			{
+				CMD_ParseResult = 1;
+			}
+
+
 
 			// Send ACK/NAK
 			if (CMD_ParseResult == 0)
