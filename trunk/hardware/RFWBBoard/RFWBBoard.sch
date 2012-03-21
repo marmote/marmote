@@ -119,7 +119,7 @@
 <layer number="195" name="mNames" color="7" fill="1" visible="no" active="no"/>
 <layer number="196" name="mValues" color="7" fill="1" visible="no" active="no"/>
 <layer number="199" name="EXTD_ERC" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="200" name="200bmp" color="1" fill="10" visible="yes" active="yes"/>
+<layer number="200" name="200bmp" color="1" fill="10" visible="no" active="yes"/>
 <layer number="201" name="201bmp" color="2" fill="10" visible="yes" active="yes"/>
 <layer number="202" name="202bmp" color="3" fill="10" visible="yes" active="yes"/>
 <layer number="203" name="203bmp" color="4" fill="10" visible="yes" active="yes"/>
@@ -39263,7 +39263,7 @@ v1.0 Initial design</description>
 <part name="R102" library="RFWBBoard" deviceset="R" device="0402" value="1.2k"/>
 <part name="C103" library="RFWBBoard" deviceset="C" device="0402" value="100pF"/>
 <part name="C117" library="RFWBBoard" deviceset="C" device="0402" value="100nF"/>
-<part name="C104" library="RFWBBoard" deviceset="C" device="0402" value="NONE"/>
+<part name="C104" library="RFWBBoard" deviceset="C" device="0402" value="DNP"/>
 <part name="C106" library="RFWBBoard" deviceset="C" device="0402" value="100pF"/>
 <part name="C107" library="RFWBBoard" deviceset="C" device="0402" value="100pF"/>
 <part name="C108" library="RFWBBoard" deviceset="C" device="0402" value="100pF"/>
