@@ -421,6 +421,11 @@
               <FileType>1</FileType>
               <FilePath>.\source\usb_fs.c</FilePath>
             </File>
+            <File>
+              <FileName>cmd_def.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\source\cmd_def.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

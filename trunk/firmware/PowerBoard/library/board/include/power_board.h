@@ -47,7 +47,8 @@
 
 //uint16_t Stream_Buf[48];
 
-extern uint8_t LED1_Enabled; // Power supply TEST ONLY
+//extern uint8_t LED1_Enabled; // Power supply TEST ONLY
+static uint8_t LED1_Enabled; // Power supply TEST ONLY
 
 // Board - Initialize board peripherals and GPIOs with default values
 void Board_Init(void); // 

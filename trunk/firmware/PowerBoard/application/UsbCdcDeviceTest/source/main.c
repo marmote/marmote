@@ -9,21 +9,24 @@
 #include <string.h>
 #include <stdio.h>
 
-//char cmd[20];
+//extern CMD_Type CMD_List[3];
+char* argList[10];
+
+CMD_Type* CmdListPtr;
+
+
 uint32_t argc;
 char* cmdTok;
-
+																													   
 uint8_t CMD_Rx_Buffer[32];
 uint8_t CMD_Rx_Length;
 uint8_t CMD_Rx_Valid;
 uint8_t CMD_ParseResult;
 
-uint8_t i, j;		  
-uint8_t CMD_ListLength;  	
+uint8_t i, j;		  	
 uint32_t c;
 
 
-extern CMD_Type CMD_List[];
 
 int main (void) {
 							
@@ -53,7 +56,6 @@ int main (void) {
 
 	//for (;;) ;
 
-	CMD_ListLength = sizeof(CMD_List)/sizeof(CMD_Type);
 				
 	while (1)
 	{		
@@ -65,9 +67,11 @@ int main (void) {
 			cmdTok = strtok((char *)CMD_Rx_Buffer, " ");
 			if (cmdTok != NULL)
 			{
-				for ( j = 0; j < sizeof(CMD_List)/sizeof(CMD_Type); j++ )
+				CmdListPtr = CMD_List;
+				while (CmdListPtr->CmdString)
+				//for ( j = 0; j < sizeof(CMD_List)/sizeof(CMD_Type); j++ )
 			    {
-			        if (!strcmp(cmdTok, CMD_List[j].CmdString))
+			        if (!strcmp(cmdTok, CmdListPtr->CmdString))
 			        {
 						// Set the argList pointers to tokens
 			            argc = 0;			
@@ -78,22 +82,27 @@ int main (void) {
 			                cmdTok = strtok(NULL, " ");
 			            }
 
-						USB_SendMsg("\nACK\n>", 6);
+						USB_SendMsg("\nACK", 4);
 
 						// Invoke associated command function
-				        CMD_List[j].CmdFunction(argc, argList);			
+				        CmdListPtr->CmdFunction(argc, argList);			
 
 						CMD_ParseResult = 0;
 			            break;
 			        }
+
+					CmdListPtr++;
 			    }
 			}							
 			
 			// Send NAK if no valid command identified
 			if (CMD_ParseResult == 1)
 			{		
-				USB_SendMsg("\nNAK\n>", 6);	
+				USB_SendMsg("\nNAK>", 4);	
 			}
+
+			// Send '>' prompt
+			USB_SendMsg("\n>", 2);	
 
 			// Clean up states
 			CMD_Rx_Valid = 0;
