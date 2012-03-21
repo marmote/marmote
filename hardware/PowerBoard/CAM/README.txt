@@ -12,8 +12,8 @@ PCB STACKUP:
 	Stack Layer		Gerber Polarity	Comment	
 	-----------		---------------	-------
 	1 (Top)			Positive		Component side (signal)
-	2 (Inner 1)		Positive		Power (GND)
-	3 (Inner 2)		Positive		Power (VCC)
+	2 (GND)			Positive		Power (GND)
+	3 (SUPPLY)		Positive		Power (VCC)
 	16 (Bottom)		Positive		Solder side (signal)
 
 
@@ -24,8 +24,8 @@ PowerBoard.GTO - Top Silk Screen (component side)
 PowerBoard.GTP - Top Solder paste (cream stencil, component side)
 PowerBoard.GTS - Top Solder stop mask (component side)
 PowerBoard.GTL - Top Copper (component side), Positive Polarity
-PowerBoard.GP1 - Inner Layer 1, Positive Polarity
-PowerBoard.GP2 - Inner Layer 2, Positive Polarity
+PowerBoard.GP1 - Inner Ground plane, Positive Polarity
+PowerBoard.GP2 - Inner Supply plane, Positive Polarity
 PowerBoard.GBL - Bottom Copper (solder side), Positive Polarity
 PowerBoard.GBS - Bottom Solder stop mask (solder side)
 PowerBoard.GBP - Bottom Solder paste (cream stencil, solder side)
