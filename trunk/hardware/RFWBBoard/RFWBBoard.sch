@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.05" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -39441,18 +39441,18 @@ v1.0 Initial design</description>
 <sheet>
 <plain>
 <text x="190.5" y="20.32" size="5.08" layer="97">&gt;PAGE2</text>
-<text x="68.58" y="109.22" size="1.778" layer="97">SF_ADC6</text>
-<text x="68.58" y="137.16" size="1.778" layer="97">GPIO2</text>
-<text x="68.58" y="134.62" size="1.778" layer="97">GPIO3</text>
-<text x="68.58" y="142.24" size="1.778" layer="97">GPIO1</text>
-<text x="68.58" y="144.78" size="1.778" layer="97">GPIO0</text>
-<text x="55.88" y="132.08" size="1.778" layer="97">UART_TX / GPIO4</text>
-<text x="154.94" y="137.16" size="1.778" layer="97">SPI_SCLK</text>
-<text x="154.94" y="134.62" size="1.778" layer="97">SPI_MOSI</text>
-<text x="154.94" y="132.08" size="1.778" layer="97">SPI_MISO</text>
-<text x="154.94" y="129.54" size="1.778" layer="97">SPI_SS</text>
-<text x="154.94" y="127" size="1.778" layer="97">I2C_SCL</text>
-<text x="154.94" y="124.46" size="1.778" layer="97">I2C_SCL</text>
+<text x="81.28" y="109.22" size="1.778" layer="97" rot="MR0">SF_ADC6</text>
+<text x="81.28" y="137.16" size="1.778" layer="97" rot="MR0">GPIO2</text>
+<text x="81.28" y="134.62" size="1.778" layer="97" rot="MR0">GPIO3</text>
+<text x="81.28" y="142.24" size="1.778" layer="97" rot="MR0">GPIO1</text>
+<text x="81.28" y="144.78" size="1.778" layer="97" rot="MR0">GPIO0</text>
+<text x="81.28" y="132.08" size="1.778" layer="97" rot="MR0">UART1_TX / GPIO4</text>
+<text x="154.94" y="137.16" size="1.778" layer="97">SPI1_SCLK</text>
+<text x="154.94" y="134.62" size="1.778" layer="97">SPI1_MOSI</text>
+<text x="154.94" y="132.08" size="1.778" layer="97">SPI1_MISO</text>
+<text x="154.94" y="129.54" size="1.778" layer="97">SPI1_SS</text>
+<text x="154.94" y="127" size="1.778" layer="97">I2C0_SCL</text>
+<text x="154.94" y="124.46" size="1.778" layer="97">I2C0_SDA</text>
 <text x="154.94" y="119.38" size="1.778" layer="97">DAC1-</text>
 <text x="154.94" y="116.84" size="1.778" layer="97">DAC1+</text>
 <text x="154.94" y="111.76" size="1.778" layer="97">DAC2-</text>
@@ -39471,24 +39471,24 @@ v1.0 Initial design</description>
 <text x="154.94" y="63.5" size="1.778" layer="97">ADC4+</text>
 <text x="154.94" y="144.78" size="1.778" layer="97">REF_CLK-</text>
 <text x="154.94" y="142.24" size="1.778" layer="97">REF_CLK+</text>
-<text x="55.88" y="129.54" size="1.778" layer="97">UART_TX / GPIO5</text>
-<text x="58.42" y="127" size="1.778" layer="97">ALERT / GPIO6</text>
-<text x="68.58" y="124.46" size="1.778" layer="97">WAKEUP</text>
-<text x="68.58" y="111.76" size="1.778" layer="97">SF_ADC7</text>
-<text x="68.58" y="119.38" size="1.778" layer="97">SF_DAC1</text>
-<text x="68.58" y="116.84" size="1.778" layer="97">SF_DAC0</text>
-<text x="68.58" y="104.14" size="1.778" layer="97">SF_ADC5</text>
-<text x="68.58" y="101.6" size="1.778" layer="97">SF_ADC4</text>
-<text x="68.58" y="96.52" size="1.778" layer="97">SF_ADC0</text>
-<text x="68.58" y="93.98" size="1.778" layer="97">SF_ADC1</text>
-<text x="68.58" y="88.9" size="1.778" layer="97">SF_ADC2</text>
-<text x="68.58" y="86.36" size="1.778" layer="97">SF_ADC3</text>
-<text x="68.58" y="81.28" size="1.778" layer="97">SF_TM1</text>
-<text x="68.58" y="78.74" size="1.778" layer="97">SF_CM1</text>
-<text x="68.58" y="73.66" size="1.778" layer="97">SF_TM0</text>
-<text x="68.58" y="71.12" size="1.778" layer="97">SF_CM0</text>
-<text x="68.58" y="66.04" size="1.778" layer="97">SF_ABPS1</text>
-<text x="68.58" y="63.5" size="1.778" layer="97">SF_ABPS0</text>
+<text x="81.28" y="129.54" size="1.778" layer="97" rot="MR0">UART1_TX / GPIO5</text>
+<text x="81.28" y="127" size="1.778" layer="97" rot="MR0">ALERT / GPIO6</text>
+<text x="81.28" y="124.46" size="1.778" layer="97" rot="MR0">!WAKEUP</text>
+<text x="81.28" y="111.76" size="1.778" layer="97" rot="MR0">SF_ADC7</text>
+<text x="81.28" y="119.38" size="1.778" layer="97" rot="MR0">SF_DAC1</text>
+<text x="81.28" y="116.84" size="1.778" layer="97" rot="MR0">SF_DAC0</text>
+<text x="81.28" y="104.14" size="1.778" layer="97" rot="MR0">SF_ADC5</text>
+<text x="81.28" y="101.6" size="1.778" layer="97" rot="MR0">SF_ADC4</text>
+<text x="81.28" y="96.52" size="1.778" layer="97" rot="MR0">SF_ADC0</text>
+<text x="81.28" y="93.98" size="1.778" layer="97" rot="MR0">SF_ADC1</text>
+<text x="81.28" y="88.9" size="1.778" layer="97" rot="MR0">SF_ADC2</text>
+<text x="81.28" y="86.36" size="1.778" layer="97" rot="MR0">SF_ADC3</text>
+<text x="81.28" y="81.28" size="1.778" layer="97" rot="MR0">SF_TM1</text>
+<text x="81.28" y="78.74" size="1.778" layer="97" rot="MR0">SF_CM1</text>
+<text x="81.28" y="73.66" size="1.778" layer="97" rot="MR0">SF_TM0</text>
+<text x="81.28" y="71.12" size="1.778" layer="97" rot="MR0">SF_CM0</text>
+<text x="81.28" y="66.04" size="1.778" layer="97" rot="MR0">SF_ABPS1</text>
+<text x="81.28" y="63.5" size="1.778" layer="97" rot="MR0">SF_ABPS0</text>
 </plain>
 <instances>
 <instance part="FRAME2" gate="G$1" x="0" y="0"/>
