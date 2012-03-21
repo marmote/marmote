@@ -2275,7 +2275,7 @@ Source: &lt;a href="http://media.digikey.com/pdf/Data%20Sheets/COPAL%20Electroni
 <text x="78.74" y="11.43" size="2.54" layer="94">Rev:</text>
 <text x="19.05" y="11.43" size="2.54" layer="94">Title:</text>
 <text x="30.48" y="11.43" size="2.54" layer="94">&gt;TITLE</text>
-<text x="25.654" y="1.27" size="2.54" layer="94" ratio="12">Copyright © 2011 Vanderbilt University, ISIS</text>
+<text x="25.654" y="1.27" size="2.54" layer="94" ratio="12">Copyright © 2012 Vanderbilt University, ISIS</text>
 <text x="92.71" y="11.43" size="2.54" layer="94">&gt;REVISION</text>
 </symbol>
 <symbol name="CON-SD">
