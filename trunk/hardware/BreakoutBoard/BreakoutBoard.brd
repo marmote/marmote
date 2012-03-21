@@ -22,10 +22,10 @@
 <layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="25" name="tNames" color="4" fill="1" visible="yes" active="yes"/>
-<layer number="26" name="bNames" color="1" fill="1" visible="yes" active="yes"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="25" name="tNames" color="4" fill="1" visible="no" active="yes"/>
+<layer number="26" name="bNames" color="1" fill="1" visible="no" active="yes"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="yes" active="yes"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="yes" active="yes"/>
@@ -161,8 +161,8 @@
 <text x="36.25" y="33" size="1.778" layer="22" font="vector" rot="MR0">&gt;REVISION</text>
 <text x="3" y="50" size="1.27" layer="21" font="vector" rot="R90">DGND</text>
 <text x="88" y="50" size="1.27" layer="21" font="vector" rot="R90">AGND</text>
-<text x="3" y="8.3" size="1.27" layer="21" font="vector" rot="R90">DGND</text>
-<text x="88" y="8.4" size="1.27" layer="21" font="vector" rot="R90">AGND</text>
+<text x="2" y="9.3" size="1.27" layer="21" font="vector" rot="R90">DGND</text>
+<text x="89" y="9.3" size="1.27" layer="21" font="vector" rot="R90">AGND</text>
 <text x="26.7" y="54" size="1.27" layer="21" font="vector">A1V5</text>
 <text x="32" y="54" size="1.27" layer="21" font="vector">A3V3</text>
 <text x="12.75" y="54" size="1.27" layer="21" font="vector">D3V3</text>
@@ -10084,15 +10084,15 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="MF" value="Keystone" x="31.2" y="65" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="5121" x="31.2" y="65" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP11" library="BreakoutBoard" package="TESTPOINT" value="TESTPOINT-YELLOW" x="5" y="10.5">
-<attribute name="DIGI-KEY#" value="5009K-ND" x="5" y="10.5" size="1.778" layer="27" display="off"/>
-<attribute name="MF" value="Keystone" x="5" y="10.5" size="1.778" layer="27" display="off"/>
-<attribute name="MPN" value="5009" x="5" y="10.5" size="1.778" layer="27" display="off"/>
+<element name="TP11" library="BreakoutBoard" package="TESTPOINT" value="TESTPOINT-YELLOW" x="3.8" y="11.5">
+<attribute name="DIGI-KEY#" value="5009K-ND" x="3.8" y="11.5" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value="Keystone" x="3.8" y="11.5" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="5009" x="3.8" y="11.5" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP14" library="BreakoutBoard" package="TESTPOINT" value="TESTPOINT-YELLOW" x="85" y="10.5">
-<attribute name="DIGI-KEY#" value="5009K-ND" x="85" y="10.5" size="1.778" layer="27" display="off"/>
-<attribute name="MF" value="Keystone" x="85" y="10.5" size="1.778" layer="27" display="off"/>
-<attribute name="MPN" value="5009" x="85" y="10.5" size="1.778" layer="27" display="off"/>
+<element name="TP14" library="BreakoutBoard" package="TESTPOINT" value="TESTPOINT-YELLOW" x="86.2" y="11.5">
+<attribute name="DIGI-KEY#" value="5009K-ND" x="86.2" y="11.5" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value="Keystone" x="86.2" y="11.5" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="5009" x="86.2" y="11.5" size="1.778" layer="27" display="off"/>
 </element>
 <element name="TP13" library="BreakoutBoard" package="TESTPOINT" value="TESTPOINT-YELLOW" x="5" y="52">
 <attribute name="DIGI-KEY#" value="5009K-ND" x="5" y="52" size="1.778" layer="27" display="off"/>
@@ -11758,50 +11758,6 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="65.54" y1="8.85" x2="65.5" y2="8.85" width="0.254" layer="16"/>
 </signal>
 </signals>
-<errors>
-<approved hash="2,20,933d9cc19ab7954b"/>
-<approved hash="2,20,43213cdd3aa94555"/>
-<approved hash="18,29,db13ac32d348a469"/>
-<approved hash="18,29,da93a712d668abe9"/>
-<approved hash="18,29,5dac9910b6ad945a"/>
-<approved hash="18,29,5dac9910b6ad945a"/>
-<approved hash="18,29,8d47a687434ca0ff"/>
-<approved hash="18,29,8d47a687434ca0ff"/>
-<approved hash="18,29,cf1aeb3797c87b96"/>
-<approved hash="18,29,7a34a52fb5e08cb0"/>
-<approved hash="18,29,cf1aeb3797c87b96"/>
-<approved hash="18,29,7a34a52fb5e08cb0"/>
-<approved hash="18,29,1b1f6c3e13746455"/>
-<approved hash="18,29,1a9f671e16546bd5"/>
-<approved hash="18,30,ebb6f099bdd55b31"/>
-<approved hash="18,30,ebb6f099bdd55b31"/>
-<approved hash="18,30,37e21211ecd80e48"/>
-<approved hash="18,30,37e21211ecd80e48"/>
-<approved hash="18,30,422598080fc0128e"/>
-<approved hash="18,30,b308cd60ce4ca9cc"/>
-<approved hash="18,30,422598080fc0128e"/>
-<approved hash="18,30,b308cd60ce4ca9cc"/>
-<approved hash="6,1,b6348b5c47fad33b"/>
-<approved hash="6,1,8e29a0bb0be4b10f"/>
-<approved hash="4,1,fc59fb3a9b30f48d"/>
-<approved hash="4,1,bbc8fc69ff8a0f56"/>
-<approved hash="4,1,fc59fb3a9b30f48d"/>
-<approved hash="4,1,bbc8fc69ff8a0f56"/>
-<approved hash="4,1,fa743ef70855fec4"/>
-<approved hash="4,1,fa743ef70855fec4"/>
-<approved hash="4,1,2d0d24fae7c70381"/>
-<approved hash="4,1,2d0d24fae7c70381"/>
-<approved hash="6,1,65fe5793857a2e84"/>
-<approved hash="6,1,a2ad44ad36c8748b"/>
-<approved hash="4,16,bbc8fc69ff8a0f56"/>
-<approved hash="4,16,fc59fb3a9b30f48d"/>
-<approved hash="4,16,bbc8fc69ff8a0f56"/>
-<approved hash="4,16,fc59fb3a9b30f48d"/>
-<approved hash="4,16,fa743ef70855fec4"/>
-<approved hash="4,16,fa743ef70855fec4"/>
-<approved hash="4,16,2d0d24fae7c70381"/>
-<approved hash="4,16,2d0d24fae7c70381"/>
-</errors>
 </board>
 </drawing>
 </eagle>

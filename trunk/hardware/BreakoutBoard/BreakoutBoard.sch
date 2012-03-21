@@ -311,41 +311,6 @@ Small fiducial for automated assembly
 <circle x="0" y="0" radius="0.508" width="0.0508" layer="94"/>
 <text x="-1.27" y="2.54" size="1.27" layer="95">&gt;NAME</text>
 </symbol>
-<symbol name="FRAME-DOCFIELD">
-<wire x1="17.78" y1="5.08" x2="76.2" y2="5.08" width="0.254" layer="94"/>
-<wire x1="17.78" y1="5.08" x2="17.78" y2="10.16" width="0.254" layer="94"/>
-<wire x1="17.78" y1="10.16" x2="76.2" y2="10.16" width="0.254" layer="94"/>
-<wire x1="76.2" y1="10.16" x2="76.2" y2="5.08" width="0.254" layer="94"/>
-<wire x1="76.2" y1="5.08" x2="101.6" y2="5.08" width="0.254" layer="94"/>
-<wire x1="101.6" y1="10.16" x2="76.2" y2="10.16" width="0.254" layer="94"/>
-<wire x1="101.6" y1="10.16" x2="101.6" y2="5.08" width="0.254" layer="94"/>
-<wire x1="17.78" y1="10.16" x2="17.78" y2="15.24" width="0.254" layer="94"/>
-<wire x1="101.6" y1="30.48" x2="17.78" y2="30.48" width="0.254" layer="94"/>
-<wire x1="101.6" y1="30.48" x2="101.6" y2="15.24" width="0.254" layer="94"/>
-<wire x1="17.78" y1="15.24" x2="76.2" y2="15.24" width="0.254" layer="94"/>
-<wire x1="76.2" y1="15.24" x2="101.6" y2="15.24" width="0.254" layer="94"/>
-<wire x1="17.78" y1="15.24" x2="17.78" y2="30.48" width="0.254" layer="94"/>
-<wire x1="101.6" y1="15.24" x2="101.6" y2="10.16" width="0.254" layer="94"/>
-<wire x1="17.78" y1="5.08" x2="17.78" y2="0" width="0.254" layer="94"/>
-<wire x1="17.78" y1="0" x2="101.6" y2="0" width="0.254" layer="94"/>
-<wire x1="101.6" y1="0" x2="101.6" y2="5.08" width="0.254" layer="94"/>
-<wire x1="76.2" y1="10.16" x2="76.2" y2="15.24" width="0.254" layer="94"/>
-<text x="19.05" y="6.35" size="2.54" layer="94">Date:</text>
-<text x="30.48" y="6.35" size="2.54" layer="94">&gt;LAST_DATE_TIME</text>
-<text x="78.74" y="6.35" size="2.54" layer="94">Sheet:</text>
-<text x="91.44" y="6.35" size="2.54" layer="94">&gt;SHEET</text>
-<text x="78.74" y="11.43" size="2.54" layer="94">Rev:</text>
-<text x="19.05" y="11.43" size="2.54" layer="94">Title:</text>
-<text x="30.48" y="11.43" size="2.54" layer="94">&gt;TITLE</text>
-<text x="25.654" y="1.27" size="2.54" layer="94" ratio="12">Copyright © 2011 Vanderbilt University, ISIS</text>
-<text x="92.71" y="11.43" size="2.54" layer="94">&gt;REVISION</text>
-</symbol>
-<symbol name="FRAME-LETTER-L">
-<wire x1="0" y1="185.42" x2="248.92" y2="185.42" width="0.4064" layer="94"/>
-<wire x1="248.92" y1="185.42" x2="248.92" y2="0" width="0.4064" layer="94"/>
-<wire x1="0" y1="185.42" x2="0" y2="0" width="0.4064" layer="94"/>
-<wire x1="0" y1="0" x2="248.92" y2="0" width="0.4064" layer="94"/>
-</symbol>
 <symbol name="FIDUCIAL">
 <wire x1="-0.762" y1="0.762" x2="0.762" y2="-0.762" width="0.254" layer="94"/>
 <wire x1="0.762" y1="0.762" x2="-0.762" y2="-0.762" width="0.254" layer="94"/>
@@ -406,21 +371,6 @@ Small fiducial for automated assembly
 </technologies>
 </device>
 <device name="5.5" package="5,5">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="FRAME-LETTER" prefix="FRAME">
-<description>&lt;b&gt;Schematic Frame&lt;/b&gt;&lt;p&gt;
-Standard 8.5x11 US Letter frame</description>
-<gates>
-<gate name="G$1" symbol="FRAME-LETTER-L" x="0" y="0"/>
-<gate name="G$2" symbol="FRAME-DOCFIELD" x="147.32" y="0" addlevel="must"/>
-</gates>
-<devices>
-<device name="">
 <technologies>
 <technology name=""/>
 </technologies>
@@ -37590,41 +37540,6 @@ Source: &lt;p&gt;
 <wire x1="4.191" y1="0.889" x2="2.54" y2="2.032" width="0.2032" layer="95"/>
 <wire x1="2.54" y1="2.032" x2="-2.54" y2="2.032" width="0.2032" layer="95"/>
 </symbol>
-<symbol name="FRAME-LETTER-L">
-<wire x1="0" y1="185.42" x2="248.92" y2="185.42" width="0.4064" layer="94"/>
-<wire x1="248.92" y1="185.42" x2="248.92" y2="0" width="0.4064" layer="94"/>
-<wire x1="0" y1="185.42" x2="0" y2="0" width="0.4064" layer="94"/>
-<wire x1="0" y1="0" x2="248.92" y2="0" width="0.4064" layer="94"/>
-</symbol>
-<symbol name="FRAME-DOCFIELD">
-<wire x1="17.78" y1="5.08" x2="76.2" y2="5.08" width="0.254" layer="94"/>
-<wire x1="17.78" y1="5.08" x2="17.78" y2="10.16" width="0.254" layer="94"/>
-<wire x1="17.78" y1="10.16" x2="76.2" y2="10.16" width="0.254" layer="94"/>
-<wire x1="76.2" y1="10.16" x2="76.2" y2="5.08" width="0.254" layer="94"/>
-<wire x1="76.2" y1="5.08" x2="101.6" y2="5.08" width="0.254" layer="94"/>
-<wire x1="101.6" y1="10.16" x2="76.2" y2="10.16" width="0.254" layer="94"/>
-<wire x1="101.6" y1="10.16" x2="101.6" y2="5.08" width="0.254" layer="94"/>
-<wire x1="17.78" y1="10.16" x2="17.78" y2="15.24" width="0.254" layer="94"/>
-<wire x1="101.6" y1="30.48" x2="17.78" y2="30.48" width="0.254" layer="94"/>
-<wire x1="101.6" y1="30.48" x2="101.6" y2="15.24" width="0.254" layer="94"/>
-<wire x1="17.78" y1="15.24" x2="76.2" y2="15.24" width="0.254" layer="94"/>
-<wire x1="76.2" y1="15.24" x2="101.6" y2="15.24" width="0.254" layer="94"/>
-<wire x1="17.78" y1="15.24" x2="17.78" y2="30.48" width="0.254" layer="94"/>
-<wire x1="101.6" y1="15.24" x2="101.6" y2="10.16" width="0.254" layer="94"/>
-<wire x1="17.78" y1="5.08" x2="17.78" y2="0" width="0.254" layer="94"/>
-<wire x1="17.78" y1="0" x2="101.6" y2="0" width="0.254" layer="94"/>
-<wire x1="101.6" y1="0" x2="101.6" y2="5.08" width="0.254" layer="94"/>
-<wire x1="76.2" y1="10.16" x2="76.2" y2="15.24" width="0.254" layer="94"/>
-<text x="19.05" y="6.35" size="2.54" layer="94">Date:</text>
-<text x="30.48" y="6.35" size="2.54" layer="94">&gt;LAST_DATE_TIME</text>
-<text x="78.74" y="6.35" size="2.54" layer="94">Sheet:</text>
-<text x="91.44" y="6.35" size="2.54" layer="94">&gt;SHEET</text>
-<text x="78.74" y="11.43" size="2.54" layer="94">Rev:</text>
-<text x="19.05" y="11.43" size="2.54" layer="94">Title:</text>
-<text x="30.48" y="11.43" size="2.54" layer="94">&gt;TITLE</text>
-<text x="25.654" y="1.27" size="2.54" layer="94" ratio="12">Copyright © 2011 Vanderbilt University, ISIS</text>
-<text x="92.71" y="11.43" size="2.54" layer="94">&gt;REVISION</text>
-</symbol>
 <symbol name="R">
 <wire x1="-3.81" y1="0" x2="-3.429" y2="1.016" width="0.2032" layer="94"/>
 <wire x1="-3.429" y1="1.016" x2="-2.794" y2="-1.016" width="0.2032" layer="94"/>
@@ -37676,12 +37591,10 @@ Source: &lt;p&gt;
 <wire x1="0" y1="30.48" x2="0" y2="0" width="0.254" layer="94"/>
 <wire x1="81.28" y1="30.48" x2="81.28" y2="0" width="0.254" layer="94"/>
 <text x="21.59" y="19.05" size="2.54" layer="97">#1 - </text>
-<text x="21.59" y="13.97" size="2.54" layer="97">#2 - </text>
+<text x="21.59" y="8.89" size="2.54" layer="97">#2 - </text>
 <text x="2.54" y="26.67" size="2.54" layer="94">Pages:</text>
 <text x="28.702" y="19.05" size="2.54" layer="97">&gt;PAGE1</text>
-<text x="28.702" y="13.97" size="2.54" layer="97">&gt;PAGE2</text>
-<text x="21.59" y="8.89" size="2.54" layer="97">#3 - </text>
-<text x="28.702" y="8.89" size="2.54" layer="97">&gt;PAGE3</text>
+<text x="28.702" y="8.89" size="2.54" layer="97">&gt;PAGE2</text>
 </symbol>
 <symbol name="TESTPOINT">
 <wire x1="0" y1="-2.54" x2="0" y2="-1.778" width="0.1524" layer="94"/>
@@ -38091,6 +38004,41 @@ Source: &lt;p&gt;
 <pin name="5" x="-2.54" y="-7.62" visible="pad" length="short" direction="pas"/>
 <pin name="6" x="10.16" y="-7.62" visible="pad" length="short" direction="pas" rot="R180"/>
 </symbol>
+<symbol name="FRAME-LETTER-L">
+<wire x1="0" y1="185.42" x2="248.92" y2="185.42" width="0.4064" layer="94"/>
+<wire x1="248.92" y1="185.42" x2="248.92" y2="0" width="0.4064" layer="94"/>
+<wire x1="0" y1="185.42" x2="0" y2="0" width="0.4064" layer="94"/>
+<wire x1="0" y1="0" x2="248.92" y2="0" width="0.4064" layer="94"/>
+</symbol>
+<symbol name="FRAME-DOCFIELD">
+<wire x1="17.78" y1="5.08" x2="76.2" y2="5.08" width="0.254" layer="94"/>
+<wire x1="17.78" y1="5.08" x2="17.78" y2="10.16" width="0.254" layer="94"/>
+<wire x1="17.78" y1="10.16" x2="76.2" y2="10.16" width="0.254" layer="94"/>
+<wire x1="76.2" y1="10.16" x2="76.2" y2="5.08" width="0.254" layer="94"/>
+<wire x1="76.2" y1="5.08" x2="101.6" y2="5.08" width="0.254" layer="94"/>
+<wire x1="101.6" y1="10.16" x2="76.2" y2="10.16" width="0.254" layer="94"/>
+<wire x1="101.6" y1="10.16" x2="101.6" y2="5.08" width="0.254" layer="94"/>
+<wire x1="17.78" y1="10.16" x2="17.78" y2="15.24" width="0.254" layer="94"/>
+<wire x1="101.6" y1="30.48" x2="17.78" y2="30.48" width="0.254" layer="94"/>
+<wire x1="101.6" y1="30.48" x2="101.6" y2="15.24" width="0.254" layer="94"/>
+<wire x1="17.78" y1="15.24" x2="76.2" y2="15.24" width="0.254" layer="94"/>
+<wire x1="76.2" y1="15.24" x2="101.6" y2="15.24" width="0.254" layer="94"/>
+<wire x1="17.78" y1="15.24" x2="17.78" y2="30.48" width="0.254" layer="94"/>
+<wire x1="101.6" y1="15.24" x2="101.6" y2="10.16" width="0.254" layer="94"/>
+<wire x1="17.78" y1="5.08" x2="17.78" y2="0" width="0.254" layer="94"/>
+<wire x1="17.78" y1="0" x2="101.6" y2="0" width="0.254" layer="94"/>
+<wire x1="101.6" y1="0" x2="101.6" y2="5.08" width="0.254" layer="94"/>
+<wire x1="76.2" y1="10.16" x2="76.2" y2="15.24" width="0.254" layer="94"/>
+<text x="19.05" y="6.35" size="2.54" layer="94">Date:</text>
+<text x="30.48" y="6.35" size="2.54" layer="94">&gt;LAST_DATE_TIME</text>
+<text x="78.74" y="6.35" size="2.54" layer="94">Sheet:</text>
+<text x="91.44" y="6.35" size="2.54" layer="94">&gt;SHEET</text>
+<text x="78.74" y="11.43" size="2.54" layer="94">Rev:</text>
+<text x="19.05" y="11.43" size="2.54" layer="94">Title:</text>
+<text x="30.48" y="11.43" size="2.54" layer="94">&gt;TITLE</text>
+<text x="25.654" y="1.27" size="2.54" layer="94" ratio="12">Copyright © 2012 Vanderbilt University, ISIS</text>
+<text x="92.71" y="11.43" size="2.54" layer="94">&gt;REVISION</text>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="PORT2" prefix="PORT">
@@ -38098,21 +38046,6 @@ Source: &lt;p&gt;
  for net name (2 characters)</description>
 <gates>
 <gate name="G$1" symbol="PORT" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="FRAME-LETTER" prefix="FRAME">
-<description>&lt;b&gt;Schematic Frame&lt;/b&gt;&lt;p&gt;
-Standard 8.5x11 US Letter frame</description>
-<gates>
-<gate name="G$1" symbol="FRAME-LETTER-L" x="0" y="0"/>
-<gate name="G$2" symbol="FRAME-DOCFIELD" x="147.32" y="0" addlevel="must"/>
 </gates>
 <devices>
 <device name="">
@@ -38607,6 +38540,21 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </device>
 </devices>
 </deviceset>
+<deviceset name="FRAME-LETTER" prefix="FRAME">
+<description>&lt;b&gt;Schematic Frame&lt;/b&gt;&lt;p&gt;
+Standard 8.5x11 US Letter frame</description>
+<gates>
+<gate name="G$1" symbol="FRAME-LETTER-L" x="0" y="0"/>
+<gate name="G$2" symbol="FRAME-DOCFIELD" x="147.32" y="0" addlevel="must"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -38617,8 +38565,8 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <attribute name="PAGE1" value="Cover Page"/>
 <attribute name="PAGE2" value="General Breakout"/>
 <attribute name="PAGE3" value="Power Board Specific"/>
-<attribute name="REVIEWER" value="Peter Volgyesi"/>
-<attribute name="REVIEWEREMAIL" value="peter.volgyesi@vanderbilt.edu"/>
+<attribute name="REVIEWER" value="Benjamin Babjak"/>
+<attribute name="REVIEWEREMAIL" value="benjamin.babjak@vanderbilt.edu"/>
 <attribute name="REVISION" value="B"/>
 <attribute name="TITLE" value="Smoky"/>
 </attributes>
@@ -38629,9 +38577,7 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </class>
 </classes>
 <parts>
-<part name="FRAME5" library="powerboard" deviceset="FRAME-LETTER" device=""/>
 <part name="TOC-FIELD" library="BreakoutBoard" deviceset="FRAME-TOC" device=""/>
-<part name="FRAME4" library="powerboard" deviceset="FRAME-LETTER" device="" value=""/>
 <part name="M1" library="powerboard" deviceset="MOUNT-HOLE" device="3.3"/>
 <part name="M2" library="powerboard" deviceset="MOUNT-HOLE" device="3.3"/>
 <part name="M3" library="powerboard" deviceset="MOUNT-HOLE" device="3.3"/>
@@ -38802,7 +38748,6 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <part name="PORT193" library="BreakoutBoard" deviceset="PORT2" device=""/>
 <part name="PORT194" library="BreakoutBoard" deviceset="PORT2" device=""/>
 <part name="PORT195" library="BreakoutBoard" deviceset="PORT2" device=""/>
-<part name="FRAME1" library="BreakoutBoard" deviceset="FRAME-LETTER" device=""/>
 <part name="TP1" library="BreakoutBoard" deviceset="TESTPOINT" device="" technology="-BLUE"/>
 <part name="PORT196" library="BreakoutBoard" deviceset="PORT5" device=""/>
 <part name="TP3" library="BreakoutBoard" deviceset="TESTPOINT" device="" technology="-BLUE"/>
@@ -38942,6 +38887,8 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <part name="LOGO6" library="Logo" deviceset="LOGO-ISIS-600MIL" device="-10MM-SS"/>
 <part name="LOGO7" library="Logo" deviceset="LOGO-MARMOTE-600MIL" device="-10MM-SS"/>
 <part name="LOGO1" library="Logo" deviceset="LOGO-MAGNIFYING-GLASS-600MIL" device="-10MM-SS"/>
+<part name="FRAME1" library="BreakoutBoard" deviceset="FRAME-LETTER" device=""/>
+<part name="FRAME2" library="BreakoutBoard" deviceset="FRAME-LETTER" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -38950,20 +38897,20 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <text x="55.88" y="101.6" size="5.08" layer="97">Inspection module for the Marmote platform</text>
 <text x="74.93" y="88.9" size="5.08" layer="97">http://marmote.googlecode.com</text>
 <text x="187.96" y="20.32" size="5.08" layer="97">&gt;PAGE1</text>
-<text x="161.29" y="20.32" size="2.54" layer="95" rot="MR0">&gt;AUTHOREMAIL</text>
-<text x="85.09" y="20.32" size="2.54" layer="95">&gt;AUTHOR</text>
-<text x="85.09" y="5.08" size="2.54" layer="95">&gt;REVIEWER</text>
-<text x="161.29" y="5.08" size="2.54" layer="95" rot="MR0">&gt;REVIEWEREMAIL</text>
+<text x="163.83" y="20.32" size="2.54" layer="95" rot="MR0">&gt;AUTHOREMAIL</text>
+<text x="82.55" y="20.32" size="2.54" layer="95">&gt;AUTHOR</text>
+<text x="82.55" y="5.08" size="2.54" layer="95">&gt;REVIEWER</text>
+<text x="163.83" y="5.08" size="2.54" layer="95" rot="MR0">&gt;REVIEWEREMAIL</text>
 </plain>
 <instances>
-<instance part="FRAME5" gate="G$1" x="0" y="0"/>
-<instance part="FRAME5" gate="G$2" x="147.32" y="0"/>
 <instance part="TOC-FIELD" gate="G$1" x="0" y="0"/>
 <instance part="U$14" gate="G$1" x="81.28" y="0"/>
 <instance part="LOGO5" gate="G$1" x="78.74" y="60.96"/>
 <instance part="LOGO6" gate="G$1" x="104.14" y="60.96"/>
 <instance part="LOGO7" gate="G$1" x="129.54" y="60.96"/>
 <instance part="LOGO1" gate="G$1" x="154.94" y="60.96"/>
+<instance part="FRAME1" gate="G$1" x="0" y="0"/>
+<instance part="FRAME1" gate="G$2" x="147.32" y="0"/>
 </instances>
 <busses>
 </busses>
@@ -38973,85 +38920,83 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <sheet>
 <plain>
 <text x="180.34" y="20.32" size="5.08" layer="97">&gt;PAGE2</text>
-<text x="17.78" y="43.18" size="2.54" layer="97">South bridge</text>
-<text x="68.58" y="43.18" size="2.54" layer="97">North bridge</text>
+<text x="20.32" y="60.96" size="2.54" layer="97">South bridge</text>
+<text x="71.12" y="60.96" size="2.54" layer="97">North bridge</text>
 </plain>
 <instances>
-<instance part="FRAME4" gate="G$1" x="0" y="0"/>
-<instance part="FRAME4" gate="G$2" x="147.32" y="0"/>
-<instance part="M1" gate="G$1" x="60.96" y="15.24"/>
-<instance part="M2" gate="G$1" x="68.58" y="15.24"/>
-<instance part="M3" gate="G$1" x="76.2" y="15.24"/>
-<instance part="M4" gate="G$1" x="83.82" y="15.24"/>
-<instance part="M5" gate="G$1" x="60.96" y="25.4"/>
-<instance part="M6" gate="G$1" x="68.58" y="25.4"/>
-<instance part="M7" gate="G$1" x="76.2" y="25.4"/>
-<instance part="M8" gate="G$1" x="83.82" y="25.4"/>
-<instance part="PORT1" gate="G$1" x="45.72" y="157.48"/>
-<instance part="PORT2" gate="G$1" x="45.72" y="154.94"/>
-<instance part="PORT3" gate="G$1" x="45.72" y="152.4"/>
-<instance part="PORT4" gate="G$1" x="45.72" y="149.86"/>
-<instance part="PORT5" gate="G$1" x="45.72" y="147.32"/>
-<instance part="PORT6" gate="G$1" x="45.72" y="144.78"/>
-<instance part="PORT7" gate="G$1" x="45.72" y="142.24"/>
-<instance part="PORT8" gate="G$1" x="45.72" y="139.7"/>
-<instance part="PORT9" gate="G$1" x="45.72" y="137.16"/>
-<instance part="PORT10" gate="G$1" x="45.72" y="134.62"/>
-<instance part="PORT11" gate="G$1" x="45.72" y="132.08"/>
-<instance part="PORT12" gate="G$1" x="45.72" y="129.54"/>
-<instance part="PORT13" gate="G$1" x="45.72" y="127"/>
-<instance part="PORT14" gate="G$1" x="45.72" y="124.46"/>
-<instance part="PORT15" gate="G$1" x="45.72" y="121.92"/>
-<instance part="PORT16" gate="G$1" x="45.72" y="119.38"/>
-<instance part="PORT17" gate="G$1" x="45.72" y="116.84"/>
-<instance part="PORT18" gate="G$1" x="45.72" y="114.3"/>
-<instance part="PORT19" gate="G$1" x="45.72" y="111.76"/>
-<instance part="PORT20" gate="G$1" x="45.72" y="109.22"/>
-<instance part="PORT21" gate="G$1" x="45.72" y="106.68"/>
-<instance part="PORT22" gate="G$1" x="45.72" y="104.14"/>
-<instance part="PORT23" gate="G$1" x="45.72" y="101.6"/>
-<instance part="PORT24" gate="G$1" x="45.72" y="99.06"/>
-<instance part="PORT25" gate="G$1" x="45.72" y="96.52"/>
-<instance part="PORT26" gate="G$1" x="45.72" y="93.98"/>
-<instance part="PORT27" gate="G$1" x="45.72" y="91.44"/>
-<instance part="PORT28" gate="G$1" x="45.72" y="88.9"/>
-<instance part="PORT29" gate="G$1" x="45.72" y="86.36"/>
-<instance part="PORT30" gate="G$1" x="45.72" y="83.82"/>
-<instance part="PORT31" gate="G$1" x="45.72" y="81.28"/>
-<instance part="PORT32" gate="G$1" x="45.72" y="78.74"/>
-<instance part="PORT33" gate="G$1" x="58.42" y="157.48" rot="MR0"/>
-<instance part="PORT34" gate="G$1" x="58.42" y="154.94" rot="MR0"/>
-<instance part="PORT35" gate="G$1" x="58.42" y="152.4" rot="MR0"/>
-<instance part="PORT36" gate="G$1" x="58.42" y="154.94" rot="MR0"/>
-<instance part="PORT37" gate="G$1" x="58.42" y="149.86" rot="MR0"/>
-<instance part="PORT38" gate="G$1" x="58.42" y="147.32" rot="MR0"/>
-<instance part="PORT39" gate="G$1" x="58.42" y="144.78" rot="MR0"/>
-<instance part="PORT40" gate="G$1" x="58.42" y="142.24" rot="MR0"/>
-<instance part="PORT41" gate="G$1" x="58.42" y="139.7" rot="MR0"/>
-<instance part="PORT42" gate="G$1" x="58.42" y="137.16" rot="MR0"/>
-<instance part="PORT43" gate="G$1" x="58.42" y="134.62" rot="MR0"/>
-<instance part="PORT44" gate="G$1" x="58.42" y="132.08" rot="MR0"/>
-<instance part="PORT45" gate="G$1" x="58.42" y="129.54" rot="MR0"/>
-<instance part="PORT46" gate="G$1" x="58.42" y="127" rot="MR0"/>
-<instance part="PORT47" gate="G$1" x="58.42" y="124.46" rot="MR0"/>
-<instance part="PORT48" gate="G$1" x="58.42" y="121.92" rot="MR0"/>
-<instance part="PORT49" gate="G$1" x="58.42" y="119.38" rot="MR0"/>
-<instance part="PORT50" gate="G$1" x="58.42" y="116.84" rot="MR0"/>
-<instance part="PORT51" gate="G$1" x="58.42" y="114.3" rot="MR0"/>
-<instance part="PORT52" gate="G$1" x="58.42" y="111.76" rot="MR0"/>
-<instance part="PORT53" gate="G$1" x="58.42" y="109.22" rot="MR0"/>
-<instance part="PORT54" gate="G$1" x="58.42" y="106.68" rot="MR0"/>
-<instance part="PORT55" gate="G$1" x="58.42" y="104.14" rot="MR0"/>
-<instance part="PORT56" gate="G$1" x="58.42" y="101.6" rot="MR0"/>
-<instance part="PORT57" gate="G$1" x="58.42" y="99.06" rot="MR0"/>
-<instance part="PORT58" gate="G$1" x="58.42" y="96.52" rot="MR0"/>
-<instance part="PORT59" gate="G$1" x="58.42" y="93.98" rot="MR0"/>
-<instance part="PORT60" gate="G$1" x="58.42" y="91.44" rot="MR0"/>
-<instance part="PORT61" gate="G$1" x="58.42" y="88.9" rot="MR0"/>
-<instance part="PORT62" gate="G$1" x="58.42" y="86.36" rot="MR0"/>
-<instance part="PORT63" gate="G$1" x="58.42" y="83.82" rot="MR0"/>
-<instance part="PORT64" gate="G$1" x="58.42" y="81.28" rot="MR0"/>
-<instance part="PORT65" gate="G$1" x="58.42" y="78.74" rot="MR0"/>
+<instance part="M1" gate="G$1" x="132.08" y="12.7"/>
+<instance part="M2" gate="G$1" x="139.7" y="12.7"/>
+<instance part="M3" gate="G$1" x="147.32" y="12.7"/>
+<instance part="M4" gate="G$1" x="154.94" y="12.7"/>
+<instance part="M5" gate="G$1" x="132.08" y="22.86"/>
+<instance part="M6" gate="G$1" x="139.7" y="22.86"/>
+<instance part="M7" gate="G$1" x="147.32" y="22.86"/>
+<instance part="M8" gate="G$1" x="154.94" y="22.86"/>
+<instance part="PORT1" gate="G$1" x="48.26" y="175.26"/>
+<instance part="PORT2" gate="G$1" x="48.26" y="172.72"/>
+<instance part="PORT3" gate="G$1" x="48.26" y="170.18"/>
+<instance part="PORT4" gate="G$1" x="48.26" y="167.64"/>
+<instance part="PORT5" gate="G$1" x="48.26" y="165.1"/>
+<instance part="PORT6" gate="G$1" x="48.26" y="162.56"/>
+<instance part="PORT7" gate="G$1" x="48.26" y="160.02"/>
+<instance part="PORT8" gate="G$1" x="48.26" y="157.48"/>
+<instance part="PORT9" gate="G$1" x="48.26" y="154.94"/>
+<instance part="PORT10" gate="G$1" x="48.26" y="152.4"/>
+<instance part="PORT11" gate="G$1" x="48.26" y="149.86"/>
+<instance part="PORT12" gate="G$1" x="48.26" y="147.32"/>
+<instance part="PORT13" gate="G$1" x="48.26" y="144.78"/>
+<instance part="PORT14" gate="G$1" x="48.26" y="142.24"/>
+<instance part="PORT15" gate="G$1" x="48.26" y="139.7"/>
+<instance part="PORT16" gate="G$1" x="48.26" y="137.16"/>
+<instance part="PORT17" gate="G$1" x="48.26" y="134.62"/>
+<instance part="PORT18" gate="G$1" x="48.26" y="132.08"/>
+<instance part="PORT19" gate="G$1" x="48.26" y="129.54"/>
+<instance part="PORT20" gate="G$1" x="48.26" y="127"/>
+<instance part="PORT21" gate="G$1" x="48.26" y="124.46"/>
+<instance part="PORT22" gate="G$1" x="48.26" y="121.92"/>
+<instance part="PORT23" gate="G$1" x="48.26" y="119.38"/>
+<instance part="PORT24" gate="G$1" x="48.26" y="116.84"/>
+<instance part="PORT25" gate="G$1" x="48.26" y="114.3"/>
+<instance part="PORT26" gate="G$1" x="48.26" y="111.76"/>
+<instance part="PORT27" gate="G$1" x="48.26" y="109.22"/>
+<instance part="PORT28" gate="G$1" x="48.26" y="106.68"/>
+<instance part="PORT29" gate="G$1" x="48.26" y="104.14"/>
+<instance part="PORT30" gate="G$1" x="48.26" y="101.6"/>
+<instance part="PORT31" gate="G$1" x="48.26" y="99.06"/>
+<instance part="PORT32" gate="G$1" x="48.26" y="96.52"/>
+<instance part="PORT33" gate="G$1" x="60.96" y="175.26" rot="MR0"/>
+<instance part="PORT34" gate="G$1" x="60.96" y="172.72" rot="MR0"/>
+<instance part="PORT35" gate="G$1" x="60.96" y="170.18" rot="MR0"/>
+<instance part="PORT36" gate="G$1" x="60.96" y="172.72" rot="MR0"/>
+<instance part="PORT37" gate="G$1" x="60.96" y="167.64" rot="MR0"/>
+<instance part="PORT38" gate="G$1" x="60.96" y="165.1" rot="MR0"/>
+<instance part="PORT39" gate="G$1" x="60.96" y="162.56" rot="MR0"/>
+<instance part="PORT40" gate="G$1" x="60.96" y="160.02" rot="MR0"/>
+<instance part="PORT41" gate="G$1" x="60.96" y="157.48" rot="MR0"/>
+<instance part="PORT42" gate="G$1" x="60.96" y="154.94" rot="MR0"/>
+<instance part="PORT43" gate="G$1" x="60.96" y="152.4" rot="MR0"/>
+<instance part="PORT44" gate="G$1" x="60.96" y="149.86" rot="MR0"/>
+<instance part="PORT45" gate="G$1" x="60.96" y="147.32" rot="MR0"/>
+<instance part="PORT46" gate="G$1" x="60.96" y="144.78" rot="MR0"/>
+<instance part="PORT47" gate="G$1" x="60.96" y="142.24" rot="MR0"/>
+<instance part="PORT48" gate="G$1" x="60.96" y="139.7" rot="MR0"/>
+<instance part="PORT49" gate="G$1" x="60.96" y="137.16" rot="MR0"/>
+<instance part="PORT50" gate="G$1" x="60.96" y="134.62" rot="MR0"/>
+<instance part="PORT51" gate="G$1" x="60.96" y="132.08" rot="MR0"/>
+<instance part="PORT52" gate="G$1" x="60.96" y="129.54" rot="MR0"/>
+<instance part="PORT53" gate="G$1" x="60.96" y="127" rot="MR0"/>
+<instance part="PORT54" gate="G$1" x="60.96" y="124.46" rot="MR0"/>
+<instance part="PORT55" gate="G$1" x="60.96" y="121.92" rot="MR0"/>
+<instance part="PORT56" gate="G$1" x="60.96" y="119.38" rot="MR0"/>
+<instance part="PORT57" gate="G$1" x="60.96" y="116.84" rot="MR0"/>
+<instance part="PORT58" gate="G$1" x="60.96" y="114.3" rot="MR0"/>
+<instance part="PORT59" gate="G$1" x="60.96" y="111.76" rot="MR0"/>
+<instance part="PORT60" gate="G$1" x="60.96" y="109.22" rot="MR0"/>
+<instance part="PORT61" gate="G$1" x="60.96" y="106.68" rot="MR0"/>
+<instance part="PORT62" gate="G$1" x="60.96" y="104.14" rot="MR0"/>
+<instance part="PORT63" gate="G$1" x="60.96" y="101.6" rot="MR0"/>
+<instance part="PORT64" gate="G$1" x="60.96" y="99.06" rot="MR0"/>
+<instance part="PORT65" gate="G$1" x="60.96" y="96.52" rot="MR0"/>
 <instance part="PORT70" gate="G$1" x="149.86" y="96.52"/>
 <instance part="PORT71" gate="G$1" x="149.86" y="93.98"/>
 <instance part="PORT72" gate="G$1" x="149.86" y="91.44"/>
@@ -39068,38 +39013,38 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <instance part="PORT88" gate="G$1" x="238.76" y="127"/>
 <instance part="PORT89" gate="G$1" x="238.76" y="124.46"/>
 <instance part="PORT90" gate="G$1" x="238.76" y="121.92"/>
-<instance part="PORT99" gate="G$1" x="96.52" y="157.48"/>
-<instance part="PORT100" gate="G$1" x="96.52" y="154.94"/>
-<instance part="PORT101" gate="G$1" x="96.52" y="152.4"/>
-<instance part="PORT102" gate="G$1" x="96.52" y="149.86"/>
-<instance part="PORT103" gate="G$1" x="96.52" y="147.32"/>
-<instance part="PORT104" gate="G$1" x="96.52" y="144.78"/>
-<instance part="PORT105" gate="G$1" x="96.52" y="142.24"/>
-<instance part="PORT106" gate="G$1" x="96.52" y="139.7"/>
-<instance part="PORT66" gate="G$1" x="96.52" y="137.16"/>
-<instance part="PORT107" gate="G$1" x="96.52" y="134.62"/>
-<instance part="PORT108" gate="G$1" x="96.52" y="132.08"/>
-<instance part="PORT109" gate="G$1" x="96.52" y="129.54"/>
-<instance part="PORT110" gate="G$1" x="96.52" y="127"/>
-<instance part="PORT111" gate="G$1" x="96.52" y="124.46"/>
-<instance part="PORT112" gate="G$1" x="96.52" y="121.92"/>
-<instance part="PORT113" gate="G$1" x="96.52" y="119.38"/>
-<instance part="PORT114" gate="G$1" x="96.52" y="116.84"/>
-<instance part="PORT115" gate="G$1" x="96.52" y="114.3"/>
-<instance part="PORT116" gate="G$1" x="96.52" y="111.76"/>
-<instance part="PORT117" gate="G$1" x="96.52" y="109.22"/>
-<instance part="PORT118" gate="G$1" x="96.52" y="106.68"/>
-<instance part="PORT119" gate="G$1" x="96.52" y="104.14"/>
-<instance part="PORT120" gate="G$1" x="96.52" y="101.6"/>
-<instance part="PORT121" gate="G$1" x="96.52" y="99.06"/>
-<instance part="PORT122" gate="G$1" x="96.52" y="96.52"/>
-<instance part="PORT123" gate="G$1" x="96.52" y="93.98"/>
-<instance part="PORT124" gate="G$1" x="96.52" y="91.44"/>
-<instance part="PORT125" gate="G$1" x="96.52" y="88.9"/>
-<instance part="PORT126" gate="G$1" x="96.52" y="86.36"/>
-<instance part="PORT127" gate="G$1" x="96.52" y="83.82"/>
-<instance part="PORT128" gate="G$1" x="96.52" y="81.28"/>
-<instance part="PORT129" gate="G$1" x="96.52" y="78.74"/>
+<instance part="PORT99" gate="G$1" x="99.06" y="175.26"/>
+<instance part="PORT100" gate="G$1" x="99.06" y="172.72"/>
+<instance part="PORT101" gate="G$1" x="99.06" y="170.18"/>
+<instance part="PORT102" gate="G$1" x="99.06" y="167.64"/>
+<instance part="PORT103" gate="G$1" x="99.06" y="165.1"/>
+<instance part="PORT104" gate="G$1" x="99.06" y="162.56"/>
+<instance part="PORT105" gate="G$1" x="99.06" y="160.02"/>
+<instance part="PORT106" gate="G$1" x="99.06" y="157.48"/>
+<instance part="PORT66" gate="G$1" x="99.06" y="154.94"/>
+<instance part="PORT107" gate="G$1" x="99.06" y="152.4"/>
+<instance part="PORT108" gate="G$1" x="99.06" y="149.86"/>
+<instance part="PORT109" gate="G$1" x="99.06" y="147.32"/>
+<instance part="PORT110" gate="G$1" x="99.06" y="144.78"/>
+<instance part="PORT111" gate="G$1" x="99.06" y="142.24"/>
+<instance part="PORT112" gate="G$1" x="99.06" y="139.7"/>
+<instance part="PORT113" gate="G$1" x="99.06" y="137.16"/>
+<instance part="PORT114" gate="G$1" x="99.06" y="134.62"/>
+<instance part="PORT115" gate="G$1" x="99.06" y="132.08"/>
+<instance part="PORT116" gate="G$1" x="99.06" y="129.54"/>
+<instance part="PORT117" gate="G$1" x="99.06" y="127"/>
+<instance part="PORT118" gate="G$1" x="99.06" y="124.46"/>
+<instance part="PORT119" gate="G$1" x="99.06" y="121.92"/>
+<instance part="PORT120" gate="G$1" x="99.06" y="119.38"/>
+<instance part="PORT121" gate="G$1" x="99.06" y="116.84"/>
+<instance part="PORT122" gate="G$1" x="99.06" y="114.3"/>
+<instance part="PORT123" gate="G$1" x="99.06" y="111.76"/>
+<instance part="PORT124" gate="G$1" x="99.06" y="109.22"/>
+<instance part="PORT125" gate="G$1" x="99.06" y="106.68"/>
+<instance part="PORT126" gate="G$1" x="99.06" y="104.14"/>
+<instance part="PORT127" gate="G$1" x="99.06" y="101.6"/>
+<instance part="PORT128" gate="G$1" x="99.06" y="99.06"/>
+<instance part="PORT129" gate="G$1" x="99.06" y="96.52"/>
 <instance part="PORT142" gate="G$1" x="111.76" y="96.52" rot="MR0"/>
 <instance part="PORT143" gate="G$1" x="111.76" y="93.98" rot="MR0"/>
 <instance part="PORT144" gate="G$1" x="111.76" y="91.44" rot="MR0"/>
@@ -39116,81 +39061,81 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <instance part="PORT160" gate="G$1" x="200.66" y="127" rot="MR0"/>
 <instance part="PORT161" gate="G$1" x="200.66" y="124.46" rot="MR0"/>
 <instance part="PORT162" gate="G$1" x="200.66" y="121.92" rot="MR0"/>
-<instance part="PORT163" gate="G$1" x="7.62" y="157.48" rot="MR0"/>
-<instance part="PORT164" gate="G$1" x="7.62" y="154.94" rot="MR0"/>
-<instance part="PORT165" gate="G$1" x="7.62" y="152.4" rot="MR0"/>
-<instance part="PORT166" gate="G$1" x="7.62" y="154.94" rot="MR0"/>
-<instance part="PORT167" gate="G$1" x="7.62" y="149.86" rot="MR0"/>
-<instance part="PORT168" gate="G$1" x="7.62" y="147.32" rot="MR0"/>
-<instance part="PORT169" gate="G$1" x="7.62" y="144.78" rot="MR0"/>
-<instance part="PORT170" gate="G$1" x="7.62" y="142.24" rot="MR0"/>
-<instance part="PORT171" gate="G$1" x="7.62" y="139.7" rot="MR0"/>
-<instance part="PORT172" gate="G$1" x="7.62" y="137.16" rot="MR0"/>
-<instance part="PORT173" gate="G$1" x="7.62" y="134.62" rot="MR0"/>
-<instance part="PORT174" gate="G$1" x="7.62" y="132.08" rot="MR0"/>
-<instance part="PORT175" gate="G$1" x="7.62" y="129.54" rot="MR0"/>
-<instance part="PORT176" gate="G$1" x="7.62" y="127" rot="MR0"/>
-<instance part="PORT177" gate="G$1" x="7.62" y="124.46" rot="MR0"/>
-<instance part="PORT178" gate="G$1" x="7.62" y="121.92" rot="MR0"/>
-<instance part="PORT179" gate="G$1" x="7.62" y="119.38" rot="MR0"/>
-<instance part="PORT180" gate="G$1" x="7.62" y="116.84" rot="MR0"/>
-<instance part="PORT181" gate="G$1" x="7.62" y="114.3" rot="MR0"/>
-<instance part="PORT182" gate="G$1" x="7.62" y="111.76" rot="MR0"/>
-<instance part="PORT183" gate="G$1" x="7.62" y="109.22" rot="MR0"/>
-<instance part="PORT184" gate="G$1" x="7.62" y="106.68" rot="MR0"/>
-<instance part="PORT185" gate="G$1" x="7.62" y="104.14" rot="MR0"/>
-<instance part="PORT186" gate="G$1" x="7.62" y="101.6" rot="MR0"/>
-<instance part="PORT187" gate="G$1" x="7.62" y="99.06" rot="MR0"/>
-<instance part="PORT188" gate="G$1" x="7.62" y="96.52" rot="MR0"/>
-<instance part="PORT189" gate="G$1" x="7.62" y="93.98" rot="MR0"/>
-<instance part="PORT190" gate="G$1" x="7.62" y="91.44" rot="MR0"/>
-<instance part="PORT191" gate="G$1" x="7.62" y="88.9" rot="MR0"/>
-<instance part="PORT192" gate="G$1" x="7.62" y="86.36" rot="MR0"/>
-<instance part="PORT193" gate="G$1" x="7.62" y="83.82" rot="MR0"/>
-<instance part="PORT194" gate="G$1" x="7.62" y="81.28" rot="MR0"/>
-<instance part="PORT195" gate="G$1" x="7.62" y="78.74" rot="MR0"/>
-<instance part="J2" gate="G$1" x="22.86" y="160.02"/>
-<instance part="PORT201" gate="G$1" x="7.62" y="76.2" rot="MR0"/>
-<instance part="PORT203" gate="G$1" x="7.62" y="73.66" rot="MR0"/>
-<instance part="PORT211" gate="G$1" x="7.62" y="71.12" rot="MR0"/>
-<instance part="PORT213" gate="G$1" x="7.62" y="68.58" rot="MR0"/>
-<instance part="PORT214" gate="G$1" x="7.62" y="66.04" rot="MR0"/>
-<instance part="PORT215" gate="G$1" x="7.62" y="63.5" rot="MR0"/>
-<instance part="PORT216" gate="G$1" x="7.62" y="60.96" rot="MR0"/>
-<instance part="PORT217" gate="G$1" x="7.62" y="58.42" rot="MR0"/>
-<instance part="PORT218" gate="G$1" x="7.62" y="55.88" rot="MR0"/>
-<instance part="PORT219" gate="G$1" x="7.62" y="53.34" rot="MR0"/>
-<instance part="PORT220" gate="G$1" x="45.72" y="76.2"/>
-<instance part="PORT221" gate="G$1" x="45.72" y="73.66"/>
-<instance part="PORT222" gate="G$1" x="45.72" y="71.12"/>
-<instance part="PORT223" gate="G$1" x="45.72" y="68.58"/>
-<instance part="PORT224" gate="G$1" x="45.72" y="66.04"/>
-<instance part="PORT225" gate="G$1" x="45.72" y="63.5"/>
-<instance part="PORT226" gate="G$1" x="45.72" y="60.96"/>
-<instance part="PORT227" gate="G$1" x="45.72" y="58.42"/>
-<instance part="PORT228" gate="G$1" x="45.72" y="55.88"/>
-<instance part="PORT229" gate="G$1" x="45.72" y="53.34"/>
-<instance part="J1" gate="G$1" x="73.66" y="160.02"/>
-<instance part="PORT230" gate="G$1" x="58.42" y="76.2" rot="MR0"/>
-<instance part="PORT231" gate="G$1" x="58.42" y="73.66" rot="MR0"/>
-<instance part="PORT232" gate="G$1" x="58.42" y="71.12" rot="MR0"/>
-<instance part="PORT233" gate="G$1" x="58.42" y="68.58" rot="MR0"/>
-<instance part="PORT234" gate="G$1" x="58.42" y="66.04" rot="MR0"/>
-<instance part="PORT235" gate="G$1" x="58.42" y="63.5" rot="MR0"/>
-<instance part="PORT236" gate="G$1" x="58.42" y="60.96" rot="MR0"/>
-<instance part="PORT237" gate="G$1" x="58.42" y="58.42" rot="MR0"/>
-<instance part="PORT238" gate="G$1" x="58.42" y="55.88" rot="MR0"/>
-<instance part="PORT239" gate="G$1" x="58.42" y="53.34" rot="MR0"/>
-<instance part="PORT240" gate="G$1" x="96.52" y="76.2"/>
-<instance part="PORT241" gate="G$1" x="96.52" y="73.66"/>
-<instance part="PORT242" gate="G$1" x="96.52" y="71.12"/>
-<instance part="PORT243" gate="G$1" x="96.52" y="68.58"/>
-<instance part="PORT244" gate="G$1" x="96.52" y="66.04"/>
-<instance part="PORT245" gate="G$1" x="96.52" y="63.5"/>
-<instance part="PORT246" gate="G$1" x="96.52" y="60.96"/>
-<instance part="PORT247" gate="G$1" x="96.52" y="58.42"/>
-<instance part="PORT248" gate="G$1" x="96.52" y="55.88"/>
-<instance part="PORT249" gate="G$1" x="96.52" y="53.34"/>
+<instance part="PORT163" gate="G$1" x="10.16" y="175.26" rot="MR0"/>
+<instance part="PORT164" gate="G$1" x="10.16" y="172.72" rot="MR0"/>
+<instance part="PORT165" gate="G$1" x="10.16" y="170.18" rot="MR0"/>
+<instance part="PORT166" gate="G$1" x="10.16" y="172.72" rot="MR0"/>
+<instance part="PORT167" gate="G$1" x="10.16" y="167.64" rot="MR0"/>
+<instance part="PORT168" gate="G$1" x="10.16" y="165.1" rot="MR0"/>
+<instance part="PORT169" gate="G$1" x="10.16" y="162.56" rot="MR0"/>
+<instance part="PORT170" gate="G$1" x="10.16" y="160.02" rot="MR0"/>
+<instance part="PORT171" gate="G$1" x="10.16" y="157.48" rot="MR0"/>
+<instance part="PORT172" gate="G$1" x="10.16" y="154.94" rot="MR0"/>
+<instance part="PORT173" gate="G$1" x="10.16" y="152.4" rot="MR0"/>
+<instance part="PORT174" gate="G$1" x="10.16" y="149.86" rot="MR0"/>
+<instance part="PORT175" gate="G$1" x="10.16" y="147.32" rot="MR0"/>
+<instance part="PORT176" gate="G$1" x="10.16" y="144.78" rot="MR0"/>
+<instance part="PORT177" gate="G$1" x="10.16" y="142.24" rot="MR0"/>
+<instance part="PORT178" gate="G$1" x="10.16" y="139.7" rot="MR0"/>
+<instance part="PORT179" gate="G$1" x="10.16" y="137.16" rot="MR0"/>
+<instance part="PORT180" gate="G$1" x="10.16" y="134.62" rot="MR0"/>
+<instance part="PORT181" gate="G$1" x="10.16" y="132.08" rot="MR0"/>
+<instance part="PORT182" gate="G$1" x="10.16" y="129.54" rot="MR0"/>
+<instance part="PORT183" gate="G$1" x="10.16" y="127" rot="MR0"/>
+<instance part="PORT184" gate="G$1" x="10.16" y="124.46" rot="MR0"/>
+<instance part="PORT185" gate="G$1" x="10.16" y="121.92" rot="MR0"/>
+<instance part="PORT186" gate="G$1" x="10.16" y="119.38" rot="MR0"/>
+<instance part="PORT187" gate="G$1" x="10.16" y="116.84" rot="MR0"/>
+<instance part="PORT188" gate="G$1" x="10.16" y="114.3" rot="MR0"/>
+<instance part="PORT189" gate="G$1" x="10.16" y="111.76" rot="MR0"/>
+<instance part="PORT190" gate="G$1" x="10.16" y="109.22" rot="MR0"/>
+<instance part="PORT191" gate="G$1" x="10.16" y="106.68" rot="MR0"/>
+<instance part="PORT192" gate="G$1" x="10.16" y="104.14" rot="MR0"/>
+<instance part="PORT193" gate="G$1" x="10.16" y="101.6" rot="MR0"/>
+<instance part="PORT194" gate="G$1" x="10.16" y="99.06" rot="MR0"/>
+<instance part="PORT195" gate="G$1" x="10.16" y="96.52" rot="MR0"/>
+<instance part="J2" gate="G$1" x="25.4" y="177.8"/>
+<instance part="PORT201" gate="G$1" x="10.16" y="93.98" rot="MR0"/>
+<instance part="PORT203" gate="G$1" x="10.16" y="91.44" rot="MR0"/>
+<instance part="PORT211" gate="G$1" x="10.16" y="88.9" rot="MR0"/>
+<instance part="PORT213" gate="G$1" x="10.16" y="86.36" rot="MR0"/>
+<instance part="PORT214" gate="G$1" x="10.16" y="83.82" rot="MR0"/>
+<instance part="PORT215" gate="G$1" x="10.16" y="81.28" rot="MR0"/>
+<instance part="PORT216" gate="G$1" x="10.16" y="78.74" rot="MR0"/>
+<instance part="PORT217" gate="G$1" x="10.16" y="76.2" rot="MR0"/>
+<instance part="PORT218" gate="G$1" x="10.16" y="73.66" rot="MR0"/>
+<instance part="PORT219" gate="G$1" x="10.16" y="71.12" rot="MR0"/>
+<instance part="PORT220" gate="G$1" x="48.26" y="93.98"/>
+<instance part="PORT221" gate="G$1" x="48.26" y="91.44"/>
+<instance part="PORT222" gate="G$1" x="48.26" y="88.9"/>
+<instance part="PORT223" gate="G$1" x="48.26" y="86.36"/>
+<instance part="PORT224" gate="G$1" x="48.26" y="83.82"/>
+<instance part="PORT225" gate="G$1" x="48.26" y="81.28"/>
+<instance part="PORT226" gate="G$1" x="48.26" y="78.74"/>
+<instance part="PORT227" gate="G$1" x="48.26" y="76.2"/>
+<instance part="PORT228" gate="G$1" x="48.26" y="73.66"/>
+<instance part="PORT229" gate="G$1" x="48.26" y="71.12"/>
+<instance part="J1" gate="G$1" x="76.2" y="177.8"/>
+<instance part="PORT230" gate="G$1" x="60.96" y="93.98" rot="MR0"/>
+<instance part="PORT231" gate="G$1" x="60.96" y="91.44" rot="MR0"/>
+<instance part="PORT232" gate="G$1" x="60.96" y="88.9" rot="MR0"/>
+<instance part="PORT233" gate="G$1" x="60.96" y="86.36" rot="MR0"/>
+<instance part="PORT234" gate="G$1" x="60.96" y="83.82" rot="MR0"/>
+<instance part="PORT235" gate="G$1" x="60.96" y="81.28" rot="MR0"/>
+<instance part="PORT236" gate="G$1" x="60.96" y="78.74" rot="MR0"/>
+<instance part="PORT237" gate="G$1" x="60.96" y="76.2" rot="MR0"/>
+<instance part="PORT238" gate="G$1" x="60.96" y="73.66" rot="MR0"/>
+<instance part="PORT239" gate="G$1" x="60.96" y="71.12" rot="MR0"/>
+<instance part="PORT240" gate="G$1" x="99.06" y="93.98"/>
+<instance part="PORT241" gate="G$1" x="99.06" y="91.44"/>
+<instance part="PORT242" gate="G$1" x="99.06" y="88.9"/>
+<instance part="PORT243" gate="G$1" x="99.06" y="86.36"/>
+<instance part="PORT244" gate="G$1" x="99.06" y="83.82"/>
+<instance part="PORT245" gate="G$1" x="99.06" y="81.28"/>
+<instance part="PORT246" gate="G$1" x="99.06" y="78.74"/>
+<instance part="PORT247" gate="G$1" x="99.06" y="76.2"/>
+<instance part="PORT248" gate="G$1" x="99.06" y="73.66"/>
+<instance part="PORT249" gate="G$1" x="99.06" y="71.12"/>
 <instance part="PORT250" gate="G$1" x="149.86" y="81.28" rot="MR90"/>
 <instance part="PORT251" gate="G$1" x="147.32" y="81.28" rot="MR90"/>
 <instance part="PORT252" gate="G$1" x="144.78" y="81.28" rot="MR90"/>
@@ -39255,19 +39200,49 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <instance part="J5" gate="G$1" x="139.7" y="152.4" rot="R90"/>
 <instance part="J13" gate="G$1" x="210.82" y="66.04" rot="R270"/>
 <instance part="J4" gate="G$1" x="129.54" y="109.22"/>
+<instance part="TP1" gate="G$1" x="22.86" y="48.26"/>
+<instance part="PORT196" gate="G$1" x="22.86" y="30.48" rot="MR270"/>
+<instance part="TP3" gate="G$1" x="33.02" y="48.26"/>
+<instance part="PORT197" gate="G$1" x="33.02" y="30.48" rot="MR270"/>
+<instance part="TP5" gate="G$1" x="43.18" y="48.26"/>
+<instance part="PORT198" gate="G$1" x="43.18" y="30.48" rot="MR270"/>
+<instance part="TP7" gate="G$1" x="53.34" y="48.26"/>
+<instance part="PORT199" gate="G$1" x="53.34" y="30.48" rot="MR270"/>
+<instance part="TP9" gate="G$1" x="63.5" y="48.26"/>
+<instance part="PORT200" gate="G$1" x="63.5" y="30.48" rot="MR270"/>
+<instance part="TP11" gate="G$1" x="27.94" y="20.32"/>
+<instance part="TP14" gate="G$1" x="58.42" y="20.32"/>
+<instance part="TP13" gate="G$1" x="38.1" y="20.32"/>
+<instance part="TP12" gate="G$1" x="48.26" y="20.32"/>
+<instance part="R31" gate="G$1" x="101.6" y="48.26"/>
+<instance part="R32" gate="G$1" x="101.6" y="40.64"/>
+<instance part="R33" gate="G$1" x="101.6" y="25.4"/>
+<instance part="R34" gate="G$1" x="101.6" y="17.78"/>
+<instance part="U$7" gate="G$1" x="109.22" y="35.56"/>
+<instance part="U$8" gate="G$1" x="109.22" y="12.7"/>
+<instance part="PORT202" gate="G$1" x="83.82" y="25.4" rot="MR0"/>
+<instance part="PORT205" gate="G$1" x="83.82" y="17.78" rot="MR0"/>
+<instance part="PORT209" gate="G$1" x="83.82" y="40.64" rot="MR0"/>
+<instance part="PORT212" gate="G$1" x="83.82" y="48.26" rot="MR0"/>
+<instance part="U$9" gate="G$1" x="27.94" y="7.62"/>
+<instance part="U$10" gate="G$1" x="38.1" y="7.62"/>
+<instance part="U$11" gate="G$1" x="58.42" y="7.62"/>
+<instance part="U$12" gate="G$1" x="48.26" y="7.62"/>
+<instance part="FRAME2" gate="G$1" x="0" y="0"/>
+<instance part="FRAME2" gate="G$2" x="147.32" y="0"/>
 </instances>
 <busses>
 </busses>
 <nets>
 <net name="1" class="0">
 <segment>
-<wire x1="71.12" y1="157.48" x2="60.96" y2="157.48" width="0.1524" layer="91"/>
-<label x="58.42" y="157.48" size="1.778" layer="95"/>
+<wire x1="73.66" y1="175.26" x2="63.5" y2="175.26" width="0.1524" layer="91"/>
+<label x="60.96" y="175.26" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="157.48" x2="10.16" y2="157.48" width="0.1524" layer="91"/>
-<label x="7.62" y="157.48" size="1.778" layer="95"/>
+<wire x1="22.86" y1="175.26" x2="12.7" y2="175.26" width="0.1524" layer="91"/>
+<label x="10.16" y="175.26" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="1"/>
 </segment>
 <segment>
@@ -39275,16 +39250,21 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <label x="149.86" y="82.55" size="1.778" layer="95" rot="R270"/>
 <pinref part="J3" gate="G$1" pin="1"/>
 </segment>
+<segment>
+<wire x1="96.52" y1="48.26" x2="91.44" y2="48.26" width="0.1524" layer="91"/>
+<label x="86.36" y="48.26" size="1.778" layer="95"/>
+<pinref part="R31" gate="G$1" pin="1"/>
+</segment>
 </net>
 <net name="3" class="0">
 <segment>
-<wire x1="71.12" y1="154.94" x2="60.96" y2="154.94" width="0.1524" layer="91"/>
-<label x="58.42" y="154.94" size="1.778" layer="95"/>
+<wire x1="73.66" y1="172.72" x2="63.5" y2="172.72" width="0.1524" layer="91"/>
+<label x="60.96" y="172.72" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="3"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="154.94" x2="10.16" y2="154.94" width="0.1524" layer="91"/>
-<label x="7.62" y="154.94" size="1.778" layer="95"/>
+<wire x1="22.86" y1="172.72" x2="12.7" y2="172.72" width="0.1524" layer="91"/>
+<label x="10.16" y="172.72" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="3"/>
 </segment>
 <segment>
@@ -39295,13 +39275,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="5" class="0">
 <segment>
-<wire x1="71.12" y1="152.4" x2="60.96" y2="152.4" width="0.1524" layer="91"/>
-<label x="58.42" y="152.4" size="1.778" layer="95"/>
+<wire x1="73.66" y1="170.18" x2="63.5" y2="170.18" width="0.1524" layer="91"/>
+<label x="60.96" y="170.18" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="5"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="152.4" x2="10.16" y2="152.4" width="0.1524" layer="91"/>
-<label x="7.62" y="152.4" size="1.778" layer="95"/>
+<wire x1="22.86" y1="170.18" x2="12.7" y2="170.18" width="0.1524" layer="91"/>
+<label x="10.16" y="170.18" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="5"/>
 </segment>
 <segment>
@@ -39312,13 +39292,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="7" class="0">
 <segment>
-<wire x1="71.12" y1="149.86" x2="60.96" y2="149.86" width="0.1524" layer="91"/>
-<label x="58.42" y="149.86" size="1.778" layer="95"/>
+<wire x1="73.66" y1="167.64" x2="63.5" y2="167.64" width="0.1524" layer="91"/>
+<label x="60.96" y="167.64" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="7"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="149.86" x2="10.16" y2="149.86" width="0.1524" layer="91"/>
-<label x="7.62" y="149.86" size="1.778" layer="95"/>
+<wire x1="22.86" y1="167.64" x2="12.7" y2="167.64" width="0.1524" layer="91"/>
+<label x="10.16" y="167.64" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="7"/>
 </segment>
 <segment>
@@ -39329,13 +39309,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="9" class="0">
 <segment>
-<wire x1="71.12" y1="147.32" x2="60.96" y2="147.32" width="0.1524" layer="91"/>
-<label x="58.42" y="147.32" size="1.778" layer="95"/>
+<wire x1="73.66" y1="165.1" x2="63.5" y2="165.1" width="0.1524" layer="91"/>
+<label x="60.96" y="165.1" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="9"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="147.32" x2="10.16" y2="147.32" width="0.1524" layer="91"/>
-<label x="7.62" y="147.32" size="1.778" layer="95"/>
+<wire x1="22.86" y1="165.1" x2="12.7" y2="165.1" width="0.1524" layer="91"/>
+<label x="10.16" y="165.1" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="9"/>
 </segment>
 <segment>
@@ -39346,13 +39326,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="11" class="0">
 <segment>
-<wire x1="71.12" y1="144.78" x2="60.96" y2="144.78" width="0.1524" layer="91"/>
-<label x="57.15" y="144.78" size="1.778" layer="95"/>
+<wire x1="73.66" y1="162.56" x2="63.5" y2="162.56" width="0.1524" layer="91"/>
+<label x="59.69" y="162.56" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="11"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="144.78" x2="10.16" y2="144.78" width="0.1524" layer="91"/>
-<label x="6.35" y="144.78" size="1.778" layer="95"/>
+<wire x1="22.86" y1="162.56" x2="12.7" y2="162.56" width="0.1524" layer="91"/>
+<label x="8.89" y="162.56" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="11"/>
 </segment>
 <segment>
@@ -39363,13 +39343,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="13" class="0">
 <segment>
-<wire x1="71.12" y1="142.24" x2="60.96" y2="142.24" width="0.1524" layer="91"/>
-<label x="57.15" y="142.24" size="1.778" layer="95"/>
+<wire x1="73.66" y1="160.02" x2="63.5" y2="160.02" width="0.1524" layer="91"/>
+<label x="59.69" y="160.02" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="13"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="142.24" x2="10.16" y2="142.24" width="0.1524" layer="91"/>
-<label x="6.35" y="142.24" size="1.778" layer="95"/>
+<wire x1="22.86" y1="160.02" x2="12.7" y2="160.02" width="0.1524" layer="91"/>
+<label x="8.89" y="160.02" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="13"/>
 </segment>
 <segment>
@@ -39380,13 +39360,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="15" class="0">
 <segment>
-<wire x1="71.12" y1="139.7" x2="60.96" y2="139.7" width="0.1524" layer="91"/>
-<label x="57.15" y="139.7" size="1.778" layer="95"/>
+<wire x1="73.66" y1="157.48" x2="63.5" y2="157.48" width="0.1524" layer="91"/>
+<label x="59.69" y="157.48" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="15"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="139.7" x2="10.16" y2="139.7" width="0.1524" layer="91"/>
-<label x="6.35" y="139.7" size="1.778" layer="95"/>
+<wire x1="22.86" y1="157.48" x2="12.7" y2="157.48" width="0.1524" layer="91"/>
+<label x="8.89" y="157.48" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="15"/>
 </segment>
 <segment>
@@ -39397,13 +39377,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="17" class="0">
 <segment>
-<wire x1="71.12" y1="137.16" x2="60.96" y2="137.16" width="0.1524" layer="91"/>
-<label x="57.15" y="137.16" size="1.778" layer="95"/>
+<wire x1="73.66" y1="154.94" x2="63.5" y2="154.94" width="0.1524" layer="91"/>
+<label x="59.69" y="154.94" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="17"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="137.16" x2="10.16" y2="137.16" width="0.1524" layer="91"/>
-<label x="6.35" y="137.16" size="1.778" layer="95"/>
+<wire x1="22.86" y1="154.94" x2="12.7" y2="154.94" width="0.1524" layer="91"/>
+<label x="8.89" y="154.94" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="17"/>
 </segment>
 <segment>
@@ -39414,13 +39394,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="19" class="0">
 <segment>
-<wire x1="71.12" y1="134.62" x2="60.96" y2="134.62" width="0.1524" layer="91"/>
-<label x="57.15" y="134.62" size="1.778" layer="95"/>
+<wire x1="73.66" y1="152.4" x2="63.5" y2="152.4" width="0.1524" layer="91"/>
+<label x="59.69" y="152.4" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="19"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="134.62" x2="10.16" y2="134.62" width="0.1524" layer="91"/>
-<label x="6.35" y="134.62" size="1.778" layer="95"/>
+<wire x1="22.86" y1="152.4" x2="12.7" y2="152.4" width="0.1524" layer="91"/>
+<label x="8.89" y="152.4" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="19"/>
 </segment>
 <segment>
@@ -39431,13 +39411,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="21" class="0">
 <segment>
-<wire x1="71.12" y1="132.08" x2="60.96" y2="132.08" width="0.1524" layer="91"/>
-<label x="57.15" y="132.08" size="1.778" layer="95"/>
+<wire x1="73.66" y1="149.86" x2="63.5" y2="149.86" width="0.1524" layer="91"/>
+<label x="59.69" y="149.86" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="21"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="132.08" x2="10.16" y2="132.08" width="0.1524" layer="91"/>
-<label x="6.35" y="132.08" size="1.778" layer="95"/>
+<wire x1="22.86" y1="149.86" x2="12.7" y2="149.86" width="0.1524" layer="91"/>
+<label x="8.89" y="149.86" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="21"/>
 </segment>
 <segment>
@@ -39448,8 +39428,8 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="23" class="0">
 <segment>
-<wire x1="71.12" y1="129.54" x2="60.96" y2="129.54" width="0.1524" layer="91"/>
-<label x="57.15" y="129.54" size="1.778" layer="95"/>
+<wire x1="73.66" y1="147.32" x2="63.5" y2="147.32" width="0.1524" layer="91"/>
+<label x="59.69" y="147.32" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="23"/>
 </segment>
 <segment>
@@ -39458,15 +39438,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J4" gate="G$1" pin="15"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="129.54" x2="10.16" y2="129.54" width="0.1524" layer="91"/>
-<label x="6.35" y="129.54" size="1.778" layer="95"/>
+<wire x1="22.86" y1="147.32" x2="12.7" y2="147.32" width="0.1524" layer="91"/>
+<label x="8.89" y="147.32" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="23"/>
 </segment>
 </net>
 <net name="25" class="0">
 <segment>
-<wire x1="71.12" y1="127" x2="60.96" y2="127" width="0.1524" layer="91"/>
-<label x="57.15" y="127" size="1.778" layer="95"/>
+<wire x1="73.66" y1="144.78" x2="63.5" y2="144.78" width="0.1524" layer="91"/>
+<label x="59.69" y="144.78" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="25"/>
 </segment>
 <segment>
@@ -39475,15 +39455,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J4" gate="G$1" pin="17"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="127" x2="10.16" y2="127" width="0.1524" layer="91"/>
-<label x="6.35" y="127" size="1.778" layer="95"/>
+<wire x1="22.86" y1="144.78" x2="12.7" y2="144.78" width="0.1524" layer="91"/>
+<label x="8.89" y="144.78" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="25"/>
 </segment>
 </net>
 <net name="27" class="0">
 <segment>
-<wire x1="71.12" y1="124.46" x2="60.96" y2="124.46" width="0.1524" layer="91"/>
-<label x="57.15" y="124.46" size="1.778" layer="95"/>
+<wire x1="73.66" y1="142.24" x2="63.5" y2="142.24" width="0.1524" layer="91"/>
+<label x="59.69" y="142.24" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="27"/>
 </segment>
 <segment>
@@ -39492,15 +39472,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J4" gate="G$1" pin="19"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="124.46" x2="10.16" y2="124.46" width="0.1524" layer="91"/>
-<label x="6.35" y="124.46" size="1.778" layer="95"/>
+<wire x1="22.86" y1="142.24" x2="12.7" y2="142.24" width="0.1524" layer="91"/>
+<label x="8.89" y="142.24" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="27"/>
 </segment>
 </net>
 <net name="29" class="0">
 <segment>
-<wire x1="71.12" y1="121.92" x2="60.96" y2="121.92" width="0.1524" layer="91"/>
-<label x="57.15" y="121.92" size="1.778" layer="95"/>
+<wire x1="73.66" y1="139.7" x2="63.5" y2="139.7" width="0.1524" layer="91"/>
+<label x="59.69" y="139.7" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="29"/>
 </segment>
 <segment>
@@ -39509,15 +39489,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J5" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="121.92" x2="10.16" y2="121.92" width="0.1524" layer="91"/>
-<label x="6.35" y="121.92" size="1.778" layer="95"/>
+<wire x1="22.86" y1="139.7" x2="12.7" y2="139.7" width="0.1524" layer="91"/>
+<label x="8.89" y="139.7" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="29"/>
 </segment>
 </net>
 <net name="31" class="0">
 <segment>
-<wire x1="71.12" y1="119.38" x2="60.96" y2="119.38" width="0.1524" layer="91"/>
-<label x="57.15" y="119.38" size="1.778" layer="95"/>
+<wire x1="73.66" y1="137.16" x2="63.5" y2="137.16" width="0.1524" layer="91"/>
+<label x="59.69" y="137.16" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="31"/>
 </segment>
 <segment>
@@ -39526,20 +39506,20 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J5" gate="G$1" pin="3"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="119.38" x2="10.16" y2="119.38" width="0.1524" layer="91"/>
-<label x="6.35" y="119.38" size="1.778" layer="95"/>
+<wire x1="22.86" y1="137.16" x2="12.7" y2="137.16" width="0.1524" layer="91"/>
+<label x="8.89" y="137.16" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="31"/>
 </segment>
 </net>
 <net name="33" class="0">
 <segment>
-<wire x1="71.12" y1="116.84" x2="60.96" y2="116.84" width="0.1524" layer="91"/>
-<label x="57.15" y="116.84" size="1.778" layer="95"/>
+<wire x1="73.66" y1="134.62" x2="63.5" y2="134.62" width="0.1524" layer="91"/>
+<label x="59.69" y="134.62" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="33"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="116.84" x2="10.16" y2="116.84" width="0.1524" layer="91"/>
-<label x="6.35" y="116.84" size="1.778" layer="95"/>
+<wire x1="22.86" y1="134.62" x2="12.7" y2="134.62" width="0.1524" layer="91"/>
+<label x="8.89" y="134.62" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="33"/>
 </segment>
 <segment>
@@ -39550,13 +39530,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="35" class="0">
 <segment>
-<wire x1="71.12" y1="114.3" x2="60.96" y2="114.3" width="0.1524" layer="91"/>
-<label x="57.15" y="114.3" size="1.778" layer="95"/>
+<wire x1="73.66" y1="132.08" x2="63.5" y2="132.08" width="0.1524" layer="91"/>
+<label x="59.69" y="132.08" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="35"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="114.3" x2="10.16" y2="114.3" width="0.1524" layer="91"/>
-<label x="6.35" y="114.3" size="1.778" layer="95"/>
+<wire x1="22.86" y1="132.08" x2="12.7" y2="132.08" width="0.1524" layer="91"/>
+<label x="8.89" y="132.08" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="35"/>
 </segment>
 <segment>
@@ -39567,13 +39547,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="37" class="0">
 <segment>
-<wire x1="71.12" y1="111.76" x2="60.96" y2="111.76" width="0.1524" layer="91"/>
-<label x="57.15" y="111.76" size="1.778" layer="95"/>
+<wire x1="73.66" y1="129.54" x2="63.5" y2="129.54" width="0.1524" layer="91"/>
+<label x="59.69" y="129.54" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="37"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="111.76" x2="10.16" y2="111.76" width="0.1524" layer="91"/>
-<label x="6.35" y="111.76" size="1.778" layer="95"/>
+<wire x1="22.86" y1="129.54" x2="12.7" y2="129.54" width="0.1524" layer="91"/>
+<label x="8.89" y="129.54" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="37"/>
 </segment>
 <segment>
@@ -39584,13 +39564,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="39" class="0">
 <segment>
-<wire x1="71.12" y1="109.22" x2="60.96" y2="109.22" width="0.1524" layer="91"/>
-<label x="57.15" y="109.22" size="1.778" layer="95"/>
+<wire x1="73.66" y1="127" x2="63.5" y2="127" width="0.1524" layer="91"/>
+<label x="59.69" y="127" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="39"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="109.22" x2="10.16" y2="109.22" width="0.1524" layer="91"/>
-<label x="6.35" y="109.22" size="1.778" layer="95"/>
+<wire x1="22.86" y1="127" x2="12.7" y2="127" width="0.1524" layer="91"/>
+<label x="8.89" y="127" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="39"/>
 </segment>
 <segment>
@@ -39601,13 +39581,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="41" class="0">
 <segment>
-<wire x1="71.12" y1="106.68" x2="60.96" y2="106.68" width="0.1524" layer="91"/>
-<label x="57.15" y="106.68" size="1.778" layer="95"/>
+<wire x1="73.66" y1="124.46" x2="63.5" y2="124.46" width="0.1524" layer="91"/>
+<label x="59.69" y="124.46" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="41"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="106.68" x2="10.16" y2="106.68" width="0.1524" layer="91"/>
-<label x="6.35" y="106.68" size="1.778" layer="95"/>
+<wire x1="22.86" y1="124.46" x2="12.7" y2="124.46" width="0.1524" layer="91"/>
+<label x="8.89" y="124.46" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="41"/>
 </segment>
 <segment>
@@ -39618,8 +39598,8 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="43" class="0">
 <segment>
-<wire x1="71.12" y1="104.14" x2="60.96" y2="104.14" width="0.1524" layer="91"/>
-<label x="57.15" y="104.14" size="1.778" layer="95"/>
+<wire x1="73.66" y1="121.92" x2="63.5" y2="121.92" width="0.1524" layer="91"/>
+<label x="59.69" y="121.92" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="43"/>
 </segment>
 <segment>
@@ -39628,15 +39608,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J7" gate="G$1" pin="3"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="104.14" x2="10.16" y2="104.14" width="0.1524" layer="91"/>
-<label x="6.35" y="104.14" size="1.778" layer="95"/>
+<wire x1="22.86" y1="121.92" x2="12.7" y2="121.92" width="0.1524" layer="91"/>
+<label x="8.89" y="121.92" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="43"/>
 </segment>
 </net>
 <net name="45" class="0">
 <segment>
-<wire x1="71.12" y1="101.6" x2="60.96" y2="101.6" width="0.1524" layer="91"/>
-<label x="57.15" y="101.6" size="1.778" layer="95"/>
+<wire x1="73.66" y1="119.38" x2="63.5" y2="119.38" width="0.1524" layer="91"/>
+<label x="59.69" y="119.38" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="45"/>
 </segment>
 <segment>
@@ -39645,15 +39625,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J7" gate="G$1" pin="5"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="101.6" x2="10.16" y2="101.6" width="0.1524" layer="91"/>
-<label x="6.35" y="101.6" size="1.778" layer="95"/>
+<wire x1="22.86" y1="119.38" x2="12.7" y2="119.38" width="0.1524" layer="91"/>
+<label x="8.89" y="119.38" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="45"/>
 </segment>
 </net>
 <net name="47" class="0">
 <segment>
-<wire x1="71.12" y1="99.06" x2="60.96" y2="99.06" width="0.1524" layer="91"/>
-<label x="57.15" y="99.06" size="1.778" layer="95"/>
+<wire x1="73.66" y1="116.84" x2="63.5" y2="116.84" width="0.1524" layer="91"/>
+<label x="59.69" y="116.84" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="47"/>
 </segment>
 <segment>
@@ -39662,15 +39642,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J8" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="99.06" x2="10.16" y2="99.06" width="0.1524" layer="91"/>
-<label x="6.35" y="99.06" size="1.778" layer="95"/>
+<wire x1="22.86" y1="116.84" x2="12.7" y2="116.84" width="0.1524" layer="91"/>
+<label x="8.89" y="116.84" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="47"/>
 </segment>
 </net>
 <net name="49" class="0">
 <segment>
-<wire x1="71.12" y1="96.52" x2="60.96" y2="96.52" width="0.1524" layer="91"/>
-<label x="57.15" y="96.52" size="1.778" layer="95"/>
+<wire x1="73.66" y1="114.3" x2="63.5" y2="114.3" width="0.1524" layer="91"/>
+<label x="59.69" y="114.3" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="49"/>
 </segment>
 <segment>
@@ -39679,15 +39659,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J8" gate="G$1" pin="3"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="96.52" x2="10.16" y2="96.52" width="0.1524" layer="91"/>
-<label x="6.35" y="96.52" size="1.778" layer="95"/>
+<wire x1="22.86" y1="114.3" x2="12.7" y2="114.3" width="0.1524" layer="91"/>
+<label x="8.89" y="114.3" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="49"/>
 </segment>
 </net>
 <net name="51" class="0">
 <segment>
-<wire x1="71.12" y1="93.98" x2="60.96" y2="93.98" width="0.1524" layer="91"/>
-<label x="57.15" y="93.98" size="1.778" layer="95"/>
+<wire x1="73.66" y1="111.76" x2="63.5" y2="111.76" width="0.1524" layer="91"/>
+<label x="59.69" y="111.76" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="51"/>
 </segment>
 <segment>
@@ -39696,15 +39676,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J8" gate="G$1" pin="5"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="93.98" x2="10.16" y2="93.98" width="0.1524" layer="91"/>
-<label x="6.35" y="93.98" size="1.778" layer="95"/>
+<wire x1="22.86" y1="111.76" x2="12.7" y2="111.76" width="0.1524" layer="91"/>
+<label x="8.89" y="111.76" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="51"/>
 </segment>
 </net>
 <net name="53" class="0">
 <segment>
-<wire x1="71.12" y1="91.44" x2="60.96" y2="91.44" width="0.1524" layer="91"/>
-<label x="57.15" y="91.44" size="1.778" layer="95"/>
+<wire x1="73.66" y1="109.22" x2="63.5" y2="109.22" width="0.1524" layer="91"/>
+<label x="59.69" y="109.22" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="53"/>
 </segment>
 <segment>
@@ -39713,15 +39693,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J9" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="91.44" x2="10.16" y2="91.44" width="0.1524" layer="91"/>
-<label x="6.35" y="91.44" size="1.778" layer="95"/>
+<wire x1="22.86" y1="109.22" x2="12.7" y2="109.22" width="0.1524" layer="91"/>
+<label x="8.89" y="109.22" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="53"/>
 </segment>
 </net>
 <net name="55" class="0">
 <segment>
-<wire x1="71.12" y1="88.9" x2="60.96" y2="88.9" width="0.1524" layer="91"/>
-<label x="57.15" y="88.9" size="1.778" layer="95"/>
+<wire x1="73.66" y1="106.68" x2="63.5" y2="106.68" width="0.1524" layer="91"/>
+<label x="59.69" y="106.68" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="55"/>
 </segment>
 <segment>
@@ -39730,15 +39710,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J9" gate="G$1" pin="3"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="88.9" x2="10.16" y2="88.9" width="0.1524" layer="91"/>
-<label x="6.35" y="88.9" size="1.778" layer="95"/>
+<wire x1="22.86" y1="106.68" x2="12.7" y2="106.68" width="0.1524" layer="91"/>
+<label x="8.89" y="106.68" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="55"/>
 </segment>
 </net>
 <net name="57" class="0">
 <segment>
-<wire x1="71.12" y1="86.36" x2="60.96" y2="86.36" width="0.1524" layer="91"/>
-<label x="57.15" y="86.36" size="1.778" layer="95"/>
+<wire x1="73.66" y1="104.14" x2="63.5" y2="104.14" width="0.1524" layer="91"/>
+<label x="59.69" y="104.14" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="57"/>
 </segment>
 <segment>
@@ -39747,15 +39727,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J9" gate="G$1" pin="5"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="86.36" x2="10.16" y2="86.36" width="0.1524" layer="91"/>
-<label x="6.35" y="86.36" size="1.778" layer="95"/>
+<wire x1="22.86" y1="104.14" x2="12.7" y2="104.14" width="0.1524" layer="91"/>
+<label x="8.89" y="104.14" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="57"/>
 </segment>
 </net>
 <net name="59" class="0">
 <segment>
-<wire x1="71.12" y1="83.82" x2="60.96" y2="83.82" width="0.1524" layer="91"/>
-<label x="57.15" y="83.82" size="1.778" layer="95"/>
+<wire x1="73.66" y1="101.6" x2="63.5" y2="101.6" width="0.1524" layer="91"/>
+<label x="59.69" y="101.6" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="59"/>
 </segment>
 <segment>
@@ -39764,15 +39744,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J10" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="83.82" x2="10.16" y2="83.82" width="0.1524" layer="91"/>
-<label x="6.35" y="83.82" size="1.778" layer="95"/>
+<wire x1="22.86" y1="101.6" x2="12.7" y2="101.6" width="0.1524" layer="91"/>
+<label x="8.89" y="101.6" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="59"/>
 </segment>
 </net>
 <net name="61" class="0">
 <segment>
-<wire x1="71.12" y1="81.28" x2="60.96" y2="81.28" width="0.1524" layer="91"/>
-<label x="57.15" y="81.28" size="1.778" layer="95"/>
+<wire x1="73.66" y1="99.06" x2="63.5" y2="99.06" width="0.1524" layer="91"/>
+<label x="59.69" y="99.06" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="61"/>
 </segment>
 <segment>
@@ -39781,15 +39761,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J10" gate="G$1" pin="3"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="81.28" x2="10.16" y2="81.28" width="0.1524" layer="91"/>
-<label x="6.35" y="81.28" size="1.778" layer="95"/>
+<wire x1="22.86" y1="99.06" x2="12.7" y2="99.06" width="0.1524" layer="91"/>
+<label x="8.89" y="99.06" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="61"/>
 </segment>
 </net>
 <net name="63" class="0">
 <segment>
-<wire x1="71.12" y1="78.74" x2="60.96" y2="78.74" width="0.1524" layer="91"/>
-<label x="57.15" y="78.74" size="1.778" layer="95"/>
+<wire x1="73.66" y1="96.52" x2="63.5" y2="96.52" width="0.1524" layer="91"/>
+<label x="59.69" y="96.52" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="63"/>
 </segment>
 <segment>
@@ -39798,20 +39778,20 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J10" gate="G$1" pin="5"/>
 </segment>
 <segment>
-<wire x1="20.32" y1="78.74" x2="10.16" y2="78.74" width="0.1524" layer="91"/>
-<label x="6.35" y="78.74" size="1.778" layer="95"/>
+<wire x1="22.86" y1="96.52" x2="12.7" y2="96.52" width="0.1524" layer="91"/>
+<label x="8.89" y="96.52" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="63"/>
 </segment>
 </net>
 <net name="2" class="0">
 <segment>
-<wire x1="33.02" y1="157.48" x2="43.18" y2="157.48" width="0.1524" layer="91"/>
-<label x="44.45" y="157.48" size="1.778" layer="95"/>
+<wire x1="35.56" y1="175.26" x2="45.72" y2="175.26" width="0.1524" layer="91"/>
+<label x="46.99" y="175.26" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="157.48" x2="93.98" y2="157.48" width="0.1524" layer="91"/>
-<label x="95.25" y="157.48" size="1.778" layer="95"/>
+<wire x1="86.36" y1="175.26" x2="96.52" y2="175.26" width="0.1524" layer="91"/>
+<label x="97.79" y="175.26" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="2"/>
 </segment>
 <segment>
@@ -39819,16 +39799,21 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <label x="149.86" y="44.45" size="1.778" layer="95" rot="R270"/>
 <pinref part="J3" gate="G$1" pin="2"/>
 </segment>
+<segment>
+<wire x1="96.52" y1="40.64" x2="91.44" y2="40.64" width="0.1524" layer="91"/>
+<label x="86.36" y="40.64" size="1.778" layer="95"/>
+<pinref part="R32" gate="G$1" pin="1"/>
+</segment>
 </net>
 <net name="4" class="0">
 <segment>
-<wire x1="33.02" y1="154.94" x2="43.18" y2="154.94" width="0.1524" layer="91"/>
-<label x="44.45" y="154.94" size="1.778" layer="95"/>
+<wire x1="35.56" y1="172.72" x2="45.72" y2="172.72" width="0.1524" layer="91"/>
+<label x="46.99" y="172.72" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="4"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="154.94" x2="93.98" y2="154.94" width="0.1524" layer="91"/>
-<label x="95.25" y="154.94" size="1.778" layer="95"/>
+<wire x1="86.36" y1="172.72" x2="96.52" y2="172.72" width="0.1524" layer="91"/>
+<label x="97.79" y="172.72" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="4"/>
 </segment>
 <segment>
@@ -39836,16 +39821,21 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <label x="147.32" y="44.45" size="1.778" layer="95" rot="R270"/>
 <pinref part="J3" gate="G$1" pin="4"/>
 </segment>
+<segment>
+<wire x1="22.86" y1="45.72" x2="22.86" y2="40.64" width="0.1524" layer="91"/>
+<label x="22.86" y="35.56" size="1.778" layer="95" rot="R90"/>
+<pinref part="TP1" gate="G$1" pin="1"/>
+</segment>
 </net>
 <net name="6" class="0">
 <segment>
-<wire x1="33.02" y1="152.4" x2="43.18" y2="152.4" width="0.1524" layer="91"/>
-<label x="44.45" y="152.4" size="1.778" layer="95"/>
+<wire x1="35.56" y1="170.18" x2="45.72" y2="170.18" width="0.1524" layer="91"/>
+<label x="46.99" y="170.18" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="6"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="152.4" x2="93.98" y2="152.4" width="0.1524" layer="91"/>
-<label x="95.25" y="152.4" size="1.778" layer="95"/>
+<wire x1="86.36" y1="170.18" x2="96.52" y2="170.18" width="0.1524" layer="91"/>
+<label x="97.79" y="170.18" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="6"/>
 </segment>
 <segment>
@@ -39853,16 +39843,21 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <label x="144.78" y="44.45" size="1.778" layer="95" rot="R270"/>
 <pinref part="J3" gate="G$1" pin="6"/>
 </segment>
+<segment>
+<wire x1="33.02" y1="45.72" x2="33.02" y2="40.64" width="0.1524" layer="91"/>
+<label x="33.02" y="35.56" size="1.778" layer="95" rot="R90"/>
+<pinref part="TP3" gate="G$1" pin="1"/>
+</segment>
 </net>
 <net name="8" class="0">
 <segment>
-<wire x1="33.02" y1="149.86" x2="43.18" y2="149.86" width="0.1524" layer="91"/>
-<label x="44.45" y="149.86" size="1.778" layer="95"/>
+<wire x1="35.56" y1="167.64" x2="45.72" y2="167.64" width="0.1524" layer="91"/>
+<label x="46.99" y="167.64" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="8"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="149.86" x2="93.98" y2="149.86" width="0.1524" layer="91"/>
-<label x="95.25" y="149.86" size="1.778" layer="95"/>
+<wire x1="86.36" y1="167.64" x2="96.52" y2="167.64" width="0.1524" layer="91"/>
+<label x="97.79" y="167.64" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="8"/>
 </segment>
 <segment>
@@ -39870,16 +39865,21 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <label x="142.24" y="44.45" size="1.778" layer="95" rot="R270"/>
 <pinref part="J3" gate="G$1" pin="8"/>
 </segment>
+<segment>
+<wire x1="43.18" y1="45.72" x2="43.18" y2="40.64" width="0.1524" layer="91"/>
+<label x="43.18" y="35.56" size="1.778" layer="95" rot="R90"/>
+<pinref part="TP5" gate="G$1" pin="1"/>
+</segment>
 </net>
 <net name="10" class="0">
 <segment>
-<wire x1="33.02" y1="147.32" x2="43.18" y2="147.32" width="0.1524" layer="91"/>
-<label x="44.45" y="147.32" size="1.778" layer="95"/>
+<wire x1="35.56" y1="165.1" x2="45.72" y2="165.1" width="0.1524" layer="91"/>
+<label x="46.99" y="165.1" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="10"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="147.32" x2="93.98" y2="147.32" width="0.1524" layer="91"/>
-<label x="95.25" y="147.32" size="1.778" layer="95"/>
+<wire x1="86.36" y1="165.1" x2="96.52" y2="165.1" width="0.1524" layer="91"/>
+<label x="97.79" y="165.1" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="10"/>
 </segment>
 <segment>
@@ -39890,13 +39890,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="12" class="0">
 <segment>
-<wire x1="33.02" y1="144.78" x2="43.18" y2="144.78" width="0.1524" layer="91"/>
-<label x="44.45" y="144.78" size="1.778" layer="95"/>
+<wire x1="35.56" y1="162.56" x2="45.72" y2="162.56" width="0.1524" layer="91"/>
+<label x="46.99" y="162.56" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="12"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="144.78" x2="93.98" y2="144.78" width="0.1524" layer="91"/>
-<label x="95.25" y="144.78" size="1.778" layer="95"/>
+<wire x1="86.36" y1="162.56" x2="96.52" y2="162.56" width="0.1524" layer="91"/>
+<label x="97.79" y="162.56" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="12"/>
 </segment>
 <segment>
@@ -39907,13 +39907,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="14" class="0">
 <segment>
-<wire x1="33.02" y1="142.24" x2="43.18" y2="142.24" width="0.1524" layer="91"/>
-<label x="44.45" y="142.24" size="1.778" layer="95"/>
+<wire x1="35.56" y1="160.02" x2="45.72" y2="160.02" width="0.1524" layer="91"/>
+<label x="46.99" y="160.02" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="14"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="142.24" x2="93.98" y2="142.24" width="0.1524" layer="91"/>
-<label x="95.25" y="142.24" size="1.778" layer="95"/>
+<wire x1="86.36" y1="160.02" x2="96.52" y2="160.02" width="0.1524" layer="91"/>
+<label x="97.79" y="160.02" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="14"/>
 </segment>
 <segment>
@@ -39924,13 +39924,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="16" class="0">
 <segment>
-<wire x1="33.02" y1="139.7" x2="43.18" y2="139.7" width="0.1524" layer="91"/>
-<label x="44.45" y="139.7" size="1.778" layer="95"/>
+<wire x1="35.56" y1="157.48" x2="45.72" y2="157.48" width="0.1524" layer="91"/>
+<label x="46.99" y="157.48" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="16"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="139.7" x2="93.98" y2="139.7" width="0.1524" layer="91"/>
-<label x="95.25" y="139.7" size="1.778" layer="95"/>
+<wire x1="86.36" y1="157.48" x2="96.52" y2="157.48" width="0.1524" layer="91"/>
+<label x="97.79" y="157.48" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="16"/>
 </segment>
 <segment>
@@ -39941,13 +39941,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="18" class="0">
 <segment>
-<wire x1="33.02" y1="137.16" x2="43.18" y2="137.16" width="0.1524" layer="91"/>
-<label x="44.45" y="137.16" size="1.778" layer="95"/>
+<wire x1="35.56" y1="154.94" x2="45.72" y2="154.94" width="0.1524" layer="91"/>
+<label x="46.99" y="154.94" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="18"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="137.16" x2="93.98" y2="137.16" width="0.1524" layer="91"/>
-<label x="95.25" y="137.16" size="1.778" layer="95"/>
+<wire x1="86.36" y1="154.94" x2="96.52" y2="154.94" width="0.1524" layer="91"/>
+<label x="97.79" y="154.94" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="18"/>
 </segment>
 <segment>
@@ -39958,13 +39958,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="20" class="0">
 <segment>
-<wire x1="33.02" y1="134.62" x2="43.18" y2="134.62" width="0.1524" layer="91"/>
-<label x="44.45" y="134.62" size="1.778" layer="95"/>
+<wire x1="35.56" y1="152.4" x2="45.72" y2="152.4" width="0.1524" layer="91"/>
+<label x="46.99" y="152.4" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="20"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="134.62" x2="93.98" y2="134.62" width="0.1524" layer="91"/>
-<label x="95.25" y="134.62" size="1.778" layer="95"/>
+<wire x1="86.36" y1="152.4" x2="96.52" y2="152.4" width="0.1524" layer="91"/>
+<label x="97.79" y="152.4" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="20"/>
 </segment>
 <segment>
@@ -39975,13 +39975,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="22" class="0">
 <segment>
-<wire x1="33.02" y1="132.08" x2="43.18" y2="132.08" width="0.1524" layer="91"/>
-<label x="44.45" y="132.08" size="1.778" layer="95"/>
+<wire x1="35.56" y1="149.86" x2="45.72" y2="149.86" width="0.1524" layer="91"/>
+<label x="46.99" y="149.86" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="22"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="132.08" x2="93.98" y2="132.08" width="0.1524" layer="91"/>
-<label x="95.25" y="132.08" size="1.778" layer="95"/>
+<wire x1="86.36" y1="149.86" x2="96.52" y2="149.86" width="0.1524" layer="91"/>
+<label x="97.79" y="149.86" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="22"/>
 </segment>
 <segment>
@@ -39992,8 +39992,8 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="24" class="0">
 <segment>
-<wire x1="33.02" y1="129.54" x2="43.18" y2="129.54" width="0.1524" layer="91"/>
-<label x="44.45" y="129.54" size="1.778" layer="95"/>
+<wire x1="35.56" y1="147.32" x2="45.72" y2="147.32" width="0.1524" layer="91"/>
+<label x="46.99" y="147.32" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="24"/>
 </segment>
 <segment>
@@ -40002,15 +40002,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J4" gate="G$1" pin="16"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="129.54" x2="93.98" y2="129.54" width="0.1524" layer="91"/>
-<label x="95.25" y="129.54" size="1.778" layer="95"/>
+<wire x1="86.36" y1="147.32" x2="96.52" y2="147.32" width="0.1524" layer="91"/>
+<label x="97.79" y="147.32" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="24"/>
 </segment>
 </net>
 <net name="26" class="0">
 <segment>
-<wire x1="33.02" y1="127" x2="43.18" y2="127" width="0.1524" layer="91"/>
-<label x="44.45" y="127" size="1.778" layer="95"/>
+<wire x1="35.56" y1="144.78" x2="45.72" y2="144.78" width="0.1524" layer="91"/>
+<label x="46.99" y="144.78" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="26"/>
 </segment>
 <segment>
@@ -40019,15 +40019,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J4" gate="G$1" pin="18"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="127" x2="93.98" y2="127" width="0.1524" layer="91"/>
-<label x="95.25" y="127" size="1.778" layer="95"/>
+<wire x1="86.36" y1="144.78" x2="96.52" y2="144.78" width="0.1524" layer="91"/>
+<label x="97.79" y="144.78" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="26"/>
 </segment>
 </net>
 <net name="28" class="0">
 <segment>
-<wire x1="33.02" y1="124.46" x2="43.18" y2="124.46" width="0.1524" layer="91"/>
-<label x="44.45" y="124.46" size="1.778" layer="95"/>
+<wire x1="35.56" y1="142.24" x2="45.72" y2="142.24" width="0.1524" layer="91"/>
+<label x="46.99" y="142.24" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="28"/>
 </segment>
 <segment>
@@ -40036,15 +40036,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J4" gate="G$1" pin="20"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="124.46" x2="93.98" y2="124.46" width="0.1524" layer="91"/>
-<label x="95.25" y="124.46" size="1.778" layer="95"/>
+<wire x1="86.36" y1="142.24" x2="96.52" y2="142.24" width="0.1524" layer="91"/>
+<label x="97.79" y="142.24" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="28"/>
 </segment>
 </net>
 <net name="30" class="0">
 <segment>
-<wire x1="33.02" y1="121.92" x2="43.18" y2="121.92" width="0.1524" layer="91"/>
-<label x="44.45" y="121.92" size="1.778" layer="95"/>
+<wire x1="35.56" y1="139.7" x2="45.72" y2="139.7" width="0.1524" layer="91"/>
+<label x="46.99" y="139.7" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="30"/>
 </segment>
 <segment>
@@ -40053,15 +40053,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J5" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="121.92" x2="93.98" y2="121.92" width="0.1524" layer="91"/>
-<label x="95.25" y="121.92" size="1.778" layer="95"/>
+<wire x1="86.36" y1="139.7" x2="96.52" y2="139.7" width="0.1524" layer="91"/>
+<label x="97.79" y="139.7" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="30"/>
 </segment>
 </net>
 <net name="32" class="0">
 <segment>
-<wire x1="33.02" y1="119.38" x2="43.18" y2="119.38" width="0.1524" layer="91"/>
-<label x="44.45" y="119.38" size="1.778" layer="95"/>
+<wire x1="35.56" y1="137.16" x2="45.72" y2="137.16" width="0.1524" layer="91"/>
+<label x="46.99" y="137.16" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="32"/>
 </segment>
 <segment>
@@ -40070,20 +40070,20 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J5" gate="G$1" pin="4"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="119.38" x2="93.98" y2="119.38" width="0.1524" layer="91"/>
-<label x="95.25" y="119.38" size="1.778" layer="95"/>
+<wire x1="86.36" y1="137.16" x2="96.52" y2="137.16" width="0.1524" layer="91"/>
+<label x="97.79" y="137.16" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="32"/>
 </segment>
 </net>
 <net name="34" class="0">
 <segment>
-<wire x1="33.02" y1="116.84" x2="43.18" y2="116.84" width="0.1524" layer="91"/>
-<label x="44.45" y="116.84" size="1.778" layer="95"/>
+<wire x1="35.56" y1="134.62" x2="45.72" y2="134.62" width="0.1524" layer="91"/>
+<label x="46.99" y="134.62" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="34"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="116.84" x2="93.98" y2="116.84" width="0.1524" layer="91"/>
-<label x="95.25" y="116.84" size="1.778" layer="95"/>
+<wire x1="86.36" y1="134.62" x2="96.52" y2="134.62" width="0.1524" layer="91"/>
+<label x="97.79" y="134.62" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="34"/>
 </segment>
 <segment>
@@ -40094,13 +40094,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="36" class="0">
 <segment>
-<wire x1="33.02" y1="114.3" x2="43.18" y2="114.3" width="0.1524" layer="91"/>
-<label x="44.45" y="114.3" size="1.778" layer="95"/>
+<wire x1="35.56" y1="132.08" x2="45.72" y2="132.08" width="0.1524" layer="91"/>
+<label x="46.99" y="132.08" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="36"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="114.3" x2="93.98" y2="114.3" width="0.1524" layer="91"/>
-<label x="95.25" y="114.3" size="1.778" layer="95"/>
+<wire x1="86.36" y1="132.08" x2="96.52" y2="132.08" width="0.1524" layer="91"/>
+<label x="97.79" y="132.08" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="36"/>
 </segment>
 <segment>
@@ -40111,13 +40111,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="38" class="0">
 <segment>
-<wire x1="33.02" y1="111.76" x2="43.18" y2="111.76" width="0.1524" layer="91"/>
-<label x="44.45" y="111.76" size="1.778" layer="95"/>
+<wire x1="35.56" y1="129.54" x2="45.72" y2="129.54" width="0.1524" layer="91"/>
+<label x="46.99" y="129.54" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="38"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="111.76" x2="93.98" y2="111.76" width="0.1524" layer="91"/>
-<label x="95.25" y="111.76" size="1.778" layer="95"/>
+<wire x1="86.36" y1="129.54" x2="96.52" y2="129.54" width="0.1524" layer="91"/>
+<label x="97.79" y="129.54" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="38"/>
 </segment>
 <segment>
@@ -40129,13 +40129,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="42" class="0">
 <segment>
-<wire x1="33.02" y1="106.68" x2="43.18" y2="106.68" width="0.1524" layer="91"/>
-<label x="44.45" y="106.68" size="1.778" layer="95"/>
+<wire x1="35.56" y1="124.46" x2="45.72" y2="124.46" width="0.1524" layer="91"/>
+<label x="46.99" y="124.46" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="42"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="106.68" x2="93.98" y2="106.68" width="0.1524" layer="91"/>
-<label x="95.25" y="106.68" size="1.778" layer="95"/>
+<wire x1="86.36" y1="124.46" x2="96.52" y2="124.46" width="0.1524" layer="91"/>
+<label x="97.79" y="124.46" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="42"/>
 </segment>
 <segment>
@@ -40146,8 +40146,8 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="44" class="0">
 <segment>
-<wire x1="33.02" y1="104.14" x2="43.18" y2="104.14" width="0.1524" layer="91"/>
-<label x="44.45" y="104.14" size="1.778" layer="95"/>
+<wire x1="35.56" y1="121.92" x2="45.72" y2="121.92" width="0.1524" layer="91"/>
+<label x="46.99" y="121.92" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="44"/>
 </segment>
 <segment>
@@ -40156,15 +40156,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J7" gate="G$1" pin="4"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="104.14" x2="93.98" y2="104.14" width="0.1524" layer="91"/>
-<label x="95.25" y="104.14" size="1.778" layer="95"/>
+<wire x1="86.36" y1="121.92" x2="96.52" y2="121.92" width="0.1524" layer="91"/>
+<label x="97.79" y="121.92" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="44"/>
 </segment>
 </net>
 <net name="46" class="0">
 <segment>
-<wire x1="33.02" y1="101.6" x2="43.18" y2="101.6" width="0.1524" layer="91"/>
-<label x="44.45" y="101.6" size="1.778" layer="95"/>
+<wire x1="35.56" y1="119.38" x2="45.72" y2="119.38" width="0.1524" layer="91"/>
+<label x="46.99" y="119.38" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="46"/>
 </segment>
 <segment>
@@ -40173,15 +40173,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J7" gate="G$1" pin="6"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="101.6" x2="93.98" y2="101.6" width="0.1524" layer="91"/>
-<label x="95.25" y="101.6" size="1.778" layer="95"/>
+<wire x1="86.36" y1="119.38" x2="96.52" y2="119.38" width="0.1524" layer="91"/>
+<label x="97.79" y="119.38" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="46"/>
 </segment>
 </net>
 <net name="48" class="0">
 <segment>
-<wire x1="33.02" y1="99.06" x2="43.18" y2="99.06" width="0.1524" layer="91"/>
-<label x="44.45" y="99.06" size="1.778" layer="95"/>
+<wire x1="35.56" y1="116.84" x2="45.72" y2="116.84" width="0.1524" layer="91"/>
+<label x="46.99" y="116.84" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="48"/>
 </segment>
 <segment>
@@ -40190,15 +40190,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J8" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="99.06" x2="93.98" y2="99.06" width="0.1524" layer="91"/>
-<label x="95.25" y="99.06" size="1.778" layer="95"/>
+<wire x1="86.36" y1="116.84" x2="96.52" y2="116.84" width="0.1524" layer="91"/>
+<label x="97.79" y="116.84" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="48"/>
 </segment>
 </net>
 <net name="50" class="0">
 <segment>
-<wire x1="33.02" y1="96.52" x2="43.18" y2="96.52" width="0.1524" layer="91"/>
-<label x="44.45" y="96.52" size="1.778" layer="95"/>
+<wire x1="35.56" y1="114.3" x2="45.72" y2="114.3" width="0.1524" layer="91"/>
+<label x="46.99" y="114.3" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="50"/>
 </segment>
 <segment>
@@ -40207,15 +40207,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J8" gate="G$1" pin="4"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="96.52" x2="93.98" y2="96.52" width="0.1524" layer="91"/>
-<label x="95.25" y="96.52" size="1.778" layer="95"/>
+<wire x1="86.36" y1="114.3" x2="96.52" y2="114.3" width="0.1524" layer="91"/>
+<label x="97.79" y="114.3" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="50"/>
 </segment>
 </net>
 <net name="52" class="0">
 <segment>
-<wire x1="33.02" y1="93.98" x2="43.18" y2="93.98" width="0.1524" layer="91"/>
-<label x="44.45" y="93.98" size="1.778" layer="95"/>
+<wire x1="35.56" y1="111.76" x2="45.72" y2="111.76" width="0.1524" layer="91"/>
+<label x="46.99" y="111.76" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="52"/>
 </segment>
 <segment>
@@ -40224,15 +40224,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J8" gate="G$1" pin="6"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="93.98" x2="93.98" y2="93.98" width="0.1524" layer="91"/>
-<label x="95.25" y="93.98" size="1.778" layer="95"/>
+<wire x1="86.36" y1="111.76" x2="96.52" y2="111.76" width="0.1524" layer="91"/>
+<label x="97.79" y="111.76" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="52"/>
 </segment>
 </net>
 <net name="54" class="0">
 <segment>
-<wire x1="33.02" y1="91.44" x2="43.18" y2="91.44" width="0.1524" layer="91"/>
-<label x="44.45" y="91.44" size="1.778" layer="95"/>
+<wire x1="35.56" y1="109.22" x2="45.72" y2="109.22" width="0.1524" layer="91"/>
+<label x="46.99" y="109.22" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="54"/>
 </segment>
 <segment>
@@ -40241,15 +40241,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J9" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="91.44" x2="93.98" y2="91.44" width="0.1524" layer="91"/>
-<label x="95.25" y="91.44" size="1.778" layer="95"/>
+<wire x1="86.36" y1="109.22" x2="96.52" y2="109.22" width="0.1524" layer="91"/>
+<label x="97.79" y="109.22" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="54"/>
 </segment>
 </net>
 <net name="56" class="0">
 <segment>
-<wire x1="33.02" y1="88.9" x2="43.18" y2="88.9" width="0.1524" layer="91"/>
-<label x="44.45" y="88.9" size="1.778" layer="95"/>
+<wire x1="35.56" y1="106.68" x2="45.72" y2="106.68" width="0.1524" layer="91"/>
+<label x="46.99" y="106.68" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="56"/>
 </segment>
 <segment>
@@ -40258,15 +40258,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J9" gate="G$1" pin="4"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="88.9" x2="93.98" y2="88.9" width="0.1524" layer="91"/>
-<label x="95.25" y="88.9" size="1.778" layer="95"/>
+<wire x1="86.36" y1="106.68" x2="96.52" y2="106.68" width="0.1524" layer="91"/>
+<label x="97.79" y="106.68" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="56"/>
 </segment>
 </net>
 <net name="58" class="0">
 <segment>
-<wire x1="33.02" y1="86.36" x2="43.18" y2="86.36" width="0.1524" layer="91"/>
-<label x="44.45" y="86.36" size="1.778" layer="95"/>
+<wire x1="35.56" y1="104.14" x2="45.72" y2="104.14" width="0.1524" layer="91"/>
+<label x="46.99" y="104.14" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="58"/>
 </segment>
 <segment>
@@ -40275,15 +40275,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J9" gate="G$1" pin="6"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="86.36" x2="93.98" y2="86.36" width="0.1524" layer="91"/>
-<label x="95.25" y="86.36" size="1.778" layer="95"/>
+<wire x1="86.36" y1="104.14" x2="96.52" y2="104.14" width="0.1524" layer="91"/>
+<label x="97.79" y="104.14" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="58"/>
 </segment>
 </net>
 <net name="60" class="0">
 <segment>
-<wire x1="33.02" y1="83.82" x2="43.18" y2="83.82" width="0.1524" layer="91"/>
-<label x="44.45" y="83.82" size="1.778" layer="95"/>
+<wire x1="35.56" y1="101.6" x2="45.72" y2="101.6" width="0.1524" layer="91"/>
+<label x="46.99" y="101.6" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="60"/>
 </segment>
 <segment>
@@ -40292,15 +40292,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J10" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="83.82" x2="93.98" y2="83.82" width="0.1524" layer="91"/>
-<label x="95.25" y="83.82" size="1.778" layer="95"/>
+<wire x1="86.36" y1="101.6" x2="96.52" y2="101.6" width="0.1524" layer="91"/>
+<label x="97.79" y="101.6" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="60"/>
 </segment>
 </net>
 <net name="62" class="0">
 <segment>
-<wire x1="33.02" y1="81.28" x2="43.18" y2="81.28" width="0.1524" layer="91"/>
-<label x="44.45" y="81.28" size="1.778" layer="95"/>
+<wire x1="35.56" y1="99.06" x2="45.72" y2="99.06" width="0.1524" layer="91"/>
+<label x="46.99" y="99.06" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="62"/>
 </segment>
 <segment>
@@ -40309,15 +40309,15 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J10" gate="G$1" pin="4"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="81.28" x2="93.98" y2="81.28" width="0.1524" layer="91"/>
-<label x="95.25" y="81.28" size="1.778" layer="95"/>
+<wire x1="86.36" y1="99.06" x2="96.52" y2="99.06" width="0.1524" layer="91"/>
+<label x="97.79" y="99.06" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="62"/>
 </segment>
 </net>
 <net name="64" class="0">
 <segment>
-<wire x1="33.02" y1="78.74" x2="43.18" y2="78.74" width="0.1524" layer="91"/>
-<label x="44.45" y="78.74" size="1.778" layer="95"/>
+<wire x1="35.56" y1="96.52" x2="45.72" y2="96.52" width="0.1524" layer="91"/>
+<label x="46.99" y="96.52" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="64"/>
 </segment>
 <segment>
@@ -40326,20 +40326,20 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <pinref part="J10" gate="G$1" pin="6"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="78.74" x2="93.98" y2="78.74" width="0.1524" layer="91"/>
-<label x="95.25" y="78.74" size="1.778" layer="95"/>
+<wire x1="86.36" y1="96.52" x2="96.52" y2="96.52" width="0.1524" layer="91"/>
+<label x="97.79" y="96.52" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="64"/>
 </segment>
 </net>
 <net name="40" class="0">
 <segment>
-<wire x1="33.02" y1="109.22" x2="43.18" y2="109.22" width="0.1524" layer="91"/>
-<label x="44.45" y="109.22" size="1.778" layer="95"/>
+<wire x1="35.56" y1="127" x2="45.72" y2="127" width="0.1524" layer="91"/>
+<label x="46.99" y="127" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="40"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="109.22" x2="93.98" y2="109.22" width="0.1524" layer="91"/>
-<label x="95.25" y="109.22" size="1.778" layer="95"/>
+<wire x1="86.36" y1="127" x2="96.52" y2="127" width="0.1524" layer="91"/>
+<label x="97.79" y="127" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="40"/>
 </segment>
 <segment>
@@ -40350,13 +40350,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="65" class="0">
 <segment>
-<wire x1="20.32" y1="76.2" x2="10.16" y2="76.2" width="0.1524" layer="91"/>
-<label x="6.35" y="76.2" size="1.778" layer="95"/>
+<wire x1="22.86" y1="93.98" x2="12.7" y2="93.98" width="0.1524" layer="91"/>
+<label x="8.89" y="93.98" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="65"/>
 </segment>
 <segment>
-<wire x1="71.12" y1="76.2" x2="60.96" y2="76.2" width="0.1524" layer="91"/>
-<label x="57.15" y="76.2" size="1.778" layer="95"/>
+<wire x1="73.66" y1="93.98" x2="63.5" y2="93.98" width="0.1524" layer="91"/>
+<label x="59.69" y="93.98" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="65"/>
 </segment>
 <segment>
@@ -40367,13 +40367,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="67" class="0">
 <segment>
-<wire x1="20.32" y1="73.66" x2="10.16" y2="73.66" width="0.1524" layer="91"/>
-<label x="6.35" y="73.66" size="1.778" layer="95"/>
+<wire x1="22.86" y1="91.44" x2="12.7" y2="91.44" width="0.1524" layer="91"/>
+<label x="8.89" y="91.44" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="67"/>
 </segment>
 <segment>
-<wire x1="71.12" y1="73.66" x2="60.96" y2="73.66" width="0.1524" layer="91"/>
-<label x="57.15" y="73.66" size="1.778" layer="95"/>
+<wire x1="73.66" y1="91.44" x2="63.5" y2="91.44" width="0.1524" layer="91"/>
+<label x="59.69" y="91.44" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="67"/>
 </segment>
 <segment>
@@ -40384,13 +40384,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="69" class="0">
 <segment>
-<wire x1="20.32" y1="71.12" x2="10.16" y2="71.12" width="0.1524" layer="91"/>
-<label x="6.35" y="71.12" size="1.778" layer="95"/>
+<wire x1="22.86" y1="88.9" x2="12.7" y2="88.9" width="0.1524" layer="91"/>
+<label x="8.89" y="88.9" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="69"/>
 </segment>
 <segment>
-<wire x1="71.12" y1="71.12" x2="60.96" y2="71.12" width="0.1524" layer="91"/>
-<label x="57.15" y="71.12" size="1.778" layer="95"/>
+<wire x1="73.66" y1="88.9" x2="63.5" y2="88.9" width="0.1524" layer="91"/>
+<label x="59.69" y="88.9" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="69"/>
 </segment>
 <segment>
@@ -40401,13 +40401,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="71" class="0">
 <segment>
-<wire x1="20.32" y1="68.58" x2="10.16" y2="68.58" width="0.1524" layer="91"/>
-<label x="6.35" y="68.58" size="1.778" layer="95"/>
+<wire x1="22.86" y1="86.36" x2="12.7" y2="86.36" width="0.1524" layer="91"/>
+<label x="8.89" y="86.36" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="71"/>
 </segment>
 <segment>
-<wire x1="71.12" y1="68.58" x2="60.96" y2="68.58" width="0.1524" layer="91"/>
-<label x="57.15" y="68.58" size="1.778" layer="95"/>
+<wire x1="73.66" y1="86.36" x2="63.5" y2="86.36" width="0.1524" layer="91"/>
+<label x="59.69" y="86.36" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="71"/>
 </segment>
 <segment>
@@ -40418,13 +40418,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="73" class="0">
 <segment>
-<wire x1="20.32" y1="66.04" x2="10.16" y2="66.04" width="0.1524" layer="91"/>
-<label x="6.35" y="66.04" size="1.778" layer="95"/>
+<wire x1="22.86" y1="83.82" x2="12.7" y2="83.82" width="0.1524" layer="91"/>
+<label x="8.89" y="83.82" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="73"/>
 </segment>
 <segment>
-<wire x1="71.12" y1="66.04" x2="60.96" y2="66.04" width="0.1524" layer="91"/>
-<label x="57.15" y="66.04" size="1.778" layer="95"/>
+<wire x1="73.66" y1="83.82" x2="63.5" y2="83.82" width="0.1524" layer="91"/>
+<label x="59.69" y="83.82" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="73"/>
 </segment>
 <segment>
@@ -40435,13 +40435,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="75" class="0">
 <segment>
-<wire x1="20.32" y1="63.5" x2="10.16" y2="63.5" width="0.1524" layer="91"/>
-<label x="6.35" y="63.5" size="1.778" layer="95"/>
+<wire x1="22.86" y1="81.28" x2="12.7" y2="81.28" width="0.1524" layer="91"/>
+<label x="8.89" y="81.28" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="75"/>
 </segment>
 <segment>
-<wire x1="71.12" y1="63.5" x2="60.96" y2="63.5" width="0.1524" layer="91"/>
-<label x="57.15" y="63.5" size="1.778" layer="95"/>
+<wire x1="73.66" y1="81.28" x2="63.5" y2="81.28" width="0.1524" layer="91"/>
+<label x="59.69" y="81.28" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="75"/>
 </segment>
 <segment>
@@ -40452,13 +40452,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="77" class="0">
 <segment>
-<wire x1="20.32" y1="60.96" x2="10.16" y2="60.96" width="0.1524" layer="91"/>
-<label x="6.35" y="60.96" size="1.778" layer="95"/>
+<wire x1="22.86" y1="78.74" x2="12.7" y2="78.74" width="0.1524" layer="91"/>
+<label x="8.89" y="78.74" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="77"/>
 </segment>
 <segment>
-<wire x1="60.96" y1="60.96" x2="71.12" y2="60.96" width="0.1524" layer="91"/>
-<label x="57.15" y="60.96" size="1.778" layer="95"/>
+<wire x1="63.5" y1="78.74" x2="73.66" y2="78.74" width="0.1524" layer="91"/>
+<label x="59.69" y="78.74" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="77"/>
 </segment>
 <segment>
@@ -40469,13 +40469,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="79" class="0">
 <segment>
-<wire x1="20.32" y1="58.42" x2="10.16" y2="58.42" width="0.1524" layer="91"/>
-<label x="6.35" y="58.42" size="1.778" layer="95"/>
+<wire x1="22.86" y1="76.2" x2="12.7" y2="76.2" width="0.1524" layer="91"/>
+<label x="8.89" y="76.2" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="79"/>
 </segment>
 <segment>
-<wire x1="71.12" y1="58.42" x2="60.96" y2="58.42" width="0.1524" layer="91"/>
-<label x="57.15" y="58.42" size="1.778" layer="95"/>
+<wire x1="73.66" y1="76.2" x2="63.5" y2="76.2" width="0.1524" layer="91"/>
+<label x="59.69" y="76.2" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="79"/>
 </segment>
 <segment>
@@ -40486,13 +40486,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="81" class="0">
 <segment>
-<wire x1="20.32" y1="55.88" x2="10.16" y2="55.88" width="0.1524" layer="91"/>
-<label x="6.35" y="55.88" size="1.778" layer="95"/>
+<wire x1="22.86" y1="73.66" x2="12.7" y2="73.66" width="0.1524" layer="91"/>
+<label x="8.89" y="73.66" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="81"/>
 </segment>
 <segment>
-<wire x1="71.12" y1="55.88" x2="60.96" y2="55.88" width="0.1524" layer="91"/>
-<label x="57.15" y="55.88" size="1.778" layer="95"/>
+<wire x1="73.66" y1="73.66" x2="63.5" y2="73.66" width="0.1524" layer="91"/>
+<label x="59.69" y="73.66" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="81"/>
 </segment>
 <segment>
@@ -40503,13 +40503,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="83" class="0">
 <segment>
-<wire x1="20.32" y1="53.34" x2="10.16" y2="53.34" width="0.1524" layer="91"/>
-<label x="6.35" y="53.34" size="1.778" layer="95"/>
+<wire x1="22.86" y1="71.12" x2="12.7" y2="71.12" width="0.1524" layer="91"/>
+<label x="8.89" y="71.12" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="83"/>
 </segment>
 <segment>
-<wire x1="71.12" y1="53.34" x2="60.96" y2="53.34" width="0.1524" layer="91"/>
-<label x="57.15" y="53.34" size="1.778" layer="95"/>
+<wire x1="73.66" y1="71.12" x2="63.5" y2="71.12" width="0.1524" layer="91"/>
+<label x="59.69" y="71.12" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="83"/>
 </segment>
 <segment>
@@ -40517,16 +40517,21 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <label x="200.66" y="82.55" size="1.778" layer="95" rot="R270"/>
 <pinref part="J13" gate="G$1" pin="7"/>
 </segment>
+<segment>
+<wire x1="96.52" y1="25.4" x2="91.44" y2="25.4" width="0.1524" layer="91"/>
+<label x="86.36" y="25.4" size="1.778" layer="95"/>
+<pinref part="R33" gate="G$1" pin="1"/>
+</segment>
 </net>
 <net name="66" class="0">
 <segment>
-<wire x1="33.02" y1="76.2" x2="43.18" y2="76.2" width="0.1524" layer="91"/>
-<label x="44.45" y="76.2" size="1.778" layer="95"/>
+<wire x1="35.56" y1="93.98" x2="45.72" y2="93.98" width="0.1524" layer="91"/>
+<label x="46.99" y="93.98" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="66"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="76.2" x2="93.98" y2="76.2" width="0.1524" layer="91"/>
-<label x="95.25" y="76.2" size="1.778" layer="95"/>
+<wire x1="86.36" y1="93.98" x2="96.52" y2="93.98" width="0.1524" layer="91"/>
+<label x="97.79" y="93.98" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="66"/>
 </segment>
 <segment>
@@ -40537,13 +40542,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="68" class="0">
 <segment>
-<wire x1="33.02" y1="73.66" x2="43.18" y2="73.66" width="0.1524" layer="91"/>
-<label x="44.45" y="73.66" size="1.778" layer="95"/>
+<wire x1="35.56" y1="91.44" x2="45.72" y2="91.44" width="0.1524" layer="91"/>
+<label x="46.99" y="91.44" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="68"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="73.66" x2="93.98" y2="73.66" width="0.1524" layer="91"/>
-<label x="95.25" y="73.66" size="1.778" layer="95"/>
+<wire x1="86.36" y1="91.44" x2="96.52" y2="91.44" width="0.1524" layer="91"/>
+<label x="97.79" y="91.44" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="68"/>
 </segment>
 <segment>
@@ -40554,13 +40559,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="70" class="0">
 <segment>
-<wire x1="33.02" y1="71.12" x2="43.18" y2="71.12" width="0.1524" layer="91"/>
-<label x="44.45" y="71.12" size="1.778" layer="95"/>
+<wire x1="35.56" y1="88.9" x2="45.72" y2="88.9" width="0.1524" layer="91"/>
+<label x="46.99" y="88.9" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="70"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="71.12" x2="93.98" y2="71.12" width="0.1524" layer="91"/>
-<label x="95.25" y="71.12" size="1.778" layer="95"/>
+<wire x1="86.36" y1="88.9" x2="96.52" y2="88.9" width="0.1524" layer="91"/>
+<label x="97.79" y="88.9" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="70"/>
 </segment>
 <segment>
@@ -40571,13 +40576,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="72" class="0">
 <segment>
-<wire x1="33.02" y1="68.58" x2="43.18" y2="68.58" width="0.1524" layer="91"/>
-<label x="44.45" y="68.58" size="1.778" layer="95"/>
+<wire x1="35.56" y1="86.36" x2="45.72" y2="86.36" width="0.1524" layer="91"/>
+<label x="46.99" y="86.36" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="72"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="68.58" x2="93.98" y2="68.58" width="0.1524" layer="91"/>
-<label x="95.25" y="68.58" size="1.778" layer="95"/>
+<wire x1="86.36" y1="86.36" x2="96.52" y2="86.36" width="0.1524" layer="91"/>
+<label x="97.79" y="86.36" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="72"/>
 </segment>
 <segment>
@@ -40588,13 +40593,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="74" class="0">
 <segment>
-<wire x1="33.02" y1="66.04" x2="43.18" y2="66.04" width="0.1524" layer="91"/>
-<label x="44.45" y="66.04" size="1.778" layer="95"/>
+<wire x1="35.56" y1="83.82" x2="45.72" y2="83.82" width="0.1524" layer="91"/>
+<label x="46.99" y="83.82" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="74"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="66.04" x2="93.98" y2="66.04" width="0.1524" layer="91"/>
-<label x="95.25" y="66.04" size="1.778" layer="95"/>
+<wire x1="86.36" y1="83.82" x2="96.52" y2="83.82" width="0.1524" layer="91"/>
+<label x="97.79" y="83.82" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="74"/>
 </segment>
 <segment>
@@ -40605,13 +40610,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="76" class="0">
 <segment>
-<wire x1="33.02" y1="63.5" x2="43.18" y2="63.5" width="0.1524" layer="91"/>
-<label x="44.45" y="63.5" size="1.778" layer="95"/>
+<wire x1="35.56" y1="81.28" x2="45.72" y2="81.28" width="0.1524" layer="91"/>
+<label x="46.99" y="81.28" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="76"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="63.5" x2="93.98" y2="63.5" width="0.1524" layer="91"/>
-<label x="95.25" y="63.5" size="1.778" layer="95"/>
+<wire x1="86.36" y1="81.28" x2="96.52" y2="81.28" width="0.1524" layer="91"/>
+<label x="97.79" y="81.28" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="76"/>
 </segment>
 <segment>
@@ -40622,13 +40627,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="78" class="0">
 <segment>
-<wire x1="33.02" y1="60.96" x2="43.18" y2="60.96" width="0.1524" layer="91"/>
-<label x="44.45" y="60.96" size="1.778" layer="95"/>
+<wire x1="35.56" y1="78.74" x2="45.72" y2="78.74" width="0.1524" layer="91"/>
+<label x="46.99" y="78.74" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="78"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="60.96" x2="93.98" y2="60.96" width="0.1524" layer="91"/>
-<label x="95.25" y="60.96" size="1.778" layer="95"/>
+<wire x1="86.36" y1="78.74" x2="96.52" y2="78.74" width="0.1524" layer="91"/>
+<label x="97.79" y="78.74" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="78"/>
 </segment>
 <segment>
@@ -40639,13 +40644,13 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 </net>
 <net name="80" class="0">
 <segment>
-<wire x1="33.02" y1="58.42" x2="43.18" y2="58.42" width="0.1524" layer="91"/>
-<label x="44.45" y="58.42" size="1.778" layer="95"/>
+<wire x1="35.56" y1="76.2" x2="45.72" y2="76.2" width="0.1524" layer="91"/>
+<label x="46.99" y="76.2" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="80"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="58.42" x2="93.98" y2="58.42" width="0.1524" layer="91"/>
-<label x="95.25" y="58.42" size="1.778" layer="95"/>
+<wire x1="86.36" y1="76.2" x2="96.52" y2="76.2" width="0.1524" layer="91"/>
+<label x="97.79" y="76.2" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="80"/>
 </segment>
 <segment>
@@ -40653,16 +40658,21 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <label x="205.74" y="44.45" size="1.778" layer="95" rot="R270"/>
 <pinref part="J13" gate="G$1" pin="4"/>
 </segment>
+<segment>
+<wire x1="53.34" y1="45.72" x2="53.34" y2="40.64" width="0.1524" layer="91"/>
+<label x="53.34" y="35.56" size="1.778" layer="95" rot="R90"/>
+<pinref part="TP7" gate="G$1" pin="1"/>
+</segment>
 </net>
 <net name="82" class="0">
 <segment>
-<wire x1="33.02" y1="55.88" x2="43.18" y2="55.88" width="0.1524" layer="91"/>
-<label x="44.45" y="55.88" size="1.778" layer="95"/>
+<wire x1="35.56" y1="73.66" x2="45.72" y2="73.66" width="0.1524" layer="91"/>
+<label x="46.99" y="73.66" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="82"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="55.88" x2="93.98" y2="55.88" width="0.1524" layer="91"/>
-<label x="95.25" y="55.88" size="1.778" layer="95"/>
+<wire x1="86.36" y1="73.66" x2="96.52" y2="73.66" width="0.1524" layer="91"/>
+<label x="97.79" y="73.66" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="82"/>
 </segment>
 <segment>
@@ -40670,16 +40680,21 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <label x="203.2" y="44.45" size="1.778" layer="95" rot="R270"/>
 <pinref part="J13" gate="G$1" pin="6"/>
 </segment>
+<segment>
+<wire x1="63.5" y1="45.72" x2="63.5" y2="40.64" width="0.1524" layer="91"/>
+<label x="63.5" y="35.56" size="1.778" layer="95" rot="R90"/>
+<pinref part="TP9" gate="G$1" pin="1"/>
+</segment>
 </net>
 <net name="84" class="0">
 <segment>
-<wire x1="33.02" y1="53.34" x2="43.18" y2="53.34" width="0.1524" layer="91"/>
-<label x="44.45" y="53.34" size="1.778" layer="95"/>
+<wire x1="35.56" y1="71.12" x2="45.72" y2="71.12" width="0.1524" layer="91"/>
+<label x="46.99" y="71.12" size="1.778" layer="95"/>
 <pinref part="J2" gate="G$1" pin="84"/>
 </segment>
 <segment>
-<wire x1="83.82" y1="53.34" x2="93.98" y2="53.34" width="0.1524" layer="91"/>
-<label x="95.25" y="53.34" size="1.778" layer="95"/>
+<wire x1="86.36" y1="71.12" x2="96.52" y2="71.12" width="0.1524" layer="91"/>
+<label x="97.79" y="71.12" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="84"/>
 </segment>
 <segment>
@@ -40687,158 +40702,54 @@ Source: &lt;a href="http://www.molex.com/molex/products/datasheet.jsp?part=activ
 <label x="200.66" y="44.45" size="1.778" layer="95" rot="R270"/>
 <pinref part="J13" gate="G$1" pin="8"/>
 </segment>
+<segment>
+<wire x1="96.52" y1="17.78" x2="91.44" y2="17.78" width="0.1524" layer="91"/>
+<label x="86.36" y="17.78" size="1.778" layer="95"/>
+<pinref part="R34" gate="G$1" pin="1"/>
+</segment>
 </net>
-</nets>
-</sheet>
-<sheet>
-<plain>
-<text x="172.72" y="20.32" size="5.08" layer="97">&gt;PAGE3</text>
-</plain>
-<instances>
-<instance part="FRAME1" gate="G$1" x="0" y="0"/>
-<instance part="FRAME1" gate="G$2" x="147.32" y="0"/>
-<instance part="TP1" gate="G$1" x="78.74" y="124.46"/>
-<instance part="PORT196" gate="G$1" x="63.5" y="116.84" rot="MR0"/>
-<instance part="TP3" gate="G$1" x="104.14" y="124.46"/>
-<instance part="PORT197" gate="G$1" x="88.9" y="116.84" rot="MR0"/>
-<instance part="TP5" gate="G$1" x="129.54" y="124.46"/>
-<instance part="PORT198" gate="G$1" x="114.3" y="116.84" rot="MR0"/>
-<instance part="TP7" gate="G$1" x="154.94" y="124.46"/>
-<instance part="PORT199" gate="G$1" x="139.7" y="116.84" rot="MR0"/>
-<instance part="TP9" gate="G$1" x="180.34" y="124.46"/>
-<instance part="PORT200" gate="G$1" x="165.1" y="116.84" rot="MR0"/>
-<instance part="TP11" gate="G$1" x="68.58" y="78.74"/>
-<instance part="TP14" gate="G$1" x="99.06" y="78.74"/>
-<instance part="TP13" gate="G$1" x="78.74" y="78.74"/>
-<instance part="TP12" gate="G$1" x="88.9" y="78.74"/>
-<instance part="R31" gate="G$1" x="134.62" y="78.74"/>
-<instance part="R32" gate="G$1" x="134.62" y="71.12"/>
-<instance part="R33" gate="G$1" x="170.18" y="78.74"/>
-<instance part="R34" gate="G$1" x="170.18" y="71.12"/>
-<instance part="U$7" gate="G$1" x="142.24" y="66.04"/>
-<instance part="U$8" gate="G$1" x="177.8" y="66.04"/>
-<instance part="PORT202" gate="G$1" x="152.4" y="78.74" rot="MR0"/>
-<instance part="PORT205" gate="G$1" x="152.4" y="71.12" rot="MR0"/>
-<instance part="PORT209" gate="G$1" x="116.84" y="71.12" rot="MR0"/>
-<instance part="PORT212" gate="G$1" x="116.84" y="78.74" rot="MR0"/>
-<instance part="U$9" gate="G$1" x="68.58" y="66.04"/>
-<instance part="U$10" gate="G$1" x="78.74" y="66.04"/>
-<instance part="U$11" gate="G$1" x="99.06" y="66.04"/>
-<instance part="U$12" gate="G$1" x="88.9" y="66.04"/>
-</instances>
-<busses>
-</busses>
-<nets>
 <net name="DGND" class="0">
 <segment>
-<wire x1="78.74" y1="76.2" x2="78.74" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="17.78" x2="38.1" y2="10.16" width="0.1524" layer="91"/>
 <pinref part="TP13" gate="G$1" pin="1"/>
 <pinref part="U$10" gate="G$1" pin="DGND"/>
 </segment>
 <segment>
-<wire x1="137.16" y1="71.12" x2="142.24" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="142.24" y1="71.12" x2="142.24" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="137.16" y1="78.74" x2="142.24" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="142.24" y1="78.74" x2="142.24" y2="71.12" width="0.1524" layer="91"/>
-<junction x="142.24" y="71.12"/>
+<wire x1="104.14" y1="40.64" x2="109.22" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="40.64" x2="109.22" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="48.26" x2="109.22" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="48.26" x2="109.22" y2="40.64" width="0.1524" layer="91"/>
+<junction x="109.22" y="40.64"/>
 <pinref part="R32" gate="G$1" pin="2"/>
 <pinref part="U$7" gate="G$1" pin="DGND"/>
 <pinref part="R31" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<wire x1="68.58" y1="68.58" x2="68.58" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="10.16" x2="27.94" y2="17.78" width="0.1524" layer="91"/>
 <pinref part="TP11" gate="G$1" pin="1"/>
 <pinref part="U$9" gate="G$1" pin="DGND"/>
 </segment>
 </net>
-<net name="4" class="0">
-<segment>
-<wire x1="78.74" y1="121.92" x2="78.74" y2="116.84" width="0.1524" layer="91"/>
-<wire x1="73.66" y1="116.84" x2="78.74" y2="116.84" width="0.1524" layer="91"/>
-<label x="66.04" y="116.84" size="1.778" layer="95"/>
-<pinref part="TP1" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="6" class="0">
-<segment>
-<wire x1="104.14" y1="116.84" x2="99.06" y2="116.84" width="0.1524" layer="91"/>
-<wire x1="104.14" y1="121.92" x2="104.14" y2="116.84" width="0.1524" layer="91"/>
-<label x="91.44" y="116.84" size="1.778" layer="95"/>
-<pinref part="TP3" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="8" class="0">
-<segment>
-<wire x1="129.54" y1="121.92" x2="129.54" y2="116.84" width="0.1524" layer="91"/>
-<wire x1="124.46" y1="116.84" x2="129.54" y2="116.84" width="0.1524" layer="91"/>
-<label x="116.84" y="116.84" size="1.778" layer="95"/>
-<pinref part="TP5" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="2" class="0">
-<segment>
-<wire x1="129.54" y1="71.12" x2="124.46" y2="71.12" width="0.1524" layer="91"/>
-<label x="119.38" y="71.12" size="1.778" layer="95"/>
-<pinref part="R32" gate="G$1" pin="1"/>
-</segment>
-</net>
 <net name="AGND" class="0">
 <segment>
-<wire x1="88.9" y1="76.2" x2="88.9" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="17.78" x2="48.26" y2="10.16" width="0.1524" layer="91"/>
 <pinref part="TP12" gate="G$1" pin="1"/>
 <pinref part="U$12" gate="G$1" pin="AGND"/>
 </segment>
 <segment>
-<wire x1="172.72" y1="71.12" x2="177.8" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="177.8" y1="71.12" x2="177.8" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="172.72" y1="78.74" x2="177.8" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="177.8" y1="78.74" x2="177.8" y2="71.12" width="0.1524" layer="91"/>
-<junction x="177.8" y="71.12"/>
+<wire x1="104.14" y1="17.78" x2="109.22" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="17.78" x2="109.22" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="25.4" x2="109.22" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="25.4" x2="109.22" y2="17.78" width="0.1524" layer="91"/>
+<junction x="109.22" y="17.78"/>
 <pinref part="R34" gate="G$1" pin="2"/>
 <pinref part="U$8" gate="G$1" pin="AGND"/>
 <pinref part="R33" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<wire x1="99.06" y1="76.2" x2="99.06" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="17.78" x2="58.42" y2="10.16" width="0.1524" layer="91"/>
 <pinref part="TP14" gate="G$1" pin="1"/>
 <pinref part="U$11" gate="G$1" pin="AGND"/>
-</segment>
-</net>
-<net name="1" class="0">
-<segment>
-<wire x1="129.54" y1="78.74" x2="124.46" y2="78.74" width="0.1524" layer="91"/>
-<label x="119.38" y="78.74" size="1.778" layer="95"/>
-<pinref part="R31" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="80" class="0">
-<segment>
-<wire x1="149.86" y1="116.84" x2="154.94" y2="116.84" width="0.1524" layer="91"/>
-<wire x1="154.94" y1="121.92" x2="154.94" y2="116.84" width="0.1524" layer="91"/>
-<label x="142.24" y="116.84" size="1.778" layer="95"/>
-<pinref part="TP7" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="82" class="0">
-<segment>
-<wire x1="180.34" y1="121.92" x2="180.34" y2="116.84" width="0.1524" layer="91"/>
-<wire x1="180.34" y1="116.84" x2="175.26" y2="116.84" width="0.1524" layer="91"/>
-<label x="167.64" y="116.84" size="1.778" layer="95"/>
-<pinref part="TP9" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="83" class="0">
-<segment>
-<wire x1="165.1" y1="78.74" x2="160.02" y2="78.74" width="0.1524" layer="91"/>
-<label x="154.94" y="78.74" size="1.778" layer="95"/>
-<pinref part="R33" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="84" class="0">
-<segment>
-<wire x1="165.1" y1="71.12" x2="160.02" y2="71.12" width="0.1524" layer="91"/>
-<label x="154.94" y="71.12" size="1.778" layer="95"/>
-<pinref part="R34" gate="G$1" pin="1"/>
 </segment>
 </net>
 </nets>
