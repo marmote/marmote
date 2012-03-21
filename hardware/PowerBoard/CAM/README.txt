@@ -1,4 +1,4 @@
-PowerBoard Revision B
+PowerBoard (Yellowstone) Revision B
 
 PCB DECRIPTION: 90mm x 56mm 
                 4 LAYER PCB (.062 inches thickness) FR4
@@ -14,7 +14,7 @@ PCB STACKUP:
 	1 (Top)			Positive		Component side (signal)
 	2 (Inner 1)		Positive		Power (GND)
 	3 (Inner 2)		Positive		Power (VCC)
-	4 (Bottom)		Positive		Solder side (signal)
+	16 (Bottom)		Positive		Solder side (signal)
 
 
 
