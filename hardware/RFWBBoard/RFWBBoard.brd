@@ -11671,7 +11671,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="NAME" x="39.108290625" y="16.434475" size="0.4064" layer="25" rot="R45"/>
 <attribute name="VALUE" x="40.02815625" y="17.929075" size="0.4064" layer="27" rot="R225"/>
 </element>
-<element name="C104" library="RFWBBoard" package="C0402" value="NONE" x="41.4" y="29.5" smashed="yes" rot="R135">
+<element name="C104" library="RFWBBoard" package="C0402" value="DNP" x="41.4" y="29.5" smashed="yes" rot="R135">
 <attribute name="NAME" x="41.134475" y="30.5417125" size="0.4064" layer="25" rot="R315"/>
 <attribute name="VALUE" x="42.729075" y="29.571840625" size="0.4064" layer="27" rot="R135"/>
 </element>
@@ -14322,92 +14322,6 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 </polygon>
 </signal>
 </signals>
-<errors>
-<approved hash="7,39,109018cd6bb601f6"/>
-<approved hash="7,39,e18d71aecb9e2fcb"/>
-<approved hash="7,39,24c92b5598562c8c"/>
-<approved hash="18,29,db13ac32d348a469"/>
-<approved hash="18,29,da93a712d668abe9"/>
-<approved hash="18,29,6808da5bde40201b"/>
-<approved hash="18,29,21c85f955b8069d5"/>
-<approved hash="18,29,69ce47935b8021d5"/>
-<approved hash="18,29,200eda5dc640681b"/>
-<approved hash="18,29,304eca1bc60c2857"/>
-<approved hash="18,29,287c46274a6c3039"/>
-<approved hash="18,29,e4172921084d3e46"/>
-<approved hash="18,29,63c5738a91ede265"/>
-<approved hash="18,29,6d9a8f763ef9bfd2"/>
-<approved hash="18,29,6d9a0f577ed7ffd3"/>
-<approved hash="18,29,e3c473a4d1cca265"/>
-<approved hash="18,29,5956f6cab60f9d0f"/>
-<approved hash="18,29,65b6f2ca532ebc2e"/>
-<approved hash="18,29,2800c64a3a422019"/>
-<approved hash="18,29,206dba2946622837"/>
-<approved hash="18,29,124be5cf204d1f06"/>
-<approved hash="18,29,104bc70f020d1d06"/>
-<approved hash="18,29,80ec49373e1b3f0f"/>
-<approved hash="18,29,82ec6b771c5b3d8f"/>
-<approved hash="18,29,20005a5b4a465013"/>
-<approved hash="18,29,50ceca9bda8620dd"/>
-<approved hash="18,29,5564392037725546"/>
-<approved hash="18,29,59ec3728390a59be"/>
-<approved hash="18,29,23a5800aaa03ca65"/>
-<approved hash="18,29,6d963cdce57d77fe"/>
-<approved hash="18,29,23a580296a218a65"/>
-<approved hash="18,29,6d963cfea55eb7fe"/>
-<approved hash="18,29,99a4c750c902994a"/>
-<approved hash="18,29,a99c39e83705a9cd"/>
-<approved hash="18,29,8b1dd529d9078b4f"/>
-<approved hash="18,29,859b60026da24bf2"/>
-<approved hash="18,29,23e54cf9b2b11e64"/>
-<approved hash="18,29,85875d8450244bee"/>
-<approved hash="18,29,23c50e43f02b1e64"/>
-<approved hash="18,29,859b9f1e92de4b92"/>
-<approved hash="18,29,23c5cbad35c51e64"/>
-<approved hash="18,29,5be40b50050259ca"/>
-<approved hash="18,29,1a9f671e16546bd5"/>
-<approved hash="18,29,1b1f6c3e13746455"/>
-<approved hash="18,29,05865da490048bee"/>
-<approved hash="18,29,23e5ccd97291de65"/>
-<approved hash="18,29,23c58e63300bde65"/>
-<approved hash="18,29,059a6022ad828bf2"/>
-<approved hash="18,29,059a9f3e52fe8b92"/>
-<approved hash="18,29,23c54b8df5e5de65"/>
-<approved hash="18,30,ebb6f099bdd55b31"/>
-<approved hash="18,30,37e21211ecd80e48"/>
-<approved hash="18,30,422598080fc0128e"/>
-<approved hash="18,30,b308cd60ce4ca9cc"/>
-<approved hash="6,1,b6348b5c47fad33b"/>
-<approved hash="6,1,8e29a0bb0be4b10f"/>
-<approved hash="19,1,588422f220f75a81"/>
-<approved hash="19,1,c254fc22fd6cc31a"/>
-<approved hash="19,1,c4a2fad4fd6ec318"/>
-<approved hash="19,1,42a0d4d6d8644e12"/>
-<approved hash="19,1,4d62db14d87a4e0c"/>
-<approved hash="19,1,2e313c473f462d30"/>
-<approved hash="19,1,233c1d4a1caf22d9"/>
-<approved hash="19,1,fcd042a67caac2dc"/>
-<approved hash="19,1,0d655f135f0a0d7c"/>
-<approved hash="19,1,0ca35ed55f080d7e"/>
-<approved hash="19,1,025b502d5f680d1e"/>
-<approved hash="19,1,16e51c931e8a14fc"/>
-<approved hash="19,1,aa551823186baa1d"/>
-<approved hash="19,1,99da0fac0e0d987b"/>
-<approved hash="19,1,4d593f2f3f434d35"/>
-<approved hash="19,1,8c3eda48d94a8f3c"/>
-<approved hash="19,1,a0e51e931c8ca2fa"/>
-<approved hash="19,1,5254dc22dd6b531d"/>
-<approved hash="6,1,027a1d1d98d65474"/>
-<approved hash="6,1,65fe5793857a2e84"/>
-<approved hash="6,1,d3d1d3507110a254"/>
-<approved hash="6,1,a2ad44ad36c8748b"/>
-<approved hash="4,16,afe76a2edb38f24a"/>
-<approved hash="4,16,bbc8fc69ff8a0f56"/>
-<approved hash="4,16,fc59fb3a9b30f48d"/>
-<approved hash="4,16,e1c701ffe5d1e952"/>
-<approved hash="4,16,fa743ef70855fec4"/>
-<approved hash="4,16,2d0d24fae7c70381"/>
-</errors>
 </board>
 </drawing>
 </eagle>
