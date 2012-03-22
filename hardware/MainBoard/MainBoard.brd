@@ -13130,7 +13130,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 </element>
 <element name="X1" library="MainBoard" package="ECX-2236" value="ECX-2236-200" x="41.5" y="48.85" rot="R270">
 <attribute name="CLOAD" value="8pF" x="41.5" y="48.85" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="DIGI-KEY#" value="XC1552CT-ND" x="41.5" y="48.85" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DIGI-KEY#" value="XC1556CT-ND" x="41.5" y="48.85" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="FREQ" value="20 MHz" x="41.5" y="48.85" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="FREQ-TOLERANCE" value="10 ppm" x="41.5" y="48.85" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="ECS-200-8-36CKM " x="41.5" y="48.85" size="1.778" layer="27" rot="R270" display="off"/>
