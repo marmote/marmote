@@ -22,33 +22,33 @@ PCB STACKUP:
 
 FILES:
 
-RFWBBoard.GTO - Top Silk Screen (component side)
-RFWBBoard.GTP - Top Solder paste (cream stencil, component side)
-RFWBBoard.GTS - Top Solder stop mask (component side)
+RFWBBoard_RevA.GTO - Top Silk Screen (component side)
+RFWBBoard_RevA.GTP - Top Solder paste (cream stencil, component side)
+RFWBBoard_RevA.GTS - Top Solder stop mask (component side)
 
-RFWBBoard.GTL - Top Copper (component side), Positive Polarity
-RFWBBoard.GP1 - Inner Ground plane 1, Positive Polarity
-RFWBBoard.IS  - Inner Signal layer, Positive Polarity
-RFWBBoard.GP2 - Inner Ground plane 2, Positive Polarity
-RFWBBoard.PP  - Inner Supply plane, Positive Polarity
-RFWBBoard.GBL - Bottom Copper (solder side), Positive Polarity
+RFWBBoard_RevA.GTL - Top Copper (component side), Positive Polarity
+RFWBBoard_RevA.GP1 - Inner Ground plane 1, Positive Polarity
+RFWBBoard_RevA.IS  - Inner Signal layer, Positive Polarity
+RFWBBoard_RevA.GP2 - Inner Ground plane 2, Positive Polarity
+RFWBBoard_RevA.PP  - Inner Supply plane, Positive Polarity
+RFWBBoard_RevA.GBL - Bottom Copper (solder side), Positive Polarity
 
-RFWBBoard.GBS - Bottom Solder stop mask (solder side)
-RFWBBoard.GBP - Bottom Solder paste (cream stencil, solder side)
-RFWBBoard.GBO - Bottom Silk Screen (solder side)
-RFWBBoard.GML - Board outline
-RFWBBoard.gpi - Gerber Report 
+RFWBBoard_RevA.GBS - Bottom Solder stop mask (solder side)
+RFWBBoard_RevA.GBP - Bottom Solder paste (cream stencil, solder side)
+RFWBBoard_RevA.GBO - Bottom Silk Screen (solder side)
+RFWBBoard_RevA.GML - Board outline
+RFWBBoard_RevA.gpi - Gerber Report 
 
-RFWBBoard.DRD - NC Drill : 1.4, Abs, inches, leading zero supress, quad
-RFWBBoard.dri - NC Drill Report
+RFWBBoard_RevA.DRD - NC Drill : 1.4, Abs, inches, leading zero supress, quad
+RFWBBoard_RevA.dri - NC Drill Report
 
-RFWBBoard.gwk - GraphiCode GC-Prevue Project File (Gerbers and drill)
+RFWBBoard_RevA.gwk - GraphiCode GC-Prevue Project File (Gerbers and drill)
 
-RFWBBoard.xy  - Centroid data for SMD components
+RFWBBoard_RevA.xy  - Centroid data for SMD components
    
-RFWBBoard_BOM.xls	- Bill of materials
+RFWBBoard_RevA_BOM.xls	- Bill of materials
 
-RFWBBoard_Asy.pdf	- Board assembly drawing
+RFWBBoard_RevA_Asy.pdf	- Board assembly drawing
 
 
 QUESTIONS?
