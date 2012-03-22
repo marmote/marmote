@@ -20,29 +20,29 @@ PCB STACKUP:
 
 FILES:
 
-BreakoutBoard.GTO - Top Silk Screen (component side)
-BreakoutBoard.GTP - Top Solder paste (cream stencil, component side)
-BreakoutBoard.GTS - Top Solder stop mask (component side)
-BreakoutBoard.GTL - Top Copper (component side), Positive Polarity
-BreakoutBoard.GP1 - Inner Ground plane, Positive Polarity
-BreakoutBoard.GP2 - Inner Signal Layer, Positive Polarity
-BreakoutBoard.GBL - Bottom Copper (solder side), Positive Polarity
-BreakoutBoard.GBS - Bottom Solder stop mask (solder side)
-BreakoutBoard.GBP - Bottom Solder paste (cream stencil, solder side)
-BreakoutBoard.GBO - Bottom Silk Screen (solder side)
-BreakoutBoard.GML - Board outline
-BreakoutBoard.gpi - Gerber Report 
+BreakoutBoard_RevB.GTO - Top Silk Screen (component side)
+BreakoutBoard_RevB.GTP - Top Solder paste (cream stencil, component side)
+BreakoutBoard_RevB.GTS - Top Solder stop mask (component side)
+BreakoutBoard_RevB.GTL - Top Copper (component side), Positive Polarity
+BreakoutBoard_RevB.GP1 - Inner Ground plane, Positive Polarity
+BreakoutBoard_RevB.GP2 - Inner Signal Layer, Positive Polarity
+BreakoutBoard_RevB.GBL - Bottom Copper (solder side), Positive Polarity
+BreakoutBoard_RevB.GBS - Bottom Solder stop mask (solder side)
+BreakoutBoard_RevB.GBP - Bottom Solder paste (cream stencil, solder side)
+BreakoutBoard_RevB.GBO - Bottom Silk Screen (solder side)
+BreakoutBoard_RevB.GML - Board outline
+BreakoutBoard_RevB.gpi - Gerber Report 
 
-BreakoutBoard.DRD - NC Drill : 1.4, Abs, inches, leading zero supress, quad
-BreakoutBoard.dri - NC Drill Report
+BreakoutBoard_RevB.DRD - NC Drill : 1.4, Abs, inches, leading zero supress, quad
+BreakoutBoard_RevB.dri - NC Drill Report
 
-BreakoutBoard.gwk - GraphiCode GC-Prevue Project File (Gerbers and drill)
+BreakoutBoard_RevB.gwk - GraphiCode GC-Prevue Project File (Gerbers and drill)
 
-BreakoutBoard.xy  - Centroid data for SMD components
+BreakoutBoard_RevB.xy  - Centroid data for SMD components
 
-BreakoutBoard_BOM.xls	- Bill of materials
+BreakoutBoard_RevB_BOM.xls	- Bill of materials
 
-BreakoutBoard_Asy.pdf	- Board assembly drawing
+BreakoutBoard_RevB_Asy.pdf	- Board assembly drawing
 
 
 QUESTIONS?
