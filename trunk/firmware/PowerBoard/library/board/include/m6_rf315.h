@@ -118,7 +118,7 @@ uint8_t CON_RXD_Get(void);
 
 void CON_SPI_Init(void);
 void CON_SPI_WriteRegister(uint8_t addr, uint8_t data);
-uint8_t OCN_SPI_ReadRegister(uint8_t addr);
+uint8_t CON_SPI_ReadRegister(uint8_t addr);
 uint8_t CON_SPI_TestWrite(void);
 uint8_t CON_SPI_TestRead(void);
 

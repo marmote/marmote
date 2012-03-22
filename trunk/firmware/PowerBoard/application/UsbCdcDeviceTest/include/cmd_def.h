@@ -4,6 +4,8 @@
 
 // TODO: separate basic commands from 'connected-board-specific' commands
 
+#include <stdlib.h>
+
 #include "power_board.h"
 #include "m6_rf315.h"
 
@@ -24,7 +26,7 @@ extern CMD_Type CMD_List[];
 uint32_t CmdHelp(uint32_t argc, char** argv);
 uint32_t CmdLed(uint32_t argc, char** argv);
 uint32_t CmdPwr(uint32_t argc, char** argv);
-
+uint32_t CmdCcReg(uint32_t argc, char** argv);
 
 
    /*

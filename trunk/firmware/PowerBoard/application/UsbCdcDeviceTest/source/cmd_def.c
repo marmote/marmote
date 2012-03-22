@@ -1,5 +1,4 @@
 #include "cmd_def.h"
-#include "usb_fs.h"
 
 /*
 uint8_t LedOn(void)
@@ -39,6 +38,7 @@ extern CMD_Type CMD_List[] =
 	"help", CmdHelp,
 	"led",  CmdLed,
 	"pwr",  CmdPwr,
+	"reg",  CmdCcReg,
 	/*
 	"txd on", CON_TXD_Set,
 	"txd off", CON_TXD_Clear,
@@ -65,6 +65,7 @@ uint32_t CmdHelp(uint32_t argc, char** argv)
 		USB_SendString(cmdListItr->CmdString);
 		cmdListItr++;
 	}
+	USB_SendMsg("\n", 1);
 	
 	return 0;
 }
@@ -141,6 +142,54 @@ uint32_t CmdLed(uint32_t argc, char** argv)
 	return 1;
 }
 
+uint32_t CmdCcReg(uint32_t argc, char** argv)
+{		
+	uint8_t addr, data;
+	char msg[32];
+
+	if (argc == 2 || argc == 3)
+	{
+		// Parse first paramter (check if it's a valid number)
+		addr = atoi(*(argv+1));
+
+		if (addr || !strcmp(*(argv+1), "0"))
+		{
+			if (argc == 2)
+			{
+				data = CON_SPI_ReadRegister(addr);
+				USB_SendString("\nreg read");
+				// Print register value
+				//itoa(data, msg, 10);
+				sprintf(msg, "\n%3d: %3d", addr, data);
+				//USB_SendString("\n");
+				USB_SendString(msg);
+				return 0;
+			}
+
+			// Parse second parameter
+			data = atoi(*(argv+2));
+			if (data || !strcmp(*(argv+2), "0"))
+			{
+				CON_SPI_WriteRegister(addr, data);
+				USB_SendString("\nreg written");
+				sprintf(msg, "\n%3d: %3d (w)", addr, data);
+				USB_SendString(msg);
+				
+				// Read back register value here
+				data = CON_SPI_ReadRegister(addr);
+				// Print new register value		  
+				sprintf(msg, "\n%3d: %3d (r)", addr, data);
+				USB_SendString(msg);
+				//itoa(data, msg, 10);
+				return 0;
+			}
+		}
+	}
+			
+	// Send help message
+	USB_SendString("\nUsage: reg <addr> [<new value>]");
+	return 1;	
+}
 				   /*
 uint8_t PrintHelpMsg(void)
 {
