@@ -20,29 +20,29 @@ PCB STACKUP:
 
 FILES:
 
-PowerBoard.GTO - Top Silk Screen (component side)
-PowerBoard.GTP - Top Solder paste (cream stencil, component side)
-PowerBoard.GTS - Top Solder stop mask (component side)
-PowerBoard.GTL - Top Copper (component side), Positive Polarity
-PowerBoard.GP1 - Inner Ground plane, Positive Polarity
-PowerBoard.GP2 - Inner Supply plane, Positive Polarity
-PowerBoard.GBL - Bottom Copper (solder side), Positive Polarity
-PowerBoard.GBS - Bottom Solder stop mask (solder side)
-PowerBoard.GBP - Bottom Solder paste (cream stencil, solder side)
-PowerBoard.GBO - Bottom Silk Screen (solder side)
-PowerBoard.GML - Board outline
-PowerBoard.gpi - Gerber Report 
+PowerBoard_RevB.GTO - Top Silk Screen (component side)
+PowerBoard_RevB.GTP - Top Solder paste (cream stencil, component side)
+PowerBoard_RevB.GTS - Top Solder stop mask (component side)
+PowerBoard_RevB.GTL - Top Copper (component side), Positive Polarity
+PowerBoard_RevB.GP1 - Inner Ground plane, Positive Polarity
+PowerBoard_RevB.GP2 - Inner Supply plane, Positive Polarity
+PowerBoard_RevB.GBL - Bottom Copper (solder side), Positive Polarity
+PowerBoard_RevB.GBS - Bottom Solder stop mask (solder side)
+PowerBoard_RevB.GBP - Bottom Solder paste (cream stencil, solder side)
+PowerBoard_RevB.GBO - Bottom Silk Screen (solder side)
+PowerBoard_RevB.GML - Board outline
+PowerBoard_RevB.gpi - Gerber Report 
 
-PowerBoard.DRD - NC Drill : 1.4, Abs, inches, leading zero supress, quad
-PowerBoard.dri - NC Drill Report
+PowerBoard_RevB.DRD - NC Drill : 1.4, Abs, inches, leading zero supress, quad
+PowerBoard_RevB.dri - NC Drill Report
 
-PowerBoard.gwk - GraphiCode GC-Prevue Project File (Gerbers and drill)
+PowerBoard_RevB.gwk - GraphiCode GC-Prevue Project File (Gerbers and drill)
 
-PowerBoard.xy  - Centroid data for SMD components
+PowerBoard_RevB.xy  - Centroid data for SMD components
    
-PowerBoard_BOM.xls	- Bill of materials
+PowerBoard_RevB_BOM.xls	- Bill of materials
 
-PowerBoard_Asy.pdf	- Board assembly drawing
+PowerBoard_RevB_Asy.pdf	- Board assembly drawing
 
 
 QUESTIONS?
