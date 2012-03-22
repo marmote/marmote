@@ -8651,7 +8651,7 @@ Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX-2236.pdf"&gt; http://ww
 </technology>
 <technology name="-200">
 <attribute name="CLOAD" value="8pF"/>
-<attribute name="DIGI-KEY#" value="XC1552CT-ND"/>
+<attribute name="DIGI-KEY#" value="XC1556CT-ND"/>
 <attribute name="FREQ" value="20 MHz"/>
 <attribute name="FREQ-STAB" value="10 ppm"/>
 <attribute name="FREQ-TOLERANCE" value="10 ppm"/>
