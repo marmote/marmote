@@ -1,0 +1,316 @@
+------------------------------------------------------------------------------
+-- MODULE: Power Board - Power management module for the Marmote platform
+-- PROJECT: Marmote
+-- AUTHORS: Sandor Szilvasi
+-- AUTHOR CONTACT INFO.: Sandor Szilvasi <sandor.szilvasi@vanderbilt.edu>
+-- TOOL VERSIONS: Eagle 5.11.0
+--   
+-- Copyright (c) 2006-2011, Vanderbilt University
+-- All rights reserved.
+--
+-- Permission to use, copy, modify, and distribute this hardware design and its
+-- documentation for any purpose, without fee, and without written agreement is
+-- hereby granted, provided that the above copyright notice, the following
+-- two paragraphs and the author appear in all copies of this software.
+--
+-- IN NO EVENT SHALL THE VANDERBILT UNIVERSITY BE LIABLE TO ANY PARTY FOR
+-- DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING OUT
+-- OF THE USE OF THIS SOFTWARE AND ITS DOCUMENTATION, EVEN IF THE VANDERBILT
+-- UNIVERSITY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+--
+-- THE VANDERBILT UNIVERSITY SPECIFICALLY DISCLAIMS ANY WARRANTIES,
+-- INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY
+-- AND FITNESS FOR A PARTICULAR PURPOSE.  THE SOFTWARE PROVIDED HEREUNDER IS
+-- ON AN "AS IS" BASIS, AND THE VANDERBILT UNIVERSITY HAS NO OBLIGATION TO
+-- PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
+------------------------------------------------------------------------------
+
+Power Board - Power management module for the Marmote platform
+http://code.google.com/p/marmote
+
+Eagle design guidelines: http://code.google.com/p/marmote/wiki/EagleDesignGuide
+
+--------------------------------------------------------------------------------
+				  Power Supply
+--------------------------------------------------------------------------------
+
+
+-------------
+-- Battery --
+-------------
+
+-Maximum charging current is selected to be 1000 mA (RPROG = 1k)
+-Battery capacity is expected to be in the range of 4000-6000 mAh
+
+Power Sources
+-------------
+
+Power Rails (Outputs)
+-----------
+
+Notes
+-----
+
+[Known Bugs]
+
+
+--------------------------------------------------------------------------------
+				 Power Monitor
+--------------------------------------------------------------------------------
+
+
+Current Senses
+--------------
+
+  * Digital 3.3V STM (D3V3_STM from XC6220)
+  * Digital 3.3V (D3V3 from XC6220')
+  * Digital 1.5V (D1V5 from XC9236)
+  * Analog 3.3V (A3V3 from XC6220' through bead)
+  * Analog 1.5V (A1V5 from XC9236 through bead)
+  * Highest available source (VSUP)
+    - only the current portion flowing through the West bridge is measured (that
+	  is it does not include include local board consumption)
+  * BAT
+    - Measured with battery gas gauge LTC2942-2
+    - R_SENSE = 50 mohm seems to be adequate (see notes)
+      - 1000 mA maximum charge/discharge current
+      - using large capacity (4000-6000 mAh) battery register overflow is expected
+        (to be handled from SW in the microcontroller)
+    -50 mohm R_SENSE is available as INTERNAL resistor in LTC2942-2
+
+Notes
+-----
+
+  * The current of the power lines from the USB (VBUS) and the wall adapter
+    (WALL) is not monitored
+
+  * The voltage of VSUP is not measured, thus the power consumption on this
+    line can only be estimated when it is operated from a battery (battery
+    gas gauge voltage measurement)
+
+  * All current monitors use AGND as reference except for the battery line,
+    which uses DGND
+
+  * All power rails are monitored with MAX9938 (G=50 V/V) current sense
+    amplifier except for the one on the battery line
+
+  * All current monitors use R_SENSE = 50 mohm
+
+    - I_MAX = 1000 mA, U_REF = 3.3V (1.5V), G = 50 V/V, U_OUT,MAX = 3V
+    - U_R, SENSE = R_SENSE x I_MAX < U_OUT,MAX / G
+
+		   R_SENSE < 60 mohm
+		   -----------------
+		   R_SENSE = 50 mohm
+
+
+
+--------------------------------------------------------------------------------
+				Microcontroller
+--------------------------------------------------------------------------------
+
+  * STM32F102B ARM Cortex-M3 based microcontroller
+
+  * Power sources
+
+    - D3V3_STM always on digital 3.3V
+
+  * Clock sources
+
+    - 16 MHz external crystal (HSE, USB)
+	- 32.768 kHz external crystal (LSE, not pupulated by default)
+
+  * Reset signal
+
+    - External reset via jumper
+
+  * Programmer interfaces
+
+	- SWD:  primary progammer interface, w/ SWTRACE (Programmer connector)
+	- JTAG: secondary programmer interface, TDI and RESET are not connected to
+	  the programmer header by default
+	- USB:  programming is NOT supported through the USB connector
+
+	- SmartFusion: the microcontroller should be capable of programming the SmartFusion
+	  MSS and FPGA fabric via emulating JTAG on its GPIO pins (West bridge)
+
+  * Communication interfaces
+
+    - I2C1: SmartFusion board
+    - I2C2: LTC2942 (1100100)
+    - SPI1: SmartFusion Board
+    - SPI2: microSD card
+
+  * GPIO pin requests
+
+    Note: '+' before the pin name means it is connected (available),
+	      '-' means the IC pin is not connected (unavailable) to the
+		  microcontroller
+
+	- LTC4361
+	  + #PWRGD
+	  - ON
+
+	- LTC4085
+	  - #ACPR (#PWRGD is used instead)
+	  - WALL (#PWRGD is used instead)
+	  - #CHRG (connected to LED only)
+	  + HPWR
+	  + SUSP
+
+	- LTC2942
+	  + #AL/CC
+
+
+
+--------------------------------------------------------------------------------
+				     Parts
+--------------------------------------------------------------------------------
+
+Power managment IC
+------------------
+LTC4361    | DFN-8  | LTC4361IDC-1#TRMPBFCT-ND | LTC4361-2DC
+LTC4085    | DFN-14 | LTC4085EDE#PBF-ND | LTC4085EDE#PBF
+XC6220 LDO | SOT-25 | 893-1133-1-ND | XC6220B331MR-G
+XC6220 LDO | SOT-25 | 893-1133-1-ND | XC6220B331MR-G
+XC9236 LDO | SOT-25 | 893-1120-1-ND | XC9236A15DMR-G
+MIC94043   | MLF-4  | 576-3228-1-ND | MIC94043YFL TR
+
+
+Reverse voltage/overvoltage protection
+--------------------------------------
+pFET | SOT-23-3 | SI2323CDS
+pFET | SOT-23-3 | SI2333CDS
+nFET | SOT-23-3 | SI2312CDS
+
+
+Analog power
+------------
+Ferrite bead | 0603 | 490-5224-1-ND | BLM18SG700TN1D
+
+Battery
+-------
+NTC (10kohm 5% 3%)  | 0603 | 541-1107-1-ND | NTHS0603N02N1002JE | 
+R (1%) | 0603 | | |
+
+XC9236
+-------------------
+L (1.6uH) | 445-3171-1-ND | VLCF4018T-1R6N1R7-2
+
+
+Microcontroller
+---------------
+STM32F102CBT6 | LQFP-48 | STM32F102CBT6
+
+Current Monitors
+----------------
+LTC2942-1 | DFN-6    | LTC2942IDCB-1#TRMPBFCT-ND | LTC2942IDCB-1#TRMPBF
+MAX9938   | SOT-23-5 | MAX9938FEUK+TCT-ND | MAX9938FEUK+T
+
+Passives
+--------
+
+
+
+--------------------------------------------------------------------------------
+				   Misc
+--------------------------------------------------------------------------------
+
+Pre-set finish drill sizes: .008, .016, .020, .025, .029, .033, .036, .040,
+.043, .046, .053, .061, .067, .080, .087, .093, .100, .110, .125, .141, .151,
+.167, .193, .251 (.008 available for 4-6 layers only).
+
+http://www.sunstone.com/products-services/quickturn-proto-boards/drill-file-pad-clearance-setup.aspx
+http://www.sunstone.com/pcb-capabilities/manufacturing-capabilities.aspx
+
+Standoff sizes (Keystone)
+-------------------------
+
+.375 |  9.5mm
+.500 | 12.7mm +
+.600 | 15.3mm (PC/104)
+.625 | 15.9mm
+
+http://www.keyelco.com/products/specs/spec11.asp
+
+Note: Digi-Key has several other variants
+
+--------------------------------------------------------------------------------
+				   Check List
+--------------------------------------------------------------------------------
+
+Library
+-------
+
+  * LTC4085 thremals
+  * LTC4361 thermals
+
+
+Schematic
+---------
+
+  * Battery capacity
+    - Charge time (capacitor)
+	- Charge current
+
+
+Board
+-----
+
+  * Add fiducials
+  + Mounting holes (enclosure) should be at least 450 mil (500 mil preferred)
+    away from the front side and at least 5mm from the other sides
+  + Jumper and LED labels
+  + Place LEDs near board edges (right angle SMT), small holes will be drilled on enclosure
+  + External power switch (panel mount, snap-in)  
+    - Recommended snap-in panel switch: Cherry SRB22A2EWWNN
+  + Account for a low-profile (11.3mm) RJ-45 connector -> Check Mezzazine
+    connector board-to-board distance
+  + Battery tape strip
+  * WALL TPs at raster distance
+  * Check the placement of the following labels (after placing the logos):
+    - WALL + DGND
+	- VOUT_R
+	- AGND
+	- A3V3 (?)
+	- BATTERY
+	- POWER SW
+  * USBLC6 datasheet Figure 7
+
+Enclosure
+---------
+  * Add bottom silicon stands (~SmartFusion Eval Board)
+  * Ethernet / DC switch cutout
+
+
+--------------------------------------------------------------------------------
+				   Questions
+--------------------------------------------------------------------------------
+
+Schematic
+---------
+  
+
+Board
+-----
+
+
+--------------------------------------------------------------------------------
+				    Testing
+--------------------------------------------------------------------------------
+
+List of functionalities to test upon the reception of the manufactured board.
+
+  * Power on sequence
+  * Power line voltages
+  * ADC dynamic ranges (Adjust R_SENSE if necessary)
+  * MAX9938 operation on 1.5V rails
+
+
+--------------------------------------------------------------------------------
+				    Known issues
+--------------------------------------------------------------------------------
+
+  * MAX9938 input supply voltage should be 'Input Common Mode: +1.6V to +28V'
+    according to the datasheet, whereas it is used to measure the current on the
+	1.5V rail
