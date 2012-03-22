@@ -5,7 +5,7 @@ PCB DECRIPTION: 90mm x 56mm
                 Smallest line width and spacing 4/4
                 Smallest standard drill hole 8 mils
                 Components/Silkscreen on both sides
-                Double side soldermask
+                Double side BLACK soldermask
                 
 PCB STACKUP:
 
