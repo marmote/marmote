@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="1" unitdist="mm" unit="mm" style="dots" multiple="1" display="yes" altdistance="0.1" altunitdist="mm" altunit="mm"/>
+<grid distance="0.5" unitdist="mm" unit="mm" style="dots" multiple="1" display="yes" altdistance="0.1" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="GND" color="2" fill="1" visible="yes" active="yes"/>
@@ -161,10 +161,10 @@
 <text x="36.25" y="33" size="1.778" layer="22" font="vector" rot="MR0">&gt;REVISION</text>
 <text x="3" y="50" size="1.27" layer="21" font="vector" rot="R90">DGND</text>
 <text x="88" y="50" size="1.27" layer="21" font="vector" rot="R90">AGND</text>
-<text x="2" y="9.3" size="1.27" layer="21" font="vector" rot="R90">DGND</text>
-<text x="89" y="9.3" size="1.27" layer="21" font="vector" rot="R90">AGND</text>
-<text x="26.7" y="54" size="1.27" layer="21" font="vector">A1V5</text>
-<text x="32" y="54" size="1.27" layer="21" font="vector">A3V3</text>
+<text x="2.3" y="7.5" size="1.27" layer="21" font="vector" rot="R90">DGND</text>
+<text x="89" y="7.5" size="1.27" layer="21" font="vector" rot="R90">AGND</text>
+<text x="25.7" y="54" size="1.27" layer="21" font="vector">A1V5</text>
+<text x="31" y="54" size="1.27" layer="21" font="vector">A3V3</text>
 <text x="12.75" y="54" size="1.27" layer="21" font="vector">D3V3</text>
 <text x="18.35" y="54" size="1.27" layer="21" font="vector">D1V5</text>
 <text x="7.5" y="54" size="1.27" layer="21" font="vector">VSUP</text>
@@ -205,7 +205,7 @@
 <wire x1="72.28" y1="7.7" x2="72.28" y2="8.6" width="0.2032" layer="21"/>
 <text x="79.1" y="9.4" size="1.27" layer="21" font="vector">77</text>
 <text x="71.3" y="9.4" size="1.27" layer="21" font="vector">83</text>
-<text x="38.9" y="54.1" size="1.27" layer="21" font="vector">30</text>
+<text x="36.4" y="54.1" size="1.27" layer="21" font="vector">30</text>
 <text x="44" y="54.1" size="1.27" layer="21" font="vector">34</text>
 <text x="47.9" y="54.1" size="1.27" layer="21" font="vector">36</text>
 <text x="52.9" y="54.1" size="1.27" layer="21" font="vector">40</text>
@@ -214,7 +214,7 @@
 <text x="65.9" y="54.1" size="1.27" layer="21" font="vector">48</text>
 <text x="70.9" y="54.1" size="1.27" layer="21" font="vector">52</text>
 <text x="74.9" y="54.1" size="1.27" layer="21" font="vector">54</text>
-<text x="79.9" y="54.1" size="1.27" layer="21" font="vector">58</text>
+<text x="82.4" y="54.1" size="1.27" layer="21" font="vector">58</text>
 <wire x1="39.95" y1="53.55" x2="39.95" y2="53.95" width="0.2032" layer="21"/>
 <wire x1="45.05" y1="53.55" x2="45.05" y2="53.95" width="0.2032" layer="21"/>
 <wire x1="48.95" y1="53.55" x2="48.95" y2="53.95" width="0.2032" layer="21"/>
@@ -225,28 +225,28 @@
 <wire x1="72.05" y1="53.55" x2="72.05" y2="53.95" width="0.2032" layer="21"/>
 <wire x1="75.95" y1="53.55" x2="75.95" y2="53.95" width="0.2032" layer="21"/>
 <wire x1="81.05" y1="53.55" x2="81.05" y2="53.95" width="0.2032" layer="21"/>
-<text x="89.3" y="38.5" size="1.27" layer="21" font="vector" rot="R90">60</text>
+<text x="89.3" y="41" size="1.27" layer="21" font="vector" rot="R90">60</text>
 <text x="89.3" y="33.5" size="1.27" layer="21" font="vector" rot="R90">64</text>
 <text x="89.3" y="29.5" size="1.27" layer="21" font="vector" rot="R90">66</text>
 <text x="89.3" y="24.5" size="1.27" layer="21" font="vector" rot="R90">70</text>
 <text x="89.3" y="20.5" size="1.27" layer="21" font="vector" rot="R90">72</text>
-<text x="89.3" y="15.5" size="1.27" layer="21" font="vector" rot="R90">76</text>
+<text x="89.3" y="13" size="1.27" layer="21" font="vector" rot="R90">76</text>
 <wire x1="87.95" y1="39.55" x2="87.55" y2="39.55" width="0.2032" layer="21"/>
 <wire x1="87.95" y1="34.45" x2="87.55" y2="34.45" width="0.2032" layer="21"/>
 <wire x1="87.95" y1="30.55" x2="87.55" y2="30.55" width="0.2032" layer="21"/>
 <wire x1="87.95" y1="25.45" x2="87.55" y2="25.45" width="0.2032" layer="21"/>
 <wire x1="87.95" y1="21.55" x2="87.55" y2="21.55" width="0.2032" layer="21"/>
 <wire x1="87.95" y1="16.45" x2="87.55" y2="16.45" width="0.2032" layer="21"/>
-<text x="78.8" y="0.4" size="1.27" layer="21" font="vector">78</text>
-<text x="71" y="0.4" size="1.27" layer="21" font="vector">84</text>
+<text x="81.3" y="0.4" size="1.27" layer="21" font="vector">78</text>
+<text x="68.5" y="0.4" size="1.27" layer="21" font="vector">84</text>
 <wire x1="79.85" y1="2.45" x2="79.85" y2="2.05" width="0.2032" layer="21"/>
 <wire x1="72.15" y1="2.45" x2="72.15" y2="2.05" width="0.2032" layer="21"/>
-<text x="17.5" y="0.4" size="1.27" layer="21" font="vector">2</text>
-<text x="9.9" y="0.4" size="1.27" layer="21" font="vector">8</text>
+<text x="19.5" y="0.4" size="1.27" layer="21" font="vector">2</text>
+<text x="7.9" y="0.4" size="1.27" layer="21" font="vector">8</text>
 <wire x1="17.85" y1="2.45" x2="17.85" y2="2.05" width="0.2032" layer="21"/>
 <wire x1="10.15" y1="2.45" x2="10.15" y2="2.05" width="0.2032" layer="21"/>
-<text x="1.8" y="38.5" size="1.27" layer="21" font="vector" rot="R90">28</text>
-<text x="1.8" y="15.5" size="1.27" layer="21" font="vector" rot="R90">10</text>
+<text x="1.8" y="41" size="1.27" layer="21" font="vector" rot="R90">28</text>
+<text x="1.8" y="13" size="1.27" layer="21" font="vector" rot="R90">10</text>
 <wire x1="2.45" y1="39.45" x2="2.05" y2="39.45" width="0.2032" layer="21"/>
 <wire x1="2.45" y1="16.55" x2="2.05" y2="16.55" width="0.2032" layer="21"/>
 </plain>
