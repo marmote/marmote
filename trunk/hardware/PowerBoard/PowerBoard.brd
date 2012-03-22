@@ -184,8 +184,8 @@
 <text x="48.5" y="3.5" size="1.27" layer="22" font="vector" rot="MR0">Vanderbilt University, ISIS</text>
 <circle x="57.3" y="4" radius="0.85" width="0.127" layer="22"/>
 <text x="11.9" y="44.65" size="1.27" layer="21" font="vector">VBUS</text>
-<text x="10.5" y="19.3" size="1.27" layer="21" font="vector" rot="R90">S</text>
-<text x="10.5" y="11.8" size="1.27" layer="21" font="vector" rot="R90">F</text>
+<text x="10.5" y="11.8" size="1.27" layer="21" font="vector" rot="R90">S</text>
+<text x="10.5" y="19.3" size="1.27" layer="21" font="vector" rot="R90">F</text>
 <text x="24" y="2" size="1.27" layer="21" font="vector">1</text>
 <text x="64.5" y="2" size="1.27" layer="21" font="vector">83</text>
 </plain>
@@ -13445,40 +13445,6 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 </polygon>
 </signal>
 </signals>
-<errors>
-<approved hash="18,29,da93a712d668abe9"/>
-<approved hash="18,29,db13ac32d348a469"/>
-<approved hash="18,29,5dac9910b6ad945a"/>
-<approved hash="18,29,8d47a687434ca0ff"/>
-<approved hash="18,29,cf1aeb3797c87b96"/>
-<approved hash="18,29,7a34a52fb5e08cb0"/>
-<approved hash="18,29,1b1f6c3e13746455"/>
-<approved hash="18,29,1a9f671e16546bd5"/>
-<approved hash="6,1,b6348b5c47fad33b"/>
-<approved hash="6,1,8e29a0bb0be4b10f"/>
-<approved hash="4,1,9f5592eba2896501"/>
-<approved hash="4,1,e09d94afeeae8b05"/>
-<approved hash="4,1,4fcd961ae2be2cf1"/>
-<approved hash="4,1,cf03910de5423dd5"/>
-<approved hash="4,1,dbc2a5d4e99962fc"/>
-<approved hash="4,1,78d6b9cbec5f48a0"/>
-<approved hash="4,1,e03c8052737b174e"/>
-<approved hash="4,1,d61ce067024e3b6e"/>
-<approved hash="4,1,0a3e199f467c175e"/>
-<approved hash="4,1,02d2edfd51778f31"/>
-<approved hash="4,1,85ddeb8051779f42"/>
-<approved hash="4,1,8fde3b7a587b3ecd"/>
-<approved hash="4,1,afe76a2edb38f24a"/>
-<approved hash="4,1,bbc8fc69ff8a0f56"/>
-<approved hash="4,1,fc59fb3a9b30f48d"/>
-<approved hash="19,1,3bc125bf275e3920"/>
-<approved hash="19,1,25c63bb8398727f9"/>
-<approved hash="4,1,e1c701ffe5d1e952"/>
-<approved hash="4,1,fa743ef70855fec4"/>
-<approved hash="4,1,2d0d24fae7c70381"/>
-<approved hash="6,1,a2ad44ad36c8748b"/>
-<approved hash="6,1,65fe5793857a2e84"/>
-</errors>
 </board>
 </drawing>
 </eagle>
