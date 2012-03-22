@@ -47,7 +47,8 @@ void SysTick_Handler(void) {
 	msTicks++;                                     /* increment timeTicks counter */
 	if (msTicks % 500 == 0)
 	{
-		if (LED1_Enabled)
+//		if (LED1_Enabled)
+		if (1)
 		{
 			LED_Toggle(LED1);
 		}
