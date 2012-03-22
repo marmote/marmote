@@ -43910,7 +43910,7 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <attribute name="IMPEDANCE" value="600 Ohm @ 100 MHz"/>
 <attribute name="MPN" value="BLM18EG601SN1D"/>
 </part>
-<part name="C135" library="MainBoard" deviceset="C" device="0402" value="10nF"/>
+<part name="C135" library="MainBoard" deviceset="C" device="0402" value="0.01uF"/>
 <part name="U$71" library="MainBoard" deviceset="DGND" device=""/>
 <part name="C136" library="MainBoard" deviceset="C" device="0402" value="4.7uF"/>
 <part name="C137" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
@@ -43968,7 +43968,7 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <part name="C148" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
 <part name="U$123" library="MainBoard" deviceset="DGND" device=""/>
 <part name="PORT273" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="C133" library="MainBoard" deviceset="C" device="0402" value="10nF"/>
+<part name="C133" library="MainBoard" deviceset="C" device="0402" value="0.01uF"/>
 <part name="U$124" library="MainBoard" deviceset="DGND" device=""/>
 <part name="PORT274" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="C134" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
