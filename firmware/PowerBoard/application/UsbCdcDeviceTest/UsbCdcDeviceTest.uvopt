@@ -332,10 +332,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>119</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>49</TopLine>
-      <CurrentLine>62</CurrentLine>
+      <TopLine>55</TopLine>
+      <CurrentLine>76</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\source\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -430,10 +430,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>85</ColumnNumber>
+      <ColumnNumber>8</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>88</TopLine>
-      <CurrentLine>110</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>1</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\source\cmd_def.c</PathWithFileName>
       <FilenameWithoutPath>cmd_def.c</FilenameWithoutPath>
@@ -535,10 +535,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>3</ColumnNumber>
+      <ColumnNumber>57</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>34</TopLine>
-      <CurrentLine>47</CurrentLine>
+      <CurrentLine>48</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\board\source\m6_rf315.c</PathWithFileName>
       <FilenameWithoutPath>m6_rf315.c</FilenameWithoutPath>
@@ -781,8 +781,8 @@
 
   <AlienFiles>
     <PathWithFilename>D:\firmware\PowerBoard\application\UsbCdcDeviceTest\include\cmd_def.h</PathWithFilename>
-    <TopLine>1</TopLine>
-    <CurrentLine>10</CurrentLine>
+    <TopLine>19</TopLine>
+    <CurrentLine>19</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -814,21 +814,21 @@
       <Documents>
         <Doc>
           <Name>.\include\cmd_def.h</Name>
-          <ColumnNumber>22</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>10</CurrentLine>
+          <ColumnNumber>31</ColumnNumber>
+          <TopLine>19</TopLine>
+          <CurrentLine>19</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\source\cmd_def.c</Name>
-          <ColumnNumber>85</ColumnNumber>
-          <TopLine>88</TopLine>
-          <CurrentLine>110</CurrentLine>
+          <ColumnNumber>8</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>1</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\source\main.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>49</TopLine>
-          <CurrentLine>62</CurrentLine>
+          <ColumnNumber>119</ColumnNumber>
+          <TopLine>55</TopLine>
+          <CurrentLine>76</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\library\board\source\power_board.c</Name>
@@ -850,9 +850,9 @@
         </Doc>
         <Doc>
           <Name>..\..\library\board\source\m6_rf315.c</Name>
-          <ColumnNumber>3</ColumnNumber>
+          <ColumnNumber>57</ColumnNumber>
           <TopLine>34</TopLine>
-          <CurrentLine>47</CurrentLine>
+          <CurrentLine>48</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\library\board\include\m6_rf315.h</Name>
