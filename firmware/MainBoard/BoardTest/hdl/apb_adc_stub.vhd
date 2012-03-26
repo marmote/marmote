@@ -1,9 +1,9 @@
--- APB_COUNTER.VHD
+-- APB_ADC_STUB.VHD
 ------------------------------------------------------------------------------
 -- MODULE: Marmote Main Board
 -- AUTHORS: Sandor Szilvasi
 -- AUTHOR CONTACT INFO.: Sandor Szilvasi <sandor.szilvasi@vanderbilt.edu>
--- TOOL VERSIONS: Libero 9.1 SP3
+-- TOOL VERSIONS: Libero 9101 SP3
 -- TARGET DEVICE: A2F500M3G (256 FBGA)
 --   
 -- Copyright (c) 2006-2011, Vanderbilt University
@@ -28,7 +28,7 @@
 
 
 ------------------------------------------------------------------------------
--- Notes: This is a simple counter module with an APB3 compatible interface.
+-- Notes: This is a placeholder stub for the MAX19706 ADC inteface module.
 --
 ------------------------------------------------------------------------------
 
@@ -37,9 +37,9 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity APB_COUNTER is
+entity APB_ADC_STUB is
 	port (
-		 -- APB3 inteface
+		 -- APB3 interface
 		 PCLK    : in  std_logic;
 		 PRESETn : in  std_logic;
 		 PADDR	 : in  std_logic_vector(31 downto 0);
@@ -52,21 +52,38 @@ entity APB_COUNTER is
 		 PRDATA  : out std_logic_vector(31 downto 0);
 		 PSLVERR : out std_logic;
 
-		 -- Counter interface
-	   COUNTER    : out std_logic_vector(64 downto 0)
+		 -- ADC interface
+	     DIN_0   : in  std_logic_vector(9 downto 0);
+	     DIN_1   : in  std_logic_vector(9 downto 0);
+	     DOUT_0  : out std_logic_vector(9 downto 0);
+	     DOUT_1  : out std_logic_vector(9 downto 0);
+         DOE     : out std_logic;
+
+         SHDN_n  : out std_logic; -- shutdown
+         T_R_n   : out std_logic  -- T/R_n transmit/receive mode select
 		 );
 end entity;
 
-architecture Behavioral of APB_COUNTER is
+architecture Behavioral of APB_ADC_STUB is
 
 	-- Addresses
-	constant c_ADDR_CNTR    : std_logic_vector(7 downto 0) := x"04"; -- R/W
+	constant c_ADDR_CTRL    : std_logic_vector(7 downto 0) := x"00"; -- R/W
+	constant c_ADDR_DAC_DATA_0  : std_logic_vector(7 downto 0) := x"04"; -- R/W
+	constant c_ADDR_DAC_DATA_1  : std_logic_vector(7 downto 0) := x"08"; -- R/W
+	constant c_ADDR_ADC_DATA_0   : std_logic_vector(7 downto 0) := x"0C"; -- R/W
+	constant c_ADDR_ADC_DATA_1    : std_logic_vector(7 downto 0) := x"10"; -- R/W
 
 	-- Default values
-	--constant c_DEFAULT_CNTR : unsigned(31 downto 0) := x"00000000";
+	constant c_DEFAULT_CTRL : unsigned(31 downto 0) := x"00000000";
+	constant c_DEFAULT_DATA_DAC : unsigned(31 downto 0) := x"00000000";
+	constant c_DEFAULT_DATA_ADC : unsigned(31 downto 0) := x"00000000";
 
 	-- Signals
-	signal s_ctr            : std_logic_vector(64 downto 0);
+    signal s_ctrl           : std_logic; -- 0: adc 1: dac
+	signal s_adc_data_0     : std_logic_vector(9 downto 0);
+	signal s_adc_data_1     : std_logic_vector(9 downto 0);
+	signal s_dac_data_0     : std_logic_vector(9 downto 0);
+	signal s_dac_data_1     : std_logic_vector(9 downto 0);
 	signal s_dout           : std_logic_vector(31 downto 0);
 
 begin
@@ -75,8 +92,8 @@ begin
 	p_REG_WRITE : process (PRESETn, PCLK)
 	begin
 		if PRESETn = '0' then
-			--s_ctr  <= std_logic_vector(c_DEFAULT_CNTR);
-			s_ctr  <= (others => '0');
+			--s_ctr  <= std_logic_vector(c_DEFAULT_CTRL);
+			s_ctrl  <= '0';
 		elsif rising_edge(PCLK) then
 
 			-- Default values
@@ -84,9 +101,13 @@ begin
 			-- Register writes
 			if PWRITE = '1' and PSEL = '1' and PENABLE = '1' then
 				case PADDR(7 downto 0) is
-					when c_ADDR_CNTR =>
-						-- Initiate FSK reception
-						s_ctr(31 downto 0) <= PWDATA;
+					when c_ADDR_CTRL =>
+						-- Control
+						s_ctrl <= PWDATA(0);
+					when c_ADDR_DAC_DATA_0 =>
+						s_dac_data_0 <= PWDATA(9 downto 0);
+					when c_ADDR_DAC_DATA_1 =>
+						s_dac_data_1 <= PWDATA(9 downto 0);
 					when others =>
 						null;
 				end case;
@@ -108,8 +129,16 @@ begin
 			-- Register reads
 			if PWRITE = '0' and PSEL = '1' then
 				case PADDR(7 downto 0) is
-					when c_ADDR_CNTR => 
-						s_dout <= s_ctr(31 downto 0);
+					when c_ADDR_CTRL => 
+						s_dout(0) <= s_ctrl;
+					when c_ADDR_DAC_DATA_0 =>
+						s_dout(9 downto 0) <= s_dac_data_0;
+					when c_ADDR_DAC_DATA_1 =>
+						s_dout(9 downto 0) <= s_dac_data_1;
+					when c_ADDR_ADC_DATA_0 =>
+						s_dout(9 downto 0) <= s_adc_data_0;
+					when c_ADDR_ADC_DATA_1 =>
+						s_dout(9 downto 0) <= s_adc_data_1;
 					when others =>
 						null;
 				end case;
@@ -123,7 +152,14 @@ begin
 	PREADY <= '1';
 	PSLVERR <= '0';
 
-    COUNTER <= s_ctr(64 downto 0);
+    s_adc_data_0 <= DIN_0;
+    s_adc_data_1 <= DIN_1;
+    DOUT_0 <= s_dac_data_0;
+    DOUT_1 <= s_dac_data_1;
+    DOE <= s_ctrl;
+
+    T_R_n <= s_ctrl;
+    SHDN_n <= '1';
 
 end Behavioral;
 

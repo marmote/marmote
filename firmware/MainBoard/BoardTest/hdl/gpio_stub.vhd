@@ -1,12 +1,12 @@
--- APB_COUNTER.VHD
+-- GPIO_STUB.VHD
 ------------------------------------------------------------------------------
 -- MODULE: Marmote Main Board
 -- AUTHORS: Sandor Szilvasi
 -- AUTHOR CONTACT INFO.: Sandor Szilvasi <sandor.szilvasi@vanderbilt.edu>
--- TOOL VERSIONS: Libero 9.1 SP3
+-- TOOL VERSIONS: Libero 9101 SP3
 -- TARGET DEVICE: A2F500M3G (256 FBGA)
 --   
--- Copyright (c) 2006-2011, Vanderbilt University
+-- Copyright (c) 2006-2012, Vanderbilt University
 -- All rights reserved.
 --
 -- Permission to use, copy, modify, and distribute this software and its
@@ -28,8 +28,8 @@
 
 
 ------------------------------------------------------------------------------
--- Notes: This is a simple counter module with an APB3 compatible interface.
---
+-- Notes: This is a placeholder stub for the connector, LED and enable GPIO
+--        pins.
 ------------------------------------------------------------------------------
 
 
@@ -37,9 +37,9 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity APB_COUNTER is
+entity GPIO_STUB is
 	port (
-		 -- APB3 inteface
+		 -- APB3 interface
 		 PCLK    : in  std_logic;
 		 PRESETn : in  std_logic;
 		 PADDR	 : in  std_logic_vector(31 downto 0);
@@ -52,22 +52,27 @@ entity APB_COUNTER is
 		 PRDATA  : out std_logic_vector(31 downto 0);
 		 PSLVERR : out std_logic;
 
-		 -- Counter interface
-	   COUNTER    : out std_logic_vector(64 downto 0)
+		 -- GPIO interface
+         LED        : out std_logic_vector(1 downto 0);
+
+         NGPIO      : out std_logic_vector(3 downto 0);
+         SGPIO      : out std_logic_vector(5 downto 0);
+
+         MAC_EN     : out std_logic
 		 );
 end entity;
 
-architecture Behavioral of APB_COUNTER is
+architecture Behavioral of GPIO_STUB is
 
 	-- Addresses
-	constant c_ADDR_CNTR    : std_logic_vector(7 downto 0) := x"04"; -- R/W
+	constant c_ADDR_DUMMY       : std_logic_vector(7 downto 0) := x"00"; -- R/W
 
 	-- Default values
-	--constant c_DEFAULT_CNTR : unsigned(31 downto 0) := x"00000000";
+	constant c_DEFAULT_DUMMY : unsigned(31 downto 0) := x"00000000";
 
 	-- Signals
-	signal s_ctr            : std_logic_vector(64 downto 0);
-	signal s_dout           : std_logic_vector(31 downto 0);
+    signal s_dummy              : std_logic_vector(31 downto 0 ); -- all bits stuffed in one register
+    signal s_dout               : std_logic_vector(31 downto 0 );
 
 begin
 
@@ -75,8 +80,7 @@ begin
 	p_REG_WRITE : process (PRESETn, PCLK)
 	begin
 		if PRESETn = '0' then
-			--s_ctr  <= std_logic_vector(c_DEFAULT_CNTR);
-			s_ctr  <= (others => '0');
+			s_dummy  <= (others => '0');
 		elsif rising_edge(PCLK) then
 
 			-- Default values
@@ -84,11 +88,10 @@ begin
 			-- Register writes
 			if PWRITE = '1' and PSEL = '1' and PENABLE = '1' then
 				case PADDR(7 downto 0) is
-					when c_ADDR_CNTR =>
-						-- Initiate FSK reception
-						s_ctr(31 downto 0) <= PWDATA;
+					when c_ADDR_DUMMY =>
+						s_dummy <= PWDATA;
 					when others =>
-						null;
+						null; 
 				end case;
 			end if;
 		end if;
@@ -108,8 +111,8 @@ begin
 			-- Register reads
 			if PWRITE = '0' and PSEL = '1' then
 				case PADDR(7 downto 0) is
-					when c_ADDR_CNTR => 
-						s_dout <= s_ctr(31 downto 0);
+					when c_ADDR_DUMMY => 
+						s_dout <= s_dummy;
 					when others =>
 						null;
 				end case;
@@ -123,7 +126,12 @@ begin
 	PREADY <= '1';
 	PSLVERR <= '0';
 
-    COUNTER <= s_ctr(64 downto 0);
+    LED    <= s_dummy(1 downto 0);
+    SGPIO  <= s_dummy(7 downto 2);
+    NGPIO  <= s_dummy(11 downto 8);
+    MAC_EN <= s_dummy(12);
 
 end Behavioral;
+
+
 
