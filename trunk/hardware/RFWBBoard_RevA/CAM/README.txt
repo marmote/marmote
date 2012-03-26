@@ -7,6 +7,8 @@ PCB DECRIPTION: 90mm x 56mm
                 Components/Silkscreen on both sides
                 Double side BLACK soldermask
                 
+                CONTROLLED IMPEDANCE: 50 Ohm traces to X4, X5, X6, X7, TX/RX, RX
+                
 PCB STACKUP:
 
 	Stack Layer		Gerber Polarity	Comment	
