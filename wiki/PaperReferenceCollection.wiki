@@ -9,5 +9,7 @@
 
  * Li, L., Maunder, R. G., Al-Hashimi, B. M., & Hanzo, L. (2011). A Low-Complexity Turbo Decoder Architecture for Energy-Efficient Wireless Sensor Networks. IEEE Transactions on Very Large Scale Integration (VLSI) Systems, (99), 1-9. doi:10.1109/TVLSI.2011.2177104 http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=6112200
 
+Dohler, M., Heath, R. W., Lozano, A., Papadias, C. B., & Valenzuela, R. A. (2011). Is the PHY layer dead? IEEE Communications Magazine, 49(4), 159-165. doi:10.1109/MCOM.2011.5741160 http://ieeexplore.ieee.org/xpl/freeabs_all.jsp?arnumber=5741160
+
 
 == CDMA communication ==
