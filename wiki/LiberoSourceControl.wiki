@@ -29,7 +29,7 @@ ___Note: an IGLOO project is used first to exclude any generated cores including
 -igloo-test.prjx (1)
 }}}
 
-== Step 2 - Added top VHD file ==
+== Step 2 - Added top-level VHD file ==
 
 {{{
  component
@@ -51,6 +51,34 @@ ___Note: an IGLOO project is used first to exclude any generated cores including
 -igloo-test.prjx (1)
 }}}
 
+== Step 3 - Run synthesis ==
 
+{{{
+ component
+ constraint
+ coreconsole
+ designer
++hdl
++-dummy_top.vhd (2)
++-dummy_top_tools.xml (2)
+ phy_synthesis
++simulation
++-modelsim.ini (1)
++smartgen
++-smartgen.aws (1)
+ stimulus
++synthesis (3)
++-
++viewdraw
++-[junk] (1)
+-igloo-test.prjx (1)
+}}}
+
+ * Synthesis directory filled up with files
+ * Content of other directories unchanged
+ * Project file updated, reflects synthesis result
+
+
+----
 
 = SmartFusion project =
