@@ -1,0 +1,51 @@
+#summary Log of files used by Libero SoC v10.0
+#labels Phase-Support,Phase-Deploy
+
+= IGLOO project =
+
+___Note: an IGLOO project is used first to exclude any generated cores including the MSS.___
+
+== Step 1 - Created project ==
+
+{{{
+ component
+ constraint
+ coreconsole
+ designer
+ hdl
+ phy_synthesis
++simulation
++-modelsim.ini (1)
++smartgen
++-smartgen.aws (1)
+ stimulus
+ synthesis
++viewdraw
++-[junk] (1)
+-igloo-test.prjx (1)
+}}}
+
+== Step 2 - Added top VHD file ==
+
+{{{
+ component
+ constraint
+ coreconsole
+ designer
++hdl
++-dummy_top.vhd (2)
+ phy_synthesis
++simulation
++-modelsim.ini (1)
++smartgen
++-smartgen.aws (1)
+ stimulus
+ synthesis
++viewdraw
++-[junk] (1)
+-igloo-test.prjx (1)
+}}}
+
+
+
+= SmartFusion project =
