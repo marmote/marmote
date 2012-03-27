@@ -266,6 +266,11 @@ __Note: A SmartDesign dummy_sd was simply added to the design, which was saved a
 
  * Libero seems to delete and regenerate /component/work/dummy_sd
 
+== Step 11 - Connecting dummy_top core to top-level ==
+
+ * dummy_sd_work.ixf reflects the signal connections
+
+
 ----
 
 = SmartFusion project =
