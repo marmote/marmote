@@ -272,6 +272,60 @@ __Note: A SmartDesign dummy_sd was simply added to the design, which was saved a
 
  * dummy_sd_work.ixf reflects the signal connections
 
+== Step 12 - Clicking generate on dummy_sd ==
+
+{{{
++component
+++work
+ ++DESIGN_IO (12)
+  +-DESIGN_IO.cxf (12) // XML, seems to be empty
+  +-DESIGN_IO.sdb (12) // binary
+ ++DESIGN_FIRMWARE (12)
+  +-DESIGN_FIRMWARE.cxf (12) // XML, seems to be empty
+  +-DESIGN_FIRMWARE.sdb (12) // binary
+ ++dummy_sd
+  +-dummy_sd.cxf (7)
+  +-dummy_sd.sdb (7)
+  +-dummy_sd_tools.xml (8)
+  +-dummy_sd.vhd (12) // generated VHDL file for-top level canvas dummy_sd
+  +-testbench.vhd (12) // generated VHDL testbench for dummy_sd.vhd
+  +-datasheet.xsl (12) // HTML, datasheet "frame"
+  +-dummy_sd_DataSheet.xml (12) // XML file with reference to datasheet.xsl, dummy_top.vhd and dummy_sd.vhd and list of top-level IOs
+++User
+ ++Private
+  ++dummy_top
+   ++1.0
+    ++dummy_top.xml // (9) XML component definition based on http://www.accellera.org/XMLSchema/SPIRIT/1.1/component.xsd
++constraint
++-dummy_top.pdc (6)
+ coreconsole
++designer
++-impl
+ +-[designer output files]
+ +-[log files]
++hdl
++-dummy_top.vhd (2)
++-dummy_top_tools.xml (2)
+ phy_synthesis
++simulation
++-modelsim.ini (1)
++smartgen
++-smartgen.aws (1) (7)
++-DESIGN_FIRMWARE_work.ixf (12) // XML, references to corresponding file under component/work
++-DESIGN_IO_work.ixf (12) // XML, references to corresponding file under component/work
++-dummy_sd_work.ixf (7)
+ stimulus
++synthesis (3)
++-[synthesis results]
++viewdraw
++-[junk] (1)
+-igloo-test.prjx (1) (7)
+}}}
+
+
+== Step 11 - Added a CORDIC core to the canvas ==
+
+ * ￼'Error: Parameter 'params' is missing or has invalid value.' message showed up
 
 ----
 
