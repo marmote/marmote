@@ -15,13 +15,13 @@ ___Note: an IGLOO project is used first to exclude any generated cores including
  hdl
  phy_synthesis
 +simulation
-+-modelsim.ini (1)
++-modelsim.ini (1) // + a .sav file (ignored)
 +smartgen
 +-smartgen.aws (1)
  stimulus
  synthesis
 +viewdraw
-+-[junk] (1)
++-[junk] (1) // this directory is being ignored
 -igloo-test.prjx (1)
 }}}
 
