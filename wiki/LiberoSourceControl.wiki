@@ -114,6 +114,11 @@ ___Note: an IGLOO project is used first to exclude any generated cores including
  * Project file reflects results and reference to outpus
  * Project file also includes references to .so and .sdc files (not added manually)
 
+== Step 5 - Run Place & Route ==
+
+ * /designer/impl directory filled up with more log files
+ * /designer/impl/dummy_top.adb updated
+
 ----
 
 = SmartFusion project =
