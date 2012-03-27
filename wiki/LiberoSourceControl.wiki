@@ -68,6 +68,8 @@ ___Note: an IGLOO project is used first to exclude any generated cores including
 +-smartgen.aws (1)
  stimulus
 +synthesis (3)
++-dummy_top_sdc.sdc // Synplify generated constraint file (RG)
++-dummy_top.so // XML file reporting synthesis outcome
 +-[synthesis results] // (RG)
 +viewdraw
 +-[junk] (1)
@@ -78,7 +80,7 @@ ___Note: an IGLOO project is used first to exclude any generated cores including
  * Content of other directories unchanged
  * Project file updated, reflects synthesis result
 
-== Step 3 - Synthesis ==
+== Step 4 - Run compile ==
 
 {{{
  component
