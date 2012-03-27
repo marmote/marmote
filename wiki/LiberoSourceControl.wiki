@@ -78,6 +78,37 @@ ___Note: an IGLOO project is used first to exclude any generated cores including
  * Content of other directories unchanged
  * Project file updated, reflects synthesis result
 
+== Step 3 - Synthesis ==
+
+{{{
+ component
+ constraint
+ coreconsole
++designer
++-impl
+ +-dummy_top.adb // binary file; compilation result
+ +-dummy_top.ide_des
+ +-dummy_top.tcl // seems to be an init script for designer
+                 // imports source /synthesys/dummy_top.edn
+                 // saves output as dummy_top.adb
+ +-[log files]
++hdl
++-dummy_top.vhd (2)
++-dummy_top_tools.xml (2)
+ phy_synthesis
++simulation
++-modelsim.ini (1)
++smartgen
++-smartgen.aws (1)
+ stimulus
++synthesis (3)
++-[synthesis results] // (RG)
++viewdraw
++-[junk] (1)
+-igloo-test.prjx (1)
+}}}
+
+ * /designer/impl directory populated
 
 ----
 
