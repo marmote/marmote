@@ -265,6 +265,7 @@ __Note: A SmartDesign dummy_sd was simply added to the design, which was saved a
 == Step 10 - Instantiating dummy_top core ==
 
  * Libero seems to delete and regenerate /component/work/dummy_sd
+ * The above files are needed in conjunction with dummy_sd_work.ixf to restore the SmartDesign canvas
 
 == Step 11 - Connecting dummy_top core to top-level ==
 
