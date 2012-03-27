@@ -157,7 +157,7 @@ __Note: A SmartDesign dummy_sd was simply added to the design, which was saved a
 ++work
  ++dummy_sd
   +-dummy_sd.cxf (7) // XML format, might accompany the .sdb file, though it contains no explicit reference to it
-  +-dummy_sd.sdb (7) // binary file
+  +-dummy_sd.sdb (7) // binary file, seems to be (RG) (!)
 +constraint
 +-dummy_top.pdc (6)
  coreconsole
