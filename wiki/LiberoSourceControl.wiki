@@ -34,6 +34,7 @@ ___Note: an IGLOO project is used first to exclude any generated cores including
  designer
 +hdl
 +-dummy_top.vhd (2)
++-dummy_top_tools.xml (2) // long XML file w/o relevant info
  phy_synthesis
 +simulation
 +-modelsim.ini (1)
