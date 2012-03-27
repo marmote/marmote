@@ -109,6 +109,8 @@ ___Note: an IGLOO project is used first to exclude any generated cores including
 }}}
 
  * /designer/impl directory populated
+ * Project file reflects results and reference to outpus
+ * Project file also includes references to .so and .sdc files (not added manually)
 
 ----
 
