@@ -400,6 +400,7 @@ __Note: A SmartDesign dummy_sd was simply added to the design, which was saved a
 -igloo-test.prjx (1) (7)
 }}}
 
+ * The CORDIC binary file doesn't seem to be invoked automatically
 
 ----
 
