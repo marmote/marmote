@@ -68,13 +68,13 @@ ___Note: an IGLOO project is used first to exclude any generated cores including
 +-smartgen.aws (1)
  stimulus
 +synthesis (3)
-+-
++-[synthesis results] // (RG)
 +viewdraw
 +-[junk] (1)
 -igloo-test.prjx (1)
 }}}
 
- * Synthesis directory filled up with files
+ * Synthesis directory filled up with files (Assuming that its content  can be ignored)
  * Content of other directories unchanged
  * Project file updated, reflects synthesis result
 
