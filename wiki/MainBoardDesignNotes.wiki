@@ -15,4 +15,4 @@ Throughout the design of the SmartFusion FPGA-based Main Board the priorities we
 
  * The external AFE and USB were given priority over the SmartFusion AFE, thus the signals of the latter one might be noisy due to routing limitations.
 
- * The impedance control and the *proper termination is missing on the differential clock input signals*
+ * The impedance control and the _proper termination is missing on the differential clock input signals_
