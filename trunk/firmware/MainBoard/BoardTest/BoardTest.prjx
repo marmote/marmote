@@ -390,7 +390,7 @@ TIME="1328028453"
 SIZE="3207"
 ENDFILE
 VALUE "<project>\designer\impl3\BoardTestCanvas.adb,adb"
-STATE="utd"
+STATE="ood"
 TIME="1331580304"
 SIZE="848384"
 ENDFILE
@@ -413,6 +413,11 @@ VALUE "<project>\designer\impl3\BoardTestCanvas_placeroute_log.rpt,log"
 STATE="utd"
 TIME="1331063407"
 SIZE="2211"
+ENDFILE
+VALUE "<project>\hdl\afe_if.vhd,hdl"
+STATE="utd"
+TIME="1332805262"
+SIZE="5848"
 ENDFILE
 VALUE "<project>\hdl\apb_adc_stub.vhd,hdl"
 STATE="utd"
@@ -555,7 +560,7 @@ PARENT="<project>\smartgen\USB_INTERFACE\USB_INTERFACE.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\synthesis\BoardTestCanvas.edn,syn_edn"
-STATE="utd"
+STATE="ood"
 TIME="1331063038"
 SIZE="693568"
 ENDFILE
@@ -570,7 +575,7 @@ TIME="1323373126"
 SIZE="26034"
 ENDFILE
 VALUE "<project>\synthesis\BoardTestCanvas_sdc.sdc,syn_sdc"
-STATE="utd"
+STATE="ood"
 TIME="1331063038"
 SIZE="450"
 ENDFILE
@@ -595,9 +600,7 @@ VALUE "<project>\component\work\BoardTestCanvas\testbench.vhd,tb_hdl"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
-LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\BoardTestCanvas.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -606,9 +609,7 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl2
-LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\BoardTestCanvas.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -617,10 +618,7 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl3
-LiberoState=Post_Layout
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\BoardTestCanvas.edn,syn_edn)=StateSuccess
-ideDESIGNER(<project>\designer\impl3\BoardTestCanvas.adb,adb)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -827,9 +825,7 @@ ENDLIST
 LIST ProjectState5.1
 LIST "BoardTestCanvas::work"
 LIST Impl1
-LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\BoardTestCanvas.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -838,9 +834,7 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl2
-LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\BoardTestCanvas.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -849,10 +843,7 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl3
-LiberoState=Post_Layout
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\BoardTestCanvas.edn,syn_edn)=StateSuccess
-ideDESIGNER(<project>\designer\impl3\BoardTestCanvas.adb,adb)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -931,5 +922,7 @@ ENDLIST
 LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
-ACTIVEVIEW;StartPage
+Reports;Reports
+SmartDesign;BoardTestCanvas
+ACTIVEVIEW;BoardTestCanvas
 ENDLIST
