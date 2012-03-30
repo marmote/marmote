@@ -17,12 +17,13 @@ KEY ProjectLocation "D:\firmware\MainBoard\BoardTest"
 KEY ProjectDescription ""
 KEY SimulationType "VHDL"
 KEY Vendor "Actel"
-KEY ActiveRoot "BoardTestCanvas::work"
+KEY ActiveRoot "AFE_IF::work"
 LIST REVISIONS
 VALUE="Impl1",NUM=1
 VALUE="Impl2",NUM=2
 VALUE="Impl3",NUM=3
-CURREV=3
+VALUE="Impl4",NUM=4
+CURREV=4
 ENDLIST
 LIST LIBRARIES
 MSS_BFM_LIB
@@ -37,599 +38,42 @@ ALIAS=..\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\user_vhdl\COREAPB3_LIB
 COMPILE_OPTION=REFRESH_AND_COMPILE
 ENDLIST
 LIST FileManager
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf,actgen_cxf"
-STATE="utd"
-TIME="1331063023"
-SIZE="2407"
-PARENT="<project>\component\work\BoardTestCanvas\BoardTestCanvas.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
-STATE="utd"
-TIME="1331063023"
-SIZE="1242"
-LIBRARY="COREAPB3_LIB"
-PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\scripts\wave_user.do,do"
-STATE="utd"
-TIME="1327604778"
-SIZE="912"
-PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\components.vhd,hdl"
-STATE="utd"
-TIME="1327604783"
-SIZE="5084"
-LIBRARY="COREAPB3_LIB"
-PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
-STATE="utd"
-TIME="1327604783"
-SIZE="25656"
-LIBRARY="COREAPB3_LIB"
-PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3_muxptob3.vhd,hdl"
-STATE="utd"
-TIME="1327604783"
-SIZE="6608"
-LIBRARY="COREAPB3_LIB"
-PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
-STATE="utd"
-TIME="1327604778"
-SIZE="21192"
-LIBRARY="COREAPB3_LIB"
-PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
-MODULE_UNDER_TEST="testbench"
-SIMULATION_TIME="-all"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf,actgen_cxf"
-STATE="utd"
-TIME="1331059450"
-SIZE="944"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd,hdl"
-STATE="utd"
-TIME="1327522487"
-SIZE="17580"
-PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf"
-BEGIN_USE_CONSTRAINT
-TOOL_CONSTRAINT_TYPE="ideSYNTHESIS"
-TOOL_CONSTRAINT_USE="SYNPLIFY7_EXT"
-END_USE_CONSTRAINT
-USE_FOR_ANY_TOOL="FALSE"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS_ACE\2.2.100\MSS_ACE.cxf,actgen_cxf"
-STATE="utd"
-TIME="1331059447"
-SIZE="252"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS_CCC\2.0.106\MSS_CCC.cxf,actgen_cxf"
-STATE="utd"
-TIME="1331059447"
-SIZE="252"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS_CM3\1.0.200\MSS_CM3.cxf,actgen_cxf"
-STATE="utd"
-TIME="1331059447"
-SIZE="252"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS_COM\1.0.200\MSS_COM.cxf,actgen_cxf"
-STATE="utd"
-TIME="1331059447"
-SIZE="252"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS_DMA\1.0.101\MSS_DMA.cxf,actgen_cxf"
-STATE="utd"
-TIME="1331059447"
-SIZE="252"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS_ENVM\2.3.102\MSS_ENVM.cxf,actgen_cxf"
-STATE="utd"
-TIME="1331059448"
-SIZE="253"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS_FIC\1.0.101\MSS_FIC.cxf,actgen_cxf"
-STATE="utd"
-TIME="1331059448"
-SIZE="252"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS_FIO\1.0.203\MSS_FIO.cxf,actgen_cxf"
-STATE="utd"
-TIME="1331059448"
-SIZE="252"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS_GPIO\1.0.101\MSS_GPIO.cxf,actgen_cxf"
-STATE="utd"
-TIME="1331059448"
-SIZE="253"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS_I2C\1.0.101\MSS_I2C.cxf,actgen_cxf"
-STATE="utd"
-TIME="1331059448"
-SIZE="252"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS_INTR\1.0.101\MSS_INTR.cxf,actgen_cxf"
-STATE="utd"
-TIME="1331059448"
-SIZE="253"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS_MAC\2.1.101\MSS_MAC.cxf,actgen_cxf"
-STATE="utd"
-TIME="1331059448"
-SIZE="252"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS_RESET\1.0.101\MSS_RESET.cxf,actgen_cxf"
-STATE="utd"
-TIME="1331059448"
-SIZE="254"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS_RTC\1.0.100\MSS_RTC.cxf,actgen_cxf"
-STATE="utd"
-TIME="1331059448"
-SIZE="252"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS_SPI\1.0.102\MSS_SPI.cxf,actgen_cxf"
-STATE="utd"
-TIME="1331059448"
-SIZE="252"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS_TIMER\1.0.100\MSS_TIMER.cxf,actgen_cxf"
-STATE="utd"
-TIME="1331059448"
-SIZE="254"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS_UART\1.0.101\MSS_UART.cxf,actgen_cxf"
-STATE="utd"
-TIME="1331059448"
-SIZE="253"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS_UFROM\1.0.100\MSS_UFROM.cxf,actgen_cxf"
-STATE="utd"
-TIME="1331059448"
-SIZE="254"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS_WATCHDOG\1.0.101\MSS_WATCHDOG.cxf,actgen_cxf"
-STATE="utd"
-TIME="1331059448"
-SIZE="257"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\component\work\BoardTestCanvas\BoardTestCanvas.cxf,actgen_cxf"
-STATE="utd"
-TIME="1331063027"
-SIZE="17263"
-ENDFILE
-VALUE "<project>\component\work\BoardTestCanvas\BoardTestCanvas.pdc,pdc"
-STATE="utd"
-TIME="1331063022"
-SIZE="12544"
-PARENT="<project>\component\work\BoardTestCanvas\BoardTestCanvas.cxf"
-BEGIN_USE_CONSTRAINT
-TOOL_CONSTRAINT_TYPE="ideDESIGNER"
-END_USE_CONSTRAINT
-USE_FOR_ANY_TOOL="FALSE"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\work\BoardTestCanvas\BoardTestCanvas.vhd,hdl"
-STATE="utd"
-TIME="1331063024"
-SIZE="109963"
-PARENT="<project>\component\work\BoardTestCanvas\BoardTestCanvas.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\work\BoardTestCanvas\testbench.vhd,tb_hdl"
-STATE="utd"
-TIME="1331063025"
-SIZE="5357"
-PARENT="<project>\component\work\BoardTestCanvas\BoardTestCanvas.cxf"
-IS_READONLY="TRUE"
-ENDFILE
 VALUE "<project>\component\work\BoardTestMss\BoardTestMss.cxf,actgen_cxf"
 STATE="utd"
-TIME="1331059452"
+TIME="1333055413"
 SIZE="23472"
-ENDFILE
-VALUE "<project>\component\work\BoardTestMss\BoardTestMss.pdc,pdc"
-STATE="utd"
-TIME="1331059440"
-SIZE="9313"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-BEGIN_USE_CONSTRAINT
-TOOL_CONSTRAINT_TYPE="ideDESIGNER"
-END_USE_CONSTRAINT
-USE_FOR_ANY_TOOL="FALSE"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\work\BoardTestMss\BoardTestMss.vhd,hdl"
-STATE="utd"
-TIME="1331059451"
-SIZE="40609"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\work\BoardTestMss\MSS_ACE_0\MSS_ACE_0.log,???"
-STATE="utd"
-TIME="1331059447"
-SIZE="31587"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\work\BoardTestMss\MSS_CCC_0\BoardTestMss_tmp_MSS_CCC_0_MSS_CCC.cxf,actgen_cxf"
-STATE="utd"
-TIME="1331059447"
-SIZE="490"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\component\work\BoardTestMss\MSS_CCC_0\BoardTestMss_tmp_MSS_CCC_0_MSS_CCC.vhd,hdl"
-STATE="utd"
-TIME="1331059447"
-SIZE="7278"
-PARENT="<project>\component\work\BoardTestMss\MSS_CCC_0\BoardTestMss_tmp_MSS_CCC_0_MSS_CCC.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\work\BoardTestMss\MSS_ENVM_0\MSS_ENVM_0.efc,efc"
-STATE="utd"
-TIME="1331059448"
-SIZE="15504"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\work\BoardTestMss\mss_tshell.vhd,hdl"
-STATE="utd"
-TIME="1331059448"
-SIZE="22849"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-BEGIN_USE_CONSTRAINT
-TOOL_CONSTRAINT_TYPE="ideSYNTHESIS"
-TOOL_CONSTRAINT_USE="SYNPLIFY7_EXT"
-END_USE_CONSTRAINT
-USE_FOR_ANY_TOOL="FALSE"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\work\BoardTestMss\mss_tshell_syn.sdc,sdc"
-STATE="utd"
-TIME="1331059448"
-SIZE="194"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-BEGIN_USE_CONSTRAINT
-TOOL_CONSTRAINT_TYPE="ideSYNTHESIS"
-TOOL_CONSTRAINT_USE="SYNPLIFY7_EXT"
-END_USE_CONSTRAINT
-USE_FOR_ANY_TOOL="FALSE"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\work\BoardTestMss\testbench.vhd,tb_hdl"
-STATE="utd"
-TIME="1331059451"
-SIZE="4771"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\work\DESIGN_FIRMWARE\DESIGN_FIRMWARE.cxf,actgen_cxf"
-STATE="utd"
-TIME="1327613410"
-SIZE="2905"
-ENDFILE
-VALUE "<project>\component\work\DESIGN_IO\DESIGN_IO.cxf,actgen_cxf"
-STATE="utd"
-TIME="1323375821"
-SIZE="413"
-ENDFILE
-VALUE "<project>\constraint\BoardTest.pdc,pdc"
-STATE="utd"
-TIME="1323304063"
-SIZE="353"
-BEGIN_USE_CONSTRAINT
-TOOL_CONSTRAINT_TYPE="ideDESIGNER"
-END_USE_CONSTRAINT
-USE_FOR_ANY_TOOL="FALSE"
-ENDFILE
-VALUE "<project>\constraint\BoardTestCanvas - Copy (2).pdc,pdc"
-STATE="utd"
-TIME="1331061324"
-SIZE="40943"
-ENDFILE
-VALUE "<project>\constraint\BoardTestCanvas - Copy.pdc,pdc"
-STATE="utd"
-TIME="1330721601"
-SIZE="13010"
-ENDFILE
-VALUE "<project>\constraint\BoardTestCanvas.pdc,pdc"
-STATE="utd"
-TIME="1331580164"
-SIZE="13233"
-ENDFILE
-VALUE "<project>\constraint\BoardTestPinAssignments.pdc,pdc"
-STATE="utd"
-TIME="1330721601"
-SIZE="13010"
-ENDFILE
-VALUE "<project>\constraint\ClockConstraints.sdc,sdc"
-STATE="utd"
-TIME="1331060249"
-SIZE="442"
-ENDFILE
-VALUE "<project>\constraint\MyBoardTest.pdc,pdc"
-STATE="utd"
-TIME="1327614187"
-SIZE="41"
-ENDFILE
-VALUE "<project>\constraint\MyTiming.sdc,sdc"
-STATE="utd"
-TIME="1328028453"
-SIZE="3207"
-ENDFILE
-VALUE "<project>\designer\impl3\BoardTestCanvas.adb,adb"
-STATE="ood"
-TIME="1331580304"
-SIZE="848384"
-ENDFILE
-VALUE "<project>\designer\impl3\BoardTestCanvas.fdb,fdb"
-STATE="ood"
-TIME="1330721825"
-SIZE="108983"
-ENDFILE
-VALUE "<project>\designer\impl3\BoardTestCanvas.ide_des,ide_des"
-STATE="utd"
-TIME="1331580304"
-SIZE="1324"
-ENDFILE
-VALUE "<project>\designer\impl3\BoardTestCanvas_compile_log.rpt,log"
-STATE="utd"
-TIME="1331063048"
-SIZE="28091"
-ENDFILE
-VALUE "<project>\designer\impl3\BoardTestCanvas_placeroute_log.rpt,log"
-STATE="utd"
-TIME="1331063407"
-SIZE="2211"
 ENDFILE
 VALUE "<project>\hdl\afe_if.vhd,hdl"
 STATE="utd"
-TIME="1332805262"
+TIME="1333055413"
 SIZE="5848"
 ENDFILE
 VALUE "<project>\hdl\apb_adc_stub.vhd,hdl"
 STATE="utd"
-TIME="1327613161"
+TIME="1333055413"
 SIZE="5346"
 ENDFILE
 VALUE "<project>\hdl\apb_counter.vhd,hdl"
 STATE="utd"
-TIME="1326210075"
+TIME="1333055413"
 SIZE="3805"
 ENDFILE
 VALUE "<project>\hdl\apb_ftdi_stub.vhd,hdl"
 STATE="utd"
-TIME="1331063017"
+TIME="1333055413"
 SIZE="4946"
 ENDFILE
 VALUE "<project>\hdl\gpio_stub.vhd,hdl"
 STATE="utd"
-TIME="1330718824"
+TIME="1333055413"
 SIZE="4030"
-ENDFILE
-VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
-STATE="utd"
-TIME="1327604778"
-SIZE="1237"
-PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
-ENDFILE
-VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
-STATE="utd"
-TIME="1327522481"
-SIZE="41"
-PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf"
-ENDFILE
-VALUE "<project>\simulation\coreapb3_usertb_apb_master.bfm,sim"
-STATE="utd"
-TIME="1327604782"
-SIZE="10524"
-PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
-ENDFILE
-VALUE "<project>\simulation\coreapb3_usertb_include.bfm,sim"
-STATE="utd"
-TIME="1327604782"
-SIZE="3992"
-PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
-ENDFILE
-VALUE "<project>\simulation\subsystem.bfm,sim"
-STATE="utd"
-TIME="1331063024"
-SIZE="735"
-PARENT="<project>\component\work\BoardTestCanvas\BoardTestCanvas.cxf"
-ENDFILE
-VALUE "<project>\simulation\test.bfm,sim"
-STATE="utd"
-TIME="1331059448"
-SIZE="5460"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\simulation\user.bfm,sim"
-STATE="utd"
-TIME="1323303308"
-SIZE="670"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\smartgen\ExtAfeInterface\ExtAfeInterface.cxf,actgen_cxf"
-STATE="utd"
-TIME="1327517444"
-SIZE="2316"
-ENDFILE
-VALUE "<project>\smartgen\ExtAfeInterface\ExtAfeInterface.gen,gen"
-STATE="utd"
-TIME="1327517442"
-SIZE="429"
-PARENT="<project>\smartgen\ExtAfeInterface\ExtAfeInterface.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\smartgen\ExtAfeInterface\ExtAfeInterface.log,log"
-STATE="utd"
-TIME="1327517444"
-SIZE="1862"
-PARENT="<project>\smartgen\ExtAfeInterface\ExtAfeInterface.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\smartgen\ExtAfeInterface\ExtAfeInterface.vhd,hdl"
-STATE="utd"
-TIME="1327517444"
-SIZE="6378"
-PARENT="<project>\smartgen\ExtAfeInterface\ExtAfeInterface.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\smartgen\EXT_CLK_OBUF\EXT_CLK_OBUF.cxf,actgen_cxf"
-STATE="utd"
-TIME="1327603269"
-SIZE="1226"
-ENDFILE
-VALUE "<project>\smartgen\EXT_CLK_OBUF\EXT_CLK_OBUF.gen,gen"
-STATE="utd"
-TIME="1327603267"
-SIZE="426"
-PARENT="<project>\smartgen\EXT_CLK_OBUF\EXT_CLK_OBUF.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\smartgen\EXT_CLK_OBUF\EXT_CLK_OBUF.log,log"
-STATE="utd"
-TIME="1327603269"
-SIZE="1744"
-PARENT="<project>\smartgen\EXT_CLK_OBUF\EXT_CLK_OBUF.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\smartgen\EXT_CLK_OBUF\EXT_CLK_OBUF.vhd,hdl"
-STATE="utd"
-TIME="1327603269"
-SIZE="1426"
-PARENT="<project>\smartgen\EXT_CLK_OBUF\EXT_CLK_OBUF.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\smartgen\USB_INTERFACE\USB_INTERFACE.cxf,actgen_cxf"
-STATE="utd"
-TIME="1327522253"
-SIZE="1626"
-ENDFILE
-VALUE "<project>\smartgen\USB_INTERFACE\USB_INTERFACE.gen,gen"
-STATE="utd"
-TIME="1327522252"
-SIZE="419"
-PARENT="<project>\smartgen\USB_INTERFACE\USB_INTERFACE.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\smartgen\USB_INTERFACE\USB_INTERFACE.log,log"
-STATE="utd"
-TIME="1327522253"
-SIZE="1757"
-PARENT="<project>\smartgen\USB_INTERFACE\USB_INTERFACE.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\smartgen\USB_INTERFACE\USB_INTERFACE.vhd,hdl"
-STATE="utd"
-TIME="1327522253"
-SIZE="2445"
-PARENT="<project>\smartgen\USB_INTERFACE\USB_INTERFACE.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\synthesis\BoardTestCanvas.edn,syn_edn"
-STATE="ood"
-TIME="1331063038"
-SIZE="693568"
-ENDFILE
-VALUE "<project>\synthesis\BoardTestCanvas.so,so"
-STATE="utd"
-TIME="1331063038"
-SIZE="231"
-ENDFILE
-VALUE "<project>\synthesis\BoardTestCanvas_drc.rpt,log"
-STATE="utd"
-TIME="1323373126"
-SIZE="26034"
-ENDFILE
-VALUE "<project>\synthesis\BoardTestCanvas_sdc.sdc,syn_sdc"
-STATE="ood"
-TIME="1331063038"
-SIZE="450"
-ENDFILE
-VALUE "<project>\synthesis\synwork\BoardTestCanvas_compiler.so,so"
-STATE="utd"
-TIME="1331062965"
-SIZE="159"
 ENDFILE
 ENDLIST
 LIST UsedFile
 ENDLIST
 LIST NewModulesInfo
-LIST "BoardTestCanvas::work"
-FILE "<project>\component\work\BoardTestCanvas\BoardTestCanvas.vhd,hdl"
-LIST Other_Association
-VALUE "<project>\simulation\subsystem.bfm,sim"
-VALUE "<project>\component\work\BoardTestCanvas\testbench.vhd,tb_hdl"
-VALUE "<project>\component\work\BoardTestCanvas\BoardTestCanvas.pdc,pdc"
-ENDLIST
-LIST AssociatedStimulus
-VALUE "<project>\component\work\BoardTestCanvas\testbench.vhd,tb_hdl"
-ENDLIST
-LIST ProjectState5.1
-LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
-ENDLIST
 LIST "BoardTestMss::work"
-FILE "<project>\component\work\BoardTestMss\BoardTestMss.vhd,hdl"
+FILE "<project>\component\work\BoardTestMss\BoardTestMss.cxf,actgen_cxf"
 LIST Other_Association
 VALUE "<project>\component\work\BoardTestMss\mss_tshell_syn.sdc,sdc"
 VALUE "<project>\simulation\user.bfm,sim"
@@ -639,105 +83,11 @@ VALUE "<project>\component\work\BoardTestMss\BoardTestMss.pdc,pdc"
 VALUE "<project>\component\work\BoardTestMss\MSS_ENVM_0\MSS_ENVM_0.efc,efc"
 VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
 ENDLIST
-LIST AssociatedStimulus
-VALUE "<project>\component\work\BoardTestMss\testbench.vhd,tb_hdl"
-ENDLIST
-LIST SynthesisConstraints
-VALUE "<project>\component\work\BoardTestMss\mss_tshell_syn.sdc,sdc"
-ENDLIST
-LIST ProjectState5.1
-LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
-ENDLIST
-LIST "CoreAPB3::COREAPB3_LIB::components"
-FILE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
-LIST Other_Association
-VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
-VALUE "<project>\simulation\coreapb3_usertb_include.bfm,sim"
-VALUE "<project>\simulation\coreapb3_usertb_apb_master.bfm,sim"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\scripts\wave_user.do,do"
-ENDLIST
-LIST AssociatedStimulus
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
-ENDLIST
-LIST ProjectState5.1
-LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
 ENDLIST
 ENDLIST
 LIST AssociatedStimulus
-LIST BoardTestCanvas
-VALUE "<project>\component\work\BoardTestCanvas\testbench.vhd,tb_hdl"
-ENDLIST
-LIST BoardTestMss
-VALUE "<project>\component\work\BoardTestMss\testbench.vhd,tb_hdl"
-ENDLIST
-LIST CoreAPB3
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
-ENDLIST
 ENDLIST
 LIST Other_Association
-LIST BoardTestCanvas
-VALUE "<project>\simulation\subsystem.bfm,sim"
-VALUE "<project>\component\work\BoardTestCanvas\testbench.vhd,tb_hdl"
-VALUE "<project>\component\work\BoardTestCanvas\BoardTestCanvas.pdc,pdc"
-ENDLIST
 LIST BoardTestMss
 VALUE "<project>\component\work\BoardTestMss\mss_tshell_syn.sdc,sdc"
 VALUE "<project>\simulation\user.bfm,sim"
@@ -746,14 +96,6 @@ VALUE "<project>\component\work\BoardTestMss\testbench.vhd,tb_hdl"
 VALUE "<project>\component\work\BoardTestMss\BoardTestMss.pdc,pdc"
 VALUE "<project>\component\work\BoardTestMss\MSS_ENVM_0\MSS_ENVM_0.efc,efc"
 VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
-ENDLIST
-LIST CoreAPB3
-VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
-VALUE "<project>\simulation\coreapb3_usertb_include.bfm,sim"
-VALUE "<project>\simulation\coreapb3_usertb_apb_master.bfm,sim"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\scripts\wave_user.do,do"
 ENDLIST
 ENDLIST
 LIST SimulationOptions
@@ -823,93 +165,6 @@ BATCH=0
 EndProfile
 ENDLIST
 LIST ProjectState5.1
-LIST "BoardTestCanvas::work"
-LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
-LIST "BoardTestMss::work"
-LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
-LIST "CoreAPB3::COREAPB3_LIB::components"
-LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
 ENDLIST
 LIST ExcludePackageForSimulation
 ENDLIST
@@ -922,7 +177,5 @@ ENDLIST
 LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
-Reports;Reports
-SmartDesign;BoardTestCanvas
-ACTIVEVIEW;BoardTestCanvas
+ACTIVEVIEW;StartPage
 ENDLIST
