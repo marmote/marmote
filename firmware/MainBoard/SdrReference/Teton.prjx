@@ -56,12 +56,73 @@ STATE="utd"
 TIME="1333399379"
 SIZE="6316"
 ENDFILE
+VALUE "<project>\stimulus\afe_if_tb.vhd,tb_hdl"
+STATE="utd"
+TIME="1333400150"
+SIZE="16"
+ENDFILE
 ENDLIST
 LIST UsedFile
 ENDLIST
 LIST NewModulesInfo
+LIST "Teton::work"
+FILE "<project>\component\work\Teton\Teton.cxf,actgen_cxf"
+LIST AssociatedStimulus
+VALUE "<project>\stimulus\afe_if_tb.vhd,tb_hdl"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl3
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl4
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl5
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
 ENDLIST
 LIST AssociatedStimulus
+LIST Teton
+VALUE "<project>\stimulus\afe_if_tb.vhd,tb_hdl"
+ENDLIST
 ENDLIST
 LIST Other_Association
 ENDLIST
@@ -120,7 +181,7 @@ NAME="ModelSim AE"
 FUNCTION="Simulation"
 TOOL="ModelSim"
 LOCATION="C:\Actel\Libero_v10.0\Model\win32acoem\modelsim.exe"
-PARAM=""
+PARAM=" -l presynth_simulation.log "
 BATCH=0
 EndProfile
 NAME="FlashPro"
@@ -132,6 +193,53 @@ BATCH=0
 EndProfile
 ENDLIST
 LIST ProjectState5.1
+LIST "Teton::work"
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl3
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl4
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl5
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
 ENDLIST
 LIST ExcludePackageForSimulation
 ENDLIST
@@ -145,5 +253,6 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 SmartDesign;Teton
-ACTIVEVIEW;Teton
+Reports;Reports
+ACTIVEVIEW;Reports
 ENDLIST
