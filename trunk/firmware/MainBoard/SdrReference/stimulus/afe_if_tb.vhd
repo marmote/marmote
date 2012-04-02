@@ -80,13 +80,13 @@ begin
     p_AFE_STUB : process (CLKOUT)
     begin
         if SHDN_n = '0' then
-            s_afe_ctr <= '0';
+            s_afe_ctr <= (others => '0');
         elsif rising_edge(CLKOUT) then
             s_afe_ctr <= s_afe_ctr + 1;
             if TR_n = '1' then
-                s_afe_txd <= DATA;
+                s_afe_txd <= unsigned(DATA);
             else
-                DATA <= s_afe_ctr;
+                DATA <= std_logic_vector(s_afe_ctr);
             end if;
         end if;
     end process p_AFE_STUB;
@@ -115,8 +115,8 @@ begin
 
         -- Test TX
 
-        TX_I <= to_unsigned(TX_I'length, 10);
-        TX_Q <= to_unsigned(TX_Q'length, 10);
+        TX_I <= std_logic_vector(to_unsigned(0, TX_I'length));
+        TX_Q <= std_logic_vector(to_unsigned(1, TX_Q'length));
 
         wait for 500 ns;
         TX_RXn <= '0';
