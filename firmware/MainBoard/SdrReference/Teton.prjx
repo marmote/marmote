@@ -33,8 +33,8 @@ ENDLIST
 LIST FileManager
 VALUE "<project>\component\work\Teton\Teton.cxf,actgen_cxf"
 STATE="utd"
-TIME="1333391149"
-SIZE="10580"
+TIME="1333398854"
+SIZE="11236"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\Teton_MSS.cxf,actgen_cxf"
 STATE="utd"
@@ -50,6 +50,11 @@ VALUE "<project>\designer\impl5\Teton.ide_des,ide_des"
 STATE="utd"
 TIME="1333391464"
 SIZE="273"
+ENDFILE
+VALUE "<project>\hdl\afe_if.vhd,hdl"
+STATE="utd"
+TIME="1333398733"
+SIZE="6323"
 ENDFILE
 ENDLIST
 LIST UsedFile
