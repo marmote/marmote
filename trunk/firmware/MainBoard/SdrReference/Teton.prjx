@@ -17,24 +17,25 @@ KEY VendorTechnology_VCCI_1.8_VOLTR "COM"
 KEY VendorTechnology_VCCI_2.5_VOLTR "COM"
 KEY VendorTechnology_VCCI_3.3_VOLTR "COM"
 KEY VendorTechnology_VOLTR "COM"
-KEY ProjectLocation "D:\firmware\MainBoard\SdrReference\Teton"
+KEY ProjectLocation "D:\work\SdrReference"
 KEY ProjectDescription ""
 KEY SimulationType "VHDL"
 KEY Vendor "Actel"
 KEY ActiveRoot "Teton::work"
 LIST REVISIONS
 VALUE="Impl1",NUM=1
-CURREV=1
+VALUE="Impl2",NUM=2
+CURREV=2
 ENDLIST
 LIST FileManager
 VALUE "<project>\component\work\Teton\Teton.cxf,actgen_cxf"
 STATE="utd"
-TIME="1333387620"
+TIME="1333388506"
 SIZE="14163"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\Teton_MSS.cxf,actgen_cxf"
 STATE="utd"
-TIME="1333387619"
+TIME="1333388507"
 SIZE="17981"
 ENDFILE
 ENDLIST
@@ -125,6 +126,5 @@ ENDLIST
 LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
-SmartDesign;Teton
-ACTIVEVIEW;Teton
+ACTIVEVIEW;StartPage
 ENDLIST
