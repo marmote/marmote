@@ -44,7 +44,7 @@ architecture bench of AFE_IF_tb is
     signal CLKOUT: std_logic;
     signal SHDN_n: std_logic;
     signal TR_n: std_logic;
-    signal DATA: std_logic_vector(9 downto 0) ;
+    signal DATA: std_logic_vector(9 downto 0) := (others => '0');
 
     -- AFE STUB signals
     signal s_afe_ctr    : unsigned(9 downto 0);
@@ -81,10 +81,12 @@ begin
     begin
         if SHDN_n = '0' then
             s_afe_ctr <= (others => '0');
-        elsif rising_edge(CLKOUT) then
+            s_afe_txd <= (others => '0');
+        elsif rising_edge(CLKOUT) or falling_edge(CLKOUT) then
             s_afe_ctr <= s_afe_ctr + 1;
             if TR_n = '1' then
                 s_afe_txd <= unsigned(DATA);
+                DATA <= (others => 'Z');
             else
                 DATA <= std_logic_vector(s_afe_ctr);
             end if;
@@ -92,11 +94,13 @@ begin
     end process p_AFE_STUB;
 
 
+
     stimulus: process
     begin
 
         ENABLE <= '0';
         TX_RXn <= '0';
+        TX_STROBE <= '0';
         TX_I <= (others => '0');
         TX_Q <= (others => '0');
 
@@ -110,17 +114,19 @@ begin
 
         -- Test RX
 
-        wait for 50000 ns;
+        wait for 5000 ns;
 
         -- Test TX
 
-        TX_I <= std_logic_vector(to_unsigned(0, TX_I'length));
-        TX_Q <= std_logic_vector(to_unsigned(1, TX_Q'length));
+        TX_I <= std_logic_vector(to_unsigned(5, TX_I'length));
+        TX_Q <= std_logic_vector(to_unsigned(10, TX_Q'length));
 
         wait for 500 ns;
         TX_RXn <= '1';
+        wait for 500 ns;
+        TX_STROBE <= '1';
 
-        wait for 50000 ns;
+        wait for 5000 ns;
 
         stop_the_clock <= true;
         wait;
