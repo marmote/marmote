@@ -71,10 +71,10 @@ entity AFE_IF is
 	     TX_Q       : in  std_logic_vector(9 downto 0);
 
 		 -- MAX19706 interface
-         CLK_pin    : out std_logic; -- output clock
-         SHDNn_pin  : out std_logic; -- shutdown
-         T_Rn_pin   : out std_logic; -- T/Rn transmit/receive mode select
-         DATA_pin   : inout std_logic_vector(9 downto 0)
+         CLKOUT     : out std_logic; -- output clock
+         SHDN_n     : out std_logic; -- shutdown
+         TR_n       : out std_logic; -- T/Rn transmit/receive mode select
+         DATA       : inout std_logic_vector(9 downto 0)
 		 );
 end entity;
 
@@ -137,7 +137,7 @@ begin
 
         u_BIBUF_LVCMOS33 : BIBUF_LVCMOS33
         port map (
-            PAD => DATA_pin(i),
+            PAD => DATA(i),
             D   => s_do(i),
             E   => s_oe,
             Y   => s_di(i)
@@ -181,9 +181,9 @@ begin
 
     s_oe <= ENABLE and TX_RXn and s_ready and TX_STROBE; -- TODO: consider adding registers to these signals
 
-    CLK_pin     <= CLK;
-    T_Rn_pin    <= s_TX_RXn;
-    SHDNn_pin   <= '1';
+    CLKOUT     <= CLK;
+    TR_n       <= s_TX_RXn;
+    SHDN_n     <= '1';
 
 end Behavioral;
 
