@@ -1,0 +1,23 @@
+#summary Guide on how to se tup ModelSim based functional unit and integration tests in Libero SoC.
+#labels Phase-Implementation,Phase-Deploy
+
+= Unit test =
+
+Use the following steps to set up a unit test:
+
+ # Check out the source code from SVN
+ # Regenerate MSS related library files (might be unnecessary if libraries not needed?)
+  # Open the MSS on the Libero SmartDesign canvas
+  # Click the generate button
+ # Regenerate the canvas files (might be unnecessary if libraries not needed?)
+  # Open the Libero SmartDesign canvas
+  # Click the generate button
+ # Make the desired unit test active
+  # From {{{Project > Project Settings}}} select the {{{Simulation Options}}} entry
+   # In the {{{DO File}}} sub-entry set the test module name and the top level instance name
+   # In the {{{Waveforms}}} sub-entry set the {{{Include DO file}}} field to point the script setting up the waveforms
+  # Select the {{{Simulation Libraries}}} entry and make sure that only the necessary libraries are included
+
+= Integration test =
+
+_TBD_
