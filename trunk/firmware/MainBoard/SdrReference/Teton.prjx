@@ -1,0 +1,130 @@
+KEY LIBERO "10.0"
+KEY CAPTURE "10.0.9.37"
+KEY DEFAULT_IMPORT_LOC "D:\work\software\MainBoard\BoardTest\hdl"
+KEY DEFAULT_OPEN_LOC ""
+KEY ProjectID "72c31f41-0f58-4017-8f58-90170f589017"
+KEY HDLTechnology "VHDL"
+KEY VendorTechnology_Family "SmartFusion"
+KEY VendorTechnology_Die "IP6X5M2"
+KEY VendorTechnology_Package "fg256"
+KEY VendorTechnology_Speed "-1"
+KEY VendorTechnology_DieVoltage "1.5"
+KEY VendorTechnology_IO_DEFT_STD "LVTTL"
+KEY VendorTechnology_OPCONR "COM"
+KEY VendorTechnology_TEMPR "COM"
+KEY VendorTechnology_VCCI_1.5_VOLTR "COM"
+KEY VendorTechnology_VCCI_1.8_VOLTR "COM"
+KEY VendorTechnology_VCCI_2.5_VOLTR "COM"
+KEY VendorTechnology_VCCI_3.3_VOLTR "COM"
+KEY VendorTechnology_VOLTR "COM"
+KEY ProjectLocation "D:\firmware\MainBoard\SdrReference\Teton"
+KEY ProjectDescription ""
+KEY SimulationType "VHDL"
+KEY Vendor "Actel"
+KEY ActiveRoot "Teton::work"
+LIST REVISIONS
+VALUE="Impl1",NUM=1
+CURREV=1
+ENDLIST
+LIST FileManager
+VALUE "<project>\component\work\Teton\Teton.cxf,actgen_cxf"
+STATE="utd"
+TIME="1333387620"
+SIZE="14163"
+ENDFILE
+VALUE "<project>\component\work\Teton_MSS\Teton_MSS.cxf,actgen_cxf"
+STATE="utd"
+TIME="1333387619"
+SIZE="17981"
+ENDFILE
+ENDLIST
+LIST UsedFile
+ENDLIST
+LIST NewModulesInfo
+ENDLIST
+LIST AssociatedStimulus
+ENDLIST
+LIST Other_Association
+ENDLIST
+LIST SimulationOptions
+UseAutomaticDoFile=true
+IncludeWaveDo=false
+Type=max
+RunTime=1000ns
+Resolution=1ps
+VsimOpt=
+EntityName=testbench
+TopInstanceName=<top>_0
+DoFileName=
+DoFileName2=wave.do
+DoFileParams=
+DisplayDUTWave=false
+LogAllSignals=false
+DumpVCD=false
+VCDFileName=power.vcd
+ENDLIST
+LIST ModelSimLibPath
+UseCustomPath=FALSE
+LibraryPath=
+ENDLIST
+LIST GlobalFlowOptions
+GenerateHDLAfterSynthesis=FALSE
+GenerateHDLAfterPhySynthesis=FALSE
+RunDRCAfterSynthesis=TRUE
+AutoCheckConstraints=TRUE
+UpdateModelSimIni=TRUE
+NoIOMode=FALSE
+EnableViewDraw=FALSE
+UpdateViewDrawIni=TRUE
+GenerateHDLFromSchematic=TRUE
+FlashProInputFile=fdb
+SmartGenCompileReport=T
+ENDLIST
+LIST PhySynthesisOptions
+ENDLIST
+LIST Profiles
+NAME="SoftConsole"
+FUNCTION="SoftwareIDE"
+TOOL="SoftConsole"
+LOCATION="C:\Actel\Libero_v10.0\SoftConsole\Eclipse\eclipse.exe"
+PARAM=""
+BATCH=0
+EndProfile
+NAME="Synplify Pro AE"
+FUNCTION="Synthesis"
+TOOL="Synplify Pro AE"
+LOCATION="C:\Actel\Libero_v10.0\Synopsys\synplify_F201109M\bin\synplify_pro.exe"
+PARAM=""
+BATCH=0
+EndProfile
+NAME="ModelSim AE"
+FUNCTION="Simulation"
+TOOL="ModelSim"
+LOCATION="C:\Actel\Libero_v10.0\Model\win32acoem\modelsim.exe"
+PARAM=""
+BATCH=0
+EndProfile
+NAME="FlashPro"
+FUNCTION="Program"
+TOOL="FlashPro"
+LOCATION="C:\Actel\Libero_v10.0\Designer\bin\FlashPro.exe"
+PARAM=""
+BATCH=0
+EndProfile
+ENDLIST
+LIST ProjectState5.1
+ENDLIST
+LIST ExcludePackageForSimulation
+ENDLIST
+LIST ExcludePackageForSynthesis
+ENDLIST
+LIST IncludeModuleForSimulation
+ENDLIST
+LIST CDBOrder
+ENDLIST
+LIST UserCustomizedFileList
+ENDLIST
+LIST OpenedFileList
+SmartDesign;Teton
+ACTIVEVIEW;Teton
+ENDLIST
