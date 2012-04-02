@@ -115,9 +115,13 @@ architecture Behavioral of AFE_IF is
     
 	-- Constants
 
+    constant c_ENABLE_DELAY : integer := 5;
+
 	-- Signals
-    signal s_obuf   : std_logic_vector(9 downto 0); -- Bi-directional buffer output
-    signal s_ibuf   : std_logic_vector(9 downto 0); -- Bi-directional buffer input
+
+    signal s_enable_d   : std_logic_vector(c_ENABLE_DELAY-1 downto 0);
+    --signal s_obuf   : std_logic_vector(9 downto 0); -- Bi-directional buffer output
+    --signal s_ibuf   : std_logic_vector(9 downto 0); -- Bi-directional buffer input
     signal s_oe     : std_logic;                    -- Bi-directional buffer enable
     signal s_do     : std_logic_vector(9 downto 0);
     signal s_di     : std_logic_vector(9 downto 0);
@@ -149,7 +153,7 @@ begin
             CLR => RST,
             DF  => s_tx_i(i),
             DR  => s_tx_q(i),
-            Q   => s_di(i)
+            Q   => s_do(i)
         );
 
         u_DDR_REG : DDR_REG
@@ -173,17 +177,43 @@ begin
             s_rx_strobe <= '0';
             if enable = '1' then
                 s_tx_rxn <= TX_RXn;
-                s_rx_strobe <= s_ready;
+                s_rx_strobe <= s_ready and not s_tx_rxn;
             end if;
         end if;
     end process p_reg_update;
+
+    -- p_ready_gen - Generates a ready signal bases on when the AFE was last
+    -- enabled
+    p_ready_gen : process (rst, clk)
+    begin
+        if rst = '1' then
+            s_enable_d <= (others => '0');
+        elsif rising_edge(clk) then
+            s_enable_d <= (others => '0');
+            if ENABLE = '1' then
+                s_enable_d(c_ENABLE_DELAY-1 downto 0) <=
+                s_enable_d(c_ENABLE_DELAY-2 downto 0) & ENABLE;
+            end if;
+        end if;
+    end process p_ready_gen;
+
+    s_ready <= s_enable_d(c_ENABLE_DELAY-1);
 
 
     s_oe <= ENABLE and TX_RXn and s_ready and TX_STROBE; -- TODO: consider adding registers to these signals
 
     CLKOUT     <= CLK;
     TR_n       <= s_TX_RXn;
-    SHDN_n     <= '1';
+    READY      <= '1'; -- FIXME
+    SHDN_n     <= ENABLE;
+
+    RX_STROBE   <= s_rx_strobe;
+    RX_I        <= s_rx_i;
+    RX_Q        <= s_rx_q;
+
+--    s_tx_strobe <= TX_STROBE;
+    s_tx_i      <= TX_I;
+    s_tx_q      <= TX_Q;
 
 end Behavioral;
 
