@@ -53,3 +53,4 @@ http://datasheets.maxim-ic.com/en/ds/MAX2510.pdf
 = Rev B =
 
  * Power-down mode for 20 MHz oscillator
+ * Second antenna in the same band for MIMO applications
