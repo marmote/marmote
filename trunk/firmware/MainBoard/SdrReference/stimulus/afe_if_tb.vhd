@@ -96,7 +96,6 @@ begin
     begin
 
         ENABLE <= '0';
-        SHDN_n <= '0';
         TX_RXn <= '0';
         TX_I <= (others => '0');
         TX_Q <= (others => '0');
@@ -107,7 +106,7 @@ begin
         wait for 100 ns;
 
         wait for 500 ns;
-        SHDN_n <= '1';
+        ENABLE <= '1';
 
         -- Test RX
 
@@ -119,9 +118,9 @@ begin
         TX_Q <= std_logic_vector(to_unsigned(1, TX_Q'length));
 
         wait for 500 ns;
-        TX_RXn <= '0';
+        TX_RXn <= '1';
 
-        wait for 500 ns;
+        wait for 50000 ns;
 
         stop_the_clock <= true;
         wait;
