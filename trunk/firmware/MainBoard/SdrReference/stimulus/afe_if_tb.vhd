@@ -50,8 +50,21 @@ architecture bench of AFE_IF_tb is
     signal s_afe_ctr    : unsigned(9 downto 0);
     signal s_afe_txd    : unsigned(9 downto 0);
 
-    constant clock_period: time := 100 ns; -- 10 MHz
+    constant clock_period: time := 5 ns; -- 20 MHz
     signal stop_the_clock: boolean;
+
+    -- ADC timing
+    signal  tCLK_rise  : time := 0 ns;
+    signal  tCLK_fall  : time := 0 ns;
+    constant tDOI_max   : time := 8.5 ns;
+    constant tDOQ_max   : time := 11.1 ns;
+
+    -- DAC timing
+    constant tDSI_min   : time := 10 ns;
+    constant tDSQ_min   : time := 10 ns;
+
+
+    constant tD         : time := 5 ns; -- Delay value selected arbitrarily
 
 begin
 
@@ -94,6 +107,67 @@ begin
     end process p_AFE_STUB;
 
 
+    -- Process to check the RX (ADC DDR) data signals
+    -- From MAX19706 datasheet:
+    -- 
+    --  CLK Rise to Channel-I Output Data Valid tDOI 4.8 6.6 8.5 ns
+    --  CLK Fall to Channel-Q Output Data Valid tDOQ 6.6 8.8 11.1 ns
+    --
+    -- -> Make sure t_CLK / 2 > 11.1 ns + any delay on the databus lines
+    -- -> t_CLK > 45 ns (22 MHz) should be a sufficient constraint
+    p_AFE_ADC_TIMING_CHECK : process (clk)
+    begin
+
+        if rising_edge(clk) then
+            tCLK_rise <= now;
+            if tCLK_fall /= 0 ns then
+                assert (now - tCLK_fall) > (tDOI_max + tD)
+                report "CLK Rise to Channel-I Output Data Valid tDOI violated (" &
+                time'image(now - tCLK_fall) & " < " & time'image(tDOI_max + tD) & ")"
+                severity error;
+            end if;
+        end if;
+
+        if falling_edge(clk) then
+            tCLK_fall <= now;
+            if tCLK_rise /= 0 ns then
+                assert (now - tCLK_rise) > (tDOQ_max + tD)
+                report "CLK Rise to Channel-Q Output Data Valid tDOQ violated (" &
+                time'image(now - tCLK_rise) & " < " & time'image(tDOQ_max + tD) & ")"
+                severity error;
+            end if;
+        end if;
+
+    end process p_AFE_ADC_TIMING_CHECK;
+
+
+    -- Process to check the TX (DAC DDR) data signals
+    -- From MAX19706 datasheet:
+    -- 
+    -- I-DAC DATA to CLK Fall Setup Time tDSI 10 ns
+    -- Q-DAC DATA to CLK Rise Setup Time tDSQ 10 ns
+    -- CLK Fall to I-DAC Data Hold Time tDHI 0 ns
+    -- CLK Rise to Q-DAC Data Hold Time tDHQ 0 ns
+    --
+    p_AFE_DAC_TIMING_CHECK : process (clk)
+    begin
+
+        if falling_edge(clk) then
+            assert DATA'stable(tDSI_min)
+            report "I-DAC DATA to CLK Fall Setup Time violated (" & 
+            time'image(DATA'last_event) & " < tDSI_min)"
+            severity error;
+        end if;
+
+        if rising_edge(clk) then
+            assert DATA'stable(tDSQ_min)
+            report "Q-DAC DATA to CLK Rise Setup Time violated (" &
+            time'image(DATA'last_event) & " < tDSQ_min)"
+            severity error;
+        end if;
+
+    end process p_AFE_DAC_TIMING_CHECK;
+
 
     stimulus: process
     begin
@@ -131,6 +205,7 @@ begin
         stop_the_clock <= true;
         wait;
     end process;
+
 
     clocking: process
     begin
