@@ -45,61 +45,6 @@ ALIAS=..\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\user_vhdl\COREAPB3_LIB
 COMPILE_OPTION=REFRESH_AND_COMPILE
 ENDLIST
 LIST FileManager
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf,actgen_cxf"
-STATE="utd"
-TIME="1333405973"
-SIZE="2407"
-PARENT="<project>\component\work\Teton\Teton.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
-STATE="utd"
-TIME="1333405973"
-SIZE="1242"
-LIBRARY="COREAPB3_LIB"
-PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\scripts\wave_user.do,do"
-STATE="utd"
-TIME="1327604778"
-SIZE="912"
-PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\components.vhd,hdl"
-STATE="utd"
-TIME="1327604783"
-SIZE="5084"
-LIBRARY="COREAPB3_LIB"
-PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
-STATE="utd"
-TIME="1327604783"
-SIZE="25656"
-LIBRARY="COREAPB3_LIB"
-PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3_muxptob3.vhd,hdl"
-STATE="utd"
-TIME="1327604783"
-SIZE="6608"
-LIBRARY="COREAPB3_LIB"
-PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
-STATE="utd"
-TIME="1327604778"
-SIZE="21192"
-LIBRARY="COREAPB3_LIB"
-PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
-MODULE_UNDER_TEST="testbench"
-SIMULATION_TIME="-all"
-IS_READONLY="TRUE"
-ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf,actgen_cxf"
 STATE="utd"
 TIME="1333406057"
@@ -232,34 +177,20 @@ TIME="1333406051"
 SIZE="257"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
-VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
-STATE="utd"
-TIME="1333405975"
-SIZE="3986"
-PARENT="<project>\component\work\Teton\Teton.cxf"
-IS_READONLY="TRUE"
-ENDFILE
 VALUE "<project>\component\work\Teton\Teton.cxf,actgen_cxf"
 STATE="utd"
-TIME="1333405974"
-SIZE="13250"
+TIME="1333565889"
+SIZE="12679"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.pdc,pdc"
 STATE="utd"
-TIME="1333405972"
+TIME="1333564989"
 SIZE="9307"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 BEGIN_USE_CONSTRAINT
 TOOL_CONSTRAINT_TYPE="ideDESIGNER"
 END_USE_CONSTRAINT
 USE_FOR_ANY_TOOL="FALSE"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\work\Teton\Teton.vhd,hdl"
-STATE="utd"
-TIME="1333405974"
-SIZE="49978"
-PARENT="<project>\component\work\Teton\Teton.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\MSS_ACE_0\MSS_ACE_0.log,???"
@@ -350,19 +281,13 @@ SIZE="12999"
 ENDFILE
 VALUE "<project>\hdl\afe_if.vhd,hdl"
 STATE="utd"
-TIME="1333406477"
-SIZE="6443"
+TIME="1333565781"
+SIZE="7071"
 ENDFILE
 VALUE "<project>\simulation\afe_if_wave.do,do"
 STATE="utd"
 TIME="1333405892"
 SIZE="619"
-ENDFILE
-VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
-STATE="utd"
-TIME="1327604778"
-SIZE="1237"
-PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
 ENDFILE
 VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
 STATE="utd"
@@ -370,22 +295,10 @@ TIME="1327522481"
 SIZE="41"
 PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf"
 ENDFILE
-VALUE "<project>\simulation\coreapb3_usertb_apb_master.bfm,sim"
-STATE="utd"
-TIME="1327604782"
-SIZE="10524"
-PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
-ENDFILE
-VALUE "<project>\simulation\coreapb3_usertb_include.bfm,sim"
-STATE="utd"
-TIME="1327604782"
-SIZE="3992"
-PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
-ENDFILE
 VALUE "<project>\simulation\presynth_simulation.log,log"
 STATE="utd"
-TIME="1333406481"
-SIZE="79630"
+TIME="1333565552"
+SIZE="1369385"
 ENDFILE
 VALUE "<project>\simulation\run.do,do"
 STATE="utd"
@@ -394,7 +307,7 @@ SIZE="1104"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
-TIME="1333405974"
+TIME="1333564994"
 SIZE="598"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 ENDFILE
@@ -414,6 +327,21 @@ VALUE "<project>\stimulus\afe_if_tb.vhd,tb_hdl"
 STATE="utd"
 TIME="1333405892"
 SIZE="3489"
+ENDFILE
+VALUE "<project>\synthesis\AFE_IF.edn,syn_edn"
+STATE="ood"
+TIME="1333464239"
+SIZE="50857"
+ENDFILE
+VALUE "<project>\synthesis\AFE_IF.so,so"
+STATE="utd"
+TIME="1333464239"
+SIZE="216"
+ENDFILE
+VALUE "<project>\synthesis\AFE_IF_sdc.sdc,syn_sdc"
+STATE="ood"
+TIME="1333464239"
+SIZE="376"
 ENDFILE
 ENDLIST
 LIST UsedFile
@@ -491,12 +419,7 @@ ENDLIST
 ENDLIST
 ENDLIST
 LIST "Teton::work"
-FILE "<project>\component\work\Teton\Teton.vhd,hdl"
-LIST Other_Association
-VALUE "<project>\simulation\subsystem.bfm,sim"
-VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
-VALUE "<project>\component\work\Teton\Teton.pdc,pdc"
-ENDLIST
+FILE "<project>\component\work\Teton\Teton.cxf,actgen_cxf"
 LIST AssociatedStimulus
 VALUE "<project>\stimulus\afe_if_tb.vhd,tb_hdl"
 ENDLIST
@@ -649,116 +572,19 @@ ENDUsed_File_List
 ENDLIST
 ENDLIST
 ENDLIST
-LIST "CoreAPB3::COREAPB3_LIB::components"
-FILE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
-LIST Other_Association
-VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
-VALUE "<project>\simulation\coreapb3_usertb_include.bfm,sim"
-VALUE "<project>\simulation\coreapb3_usertb_apb_master.bfm,sim"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\scripts\wave_user.do,do"
-ENDLIST
-LIST AssociatedStimulus
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
-ENDLIST
-LIST ProjectState5.1
-LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl4
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl5
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl6
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl7
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
-ENDLIST
 ENDLIST
 LIST AssociatedStimulus
 LIST Teton
 VALUE "<project>\stimulus\afe_if_tb.vhd,tb_hdl"
-ENDLIST
-LIST CoreAPB3
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
-ENDLIST
-LIST Teton_MSS
-VALUE "<project>\component\work\Teton_MSS\testbench.vhd,tb_hdl"
 ENDLIST
 LIST AFE_IF
 VALUE "<project>\stimulus\afe_if_tb.vhd,tb_hdl"
 ENDLIST
+LIST Teton_MSS
+VALUE "<project>\component\work\Teton_MSS\testbench.vhd,tb_hdl"
+ENDLIST
 ENDLIST
 LIST Other_Association
-LIST Teton
-VALUE "<project>\simulation\subsystem.bfm,sim"
-VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
-VALUE "<project>\component\work\Teton\Teton.pdc,pdc"
-ENDLIST
-LIST CoreAPB3
-VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
-VALUE "<project>\simulation\coreapb3_usertb_include.bfm,sim"
-VALUE "<project>\simulation\coreapb3_usertb_apb_master.bfm,sim"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\scripts\wave_user.do,do"
-ENDLIST
 LIST Teton_MSS
 VALUE "<project>\component\work\Teton_MSS\mss_tshell_syn.sdc,sdc"
 VALUE "<project>\simulation\user.bfm,sim"
@@ -817,8 +643,8 @@ NAME="Synplify Pro AE"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro AE"
 LOCATION="C:\Actel\Libero_v10.0\Synopsys\synplify_F201109M\bin\synplify_pro.exe"
-PARAM=""
-BATCH=0
+PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
+BATCH=1
 EndProfile
 NAME="ModelSim AE"
 FUNCTION="Simulation"
@@ -1031,71 +857,6 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 ENDLIST
-LIST "CoreAPB3::COREAPB3_LIB::components"
-LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl4
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl5
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl6
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl7
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
 ENDLIST
 LIST ExcludePackageForSimulation
 ENDLIST
@@ -1109,7 +870,7 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 SmartDesign;Teton
-Reports;Reports
 SmartDesign;Teton_MSS
-ACTIVEVIEW;Teton_MSS
+Reports;Reports
+ACTIVEVIEW;Teton
 ENDLIST
