@@ -26,26 +26,47 @@
 -- PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 ------------------------------------------------------------------------------
 --
--- Description: TBD
+-- Description: Interface module for the FT232H USB (FTDI) chip operating in
+--              synchronous FIFO mode.
+--
+--              The module receives/transmits 8-bit data only (e.g.
+--              multiplexing should be solved outside this block)
+--
+-- Todo:
+--  - Add block ram/register FIFOs for clock region passing
+--  - Add state machine to control data path
+--  - Add logic to sense USB (FTDI) chip presence
+--  - Determine the maximum system clock frequency (<60MHz?)
 ------------------------------------------------------------------------------
 
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
+library smartfusion;
+use smartfusion.all;
+
 entity USB_IF is
     port (
+        -- Internal interface
         CLK         : in  std_logic;
         RST         : in  std_logic;
 
+        TX_STROBE   : in  std_logic;
+        TXD         : in  std_logic_vector(7 downto 0);
+        RX_STROBE   : out std_logic;
+        RXD         : out std_logic_vector(7 downto 0);
+
+        -- USB (FTDI) interface
         USB_CLK_pin : in std_logic;
 
         DATA_pin    : inout std_logic_vector(7 downto 0);
-        RXF_n_pin   : in  std_logic;
-        TXE_n_pin   : in  std_logic;
+        OE_n_pin    : out std_logic;
         RD_n_pin    : out std_logic;
         WR_n_pin    : out std_logic;
-        OE_n_pin    : out std_logic;
+
+        RXF_n_pin   : in  std_logic;
+        TXE_n_pin   : in  std_logic;
 
         SIWU_n_pin  : out std_logic;
         ACBUS8_pin  : in  std_logic;
@@ -56,14 +77,52 @@ end entity;
 
 architecture Behavioral of USB_IF is
 
-    -- Signals
-    alias USB_CLK is USB_CLK_pin;
-
     -- Components
+
+    component CLKBUF
+        port( PAD : in    std_logic := 'U';
+              Y   : out   std_logic
+          );
+    end component;
+
+    component BIBUF_LVCMOS33
+        port( PAD : inout   std_logic;
+              D   : in    std_logic := 'U';
+              E   : in    std_logic := 'U';
+              Y   : out   std_logic
+          );
+    end component;
+
+
+    -- Signals
+
+    signal USB_CLK  : std_logic;
+
+    signal s_oe     : std_logic;
+    signal s_obuf   : std_logic_vector(7 downto 0);
+    signal s_ibuf   : std_logic_vector(7 downto 0);
+
 
 begin
 
     -- Port maps
+
+    u_USB_CLKBUF : CLKBUF
+      port map(PAD => USB_CLK_pin, Y => USB_CLK);
+
+    g_USB_SYNC_FIFO_DATA : for i in 0 to 7 generate
+
+        u_BIBUF_LVCMOS33 : BIBUF_LVCMOS33
+        port map (
+            PAD => DATA_pin(i),
+            D   => s_obuf(i),
+            E   => s_oe,
+            Y   => s_ibuf(i)
+        );
+    end generate g_USB_SYNC_FIFO_DATA;
+        
+
+
     -- Processes
 
 
