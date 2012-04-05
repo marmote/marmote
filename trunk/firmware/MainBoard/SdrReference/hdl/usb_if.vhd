@@ -93,6 +93,22 @@ architecture Behavioral of USB_IF is
           );
     end component;
 
+    component FIFO_256x10 is
+    port (
+        DATA    : in  std_logic_vector(9 downto 0);
+        Q       : out std_logic_vector(9 downto 0);
+        WE      : in  std_logic;
+        RE      : in  std_logic;
+        WCLOCK  : in  std_logic;
+        RCLOCK  : in  std_logic;
+        FULL    : out std_logic;
+        EMPTY   : out std_logic;
+        RESET   : in  std_logic;
+        AEMPTY  : out std_logic;
+        AFULL   : out std_logic
+    );
+end component;
+
 
     -- Signals
 
@@ -102,6 +118,8 @@ architecture Behavioral of USB_IF is
     signal s_obuf   : std_logic_vector(7 downto 0);
     signal s_ibuf   : std_logic_vector(7 downto 0);
 
+    signal s_rx_strobe  : std_logic;
+    signal s_rx_fifo_empty : std_logic;
 
 begin
 
@@ -121,9 +139,42 @@ begin
         );
     end generate g_USB_SYNC_FIFO_DATA;
         
+    -- NOTE: Port mapping and testing of this FIFO is not finished.
+    u_RX_FIFO : FIFO_256x10
+    port map (
+        DATA    => DATA,
+        Q       => RXD,
+        WCLOCK  => USB_CLK,
+        WE      => WE,
+        RCLOCK  => CLK,
+        RE      => s_rx_strobe,
+        FULL    => FULL,
+        EMPTY   => RX_STROBE,
+        RESET   => RST,
+        AEMPTY  => AEMPTY,
+        AFULL   => AFULL
+    );
 
+    -- NOTE: Port mapping and testing of this FIFO is not finished.
+    -- TODO: Remove AEMPTY and AFULL signals.
+    u_TX_FIFO : FIFO_256x10
+    port map (
+        DATA    => TXD,
+        Q       => s_obuf,
+        WCLOCK  => CLK,
+        WE      => TX_STROBE,
+        RCLOCK  => USB_CLK,
+        RE      => RE,
+        FULL    => FULL,
+        EMPTY   => s_rx_fifo_empty,
+        RESET   => RST,
+        AEMPTY  => AEMPTY,
+        AFULL   => AFULL
+    );
 
     -- Processes
+
+    RX_STROBE <= s_rx_strobe;
 
 
 end Behavioral;

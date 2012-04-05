@@ -1,5 +1,5 @@
 KEY LIBERO "10.0"
-KEY CAPTURE "10.0.9.37"
+KEY CAPTURE "10.0.10.4"
 KEY DEFAULT_IMPORT_LOC "D:\work\software\MainBoard\BoardTest\hdl"
 KEY DEFAULT_OPEN_LOC ""
 KEY ProjectID "72c31f41-0f58-4017-8f58-90170f589017"
@@ -352,6 +352,11 @@ VALUE "<project>\constraint\TetonPinAssignment.pdc,pdc"
 STATE="utd"
 TIME="1333405892"
 SIZE="12999"
+ENDFILE
+VALUE "<project>\designer\impl7\AFE_IF.ide_des,ide_des"
+STATE="utd"
+TIME="1333656530"
+SIZE="338"
 ENDFILE
 VALUE "<project>\hdl\afe_if.vhd,hdl"
 STATE="utd"
