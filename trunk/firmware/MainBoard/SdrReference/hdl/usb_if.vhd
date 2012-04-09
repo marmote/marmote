@@ -37,6 +37,7 @@
 --  - Add state machine to control data path
 --  - Add logic to sense USB (FTDI) chip presence
 --  - Determine the maximum system clock frequency (<60MHz?)
+--  - Support bit widhts of larger than 8
 ------------------------------------------------------------------------------
 
 library IEEE;
@@ -52,6 +53,7 @@ entity USB_IF is
         CLK         : in  std_logic;
         RST         : in  std_logic;
 
+        -- FIXME: replace with a 16-bit I/O
         TX_STROBE   : in  std_logic;
         TXD         : in  std_logic_vector(7 downto 0);
         RX_STROBE   : out std_logic;
@@ -93,19 +95,18 @@ architecture Behavioral of USB_IF is
           );
     end component;
 
-    component FIFO_256x10 is
+    -- FIXME: replace with a 16-bit fifo
+    component FIFO_256x8 is
     port (
-        DATA    : in  std_logic_vector(9 downto 0);
-        Q       : out std_logic_vector(9 downto 0);
+        DATA    : in  std_logic_vector(7 downto 0);
+        Q       : out std_logic_vector(7 downto 0);
         WE      : in  std_logic;
         RE      : in  std_logic;
         WCLOCK  : in  std_logic;
         RCLOCK  : in  std_logic;
         FULL    : out std_logic;
         EMPTY   : out std_logic;
-        RESET   : in  std_logic;
-        AEMPTY  : out std_logic;
-        AFULL   : out std_logic
+        RESET   : in  std_logic
     );
 end component;
 
@@ -118,6 +119,9 @@ end component;
     signal s_obuf   : std_logic_vector(7 downto 0);
     signal s_ibuf   : std_logic_vector(7 downto 0);
 
+    signal s_tx_fifo_re : std_logic;
+
+    signal s_rx_fifo_we : std_logic;
     signal s_rx_strobe  : std_logic;
     signal s_rx_fifo_empty : std_logic;
 
@@ -140,39 +144,57 @@ begin
     end generate g_USB_SYNC_FIFO_DATA;
         
     -- NOTE: Port mapping and testing of this FIFO is not finished.
-    u_RX_FIFO : FIFO_256x10
+    u_RX_FIFO : FIFO_256x8
     port map (
-        DATA    => DATA,
+        RESET   => RST,
+        DATA    => s_ibuf,
         Q       => RXD,
         WCLOCK  => USB_CLK,
-        WE      => WE,
+        WE      => s_rx_fifo_we,
         RCLOCK  => CLK,
         RE      => s_rx_strobe,
-        FULL    => FULL,
-        EMPTY   => RX_STROBE,
-        RESET   => RST,
-        AEMPTY  => AEMPTY,
-        AFULL   => AFULL
+        FULL    => open,
+        EMPTY   => RX_STROBE
     );
+
+    s_rx_fifo_we <= '0'; -- FIXME
+    s_rx_strobe <= '0'; -- FIXME
 
     -- NOTE: Port mapping and testing of this FIFO is not finished.
     -- TODO: Remove AEMPTY and AFULL signals.
-    u_TX_FIFO : FIFO_256x10
+    u_TX_FIFO : FIFO_256x8
     port map (
+        RESET   => RST,
         DATA    => TXD,
         Q       => s_obuf,
         WCLOCK  => CLK,
         WE      => TX_STROBE,
         RCLOCK  => USB_CLK,
-        RE      => RE,
-        FULL    => FULL,
-        EMPTY   => s_rx_fifo_empty,
-        RESET   => RST,
-        AEMPTY  => AEMPTY,
-        AFULL   => AFULL
+        RE      => s_tx_fifo_re,
+        FULL    => open,
+        EMPTY   => s_rx_fifo_empty
     );
 
+    s_tx_fifo_re <= '0'; -- FIXME
+
     -- Processes
+
+    p_rx_fifo_read : process (rst, clk)
+    begin
+        if rst = '1' then
+
+        elsif rising_edge(clk) then
+        end if;
+    end process p_rx_fifo_read;
+
+
+    s_oe <= '0'; -- FIXME
+    OE_n_pin <= s_oe;
+    RD_n_pin <= '0'; -- FIXME
+    WR_n_pin <= '0'; -- FIXME
+    SIWU_n_pin <= '0'; -- FIXME
+
+    -- Output assignments
 
     RX_STROBE <= s_rx_strobe;
 

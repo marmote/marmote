@@ -5,24 +5,22 @@ use ieee.std_logic_1164.all;
 library smartfusion;
 use smartfusion.all;
 
-entity FIFO_256x10 is
+entity FIFO_256x8 is
 
-    port( DATA   : in    std_logic_vector(9 downto 0);
-          Q      : out   std_logic_vector(9 downto 0);
+    port( DATA   : in    std_logic_vector(7 downto 0);
+          Q      : out   std_logic_vector(7 downto 0);
           WE     : in    std_logic;
           RE     : in    std_logic;
           WCLOCK : in    std_logic;
           RCLOCK : in    std_logic;
           FULL   : out   std_logic;
           EMPTY  : out   std_logic;
-          RESET  : in    std_logic;
-          AEMPTY : out   std_logic;
-          AFULL  : out   std_logic
+          RESET  : in    std_logic
         );
 
-end FIFO_256x10;
+end FIFO_256x8;
 
-architecture DEF_ARCH of FIFO_256x10 is 
+architecture DEF_ARCH of FIFO_256x8 is 
 
   component INV
     port( A : in    std_logic := 'U';
@@ -137,27 +135,27 @@ begin
     FIFOBLOCK0 : FIFO4K18
       port map(AEVAL11 => \GND\, AEVAL10 => \GND\, AEVAL9 => 
         \GND\, AEVAL8 => \GND\, AEVAL7 => \GND\, AEVAL6 => \GND\, 
-        AEVAL5 => \GND\, AEVAL4 => \VCC\, AEVAL3 => \GND\, AEVAL2
+        AEVAL5 => \GND\, AEVAL4 => \GND\, AEVAL3 => \GND\, AEVAL2
          => \GND\, AEVAL1 => \GND\, AEVAL0 => \GND\, AFVAL11 => 
         \GND\, AFVAL10 => \GND\, AFVAL9 => \GND\, AFVAL8 => \GND\, 
-        AFVAL7 => \GND\, AFVAL6 => \GND\, AFVAL5 => \VCC\, AFVAL4
+        AFVAL7 => \GND\, AFVAL6 => \GND\, AFVAL5 => \GND\, AFVAL4
          => \GND\, AFVAL3 => \GND\, AFVAL2 => \GND\, AFVAL1 => 
         \GND\, AFVAL0 => \GND\, WD17 => \GND\, WD16 => \GND\, 
         WD15 => \GND\, WD14 => \GND\, WD13 => \GND\, WD12 => 
-        \GND\, WD11 => \GND\, WD10 => \GND\, WD9 => DATA(9), WD8
-         => DATA(8), WD7 => DATA(7), WD6 => DATA(6), WD5 => 
-        DATA(5), WD4 => DATA(4), WD3 => DATA(3), WD2 => DATA(2), 
-        WD1 => DATA(1), WD0 => DATA(0), WW0 => \GND\, WW1 => 
-        \GND\, WW2 => \VCC\, RW0 => \GND\, RW1 => \GND\, RW2 => 
-        \VCC\, RPIPE => \GND\, WEN => WEBP, REN => RE, WBLK => 
-        \GND\, RBLK => \GND\, WCLK => WCLOCK, RCLK => RCLOCK, 
-        RESET => RESETP, ESTOP => \VCC\, FSTOP => \VCC\, RD17 => 
-        OPEN, RD16 => OPEN, RD15 => OPEN, RD14 => OPEN, RD13 => 
-        OPEN, RD12 => OPEN, RD11 => OPEN, RD10 => OPEN, RD9 => 
-        Q(9), RD8 => Q(8), RD7 => Q(7), RD6 => Q(6), RD5 => Q(5), 
-        RD4 => Q(4), RD3 => Q(3), RD2 => Q(2), RD1 => Q(1), RD0
-         => Q(0), FULL => FULL, AFULL => AFULL, EMPTY => EMPTY, 
-        AEMPTY => AEMPTY);
+        \GND\, WD11 => \GND\, WD10 => \GND\, WD9 => \GND\, WD8
+         => \GND\, WD7 => DATA(7), WD6 => DATA(6), WD5 => DATA(5), 
+        WD4 => DATA(4), WD3 => DATA(3), WD2 => DATA(2), WD1 => 
+        DATA(1), WD0 => DATA(0), WW0 => \VCC\, WW1 => \VCC\, WW2
+         => \GND\, RW0 => \VCC\, RW1 => \VCC\, RW2 => \GND\, 
+        RPIPE => \VCC\, WEN => WEBP, REN => RE, WBLK => \GND\, 
+        RBLK => \GND\, WCLK => WCLOCK, RCLK => RCLOCK, RESET => 
+        RESETP, ESTOP => \VCC\, FSTOP => \VCC\, RD17 => OPEN, 
+        RD16 => OPEN, RD15 => OPEN, RD14 => OPEN, RD13 => OPEN, 
+        RD12 => OPEN, RD11 => OPEN, RD10 => OPEN, RD9 => OPEN, 
+        RD8 => OPEN, RD7 => Q(7), RD6 => Q(6), RD5 => Q(5), RD4
+         => Q(4), RD3 => Q(3), RD2 => Q(2), RD1 => Q(1), RD0 => 
+        Q(0), FULL => FULL, AFULL => OPEN, EMPTY => EMPTY, AEMPTY
+         => OPEN);
     
     WEBUBBLEA : INV
       port map(A => WE, Y => WEBP);
@@ -194,24 +192,20 @@ end DEF_ARCH;
 -- SMARTGEN_DIE:IP6X5M2
 -- SMARTGEN_PACKAGE:fg256
 -- AGENIII_IS_SUBPROJECT_LIBERO:T
--- WWIDTH:10
--- RWIDTH:10
+-- WWIDTH:8
+-- RWIDTH:8
 -- WDEPTH:256
 -- RDEPTH:256
 -- WE_POLARITY:1
 -- RE_POLARITY:1
 -- RCLK_EDGE:RISE
 -- WCLK_EDGE:RISE
--- PMODE1:0
--- FLAGS:STATIC
+-- PMODE1:1
+-- FLAGS:NOFLAGS
 -- AFVAL:2
 -- AEVAL:1
 -- ESTOP:NO
 -- FSTOP:NO
--- AFVAL:2
--- AEVAL:1
--- AFFLAG_UNITS:WW
--- AEFLAG_UNITS:RW
 -- DATA_IN_PN:DATA
 -- DATA_OUT_PN:Q
 -- WE_PN:WE
@@ -228,4 +222,5 @@ end DEF_ARCH;
 -- RESET_POLARITY:1
 
 -- _End_Comments_
+
 
