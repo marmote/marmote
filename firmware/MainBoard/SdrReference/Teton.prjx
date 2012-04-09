@@ -21,7 +21,7 @@ KEY ProjectLocation "D:\firmware\MainBoard\SdrReference"
 KEY ProjectDescription ""
 KEY SimulationType "VHDL"
 KEY Vendor "Actel"
-KEY ActiveRoot "AFE_IF::work"
+KEY ActiveRoot "USB_IF::work"
 LIST REVISIONS
 VALUE="Impl1",NUM=1
 VALUE="Impl2",NUM=2
@@ -47,13 +47,13 @@ ENDLIST
 LIST FileManager
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf,actgen_cxf"
 STATE="utd"
-TIME="1333573812"
+TIME="1334010661"
 SIZE="2407"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
 STATE="utd"
-TIME="1333573812"
+TIME="1334010661"
 SIZE="1242"
 LIBRARY="COREAPB3_LIB"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
@@ -239,20 +239,20 @@ SIZE="437"
 ENDFILE
 VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1333573815"
+TIME="1334010663"
 SIZE="4650"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.cxf,actgen_cxf"
 STATE="utd"
-TIME="1333573813"
+TIME="1334010662"
 SIZE="14810"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.pdc,pdc"
 STATE="utd"
-TIME="1333573811"
-SIZE="9307"
+TIME="1334010660"
+SIZE="9311"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 BEGIN_USE_CONSTRAINT
 TOOL_CONSTRAINT_TYPE="ideDESIGNER"
@@ -262,8 +262,8 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.vhd,hdl"
 STATE="utd"
-TIME="1333573813"
-SIZE="53113"
+TIME="1334010662"
+SIZE="53117"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 IS_READONLY="TRUE"
 ENDFILE
@@ -358,15 +358,25 @@ STATE="utd"
 TIME="1333656530"
 SIZE="338"
 ENDFILE
+VALUE "<project>\designer\impl7\USB_IF.ide_des,ide_des"
+STATE="utd"
+TIME="1334005920"
+SIZE="192"
+ENDFILE
 VALUE "<project>\hdl\afe_if.vhd,hdl"
 STATE="utd"
 TIME="1333565781"
 SIZE="7071"
 ENDFILE
+VALUE "<project>\hdl\fifo_256x8.vhd,hdl"
+STATE="utd"
+TIME="1334010374"
+SIZE="7331"
+ENDFILE
 VALUE "<project>\hdl\usb_if.vhd,hdl"
 STATE="utd"
-TIME="1333573486"
-SIZE="4033"
+TIME="1334011203"
+SIZE="6022"
 ENDFILE
 VALUE "<project>\simulation\afe_if_wave.do,do"
 STATE="utd"
@@ -399,17 +409,17 @@ PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
 ENDFILE
 VALUE "<project>\simulation\presynth_simulation.log,log"
 STATE="utd"
-TIME="1333565859"
-SIZE="1372337"
+TIME="1334011206"
+SIZE="138214"
 ENDFILE
 VALUE "<project>\simulation\run.do,do"
 STATE="utd"
-TIME="1333565311"
-SIZE="1195"
+TIME="1334009276"
+SIZE="1281"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
-TIME="1333573813"
+TIME="1334010662"
 SIZE="598"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 ENDFILE
@@ -418,6 +428,11 @@ STATE="utd"
 TIME="1333406050"
 SIZE="5460"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
+ENDFILE
+VALUE "<project>\simulation\usb_if_wave.do,do"
+STATE="utd"
+TIME="1334011259"
+SIZE="1729"
 ENDFILE
 VALUE "<project>\simulation\user.bfm,sim"
 STATE="utd"
@@ -430,20 +445,35 @@ STATE="utd"
 TIME="1333565549"
 SIZE="6294"
 ENDFILE
+VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
+STATE="utd"
+TIME="1334009137"
+SIZE="3806"
+ENDFILE
 VALUE "<project>\synthesis\AFE_IF.edn,syn_edn"
-STATE="ood"
-TIME="1333464239"
-SIZE="50857"
+STATE="utd"
+TIME="1334005772"
+SIZE="52242"
 ENDFILE
 VALUE "<project>\synthesis\AFE_IF.so,so"
 STATE="utd"
-TIME="1333464239"
+TIME="1334005772"
 SIZE="216"
 ENDFILE
 VALUE "<project>\synthesis\AFE_IF_sdc.sdc,syn_sdc"
-STATE="ood"
-TIME="1333464239"
+STATE="utd"
+TIME="1334005772"
 SIZE="376"
+ENDFILE
+VALUE "<project>\synthesis\synwork\USB_IF_compiler.so,so"
+STATE="utd"
+TIME="1334005928"
+SIZE="159"
+ENDFILE
+VALUE "<project>\synthesis\USB_IF.so,so"
+STATE="utd"
+TIME="1334005928"
+SIZE="159"
 ENDFILE
 ENDLIST
 LIST UsedFile
@@ -456,7 +486,9 @@ VALUE "<project>\stimulus\afe_if_tb.vhd,tb_hdl"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\AFE_IF.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -465,7 +497,9 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl2
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\AFE_IF.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -474,7 +508,9 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl3
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\AFE_IF.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -483,7 +519,9 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl4
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\AFE_IF.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -492,7 +530,9 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl5
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\AFE_IF.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -501,7 +541,9 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl6
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\AFE_IF.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -510,7 +552,9 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl7
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\AFE_IF.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -680,19 +724,10 @@ ENDUsed_File_List
 ENDLIST
 ENDLIST
 ENDLIST
-LIST "CoreAPB3::COREAPB3_LIB::components"
-FILE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
-LIST Other_Association
-VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
-VALUE "<project>\simulation\coreapb3_usertb_include.bfm,sim"
-VALUE "<project>\simulation\coreapb3_usertb_apb_master.bfm,sim"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\scripts\wave_user.do,do"
-ENDLIST
+LIST "USB_IF::work"
+FILE "<project>\hdl\usb_if.vhd,hdl"
 LIST AssociatedStimulus
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
@@ -760,6 +795,21 @@ ENDUsed_File_List
 ENDLIST
 ENDLIST
 ENDLIST
+LIST "CoreAPB3::COREAPB3_LIB::components"
+FILE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
+LIST Other_Association
+VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
+VALUE "<project>\simulation\coreapb3_usertb_include.bfm,sim"
+VALUE "<project>\simulation\coreapb3_usertb_apb_master.bfm,sim"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\scripts\wave_user.do,do"
+ENDLIST
+LIST AssociatedStimulus
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+ENDLIST
+ENDLIST
 ENDLIST
 LIST AssociatedStimulus
 LIST Teton
@@ -775,6 +825,9 @@ ENDLIST
 LIST CoreAPB3
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+ENDLIST
+LIST USB_IF
+VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
 ENDLIST
 ENDLIST
 LIST Other_Association
@@ -808,12 +861,12 @@ Type=max
 RunTime=-all
 Resolution=1ps
 VsimOpt=
-EntityName=afe_if_tb
+EntityName=usb_if_tb
 TopInstanceName=uut
 DoFileName=
-DoFileName2=./afe_if_wave.do
+DoFileName2=./usb_if_wave.do
 DoFileParams=
-DisplayDUTWave=false
+DisplayDUTWave=true
 LogAllSignals=false
 DumpVCD=false
 VCDFileName=power.vcd
@@ -849,14 +902,14 @@ NAME="Synplify Pro AE"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro AE"
 LOCATION="C:\Actel\Libero_v10.0\Synopsys\synplify_F201109M\bin\synplify_pro.exe"
-PARAM=""
-BATCH=0
+PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
+BATCH=1
 EndProfile
 NAME="ModelSim AE"
 FUNCTION="Simulation"
 TOOL="ModelSim"
 LOCATION="C:\Actel\Libero_v10.0\Model\win32acoem\modelsim.exe"
-PARAM=""
+PARAM=" -l presynth_simulation.log "
 BATCH=0
 EndProfile
 NAME="FlashPro"
@@ -870,7 +923,9 @@ ENDLIST
 LIST ProjectState5.1
 LIST "AFE_IF::work"
 LIST Impl1
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\AFE_IF.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -879,7 +934,9 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl2
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\AFE_IF.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -888,7 +945,9 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl3
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\AFE_IF.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -897,7 +956,9 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl4
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\AFE_IF.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -906,7 +967,9 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl5
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\AFE_IF.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -915,7 +978,9 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl6
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\AFE_IF.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -924,7 +989,9 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl7
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\AFE_IF.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1063,7 +1130,7 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 ENDLIST
-LIST "CoreAPB3::COREAPB3_LIB::components"
+LIST "USB_IF::work"
 LIST Impl1
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
