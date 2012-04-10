@@ -3,6 +3,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+use IEEE.math_real.all;
 
 entity USB_IF_tb is
     end;
@@ -30,6 +31,21 @@ architecture bench of USB_IF_tb is
      );
     end component;
 
+    component USB_IF_TC is
+    port (
+        USB_CLK_pin  : in   std_logic;
+        DATA_pin     : in   std_logic_vector(7 downto 0);
+        RXF_n_pin    : in   std_logic;
+        TXE_n_pin    : in   std_logic;
+        RD_n_pin     : in   std_logic;
+        WR_n_pin     : in   std_logic;
+        SIWU_n_pin   : in   std_logic;
+        OE_n_pin     : in   std_logic;
+        ACBUS8_pin   : in   std_logic;
+        ACBUS9_pin   : in   std_logic
+    );
+    end component;
+
     signal CLK: std_logic;
     signal RST: std_logic;
     signal TX_STROBE: std_logic;
@@ -53,7 +69,7 @@ architecture bench of USB_IF_tb is
     --constant sys_clock_period: time := 1000/20 ns; -- 20 MHz
     --constant sys_clock_period: time := (1000/20) * 1 ns; -- 20 MHz
     constant sys_clock_period: time := 50 ns; -- 20 MHz
-    constant usb_clock_period: time := (1000/60) * 1 ns; -- 60 MHz
+    constant usb_clock_period: time := (real(1000)/real(60)) * 1 ns; -- 60 MHz
     signal stop_the_clock: boolean;
 
 begin
@@ -76,6 +92,20 @@ begin
         SIWU_n_pin  => SIWU_n_pin,
         ACBUS8_pin  => ACBUS8_pin,
         ACBUS9_pin  => ACBUS9_pin
+    );
+
+    u_USB_IF_TC : USB_IF_TC
+    port map (
+         USB_CLK_pin =>  USB_CLK_pin,
+         DATA_pin    =>  DATA_pin,
+         RXF_n_pin   =>  RXF_n_pin,
+         TXE_n_pin   =>  TXE_n_pin,
+         RD_n_pin    =>  RD_n_pin,
+         WR_n_pin    =>  WR_n_pin,
+         SIWU_n_pin  =>  SIWU_n_pin,
+         OE_n_pin    =>  OE_n_pin,
+         ACBUS8_pin  =>  ACBUS8_pin,
+         ACBUS9_pin  =>  ACBUS9_pin
     );
 
     ----------------------------------------------------------------
@@ -103,10 +133,16 @@ begin
 
         -- Stimulus
 
+        -- Test single cycle usb transmission
+        -- TODO
+
         -- Test usb transmission w/o overflow
         -- TODO
 
         -- Test usb transmission w/ overflow
+        -- TODO
+
+        -- Test single cycle usb reception
         -- TODO
 
         -- Test usb reception w/o overflow

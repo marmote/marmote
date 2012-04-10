@@ -1,4 +1,5 @@
 -- USB_IF_TC.VHD
+
 ------------------------------------------------------------------------------
 -- MODULE: Marmote Main Board
 -- AUTHORS: Sandor Szilvasi
@@ -28,7 +29,9 @@
 --
 -- Description: FTDI FT232H USB chip FT245 synchronous FIFO interface timing
 --              checker module.
-
+--
+-- Todo:        Add functional checking.
+--
 ------------------------------------------------------------------------------
 
 library IEEE;
@@ -100,17 +103,28 @@ begin
     -- p_usb_clock_check
     -- Process to check the USB interface clock signal
     p_usb_clock_check : process
+        variable pre : time := 0 ns; -- previous rising edge
+        variable pfe : time := 0 ns; -- previous falling edge
     begin
 
         wait until rising_edge(USB_CLK_pin);
-        assert USB_CLK_pin'last_event > t2_min and USB_CLK_pin'last_event < t2_max
-        report "USB: CLKOUT high period requirement not met"
+
+        assert t2_min < now-pfe and now-pfe < t2_max
+        report "USB: CLKOUT high period requirement not met (" &
+        time'image(t2_min) & " < " & time'image(now-pfe) & " < " & time'image(t2_max) & ")"
         severity warning;
 
+        pre := now;
+
+
         wait until falling_edge(USB_CLK_pin);
-        assert USB_CLK_pin'last_event > t3_min and USB_CLK_pin'last_event < t3_max
-        report "USB: CLKOUT low period requirement not met"
+
+        assert t3_min < now-pre and now-pre < t3_max
+        report "USB: CLKOUT low period requirement not met (" &
+        time'image(t3_min) & " < " & time'image(now-pre) & " < " & time'image(t3_max) & ")"
         severity warning;
+
+        pfe := now;
 
     end process p_usb_clock_check;
 
@@ -167,7 +181,7 @@ begin
                 report "USB: WR# is pulled low without TXE# being asserted"
                 severity error;
 
-                assert DATA'stable(t12_min)
+                assert DATA_pin'stable(t12_min)
                 report "USB: Write DATA setup time (t12) violated"
                 severity error;
 
