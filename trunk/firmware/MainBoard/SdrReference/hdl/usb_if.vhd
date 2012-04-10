@@ -112,25 +112,32 @@ end component;
 
 
     -- Signals
+    alias sys_clk is clk;
 
-    signal USB_CLK  : std_logic;
+    signal usb_clk  : std_logic;
 
     signal s_oe     : std_logic;
     signal s_obuf   : std_logic_vector(7 downto 0);
     signal s_ibuf   : std_logic_vector(7 downto 0);
 
+    signal s_wr_n   : std_logic;
     signal s_tx_fifo_re : std_logic;
+    signal s_tx_fifo_we : std_logic;
+    signal s_tx_fifo_re_d : std_logic;
+    signal s_tx_fifo_full : std_logic;
+    signal s_tx_fifo_empty : std_logic;
+    signal s_tx_fifo_empty_d : std_logic;
 
     signal s_rx_fifo_we : std_logic;
     signal s_rx_strobe  : std_logic;
-    signal s_rx_fifo_empty : std_logic;
 
 begin
 
     -- Port maps
 
     u_USB_CLKBUF : CLKBUF
-      port map(PAD => USB_CLK_pin, Y => USB_CLK);
+      port map(PAD => USB_CLK_pin, Y => usb_clk);
+
 
     g_USB_SYNC_FIFO_DATA : for i in 0 to 7 generate
 
@@ -141,7 +148,9 @@ begin
             E   => s_oe,
             Y   => s_ibuf(i)
         );
+
     end generate g_USB_SYNC_FIFO_DATA;
+
         
     -- NOTE: Port mapping and testing of this FIFO is not finished.
     u_RX_FIFO : FIFO_256x8
@@ -149,7 +158,7 @@ begin
         RESET   => RST,
         DATA    => s_ibuf,
         Q       => RXD,
-        WCLOCK  => USB_CLK,
+        WCLOCK  => usb_clk,
         WE      => s_rx_fifo_we,
         RCLOCK  => CLK,
         RE      => s_rx_strobe,
@@ -160,22 +169,23 @@ begin
     s_rx_fifo_we <= '0'; -- FIXME
     s_rx_strobe <= '0'; -- FIXME
 
-    -- NOTE: Port mapping and testing of this FIFO is not finished.
-    -- TODO: Remove AEMPTY and AFULL signals.
+
     u_TX_FIFO : FIFO_256x8
     port map (
         RESET   => RST,
         DATA    => TXD,
         Q       => s_obuf,
         WCLOCK  => CLK,
-        WE      => TX_STROBE,
-        RCLOCK  => USB_CLK,
+        WE      => s_tx_fifo_we,
+        RCLOCK  => usb_clk,
         RE      => s_tx_fifo_re,
-        FULL    => open,
-        EMPTY   => s_rx_fifo_empty
+        FULL    => s_tx_fifo_full,
+        EMPTY   => s_tx_fifo_empty
     );
 
-    s_tx_fifo_re <= '0'; -- FIXME
+--    s_tx_fifo_we <= TX_STROBE and not s_tx_fifo_full;
+    s_tx_fifo_we <= TX_STROBE;
+
 
     -- Processes
 
@@ -187,11 +197,36 @@ begin
         end if;
     end process p_rx_fifo_read;
 
+    p_tx_fifo_read_sm : process (rst, usb_clk)
+    begin
+        if rst = '1' then
+            s_wr_n <= '1';
+            s_oe <= '0';
+            s_tx_fifo_re <= '0';
+            s_tx_fifo_re_d <= '0';
+            s_tx_fifo_empty_d <= '0';
+        elsif rising_edge(usb_clk) then
 
-    s_oe <= '0'; -- FIXME
-    OE_n_pin <= not s_oe;
+            s_wr_n <= '1';
+            s_oe <= '0';
+            s_tx_fifo_re <= '0';
+            s_tx_fifo_re_d <= s_tx_fifo_re;
+            s_tx_fifo_empty_d <= s_tx_fifo_empty;
+
+            if TXE_n_pin = '0' and s_tx_fifo_empty = '0' then
+                s_tx_fifo_re <= '1';
+            end if;
+
+            if s_tx_fifo_re_d = '1' and s_tx_fifo_empty_d = '0' then
+                s_wr_n <= '0';
+                s_oe <= '1';
+            end if;
+        end if;
+    end process p_tx_fifo_read_sm;
+
+    OE_n_pin <= '1';
     RD_n_pin <= '1'; -- FIXME
-    WR_n_pin <= '1'; -- FIXME
+    WR_n_pin <= s_wr_n;
     SIWU_n_pin <= '0'; -- FIXME
 
     -- Output assignments

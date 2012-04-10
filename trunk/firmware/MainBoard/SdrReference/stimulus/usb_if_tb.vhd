@@ -115,8 +115,8 @@ begin
       -- Initialization
 
         -- Internal
-        TX_STROBE <= '0';
         TXD <= (others => '0');
+        TX_STROBE <= '0';
 
         -- External
         RXF_n_pin <= '1';
@@ -132,9 +132,45 @@ begin
 
 
         -- Stimulus
+        wait for 100 ns;
 
         -- Test single cycle usb transmission
-        -- TODO
+        wait until falling_edge(sys_clk);
+
+--        TXD <= x"01";
+--        TX_STROBE <= '1';
+--        wait for sys_clock_period;
+--
+--        TXD <= x"02";
+--        TX_STROBE <= '1';
+--        wait for sys_clock_period;
+
+        TX_STROBE <= '1';
+        for i in 0 to 12 loop
+--            if i < 200 then
+                TXD <= std_logic_vector(to_unsigned(i, TXD'length));
+--            else
+--                TXD <= x"FF";
+--            end if;
+            wait for sys_clock_period;
+        end loop;
+
+        TX_STROBE <= '0';
+        TXD <= (others => '0');
+
+
+        -- "FT232 STUB"
+        wait for 200 ns;
+        wait until falling_edge(usb_clk);
+        wait until rising_edge(sys_clk);
+
+        TXE_n_pin <= '0';
+        wait for 1 * usb_clock_period;
+        TXE_n_pin <= '1';
+        wait for 1 * usb_clock_period;
+        TXE_n_pin <= '0';
+        wait for 5 * usb_clock_period;
+        TXE_n_pin <= '1';
 
         -- Test usb transmission w/o overflow
         -- TODO
@@ -151,7 +187,7 @@ begin
         -- Test usb reception w/ overflow
         -- TODO
 
-        wait for 10 us;
+        wait for 200 ns;
 
         stop_the_clock <= true;
         wait;
