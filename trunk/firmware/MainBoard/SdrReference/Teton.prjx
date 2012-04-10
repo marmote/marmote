@@ -378,6 +378,11 @@ STATE="utd"
 TIME="1334011203"
 SIZE="6022"
 ENDFILE
+VALUE "<project>\hdl\usb_if_tc.vhd,hdl"
+STATE="utd"
+TIME="1334073422"
+SIZE="7088"
+ENDFILE
 VALUE "<project>\simulation\afe_if_wave.do,do"
 STATE="utd"
 TIME="1333565789"
@@ -445,10 +450,25 @@ STATE="utd"
 TIME="1333565549"
 SIZE="6294"
 ENDFILE
+VALUE "<project>\stimulus\usb_if.vhd,tb_hdl"
+STATE="utd"
+TIME="1334011203"
+SIZE="6022"
+ENDFILE
 VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
 STATE="utd"
 TIME="1334009137"
 SIZE="3806"
+ENDFILE
+VALUE "<project>\stimulus\usb_if_tc.vhd,tb_hdl"
+STATE="utd"
+TIME="1334011203"
+SIZE="6022"
+ENDFILE
+VALUE "<project>\stimulus\usb_if_timing_checker.vhd,tb_hdl"
+STATE="utd"
+TIME="1334011203"
+SIZE="6022"
 ENDFILE
 VALUE "<project>\synthesis\AFE_IF.edn,syn_edn"
 STATE="utd"

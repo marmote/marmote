@@ -189,9 +189,9 @@ begin
 
 
     s_oe <= '0'; -- FIXME
-    OE_n_pin <= s_oe;
-    RD_n_pin <= '0'; -- FIXME
-    WR_n_pin <= '0'; -- FIXME
+    OE_n_pin <= not s_oe;
+    RD_n_pin <= '1'; -- FIXME
+    WR_n_pin <= '1'; -- FIXME
     SIWU_n_pin <= '0'; -- FIXME
 
     -- Output assignments
