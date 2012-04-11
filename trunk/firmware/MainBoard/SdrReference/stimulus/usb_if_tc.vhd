@@ -177,10 +177,6 @@ begin
             
             if WR_n_pin = '0' then
 
-                assert TXE_n_pin = '0' -- FIXME: might not work for last cycle
-                report "USB: WR# is pulled low without TXE# being asserted"
-                severity error;
-
                 assert DATA_pin'stable(t12_min)
                 report "USB: Write DATA setup time (t12) violated"
                 severity error;
@@ -193,6 +189,20 @@ begin
 
         end if;
     end process p_usb_write_check;
+
+    -- p_usb_write_check
+    -- Process to check the USB interface against the following timing
+    -- requirements:
+    --  - Write DATA setup time (t12)
+    --  - WR# setup time to CLKOUT (t14)
+    p_usb_txe_wr_check : process(WR_n_pin)
+    begin
+        if falling_edge(WR_n_pin) then
+            assert TXE_n_pin = '0'
+            report "USB: WR# is pulled low without TXE# being asserted"
+            severity error;
+        end if;
+    end process p_usb_txe_wr_check;
 
 end Behavioral;
 

@@ -146,7 +146,7 @@ begin
 --        wait for sys_clock_period;
 
         TX_STROBE <= '1';
-        for i in 0 to 12 loop
+        for i in 2 to 600 loop
 --            if i < 200 then
                 TXD <= std_logic_vector(to_unsigned(i, TXD'length));
 --            else
@@ -163,13 +163,37 @@ begin
         wait for 200 ns;
         wait until falling_edge(usb_clk);
         wait until rising_edge(sys_clk);
+        wait for 3 ns;
 
+        -- Should accept 0 byte
         TXE_n_pin <= '0';
         wait for 1 * usb_clock_period;
         TXE_n_pin <= '1';
-        wait for 1 * usb_clock_period;
+
+        wait for 100 ns;
+
+        -- Should accept 0 byte
         TXE_n_pin <= '0';
-        wait for 5 * usb_clock_period;
+        wait for 1 * usb_clock_period;
+        TXE_n_pin <= '1';
+
+        wait for 100 ns;
+
+        -- Should accept 1 byte
+        TXE_n_pin <= '0';
+        wait for 2 * usb_clock_period;
+        TXE_n_pin <= '1';
+
+        wait for 100 ns;
+
+        -- Should accept 4 byte
+        TXE_n_pin <= '0';
+        wait for 800 * usb_clock_period;
+        TXE_n_pin <= '1';
+
+--        wait for 3 * usb_clock_period;
+--        TXE_n_pin <= '0';
+--        wait for 5 * usb_clock_period;
         TXE_n_pin <= '1';
 
         -- Test usb transmission w/o overflow
@@ -187,7 +211,26 @@ begin
         -- Test usb reception w/ overflow
         -- TODO
 
-        wait for 200 ns;
+--        wait for 2000 ns;
+--
+--        TX_STROBE <= '1';
+--        for i in 2 to 102 loop
+--                TXD <= std_logic_vector(to_unsigned(i, TXD'length));
+--            wait for sys_clock_period;
+--        end loop;
+--        TX_STROBE <= '0';
+--
+--        
+--        TXE_n_pin <= '0';
+--        wait for 8 * usb_clock_period;
+--        TXE_n_pin <= '1';
+--
+--        wait for 2000 ns;
+--       
+--        TXE_n_pin <= '0';
+--        wait for 800 * usb_clock_period;
+--        TXE_n_pin <= '1';
+
 
         stop_the_clock <= true;
         wait;
@@ -237,6 +280,19 @@ begin
 --        elsif rising_edge(usb_clk) then
 --        end if;
 --    end process p_tx_data_gen;
+
+    -- p_usb_tx_checker
+    -- Checkes data transmitted from USB IF to FT232H
+    p_usb_tx_checker : process(usb_clk)
+    begin
+        if rising_edge(usb_clk) then
+            if TXE_n_pin = '0' and WR_n_pin = '0' then
+                report "USB TX checker received: " &
+                integer'image(to_integer(unsigned(DATA_pin)));
+            end if;
+        end if;
+    end process p_usb_tx_checker;
+
 
 end;
 
