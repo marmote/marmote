@@ -33,6 +33,7 @@
 --              multiplexing should be solved outside this block)
 --
 -- Todo:
+--  - TXE# and WE# monitoring
 --  - Add block ram/register FIFOs for clock region passing
 --  - Add state machine to control data path
 --  - Add logic to sense USB (FTDI) chip presence
@@ -96,7 +97,7 @@ architecture Behavioral of USB_IF is
     end component;
 
     -- FIXME: replace with a 16-bit fifo
-    component FIFO_256x8 is
+    component FIFO_512x8 is
     port (
         DATA    : in  std_logic_vector(7 downto 0);
         Q       : out std_logic_vector(7 downto 0);
@@ -117,16 +118,24 @@ end component;
     signal usb_clk  : std_logic;
 
     signal s_oe     : std_logic;
+    signal s_oe_next : std_logic;
     signal s_obuf   : std_logic_vector(7 downto 0);
     signal s_ibuf   : std_logic_vector(7 downto 0);
 
-    signal s_wr_n   : std_logic;
+    type tx_sm_t is (st_IDLE, st_LOADED);
+
+    signal s_tx_sm_state : tx_sm_t;
+    signal s_tx_sm_state_next : tx_sm_t;
+    signal s_wr_n : std_logic;
+    signal s_wr_n_next : std_logic;
     signal s_tx_fifo_re : std_logic;
+    signal s_tx_fifo_re_next : std_logic;
     signal s_tx_fifo_we : std_logic;
     signal s_tx_fifo_re_d : std_logic;
     signal s_tx_fifo_full : std_logic;
     signal s_tx_fifo_empty : std_logic;
     signal s_tx_fifo_empty_d : std_logic;
+    signal s_tx_idle    : std_logic;
 
     signal s_rx_fifo_we : std_logic;
     signal s_rx_strobe  : std_logic;
@@ -153,7 +162,7 @@ begin
 
         
     -- NOTE: Port mapping and testing of this FIFO is not finished.
-    u_RX_FIFO : FIFO_256x8
+    u_RX_FIFO : FIFO_512x8
     port map (
         RESET   => RST,
         DATA    => s_ibuf,
@@ -170,7 +179,7 @@ begin
     s_rx_strobe <= '0'; -- FIXME
 
 
-    u_TX_FIFO : FIFO_256x8
+    u_TX_FIFO : FIFO_512x8
     port map (
         RESET   => RST,
         DATA    => TXD,
@@ -178,7 +187,7 @@ begin
         WCLOCK  => CLK,
         WE      => s_tx_fifo_we,
         RCLOCK  => usb_clk,
-        RE      => s_tx_fifo_re,
+        RE      => s_tx_fifo_re_next,
         FULL    => s_tx_fifo_full,
         EMPTY   => s_tx_fifo_empty
     );
@@ -197,32 +206,76 @@ begin
         end if;
     end process p_rx_fifo_read;
 
-    p_tx_fifo_read_sm : process (rst, usb_clk)
+
+    p_tx_fifo_read_sm_sync : process (rst, usb_clk)
     begin
         if rst = '1' then
             s_wr_n <= '1';
             s_oe <= '0';
-            s_tx_fifo_re <= '0';
-            s_tx_fifo_re_d <= '0';
-            s_tx_fifo_empty_d <= '0';
+            s_tx_sm_state <= st_IDLE;
         elsif rising_edge(usb_clk) then
-
-            s_wr_n <= '1';
-            s_oe <= '0';
-            s_tx_fifo_re <= '0';
-            s_tx_fifo_re_d <= s_tx_fifo_re;
-            s_tx_fifo_empty_d <= s_tx_fifo_empty;
-
-            if TXE_n_pin = '0' and s_tx_fifo_empty = '0' then
-                s_tx_fifo_re <= '1';
-            end if;
-
-            if s_tx_fifo_re_d = '1' and s_tx_fifo_empty_d = '0' then
-                s_wr_n <= '0';
-                s_oe <= '1';
-            end if;
+            -- Register updates
+            s_wr_n <= s_wr_n_next;
+            s_oe <= s_oe_next;
+            s_tx_fifo_re <= s_tx_fifo_re_next;
+            s_tx_sm_state <= s_tx_sm_state_next;
         end if;
-    end process p_tx_fifo_read_sm;
+    end process p_tx_fifo_read_sm_sync;
+
+    p_tx_fifo_read_sm_comb : process (
+        s_tx_sm_state,
+        s_tx_fifo_empty,
+        TXE_n_pin,
+        s_wr_n
+    )
+    begin
+
+        -- Default states
+        s_tx_fifo_re_next <= '0';
+        s_wr_n_next <= '1';
+        s_oe_next <= '0';
+        s_tx_sm_state_next <= s_tx_sm_state;
+
+        -- Next state logic
+        case s_tx_sm_state is
+
+            -- State st_LOADED
+            -- Waiting for the FIFO to become non-empty
+            when st_IDLE =>
+
+                if s_tx_fifo_empty = '0' then
+                    s_tx_fifo_re_next <= '1';
+                    s_tx_sm_state_next <= st_LOADED;
+                end if;
+
+            -- State st_LOADED
+            -- The FIFO register is loaded, waiting for TXE# = 0 and WR# = 0
+            -- that is for the data to be accepted.
+            when st_LOADED =>
+
+                if TXE_n_pin = '0' then
+                    s_oe_next <= '1';
+                    s_wr_n_next <= '0';
+                end if;
+
+                -- Check if data has been accepted
+                if s_wr_n = '0' and txe_n_pin = '0' then
+                    s_tx_fifo_re_next <= '1';
+                    if s_tx_fifo_empty = '1' then
+                        -- Move to IDLE state if nothing more is to be transmitted
+                        s_wr_n_next <= '1';
+                        s_tx_sm_state_next <= st_IDLE;
+                    end if;
+                end if;
+
+
+            when others =>
+                null;
+
+        end case;
+
+    end process p_tx_fifo_read_sm_comb;
+
 
     OE_n_pin <= '1';
     RD_n_pin <= '1'; -- FIXME

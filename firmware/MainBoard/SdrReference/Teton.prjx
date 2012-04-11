@@ -47,13 +47,13 @@ ENDLIST
 LIST FileManager
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf,actgen_cxf"
 STATE="utd"
-TIME="1334010661"
+TIME="1334073429"
 SIZE="2407"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
 STATE="utd"
-TIME="1334010661"
+TIME="1334073429"
 SIZE="1242"
 LIBRARY="COREAPB3_LIB"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
@@ -239,19 +239,19 @@ SIZE="437"
 ENDFILE
 VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1334010663"
+TIME="1334073432"
 SIZE="4650"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.cxf,actgen_cxf"
 STATE="utd"
-TIME="1334010662"
+TIME="1334073430"
 SIZE="14810"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.pdc,pdc"
 STATE="utd"
-TIME="1334010660"
+TIME="1334073427"
 SIZE="9311"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 BEGIN_USE_CONSTRAINT
@@ -262,7 +262,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.vhd,hdl"
 STATE="utd"
-TIME="1334010662"
+TIME="1334073430"
 SIZE="53117"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 IS_READONLY="TRUE"
@@ -370,18 +370,18 @@ SIZE="7071"
 ENDFILE
 VALUE "<project>\hdl\fifo_256x8.vhd,hdl"
 STATE="utd"
-TIME="1334010374"
+TIME="1334166169"
+SIZE="7331"
+ENDFILE
+VALUE "<project>\hdl\fifo_512x8.vhd,hdl"
+STATE="utd"
+TIME="1334166169"
 SIZE="7331"
 ENDFILE
 VALUE "<project>\hdl\usb_if.vhd,hdl"
 STATE="utd"
-TIME="1334011203"
-SIZE="6022"
-ENDFILE
-VALUE "<project>\hdl\usb_if_tc.vhd,hdl"
-STATE="utd"
-TIME="1334073422"
-SIZE="7088"
+TIME="1334166249"
+SIZE="9814"
 ENDFILE
 VALUE "<project>\simulation\afe_if_wave.do,do"
 STATE="utd"
@@ -414,17 +414,17 @@ PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
 ENDFILE
 VALUE "<project>\simulation\presynth_simulation.log,log"
 STATE="utd"
-TIME="1334011206"
-SIZE="138214"
+TIME="1334166253"
+SIZE="5003502"
 ENDFILE
 VALUE "<project>\simulation\run.do,do"
 STATE="utd"
-TIME="1334009276"
-SIZE="1281"
+TIME="1334073743"
+SIZE="1423"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
-TIME="1334010662"
+TIME="1334073430"
 SIZE="598"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 ENDFILE
@@ -436,8 +436,8 @@ PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\simulation\usb_if_wave.do,do"
 STATE="utd"
-TIME="1334011259"
-SIZE="1729"
+TIME="1334159903"
+SIZE="1647"
 ENDFILE
 VALUE "<project>\simulation\user.bfm,sim"
 STATE="utd"
@@ -450,25 +450,15 @@ STATE="utd"
 TIME="1333565549"
 SIZE="6294"
 ENDFILE
-VALUE "<project>\stimulus\usb_if.vhd,tb_hdl"
-STATE="utd"
-TIME="1334011203"
-SIZE="6022"
-ENDFILE
 VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
 STATE="utd"
-TIME="1334009137"
-SIZE="3806"
+TIME="1334165866"
+SIZE="7554"
 ENDFILE
 VALUE "<project>\stimulus\usb_if_tc.vhd,tb_hdl"
 STATE="utd"
-TIME="1334011203"
-SIZE="6022"
-ENDFILE
-VALUE "<project>\stimulus\usb_if_timing_checker.vhd,tb_hdl"
-STATE="utd"
-TIME="1334011203"
-SIZE="6022"
+TIME="1334075807"
+SIZE="6980"
 ENDFILE
 VALUE "<project>\synthesis\AFE_IF.edn,syn_edn"
 STATE="utd"
@@ -497,6 +487,7 @@ SIZE="159"
 ENDFILE
 ENDLIST
 LIST UsedFile
+VALUE "<project>\hdl\fifo_512x8.vhd,FIFO_512x8"
 ENDLIST
 LIST NewModulesInfo
 LIST "AFE_IF::work"
@@ -748,6 +739,7 @@ LIST "USB_IF::work"
 FILE "<project>\hdl\usb_if.vhd,hdl"
 LIST AssociatedStimulus
 VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
+VALUE "<project>\stimulus\usb_if_tc.vhd,tb_hdl"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
@@ -829,6 +821,71 @@ LIST AssociatedStimulus
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
 ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl3
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl4
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl5
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl6
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl7
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
 ENDLIST
 ENDLIST
 LIST AssociatedStimulus
@@ -848,6 +905,7 @@ VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\
 ENDLIST
 LIST USB_IF
 VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
+VALUE "<project>\stimulus\usb_if_tc.vhd,tb_hdl"
 ENDLIST
 ENDLIST
 LIST Other_Association
@@ -1151,6 +1209,71 @@ ENDUsed_File_List
 ENDLIST
 ENDLIST
 LIST "USB_IF::work"
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl3
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl4
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl5
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl6
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl7
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+LIST "CoreAPB3::COREAPB3_LIB::components"
 LIST Impl1
 ideSTIMULUS=StateSuccess
 LIST FlowOptions

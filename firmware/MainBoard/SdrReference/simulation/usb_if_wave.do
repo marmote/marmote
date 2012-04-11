@@ -50,7 +50,10 @@ sim:/usb_if_tb/uut/TXE_n_pin \
 sim:/usb_if_tb/uut/DATA_pin \
 sim:/usb_if_tb/uut/WR_n_pin \
 sim:/usb_if_tb/uut/OE_n_pin \
-sim:/usb_if_tb/uut/u_TX_FIFO/FIFOBLOCK0/FIFO
+-divider {TX SM} \
+sim:/usb_if_tb/uut/s_tx_sm_state \
+sim:/usb_if_tb/uut/s_tx_sm_state_next
+
 
 #run 10 us
 run -all
