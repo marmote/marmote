@@ -50,6 +50,7 @@ Specification
  * PCB Layout Recommendations
  * How Power Saving Modes Affect The ADC
 
+[http://www.analog.com/static/imported-files/analog_dialogue/5467026043687049331665676350Grounding.pdf Analog Devices AN - Grounding in Mixed Signal Systems]
 
 == Oscillator ==
 
