@@ -2,7 +2,7 @@
 #include "stm32f10x.h"
 
 #include "power_board.h"
-#include "m6_rf315.h"
+//#include "m6_rf315.h"
 #include "cmd_def.h"
 #include "usb_fs.h"
 
@@ -41,16 +41,16 @@ int main (void) {
 	//LED_Init();
 
 	// Initialize M6-RF315 board
-	M6RF315_Init();
+//	M6RF315_Init();
 
 	// Enable power
 	POW_EnableMasterSwitch();
 
 	// Turn on LEDs
-	CON_TX_LED_Off();
-	CON_RX_LED_On();
-	for (c = 0 ; c < 1600000; c++) ;
-	CON_RX_LED_Toggle();
+//	CON_TX_LED_Off();
+//	CON_RX_LED_On();
+//	for (c = 0 ; c < 1600000; c++) ;
+//	CON_RX_LED_Toggle();
 	//for (c = 0 ; c < 1600000; c++) ;
 	//CON_RX_LED_Toggle();
 
