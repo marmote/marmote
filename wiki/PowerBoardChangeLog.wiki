@@ -16,3 +16,5 @@
    * The PB5 GPIO line on the connector has been replaced with PB4 (with SMBus alter functionality)
  # JTAG DNP resistors have been removed, only SWD is available
  # Added pull-up resistor to the USBDP line (still not the best solution)
+ # Reset jumper has been replaced with a push button
+ # BOOT0 selector jumper has been replaced with a slide switch
