@@ -77,6 +77,19 @@ typedef enum
 
 //#define ADC_CLK        				RCC_APB2Periph_ADC1
 
+
+// Battery
+
+#ifndef REV_A
+// Battery charge pin
+
+#define BAT_CHRG_PIN             	GPIO_Pin_9  // PB.9
+#define BAT_CHRG_GPIO_PORT       	GPIOB       // GPIOB
+#define BAT_CHRG_GPIO_CLK        	RCC_APB2Periph_GPIOB
+
+#endif
+
+
 // Battery Gauge I2C (I2C2)
 
 #define BAT_I2C_SCL_PIN             GPIO_Pin_10 // PB.10
@@ -141,6 +154,8 @@ typedef enum _BAT_RegisterAddress_Type
 
 //__IO uint16_t ADC1ConvertedValue = 0;
 
+void BAT_CHRG_Init(void);
+
 void PowerMonitor_Init(void);
 void Logger_Init(void);
 
@@ -152,8 +167,10 @@ void LED_Toggle (uint32_t led);
 void ADC_Init(void);
 
 static void BAT_I2C_Init(void);
+/*
 static void BAT_WriteRegister(BAT_RegisterAddress_Type address, uint16_t data);
 static uint16_t BAT_ReadRegister(BAT_RegisterAddress_Type address);
+*/
 
 /*
 uint16_t BAT_ReadVoltage();

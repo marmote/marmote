@@ -45,7 +45,9 @@
 
 void PowerMonitor_Init(void)
 {
+    // TODO: initialize !AL/CC pin
     LED_Init();
+    BAT_CHRG_Init();
     BAT_I2C_Init();
     SD_SPI_Init();
 
@@ -227,7 +229,7 @@ void Logger_Init(void)
 }
 
 //static uint16_t ctr;
-static char lineBuffer[64];
+//static char lineBuffer[64];
 
 //void TIM2_IRQHandler(void)
 //{
@@ -286,6 +288,29 @@ static char lineBuffer[64];
 //}
 
 
+#ifndef REV_A
+/*-------------------------------------------------------------------------*/
+/*                              BATTERY CHARGE                             */
+/*-------------------------------------------------------------------------*/
+
+void BAT_CHRG_Init(void)
+{
+	GPIO_InitTypeDef GPIO_InitStructure; 
+
+	// Enable peripheral clock
+	RCC->APB2ENR |= BAT_CHRG_GPIO_CLK;
+
+    // Battery charge pin - PB.9
+	GPIO_InitStructure.GPIO_Pin = BAT_CHRG_PIN; 
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
+	GPIO_Init(BAT_CHRG_GPIO_PORT, &GPIO_InitStructure); 
+    
+    // TODO: add interrupt to this pin to toggle LED or change state (?)
+}
+
+#endif
+
 
 /*-------------------------------------------------------------------------*/
 /*                              BATTERY GAUGE                              */
@@ -323,6 +348,7 @@ void BAT_I2C_Init(void)
     I2C_Cmd(BAT_I2C, ENABLE);
 }
 
+/*
 void BAT_WriteRegister(BAT_RegisterAddress_Type address, uint16_t data)
 {
     switch (address)
@@ -342,7 +368,7 @@ void BAT_WriteRegister(BAT_RegisterAddress_Type address, uint16_t data)
             // EV5
              while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_MODE_SELECT));  
 
-            /* Send slave address for write */
+            // Send slave address for write
             I2C_Send7bitAddress(BAT_I2C, BAT_I2C_ADDRESS, I2C_Direction_Transmitter);
 
             // EV6
@@ -381,7 +407,7 @@ void BAT_WriteRegister(BAT_RegisterAddress_Type address, uint16_t data)
             // EV5
              while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_MODE_SELECT));  
 
-            /* Send slave address for write */
+            // Send slave address for write
             I2C_Send7bitAddress(BAT_I2C, BAT_I2C_ADDRESS, I2C_Direction_Transmitter);
 
             // EV6
@@ -556,6 +582,7 @@ uint16_t BAT_ReadRegister(BAT_RegisterAddress_Type address)
 
     return data;
 }
+*/
 
 /*-------------------------------------------------------------------------*/
 /*                                  SD CARD                                */
