@@ -1,0 +1,19 @@
+#summary Log of changes on the Power Supply Board between different revisions
+#labels Phase-Support,Phase-Deploy
+
+= From Rev A to Rev B =
+
+ # The !CHRG pin of the LTC4085 is connected to a microcontroller GPIO (PB9)
+  instead of an external LED (LED0)
+ # LED0 has been removed
+ # The !PWRGD pin of the LTC4361 is NOT connected to a microcontroller GPIO (PB9) anymore
+ # Power rail measurements have changed
+   * Current on VSUP (individually) and on !D3V3_STM is not measured anymore
+   * Current and voltage on VSUP_R (source of all rails) is measured instead
+   * The current sense - ADC connections have been completely reorganized
+ # The LTC2942-1 battery gauge !AL/CC pin is connected to GPIO PB4 instead of PB5
+ # The 64-pin mezzanine connector has been replaced with a 84-pin one
+ # The mezzanine connector pinous has been reorganized
+   * The PB5 GPIO line on the connector has been replaced with PB4 (with SMBus alter functionality)
+ # JTAG DNP resistors have been removed, only SWD is available
+ # Added pull-up resistor to the USBDP line (still not the best solution)
