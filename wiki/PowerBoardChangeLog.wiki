@@ -3,8 +3,7 @@
 
 = From Rev A to Rev B =
 
- # The !CHRG pin of the LTC4085 is connected to a microcontroller GPIO (PB9)
-  instead of an external LED (LED0)
+ # The !CHRG pin of the LTC4085 is connected to a microcontroller GPIO (PB9) instead of an external LED (LED0)
  # LED0 has been removed
  # The !PWRGD pin of the LTC4361 is NOT connected to a microcontroller GPIO (PB9) anymore
  # Power rail measurements have changed
