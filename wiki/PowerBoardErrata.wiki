@@ -3,7 +3,7 @@
 
 = Rev B =
 
- * Silk screen labels D1V5 and D3V3 are swapped
+ * Silkscreen labels !D1V5 and !D3V3 are swapped
 
 ----
 
