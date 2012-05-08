@@ -1,4 +1,4 @@
-#summary Errata for the Power Supply Board Rev A and Rev B
+#summary Errata for Power Supply Board Rev A and Rev B
 #labels Phase-Implementation,Phase-QA
 
 = Rev B =
