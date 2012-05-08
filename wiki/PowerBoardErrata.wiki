@@ -1,5 +1,11 @@
-#summary Errata for the Power Supply Board
+#summary Errata for the Power Supply Board Rev A and Rev B
 #labels Phase-Implementation,Phase-QA
+
+= Rev B =
+
+ * Silk screen labels D1V5 and D3V3 are swapped
+
+----
 
 = Rev A =
 
