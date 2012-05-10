@@ -1,0 +1,10 @@
+#summary Errata for the "Teton" Main Board Rev A
+
+= Majos issues =
+
+
+
+= Minor issues =
+
+  * 'USB' silkscreen label next to a D3V3 test point is distracting
+  * RJ45 silkscreen-footprint is larger than the actual device
