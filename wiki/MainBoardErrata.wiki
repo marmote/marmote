@@ -1,6 +1,7 @@
 #summary Errata for the "Teton" Main Board Rev A
+#labels Phase-Support
 
-= Majos issues =
+= Major issues =
 
 
 
