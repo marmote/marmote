@@ -166,10 +166,12 @@ begin
     p_reg_update : process (rst, clk)
     begin
         if rst = '1' then
-            s_tx_rx_n <= '0';
+--            s_tx_rx_n <= '0';
+            s_tx_rx_n <= '1'; -- Make it TX so to avoid driving from both sides
             s_rx_strobe <= '0';
         elsif rising_edge(clk) then
-            s_tx_rx_n <= '0';
+--            s_tx_rx_n <= '0';
+            s_tx_rx_n <= '1'; -- Make it TX so to avoid driving from both sides
             s_rx_strobe <= '0';
             if SHDN = '0' then
                 s_tx_rx_n <= TX_RX_n;
