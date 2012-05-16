@@ -205,14 +205,14 @@ uint32_t CmdAfe(uint32_t argc, char** argv)
 	{
 		if (!strcmp(*(argv+1), "on"))
 		{
-			MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_AFE1_SHDN_MASK );
+			MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_AFE1_SHDN_MASK );
 			MSS_UART_polled_tx_string( &g_mss_uart0, "\r\nAFE is ON");
 			return 0;
 		}
 
 		if (!strcmp(*(argv+1), "off"))
 		{
-			MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_AFE1_SHDN_MASK );
+			MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_AFE1_SHDN_MASK );
 			MSS_UART_polled_tx_string( &g_mss_uart0, "\r\nAFE is OFF");
 			return 0;
 		}
