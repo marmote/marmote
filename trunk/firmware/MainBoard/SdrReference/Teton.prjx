@@ -552,10 +552,6 @@ ENDLIST
 ENDLIST
 ENDLIST
 LIST AssociatedStimulus
-LIST USB_IF
-VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
-VALUE "<project>\stimulus\usb_if_tc.vhd,tb_hdl"
-ENDLIST
 LIST Teton
 VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
 ENDLIST
@@ -564,6 +560,10 @@ VALUE "<project>\stimulus\afe_if_tb.vhd,tb_hdl"
 ENDLIST
 LIST Teton_MSS
 VALUE "<project>\component\work\Teton_MSS\testbench.vhd,tb_hdl"
+ENDLIST
+LIST USB_IF
+VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
+VALUE "<project>\stimulus\usb_if_tc.vhd,tb_hdl"
 ENDLIST
 ENDLIST
 LIST Other_Association
@@ -707,8 +707,6 @@ ENDLIST
 LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
-SmartDesign;Teton
-SmartDesign;Teton_MSS
-Reports;Reports
-ACTIVEVIEW;Reports
+StartPage;StartPage
+ACTIVEVIEW;StartPage
 ENDLIST
