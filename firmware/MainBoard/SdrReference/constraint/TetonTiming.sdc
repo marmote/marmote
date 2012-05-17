@@ -2,7 +2,7 @@
 #  SDC WRITER VERSION "3.1";
 #  DESIGN "Teton";
 #  Timing constraints scenario: "Primary";
-#  DATE "Thu May 17 14:26:33 2012";
+#  DATE "Thu May 17 16:28:11 2012";
 #  VENDOR "Actel";
 #  PROGRAM "Actel Designer Software Release v10.0 SP1";
 #  VERSION "10.0.10.4"  Copyright (C) 1989-2012 Actel Corp. 
@@ -14,13 +14,26 @@ set sdc_version 1.7
 
 ########  Clock Constraints  ########
 
-create_clock  -name { AFE1_CLK } -period 50.000 -waveform { 0.000 25.000  }  { AFE1_CLK  } 
+create_clock  -name { AFE_CLK } -period 50.000 -waveform { 0.000 25.000  }  { \
+Teton_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5  } 
 
 
 
 ########  Generated Clock Constraints  ########
 
+create_generated_clock  -name { mss_ccc_gla1 } -divide_by 8  -multiply_by 8  -source { Teton_MSS_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:CLKA } { \
+Teton_MSS_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:GLA  } 
+#  read only
+#
+# *** Note *** SmartTime supports extensions to the create_generated_clock constraint supported by SDC,
+#              Extensions to this constraint may not be accepted by tools other than Actel's
 
+create_generated_clock  -name { mss_ccc_gla0 } -divide_by 8  -multiply_by 8  -source { Teton_MSS_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:CLKA } { \
+Teton_MSS_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:GLAMSS  } 
+#  read only
+#
+# *** Note *** SmartTime supports extensions to the create_generated_clock constraint supported by SDC,
+#              Extensions to this constraint may not be accepted by tools other than Actel's
 
 create_generated_clock  -name { mss_fabric_interface_clock } -divide_by 1  -source { Teton_MSS_0/MSS_ADLIB_INST/U_CORE:FCLK } { \
 Teton_MSS_0/MSS_ADLIB_INST/U_CORE:GLB  } 
@@ -46,13 +59,11 @@ Teton_MSS_0/MSS_ADLIB_INST/U_CORE:PCLK1  }
 
 ########  Output Delay Constraints  ########
 
-set_output_delay 0.000 -clock { AFE1_CLK }  [get_ports { AFE1_DB AFE1_DB[0] AFE1_DB[1] AFE1_DB[2] AFE1_DB[3] AFE1_DB[4] AFE1_DB[5] AFE1_DB[6] AFE1_DB[7] AFE1_DB[8] AFE1_DB[9] }] 
-set_max_delay 38.000 -from [get_clocks {AFE1_CLK}]  -to [get_ports { AFE1_DB AFE1_DB[0] AFE1_DB[1] \
-AFE1_DB[2] AFE1_DB[3] AFE1_DB[4] AFE1_DB[5] AFE1_DB[6] AFE1_DB[7] AFE1_DB[8] AFE1_DB[9] \
-}] 
-set_min_delay -0.000 -from [get_clocks {AFE1_CLK}]  -to [get_ports { AFE1_DB AFE1_DB[0] AFE1_DB[1] \
-AFE1_DB[2] AFE1_DB[3] AFE1_DB[4] AFE1_DB[5] AFE1_DB[6] AFE1_DB[7] AFE1_DB[8] AFE1_DB[9] \
-}] 
+set_output_delay  -max 10.000 -clock { AFE_CLK }  [get_ports { AFE1_DB[0] AFE1_DB[1] AFE1_DB[2] AFE1_DB[3] AFE1_DB[4] AFE1_DB[5] AFE1_DB[6] AFE1_DB[7] AFE1_DB[8] AFE1_DB[9] }] 
+set_output_delay  -min 5.000 -clock { AFE_CLK }  [get_ports { AFE1_DB[0] AFE1_DB[1] AFE1_DB[2] AFE1_DB[3] AFE1_DB[4] AFE1_DB[5] AFE1_DB[6] AFE1_DB[7] AFE1_DB[8] AFE1_DB[9] }] 
+
+set_output_delay  -clock_fall  -max 10.000 -clock { AFE_CLK }  [get_ports { AFE1_DB[0] AFE1_DB[1] AFE1_DB[2] AFE1_DB[3] AFE1_DB[4] AFE1_DB[5] AFE1_DB[6] AFE1_DB[7] AFE1_DB[8] AFE1_DB[9] }] 
+set_output_delay  -clock_fall  -min 5.000 -clock { AFE_CLK }  [get_ports { AFE1_DB[0] AFE1_DB[1] AFE1_DB[2] AFE1_DB[3] AFE1_DB[4] AFE1_DB[5] AFE1_DB[6] AFE1_DB[7] AFE1_DB[8] AFE1_DB[9] }] 
 
 
 
