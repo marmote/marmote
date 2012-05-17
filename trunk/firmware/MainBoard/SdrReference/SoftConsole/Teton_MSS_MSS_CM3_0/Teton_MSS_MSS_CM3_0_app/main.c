@@ -47,7 +47,7 @@ uint8_t cmd_parse_result;
 
 void process_cmd_buff(uint8_t* cmd_buff, uint8_t length)
 {
-	cmd_parse_result = 0;
+	cmd_parse_result = 1;
 
 	// Tokenize command buffer content
 	cmd_token = strtok((char *)cmd_buff, " ");
@@ -106,7 +106,7 @@ void process_rx_data (uint8_t* rx_buff, uint8_t length)
 			process_cmd_buff(cmd_buff, cmd_buff_idx);
 			cmd_buff_idx = 0;
 		}
-		else //if (*(rx_buff+i) != '\n')
+		else // if (*(rx_buff+i) != '\n')
 		{
 			cmd_buff[cmd_buff_idx++] = rx_buff[i];
 		}
