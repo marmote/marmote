@@ -16,6 +16,10 @@
 
 = Hardware =
 
+== FPGA ==
+
+[http://www.actel.com/documents/ALL_AC373_AN.pdf Microsemi AN AC373] - Source Synchronous Clock Designs: Timing Constraints and Analysis
+
 == ADC ==
 
 *[http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/APPLICATION_NOTE/CD00211314.pdf ST AN2834] - How to get the best ADC accuracy in STM32F10xxx devices*
