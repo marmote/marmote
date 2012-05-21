@@ -56,7 +56,7 @@ entity FSK_TX_APB_IF is
 		 -- FSK interface
 		 DPHASE_EN : out  std_logic;
 		 --DPHASE    : out  std_logic_vector(c_DCO_PHASE_WIDTH-1 downto 0)
-		 DPHASE    : out  std_logic_vector(c_DCO_PHASE_WIDTH-1 downto 0)
+		 DPHASE    : out  std_logic_vector(31 downto 0)
 		 );
 end entity;
 
