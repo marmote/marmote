@@ -20,6 +20,19 @@
 
 [http://www.actel.com/documents/ALL_AC373_AN.pdf Microsemi AN AC373] - Source Synchronous Clock Designs: Timing Constraints and Analysis
 
+[http://www.actel.com/documents/Fusion_DDR_AN.pdf Microsemi AN AC239] - Using DDR for Fusion Devices
+
+[http://www.actel.com/documents/des_constraints_ug.pdf Microsemi User Guide] - Design Constraints for Libero Soc v10.0
+
+[http://www.actel.com/documents/smarttime_ug.pdf Microsemi User Guide] - !SmartTime for Libero SoC v10.0
+
+[http://www.actel.com/documents/pa3_libguide_ug.pdf Microsemi Library Guide] - IGLOO, ProASIC3, !SmartFusion and Fusion Macro Library Guide for Software v10.0
+
+[http://www.actel.com/documents/SmartFusion_Fabric_UG.pdf Microsemi User Guide] - Actel !SmartFusion™ FPGA Fabric
+User’s Guide
+
+[http://www.actel.com/products/software/smartdesign/docs_mss.aspx Microsemi User Guide - Collection of MSS related User Guides]
+
 == ADC ==
 
 *[http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/APPLICATION_NOTE/CD00211314.pdf ST AN2834] - How to get the best ADC accuracy in STM32F10xxx devices*
