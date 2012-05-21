@@ -2,7 +2,7 @@
 #  SDC WRITER VERSION "3.1";
 #  DESIGN "Teton";
 #  Timing constraints scenario: "Primary";
-#  DATE "Fri May 18 12:29:31 2012";
+#  DATE "Fri May 18 13:21:16 2012";
 #  VENDOR "Actel";
 #  PROGRAM "Actel Designer Software Release v10.0 SP1";
 #  VERSION "10.0.10.4"  Copyright (C) 1989-2012 Actel Corp. 
@@ -50,7 +50,7 @@ create_generated_clock  -name { mss_pclk1 } -divide_by 1  -source { Teton_MSS_0/
 Teton_MSS_0/MSS_ADLIB_INST/U_CORE:PCLK1  } 
 #  read only
 
-create_generated_clock  -name { AFE1_CLK } -divide_by 1  -source { Teton_MSS_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:GLA } { AFE1_CLK  } 
+create_generated_clock  -name { AFE1_CLK_pin } -divide_by 1  -source { AFE1_CLK_pad/U0/U0:PAD } { AFE1_CLK  } 
 
 
 
@@ -64,21 +64,12 @@ create_generated_clock  -name { AFE1_CLK } -divide_by 1  -source { Teton_MSS_0/M
 
 ########  Output Delay Constraints  ########
 
-set_output_delay 0.000 -clock { AFE1_CLK }  [get_ports { AFE1_DB[0] AFE1_DB[1] AFE1_DB[2] AFE1_DB[3] AFE1_DB[4] AFE1_DB[5] AFE1_DB[6] AFE1_DB[7] AFE1_DB[8] AFE1_DB[9] }] 
-set_max_delay 35.000 -from [get_clocks {AFE1_CLK}]  -to [get_ports { AFE1_DB[0] AFE1_DB[1] \
-AFE1_DB[2] AFE1_DB[3] AFE1_DB[4] AFE1_DB[5] AFE1_DB[6] AFE1_DB[7] AFE1_DB[8] AFE1_DB[9] \
-}] 
-set_min_delay 2.000 -from [get_clocks {AFE1_CLK}]  -to [get_ports { AFE1_DB[0] AFE1_DB[1] \
-AFE1_DB[2] AFE1_DB[3] AFE1_DB[4] AFE1_DB[5] AFE1_DB[6] AFE1_DB[7] AFE1_DB[8] AFE1_DB[9] \
-}] 
+set_output_delay  -max 15.000 -clock { AFE1_CLK_pin }  [get_ports { AFE1_DB[0] AFE1_DB[1] AFE1_DB[2] AFE1_DB[3] AFE1_DB[4] AFE1_DB[5] AFE1_DB[6] AFE1_DB[7] AFE1_DB[8] AFE1_DB[9] }] 
+set_output_delay  -min 2.000 -clock { AFE1_CLK_pin }  [get_ports { AFE1_DB[0] AFE1_DB[1] AFE1_DB[2] AFE1_DB[3] AFE1_DB[4] AFE1_DB[5] AFE1_DB[6] AFE1_DB[7] AFE1_DB[8] AFE1_DB[9] }] 
+# AFE1 CLK to DB delay rising edge.
 
-set_output_delay  -clock_fall 0.000 -clock { AFE1_CLK }  [get_ports { AFE1_DB[0] AFE1_DB[1] AFE1_DB[2] AFE1_DB[3] AFE1_DB[4] AFE1_DB[5] AFE1_DB[6] AFE1_DB[7] AFE1_DB[8] AFE1_DB[9] }] 
-set_max_delay 35.000 -from [get_clocks {AFE1_CLK}]  -to [get_ports { AFE1_DB[0] AFE1_DB[1] \
-AFE1_DB[2] AFE1_DB[3] AFE1_DB[4] AFE1_DB[5] AFE1_DB[6] AFE1_DB[7] AFE1_DB[8] AFE1_DB[9] \
-}] 
-set_min_delay 2.000 -from [get_clocks {AFE1_CLK}]  -to [get_ports { AFE1_DB[0] AFE1_DB[1] \
-AFE1_DB[2] AFE1_DB[3] AFE1_DB[4] AFE1_DB[5] AFE1_DB[6] AFE1_DB[7] AFE1_DB[8] AFE1_DB[9] \
-}] 
+set_output_delay  -clock_fall  -max 15.000 -clock { AFE1_CLK_pin }  [get_ports { AFE1_DB[0] AFE1_DB[1] AFE1_DB[2] AFE1_DB[3] AFE1_DB[4] AFE1_DB[5] AFE1_DB[6] AFE1_DB[7] AFE1_DB[8] AFE1_DB[9] }] 
+set_output_delay  -clock_fall  -min 2.000 -clock { AFE1_CLK_pin }  [get_ports { AFE1_DB[0] AFE1_DB[1] AFE1_DB[2] AFE1_DB[3] AFE1_DB[4] AFE1_DB[5] AFE1_DB[6] AFE1_DB[7] AFE1_DB[8] AFE1_DB[9] }] 
 
 
 
