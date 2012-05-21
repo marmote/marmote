@@ -13,8 +13,14 @@ sim:/testbench/Teton_0/FSK_TX_APB_IF_0/PSLVERR
 
 add wave \
 -unsigned \
-sim:/testbench/Teton_0/FSK_TX_APB_IF_0/DPHASE_EN \
-sim:/testbench/Teton_0/FSK_TX_APB_IF_0/DPHASE \
+sim:/testbench/Teton_0/FSK_TX_APB_IF_0/DPHASE_EN
+
+add wave \
+-analog-step \
+sim:/testbench/Teton_0/FSK_TX_APB_IF_0/DPHASE
+
+add wave \
+-unsigned \
 sim:/testbench/Teton_0/FSK_TX_APB_IF_0/s_dphase \
 sim:/testbench/Teton_0/FSK_TX_APB_IF_0/s_dout \
 sim:/testbench/Teton_0/FSK_TX_APB_IF_0/s_dphase_en \
