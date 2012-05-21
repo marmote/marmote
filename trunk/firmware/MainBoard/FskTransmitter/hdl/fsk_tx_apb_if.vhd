@@ -77,10 +77,7 @@ architecture Behavioral of FSK_TX_APB_IF is
 	signal s_dout        : std_logic_vector(31 downto 0);
 
 	-- Signals
-	signal s_state       : std_logic_vector(c_DATA_LENGTH-1 downto 0);
-
 	signal s_dphase_en   : std_logic;
-	signal s_start       : std_logic;
 
 
 begin
