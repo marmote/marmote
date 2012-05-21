@@ -227,6 +227,16 @@ TIME="1337632695"
 SIZE="257"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
+VALUE "<project>\component\work\DESIGN_FIRMWARE\DESIGN_FIRMWARE.cxf,actgen_cxf"
+STATE="utd"
+TIME="1337632694"
+SIZE="3247"
+ENDFILE
+VALUE "<project>\component\work\DESIGN_IO\DESIGN_IO.cxf,actgen_cxf"
+STATE="utd"
+TIME="1337632747"
+SIZE="413"
+ENDFILE
 VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
 STATE="utd"
 TIME="1337632762"
@@ -360,7 +370,7 @@ SIZE="7237"
 ENDFILE
 VALUE "<project>\hdl\common.vhd,hdl"
 STATE="utd"
-TIME="1337632088"
+TIME="1337632881"
 SIZE="3302"
 ENDFILE
 VALUE "<project>\hdl\datapath_stub_apb.vhd,hdl"
