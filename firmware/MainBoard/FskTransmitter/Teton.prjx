@@ -24,9 +24,7 @@ KEY Vendor "Actel"
 KEY ActiveRoot "Teton::work"
 LIST REVISIONS
 VALUE="Impl1",NUM=1
-VALUE="Impl2",NUM=2
-VALUE="Impl3",NUM=3
-CURREV=3
+CURREV=1
 ENDLIST
 LIST LIBRARIES
 MSS_BFM_LIB
@@ -125,8 +123,8 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\core\corecordic_addpackage_word.vhd,hdl"
 STATE="utd"
-TIME="1337196135"
-SIZE="2898"
+TIME="1337702695"
+SIZE="2014"
 LIBRARY="CORECORDIC_LIB"
 PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
 IS_READONLY="TRUE"
@@ -149,8 +147,8 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\test\user\corecordic_tbpackage.vhd,tb_hdl"
 STATE="utd"
-TIME="1337196135"
-SIZE="5132"
+TIME="1337702695"
+SIZE="3769"
 LIBRARY="CORECORDIC_LIB"
 PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
 MODULE_UNDER_TEST="testbench"
@@ -430,11 +428,6 @@ STATE="utd"
 TIME="1337632597"
 SIZE="4239"
 ENDFILE
-VALUE "<project>\designer\impl3\Teton.ide_des,ide_des"
-STATE="utd"
-TIME="1337643390"
-SIZE="356"
-ENDFILE
 VALUE "<project>\hdl\afe_if.vhd,hdl"
 STATE="utd"
 TIME="1337700507"
@@ -442,7 +435,7 @@ SIZE="7637"
 ENDFILE
 VALUE "<project>\hdl\common.vhd,hdl"
 STATE="utd"
-TIME="1337632881"
+TIME="1337702810"
 SIZE="3302"
 ENDFILE
 VALUE "<project>\hdl\datapath_stub_apb.vhd,hdl"
@@ -569,6 +562,26 @@ STATE="utd"
 TIME="1337632597"
 SIZE="7278"
 ENDFILE
+VALUE "<project>\synthesis\synwork\Teton_compiler.so,so"
+STATE="utd"
+TIME="1337702789"
+SIZE="159"
+ENDFILE
+VALUE "<project>\synthesis\Teton.edn,syn_edn"
+STATE="utd"
+TIME="1337702822"
+SIZE="714558"
+ENDFILE
+VALUE "<project>\synthesis\Teton.so,so"
+STATE="utd"
+TIME="1337702822"
+SIZE="216"
+ENDFILE
+VALUE "<project>\synthesis\Teton_sdc.sdc,syn_sdc"
+STATE="utd"
+TIME="1337702822"
+SIZE="579"
+ENDFILE
 ENDLIST
 LIST UsedFile
 ENDLIST
@@ -588,24 +601,6 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
-LIST Impl2
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
 ENDLIST
 ENDLIST
 LIST "Teton::work"
@@ -617,6 +612,22 @@ VALUE "<project>\component\work\Teton\Teton.pdc,pdc"
 ENDLIST
 LIST AssociatedStimulus
 VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
+ENDLIST
+LIST SynthesisConstraints
+VALUE "<project>\component\work\Teton_MSS\mss_tshell_syn.sdc,sdc"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+LiberoState=Post_Synthesis
+ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\Teton.edn,syn_edn)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 ENDLIST
 LIST "Teton_MSS::work"
@@ -646,24 +657,6 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
-LIST Impl2
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
 ENDLIST
 ENDLIST
 LIST "USB_IF::work"
@@ -674,24 +667,6 @@ VALUE "<project>\stimulus\usb_if_tc.vhd,tb_hdl"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -716,6 +691,17 @@ LIST AssociatedStimulus
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
 ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
 ENDLIST
 LIST "CORECORDIC::CORECORDIC_LIB"
 FILE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\core\corecordic_word.vhd,hdl"
@@ -731,13 +717,20 @@ VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\coreparameters.vh
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\test\user\corecordic_tbpackage.vhd,tb_hdl"
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\test\user\corecordic_tb_word.vhd,tb_hdl"
 ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
 ENDLIST
 ENDLIST
 LIST AssociatedStimulus
-LIST USB_IF
-VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
-VALUE "<project>\stimulus\usb_if_tc.vhd,tb_hdl"
-ENDLIST
 LIST Teton
 VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
 ENDLIST
@@ -755,6 +748,10 @@ LIST CORECORDIC
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\coreparameters.vhd,tb_hdl"
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\test\user\corecordic_tbpackage.vhd,tb_hdl"
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\test\user\corecordic_tb_word.vhd,tb_hdl"
+ENDLIST
+LIST USB_IF
+VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
+VALUE "<project>\stimulus\usb_if_tc.vhd,tb_hdl"
 ENDLIST
 ENDLIST
 LIST Other_Association
@@ -843,7 +840,7 @@ NAME="ModelSim AE"
 FUNCTION="Simulation"
 TOOL="ModelSim"
 LOCATION="C:\Actel\Libero_v10.0\Model\win32acoem\modelsim.exe"
-PARAM=" -l presynth_simulation.log "
+PARAM=""
 BATCH=0
 EndProfile
 NAME="FlashPro"
@@ -865,17 +862,12 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
-LIST Impl2
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
 ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
+LIST "Teton::work"
+LIST Impl1
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\Teton.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -886,24 +878,6 @@ ENDLIST
 ENDLIST
 LIST "Teton_MSS::work"
 LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -923,7 +897,9 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
-LIST Impl2
+ENDLIST
+LIST "CoreAPB3::COREAPB3_LIB::components"
+LIST Impl1
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -932,7 +908,9 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
-LIST Impl3
+ENDLIST
+LIST "CORECORDIC::CORECORDIC_LIB"
+LIST Impl1
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -954,8 +932,6 @@ ENDLIST
 LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
-SmartDesign;Teton
-SmartDesign;Teton_MSS
-Reports;Reports
-ACTIVEVIEW;Teton
+StartPage;StartPage
+ACTIVEVIEW;StartPage
 ENDLIST
