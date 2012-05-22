@@ -56,7 +56,8 @@ entity FSK_TX_APB_IF is
 		 -- FSK interface
 		 DPHASE_EN : out  std_logic;
 		 --DPHASE    : out  std_logic_vector(c_DCO_PHASE_WIDTH-1 downto 0)
-		 DPHASE    : out  std_logic_vector(31 downto 0)
+		 DPHASE    : out  std_logic_vector(31 downto 0);
+         AMPLITUDE : out  std_logic_vector(9 downto 0)
 		 );
 end entity;
 
@@ -66,13 +67,16 @@ architecture Behavioral of FSK_TX_APB_IF is
 	constant c_ADDR_CTRL : std_logic_vector(7 downto 0) := x"00"; -- W (ENABLE)
 	constant c_ADDR_STAT : std_logic_vector(7 downto 0) := x"00"; -- R (ENABLE)
 	constant c_ADDR_DPHA : std_logic_vector(7 downto 0) := x"04"; -- R/W
+	constant c_ADDR_AMPL : std_logic_vector(7 downto 0) := x"08"; -- R/W
 
 	-- Default values
 	constant c_DEFAULT_DPHA : unsigned(31 downto 0) := x"01604189"; -- 215 kHz
+	constant c_DEFAULT_AMPL : unsigned(31 downto 0) := x"0000007F"; -- TBD
 
 	-- Registers
 --	signal s_status      : std_logic_vector(31 downto 0);
 	signal s_dphase      : std_logic_vector(31 downto 0);
+	signal s_ampl        : std_logic_vector(31 downto 0);
 
 	signal s_dout        : std_logic_vector(31 downto 0);
 
@@ -94,10 +98,11 @@ begin
 		if PRESETn = '0' then
 			s_dphase_en <= '0';
 			s_dphase <= std_logic_vector(c_DEFAULT_DPHA);
+            s_ampl <= std_logic_vector(c_DEFAULT_AMPL);
 		elsif rising_edge(PCLK) then
 
 			-- Default values
-			s_dphase_en <= '0';
+--			s_dphase_en <= '0';
 
 			-- Register writes
 			if PWRITE = '1' and PSEL = '1' and PENABLE = '1' then
@@ -107,6 +112,8 @@ begin
 						s_dphase_en <= PWDATA(0);
 					when c_ADDR_DPHA =>
 						s_dphase <= PWDATA;
+					when c_ADDR_AMPL =>
+						s_ampl <= PWDATA;
 					when others =>
 						null;
 				end case;
@@ -131,6 +138,8 @@ begin
 						s_dout(0) <= s_dphase_en;
 					when c_ADDR_DPHA =>
 						s_dout <= s_dphase;
+					when c_ADDR_AMPL =>
+						s_dout <= s_ampl;
 					when others =>
 						null;
 				end case;
@@ -140,6 +149,7 @@ begin
 
 	DPHASE_EN <= s_dphase_en;
 	DPHASE <= s_dphase(c_DCO_PHASE_WIDTH-1 downto 0);
+    AMPLITUDE <= s_ampl(9 downto 0);
 
 	PRDATA <= s_dout;
 	PREADY <= '1';
@@ -183,6 +193,22 @@ end Behavioral;
 --                                                       F
 --                       DPHA = 2^DCO_PHASE_WIDTH x -----------
 --                                                   F_FAB_CLK
+-- 
+------------------------------------------------------------------------------
+--
+-- Amplitude register (AMPL)
+-- Address offset: 0x08
+-- 
+-- 31                                                                        0
+-- +-------------------------------------------------------------------------+
+-- |                                 AMPL                                    |
+-- +-------------------------------------------------------------------------+
+-- |                                  R/W                                    |
+-- +-------------------------------------------------------------------------+
+--
+-- Bits 31:0 AMPL bits - The value of the amplitude register directly
+--                       determines the actual signal amplitude
+--                     - Valid range: 0x00 - 0x7F
 -- 
 ------------------------------------------------------------------------------
 

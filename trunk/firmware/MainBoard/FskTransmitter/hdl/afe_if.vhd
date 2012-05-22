@@ -116,6 +116,7 @@ architecture Behavioral of AFE_IF is
 	-- Constants
 
     constant c_ENABLE_DELAY : integer := 5;
+    constant c_AFE_ZERO     : std_logic_vector(9 downto 0) := "1000000000";
 
 	-- Signals
 
@@ -169,13 +170,22 @@ begin
 --            s_tx_rx_n <= '0';
             s_tx_rx_n <= '1'; -- Make it TX so to avoid driving from both sides
             s_rx_strobe <= '0';
+            s_tx_i      <= c_AFE_ZERO;
+            s_tx_q      <= c_AFE_ZERO;
         elsif rising_edge(clk) then
 --            s_tx_rx_n <= '0';
-            s_tx_rx_n <= '1'; -- Make it TX so to avoid driving from both sides
-            s_rx_strobe <= '0';
-            if SHDN = '0' then
+            if SHDN = '1' then
+                s_tx_rx_n <= '1'; -- Make it TX so to avoid driving from both sides
+                s_rx_strobe <= '0';
+                s_tx_i      <= c_AFE_ZERO;
+                s_tx_q      <= c_AFE_ZERO;
+            else
                 s_tx_rx_n <= TX_RX_n;
                 s_rx_strobe <= s_enable_d(c_ENABLE_DELAY-1) and not s_tx_rx_n;
+                if TX_STROBE = '1' then
+                    s_tx_i      <= TX_I;
+                    s_tx_q      <= TX_Q;
+                end if;
             end if;
         end if;
     end process p_reg_update;
@@ -198,7 +208,8 @@ begin
         end if;
     end process p_ready_gen;
 
-    s_oe        <= TX_RX_n and TX_STROBE; -- TODO: consider adding registers to these signals
+--    s_oe        <= TX_RX_n and TX_STROBE; -- TODO: consider adding registers to these signals
+    s_oe        <= TX_RX_n;
 
     CLK_pin     <= CLK;
     T_R_n_pin   <= s_tx_rx_n;
@@ -208,8 +219,6 @@ begin
     RX_I        <= s_rx_i;
     RX_Q        <= s_rx_q;
 
-    s_tx_i      <= TX_I;
-    s_tx_q      <= TX_Q;
 
 end Behavioral;
 
