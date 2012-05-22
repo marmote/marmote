@@ -64,8 +64,7 @@ end entity;
 architecture Behavioral of FSK_TX_APB_IF is
 
 	-- Addresses
-	constant c_ADDR_CTRL : std_logic_vector(7 downto 0) := x"00"; -- W (ENABLE)
-	constant c_ADDR_STAT : std_logic_vector(7 downto 0) := x"00"; -- R (ENABLE)
+	constant c_ADDR_CTRL : std_logic_vector(7 downto 0) := x"00"; -- R/W (ENABLE)
 	constant c_ADDR_DPHA : std_logic_vector(7 downto 0) := x"04"; -- R/W
 	constant c_ADDR_AMPL : std_logic_vector(7 downto 0) := x"08"; -- R/W
 
@@ -86,11 +85,7 @@ architecture Behavioral of FSK_TX_APB_IF is
 
 begin
 
-	assert c_FAB_CLK = 20000000 -- 20 MHz
-	report "Default baud rate and frequency values are calculated based on" &
-	    " 20 MHz clock speed. FPGA clock speed should be " &
-		integer'image(c_FAB_CLK) & " Hz"
-	severity error;
+    -- Processes
 
 	-- Register write
 	p_REG_WRITE : process (PRESETn, PCLK)
@@ -121,6 +116,7 @@ begin
 		end if;
 	end process;
 
+
 	-- Register read
 	p_REG_READ : process (PRESETn, PCLK)
 	begin
@@ -134,7 +130,7 @@ begin
 			-- Register reads
 			if PWRITE = '0' and PSEL = '1' then
 				case PADDR(7 downto 0) is
-					when c_ADDR_STAT => 
+					when c_ADDR_CTRL => 
 						s_dout(0) <= s_dphase_en;
 					when c_ADDR_DPHA =>
 						s_dout <= s_dphase;
@@ -146,6 +142,9 @@ begin
 			end if;
 		end if;
 	end process p_REG_READ;
+
+
+    -- Output assignment
 
 	DPHASE_EN <= s_dphase_en;
 	DPHASE <= s_dphase(c_DCO_PHASE_WIDTH-1 downto 0);
