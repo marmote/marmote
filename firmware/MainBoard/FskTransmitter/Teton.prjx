@@ -44,6 +44,127 @@ ALIAS=CORECORDIC_LIB
 COMPILE_OPTION=COMPILE
 ENDLIST
 LIST FileManager
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf,actgen_cxf"
+STATE="utd"
+TIME="1337709578"
+SIZE="2407"
+PARENT="<project>\component\work\Teton\Teton.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
+STATE="utd"
+TIME="1337709578"
+SIZE="1242"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\scripts\wave_user.do,do"
+STATE="utd"
+TIME="1327604778"
+SIZE="912"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\components.vhd,hdl"
+STATE="utd"
+TIME="1327604783"
+SIZE="5084"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
+STATE="utd"
+TIME="1327604783"
+SIZE="25656"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3_muxptob3.vhd,hdl"
+STATE="utd"
+TIME="1327604783"
+SIZE="6608"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+STATE="utd"
+TIME="1327604778"
+SIZE="21192"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
+MODULE_UNDER_TEST="testbench"
+SIMULATION_TIME="-all"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf,actgen_cxf"
+STATE="utd"
+TIME="1337709579"
+SIZE="2338"
+PARENT="<project>\component\work\Teton\Teton.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\coreparameters.vhd,tb_hdl"
+STATE="utd"
+TIME="1337709579"
+SIZE="582"
+LIBRARY="CORECORDIC_LIB"
+PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\mti\wave.do,do"
+STATE="utd"
+TIME="1332875007"
+SIZE="0"
+LIBRARY="CORECORDIC_LIB"
+PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\core\corecordic_addpackage_word.vhd,hdl"
+STATE="utd"
+TIME="1337709595"
+SIZE="2014"
+LIBRARY="CORECORDIC_LIB"
+PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\core\corecordic_package_word.vhd,hdl"
+STATE="utd"
+TIME="1337196135"
+SIZE="7612"
+LIBRARY="CORECORDIC_LIB"
+PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\core\corecordic_word.vhd,hdl"
+STATE="utd"
+TIME="1337196135"
+SIZE="16543"
+LIBRARY="CORECORDIC_LIB"
+PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\test\user\corecordic_tbpackage.vhd,tb_hdl"
+STATE="utd"
+TIME="1337709595"
+SIZE="3769"
+LIBRARY="CORECORDIC_LIB"
+PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
+MODULE_UNDER_TEST="testbench"
+SIMULATION_TIME="-all"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\test\user\corecordic_tb_word.vhd,tb_hdl"
+STATE="utd"
+TIME="1337196135"
+SIZE="9313"
+LIBRARY="CORECORDIC_LIB"
+PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
+MODULE_UNDER_TEST="testbench"
+SIMULATION_TIME="-all"
+IS_READONLY="TRUE"
+ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf,actgen_cxf"
 STATE="utd"
 TIME="1337643376"
@@ -186,20 +307,34 @@ STATE="utd"
 TIME="1337632747"
 SIZE="413"
 ENDFILE
+VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
+STATE="utd"
+TIME="1337709580"
+SIZE="4112"
+PARENT="<project>\component\work\Teton\Teton.cxf"
+IS_READONLY="TRUE"
+ENDFILE
 VALUE "<project>\component\work\Teton\Teton.cxf,actgen_cxf"
 STATE="utd"
-TIME="1337709538"
-SIZE="13140"
+TIME="1337709582"
+SIZE="13840"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.pdc,pdc"
 STATE="utd"
-TIME="1337708412"
+TIME="1337709577"
 SIZE="9533"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 BEGIN_USE_CONSTRAINT
 TOOL_CONSTRAINT_TYPE="ideDESIGNER"
 END_USE_CONSTRAINT
 USE_FOR_ANY_TOOL="FALSE"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\Teton\Teton.vhd,hdl"
+STATE="utd"
+TIME="1337709579"
+SIZE="79839"
+PARENT="<project>\component\work\Teton\Teton.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\MSS_ACE_0\MSS_ACE_0.log,???"
@@ -294,48 +429,53 @@ TIME="1337632597"
 SIZE="4239"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton.adb,adb"
-STATE="ood"
-TIME="1337703101"
-SIZE="715264"
+STATE="utd"
+TIME="1337709674"
+SIZE="891392"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton.fdb,fdb"
-STATE="ood"
-TIME="1337703253"
-SIZE="106743"
+STATE="utd"
+TIME="1337709673"
+SIZE="107770"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton.ide_des,ide_des"
 STATE="utd"
-TIME="1337703058"
-SIZE="504"
+TIME="1337709674"
+SIZE="1199"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_compile_log.rpt,log"
 STATE="utd"
-TIME="1337703101"
-SIZE="27164"
+TIME="1337709617"
+SIZE="27968"
+ENDFILE
+VALUE "<project>\designer\impl1\Teton_fp\projectData\Teton.pdb,pdb"
+STATE="utd"
+TIME="1337709747"
+SIZE="116736"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\Teton.pdb,pdb"
-STATE="ood"
-TIME="1337703287"
-SIZE="115712"
+STATE="utd"
+TIME="1337709698"
+SIZE="116736"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\Teton.pro,pro"
 STATE="utd"
-TIME="1337703338"
+TIME="1337709747"
 SIZE="1960"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_placeroute_log.rpt,log"
 STATE="utd"
-TIME="1337703136"
-SIZE="2273"
+TIME="1337709651"
+SIZE="2271"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_prgdata_log.rpt,log"
 STATE="utd"
-TIME="1337703254"
-SIZE="648"
+TIME="1337709674"
+SIZE="762"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_verifytiming_log.rpt,log"
 STATE="utd"
-TIME="1337703142"
+TIME="1337709657"
 SIZE="1126"
 ENDFILE
 VALUE "<project>\hdl\afe_if.vhd,hdl"
@@ -393,16 +533,41 @@ STATE="utd"
 TIME="1337644030"
 SIZE="459"
 ENDFILE
+VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
+STATE="utd"
+TIME="1327604778"
+SIZE="1237"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
+ENDFILE
 VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
 STATE="utd"
 TIME="1327522481"
 SIZE="41"
 PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf"
 ENDFILE
+VALUE "<project>\simulation\coreapb3_usertb_apb_master.bfm,sim"
+STATE="utd"
+TIME="1327604782"
+SIZE="10524"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
+ENDFILE
+VALUE "<project>\simulation\coreapb3_usertb_include.bfm,sim"
+STATE="utd"
+TIME="1327604782"
+SIZE="3992"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
+ENDFILE
 VALUE "<project>\simulation\fsk_tx_apb_if_wave.do,do"
 STATE="utd"
 TIME="1337641861"
 SIZE="1093"
+ENDFILE
+VALUE "<project>\simulation\generate.tcl,sim"
+STATE="utd"
+TIME="1332875007"
+SIZE="1244"
+LIBRARY="CORECORDIC_LIB"
+PARENT="<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\CORECORDIC.cxf"
 ENDFILE
 VALUE "<project>\simulation\run.do,do"
 STATE="utd"
@@ -411,7 +576,7 @@ SIZE="2127"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
-TIME="1337708415"
+TIME="1337709579"
 SIZE="634"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 ENDFILE
@@ -449,22 +614,22 @@ SIZE="7278"
 ENDFILE
 VALUE "<project>\synthesis\synwork\Teton_compiler.so,so"
 STATE="utd"
-TIME="1337702789"
+TIME="1337709586"
 SIZE="159"
 ENDFILE
 VALUE "<project>\synthesis\Teton.edn,syn_edn"
-STATE="ood"
-TIME="1337703089"
-SIZE="714560"
+STATE="utd"
+TIME="1337709605"
+SIZE="734760"
 ENDFILE
 VALUE "<project>\synthesis\Teton.so,so"
 STATE="utd"
-TIME="1337702822"
+TIME="1337709605"
 SIZE="216"
 ENDFILE
 VALUE "<project>\synthesis\Teton_sdc.sdc,syn_sdc"
-STATE="ood"
-TIME="1337702822"
+STATE="utd"
+TIME="1337709605"
 SIZE="579"
 ENDFILE
 ENDLIST
@@ -489,9 +654,31 @@ ENDLIST
 ENDLIST
 ENDLIST
 LIST "Teton::work"
-FILE "<project>\component\work\Teton\Teton.cxf,actgen_cxf"
+FILE "<project>\component\work\Teton\Teton.vhd,hdl"
+LIST Other_Association
+VALUE "<project>\simulation\subsystem.bfm,sim"
+VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
+VALUE "<project>\component\work\Teton\Teton.pdc,pdc"
+ENDLIST
+LIST AssociatedStimulus
+VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
+ENDLIST
 LIST SynthesisConstraints
 VALUE "<project>\component\work\Teton_MSS\mss_tshell_syn.sdc,sdc"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+LiberoState=Post_Layout
+ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\Teton.edn,syn_edn)=StateSuccess
+ideDESIGNER(<project>\designer\impl1\Teton.adb,adb)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 ENDLIST
 LIST "Teton_MSS::work"
@@ -541,11 +728,62 @@ ENDUsed_File_List
 ENDLIST
 ENDLIST
 ENDLIST
+LIST "CoreAPB3::COREAPB3_LIB::components"
+FILE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
+LIST Other_Association
+VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
+VALUE "<project>\simulation\coreapb3_usertb_include.bfm,sim"
+VALUE "<project>\simulation\coreapb3_usertb_apb_master.bfm,sim"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\scripts\wave_user.do,do"
 ENDLIST
 LIST AssociatedStimulus
-LIST USB_IF
-VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
-VALUE "<project>\stimulus\usb_if_tc.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
+LIST "CORECORDIC::CORECORDIC_LIB"
+FILE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\core\corecordic_word.vhd,hdl"
+LIST Other_Association
+VALUE "<project>\simulation\generate.tcl,sim"
+VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\coreparameters.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\test\user\corecordic_tbpackage.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\test\user\corecordic_tb_word.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\mti\wave.do,do"
+ENDLIST
+LIST AssociatedStimulus
+VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\coreparameters.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\test\user\corecordic_tbpackage.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\test\user\corecordic_tb_word.vhd,tb_hdl"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
+ENDLIST
+LIST AssociatedStimulus
+LIST Teton
+VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
 ENDLIST
 LIST AFE_IF
 VALUE "<project>\stimulus\afe_if_tb.vhd,tb_hdl"
@@ -553,8 +791,26 @@ ENDLIST
 LIST Teton_MSS
 VALUE "<project>\component\work\Teton_MSS\testbench.vhd,tb_hdl"
 ENDLIST
+LIST CoreAPB3
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+ENDLIST
+LIST CORECORDIC
+VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\coreparameters.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\test\user\corecordic_tbpackage.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\test\user\corecordic_tb_word.vhd,tb_hdl"
+ENDLIST
+LIST USB_IF
+VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
+VALUE "<project>\stimulus\usb_if_tc.vhd,tb_hdl"
+ENDLIST
 ENDLIST
 LIST Other_Association
+LIST Teton
+VALUE "<project>\simulation\subsystem.bfm,sim"
+VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
+VALUE "<project>\component\work\Teton\Teton.pdc,pdc"
+ENDLIST
 LIST Teton_MSS
 VALUE "<project>\component\work\Teton_MSS\mss_tshell_syn.sdc,sdc"
 VALUE "<project>\simulation\user.bfm,sim"
@@ -563,6 +819,21 @@ VALUE "<project>\component\work\Teton_MSS\testbench.vhd,tb_hdl"
 VALUE "<project>\component\work\Teton_MSS\Teton_MSS.pdc,pdc"
 VALUE "<project>\component\work\Teton_MSS\MSS_ENVM_0\MSS_ENVM_0.efc,efc"
 VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
+ENDLIST
+LIST CoreAPB3
+VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
+VALUE "<project>\simulation\coreapb3_usertb_include.bfm,sim"
+VALUE "<project>\simulation\coreapb3_usertb_apb_master.bfm,sim"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\scripts\wave_user.do,do"
+ENDLIST
+LIST CORECORDIC
+VALUE "<project>\simulation\generate.tcl,sim"
+VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\coreparameters.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\test\user\corecordic_tbpackage.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\test\user\corecordic_tb_word.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\mti\wave.do,do"
 ENDLIST
 ENDLIST
 LIST SimulationOptions
@@ -613,8 +884,8 @@ NAME="Synplify Pro AE"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro AE"
 LOCATION="C:\Actel\Libero_v10.0\Synopsys\synplify_F201109M\bin\synplify_pro.exe"
-PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
-BATCH=1
+PARAM=""
+BATCH=0
 EndProfile
 NAME="ModelSim AE"
 FUNCTION="Simulation"
@@ -635,6 +906,20 @@ LIST ProjectState5.1
 LIST "AFE_IF::work"
 LIST Impl1
 ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+LIST "Teton::work"
+LIST Impl1
+LiberoState=Post_Layout
+ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\Teton.edn,syn_edn)=StateSuccess
+ideDESIGNER(<project>\designer\impl1\Teton.adb,adb)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -665,6 +950,28 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 ENDLIST
+LIST "CoreAPB3::COREAPB3_LIB::components"
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+LIST "CORECORDIC::CORECORDIC_LIB"
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
 ENDLIST
 LIST ExcludePackageForSimulation
 ENDLIST
@@ -677,8 +984,6 @@ ENDLIST
 LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
-SmartDesign;Teton
-SmartDesign;Teton_MSS
-Reports;Reports
-ACTIVEVIEW;Reports
+StartPage;StartPage
+ACTIVEVIEW;StartPage
 ENDLIST

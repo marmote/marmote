@@ -2,11 +2,12 @@
 
 #include <mss_uart.h>
 #include <mss_gpio.h>
-#include <Teton_hw_platform.h>
 
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+
+#include "fsk_tx.h"
 
 
 //#define MSS_GPIO_AFE1_T_RN_MASK MSS_GPIO_10_MASK
@@ -17,6 +18,7 @@ uint32_t CmdHelp(uint32_t argc, char** argv);
 uint32_t CmdLed(uint32_t argc, char** argv);
 uint32_t CmdAfe(uint32_t argc, char** argv);
 uint32_t CmdFsk(uint32_t argc, char** argv);
+uint32_t CmdFreq(uint32_t argc, char** argv);
 uint32_t CmdAmpl(uint32_t argc, char** argv);
 
 
@@ -33,6 +35,7 @@ cmd_t cmd_list[] =
 	"led",  CmdLed,
 	"afe",  CmdAfe,
 	"fsk",  CmdFsk,
+	"freq", CmdFreq,
 	"ampl", CmdAmpl,
 	NULL,   NULL
 };
@@ -139,6 +142,8 @@ int main()
     MSS_UART_init( &g_mss_uart0, MSS_UART_9600_BAUD,
                    MSS_UART_DATA_8_BITS | MSS_UART_NO_PARITY | MSS_UART_ONE_STOP_BIT );
 
+    FSK_TX_init();
+
 	while( 1 )
 	{
 		rx_size = MSS_UART_get_rx( &g_mss_uart0, uart_buff, RX_BUFF_SIZE );
@@ -191,7 +196,7 @@ uint32_t CmdLed(uint32_t argc, char** argv)
 		if (!strcmp(*(argv+1), "on"))
 		{
 			MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_LED1_MASK );
-			MSS_UART_polled_tx_string( &g_mss_uart0, "\r\nLED is ON");
+			MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)"\r\nLED is ON");
 			return 0;
 		}
 
@@ -250,21 +255,6 @@ uint32_t CmdAfe(uint32_t argc, char** argv)
 	return 1;
 }
 
-
-/**
-  Memory mapped structure for FSK
- */
-typedef struct
-{
-  __O  uint32_t CTRL;                         /*!< Offset: 0x00  Control Register               */
-  //__I  uint32_t STAT;                         /*!< Offset: 0x00  Status Register                */
-  __IO uint32_t DPHA;                         /*!< Offset: 0x04  Delta-phase Register           */
-  __IO uint32_t AMPL;                         /*!< Offset: 0x08  Amplitude Register             */
-} FSK_TX_Type;
-
-#define FSK_TX            ((FSK_TX_Type *)       FSK_TX_APB_IF_0)   /*!< FSK TX register struct */
-
-#define FSK_TX_AMPL_MAX 0x7F
 
 uint32_t CmdFsk(uint32_t argc, char** argv)
 {
@@ -333,22 +323,30 @@ uint32_t CmdFsk(uint32_t argc, char** argv)
 	return 1;
 }
 
-uint32_t CmdAmpl(uint32_t argc, char** argv)
+
+uint32_t CmdFreq(uint32_t argc, char** argv)
 {
-	uint32_t ampl;
-	char buf[128];
+	uint32_t freq;
+	char parse_buf[128];
 
 	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
 
+	if (argc == 1)
+	{
+		sprintf(parse_buf, "\r\nFrequency: %d Hz", FSK_TX_get_frequency());
+		MSS_UART_polled_tx_string( &g_mss_uart0, parse_buf );
+		return 0;
+	}
+
 	if (argc == 2)
 	{
-		ampl = atoi(*(argv+1));
-		if (ampl || !strcmp(*(argv+1), "0")) // TODO: use errno
+		freq = atoi(*(argv+1));
+		if (freq || !strcmp(*(argv+1), "0")) // TODO: use errno
 		{
-			FSK_TX->AMPL = ampl;
+			FSK_TX_set_frequency(freq);
 
-			sprintf(buf, "\r\nParsed: %d (0x%08x)", (int)ampl, (uint32_t)ampl);
-			MSS_UART_polled_tx_string( &g_mss_uart0, buf );
+			sprintf(parse_buf, "\r\nFrequency: %d Hz", (int)FSK_TX_get_frequency());
+			MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)parse_buf );
 			return 0;
 		}
 	}
@@ -356,11 +354,52 @@ uint32_t CmdAmpl(uint32_t argc, char** argv)
 	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
 
 	// Send status
-	sprintf( buf, "\r\nampl = %8d (0x%08x)", (uint32_t)FSK_TX->AMPL, (uint32_t)FSK_TX->AMPL );
+	sprintf(parse_buf, "\r\nFrequency: %d Hz", (int)FSK_TX_get_frequency());
+	MSS_UART_polled_tx_string( &g_mss_uart0, parse_buf );
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	// Send help message
+	MSS_UART_polled_tx_string( &g_mss_uart0, "\r\nUsage: freq [<frequency value in Hz>]");
+	return 1;
+}
+
+
+uint32_t CmdAmpl(uint32_t argc, char** argv)
+{
+	uint32_t ampl;
+	char buf[128];
+
+	if (argc == 1)
+	{
+		sprintf(buf, "\r\nAmplitude: %d mVpp", FSK_TX_get_amplitude());
+		MSS_UART_polled_tx_string( &g_mss_uart0, buf );
+		return 0;
+	}
+
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	if (argc == 2)
+	{
+		ampl = atoi(*(argv+1));
+		if (ampl || !strcmp(*(argv+1), "0")) // TODO: use errno instead
+		{
+			FSK_TX_set_amplitude(ampl);
+
+			//sprintf(buf, "\r\nParsed: %8d", (int)ampl);
+			sprintf(buf, "\r\nAmplitude: %8d mVpp", (int)FSK_TX_get_amplitude());
+			MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf );
+			return 0;
+		}
+	}
+
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	// Send status
+	sprintf( buf, "\r\nampl = %8d mVpp", FSK_TX_get_amplitude() );
 	MSS_UART_polled_tx_string( &g_mss_uart0, buf );
 	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
 
 	// Send help message
-	MSS_UART_polled_tx_string( &g_mss_uart0, "\r\nUsage: ampl [<amplitude value>]");
+	MSS_UART_polled_tx_string( &g_mss_uart0, "\r\nUsage: ampl [<amplitude value in mV>]");
 	return 1;
 }
