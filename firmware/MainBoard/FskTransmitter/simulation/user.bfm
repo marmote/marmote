@@ -32,20 +32,20 @@ constant TX_DPHA 0x04;
 constant DPHA 0x000370ce; # 1.05 kHz
 
 
-wait 500;
+#wait 500;
 
 print "";
 print "************************************************************";
-print "*            Testing Custom APB slave block                *";
+print "*            Testing custom APB slave block                *";
 print "************************************************************";
 print "";
 
-write w FSK_TX_APB_INTERFACE_0 TX_CTRL 0x00;
-write w FSK_TX_APB_INTERFACE_0 TX_DPHA DPHA
+write w FSK_TX_APB_IF_0 TX_CTRL 0x00;
+write w FSK_TX_APB_IF_0 TX_DPHA DPHA
 
 wait 500;
 
-write w FSK_TX_APB_INTERFACE_0 TX_CTRL 0x01;
+write w FSK_TX_APB_IF_0 TX_CTRL 0x01;
 
 
 return
