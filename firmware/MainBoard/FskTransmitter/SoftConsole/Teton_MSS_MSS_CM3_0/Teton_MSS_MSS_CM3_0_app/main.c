@@ -17,6 +17,7 @@ uint32_t CmdHelp(uint32_t argc, char** argv);
 uint32_t CmdLed(uint32_t argc, char** argv);
 uint32_t CmdAfe(uint32_t argc, char** argv);
 uint32_t CmdFsk(uint32_t argc, char** argv);
+uint32_t CmdAmpl(uint32_t argc, char** argv);
 
 
 typedef struct cmd_struct
@@ -32,6 +33,7 @@ cmd_t cmd_list[] =
 	"led",  CmdLed,
 	"afe",  CmdAfe,
 	"fsk",  CmdFsk,
+	"ampl", CmdAmpl,
 	NULL,   NULL
 };
 
@@ -158,7 +160,14 @@ int main()
 
 uint32_t CmdHelp(uint32_t argc, char** argv)
 {
+	char buf[128];
 	cmd_t* cmdListItr = cmd_list;
+
+	SystemCoreClockUpdate();
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+	sprintf(buf, "\r\nClocks:\r\nMSS 0:\t%4u Hz\r\nMSS 1:\t%4u Hz\r\nFPGA:\t%4u Hz\r\n",
+			g_FrequencyPCLK0, g_FrequencyPCLK1, g_FrequencyFPGA );
+	MSS_UART_polled_tx_string( &g_mss_uart0, buf );
 
 	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
 	MSS_UART_polled_tx_string( &g_mss_uart0, "\r\nAvailable commands:\r\n" );
@@ -248,7 +257,7 @@ uint32_t CmdAfe(uint32_t argc, char** argv)
 typedef struct
 {
   __O  uint32_t CTRL;                         /*!< Offset: 0x00  Control Register               */
-  __I  uint32_t STAT;                         /*!< Offset: 0x00  Status Register                */
+  //__I  uint32_t STAT;                         /*!< Offset: 0x00  Status Register                */
   __IO uint32_t DPHA;                         /*!< Offset: 0x04  Delta-phase Register           */
   __IO uint32_t AMPL;                         /*!< Offset: 0x08  Amplitude Register             */
 } FSK_TX_Type;
@@ -272,7 +281,7 @@ uint32_t CmdFsk(uint32_t argc, char** argv)
 			FSK_TX->CTRL = 1;
 			dphase = FSK_TX->CTRL;
 
-			if (FSK_TX->STAT & 1)
+			if (FSK_TX->CTRL & 1)
 			{
 				MSS_UART_polled_tx_string( &g_mss_uart0, "\r\nfsk is ON");
 			}
@@ -287,7 +296,7 @@ uint32_t CmdFsk(uint32_t argc, char** argv)
 		{
 			FSK_TX->CTRL = 0;
 
-			if (FSK_TX->STAT == 0)
+			if (FSK_TX->CTRL == 0)
 			{
 				MSS_UART_polled_tx_string( &g_mss_uart0, "\r\nfsk is OFF");
 			}
@@ -303,7 +312,7 @@ uint32_t CmdFsk(uint32_t argc, char** argv)
 		{
 			FSK_TX->DPHA = dphase;
 
-			sprintf(parse_buf, "\r\nParsed: %d", (int)dphase);
+			sprintf(parse_buf, "\r\nParsed: %d (0x%08x)", (int)dphase, (uint32_t)dphase);
 			MSS_UART_polled_tx_string( &g_mss_uart0, parse_buf );
 			return 0;
 		}
@@ -311,13 +320,47 @@ uint32_t CmdFsk(uint32_t argc, char** argv)
 
 	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
 
-	sprintf( parse_buf, "\r\nStatus: fsk is %s with dphase = %x", FSK_TX->STAT ? "ON" : "OFF", (uint32_t)FSK_TX->DPHA );
+	sprintf( parse_buf, "\r\nStatus: fsk is %s\r\ndphase = %8d (0x%08x)\r\nampl = %8d (0x%08x)", FSK_TX->CTRL ? "ON" : "OFF",
+			(uint32_t)FSK_TX->DPHA, (uint32_t)FSK_TX->DPHA,
+			(uint32_t)FSK_TX->AMPL, (uint32_t)FSK_TX->AMPL );
+
 	// Send status
-	//MSS_UART_polled_tx_string( &g_mss_uart0, sprintf("\r\nStatus: fsk is %s with dphase = %x", FSK_TX->STAT ? "ON" : "OFF", (uint32_t)FSK_TX->DPHA ));
 	MSS_UART_polled_tx_string( &g_mss_uart0, parse_buf );
 	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
 
 	// Send help message
 	MSS_UART_polled_tx_string( &g_mss_uart0, "\r\nUsage: fsk [on | off | <dphase>]");
+	return 1;
+}
+
+uint32_t CmdAmpl(uint32_t argc, char** argv)
+{
+	uint32_t ampl;
+	char buf[128];
+
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	if (argc == 2)
+	{
+		ampl = atoi(*(argv+1));
+		if (ampl || !strcmp(*(argv+1), "0")) // TODO: use errno
+		{
+			FSK_TX->AMPL = ampl;
+
+			sprintf(buf, "\r\nParsed: %d (0x%08x)", (int)ampl, (uint32_t)ampl);
+			MSS_UART_polled_tx_string( &g_mss_uart0, buf );
+			return 0;
+		}
+	}
+
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	// Send status
+	sprintf( buf, "\r\nampl = %8d (0x%08x)", (uint32_t)FSK_TX->AMPL, (uint32_t)FSK_TX->AMPL );
+	MSS_UART_polled_tx_string( &g_mss_uart0, buf );
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	// Send help message
+	MSS_UART_polled_tx_string( &g_mss_uart0, "\r\nUsage: ampl [<amplitude value>]");
 	return 1;
 }
