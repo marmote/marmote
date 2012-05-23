@@ -8,6 +8,7 @@
 #include <stdio.h>
 
 #include "fsk_tx.h"
+#include "joshua.h"
 
 
 //#define MSS_GPIO_AFE1_T_RN_MASK MSS_GPIO_10_MASK
@@ -21,6 +22,7 @@ uint32_t CmdFsk(uint32_t argc, char** argv);
 uint32_t CmdTx(uint32_t argc, char** argv);
 uint32_t CmdFreq(uint32_t argc, char** argv);
 uint32_t CmdAmpl(uint32_t argc, char** argv);
+uint32_t CmdReg(uint32_t argc, char** argv);
 
 
 typedef struct cmd_struct
@@ -39,6 +41,7 @@ cmd_t cmd_list[] =
 	"tx",   CmdTx,
 	"freq", CmdFreq,
 	"ampl", CmdAmpl,
+	"reg",  CmdReg,
 	NULL,   NULL
 };
 
@@ -66,7 +69,10 @@ void process_rx_data (uint8_t* rx_buff, uint8_t length)
 
 
 
-
+joshua_reg_t default_conf[] =
+{
+		{255, 0}
+};
 
 int main()
 {
@@ -87,6 +93,8 @@ int main()
                    MSS_UART_DATA_8_BITS | MSS_UART_NO_PARITY | MSS_UART_ONE_STOP_BIT );
 
     FSK_TX_init( 5000, 15000, 10000 );
+
+    Joshua_init( default_conf );
 
 	while( 1 )
 	{
@@ -449,3 +457,43 @@ uint32_t CmdAmpl(uint32_t argc, char** argv)
 	MSS_UART_polled_tx_string( &g_mss_uart0, "\r\nUsage: ampl [<amplitude value in mV>]");
 	return 1;
 }
+
+
+uint32_t CmdReg(uint32_t argc, char** argv)
+{
+	uint32_t addr;
+	uint32_t data;
+
+	char buf[128];
+
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	if (argc == 2)
+	{
+		MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)"MAX 2830 does not support register read" );
+	}
+	else if (argc == 3)
+	{
+		addr = atoi(*(argv+1));
+		if (addr || !strcmp(*(argv+1), "0")) // TODO: use errno instead
+		{
+			data = atoi(*(argv+2));
+			if (data || !strcmp(*(argv+2), "0")) // TODO: use errno instead
+			{
+				Joshua_write_register(addr, data);
+				sprintf(buf, "\r\nAddr: %2d (0x%02x) Data: %3d (0x%04x)",
+						(unsigned int)addr,	(unsigned int)addr,
+						(unsigned int)data,	(unsigned int)data);
+				MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf );
+				return 0;
+			}
+		}
+	}
+
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	// Send help message
+	MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)"\r\nUsage: ampl [<amplitude value in mV>]");
+	return 1;
+}
+
