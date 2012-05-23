@@ -18,6 +18,7 @@ uint32_t CmdHelp(uint32_t argc, char** argv);
 uint32_t CmdLed(uint32_t argc, char** argv);
 uint32_t CmdAfe(uint32_t argc, char** argv);
 uint32_t CmdFsk(uint32_t argc, char** argv);
+uint32_t CmdTx(uint32_t argc, char** argv);
 uint32_t CmdFreq(uint32_t argc, char** argv);
 uint32_t CmdAmpl(uint32_t argc, char** argv);
 
@@ -35,6 +36,7 @@ cmd_t cmd_list[] =
 	"led",  CmdLed,
 	"afe",  CmdAfe,
 	"fsk",  CmdFsk,
+	"tx",   CmdTx,
 	"freq", CmdFreq,
 	"ampl", CmdAmpl,
 	NULL,   NULL
@@ -54,6 +56,56 @@ char* cmd_token;
 
 uint32_t argc;
 uint8_t cmd_parse_result;
+
+void process_cmd_buff(uint8_t* cmd_buff, uint8_t length);
+void process_rx_data (uint8_t* rx_buff, uint8_t length)
+;
+
+
+//-----------------------------------------------------------------------------
+
+
+
+
+
+int main()
+{
+    uint8_t rx_size;
+    uint8_t uart_buff[RX_BUFF_SIZE];
+
+	MSS_GPIO_init();
+
+	MSS_GPIO_config(MSS_GPIO_0, MSS_GPIO_OUTPUT_MODE);
+	MSS_GPIO_config(MSS_GPIO_1, MSS_GPIO_OUTPUT_MODE);
+
+	//MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_AFE1_T_RN_MASK );
+	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_LED1_MASK );
+	//MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_LED1_MASK );
+	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_AFE1_SHDN_MASK );
+
+    MSS_UART_init( &g_mss_uart0, MSS_UART_9600_BAUD,
+                   MSS_UART_DATA_8_BITS | MSS_UART_NO_PARITY | MSS_UART_ONE_STOP_BIT );
+
+    FSK_TX_init( 5000, 15000, 10000 );
+
+	while( 1 )
+	{
+		rx_size = MSS_UART_get_rx( &g_mss_uart0, uart_buff, RX_BUFF_SIZE );
+		if ( rx_size > 0 )
+		{
+			// Echo message
+			while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+			MSS_UART_polled_tx( &g_mss_uart0, uart_buff, rx_size );
+
+			while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+			process_rx_data( uart_buff, rx_size );
+		}
+
+	}
+}
+
+
+//-----------------------------------------------------------------------------
 
 void process_cmd_buff(uint8_t* cmd_buff, uint8_t length)
 {
@@ -103,8 +155,6 @@ void process_cmd_buff(uint8_t* cmd_buff, uint8_t length)
 	MSS_UART_polled_tx_string( &g_mss_uart0, "\r\n>" );
 }
 
-
-
 void process_rx_data (uint8_t* rx_buff, uint8_t length)
 {
 	uint8_t i;
@@ -123,44 +173,9 @@ void process_rx_data (uint8_t* rx_buff, uint8_t length)
 	}
 }
 
-//-----------------------------------------------------------------------------
-
-int main()
-{
-    uint8_t rx_size;
-    uint8_t uart_buff[RX_BUFF_SIZE];
-
-	MSS_GPIO_init();
-
-	MSS_GPIO_config(MSS_GPIO_0, MSS_GPIO_OUTPUT_MODE);
-	MSS_GPIO_config(MSS_GPIO_1, MSS_GPIO_OUTPUT_MODE);
-
-	//MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_AFE1_T_RN_MASK );
-	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_LED1_MASK );
-	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_AFE1_SHDN_MASK );
-
-    MSS_UART_init( &g_mss_uart0, MSS_UART_9600_BAUD,
-                   MSS_UART_DATA_8_BITS | MSS_UART_NO_PARITY | MSS_UART_ONE_STOP_BIT );
-
-    FSK_TX_init();
-
-	while( 1 )
-	{
-		rx_size = MSS_UART_get_rx( &g_mss_uart0, uart_buff, RX_BUFF_SIZE );
-		if ( rx_size > 0 )
-		{
-			// Echo message
-			while ( !MSS_UART_tx_complete(&g_mss_uart0) );
-			MSS_UART_polled_tx( &g_mss_uart0, uart_buff, rx_size );
-
-			while ( !MSS_UART_tx_complete(&g_mss_uart0) );
-			process_rx_data( uart_buff, rx_size );
-		}
-
-	}
-}
-
-//-----------------------------------------------------------------------------
+/*-----------------------------------------------------------------------------
+ *                              Command functions
+ *-----------------------------------------------------------------------------*/
 
 
 uint32_t CmdHelp(uint32_t argc, char** argv)
@@ -259,6 +274,7 @@ uint32_t CmdAfe(uint32_t argc, char** argv)
 uint32_t CmdFsk(uint32_t argc, char** argv)
 {
 	uint32_t dphase;
+	//uint32_t payload;
 	char parse_buf[128];
 
 	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
@@ -322,6 +338,36 @@ uint32_t CmdFsk(uint32_t argc, char** argv)
 	MSS_UART_polled_tx_string( &g_mss_uart0, "\r\nUsage: fsk [on | off | <dphase>]");
 	return 1;
 }
+
+
+
+uint32_t CmdTx(uint32_t argc, char** argv)
+{
+	uint32_t payload;
+	uint8_t parse_buf[128];
+
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	if (argc == 2)
+	{
+		payload = atoi(*(argv+1));
+		if (payload || !strcmp(*(argv+1), "0")) // TODO: use errno
+		{
+			sprintf((char*)parse_buf, "\r\nParsed: %u (0x%08x)", (unsigned int)payload, (unsigned int)payload);
+			MSS_UART_polled_tx_string( &g_mss_uart0, parse_buf );
+
+			FSK_TX_transmit(payload);
+			return 0;
+		}
+	}
+
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	// Send help message
+	MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)"\r\nUsage: tx <payload>]");
+	return 1;
+}
+
 
 
 uint32_t CmdFreq(uint32_t argc, char** argv)
