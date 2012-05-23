@@ -43,10 +43,20 @@
 void Joshua_init ( const joshua_reg_t* conf	)
 {
 	// Initialize GPIOs
+	MSS_GPIO_init();
+	MSS_GPIO_config( MSS_GPIO_LD, MSS_GPIO_INPUT_MODE );
+	MSS_GPIO_config( MSS_GPIO_SHDN, MSS_GPIO_OUTPUT_MODE );
+	MSS_GPIO_config( MSS_GPIO_RXHP, MSS_GPIO_OUTPUT_MODE );
+	MSS_GPIO_config( MSS_GPIO_ANTSEL, MSS_GPIO_OUTPUT_MODE );
+	MSS_GPIO_config( MSS_GPIO_RXTX, MSS_GPIO_OUTPUT_MODE );
+
+	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_SHDN_MASK );	// NO shutdown
+	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_RXHP_MASK );	// N/A (since TX)
+	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_ANTSEL_MASK );	// N/A (see RXTX)
+	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_RXTX_MASK );	// TX
 
 	// Initialize SPI1
 	MSS_SPI_init( &g_mss_spi1 );
-
 	MSS_SPI_configure_master_mode(
 			&g_mss_spi1,
 			MSS_SPI_SLAVE_0,

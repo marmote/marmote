@@ -46,7 +46,21 @@
 #include <mss_gpio.h>
 #include <mss_spi.h>
 
-// TODO: Add GPIO pin definitions
+
+
+#define MSS_GPIO_LD         	MSS_GPIO_2		// Lock-Detect
+#define MSS_GPIO_SHDN       	MSS_GPIO_3		// Shutdown
+#define MSS_GPIO_RXHP       	MSS_GPIO_4		// Receiver Baseband AC-Coupling High-Pass Corner Frequency
+#define MSS_GPIO_ANTSEL     	MSS_GPIO_5		// Antenna Selection
+#define MSS_GPIO_RXTX       	MSS_GPIO_28		// Rx/Tx Mode (Rx = 0, Tx = 1)
+
+
+#define MSS_GPIO_LD_MASK		MSS_GPIO_2_MASK
+#define MSS_GPIO_SHDN_MASK      MSS_GPIO_3_MASK
+#define MSS_GPIO_RXHP_MASK      MSS_GPIO_4_MASK
+#define MSS_GPIO_ANTSEL_MASK    MSS_GPIO_5_MASK
+#define MSS_GPIO_RXTX_MASK      MSS_GPIO_28_MASK
+
 
 
 //static const uint8_t SPI_FRAME_SIZE_MAX2830 = 18;

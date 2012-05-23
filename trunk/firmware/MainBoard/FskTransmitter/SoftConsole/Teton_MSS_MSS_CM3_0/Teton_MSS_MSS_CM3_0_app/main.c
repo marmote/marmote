@@ -23,6 +23,7 @@ uint32_t CmdTx(uint32_t argc, char** argv);
 uint32_t CmdFreq(uint32_t argc, char** argv);
 uint32_t CmdAmpl(uint32_t argc, char** argv);
 uint32_t CmdReg(uint32_t argc, char** argv);
+uint32_t CmdJoshua(uint32_t argc, char** argv);
 
 
 typedef struct cmd_struct
@@ -42,6 +43,7 @@ cmd_t cmd_list[] =
 	"freq", CmdFreq,
 	"ampl", CmdAmpl,
 	"reg",  CmdReg,
+	"j",    CmdJoshua,
 	NULL,   NULL
 };
 
@@ -494,6 +496,32 @@ uint32_t CmdReg(uint32_t argc, char** argv)
 
 	// Send help message
 	MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)"\r\nUsage: ampl [<amplitude value in mV>]");
+	return 1;
+}
+
+
+
+uint32_t CmdJoshua(uint32_t argc, char** argv)
+{
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	if (argc == 2)
+	{
+		if (!strcmp(*(argv+1), "on"))
+		{
+			MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_SHDN_MASK );	// Shutdown
+			return 0;
+		}
+
+		if (!strcmp(*(argv+1), "off"))
+		{
+			MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_SHDN_MASK );	// Shutdown
+			return 0;
+		}
+	}
+
+	// Send help message
+	MSS_UART_polled_tx_string( &g_mss_uart0, "\r\nUsage: j [on | off | <dphase>]");
 	return 1;
 }
 
