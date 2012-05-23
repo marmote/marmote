@@ -24,5 +24,7 @@ typedef enum __RXTX_t
 	TX_MODE = 1
 } RXTX_t;
 
+void SetRXTX(RXTX_t RXTX_mode);
+
 
 #endif /* RFX400_H_ */
