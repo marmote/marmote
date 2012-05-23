@@ -3,6 +3,19 @@
 
 #include <a2fxxxm3.h>
 #include <Teton_hw_platform.h>
+#include <mss_timer.h>
+#include <mss_gpio.h>
+
+/***************************************************************************//**
+  Baud rates.
+  The following definitions are used to specify baud rates as a
+  parameter to the BBFSK_init() function.
+ */
+#define FSK_1200_BAUD      1200
+#define FSK_2400_BAUD      2400
+#define FSK_4800_BAUD      4800
+#define FSK_9600_BAUD      9600
+
 
 /**
   Memory mapped structure for FSK TX
@@ -22,11 +35,74 @@ typedef struct
 //#define FSK_TX_AMPL_MAX 0x007FUL
 #define FSK_TX_AMPL_MAX 800UL // mV
 
+
+static uint8_t fsk_tx_busy;
+static uint8_t tx_bit_ctr;
+static uint32_t payload;
+
+static uint32_t f_low;
+static uint32_t f_high;
+static uint32_t delta_phase_high;
+static uint32_t delta_phase_low;
+
+
 /**
  * The BBFSK_TX_init() function initializes and starts the FSK TX
- * module in the FPGA fabric. *
+ * module in the FPGA fabric. Furthermore, it initializes the timer used for
+ * bit-time calculation.
+ *
+ * @param baud_rate
+ *   The baud_rate parameter specifies the baud rate. It can be specified for
+ *   common baud rates using the following constants:
+ *   	- FSK_1200_BAUD
+ *      - FSK_2400_BAUD
+ *      - FSK_4800_BAUD
+ *      - FSK_9600_BAUD
+ *
+ *   Alternatively, any non standard baud rate can be specified by simply passing
+ *   the actual required baud rate as value for this parameter.
+ *
+ * @param center_freq
+ *   The center_freq parameter specifies the baseband center frequency for FSK
+ *   in Hz. Its value should be larger than half the separation_freq.
+ *
+ * @param separation_freq
+ *   The separation_freq parameter specifies the distance between the FSK low and high
+ *   transmit frequencies in Hz. Its value should be smaller than twice center_freq.
+ *
+ * @return
+ *   This function does not return a value.
  */
-void FSK_TX_init(void);
+void FSK_TX_init (
+	uint32_t baud_rate,
+	uint32_t center_freq,
+	uint32_t separation_freq
+	);
+
+/**
+ * The FSK_TX_is_busy() function reflects the state of the transmitter.
+ *
+ * @param
+ *   This function does not have a parameter.
+ *
+ * @return
+ *   Returns a nonzero value if a transmission is going on, otherwise returns zero.
+ *
+ *
+ */
+uint8_t FSK_TX_is_busy( void );
+
+/**
+ * The FSK_TX_transmit() function initiates a baseband FSK transmission with
+ * a given payload.
+ *
+ * @param payload
+ *   The payload parameter specifies the 32-bit payload to be transmitted.
+ * @return
+ *   This function does not return a value.
+ *
+ */
+void FSK_TX_transmit( uint32_t payload );
 
 
 /**
@@ -48,11 +124,13 @@ void FSK_TX_set_frequency(uint32_t freq);
 
 
 /**
- * The FSK_TX_get_frequency() function returns the frequency of the baseband tone signalin Hz.
+ * The FSK_TX_get_frequency() function returns the frequency of the baseband tone signal in Hz.
  *
  * @param
  *  This function does not have a parameter.
  *
+ * @return
+ *  Returns the baseband tone signal frequency in Hz.
  *
  *  Calculation:
  *
