@@ -8,7 +8,7 @@
 
 # Family: SmartFusion , Die: A2F500M3G , Package: 256 FBGA , Speed grade: -1 
 
-# Date generated: Mon May 21 12:54:15 2012 
+# Date generated: Wed May 23 16:15:37 2012 
 
 
 
@@ -80,6 +80,11 @@ set_io AFE2_TR_n -iostd LVCMOS33 -REGISTER No -OUT_DRIVE 2 -SLEW Low -RES_PULL U
 set_io I2C_0_SCL -iostd LVTTL -OUT_DRIVE 8 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname J12 -fixed yes
 set_io I2C_0_SDA -iostd LVTTL -OUT_DRIVE 8 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname J13 -fixed yes
 set_io I2C_0_SMBALERT_NI -iostd LVCMOS33 -REGISTER No -RES_PULL None -SCHMITT_TRIGGER Off -pinname J1 -fixed yes
+set_io J_ANTSEL -iostd LVTTL -REGISTER No -OUT_DRIVE 8 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname F1 -fixed yes
+set_io J_LD -iostd LVTTL -REGISTER No -RES_PULL None -SCHMITT_TRIGGER Off -pinname F3 -fixed yes
+set_io J_RXHP -iostd LVTTL -REGISTER No -OUT_DRIVE 8 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname G3 -fixed yes
+set_io J_RXTX -iostd LVTTL -OUT_DRIVE 8 -SLEW High -RES_PULL None -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname K14 -fixed yes
+set_io J_SHDN -iostd LVTTL -REGISTER No -OUT_DRIVE 8 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname E3 -fixed yes
 set_io LED1 -iostd LVCMOS33 -REGISTER No -OUT_DRIVE 8 -SLEW Low -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname H5 -fixed yes
 set_io LED2 -iostd LVCMOS33 -REGISTER No -OUT_DRIVE 8 -SLEW Low -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname H4 -fixed yes
 set_io MAC_CLK -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -REGISTER No -pinname L5 -fixed yes
@@ -104,7 +109,3 @@ set_io SPI_1_DO -iostd LVTTL -OUT_DRIVE 8 -SLEW High -RES_PULL None -SKEW Off -R
 set_io SPI_1_SS -iostd LVTTL -OUT_DRIVE 8 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname L13 -fixed yes
 set_io UART_0_RXD -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -REGISTER No -pinname K12 -fixed yes
 set_io UART_0_TXD -iostd LVTTL -OUT_DRIVE 8 -SLEW High -RES_PULL None -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname K16 -fixed yes
-
-# User Group UART_1_PADs
-set_io UART_1_RXD -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -REGISTER No -GROUP_NAME UART_1_PADs -pinname K15 -fixed yes
-set_io UART_1_TXD -iostd LVTTL -OUT_DRIVE 8 -SLEW High -RES_PULL None -SKEW Off -REGISTER No -OUT_LOAD 35 -GROUP_NAME UART_1_PADs -pinname K14 -fixed yes

@@ -72,7 +72,7 @@ void Timer1_IRQHandler( void )
 
 		// Housekeeping section
 		payload >>= 1;
-		tx_bit_ctr--;
+		//tx_bit_ctr--;
 	}
 	else
 	{
