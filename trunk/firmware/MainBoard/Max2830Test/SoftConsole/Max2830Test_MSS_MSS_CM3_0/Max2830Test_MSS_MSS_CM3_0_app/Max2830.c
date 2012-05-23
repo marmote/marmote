@@ -155,7 +155,7 @@ void Set_Main_Divider(uint8_t IntegerPortion, uint32_t FractionalPortion)
 
 //////////////////////
 	reg3 = reg3 | IntegerPortion;
-	reg3 = reg3 | (FractionalPortion & 0x3F);
+	reg3 = reg3 | ((FractionalPortion & 0x3F)) << 8;
 
 	send_SPI(reg3 << 4 | 0x3);
 
