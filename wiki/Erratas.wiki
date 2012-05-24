@@ -1,8 +1,8 @@
 #summary Main page for the erratas of the various HW designs
 #labels Phase-Implementation
 
-[http://code.google.com/p/marmote/wiki/RadioBoardErrata 2.4GHz Radio Board - Rev A]
+= List of Erratas and Design Notes =
 
-[http://code.google.com/p/marmote/wiki/MainBoardErrata Main Board - Rev A]
-
-[http://code.google.com/p/marmote/wiki/PowerBoardErrata Power Board - Rev A]
+ * [http://code.google.com/p/marmote/wiki/RadioBoardErrata 2.4 GHz Radio Board - Rev A]
+ * [http://code.google.com/p/marmote/wiki/MainBoardErrata Main Board - Rev A]
+ * [http://code.google.com/p/marmote/wiki/PowerBoardErrata Power Board - Rev A]
