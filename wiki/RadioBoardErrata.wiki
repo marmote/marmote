@@ -1,0 +1,13 @@
+#summary Errata for the 2.4 Ghz Radio Front-End
+#labels Phase-Support
+
+= Rev A =
+
+== Major ==
+
+ * External TCXO is connected to MAX2830 XTAL pin (28) instead of CTUNE pin (29)
+
+== Minor ==
+
+ * Via test points for potential test pins (clock out, lock detect) would have been useful
+ 
