@@ -1,6 +1,10 @@
 #summary Errata and observations on the board designs during testing
 #labels Phase-Support
 
+= 2.4 GHz Radio Board =
+
+ * Via test points for potential test pins (clock out, lock detect) would have been useful
+
 = Power Board =
 
  * Via test points on important lines are useful
