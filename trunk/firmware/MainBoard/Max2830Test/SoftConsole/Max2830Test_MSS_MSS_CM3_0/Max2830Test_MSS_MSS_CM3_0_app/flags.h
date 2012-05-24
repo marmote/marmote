@@ -10,7 +10,7 @@
 
 #include <stdint.h>
 
-typedef     uint32_t       flags_t;
+typedef     uint16_t       flags_t;
 
 void        SetFlagVal  ( flags_t* p_f, flags_t b, unsigned char Value );
 void        SetFlag     ( flags_t* p_f, flags_t b );
