@@ -60,7 +60,7 @@ int main()
 // !!!!!!!! WARNING! MUST BE PRECEDED BY PROPER SPI AND GPIO INITIALIZATION!!!!!!!!!!!!!
 	ShutDownEnable(0);  //Make sure the Max2830 is not shutdown
 
-	Max2830init();
+	Max2830_Init();
 
 	SetRXTX(TX_MODE);
 
@@ -69,8 +69,8 @@ int main()
 //////////////////////////////////////////////////////
 	while( 1 )
 	{
-		SetFrequency(2437000000);
-		SetTXGain(0x3F);
+		Max2830_Set_Frequency(2437000000);
+		Max2830_Set_TX_Attenuation(0);
 
 	}
 }
