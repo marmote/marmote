@@ -45,18 +45,29 @@ Recommended Register Settings
 |------| |------|------||------|------|------|------||------|------|------|------||------|------|------|------||------------|
 */
 
-//According to the recommended values in the table above
+/*******************************************************************************
+*
+*                               DEFAULT REG VALUES
+*
+*          				(According to the recommended values
+*          				in the table above with some platform
+*          				specific modifications)
+*
+*******************************************************************************/
 #define MAX2830_REG0	0x1740
 #define MAX2830_REG1	0x119A
 #define MAX2830_REG2	0x1003
 #define MAX2830_REG3	0x0079
 #define MAX2830_REG4	0x3666
-#define MAX2830_REG5	0x00A4
+
+//#define MAX2830_REG5	0x00A4
+#define MAX2830_REG5	0x00A0 //No division for reference frequency divider
+
 #define MAX2830_REG6	0x0060
 #define MAX2830_REG7	0x1022
 
 //#define MAX2830_REG8	0x2021
-#define MAX2830_REG8	0x3021 //Enable RX gain setup through SPI
+#define MAX2830_REG8	0x3421 //Enable RX gain setup through SPI AND RSSI output independent of RXHP
 
 //#define MAX2830_REG9	0x03B5
 #define MAX2830_REG9	0x07B5 //Enable TX gain setup through SPI
@@ -73,7 +84,11 @@ Recommended Register Settings
 #define MAX2830_REG15	0x0145
 
 
-//Flags
+/*******************************************************************************
+*
+*						SOME FLAGS FOR REGISTER HANDLING
+*
+*******************************************************************************/
 //reg 0
 #define MAX2830_FRACTIONAL_N_PLL_MODE_ENABLE_FLAG					0x0400
 //reg 1
@@ -117,14 +132,11 @@ uint16_t Max2830Regs[] = {
 
 
 
-
-///////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////
-//
-//	Low level functions
-//
-///////////////////////////////////////////////////////////////////////
-
+/*******************************************************************************
+*
+*							LOW LEVEL FUNCTIONS
+*
+*******************************************************************************/
 void send_SPI_addr(uint16_t data, uint8_t addr)
 {
 	if (addr > 15)
@@ -142,17 +154,15 @@ void send_Reg(uint8_t addr)
 }
 
 
-///////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////
-//
-//	Low level register handling functions
-//
-///////////////////////////////////////////////////////////////////////
-//
-//	Stuff for register 0
-//
-
-void Set_Fractional_N_PLL_Mode_Enable(char EnableFlag)
+/*******************************************************************************
+*
+*							LOW LEVEL REG HANDLING
+*
+*******************************************************************************/
+/*******************************************************************************
+*	REG0
+*******************************************************************************/
+void Fractional_N_PLL_Mode_Enable(char EnableFlag)
 {
 //	Fractional-N PLL Mode Enable.
 //	Set 1 to enable the fractional-N PLL or set 0 to enable the integer-N PLL.
@@ -163,12 +173,10 @@ void Set_Fractional_N_PLL_Mode_Enable(char EnableFlag)
 }
 
 
-///////////////////////////////////////////////////////////////////////
-//
-//	Stuff for register 1
-//
-
-void Set_Lock_Detector_Output_Select(char OutputType)
+/*******************************************************************************
+*	REG1
+*******************************************************************************/
+void Lock_Detector_Output_Select(char OutputType)
 {
 //	Lock-Detector Output Select.
 //	Set to 1 for CMOS Output. Set to 0 for open-drain output.
@@ -180,19 +188,17 @@ void Set_Lock_Detector_Output_Select(char OutputType)
 }
 
 
-///////////////////////////////////////////////////////////////////////
-//
-//	Stuff for register 2
-//
+/*******************************************************************************
+*	REG2
+*******************************************************************************/
 
 //Nothing here...
 
-///////////////////////////////////////////////////////////////////////
-//
-//	Stuff for register 3 and 4
-//
 
-void Set_Main_Divider(uint8_t IntegerPortion, uint32_t FractionalPortion)
+/*******************************************************************************
+*	REG3 AND REG4
+*******************************************************************************/
+void Main_Divider(uint8_t IntegerPortion, uint32_t FractionalPortion)
 {
 //	8-Bit Integer Portion of Main Divider. Programmable from 64 to 255.
 
@@ -204,12 +210,9 @@ void Set_Main_Divider(uint8_t IntegerPortion, uint32_t FractionalPortion)
 
 	FractionalPortion = FractionalPortion & 0xFFFFF;
 
-//////////////////////
 	Max2830Regs[3] = (uint16_t) ( IntegerPortion | ( (FractionalPortion & 0x3F) << 8 ) );
 
 //	send_SPI_addr(Max2830Regs[3], 3);
-
-//////////////////////
 
 	Max2830Regs[4] = (uint16_t) ( (FractionalPortion & 0xFFFC0) >> 6 );
 
@@ -217,12 +220,10 @@ void Set_Main_Divider(uint8_t IntegerPortion, uint32_t FractionalPortion)
 }
 
 
-///////////////////////////////////////////////////////////////////////
-//
-//	Stuff for register 5
-//
-
-void Set_Lock_Detect_Output_Internal_Pullup_Resistor_Enable(char EnableFlag)
+/*******************************************************************************
+*	REG5
+*******************************************************************************/
+void Lock_Detect_Output_Internal_Pullup_Resistor_Enable(char EnableFlag)
 {
 //	Lock-Detect Output Internal Pullup Resistor Enable.
 //	Set to 1 to enable internal 30kOhm pullup resistor or set to 0 to disable the resistor.
@@ -233,7 +234,7 @@ void Set_Lock_Detect_Output_Internal_Pullup_Resistor_Enable(char EnableFlag)
 //	send_SPI_addr(Max2830Regs[5], 5);
 }
 
-void Set_Lock_Detect_Output_Enable(char EnableFlag)
+void Lock_Detect_Output_Enable(char EnableFlag)
 {
 //	Lock-Detect Output Enable.
 //	Set to 1 to enable the lock-detect output or set to 0 to disable the output.
@@ -244,7 +245,7 @@ void Set_Lock_Detect_Output_Enable(char EnableFlag)
 //	send_SPI_addr(Max2830Regs[5], 5);
 }
 
-void Set_Reference_Frequency_Divider_Ratio(char DividerRatio)
+void Reference_Frequency_Divider_Ratio(char DividerRatio)
 {
 //	Reference Frequency Divider Ratio to PLL.
 //	Set to 0 to divide by 1. Set to 1 to divide by 2.
@@ -255,10 +256,9 @@ void Set_Reference_Frequency_Divider_Ratio(char DividerRatio)
 }
 
 
-///////////////////////////////////////////////////////////////////////
-//
-//	Stuff for register 6
-//
+/*******************************************************************************
+*	REG6
+*******************************************************************************/
 typedef enum __Gain_Control_t
 {
 	GAIN_CTRL_9dB = 0,
@@ -267,7 +267,7 @@ typedef enum __Gain_Control_t
 	GAIN_CTRL_39dB = 3
 } Gain_Control_t;
 
-void Set_TX_IQ_Calibration_LO_Leakage_and_Sideband_Detector_Gain(Gain_Control_t value)
+void TX_IQ_Calibration_LO_Leakage_and_Sideband_Detector_Gain(Gain_Control_t value)
 {
 //	Tx I/Q Calibration LO Leakage and Sideband Detector Gain-Control Bits.
 //	D12:D11 =
@@ -282,17 +282,17 @@ void Set_TX_IQ_Calibration_LO_Leakage_and_Sideband_Detector_Gain(Gain_Control_t 
 //	send_SPI_addr(Max2830Regs[6], 6);
 }
 
-void Set_Power_Detector_Enable(char EnableFlag)
+void Power_Detector_Enable(char EnableFlag)
 {
 //	Power-Detector Enable in Tx Mode.
 //	Set to 1 to enable the power detector or set to 0 to disable the detector.
 
 	SetFlagVal(&Max2830Regs[6], (flags_t) MAX2830_POWER_DETECTOR_ENABLE_FLAG, EnableFlag);
 
-	send_SPI_addr(Max2830Regs[6], 6);
+//	send_SPI_addr(Max2830Regs[6], 6);
 }
 
-void Set_Tx_Calibration_Mode(char EnableFlag)
+void Tx_Calibration_Mode(char EnableFlag)
 {
 //	Tx Calibration Mode.
 //	Set to 1 to place the device in Tx calibration mode or 0 to place the
@@ -303,7 +303,7 @@ void Set_Tx_Calibration_Mode(char EnableFlag)
 //	send_SPI_addr(Max2830Regs[6], 6);
 }
 
-void Set_Rx_Calibration_Mode(char EnableFlag)
+void Rx_Calibration_Mode(char EnableFlag)
 {
 //	Rx Calibration Mode.
 //	Set to 1 to place the device in Rx calibration mode or 0 to place the
@@ -315,18 +315,17 @@ void Set_Rx_Calibration_Mode(char EnableFlag)
 }
 
 
-///////////////////////////////////////////////////////////////////////
-//
-//	Stuff for register 7
-//
-typedef enum __RX_HPF_Corner_Frequency_t
+/*******************************************************************************
+*	REG7
+*******************************************************************************/
+typedef enum __Reg_RX_HPF_Corner_Frequency_t
 {
-	RX_HPF_100Hz = 0,
-	RX_HPF_4kHz = 1,
-	RX_HPF_30kHz = 2
-} RX_HPF_Corner_Frequency_t;
+	REG_RX_HPF_0_1kHz = 0,
+	REG_RX_HPF_4kHz = 1,
+	REG_RX_HPF_30kHz = 2
+} Reg_RX_HPF_Corner_Frequency_t;
 
-void Set_RX_Highpass_Corner_Frequency(RX_HPF_Corner_Frequency_t value)
+void RX_Highpass_Corner_Frequency(Reg_RX_HPF_Corner_Frequency_t value)
 {
 //	Receiver Highpass Corner Frequency Setting for RXHP = 0.
 //	Set to
@@ -351,7 +350,7 @@ typedef enum __LPF_Corner_Frequency_Fine_t
 	LPF_FINE_115PERCENT = 5
 } LPF_Corner_Frequency_Fine_t;
 
-void Set_TX_Lowpass_Corner_Frequency(LPF_Corner_Frequency_Fine_t value)
+void TX_LPF_Corner_Frequency(LPF_Corner_Frequency_Fine_t value)
 {
 //	Transmitter Lowpass Filter Corner Frequency Fine Adjustment (Relative to Coarse Setting).
 //	See Table 9. Bits D1:D0 in A3:A0 = 1000 provide the lowpass filter corner coarse adjustment.
@@ -362,7 +361,7 @@ void Set_TX_Lowpass_Corner_Frequency(LPF_Corner_Frequency_Fine_t value)
 //	send_SPI_addr(Max2830Regs[7], 7);
 }
 
-void Set_RX_Lowpass_Corner_Frequency(LPF_Corner_Frequency_Fine_t value)
+void RX_LPF_Corner_Frequency(LPF_Corner_Frequency_Fine_t value)
 {
 //	Receiver Lowpass Filter Corner Frequency Fine Adjustment (Relative to Coarse Setting).
 //	See table 6. Bits D1:D0 in A3:A0 = 1000 provide the lowpass filter corner coarse adjustment.
@@ -374,12 +373,10 @@ void Set_RX_Lowpass_Corner_Frequency(LPF_Corner_Frequency_Fine_t value)
 }
 
 
-///////////////////////////////////////////////////////////////////////
-//
-//	Stuff for register 8
-//
-
-void Set_RX_Gain_Prog_Through_SPI(char EnableFlag)
+/*******************************************************************************
+*	REG8
+*******************************************************************************/
+void RX_Gain_Prog_Through_SPI(char EnableFlag)
 {
 //	Enable Receiver Gain Programming Through the Serial Interface.
 //	Set to 1 to enable programming through the 3-wire serial interface
@@ -391,7 +388,7 @@ void Set_RX_Gain_Prog_Through_SPI(char EnableFlag)
 //	send_SPI_addr(Max2830Regs[8], 8);
 }
 
-void Set_Independent_RSSI_Output_Enable(char EnableFlag)
+void Independent_RSSI_Output_Enable(char EnableFlag)
 {
 //	RSSI Operating Mode.
 //	Set to 1 to enable RSSI output independent of RXHP.
@@ -402,14 +399,14 @@ void Set_Independent_RSSI_Output_Enable(char EnableFlag)
 //	send_SPI_addr(Max2830Regs[8], 8);
 }
 
-typedef enum __ANALOG_MEASUREMENT_t
+/*typedef enum __ANALOG_MEASUREMENT_t
 {
 	ANALOG_MEAS_RSSI = 0,
 	ANALOG_MEAS_TEMP = 1,
 	ANALOG_MEAS_TXPOWER = 2
-} ANALOG_MEASUREMENT_t;
+} ANALOG_MEASUREMENT_t;*/
 
-void Set_RSSI_Power_Temp_Selection(ANALOG_MEASUREMENT_t value)
+void RSSI_Power_Temp_Selection(ANALOG_MEASUREMENT_t value)
 {
 //	RSSI, Power Detector, or Temperature Sensor Output Select.
 //	Set to 00 to enable the RSSI output in receive mode.
@@ -432,7 +429,7 @@ typedef enum __LPF_Corner_Frequency_Coarse_t
 	LPF_COARSE_22_5 = 3
 } LPF_Corner_Frequency_Coarse_t;
 
-void Set_RX_TX_LPF_Corner_frequency(LPF_Corner_Frequency_Coarse_t value)
+void RX_TX_LPF_Corner_frequency(LPF_Corner_Frequency_Coarse_t value)
 {
 //	Receiver and Transmitter Lowpass Filter Corner Frequency Coarse Adjustment.
 //	See Tables 4 and 7.
@@ -444,12 +441,10 @@ void Set_RX_TX_LPF_Corner_frequency(LPF_Corner_Frequency_Coarse_t value)
 }
 
 
-///////////////////////////////////////////////////////////////////////
-//
-//	Stuff for register 9
-//
-
-void Set_TX_Gain_Prog_Through_SPI(char EnableFlag)
+/*******************************************************************************
+*	REG9
+*******************************************************************************/
+void TX_Gain_Prog_Through_SPI(char EnableFlag)
 {
 //	Enable Transmitter Gain Programming Through the Serial or Parallel Interface.
 //	Set to 1 to enable programming through the 3-wire serial interface (D5:D0 in Register A3:A0 = 1011).
@@ -461,12 +456,10 @@ void Set_TX_Gain_Prog_Through_SPI(char EnableFlag)
 }
 
 
-///////////////////////////////////////////////////////////////////////
-//
-//	Stuff for register 10
-//
-
-void Set_PA_Delay(uint8_t value)
+/*******************************************************************************
+*	REG10
+*******************************************************************************/
+void PA_Delay(uint8_t value)
 {
 //	Power-Amplifier Enable Delay.
 //	Sets a delay between RXTX  low-to-high transition and  internal  PA enable.
@@ -480,7 +473,7 @@ void Set_PA_Delay(uint8_t value)
 }
 
 
-void Set_Stage_2_PA_Bias_current(uint8_t value)
+void Stage_2_PA_Bias_current(uint8_t value)
 {
 //	Second-Stage Power-Amplifier Bias Current Adjustment.
 //	Set to XXXX for 802.11g/b.
@@ -491,7 +484,7 @@ void Set_Stage_2_PA_Bias_current(uint8_t value)
 }
 
 
-void Set_Stage_1_PA_Bias_current(uint8_t value)
+void Stage_1_PA_Bias_current(uint8_t value)
 {
 //	First-Stage Power-Amplifier Bias Current Adjustment.
 //	Set to XXXX for 802.11g/b.
@@ -502,18 +495,17 @@ void Set_Stage_1_PA_Bias_current(uint8_t value)
 }
 
 
-///////////////////////////////////////////////////////////////////////
-//
-//	Stuff for register 11
-//
-typedef enum __LNA_Gain_t
+/*******************************************************************************
+*	REG11
+*******************************************************************************/
+/*typedef enum __LNA_Attenuation_t
 {
 	LNA_HIGH_GAIN = 0,
 	LNA_MEDIUM_GAIN_16dB_LESS = 1,
 	LNA_LOW_GAIN_33dB_LESS = 2
-} LNA_Gain_t;
+} LNA_Attenuation_t;*/
 
-void Set_LNA_Gain(LNA_Gain_t value)
+void LNA_Gain(LNA_Attenuation_t value)
 {
 //	LNA Gain Control.
 //	Set to 11 for high-gain mode.
@@ -526,7 +518,7 @@ void Set_LNA_Gain(LNA_Gain_t value)
 //	send_SPI_addr(Max2830Regs[11], 11);
 }
 
-void Set_RX_VGA(uint8_t value)
+void RX_VGA(uint8_t value)
 {
 //	Receiver VGA Control.
 //	Set D4:D0 = 00000 for minimum gain and
@@ -537,12 +529,11 @@ void Set_RX_VGA(uint8_t value)
 //	send_SPI_addr(Max2830Regs[11], 11);
 }
 
-///////////////////////////////////////////////////////////////////////
-//
-//	Stuff for register 12
-//
 
-void Set_TX_VGA_Gain(uint8_t value)
+/*******************************************************************************
+*	REG12
+*******************************************************************************/
+void TX_VGA(uint8_t value)
 {
 //	Transmitter VGA Gain Control.
 //	Set D5:D0 = 000000 for minimum gain, and
@@ -553,19 +544,18 @@ void Set_TX_VGA_Gain(uint8_t value)
 //	send_SPI_addr(Max2830Regs[12], 12);
 }
 
-///////////////////////////////////////////////////////////////////////
-//
-//	Stuff for register 13
-//
+
+/*******************************************************************************
+*	REG13
+*******************************************************************************/
 
 //Nothing here...
 
-///////////////////////////////////////////////////////////////////////
-//
-//	Stuff for register 14
-//
 
-void Set_Ref_Clk_Output_Div(char Ratio)
+/*******************************************************************************
+*	REG14
+*******************************************************************************/
+void Ref_Clk_Output_Div(char Ratio)
 {
 //	Reference Clock Output Divider Ratio.
 //	Set 1 to divide by 2 or
@@ -576,7 +566,7 @@ void Set_Ref_Clk_Output_Div(char Ratio)
 //	send_SPI_addr(Max2830Regs[14], 14);
 }
 
-void Set_Ref_Clk_Output_Enable(char EnableFlag)
+void Ref_Clk_Output_Enable(char EnableFlag)
 {
 //	Reference Clock Output Enable.
 //	Set 1 to enable the reference clock output or
@@ -588,20 +578,18 @@ void Set_Ref_Clk_Output_Enable(char EnableFlag)
 }
 
 
-///////////////////////////////////////////////////////////////////////
-//
-//	Stuff for register 15
-//
-
-typedef enum __IQ_Output_CM_t
+/*******************************************************************************
+*	REG15
+*******************************************************************************/
+/*typedef enum __IQ_Output_CM_t
 {
 	IQ_OUTPUT_CM_1_1V = 0,
 	IQ_OUTPUT_CM_1_2V = 1,
 	IQ_OUTPUT_CM_1_3V = 2,
 	IQ_OUTPUT_CM_1_45V = 3
-} IQ_Output_CM_t;
+} IQ_Output_CM_t;*/
 
-void Set_RX_IQ_Output_CM(IQ_Output_CM_t value)
+void RX_IQ_Output_CM(IQ_Output_CM_t value)
 {
 //	Receiver I/Q Output Common-Mode Voltage Adjustment.
 //	Set D11:D10 =
@@ -617,14 +605,15 @@ void Set_RX_IQ_Output_CM(IQ_Output_CM_t value)
 }
 
 
-///////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////
-//
-//	High level functions
-//
+/*******************************************************************************
+*
+*							HIGH LEVEL FUNCTIONS
+*
+*******************************************************************************/
 
+#define FREQ_CONST 1048575 // = 2^20 - 1
 
-void SetFrequency(uint32_t f)
+uint32_t Max2830_Set_Frequency(uint32_t f)
 {
 // See Max2830 documentation page 24 for calculation
 
@@ -641,71 +630,176 @@ void SetFrequency(uint32_t f)
 	if (IntegerDivider < 64)
 		IntegerDivider = 64;
 
-	FractionalDivider = (uint32_t) (((uint64_t) (f % f_Comp)) * 1048575 / f_Comp);
+	FractionalDivider = (uint32_t) (((uint64_t) (f % f_Comp)) * FREQ_CONST / f_Comp);
 
 //////////////////////////////////
 
 //TODO Do we really have to set these every time?
-//	Set_Fractional_N_PLL_Mode_Enable(1);			//Set 1 to enable the fractional-N PLL or set 0 to enable the integer-N PLL.
+//reg0
+//	Fractional_N_PLL_Mode_Enable(1);		//Set 1 to enable the fractional-N PLL or set 0 to enable the integer-N PLL.
 //	send_Reg(0);
-//	Set_Reference_Frequency_Divider_Ratio(0);		//Set to 0 to divide by 1. Set to 1 to divide by 2.
+//reg5
+//	Reference_Frequency_Divider_Ratio(0);	//Set to 0 to divide by 1. Set to 1 to divide by 2.
 //	send_Reg(5);
 
 //Actual frequency setup
-	Set_Main_Divider(IntegerDivider, FractionalDivider);
+	Main_Divider(IntegerDivider, FractionalDivider);
 	send_Reg(3);
 	send_Reg(4);
 
+	return (uint32_t) (IntegerDivider * f_Comp + ((uint64_t) FractionalDivider) * ((uint64_t) f_Comp) / FREQ_CONST );
 }
 
 
-void SetTXGain(uint8_t g)
+/*******************************************************************************
+*******************************************************************************/
+void Max2830_Set_TX_Attenuation(float VGA_att_dB)
 {
 //TODO Do we really have to set this every time?
-//	Set_TX_Gain_Prog_Through_SPI(1); //1 SPI, 0 external digital pins (B6:B1).
+//reg9
+//	TX_Gain_Prog_Through_SPI(1); //1 SPI, 0 external digital pins (B6:B1).
+//	send_Reg(9);
 
-	Set_TX_VGA_Gain(g);
+
+
+	if (VGA_att_dB > 31.5)
+		VGA_att_dB = 31.5;
+	if (VGA_att_dB < 0.0)
+		VGA_att_dB = 0.0;
+
+//	uint8_t g = (uint8_t) (63 - 2 * VGA_att_dB);
+
+//reg12
+	TX_VGA( (uint8_t) (63 - 2 * VGA_att_dB) );
+
+	send_Reg(12);
 }
 
-void Set_RXTX_BW(Max2830_RXTX_BW_t BW)
+
+/*******************************************************************************
+*******************************************************************************/
+void Max2830_Set_RX_Attenuation(LNA_Attenuation_t LNA_att, uint8_t VGA_att_dB)
+{
+//TODO Do we really have to set this every time?
+//reg8
+//	RX_Gain_Prog_Through_SPI(1); //1 SPI, 0 external digital pins (B6:B1).
+//	send_Reg(8);
+
+
+
+	if (VGA_att_dB > 62)
+		VGA_att_dB = 62;
+
+//	uint8_t g = (uint8_t) (31 - VGA_att_dB / 2);
+
+//reg11
+	RX_VGA( (uint8_t) (31 - VGA_att_dB / 2) );
+
+//reg11
+	LNA_Gain(LNA_att);
+
+	send_Reg(11);
+}
+
+
+/*******************************************************************************
+*******************************************************************************/
+void Max2830_Set_RXTX_LPF(RXTX_BW_t BW)
 {
 //reg8
-	Set_RX_TX_LPF_Corner_frequency(	(LPF_Corner_Frequency_Coarse_t) (((uint8_t) BW) / 6) );
+	RX_TX_LPF_Corner_frequency(	(LPF_Corner_Frequency_Coarse_t) (((uint8_t) BW) / 6) );
 //reg7
-	Set_TX_Lowpass_Corner_Frequency( (LPF_Corner_Frequency_Fine_t) (((uint8_t) BW) % 6) );
-	Set_RX_Lowpass_Corner_Frequency( (LPF_Corner_Frequency_Fine_t) (((uint8_t) BW) % 6) );
+	TX_LPF_Corner_Frequency( (LPF_Corner_Frequency_Fine_t) (((uint8_t) BW) % 6) );
+	RX_LPF_Corner_Frequency( (LPF_Corner_Frequency_Fine_t) (((uint8_t) BW) % 6) );
 
 	send_Reg(8);
 	send_Reg(7);
 }
 
-void Set_Lock_Detector(char Enable, char CMOSOutput, char PullupForOpenDrain)
+
+/*******************************************************************************
+*******************************************************************************/
+void Max2830_Set_Lock_Detector(char Enable, char CMOSOutput, char PullupForOpenDrain)
 {
 //reg1
-	Set_Lock_Detector_Output_Select(CMOSOutput); //	Set to 1 for CMOS Output. Set to 0 for open-drain output.
+	Lock_Detector_Output_Select(CMOSOutput); //	Set to 1 for CMOS Output. Set to 0 for open-drain output.
 //reg5
-	Set_Lock_Detect_Output_Internal_Pullup_Resistor_Enable(PullupForOpenDrain); //	Set to 1 to enable internal 30kOhm pullup resistor or set to 0 to disable the resistor.
-	Set_Lock_Detect_Output_Enable(Enable); //	Set to 1 to enable the lock-detect output or set to 0 to disable the output.
+	Lock_Detect_Output_Internal_Pullup_Resistor_Enable(PullupForOpenDrain); //	Set to 1 to enable internal 30kOhm pullup resistor or set to 0 to disable the resistor.
+	Lock_Detect_Output_Enable(Enable); //	Set to 1 to enable the lock-detect output or set to 0 to disable the output.
 
 	send_Reg(1);
 	send_Reg(5);
 }
 
-void Set_Reference_Clk_Output(char Enable, char DivideByTwo)
+
+/*******************************************************************************
+*******************************************************************************/
+void Max2830_Set_Ref_Clk_Output(char Enable, char DivideByTwo)
 {
 //reg14
-	Set_Ref_Clk_Output_Div(DivideByTwo); // Set 1 to divide by 2 or set 0 to divide by 1.
-	Set_Ref_Clk_Output_Enable(Enable); //	Set 1 to enable the reference clock output or set 0 to disable.
+	Ref_Clk_Output_Div(DivideByTwo); // Set 1 to divide by 2 or set 0 to divide by 1.
+	Ref_Clk_Output_Enable(Enable); //	Set 1 to enable the reference clock output or set 0 to disable.
 
 	send_Reg(14);
 }
 
-void Set_RX_HPF()
+
+/*******************************************************************************
+*******************************************************************************/
+void Max2830_Set_RX_HPF(RX_HPF_Corner_Frequency_t value)
 {
+	if (value == RX_HPF_600kHz)
+		SetGPIO(RXHP, 1);
+	else
+	{
+		SetGPIO(RXHP, 0);
+//reg7
+		RX_Highpass_Corner_Frequency( (Reg_RX_HPF_Corner_Frequency_t) value );
+
+		send_Reg(7);
+	}
 
 }
 
 
+/*******************************************************************************
+*******************************************************************************/
+void Max2830_Set_RSSI_Output(ANALOG_MEASUREMENT_t value)
+{
+//TODO Do we really have to set this every time?
+//reg 8
+//	Independent_RSSI_Output_Enable(1); //Set to 1 to enable RSSI output independent of RXHP.
+//	send_Reg(8);
+
+	if ( (value == ANALOG_MEAS_TXPOWER) != ( Max2830Regs[8] & 0x200 ) )
+	{
+//reg6
+		Power_Detector_Enable(value == ANALOG_MEAS_TXPOWER);	//	Set to 1 to enable the power detector or set to 0 to disable the detector.
+
+		send_Reg(6);
+	}
+
+//reg8
+	RSSI_Power_Temp_Selection(value);
+
+	send_Reg(8);
+
+}
+
+
+/*******************************************************************************
+*******************************************************************************/
+void Max2830_Set_RX_IQ_Output_CM(IQ_Output_CM_t value)
+{
+//reg15
+	RX_IQ_Output_CM(value);
+
+	send_Reg(15);
+}
+
+
+/*******************************************************************************
+*******************************************************************************/
 void ShutDownEnable(char EnableFlag)
 {
 // 1 -> enable shutdown
@@ -714,6 +808,8 @@ void ShutDownEnable(char EnableFlag)
 }
 
 
+/*******************************************************************************
+*******************************************************************************/
 void SetRXTX(RXTX_t RXTX_mode)
 {
 // 1 -> enable shutdown
@@ -722,9 +818,9 @@ void SetRXTX(RXTX_t RXTX_mode)
 }
 
 
-
-
-void Max2830init()
+/*******************************************************************************
+*******************************************************************************/
+void Max2830_Init()
 {
 // Set default values recommended by manufacturer
 	send_Reg(0);
