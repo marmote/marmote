@@ -139,6 +139,9 @@ _Note:_ Several PCB layout guidelines can be found in other sections such as ADC
 
 [http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/USER_MANUAL/CD00158241.pdf UM0424 STM32 USB-FS-Device development kit]
 
+
+[http://www.makestuff.eu/wordpress/?page_id=1400 FPGALink: Easy USB to FPGA Communication]
+
 === Audio Class Device ===
 
 [http://www.silabs.com/Support%20Documents/TechnicalDocs/AN295.pdf Silicon Laboratories AN 295] - USB Audio Class Tutorial (Descriptor)
