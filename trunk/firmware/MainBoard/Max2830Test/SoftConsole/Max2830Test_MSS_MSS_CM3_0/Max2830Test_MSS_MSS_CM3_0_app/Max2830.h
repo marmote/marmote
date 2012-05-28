@@ -10,87 +10,94 @@
 
 #include <stdint.h>
 
-typedef enum __GPIOpin_t
+typedef enum __Max2830_GPIO_t
 {
-	nSHDN = 13,
-	RXHP = 14,
-	ANTSEL = 15,
-	RXTX = 28
-} GPIOpin_t;
+	MAX2830_nSHDN	= 13,
+	MAX2830_RXHP 	= 14,
+	MAX2830_ANTSEL 	= 15,
+	MAX2830_RXTX 	= 28
+} Max2830_GPIO_t;
 
 
-typedef enum __LNA_Attenuation_t
+typedef enum __Max2830_LNA_Att_t
 {
-	LNA_HIGH_GAIN				= 0,
-	LNA_MEDIUM_GAIN_16dB_LESS	= 1,
-	LNA_LOW_GAIN_33dB_LESS		= 2
-} LNA_Attenuation_t;
+	MAX2830_LNA_HIGH_GAIN			= 0,
+	MAX2830_LNA_MED_GAIN_16dB_LESS	= 1,
+	MAX2830_LNA_LOW_GAIN_33dB_LESS	= 2
+} Max2830_LNA_Att_t;
 
 
-typedef enum __RXTX_BW_t
+typedef enum __Max2830_RXTX_BW_t
 {
 //8MHz
-	MAX2830_RXTX_BW_7_2		= 0,
-	MAX2830_RXTX_BW_7_6		= 1,
-	MAX2830_RXTX_BW_8 		= 2,
-	MAX2830_RXTX_BW_8_4		= 3,
-	MAX2830_RXTX_BW_8_8		= 4,
-	MAX2830_RXTX_BW_9_2		= 5,
+	MAX2830_RXTX_BW_7_2MHz		= 0,
+	MAX2830_RXTX_BW_7_6MHz		= 1,
+	MAX2830_RXTX_BW_8MHz 		= 2,
+	MAX2830_RXTX_BW_8_4MHz		= 3,
+	MAX2830_RXTX_BW_8_8MHz		= 4,
+	MAX2830_RXTX_BW_9_2MHz		= 5,
 //11MHz
-	MAX2830_RXTX_BW_9_9		= 6,
-	MAX2830_RXTX_BW_10_45	= 7,
-	MAX2830_RXTX_BW_11		= 8,
-	MAX2830_RXTX_BW_11_55	= 9,
-	MAX2830_RXTX_BW_12_1	= 10,
-	MAX2830_RXTX_BW_12_65	= 11,
+	MAX2830_RXTX_BW_9_9MHz		= 6,
+	MAX2830_RXTX_BW_10_45MHz	= 7,
+	MAX2830_RXTX_BW_11MHz		= 8,
+	MAX2830_RXTX_BW_11_55MHz	= 9,
+	MAX2830_RXTX_BW_12_1MHz		= 10,
+	MAX2830_RXTX_BW_12_65MHz	= 11,
 //16.5MHz
-	MAX2830_RXTX_BW_14_85	= 12,
-	MAX2830_RXTX_BW_15_675	= 13,
-	MAX2830_RXTX_BW_16_5	= 14,
-	MAX2830_RXTX_BW_17_325	= 15,
-	MAX2830_RXTX_BW_18_15	= 16,
-	MAX2830_RXTX_BW_18_975	= 17,
+	MAX2830_RXTX_BW_14_85MHz	= 12,
+	MAX2830_RXTX_BW_15_675MHz	= 13,
+	MAX2830_RXTX_BW_16_5MHz		= 14,
+	MAX2830_RXTX_BW_17_325MHz	= 15,
+	MAX2830_RXTX_BW_18_15MHz	= 16,
+	MAX2830_RXTX_BW_18_975MHz	= 17,
 //22.5MHz
-	MAX2830_RXTX_BW_20_25	= 18,
-	MAX2830_RXTX_BW_21_375	= 19,
-	MAX2830_RXTX_BW_22_5	= 20,
-	MAX2830_RXTX_BW_23_625	= 21,
-	MAX2830_RXTX_BW_24_75	= 22,
-	MAX2830_RXTX_BW_25_875	= 23
-} RXTX_BW_t;
+	MAX2830_RXTX_BW_20_25MHz	= 18,
+	MAX2830_RXTX_BW_21_375MHz	= 19,
+	MAX2830_RXTX_BW_22_5MHz		= 20,
+	MAX2830_RXTX_BW_23_625MHz	= 21,
+	MAX2830_RXTX_BW_24_75MHz	= 22,
+	MAX2830_RXTX_BW_25_875MHz	= 23
+} Max2830_RXTX_BW_t;
 
 
-typedef enum __RX_HPF_Corner_Frequency_t
+typedef enum __Max2830_RX_HPF_t
 {
-	RX_HPF_0_1kHz	= 0,
-	RX_HPF_4kHz		= 1,
-	RX_HPF_30kHz	= 2,
-	RX_HPF_600kHz	= 3
-} RX_HPF_Corner_Frequency_t;
+	MAX2830_RX_HPF_0_1kHz	= 0,
+	MAX2830_RX_HPF_4kHz		= 1,
+	MAX2830_RX_HPF_30kHz	= 2,
+	MAX2830_RX_HPF_600kHz	= 3
+} Max2830_RX_HPF_t;
 
 
-typedef enum __ANALOG_MEASUREMENT_t
+typedef enum __Max2830_Analog_Meas_t
 {
-	ANALOG_MEAS_RSSI	= 0,
-	ANALOG_MEAS_TEMP	= 1,
-	ANALOG_MEAS_TXPOWER = 2
-} ANALOG_MEASUREMENT_t;
+	MAX2830_ANALOG_MEAS_RSSI	= 0,
+	MAX2830_ANALOG_MEAS_TEMP	= 1,
+	MAX2830_ANALOG_MEAS_TXPOW	= 2
+} Max2830_Analog_Meas_t;
 
 
-typedef enum __IQ_Output_CM_t
+typedef enum __Max2830_IQ_Out_CM_t
 {
-	IQ_OUTPUT_CM_1_1V	= 0,
-	IQ_OUTPUT_CM_1_2V	= 1,
-	IQ_OUTPUT_CM_1_3V	= 2,
-	IQ_OUTPUT_CM_1_45V	= 3
-} IQ_Output_CM_t;
+	MAX2830_IQ_OUT_CM_1_1V	= 0,
+	MAX2830_IQ_OUT_CM_1_2V	= 1,
+	MAX2830_IQ_OUT_CM_1_3V	= 2,
+	MAX2830_IQ_OUT_CM_1_45V	= 3
+} Max2830_IQ_Out_CM_t;
 
 
-typedef enum __RXTX_t
+typedef enum __Max2830_RXTX_Mode_t
 {
-	RX_MODE = 0,
-	TX_MODE = 1
-} RXTX_t;
+	MAX2830_RX_MODE		= 0,
+	MAX2830_TX_MODE 	= 1
+} Max2830_RXTX_Mode_t;
+
+
+typedef enum __Max2830_RX_Ant_t
+{
+	MAX2830_RX_ANT_MAIN			= 0,
+	MAX2830_RX_ANT_DIVERSITY	= 1
+} Max2830_RX_Ant_t;
 
 
 //////////////////////////////////////////////////
@@ -101,19 +108,35 @@ typedef enum __RXTX_t
 //SPI and GPIO
 void		Max2830_Init();
 
-//SPI
-uint32_t	Max2830_Set_Frequency		(uint32_t				f);
-void		Max2830_Set_TX_Attenuation	(float					VGA_att_dB);
-void		Max2830_Set_RX_Attenuation	(LNA_Attenuation_t LNA_att, uint8_t VGA_att_dB);
-void		Max2830_Set_RXTX_LPF		(RXTX_BW_t				BW);
-void		Max2830_Set_Lock_Detector	(char Enable,	char CMOSOutput,	char PullupForOpenDrain);
-void		Max2830_Set_Ref_Clk_Output	(char Enable,	char DivideByTwo);
-void		Max2830_Set_RSSI_Output		(ANALOG_MEASUREMENT_t	value);
-void		Max2830_Set_RX_IQ_Output_CM (IQ_Output_CM_t			value);
+uint32_t	Max2830_Set_Frequency		(uint32_t				freq_Hz);
 
-//GPIO
-void		ShutDownEnable		(char			EnableFlag);
-void		SetRXTX				(RXTX_t			RXTX_mode);
+void		Max2830_Set_TX_Attenuation	(float					VGA_att_dB);
+
+void		Max2830_Set_RX_Attenuation	(Max2830_LNA_Att_t		LNA_att,
+										uint8_t					VGA_att_dB);
+
+void		Max2830_Set_RXTX_LPF		(Max2830_RXTX_BW_t		BW);
+
+void		Max2830_Set_Lock_Detector	(char					Enable,
+										char					CMOSOutput,
+										char					PullupForOpenDrain);
+
+void		Max2830_Set_Ref_Clk_Output	(char					Enable,
+										char					DivideByTwo);
+
+void		Max2830_Set_RX_HPF			(Max2830_RX_HPF_t		value);
+
+void		Max2830_Set_RSSI_Output		(Max2830_Analog_Meas_t	value);
+
+void		Max2830_Set_RX_IQ_Output_CM (Max2830_IQ_Out_CM_t	value);
+
+uint16_t	Max2830_Set_PA_Delay		(uint16_t				delay_ns);
+
+void		Max2830_ShutDown			(char					ShutDown);
+
+void		Max2830_Set_RXTX			(Max2830_RXTX_Mode_t	RXTX_mode);
+
+void		Max2830_Set_RX_Ant			(Max2830_RX_Ant_t		RX_Ant);
 
 
 //////////////////////////////////////////////////
@@ -121,7 +144,7 @@ void		SetRXTX				(RXTX_t			RXTX_mode);
 // Functions needed by Max2830.c but implemented somewhere else
 //
 //////////////////////////////////////////////////
-void		SetGPIO				(GPIOpin_t GPIOpin,	uint8_t value);
+void		set_GPIO			(Max2830_GPIO_t GPIOpin,	uint8_t value);
 void		send_SPI			(uint32_t		tx_frame);
 
 
