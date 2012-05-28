@@ -5,10 +5,17 @@
 
 
 
-void SetGPIO(GPIOpin_t GPIOpin, uint8_t value)
+void set_GPIO(Max2830_GPIO_t GPIOpin, uint8_t value)
 //void SetGPIO(uint8_t GPIOpin, uint8_t value)
 {
-	MSS_GPIO_set_output((mss_gpio_id_t) GPIOpin, value);
+	if (value == MAX2830_nSHDN)
+		MSS_GPIO_set_output(MSS_GPIO_13, value);
+	else if (value == MAX2830_RXHP)
+		MSS_GPIO_set_output(MSS_GPIO_14, value);
+	else if (value == MAX2830_ANTSEL)
+		MSS_GPIO_set_output(MSS_GPIO_15, value);
+	else if (value == MAX2830_RXTX)
+		MSS_GPIO_set_output(MSS_GPIO_28, value);
 }
 
 void send_SPI(uint32_t tx_frame)
@@ -20,6 +27,11 @@ void send_SPI(uint32_t tx_frame)
 	MSS_SPI_clear_slave_select(&g_mss_spi1, MSS_SPI_SLAVE_0);
 }
 
+void GPIO12_IRQHandler()
+{
+//    do_interrupt_processing();
+    MSS_GPIO_clear_irq(  MSS_GPIO_12 );
+}
 
 int main()
 {
@@ -28,19 +40,22 @@ int main()
 	MSS_GPIO_init();
 
 	//LD
-		MSS_GPIO_config(MSS_GPIO_12, MSS_GPIO_INPUT_MODE | MSS_GPIO_IRQ_EDGE_BOTH);
+	MSS_GPIO_config(MSS_GPIO_12, MSS_GPIO_INPUT_MODE | MSS_GPIO_IRQ_EDGE_BOTH);
 
 	//nSHDN
-		MSS_GPIO_config(MSS_GPIO_13, MSS_GPIO_OUTPUT_MODE);
+	MSS_GPIO_config(MSS_GPIO_13, MSS_GPIO_OUTPUT_MODE);
 
 	//RXHP
-		MSS_GPIO_config(MSS_GPIO_14, MSS_GPIO_OUTPUT_MODE);
+	MSS_GPIO_config(MSS_GPIO_14, MSS_GPIO_OUTPUT_MODE);
 
 	//ANTSEL
-		MSS_GPIO_config(MSS_GPIO_15, MSS_GPIO_OUTPUT_MODE);
+	MSS_GPIO_config(MSS_GPIO_15, MSS_GPIO_OUTPUT_MODE);
 
 	//RXTX
-		MSS_GPIO_config(MSS_GPIO_28, MSS_GPIO_OUTPUT_MODE);
+	MSS_GPIO_config(MSS_GPIO_28, MSS_GPIO_OUTPUT_MODE);
+
+
+	MSS_GPIO_enable_irq(MSS_GPIO_12);
 
 
 //////////////////////////////////////////////////////
@@ -58,11 +73,9 @@ int main()
 //////////////////////////////////////////////////////
 // Max2830 init
 // !!!!!!!! WARNING! MUST BE PRECEDED BY PROPER SPI AND GPIO INITIALIZATION!!!!!!!!!!!!!
-	ShutDownEnable(0);  //Make sure the Max2830 is not shutdown
-
 	Max2830_Init();
 
-	SetRXTX(TX_MODE);
+	Max2830_Set_RXTX(MAX2830_TX_MODE);
 
 
 
@@ -70,6 +83,7 @@ int main()
 	while( 1 )
 	{
 		Max2830_Set_Frequency(2437000000);
+
 		Max2830_Set_TX_Attenuation(0);
 
 	}

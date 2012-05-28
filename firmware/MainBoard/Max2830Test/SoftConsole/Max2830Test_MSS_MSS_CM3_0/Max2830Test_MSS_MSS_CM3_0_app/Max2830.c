@@ -399,14 +399,14 @@ void Independent_RSSI_Output_Enable(char EnableFlag)
 //	send_SPI_addr(Max2830Regs[8], 8);
 }
 
-/*typedef enum __ANALOG_MEASUREMENT_t
+/*typedef enum __Max2830_Analog_Meas_t
 {
-	ANALOG_MEAS_RSSI = 0,
-	ANALOG_MEAS_TEMP = 1,
-	ANALOG_MEAS_TXPOWER = 2
-} ANALOG_MEASUREMENT_t;*/
+	MAX2830_ANALOG_MEAS_RSSI	= 0,
+	MAX2830_ANALOG_MEAS_TEMP	= 1,
+	MAX2830_ANALOG_MEAS_TXPOW	= 2
+} Max2830_Analog_Meas_t;*/
 
-void RSSI_Power_Temp_Selection(ANALOG_MEASUREMENT_t value)
+void RSSI_Power_Temp_Selection(Max2830_Analog_Meas_t value)
 {
 //	RSSI, Power Detector, or Temperature Sensor Output Select.
 //	Set to 00 to enable the RSSI output in receive mode.
@@ -498,14 +498,14 @@ void Stage_1_PA_Bias_current(uint8_t value)
 /*******************************************************************************
 *	REG11
 *******************************************************************************/
-/*typedef enum __LNA_Attenuation_t
+/*typedef enum __Max2830_LNA_Att_t
 {
-	LNA_HIGH_GAIN = 0,
-	LNA_MEDIUM_GAIN_16dB_LESS = 1,
-	LNA_LOW_GAIN_33dB_LESS = 2
-} LNA_Attenuation_t;*/
+	MAX2830_LNA_HIGH_GAIN			= 0,
+	MAX2830_LNA_MED_GAIN_16dB_LESS	= 1,
+	MAX2830_LNA_LOW_GAIN_33dB_LESS	= 2
+} Max2830_LNA_Att_t;*/
 
-void LNA_Gain(LNA_Attenuation_t value)
+void LNA_Gain(Max2830_LNA_Att_t value)
 {
 //	LNA Gain Control.
 //	Set to 11 for high-gain mode.
@@ -581,15 +581,15 @@ void Ref_Clk_Output_Enable(char EnableFlag)
 /*******************************************************************************
 *	REG15
 *******************************************************************************/
-/*typedef enum __IQ_Output_CM_t
+/*typedef enum __Max2830_IQ_Out_CM_t
 {
-	IQ_OUTPUT_CM_1_1V = 0,
-	IQ_OUTPUT_CM_1_2V = 1,
-	IQ_OUTPUT_CM_1_3V = 2,
-	IQ_OUTPUT_CM_1_45V = 3
-} IQ_Output_CM_t;*/
+	MAX2830_IQ_OUT_CM_1_1V	= 0,
+	MAX2830_IQ_OUT_CM_1_2V	= 1,
+	MAX2830_IQ_OUT_CM_1_3V	= 2,
+	MAX2830_IQ_OUT_CM_1_45V	= 3
+} Max2830_IQ_Out_CM_t;*/
 
-void RX_IQ_Output_CM(IQ_Output_CM_t value)
+void RX_IQ_Output_CM(Max2830_IQ_Out_CM_t value)
 {
 //	Receiver I/Q Output Common-Mode Voltage Adjustment.
 //	Set D11:D10 =
@@ -613,7 +613,7 @@ void RX_IQ_Output_CM(IQ_Output_CM_t value)
 
 #define FREQ_CONST 1048575 // = 2^20 - 1
 
-uint32_t Max2830_Set_Frequency(uint32_t f)
+uint32_t Max2830_Set_Frequency(uint32_t freq_Hz)
 {
 // See Max2830 documentation page 24 for calculation
 
@@ -626,11 +626,11 @@ uint32_t Max2830_Set_Frequency(uint32_t f)
 
 	f_Comp = f_LO / RefFreqDivider;
 
-	IntegerDivider = (uint8_t) (f / f_Comp);
+	IntegerDivider = (uint8_t) (freq_Hz / f_Comp);
 	if (IntegerDivider < 64)
 		IntegerDivider = 64;
 
-	FractionalDivider = (uint32_t) (((uint64_t) (f % f_Comp)) * FREQ_CONST / f_Comp);
+	FractionalDivider = (uint32_t) (((uint64_t) (freq_Hz % f_Comp)) * FREQ_CONST / f_Comp);
 
 //////////////////////////////////
 
@@ -660,8 +660,6 @@ void Max2830_Set_TX_Attenuation(float VGA_att_dB)
 //	TX_Gain_Prog_Through_SPI(1); //1 SPI, 0 external digital pins (B6:B1).
 //	send_Reg(9);
 
-
-
 	if (VGA_att_dB > 31.5)
 		VGA_att_dB = 31.5;
 	if (VGA_att_dB < 0.0)
@@ -678,14 +676,12 @@ void Max2830_Set_TX_Attenuation(float VGA_att_dB)
 
 /*******************************************************************************
 *******************************************************************************/
-void Max2830_Set_RX_Attenuation(LNA_Attenuation_t LNA_att, uint8_t VGA_att_dB)
+void Max2830_Set_RX_Attenuation(Max2830_LNA_Att_t LNA_att, uint8_t VGA_att_dB)
 {
 //TODO Do we really have to set this every time?
 //reg8
 //	RX_Gain_Prog_Through_SPI(1); //1 SPI, 0 external digital pins (B6:B1).
 //	send_Reg(8);
-
-
 
 	if (VGA_att_dB > 62)
 		VGA_att_dB = 62;
@@ -704,7 +700,7 @@ void Max2830_Set_RX_Attenuation(LNA_Attenuation_t LNA_att, uint8_t VGA_att_dB)
 
 /*******************************************************************************
 *******************************************************************************/
-void Max2830_Set_RXTX_LPF(RXTX_BW_t BW)
+void Max2830_Set_RXTX_LPF(Max2830_RXTX_BW_t BW)
 {
 //reg8
 	RX_TX_LPF_Corner_frequency(	(LPF_Corner_Frequency_Coarse_t) (((uint8_t) BW) / 6) );
@@ -746,35 +742,34 @@ void Max2830_Set_Ref_Clk_Output(char Enable, char DivideByTwo)
 
 /*******************************************************************************
 *******************************************************************************/
-void Max2830_Set_RX_HPF(RX_HPF_Corner_Frequency_t value)
+void Max2830_Set_RX_HPF(Max2830_RX_HPF_t value)
 {
-	if (value == RX_HPF_600kHz)
-		SetGPIO(RXHP, 1);
+	if (value == MAX2830_RX_HPF_600kHz)
+		SetGPIO(MAX2830_RXHP, 1);
 	else
 	{
-		SetGPIO(RXHP, 0);
+		SetGPIO(MAX2830_RXHP, 0);
 //reg7
 		RX_Highpass_Corner_Frequency( (Reg_RX_HPF_Corner_Frequency_t) value );
 
 		send_Reg(7);
 	}
-
 }
 
 
 /*******************************************************************************
 *******************************************************************************/
-void Max2830_Set_RSSI_Output(ANALOG_MEASUREMENT_t value)
+void Max2830_Set_RSSI_Output(Max2830_Analog_Meas_t	value)
 {
 //TODO Do we really have to set this every time?
 //reg 8
 //	Independent_RSSI_Output_Enable(1); //Set to 1 to enable RSSI output independent of RXHP.
 //	send_Reg(8);
 
-	if ( (value == ANALOG_MEAS_TXPOWER) != ( Max2830Regs[8] & 0x200 ) )
+	if ( (value == MAX2830_ANALOG_MEAS_TXPOW) != ( Max2830Regs[8] & 0x200 ) )
 	{
 //reg6
-		Power_Detector_Enable(value == ANALOG_MEAS_TXPOWER);	//	Set to 1 to enable the power detector or set to 0 to disable the detector.
+		Power_Detector_Enable(value == MAX2830_ANALOG_MEAS_TXPOW);	//	Set to 1 to enable the power detector or set to 0 to disable the detector.
 
 		send_Reg(6);
 	}
@@ -789,7 +784,7 @@ void Max2830_Set_RSSI_Output(ANALOG_MEASUREMENT_t value)
 
 /*******************************************************************************
 *******************************************************************************/
-void Max2830_Set_RX_IQ_Output_CM(IQ_Output_CM_t value)
+void Max2830_Set_RX_IQ_Output_CM(Max2830_IQ_Out_CM_t value)
 {
 //reg15
 	RX_IQ_Output_CM(value);
@@ -800,21 +795,56 @@ void Max2830_Set_RX_IQ_Output_CM(IQ_Output_CM_t value)
 
 /*******************************************************************************
 *******************************************************************************/
-void ShutDownEnable(char EnableFlag)
+uint16_t Max2830_Set_PA_Delay(uint16_t delay_ns)
 {
-// 1 -> enable shutdown
-// 0 -> wake up
-	SetGPIO(nSHDN, !EnableFlag );
+	if (delay_ns < 200)
+		delay_ns = 200;
+
+	if (delay_ns > 7000)
+		delay_ns = 7000;
+
+	uint8_t value = (uint8_t) ((7*delay_ns + 2000)/3400);
+
+//reg10
+	PA_Delay(value);
+	//		D13:D10 = 0001 (0.2µs) and
+	//		D13:D10 = 1111 (7µs).
+
+	send_Reg(10);
+
+	return (((uint16_t) value)*3400 - 2000)/7;
 }
 
 
 /*******************************************************************************
 *******************************************************************************/
-void SetRXTX(RXTX_t RXTX_mode)
+void Max2830_ShutDown(char ShutDown)
 {
 // 1 -> enable shutdown
 // 0 -> wake up
-	SetGPIO(RXTX, (uint8_t) RXTX_mode);
+	SetGPIO(MAX2830_nSHDN, !ShutDown );
+}
+
+
+/*******************************************************************************
+*******************************************************************************/
+void Max2830_Set_RXTX(Max2830_RXTX_Mode_t RXTX_mode)
+{
+	if (RXTX_mode == MAX2830_RX_MODE)
+		SetGPIO(MAX2830_RXTX, 0);
+	else
+		SetGPIO(MAX2830_RXTX, 1);
+}
+
+
+/*******************************************************************************
+*******************************************************************************/
+void Max2830_Set_RX_Ant(Max2830_RX_Ant_t RX_Ant)
+{
+	if (RX_Ant == MAX2830_RX_ANT_MAIN)
+		SetGPIO(MAX2830_ANTSEL, 0);
+	else
+		SetGPIO(MAX2830_ANTSEL, 1);
 }
 
 
@@ -822,7 +852,12 @@ void SetRXTX(RXTX_t RXTX_mode)
 *******************************************************************************/
 void Max2830_Init()
 {
-// Set default values recommended by manufacturer
+	SetGPIO(MAX2830_RXTX,	0);	//RX mode
+	SetGPIO(MAX2830_ANTSEL,	1);	//RX from diversity (multiplexed) antenna
+	SetGPIO(MAX2830_RXHP,	0);	//100, 4k, and 30k HPF filters enabled
+	SetGPIO(MAX2830_nSHDN,	1);	//Start not in shutdown
+
+	// Set default values
 	send_Reg(0);
 	send_Reg(1);
 	send_Reg(2);
