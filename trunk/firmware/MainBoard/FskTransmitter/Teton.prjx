@@ -813,6 +813,10 @@ ENDLIST
 ENDLIST
 ENDLIST
 LIST AssociatedStimulus
+LIST USB_IF
+VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
+VALUE "<project>\stimulus\usb_if_tc.vhd,tb_hdl"
+ENDLIST
 LIST Teton
 VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
 ENDLIST
@@ -830,10 +834,6 @@ LIST CORECORDIC
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\coreparameters.vhd,tb_hdl"
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\test\user\corecordic_tbpackage.vhd,tb_hdl"
 VALUE "<project>\component\Actel\DirectCore\CORECORDIC\3.0.196\rtl\vhdl\test\user\corecordic_tb_word.vhd,tb_hdl"
-ENDLIST
-LIST USB_IF
-VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
-VALUE "<project>\stimulus\usb_if_tc.vhd,tb_hdl"
 ENDLIST
 ENDLIST
 LIST Other_Association
@@ -1015,6 +1015,8 @@ ENDLIST
 LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
-StartPage;StartPage
-ACTIVEVIEW;StartPage
+SmartDesign;Teton
+SmartDesign;Teton_MSS
+Reports;Reports
+ACTIVEVIEW;Teton
 ENDLIST
