@@ -1,0 +1,61 @@
+ ** Message System Log
+ ** Database: 
+ ** Date:   Thu May 24 09:46:33 2012
+
+
+****************
+Macro Parameters
+****************
+
+Name                            : AFE_IN_MUX
+Family                          : PA3SOC2
+Output Format                   : VHDL
+Type                            : Multiplexor
+Sel0                            : Active High
+Sel1                            : None
+Sel2                            : None
+Sel3                            : None
+Sel4                            : None
+Sel5                            : None
+Output Bus Width                : 10
+No Of Input Buses               : 2
+Placement Info                  : yes
+
+*************
+Fanin Control
+*************
+
+Signal      Buffering   Max Load   Signal Width
+------      ---------   --------   ------------
+Sel0          Auto         6
+
+**************
+Compile Report
+**************
+
+
+Netlist Resource Report
+=======================
+
+    Microcontroller Subsystem  Used:      0  Total:      1   (0.00%)
+    Fabric                     Used:     12  Total:  11520   (0.10%)
+    Fabric IO (W/ clocks)      Used:      0  Total:     66   (0.00%)
+    Fabric Differential IO     Used:      0  Total:     33   (0.00%)
+    Dedicated Analog IO        Used:      0  Total:     32   (0.00%)
+    Dedicated MSS IO           Used:      0  Total:     27   (0.00%)
+    GLOBAL (Chip+Quadrant)     Used:      0  Total:     15   (0.00%)
+    MSS GLOBAL                 Used:      0  Total:      3   (0.00%)
+    Fabric CCC                 Used:      0  Total:      1   (0.00%)
+    MSS CCC                    Used:      0  Total:      1   (0.00%)
+    On-chip RC oscillator      Used:      0  Total:      1   (0.00%)
+    Main Crystal oscillator    Used:      0  Total:      1   (0.00%)
+    32 KHz Crystal oscillator  Used:      0  Total:      1   (0.00%)
+    RAM/FIFO                   Used:      0  Total:     24   (0.00%)
+    User JTAG                  Used:      0  Total:      1   (0.00%)
+
+Wrote VHDL netlist to D:/firmware/MainBoard/FskTransmitter/smartgen\AFE_IN_MUX\AFE_IN_MUX.vhd.
+
+Wrote Behavioral VHDL model to D:/firmware/MainBoard/FskTransmitter/smartgen\AFE_IN_MUX\AFE_IN_MUX_behave.vhd.
+
+ ** Log Ended:   Thu May 24 09:46:34 2012
+
