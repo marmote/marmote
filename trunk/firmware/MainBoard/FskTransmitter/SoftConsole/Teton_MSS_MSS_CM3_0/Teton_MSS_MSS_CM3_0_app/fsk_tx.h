@@ -15,6 +15,8 @@
 #define FSK_2400_BAUD      2400
 #define FSK_4800_BAUD      4800
 #define FSK_9600_BAUD      9600
+#define FSK_19200_BAUD    19200
+#define FSK_38400_BAUD    38400
 
 
 /**
@@ -25,6 +27,9 @@ typedef struct
   __IO uint32_t CTRL;                         /*!< Offset: 0x00  Control Register               */
   __IO uint32_t DPHA;                         /*!< Offset: 0x04  Delta-phase Register           */
   __IO uint32_t AMPL;                         /*!< Offset: 0x08  Amplitude Register             */
+  __IO uint32_t MUX;                          /*!< Offset: 0x0C  Amplitude Register             */
+  __IO uint32_t I;                            /*!< Offset: 0x10  Amplitude Register             */
+  __IO uint32_t Q;                            /*!< Offset: 0x14  Amplitude Register             */
 } FSK_TX_Type;
 
 /**
@@ -200,7 +205,6 @@ void FSK_TX_disable(void);
  *  This function does not have a parameter. *
  */
 void FSK_TX_enable(void);
-
 
 
 #endif // FSK_TX_H_

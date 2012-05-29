@@ -62,6 +62,25 @@
 #define MSS_GPIO_RXTX_MASK      MSS_GPIO_28_MASK
 
 
+//According to the recommended values in the table above
+#define MAX2830_REG0	0x00001740
+#define MAX2830_REG1	0x0000119A
+#define MAX2830_REG2	0x00001003
+#define MAX2830_REG3	0x00000079
+#define MAX2830_REG4	0x00003666
+#define MAX2830_REG5	0x000000A0
+#define MAX2830_REG6	0x00000060
+#define MAX2830_REG7	0x00001022
+#define MAX2830_REG8	0x00002021
+#define MAX2830_REG9	0x000007B5
+#define MAX2830_REG10	0x00001DA4
+#define MAX2830_REG11	0x0000007F
+#define MAX2830_REG12	0x00000140
+//#define MAX2830_REG12	0x0000017F
+#define MAX2830_REG13	0x00000E92
+#define MAX2830_REG14	0x00000300
+#define MAX2830_REG15	0x00000145
+
 
 //static const uint8_t SPI_FRAME_SIZE_MAX2830 = 18;
 #define SPI_FRAME_SIZE_MAX2830 18
@@ -127,6 +146,9 @@ void Joshua_init ( const joshua_reg_t* conf );
  *   defined by the parameter addr. This value is read back after the write operation.
  */
 uint32_t Joshua_write_register( uint8_t addr, uint32_t data );
+
+
+void Joshua_set_frequency( uint32_t freq );
 
 
 
