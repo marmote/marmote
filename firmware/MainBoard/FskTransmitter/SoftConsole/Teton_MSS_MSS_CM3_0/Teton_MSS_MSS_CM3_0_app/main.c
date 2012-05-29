@@ -24,6 +24,10 @@ uint32_t CmdFreq(uint32_t argc, char** argv);
 uint32_t CmdAmpl(uint32_t argc, char** argv);
 uint32_t CmdReg(uint32_t argc, char** argv);
 uint32_t CmdJoshua(uint32_t argc, char** argv);
+uint32_t CmdIQ(uint32_t argc, char** argv);
+uint32_t CmdPath(uint32_t argc, char** argv);
+uint32_t CmdIfFreq(uint32_t argc, char** argv);
+
 
 
 typedef struct cmd_struct
@@ -44,6 +48,9 @@ cmd_t cmd_list[] =
 	"ampl", CmdAmpl,
 	"reg",  CmdReg,
 	"j",    CmdJoshua,
+	"iq",   CmdIQ,
+	"path",  CmdPath,
+	"if", CmdIfFreq,
 	NULL,   NULL
 };
 
@@ -86,15 +93,15 @@ int main()
 	MSS_GPIO_config(MSS_GPIO_0, MSS_GPIO_OUTPUT_MODE);
 	MSS_GPIO_config(MSS_GPIO_1, MSS_GPIO_OUTPUT_MODE);
 
-	//MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_AFE1_T_RN_MASK );
+	//MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_LED1_MASK );
 	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_LED1_MASK );
 	//MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_LED1_MASK );
-	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_AFE1_SHDN_MASK );
+	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_AFE1_SHDN_MASK );
 
     MSS_UART_init( &g_mss_uart0, MSS_UART_9600_BAUD,
                    MSS_UART_DATA_8_BITS | MSS_UART_NO_PARITY | MSS_UART_ONE_STOP_BIT );
 
-    FSK_TX_init( 5000, 15000, 10000 );
+    FSK_TX_init( FSK_38400_BAUD, 150000, 50000 );
 
     Joshua_init( default_conf );
 
@@ -240,9 +247,6 @@ uint32_t CmdLed(uint32_t argc, char** argv)
 
 uint32_t CmdAfe(uint32_t argc, char** argv)
 {
-	uint32_t dac_value, gpio_value;
-	char parse_buf[128];
-
 	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
 
 	if (argc == 2)
@@ -261,22 +265,10 @@ uint32_t CmdAfe(uint32_t argc, char** argv)
 			return 0;
 		}
 
-		dac_value = atoi(*(argv+1));
-		if (dac_value || !strcmp(*(argv+1), "0"))
-		{
-			dac_value = dac_value & (uint32_t)0x3FF;
-			gpio_value = MSS_GPIO_get_outputs() & ~(uint32_t)0x3FF;
-			gpio_value |= dac_value;
-			MSS_GPIO_set_outputs( gpio_value );
-
-			sprintf(parse_buf, "\r\nParsed: %d", (int)dac_value);
-			MSS_UART_polled_tx_string( &g_mss_uart0, parse_buf );
-			return 0;
-		}
 	}
 
 	// Send help message
-	MSS_UART_polled_tx_string( &g_mss_uart0, "\r\nUsage: afe [on | off | <dac value>]");
+	MSS_UART_polled_tx_string( &g_mss_uart0, "\r\nUsage: afe [ on | off ]");
 	return 1;
 }
 
@@ -367,6 +359,8 @@ uint32_t CmdTx(uint32_t argc, char** argv)
 			MSS_UART_polled_tx_string( &g_mss_uart0, parse_buf );
 
 			FSK_TX_transmit(payload);
+
+			//FSK_TX->DPHA = ((uint64_t)1000 << 32)/g_FrequencyFPGA;;
 			return 0;
 		}
 	}
@@ -387,31 +381,29 @@ uint32_t CmdFreq(uint32_t argc, char** argv)
 
 	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
 
+	/*
 	if (argc == 1)
 	{
 		sprintf(parse_buf, "\r\nFrequency: %d Hz", FSK_TX_get_frequency());
 		MSS_UART_polled_tx_string( &g_mss_uart0, parse_buf );
 		return 0;
 	}
+	*/
 
 	if (argc == 2)
 	{
 		freq = atoi(*(argv+1));
 		if (freq || !strcmp(*(argv+1), "0")) // TODO: use errno
 		{
-			FSK_TX_set_frequency(freq);
+			Joshua_set_frequency(freq);
 
-			sprintf(parse_buf, "\r\nFrequency: %d Hz", (int)FSK_TX_get_frequency());
+			//sprintf(parse_buf, "\r\nFrequency: %d Hz", (int)FSK_TX_get_frequency());
+			sprintf(parse_buf, "\r\nFrequency: %d Hz", freq);
 			MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)parse_buf );
 			return 0;
 		}
 	}
 
-	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
-
-	// Send status
-	sprintf(parse_buf, "\r\nFrequency: %d Hz", (int)FSK_TX_get_frequency());
-	MSS_UART_polled_tx_string( &g_mss_uart0, parse_buf );
 	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
 
 	// Send help message
@@ -495,7 +487,7 @@ uint32_t CmdReg(uint32_t argc, char** argv)
 	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
 
 	// Send help message
-	MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)"\r\nUsage: ampl [<amplitude value in mV>]");
+	MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)"\r\nUsage: reg address data");
 	return 1;
 }
 
@@ -522,6 +514,153 @@ uint32_t CmdJoshua(uint32_t argc, char** argv)
 
 	// Send help message
 	MSS_UART_polled_tx_string( &g_mss_uart0, "\r\nUsage: j [on | off | <dphase>]");
+	return 1;
+}
+
+
+
+
+uint32_t CmdPath(uint32_t argc, char** argv)
+{
+	char buf[128];
+	uint32_t path;
+
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	if (argc == 1)
+	{
+		sprintf(buf, "\r\nActive path: %s", FSK_TX->MUX ? "CONST" : "FSK");
+		MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf );
+		return 0;
+	}
+
+
+	if (argc == 2)
+	{
+		//FSK_TX->MUX = (uint32_t)1;
+		//return 0;
+
+		path = atoi(*(argv+1));
+		if (path == 0)
+		{
+			FSK_TX->MUX = 0;
+			sprintf(buf, "\r\nActive path: %s", FSK_TX->MUX ? "CONST" : "FSK");
+			while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+			MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf );
+			return 0;
+		}
+		else if (path == 1)
+		{
+			FSK_TX->MUX = 1;
+			sprintf(buf, "\r\nActive path: %s", FSK_TX->MUX ? "CONST" : "FSK");
+			while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+			MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf );
+			return 0;
+		}
+	}
+
+	// Send status
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+	sprintf( buf, "\r\nActive path: %s", FSK_TX->MUX ? "CONST" : "FSK");
+	MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf );
+
+	// Send help message
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+	MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)"\r\nUsage: path [ 0 | 1 ]\t0 : FSK\t1 : CONST");
+
+	return 1;
+}
+
+uint32_t CmdIQ(uint32_t argc, char** argv)
+{
+	char buf[128];
+	uint32_t i, q;
+
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+
+	if (argc == 1)
+	{
+		sprintf(buf, "\r\nI : %d\t0x%03x\r\nQ : %d\t0x%03x",
+				(int)FSK_TX->I, (unsigned int)FSK_TX->I,
+				(int)FSK_TX->Q, (unsigned int)FSK_TX->Q);
+		MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf );
+		return 0;
+	}
+
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	if (argc == 3)
+	{
+		i = atoi(*(argv+1));
+		q = atoi(*(argv+2));
+		if ((i || !strcmp(*(argv+1), "0")) && (q || !strcmp(*(argv+2), "0")))
+		{
+
+			//!
+			//FSK_TX->MUX = (uint32_t)1;
+
+			FSK_TX->I = i;
+			FSK_TX->Q = q;
+
+			// Readback
+			sprintf(buf, "\r\nI : %d\t0x%03x\r\nQ : %d\t0x%03x",					(int)FSK_TX->I, (unsigned int)FSK_TX->I,
+					(int)FSK_TX->Q, (unsigned int)FSK_TX->Q);
+			MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf );
+			return 0;
+		}
+	}
+
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	// Send status
+	sprintf( buf, "\r\nActive path: %s", FSK_TX->MUX ? "CONST" : "FSK");
+	MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf );
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	// Send help message
+	MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)"\r\nUsage: path [0 | 1]\t where 0 : FSK, 1 : CONST");
+	return 1;
+}
+
+
+
+uint32_t CmdIfFreq(uint32_t argc, char** argv)
+{
+	char buf[128];
+	uint32_t center_freq, separation_freq;
+
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+
+	if (argc == 1)
+	{
+		sprintf(buf, "\r\nLow : %d\tHigh : %d",	delta_phase_low, delta_phase_high);
+		MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf );
+		return 0;
+	}
+
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	if (argc == 3)
+	{
+		center_freq = atoi(*(argv+1));
+		separation_freq = atoi(*(argv+2));
+		if ((center_freq || !strcmp(*(argv+1), "0")) && (separation_freq || !strcmp(*(argv+2), "0")))
+		{
+			FSK_TX_set_if_freq(center_freq, separation_freq);
+
+			// Readback
+			sprintf(buf, "\r\nLow : %d\tHigh : %d",	delta_phase_low, delta_phase_high);
+			MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf );
+			return 0;
+		}
+	}
+
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	// Send help message
+	MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)"\r\nUsage: iffreq <center freq> <separation freq>");
 	return 1;
 }
 
