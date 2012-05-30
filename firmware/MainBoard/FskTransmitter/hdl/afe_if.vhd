@@ -148,8 +148,8 @@ begin
         port map (
             CLK => CLK,
             CLR => RST,
-            DF  => s_tx_i(i),
-            DR  => s_tx_q(i),
+            DR  => s_tx_i(i), -- Swap DR and DF if the clock can be delayed by at least 11 ns
+            DF  => s_tx_q(i),
             Q   => s_obuf(i)
         );
 
