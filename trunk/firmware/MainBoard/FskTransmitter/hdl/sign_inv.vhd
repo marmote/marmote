@@ -62,7 +62,7 @@ architecture Behavioral of SIGN_INV is
 
 	-- Signals
 
-    signal s_invert : std_logic_vector(c_CORDIC_WIDTH-1 downto 0);
+    signal s_invert : std_logic_vector(c_CORDIC_WIDTH downto 0);
 
     signal s_x  : std_logic_vector(c_CORDIC_WIDTH-1 downto 0);
     signal s_y  : std_logic_vector(c_CORDIC_WIDTH-1 downto 0);
@@ -80,7 +80,7 @@ begin
         if rst = '1' then
             s_invert <= (others => '0');
         elsif rising_edge(clk) then
-            s_invert <= s_invert(c_CORDIC_WIDTH-2 downto 0) & INVERT;
+            s_invert <= s_invert(s_invert'high-1 downto 0) & INVERT;
         end if;
     end process p_invert_delay;
 

@@ -101,7 +101,7 @@ int main()
     MSS_UART_init( &g_mss_uart0, MSS_UART_9600_BAUD,
                    MSS_UART_DATA_8_BITS | MSS_UART_NO_PARITY | MSS_UART_ONE_STOP_BIT );
 
-    FSK_TX_init( FSK_38400_BAUD, 150000, 50000 );
+    FSK_TX_init( FSK_38400_BAUD, 150000, 0 );
 
     Joshua_init( default_conf );
 

@@ -76,7 +76,7 @@ void Timer1_IRQHandler( void )
 
 		// Time-critical section
 		//if ( payload & 0x01 )
-		if ( tx_bit_ctr & 0x04 )
+		if ( tx_bit_ctr & 0x01 )
 		{
 			//MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_1_MASK );
 			// Load delta-phase register with value corresponding to f_high
