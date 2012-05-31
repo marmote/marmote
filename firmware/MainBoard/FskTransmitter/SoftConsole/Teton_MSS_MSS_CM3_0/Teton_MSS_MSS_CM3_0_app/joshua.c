@@ -40,132 +40,17 @@
 
 #include "joshua.h"
 
-void Joshua_init ( const uint16_t* conf	)
+uint8_t Joshua_init ( )
 {
-	// Initialize SPI1
-	MSS_SPI_init( &g_mss_spi1 );
-	MSS_SPI_configure_master_mode(
-			&g_mss_spi1,
-			MSS_SPI_SLAVE_0,
-			MSS_SPI_MODE0,
-			MSS_SPI_PCLK_DIV_2, // 20 MHz PCLK1 > 10 MHz SPI clock
-			SPI_FRAME_SIZE_MAX2830
-	);
+	// TODO: Initialize EEPROM
 
-	// Configure MAX2830
+	// TODO: Query board ID and version
+	// TODO: signal error and return if the ID read does not belong to Joshua
 
-	for ( i = 0 ; i < 16 ; i++ )
-	{
-		if ( conf != NULL )
-		{
-			max2830_regs[i] = *(conf+i);
-		}
-		Joshua_write_register(i, MAX2830_REG0);
-	}
+	// Initialize MAX2830 transceiver
 
-	// Initialize GPIOs
-
-	//MSS_GPIO_init();
-	MSS_GPIO_config( MSS_GPIO_LD, MSS_GPIO_INPUT_MODE );
-	MSS_GPIO_config( MSS_GPIO_SHDN, MSS_GPIO_OUTPUT_MODE );
-	MSS_GPIO_config( MSS_GPIO_RXHP, MSS_GPIO_OUTPUT_MODE );
-	MSS_GPIO_config( MSS_GPIO_ANTSEL, MSS_GPIO_OUTPUT_MODE );
-	MSS_GPIO_config( MSS_GPIO_RXTX, MSS_GPIO_OUTPUT_MODE );
-
-	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_SHDN_MASK );	// NO shutdown
-	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_RXHP_MASK );	// N/A (since TX)
-	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_ANTSEL_MASK );	// N/A (see RXTX)
-	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_RXTX_MASK );	// TX
-
-	Joshua_set_frequency(2500000);
-	//Joshua_set_gain()
-}
-
-/*
-uint32_t Joshua_read_register(uint8_t addr)
-{
-	uint32_t data;
-
-	MSS_SPI_set_slave_select(
-			&g_mss_spi1,
-			MSS_SPI_SLAVE_0
-	);
-
-	MSS_SPI_clear_slave_select(
-			&g_mss_spi1,
-			MSS_SPI_SLAVE_0
-	);
-
-	return data;
-}
-*/
-
-uint32_t Joshua_write_register(uint8_t addr, uint32_t data)
-{
-	//uint32_t rx_frame = 0;
-
-	uint32_t tx_frame;
-
-	tx_frame = addr & 0xF; // bytes [3:0] 4 LSB
-	tx_frame |= (data & 0x3FFF) << 4; // bytes [18:4] 18 - 5 MSB
-
-	MSS_SPI_set_slave_select(
-			&g_mss_spi1,
-			MSS_SPI_SLAVE_0
-	);
-
-	MSS_SPI_transfer_frame(
-			&g_mss_spi1,
-			tx_frame
-	);
-
-	MSS_SPI_clear_slave_select(
-			&g_mss_spi1,
-			MSS_SPI_SLAVE_0
-	);
+	Max2830_init();
 
 	return 0;
-}
-
-void Joshua_set_frequency( uint32_t f )
-{
-	// See Max2830 documentation page 24 for calculation
-
-	uint32_t	f_LO = 20e6; // Frequency of the TCXO on the RF board
-	uint8_t		RefFreqDivider = 1; // Either 1 or 2
-
-	uint32_t	f_Comp;
-	uint8_t		IntegerDivider; // 64<=  <=255
-	uint32_t	FractionalDivider;
-
-	f *= 1000; // kHz to Hz conversion
-
-	f_Comp = f_LO / RefFreqDivider;
-
-	IntegerDivider = (uint8_t) (f / f_Comp);
-	if (IntegerDivider < 64)
-		IntegerDivider = 64;
-
-	FractionalDivider = (uint32_t) (((uint64_t) (f % f_Comp)) * 1048575 / f_Comp);
-
-	//TODO Do we really have to set these every time?
-	//Set_Fractional_N_PLL_Mode_Enable(1);			//Set 1 to enable the fractional-N PLL or set 0 to enable the integer-N PLL.
-	//Set_Reference_Frequency_Divider_Ratio(0);		//Set to 0 to divide by 1. Set to 1 to divide by 2.
-
-	//Actual frequency setup
-	//	8-Bit Integer Portion of Main Divider. Programmable from 64 to 255.
-
-	//	6 LSBs of 20-Bit Fractional Portion of Main Divider
-	//	14 MSBs of 20-Bit Fractional Portion of Main Divider
-
-	if (IntegerDivider < 64)
-	{
-		IntegerDivider = 64;
-	}
-
-	FractionalDivider = FractionalDivider & 0xFFFFF;
-
-	Joshua_write_register(0x3, IntegerDivider | ((FractionalDivider & 0x3F) << 8));
-	Joshua_write_register(0x4, (FractionalDivider >> 6));
 }
 

@@ -20,14 +20,16 @@ uint32_t CmdLed(uint32_t argc, char** argv);
 uint32_t CmdAfe(uint32_t argc, char** argv);
 uint32_t CmdFsk(uint32_t argc, char** argv);
 uint32_t CmdTx(uint32_t argc, char** argv);
-uint32_t CmdFreq(uint32_t argc, char** argv);
 uint32_t CmdAmpl(uint32_t argc, char** argv);
-uint32_t CmdReg(uint32_t argc, char** argv);
 uint32_t CmdJoshua(uint32_t argc, char** argv);
 uint32_t CmdIQ(uint32_t argc, char** argv);
 uint32_t CmdPath(uint32_t argc, char** argv);
 uint32_t CmdIfFreq(uint32_t argc, char** argv);
-
+// MAX 2830 related
+uint32_t CmdReg(uint32_t argc, char** argv);
+uint32_t CmdFreq(uint32_t argc, char** argv);
+uint32_t CmdGain(uint32_t argc, char** argv);
+uint32_t CmdMode(uint32_t argc, char** argv);
 
 
 typedef struct cmd_struct
@@ -44,13 +46,15 @@ cmd_t cmd_list[] =
 	"afe",  CmdAfe,
 	"fsk",  CmdFsk,
 	"tx",   CmdTx,
-	"freq", CmdFreq,
 	"ampl", CmdAmpl,
-	"reg",  CmdReg,
 	"j",    CmdJoshua,
 	"iq",   CmdIQ,
 	"path",  CmdPath,
 	"if", CmdIfFreq,
+	"reg",  CmdReg,
+	"freq", CmdFreq,
+	"gain", CmdGain,
+	"mode", CmdMode,
 	NULL,   NULL
 };
 
@@ -77,12 +81,6 @@ void process_rx_data (uint8_t* rx_buff, uint8_t length)
 //-----------------------------------------------------------------------------
 
 
-
-joshua_reg_t default_conf[] =
-{
-		{255, 0}
-};
-
 int main()
 {
     uint8_t rx_size;
@@ -102,8 +100,9 @@ int main()
                    MSS_UART_DATA_8_BITS | MSS_UART_NO_PARITY | MSS_UART_ONE_STOP_BIT );
 
     FSK_TX_init( FSK_38400_BAUD, 150000, 0 );
+	FSK_TX->MUX = 1;
 
-    Joshua_init( default_conf );
+    Joshua_init( );
 
 	while( 1 )
 	{
@@ -374,42 +373,6 @@ uint32_t CmdTx(uint32_t argc, char** argv)
 
 
 
-uint32_t CmdFreq(uint32_t argc, char** argv)
-{
-	uint32_t freq;
-	char parse_buf[128];
-
-	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
-
-	/*
-	if (argc == 1)
-	{
-		sprintf(parse_buf, "\r\nFrequency: %d Hz", FSK_TX_get_frequency());
-		MSS_UART_polled_tx_string( &g_mss_uart0, parse_buf );
-		return 0;
-	}
-	*/
-
-	if (argc == 2)
-	{
-		freq = atoi(*(argv+1));
-		if (freq || !strcmp(*(argv+1), "0")) // TODO: use errno
-		{
-			Joshua_set_frequency(freq);
-
-			//sprintf(parse_buf, "\r\nFrequency: %d Hz", (int)FSK_TX_get_frequency());
-			sprintf(parse_buf, "\r\nFrequency: %d Hz", freq);
-			MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)parse_buf );
-			return 0;
-		}
-	}
-
-	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
-
-	// Send help message
-	MSS_UART_polled_tx_string( &g_mss_uart0, "\r\nUsage: freq [<frequency value in Hz>]");
-	return 1;
-}
 
 
 uint32_t CmdAmpl(uint32_t argc, char** argv)
@@ -453,43 +416,7 @@ uint32_t CmdAmpl(uint32_t argc, char** argv)
 }
 
 
-uint32_t CmdReg(uint32_t argc, char** argv)
-{
-	uint32_t addr;
-	uint32_t data;
 
-	char buf[128];
-
-	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
-
-	if (argc == 2)
-	{
-		MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)"MAX 2830 does not support register read" );
-	}
-	else if (argc == 3)
-	{
-		addr = atoi(*(argv+1));
-		if (addr || !strcmp(*(argv+1), "0")) // TODO: use errno instead
-		{
-			data = atoi(*(argv+2));
-			if (data || !strcmp(*(argv+2), "0")) // TODO: use errno instead
-			{
-				Joshua_write_register(addr, data);
-				sprintf(buf, "\r\nAddr: %2d (0x%02x) Data: %3d (0x%04x)",
-						(unsigned int)addr,	(unsigned int)addr,
-						(unsigned int)data,	(unsigned int)data);
-				MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf );
-				return 0;
-			}
-		}
-	}
-
-	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
-
-	// Send help message
-	MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)"\r\nUsage: reg address data");
-	return 1;
-}
 
 
 
@@ -623,8 +550,6 @@ uint32_t CmdIQ(uint32_t argc, char** argv)
 	return 1;
 }
 
-
-
 uint32_t CmdIfFreq(uint32_t argc, char** argv)
 {
 	char buf[128];
@@ -664,3 +589,191 @@ uint32_t CmdIfFreq(uint32_t argc, char** argv)
 	return 1;
 }
 
+
+
+uint32_t CmdReg(uint32_t argc, char** argv)
+{
+	uint32_t addr;
+	uint32_t data;
+
+	char buf[128];
+
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	if (argc == 2)
+	{
+		addr = atoi(*(argv+1));
+		if (addr || !strcmp(*(argv+1), "0"))
+		{
+			data = Max2830_read_register(addr);
+			sprintf(buf, "\r\nAddr: %2d (0x%02x) Data: %3d (0x%04x) (R)",
+					(unsigned int)addr,	(unsigned int)addr,
+					(unsigned int)data,	(unsigned int)data);
+			MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf );
+			return 0;
+		}
+	}
+
+	if (argc == 3)
+	{
+		addr = atoi(*(argv+1));
+		if (addr || !strcmp(*(argv+1), "0"))
+		{
+			data = atoi(*(argv+2));
+			if (data || !strcmp(*(argv+2), "0"))
+			{
+				Max2830_write_register(addr, data);
+				sprintf(buf, "\r\nAddr: %2d (0x%02x) Data: %3d (0x%04x) (W)",
+						(unsigned int)addr,	(unsigned int)addr,
+						(unsigned int)data,	(unsigned int)data);
+				MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf );
+				return 0;
+			}
+		}
+	}
+
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	// Send help message
+	MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)"\r\nUsage: reg <address> [<data>]");
+	return 1;
+}
+
+
+uint32_t CmdFreq(uint32_t argc, char** argv)
+{
+	double freq;
+	char buf[128];
+
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	if (argc == 1)
+	{
+		sprintf(buf, "\r\nFrequency: %12.6f MHz", (double)Max2830_get_frequency()/1e6);
+		MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf );
+
+		/*
+		while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+		sprintf(buf, "\r\nFrequency: %u Hz", Max2830_get_frequency());
+		MSS_UART_polled_tx_string( &g_mss_uart0, buf );
+		*/
+
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		freq = atof(*(argv+1));
+		if (freq || !strcmp(*(argv+1), "0"))
+		{
+			/*
+			sprintf(buf, "\r\nFrequency: %u Hz (passing)", (uint32_t) (freq*1e6));
+			MSS_UART_polled_tx_string( &g_mss_uart0, buf );
+			sprintf(buf, "\r\nFrequency: %12.6f MHz", (float)Max2830_get_frequency()/1e6);
+			*/
+
+			Max2830_set_frequency((uint32_t) (freq*1e6));
+
+			sprintf(buf, "\r\nFrequency: %12.6f MHz", (double)Max2830_get_frequency()/1e6);
+			MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf );
+
+			/*
+			while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+			sprintf(buf, "\r\nFrequency: %u Hz (R)", Max2830_get_frequency());
+			MSS_UART_polled_tx_string( &g_mss_uart0, buf );
+			*/
+
+			return 0;
+		}
+	}
+
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	// Send help message
+	MSS_UART_polled_tx_string( &g_mss_uart0, "\r\nUsage: freq [<frequency value in MHz>]");
+	return 1;
+}
+
+
+uint32_t CmdGain(uint32_t argc, char** argv)
+{
+	float gain;
+	char buf[128];
+
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	if (argc == 1)
+	{
+		sprintf(buf, "\r\nTx gain: %4.1f dB", Max2830_get_tx_gain());
+		MSS_UART_polled_tx_string( &g_mss_uart0, buf );
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		gain = atof(*(argv+1));
+		if (atof || !strcmp(*(argv+1), "0")) // TODO: use errno
+		{
+			Max2830_set_tx_gain(gain);
+
+			sprintf(buf, "\r\nTx gain: %4.1f dB", gain);
+			MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf );
+			return 0;
+		}
+	}
+
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	// Send help message
+	MSS_UART_polled_tx_string( &g_mss_uart0, "\r\nUsage: gain [<gain in dB>]");
+	return 1;
+}
+
+
+uint32_t CmdMode(uint32_t argc, char** argv)
+{
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	if (argc == 2)
+	{
+		if (!strcmp(*(argv+1), "shdn"))
+		{
+			Max2830_set_mode( MAX2830_SHUTDOWN_MODE );
+			return 0;
+		}
+
+		if (!strcmp(*(argv+1), "idle"))
+		{
+			Max2830_set_mode( MAX2830_STANDBY_MODE );
+			return 0;
+		}
+
+		if (!strcmp(*(argv+1), "rx"))
+		{
+			Max2830_set_mode( MAX2830_RX_MODE );
+			return 0;
+		}
+
+		if (!strcmp(*(argv+1), "tx"))
+		{
+			Max2830_set_mode( MAX2830_TX_MODE );
+			return 0;
+		}
+
+		if (!strcmp(*(argv+1), "rxc"))
+		{
+			Max2830_set_mode( MAX2830_RX_CALIBRATION_MODE );
+			return 0;
+		}
+
+		if (!strcmp(*(argv+1), "txc"))
+		{
+			Max2830_set_mode( MAX2830_TX_CALIBRATION_MODE );
+			return 0;
+		}
+	}
+
+	// Send help message
+	MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)"\r\nUsage: mode [shdn | idle | rx | tx | rxc | txc ]");
+	return 1;
+}
