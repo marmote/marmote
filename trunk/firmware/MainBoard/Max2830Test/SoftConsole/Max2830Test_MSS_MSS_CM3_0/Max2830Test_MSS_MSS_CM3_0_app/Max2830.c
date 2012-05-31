@@ -153,6 +153,10 @@ void send_Reg(uint8_t addr)
 	send_SPI_addr(Max2830Regs[addr], addr);
 }
 
+uint16_t setbits(uint16_t reg, uint16_t mask, uint8_t mask_shift, uint16_t new_val)
+{
+	return (reg & ~(mask << mask_shift)) | ((new_val & mask) << mask_shift);
+}
 
 /*******************************************************************************
 *
@@ -277,7 +281,12 @@ void TX_IQ_Calibration_LO_Leakage_and_Sideband_Detector_Gain(Gain_Control_t valu
 //		11: 39dB.
 
 //	Max2830Regs[6] = Max2830Regs[6] | ( ((uint16_t) value & 0x3) << 11 );
-	Max2830Regs[6] = Max2830Regs[6] | ( ((uint16_t) value) << 11 );
+
+//	Max2830Regs[6] &= ~(0x3 << 11);
+//	Max2830Regs[6] |= ( ((uint16_t) value) << 11 );
+
+	Max2830Regs[6] = setbits(Max2830Regs[6], 0x3, 11, (uint16_t) value);
+
 
 //	send_SPI_addr(Max2830Regs[6], 6);
 }
@@ -334,7 +343,11 @@ void RX_Highpass_Corner_Frequency(Reg_RX_HPF_Corner_Frequency_t value)
 //		10 for 30kHz.
 
 //	Max2830Regs[7] = Max2830Regs[7] | ( ((uint16_t) value & 0x3) << 12 );
-	Max2830Regs[7] = Max2830Regs[7] | ( ((uint16_t) value) << 12 );
+
+//	Max2830Regs[7] &= ~(0x3 << 12);
+//	Max2830Regs[7] |= ( ((uint16_t) value) << 12 );
+
+	Max2830Regs[7] = setbits(Max2830Regs[7], 0x3, 12, (uint16_t) value);
 
 //	send_SPI_addr(Max2830Regs[7], 7);
 }
@@ -356,7 +369,11 @@ void TX_LPF_Corner_Frequency(LPF_Corner_Frequency_Fine_t value)
 //	See Table 9. Bits D1:D0 in A3:A0 = 1000 provide the lowpass filter corner coarse adjustment.
 
 //	Max2830Regs[7] = Max2830Regs[7] | ( ((uint16_t) value & 0x7) << 3 );
-	Max2830Regs[7] = Max2830Regs[7] | ( ((uint16_t) value) << 3 );
+
+//	Max2830Regs[7] &= ~(0x7 << 3);
+//	Max2830Regs[7] |= ( ((uint16_t) value) << 3 );
+
+	Max2830Regs[7] = setbits(Max2830Regs[7], 0x7, 3, (uint16_t) value);
 
 //	send_SPI_addr(Max2830Regs[7], 7);
 }
@@ -367,7 +384,11 @@ void RX_LPF_Corner_Frequency(LPF_Corner_Frequency_Fine_t value)
 //	See table 6. Bits D1:D0 in A3:A0 = 1000 provide the lowpass filter corner coarse adjustment.
 
 //	Max2830Regs[7] = Max2830Regs[7] | ( ((uint16_t) value & 0x7) << 0 );
-	Max2830Regs[7] = Max2830Regs[7] | ( ((uint16_t) value) << 0 );
+
+//	Max2830Regs[7] &= ~(0x7 << 0);
+//	Max2830Regs[7] |= ( ((uint16_t) value) << 0 );
+
+	Max2830Regs[7] = setbits(Max2830Regs[7], 0x7, 0, (uint16_t) value);
 
 //	send_SPI_addr(Max2830Regs[7], 7);
 }
@@ -415,7 +436,11 @@ void RSSI_Power_Temp_Selection(Max2830_Analog_Meas_t value)
 //	See Table 7.
 
 //	Max2830Regs[8] = Max2830Regs[8] | ( ((uint16_t) value & 0x3) << 8 );
-	Max2830Regs[8] = Max2830Regs[8] | ( ((uint16_t) value) << 8 );
+
+//	Max2830Regs[8] &= ~(0x3 << 8);
+//	Max2830Regs[8] |= ( ((uint16_t) value) << 8 );
+
+	Max2830Regs[8] = setbits(Max2830Regs[8], 0x3, 8, (uint16_t) value);
 
 //	send_SPI_addr(Max2830Regs[8], 8);
 }
@@ -435,7 +460,11 @@ void RX_TX_LPF_Corner_frequency(LPF_Corner_Frequency_Coarse_t value)
 //	See Tables 4 and 7.
 
 //	Max2830Regs[8] = Max2830Regs[8] | ( ((uint16_t) value & 0x3) << 0 );
-	Max2830Regs[8] = Max2830Regs[8] | ( ((uint16_t) value) << 0 );
+
+//	Max2830Regs[8] &= ~(0x3 << 0);
+//	Max2830Regs[8] |= ( ((uint16_t) value) << 0 );
+
+	Max2830Regs[8] = setbits(Max2830Regs[8], 0x3, 0, (uint16_t) value);
 
 //	send_SPI_addr(Max2830Regs[8], 8);
 }
@@ -467,7 +496,10 @@ void PA_Delay(uint8_t value)
 //		D13:D10 = 0001 (0.2µs) and
 //		D13:D10 = 1111 (7µs).
 
-	Max2830Regs[10] = Max2830Regs[10] | ( ((uint16_t) value & 0xF) << 10 );
+//	Max2830Regs[10] &= ~( 0xF << 10 );
+//	Max2830Regs[10] |= ( ((uint16_t) value & 0xF) << 10 );
+
+	Max2830Regs[10] = setbits(Max2830Regs[10], 0xF, 10, (uint16_t) value);
 
 //	send_SPI_addr(Max2830Regs[10], 10);
 }
@@ -478,7 +510,10 @@ void Stage_2_PA_Bias_current(uint8_t value)
 //	Second-Stage Power-Amplifier Bias Current Adjustment.
 //	Set to XXXX for 802.11g/b.
 
-	Max2830Regs[10] = Max2830Regs[10] | ( ((uint16_t) value & 0xF) << 3 );
+//	Max2830Regs[10] &= ~( 0xF << 3 );
+//	Max2830Regs[10] |= ( ((uint16_t) value & 0xF) << 3 );
+
+	Max2830Regs[10] = setbits(Max2830Regs[10], 0xF, 3, (uint16_t) value);
 
 //	send_SPI_addr(Max2830Regs[10], 10);
 }
@@ -489,7 +524,10 @@ void Stage_1_PA_Bias_current(uint8_t value)
 //	First-Stage Power-Amplifier Bias Current Adjustment.
 //	Set to XXXX for 802.11g/b.
 
-	Max2830Regs[10] = Max2830Regs[10] | ( ((uint16_t) value & 0x7) << 0 );
+//	Max2830Regs[10] &= ~( 0x7 << 0 );
+//	Max2830Regs[10] |= ( ((uint16_t) value & 0x7) << 0 );
+
+	Max2830Regs[10] = setbits(Max2830Regs[10], 0x7, 0, (uint16_t) value);
 
 //	send_SPI_addr(Max2830Regs[10], 10);
 }
@@ -513,7 +551,11 @@ void LNA_Gain(Max2830_LNA_Att_t value)
 //	Set to 0X for low-gain mode, reducing LNA gain by 33dB.
 
 //	Max2830Regs[11] = Max2830Regs[11] | ( ((uint16_t) value & 0x3) << 5 );
-	Max2830Regs[11] = Max2830Regs[11] | ( ((uint16_t) value) << 5 );
+
+//	Max2830Regs[11] &= ~( 0x3 << 5 );
+//	Max2830Regs[11] |= ( ((uint16_t) value) << 5 );
+
+	Max2830Regs[11] = setbits(Max2830Regs[11], 0x3, 5, (uint16_t) value);
 
 //	send_SPI_addr(Max2830Regs[11], 11);
 }
@@ -524,7 +566,10 @@ void RX_VGA(uint8_t value)
 //	Set D4:D0 = 00000 for minimum gain and
 //	D4:D0 = 11111 for maximum gain.
 
-	Max2830Regs[11] = Max2830Regs[11] | ( ((uint16_t) value & 0x1F) << 0 );
+//	Max2830Regs[11] &= ~( 0x1F << 0 );
+//	Max2830Regs[11] |= ( ((uint16_t) value & 0x1F) << 0 );
+
+	Max2830Regs[11] = setbits(Max2830Regs[11], 0x1F, 0, (uint16_t) value);
 
 //	send_SPI_addr(Max2830Regs[11], 11);
 }
@@ -539,7 +584,10 @@ void TX_VGA(uint8_t value)
 //	Set D5:D0 = 000000 for minimum gain, and
 //	set D5:D0 = 111111 for maximum gain.
 
-	Max2830Regs[12] = Max2830Regs[12] | ( ((uint16_t) value & 0x3F) << 0 );
+//	Max2830Regs[12] &= ~( 0x3F << 0 );
+//	Max2830Regs[12] |= ( ((uint16_t) value & 0x3F) << 0 );
+
+	Max2830Regs[12] = setbits(Max2830Regs[12], 0x3F, 0, (uint16_t) value);
 
 //	send_SPI_addr(Max2830Regs[12], 12);
 }
@@ -600,6 +648,11 @@ void RX_IQ_Output_CM(Max2830_IQ_Out_CM_t value)
 
 //	Max2830Regs[15] = Max2830Regs[15] | ( ((uint16_t) value & 0x3) << 10 );
 	Max2830Regs[15] = Max2830Regs[15] | ( ((uint16_t) value) << 10 );
+
+//	Max2830Regs[15] &= ~(0x3 << 10 );
+//	Max2830Regs[15] |= ( ((uint16_t) value) << 10 );
+
+	Max2830Regs[15] = setbits(Max2830Regs[15], 0x3, 10, (uint16_t) value);
 
 //	send_SPI_addr(Max2830Regs[15], 15);
 }
@@ -745,10 +798,10 @@ void Max2830_Set_Ref_Clk_Output(char Enable, char DivideByTwo)
 void Max2830_Set_RX_HPF(Max2830_RX_HPF_t value)
 {
 	if (value == MAX2830_RX_HPF_600kHz)
-		SetGPIO(MAX2830_RXHP, 1);
+		set_GPIO(MAX2830_RXHP, 1);
 	else
 	{
-		SetGPIO(MAX2830_RXHP, 0);
+		set_GPIO(MAX2830_RXHP, 0);
 //reg7
 		RX_Highpass_Corner_Frequency( (Reg_RX_HPF_Corner_Frequency_t) value );
 
@@ -822,7 +875,7 @@ void Max2830_ShutDown(char ShutDown)
 {
 // 1 -> enable shutdown
 // 0 -> wake up
-	SetGPIO(MAX2830_nSHDN, !ShutDown );
+	set_GPIO(MAX2830_nSHDN, !ShutDown );
 }
 
 
@@ -831,9 +884,9 @@ void Max2830_ShutDown(char ShutDown)
 void Max2830_Set_RXTX(Max2830_RXTX_Mode_t RXTX_mode)
 {
 	if (RXTX_mode == MAX2830_RX_MODE)
-		SetGPIO(MAX2830_RXTX, 0);
+		set_GPIO(MAX2830_RXTX, 0);
 	else
-		SetGPIO(MAX2830_RXTX, 1);
+		set_GPIO(MAX2830_RXTX, 1);
 }
 
 
@@ -842,9 +895,9 @@ void Max2830_Set_RXTX(Max2830_RXTX_Mode_t RXTX_mode)
 void Max2830_Set_RX_Ant(Max2830_RX_Ant_t RX_Ant)
 {
 	if (RX_Ant == MAX2830_RX_ANT_MAIN)
-		SetGPIO(MAX2830_ANTSEL, 0);
+		set_GPIO(MAX2830_ANTSEL, 0);
 	else
-		SetGPIO(MAX2830_ANTSEL, 1);
+		set_GPIO(MAX2830_ANTSEL, 1);
 }
 
 
@@ -852,10 +905,10 @@ void Max2830_Set_RX_Ant(Max2830_RX_Ant_t RX_Ant)
 *******************************************************************************/
 void Max2830_Init()
 {
-	SetGPIO(MAX2830_RXTX,	0);	//RX mode
-	SetGPIO(MAX2830_ANTSEL,	1);	//RX from diversity (multiplexed) antenna
-	SetGPIO(MAX2830_RXHP,	0);	//100, 4k, and 30k HPF filters enabled
-	SetGPIO(MAX2830_nSHDN,	1);	//Start not in shutdown
+	set_GPIO(MAX2830_RXTX,		0);	//RX mode
+	set_GPIO(MAX2830_ANTSEL,	1);	//RX from diversity (multiplexed) antenna
+	set_GPIO(MAX2830_RXHP,		0);	//100, 4k, and 30k HPF filters enabled
+	set_GPIO(MAX2830_nSHDN,		1);	//Start not in shutdown
 
 	// Set default values
 	send_Reg(0);
