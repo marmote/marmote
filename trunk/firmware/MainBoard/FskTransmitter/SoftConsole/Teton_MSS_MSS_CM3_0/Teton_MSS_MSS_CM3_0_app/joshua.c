@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// Title         : Teton board source
+// Title         : Joshua board source
 // Project       : Marmote Teton (Main Board)
 //-----------------------------------------------------------------------------
 // File          : joshua.h
@@ -40,39 +40,31 @@
 
 #include "joshua.h"
 
-void Joshua_init ( const joshua_reg_t* conf	)
+void Joshua_init ( const uint16_t* conf	)
 {
 	// Initialize SPI1
 	MSS_SPI_init( &g_mss_spi1 );
 	MSS_SPI_configure_master_mode(
 			&g_mss_spi1,
 			MSS_SPI_SLAVE_0,
-			MSS_SPI_MODE0, // TODO: value arbitrarily checked, revise it
+			MSS_SPI_MODE0,
 			MSS_SPI_PCLK_DIV_2, // 20 MHz PCLK1 > 10 MHz SPI clock
 			SPI_FRAME_SIZE_MAX2830
 	);
 
-	// TODO: Initialize the MAX2830 with min TX power to avoid glitches in the supply on power up
-
 	// Configure MAX2830
-	Joshua_write_register(0, MAX2830_REG0);
-	Joshua_write_register(1, MAX2830_REG1);
-	Joshua_write_register(2, MAX2830_REG2);
-	Joshua_write_register(3, MAX2830_REG3);
-	Joshua_write_register(4, MAX2830_REG4);
-	Joshua_write_register(5, MAX2830_REG5);
-	Joshua_write_register(6, MAX2830_REG6);
-	Joshua_write_register(7, MAX2830_REG7);
-	Joshua_write_register(8, MAX2830_REG8);
-	Joshua_write_register(9, MAX2830_REG9);
-	Joshua_write_register(10, MAX2830_REG10);
-	Joshua_write_register(11, MAX2830_REG11);
-	Joshua_write_register(12, MAX2830_REG12);
-	Joshua_write_register(13, MAX2830_REG13);
-	Joshua_write_register(14, MAX2830_REG14);
-	Joshua_write_register(15, MAX2830_REG15);
+
+	for ( i = 0 ; i < 16 ; i++ )
+	{
+		if ( conf != NULL )
+		{
+			max2830_regs[i] = *(conf+i);
+		}
+		Joshua_write_register(i, MAX2830_REG0);
+	}
 
 	// Initialize GPIOs
+
 	//MSS_GPIO_init();
 	MSS_GPIO_config( MSS_GPIO_LD, MSS_GPIO_INPUT_MODE );
 	MSS_GPIO_config( MSS_GPIO_SHDN, MSS_GPIO_OUTPUT_MODE );
