@@ -50,3 +50,19 @@ char GetFlag( flags_t* p_f, flags_t b )
 {
     return (*p_f) & b;
 }
+
+
+/*******************************************************************************
+*******************************************************************************
+**	Set given bits in a reg.
+**
+**	@param  TODO  TODO
+**
+*******************************************************************************/
+void SetReg( reg_t*		reg,
+			reg_t		val,
+			reg_t		val_mask,
+			uint8_t		mask_shift )
+{
+	*reg = ((*reg) & ~(val_mask << mask_shift)) | ((val & val_mask) << mask_shift);
+}

@@ -153,10 +153,6 @@ void send_Reg(uint8_t addr)
 	send_SPI_addr(Max2830Regs[addr], addr);
 }
 
-uint16_t setbits(uint16_t reg, uint16_t mask, uint8_t mask_shift, uint16_t new_val)
-{
-	return (reg & ~(mask << mask_shift)) | ((new_val & mask) << mask_shift);
-}
 
 /*******************************************************************************
 *
@@ -285,8 +281,7 @@ void TX_IQ_Calibration_LO_Leakage_and_Sideband_Detector_Gain(Gain_Control_t valu
 //	Max2830Regs[6] &= ~(0x3 << 11);
 //	Max2830Regs[6] |= ( ((uint16_t) value) << 11 );
 
-	Max2830Regs[6] = setbits(Max2830Regs[6], 0x3, 11, (uint16_t) value);
-
+	SetReg(&Max2830Regs[6], (uint16_t) value, 0x3, 11);
 
 //	send_SPI_addr(Max2830Regs[6], 6);
 }
@@ -347,7 +342,7 @@ void RX_Highpass_Corner_Frequency(Reg_RX_HPF_Corner_Frequency_t value)
 //	Max2830Regs[7] &= ~(0x3 << 12);
 //	Max2830Regs[7] |= ( ((uint16_t) value) << 12 );
 
-	Max2830Regs[7] = setbits(Max2830Regs[7], 0x3, 12, (uint16_t) value);
+	SetReg(&Max2830Regs[7], (uint16_t) value, 0x3, 12);
 
 //	send_SPI_addr(Max2830Regs[7], 7);
 }
@@ -373,7 +368,7 @@ void TX_LPF_Corner_Frequency(LPF_Corner_Frequency_Fine_t value)
 //	Max2830Regs[7] &= ~(0x7 << 3);
 //	Max2830Regs[7] |= ( ((uint16_t) value) << 3 );
 
-	Max2830Regs[7] = setbits(Max2830Regs[7], 0x7, 3, (uint16_t) value);
+	SetReg(&Max2830Regs[7], (uint16_t) value, 0x7, 3);
 
 //	send_SPI_addr(Max2830Regs[7], 7);
 }
@@ -388,7 +383,7 @@ void RX_LPF_Corner_Frequency(LPF_Corner_Frequency_Fine_t value)
 //	Max2830Regs[7] &= ~(0x7 << 0);
 //	Max2830Regs[7] |= ( ((uint16_t) value) << 0 );
 
-	Max2830Regs[7] = setbits(Max2830Regs[7], 0x7, 0, (uint16_t) value);
+	SetReg(&Max2830Regs[7], (uint16_t) value, 0x7, 0);
 
 //	send_SPI_addr(Max2830Regs[7], 7);
 }
@@ -440,7 +435,7 @@ void RSSI_Power_Temp_Selection(Max2830_Analog_Meas_t value)
 //	Max2830Regs[8] &= ~(0x3 << 8);
 //	Max2830Regs[8] |= ( ((uint16_t) value) << 8 );
 
-	Max2830Regs[8] = setbits(Max2830Regs[8], 0x3, 8, (uint16_t) value);
+	SetReg(&Max2830Regs[8], (uint16_t) value, 0x3, 8);
 
 //	send_SPI_addr(Max2830Regs[8], 8);
 }
@@ -464,7 +459,7 @@ void RX_TX_LPF_Corner_frequency(LPF_Corner_Frequency_Coarse_t value)
 //	Max2830Regs[8] &= ~(0x3 << 0);
 //	Max2830Regs[8] |= ( ((uint16_t) value) << 0 );
 
-	Max2830Regs[8] = setbits(Max2830Regs[8], 0x3, 0, (uint16_t) value);
+	SetReg(&Max2830Regs[8], (uint16_t) value, 0x3, 0);
 
 //	send_SPI_addr(Max2830Regs[8], 8);
 }
@@ -499,7 +494,7 @@ void PA_Delay(uint8_t value)
 //	Max2830Regs[10] &= ~( 0xF << 10 );
 //	Max2830Regs[10] |= ( ((uint16_t) value & 0xF) << 10 );
 
-	Max2830Regs[10] = setbits(Max2830Regs[10], 0xF, 10, (uint16_t) value);
+	SetReg(&Max2830Regs[10], (uint16_t) value, 0xF, 10);
 
 //	send_SPI_addr(Max2830Regs[10], 10);
 }
@@ -513,7 +508,7 @@ void Stage_2_PA_Bias_current(uint8_t value)
 //	Max2830Regs[10] &= ~( 0xF << 3 );
 //	Max2830Regs[10] |= ( ((uint16_t) value & 0xF) << 3 );
 
-	Max2830Regs[10] = setbits(Max2830Regs[10], 0xF, 3, (uint16_t) value);
+	SetReg(&Max2830Regs[10], (uint16_t) value, 0xF, 3);
 
 //	send_SPI_addr(Max2830Regs[10], 10);
 }
@@ -527,7 +522,7 @@ void Stage_1_PA_Bias_current(uint8_t value)
 //	Max2830Regs[10] &= ~( 0x7 << 0 );
 //	Max2830Regs[10] |= ( ((uint16_t) value & 0x7) << 0 );
 
-	Max2830Regs[10] = setbits(Max2830Regs[10], 0x7, 0, (uint16_t) value);
+	SetReg(&Max2830Regs[10], (uint16_t) value, 0x7, 0);
 
 //	send_SPI_addr(Max2830Regs[10], 10);
 }
@@ -555,7 +550,7 @@ void LNA_Gain(Max2830_LNA_Att_t value)
 //	Max2830Regs[11] &= ~( 0x3 << 5 );
 //	Max2830Regs[11] |= ( ((uint16_t) value) << 5 );
 
-	Max2830Regs[11] = setbits(Max2830Regs[11], 0x3, 5, (uint16_t) value);
+	SetReg(&Max2830Regs[11], (uint16_t) value, 0x3, 5);
 
 //	send_SPI_addr(Max2830Regs[11], 11);
 }
@@ -569,7 +564,7 @@ void RX_VGA(uint8_t value)
 //	Max2830Regs[11] &= ~( 0x1F << 0 );
 //	Max2830Regs[11] |= ( ((uint16_t) value & 0x1F) << 0 );
 
-	Max2830Regs[11] = setbits(Max2830Regs[11], 0x1F, 0, (uint16_t) value);
+	SetReg(&Max2830Regs[11], (uint16_t) value, 0x1F, 0);
 
 //	send_SPI_addr(Max2830Regs[11], 11);
 }
@@ -587,7 +582,7 @@ void TX_VGA(uint8_t value)
 //	Max2830Regs[12] &= ~( 0x3F << 0 );
 //	Max2830Regs[12] |= ( ((uint16_t) value & 0x3F) << 0 );
 
-	Max2830Regs[12] = setbits(Max2830Regs[12], 0x3F, 0, (uint16_t) value);
+	SetReg(&Max2830Regs[12], (uint16_t) value, 0x3F, 0);
 
 //	send_SPI_addr(Max2830Regs[12], 12);
 }
@@ -647,12 +642,11 @@ void RX_IQ_Output_CM(Max2830_IQ_Out_CM_t value)
 //			11: 1.45V.
 
 //	Max2830Regs[15] = Max2830Regs[15] | ( ((uint16_t) value & 0x3) << 10 );
-	Max2830Regs[15] = Max2830Regs[15] | ( ((uint16_t) value) << 10 );
 
 //	Max2830Regs[15] &= ~(0x3 << 10 );
 //	Max2830Regs[15] |= ( ((uint16_t) value) << 10 );
 
-	Max2830Regs[15] = setbits(Max2830Regs[15], 0x3, 10, (uint16_t) value);
+	SetReg(&Max2830Regs[15], (uint16_t) value, 0x3, 10);
 
 //	send_SPI_addr(Max2830Regs[15], 15);
 }

@@ -19,4 +19,12 @@ void        FlipFlag    ( flags_t* p_f, flags_t b );
 
 char        GetFlag     ( flags_t* p_f, flags_t b );
 
+
+typedef     uint16_t       reg_t;
+
+void SetReg( reg_t*		reg,
+			reg_t		val,
+			reg_t		val_mask,
+			uint8_t		mask_shift );
+
 #endif /* FLAGS_H_ */
