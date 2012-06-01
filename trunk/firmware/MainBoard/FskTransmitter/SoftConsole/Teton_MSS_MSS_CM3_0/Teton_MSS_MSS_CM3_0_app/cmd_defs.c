@@ -24,6 +24,7 @@ extern cmd_t cmd_list[] =
 	"gain", CmdGain,
 	"lpf",  CmdLpf,
 	"mode", CmdMode,
+	"rssi", CmdRssi,
 	NULL,   NULL
 };
 
@@ -446,7 +447,7 @@ uint32_t CmdReg(uint32_t argc, char** argv)
 
 uint32_t CmdFreq(uint32_t argc, char** argv)
 {
-	double freq;
+	uint32_t freq;
 	char buf[128];
 
 	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
@@ -467,9 +468,10 @@ uint32_t CmdFreq(uint32_t argc, char** argv)
 
 	if (argc == 2)
 	{
-		freq = atof(*(argv+1));
+		freq = atoi(*(argv+1));
 		if (freq || !strcmp(*(argv+1), "0"))
 		{
+
 			/*
 			sprintf(buf, "\r\nFrequency: %u Hz (passing)", (uint32_t) (freq*1e6));
 			MSS_UART_polled_tx_string( &g_mss_uart0, buf );
@@ -478,7 +480,8 @@ uint32_t CmdFreq(uint32_t argc, char** argv)
 
 			Max2830_set_frequency((uint32_t) (freq*1e6));
 
-			sprintf(buf, "\r\nFrequency: %12.6f MHz", (double)Max2830_get_frequency()/1e6);
+			//sprintf(buf, "\r\nFrequency: %12.6f MHz", Max2830_get_frequency()/1e6);
+			sprintf(buf, "\r\nFrequency: %u Hz", Max2830_get_frequency());
 			MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf );
 
 			/*
@@ -516,7 +519,7 @@ uint32_t CmdGain(uint32_t argc, char** argv)
 	if (argc == 2)
 	{
 		gain = atof(*(argv+1));
-		if (gain || !strcmp(*(argv+1), "0")) // FIXME: test how this condidtion is handled
+		if (gain || !strcmp(*(argv+1), "0")) // FIXME: test how this condition is handled
 		{
 			Max2830_set_tx_gain(gain);
 
@@ -571,7 +574,38 @@ uint32_t CmdLpf(uint32_t argc, char** argv)
 
 uint32_t CmdMode(uint32_t argc, char** argv)
 {
+	char buf[32];
 	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	if (argc == 1)
+	{
+		switch (Max2830_get_mode())
+		{
+			case MAX2830_SHUTDOWN_MODE :
+				sprintf(buf, "\r\nshutdown");
+				break;
+			case MAX2830_STANDBY_MODE :
+				sprintf(buf, "\r\nstandby");
+				break;
+			case MAX2830_RX_MODE :
+				sprintf(buf, "\r\nrx");
+				break;
+			case MAX2830_TX_MODE :
+				sprintf(buf, "\r\ntx");
+				break;
+			case MAX2830_RX_CALIBRATION_MODE :
+				sprintf(buf, "\r\nrx calibration");
+				break;
+			case MAX2830_TX_CALIBRATION_MODE :
+				sprintf(buf, "\r\ntx calibration");
+				break;
+			default:
+				sprintf(buf, "\r\n?");
+		}
+
+		MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf);
+		return 0;
+	}
 
 	if (argc == 2)
 	{
@@ -614,6 +648,59 @@ uint32_t CmdMode(uint32_t argc, char** argv)
 
 	// Send help message
 	MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)"\r\nUsage: mode [shdn | idle | rx | tx | rxc | txc ]");
+	return 1;
+}
+
+
+uint32_t CmdRssi(uint32_t argc, char** argv)
+{
+	char buf[32];
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	if (argc == 1)
+	{
+		switch (Max2830_get_rssi_output())
+		{
+			case MAX2830_ANALOG_MEAS_RSSI :
+				sprintf(buf, "\r\nrssi");
+				break;
+			case MAX2830_ANALOG_MEAS_TEMP :
+				sprintf(buf, "\r\ntemp");
+				break;
+			case MAX2830_ANALOG_MEAS_TXPOW :
+				sprintf(buf, "\r\ntxpow");
+				break;
+			default:
+				sprintf(buf, "\r\n?");
+		}
+
+		MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf);
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		if (!strcmp(*(argv+1), "rssi"))
+		{
+			Max2830_set_rssi_output( MAX2830_ANALOG_MEAS_RSSI );
+			return 0;
+		}
+
+		if (!strcmp(*(argv+1), "temp"))
+		{
+			Max2830_set_rssi_output( MAX2830_ANALOG_MEAS_TEMP );
+			return 0;
+		}
+
+		if (!strcmp(*(argv+1), "txpow"))
+		{
+			Max2830_set_rssi_output( MAX2830_ANALOG_MEAS_TXPOW );
+			return 0;
+		}
+	}
+
+	// Send help message
+	MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)"\r\nUsage: mode [rssi | temp | txpow ]");
 	return 1;
 }
 
