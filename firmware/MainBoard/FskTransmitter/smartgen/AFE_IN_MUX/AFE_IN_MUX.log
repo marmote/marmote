@@ -1,6 +1,6 @@
  ** Message System Log
  ** Database: 
- ** Date:   Thu May 24 09:46:33 2012
+ ** Date:   Fri Jun 01 15:09:52 2012
 
 
 ****************
@@ -12,13 +12,13 @@ Family                          : PA3SOC2
 Output Format                   : VHDL
 Type                            : Multiplexor
 Sel0                            : Active High
-Sel1                            : None
+Sel1                            : Active High
 Sel2                            : None
 Sel3                            : None
 Sel4                            : None
 Sel5                            : None
 Output Bus Width                : 10
-No Of Input Buses               : 2
+No Of Input Buses               : 3
 Placement Info                  : yes
 
 *************
@@ -28,6 +28,7 @@ Fanin Control
 Signal      Buffering   Max Load   Signal Width
 ------      ---------   --------   ------------
 Sel0          Auto         6
+Sel1          Auto         6
 
 **************
 Compile Report
@@ -38,7 +39,7 @@ Netlist Resource Report
 =======================
 
     Microcontroller Subsystem  Used:      0  Total:      1   (0.00%)
-    Fabric                     Used:     12  Total:  11520   (0.10%)
+    Fabric                     Used:     24  Total:  11520   (0.21%)
     Fabric IO (W/ clocks)      Used:      0  Total:     66   (0.00%)
     Fabric Differential IO     Used:      0  Total:     33   (0.00%)
     Dedicated Analog IO        Used:      0  Total:     32   (0.00%)
@@ -55,7 +56,5 @@ Netlist Resource Report
 
 Wrote VHDL netlist to D:/firmware/MainBoard/FskTransmitter/smartgen\AFE_IN_MUX\AFE_IN_MUX.vhd.
 
-Wrote Behavioral VHDL model to D:/firmware/MainBoard/FskTransmitter/smartgen\AFE_IN_MUX\AFE_IN_MUX_behave.vhd.
-
- ** Log Ended:   Thu May 24 09:46:34 2012
+ ** Log Ended:   Fri Jun 01 15:09:53 2012
 
