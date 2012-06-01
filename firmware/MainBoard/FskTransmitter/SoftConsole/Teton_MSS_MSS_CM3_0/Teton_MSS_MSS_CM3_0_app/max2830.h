@@ -13,7 +13,7 @@
 // Standard      : CMSIS
 //-----------------------------------------------------------------------------
 // Description   : Firmware for the Max2830 RF transceiver chip found on the
-//                 Marmote Joshua module
+//                 Marmote Joshua module.
 //-----------------------------------------------------------------------------
 // Copyright (c) 2006-2012, Vanderbilt University
 // All rights reserved.
@@ -61,6 +61,53 @@
 #define MSS_GPIO_RXHP_MASK      MSS_GPIO_4_MASK
 #define MSS_GPIO_ANTSEL_MASK    MSS_GPIO_5_MASK
 #define MSS_GPIO_RXTX_MASK      MSS_GPIO_28_MASK
+
+
+static const uint16_t max2830_lpf_bws[24] =
+{
+		 7200u,  7600u,	 8000u,	 8400u,	 8800u,	 9200u, //  8.0 MHz
+		 9900u,	10450u,	11000u,	11550u,	12100u,	12650u, // 11.0 MHz
+		14850u,	15675u,	16500u,	17325u,	18150u,	18975u, // 16.5 MHz
+		20250u,	21375u,	22500u,	23625u,	24750u,	25875u, // 22.5 MHz
+};
+
+
+
+typedef enum __Max2830_RXTX_BW_t
+{
+	// 8MHz
+	MAX2830_RXTX_BW_7_2MHz		= 0,
+	MAX2830_RXTX_BW_7_6MHz		= 1,
+	MAX2830_RXTX_BW_8MHz 		= 2,
+	MAX2830_RXTX_BW_8_4MHz		= 3,
+	MAX2830_RXTX_BW_8_8MHz		= 4,
+	MAX2830_RXTX_BW_9_2MHz		= 5,
+
+	// 11MHz
+	MAX2830_RXTX_BW_9_9MHz		= 6,
+	MAX2830_RXTX_BW_10_45MHz	= 7,
+	MAX2830_RXTX_BW_11MHz		= 8,
+	MAX2830_RXTX_BW_11_55MHz	= 9,
+	MAX2830_RXTX_BW_12_1MHz		= 10,
+	MAX2830_RXTX_BW_12_65MHz	= 11,
+
+	// 16.5MHz
+	MAX2830_RXTX_BW_14_85MHz	= 12,
+	MAX2830_RXTX_BW_15_675MHz	= 13,
+	MAX2830_RXTX_BW_16_5MHz		= 14,
+	MAX2830_RXTX_BW_17_325MHz	= 15,
+	MAX2830_RXTX_BW_18_15MHz	= 16,
+	MAX2830_RXTX_BW_18_975MHz	= 17,
+
+	// 22.5MHz
+	MAX2830_RXTX_BW_20_25MHz	= 18,
+	MAX2830_RXTX_BW_21_375MHz	= 19,
+	MAX2830_RXTX_BW_22_5MHz		= 20,
+	MAX2830_RXTX_BW_23_625MHz	= 21,
+	MAX2830_RXTX_BW_24_75MHz	= 22,
+	MAX2830_RXTX_BW_25_875MHz	= 23
+} Max2830_RXTX_BW_t;
+
 
 
 typedef enum __Max2830_mode_t
@@ -234,21 +281,21 @@ void Max2830_set_tx_gain( float gain );
 
 
 /**
- * The Joshua_get_bandwidth() function reads the baseband
- * filter cut-off frequency and returns it in Hz.
+ * The Max2830_get_bandwidth() function reads the baseband
+ * filter cut-off frequency and returns it in kHz.
  *
  * @param
  *   This function does not have a parameter.
  *
  * @return
- *   The baseband filter cut-off frequency in Hz.
+ *   The baseband filter cut-off frequency in kHz.
  */
-//uint32_t Joshua_get_bandwidth( void );
+uint32_t Max2830_get_bandwidth( void );
 
 
 /**
- * The Joshua_set_bandwidth() function sets the baseband filter cut-off
- * frequency to the value specified in the parameter.
+ * The Max2830_set_bandwidth() function sets the baseband low-pass filter
+ * cut-off frequency to the value specified in the parameter.
  *
  * Note: The bandwidth of the baseband filter can be set in coarse steps.
  *       Thus, the actually set frequency may differ from the requested.
@@ -256,12 +303,14 @@ void Max2830_set_tx_gain( float gain );
  *       value set.
  *
  * @param
- *   The requested baseband filter cut-off frequency in Hz.
+ *   The requested baseband low-pass filter cut-off frequency in Hz.
+ *
+ *   Valid range: TBD
  *
  * @return
  *   This function does not return a value.
  */
-//void Joshua_set_bandwidth( uint32_t bandwidth );
+void Max2830_set_bandwidth( uint32_t bandwidth );
 
 
 /**

@@ -13,7 +13,7 @@
 // Standard      : CMSIS
 //-----------------------------------------------------------------------------
 // Description   : Firmware for the Max2830 RF transceiver chip found on the
-//                 Marmote Joshua module
+//                 Marmote Joshua module.
 //-----------------------------------------------------------------------------
 // Copyright (c) 2006-2012, Vanderbilt University
 // All rights reserved.
@@ -64,7 +64,7 @@ void Max2830_init ( )
 
 	// Initialize GPIOs
 
-	//MSS_GPIO_init();
+	//MSS_GPIO_init(); //
 	MSS_GPIO_config( MSS_GPIO_LD, MSS_GPIO_INPUT_MODE );
 	MSS_GPIO_config( MSS_GPIO_SHDN, MSS_GPIO_OUTPUT_MODE );
 	MSS_GPIO_config( MSS_GPIO_RXHP, MSS_GPIO_OUTPUT_MODE );
@@ -74,8 +74,8 @@ void Max2830_init ( )
 	// FIXME: revise default values
 	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_RXHP_MASK );	// N/A (since TX)
 	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_ANTSEL_MASK );	// N/A (see RXTX)
-	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_RXTX_MASK );	// TX
-	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_SHDN_MASK );	// NO shutdown
+
+	Max2830_set_mode( MAX2830_SHUTDOWN_MODE );
 }
 
 
@@ -198,6 +198,7 @@ float Max2830_get_tx_gain( void )
 
 void Max2830_set_tx_gain( float gain_db )
 {
+	// FIXME: consider using uint8 instead of float for gain_db
 	// TODO: Check if this needs to be set every time
 	//	TX_Gain_Prog_Through_SPI(1); //1 SPI, 0 external digital pins (B6:B1).
 	// Max2830_write_register(9, max2830_regs[9]);
@@ -236,6 +237,47 @@ void Max2830_Set_RXTX( Max2830_RXTX_Mode_t RXTX_mode )
 	}
 }
 */
+
+uint32_t Max2830_get_bandwidth( void )
+{
+	uint16_t bw;
+
+	// Get LPF coarse -3dB corner frequency (R8[1:0])
+	bw = (Max2830_read_register(8) & 0x3) * 6;
+
+	// Get LPF fine -3dB corner frequency for TX (R7[5:3])
+	// NOTE: Assuming the same value is set for RX
+	bw += Max2830_read_register(7) & 0x7;
+
+	return max2830_lpf_bws[bw];
+}
+
+
+void Max2830_set_bandwidth( uint32_t bandwidth )
+{
+	uint16_t i;
+	uint16_t reg_val;
+
+	for ( i = 0 ; i < sizeof(max2830_lpf_bws)/sizeof(uint16_t)-1 ; i++ )
+	{
+		if ( bandwidth <= max2830_lpf_bws[i] )
+		{
+			break;
+		}
+	}
+
+
+	// Set LPF coarse -3dB corner frequency (R8[1:0])
+	reg_val = Max2830_read_register(8) & ~0x3;
+	Max2830_write_register(8, reg_val | (uint16_t)i / 6);
+
+	// Set LPF fine -3dB corner frequency both for RX (R7[2:0]) and TX (R7[5:3])
+	reg_val = Max2830_read_register(7) & ~0x3F;
+	reg_val |= ( ((uint16_t)i % 6 << 3) | (uint16_t)i % 6 ) & 0x3F;
+	Max2830_write_register(7, reg_val);
+}
+
+
 
 void Max2830_set_mode( Max2830_mode_t mode )
 {
@@ -309,6 +351,4 @@ void Max2830_set_mode( Max2830_mode_t mode )
 	reg_val |= calibration;
 
 	Max2830_write_register(6, reg_val);
-
-
 }
