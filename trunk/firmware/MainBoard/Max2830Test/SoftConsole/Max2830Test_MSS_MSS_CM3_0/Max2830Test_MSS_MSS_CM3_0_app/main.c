@@ -75,14 +75,14 @@ int main()
 // !!!!!!!! WARNING! MUST BE PRECEDED BY PROPER SPI AND GPIO INITIALIZATION!!!!!!!!!!!!!
 	Max2830_Init();
 
-	Max2830_Set_RXTX(MAX2830_TX_MODE);
+	Max2830_Set_Mode(MAX2830_RX_MODE);
 
 
 
 //////////////////////////////////////////////////////
 	while( 1 )
 	{
-		Max2830_Set_Frequency(2437000000);
+		Max2830_Set_Frequency((uint32_t) 2437000000);
 
 		Max2830_Set_TX_Attenuation(0);
 

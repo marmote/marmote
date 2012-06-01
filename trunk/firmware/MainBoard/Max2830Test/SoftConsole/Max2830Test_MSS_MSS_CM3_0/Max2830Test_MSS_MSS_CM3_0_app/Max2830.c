@@ -259,20 +259,20 @@ void Reference_Frequency_Divider_Ratio(char DividerRatio)
 /*******************************************************************************
 *	REG6
 *******************************************************************************/
-typedef enum __Gain_Control_t
+/*typedef enum __Gain_Control_t
 {
 	GAIN_CTRL_9dB = 0,
 	GAIN_CTRL_19dB = 1,
 	GAIN_CTRL_29dB = 2,
 	GAIN_CTRL_39dB = 3
-} Gain_Control_t;
+} Gain_Control_t;*/
 
-void TX_IQ_Calibration_LO_Leakage_and_Sideband_Detector_Gain(Gain_Control_t value)
+void TX_IQ_Calibration_LO_Leakage_and_Sideband_Detector_Gain(Max2830_TX_Cal_Gain_t value)
 {
 //	Tx I/Q Calibration LO Leakage and Sideband Detector Gain-Control Bits.
 //	D12:D11 =
 //		00: 9dB;
-//		01 19dB;
+//		01: 19dB;
 //		10: 29dB;
 //		11: 39dB.
 
@@ -865,22 +865,99 @@ uint16_t Max2830_Set_PA_Delay(uint16_t delay_ns)
 
 /*******************************************************************************
 *******************************************************************************/
-void Max2830_ShutDown(char ShutDown)
+void Max2830_Set_Mode(Max2830_Mode_t mode)
 {
-// 1 -> enable shutdown
-// 0 -> wake up
-	set_GPIO(MAX2830_nSHDN, !ShutDown );
+	switch (mode)
+	{
+		case MAX2830_SHUTDOWN_MODE :
+			set_GPIO(MAX2830_nSHDN, 0);
+			set_GPIO(MAX2830_RXTX, 0);
+//reg6
+			Tx_Calibration_Mode(0);
+			Rx_Calibration_Mode(0);
+
+			send_Reg(6);
+
+			break;
+
+
+		case MAX2830_STANDBY_MODE :
+			set_GPIO(MAX2830_nSHDN, 0);
+			set_GPIO(MAX2830_RXTX, 1);
+//reg6
+			Tx_Calibration_Mode(0);
+			Rx_Calibration_Mode(0);
+
+			send_Reg(6);
+
+			break;
+
+
+		case MAX2830_RX_MODE :
+			set_GPIO(MAX2830_nSHDN, 1);
+			set_GPIO(MAX2830_RXTX, 0);
+//reg6
+			Tx_Calibration_Mode(0);
+			Rx_Calibration_Mode(0);
+
+			send_Reg(6);
+
+			break;
+
+
+		case MAX2830_TX_MODE :
+			set_GPIO(MAX2830_nSHDN, 1);
+			set_GPIO(MAX2830_RXTX, 1);
+//reg6
+			Tx_Calibration_Mode(0);
+			Rx_Calibration_Mode(0);
+
+			send_Reg(6);
+
+			break;
+
+
+		case MAX2830_RX_CALIB_MODE :
+			set_GPIO(MAX2830_nSHDN, 1);
+			set_GPIO(MAX2830_RXTX, 0);
+//reg6
+			Tx_Calibration_Mode(0);
+			Rx_Calibration_Mode(1);
+
+			send_Reg(6);
+
+			break;
+
+
+		case MAX2830_TX_CALIB_MODE :
+			set_GPIO(MAX2830_nSHDN, 1);
+			set_GPIO(MAX2830_RXTX, 1);
+//reg6
+			Tx_Calibration_Mode(1);
+			Rx_Calibration_Mode(0);
+
+			send_Reg(6);
+
+			break;
+	}
 }
 
 
 /*******************************************************************************
 *******************************************************************************/
-void Max2830_Set_RXTX(Max2830_RXTX_Mode_t RXTX_mode)
+void Max2830_Set_TX_Cal_Gain(Max2830_TX_Cal_Gain_t value)
 {
-	if (RXTX_mode == MAX2830_RX_MODE)
-		set_GPIO(MAX2830_RXTX, 0);
-	else
-		set_GPIO(MAX2830_RXTX, 1);
+//	Tx I/Q Calibration LO Leakage and Sideband Detector Gain-Control Bits.
+//	D12:D11 =
+//		00: 9dB;
+//		01: 19dB;
+//		10: 29dB;
+//		11: 39dB.
+
+//reg6
+	TX_IQ_Calibration_LO_Leakage_and_Sideband_Detector_Gain(value);
+
+	send_Reg(6);
 }
 
 

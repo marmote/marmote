@@ -86,19 +86,31 @@ typedef enum __Max2830_IQ_Out_CM_t
 } Max2830_IQ_Out_CM_t;
 
 
-typedef enum __Max2830_RXTX_Mode_t
-{
-	MAX2830_RX_MODE		= 0,
-	MAX2830_TX_MODE 	= 1
-} Max2830_RXTX_Mode_t;
-
-
 typedef enum __Max2830_RX_Ant_t
 {
 	MAX2830_RX_ANT_MAIN			= 0,
 	MAX2830_RX_ANT_DIVERSITY	= 1
 } Max2830_RX_Ant_t;
 
+
+typedef enum __Max2830_Mode_t
+{
+	MAX2830_SHUTDOWN_MODE	= 0,
+	MAX2830_STANDBY_MODE 	= 1,
+	MAX2830_RX_MODE			= 2,
+	MAX2830_TX_MODE 		= 3,
+	MAX2830_RX_CALIB_MODE	= 4,
+	MAX2830_TX_CALIB_MODE	= 5
+} Max2830_Mode_t;
+
+
+typedef enum __Max2830_TX_Cal_Gain_t
+{
+	MAX2830_TX_CAL_GAIN_9dB		= 0,
+	MAX2830_TX_CAL_GAIN_19dB	= 1,
+	MAX2830_TX_CAL_GAIN_29dB	= 2,
+	MAX2830_TX_CAL_GAIN_39dB	= 3
+} Max2830_TX_Cal_Gain_t;
 
 //////////////////////////////////////////////////
 //
@@ -132,9 +144,9 @@ void		Max2830_Set_RX_IQ_Output_CM (Max2830_IQ_Out_CM_t	value);
 
 uint16_t	Max2830_Set_PA_Delay		(uint16_t				delay_ns);
 
-void		Max2830_ShutDown			(char					ShutDown);
+void		Max2830_Set_Mode			(Max2830_Mode_t			mode);
 
-void		Max2830_Set_RXTX			(Max2830_RXTX_Mode_t	RXTX_mode);
+void		Max2830_Set_TX_Cal_Gain		(Max2830_TX_Cal_Gain_t	value);
 
 void		Max2830_Set_RX_Ant			(Max2830_RX_Ant_t		RX_Ant);
 
