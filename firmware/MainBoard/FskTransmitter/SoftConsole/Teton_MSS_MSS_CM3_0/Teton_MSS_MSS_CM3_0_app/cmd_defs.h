@@ -12,6 +12,7 @@
 #include <mss_gpio.h>
 
 #include <string.h>
+#include <stdlib.h>
 #include <stdio.h>
 
 
@@ -39,6 +40,7 @@ uint32_t CmdFreq(uint32_t argc, char** argv);
 uint32_t CmdGain(uint32_t argc, char** argv);
 uint32_t CmdLpf(uint32_t argc, char** argv);
 uint32_t CmdMode(uint32_t argc, char** argv);
+uint32_t CmdRssi(uint32_t argc, char** argv);
 
 
 typedef struct cmd_struct

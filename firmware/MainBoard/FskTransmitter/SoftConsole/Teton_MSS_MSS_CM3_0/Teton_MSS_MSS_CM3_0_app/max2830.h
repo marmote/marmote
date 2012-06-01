@@ -72,44 +72,6 @@ static const uint16_t max2830_lpf_bws[24] =
 };
 
 
-
-typedef enum __Max2830_RXTX_BW_t
-{
-	// 8MHz
-	MAX2830_RXTX_BW_7_2MHz		= 0,
-	MAX2830_RXTX_BW_7_6MHz		= 1,
-	MAX2830_RXTX_BW_8MHz 		= 2,
-	MAX2830_RXTX_BW_8_4MHz		= 3,
-	MAX2830_RXTX_BW_8_8MHz		= 4,
-	MAX2830_RXTX_BW_9_2MHz		= 5,
-
-	// 11MHz
-	MAX2830_RXTX_BW_9_9MHz		= 6,
-	MAX2830_RXTX_BW_10_45MHz	= 7,
-	MAX2830_RXTX_BW_11MHz		= 8,
-	MAX2830_RXTX_BW_11_55MHz	= 9,
-	MAX2830_RXTX_BW_12_1MHz		= 10,
-	MAX2830_RXTX_BW_12_65MHz	= 11,
-
-	// 16.5MHz
-	MAX2830_RXTX_BW_14_85MHz	= 12,
-	MAX2830_RXTX_BW_15_675MHz	= 13,
-	MAX2830_RXTX_BW_16_5MHz		= 14,
-	MAX2830_RXTX_BW_17_325MHz	= 15,
-	MAX2830_RXTX_BW_18_15MHz	= 16,
-	MAX2830_RXTX_BW_18_975MHz	= 17,
-
-	// 22.5MHz
-	MAX2830_RXTX_BW_20_25MHz	= 18,
-	MAX2830_RXTX_BW_21_375MHz	= 19,
-	MAX2830_RXTX_BW_22_5MHz		= 20,
-	MAX2830_RXTX_BW_23_625MHz	= 21,
-	MAX2830_RXTX_BW_24_75MHz	= 22,
-	MAX2830_RXTX_BW_25_875MHz	= 23
-} Max2830_RXTX_BW_t;
-
-
-
 typedef enum __Max2830_mode_t
 {
 	MAX2830_SHUTDOWN_MODE	= 0,
@@ -118,8 +80,14 @@ typedef enum __Max2830_mode_t
 	MAX2830_TX_MODE 		= 3,
 	MAX2830_RX_CALIBRATION_MODE = 4,
 	MAX2830_TX_CALIBRATION_MODE = 5
-} Max2830_mode_t;
+} Max2830_operating_mode_t;
 
+typedef enum __Max2830_Analog_Meas_t
+{
+	MAX2830_ANALOG_MEAS_RSSI	= 0,
+	MAX2830_ANALOG_MEAS_TEMP	= 1,
+	MAX2830_ANALOG_MEAS_TXPOW	= 2
+} Max2830_Analog_Meas_t;
 
 
 /**
@@ -313,20 +281,26 @@ uint32_t Max2830_get_bandwidth( void );
 void Max2830_set_bandwidth( uint32_t bandwidth );
 
 
+
 /**
- * The Max2830_Set_RXTX() function sets the RXTX pin of the MAX2830
- * to the value specified in the parameter.
- *
- * Note: The state of this pin selects not between Rx and Tx modes, but also
- *       between Shutdown and Standby, and Rx Calibration and Tx Calibration.
+ * The Max2830_get_mode() returns the actual operating mode of the MAX2830.
  *
  * @param
- *   The requested state of RXTX.
+ *   This function does not have a parameter.
  *
  * @return
- *   This function does not return a value.
+ *   The actual state of the MAX2830 transceiver.
+ *
+ *   Valid values:
+ *
+ *  	- MAX2830_SHUTDOWN_MODE
+ *  	- MAX2830_STANDBY_MODE
+ *  	- MAX2830_RX_MODE
+ *  	- MAX2830_TX_MODE
+ *  	- MAX2830_RX_CALIBRATION_MODE
+ *  	- MAX2830_TX_CALIBRATION_MODE
  */
-//void Max2830_Set_RXTX( Max2830_RXTX_Mode_t	RXTX_mode );
+Max2830_operating_mode_t Max2830_get_mode( void );
 
 /**
  * The Max2830_Set_mode() function sets the operating mode of the MAX2830
@@ -350,7 +324,44 @@ void Max2830_set_bandwidth( uint32_t bandwidth );
  * @return
  *   This function does not return a value.
  */
-void Max2830_set_mode( Max2830_mode_t mode );
+void Max2830_set_mode( Max2830_operating_mode_t mode );
+
+
+/**
+ * The Max2830_get_rssi_output() function returns the selection of the analog
+ * source connected to the RSSI output pin.
+ *
+ * @param
+ *   This function does not have a parameter.
+ *
+ * @return
+ *   The name of the requested analog signal.
+ *
+ *   Valid values:
+ *
+ *	   - MAX2830_ANALOG_MEAS_RSSI
+ *	   - MAX2830_ANALOG_MEAS_TEMP
+ *	   - MAX2830_ANALOG_MEAS_TXPOW
+ */
+Max2830_Analog_Meas_t Max2830_get_rssi_output( void );
+
+/**
+ * The Max2830_set_rssi_output() function selects the analog source connected
+ * to the RSSI output pin.
+ *
+ * @param
+ *   The requested analog signal.
+ *
+ *   Valid values:
+ *
+ *	   - MAX2830_ANALOG_MEAS_RSSI
+ *	   - MAX2830_ANALOG_MEAS_TEMP
+ *	   - MAX2830_ANALOG_MEAS_TXPOW
+ *
+ * @return
+ *   This function does not return a value.
+ */
+void Max2830_set_rssi_output( Max2830_Analog_Meas_t	value );
 
 
 

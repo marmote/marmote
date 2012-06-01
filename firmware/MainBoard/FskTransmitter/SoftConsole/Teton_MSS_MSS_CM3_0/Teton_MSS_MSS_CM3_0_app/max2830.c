@@ -74,8 +74,11 @@ void Max2830_init ( )
 	// FIXME: revise default values
 	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_RXHP_MASK );	// N/A (since TX)
 	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_ANTSEL_MASK );	// N/A (see RXTX)
+	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_RXTX_MASK );	// N/A (see RXTX)
 
 	Max2830_set_mode( MAX2830_SHUTDOWN_MODE );
+	Max2830_set_rssi_output( MAX2830_ANALOG_MEAS_TXPOW );
+
 }
 
 
@@ -266,7 +269,6 @@ void Max2830_set_bandwidth( uint32_t bandwidth )
 		}
 	}
 
-
 	// Set LPF coarse -3dB corner frequency (R8[1:0])
 	reg_val = Max2830_read_register(8) & ~0x3;
 	Max2830_write_register(8, reg_val | (uint16_t)i / 6);
@@ -277,9 +279,58 @@ void Max2830_set_bandwidth( uint32_t bandwidth )
 	Max2830_write_register(7, reg_val);
 }
 
+Max2830_operating_mode_t Max2830_get_mode( void )
+{
+	uint8_t shutdown;
+	uint8_t rxtx;
+	uint8_t calibration;
+
+	shutdown = MSS_GPIO_get_outputs() & MSS_GPIO_SHDN_MASK;
+	rxtx = MSS_GPIO_get_outputs() & MSS_GPIO_RXTX_MASK;
+	calibration = Max2830_read_register(6) & 0x3;
+
+	if ( shutdown == 0)
+	{
+		if ( rxtx == 0 )
+		{
+			return MAX2830_SHUTDOWN_MODE;
+		}
+		else
+		{
+			return MAX2830_STANDBY_MODE;
+		}
+	}
+	else
+	{
+		if ( rxtx == 0 )
+		{
+			// Rx
+			if ( calibration & 1 )
+			{
+				return MAX2830_RX_CALIBRATION_MODE;
+			}
+			else
+			{
+				return MAX2830_RX_MODE;
+			}
+		}
+		else
+		{
+			// Tx
+			if ( calibration & 3 )
+			{
+				return MAX2830_TX_CALIBRATION_MODE;
+			}
+			else
+			{
+				return MAX2830_TX_MODE;
+			}
+		}
+	}
+}
 
 
-void Max2830_set_mode( Max2830_mode_t mode )
+void Max2830_set_mode( Max2830_operating_mode_t mode )
 {
 	uint8_t shutdown;
 	uint8_t rxtx;
@@ -316,7 +367,7 @@ void Max2830_set_mode( Max2830_mode_t mode )
 		case MAX2830_RX_CALIBRATION_MODE :
 			shutdown = 1;
 			rxtx = 0;
-			calibration = 3;
+			calibration = 1;
 			break;
 
 		case MAX2830_TX_CALIBRATION_MODE :
@@ -352,3 +403,43 @@ void Max2830_set_mode( Max2830_mode_t mode )
 
 	Max2830_write_register(6, reg_val);
 }
+
+
+Max2830_Analog_Meas_t Max2830_get_rssi_output( void )
+{
+	uint16_t reg_val;
+
+	reg_val = (Max2830_read_register(8) & 0x300) >> 8;
+
+	return (Max2830_Analog_Meas_t)reg_val;
+}
+
+
+void Max2830_set_rssi_output( Max2830_Analog_Meas_t	mode )
+{
+	uint16_t reg_val;
+
+	reg_val = Max2830_read_register(8) & ~0x300;
+
+	// Make RSSI output independent from RXHP state
+	reg_val |= 0x400;
+
+	switch (mode)
+	{
+		case MAX2830_ANALOG_MEAS_RSSI :
+			break;
+
+		case MAX2830_ANALOG_MEAS_TEMP :
+			reg_val |= 0x100;
+			break;
+
+		case MAX2830_ANALOG_MEAS_TXPOW :
+			// Enable power detector
+			Max2830_write_register(6, (uint16_t)1 << 6);
+			reg_val |= 0x200;
+			break;
+	}
+
+	Max2830_write_register(8, reg_val);
+}
+
