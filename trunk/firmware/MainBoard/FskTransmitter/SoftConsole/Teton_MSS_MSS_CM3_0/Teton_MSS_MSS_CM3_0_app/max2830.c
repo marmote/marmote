@@ -281,9 +281,9 @@ void Max2830_set_bandwidth( uint32_t bandwidth )
 
 Max2830_operating_mode_t Max2830_get_mode( void )
 {
-	uint8_t shutdown;
-	uint8_t rxtx;
-	uint8_t calibration;
+	uint32_t shutdown;
+	uint32_t rxtx;
+	uint32_t calibration;
 
 	shutdown = MSS_GPIO_get_outputs() & MSS_GPIO_SHDN_MASK;
 	rxtx = MSS_GPIO_get_outputs() & MSS_GPIO_RXTX_MASK;
@@ -443,3 +443,28 @@ void Max2830_set_rssi_output( Max2830_Analog_Meas_t	mode )
 	Max2830_write_register(8, reg_val);
 }
 
+
+
+uint8_t Max2830_get_pa_delay( void )
+{
+	uint8_t delay_us;
+
+	delay_us = (Max2830_read_register(10) >> 10) & 0xF;
+	return (delay_us - 1) / 2;
+}
+
+
+void Max2830_set_pa_delay( uint8_t delay_us )
+{
+	uint16_t reg_val;
+
+	if (delay_us > 7)
+	{
+		delay_us = 7;
+	}
+
+	reg_val = Max2830_read_register(10) & ~(0xF << 10);
+	reg_val |= ((delay_us * 2 + 1) & 0xF) << 10;
+
+	Max2830_write_register(10, reg_val);
+}

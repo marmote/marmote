@@ -364,5 +364,28 @@ Max2830_Analog_Meas_t Max2830_get_rssi_output( void );
 void Max2830_set_rssi_output( Max2830_Analog_Meas_t	value );
 
 
+/**
+ * The Max2830_get_pa_delay() function returns the delay set between RXTX
+ * low-to-high transition and internal PA enable.
+ *
+ * @param
+ *   This function does not have a parameter.
+ *
+ * @return
+ *   The delay between RXTX rise and internal PA enable in us.
+ */
+uint8_t Max2830_get_pa_delay( void );
+
+/**
+ * The Max2830_set_pa_delay() function sets a delay between RXTX low-to-high
+ * transition and internal PA enable.
+ *
+ * @param
+ *   The requested delay in 1 us steps. The valid range is from 0 to 7.
+ *
+ * @return
+ *   This function does not return a value.
+ */
+void Max2830_set_pa_delay( uint8_t delay_us );
 
 #endif /* MAX2830_H_ */

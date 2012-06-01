@@ -25,6 +25,7 @@ extern cmd_t cmd_list[] =
 	"lpf",  CmdLpf,
 	"mode", CmdMode,
 	"rssi", CmdRssi,
+	"pa",   CmdPa,
 	NULL,   NULL
 };
 
@@ -201,7 +202,7 @@ uint32_t CmdTx(uint32_t argc, char** argv)
 	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
 
 	// Send help message
-	MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)"\r\nUsage: tx <payload>]");
+	MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)"\r\nUsage: tx <payload>");
 	return 1;
 }
 
@@ -523,7 +524,7 @@ uint32_t CmdGain(uint32_t argc, char** argv)
 		{
 			Max2830_set_tx_gain(gain);
 
-			sprintf(buf, "\r\nTx gain: %4.1f dB", gain);
+			sprintf(buf, "\r\nTx gain: %4.1f dB", Max2830_get_tx_gain());
 			MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf );
 			return 0;
 		}
@@ -705,3 +706,36 @@ uint32_t CmdRssi(uint32_t argc, char** argv)
 }
 
 
+uint32_t CmdPa(uint32_t argc, char** argv)
+{
+	uint32_t delay;
+	char buf[64];
+
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	if (argc == 1)
+	{
+		sprintf(buf, "\r\nPA delay: %5u us", (int)Max2830_get_pa_delay());
+		MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf );
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		delay = atoi(*(argv+1));
+		if (delay || !strcmp(*(argv+1), "0"))
+		{
+			Max2830_set_pa_delay(delay);
+
+			sprintf(buf, "\r\nPA delay: %5u us", (int)Max2830_get_pa_delay());
+			MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf );
+			return 0;
+		}
+	}
+
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	// Send help message
+	MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)"\r\nUsage: pa [<delay in us>]");
+	return 1;
+}
