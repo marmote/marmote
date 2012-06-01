@@ -60,7 +60,7 @@ entity FSK_TX_APB_IF is
          AMPLITUDE : out  std_logic_vector(9 downto 0);
 
          -- Debug interface
-         MUX_SEL   : out std_logic;
+         MUX_SEL   : out std_logic_vector(1 downto 0);
          I         : out std_logic_vector(9 downto 0);
          Q         : out std_logic_vector(9 downto 0)
 		 );
@@ -190,7 +190,7 @@ begin
 
     I <= s_i;
     Q <= s_q;
-    MUX_SEL <= std_logic(s_mux(0));
+    MUX_SEL <= s_mux(1 downto 0);
 
 end Behavioral;
 

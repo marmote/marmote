@@ -99,6 +99,8 @@
       <spirit:signal>
         <spirit:name>MUX_SEL</spirit:name>
         <spirit:direction>out</spirit:direction>
+        <spirit:left>1</spirit:left>
+        <spirit:right>0</spirit:right>
       </spirit:signal>
       <spirit:signal>
         <spirit:name>I</spirit:name>

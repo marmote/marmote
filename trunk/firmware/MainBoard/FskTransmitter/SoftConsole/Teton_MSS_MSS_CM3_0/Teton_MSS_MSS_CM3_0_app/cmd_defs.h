@@ -42,6 +42,7 @@ uint32_t CmdLpf(uint32_t argc, char** argv);
 uint32_t CmdMode(uint32_t argc, char** argv);
 uint32_t CmdRssi(uint32_t argc, char** argv);
 uint32_t CmdPa(uint32_t argc, char** argv);
+uint32_t CmdCal(uint32_t argc, char** argv);
 
 
 typedef struct cmd_struct

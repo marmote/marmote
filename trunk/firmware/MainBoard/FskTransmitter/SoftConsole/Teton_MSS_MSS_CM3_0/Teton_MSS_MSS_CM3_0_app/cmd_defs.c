@@ -26,6 +26,7 @@ extern cmd_t cmd_list[] =
 	"mode", CmdMode,
 	"rssi", CmdRssi,
 	"pa",   CmdPa,
+	"cal",  CmdCal,
 	NULL,   NULL
 };
 
@@ -277,7 +278,7 @@ uint32_t CmdPath(uint32_t argc, char** argv)
 		if (path == 0)
 		{
 			FSK_TX->MUX = 0;
-			sprintf(buf, "\r\nActive path: %s", FSK_TX->MUX ? "CONST" : "FSK");
+			sprintf(buf, "\r\nActive path: FSK");
 			while ( !MSS_UART_tx_complete(&g_mss_uart0) );
 			MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf );
 			return 0;
@@ -285,7 +286,15 @@ uint32_t CmdPath(uint32_t argc, char** argv)
 		else if (path == 1)
 		{
 			FSK_TX->MUX = 1;
-			sprintf(buf, "\r\nActive path: %s", FSK_TX->MUX ? "CONST" : "FSK");
+			sprintf(buf, "\r\nActive path: CONST");
+			while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+			MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf );
+			return 0;
+		}
+		else if (path == 2)
+		{
+			FSK_TX->MUX = 2;
+			sprintf(buf, "\r\nActive path: NOISE");
 			while ( !MSS_UART_tx_complete(&g_mss_uart0) );
 			MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf );
 			return 0;
@@ -737,5 +746,37 @@ uint32_t CmdPa(uint32_t argc, char** argv)
 
 	// Send help message
 	MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)"\r\nUsage: pa [<delay in us>]");
+	return 1;
+}
+
+
+uint32_t CmdCal(uint32_t argc, char** argv)
+{
+	char buf[64];
+
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	if (argc == 1)
+	{
+		sprintf(buf, "\r\nStarting calibration...");
+		MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf );
+
+		// Set calibration I/Q signals
+		FSK_TX_set_if_freq(10000, 0);
+
+		//
+
+
+		while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+		sprintf(buf, "\r\nDone");
+		MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)buf );
+
+		return 0;
+	}
+
+	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
+
+	// Send help message
+	MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)"\r\nUsage: cal");
 	return 1;
 }
