@@ -153,3 +153,5 @@ _Note:_ Several PCB layout guidelines can be found in other sections such as ADC
 [http://www.ftdichip.com/Support/Documents/AppNotes/AN_165_Establishing_Synchronous_245_FIFO_Communications_using_a_Morph-IC-II.pdf FTDI AN 165] - FTDI FT232H Sync FIFO Operation
 
 [http://www.ftdichip.com/Support/Documents/AppNotes/AN_124_User_Guide_For_FT_PROG.pdf FTDI AN 124] - User Guide For FTDI FT_Prog Utility
+
+[http://www.ftdichip.com/Support/Documents/ProgramGuides/D2XX_Programmer's_Guide(FT_000071).pdf D2XX Programmer's Guide] - Software Application Development Guide
