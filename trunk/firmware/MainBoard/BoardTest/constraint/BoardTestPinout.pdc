@@ -1,0 +1,69 @@
+# Actel Physical design constraints file
+
+# Version: 10.0 SP1 10.0.10.4
+
+# Design Name: BoardTestCanvas 
+
+# Input Netlist Format: edif 
+
+# Family: SmartFusion , Die: A2F500M3G , Package: 256 FBGA , Speed grade: -1 
+
+# Date generated: Wed Jun 06 13:35:09 2012 
+
+
+
+#
+# User Groups
+#
+define_group -name MAC_0_RMII_DATA_FAB
+define_group -name MAC_0_RMII_DATA_FAB_CAPTURE
+define_group -name UART_0_MODEM
+define_group -name I2C_1_SMBus
+define_group -name I2C_0_SMBus
+define_group -name SPI_0_PADs
+define_group -name SPI_1_PADs
+define_group -name I2C_0_PADs
+define_group -name MAC_0_RMII_PHY_MGMT_PADs
+define_group -name MAC_0_RMII_DATA_PADs
+define_group -name UART_0_PADs
+define_group -name UART_1_PADs
+define_group -name I2C_1_PADs
+
+#
+# IO banks setting
+#
+
+set_iobank Bank5 -vcci 3.30 -fixed no
+set_iobank Bank4 -vcci 3.30 -fixed no
+set_iobank Bank3 -vcci 3.30 -fixed yes
+set_iobank Bank2 -vcci 3.30 -fixed no
+set_iobank Bank1 -vcci 3.30 -fixed no
+set_iobank Bank0 -vcci 3.30 -fixed no
+
+#
+# I/O constraints
+#
+
+set_io AFE1_SHDN_n -iostd LVTTL -REGISTER No -OUT_DRIVE 4 -SLEW Low -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname A14 -fixed yes
+set_io AFE2_SHDN_n -iostd LVTTL -REGISTER No -OUT_DRIVE 4 -SLEW Low -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname D6 -fixed yes
+set_io LED1 -iostd LVTTL -REGISTER No -OUT_DRIVE 4 -SLEW Low -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname H5 -fixed yes
+set_io LED2 -iostd LVTTL -REGISTER No -OUT_DRIVE 4 -SLEW Low -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname H4 -fixed yes
+set_io MAC_EN -iostd LVTTL -REGISTER No -OUT_DRIVE 4 -SLEW Low -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname J3 -fixed yes
+set_io MAINXIN -pinname R12
+set_io MSS_RESET_N -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -REGISTER No -pinname K4 -fixed yes
+set_io OE_n -iostd LVTTL -REGISTER No -OUT_DRIVE 8 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname E16 -fixed yes
+set_io RD_n -iostd LVTTL -REGISTER No -OUT_DRIVE 8 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname D14 -fixed yes
+set_io SIWU_n -iostd LVTTL -REGISTER No -OUT_DRIVE 8 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname E14 -fixed yes
+set_io TXE_n -iostd LVTTL -REGISTER No -RES_PULL None -SCHMITT_TRIGGER Off -pinname D15 -fixed yes
+set_io UART1_RXD -iostd LVTTL -REGISTER No -RES_PULL None -SCHMITT_TRIGGER Off
+set_io UART1_TXD -iostd LVTTL -REGISTER No -RES_PULL None -SCHMITT_TRIGGER Off
+set_io USB_CLK -iostd LVTTL -REGISTER No -RES_PULL None -SCHMITT_TRIGGER Off -pinname F14 -fixed yes
+set_io USB_DB\[0\] -iostd LVCMOS33 -OUT_DRIVE 8 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname C8 -fixed yes
+set_io USB_DB\[1\] -iostd LVCMOS33 -OUT_DRIVE 8 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname D8 -fixed yes
+set_io USB_DB\[2\] -iostd LVCMOS33 -OUT_DRIVE 8 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname C9 -fixed yes
+set_io USB_DB\[3\] -iostd LVCMOS33 -OUT_DRIVE 8 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname D9 -fixed yes
+set_io USB_DB\[4\] -iostd LVCMOS33 -OUT_DRIVE 8 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname D10 -fixed yes
+set_io USB_DB\[5\] -iostd LVCMOS33 -OUT_DRIVE 8 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname C11 -fixed yes
+set_io USB_DB\[6\] -iostd LVCMOS33 -OUT_DRIVE 8 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname D11 -fixed yes
+set_io USB_DB\[7\] -iostd LVCMOS33 -OUT_DRIVE 8 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname C12 -fixed yes
+set_io WR_n -iostd LVTTL -REGISTER No -OUT_DRIVE 8 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname E15 -fixed yes
