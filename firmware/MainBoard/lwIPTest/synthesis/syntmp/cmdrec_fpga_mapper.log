@@ -1,0 +1,16 @@
+C:\Microsemi\Libero_v10.0\Synopsys\synplify_F201109M\bin64\m_proasic.exe  -prodtype synplify_pro -encrypt  -pro  -rundir  D:\Work\marmote\firmware\lwIPTest\synthesis  -part A2F500M3G  -package FBGA256  -grade STD   -globalthreshold 50 -maxfan 24 -opcond COMWC     -report_path 0       -summaryfile D:\Work\marmote\firmware\lwIPTest\synthesis\synlog\report\lwIPTest_fpga_mapper.xml -top_level_module  work.lwIPTest  -flow mapping  -mp 1 -prjfile  D:\Work\marmote\firmware\lwIPTest\synthesis\scratchproject.prs  -implementation synthesis -licensetype  synplifypro_actel  -oedif  D:\Work\marmote\firmware\lwIPTest\synthesis\lwIPTest.edn  -freq 100.000  -tcl  D:\Work\marmote\firmware\lwIPTest\component\work\lwIPTest_MSS\mss_tshell_syn.sdc  D:\Work\marmote\firmware\lwIPTest\synthesis\synwork\lwIPTest_premap.srd  -sap  D:\Work\marmote\firmware\lwIPTest\synthesis\lwIPTest.sap  -otap  D:\Work\marmote\firmware\lwIPTest\synthesis\lwIPTest.tap  -omap  D:\Work\marmote\firmware\lwIPTest\synthesis\lwIPTest.map  -devicelib  C:\Microsemi\Libero_v10.0\Synopsys\synplify_F201109M\lib\proasic\smartfusion.v  -sap  D:\Work\marmote\firmware\lwIPTest\synthesis\lwIPTest.sap  -ologparam  D:\Work\marmote\firmware\lwIPTest\synthesis\syntmp\lwIPTest.plg  -osyn  D:\Work\marmote\firmware\lwIPTest\synthesis\lwIPTest.srm  -prjdir  D:\Work\marmote\firmware\lwIPTest\synthesis\  -prjname  lwIPTest_syn  -log  D:\Work\marmote\firmware\lwIPTest\synthesis\synlog\lwIPTest_fpga_mapper.srr 
+rc:1 success:1
+D:\Work\marmote\firmware\lwIPTest\synthesis\scratchproject.prs|o|1337376050|2596
+D:\Work\marmote\firmware\lwIPTest\synthesis\lwIPTest.edn|o|1338918265|214601
+D:\Work\marmote\firmware\lwIPTest\component\work\lwIPTest_MSS\mss_tshell_syn.sdc|i|1337712751|192
+D:\Work\marmote\firmware\lwIPTest\synthesis\synwork\lwIPTest_premap.srd|i|1338918264|55437
+D:\Work\marmote\firmware\lwIPTest\synthesis\lwIPTest.sap|o|1338918264|5529
+D:\Work\marmote\firmware\lwIPTest\synthesis\lwIPTest.tap|o|0|0
+D:\Work\marmote\firmware\lwIPTest\synthesis\lwIPTest.map|o|1338918265|28
+C:\Microsemi\Libero_v10.0\Synopsys\synplify_F201109M\lib\proasic\smartfusion.v|i|1313716048|72817
+D:\Work\marmote\firmware\lwIPTest\synthesis\lwIPTest.sap|o|1338918264|5529
+D:\Work\marmote\firmware\lwIPTest\synthesis\syntmp\lwIPTest.plg|o|1338918265|1235
+D:\Work\marmote\firmware\lwIPTest\synthesis\lwIPTest.srm|o|1338918265|359720
+D:\Work\marmote\firmware\lwIPTest\synthesis\synlog\lwIPTest_fpga_mapper.srr|o|1338918265|24661
+C:\Microsemi\Libero_v10.0\Synopsys\synplify_F201109M\bin64\m_proasic.exe|i|1317229840|17049600
+C:\Microsemi\Libero_v10.0\Synopsys\synplify_F201109M\bin\m_proasic.exe|i|1317228016|12181504

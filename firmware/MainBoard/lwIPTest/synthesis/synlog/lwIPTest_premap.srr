@@ -1,0 +1,28 @@
+Synopsys Actel Technology Mapper, Version map201109rcp1, Build 024R, Built Sep 28 2011 11:22:10
+Copyright (C) 1994-2011, Synopsys, Inc. This software the associated documentation are confidential and proprietary to Synopsys, Inc. Your use or disclosure of this software subject to the terms and conditions of a written license agreement between you, or your company, and Synopsys, Inc.
+Product Version F-2011.09M
+
+Mapper Startup Complete (Time elapsed 0h:00m:00s; Memory used current: 91MB peak: 92MB)
+
+Reading constraint file: D:\Work\marmote\firmware\lwIPTest\component\work\lwIPTest_MSS\mss_tshell_syn.sdc
+@N: MF249 |Running in 64-bit mode.
+@N: MF258 |Gated clock conversion disabled 
+@N: MF547 |Generated clock conversion disabled 
+
+Design Input Complete (Time elapsed 0h:00m:00s; Memory used current: 93MB peak: 94MB)
+
+
+Mapper Initialization Complete (Time elapsed 0h:00m:00s; Memory used current: 93MB peak: 94MB)
+
+
+Finished Pre Mapping Phase. (Time elapsed 0h:00m:00s; Memory used current: 102MB peak: 104MB)
+
+@N: BN225 |Writing default property annotation file D:\Work\marmote\firmware\lwIPTest\synthesis\lwIPTest.sap.
+Pre Mapping successful!
+
+At Mapper Exit (Time elapsed 0h:00m:00s; Memory used current: 39MB peak: 104MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+# Tue Jun 05 12:44:24 2012
+
+###########################################################]

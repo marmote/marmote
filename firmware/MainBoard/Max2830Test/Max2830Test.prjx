@@ -294,12 +294,12 @@ SIZE="29144"
 ENDFILE
 VALUE "<project>\designer\impl1\Max2830Test_fp\Max2830Test.pdb,pdb"
 STATE="utd"
-TIME="1337715994"
+TIME="1337781578"
 SIZE="83456"
 ENDFILE
 VALUE "<project>\designer\impl1\Max2830Test_fp\Max2830Test.pro,pro"
 STATE="utd"
-TIME="1337716051"
+TIME="1337781631"
 SIZE="2032"
 ENDFILE
 VALUE "<project>\designer\impl1\Max2830Test_fp\projectData\Max2830Test.pdb,pdb"
@@ -556,5 +556,5 @@ SmartDesign;Max2830Test
 SmartDesign;Max2830Test_MSS
 Reports;Reports
 SmartDesign;DESIGN_FIRMWARE
-ACTIVEVIEW;Max2830Test
+ACTIVEVIEW;DESIGN_FIRMWARE
 ENDLIST
