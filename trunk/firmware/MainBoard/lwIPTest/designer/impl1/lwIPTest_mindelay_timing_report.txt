@@ -1,0 +1,674 @@
+Timing Report Min Delay Analysis
+
+SmartTime Version v10.0 SP2
+Actel Corporation - Actel Designer Software Release v10.0 SP2 (Version 10.0.20.2)
+Copyright (c) 1989-2012
+Date: Tue Jun 05 12:47:49 2012
+
+
+Design: lwIPTest
+Family: SmartFusion
+Die: A2F500M3G
+Package: 256 FBGA
+Temperature: COM
+Voltage: COM
+Speed Grade: STD
+Design State: Post-Layout
+Data source: Silicon verified
+Min Operating Condition: BEST
+Max Operating Condition: WORST
+Using Enhanced Min Delay Analysis
+Scenario for Timing Analysis: Primary
+
+
+-----------------------------------------------------
+SUMMARY
+
+Clock Domain:               mss_aclk
+Period (ns):                N/A
+Frequency (MHz):            N/A
+Required Period (ns):       N/A
+Required Frequency (MHz):   N/A
+External Setup (ns):        N/A
+External Hold (ns):         N/A
+Min Clock-To-Out (ns):      N/A
+Max Clock-To-Out (ns):      N/A
+
+Clock Domain:               mss_fabric_interface_clock
+Period (ns):                8.075
+Frequency (MHz):            123.839
+Required Period (ns):       N/A
+Required Frequency (MHz):   N/A
+External Setup (ns):        N/A
+External Hold (ns):         N/A
+Min Clock-To-Out (ns):      N/A
+Max Clock-To-Out (ns):      N/A
+
+Clock Domain:               mss_pclk1
+Period (ns):                N/A
+Frequency (MHz):            N/A
+Required Period (ns):       N/A
+Required Frequency (MHz):   N/A
+External Setup (ns):        N/A
+External Hold (ns):         N/A
+Min Clock-To-Out (ns):      N/A
+Max Clock-To-Out (ns):      N/A
+
+Clock Domain:               mss_ccc_gla0
+Period (ns):                12.500
+Frequency (MHz):            80.000
+Required Period (ns):       N/A
+Required Frequency (MHz):   N/A
+External Setup (ns):        -1.661
+External Hold (ns):         1.288
+Min Clock-To-Out (ns):      N/A
+Max Clock-To-Out (ns):      N/A
+
+Clock Domain:               mss_ccc_glb
+Period (ns):                7.410
+Frequency (MHz):            134.953
+Required Period (ns):       N/A
+Required Frequency (MHz):   N/A
+External Setup (ns):        N/A
+External Hold (ns):         N/A
+Min Clock-To-Out (ns):      N/A
+Max Clock-To-Out (ns):      N/A
+
+Clock Domain:               mss_ccc_macclk
+Period (ns):                25.000
+Frequency (MHz):            40.000
+Required Period (ns):       N/A
+Required Frequency (MHz):   N/A
+External Setup (ns):        N/A
+External Hold (ns):         N/A
+Min Clock-To-Out (ns):      N/A
+Max Clock-To-Out (ns):      N/A
+
+Clock Domain:               lwIPTest_MSS_0/MSS_CCC_0/I_XTLOSC:CLKOUT
+Period (ns):                N/A
+Frequency (MHz):            N/A
+Required Period (ns):       N/A
+Required Frequency (MHz):   N/A
+External Setup (ns):        N/A
+External Hold (ns):         N/A
+Min Clock-To-Out (ns):      N/A
+Max Clock-To-Out (ns):      N/A
+
+                            Input to Output
+Min Delay (ns):             N/A
+Max Delay (ns):             N/A
+
+END SUMMARY
+-----------------------------------------------------
+
+Clock Domain mss_aclk
+
+SET Register to Register
+
+No Path
+
+END SET Register to Register
+
+----------------------------------------------------
+
+SET External Hold
+
+No Path
+
+END SET External Hold
+
+----------------------------------------------------
+
+SET Clock to Output
+
+No Path
+
+END SET Clock to Output
+
+----------------------------------------------------
+
+SET Register to Asynchronous
+
+No Path
+
+END SET Register to Asynchronous
+
+----------------------------------------------------
+
+SET External Removal
+
+No Path
+
+END SET External Removal
+
+----------------------------------------------------
+
+SET Asynchronous to Register
+
+No Path
+
+END SET Asynchronous to Register
+
+----------------------------------------------------
+
+Clock Domain mss_fabric_interface_clock
+
+SET Register to Register
+
+Path 1
+  From:                        lwIPTest_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          lwIPTest_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[5]
+  Delay (ns):                  3.348
+  Slack (ns):
+  Arrival (ns):                3.348
+  Required (ns):
+  Hold (ns):                   1.313
+
+Path 2
+  From:                        lwIPTest_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          lwIPTest_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[21]
+  Delay (ns):                  3.344
+  Slack (ns):
+  Arrival (ns):                3.344
+  Required (ns):
+  Hold (ns):                   1.306
+
+Path 3
+  From:                        lwIPTest_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          lwIPTest_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[0]
+  Delay (ns):                  3.383
+  Slack (ns):
+  Arrival (ns):                3.383
+  Required (ns):
+  Hold (ns):                   1.313
+
+Path 4
+  From:                        lwIPTest_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          lwIPTest_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[3]
+  Delay (ns):                  3.482
+  Slack (ns):
+  Arrival (ns):                3.482
+  Required (ns):
+  Hold (ns):                   1.312
+
+Path 5
+  From:                        lwIPTest_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To:                          lwIPTest_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[2]
+  Delay (ns):                  3.492
+  Slack (ns):
+  Arrival (ns):                3.492
+  Required (ns):
+  Hold (ns):                   1.314
+
+
+Expanded Path 1
+  From: lwIPTest_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
+  To: lwIPTest_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[5]
+  data arrival time                              3.348
+  data required time                         -   N/C
+  slack                                          N/C
+  ________________________________________________________
+  Data arrival time calculation
+  0.000                        mss_fabric_interface_clock
+               +     0.000          Clock source
+  0.000                        lwIPTest_MSS_0/MSS_ADLIB_INST/U_CORE:GLB (r)
+               +     1.324          cell: ADLIB:MSS_APB_IP
+  1.324                        lwIPTest_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPADDR[9] (r)
+               +     0.059          net: lwIPTest_MSS_0/MSS_ADLIB_INST/MSSPADDR[9]INT_NET
+  1.383                        lwIPTest_MSS_0/MSS_ADLIB_INST/U_33:PIN1INT (r)
+               +     0.042          cell: ADLIB:MSS_IF
+  1.425                        lwIPTest_MSS_0/MSS_ADLIB_INST/U_33:PIN1 (r)
+               +     0.344          net: _CoreAPB3_0_APBmslave0_PADDR_[9]_
+  1.769                        CoreAPB3_0/CAPB3iool_1[0]:A (r)
+               +     0.158          cell: ADLIB:NOR2
+  1.927                        CoreAPB3_0/CAPB3iool_1[0]:Y (f)
+               +     0.142          net: CoreAPB3_0_CAPB3iool_1[0]
+  2.069                        CoreAPB3_0/CAPB3O1II/PRDATA_5_i:A (f)
+               +     0.202          cell: ADLIB:NOR3C
+  2.271                        CoreAPB3_0/CAPB3O1II/PRDATA_5_i:Y (f)
+               +     0.788          net: N_26
+  3.059                        lwIPTest_MSS_0/MSS_ADLIB_INST/U_38:PIN4 (f)
+               +     0.045          cell: ADLIB:MSS_IF
+  3.104                        lwIPTest_MSS_0/MSS_ADLIB_INST/U_38:PIN4INT (f)
+               +     0.244          net: lwIPTest_MSS_0/MSS_ADLIB_INST/MSSPRDATA[5]INT_NET
+  3.348                        lwIPTest_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[5] (f)
+                                    
+  3.348                        data arrival time
+  ________________________________________________________
+  Data required time calculation
+  N/C                          mss_fabric_interface_clock
+               +     0.000          Clock source
+  N/C                          lwIPTest_MSS_0/MSS_ADLIB_INST/U_CORE:GLB (r)
+               +     1.313          Library hold time: ADLIB:MSS_APB_IP
+  N/C                          lwIPTest_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[5]
+
+
+END SET Register to Register
+
+----------------------------------------------------
+
+SET External Hold
+
+No Path
+
+END SET External Hold
+
+----------------------------------------------------
+
+SET Clock to Output
+
+No Path
+
+END SET Clock to Output
+
+----------------------------------------------------
+
+SET Register to Asynchronous
+
+No Path
+
+END SET Register to Asynchronous
+
+----------------------------------------------------
+
+SET External Removal
+
+No Path
+
+END SET External Removal
+
+----------------------------------------------------
+
+SET Asynchronous to Register
+
+No Path
+
+END SET Asynchronous to Register
+
+----------------------------------------------------
+
+Clock Domain mss_pclk1
+
+SET Register to Register
+
+No Path
+
+END SET Register to Register
+
+----------------------------------------------------
+
+SET External Hold
+
+No Path
+
+END SET External Hold
+
+----------------------------------------------------
+
+SET Clock to Output
+
+No Path
+
+END SET Clock to Output
+
+----------------------------------------------------
+
+SET Register to Asynchronous
+
+No Path
+
+END SET Register to Asynchronous
+
+----------------------------------------------------
+
+SET External Removal
+
+No Path
+
+END SET External Removal
+
+----------------------------------------------------
+
+SET Asynchronous to Register
+
+No Path
+
+END SET Asynchronous to Register
+
+----------------------------------------------------
+
+Clock Domain mss_ccc_gla0
+
+Info: The maximum frequency of this clock domain is limited by the period of pin lwIPTest_MSS_0/MSS_ADLIB_INST/U_CORE:FCLK
+
+SET Register to Register
+
+No Path
+
+END SET Register to Register
+
+----------------------------------------------------
+
+SET External Hold
+
+Path 1
+  From:                        MSS_RESET_N
+  To:                          lwIPTest_MSS_0/MSS_ADLIB_INST/U_CORE:MSSRESETn
+  Delay (ns):                  0.277
+  Slack (ns):
+  Arrival (ns):                0.277
+  Required (ns):
+  Hold (ns):                   1.294
+  External Hold (ns):          1.288
+
+
+Expanded Path 1
+  From: MSS_RESET_N
+  To: lwIPTest_MSS_0/MSS_ADLIB_INST/U_CORE:MSSRESETn
+  data arrival time                              0.277
+  data required time                         -   N/C
+  slack                                          N/C
+  ________________________________________________________
+  Data arrival time calculation
+  0.000                        MSS_RESET_N (f)
+               +     0.000          net: MSS_RESET_N
+  0.000                        lwIPTest_MSS_0/MSS_RESET_0_MSS_RESET_N:PAD (f)
+               +     0.277          cell: ADLIB:IOPAD_IN
+  0.277                        lwIPTest_MSS_0/MSS_RESET_0_MSS_RESET_N:Y (f)
+               +     0.000          net: lwIPTest_MSS_0/MSS_RESET_0_MSS_RESET_N_Y
+  0.277                        lwIPTest_MSS_0/MSS_ADLIB_INST/U_CORE:MSSRESETn (f)
+                                    
+  0.277                        data arrival time
+  ________________________________________________________
+  Data required time calculation
+  N/C                          mss_ccc_gla0
+               +     0.000          Clock source
+  N/C                          lwIPTest_MSS_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:GLAMSS (r)
+               +     0.271          net: lwIPTest_MSS_0/GLA0
+  N/C                          lwIPTest_MSS_0/MSS_ADLIB_INST/U_CORE:FCLK (r)
+               +     1.294          Library hold time: ADLIB:MSS_APB_IP
+  N/C                          lwIPTest_MSS_0/MSS_ADLIB_INST/U_CORE:MSSRESETn
+
+
+END SET External Hold
+
+----------------------------------------------------
+
+SET Clock to Output
+
+No Path
+
+END SET Clock to Output
+
+----------------------------------------------------
+
+SET Register to Asynchronous
+
+No Path
+
+END SET Register to Asynchronous
+
+----------------------------------------------------
+
+SET External Removal
+
+No Path
+
+END SET External Removal
+
+----------------------------------------------------
+
+SET Asynchronous to Register
+
+No Path
+
+END SET Asynchronous to Register
+
+----------------------------------------------------
+
+Clock Domain mss_ccc_glb
+
+SET Register to Register
+
+Path 1
+  From:                        Adder16bit_0/DFN1E1P0_NU_15/U1:CLK
+  To:                          SAMPLE_APB_0/samples_out_1[15]:D
+  Delay (ns):                  0.447
+  Slack (ns):
+  Arrival (ns):                0.772
+  Required (ns):
+  Hold (ns):                   0.000
+
+Path 2
+  From:                        Adder16bit_0/DFN1P0_NU_2:CLK
+  To:                          SAMPLE_APB_0/samples_out_1[2]:D
+  Delay (ns):                  0.445
+  Slack (ns):
+  Arrival (ns):                0.776
+  Required (ns):
+  Hold (ns):                   0.000
+
+Path 3
+  From:                        Adder16bit_0/DFN1E1P0_NU_14/U1:CLK
+  To:                          SAMPLE_APB_0/samples_out_1[14]:D
+  Delay (ns):                  0.477
+  Slack (ns):
+  Arrival (ns):                0.798
+  Required (ns):
+  Hold (ns):                   0.000
+
+Path 4
+  From:                        Adder16bit_0/DFN1E1P0_NU_11/U1:CLK
+  To:                          SAMPLE_APB_0/samples_out_1[11]:D
+  Delay (ns):                  0.474
+  Slack (ns):
+  Arrival (ns):                0.802
+  Required (ns):
+  Hold (ns):                   0.000
+
+Path 5
+  From:                        Adder16bit_0/DFN1E1P0_NU_1/U1:CLK
+  To:                          SAMPLE_APB_0/samples_out_1[1]:D
+  Delay (ns):                  0.648
+  Slack (ns):
+  Arrival (ns):                0.974
+  Required (ns):
+  Hold (ns):                   0.000
+
+
+Expanded Path 1
+  From: Adder16bit_0/DFN1E1P0_NU_15/U1:CLK
+  To: SAMPLE_APB_0/samples_out_1[15]:D
+  data arrival time                              0.772
+  data required time                         -   N/C
+  slack                                          N/C
+  ________________________________________________________
+  Data arrival time calculation
+  0.000                        mss_ccc_glb
+               +     0.000          Clock source
+  0.000                        lwIPTest_MSS_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:GLB (r)
+               +     0.000          net: lwIPTest_MSS_0/MSS_CCC_0/I_MSSCCC/GLB_INT
+  0.000                        lwIPTest_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE2:PIN5INT (r)
+               +     0.000          cell: ADLIB:MSS_CCC_GL_IF
+  0.000                        lwIPTest_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE2:PIN5 (r)
+               +     0.325          net: FAB_CLK
+  0.325                        Adder16bit_0/DFN1E1P0_NU_15/U1:CLK (r)
+               +     0.249          cell: ADLIB:DFN1P0
+  0.574                        Adder16bit_0/DFN1E1P0_NU_15/U1:Q (r)
+               +     0.198          net: _Adder16bit_0_Q_[15]_
+  0.772                        SAMPLE_APB_0/samples_out_1[15]:D (r)
+                                    
+  0.772                        data arrival time
+  ________________________________________________________
+  Data required time calculation
+  N/C                          mss_ccc_glb
+               +     0.000          Clock source
+  N/C                          lwIPTest_MSS_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:GLB (r)
+               +     0.000          net: lwIPTest_MSS_0/MSS_CCC_0/I_MSSCCC/GLB_INT
+  N/C                          lwIPTest_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE2:PIN5INT (r)
+               +     0.000          cell: ADLIB:MSS_CCC_GL_IF
+  N/C                          lwIPTest_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE2:PIN5 (r)
+               +     0.341          net: FAB_CLK
+  N/C                          SAMPLE_APB_0/samples_out_1[15]:CLK (r)
+               +     0.000          Library hold time: ADLIB:DFN1E1
+  N/C                          SAMPLE_APB_0/samples_out_1[15]:D
+
+
+END SET Register to Register
+
+----------------------------------------------------
+
+SET External Hold
+
+No Path
+
+END SET External Hold
+
+----------------------------------------------------
+
+SET Clock to Output
+
+No Path
+
+END SET Clock to Output
+
+----------------------------------------------------
+
+SET Register to Asynchronous
+
+No Path
+
+END SET Register to Asynchronous
+
+----------------------------------------------------
+
+SET External Removal
+
+No Path
+
+END SET External Removal
+
+----------------------------------------------------
+
+SET Asynchronous to Register
+
+No Path
+
+END SET Asynchronous to Register
+
+----------------------------------------------------
+
+Clock Domain mss_ccc_macclk
+
+Info: The maximum frequency of this clock domain is limited by the period of pin lwIPTest_MSS_0/MSS_ADLIB_INST/U_CORE:MACCLKCCC
+
+SET Register to Register
+
+No Path
+
+END SET Register to Register
+
+----------------------------------------------------
+
+SET External Hold
+
+No Path
+
+END SET External Hold
+
+----------------------------------------------------
+
+SET Clock to Output
+
+No Path
+
+END SET Clock to Output
+
+----------------------------------------------------
+
+SET Register to Asynchronous
+
+No Path
+
+END SET Register to Asynchronous
+
+----------------------------------------------------
+
+SET External Removal
+
+No Path
+
+END SET External Removal
+
+----------------------------------------------------
+
+SET Asynchronous to Register
+
+No Path
+
+END SET Asynchronous to Register
+
+----------------------------------------------------
+
+Clock Domain lwIPTest_MSS_0/MSS_CCC_0/I_XTLOSC:CLKOUT
+
+SET Register to Register
+
+No Path
+
+END SET Register to Register
+
+----------------------------------------------------
+
+SET External Hold
+
+No Path
+
+END SET External Hold
+
+----------------------------------------------------
+
+SET Clock to Output
+
+No Path
+
+END SET Clock to Output
+
+----------------------------------------------------
+
+SET Register to Asynchronous
+
+No Path
+
+END SET Register to Asynchronous
+
+----------------------------------------------------
+
+SET External Removal
+
+No Path
+
+END SET External Removal
+
+----------------------------------------------------
+
+SET Asynchronous to Register
+
+No Path
+
+END SET Asynchronous to Register
+
+----------------------------------------------------
+
+Path set Pin to Pin
+
+SET Input to Output
+
+No Path
+
+END SET Input to Output
+
+----------------------------------------------------
+
+Path set User Sets
+
