@@ -1,0 +1,45 @@
+Target Part: A2F500M3G_FBGA256_STD
+Report for cell lwIPTest.def_arch
+  Core Cell usage:
+              cell count     area count*area
+              AND2    11      1.0       11.0
+              AND3     6      1.0        6.0
+               GND     7      0.0        0.0
+               INV     4      1.0        4.0
+           MSS_CCC     1      0.0        0.0
+              NOR2     4      1.0        4.0
+             NOR3A    10      1.0       10.0
+             NOR3C    16      1.0       16.0
+              OA1B     8      1.0        8.0
+              OR3B     1      1.0        1.0
+              OR3C     1      1.0        1.0
+               VCC     7      0.0        0.0
+              XOR2    12      1.0       12.0
+
+
+            DFN1C0    17      1.0       17.0
+            DFN1E1    16      1.0       16.0
+          DFN1E1P0    13      1.0       13.0
+            DFN1P0     3      1.0        3.0
+           MSS_APB     1      0.0        0.0
+                   -----          ----------
+             TOTAL   138               122.0
+
+
+  IO Cell usage:
+              cell count
+         BIBUF_MSS     1
+         INBUF_MSS     5
+        MSS_XTLOSC     1
+            OUTBUF     1
+        OUTBUF_MSS     4
+                   -----
+             TOTAL    12
+
+
+Core Cells         : 122 of 11520 (1%)
+IO Cells           : 12
+
+  RAM/ROM Usage Summary
+Block Rams : 0 of 24 (0%)
+

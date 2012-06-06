@@ -1,0 +1,92 @@
+----------------------------------------------------------------------
+Report for cell lwIPTest.def_arch
+                                          Cell usage:
+                               cell       count     area    count*area
+                         Adder16bit         1      49.0       49.0
+                           CoreAPB3         1      18.0       18.0
+                                GND         1       0.0        0.0
+                               OA1B         7       1.0        7.0
+                               OR3B         1       1.0        1.0
+                             OUTBUF         1       0.0        0.0
+                         SAMPLE_APB         1      47.0       47.0
+                                VCC         1       0.0        0.0
+                       lwIPTest_MSS         1       0.0        0.0
+                            
+                         TOTAL             15                122.0
+----------------------------------------------------------------------
+Report for cell Adder16bit.netlist
+     Instance path:  Adder16bit_0
+                                          Cell usage:
+                               cell       count     area    count*area
+                               AND2        11       1.0       11.0
+                               AND3         6       1.0        6.0
+                           DFN1E1P0        13       1.0       13.0
+                             DFN1P0         3       1.0        3.0
+                                GND         1       0.0        0.0
+                                INV         4       1.0        4.0
+                                VCC         1       0.0        0.0
+                               XOR2        12       1.0       12.0
+                            
+                         TOTAL             51                 49.0
+----------------------------------------------------------------------
+Report for cell CoreAPB3.netlist
+     Instance path:  CoreAPB3_0
+                                          Cell usage:
+                               cell       count     area    count*area
+                             CAPB3o         1      16.0       16.0
+                                GND         1       0.0        0.0
+                               NOR2         1       1.0        1.0
+                              NOR3A         1       1.0        1.0
+                                VCC         1       0.0        0.0
+                            
+                         TOTAL              5                 18.0
+----------------------------------------------------------------------
+Report for cell CAPB3o.netlist
+     Instance path:  CoreAPB3_0.CAPB3O1II
+                                          Cell usage:
+                               cell       count     area    count*area
+                                GND         1       0.0        0.0
+                              NOR3C        16       1.0       16.0
+                                VCC         1       0.0        0.0
+                            
+                         TOTAL             18                 16.0
+----------------------------------------------------------------------
+Report for cell lwIPTest_MSS.netlist
+     Instance path:  lwIPTest_MSS_0
+                                          Cell usage:
+                               cell       count     area    count*area
+                          BIBUF_MSS         1       0.0        0.0
+                                GND         1       0.0        0.0
+                          INBUF_MSS         5       0.0        0.0
+                            MSS_APB         1       0.0        0.0
+                         OUTBUF_MSS         4       0.0        0.0
+                                VCC         1       0.0        0.0
+          lwIPTest_MSS_tmp_MSS_CCC_0_MSS_CCC         1       0.0        0.0
+                            
+                         TOTAL             14                  0.0
+----------------------------------------------------------------------
+Report for cell lwIPTest_MSS_tmp_MSS_CCC_0_MSS_CCC.netlist
+     Instance path:  lwIPTest_MSS_0.MSS_CCC_0
+                                          Cell usage:
+                               cell       count     area    count*area
+                                GND         1       0.0        0.0
+                            MSS_CCC         1       0.0        0.0
+                         MSS_XTLOSC         1       0.0        0.0
+                                VCC         1       0.0        0.0
+                            
+                         TOTAL              4                  0.0
+----------------------------------------------------------------------
+Report for cell SAMPLE_APB.netlist
+     Instance path:  SAMPLE_APB_0
+                                          Cell usage:
+                               cell       count     area    count*area
+                             DFN1C0        17       1.0       17.0
+                             DFN1E1        16       1.0       16.0
+                                GND         1       0.0        0.0
+                               NOR2         3       1.0        3.0
+                              NOR3A         9       1.0        9.0
+                               OA1B         1       1.0        1.0
+                               OR3C         1       1.0        1.0
+                                VCC         1       0.0        0.0
+                            
+                         TOTAL             49                 47.0

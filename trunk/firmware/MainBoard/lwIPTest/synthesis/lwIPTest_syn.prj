@@ -1,0 +1,68 @@
+#--  Synopsys, Inc.
+#--  Version F-2011.09M
+#--  Project file D:\Work\marmote\firmware\lwIPTest\synthesis\lwIPTest_syn.prj
+
+#project files
+add_file -vhdl -lib work "D:/Work/marmote/firmware/lwIPTest/hdl/Sample_APB.vhd"
+add_file -vhdl -lib work "D:/Work/marmote/firmware/lwIPTest/component/Actel/SmartFusionMSS/MSS/2.5.106/mss_comps.vhd"
+add_file -vhdl -lib work "D:/Work/marmote/firmware/lwIPTest/component/work/lwIPTest_MSS/mss_tshell.vhd"
+add_file -vhdl -lib work "D:/Work/marmote/firmware/lwIPTest/component/work/lwIPTest_MSS/MSS_CCC_0/lwIPTest_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd"
+add_file -vhdl -lib work "D:/Work/marmote/firmware/lwIPTest/component/work/lwIPTest_MSS/lwIPTest_MSS.vhd"
+add_file -vhdl -lib work "D:/Work/marmote/firmware/lwIPTest/smartgen/Adder16bit/Adder16bit.vhd"
+add_file -vhdl -lib COREAPB3_LIB "D:/Work/marmote/firmware/lwIPTest/component/Actel/DirectCore/CoreAPB3/3.0.103/rtl/vhdl/core_obfuscated/coreapb3_muxptob3.vhd"
+add_file -vhdl -lib COREAPB3_LIB "D:/Work/marmote/firmware/lwIPTest/component/Actel/DirectCore/CoreAPB3/3.0.103/rtl/vhdl/core_obfuscated/coreapb3.vhd"
+add_file -vhdl -lib work "D:/Work/marmote/firmware/lwIPTest/component/work/lwIPTest/lwIPTest.vhd"
+add_file -constraint "D:/Work/marmote/firmware/lwIPTest/component/work/lwIPTest_MSS/mss_tshell_syn.sdc"
+
+
+#implementation: "synthesis"
+impl -add synthesis -type fpga
+
+#device options
+set_option -technology SmartFusion
+set_option -part A2F500M3G
+set_option -package FBGA256
+set_option -speed_grade STD
+set_option -part_companion ""
+
+#compilation/mapping options
+set_option -use_fsm_explorer 0
+set_option -top_module "work.lwIPTest"
+
+# mapper_options
+set_option -frequency 100.000
+set_option -write_verilog 0
+set_option -write_vhdl 0
+
+# Actel 500K
+set_option -run_prop_extract 1
+set_option -maxfan 24
+set_option -maxfan_hard3 0
+set_option -disable_io_insertion 0
+set_option -retiming 0
+set_option -report_path 0
+set_option -opcond COMWC
+set_option -update_models_cp 0
+set_option -preserve_registers 0
+
+# Actel 500K
+set_option -globalthreshold 50
+
+# NFilter
+set_option -popfeed 0
+set_option -constprop 0
+set_option -createhierarchy 0
+
+# sequential_optimization_options
+set_option -symbolic_fsm_compiler 1
+
+# Compiler Options
+set_option -compiler_compatible 0
+set_option -resource_sharing 1
+
+#automatic place and route (vendor) options
+set_option -write_apr_constraint 1
+
+#set result format/file last
+project -result_file "./lwIPTest.edn"
+impl -active "synthesis"

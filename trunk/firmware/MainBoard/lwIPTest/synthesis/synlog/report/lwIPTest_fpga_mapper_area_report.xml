@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- *************************************************************************************
+FILE DESCRIPTION
+The file contains the area information from mapper to be displayed as part of the summary report.
+*******************************************************************************************-->
+<report_table display_priority="1" name="Area Summary">
+<report_link name="Detailed report">
+<data>D:\Work\marmote\firmware\lwIPTest\synthesis\synlog\report\lwIPTest_fpga_mapper_resourceusage.rpt</data>
+</report_link>
+<parameter tooltip="Total Core Cells used" name="Core Cells">
+<data>122</data>
+</parameter>
+<parameter tooltip="Total IO Cells used" name="IO Cells">
+<data>12</data>
+</parameter>
+<parameter tooltip="Total Block RAMs used" name="Block RAMs">
+<data>0</data>
+</parameter>
+</report_table>

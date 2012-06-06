@@ -1,0 +1,120 @@
+@N: CD630 :"D:\Work\marmote\firmware\lwIPTest\component\work\lwIPTest\lwIPTest.vhd":10:7:10:14|Synthesizing work.lwiptest.def_arch 
+@N: CD630 :"D:\Work\marmote\firmware\lwIPTest\smartgen\Adder16bit\Adder16bit.vhd":8:7:8:16|Synthesizing work.adder16bit.def_arch 
+@N: CD630 :"C:\Microsemi\Libero_v10.0\Synopsys\synplify_F201109M\lib\proasic\smartfusion.vhd":37:10:37:13|Synthesizing smartfusion.and3.syn_black_box 
+Post processing for smartfusion.and3.syn_black_box
+@N: CD630 :"C:\Microsemi\Libero_v10.0\Synopsys\synplify_F201109M\lib\proasic\smartfusion.vhd":13:10:13:13|Synthesizing smartfusion.and2.syn_black_box 
+Post processing for smartfusion.and2.syn_black_box
+@N: CD630 :"C:\Microsemi\Libero_v10.0\Synopsys\synplify_F201109M\lib\proasic\smartfusion.vhd":1503:10:1503:17|Synthesizing smartfusion.dfn1e1p0.syn_black_box 
+Post processing for smartfusion.dfn1e1p0.syn_black_box
+@N: CD630 :"C:\Microsemi\Libero_v10.0\Synopsys\synplify_F201109M\lib\proasic\smartfusion.vhd":2907:10:2907:13|Synthesizing smartfusion.xor2.syn_black_box 
+Post processing for smartfusion.xor2.syn_black_box
+@N: CD630 :"C:\Microsemi\Libero_v10.0\Synopsys\synplify_F201109M\lib\proasic\smartfusion.vhd":1525:10:1525:15|Synthesizing smartfusion.dfn1p0.syn_black_box 
+Post processing for smartfusion.dfn1p0.syn_black_box
+@N: CD630 :"C:\Microsemi\Libero_v10.0\Synopsys\synplify_F201109M\lib\proasic\smartfusion.vhd":1998:10:1998:12|Synthesizing smartfusion.inv.syn_black_box 
+Post processing for smartfusion.inv.syn_black_box
+Post processing for work.adder16bit.def_arch
+@W: CL168 :"D:\Work\marmote\firmware\lwIPTest\smartgen\Adder16bit\Adder16bit.vhd":255:4:255:13|Pruning instance U_AND2_3_4 -- not in use ... 
+@W: CL168 :"D:\Work\marmote\firmware\lwIPTest\smartgen\Adder16bit\Adder16bit.vhd":168:4:168:19|Pruning instance U_U_AND2_9_to_14 -- not in use ... 
+@W: CL168 :"D:\Work\marmote\firmware\lwIPTest\smartgen\Adder16bit\Adder16bit.vhd":132:4:132:13|Pruning instance U_AND2_0_1 -- not in use ... 
+@W: CL168 :"D:\Work\marmote\firmware\lwIPTest\smartgen\Adder16bit\Adder16bit.vhd":129:4:129:14|Pruning instance U_AND2_9_10 -- not in use ... 
+@N: CD630 :"C:\Microsemi\Libero_v10.0\Synopsys\synplify_F201109M\lib\proasic\smartfusion.vhd":1796:10:1796:12|Synthesizing smartfusion.gnd.syn_black_box 
+Post processing for smartfusion.gnd.syn_black_box
+@N: CD630 :"C:\Microsemi\Libero_v10.0\Synopsys\synplify_F201109M\lib\proasic\smartfusion.vhd":2812:10:2812:12|Synthesizing smartfusion.vcc.syn_black_box 
+Post processing for smartfusion.vcc.syn_black_box
+@N: CD630 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":14:7:14:14|Synthesizing coreapb3_lib.coreapb3.capb3i0l 
+@W: CD604 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":439:0:439:13|OTHERS clause is not synthesized 
+@N: CD630 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3_muxptob3.vhd":14:7:14:12|Synthesizing coreapb3_lib.capb3o.capb3ll 
+@W: CD604 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3_muxptob3.vhd":152:0:152:13|OTHERS clause is not synthesized 
+@W: CD604 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3_muxptob3.vhd":195:0:195:13|OTHERS clause is not synthesized 
+@W: CD604 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3_muxptob3.vhd":238:0:238:13|OTHERS clause is not synthesized 
+Post processing for coreapb3_lib.capb3o.capb3ll
+Post processing for coreapb3_lib.coreapb3.capb3i0l
+@N: CD630 :"D:\Work\marmote\firmware\lwIPTest\component\work\lwIPTest_MSS\lwIPTest_MSS.vhd":8:7:8:18|Synthesizing work.lwiptest_mss.def_arch 
+@N: CD630 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd":4:7:4:15|Synthesizing work.inbuf_mss.def_arch 
+Post processing for work.inbuf_mss.def_arch
+@N: CD630 :"D:\Work\marmote\firmware\lwIPTest\component\work\lwIPTest_MSS\MSS_CCC_0\lwIPTest_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd":8:7:8:40|Synthesizing work.lwiptest_mss_tmp_mss_ccc_0_mss_ccc.def_arch 
+@N: CD630 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd":432:7:432:16|Synthesizing work.mss_xtlosc.def_arch 
+Post processing for work.mss_xtlosc.def_arch
+@N: CD630 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd":472:7:472:13|Synthesizing work.mss_ccc.def_arch 
+Post processing for work.mss_ccc.def_arch
+Post processing for work.lwiptest_mss_tmp_mss_ccc_0_mss_ccc.def_arch
+@W: CL240 :"D:\Work\marmote\firmware\lwIPTest\component\work\lwIPTest_MSS\MSS_CCC_0\lwIPTest_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd":38:10:38:21|LPXIN_CLKOUT is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"D:\Work\marmote\firmware\lwIPTest\component\work\lwIPTest_MSS\MSS_CCC_0\lwIPTest_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd":37:10:37:23|MAINXIN_CLKOUT is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"D:\Work\marmote\firmware\lwIPTest\component\work\lwIPTest_MSS\MSS_CCC_0\lwIPTest_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd":36:10:36:21|RCOSC_CLKOUT is not assigned a value (floating) -- simulation mismatch possible. 
+@N: CD630 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd":24:7:24:16|Synthesizing work.outbuf_mss.def_arch 
+Post processing for work.outbuf_mss.def_arch
+@N: CD630 :"D:\Work\marmote\firmware\lwIPTest\component\work\lwIPTest_MSS\mss_tshell.vhd":4:7:4:13|Synthesizing work.mss_apb.def_arch 
+Post processing for work.mss_apb.def_arch
+@N: CD630 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd":65:7:65:15|Synthesizing work.bibuf_mss.def_arch 
+Post processing for work.bibuf_mss.def_arch
+Post processing for work.lwiptest_mss.def_arch
+@N: CD630 :"D:\Work\marmote\firmware\lwIPTest\hdl\Sample_APB.vhd":13:7:13:16|Synthesizing work.sample_apb.behavioral 
+Post processing for work.sample_apb.behavioral
+@A: CL282 :"D:\Work\marmote\firmware\lwIPTest\hdl\Sample_APB.vhd":132:8:132:9|Feedback mux created for signal samples_out_2[15:0] -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+@A: CL282 :"D:\Work\marmote\firmware\lwIPTest\hdl\Sample_APB.vhd":132:8:132:9|Feedback mux created for signal samples_out_1[15:0] -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+Post processing for work.lwiptest.def_arch
+@W: CL246 :"D:\Work\marmote\firmware\lwIPTest\hdl\Sample_APB.vhd":25:8:25:12|Input port bits 31 to 8 of paddr(31 downto 0) are unused 
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\hdl\Sample_APB.vhd":27:8:27:14|Input PENABLE is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\hdl\Sample_APB.vhd":29:8:29:13|Input PWDATA is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\work\lwIPTest_MSS\MSS_CCC_0\lwIPTest_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd":10:10:10:13|Input CLKA is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\work\lwIPTest_MSS\MSS_CCC_0\lwIPTest_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd":11:10:11:17|Input CLKA_PAD is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\work\lwIPTest_MSS\MSS_CCC_0\lwIPTest_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd":12:10:12:18|Input CLKA_PADP is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\work\lwIPTest_MSS\MSS_CCC_0\lwIPTest_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd":13:10:13:18|Input CLKA_PADN is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\work\lwIPTest_MSS\MSS_CCC_0\lwIPTest_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd":14:10:14:13|Input CLKB is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\work\lwIPTest_MSS\MSS_CCC_0\lwIPTest_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd":15:10:15:17|Input CLKB_PAD is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\work\lwIPTest_MSS\MSS_CCC_0\lwIPTest_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd":16:10:16:18|Input CLKB_PADP is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\work\lwIPTest_MSS\MSS_CCC_0\lwIPTest_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd":17:10:17:18|Input CLKB_PADN is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\work\lwIPTest_MSS\MSS_CCC_0\lwIPTest_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd":18:10:18:13|Input CLKC is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\work\lwIPTest_MSS\MSS_CCC_0\lwIPTest_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd":19:10:19:17|Input CLKC_PAD is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\work\lwIPTest_MSS\MSS_CCC_0\lwIPTest_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd":20:10:20:18|Input CLKC_PADP is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\work\lwIPTest_MSS\MSS_CCC_0\lwIPTest_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd":21:10:21:18|Input CLKC_PADN is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\work\lwIPTest_MSS\MSS_CCC_0\lwIPTest_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd":23:10:23:14|Input LPXIN is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\work\lwIPTest_MSS\MSS_CCC_0\lwIPTest_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd":24:10:24:16|Input MAC_CLK is unused
+@W: CL246 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":35:0:35:4|Input port bits 23 to 12 of paddr(23 downto 0) are unused 
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":33:52:33:58|Input presetn is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":34:0:34:3|Input pclk is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":65:0:65:7|Input PRDATAS1 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":66:0:66:7|Input PRDATAS2 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":67:0:67:7|Input PRDATAS3 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":68:0:68:7|Input PRDATAS4 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":69:0:69:7|Input PRDATAS5 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":70:0:70:7|Input PRDATAS6 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":71:0:71:7|Input PRDATAS7 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":72:0:72:7|Input PRDATAS8 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":73:0:73:7|Input PRDATAS9 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":74:0:74:8|Input PRDATAS10 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":75:0:75:8|Input PRDATAS11 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":76:0:76:8|Input PRDATAS12 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":77:0:77:8|Input PRDATAS13 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":78:0:78:8|Input PRDATAS14 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":79:0:79:8|Input PRDATAS15 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":81:0:81:7|Input preadys1 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":82:0:82:7|Input preadys2 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":83:0:83:7|Input preADYS3 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":84:0:84:7|Input preadys4 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":85:0:85:7|Input PREADYs5 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":86:0:86:7|Input preadyS6 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":87:0:87:7|Input PREadys7 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":88:0:88:7|Input pREADYS8 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":89:0:89:7|Input preADYS9 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":90:0:90:8|Input preadys10 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":91:0:91:8|Input preaDYS11 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":92:0:92:8|Input PREADYS12 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":93:0:93:8|Input PREadys13 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":94:0:94:8|Input preADYS14 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":95:0:95:8|Input PREAdys15 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":97:0:97:8|Input PSLVERrs1 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":98:0:98:8|Input pslverrs2 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":99:0:99:8|Input pslverrS3 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":100:0:100:8|Input pSLVERRS4 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":101:0:101:8|Input PSLVERRS5 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":102:0:102:8|Input PSLVERRS6 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":103:0:103:8|Input pslvERRS7 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":104:0:104:8|Input pslverrs8 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":105:0:105:8|Input PSLVERRS9 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":106:0:106:9|Input PSLVERRS10 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":107:0:107:9|Input pslverRS11 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":108:0:108:9|Input PSLverrs12 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":109:0:109:9|Input PSLVERRS13 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":110:0:110:9|Input pslverrs14 is unused
+@W: CL159 :"D:\Work\marmote\firmware\lwIPTest\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd":111:0:111:9|Input pSLVERRS15 is unused

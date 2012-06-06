@@ -1,0 +1,61 @@
+
+
+##### START OF TIMING REPORT #####[
+# Timing Report written on Tue Jun 05 12:44:25 2012
+#
+
+
+Top view:               lwIPTest
+Operating conditions:   smartfusion.COMWC-2
+Requested Frequency:    5.0 MHz
+Wire load mode:         top
+Wire load model:        smartfusion
+Paths requested:        5
+Constraint File(s):    D:\Work\marmote\firmware\lwIPTest\component\work\lwIPTest_MSS\mss_tshell_syn.sdc
+                       
+@N: MT320 |This timing report estimates place and route data. Please look at the place and route timing report for final timing.
+
+@N: MT322 |Clock constraints cover only FF-to-FF paths associated with the clock.
+
+
+
+Performance Summary 
+*******************
+
+
+Worst slack in design: NA
+
+                   Requested     Estimated     Requested     Estimated                 Clock        Clock      
+Starting Clock     Frequency     Frequency     Period        Period        Slack       Type         Group      
+---------------------------------------------------------------------------------------------------------------
+FAB_CLK            5.0 MHz       98.9 MHz      200.000       10.116        193.314     declared     clk_group_0
+FCLK               5.0 MHz       98.9 MHz      200.000       10.116        189.885     declared     clk_group_0
+===============================================================================================================
+
+
+
+Clock Relationships
+*******************
+
+Clocks             |    rise  to  rise   |    fall  to  fall   |    rise  to  fall   |    fall  to  rise 
+---------------------------------------------------------------------------------------------------------
+Starting  Ending   |  constraint  slack  |  constraint  slack  |  constraint  slack  |  constraint  slack
+---------------------------------------------------------------------------------------------------------
+FAB_CLK   FAB_CLK  |  0.000       False  |  No paths    -      |  No paths    -      |  No paths    -    
+FAB_CLK   FCLK     |  0.000       False  |  No paths    -      |  No paths    -      |  No paths    -    
+FCLK      FAB_CLK  |  0.000       False  |  No paths    -      |  No paths    -      |  No paths    -    
+FCLK      FCLK     |  0.000       False  |  No paths    -      |  No paths    -      |  No paths    -    
+=========================================================================================================
+ Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
+       'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
+
+
+
+Interface Information 
+*********************
+
+No IO constraint found
+
+
+##### END OF TIMING REPORT #####]
+

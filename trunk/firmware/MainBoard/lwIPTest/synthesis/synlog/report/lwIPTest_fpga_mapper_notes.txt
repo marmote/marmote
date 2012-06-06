@@ -1,0 +1,7 @@
+@N: MF249 |Running in 64-bit mode.
+@N: MF258 |Gated clock conversion disabled 
+@N: MF547 |Generated clock conversion disabled 
+@N: MT320 |This timing report estimates place and route data. Please look at the place and route timing report for final timing.
+@N: MT322 |Clock constraints cover only FF-to-FF paths associated with the clock.
+@N: MT320 |This timing report estimates place and route data. Please look at the place and route timing report for final timing.
+@N: MT322 |Clock constraints cover only FF-to-FF paths associated with the clock.
