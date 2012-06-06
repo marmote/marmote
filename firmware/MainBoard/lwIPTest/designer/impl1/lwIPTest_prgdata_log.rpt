@@ -1,0 +1,20 @@
+Actel Designer Software
+Version: 10.0.20.2
+Release: v10.0 SP2
+
+Info: The design D:/Work/marmote/firmware/lwIPTest/designer/impl1/lwIPTest.adb was last modified
+      by software version 10.0.20.2.
+Opened an existing Libero design D:/Work/marmote/firmware/lwIPTest/designer/impl1/lwIPTest.adb.
+Warning: Overwriting the existing file:
+         D:/Work/marmote/firmware/lwIPTest/designer/impl1/lwIPTest.fdb.
+
+The Export-map command succeeded ( 00:00:16 )
+CHECKSUM: EC67
+Wrote to the file: D:\Work\marmote\firmware\lwIPTest\designer\impl1\lwIPTest.fdb
+
+The Export command succeeded ( 00:00:18 )
+Design saved to file D:/Work/marmote/firmware/lwIPTest/designer/impl1/lwIPTest.adb.
+
+The Execute Script command succeeded ( 00:00:20 )
+Design closed.
+

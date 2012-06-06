@@ -1,0 +1,21 @@
+********************************************************************
+                            Global Usage Report
+********************************************************************
+  
+Product: Designer
+Release: v10.0 SP2
+Version: 10.0.20.2
+Date: Tue Jun 05 12:47:43 2012
+Design Name: lwIPTest  Family: SmartFusion  Die: A2F500M3G  Package: 256 FBGA
+Design State: Post-Layout
+
+The following nets have been routed to a chip global resource:
+
+    Fanout            Name
+    ----------------------
+    50                Net   : FAB_CLK
+                      Driver: lwIPTest_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE2
+
+
+
+

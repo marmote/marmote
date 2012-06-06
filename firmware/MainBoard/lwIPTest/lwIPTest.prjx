@@ -1,0 +1,712 @@
+KEY LIBERO "10.0"
+KEY CAPTURE "10.0.20.2"
+KEY DEFAULT_IMPORT_LOC "D:\work\software\MainBoard\BoardTest\hdl"
+KEY DEFAULT_OPEN_LOC ""
+KEY ProjectID "696d03a7-250b-4b19-a50b-9b19250b9b19"
+KEY HDLTechnology "VHDL"
+KEY VendorTechnology_Family "SmartFusion"
+KEY VendorTechnology_Die "IP6X5M2"
+KEY VendorTechnology_Package "fg256"
+KEY VendorTechnology_Speed "STD"
+KEY VendorTechnology_DieVoltage "1.5"
+KEY VendorTechnology_IO_DEFT_STD "LVTTL"
+KEY VendorTechnology_OPCONR "COM"
+KEY VendorTechnology_TEMPR "COM"
+KEY VendorTechnology_VCCI_1.5_VOLTR "COM"
+KEY VendorTechnology_VCCI_1.8_VOLTR "COM"
+KEY VendorTechnology_VCCI_2.5_VOLTR "COM"
+KEY VendorTechnology_VCCI_3.3_VOLTR "COM"
+KEY VendorTechnology_VOLTR "COM"
+KEY ProjectLocation "D:\Work\marmote\firmware\lwIPTest"
+KEY ProjectDescription ""
+KEY SimulationType "VHDL"
+KEY Vendor "Actel"
+KEY ActiveRoot "lwIPTest::work"
+LIST REVISIONS
+VALUE="Impl1",NUM=1
+CURREV=1
+ENDLIST
+LIST LIBRARIES
+MSS_BFM_LIB
+COREAPB3_LIB
+ENDLIST
+LIST LIBRARY_MSS_BFM_LIB
+ALIAS=..\component\Actel\SmartFusionMSS\MSS\2.5.106\mti\user_verilog\MSS_BFM_LIB
+COMPILE_OPTION=REFRESH_AND_COMPILE
+ENDLIST
+LIST LIBRARY_COREAPB3_LIB
+ALIAS=..\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\user_vhdl\COREAPB3_LIB
+COMPILE_OPTION=REFRESH_AND_COMPILE
+ENDLIST
+LIST FileManager
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf,actgen_cxf"
+STATE="utd"
+TIME="1338918230"
+SIZE="2407"
+PARENT="<project>\component\work\lwIPTest\lwIPTest.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
+STATE="utd"
+TIME="1338918230"
+SIZE="1242"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\scripts\wave_user.do,do"
+STATE="utd"
+TIME="1301088110"
+SIZE="912"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\components.vhd,hdl"
+STATE="utd"
+TIME="1301088111"
+SIZE="5084"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
+STATE="utd"
+TIME="1301088111"
+SIZE="25656"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3_muxptob3.vhd,hdl"
+STATE="utd"
+TIME="1301088111"
+SIZE="6608"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+STATE="utd"
+TIME="1301088110"
+SIZE="21192"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
+MODULE_UNDER_TEST="testbench"
+SIMULATION_TIME="-all"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf,actgen_cxf"
+STATE="utd"
+TIME="1337712756"
+SIZE="944"
+PARENT="<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd,hdl"
+STATE="utd"
+TIME="1311100902"
+SIZE="17580"
+PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf"
+BEGIN_USE_CONSTRAINT
+TOOL_CONSTRAINT_TYPE="ideSYNTHESIS"
+TOOL_CONSTRAINT_USE="SYNPLIFY7_EXT"
+END_USE_CONSTRAINT
+USE_FOR_ANY_TOOL="FALSE"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_ACE\2.2.100\MSS_ACE.cxf,actgen_cxf"
+STATE="utd"
+TIME="1337712750"
+SIZE="252"
+PARENT="<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_CCC\2.0.106\MSS_CCC.cxf,actgen_cxf"
+STATE="utd"
+TIME="1337712750"
+SIZE="252"
+PARENT="<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_CM3\1.0.200\MSS_CM3.cxf,actgen_cxf"
+STATE="utd"
+TIME="1337712750"
+SIZE="252"
+PARENT="<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_COM\1.0.200\MSS_COM.cxf,actgen_cxf"
+STATE="utd"
+TIME="1337712750"
+SIZE="252"
+PARENT="<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_DMA\1.0.101\MSS_DMA.cxf,actgen_cxf"
+STATE="utd"
+TIME="1337712750"
+SIZE="252"
+PARENT="<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_ENVM\2.3.102\MSS_ENVM.cxf,actgen_cxf"
+STATE="utd"
+TIME="1337712751"
+SIZE="253"
+PARENT="<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_FIC\1.0.101\MSS_FIC.cxf,actgen_cxf"
+STATE="utd"
+TIME="1337712751"
+SIZE="252"
+PARENT="<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_FIO\1.0.203\MSS_FIO.cxf,actgen_cxf"
+STATE="utd"
+TIME="1337712751"
+SIZE="252"
+PARENT="<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_GPIO\1.0.101\MSS_GPIO.cxf,actgen_cxf"
+STATE="utd"
+TIME="1337712751"
+SIZE="253"
+PARENT="<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_INTR\1.0.101\MSS_INTR.cxf,actgen_cxf"
+STATE="utd"
+TIME="1337712751"
+SIZE="253"
+PARENT="<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_MAC\2.1.101\MSS_MAC.cxf,actgen_cxf"
+STATE="utd"
+TIME="1337712751"
+SIZE="252"
+PARENT="<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_RESET\1.0.101\MSS_RESET.cxf,actgen_cxf"
+STATE="utd"
+TIME="1337712751"
+SIZE="254"
+PARENT="<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_RTC\1.0.100\MSS_RTC.cxf,actgen_cxf"
+STATE="utd"
+TIME="1337712751"
+SIZE="252"
+PARENT="<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_TIMER\1.0.100\MSS_TIMER.cxf,actgen_cxf"
+STATE="utd"
+TIME="1337712751"
+SIZE="254"
+PARENT="<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_UFROM\1.0.100\MSS_UFROM.cxf,actgen_cxf"
+STATE="utd"
+TIME="1337712751"
+SIZE="254"
+PARENT="<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\work\DESIGN_FIRMWARE\DESIGN_FIRMWARE.cxf,actgen_cxf"
+STATE="utd"
+TIME="1337370151"
+SIZE="2219"
+ENDFILE
+VALUE "<project>\component\work\DESIGN_IO\DESIGN_IO.cxf,actgen_cxf"
+STATE="utd"
+TIME="1337374576"
+SIZE="413"
+ENDFILE
+VALUE "<project>\component\work\lwIPTest\lwIPTest.cxf,actgen_cxf"
+STATE="utd"
+TIME="1338918234"
+SIZE="5751"
+ENDFILE
+VALUE "<project>\component\work\lwIPTest\lwIPTest.pdc,pdc"
+STATE="utd"
+TIME="1338918228"
+SIZE="3895"
+PARENT="<project>\component\work\lwIPTest\lwIPTest.cxf"
+BEGIN_USE_CONSTRAINT
+TOOL_CONSTRAINT_TYPE="ideDESIGNER"
+END_USE_CONSTRAINT
+USE_FOR_ANY_TOOL="FALSE"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\lwIPTest\lwIPTest.vhd,hdl"
+STATE="utd"
+TIME="1338918231"
+SIZE="61639"
+PARENT="<project>\component\work\lwIPTest\lwIPTest.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\lwIPTest\testbench.vhd,tb_hdl"
+STATE="utd"
+TIME="1338918232"
+SIZE="2272"
+PARENT="<project>\component\work\lwIPTest\lwIPTest.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf,actgen_cxf"
+STATE="utd"
+TIME="1337712757"
+SIZE="14437"
+ENDFILE
+VALUE "<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.pdc,pdc"
+STATE="utd"
+TIME="1337712743"
+SIZE="2628"
+PARENT="<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf"
+BEGIN_USE_CONSTRAINT
+TOOL_CONSTRAINT_TYPE="ideDESIGNER"
+END_USE_CONSTRAINT
+USE_FOR_ANY_TOOL="FALSE"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.vhd,hdl"
+STATE="utd"
+TIME="1337712757"
+SIZE="35158"
+PARENT="<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\lwIPTest_MSS\MSS_ACE_0\MSS_ACE_0.log,???"
+STATE="utd"
+TIME="1337712749"
+SIZE="31587"
+PARENT="<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\lwIPTest_MSS\MSS_CCC_0\lwIPTest_MSS_tmp_MSS_CCC_0_MSS_CCC.cxf,actgen_cxf"
+STATE="utd"
+TIME="1337712750"
+SIZE="490"
+PARENT="<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf"
+ENDFILE
+VALUE "<project>\component\work\lwIPTest_MSS\MSS_CCC_0\lwIPTest_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd,hdl"
+STATE="utd"
+TIME="1337712750"
+SIZE="6990"
+PARENT="<project>\component\work\lwIPTest_MSS\MSS_CCC_0\lwIPTest_MSS_tmp_MSS_CCC_0_MSS_CCC.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\lwIPTest_MSS\MSS_ENVM_0\MSS_ENVM_0.efc,efc"
+STATE="utd"
+TIME="1337712751"
+SIZE="15875"
+PARENT="<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\lwIPTest_MSS\mss_tshell.vhd,hdl"
+STATE="utd"
+TIME="1337712751"
+SIZE="22849"
+PARENT="<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf"
+BEGIN_USE_CONSTRAINT
+TOOL_CONSTRAINT_TYPE="ideSYNTHESIS"
+TOOL_CONSTRAINT_USE="SYNPLIFY7_EXT"
+END_USE_CONSTRAINT
+USE_FOR_ANY_TOOL="FALSE"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\lwIPTest_MSS\mss_tshell_syn.sdc,sdc"
+STATE="utd"
+TIME="1337712751"
+SIZE="192"
+PARENT="<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf"
+BEGIN_USE_CONSTRAINT
+TOOL_CONSTRAINT_TYPE="ideSYNTHESIS"
+TOOL_CONSTRAINT_USE="SYNPLIFY7_EXT"
+END_USE_CONSTRAINT
+USE_FOR_ANY_TOOL="FALSE"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\lwIPTest_MSS\testbench.vhd,tb_hdl"
+STATE="utd"
+TIME="1337712757"
+SIZE="3107"
+PARENT="<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\designer\impl1\Adder16bit.ide_des,ide_des"
+STATE="utd"
+TIME="1337372416"
+SIZE="195"
+ENDFILE
+VALUE "<project>\designer\impl1\BIBUF_OPEND_MSS.ide_des,ide_des"
+STATE="utd"
+TIME="1337370302"
+SIZE="200"
+ENDFILE
+VALUE "<project>\designer\impl1\lwIPTest.adb,adb"
+STATE="utd"
+TIME="1338918492"
+SIZE="366592"
+ENDFILE
+VALUE "<project>\designer\impl1\lwIPTest.fdb,fdb"
+STATE="utd"
+TIME="1338918492"
+SIZE="80894"
+ENDFILE
+VALUE "<project>\designer\impl1\lwIPTest.ide_des,ide_des"
+STATE="utd"
+TIME="1338918493"
+SIZE="1046"
+ENDFILE
+VALUE "<project>\designer\impl1\lwIPTest_compile_log.rpt,log"
+STATE="utd"
+TIME="1338918376"
+SIZE="30152"
+ENDFILE
+VALUE "<project>\designer\impl1\lwIPTest_fp\lwIPTest.pdb,pdb"
+STATE="utd"
+TIME="1338918596"
+SIZE="90112"
+ENDFILE
+VALUE "<project>\designer\impl1\lwIPTest_fp\lwIPTest.pro,pro"
+STATE="utd"
+TIME="1338918652"
+SIZE="1972"
+ENDFILE
+VALUE "<project>\designer\impl1\lwIPTest_placeroute_log.rpt,log"
+STATE="utd"
+TIME="1338918464"
+SIZE="2284"
+ENDFILE
+VALUE "<project>\designer\impl1\lwIPTest_prgdata_log.rpt,log"
+STATE="utd"
+TIME="1338918493"
+SIZE="762"
+ENDFILE
+VALUE "<project>\designer\impl1\lwIPTest_verifytiming_log.rpt,log"
+STATE="utd"
+TIME="1338918470"
+SIZE="1144"
+ENDFILE
+VALUE "<project>\hdl\Sample_APB.vhd,hdl"
+STATE="utd"
+TIME="1337374323"
+SIZE="4453"
+ENDFILE
+VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
+STATE="utd"
+TIME="1301088110"
+SIZE="1237"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
+ENDFILE
+VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
+STATE="utd"
+TIME="1311100899"
+SIZE="41"
+PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf"
+ENDFILE
+VALUE "<project>\simulation\coreapb3_usertb_apb_master.bfm,sim"
+STATE="utd"
+TIME="1301088110"
+SIZE="10524"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
+ENDFILE
+VALUE "<project>\simulation\coreapb3_usertb_include.bfm,sim"
+STATE="utd"
+TIME="1301088110"
+SIZE="3992"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
+ENDFILE
+VALUE "<project>\simulation\subsystem.bfm,sim"
+STATE="utd"
+TIME="1338918231"
+SIZE="631"
+PARENT="<project>\component\work\lwIPTest\lwIPTest.cxf"
+ENDFILE
+VALUE "<project>\simulation\test.bfm,sim"
+STATE="utd"
+TIME="1337712750"
+SIZE="5461"
+PARENT="<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf"
+ENDFILE
+VALUE "<project>\simulation\user.bfm,sim"
+STATE="utd"
+TIME="1337370192"
+SIZE="670"
+PARENT="<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.cxf"
+ENDFILE
+VALUE "<project>\smartgen\Adder16bit\Adder16bit.cxf,actgen_cxf"
+STATE="utd"
+TIME="1337374755"
+SIZE="1345"
+ENDFILE
+VALUE "<project>\smartgen\Adder16bit\Adder16bit.gen,gen"
+STATE="utd"
+TIME="1337374753"
+SIZE="653"
+PARENT="<project>\smartgen\Adder16bit\Adder16bit.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\smartgen\Adder16bit\Adder16bit.log,log"
+STATE="utd"
+TIME="1337374755"
+SIZE="2410"
+PARENT="<project>\smartgen\Adder16bit\Adder16bit.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\smartgen\Adder16bit\Adder16bit.vhd,hdl"
+STATE="utd"
+TIME="1337374755"
+SIZE="8499"
+PARENT="<project>\smartgen\Adder16bit\Adder16bit.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\synthesis\lwIPTest.edn,syn_edn"
+STATE="utd"
+TIME="1338918265"
+SIZE="214601"
+ENDFILE
+VALUE "<project>\synthesis\lwIPTest.so,so"
+STATE="utd"
+TIME="1338918265"
+SIZE="219"
+ENDFILE
+VALUE "<project>\synthesis\lwIPTest_sdc.sdc,syn_sdc"
+STATE="utd"
+TIME="1338918265"
+SIZE="519"
+ENDFILE
+ENDLIST
+LIST UsedFile
+ENDLIST
+LIST NewModulesInfo
+LIST "lwIPTest::work"
+FILE "<project>\component\work\lwIPTest\lwIPTest.vhd,hdl"
+LIST Other_Association
+VALUE "<project>\simulation\subsystem.bfm,sim"
+VALUE "<project>\component\work\lwIPTest\testbench.vhd,tb_hdl"
+VALUE "<project>\component\work\lwIPTest\lwIPTest.pdc,pdc"
+ENDLIST
+LIST AssociatedStimulus
+VALUE "<project>\component\work\lwIPTest\testbench.vhd,tb_hdl"
+ENDLIST
+LIST SynthesisConstraints
+VALUE "<project>\component\work\lwIPTest_MSS\mss_tshell_syn.sdc,sdc"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+LiberoState=Post_Layout
+ideDESIGNER(<project>\designer\impl1\lwIPTest.adb,adb)=StateSuccess
+ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\lwIPTest.edn,syn_edn)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
+LIST "lwIPTest_MSS::work"
+FILE "<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.vhd,hdl"
+LIST Other_Association
+VALUE "<project>\component\work\lwIPTest_MSS\mss_tshell_syn.sdc,sdc"
+VALUE "<project>\simulation\user.bfm,sim"
+VALUE "<project>\simulation\test.bfm,sim"
+VALUE "<project>\component\work\lwIPTest_MSS\testbench.vhd,tb_hdl"
+VALUE "<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.pdc,pdc"
+VALUE "<project>\component\work\lwIPTest_MSS\MSS_ENVM_0\MSS_ENVM_0.efc,efc"
+VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
+ENDLIST
+LIST AssociatedStimulus
+VALUE "<project>\component\work\lwIPTest_MSS\testbench.vhd,tb_hdl"
+ENDLIST
+LIST SynthesisConstraints
+VALUE "<project>\component\work\lwIPTest_MSS\mss_tshell_syn.sdc,sdc"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
+LIST "CoreAPB3::COREAPB3_LIB::components"
+FILE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
+LIST Other_Association
+VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
+VALUE "<project>\simulation\coreapb3_usertb_include.bfm,sim"
+VALUE "<project>\simulation\coreapb3_usertb_apb_master.bfm,sim"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\scripts\wave_user.do,do"
+ENDLIST
+LIST AssociatedStimulus
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
+ENDLIST
+LIST AssociatedStimulus
+LIST lwIPTest
+VALUE "<project>\component\work\lwIPTest\testbench.vhd,tb_hdl"
+ENDLIST
+LIST lwIPTest_MSS
+VALUE "<project>\component\work\lwIPTest_MSS\testbench.vhd,tb_hdl"
+ENDLIST
+LIST CoreAPB3
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+ENDLIST
+ENDLIST
+LIST Other_Association
+LIST lwIPTest
+VALUE "<project>\simulation\subsystem.bfm,sim"
+VALUE "<project>\component\work\lwIPTest\testbench.vhd,tb_hdl"
+VALUE "<project>\component\work\lwIPTest\lwIPTest.pdc,pdc"
+ENDLIST
+LIST lwIPTest_MSS
+VALUE "<project>\component\work\lwIPTest_MSS\mss_tshell_syn.sdc,sdc"
+VALUE "<project>\simulation\user.bfm,sim"
+VALUE "<project>\simulation\test.bfm,sim"
+VALUE "<project>\component\work\lwIPTest_MSS\testbench.vhd,tb_hdl"
+VALUE "<project>\component\work\lwIPTest_MSS\lwIPTest_MSS.pdc,pdc"
+VALUE "<project>\component\work\lwIPTest_MSS\MSS_ENVM_0\MSS_ENVM_0.efc,efc"
+VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
+ENDLIST
+LIST CoreAPB3
+VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
+VALUE "<project>\simulation\coreapb3_usertb_include.bfm,sim"
+VALUE "<project>\simulation\coreapb3_usertb_apb_master.bfm,sim"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\scripts\wave_user.do,do"
+ENDLIST
+ENDLIST
+LIST SimulationOptions
+UseAutomaticDoFile=true
+IncludeWaveDo=false
+Type=max
+RunTime=1000ns
+Resolution=1ps
+VsimOpt=
+EntityName=testbench
+TopInstanceName=<top>_0
+DoFileName=
+DoFileName2=wave.do
+DoFileParams=
+DisplayDUTWave=false
+LogAllSignals=false
+DumpVCD=false
+VCDFileName=power.vcd
+ENDLIST
+LIST ModelSimLibPath
+UseCustomPath=FALSE
+LibraryPath=
+ENDLIST
+LIST GlobalFlowOptions
+GenerateHDLAfterSynthesis=FALSE
+GenerateHDLAfterPhySynthesis=FALSE
+RunDRCAfterSynthesis=TRUE
+AutoCheckConstraints=TRUE
+UpdateModelSimIni=TRUE
+NoIOMode=FALSE
+EnableViewDraw=FALSE
+UpdateViewDrawIni=TRUE
+GenerateHDLFromSchematic=TRUE
+FlashProInputFile=fdb
+SmartGenCompileReport=T
+ENDLIST
+LIST PhySynthesisOptions
+ENDLIST
+LIST Profiles
+NAME="SoftConsole"
+FUNCTION="SoftwareIDE"
+TOOL="SoftConsole"
+LOCATION="C:\Microsemi\Libero_v10.0\SoftConsole\Eclipse\eclipse.exe"
+PARAM=""
+BATCH=0
+EndProfile
+NAME="Synplify Pro AE"
+FUNCTION="Synthesis"
+TOOL="Synplify Pro AE"
+LOCATION="C:\Microsemi\Libero_v10.0\Synopsys\synplify_F201109M\bin\synplify_pro.exe"
+PARAM=""
+BATCH=0
+EndProfile
+NAME="ModelSim AE"
+FUNCTION="Simulation"
+TOOL="ModelSim"
+LOCATION="C:\Microsemi\Libero_v10.0\Model\win32acoem\modelsim.exe"
+PARAM=""
+BATCH=0
+EndProfile
+NAME="FlashPro"
+FUNCTION="Program"
+TOOL="FlashPro"
+LOCATION="C:\Microsemi\Libero_v10.0\Designer\bin\FlashPro.exe"
+PARAM=""
+BATCH=0
+EndProfile
+ENDLIST
+LIST ProjectState5.1
+LIST "lwIPTest::work"
+LIST Impl1
+LiberoState=Post_Layout
+ideDESIGNER(<project>\designer\impl1\lwIPTest.adb,adb)=StateSuccess
+ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\lwIPTest.edn,syn_edn)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+LIST "lwIPTest_MSS::work"
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+LIST "CoreAPB3::COREAPB3_LIB::components"
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
+LIST ExcludePackageForSimulation
+ENDLIST
+LIST ExcludePackageForSynthesis
+ENDLIST
+LIST IncludeModuleForSimulation
+ENDLIST
+LIST CDBOrder
+ENDLIST
+LIST UserCustomizedFileList
+ENDLIST
+LIST OpenedFileList
+SmartDesign;lwIPTest
+SmartDesign;lwIPTest_MSS
+Reports;Reports
+ACTIVEVIEW;Reports
+ENDLIST
