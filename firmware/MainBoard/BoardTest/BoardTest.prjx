@@ -20,28 +20,19 @@ KEY Vendor "Actel"
 KEY ActiveRoot "BoardTestCanvas::work"
 LIST REVISIONS
 VALUE="Impl1",NUM=1
-VALUE="Impl2",NUM=2
-VALUE="Impl3",NUM=3
-VALUE="Impl4",NUM=4
-VALUE="Impl5",NUM=5
-CURREV=5
+CURREV=1
 ENDLIST
 LIST LIBRARIES
 MSS_BFM_LIB
-COREAPB3_LIB
 ENDLIST
 LIST LIBRARY_MSS_BFM_LIB
 ALIAS=..\component\Actel\SmartFusionMSS\MSS\2.5.106\mti\user_verilog\MSS_BFM_LIB
 COMPILE_OPTION=REFRESH_AND_COMPILE
 ENDLIST
-LIST LIBRARY_COREAPB3_LIB
-ALIAS=..\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\user_vhdl\COREAPB3_LIB
-COMPILE_OPTION=REFRESH_AND_COMPILE
-ENDLIST
 LIST FileManager
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf,actgen_cxf"
 STATE="utd"
-TIME="1337095096"
+TIME="1339007926"
 SIZE="944"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
@@ -57,123 +48,87 @@ END_USE_CONSTRAINT
 USE_FOR_ANY_TOOL="FALSE"
 IS_READONLY="TRUE"
 ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS_ACE\2.2.100\MSS_ACE.cxf,actgen_cxf"
-STATE="utd"
-TIME="1337095089"
-SIZE="252"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_CCC\2.0.106\MSS_CCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1337095089"
+TIME="1339007910"
 SIZE="252"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_CM3\1.0.200\MSS_CM3.cxf,actgen_cxf"
 STATE="utd"
-TIME="1337095089"
+TIME="1339007910"
 SIZE="252"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_COM\1.0.200\MSS_COM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1337095089"
+TIME="1339007910"
 SIZE="252"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_DMA\1.0.101\MSS_DMA.cxf,actgen_cxf"
 STATE="utd"
-TIME="1337095089"
+TIME="1339007910"
 SIZE="252"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_ENVM\2.3.102\MSS_ENVM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1337095090"
+TIME="1339007911"
 SIZE="253"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_FIO\1.0.203\MSS_FIO.cxf,actgen_cxf"
 STATE="utd"
-TIME="1337095090"
+TIME="1339007911"
 SIZE="252"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_GPIO\1.0.101\MSS_GPIO.cxf,actgen_cxf"
 STATE="utd"
-TIME="1337095090"
+TIME="1339007911"
 SIZE="253"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS_I2C\1.0.101\MSS_I2C.cxf,actgen_cxf"
-STATE="utd"
-TIME="1337095090"
-SIZE="252"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_INTR\1.0.101\MSS_INTR.cxf,actgen_cxf"
 STATE="utd"
-TIME="1337095090"
+TIME="1339007911"
 SIZE="253"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS_MAC\2.1.101\MSS_MAC.cxf,actgen_cxf"
-STATE="utd"
-TIME="1337095090"
-SIZE="252"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_RESET\1.0.101\MSS_RESET.cxf,actgen_cxf"
 STATE="utd"
-TIME="1337095090"
+TIME="1339007911"
 SIZE="254"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_RTC\1.0.100\MSS_RTC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1337095090"
-SIZE="252"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS_SPI\1.0.102\MSS_SPI.cxf,actgen_cxf"
-STATE="utd"
-TIME="1337095090"
+TIME="1339007911"
 SIZE="252"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_TIMER\1.0.100\MSS_TIMER.cxf,actgen_cxf"
 STATE="utd"
-TIME="1337095090"
+TIME="1339007911"
 SIZE="254"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS_UART\1.0.101\MSS_UART.cxf,actgen_cxf"
-STATE="utd"
-TIME="1337095090"
-SIZE="253"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_UFROM\1.0.100\MSS_UFROM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1337095090"
+TIME="1339007911"
 SIZE="254"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-ENDFILE
-VALUE "<project>\component\Actel\SmartFusionMSS\MSS_WATCHDOG\1.0.101\MSS_WATCHDOG.cxf,actgen_cxf"
-STATE="utd"
-TIME="1337095090"
-SIZE="257"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\work\BoardTestCanvas\BoardTestCanvas.cxf,actgen_cxf"
 STATE="utd"
-TIME="1337095410"
-SIZE="14071"
+TIME="1339008594"
+SIZE="4833"
 ENDFILE
 VALUE "<project>\component\work\BoardTestCanvas\BoardTestCanvas.pdc,pdc"
 STATE="utd"
-TIME="1337095113"
-SIZE="8998"
+TIME="1339008552"
+SIZE="1133"
 PARENT="<project>\component\work\BoardTestCanvas\BoardTestCanvas.cxf"
 BEGIN_USE_CONSTRAINT
 TOOL_CONSTRAINT_TYPE="ideDESIGNER"
@@ -183,13 +138,13 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\BoardTestMss\BoardTestMss.cxf,actgen_cxf"
 STATE="utd"
-TIME="1337095098"
-SIZE="23497"
+TIME="1339007927"
+SIZE="9340"
 ENDFILE
 VALUE "<project>\component\work\BoardTestMss\BoardTestMss.pdc,pdc"
 STATE="utd"
-TIME="1337095083"
-SIZE="9317"
+TIME="1339007907"
+SIZE="785"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 BEGIN_USE_CONSTRAINT
 TOOL_CONSTRAINT_TYPE="ideDESIGNER"
@@ -199,41 +154,34 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\BoardTestMss\BoardTestMss.vhd,hdl"
 STATE="utd"
-TIME="1337095097"
-SIZE="42436"
-PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\work\BoardTestMss\MSS_ACE_0\MSS_ACE_0.log,???"
-STATE="utd"
-TIME="1337095089"
-SIZE="31587"
+TIME="1339007927"
+SIZE="32258"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\BoardTestMss\MSS_CCC_0\BoardTestMss_tmp_MSS_CCC_0_MSS_CCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1337095089"
+TIME="1339007910"
 SIZE="490"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\work\BoardTestMss\MSS_CCC_0\BoardTestMss_tmp_MSS_CCC_0_MSS_CCC.vhd,hdl"
 STATE="utd"
-TIME="1337095089"
-SIZE="7319"
+TIME="1339007910"
+SIZE="7009"
 PARENT="<project>\component\work\BoardTestMss\MSS_CCC_0\BoardTestMss_tmp_MSS_CCC_0_MSS_CCC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\BoardTestMss\MSS_ENVM_0\MSS_ENVM_0.efc,efc"
 STATE="utd"
-TIME="1337095090"
-SIZE="16173"
+TIME="1339007911"
+SIZE="16219"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\BoardTestMss\mss_tshell.vhd,hdl"
 STATE="utd"
-TIME="1337095090"
+TIME="1339007911"
 SIZE="22849"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 BEGIN_USE_CONSTRAINT
@@ -245,7 +193,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\BoardTestMss\mss_tshell_syn.sdc,sdc"
 STATE="utd"
-TIME="1337095090"
+TIME="1339007911"
 SIZE="194"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 BEGIN_USE_CONSTRAINT
@@ -257,90 +205,110 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\BoardTestMss\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1337095097"
-SIZE="5322"
+TIME="1339007927"
+SIZE="2048"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\DESIGN_FIRMWARE\DESIGN_FIRMWARE.cxf,actgen_cxf"
 STATE="utd"
-TIME="1337093366"
-SIZE="3416"
+TIME="1338841414"
+SIZE="1863"
 ENDFILE
-VALUE "<project>\constraint\BoardTestCanvas.pdc,pdc"
+VALUE "<project>\component\work\DESIGN_IO\DESIGN_IO.cxf,actgen_cxf"
 STATE="utd"
-TIME="1337092634"
-SIZE="9144"
+TIME="1338841415"
+SIZE="413"
 ENDFILE
-VALUE "<project>\constraint\BoardTestPinAssignments.pdc,pdc"
+VALUE "<project>\constraint\BoardTestPinout.pdc,pdc"
 STATE="utd"
-TIME="1330721601"
-SIZE="13010"
+TIME="1339007709"
+SIZE="3856"
 ENDFILE
-VALUE "<project>\designer\impl5\BoardTestCanvas.adb,adb"
-STATE="utd"
-TIME="1337092207"
-SIZE="329216"
-ENDFILE
-VALUE "<project>\designer\impl5\BoardTestCanvas.fdb,fdb"
+VALUE "<project>\designer\impl1\BoardTestCanvas.adb,adb"
 STATE="ood"
-TIME="1337092673"
-SIZE="78526"
+TIME="1338907203"
+SIZE="348672"
 ENDFILE
-VALUE "<project>\designer\impl5\BoardTestCanvas.ide_des,ide_des"
-STATE="utd"
-TIME="1337092163"
-SIZE="391"
-ENDFILE
-VALUE "<project>\designer\impl5\BoardTestCanvas_compile_log.rpt,log"
-STATE="utd"
-TIME="1337092281"
-SIZE="27975"
-ENDFILE
-VALUE "<project>\designer\impl5\BoardTestCanvas_fp\BoardTestCanvas.pdb,pdb"
+VALUE "<project>\designer\impl1\BoardTestCanvas.fdb,fdb"
 STATE="ood"
-TIME="1337092729"
-SIZE="87552"
+TIME="1339008136"
+SIZE="78970"
 ENDFILE
-VALUE "<project>\designer\impl5\BoardTestCanvas_fp\BoardTestCanvas.pro,pro"
+VALUE "<project>\designer\impl1\BoardTestCanvas.ide_des,ide_des"
 STATE="utd"
-TIME="1337092779"
+TIME="1338907203"
+SIZE="1333"
+ENDFILE
+VALUE "<project>\designer\impl1\BoardTestCanvas_compile_log.rpt,log"
+STATE="utd"
+TIME="1338907203"
+SIZE="32335"
+ENDFILE
+VALUE "<project>\designer\impl1\BoardTestCanvas_fp\BoardTestCanvas.pdb,pdb"
+STATE="ood"
+TIME="1339008175"
+SIZE="88576"
+ENDFILE
+VALUE "<project>\designer\impl1\BoardTestCanvas_fp\BoardTestCanvas.pro,pro"
+STATE="utd"
+TIME="1339008226"
 SIZE="2015"
 ENDFILE
-VALUE "<project>\designer\impl5\BoardTestCanvas_fp\projectData\BoardTestCanvas.pdb,pdb"
+VALUE "<project>\designer\impl1\BoardTestCanvas_placeroute_log.rpt,log"
 STATE="utd"
-TIME="1337092779"
-SIZE="87552"
+TIME="1339008114"
+SIZE="2336"
+ENDFILE
+VALUE "<project>\designer\impl1\BoardTestCanvas_prgdata_log.rpt,log"
+STATE="utd"
+TIME="1339008137"
+SIZE="669"
+ENDFILE
+VALUE "<project>\designer\impl1\BoardTestCanvas_verifytiming_log.rpt,log"
+STATE="utd"
+TIME="1339008120"
+SIZE="1196"
 ENDFILE
 VALUE "<project>\hdl\afe_if.vhd,hdl"
 STATE="utd"
-TIME="1333391171"
+TIME="1338839289"
 SIZE="5848"
 ENDFILE
 VALUE "<project>\hdl\apb_adc_stub.vhd,hdl"
 STATE="utd"
-TIME="1333391171"
+TIME="1338839289"
 SIZE="5346"
 ENDFILE
 VALUE "<project>\hdl\apb_counter.vhd,hdl"
 STATE="utd"
-TIME="1333391171"
+TIME="1338839289"
 SIZE="3805"
 ENDFILE
 VALUE "<project>\hdl\apb_ftdi_stub.vhd,hdl"
 STATE="utd"
-TIME="1333391171"
+TIME="1338839289"
 SIZE="4946"
+ENDFILE
+VALUE "<project>\hdl\fifo_512x8.vhd,hdl"
+STATE="utd"
+TIME="1338839630"
+SIZE="7331"
 ENDFILE
 VALUE "<project>\hdl\gpio_stub.vhd,hdl"
 STATE="utd"
-TIME="1333391171"
+TIME="1338839289"
 SIZE="4030"
 ENDFILE
 VALUE "<project>\hdl\LED_BLINK.vhd,hdl"
 STATE="utd"
-TIME="1337030233"
+TIME="1338839289"
 SIZE="1575"
+ENDFILE
+VALUE "<project>\hdl\usb_if.vhd,hdl"
+STATE="utd"
+TIME="1338907040"
+SIZE="8559"
 ENDFILE
 VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
 STATE="utd"
@@ -348,154 +316,100 @@ TIME="1327522481"
 SIZE="41"
 PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf"
 ENDFILE
+VALUE "<project>\simulation\run.do,do"
+STATE="utd"
+TIME="1338905877"
+SIZE="1331"
+ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
-TIME="1337095114"
+TIME="1339008554"
 SIZE="598"
 PARENT="<project>\component\work\BoardTestCanvas\BoardTestCanvas.cxf"
 ENDFILE
 VALUE "<project>\simulation\test.bfm,sim"
 STATE="utd"
-TIME="1337095090"
-SIZE="5497"
+TIME="1339007910"
+SIZE="5496"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
+ENDFILE
+VALUE "<project>\simulation\usb_if_wave.do,do"
+STATE="utd"
+TIME="1338847447"
+SIZE="1809"
 ENDFILE
 VALUE "<project>\simulation\user.bfm,sim"
 STATE="utd"
-TIME="1337091266"
+TIME="1338839473"
 SIZE="670"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
-VALUE "<project>\synthesis\AFE_IF.so,so"
+VALUE "<project>\smartgen\Counter\Counter.cxf,actgen_cxf"
 STATE="utd"
-TIME="1337092107"
-SIZE="159"
+TIME="1339008383"
+SIZE="1333"
+ENDFILE
+VALUE "<project>\smartgen\Counter\Counter.gen,gen"
+STATE="utd"
+TIME="1339008381"
+SIZE="648"
+PARENT="<project>\smartgen\Counter\Counter.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\smartgen\Counter\Counter.log,log"
+STATE="utd"
+TIME="1339008382"
+SIZE="2400"
+PARENT="<project>\smartgen\Counter\Counter.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\smartgen\Counter\Counter.vhd,hdl"
+STATE="utd"
+TIME="1339008382"
+SIZE="12619"
+PARENT="<project>\smartgen\Counter\Counter.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
+STATE="utd"
+TIME="1338839630"
+SIZE="8055"
+ENDFILE
+VALUE "<project>\stimulus\usb_if_tc.vhd,tb_hdl"
+STATE="utd"
+TIME="1338839630"
+SIZE="7278"
 ENDFILE
 VALUE "<project>\synthesis\BoardTestCanvas.edn,syn_edn"
-STATE="utd"
-TIME="1337092197"
-SIZE="153366"
+STATE="ood"
+TIME="1339007976"
+SIZE="166847"
 ENDFILE
 VALUE "<project>\synthesis\BoardTestCanvas.so,so"
 STATE="utd"
-TIME="1337092197"
+TIME="1338907123"
 SIZE="231"
 ENDFILE
 VALUE "<project>\synthesis\BoardTestCanvas_sdc.sdc,syn_sdc"
-STATE="utd"
-TIME="1337092197"
-SIZE="380"
-ENDFILE
-VALUE "<project>\synthesis\synwork\AFE_IF_compiler.so,so"
-STATE="utd"
-TIME="1337092107"
-SIZE="159"
+STATE="ood"
+TIME="1338907123"
+SIZE="585"
 ENDFILE
 ENDLIST
 LIST UsedFile
 ENDLIST
 LIST NewModulesInfo
-LIST "AFE_IF::work"
-FILE "<project>\hdl\afe_if.vhd,hdl"
-LIST ProjectState5.1
-LIST Impl1
-ideSYNTHESIS(<project>\synthesis\AFE_IF.edn,syn_edn)=StateFailure
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-ideSYNTHESIS(<project>\synthesis\AFE_IF.edn,syn_edn)=StateFailure
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
-ideSYNTHESIS(<project>\synthesis\AFE_IF.edn,syn_edn)=StateFailure
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl4
-ideSYNTHESIS(<project>\synthesis\AFE_IF.edn,syn_edn)=StateFailure
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl5
-ideSYNTHESIS(<project>\synthesis\AFE_IF.edn,syn_edn)=StateFailure
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
-ENDLIST
 LIST "BoardTestCanvas::work"
 FILE "<project>\component\work\BoardTestCanvas\BoardTestCanvas.cxf,actgen_cxf"
+LIST AssociatedStimulus
+VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
+ENDLIST
+LIST SynthesisConstraints
+VALUE "<project>\component\work\BoardTestMss\mss_tshell_syn.sdc,sdc"
+ENDLIST
 LIST ProjectState5.1
 LIST Impl1
-LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\BoardTestCanvas.edn,syn_edn)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-LiberoState=Post_Synthesis
-ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\BoardTestCanvas.edn,syn_edn)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
-LiberoState=Post_Synthesis
-ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\BoardTestCanvas.edn,syn_edn)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl4
-LiberoState=Post_Synthesis
-ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\BoardTestCanvas.edn,syn_edn)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl5
-LiberoState=Post_Synthesis
-ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\BoardTestCanvas.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -532,46 +446,13 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
-LIST Impl2
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl4
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl5
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
 ENDLIST
 ENDLIST
 ENDLIST
 LIST AssociatedStimulus
+LIST BoardTestCanvas
+VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
+ENDLIST
 LIST BoardTestMss
 VALUE "<project>\component\work\BoardTestMss\testbench.vhd,tb_hdl"
 ENDLIST
@@ -589,15 +470,15 @@ ENDLIST
 ENDLIST
 LIST SimulationOptions
 UseAutomaticDoFile=true
-IncludeWaveDo=false
+IncludeWaveDo=true
 Type=max
-RunTime=1000ns
+RunTime=-all
 Resolution=1ps
 VsimOpt=
-EntityName=testbench
-TopInstanceName=<top>_0
+EntityName=usb_if_tb
+TopInstanceName=uut
 DoFileName=
-DoFileName2=wave.do
+DoFileName2=D:/firmware/MainBoard/BoardTest/simulation/usb_if_wave.do
 DoFileParams=
 DisplayDUTWave=false
 LogAllSignals=false
@@ -654,102 +535,9 @@ BATCH=0
 EndProfile
 ENDLIST
 LIST ProjectState5.1
-LIST "AFE_IF::work"
-LIST Impl1
-ideSYNTHESIS(<project>\synthesis\AFE_IF.edn,syn_edn)=StateFailure
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-ideSYNTHESIS(<project>\synthesis\AFE_IF.edn,syn_edn)=StateFailure
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
-ideSYNTHESIS(<project>\synthesis\AFE_IF.edn,syn_edn)=StateFailure
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl4
-ideSYNTHESIS(<project>\synthesis\AFE_IF.edn,syn_edn)=StateFailure
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl5
-ideSYNTHESIS(<project>\synthesis\AFE_IF.edn,syn_edn)=StateFailure
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
 LIST "BoardTestCanvas::work"
 LIST Impl1
-LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\BoardTestCanvas.edn,syn_edn)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-LiberoState=Post_Synthesis
-ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\BoardTestCanvas.edn,syn_edn)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
-LiberoState=Post_Synthesis
-ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\BoardTestCanvas.edn,syn_edn)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl4
-LiberoState=Post_Synthesis
-ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\BoardTestCanvas.edn,syn_edn)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl5
-LiberoState=Post_Synthesis
-ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\BoardTestCanvas.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -760,42 +548,6 @@ ENDLIST
 ENDLIST
 LIST "BoardTestMss::work"
 LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl4
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl5
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
