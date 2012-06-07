@@ -46,7 +46,7 @@ all: lwIPTest_MSS_MSS_CM3_0_app secondary-outputs
 lwIPTest_MSS_MSS_CM3_0_app: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GNU C Linker'
-	arm-none-eabi-gcc -mthumb -mcpu=cortex-m3 -L"D:\Work\marmote\firmware\lwIPTest\SoftConsole\lwIPTest_MSS_MSS_CM3_0\lwIPTest_MSS_MSS_CM3_0_hw_platform\Debug" -T../../lwIPTest_MSS_MSS_CM3_0_hw_platform/CMSIS/startup_gcc/debug-in-actel-smartfusion-envm.ld -Wl,-Map=$(EXECUTABLE).map -Xlinker -gc-sections -o"lwIPTest_MSS_MSS_CM3_0_app" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -mthumb -mcpu=cortex-m3 -L"E:\marmote\firmware\MainBoard\lwIPTest\SoftConsole\lwIPTest_MSS_MSS_CM3_0\lwIPTest_MSS_MSS_CM3_0_hw_platform\Debug" -T../../lwIPTest_MSS_MSS_CM3_0_hw_platform/CMSIS/startup_gcc/debug-in-actel-smartfusion-envm.ld -Wl,-Map=$(EXECUTABLE).map -Xlinker -gc-sections -o"lwIPTest_MSS_MSS_CM3_0_app" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

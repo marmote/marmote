@@ -29,7 +29,7 @@ arch \
 # Microsemi SoftConsole IDE Variables
 ################################################################################
 
-BUILDCMD = arm-none-eabi-gcc -mthumb -mcpu=cortex-m3  -L"D:\Work\marmote\firmware\lwIPTest\SoftConsole\lwIPTest_MSS_MSS_CM3_0\lwIPTest_MSS_MSS_CM3_0_hw_platform\Debug" -T../../lwIPTest_MSS_MSS_CM3_0_hw_platform/CMSIS/startup_gcc/debug-in-actel-smartfusion-envm.ld -Wl,-Map=$(EXECUTABLE).map -Xlinker -gc-sections 
+BUILDCMD = arm-none-eabi-gcc -mthumb -mcpu=cortex-m3  -L"E:\marmote\firmware\MainBoard\lwIPTest\SoftConsole\lwIPTest_MSS_MSS_CM3_0\lwIPTest_MSS_MSS_CM3_0_hw_platform\Debug" -T../../lwIPTest_MSS_MSS_CM3_0_hw_platform/CMSIS/startup_gcc/debug-in-actel-smartfusion-envm.ld -Wl,-Map=$(EXECUTABLE).map -Xlinker -gc-sections 
 SHELL := cmd.exe
 EXECUTABLE := lwIPTest_MSS_MSS_CM3_0_app
 
