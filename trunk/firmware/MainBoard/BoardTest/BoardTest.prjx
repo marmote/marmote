@@ -122,8 +122,8 @@ PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\work\BoardTestCanvas\BoardTestCanvas.cxf,actgen_cxf"
 STATE="utd"
-TIME="1339011969"
-SIZE="5206"
+TIME="1339094203"
+SIZE="4792"
 ENDFILE
 VALUE "<project>\component\work\BoardTestCanvas\BoardTestCanvas.pdc,pdc"
 STATE="utd"
@@ -134,20 +134,6 @@ BEGIN_USE_CONSTRAINT
 TOOL_CONSTRAINT_TYPE="ideDESIGNER"
 END_USE_CONSTRAINT
 USE_FOR_ANY_TOOL="FALSE"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\work\BoardTestCanvas\BoardTestCanvas.vhd,hdl"
-STATE="utd"
-TIME="1339011967"
-SIZE="5931"
-PARENT="<project>\component\work\BoardTestCanvas\BoardTestCanvas.cxf"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\work\BoardTestCanvas\testbench.vhd,tb_hdl"
-STATE="utd"
-TIME="1339011968"
-SIZE="2850"
-PARENT="<project>\component\work\BoardTestCanvas\BoardTestCanvas.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\BoardTestMss\BoardTestMss.cxf,actgen_cxf"
@@ -236,8 +222,13 @@ SIZE="413"
 ENDFILE
 VALUE "<project>\constraint\BoardTestPinout.pdc,pdc"
 STATE="utd"
-TIME="1339011949"
-SIZE="4004"
+TIME="1339086140"
+SIZE="4330"
+ENDFILE
+VALUE "<project>\constraint\TetonTiming.sdc,sdc"
+STATE="utd"
+TIME="1338410675"
+SIZE="3195"
 ENDFILE
 VALUE "<project>\designer\impl1\AFE_IF.ide_des,ide_des"
 STATE="utd"
@@ -250,49 +241,64 @@ TIME="1339012045"
 SIZE="384000"
 ENDFILE
 VALUE "<project>\designer\impl1\BoardTestCanvas.fdb,fdb"
-STATE="utd"
+STATE="ood"
 TIME="1339012044"
 SIZE="79498"
 ENDFILE
 VALUE "<project>\designer\impl1\BoardTestCanvas.ide_des,ide_des"
 STATE="utd"
-TIME="1339012045"
-SIZE="1330"
+TIME="1339094203"
+SIZE="1229"
 ENDFILE
 VALUE "<project>\designer\impl1\BoardTestCanvas_compile_log.rpt,log"
 STATE="utd"
-TIME="1339011995"
-SIZE="32228"
+TIME="1339086560"
+SIZE="34744"
 ENDFILE
 VALUE "<project>\designer\impl1\BoardTestCanvas_fp\BoardTestCanvas.pdb,pdb"
 STATE="utd"
-TIME="1339012074"
-SIZE="89088"
+TIME="1339086641"
+SIZE="121856"
 ENDFILE
 VALUE "<project>\designer\impl1\BoardTestCanvas_fp\BoardTestCanvas.pro,pro"
 STATE="utd"
-TIME="1339012128"
+TIME="1339086694"
 SIZE="2015"
 ENDFILE
 VALUE "<project>\designer\impl1\BoardTestCanvas_fp\projectData\BoardTestCanvas.pdb,pdb"
 STATE="utd"
-TIME="1339012128"
-SIZE="89088"
+TIME="1339086694"
+SIZE="121856"
 ENDFILE
 VALUE "<project>\designer\impl1\BoardTestCanvas_placeroute_log.rpt,log"
 STATE="utd"
-TIME="1339012022"
-SIZE="2336"
+TIME="1339086592"
+SIZE="2380"
 ENDFILE
 VALUE "<project>\designer\impl1\BoardTestCanvas_prgdata_log.rpt,log"
 STATE="utd"
-TIME="1339012045"
-SIZE="788"
+TIME="1339086617"
+SIZE="850"
+ENDFILE
+VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis_1.adb,adb"
+STATE="utd"
+TIME="1339086616"
+SIZE="919552"
+ENDFILE
+VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis_1.fdb,fdb"
+STATE="utd"
+TIME="1339086616"
+SIZE="112780"
+ENDFILE
+VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis_1.ide_des,ide_des"
+STATE="utd"
+TIME="1339094203"
+SIZE="1265"
 ENDFILE
 VALUE "<project>\designer\impl1\BoardTestCanvas_verifytiming_log.rpt,log"
 STATE="utd"
-TIME="1339012028"
-SIZE="1196"
+TIME="1339086599"
+SIZE="1240"
 ENDFILE
 VALUE "<project>\hdl\afe_if.vhd,hdl"
 STATE="utd"
@@ -419,35 +425,55 @@ STATE="utd"
 TIME="1339011984"
 SIZE="585"
 ENDFILE
+VALUE "<project>\synthesis\synthesis_1\BoardTestCanvas.edn,syn_edn"
+STATE="utd"
+TIME="1339086529"
+SIZE="744099"
+ENDFILE
+VALUE "<project>\synthesis\synthesis_1\BoardTestCanvas.so,so"
+STATE="utd"
+TIME="1339086529"
+SIZE="243"
+ENDFILE
+VALUE "<project>\synthesis\synthesis_1\BoardTestCanvas_sdc.sdc,syn_sdc"
+STATE="utd"
+TIME="1339086529"
+SIZE="872"
+ENDFILE
 ENDLIST
 LIST UsedFile
 ENDLIST
 LIST NewModulesInfo
 LIST "BoardTestCanvas::work"
-FILE "<project>\component\work\BoardTestCanvas\BoardTestCanvas.vhd,hdl"
-LIST Other_Association
-VALUE "<project>\simulation\subsystem.bfm,sim"
-VALUE "<project>\component\work\BoardTestCanvas\testbench.vhd,tb_hdl"
-VALUE "<project>\component\work\BoardTestCanvas\BoardTestCanvas.pdc,pdc"
-ENDLIST
+FILE "<project>\component\work\BoardTestCanvas\BoardTestCanvas.cxf,actgen_cxf"
 LIST AssociatedStimulus
 VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
-VALUE "<project>\component\work\BoardTestCanvas\testbench.vhd,tb_hdl"
-ENDLIST
-LIST SynthesisConstraints
-VALUE "<project>\component\work\BoardTestMss\mss_tshell_syn.sdc,sdc"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
 LiberoState=Post_Layout
 ideSTIMULUS=StateSuccess
 ideSYNTHESIS(<project>\synthesis\BoardTestCanvas.edn,syn_edn)=StateSuccess
-ideDESIGNER(<project>\designer\impl1\BoardTestCanvas.adb,adb)=StateSuccess
+ideSYNTHESIS(<project>\synthesis\synthesis_1\BoardTestCanvas.edn,syn_edn)=StateSuccess
+ideDESIGNER(<project>\designer\impl1\BoardTestCanvas_synthesis_1.adb,adb)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
 ENDLIST
 Used_File_List
+VALUE "<project>\synthesis\synthesis_1\BoardTestCanvas.edn,syn_edn"
+VALUE "<project>\synthesis\synthesis_1\BoardTestCanvas_sdc.sdc,syn_sdc"
+VALUE "<project>\synthesis\synthesis_1\BoardTestCanvas.vhd,syn_hdl"
+VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_1_palace.edn,palace_edn"
+VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_1_palace.gcf,palace_gcf"
+VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_1_palace.pdc,palace_pdc"
+VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_1_palace.sdc,palace_sdc"
+VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_1_palace.vhd,palace_hdl"
+VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis_1.adb,adb"
+VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis_1.prb,prb"
+VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis_1.pdb,pdb"
+VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis_1.stp,stp"
+VALUE "<project>\designer\impl1\BoardTestCanvas_fp\BoardTestCanvas.pro,pro"
 ENDUsed_File_List
 ENDLIST
 ENDLIST
@@ -485,18 +511,12 @@ ENDLIST
 LIST AssociatedStimulus
 LIST BoardTestCanvas
 VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
-VALUE "<project>\component\work\BoardTestCanvas\testbench.vhd,tb_hdl"
 ENDLIST
 LIST BoardTestMss
 VALUE "<project>\component\work\BoardTestMss\testbench.vhd,tb_hdl"
 ENDLIST
 ENDLIST
 LIST Other_Association
-LIST BoardTestCanvas
-VALUE "<project>\simulation\subsystem.bfm,sim"
-VALUE "<project>\component\work\BoardTestCanvas\testbench.vhd,tb_hdl"
-VALUE "<project>\component\work\BoardTestCanvas\BoardTestCanvas.pdc,pdc"
-ENDLIST
 LIST BoardTestMss
 VALUE "<project>\component\work\BoardTestMss\mss_tshell_syn.sdc,sdc"
 VALUE "<project>\simulation\user.bfm,sim"
@@ -555,8 +575,8 @@ NAME="Synplify Pro AE"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro AE"
 LOCATION="C:\Actel\Libero_v10.0\Synopsys\synplify_F201109M\bin\synplify_pro.exe"
-PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
-BATCH=1
+PARAM=""
+BATCH=0
 EndProfile
 NAME="ModelSim AE"
 FUNCTION="Simulation"
@@ -579,12 +599,26 @@ LIST Impl1
 LiberoState=Post_Layout
 ideSTIMULUS=StateSuccess
 ideSYNTHESIS(<project>\synthesis\BoardTestCanvas.edn,syn_edn)=StateSuccess
-ideDESIGNER(<project>\designer\impl1\BoardTestCanvas.adb,adb)=StateSuccess
+ideSYNTHESIS(<project>\synthesis\synthesis_1\BoardTestCanvas.edn,syn_edn)=StateSuccess
+ideDESIGNER(<project>\designer\impl1\BoardTestCanvas_synthesis_1.adb,adb)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
 ENDLIST
 Used_File_List
+VALUE "<project>\synthesis\synthesis_1\BoardTestCanvas.edn,syn_edn"
+VALUE "<project>\synthesis\synthesis_1\BoardTestCanvas_sdc.sdc,syn_sdc"
+VALUE "<project>\synthesis\synthesis_1\BoardTestCanvas.vhd,syn_hdl"
+VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_1_palace.edn,palace_edn"
+VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_1_palace.gcf,palace_gcf"
+VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_1_palace.pdc,palace_pdc"
+VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_1_palace.sdc,palace_sdc"
+VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_1_palace.vhd,palace_hdl"
+VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis_1.adb,adb"
+VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis_1.prb,prb"
+VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis_1.pdb,pdb"
+VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis_1.stp,stp"
+VALUE "<project>\designer\impl1\BoardTestCanvas_fp\BoardTestCanvas.pro,pro"
 ENDUsed_File_List
 ENDLIST
 ENDLIST
