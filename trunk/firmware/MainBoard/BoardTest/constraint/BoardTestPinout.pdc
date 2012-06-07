@@ -8,7 +8,7 @@
 
 # Family: SmartFusion , Die: A2F500M3G , Package: 256 FBGA , Speed grade: -1 
 
-# Date generated: Wed Jun 06 13:35:09 2012 
+# Date generated: Wed Jun 06 14:45:49 2012 
 
 
 
@@ -44,6 +44,7 @@ set_iobank Bank0 -vcci 3.30 -fixed no
 # I/O constraints
 #
 
+set_io ACBUS9 -iostd LVTTL -REGISTER No -RES_PULL Down -SCHMITT_TRIGGER Off -pinname F12 -fixed yes
 set_io AFE1_SHDN_n -iostd LVTTL -REGISTER No -OUT_DRIVE 4 -SLEW Low -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname A14 -fixed yes
 set_io AFE2_SHDN_n -iostd LVTTL -REGISTER No -OUT_DRIVE 4 -SLEW Low -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname D6 -fixed yes
 set_io LED1 -iostd LVTTL -REGISTER No -OUT_DRIVE 4 -SLEW Low -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname H5 -fixed yes
@@ -55,8 +56,8 @@ set_io OE_n -iostd LVTTL -REGISTER No -OUT_DRIVE 8 -SLEW High -RES_PULL None -SK
 set_io RD_n -iostd LVTTL -REGISTER No -OUT_DRIVE 8 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname D14 -fixed yes
 set_io SIWU_n -iostd LVTTL -REGISTER No -OUT_DRIVE 8 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname E14 -fixed yes
 set_io TXE_n -iostd LVTTL -REGISTER No -RES_PULL None -SCHMITT_TRIGGER Off -pinname D15 -fixed yes
-set_io UART1_RXD -iostd LVTTL -REGISTER No -RES_PULL None -SCHMITT_TRIGGER Off
-set_io UART1_TXD -iostd LVTTL -REGISTER No -RES_PULL None -SCHMITT_TRIGGER Off
+set_io UART1_RXD -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -REGISTER No -pinname K15 -fixed yes
+set_io UART1_TXD -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -REGISTER No -pinname K14 -fixed yes
 set_io USB_CLK -iostd LVTTL -REGISTER No -RES_PULL None -SCHMITT_TRIGGER Off -pinname F14 -fixed yes
 set_io USB_DB\[0\] -iostd LVCMOS33 -OUT_DRIVE 8 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname C8 -fixed yes
 set_io USB_DB\[1\] -iostd LVCMOS33 -OUT_DRIVE 8 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname D8 -fixed yes
