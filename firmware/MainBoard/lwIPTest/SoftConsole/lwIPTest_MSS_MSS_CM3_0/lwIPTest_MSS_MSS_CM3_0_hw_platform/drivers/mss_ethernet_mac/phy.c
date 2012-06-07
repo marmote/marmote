@@ -217,6 +217,11 @@ MDIO_write
 #define PHYREG_RECR			0x18    /**< Receive Error Counter */
 /*                         0x19-0x1F  Reserved */
 
+//MDIX HACK
+#define PHYREG_PHYCR		0x19 /*PhY Control Reg*/
+#define MDIX_EN				(1<<15)
+#define FORCE_MDIX			(1<<14)
+
 /***************************************************************************//**
  * Probe used PHY.
  *
@@ -252,11 +257,19 @@ uint8_t PHY_probe( void )
  */
 void PHY_reset( void )
 {
+	uint16_t phycr_reg;
+
 	MDIO_write( PHYREG_MIIMCR, MIIMCR_RESET );
 	MDIO_write( PHYREG_MIIMCR,
 		MIIMCR_ENABLE_AUTONEGOTIATION |
 		MIIMCR_RESTART_AUTONEGOTIATION |
 		MIIMCR_COLLISION_TEST );
+
+//MDIX HACK
+	phycr_reg = MDIO_read(PHYREG_PHYCR);
+	phycr_reg &= ~(MDIX_EN);
+	phycr_reg |= FORCE_MDIX;
+	MDIO_write(PHYREG_PHYCR, phycr_reg);
 }
 
 
@@ -267,6 +280,7 @@ void PHY_auto_negotiate( void )
 {
 	int32_t a;
 	uint16_t reg;
+uint16_t bmcr, bmsr, anar, anlpar, aner, physts;
     int32_t exit = 1;
 
 	reg = MDIO_read( PHYREG_MIIMCR );
@@ -276,6 +290,12 @@ void PHY_auto_negotiate( void )
 		reg) );
 
 	for(a=0; (a<1000) && (exit); a++) {
+bmcr = MDIO_read( PHYREG_MIIMCR );
+bmsr = MDIO_read( PHYREG_MIIMSR );
+anar = MDIO_read( PHYREG_ANAR );
+anlpar = MDIO_read( PHYREG_ANLPAR );
+aner = MDIO_read( PHYREG_ANER );
+physts = MDIO_read( PHYREG_MFR );
 		reg = MDIO_read( PHYREG_MIIMSR );
 		if( (reg & MIIMSR_ANC) != 0 ) {
 			exit = 0;

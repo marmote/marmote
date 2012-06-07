@@ -1,12 +1,12 @@
 <project name="lwIPTest" version="1.1">
     <ProjectDirectory>
-        D:/Work/marmote/firmware/lwIPTest/designer/impl1/lwIPTest_fp
+        E:/marmote/firmware/MainBoard/lwIPTest/designer/impl1/lwIPTest_fp
     </ProjectDirectory>
     <View>
         SingleSTAPLView
     </View>
     <LogFile>
-        D:/Work/marmote/firmware/lwIPTest/designer/impl1/lwIPTest_fp\lwIPTest.log
+        E:/marmote/firmware/MainBoard/lwIPTest/designer/impl1/lwIPTest_fp\lwIPTest.log
     </LogFile>
     <SerializationOption>
         Skip
@@ -59,7 +59,7 @@
         </Hardware>
         <Algo type="PDB">
             <filename>
-                D:\Work\marmote\firmware\lwIPTest\designer\impl1\lwIPTest_fp\lwIPTest.pdb
+                E:\marmote\firmware\MainBoard\lwIPTest\designer\impl1\lwIPTest_fp\lwIPTest.pdb
             </filename>
             <local>
                 projectData\lwIPTest.pdb
