@@ -9,7 +9,7 @@
 
 // FTDI device parameters
 static int default_dev;
-#define INTERVAL_TIMEOUT 500
+#define INTERVAL_TIMEOUT 5000
 
 // Wave file parameters
 #define FNAME_SEARCH "rec_???.wav"
@@ -254,25 +254,6 @@ int recorder(int dev, const char* dir, int seq)
 		return 1;
 	}
 
-	/*/////////////
-	ftStatus = FT_SetLatencyTimer(ftHandle, 2); //USB_LATENCY_TIMER_MS
-	if (ftStatus != FT_OK) {
-		FT_Close(ftHandle);
-		return 1;
-	}
-	ftStatus = FT_SetUSBParameters(ftHandle, 512, // USB_TRANS_SIZE
-											 512); // USB_TRANS_SIZE
-	if (ftStatus != FT_OK) {
-		FT_Close(ftHandle);
-		return 1;
-	}
-	ftStatus = FT_SetFlowControl(ftHandle, FT_FLOW_RTS_CTS, 0, 0);
-	if (ftStatus != FT_OK) {
-		FT_Close(ftHandle);
-		return 1;
-	}
-	////////////////*/
-
 	char *rxBuffer = (char*)malloc(MAX_RAW_BYTE_LEN);
 	if (rxBuffer == NULL) {
 		printf("ERROR: Insufficient memory available\n");
@@ -287,7 +268,7 @@ int recorder(int dev, const char* dir, int seq)
 	printf("Starting recorder:\n");
 
 	// v1
-	/*
+	
 	while (0)
 	{
 		BOOL bResult;
@@ -350,10 +331,14 @@ int recorder(int dev, const char* dir, int seq)
 
 		seq++;
 	}
-	*/
+	
 		
 	// v2
-	DWORD bytesRequested = 32;
+	DWORD bytesRequested = 2048;
+
+	unsigned char oldValue = 0;	
+	bool isFirst = true;
+	unsigned int byteCounter = 0;
 
 	while (1)
 	{
@@ -369,29 +354,43 @@ int recorder(int dev, const char* dir, int seq)
 		}
 		return 1;
 	}
-
-	printf("Bytes received: %d\n", bytesReceived);
 			
-	if (bytesReceived == bytesRequested)
+	
+	for (DWORD i = 0; i < bytesReceived; i++)
 	{
-		for (DWORD i = 0; i < bytesReceived; i++)
+		unsigned char newValue = (unsigned char)(rxBuffer[i]);
+		if (isFirst)
 		{
-			printf("%02X ", (unsigned char)(rxBuffer[i]));
-			if ((i % bytesRequested) == (bytesRequested-1))
-			{
-				printf("\n");
-			}
+			oldValue = newValue;
+			isFirst = false;
+			continue;
 		}
+
+		if (newValue != ((oldValue + 1) & 0xFF))
+		{
+			printf("oldvalue: %03X newValue: %03X\n", oldValue, newValue);		
+		}
+
+		oldValue = newValue;
 	}
-	else
+
+	byteCounter += bytesReceived;
+	if (byteCounter > (unsigned int)1e7)
+	{
+		byteCounter %= (unsigned int)1e7;
+		printf(".");
+	}
+
+	if (bytesReceived < bytesRequested)
 	{
 		printf("Timeout occured (%d ms)\n", INTERVAL_TIMEOUT);
+		printf("Bytes received: %d\n", bytesReceived);	
 	}
-	
-	}
-	
-	// Close FTDI device
 
+	}
+	
+
+	// Close FTDI device
 	ftStatus = FT_Close(ftHandle);
 	if (ftStatus == FT_OK)
 	{
