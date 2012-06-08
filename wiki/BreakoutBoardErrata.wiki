@@ -1,13 +1,11 @@
-#summary One-sentence summary of this page.
+#summary Errata and Design Notes for the breakout board
 
-= Introduction =
+= Rev A =
 
-Add your content here.
+== Errata ==
 
+ * 84 mezzanine connectors on top and bottom swapped
 
-= Details =
+== Notes ==
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+ * 
