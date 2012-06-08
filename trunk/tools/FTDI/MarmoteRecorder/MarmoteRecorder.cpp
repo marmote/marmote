@@ -9,7 +9,7 @@
 
 // FTDI device parameters
 static int default_dev;
-#define INTERVAL_TIMEOUT 2000
+#define INTERVAL_TIMEOUT 5000
 
 // Wave file parameters
 #define FNAME_SEARCH "rec_???.wav"
@@ -153,6 +153,8 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	}
 
+	list_ft_devices();
+
 	// normal case: take the command line options at face value
 	exitcode = recorder(dev->ival[0], dir->filename[0], start->ival[0]);
 
@@ -234,6 +236,25 @@ int recorder(int dev, const char* dir, int seq)
 		return 1;
 	}
 
+	// Reset FT
+	ftStatus = FT_SetBitMode(ftHandle, 0xFF, FT_BITMODE_RESET);
+	if (ftStatus != FT_OK)
+	{
+		printf("Unable to set DEV to RESET mode\n");
+		return 1;
+	}
+
+	Sleep(100);
+
+	// Set FT 245 Synchronous FIFO mode
+	ftStatus = FT_SetBitMode(ftHandle, 0xFF, FT_BITMODE_SYNC_FIFO);
+	if (ftStatus != FT_OK)
+	{
+		printf("Unable to set DEV to synchronous FIFO mode\n");
+		return 1;
+	}
+
+
 	char *rxBuffer = (char*)malloc(MAX_RAW_BYTE_LEN);
 	if (rxBuffer == NULL) {
 		printf("ERROR: Insufficient memory available\n");
@@ -248,6 +269,7 @@ int recorder(int dev, const char* dir, int seq)
 	printf("Starting recorder:\n");
 
 	// v1
+	/*
 	while (0)
 	{
 		BOOL bResult;
@@ -310,6 +332,7 @@ int recorder(int dev, const char* dir, int seq)
 
 		seq++;
 	}
+	*/
 		
 	// v2
 	if (1)
@@ -328,13 +351,13 @@ int recorder(int dev, const char* dir, int seq)
 			}
 			return 1;
 		}
+		
+		
+		printf("Bytes received: %d\n", bytesReceived);
+		//bytesReceived = 32;
 		*/
-		
-		
-		//printf("Bytes received: %d\n", RxBytes);
-		bytesReceived = 32;
 
-		if (bytesReceived > 0)
+		//if (bytesReceived > 0)
 		{
 			ftStatus = FT_Read(ftHandle, rxBuffer, bytesRequested, &bytesReceived);
 			if (ftStatus != FT_OK)
@@ -347,6 +370,8 @@ int recorder(int dev, const char* dir, int seq)
 				}
 				return 1;
 			}
+
+			printf("Bytes received: %d\n", bytesReceived);
 			
 			if (bytesReceived == bytesRequested)
 			{
