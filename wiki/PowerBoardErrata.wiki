@@ -6,6 +6,9 @@
 == Errata ==
 
  * Silkscreen labels !D1V5 and !D3V3 are swapped
+ * VBUS measurement point not assembled
+ * SW2 name missing, needs caption (silk screen)
+ * Power input needs description (silk screen)
 
 == Notes ==
 
