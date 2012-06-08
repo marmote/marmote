@@ -122,18 +122,32 @@ PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\work\BoardTestCanvas\BoardTestCanvas.cxf,actgen_cxf"
 STATE="utd"
-TIME="1339171415"
-SIZE="5053"
+TIME="1339184880"
+SIZE="5426"
 ENDFILE
 VALUE "<project>\component\work\BoardTestCanvas\BoardTestCanvas.pdc,pdc"
 STATE="utd"
-TIME="1339169813"
+TIME="1339184879"
 SIZE="1512"
 PARENT="<project>\component\work\BoardTestCanvas\BoardTestCanvas.cxf"
 BEGIN_USE_CONSTRAINT
 TOOL_CONSTRAINT_TYPE="ideDESIGNER"
 END_USE_CONSTRAINT
 USE_FOR_ANY_TOOL="FALSE"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\BoardTestCanvas\BoardTestCanvas.vhd,hdl"
+STATE="utd"
+TIME="1339184880"
+SIZE="5091"
+PARENT="<project>\component\work\BoardTestCanvas\BoardTestCanvas.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\BoardTestCanvas\testbench.vhd,tb_hdl"
+STATE="utd"
+TIME="1339184881"
+SIZE="2850"
+PARENT="<project>\component\work\BoardTestCanvas\BoardTestCanvas.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\BoardTestMss\BoardTestMss.cxf,actgen_cxf"
@@ -272,7 +286,7 @@ SIZE="2015"
 ENDFILE
 VALUE "<project>\designer\impl1\BoardTestCanvas_fp\projectData\BoardTestCanvas.pdb,pdb"
 STATE="utd"
-TIME="1339170069"
+TIME="1339177373"
 SIZE="120832"
 ENDFILE
 VALUE "<project>\designer\impl1\BoardTestCanvas_placeroute_log.rpt,log"
@@ -309,6 +323,11 @@ VALUE "<project>\designer\impl1\BoardTestCanvas_verifytiming_log.rpt,log"
 STATE="utd"
 TIME="1339169914"
 SIZE="1240"
+ENDFILE
+VALUE "<project>\designer\impl1\USB_IF_STUB.ide_des,ide_des"
+STATE="utd"
+TIME="1339184224"
+SIZE="194"
 ENDFILE
 VALUE "<project>\hdl\afe_if.vhd,hdl"
 STATE="utd"
@@ -347,19 +366,24 @@ SIZE="1575"
 ENDFILE
 VALUE "<project>\hdl\usb_if.vhd,hdl"
 STATE="utd"
-TIME="1338907040"
-SIZE="8559"
+TIME="1339173182"
+SIZE="8578"
 ENDFILE
 VALUE "<project>\hdl\usb_if_stub.vhd,hdl"
 STATE="utd"
-TIME="1339171399"
-SIZE="4455"
+TIME="1339184818"
+SIZE="4862"
 ENDFILE
 VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
 STATE="utd"
 TIME="1327522481"
 SIZE="41"
 PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf"
+ENDFILE
+VALUE "<project>\simulation\presynth_simulation.log,log"
+STATE="utd"
+TIME="1339184821"
+SIZE="3103287"
 ENDFILE
 VALUE "<project>\simulation\run.do,do"
 STATE="utd"
@@ -368,7 +392,7 @@ SIZE="1331"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
-TIME="1339169814"
+TIME="1339184880"
 SIZE="598"
 PARENT="<project>\component\work\BoardTestCanvas\BoardTestCanvas.cxf"
 ENDFILE
@@ -377,6 +401,16 @@ STATE="utd"
 TIME="1339007910"
 SIZE="5496"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
+ENDFILE
+VALUE "<project>\simulation\usb_if_stub_wave.do,do"
+STATE="utd"
+TIME="1338847447"
+SIZE="1809"
+ENDFILE
+VALUE "<project>\simulation\usb_if_wave - Copy.do,do"
+STATE="utd"
+TIME="1338847447"
+SIZE="1809"
 ENDFILE
 VALUE "<project>\simulation\usb_if_wave.do,do"
 STATE="utd"
@@ -414,6 +448,16 @@ TIME="1339008382"
 SIZE="12619"
 PARENT="<project>\smartgen\Counter\Counter.cxf"
 IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\stimulus\usb_if_stub_tb.vhd,tb_hdl"
+STATE="utd"
+TIME="1338839630"
+SIZE="8055"
+ENDFILE
+VALUE "<project>\stimulus\usb_if_tb - Copy.vhd,tb_hdl"
+STATE="utd"
+TIME="1338839630"
+SIZE="8055"
 ENDFILE
 VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
 STATE="utd"
@@ -460,9 +504,15 @@ LIST UsedFile
 ENDLIST
 LIST NewModulesInfo
 LIST "BoardTestCanvas::work"
-FILE "<project>\component\work\BoardTestCanvas\BoardTestCanvas.cxf,actgen_cxf"
+FILE "<project>\component\work\BoardTestCanvas\BoardTestCanvas.vhd,hdl"
+LIST Other_Association
+VALUE "<project>\simulation\subsystem.bfm,sim"
+VALUE "<project>\component\work\BoardTestCanvas\testbench.vhd,tb_hdl"
+VALUE "<project>\component\work\BoardTestCanvas\BoardTestCanvas.pdc,pdc"
+ENDLIST
 LIST AssociatedStimulus
 VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
+VALUE "<project>\component\work\BoardTestCanvas\testbench.vhd,tb_hdl"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
@@ -518,16 +568,44 @@ ENDUsed_File_List
 ENDLIST
 ENDLIST
 ENDLIST
+LIST "USB_IF_STUB::work"
+FILE "<project>\hdl\usb_if_stub.vhd,hdl"
+LIST AssociatedStimulus
+VALUE "<project>\stimulus\usb_if_stub_tb.vhd,tb_hdl"
+VALUE "<project>\stimulus\usb_if_tc.vhd,tb_hdl"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
 ENDLIST
 LIST AssociatedStimulus
 LIST BoardTestCanvas
 VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
+VALUE "<project>\component\work\BoardTestCanvas\testbench.vhd,tb_hdl"
 ENDLIST
 LIST BoardTestMss
 VALUE "<project>\component\work\BoardTestMss\testbench.vhd,tb_hdl"
 ENDLIST
+LIST USB_IF_STUB
+VALUE "<project>\stimulus\usb_if_stub_tb.vhd,tb_hdl"
+VALUE "<project>\stimulus\usb_if_tc.vhd,tb_hdl"
+ENDLIST
 ENDLIST
 LIST Other_Association
+LIST BoardTestCanvas
+VALUE "<project>\simulation\subsystem.bfm,sim"
+VALUE "<project>\component\work\BoardTestCanvas\testbench.vhd,tb_hdl"
+VALUE "<project>\component\work\BoardTestCanvas\BoardTestCanvas.pdc,pdc"
+ENDLIST
 LIST BoardTestMss
 VALUE "<project>\component\work\BoardTestMss\mss_tshell_syn.sdc,sdc"
 VALUE "<project>\simulation\user.bfm,sim"
@@ -545,10 +623,10 @@ Type=max
 RunTime=-all
 Resolution=1ps
 VsimOpt=
-EntityName=usb_if_tb
+EntityName=usb_if_stub_tb
 TopInstanceName=uut
 DoFileName=
-DoFileName2=D:/firmware/MainBoard/BoardTest/simulation/usb_if_wave.do
+DoFileName2=D:/firmware/MainBoard/BoardTest/simulation/usb_if_stub_wave.do
 DoFileParams=
 DisplayDUTWave=false
 LogAllSignals=false
@@ -593,7 +671,7 @@ NAME="ModelSim AE"
 FUNCTION="Simulation"
 TOOL="ModelSim"
 LOCATION="C:\Actel\Libero_v10.0\Model\win32acoem\modelsim.exe"
-PARAM=""
+PARAM=" -l presynth_simulation.log "
 BATCH=0
 EndProfile
 NAME="FlashPro"
@@ -630,6 +708,17 @@ ENDUsed_File_List
 ENDLIST
 ENDLIST
 LIST "BoardTestMss::work"
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+LIST "USB_IF_STUB::work"
 LIST Impl1
 ideSTIMULUS=StateSuccess
 LIST FlowOptions

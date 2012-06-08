@@ -98,6 +98,9 @@ architecture Behavioral of USB_IF_STUB is
 
     signal s_wr_n : std_logic;
 
+    signal s_ctr    : unsigned(15 downto 0);
+    signal s_ctr_en : std_logic;
+
 begin
 
     -- Port maps
@@ -112,8 +115,7 @@ begin
         port map (
             PAD => DATA_pin(i),
             D   => s_obuf(i),
---            E   => s_oe,
-            E   => '1',
+            E   => s_oe,
             Y   => s_ibuf(i)
         );
 
@@ -137,15 +139,28 @@ begin
         end if;
     end process p_tx_fifo_read_sm_sync;
 
+    s_ctr_en <= (not TXE_n_pin) and (not s_wr_n);
+
+    p_ctr : process (rst, usb_clk)
+    begin
+        if rst = '1' then
+            s_ctr <= (others => '0');
+        elsif rising_edge(usb_clk) then
+            if s_ctr_en = '1' then
+                s_ctr <= s_ctr + 1;
+            end if;
+        end if;
+    end process p_ctr;
+
 
     -- Output assignments
 
-    s_obuf <= x"F5";
+    s_obuf <= std_logic_vector(s_ctr(7 downto 0));
 
     OE_n_pin <= '1';
     RD_n_pin <= '1';
---    WR_n_pin <= s_wr_n;
-    WR_n_pin <= '0';
+    WR_n_pin <= s_wr_n;
+
     SIWU_n_pin <= '1';
 
     RX_STROBE <= '0';

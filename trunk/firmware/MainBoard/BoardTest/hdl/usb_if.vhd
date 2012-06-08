@@ -280,7 +280,8 @@ begin
     OE_n_pin <= '1';
     RD_n_pin <= '1'; -- FIXME
     WR_n_pin <= s_wr_n;
-    SIWU_n_pin <= '0'; -- FIXME
+
+    SIWU_n_pin <= '1'; -- Send only full packets
 
     -- Output assignments
 
