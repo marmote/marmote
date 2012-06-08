@@ -6,6 +6,7 @@
 == Errata ==
 
  * External TCXO is connected to MAX2830 XTAL pin (28) instead of CTUNE pin (29)
+ * TCXO power supply digital, ground analog
 
 == Notes ==
 
