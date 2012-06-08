@@ -3,6 +3,8 @@
 
 = Major issues =
 
+  * PWRSAV is incorrectly connected (connected to nothing instead of VBUS)
+  * RJ-45 connector magnetic topology seems to be incorrect
 
 
 = Minor issues =
