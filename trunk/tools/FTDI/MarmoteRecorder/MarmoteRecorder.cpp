@@ -9,7 +9,7 @@
 
 // FTDI device parameters
 static int default_dev;
-#define INTERVAL_TIMEOUT 5000
+#define INTERVAL_TIMEOUT 500
 
 // Wave file parameters
 #define FNAME_SEARCH "rec_???.wav"
@@ -236,7 +236,7 @@ int recorder(int dev, const char* dir, int seq)
 		return 1;
 	}
 
-	// Reset FT
+	// Reset FT	
 	ftStatus = FT_SetBitMode(ftHandle, 0xFF, FT_BITMODE_RESET);
 	if (ftStatus != FT_OK)
 	{
@@ -245,7 +245,7 @@ int recorder(int dev, const char* dir, int seq)
 	}
 
 	Sleep(100);
-
+	
 	// Set FT 245 Synchronous FIFO mode
 	ftStatus = FT_SetBitMode(ftHandle, 0xFF, FT_BITMODE_SYNC_FIFO);
 	if (ftStatus != FT_OK)
@@ -254,6 +254,24 @@ int recorder(int dev, const char* dir, int seq)
 		return 1;
 	}
 
+	/*/////////////
+	ftStatus = FT_SetLatencyTimer(ftHandle, 2); //USB_LATENCY_TIMER_MS
+	if (ftStatus != FT_OK) {
+		FT_Close(ftHandle);
+		return 1;
+	}
+	ftStatus = FT_SetUSBParameters(ftHandle, 512, // USB_TRANS_SIZE
+											 512); // USB_TRANS_SIZE
+	if (ftStatus != FT_OK) {
+		FT_Close(ftHandle);
+		return 1;
+	}
+	ftStatus = FT_SetFlowControl(ftHandle, FT_FLOW_RTS_CTS, 0, 0);
+	if (ftStatus != FT_OK) {
+		FT_Close(ftHandle);
+		return 1;
+	}
+	////////////////*/
 
 	char *rxBuffer = (char*)malloc(MAX_RAW_BYTE_LEN);
 	if (rxBuffer == NULL) {
@@ -335,69 +353,54 @@ int recorder(int dev, const char* dir, int seq)
 	*/
 		
 	// v2
-	if (1)
+	DWORD bytesRequested = 32;
+
+	while (1)
 	{
-		DWORD bytesRequested = 32;
-
-		/*
-		ftStatus = FT_GetQueueStatus(ftHandle, &bytesReceived);
-		if (ftStatus != FT_OK)
-		{
-			printf("Unable to get queue status\n");
-			ftStatus = FT_Close(ftHandle);
-			if (ftStatus != FT_OK)
-			{
-				printf("FT_Close(): FAILED\n");
-			}
-			return 1;
-		}
 		
-		
-		printf("Bytes received: %d\n", bytesReceived);
-		//bytesReceived = 32;
-		*/
-
-		//if (bytesReceived > 0)
-		{
-			ftStatus = FT_Read(ftHandle, rxBuffer, bytesRequested, &bytesReceived);
-			if (ftStatus != FT_OK)
-			{
-				printf("Unable to read device\n");
-				ftStatus = FT_Close(ftHandle);
-				if (ftStatus != FT_OK)
-				{
-					printf("FT_Close(): FAILED\n");
-				}
-				return 1;
-			}
-
-			printf("Bytes received: %d\n", bytesReceived);
-			
-			if (bytesReceived == bytesRequested)
-			{
-				for (DWORD i = 0; i < bytesReceived; i++)
-				{
-					printf("%4u ", rxBuffer[i]);
-				}
-			}
-			else
-			{
-				printf("Timeout occured (%d ms)\n", INTERVAL_TIMEOUT);
-			}
-		}
-	
-		// Close FTDI device
-
+	ftStatus = FT_Read(ftHandle, rxBuffer, bytesRequested, &bytesReceived);
+	if (ftStatus != FT_OK)
+	{
+		printf("Unable to read device\n");
 		ftStatus = FT_Close(ftHandle);
-		if (ftStatus == FT_OK)
-		{
-			printf("DEV %d closed\n", dev);
-		}
-		else
+		if (ftStatus != FT_OK)
 		{
 			printf("FT_Close(): FAILED\n");
 		}
-
-		return 0;
+		return 1;
 	}
+
+	printf("Bytes received: %d\n", bytesReceived);
+			
+	if (bytesReceived == bytesRequested)
+	{
+		for (DWORD i = 0; i < bytesReceived; i++)
+		{
+			printf("%02X ", (unsigned char)(rxBuffer[i]));
+			if ((i % bytesRequested) == (bytesRequested-1))
+			{
+				printf("\n");
+			}
+		}
+	}
+	else
+	{
+		printf("Timeout occured (%d ms)\n", INTERVAL_TIMEOUT);
+	}
+	
+	}
+	
+	// Close FTDI device
+
+	ftStatus = FT_Close(ftHandle);
+	if (ftStatus == FT_OK)
+	{
+		printf("DEV %d closed\n", dev);
+	}
+	else
+	{
+		printf("FT_Close(): FAILED\n");
+	}
+
+	return 0;
 }
