@@ -338,7 +338,15 @@ int recorder(int dev, const char* dir, int seq)
 
 	unsigned char oldValue = 0;	
 	bool isFirst = true;
+
+	// Performance measure related
 	unsigned int byteCounter = 0;
+	LARGE_INTEGER timePrev, timeNow;
+	LARGE_INTEGER frequency;
+	double elapsedTime;
+
+	QueryPerformanceFrequency(&frequency);
+	QueryPerformanceCounter(&timePrev);
 
 	while (1)
 	{
@@ -355,7 +363,7 @@ int recorder(int dev, const char* dir, int seq)
 		return 1;
 	}
 			
-	
+	// Check 'signal integrity'
 	for (DWORD i = 0; i < bytesReceived; i++)
 	{
 		unsigned char newValue = (unsigned char)(rxBuffer[i]);
@@ -374,12 +382,18 @@ int recorder(int dev, const char* dir, int seq)
 		oldValue = newValue;
 	}
 
+	// Calculate throughput
 	byteCounter += bytesReceived;
-	if (byteCounter > (unsigned int)1e7)
+	if (byteCounter > (unsigned int)1e8)
 	{
-		byteCounter %= (unsigned int)1e7;
-		printf(".");
+		QueryPerformanceCounter(&timeNow);
+		elapsedTime = (timeNow.QuadPart - timePrev.QuadPart) * 1.0 / frequency.QuadPart;
+		printf("Throughput: %6.2f MB/s\n", (double)byteCounter / (double)(1 << 20) / elapsedTime);
+
+		timePrev = timeNow;
+		byteCounter = 0;
 	}
+
 
 	if (bytesReceived < bytesRequested)
 	{
