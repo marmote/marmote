@@ -30,23 +30,20 @@
 #sim:/usb_if_tb/uut/s_rx_strobe
 
 add wave  \
--divider {TX FIFO} \
+-divider {TX FIFO WR} \
 -hex \
 sim:/usb_if_tb/uut/u_TX_FIFO/WCLOCK \
-sim:/usb_if_tb/uut/TX_STROBE \
-sim:/usb_if_tb/uut/TXD \
 sim:/usb_if_tb/uut/u_TX_FIFO/WE \
-sim:/usb_if_tb/uut/u_TX_FIFO/RE \
+sim:/usb_if_tb/uut/TXD \
+-divider {TX FIFO RD} \
+-hex \
 sim:/usb_if_tb/uut/u_TX_FIFO/RCLOCK \
-sim:/usb_if_tb/uut/u_TX_FIFO/FULL \
+sim:/usb_if_tb/uut/u_TX_FIFO/RE \
 sim:/usb_if_tb/uut/u_TX_FIFO/EMPTY \
-sim:/usb_if_tb/uut/s_tx_fifo_empty_d \
+sim:/usb_if_tb/uut/u_TX_FIFO/FULL \
 sim:/usb_if_tb/uut/s_obuf \
-sim:/usb_if_tb/uut/s_ibuf \
 sim:/usb_if_tb/uut/s_oe \
--divider {TX SM} \
-sim:/usb_if_tb/uut/s_tx_sm_state \
-sim:/usb_if_tb/uut/s_tx_sm_state_next \
+sim:/usb_if_tb/uut/s_ibuf \
 -divider {PINs} \
 sim:/usb_if_tb/uut/USB_CLK_pin \
 sim:/usb_if_tb/uut/DATA_pin \
@@ -60,7 +57,8 @@ sim:/usb_if_tb/uut/ACBUS8_pin \
 sim:/usb_if_tb/uut/ACBUS9_pin
 
 
-#run 10 us
-run -all
+run 135 us
+#run -all
 
 wave zoom full
+#wave zoom range 0us 400ns
