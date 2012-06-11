@@ -9,7 +9,7 @@
 
 // FTDI device parameters
 static int default_dev;
-#define INTERVAL_TIMEOUT 5000
+#define INTERVAL_TIMEOUT 500
 
 // Wave file parameters
 #define FNAME_SEARCH "rec_???.wav"
@@ -18,7 +18,7 @@ static int default_dev;
 #define BITS_PER_SAMPLE 8
 #define NUMBER_OF_CHANNELS 1
 #define SAMPLE_RATE 44100
-#define MAX_SAMPLE_LEN 1048576
+#define MAX_SAMPLE_LEN 1048576 // 2^20 samples (1 Msamples)
 #define MAX_RAW_BYTE_LEN (NUMBER_OF_CHANNELS * MAX_SAMPLE_LEN * (BITS_PER_SAMPLE/8))
 
 typedef struct _WAVhdr {
@@ -162,7 +162,7 @@ int _tmain(int argc, _TCHAR* argv[])
     // deallocate each non-null entry in argtable[]
     arg_freetable(argtable,sizeof(argtable)/sizeof(argtable[0]));
 
-	//getchar();
+	getchar();
 
     return exitcode;
 }
@@ -263,43 +263,70 @@ int recorder(int dev, const char* dir, int seq)
 	char fname_buffer[_MAX_PATH];
 
 	DWORD bytesReceived;
+	DWORD totalBytesReceived;		
+	DWORD bytesRequested;
+	DWORD chunkSize = 4092; // Driver seem to handle 131072 at maximum
 	DWORD write_len;
+	
+	// Performance measure related
+	unsigned int byteCounter = 0;
+	LARGE_INTEGER timePrev, timeNow;
+	LARGE_INTEGER frequency;
+	double elapsedTime;
+
+	QueryPerformanceFrequency(&frequency);
+	QueryPerformanceCounter(&timePrev);
 
 	printf("Starting recorder:\n");
 
 	// v1
 	
-	while (0)
+	while (1)
 	{
 		BOOL bResult;
 
-		ftStatus = FT_Read(ftHandle, rxBuffer, MAX_RAW_BYTE_LEN, &bytesReceived);
-		if (ftStatus != FT_OK)
+		totalBytesReceived = 0;
+
+		// Get the data from FT driver in smaller chunks
+		while (totalBytesReceived < MAX_RAW_BYTE_LEN)
 		{
-			printf("Unable to read device\n");
-			ftStatus = FT_Close(ftHandle);
+			bytesRequested = chunkSize < (MAX_RAW_BYTE_LEN - totalBytesReceived) ? chunkSize : MAX_RAW_BYTE_LEN - totalBytesReceived;
+
+			ftStatus = FT_Read(ftHandle, rxBuffer + totalBytesReceived,
+				bytesRequested, &bytesReceived);
+
 			if (ftStatus != FT_OK)
 			{
-				printf("FT_Close(): FAILED\n");
+				printf("Unable to read device\n");
+				ftStatus = FT_Close(ftHandle);
+				if (ftStatus != FT_OK)
+				{
+					printf("FT_Close(): FAILED\n");
+				}
+				return 1;
 			}
-			return 1;
-		}
 		
-		if (bytesReceived == 0)
-		{			
-			ftStatus = FT_Close(ftHandle);
-			if (ftStatus != FT_OK)
-			{
-				printf("FT_Close(): FAILED\n");
+			if (bytesReceived < bytesRequested)
+			{			
+				ftStatus = FT_Close(ftHandle);
+				if (ftStatus != FT_OK)
+				{
+					printf("FT_Close(): FAILED\n");
+				}
+				printf("Timeout\n");
+				printf("DEV %d closed\n", dev);
+				printf("Exiting\n");
+				return 0;
 			}
-			printf("DEV %d closed\n", dev);
-			printf("Exiting\n");
-			return 0;
+
+			totalBytesReceived += bytesReceived;
+
+			//printf("Total %d bytes received\n", totalBytesReceived);
 		}
 
-		// Received bytes > 0
+
 		sprintf_s(fname_buffer, _MAX_PATH, "%s\\" FNAME_FMT, dir, seq); 
-		printf("%s (%d bytes).\n", fname_buffer, bytesReceived);
+		printf("%s (%d bytes).\n", fname_buffer, totalBytesReceived);
 
 		HANDLE hFile = CreateFile(fname_buffer,
 									GENERIC_WRITE,
@@ -309,44 +336,44 @@ int recorder(int dev, const char* dir, int seq)
 									0,
 									NULL);
 		if (hFile == INVALID_HANDLE_VALUE) {
-			printf("Unable to create file");
+			printf("Unable to create file (hFile == INVALID_HANDLE_VALUE)\n");
 			// Do not return (try again next)
 		}
 	
-		hdr.chunkSize = bytesReceived + sizeof(hdr) - 8;
-		hdr.subChunkSize2 = bytesReceived;
+		hdr.chunkSize = totalBytesReceived + sizeof(hdr) - 8;
+		hdr.subChunkSize2 = totalBytesReceived;
 		bResult =  WriteFile(hFile, &hdr, sizeof(hdr), &write_len, NULL);
 		if (!bResult || (sizeof(hdr) != write_len)) {
-			printf("Unable to write file");
+			printf("Unable to write file (!bResult || (sizeof(hdr) != write_len))\n");
 			// Do not return (try again next)
 		}
 
-		bResult =  WriteFile(hFile, rxBuffer, bytesReceived, &write_len, NULL);
-		if (!bResult || (bytesReceived != write_len)) {
-			printf("Unable to write file");
+		bResult =  WriteFile(hFile, rxBuffer, totalBytesReceived, &write_len, NULL);
+		if (!bResult || (totalBytesReceived != write_len)) {
+			printf("Unable to write file (!bResult || (bytesReceived != write_len))\n");
 			// Do not return (try again next)
 		}
 
 		CloseHandle(hFile);
 
+		// Calculate throughput
+		{
+			QueryPerformanceCounter(&timeNow);
+			elapsedTime = (timeNow.QuadPart - timePrev.QuadPart) * 1.0 / frequency.QuadPart;
+			printf("Throughput: %6.2f MB/s\n", (double)totalBytesReceived / (double)(1 << 20) / elapsedTime);
+
+			timePrev = timeNow;
+			byteCounter = 0;
+		}
+
 		seq++;
 	}
-	
-		
+			
 	// v2
-	DWORD bytesRequested = 2048;
 
+	/*
 	unsigned char oldValue = 0;	
 	bool isFirst = true;
-
-	// Performance measure related
-	unsigned int byteCounter = 0;
-	LARGE_INTEGER timePrev, timeNow;
-	LARGE_INTEGER frequency;
-	double elapsedTime;
-
-	QueryPerformanceFrequency(&frequency);
-	QueryPerformanceCounter(&timePrev);
 
 	while (1)
 	{
@@ -402,7 +429,7 @@ int recorder(int dev, const char* dir, int seq)
 	}
 
 	}
-	
+	*/
 
 	// Close FTDI device
 	ftStatus = FT_Close(ftHandle);
