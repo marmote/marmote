@@ -9,7 +9,7 @@
 
 // FTDI device parameters
 static int default_dev;
-#define INTERVAL_TIMEOUT 500
+#define INTERVAL_TIMEOUT 5000
 
 // Wave file parameters
 #define FNAME_SEARCH "rec_???.wav"
