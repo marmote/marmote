@@ -1,6 +1,18 @@
 #summary Requirement and design considerations for the SmartFusion-based Main Board
 #labels Phase-Requirements
 
+= Rev B =
+
+== Debug ==
+
+ * Consider having a USB data stream and control interface at the same time
+  * Connect FT232H ACBUS[9:8] to a MSS UART pins and implementing a UART transmitter in SW.
+  * Double check if the above approach makes sense.
+
+----
+
+= Rev A =
+
 = Power Supply =
 
  * The FPGA should use the power rails from the Power Board
