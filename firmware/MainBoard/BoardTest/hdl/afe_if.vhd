@@ -32,26 +32,27 @@
 --              (AFE) data signals.
 --
 -- Design considerations:
---    -Block uses SDR-specific signal names (e.g. I/Q suffices)
+--    -Block uses software radio-specific signal names (e.g. I/Q suffices)
 --    -No APB inteface included
 --    -Parallel data interface complying with datasheet timing requirements
 --     (TBD: constarints on input clock)
 --    -Single clock domain operation
---       -CLK_OUT is simply connected to CLK)
+--       -CLK_pin is simply connected to CLK
 --       -Data is transmitted/received on every clock cycle
 --          -TX holds last value if not updated
 --          -RX reads data continuously when enabled and in RX mode
 --    -Enable input puts the MAX19706 either in RX or SHDN mode (TBD)
---    -DDR
+--    -DDR primitives are instantiated to interface the AFE
 --
 ------------------------------------------------------------------------------
 
 
 library IEEE;
 use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
 library smartfusion;
 use smartfusion.all;
-use IEEE.numeric_std.all;
 
 entity AFE_IF is
 	port (
@@ -59,21 +60,20 @@ entity AFE_IF is
          CLK        : in  std_logic;
          RST        : in  std_logic;
 
-         ENABLE     : in  std_logic;
-         TX_RXn     : in  std_logic;
-         READY      : in  std_logic;
+         SHDN       : in  std_logic;
+         TX_RX_n    : in  std_logic; -- Tx/Rxn mode select
     
          RX_STROBE  : out std_logic;
-	     RX_I       : in  std_logic_vector(9 downto 0);
-	     RX_Q       : in  std_logic_vector(9 downto 0);
+	     RX_I       : out std_logic_vector(9 downto 0);
+	     RX_Q       : out std_logic_vector(9 downto 0);
          TX_STROBE  : in  std_logic;
-	     TX_I       : out std_logic_vector(9 downto 0);
-	     TX_Q       : out std_logic_vector(9 downto 0);
+	     TX_I       : in  std_logic_vector(9 downto 0);
+	     TX_Q       : in  std_logic_vector(9 downto 0);
 
 		 -- MAX19706 interface
          CLK_pin    : out std_logic; -- output clock
-         SHDNn_pin  : out std_logic; -- shutdown
-         T_Rn_pin   : out std_logic; -- T/Rn transmit/receive mode select
+         SHDN_n_pin : out std_logic; -- shutdown
+         T_R_n_pin  : out std_logic; -- T/Rn (transmit/receive) mode select
          DATA_pin   : inout std_logic_vector(9 downto 0)
 		 );
 end entity;
@@ -115,37 +115,49 @@ architecture Behavioral of AFE_IF is
     
 	-- Constants
 
+    constant c_ENABLE_DELAY : integer := 5;
+    constant c_AFE_ZERO     : std_logic_vector(9 downto 0) := "1000000000";
+
 	-- Signals
-    signal s_obuf : std_logic_vector(9 downto 0); -- Bi-directional buffer output
-    signal s_ibuf : std_logic_vector(9 downto 0); -- Bi-directional buffer input
-    signal s_oe   : std_logic;                    -- Bi-directional buffer enable
+
+    signal s_enable_d   : std_logic_vector(c_ENABLE_DELAY-1 downto 0);
+    signal s_obuf   : std_logic_vector(9 downto 0); -- Bi-directional buffer output
+    signal s_ibuf   : std_logic_vector(9 downto 0); -- Bi-directional buffer input
+    signal s_oe     : std_logic;                    -- Bi-directional buffer enable
+
+    signal s_tx_rx_n : std_logic;
+    signal s_tx_i   : std_logic_vector(9 downto 0);
+    signal s_tx_q   : std_logic_vector(9 downto 0);
+    signal s_rx_strobe : std_logic;
+    signal s_rx_i   : std_logic_vector(9 downto 0);
+    signal s_rx_q   : std_logic_vector(9 downto 0);
 
 begin
 
     g_DDR_INTERFACE : for i in 0 to 9 generate
 
-        BIBUF_LVCMOS33
+        u_BIBUF_LVCMOS33 : BIBUF_LVCMOS33
         port map (
             PAD => DATA_pin(i),
-            D   => s_do(i),
+            D   => s_obuf(i),
             E   => s_oe,
-            Y   => s_di(i)
+            Y   => s_ibuf(i)
         );
 
-        DDR_OUT
+        u_DDR_OUT : DDR_OUT
         port map (
             CLK => CLK,
             CLR => RST,
-            DF  => s_tx_i(i),
-            DR  => s_tx_q(i),
-            Q   => s_di(i)
+            DR  => s_tx_i(i), -- Swap DR and DF if the clock can be delayed by at least 11 ns
+            DF  => s_tx_q(i),
+            Q   => s_obuf(i)
         );
 
-        DDR_REG
+        u_DDR_REG : DDR_REG
         port map (
             CLK => CLK,
             CLR => RST,
-            D   => s_di(i),
+            D   => s_ibuf(i),
             QF  => s_rx_i(i),
             QR  => s_rx_q(i)
         );
@@ -155,24 +167,57 @@ begin
     p_reg_update : process (rst, clk)
     begin
         if rst = '1' then
-            s_tx_rxn <= '0';
+            s_tx_rx_n   <= '1'; -- Make it TX so to avoid driving from both sides
             s_rx_strobe <= '0';
+            s_tx_i      <= c_AFE_ZERO;
+            s_tx_q      <= c_AFE_ZERO;
+            s_oe        <= '0';
         elsif rising_edge(clk) then
-            s_tx_rxn <= '0';
-            s_rx_strobe <= '0';
-            if enable = '1' then
-                s_tx_rxn <= TX_RXn;
-                s_rx_strobe <= s_ready;
+            if SHDN = '1' then
+                s_tx_rx_n   <= '1'; -- Make it TX so to avoid driving from both sides
+                s_rx_strobe <= '0';
+                s_tx_i      <= c_AFE_ZERO;
+                s_tx_q      <= c_AFE_ZERO;
+                s_oe        <= '0';
+            else
+                s_oe        <= TX_RX_n;
+                s_tx_rx_n   <= TX_RX_n;
+                s_rx_strobe <= s_enable_d(c_ENABLE_DELAY-1) and not s_tx_rx_n;
+                if TX_STROBE = '1' then
+                    s_tx_i      <= TX_I;
+                    s_tx_q      <= TX_Q;
+                end if;
             end if;
         end if;
     end process p_reg_update;
 
-
-    s_oe <= ENABLE and TX_RXn and s_ready and TX_STROBE; -- TODO: consider adding registers to these signals
+    -- p_ready_gen process
+    --
+    -- Generates a ready signal based on when the AFE was released from
+    -- shutdown.
+    -- TODO: check if this delay is really necessary
+    p_ready_gen : process (rst, clk)
+    begin
+        if rst = '1' then
+            s_enable_d <= (others => '0');
+        elsif rising_edge(clk) then
+            if SHDN = '1' then
+                s_enable_d <= (others => '0');
+            else
+                s_enable_d(c_ENABLE_DELAY-1 downto 0) <=
+                s_enable_d(c_ENABLE_DELAY-2 downto 0) & '1';
+            end if;
+        end if;
+    end process p_ready_gen;
 
     CLK_pin     <= CLK;
-    T_Rn_pin    <= s_TX_RXn;
-    SHDNn_pin   <= '1';
+    T_R_n_pin   <= s_tx_rx_n;
+    SHDN_n_pin  <= not SHDN;
+
+    RX_STROBE   <= s_rx_strobe;
+    RX_I        <= s_rx_i;
+    RX_Q        <= s_rx_q;
+
 
 end Behavioral;
 

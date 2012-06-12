@@ -18,7 +18,7 @@ static int default_dev;
 #define BITS_PER_SAMPLE 8
 #define NUMBER_OF_CHANNELS 1
 #define SAMPLE_RATE 44100
-#define MAX_SAMPLE_LEN 1048576 // 2^20 samples (1 Msamples)
+#define MAX_SAMPLE_LEN 1048576*8 // 2^20 samples (1 Msamples)
 #define MAX_RAW_BYTE_LEN (NUMBER_OF_CHANNELS * MAX_SAMPLE_LEN * (BITS_PER_SAMPLE/8))
 
 typedef struct _WAVhdr {
