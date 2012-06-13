@@ -1,0 +1,23 @@
+#summary Requirements related to streaming from the Teton
+#labels Phase-Requirements,Phase-Design
+
+= Ethernet =
+
+= USB =
+
+== Packet format ==
+
+|| *_SOF_* || *SEQ* || *I,,0,,* || *Q,,0,,* || ... || *I,,N-1,,* || *Q,,N-1,,* ||
+
+*_SOF_*: Start of frame delimiter (TBD: check if this is needed). Can be used to:
+
+ * synchronize frames
+
+*SEQ*: 16-bit unsigned sequence number of the _first sample_ in the packet. Can be used to:
+
+ * synchronize frames
+ * detect and count sample drops
+
+*I,,x,,,Q,,x,,*: 16-bit unsigned (TBD: signed or unsigned) I and Q sample pairs
+
+*N*: Packet payload length in samples. N = 256. (TBD: value of N)
