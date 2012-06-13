@@ -11,7 +11,7 @@
 
 *_SOF_*: Start of frame delimiter (TBD: check if this is needed). Can be used to:
 
- * synchronize frames
+ * synchronize frames (helps to find SEQ)
 
 *SEQ*: 16-bit unsigned sequence number of the _first sample_ in the packet. Can be used to:
 
