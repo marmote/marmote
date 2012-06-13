@@ -20,4 +20,6 @@
 
 *I,,x,,,Q,,x,,*: 16-bit unsigned (TBD: signed or unsigned) I and Q sample pairs
 
-*N*: Packet payload length in samples. N = 256. (TBD: value of N)
+*N*: Packet payload length in samples.
+
+ * N = 256. (TBD: value of N)
