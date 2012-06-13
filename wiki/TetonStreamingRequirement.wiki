@@ -22,4 +22,4 @@
 
 *N*: Packet payload length in samples.
 
- * N = 256. (TBD: value of N)
+ * N = 256 (TBD: value of N)
