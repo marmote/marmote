@@ -81,7 +81,8 @@ Recommended Register Settings
 //#define MAX2830_REG14	0x033B
 #define MAX2830_REG14	0x013B //Reference clock disabled by default
 
-#define MAX2830_REG15	0x0145
+//#define MAX2830_REG15	0x0145
+#define MAX2830_REG15	0x0D45 //Receiver IQ output common-mode voltage 1.45V (highest value)
 
 
 /*******************************************************************************
