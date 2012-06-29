@@ -1,0 +1,42 @@
+library verilog;
+use verilog.vl_types.all;
+entity CMMaster0Stage is
+    port(
+        HCLK            : in     vl_logic;
+        HRESETn         : in     vl_logic;
+        F2_TESTREMAPENABLE: in     vl_logic;
+        F2_TESTESRAM1REMAP: in     vl_logic;
+        F2_ESRAMSIZE    : in     vl_logic_vector(1 downto 0);
+        F2_ENVMPOWEREDDOWN: in     vl_logic;
+        COM_ESRAMFWREMAP: in     vl_logic;
+        COM_ENVMREMAPSIZE: in     vl_logic_vector(4 downto 0);
+        COM_ENVMREMAPBASE: in     vl_logic_vector(19 downto 0);
+        COM_CLEARSTATUS : in     vl_logic;
+        COM_ERRORSTATUS : out    vl_logic;
+        HADDR           : in     vl_logic_vector(31 downto 0);
+        HMASTLOCK       : in     vl_logic;
+        HSIZE           : in     vl_logic_vector(2 downto 0);
+        HTRANS1         : in     vl_logic;
+        HWRITE          : in     vl_logic;
+        HRESP           : out    vl_logic;
+        HRDATA          : out    vl_logic_vector(31 downto 0);
+        HREADY_M        : out    vl_logic;
+        sAddrReady      : in     vl_logic_vector(7 downto 0);
+        sDataReady      : in     vl_logic_vector(7 downto 0);
+        sHResp          : in     vl_logic_vector(7 downto 0);
+        gatedHADDR      : out    vl_logic_vector(31 downto 0);
+        gatedHMASTLOCK  : out    vl_logic;
+        gatedHSIZE      : out    vl_logic_vector(2 downto 0);
+        gatedHTRANS1    : out    vl_logic;
+        gatedHWRITE     : out    vl_logic;
+        sAddrSel        : out    vl_logic_vector(7 downto 0);
+        sDataSel        : out    vl_logic_vector(7 downto 0);
+        prevDataSlaveReady: out    vl_logic;
+        HRDATA_S0       : in     vl_logic_vector(31 downto 0);
+        HREADYOUT_S0    : in     vl_logic;
+        HRDATA_S1       : in     vl_logic_vector(31 downto 0);
+        HREADYOUT_S1    : in     vl_logic;
+        HRDATA_S2       : in     vl_logic_vector(31 downto 0);
+        HREADYOUT_S2    : in     vl_logic
+    );
+end CMMaster0Stage;
