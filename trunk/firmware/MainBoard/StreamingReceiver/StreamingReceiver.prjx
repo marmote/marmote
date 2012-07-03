@@ -136,12 +136,12 @@ SIZE="413"
 ENDFILE
 VALUE "<project>\component\work\StreamingReceiver\StreamingReceiver.cxf,actgen_cxf"
 STATE="utd"
-TIME="1340990940"
+TIME="1341241193"
 SIZE="4484"
 ENDFILE
 VALUE "<project>\component\work\StreamingReceiver\StreamingReceiver.pdc,pdc"
 STATE="utd"
-TIME="1340990936"
+TIME="1341241188"
 SIZE="668"
 PARENT="<project>\component\work\StreamingReceiver\StreamingReceiver.cxf"
 BEGIN_USE_CONSTRAINT
@@ -152,14 +152,14 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\StreamingReceiver\StreamingReceiver.vhd,hdl"
 STATE="utd"
-TIME="1340990938"
+TIME="1341241190"
 SIZE="7114"
 PARENT="<project>\component\work\StreamingReceiver\StreamingReceiver.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\StreamingReceiver\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1340990939"
+TIME="1341241191"
 SIZE="2553"
 PARENT="<project>\component\work\StreamingReceiver\StreamingReceiver.cxf"
 IS_READONLY="TRUE"
@@ -252,52 +252,52 @@ SIZE="210"
 ENDFILE
 VALUE "<project>\designer\impl1\StreamingReceiver.adb,adb"
 STATE="utd"
-TIME="1340919723"
-SIZE="637952"
+TIME="1341241306"
+SIZE="796672"
 ENDFILE
 VALUE "<project>\designer\impl1\StreamingReceiver.fdb,fdb"
 STATE="utd"
-TIME="1340919723"
-SIZE="84172"
+TIME="1341241306"
+SIZE="95434"
 ENDFILE
 VALUE "<project>\designer\impl1\StreamingReceiver.ide_des,ide_des"
 STATE="utd"
-TIME="1340919723"
+TIME="1341241306"
 SIZE="1148"
 ENDFILE
 VALUE "<project>\designer\impl1\StreamingReceiver_compile_log.rpt,log"
 STATE="utd"
-TIME="1340919660"
-SIZE="38315"
+TIME="1341241243"
+SIZE="35956"
 ENDFILE
 VALUE "<project>\designer\impl1\StreamingReceiver_fp\projectData\StreamingReceiver.pdb,pdb"
 STATE="utd"
-TIME="1340991116"
-SIZE="102400"
+TIME="1341318007"
+SIZE="105472"
 ENDFILE
 VALUE "<project>\designer\impl1\StreamingReceiver_fp\StreamingReceiver.pdb,pdb"
 STATE="utd"
-TIME="1340919784"
-SIZE="93696"
+TIME="1341241372"
+SIZE="104960"
 ENDFILE
 VALUE "<project>\designer\impl1\StreamingReceiver_fp\StreamingReceiver.pro,pro"
 STATE="utd"
-TIME="1340919841"
+TIME="1341241431"
 SIZE="2092"
 ENDFILE
 VALUE "<project>\designer\impl1\StreamingReceiver_placeroute_log.rpt,log"
 STATE="utd"
-TIME="1340919697"
+TIME="1341241279"
 SIZE="2396"
 ENDFILE
 VALUE "<project>\designer\impl1\StreamingReceiver_prgdata_log.rpt,log"
 STATE="utd"
-TIME="1340919724"
+TIME="1341241307"
 SIZE="924"
 ENDFILE
 VALUE "<project>\designer\impl1\StreamingReceiver_verifytiming_log.rpt,log"
 STATE="utd"
-TIME="1340919703"
+TIME="1341241286"
 SIZE="1256"
 ENDFILE
 VALUE "<project>\hdl\afe_if.vhd,hdl"
@@ -307,13 +307,13 @@ SIZE="7713"
 ENDFILE
 VALUE "<project>\hdl\common.vhd,hdl"
 STATE="utd"
-TIME="1340736891"
-SIZE="2804"
+TIME="1341240319"
+SIZE="2808"
 ENDFILE
 VALUE "<project>\hdl\usb_if.vhd,hdl"
 STATE="utd"
-TIME="1340988255"
-SIZE="9640"
+TIME="1341317788"
+SIZE="10345"
 ENDFILE
 VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
 STATE="utd"
@@ -323,7 +323,7 @@ PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
-TIME="1340990938"
+TIME="1341241190"
 SIZE="598"
 PARENT="<project>\component\work\StreamingReceiver\StreamingReceiver.cxf"
 ENDFILE
@@ -341,43 +341,43 @@ PARENT="<project>\component\work\StreamingReceiver_MSS\StreamingReceiver_MSS.cxf
 ENDFILE
 VALUE "<project>\smartgen\sample_FIFO\sample_FIFO.cxf,actgen_cxf"
 STATE="utd"
-TIME="1340393929"
+TIME="1341241152"
 SIZE="2600"
 ENDFILE
 VALUE "<project>\smartgen\sample_FIFO\sample_FIFO.gen,gen"
 STATE="utd"
-TIME="1340393927"
+TIME="1341241149"
 SIZE="820"
 PARENT="<project>\smartgen\sample_FIFO\sample_FIFO.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\sample_FIFO\sample_FIFO.log,log"
 STATE="utd"
-TIME="1340393929"
+TIME="1341241151"
 SIZE="3002"
 PARENT="<project>\smartgen\sample_FIFO\sample_FIFO.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\sample_FIFO\sample_FIFO.vhd,hdl"
 STATE="utd"
-TIME="1340393929"
+TIME="1341241151"
 SIZE="10952"
 PARENT="<project>\smartgen\sample_FIFO\sample_FIFO.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\synthesis\StreamingReceiver.edn,syn_edn"
 STATE="utd"
-TIME="1340919649"
-SIZE="251439"
+TIME="1341241230"
+SIZE="393619"
 ENDFILE
 VALUE "<project>\synthesis\StreamingReceiver.so,so"
 STATE="utd"
-TIME="1340919649"
+TIME="1341241230"
 SIZE="256"
 ENDFILE
 VALUE "<project>\synthesis\StreamingReceiver_sdc.sdc,syn_sdc"
 STATE="utd"
-TIME="1340919649"
+TIME="1341241230"
 SIZE="384"
 ENDFILE
 VALUE "<project>\synthesis\synwork\StreamingReceiver_compiler.so,so"
@@ -612,5 +612,5 @@ HDL;D:\Work\marmote\firmware\MainBoard\StreamingReceiver\hdl\usb_if.vhd
 SmartDesign;USB_FIFO_IF
 HDL;D:\Work\marmote\firmware\MainBoard\StreamingReceiver\hdl\common.vhd
 Reports;Reports
-ACTIVEVIEW;StreamingReceiver
+ACTIVEVIEW;Reports
 ENDLIST

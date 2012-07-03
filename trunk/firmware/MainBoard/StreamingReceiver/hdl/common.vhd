@@ -24,9 +24,9 @@ package COMMON is
 --    constant c_FAB_CLK : integer    := 50000000;
 
 
-	constant	c_FRAME_SMPLS				: integer := 127;						-- The number of samples (IQ pair is one) in one frame
+	constant	c_FRAME_SMPLS				: integer := 126;						-- The number of samples (IQ pair is one) in one frame
 	constant	c_FROM_ADC_SMPL_CNTR_MAX	: integer := c_FRAME_SMPLS - 1;		
-	constant	c_TO_TEMPREG_SMPL_CNTR_MAX	: integer := c_FRAME_SMPLS;						
+	constant	c_TO_TEMPREG_SMPL_CNTR_MAX	: integer := c_FRAME_SMPLS + 1;						
 
 -------------------------------------------
 --   Common Functions and Procedures   --

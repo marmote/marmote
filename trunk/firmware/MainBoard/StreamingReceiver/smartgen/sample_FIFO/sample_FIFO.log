@@ -1,6 +1,6 @@
  ** Message System Log
  ** Database: 
- ** Date:   Fri Jun 22 14:38:47 2012
+ ** Date:   Mon Jul 02 09:59:09 2012
 
 
 ****************
@@ -16,12 +16,12 @@ Read Clock                      : Rising
 Write Clock                     : Rising
 Reset                           : Active Low
 Read Enable                     : Active Low
-Write Depth                     : 144
+Write Depth                     : 142
 Write Width                     : 32
-Read Depth                      : 144
+Read Depth                      : 142
 Read Width                      : 32
-Almost Full                     : 127
-Almost Empty                    : 17
+Almost Full                     : 126
+Almost Empty                    : 16
 Flags                           : Static
 AFFlag Units                    : Write Words
 AEFlag Units                    : Read Words
@@ -74,5 +74,5 @@ Netlist Resource Report
 
 Wrote VHDL netlist to D:/Work/marmote/firmware/MainBoard/StreamingReceiver/smartgen\sample_FIFO\sample_FIFO.vhd.
 
- ** Log Ended:   Fri Jun 22 14:38:49 2012
+ ** Log Ended:   Mon Jul 02 09:59:11 2012
 

@@ -1,0 +1,25 @@
+Timing Violation Report Min Delay Analysis
+
+SmartTime Version v10.0 SP2
+Actel Corporation - Actel Designer Software Release v10.0 SP2 (Version 10.0.20.2)
+Copyright (c) 1989-2012
+Date: Tue Jul 03 07:18:12 2012
+
+
+Design: StreamingReceiver
+Family: SmartFusion
+Die: A2F500M3G
+Package: 256 FBGA
+Temperature: COM
+Voltage: COM
+Speed Grade: STD
+Design State: Post-Layout
+Data source: Silicon verified
+Min Operating Condition: BEST
+Max Operating Condition: WORST
+Using Enhanced Min Delay Analysis
+Scenario for Timing Analysis: Primary
+
+
+No Path
+
