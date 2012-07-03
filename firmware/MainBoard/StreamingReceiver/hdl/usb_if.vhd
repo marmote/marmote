@@ -69,9 +69,12 @@ architecture Behavioral of USB_IF is
 
 
     -- Constants
-	constant c_TEMPREG_EMPTY		: unsigned(4 downto 0) := B"10000";
-	constant c_TEMPREG_FIFO_READ	: unsigned(4 downto 0) := B"00010";
-	constant c_TEMPREG_FULL			: unsigned(4 downto 0) := B"00001";
+	constant c_TEMPREG_EMPTY		: unsigned(4 downto 0)	:= B"10000";
+	constant c_TEMPREG_FIFO_READ	: unsigned(4 downto 0)	:= B"00010";
+	constant c_TEMPREG_FULL			: unsigned(4 downto 0)	:= B"00001";
+
+	constant c_START_OF_FRAME		: unsigned(23 downto 0)	:= x"A1BEAF";
+	constant c_FRAME_TYPE			: unsigned(7 downto 0)	:= x"01";
 
 
     -- Signals
@@ -183,20 +186,31 @@ begin
 --
 			FIFO_RE	<= '1';													-- By default FIFO read is not enabled
 
-			if s_TEMP_REG_STATE = c_TEMPREG_EMPTY then						-- If TEMP_REG is empty
+			if s_TEMP_REG_STATE = c_TEMPREG_EMPTY and FIFO_EMPTY = '0' then						-- If TEMP_REG is empty but we have stuff in the FIFO
 
  				if s_TO_TEMPREG_SMPL_CNTR = to_unsigned(0, c_TO_TEMPREG_SMPL_CNTR_WIDTH) then  
 				-- At the very beginning of the frame we send out the frame number
+
+					s_TEMP_REG <= std_logic_vector(c_START_OF_FRAME & c_FRAME_TYPE);
+
+					s_TEMP_REG_STATE <= c_TEMPREG_FULL;
+
+--					s_TO_TEMPREG_SMPL_CNTR <= s_TO_TEMPREG_SMPL_CNTR + 1;	-- Increase sample counter
+					s_TO_TEMPREG_SMPL_CNTR <= to_unsigned(1, c_TO_TEMPREG_SMPL_CNTR_WIDTH);	-- Increase sample counter
+
+ 				elsif s_TO_TEMPREG_SMPL_CNTR = to_unsigned(1, c_TO_TEMPREG_SMPL_CNTR_WIDTH) then  
+				-- Second 32 bits of the frame we send out the frame number
 
 					s_TEMP_REG <= std_logic_vector(s_FRAME_CURRENT_CNTR);	-- Copy current frame counter to the temporary register
 
 					s_TEMP_REG_STATE <= c_TEMPREG_FULL;
 
-					s_TO_TEMPREG_SMPL_CNTR <= s_TO_TEMPREG_SMPL_CNTR + 1;	-- Increase sample counter
+--					s_TO_TEMPREG_SMPL_CNTR <= s_TO_TEMPREG_SMPL_CNTR + 1;	-- Increase sample counter
+					s_TO_TEMPREG_SMPL_CNTR <= to_unsigned(2, c_TO_TEMPREG_SMPL_CNTR_WIDTH);	-- Increase sample counter
 
-				elsif FIFO_EMPTY = '0' then									-- Else if we have stuff in the FIFO, we start a reading sequence to get one sample
-						FIFO_RE <= '0';
-						s_TEMP_REG_STATE(4 downto 0) <= s_TEMP_REG_STATE(0) & s_TEMP_REG_STATE(4 downto 1);
+				else														-- Else we start a reading sequence to get one sample
+					FIFO_RE <= '0';
+					s_TEMP_REG_STATE(4 downto 0) <= s_TEMP_REG_STATE(0) & s_TEMP_REG_STATE(4 downto 1);
 				end if;
 	
 			end if;
@@ -234,8 +248,8 @@ begin
 			if USB_TXE_n_pin = '0' and s_USB_WR_n_pin = '0' then			-- If write to USB was actually successfull
 
 --				s_TEMP_REG(31 downto 0) <= s_TEMP_REG(7 downto 0) & s_TEMP_REG(31 downto 8); 
---				s_TEMP_REG(31 downto 8) <= s_TEMP_REG(23 downto 0); 
-				s_TEMP_REG(23 downto 0) <= s_TEMP_REG(31 downto 8); 
+				s_TEMP_REG(31 downto 8) <= s_TEMP_REG(23 downto 0); 
+--				s_TEMP_REG(23 downto 0) <= s_TEMP_REG(31 downto 8); 
 
 				s_USB_SMPL_BYTE_CNTR <= s_USB_SMPL_BYTE_CNTR - 1;
 
@@ -251,8 +265,8 @@ begin
         end if;
     end process;
 
---	s_obuf <= s_TEMP_REG(31 downto 24);
-	s_obuf <= s_TEMP_REG(7 downto 0);
+	s_obuf <= s_TEMP_REG(31 downto 24);
+--	s_obuf <= s_TEMP_REG(7 downto 0);
 	USB_WR_n_pin <= s_USB_WR_n_pin;
 
 

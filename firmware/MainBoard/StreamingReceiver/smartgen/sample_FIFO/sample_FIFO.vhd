@@ -199,11 +199,11 @@ begin
     \FIFOBLOCK[0]\ : FIFO4K18
       port map(AEVAL11 => \GND\, AEVAL10 => \GND\, AEVAL9 => 
         \GND\, AEVAL8 => \VCC\, AEVAL7 => \GND\, AEVAL6 => \GND\, 
-        AEVAL5 => \GND\, AEVAL4 => \VCC\, AEVAL3 => \GND\, AEVAL2
+        AEVAL5 => \GND\, AEVAL4 => \GND\, AEVAL3 => \GND\, AEVAL2
          => \GND\, AEVAL1 => \GND\, AEVAL0 => \GND\, AFVAL11 => 
         \GND\, AFVAL10 => \VCC\, AFVAL9 => \VCC\, AFVAL8 => \VCC\, 
         AFVAL7 => \VCC\, AFVAL6 => \VCC\, AFVAL5 => \VCC\, AFVAL4
-         => \VCC\, AFVAL3 => \GND\, AFVAL2 => \GND\, AFVAL1 => 
+         => \GND\, AFVAL3 => \GND\, AFVAL2 => \GND\, AFVAL1 => 
         \GND\, AFVAL0 => \GND\, WD17 => DATA(17), WD16 => 
         DATA(16), WD15 => DATA(15), WD14 => DATA(14), WD13 => 
         DATA(13), WD12 => DATA(12), WD11 => DATA(11), WD10 => 
@@ -225,11 +225,11 @@ begin
     \FIFOBLOCK[1]\ : FIFO4K18
       port map(AEVAL11 => \GND\, AEVAL10 => \GND\, AEVAL9 => 
         \GND\, AEVAL8 => \VCC\, AEVAL7 => \GND\, AEVAL6 => \GND\, 
-        AEVAL5 => \GND\, AEVAL4 => \VCC\, AEVAL3 => \GND\, AEVAL2
+        AEVAL5 => \GND\, AEVAL4 => \GND\, AEVAL3 => \GND\, AEVAL2
          => \GND\, AEVAL1 => \GND\, AEVAL0 => \GND\, AFVAL11 => 
         \GND\, AFVAL10 => \VCC\, AFVAL9 => \VCC\, AFVAL8 => \VCC\, 
         AFVAL7 => \VCC\, AFVAL6 => \VCC\, AFVAL5 => \VCC\, AFVAL4
-         => \VCC\, AFVAL3 => \GND\, AFVAL2 => \GND\, AFVAL1 => 
+         => \GND\, AFVAL3 => \GND\, AFVAL2 => \GND\, AFVAL1 => 
         \GND\, AFVAL0 => \GND\, WD17 => \GND\, WD16 => \GND\, 
         WD15 => \GND\, WD14 => \GND\, WD13 => DATA(31), WD12 => 
         DATA(30), WD11 => DATA(29), WD10 => DATA(28), WD9 => 
@@ -283,20 +283,20 @@ end DEF_ARCH;
 -- AGENIII_IS_SUBPROJECT_LIBERO:T
 -- WWIDTH:32
 -- RWIDTH:32
--- WDEPTH:144
--- RDEPTH:144
+-- WDEPTH:142
+-- RDEPTH:142
 -- WE_POLARITY:0
 -- RE_POLARITY:0
 -- RCLK_EDGE:RISE
 -- WCLK_EDGE:RISE
 -- PMODE1:0
 -- FLAGS:STATIC
--- AFVAL:127
--- AEVAL:17
+-- AFVAL:126
+-- AEVAL:16
 -- ESTOP:NO
 -- FSTOP:NO
--- AFVAL:127
--- AEVAL:17
+-- AFVAL:126
+-- AEVAL:16
 -- AFFLAG_UNITS:WW
 -- AEFLAG_UNITS:RW
 -- DATA_IN_PN:DATA
