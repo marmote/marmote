@@ -15,3 +15,5 @@
   * The right-angle push buttons could be slightly (1 mm) closer to the board edge
   * The right-angle LEDs could be slightly (1 mm) closer to the board edge
   * The 50 MHz ETH OSC pins are inaccessible
+
+  * Further scope accessible FPGA I/O pins (test points) would be useful (_Note: The low pin count of the current FBGA256 package did not make this possible_)
