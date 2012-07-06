@@ -255,6 +255,55 @@ int recorder(int dev, const char* dir, int seq)
 		return 1;
 	}
 
+
+
+	char cCurrentPath[FILENAME_MAX];
+
+	if (!_getcwd(cCurrentPath, sizeof(cCurrentPath) / sizeof(TCHAR)))
+     {
+     return errno;
+     }
+
+	cCurrentPath[sizeof(cCurrentPath) - 1] = '\0'; /* not really required */
+
+	printf ("The current working directory is %s\n", cCurrentPath);
+
+
+	char f_buff[28];
+	FILE* fp;
+	fp = fopen("config", "r");
+
+	if (!fp)
+	{
+		printf("Configuration file \"config\" was not found\n");
+		goto USB_READ;
+	}
+	
+	printf("Configuration file \"config\" was opened\n");
+
+	if (fread((void*) f_buff, sizeof(char), 28, fp) != 28)
+	{
+		printf("Couldn't read 28 bytes from configuration file\n");
+		fclose(fp);
+		goto USB_READ;
+	}
+
+	printf("Read 28 bytes from configuration file\n");
+
+	fclose(fp);
+	printf("Configuration file closed\n");
+
+	DWORD BytesWritten;
+	ftStatus = FT_Write(ftHandle, (void*) f_buff, 28*sizeof(char), &BytesWritten);
+	printf("Configuration sent\n");
+
+USB_READ:
+
+
+
+
+
+
 	char *rxBuffer = (char*)malloc(MAX_RAW_BYTE_LEN);
 	if (rxBuffer == NULL) {
 		printf("ERROR: Insufficient memory available\n");
