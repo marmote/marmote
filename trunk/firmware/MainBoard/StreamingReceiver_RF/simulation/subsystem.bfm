@@ -1,0 +1,20 @@
+#===========================================================
+# Created by Actel SmartDesign Fri Jul 06 13:55:11 2012
+#
+# Syntax: 
+# ------- 
+#
+# memmap    resource_name base_address;
+#
+# write     width resource_name byte_offset data;
+# read      width resource_name byte_offset;
+# readcheck width resource_name byte_offset data;
+#
+#===========================================================
+
+#-----------------------------------------------------------
+# Memory Map
+# Define name and base address of each resource.
+#-----------------------------------------------------------
+
+memmap SAMPLE_APB_0 0x40050000;

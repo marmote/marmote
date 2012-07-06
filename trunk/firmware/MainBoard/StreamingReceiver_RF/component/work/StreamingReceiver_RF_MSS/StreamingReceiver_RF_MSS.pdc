@@ -1,0 +1,88 @@
+# Actel Physical design constraints file
+# Generated file
+
+# Version: 10.0 SP2 10.0.20.2
+# Family: SmartFusion , Die: A2F500M3G , Package: 256 FBGA
+# Date generated: Wed Jul 04 07:56:27 2012 
+
+
+# 
+# IO banks setting
+# 
+
+
+# 
+# User Groups
+# 
+
+define_group -name SPI_1_PADs
+
+
+# 
+# I/O constraints
+# 
+
+set_io GPIO_28_OUT     \
+    -pinname K14       \
+    -fixed yes         \
+    -DIRECTION Output
+
+
+set_io MSS_RESET_N    \
+    -pinname K4       \
+    -fixed yes        \
+    -DIRECTION Input
+
+
+# User Group SPI_1_PADs
+
+set_io SPI_1_CLK            \
+    -pinname L14            \
+    -fixed yes              \
+    -GROUP_NAME SPI_1_PADs  \
+    -DIRECTION Inout
+
+
+set_io SPI_1_DI             \
+    -pinname L15            \
+    -fixed yes              \
+    -GROUP_NAME SPI_1_PADs  \
+    -DIRECTION Input
+
+
+set_io SPI_1_DO             \
+    -pinname L12            \
+    -fixed yes              \
+    -GROUP_NAME SPI_1_PADs  \
+    -DIRECTION Output
+
+
+set_io SPI_1_SS             \
+    -pinname L13            \
+    -fixed yes              \
+    -GROUP_NAME SPI_1_PADs  \
+    -DIRECTION Inout
+
+
+
+#
+# Non IO constraints
+#
+
+
+#
+# Old IO constraints, commented out for reference
+#
+
+# set_io GPIO_28_OUT -pinname K14 -fixed yes -DIRECTION Output 
+# set_io MSS_RESET_N -pinname K4 -fixed yes -DIRECTION Input 
+# set_io SPI_1_CLK -pinname L14 -fixed yes -GROUP_NAME SPI_1_PADs -DIRECTION Inout 
+# set_io SPI_1_DI -pinname L15 -fixed yes -GROUP_NAME SPI_1_PADs -DIRECTION Input 
+# set_io SPI_1_DO -pinname L12 -fixed yes -GROUP_NAME SPI_1_PADs -DIRECTION Output 
+# set_io SPI_1_SS -pinname L13 -fixed yes -GROUP_NAME SPI_1_PADs -DIRECTION Inout 
+# set_io GPIO_28_OUT -pinname K14 -fixed yes -DIRECTION Output 
+# set_io MSS_RESET_N -pinname K4 -fixed yes -DIRECTION Input 
+# set_io SPI_1_CLK -pinname L14 -fixed yes -GROUP_NAME SPI_1_PADs -DIRECTION Inout 
+# set_io SPI_1_DI -pinname L15 -fixed yes -GROUP_NAME SPI_1_PADs -DIRECTION Input 
+# set_io SPI_1_DO -pinname L12 -fixed yes -GROUP_NAME SPI_1_PADs -DIRECTION Output 
+# set_io SPI_1_SS -pinname L13 -fixed yes -GROUP_NAME SPI_1_PADs -DIRECTION Inout 

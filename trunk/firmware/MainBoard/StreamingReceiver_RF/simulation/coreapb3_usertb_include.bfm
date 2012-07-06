@@ -1,0 +1,122 @@
+// ********************************************************************
+// Actel Corporation Proprietary and Confidential
+//  Copyright 2010 Actel Corporation.  All rights reserved.
+//
+// ANY USE OR REDISTRIBUTION IN PART OR IN WHOLE MUST BE HANDLED IN
+// ACCORDANCE WITH THE ACTEL LICENSE AGREEMENT AND MUST BE APPROVED
+// IN ADVANCE IN WRITING.
+//
+// Description:	User testbench include file for CoreAPB3 - contains
+//				various constants, procedures, etc. used by main BFM script
+//
+// Revision Information:
+// Date     Description
+// 05Feb10		Production Release Version 3.0
+//
+// SVN Revision Information:
+// SVN $Revision: 11962 $
+// SVN $Date: 2010-01-31 19:46:08 -0800 (Sun, 31 Jan 2010) $
+//
+// Resolved SARs
+// SAR      Date     Who   Description
+//
+// Notes:
+// 1. best viewed with tabstops set to "4"
+//
+// History:		1/29/10  - TFB created
+//
+// *********************************************************************
+
+// PSEL[0] (HSEL[0] used to access the AHB-to-APB bridge in the BFM_APB mod.)
+memmap BASE					0x10000000
+
+// constants
+constant mode0_slot_incr	0x10000000;
+constant mode1_slot_incr	0x10000;
+constant mode1_client_incr	0x1000;
+constant huge_slotsize		0x80000000;
+
+// global variables to store local copy of testbench parameters and constants
+// derived from testbench parameters
+
+int APB_DWIDTH RANGESIZE IADDR_ENABLE
+int APBSLOT0ENABLE APBSLOT1ENABLE APBSLOT2ENABLE APBSLOT3ENABLE
+int APBSLOT4ENABLE APBSLOT5ENABLE APBSLOT6ENABLE APBSLOT7ENABLE
+int APBSLOT8ENABLE APBSLOT9ENABLE APBSLOT10ENABLE APBSLOT11ENABLE
+int APBSLOT12ENABLE APBSLOT13ENABLE APBSLOT14ENABLE APBSLOT15ENABLE
+
+int APBSLOTENABLE[16]
+
+//---------------------------------------------------------------------------
+// print line of underscores
+//---------------------------------------------------------------------------
+procedure pr_underscores
+	print "____________________________________________________________________"
+	print " "
+return
+
+//---------------------------------------------------------------------------
+// initialize local variables from the ARGVALUE* BFM parameters passed
+// down from the testbench HDL
+//---------------------------------------------------------------------------
+//procedure init_parameter_vars_temp
+procedure init_parameter_vars
+	int i0
+	int d0
+
+	set APB_DWIDTH				$ARGVALUE0
+	set RANGESIZE				$ARGVALUE1
+	set IADDR_ENABLE			$ARGVALUE2
+	set APBSLOT0ENABLE			$ARGVALUE3
+	set APBSLOT1ENABLE			$ARGVALUE4
+	set APBSLOT2ENABLE			$ARGVALUE5
+	set APBSLOT3ENABLE			$ARGVALUE6
+	set APBSLOT4ENABLE			$ARGVALUE7
+	set APBSLOT5ENABLE			$ARGVALUE8
+	set APBSLOT6ENABLE			$ARGVALUE9
+	set APBSLOT7ENABLE			$ARGVALUE10
+	set APBSLOT8ENABLE			$ARGVALUE11
+	set APBSLOT9ENABLE			$ARGVALUE12
+	set APBSLOT10ENABLE			$ARGVALUE13
+	set APBSLOT11ENABLE			$ARGVALUE14
+	set APBSLOT12ENABLE			$ARGVALUE15
+	set APBSLOT13ENABLE			$ARGVALUE16
+	set APBSLOT14ENABLE			$ARGVALUE17
+	set APBSLOT15ENABLE			$ARGVALUE18
+
+	// aggregate slot enable parameters
+	set APBSLOTENABLE[0]		APBSLOT0ENABLE
+	set APBSLOTENABLE[1]		APBSLOT1ENABLE
+	set APBSLOTENABLE[2]		APBSLOT2ENABLE
+	set APBSLOTENABLE[3]		APBSLOT3ENABLE
+	set APBSLOTENABLE[4]		APBSLOT4ENABLE
+	set APBSLOTENABLE[5]		APBSLOT5ENABLE
+	set APBSLOTENABLE[6]		APBSLOT6ENABLE
+	set APBSLOTENABLE[7]		APBSLOT7ENABLE
+	set APBSLOTENABLE[8]		APBSLOT8ENABLE
+	set APBSLOTENABLE[9]		APBSLOT9ENABLE
+	set APBSLOTENABLE[10]		APBSLOT10ENABLE
+	set APBSLOTENABLE[11]		APBSLOT11ENABLE
+	set APBSLOTENABLE[12]		APBSLOT12ENABLE
+	set APBSLOTENABLE[13]		APBSLOT13ENABLE
+	set APBSLOTENABLE[14]		APBSLOT14ENABLE
+	set APBSLOTENABLE[15]		APBSLOT15ENABLE
+
+
+	# print some variable values
+	call pr_underscores
+
+	print "APB_DWIDTH:%0d"    APB_DWIDTH
+	print "RANGESIZE:%0d"     RANGESIZE
+	print "IADDR_ENABLE:%0d"  IADDR_ENABLE
+
+	loop i0 0 15 1
+		set d0 APBSLOTENABLE[i0]
+		print "APBSLOTENABLE bit:%0d is:%0d" i0 d0
+	endloop
+
+	call pr_underscores
+
+return
+
+

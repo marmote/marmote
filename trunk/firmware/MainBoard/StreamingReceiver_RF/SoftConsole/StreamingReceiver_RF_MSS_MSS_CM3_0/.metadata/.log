@@ -1,0 +1,32 @@
+!SESSION 2012-07-03 10:53:28.365 -----------------------------------------------
+eclipse.buildId=M20101209-1200
+java.version=1.6.0_22
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -import D:\Work\marmote\firmware\MainBoard\StreamingReceiver_RF\SoftConsole\StreamingReceiver_RF_MSS_MSS_CM3_0\projects\StreamingReceiver_RF_MSS_MSS_CM3_0_hw_platform
+Command-line arguments:  -os win32 -ws win32 -arch x86 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data D:/Work/marmote/firmware/MainBoard/StreamingReceiver_RF/SoftConsole/StreamingReceiver_RF_MSS_MSS_CM3_0 -import D:\Work\marmote\firmware\MainBoard\StreamingReceiver_RF\SoftConsole\StreamingReceiver_RF_MSS_MSS_CM3_0\projects\StreamingReceiver_RF_MSS_MSS_CM3_0_hw_platform
+
+!ENTRY org.eclipse.cdt.core 1 0 2012-07-03 10:53:48.831
+!MESSAGE Indexed 'StreamingReceiver_RF_MSS_MSS_CM3_0_hw_platform' (16 sources, 55 headers) in 2.24 sec: 4,123 declarations; 8,548 references; 3 unresolved inclusions; 0 syntax errors; 1 unresolved names (0.01%)
+!SESSION 2012-07-03 10:53:50.019 -----------------------------------------------
+eclipse.buildId=M20101209-1200
+java.version=1.6.0_22
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -application org.eclipse.cdt.managedbuilder.core.headlessbuild -import D:\Work\marmote\firmware\MainBoard\StreamingReceiver_RF\SoftConsole\StreamingReceiver_RF_MSS_MSS_CM3_0\projects\StreamingReceiver_RF_MSS_MSS_CM3_0_app
+Command-line arguments:  -os win32 -ws win32 -arch x86 -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data D:/Work/marmote/firmware/MainBoard/StreamingReceiver_RF/SoftConsole/StreamingReceiver_RF_MSS_MSS_CM3_0 -import D:\Work\marmote\firmware\MainBoard\StreamingReceiver_RF\SoftConsole\StreamingReceiver_RF_MSS_MSS_CM3_0\projects\StreamingReceiver_RF_MSS_MSS_CM3_0_app
+
+!ENTRY org.eclipse.core.resources 2 10035 2012-07-03 10:53:51.191
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.cdt.core 1 0 2012-07-03 10:53:52.386
+!MESSAGE Indexed 'StreamingReceiver_RF_MSS_MSS_CM3_0_app' (1 sources, 8 headers) in 0.16 sec: 1 declarations; 0 references; 3 unresolved inclusions; 0 syntax errors; 0 unresolved names (0.00%)
+!SESSION 2012-07-04 08:22:24.065 -----------------------------------------------
+eclipse.buildId=M20101209-1200
+java.version=1.6.0_22
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86 -data D:/Work/marmote/firmware/MainBoard/StreamingReceiver_RF/SoftConsole/StreamingReceiver_RF_MSS_MSS_CM3_0
+
+!ENTRY org.eclipse.core.resources 2 10035 2012-07-04 08:23:02.217
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
