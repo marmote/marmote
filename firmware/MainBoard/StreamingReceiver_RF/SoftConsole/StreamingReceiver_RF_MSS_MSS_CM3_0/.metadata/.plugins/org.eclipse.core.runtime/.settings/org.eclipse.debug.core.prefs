@@ -1,0 +1,3 @@
+#Thu Jul 05 15:17:42 CDT 2012
+prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<watchExpressions>\r\n<expression enabled\="true" text\="p_RD"/>\r\n<expression enabled\="true" text\="p_WR"/>\r\n<expression enabled\="true" text\="p_WR_next"/>\r\n<expression enabled\="true" text\="buffer"/>\r\n</watchExpressions>\r\n
+eclipse.preferences.version=1

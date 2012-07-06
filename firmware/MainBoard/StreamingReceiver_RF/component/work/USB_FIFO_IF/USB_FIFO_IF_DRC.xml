@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml-stylesheet type="text/xsl" href="drcss.xsl"?>
+<drcreport>
+  <header>USB_FIFO_IF</header>
+  <drc>
+    <status>C:\Microsemi\Libero_v10.0\Designer/data/drcreport\error.png</status>
+    <StatusMessage>Error</StatusMessage>
+    <message>Undriven Pin</message>
+    <detail>Unconnected input pin USB_IF_0:FROM_ADC_SMPL_RDY</detail>
+    <crossprobe>liberoaction://cross_probe/smartdesign/USB_FIFO_IF/pins/USB_IF_0:FROM_ADC_SMPL_RDY</crossprobe>
+  </drc>
+</drcreport>
