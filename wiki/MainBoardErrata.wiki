@@ -6,6 +6,7 @@
   * PWRSAV is incorrectly connected (connected to nothing instead of VBUS)
    ** _Library issue: VBUS pin is called VBAT_
   * RJ-45 connector magnetic topology seems to be incorrect
+  * Ethernet PHY R,,bias,, resistor value is 4.87 Ohm instead of 4.87 kOhm (BOM typo)
 
 
 = Minor issues =
