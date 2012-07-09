@@ -12,7 +12,8 @@ _Note: Only changes compared to Rev A and non-implemented functions are listed h
  * Analog baseband filter
   * Should be removable
   * TBD cut-off frequency
- * Clock synchronization between boards (optional)
+ * Clock synchronization between boards (optional) or 1PPS input and output
+ 
 
 = Rev A =
 
