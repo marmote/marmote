@@ -1,6 +1,21 @@
 #summary Requirement and design considerations for Radio Front-End Board
 #labels Phase-Requirements
 
+= Rev B =
+
+_Note: Only changes compared to Rev A and non-implemented functions are listed here._
+
+ * Power-down mode for 20 MHz oscillator
+ * VCTCXO (controlled from AFE DAC) instead of simple TCXO
+ * Second antenna in the same band for MIMO applications
+
+ * Analog baseband filter
+  * Should be removable
+  * TBD cut-off frequency
+ * Clock synchronization between boards (optional)
+
+= Rev A =
+
 = Functional =
 
  * May support UWB time-sync/localization
@@ -49,8 +64,3 @@
 http://datasheets.maxim-ic.com/en/ds/MAX2830.pdf (MAX2831 with PA)
 
 http://datasheets.maxim-ic.com/en/ds/MAX2510.pdf
-
-= Rev B =
-
- * Power-down mode for 20 MHz oscillator
- * Second antenna in the same band for MIMO applications
