@@ -281,7 +281,7 @@ int recorder(int dev, const char* dir, int seq)
 
 	// v1
 	
-	while (1)
+	while (0)
 	{
 		BOOL bResult;
 
@@ -371,65 +371,89 @@ int recorder(int dev, const char* dir, int seq)
 			
 	// v2
 
-	/*
+	///*
 	unsigned char oldValue = 0;	
 	bool isFirst = true;
+	bytesRequested = 2048;
+
+	unsigned char minValue, maxValue;
 
 	while (1)
 	{
 		
-	ftStatus = FT_Read(ftHandle, rxBuffer, bytesRequested, &bytesReceived);
-	if (ftStatus != FT_OK)
-	{
-		printf("Unable to read device\n");
-		ftStatus = FT_Close(ftHandle);
+		ftStatus = FT_Read(ftHandle, rxBuffer, bytesRequested, &bytesReceived);
 		if (ftStatus != FT_OK)
 		{
-			printf("FT_Close(): FAILED\n");
+			printf("Unable to read device\n");
+			ftStatus = FT_Close(ftHandle);
+			if (ftStatus != FT_OK)
+			{
+				printf("FT_Close(): FAILED\n");
+			}
+			return 1;
 		}
-		return 1;
-	}
 			
-	// Check 'signal integrity'
-	for (DWORD i = 0; i < bytesReceived; i++)
-	{
-		unsigned char newValue = (unsigned char)(rxBuffer[i]);
-		if (isFirst)
+		minValue = 0xFF;
+		maxValue = 0x00;
+
+		for (DWORD i = 0; i < bytesReceived; i++)
 		{
+			minValue = minValue < rxBuffer[i] ? minValue : rxBuffer[i];
+			maxValue = maxValue > rxBuffer[i] ? maxValue : rxBuffer[i];
+		}
+
+		// Check counter 'signal integrity'
+		/*
+		for (DWORD i = 0; i < bytesReceived; i++)
+		{
+			unsigned char newValue = (unsigned char)(rxBuffer[i]);
+			if (isFirst)
+			{
+				oldValue = newValue;
+				isFirst = false;
+				continue;
+			}
+
+			if (newValue != ((oldValue + 1) & 0xFF))
+			{
+				printf("oldvalue: %03X newValue: %03X\n", oldValue, newValue);		
+			}
+
 			oldValue = newValue;
-			isFirst = false;
-			continue;
 		}
+		*/
 
-		if (newValue != ((oldValue + 1) & 0xFF))
+		// Calculate throughput
+		byteCounter += bytesReceived;
+		if (byteCounter > (unsigned int)1e7)
 		{
-			printf("oldvalue: %03X newValue: %03X\n", oldValue, newValue);		
+			/*
+			for (DWORD j = 0; j < 10; j++)
+			{
+				printf("%3u ", (unsigned char)rxBuffer[j]);
+			}
+			printf("\t");
+			*/
+
+			printf("Min: %3u\tMax: %3u\t", minValue, maxValue);
+
+			QueryPerformanceCounter(&timeNow);
+			elapsedTime = (timeNow.QuadPart - timePrev.QuadPart) * 1.0 / frequency.QuadPart;
+			printf("Throughput: %6.2f MB/s\n", (double)byteCounter / (double)(1 << 20) / elapsedTime);
+
+			timePrev = timeNow;
+			byteCounter = 0;			
 		}
 
-		oldValue = newValue;
-	}
 
-	// Calculate throughput
-	byteCounter += bytesReceived;
-	if (byteCounter > (unsigned int)1e8)
-	{
-		QueryPerformanceCounter(&timeNow);
-		elapsedTime = (timeNow.QuadPart - timePrev.QuadPart) * 1.0 / frequency.QuadPart;
-		printf("Throughput: %6.2f MB/s\n", (double)byteCounter / (double)(1 << 20) / elapsedTime);
-
-		timePrev = timeNow;
-		byteCounter = 0;
-	}
-
-
-	if (bytesReceived < bytesRequested)
-	{
-		printf("Timeout occured (%d ms)\n", INTERVAL_TIMEOUT);
-		printf("Bytes received: %d\n", bytesReceived);	
-	}
+		if (bytesReceived < bytesRequested)
+		{
+			printf("Timeout occured (%d ms)\n", INTERVAL_TIMEOUT);
+			printf("Bytes received: %d\n", bytesReceived);	
+		}
 
 	}
-	*/
+	//*/
 
 	// Close FTDI device
 	ftStatus = FT_Close(ftHandle);
