@@ -29,16 +29,17 @@
 -- Description: Interface module for the FT232H USB (FTDI) chip operating in
 --              synchronous FIFO mode.
 --
---              The module receives/transmits 8-bit data only (e.g.
---              multiplexing should be solved outside this block)
+--              The module transmits 8-bit data to the FTDI chip on a single
+--              channel only.
 --
--- Todo:
---  - TXE# and WE# monitoring
---  - Add block ram/register FIFOs for clock region passing
---  - Add state machine to control data path
+-- TODO:
+--  - Support up to 4 data channels (make channel numbers a parameter)
+--  - Support data channel widths of 16-bit
+--  - Add framing control state machine in the USB clock region
+--  - Add a control channel
+--
 --  - Add logic to sense USB (FTDI) chip presence
 --  - Determine the maximum system clock frequency (<60MHz?)
---  - Support bit widhts of larger than 8
 ------------------------------------------------------------------------------
 
 library IEEE;
@@ -122,20 +123,12 @@ end component;
     signal s_obuf   : std_logic_vector(7 downto 0);
     signal s_ibuf   : std_logic_vector(7 downto 0);
 
-    type tx_sm_t is (st_IDLE, st_LOADED);
-
-    signal s_tx_sm_state : tx_sm_t;
-    signal s_tx_sm_state_next : tx_sm_t;
     signal s_wr_n : std_logic;
     signal s_wr_n_next : std_logic;
     signal s_tx_fifo_re : std_logic;
-    signal s_tx_fifo_re_next : std_logic;
     signal s_tx_fifo_we : std_logic;
-    signal s_tx_fifo_re_d : std_logic;
     signal s_tx_fifo_full : std_logic;
     signal s_tx_fifo_empty : std_logic;
-    signal s_tx_fifo_empty_d : std_logic;
-    signal s_tx_idle    : std_logic;
 
     signal s_rx_fifo_we : std_logic;
     signal s_rx_strobe  : std_logic;
@@ -187,102 +180,50 @@ begin
         WCLOCK  => CLK,
         WE      => s_tx_fifo_we,
         RCLOCK  => usb_clk,
-        RE      => s_tx_fifo_re_next,
+        RE      => s_tx_fifo_re,
         FULL    => s_tx_fifo_full,
         EMPTY   => s_tx_fifo_empty
     );
 
---    s_tx_fifo_we <= TX_STROBE and not s_tx_fifo_full;
-    s_tx_fifo_we <= TX_STROBE;
+    s_tx_fifo_we <= TX_STROBE and not s_tx_fifo_full;
 
 
     -- Processes
 
-    p_rx_fifo_read : process (rst, clk)
-    begin
-        if rst = '1' then
+--    p_rx_fifo_read : process (rst, clk)
+--    begin
+--        if rst = '1' then
+--
+--        elsif rising_edge(clk) then
+--        end if;
+--    end process p_rx_fifo_read;
 
-        elsif rising_edge(clk) then
-        end if;
-    end process p_rx_fifo_read;
 
-
-    p_tx_fifo_read_sm_sync : process (rst, usb_clk)
+    p_tx_fifo_read : process (rst, usb_clk)
     begin
         if rst = '1' then
             s_wr_n <= '1';
             s_oe <= '0';
-            s_tx_sm_state <= st_IDLE;
         elsif rising_edge(usb_clk) then
-            -- Register updates
-            s_wr_n <= s_wr_n_next;
-            s_oe <= s_oe_next;
-            s_tx_fifo_re <= s_tx_fifo_re_next;
-            s_tx_sm_state <= s_tx_sm_state_next;
+            s_oe <= '0';
+            s_wr_n <= '1';
+            if TXE_n_pin = '0' and s_tx_fifo_empty = '0' then
+                s_oe <= '1';
+                s_wr_n <= '0';
+            end if;
         end if;
-    end process p_tx_fifo_read_sm_sync;
+    end process p_tx_fifo_read;
 
-    p_tx_fifo_read_sm_comb : process (
-        s_tx_sm_state,
-        s_tx_fifo_empty,
-        TXE_n_pin,
-        s_wr_n
-    )
-    begin
-
-        -- Default states
-        s_tx_fifo_re_next <= '0';
-        s_wr_n_next <= '1';
-        s_oe_next <= '0';
-        s_tx_sm_state_next <= s_tx_sm_state;
-
-        -- Next state logic
-        case s_tx_sm_state is
-
-            -- State st_LOADED
-            -- Waiting for the FIFO to become non-empty
-            when st_IDLE =>
-
-                if s_tx_fifo_empty = '0' then
-                    s_tx_fifo_re_next <= '1';
-                    s_tx_sm_state_next <= st_LOADED;
-                end if;
-
-            -- State st_LOADED
-            -- The FIFO register is loaded, waiting for TXE# = 0 and WR# = 0
-            -- that is for the data to be accepted.
-            when st_LOADED =>
-
-                if TXE_n_pin = '0' then
-                    s_oe_next <= '1';
-                    s_wr_n_next <= '0';
-                end if;
-
-                -- Check if data has been accepted
-                if s_wr_n = '0' and txe_n_pin = '0' then
-                    s_tx_fifo_re_next <= '1';
-                    if s_tx_fifo_empty = '1' then
-                        -- Move to IDLE state if nothing more is to be transmitted
-                        s_wr_n_next <= '1';
-                        s_tx_sm_state_next <= st_IDLE;
-                    end if;
-                end if;
+    s_tx_fifo_re <= '1' when TXE_n_pin = '0' and s_tx_fifo_empty = '0' else '0';
 
 
-            when others =>
-                null;
-
-        end case;
-
-    end process p_tx_fifo_read_sm_comb;
-
+    -- Output assignments
 
     OE_n_pin <= '1';
     RD_n_pin <= '1'; -- FIXME
     WR_n_pin <= s_wr_n;
-    SIWU_n_pin <= '0'; -- FIXME
 
-    -- Output assignments
+    SIWU_n_pin <= '1'; -- Send only full packets
 
     RX_STROBE <= s_rx_strobe;
 

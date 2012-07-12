@@ -32,7 +32,7 @@
 --              (AFE) data signals.
 --
 -- Design considerations:
---    -Block uses SDR-specific signal names (e.g. I/Q suffices)
+--    -Block uses software radio-specific signal names (e.g. I/Q suffices)
 --    -No APB inteface included
 --    -Parallel data interface complying with datasheet timing requirements
 --     (TBD: constarints on input clock)
@@ -42,7 +42,7 @@
 --          -TX holds last value if not updated
 --          -RX reads data continuously when enabled and in RX mode
 --    -Enable input puts the MAX19706 either in RX or SHDN mode (TBD)
---    -DDR
+--    -DDR primitives are instantiated to interface the AFE
 --
 ------------------------------------------------------------------------------
 
@@ -116,6 +116,7 @@ architecture Behavioral of AFE_IF is
 	-- Constants
 
     constant c_ENABLE_DELAY : integer := 5;
+    constant c_AFE_ZERO     : std_logic_vector(9 downto 0) := "1000000000";
 
 	-- Signals
 
@@ -147,8 +148,8 @@ begin
         port map (
             CLK => CLK,
             CLR => RST,
-            DF  => s_tx_i(i),
-            DR  => s_tx_q(i),
+            DR  => s_tx_i(i), -- Swap DR and DF if the clock can be delayed by at least 11 ns
+            DF  => s_tx_q(i),
             Q   => s_obuf(i)
         );
 
@@ -166,16 +167,26 @@ begin
     p_reg_update : process (rst, clk)
     begin
         if rst = '1' then
---            s_tx_rx_n <= '0';
-            s_tx_rx_n <= '1'; -- Make it TX so to avoid driving from both sides
+            s_tx_rx_n   <= '1'; -- Make it TX so to avoid driving from both sides
             s_rx_strobe <= '0';
+            s_tx_i      <= c_AFE_ZERO;
+            s_tx_q      <= c_AFE_ZERO;
+            s_oe        <= '0';
         elsif rising_edge(clk) then
---            s_tx_rx_n <= '0';
-            s_tx_rx_n <= '1'; -- Make it TX so to avoid driving from both sides
-            s_rx_strobe <= '0';
-            if SHDN = '0' then
-                s_tx_rx_n <= TX_RX_n;
+            if SHDN = '1' then
+                s_tx_rx_n   <= '1'; -- Make it TX so to avoid driving from both sides
+                s_rx_strobe <= '0';
+                s_tx_i      <= c_AFE_ZERO;
+                s_tx_q      <= c_AFE_ZERO;
+                s_oe        <= '0';
+            else
+                s_oe        <= TX_RX_n;
+                s_tx_rx_n   <= TX_RX_n;
                 s_rx_strobe <= s_enable_d(c_ENABLE_DELAY-1) and not s_tx_rx_n;
+                if TX_STROBE = '1' then
+                    s_tx_i      <= TX_I;
+                    s_tx_q      <= TX_Q;
+                end if;
             end if;
         end if;
     end process p_reg_update;
@@ -183,7 +194,8 @@ begin
     -- p_ready_gen process
     --
     -- Generates a ready signal based on when the AFE was released from
-    -- shutdown. (Is it really needed???)
+    -- shutdown.
+    -- TODO: check if this delay is really necessary
     p_ready_gen : process (rst, clk)
     begin
         if rst = '1' then
@@ -198,8 +210,6 @@ begin
         end if;
     end process p_ready_gen;
 
-    s_oe        <= TX_RX_n and TX_STROBE; -- TODO: consider adding registers to these signals
-
     CLK_pin     <= CLK;
     T_R_n_pin   <= s_tx_rx_n;
     SHDN_n_pin  <= not SHDN;
@@ -208,8 +218,6 @@ begin
     RX_I        <= s_rx_i;
     RX_Q        <= s_rx_q;
 
-    s_tx_i      <= TX_I;
-    s_tx_q      <= TX_Q;
 
 end Behavioral;
 

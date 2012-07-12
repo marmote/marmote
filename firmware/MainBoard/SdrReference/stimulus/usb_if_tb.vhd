@@ -10,6 +10,22 @@ entity USB_IF_tb is
 
 architecture bench of USB_IF_tb is
 
+    component FT232H_STUB is
+    port (
+        RST  : in   std_logic;
+        USB_CLK_pin  : out  std_logic;
+        DATA_pin     : inout std_logic_vector(7 downto 0);
+        OE_n_pin     : in   std_logic;
+        RD_n_pin     : in   std_logic;
+        WR_n_pin     : in   std_logic;
+        RXF_n_pin    : out  std_logic;
+        TXE_n_pin    : out  std_logic;
+        SIWU_n_pin   : in   std_logic;
+        ACBUS8_pin   : out  std_logic;
+        ACBUS9_pin   : out  std_logic
+    );
+    end component;
+
     component USB_IF
     port (
          CLK         : in  std_logic;
@@ -68,11 +84,28 @@ architecture bench of USB_IF_tb is
 
     --constant sys_clock_period: time := 1000/20 ns; -- 20 MHz
     --constant sys_clock_period: time := (1000/20) * 1 ns; -- 20 MHz
-    constant sys_clock_period: time := 50 ns; -- 20 MHz
+--    constant sys_clock_period: time := 50 ns; -- 20 MHz
+--    constant sys_clock_period: time := 25 ns; -- 40 MHz
+    constant sys_clock_period: time := (real(1000)/real(100)) * 1 ns; -- 100 MHz
     constant usb_clock_period: time := (real(1000)/real(60)) * 1 ns; -- 60 MHz
     signal stop_the_clock: boolean;
 
 begin
+
+    u_FT232H_STUB : FT232H_STUB
+    port map (
+        RST =>  RST,
+        USB_CLK_pin =>  USB_CLK_pin,
+        DATA_pin    =>  DATA_pin,
+        OE_n_pin    =>  OE_n_pin,
+        RD_n_pin    =>  RD_n_pin,
+        WR_n_pin    =>  WR_n_pin,
+        RXF_n_pin   =>  RXF_n_pin,
+        TXE_n_pin   =>  TXE_n_pin,
+        SIWU_n_pin  =>  SIWU_n_pin,
+        ACBUS8_pin  =>  ACBUS8_pin,
+        ACBUS9_pin  =>  ACBUS9_pin
+    );
 
     uut: USB_IF
     port map (
@@ -119,11 +152,6 @@ begin
         TX_STROBE <= '0';
 
         -- External
-        RXF_n_pin <= '1';
-        TXE_n_pin <= '1';
-
-        ACBUS8_pin <= '0';
-        ACBUS9_pin <= '0';
 
         rst <= '1';
         wait for 5 ns;
@@ -135,23 +163,42 @@ begin
         wait for 100 ns;
 
         -- Test single cycle usb transmission
-        wait until falling_edge(sys_clk);
+        wait until falling_edge(clk);
 
---        TXD <= x"01";
---        TX_STROBE <= '1';
---        wait for sys_clock_period;
---
---        TXD <= x"02";
---        TX_STROBE <= '1';
---        wait for sys_clock_period;
+        -- Single byte
+        TXD <= x"01";
+        TX_STROBE <= '1';
+        wait for sys_clock_period;
+        TX_STROBE <= '0';
+
+        wait for 200 ns;
+
+        -------------------------------------------
+        -- Multiple bytes, no overflow
+        -- 4 bytes
+        -------------------------------------------
+        wait until falling_edge(clk);
 
         TX_STROBE <= '1';
-        for i in 2 to 600 loop
---            if i < 200 then
+        for i in 1 to 4 loop
                 TXD <= std_logic_vector(to_unsigned(i, TXD'length));
---            else
---                TXD <= x"FF";
---            end if;
+            wait for sys_clock_period;
+        end loop;
+
+        TX_STROBE <= '0';
+        TXD <= (others => '0');
+
+        wait for 200 ns;
+
+        -------------------------------------------
+        -- Multiple bytes, overflow
+        -- 600 bytes
+        -------------------------------------------
+        wait until falling_edge(clk);
+
+        TX_STROBE <= '1';
+        for i in 1 to 2000 loop
+                TXD <= std_logic_vector(to_unsigned(i, TXD'length));
             wait for sys_clock_period;
         end loop;
 
@@ -159,81 +206,10 @@ begin
         TXD <= (others => '0');
 
 
-        -- "FT232 STUB"
-        wait for 200 ns;
-        wait until falling_edge(usb_clk);
-        wait until rising_edge(sys_clk);
-        wait for 3 ns;
-
-        -- Should accept 0 byte
-        TXE_n_pin <= '0';
-        wait for 1 * usb_clock_period;
-        TXE_n_pin <= '1';
-
-        wait for 100 ns;
-
-        -- Should accept 0 byte
-        TXE_n_pin <= '0';
-        wait for 1 * usb_clock_period;
-        TXE_n_pin <= '1';
-
-        wait for 100 ns;
-
-        -- Should accept 1 byte
-        TXE_n_pin <= '0';
-        wait for 2 * usb_clock_period;
-        TXE_n_pin <= '1';
-
-        wait for 100 ns;
-
-        -- Should accept 4 byte
-        TXE_n_pin <= '0';
-        wait for 800 * usb_clock_period;
-        TXE_n_pin <= '1';
-
---        wait for 3 * usb_clock_period;
---        TXE_n_pin <= '0';
---        wait for 5 * usb_clock_period;
-        TXE_n_pin <= '1';
-
-        -- Test usb transmission w/o overflow
-        -- TODO
-
-        -- Test usb transmission w/ overflow
-        -- TODO
-
-        -- Test single cycle usb reception
-        -- TODO
-
-        -- Test usb reception w/o overflow
-        -- TODO
-
-        -- Test usb reception w/ overflow
-        -- TODO
-
---        wait for 2000 ns;
---
---        TX_STROBE <= '1';
---        for i in 2 to 102 loop
---                TXD <= std_logic_vector(to_unsigned(i, TXD'length));
---            wait for sys_clock_period;
---        end loop;
---        TX_STROBE <= '0';
---
---        
---        TXE_n_pin <= '0';
---        wait for 8 * usb_clock_period;
---        TXE_n_pin <= '1';
---
---        wait for 2000 ns;
---       
---        TXE_n_pin <= '0';
---        wait for 800 * usb_clock_period;
---        TXE_n_pin <= '1';
-
-
+        wait for 500 ns;
         stop_the_clock <= true;
         wait;
+
     end process;
     ----------------------------------------------------------------
 
@@ -262,14 +238,14 @@ begin
 
     -- p_usb_clock_gen
     -- Generates the USB clock
-    p_usb_clock_gen : process
-    begin
-        while not stop_the_clock loop
-            usb_clk <= '0', '1' after usb_clock_period / 2;
-            wait for usb_clock_period;
-        end loop;
-        wait;
-    end process;
+--    p_usb_clock_gen : process
+--    begin
+--        while not stop_the_clock loop
+--            usb_clk <= '0', '1' after usb_clock_period / 2;
+--            wait for usb_clock_period;
+--        end loop;
+--        wait;
+--    end process;
 
     -- p_rx_data_gen
     -- Generates data to be received on the USB interface
