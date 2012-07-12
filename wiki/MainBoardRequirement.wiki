@@ -9,6 +9,8 @@
   * Connect FT232H ACBUS[9:8] to a MSS UART pins and implementing a UART transmitter in SW.
   * Double check if the above approach makes sense.
 
+ * Consider replacing the programmer connector with a right-angle one
+
 ----
 
 = Rev A =
