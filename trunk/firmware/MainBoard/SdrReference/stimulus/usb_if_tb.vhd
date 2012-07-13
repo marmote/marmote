@@ -27,11 +27,15 @@ architecture bench of USB_IF_tb is
     end component;
 
     component USB_IF
+    generic (
+         g_NUMBER_OF_CHANNELS : integer := 2
+    );
     port (
          CLK         : in  std_logic;
          RST         : in  std_logic;
          TX_STROBE   : in  std_logic;
-         TXD         : in  std_logic_vector(7 downto 0);
+         TXD_I       : in  std_logic_vector(15 downto 0);
+         TXD_Q       : in  std_logic_vector(15 downto 0);
          RX_STROBE   : out std_logic;
          RXD         : out std_logic_vector(7 downto 0);
          USB_CLK_pin : in std_logic;
@@ -65,7 +69,8 @@ architecture bench of USB_IF_tb is
     signal CLK: std_logic;
     signal RST: std_logic;
     signal TX_STROBE: std_logic;
-    signal TXD: std_logic_vector(7 downto 0);
+    signal TXD_I: std_logic_vector(15 downto 0);
+    signal TXD_Q: std_logic_vector(15 downto 0);
     signal RX_STROBE: std_logic;
     signal RXD: std_logic_vector(7 downto 0);
     signal USB_CLK_pin: std_logic;
@@ -108,11 +113,15 @@ begin
     );
 
     uut: USB_IF
+    generic map (
+         g_NUMBER_OF_CHANNELS => 2
+    )
     port map (
         CLK         => CLK,
         RST         => RST,
         TX_STROBE   => TX_STROBE,
-        TXD         => TXD,
+        TXD_I       => TXD_I,
+        TXD_Q       => TXD_Q,
         RX_STROBE   => RX_STROBE,
         RXD         => RXD,
         USB_CLK_pin => usb_clk,
@@ -148,7 +157,8 @@ begin
       -- Initialization
 
         -- Internal
-        TXD <= (others => '0');
+        TXD_I <= (others => '0');
+        TXD_Q <= (others => '0');
         TX_STROBE <= '0';
 
         -- External
@@ -160,35 +170,69 @@ begin
 
 
         -- Stimulus
-        wait for 100 ns;
+        wait for 50 ns;
 
         -- Test single cycle usb transmission
-        wait until falling_edge(clk);
-
-        -- Single byte
-        TXD <= x"01";
-        TX_STROBE <= '1';
-        wait for sys_clock_period;
-        TX_STROBE <= '0';
-
-        wait for 200 ns;
+--        wait until falling_edge(clk);
+--
+--        -- Single byte
+--        TXD_I <= x"AF01";
+--        TXD_Q <= x"BF01";
+--        TX_STROBE <= '1';
+--        wait for sys_clock_period;
+--        TX_STROBE <= '0';
+--
+--        wait for 100 ns;
 
         -------------------------------------------
         -- Multiple bytes, no overflow
-        -- 4 bytes
+        -- 4 samples
         -------------------------------------------
         wait until falling_edge(clk);
 
         TX_STROBE <= '1';
-        for i in 1 to 4 loop
-                TXD <= std_logic_vector(to_unsigned(i, TXD'length));
+        for i in 1 to 9 loop
+                TXD_I <= std_logic_vector(to_unsigned(i, TXD_Q'length)) or x"FA00";
+                TXD_Q <= std_logic_vector(to_unsigned(i, TXD_Q'length)) or x"FB00";
             wait for sys_clock_period;
         end loop;
 
         TX_STROBE <= '0';
-        TXD <= (others => '0');
+        TXD_I <= (others => '0');
+        TXD_Q <= (others => '0');
 
-        wait for 200 ns;
+        wait for 400 ns;
+
+        -------------------------------------------
+        -- Multiple bytes, no overflow
+        -- 5 + 3 samples
+        -------------------------------------------
+        wait until falling_edge(clk);
+
+        TX_STROBE <= '1';
+        for i in 1 to 5 loop
+                TXD_I <= std_logic_vector(to_unsigned(i, TXD_Q'length)) or x"FA00";
+                TXD_Q <= std_logic_vector(to_unsigned(i, TXD_Q'length)) or x"FB00";
+            wait for sys_clock_period;
+        end loop;
+
+        TX_STROBE <= '0';
+        TXD_I <= (others => '0');
+        TXD_Q <= (others => '0');
+
+        wait for 300 ns;
+
+        wait until falling_edge(clk);
+
+        TX_STROBE <= '1';
+        for i in 6 to 9 loop
+                TXD_I <= std_logic_vector(to_unsigned(i, TXD_Q'length)) or x"FA00";
+                TXD_Q <= std_logic_vector(to_unsigned(i, TXD_Q'length)) or x"FB00";
+            wait for sys_clock_period;
+        end loop;
+
+        stop_the_clock <= true;
+        wait;
 
         -------------------------------------------
         -- Multiple bytes, overflow
@@ -198,12 +242,15 @@ begin
 
         TX_STROBE <= '1';
         for i in 1 to 2000 loop
-                TXD <= std_logic_vector(to_unsigned(i, TXD'length));
+--                TXD_I <= std_logic_vector(to_unsigned(i, TXD_I'length));
+                TXD_I <= std_logic_vector(to_unsigned(i, TXD_Q'length)) or x"0F00";
+                TXD_Q <= std_logic_vector(to_unsigned(i, TXD_Q'length)) or x"FF00";
             wait for sys_clock_period;
         end loop;
 
         TX_STROBE <= '0';
-        TXD <= (others => '0');
+        TXD_I <= (others => '0');
+        TXD_Q <= (others => '0');
 
 
         wait for 500 ns;
