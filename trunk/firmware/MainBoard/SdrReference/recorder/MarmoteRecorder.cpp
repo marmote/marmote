@@ -7,16 +7,27 @@
 #include "argtable2.h"
 
 
+// General parameters
+#define BITS_PER_SAMPLE 16
+#define NUMBER_OF_CHANNELS 2
+
 // FTDI device parameters
 static int default_dev;
 #define INTERVAL_TIMEOUT 5000
+
+#define SOF 0x5D
+#define FRAME_LENGTH 16
+
+typedef struct _FTDI_frame {
+	char sof;
+	WORD seq;
+	WORD data[NUMBER_OF_CHANNELS * FRAME_LENGTH];
+} FTDI_frame;
 
 // Wave file parameters
 #define FNAME_SEARCH "rec_???.wav"
 #define FNAME_FMT "rec_%03d.wav"
 
-#define BITS_PER_SAMPLE 8
-#define NUMBER_OF_CHANNELS 1
 #define SAMPLE_RATE 44100
 #define MAX_SAMPLE_LEN 1048576*8 // 2^20 samples (1 Msamples)
 #define MAX_RAW_BYTE_LEN (NUMBER_OF_CHANNELS * MAX_SAMPLE_LEN * (BITS_PER_SAMPLE/8))
@@ -422,6 +433,51 @@ int recorder(int dev, const char* dir, int seq)
 			oldValue = newValue;
 		}
 		*/
+
+		// Search for header and print a packet
+		unsigned int idx;		
+
+		for (DWORD i = 0; i < bytesReceived; i++)
+		{
+			FTDI_frame* frame = (FTDI_frame*)(rxBuffer+i);
+			if ( frame->sof == SOF && (frame+1)->sof == SOF )
+			{
+				//if ( (frame->seq)+1 == (frame+1)->seq )
+				//	printf(".");
+				
+				printf("\n");
+				printf("\nSEQ: %4x SEQ NEXT: %4x\n", (frame->seq), (frame+1)->seq);
+
+				
+				//printf("\n");
+				printf("+0 SOF: %2x SEQ: %4x DATA I: %4x Q: %4x\n", frame->sof, frame->seq, frame->data[0], frame->data[1]);
+				printf("+1 SOF: %2x SEQ: %4x DATA I: %4x Q: %4x\n", (frame+1)->sof, (frame+1)->seq, (frame+1)->data[0], (frame+1)->data[1]);
+				
+
+				/*
+				for (DWORD j = 0; j < FRAME_LENGTH ; j++)
+				{
+					printf("%4x ", frame->data[j]);
+					if (j % 8 == 7)
+					{
+						printf("\n");
+					}
+				}
+				*/
+				
+				/*
+				printf("\n");
+				for (DWORD j = 0; j < (bytesReceived-i < sizeof(FTDI_frame)*2 ? bytesReceived-i : sizeof(FTDI_frame)*2 ); j++)
+				{
+					printf("%2x ", (unsigned char)rxBuffer[i+j]);
+					if (j % 16 == 15)
+						printf("\n");
+				}
+				printf("\n");
+				*/
+				
+			}			
+		}
 
 		// Calculate throughput
 		byteCounter += bytesReceived;
