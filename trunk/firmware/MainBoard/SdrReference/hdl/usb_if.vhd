@@ -51,7 +51,8 @@ use smartfusion.all;
 
 entity USB_IF is
     generic (
-         g_NUMBER_OF_CHANNELS : integer := 2
+         g_NUMBER_OF_CHANNELS : integer := 2;
+         g_FRAME_LENGTH : integer := 16
     );
     port (
         -- Internal interface
@@ -127,6 +128,8 @@ architecture Behavioral of USB_IF is
         EMPTY   : out std_logic;
         AFULL   : out std_logic;
         AEMPTY  : out std_logic;
+--        AFVAL   : in  std_logic_vector(11 downto 0);
+--        AEVAL   : in  std_logic_vector(11 downto 0);
         RESET   : in  std_logic
     );
     end component;
@@ -134,8 +137,10 @@ architecture Behavioral of USB_IF is
     -- Constants
 
     constant c_SOF : std_logic_vector(7 downto 0) := x"5D";
---    constant c_FRAME_LENGTH : unsigned(15 downto 0) := to_unsigned(4, c_FRAME_LENGTH'length);
-    constant c_FRAME_LENGTH : unsigned(15 downto 0) := to_unsigned(4, 16);
+    constant c_FRAME_LENGTH : std_logic_vector(11 downto 0) :=
+        std_logic_vector(to_unsigned(g_FRAME_LENGTH, 12));
+--    constant c_AFULL_VAL : std_logic_vector(11 downto 0) :=
+--        std_logic_vector(to_unsigned(2**12-g_FRAME_LENGTH-1, 12));
 
     -- Signals
 
@@ -241,6 +246,10 @@ begin
         EMPTY   => s_tx_i_fifo_empty,
         AFULL   => s_tx_i_fifo_afull,
         AEMPTY  => s_tx_i_fifo_aempty
+--        AFVAL   => c_AFULL_VAL,
+--        AEVAL   => c_FRAME_LENGTH
+--        AFVAL   => x"010",
+--        AEVAL   => x"008"
     );
 
     u_TX_Q_FIFO : FIFO_256x16
@@ -256,6 +265,8 @@ begin
         EMPTY   => s_tx_q_fifo_empty,
         AFULL   => s_tx_i_fifo_afull,
         AEMPTY  => s_tx_i_fifo_aempty
+--        AFVAL   => c_AFULL_VAL,
+--        AEVAL   => c_FRAME_LENGTH
     );
 
 
@@ -365,7 +376,7 @@ begin
                 if TXE_n_pin = '0' then
                     s_wr_n <= '0';
                     s_oe <= '1';
-                    if s_tx_sample_ctr = c_FRAME_LENGTH then
+                    if s_tx_sample_ctr = unsigned(c_FRAME_LENGTH) then
                         s_tx_sample_ctr_next <= (others => '0');
                         s_tx_sm_state_next <= st_IDLE;
                     else

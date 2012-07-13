@@ -99,12 +99,8 @@ begin
     -- Generates the USB clock
     p_usb_clock_gen : process
     begin
-        if rst = '1' then
-            s_usb_clk <= '0';
-        else
-            s_usb_clk <= '0', '1' after c_USB_CLOCK_PERIOD / 2;
-            wait for c_USB_CLOCK_PERIOD;
-        end if;
+        s_usb_clk <= '0', '1' after c_USB_CLOCK_PERIOD / 2;
+        wait for c_USB_CLOCK_PERIOD;
     end process p_usb_clock_gen;
 
 

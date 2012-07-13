@@ -34,6 +34,7 @@
 add wave  \
 -divider {TX SM} \
 -hex \
+sim:/usb_if_tb/uut/RST \
 sim:/usb_if_tb/uut/USB_CLK \
 sim:/usb_if_tb/uut/s_tx_sm_state \
 sim:/usb_if_tb/uut/s_tx_sm_state_next \
@@ -42,13 +43,19 @@ sim:/usb_if_tb/uut/DATA_pin \
 -unsigned \
 sim:/usb_if_tb/uut/s_tx_sample_ctr \
 -hex \
-sim:/usb_if_tb/uut/s_tx_i_fifo_aempty \
-sim:/usb_if_tb/uut/s_obuf \
-sim:/usb_if_tb/uut/s_tx_fifo_re \
 sim:/usb_if_tb/uut/s_tx_i_fifo_empty \
 sim:/usb_if_tb/uut/s_tx_i_fifo_aempty \
+sim:/usb_if_tb/uut/s_tx_i_fifo_afull \
+sim:/usb_if_tb/uut/s_obuf \
+sim:/usb_if_tb/uut/s_tx_fifo_re \
 sim:/usb_if_tb/uut/s_tx_i_fifo_out \
-sim:/usb_if_tb/uut/s_tx_q_fifo_out
+sim:/usb_if_tb/uut/s_tx_q_fifo_out 
+
+#add wave \
+#-divider {PARAMETERS} \
+#-hex \
+#sim:/usb_if_tb/uut/c_FRAME_LENGTH \
+#sim:/usb_if_tb/uut/c_AFULL_VAL
 
 
 add wave  \
@@ -77,7 +84,7 @@ sim:/usb_if_tb/uut/OE_n_pin
 
 
 #run 1 us
-run 2700 ns
+run 5700 ns
 #run -all
 
 wave zoom full
