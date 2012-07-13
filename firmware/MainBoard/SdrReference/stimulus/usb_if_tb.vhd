@@ -164,7 +164,7 @@ begin
         -- External
 
         rst <= '1';
-        wait for 5 ns;
+        wait for 50 ns;
         rst <= '0';
         wait for 5 ns;
 
@@ -173,8 +173,8 @@ begin
         wait for 50 ns;
 
         -- Test single cycle usb transmission
---        wait until falling_edge(clk);
---
+        wait until falling_edge(clk);
+
 --        -- Single byte
 --        TXD_I <= x"AF01";
 --        TXD_Q <= x"BF01";
@@ -182,7 +182,7 @@ begin
 --        wait for sys_clock_period;
 --        TX_STROBE <= '0';
 --
---        wait for 100 ns;
+--        wait for 400 ns;
 
         -------------------------------------------
         -- Multiple bytes, no overflow
@@ -191,7 +191,7 @@ begin
         wait until falling_edge(clk);
 
         TX_STROBE <= '1';
-        for i in 1 to 9 loop
+        for i in 1 to 50 loop
                 TXD_I <= std_logic_vector(to_unsigned(i, TXD_Q'length)) or x"FA00";
                 TXD_Q <= std_logic_vector(to_unsigned(i, TXD_Q'length)) or x"FB00";
             wait for sys_clock_period;
@@ -202,6 +202,9 @@ begin
         TXD_Q <= (others => '0');
 
         wait for 400 ns;
+
+        stop_the_clock <= true;
+        wait;
 
         -------------------------------------------
         -- Multiple bytes, no overflow

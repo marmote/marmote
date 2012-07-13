@@ -136,10 +136,10 @@ begin
     
     FIFOBLOCK0 : FIFO4K18
       port map(AEVAL11 => \GND\, AEVAL10 => \GND\, AEVAL9 => 
-        \GND\, AEVAL8 => \GND\, AEVAL7 => \GND\, AEVAL6 => \VCC\, 
+        \GND\, AEVAL8 => \VCC\, AEVAL7 => \GND\, AEVAL6 => \GND\, 
         AEVAL5 => \GND\, AEVAL4 => \GND\, AEVAL3 => \GND\, AEVAL2
          => \GND\, AEVAL1 => \GND\, AEVAL0 => \GND\, AFVAL11 => 
-        \GND\, AFVAL10 => \GND\, AFVAL9 => \GND\, AFVAL8 => \VCC\, 
+        \GND\, AFVAL10 => \VCC\, AFVAL9 => \GND\, AFVAL8 => \GND\, 
         AFVAL7 => \GND\, AFVAL6 => \GND\, AFVAL5 => \GND\, AFVAL4
          => \GND\, AFVAL3 => \GND\, AFVAL2 => \GND\, AFVAL1 => 
         \GND\, AFVAL0 => \GND\, WD17 => \GND\, WD16 => \GND\, 
@@ -204,12 +204,12 @@ end DEF_ARCH;
 -- WCLK_EDGE:RISE
 -- PMODE1:0
 -- FLAGS:STATIC
--- AFVAL:16
--- AEVAL:4
+-- AFVAL:64
+-- AEVAL:16
 -- ESTOP:NO
 -- FSTOP:NO
--- AFVAL:16
--- AEVAL:4
+-- AFVAL:64
+-- AEVAL:16
 -- AFFLAG_UNITS:WW
 -- AEFLAG_UNITS:RW
 -- DATA_IN_PN:DATA

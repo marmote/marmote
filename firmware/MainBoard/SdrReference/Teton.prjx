@@ -152,17 +152,10 @@ STATE="utd"
 TIME="1342133617"
 SIZE="413"
 ENDFILE
-VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
-STATE="utd"
-TIME="1342133870"
-SIZE="3496"
-PARENT="<project>\component\work\Teton\Teton.cxf"
-IS_READONLY="TRUE"
-ENDFILE
 VALUE "<project>\component\work\Teton\Teton.cxf,actgen_cxf"
 STATE="utd"
-TIME="1342133871"
-SIZE="7959"
+TIME="1342199404"
+SIZE="7555"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.pdc,pdc"
 STATE="utd"
@@ -173,13 +166,6 @@ BEGIN_USE_CONSTRAINT
 TOOL_CONSTRAINT_TYPE="ideDESIGNER"
 END_USE_CONSTRAINT
 USE_FOR_ANY_TOOL="FALSE"
-IS_READONLY="TRUE"
-ENDFILE
-VALUE "<project>\component\work\Teton\Teton.vhd,hdl"
-STATE="utd"
-TIME="1342133869"
-SIZE="7913"
-PARENT="<project>\component\work\Teton\Teton.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\MSS_ACE_0\MSS_ACE_0.log,???"
@@ -275,8 +261,8 @@ SIZE="4239"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_synthesis_1.ide_des,ide_des"
 STATE="utd"
-TIME="1342133870"
-SIZE="437"
+TIME="1342199254"
+SIZE="358"
 ENDFILE
 VALUE "<project>\designer\impl1\USB_IF.ide_des,ide_des"
 STATE="utd"
@@ -295,8 +281,8 @@ SIZE="5013"
 ENDFILE
 VALUE "<project>\hdl\fifo_256x16.vhd,hdl"
 STATE="utd"
-TIME="1342192948"
-SIZE="7553"
+TIME="1342197888"
+SIZE="7699"
 ENDFILE
 VALUE "<project>\hdl\fifo_512x8.vhd,hdl"
 STATE="utd"
@@ -305,8 +291,8 @@ SIZE="7331"
 ENDFILE
 VALUE "<project>\hdl\usb_if.vhd,hdl"
 STATE="utd"
-TIME="1342197773"
-SIZE="12855"
+TIME="1342201181"
+SIZE="13233"
 ENDFILE
 VALUE "<project>\simulation\afe_if_wave.do,do"
 STATE="utd"
@@ -319,9 +305,14 @@ TIME="1327522481"
 SIZE="41"
 PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf"
 ENDFILE
+VALUE "<project>\simulation\presynth_simulation.log,log"
+STATE="utd"
+TIME="1342201185"
+SIZE="67220"
+ENDFILE
 VALUE "<project>\simulation\run.do,do"
 STATE="utd"
-TIME="1342190479"
+TIME="1342199223"
 SIZE="1059"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
@@ -338,8 +329,8 @@ PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\simulation\usb_if_wave.do,do"
 STATE="utd"
-TIME="1342190756"
-SIZE="1622"
+TIME="1342199001"
+SIZE="2233"
 ENDFILE
 VALUE "<project>\simulation\user.bfm,sim"
 STATE="utd"
@@ -359,8 +350,8 @@ SIZE="3815"
 ENDFILE
 VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
 STATE="utd"
-TIME="1342190742"
-SIZE="8535"
+TIME="1342198925"
+SIZE="9623"
 ENDFILE
 VALUE "<project>\stimulus\usb_if_tc.vhd,tb_hdl"
 STATE="utd"
@@ -389,12 +380,7 @@ ENDLIST
 ENDLIST
 ENDLIST
 LIST "Teton::work"
-FILE "<project>\component\work\Teton\Teton.vhd,hdl"
-LIST Other_Association
-VALUE "<project>\simulation\subsystem.bfm,sim"
-VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
-VALUE "<project>\component\work\Teton\Teton.pdc,pdc"
-ENDLIST
+FILE "<project>\component\work\Teton\Teton.cxf,actgen_cxf"
 LIST AssociatedStimulus
 VALUE "<project>\stimulus\ft232h_stub.vhd,tb_hdl"
 VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
@@ -493,11 +479,6 @@ VALUE "<project>\stimulus\usb_if_tc.vhd,tb_hdl"
 ENDLIST
 ENDLIST
 LIST Other_Association
-LIST Teton
-VALUE "<project>\simulation\subsystem.bfm,sim"
-VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
-VALUE "<project>\component\work\Teton\Teton.pdc,pdc"
-ENDLIST
 LIST Teton_MSS
 VALUE "<project>\component\work\Teton_MSS\mss_tshell_syn.sdc,sdc"
 VALUE "<project>\simulation\user.bfm,sim"
