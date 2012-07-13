@@ -49,7 +49,9 @@ sim:/usb_if_tb/uut/s_tx_i_fifo_afull \
 sim:/usb_if_tb/uut/s_obuf \
 sim:/usb_if_tb/uut/s_tx_fifo_re \
 sim:/usb_if_tb/uut/s_tx_i_fifo_out \
-sim:/usb_if_tb/uut/s_tx_q_fifo_out 
+sim:/usb_if_tb/uut/s_tx_q_fifo_out \
+sim:/usb_if_tb/uut/s_seq_num_ctr \
+sim:/usb_if_tb/uut/s_seq_fifo_out
 
 #add wave \
 #-divider {PARAMETERS} \

@@ -37,8 +37,6 @@
 --       FIFOs used.
 --
 -- TODO:
---  - Add framing control state machine in the USB clock region
---  - Add sequence number control
 --  - Add a control channel
 --  - Add a flush mechanism to the TX FIFO SM
 --  - Make FIFO AFULL, AEMPTY accessible from this module (might work easily,
@@ -139,7 +137,7 @@ architecture Behavioral of USB_IF is
     -- Constants
 
     -- Frame fields
-    constant c_SOF : std_logic_vector(7 downto 0) := x"5D";
+    constant c_SOF : std_logic_vector(23 downto 0) := x"5D";
 
     constant c_FRAME_LENGTH : std_logic_vector(11 downto 0) :=
         std_logic_vector(to_unsigned(g_FRAME_LENGTH, 12));
