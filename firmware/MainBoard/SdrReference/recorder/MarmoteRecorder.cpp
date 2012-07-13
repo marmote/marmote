@@ -15,13 +15,13 @@
 static int default_dev;
 #define INTERVAL_TIMEOUT 5000
 
-#define SOF 0x5D
+#define SOF 0xDEADBEEFu
 #define FRAME_LENGTH 16
 
 typedef struct _FTDI_frame {
-	char sof;
+	char sof[4];
 	WORD seq;
-	WORD data[NUMBER_OF_CHANNELS * FRAME_LENGTH];
+	WORD data[FRAME_LENGTH * NUMBER_OF_CHANNELS];
 } FTDI_frame;
 
 // Wave file parameters
@@ -406,7 +406,7 @@ int recorder(int dev, const char* dir, int seq)
 			
 		minValue = 0xFF;
 		maxValue = 0x00;
-
+		
 		for (DWORD i = 0; i < bytesReceived; i++)
 		{
 			minValue = minValue < rxBuffer[i] ? minValue : rxBuffer[i];
@@ -435,29 +435,32 @@ int recorder(int dev, const char* dir, int seq)
 		*/
 
 		// Search for header and print a packet
+		
+		
 		unsigned int idx;		
 
+
+		//printf("%u\n", bytesReceived);
 		for (DWORD i = 0; i < bytesReceived; i++)
 		{
 			FTDI_frame* frame = (FTDI_frame*)(rxBuffer+i);
-			if ( frame->sof == SOF && (frame+1)->sof == SOF )
-			{
-				//if ( (frame->seq)+1 == (frame+1)->seq )
-				//	printf(".");
+			
+			
+			if (   frame->sof[0] == char((SOF >> 24) & 0xFF)
+				&& frame->sof[1] == char((SOF >> 16) & 0xFF)
+				&& frame->sof[2] == char((SOF >>  8) & 0xFF)
+				&& frame->sof[3] == char((SOF      ) & 0xFF) )
+			{				
+				printf("+0 SOF: %2X%2X%2X SEQ: %4X DATA I: %4X Q: %4X\n", unsigned char(frame->sof[0]), unsigned char(frame->sof[1]), unsigned char(frame->sof[2]), frame->seq, frame->data[0], frame->data[1]);
+				//printf("+1 SOF: %2X%2X%2X SEQ: %4X DATA I: %4X Q: %4X\n", unsigned char((frame+1)->sof[0]), unsigned char((frame+1)->sof[1]), unsigned char((frame+1)->sof[2]), (frame+1)->seq, (frame+1)->data[0], (frame+1)->data[1]);
 				
-				printf("\n");
-				printf("\nSEQ: %4x SEQ NEXT: %4x\n", (frame->seq), (frame+1)->seq);
-
 				
-				//printf("\n");
-				printf("+0 SOF: %2x SEQ: %4x DATA I: %4x Q: %4x\n", frame->sof, frame->seq, frame->data[0], frame->data[1]);
-				printf("+1 SOF: %2x SEQ: %4x DATA I: %4x Q: %4x\n", (frame+1)->sof, (frame+1)->seq, (frame+1)->data[0], (frame+1)->data[1]);
 				
-
+				// Print frame payload
 				/*
-				for (DWORD j = 0; j < FRAME_LENGTH ; j++)
+				for (DWORD j = 0; j < FRAME_LENGTH * NUMBER_OF_CHANNELS; j++)
 				{
-					printf("%4x ", frame->data[j]);
+					printf("%4X ", frame->data[j]);
 					if (j % 8 == 7)
 					{
 						printf("\n");
@@ -465,11 +468,13 @@ int recorder(int dev, const char* dir, int seq)
 				}
 				*/
 				
+				
 				/*
+				// Print raw bytes
 				printf("\n");
 				for (DWORD j = 0; j < (bytesReceived-i < sizeof(FTDI_frame)*2 ? bytesReceived-i : sizeof(FTDI_frame)*2 ); j++)
 				{
-					printf("%2x ", (unsigned char)rxBuffer[i+j]);
+					printf("%2X ", (unsigned char)rxBuffer[i+j]);
 					if (j % 16 == 15)
 						printf("\n");
 				}
@@ -478,6 +483,7 @@ int recorder(int dev, const char* dir, int seq)
 				
 			}			
 		}
+		
 
 		// Calculate throughput
 		byteCounter += bytesReceived;

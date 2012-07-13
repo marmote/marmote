@@ -16,8 +16,6 @@ set sdc_version 1.7
 
 create_clock  -name { XTLOSC } -period 50.000 -waveform { 0.000 25.000  }  { Teton_MSS_0/MSS_CCC_0/I_XTLOSC:CLKOUT  } 
 
-create_clock  -name { MAC_CLK } -period 20.000 -waveform { 0.000 10.000  }  { MAC_CLK  } 
-
 create_clock  -name { FCLK } -period 50.000 -waveform { 0.000 25.000  }  { Teton_MSS_0/MSS_ADLIB_INST/U_CORE:FCLK  } 
 
 
