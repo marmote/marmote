@@ -52,8 +52,6 @@ architecture Behavioral of COUNTER_STUB is
     signal s_ctr               : unsigned(15 downto 0);
 
 	signal s_tx_strobe         : std_logic;
-	signal s_tx_i              : std_logic_vector(15 downto 0);
-	signal s_tx_q              : std_logic_vector(15 downto 0);
 
 begin
 
@@ -62,8 +60,11 @@ begin
     p_txd_counter : process (rst, clk)
     begin
         if rst = '1' then
-            s_ctr <= (others => '0');
+--            s_ctr <= (others => '0');
+            s_tx_strobe <= '0';
+            s_ctr <= x"0002";
         elsif rising_edge(clk) then
+            s_tx_strobe <= '1';
             s_ctr <= s_ctr + 1;
         end if;
     end process p_txd_counter;
@@ -73,7 +74,7 @@ begin
 
     TXD_I <= std_logic_vector(s_ctr(15 downto 0));
     TXD_Q <= std_logic_vector(s_ctr(15 downto 0) + 10);
-    TX_STROBE <= '1';
+    TX_STROBE <= s_tx_strobe;
 
 
 end Behavioral;

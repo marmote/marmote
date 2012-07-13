@@ -137,7 +137,7 @@ architecture Behavioral of USB_IF is
     -- Constants
 
     -- Frame fields
-    constant c_SOF : std_logic_vector(23 downto 0) := x"5D";
+    constant c_SOF : std_logic_vector(31 downto 0) := x"DEADBEEF";
 
     constant c_FRAME_LENGTH : std_logic_vector(11 downto 0) :=
         std_logic_vector(to_unsigned(g_FRAME_LENGTH, 12));
@@ -146,8 +146,10 @@ architecture Behavioral of USB_IF is
 
     type tx_sm_t is (
         st_IDLE,
-        st_FETCH, -- NOTE: This state can be saved if the SOF is longer than 1 byte
-        st_SOF,
+        st_SOF_1,
+        st_SOF_2,
+        st_SOF_3,
+        st_SOF_4,
         st_SEQ_MSB,
         st_SEQ_LSB,
         st_DATA_I_MSB,
@@ -174,13 +176,9 @@ architecture Behavioral of USB_IF is
     signal s_tx_fifo_re_next : std_logic;
     signal s_tx_fifo_we : std_logic;
     signal s_tx_i_fifo_full : std_logic;
-    signal s_tx_q_fifo_full : std_logic;
     signal s_tx_i_fifo_empty : std_logic;
-    signal s_tx_q_fifo_empty : std_logic;
     signal s_tx_i_fifo_afull : std_logic;
-    signal s_tx_q_fifo_afull : std_logic;
     signal s_tx_i_fifo_aempty : std_logic;
-    signal s_tx_q_fifo_aempty : std_logic;
     signal s_tx_i_fifo_out : std_logic_vector(15 downto 0);
     signal s_tx_q_fifo_out : std_logic_vector(15 downto 0);
 
@@ -321,6 +319,9 @@ begin
     p_tx_fifo_read_sm_comb : process (
         s_tx_sm_state,
         s_tx_sample_ctr,
+        s_tx_i_fifo_out,
+        s_tx_q_fifo_out,
+        s_seq_fifo_out,
         TXE_n_pin,
         s_tx_i_fifo_aempty
     )
@@ -344,31 +345,45 @@ begin
                 s_tx_sample_ctr_next <= (others => '0');
 
                 if TXE_n_pin = '0' and s_tx_i_fifo_aempty = '0' then
-                    s_tx_fifo_re_next <= '1';
-                    s_tx_sm_state_next <= st_FETCH;
+                    s_tx_sm_state_next <= st_SOF_1;
                 end if;
                 
-            -- Additional clock cycle delay to read the FIFO
-            when st_FETCH => 
-
-                s_tx_sm_state_next <= st_SOF;
-
             -- Transmit SOF
-            when st_SOF => 
+            when st_SOF_1 => 
 
-                s_tx_sample_ctr_next <= s_tx_sample_ctr + 1;
-                s_obuf <= c_SOF;
+                s_tx_fifo_re_next <= '1';
+                s_obuf <= c_SOF(31 downto 24);
 
-                -- Check if byte was accepted by FTDI
                 if TXE_n_pin = '0' then
                     s_wr_n <= '0';
                     s_oe <= '1';
-                    s_tx_sm_state_next <= st_SEQ_MSB;
+                    s_tx_sm_state_next <= st_SOF_2;
                 end if;
 
-            when st_SEQ_MSB => 
+            when st_SOF_2 => 
 
-                s_obuf <= s_seq_fifo_out(15 downto 8);
+                s_obuf <= c_SOF(23 downto 16);
+
+                if TXE_n_pin = '0' then
+                    s_wr_n <= '0';
+                    s_oe <= '1';
+                    s_tx_sm_state_next <= st_SOF_3;
+                end if;
+
+            when st_SOF_3 => 
+
+                s_obuf <= c_SOF(15 downto 8);
+
+                if TXE_n_pin = '0' then
+                    s_wr_n <= '0';
+                    s_oe <= '1';
+                    s_tx_sm_state_next <= st_SOF_4;
+                end if;
+
+            when st_SOF_4 => 
+
+                s_tx_sample_ctr_next <= s_tx_sample_ctr + 1;
+                s_obuf <= c_SOF(7 downto 0);
 
                 if TXE_n_pin = '0' then
                     s_wr_n <= '0';
@@ -383,12 +398,12 @@ begin
                 if TXE_n_pin = '0' then
                     s_wr_n <= '0';
                     s_oe <= '1';
-                    s_tx_sm_state_next <= st_DATA_I_MSB;
+                    s_tx_sm_state_next <= st_SEQ_MSB;
                 end if;
 
-            when st_DATA_I_MSB => 
+            when st_SEQ_MSB => 
 
-                s_obuf <= s_tx_i_fifo_out(15 downto 8);
+                s_obuf <= s_seq_fifo_out(15 downto 8);
 
                 if TXE_n_pin = '0' then
                     s_wr_n <= '0';
@@ -403,22 +418,22 @@ begin
                 if TXE_n_pin = '0' then
                     s_wr_n <= '0';
                     s_oe <= '1';
-                    s_tx_sm_state_next <= st_DATA_Q_MSB;
-
-                    -- Fetch new value
-                    if s_tx_sample_ctr /= unsigned(c_FRAME_LENGTH) then
-                        s_tx_fifo_re_next <= '1';
-                    end if;
+                    s_tx_sm_state_next <= st_DATA_I_MSB;
                 end if;
 
-            when st_DATA_Q_MSB => 
+            when st_DATA_I_MSB => 
 
-                s_obuf <= s_tx_q_fifo_out(15 downto 8);
+                s_obuf <= s_tx_i_fifo_out(15 downto 8);
 
                 if TXE_n_pin = '0' then
                     s_wr_n <= '0';
                     s_oe <= '1';
                     s_tx_sm_state_next <= st_DATA_Q_LSB;
+
+                    -- Fetch new value
+                    if s_tx_sample_ctr /= unsigned(c_FRAME_LENGTH) then
+                        s_tx_fifo_re_next <= '1';
+                    end if;
                 end if;
 
             when st_DATA_Q_LSB => 
@@ -428,12 +443,22 @@ begin
                 if TXE_n_pin = '0' then
                     s_wr_n <= '0';
                     s_oe <= '1';
+                    s_tx_sm_state_next <= st_DATA_Q_MSB;
+                end if;
+
+            when st_DATA_Q_MSB => 
+
+                s_obuf <= s_tx_q_fifo_out(15 downto 8);
+
+                if TXE_n_pin = '0' then
+                    s_wr_n <= '0';
+                    s_oe <= '1';
                     if s_tx_sample_ctr = unsigned(c_FRAME_LENGTH) then
                         s_tx_sample_ctr_next <= (others => '0');
                         s_tx_sm_state_next <= st_IDLE;
                     else
                         s_tx_sample_ctr_next <= s_tx_sample_ctr + 1;
-                        s_tx_sm_state_next <= st_DATA_I_MSB;
+                        s_tx_sm_state_next <= st_DATA_I_LSB;
                     end if;
                 end if;
 
