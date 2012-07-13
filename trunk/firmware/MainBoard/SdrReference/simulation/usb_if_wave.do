@@ -77,7 +77,7 @@ sim:/usb_if_tb/uut/s_oe \
 -divider {PINs} \
 sim:/usb_if_tb/uut/USB_CLK_pin \
 sim:/usb_if_tb/uut/TXE_n_pin \
--unsigned \
+-hex \
 sim:/usb_if_tb/uut/DATA_pin \
 sim:/usb_if_tb/uut/WR_n_pin \
 sim:/usb_if_tb/uut/OE_n_pin 

@@ -32,14 +32,19 @@
 --              The module transmits 16-bit data to the FTDI chip on 2
 --              channels.
 --
+-- Note: All state machines run in the USB clock domain to simplify the
+--       interface in the other side. The trade-off is the larger number of
+--       FIFOs used.
+--
 -- TODO:
 --  - Add framing control state machine in the USB clock region
+--  - Add sequence number control
 --  - Add a control channel
 --  - Add a flush mechanism to the TX FIFO SM
---  - Make FIFO AFULL, AEMPTY accessible from this module
+--  - Make FIFO AFULL, AEMPTY accessible from this module (might work easily,
+--    but had issues with simulations)
 --
 --  - Add logic to sense USB (FTDI) chip presence
---  - Determine the maximum system clock frequency (<60MHz?)
 ------------------------------------------------------------------------------
 
 library IEEE;
@@ -101,7 +106,6 @@ architecture Behavioral of USB_IF is
           );
     end component;
 
-    -- FIXME: replace with a 16-bit fifo
     component FIFO_512x8 is
     port (
         DATA    : in  std_logic_vector(7 downto 0);
@@ -128,46 +132,46 @@ architecture Behavioral of USB_IF is
         EMPTY   : out std_logic;
         AFULL   : out std_logic;
         AEMPTY  : out std_logic;
---        AFVAL   : in  std_logic_vector(11 downto 0);
---        AEVAL   : in  std_logic_vector(11 downto 0);
         RESET   : in  std_logic
     );
     end component;
 
     -- Constants
 
+    -- Frame fields
     constant c_SOF : std_logic_vector(7 downto 0) := x"5D";
+
     constant c_FRAME_LENGTH : std_logic_vector(11 downto 0) :=
         std_logic_vector(to_unsigned(g_FRAME_LENGTH, 12));
---    constant c_AFULL_VAL : std_logic_vector(11 downto 0) :=
---        std_logic_vector(to_unsigned(2**12-g_FRAME_LENGTH-1, 12));
 
     -- Signals
 
     type tx_sm_t is (
         st_IDLE,
+        st_FETCH, -- NOTE: This state can be saved if the SOF is longer than 1 byte
         st_SOF,
+        st_SEQ_MSB,
+        st_SEQ_LSB,
         st_DATA_I_MSB,
         st_DATA_I_LSB,
         st_DATA_Q_MSB,
         st_DATA_Q_LSB
-    ); -- TODO: Add states st_TYPE and st_SEQ
+    );
 
     signal s_tx_sm_state : tx_sm_t;
     signal s_tx_sm_state_next : tx_sm_t;
 
-
     alias sys_clk is clk;
-
     signal usb_clk  : std_logic;
+    
+    signal s_seq_num_ctr : unsigned(15 downto 0);
+    signal s_seq_fifo_out : std_logic_vector(15 downto 0);
 
     signal s_oe     : std_logic;
-    signal s_oe_next : std_logic;
     signal s_obuf   : std_logic_vector(7 downto 0);
     signal s_ibuf   : std_logic_vector(7 downto 0);
 
     signal s_wr_n : std_logic;
-    signal s_wr_n_next : std_logic;
     signal s_tx_fifo_re : std_logic;
     signal s_tx_fifo_re_next : std_logic;
     signal s_tx_fifo_we : std_logic;
@@ -187,8 +191,6 @@ architecture Behavioral of USB_IF is
 
     signal s_rx_fifo_we : std_logic;
     signal s_rx_strobe  : std_logic;
-
-    signal s_tx_ch_ctr : unsigned(1 downto 0);
 
 begin
 
@@ -233,6 +235,21 @@ begin
     s_rx_strobe <= '0'; -- FIXME
 
 
+    u_SEQ_FIFO : FIFO_256x16
+    port map (
+        RESET   => RST,
+        DATA    => std_logic_vector(s_seq_num_ctr),
+        Q       => s_seq_fifo_out,
+        WCLOCK  => CLK,
+        WE      => s_tx_fifo_we,
+        RCLOCK  => usb_clk,
+        RE      => s_tx_fifo_re,
+        FULL    => open,
+        EMPTY   => open,
+        AFULL   => open,
+        AEMPTY  => open
+    );
+
     u_TX_I_FIFO : FIFO_256x16
     port map (
         RESET   => RST,
@@ -246,10 +263,6 @@ begin
         EMPTY   => s_tx_i_fifo_empty,
         AFULL   => s_tx_i_fifo_afull,
         AEMPTY  => s_tx_i_fifo_aempty
---        AFVAL   => c_AFULL_VAL,
---        AEVAL   => c_FRAME_LENGTH
---        AFVAL   => x"010",
---        AEVAL   => x"008"
     );
 
     u_TX_Q_FIFO : FIFO_256x16
@@ -261,23 +274,34 @@ begin
         WE      => s_tx_fifo_we,
         RCLOCK  => usb_clk,
         RE      => s_tx_fifo_re,
-        FULL    => s_tx_q_fifo_full,
-        EMPTY   => s_tx_q_fifo_empty,
-        AFULL   => s_tx_i_fifo_afull,
-        AEMPTY  => s_tx_i_fifo_aempty
---        AFVAL   => c_AFULL_VAL,
---        AEVAL   => c_FRAME_LENGTH
+        FULL    => open,
+        EMPTY   => open,
+        AFULL   => open,
+        AEMPTY  => open
     );
 
 
     -- Processes
 
     -----------------------------------
+    -- Sequence number generator     --
+    -----------------------------------
+    p_seq_num_gen : process (rst, clk)
+    begin
+        if rst = '1' then
+            s_seq_num_ctr <= (others => '0');
+        elsif rising_edge(clk) then
+            if TX_STROBE = '1' then
+                s_seq_num_ctr <= s_seq_num_ctr + 1;
+            end if;
+        end if;
+    end process p_seq_num_gen;
+
+
+    -----------------------------------
     -- TX FIFO write                 --
     -----------------------------------
-    -- NOTE: As all FIFOs are written simultaneously, they should get full at
-    -- the same time. Thus only the full flag of channel 1 (I) is used.
-    s_tx_fifo_we <= TX_STROBE and not (s_tx_i_fifo_full);
+    s_tx_fifo_we <= TX_STROBE and not (s_tx_i_fifo_full); -- FIXME: could useSEQ FIFO instead
 
 
     -----------------------------------
@@ -323,9 +347,14 @@ begin
 
                 if TXE_n_pin = '0' and s_tx_i_fifo_aempty = '0' then
                     s_tx_fifo_re_next <= '1';
-                    s_tx_sm_state_next <= st_SOF;
+                    s_tx_sm_state_next <= st_FETCH;
                 end if;
                 
+            -- Additional clock cycle delay to read the FIFO
+            when st_FETCH => 
+
+                s_tx_sm_state_next <= st_SOF;
+
             -- Transmit SOF
             when st_SOF => 
 
@@ -333,6 +362,26 @@ begin
                 s_obuf <= c_SOF;
 
                 -- Check if byte was accepted by FTDI
+                if TXE_n_pin = '0' then
+                    s_wr_n <= '0';
+                    s_oe <= '1';
+                    s_tx_sm_state_next <= st_SEQ_MSB;
+                end if;
+
+            when st_SEQ_MSB => 
+
+                s_obuf <= s_seq_fifo_out(15 downto 8);
+
+                if TXE_n_pin = '0' then
+                    s_wr_n <= '0';
+                    s_oe <= '1';
+                    s_tx_sm_state_next <= st_SEQ_LSB;
+                end if;
+
+            when st_SEQ_LSB => 
+
+                s_obuf <= s_seq_fifo_out(7 downto 0);
+
                 if TXE_n_pin = '0' then
                     s_wr_n <= '0';
                     s_oe <= '1';
@@ -357,6 +406,11 @@ begin
                     s_wr_n <= '0';
                     s_oe <= '1';
                     s_tx_sm_state_next <= st_DATA_Q_MSB;
+
+                    -- Fetch new value
+                    if s_tx_sample_ctr /= unsigned(c_FRAME_LENGTH) then
+                        s_tx_fifo_re_next <= '1';
+                    end if;
                 end if;
 
             when st_DATA_Q_MSB => 
@@ -381,7 +435,6 @@ begin
                         s_tx_sm_state_next <= st_IDLE;
                     else
                         s_tx_sample_ctr_next <= s_tx_sample_ctr + 1;
-                        s_tx_fifo_re_next <= '1';
                         s_tx_sm_state_next <= st_DATA_I_MSB;
                     end if;
                 end if;

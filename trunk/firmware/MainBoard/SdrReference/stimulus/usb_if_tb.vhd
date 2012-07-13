@@ -191,9 +191,10 @@ begin
         wait until falling_edge(clk);
 
         TX_STROBE <= '1';
-        for i in 1 to 50 loop
-                TXD_I <= std_logic_vector(to_unsigned(i, TXD_Q'length)) or x"FA00";
-                TXD_Q <= std_logic_vector(to_unsigned(i, TXD_Q'length)) or x"FB00";
+        for i in 1 to 80 loop
+                TXD_I <= std_logic_vector(to_unsigned(i + i*(256), TXD_I'length)) or x"8000";
+                TXD_Q <= std_logic_vector(to_unsigned(i + i*(256), TXD_Q'length)) or x"F000";
+--                TXD_Q <= std_logic_vector(to_unsigned(i, TXD_Q'length)) or x"FB00";
             wait for sys_clock_period;
         end loop;
 
