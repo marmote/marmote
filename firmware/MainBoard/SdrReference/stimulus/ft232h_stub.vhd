@@ -103,8 +103,19 @@ begin
         wait for c_USB_CLOCK_PERIOD;
     end process p_usb_clock_gen;
 
+    p_txe_n_gen : process
+    begin
+        s_txe_n <= '0';
+        wait for 1000 ns;
+        wait until rising_edge(s_usb_clk);
+        s_txe_n <= '1';
+        wait for c_USB_CLOCK_PERIOD;
+        s_txe_n <= '0';
+        wait;
+    end process p_txe_n_gen;
+--    s_txe_n <= '0';
 
-    s_txe_n <= '0';
+
 
     -- Output assignments
 

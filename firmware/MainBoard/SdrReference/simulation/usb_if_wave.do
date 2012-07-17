@@ -39,6 +39,8 @@ sim:/usb_if_tb/uut/USB_CLK \
 sim:/usb_if_tb/uut/s_tx_sm_state \
 sim:/usb_if_tb/uut/s_tx_sm_state_next \
 sim:/usb_if_tb/uut/TXE_n_pin \
+sim:/usb_if_tb/uut/s_txe_n \
+sim:/usb_if_tb/uut/s_fifo_fetched \
 sim:/usb_if_tb/uut/DATA_pin \
 -unsigned \
 sim:/usb_if_tb/uut/s_tx_sample_ctr \

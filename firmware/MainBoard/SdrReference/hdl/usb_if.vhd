@@ -25,6 +25,13 @@
 -- ON AN "AS IS" BASIS, AND THE VANDERBILT UNIVERSITY HAS NO OBLIGATION TO
 -- PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 ------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+-- Revisions     :
+-- Date            Version  Author			Description
+-- 2012-07-17      1.1      Sandor Szilvasi	Added support for streaming two
+--                                          16-bit channels with framing
+-- 2012-xx-xx      1.0      Sandor Szilvasi	Created
+-------------------------------------------------------------------------------
 --
 -- Description: Interface module for the FT232H USB (FTDI) chip operating in
 --              synchronous FIFO mode.
@@ -36,11 +43,15 @@
 --       interface in the other side. The trade-off is the larger number of
 --       FIFOs used.
 --
+-- Known issues: The post place-and-route timing has not been checked
+--               properly yet. There may be timing issues on the USB
+--               interface.
+--
 -- TODO:
 --  - Add a control channel
 --  - Add a flush mechanism to the TX FIFO SM
---  - Make FIFO AFULL, AEMPTY accessible from this module (might work easily,
---    but had issues with simulations)
+--  - Make FIFO AFULL, AEMPTY parameters accessible from this module
+--    (might work easily, but had issues with simulations)
 --
 --  - Add logic to sense USB (FTDI) chip presence
 ------------------------------------------------------------------------------
@@ -146,6 +157,7 @@ architecture Behavioral of USB_IF is
 
     type tx_sm_t is (
         st_IDLE,
+        st_FETCH,
         st_SOF_1,
         st_SOF_2,
         st_SOF_3,
@@ -170,6 +182,10 @@ architecture Behavioral of USB_IF is
     signal s_oe     : std_logic;
     signal s_obuf   : std_logic_vector(7 downto 0);
     signal s_ibuf   : std_logic_vector(7 downto 0);
+
+    signal s_txe_n  : std_logic;
+    signal s_fifo_fetched : std_logic;
+    signal s_fifo_fetched_next : std_logic;
 
     signal s_wr_n : std_logic;
     signal s_tx_fifo_re : std_logic;
@@ -276,6 +292,18 @@ begin
         AEMPTY  => open
     );
 
+--    -----------------------------------
+--    -- Input registers               --
+--    -----------------------------------
+--    p_input_reg : process (rst, usb_clk)
+--    begin
+--        if rst = '1' then
+--            s_txe_n <= '1';
+--        elsif rising_edge(usb_clk) then
+--            s_txe_n <= TXE_n_pin;
+--        end if;
+--    end process p_input_reg;
+
 
     -- Processes
 
@@ -297,7 +325,7 @@ begin
     -----------------------------------
     -- TX FIFO write                 --
     -----------------------------------
-    s_tx_fifo_we <= TX_STROBE and not (s_tx_i_fifo_full); -- FIXME: could useSEQ FIFO instead
+    s_tx_fifo_we <= TX_STROBE and not (s_tx_i_fifo_full); -- FIXME: should use SEQ FIFO instead
 
 
     -----------------------------------
@@ -309,10 +337,12 @@ begin
             s_tx_sm_state <= st_IDLE;
             s_tx_sample_ctr <= (others => '0');
             s_tx_fifo_re <= '0';
+            s_fifo_fetched <= '0';
         elsif rising_edge(usb_clk) then
             s_tx_sm_state <= s_tx_sm_state_next;
             s_tx_sample_ctr <= s_tx_sample_ctr_next;
             s_tx_fifo_re <= s_tx_fifo_re_next;
+            s_fifo_fetched <= s_fifo_fetched_next;
         end if;
     end process p_tx_fifo_read_sm_sync;
 
@@ -323,6 +353,7 @@ begin
         s_tx_q_fifo_out,
         s_seq_fifo_out,
         TXE_n_pin,
+        s_fifo_fetched,
         s_tx_i_fifo_aempty
     )
     begin
@@ -330,9 +361,7 @@ begin
         s_tx_sm_state_next <= s_tx_sm_state;
         s_tx_sample_ctr_next <= s_tx_sample_ctr;
         s_tx_fifo_re_next <= '0';
-
-        s_wr_n <= '1';
-        s_oe <= '0';
+        s_fifo_fetched_next <= s_fifo_fetched;
 
         s_obuf <= (others => '0');
 
@@ -344,19 +373,18 @@ begin
 
                 s_tx_sample_ctr_next <= (others => '0');
 
-                if TXE_n_pin = '0' and s_tx_i_fifo_aempty = '0' then
+                if s_tx_i_fifo_aempty = '0' then
+                    s_tx_fifo_re_next <= '1';
+                    s_fifo_fetched_next <= '1';
                     s_tx_sm_state_next <= st_SOF_1;
                 end if;
                 
             -- Transmit SOF
             when st_SOF_1 => 
 
-                s_tx_fifo_re_next <= '1';
                 s_obuf <= c_SOF(31 downto 24);
 
                 if TXE_n_pin = '0' then
-                    s_wr_n <= '0';
-                    s_oe <= '1';
                     s_tx_sm_state_next <= st_SOF_2;
                 end if;
 
@@ -365,8 +393,6 @@ begin
                 s_obuf <= c_SOF(23 downto 16);
 
                 if TXE_n_pin = '0' then
-                    s_wr_n <= '0';
-                    s_oe <= '1';
                     s_tx_sm_state_next <= st_SOF_3;
                 end if;
 
@@ -375,8 +401,6 @@ begin
                 s_obuf <= c_SOF(15 downto 8);
 
                 if TXE_n_pin = '0' then
-                    s_wr_n <= '0';
-                    s_oe <= '1';
                     s_tx_sm_state_next <= st_SOF_4;
                 end if;
 
@@ -386,8 +410,6 @@ begin
                 s_obuf <= c_SOF(7 downto 0);
 
                 if TXE_n_pin = '0' then
-                    s_wr_n <= '0';
-                    s_oe <= '1';
                     s_tx_sm_state_next <= st_SEQ_LSB;
                 end if;
 
@@ -396,8 +418,6 @@ begin
                 s_obuf <= s_seq_fifo_out(7 downto 0);
 
                 if TXE_n_pin = '0' then
-                    s_wr_n <= '0';
-                    s_oe <= '1';
                     s_tx_sm_state_next <= st_SEQ_MSB;
                 end if;
 
@@ -406,8 +426,6 @@ begin
                 s_obuf <= s_seq_fifo_out(15 downto 8);
 
                 if TXE_n_pin = '0' then
-                    s_wr_n <= '0';
-                    s_oe <= '1';
                     s_tx_sm_state_next <= st_DATA_I_LSB;
                 end if;
 
@@ -416,8 +434,6 @@ begin
                 s_obuf <= s_tx_i_fifo_out(7 downto 0);
 
                 if TXE_n_pin = '0' then
-                    s_wr_n <= '0';
-                    s_oe <= '1';
                     s_tx_sm_state_next <= st_DATA_I_MSB;
                 end if;
 
@@ -426,14 +442,7 @@ begin
                 s_obuf <= s_tx_i_fifo_out(15 downto 8);
 
                 if TXE_n_pin = '0' then
-                    s_wr_n <= '0';
-                    s_oe <= '1';
                     s_tx_sm_state_next <= st_DATA_Q_LSB;
-
-                    -- Fetch new value
-                    if s_tx_sample_ctr /= unsigned(c_FRAME_LENGTH) then
-                        s_tx_fifo_re_next <= '1';
-                    end if;
                 end if;
 
             when st_DATA_Q_LSB => 
@@ -441,9 +450,12 @@ begin
                 s_obuf <= s_tx_q_fifo_out(7 downto 0);
 
                 if TXE_n_pin = '0' then
-                    s_wr_n <= '0';
-                    s_oe <= '1';
                     s_tx_sm_state_next <= st_DATA_Q_MSB;
+
+                    -- Fetch new value
+                    if s_tx_sample_ctr /= unsigned(c_FRAME_LENGTH) then
+                        s_tx_fifo_re_next <= '1';
+                    end if;
                 end if;
 
             when st_DATA_Q_MSB => 
@@ -451,13 +463,13 @@ begin
                 s_obuf <= s_tx_q_fifo_out(15 downto 8);
 
                 if TXE_n_pin = '0' then
-                    s_wr_n <= '0';
-                    s_oe <= '1';
                     if s_tx_sample_ctr = unsigned(c_FRAME_LENGTH) then
                         s_tx_sample_ctr_next <= (others => '0');
+                        s_fifo_fetched_next <= '0';
                         s_tx_sm_state_next <= st_IDLE;
                     else
                         s_tx_sample_ctr_next <= s_tx_sample_ctr + 1;
+                        s_fifo_fetched_next <= '1';
                         s_tx_sm_state_next <= st_DATA_I_LSB;
                     end if;
                 end if;
@@ -469,6 +481,20 @@ begin
 
     end process p_tx_fifo_read_sm_comb;
 
+    p_tx_fifo_read : process (rst, usb_clk)
+    begin
+        if rst = '1' then
+            s_wr_n <= '1';
+            s_oe <= '0';
+        elsif rising_edge(usb_clk) then
+            s_oe <= '0';
+            s_wr_n <= '1';
+            if TXE_n_pin = '0' and s_fifo_fetched_next = '1' then
+                s_oe <= '1';
+                s_wr_n <= '0';
+            end if;
+        end if;
+    end process p_tx_fifo_read;
 
     -------------------------------------
     -- 8-bit single channel no framing --
