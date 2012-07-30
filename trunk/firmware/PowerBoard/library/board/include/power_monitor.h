@@ -78,16 +78,15 @@ typedef enum
 //#define ADC_CLK        				RCC_APB2Periph_ADC1
 
 
-// Battery
+/*-------------------------------------------------------------------*/
+/*                               Battery                             */
+/*-------------------------------------------------------------------*/
 
-#ifndef REV_A
 // Battery charge pin
 
 #define BAT_CHRG_PIN             	GPIO_Pin_9  // PB.9
 #define BAT_CHRG_GPIO_PORT       	GPIOB       // GPIOB
 #define BAT_CHRG_GPIO_CLK        	RCC_APB2Periph_GPIOB
-
-#endif
 
 
 // Battery Gauge I2C (I2C2)
@@ -155,6 +154,7 @@ typedef enum _BAT_RegisterAddress_Type
 //__IO uint16_t ADC1ConvertedValue = 0;
 
 void BAT_CHRG_Init(void);
+uint8_t BAT_IsCharging(void);
 
 void PowerMonitor_Init(void);
 void Logger_Init(void);

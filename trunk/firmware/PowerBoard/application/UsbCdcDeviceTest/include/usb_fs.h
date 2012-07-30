@@ -48,8 +48,8 @@ void Get_SerialNum(void);
 void USB_FsInit(void); // USB_Init() is reserved by STM USB library
 void USB_SoftReset(void);
 
-uint8_t USB_SendMsg(char* msg, uint8_t length);
-uint8_t USB_SendString(char* msg);
+uint8_t USB_SendMsg(const char* msg, uint8_t length);
+uint8_t USB_SendString(const char* msg);
 uint8_t USB_GetTxLength(void);
 uint8_t* USB_GetTxBuffer(void);
 
