@@ -288,7 +288,6 @@ void Logger_Init(void)
 //}
 
 
-#ifndef REV_A
 /*-------------------------------------------------------------------------*/
 /*                              BATTERY CHARGE                             */
 /*-------------------------------------------------------------------------*/
@@ -309,7 +308,11 @@ void BAT_CHRG_Init(void)
     // TODO: add interrupt to this pin to toggle LED or change state (?)
 }
 
-#endif
+uint8_t BAT_IsCharging(void)
+{
+    return (BAT_CHRG_GPIO_PORT->IDR &= BAT_CHRG_PIN) == 0;
+}
+
 
 
 /*-------------------------------------------------------------------------*/

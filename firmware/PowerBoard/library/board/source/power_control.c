@@ -54,15 +54,6 @@ void PowerControl_Init(void)
                             MASTER_SWITCH_GPIO_CLK,
                             ENABLE);
 
-#ifdef REV_A
-	// Enable GPIO register clocks
-	RCC_APB2PeriphClockCmd( USB_SUSP_GPIO_CLK |
-                            USB_HPWR_GPIO_CLK |
-                            WALL_PWRGD_GPIO_CLK |
-                            MASTER_SWITCH_GPIO_CLK,
-                            ENABLE);
-#endif
-    
     // USB_SUSP (PC13)
     USB_SUSP_GPIO_PORT->BRR = USB_SUSP_PIN;
 
@@ -79,14 +70,6 @@ void PowerControl_Init(void)
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
 	GPIO_Init(USB_HPWR_GPIO_PORT, &GPIO_InitStructure); 
 
-#ifdef REV_A
-    // WALL_PWERGD
-	GPIO_InitStructure.GPIO_Pin = WALL_PWRGD_PIN; 
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING; 
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
-	GPIO_Init(WALL_PWRGD_GPIO_PORT, &GPIO_InitStructure); 
-#endif
-    
 #ifndef MASTER_SWITCH_ZERO_RESISTOR_NOT_POPULATED
     // MASTER_SWITCH
 	GPIO_InitStructure.GPIO_Pin = MASTER_SWITCH_PIN; 
@@ -130,7 +113,6 @@ void USB_DisableSuspendMode(void)
     USB_SUSP_GPIO_PORT->BRR = USB_SUSP_PIN;
 }
 
-
 void USB_EnableHighPowerMode(void)
 {
     USB_HPWR_GPIO_PORT->BSRR = USB_HPWR_PIN;
@@ -140,14 +122,6 @@ void USB_DisableHighPowerMode(void)
 {
     USB_HPWR_GPIO_PORT->BRR = USB_HPWR_PIN;
 }
-
-
-#ifdef REV_A
-uint8_t WALL_IsPowerGood(void)
-{
-    return (WALL_PWRGD_GPIO_PORT->IDR &= WALL_PWRGD_PIN) == 0;
-}
-#endif
 
 void POW_EnableMasterSwitch(void)
 {

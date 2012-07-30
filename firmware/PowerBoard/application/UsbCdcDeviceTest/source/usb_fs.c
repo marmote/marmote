@@ -197,7 +197,7 @@ void USB_SoftReset()
 }
 
 
-uint8_t USB_SendMsg(char* msg, uint8_t length)
+uint8_t USB_SendMsg(const char* msg, uint8_t length)
 {
     uint8_t i;
 
@@ -216,7 +216,7 @@ uint8_t USB_SendMsg(char* msg, uint8_t length)
     return 0; // SUCCESS
 }
 
-uint8_t USB_SendString(char* msg)
+uint8_t USB_SendString(const char* msg)
 {
 	uint8_t length;
 	
