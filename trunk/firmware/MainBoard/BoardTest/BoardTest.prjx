@@ -1,5 +1,5 @@
 KEY LIBERO "10.0"
-KEY CAPTURE "10.0.10.4"
+KEY CAPTURE "10.0.20.2"
 KEY DEFAULT_IMPORT_LOC "D:\work\software\MainBoard\BoardTest\hdl"
 KEY DEFAULT_OPEN_LOC ""
 KEY ProjectID "aae91a99-5150-4c32-8d7c-7274f1379cb6"
@@ -32,7 +32,7 @@ ENDLIST
 LIST FileManager
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf,actgen_cxf"
 STATE="utd"
-TIME="1339621548"
+TIME="1343681169"
 SIZE="944"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
@@ -50,91 +50,97 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_CCC\2.0.106\MSS_CCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1339621545"
+TIME="1343681166"
 SIZE="252"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_CM3\1.0.200\MSS_CM3.cxf,actgen_cxf"
 STATE="utd"
-TIME="1339621545"
+TIME="1343681166"
 SIZE="252"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_COM\1.0.200\MSS_COM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1339621545"
+TIME="1343681166"
 SIZE="252"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_DMA\1.0.101\MSS_DMA.cxf,actgen_cxf"
 STATE="utd"
-TIME="1339621545"
+TIME="1343681166"
 SIZE="252"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_ENVM\2.3.102\MSS_ENVM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1339621546"
+TIME="1343681166"
 SIZE="253"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_FIO\1.0.203\MSS_FIO.cxf,actgen_cxf"
 STATE="utd"
-TIME="1339621546"
+TIME="1343681166"
 SIZE="252"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_GPIO\1.0.101\MSS_GPIO.cxf,actgen_cxf"
 STATE="utd"
-TIME="1339621546"
+TIME="1343681166"
 SIZE="253"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_I2C\1.0.101\MSS_I2C.cxf,actgen_cxf"
 STATE="utd"
-TIME="1339621546"
+TIME="1343681166"
 SIZE="252"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_INTR\1.0.101\MSS_INTR.cxf,actgen_cxf"
 STATE="utd"
-TIME="1339621546"
+TIME="1343681166"
 SIZE="253"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_RESET\1.0.101\MSS_RESET.cxf,actgen_cxf"
 STATE="utd"
-TIME="1339621546"
+TIME="1343681166"
 SIZE="254"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_RTC\1.0.100\MSS_RTC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1339621546"
+TIME="1343681166"
+SIZE="252"
+PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\SmartFusionMSS\MSS_SPI\1.0.102\MSS_SPI.cxf,actgen_cxf"
+STATE="utd"
+TIME="1343681166"
 SIZE="252"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_TIMER\1.0.100\MSS_TIMER.cxf,actgen_cxf"
 STATE="utd"
-TIME="1339621546"
+TIME="1343681166"
 SIZE="254"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_UFROM\1.0.100\MSS_UFROM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1339621546"
+TIME="1343681166"
 SIZE="254"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\work\BoardTestCanvas\BoardTestCanvas.cxf,actgen_cxf"
 STATE="utd"
-TIME="1339618112"
-SIZE="6901"
+TIME="1343681682"
+SIZE="6251"
 ENDFILE
 VALUE "<project>\component\work\BoardTestCanvas\BoardTestCanvas.pdc,pdc"
 STATE="utd"
-TIME="1339618108"
-SIZE="1886"
+TIME="1343681679"
+SIZE="3432"
 PARENT="<project>\component\work\BoardTestCanvas\BoardTestCanvas.cxf"
 BEGIN_USE_CONSTRAINT
 TOOL_CONSTRAINT_TYPE="ideDESIGNER"
@@ -144,27 +150,27 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\BoardTestCanvas\BoardTestCanvas.vhd,hdl"
 STATE="utd"
-TIME="1339618109"
-SIZE="8301"
+TIME="1343681681"
+SIZE="2727"
 PARENT="<project>\component\work\BoardTestCanvas\BoardTestCanvas.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\BoardTestCanvas\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1339618110"
-SIZE="3233"
+TIME="1343681681"
+SIZE="2687"
 PARENT="<project>\component\work\BoardTestCanvas\BoardTestCanvas.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\BoardTestMss\BoardTestMss.cxf,actgen_cxf"
 STATE="utd"
-TIME="1339621549"
-SIZE="10412"
+TIME="1343681171"
+SIZE="12282"
 ENDFILE
 VALUE "<project>\component\work\BoardTestMss\BoardTestMss.pdc,pdc"
 STATE="utd"
-TIME="1339621540"
-SIZE="1299"
+TIME="1343681161"
+SIZE="2208"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 BEGIN_USE_CONSTRAINT
 TOOL_CONSTRAINT_TYPE="ideDESIGNER"
@@ -174,34 +180,34 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\BoardTestMss\BoardTestMss.vhd,hdl"
 STATE="utd"
-TIME="1339621548"
-SIZE="33093"
+TIME="1343681170"
+SIZE="35024"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\BoardTestMss\MSS_CCC_0\BoardTestMss_tmp_MSS_CCC_0_MSS_CCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1339621545"
+TIME="1343681166"
 SIZE="490"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
 VALUE "<project>\component\work\BoardTestMss\MSS_CCC_0\BoardTestMss_tmp_MSS_CCC_0_MSS_CCC.vhd,hdl"
 STATE="utd"
-TIME="1339621545"
+TIME="1343681166"
 SIZE="7009"
 PARENT="<project>\component\work\BoardTestMss\MSS_CCC_0\BoardTestMss_tmp_MSS_CCC_0_MSS_CCC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\BoardTestMss\MSS_ENVM_0\MSS_ENVM_0.efc,efc"
 STATE="utd"
-TIME="1339621546"
+TIME="1343681166"
 SIZE="16219"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\BoardTestMss\mss_tshell.vhd,hdl"
 STATE="utd"
-TIME="1339621546"
+TIME="1343681167"
 SIZE="22849"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 BEGIN_USE_CONSTRAINT
@@ -213,7 +219,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\BoardTestMss\mss_tshell_syn.sdc,sdc"
 STATE="utd"
-TIME="1339621546"
+TIME="1343681167"
 SIZE="194"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 BEGIN_USE_CONSTRAINT
@@ -225,15 +231,15 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\BoardTestMss\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1339621548"
-SIZE="2198"
+TIME="1343681170"
+SIZE="2558"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\DESIGN_FIRMWARE\DESIGN_FIRMWARE.cxf,actgen_cxf"
 STATE="utd"
-TIME="1339618110"
-SIZE="2032"
+TIME="1343681126"
+SIZE="2201"
 ENDFILE
 VALUE "<project>\component\work\DESIGN_IO\DESIGN_IO.cxf,actgen_cxf"
 STATE="utd"
@@ -295,28 +301,28 @@ STATE="utd"
 TIME="1339618520"
 SIZE="2015"
 ENDFILE
-VALUE "<project>\designer\impl1\BoardTestCanvas_fp\projectData\BoardTestCanvas.pdb,pdb"
-STATE="utd"
-TIME="1339618520"
-SIZE="121856"
-ENDFILE
-VALUE "<project>\designer\impl1\BoardTestCanvas_placeroute_log.rpt,log"
-STATE="utd"
-TIME="1339618420"
-SIZE="2738"
-ENDFILE
 VALUE "<project>\designer\impl1\BoardTestCanvas_prgdata_log.rpt,log"
 STATE="utd"
 TIME="1339618443"
 SIZE="850"
 ENDFILE
-VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis_1.adb,adb"
+VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis.adb,adb"
+STATE="ood"
+TIME="1343681302"
+SIZE="381440"
+ENDFILE
+VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis.ide_des,ide_des"
 STATE="utd"
+TIME="1343681302"
+SIZE="1195"
+ENDFILE
+VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis_1.adb,adb"
+STATE="ood"
 TIME="1339618443"
 SIZE="1024512"
 ENDFILE
 VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis_1.fdb,fdb"
-STATE="utd"
+STATE="ood"
 TIME="1339618442"
 SIZE="112864"
 ENDFILE
@@ -403,13 +409,13 @@ SIZE="1090"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
-TIME="1339618109"
+TIME="1343681681"
 SIZE="598"
 PARENT="<project>\component\work\BoardTestCanvas\BoardTestCanvas.cxf"
 ENDFILE
 VALUE "<project>\simulation\test.bfm,sim"
 STATE="utd"
-TIME="1339621546"
+TIME="1343681166"
 SIZE="5496"
 PARENT="<project>\component\work\BoardTestMss\BoardTestMss.cxf"
 ENDFILE
@@ -457,7 +463,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\stimulus\ft232h_stub.vhd,tb_hdl"
 STATE="utd"
-TIME="1339437588"
+TIME="1342201008"
 SIZE="3815"
 ENDFILE
 VALUE "<project>\stimulus\usb_if_stub_tb.vhd,tb_hdl"
@@ -490,8 +496,23 @@ STATE="ood"
 TIME="1339011984"
 SIZE="585"
 ENDFILE
-VALUE "<project>\synthesis\synthesis_1\BoardTestCanvas.edn,syn_edn"
+VALUE "<project>\synthesis\synthesis\BoardTestCanvas.edn,syn_edn"
+STATE="ood"
+TIME="1343681282"
+SIZE="200155"
+ENDFILE
+VALUE "<project>\synthesis\synthesis\BoardTestCanvas.so,so"
 STATE="utd"
+TIME="1343681282"
+SIZE="241"
+ENDFILE
+VALUE "<project>\synthesis\synthesis\BoardTestCanvas_sdc.sdc,syn_sdc"
+STATE="ood"
+TIME="1343681282"
+SIZE="380"
+ENDFILE
+VALUE "<project>\synthesis\synthesis_1\BoardTestCanvas.edn,syn_edn"
+STATE="ood"
 TIME="1339618156"
 SIZE="771364"
 ENDFILE
@@ -501,7 +522,7 @@ TIME="1339618156"
 SIZE="243"
 ENDFILE
 VALUE "<project>\synthesis\synthesis_1\BoardTestCanvas_sdc.sdc,syn_sdc"
-STATE="utd"
+STATE="ood"
 TIME="1339618156"
 SIZE="667"
 ENDFILE
@@ -522,29 +543,25 @@ VALUE "<project>\component\work\BoardTestCanvas\testbench.vhd,tb_hdl"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
-LiberoState=Post_Layout
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\synthesis_1\BoardTestCanvas.edn,syn_edn)=StateSuccess
-ideDESIGNER(<project>\designer\impl1\BoardTestCanvas_synthesis_1.adb,adb)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
 ENDLIST
 Used_File_List
 VALUE "<project>\designer\impl1\BoardTestCanvas_fp\BoardTestCanvas.pro,pro"
-VALUE "<project>\synthesis\synthesis_1\BoardTestCanvas.edn,syn_edn"
-VALUE "<project>\synthesis\synthesis_1\BoardTestCanvas_sdc.sdc,syn_sdc"
-VALUE "<project>\synthesis\synthesis_1\BoardTestCanvas.vhd,syn_hdl"
-VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_1_palace.edn,palace_edn"
-VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_1_palace.gcf,palace_gcf"
-VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_1_palace.pdc,palace_pdc"
-VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_1_palace.sdc,palace_sdc"
-VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_1_palace.vhd,palace_hdl"
-VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis_1.adb,adb"
-VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis_1.prb,prb"
-VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis_1.fdb,fdb"
-VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis_1.pdb,pdb"
-VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis_1.stp,stp"
+VALUE "<project>\synthesis\synthesis\BoardTestCanvas.edn,syn_edn"
+VALUE "<project>\synthesis\synthesis\BoardTestCanvas_sdc.sdc,syn_sdc"
+VALUE "<project>\synthesis\synthesis\BoardTestCanvas.vhd,syn_hdl"
+VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_palace.edn,palace_edn"
+VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_palace.gcf,palace_gcf"
+VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_palace.pdc,palace_pdc"
+VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_palace.sdc,palace_sdc"
+VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_palace.vhd,palace_hdl"
+VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis.adb,adb"
+VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis.prb,prb"
+VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis.pdb,pdb"
+VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis.stp,stp"
 ENDUsed_File_List
 ENDLIST
 ENDLIST
@@ -621,17 +638,17 @@ LIST USB_IF_STUB
 VALUE "<project>\stimulus\usb_if_stub_tb.vhd,tb_hdl"
 VALUE "<project>\stimulus\usb_if_tc.vhd,tb_hdl"
 ENDLIST
+LIST USB_IF
+VALUE "<project>\stimulus\ft232h_stub.vhd,tb_hdl"
+VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
+VALUE "<project>\stimulus\usb_if_tc.vhd,tb_hdl"
+ENDLIST
 LIST BoardTestCanvas
 VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
 VALUE "<project>\component\work\BoardTestCanvas\testbench.vhd,tb_hdl"
 ENDLIST
 LIST BoardTestMss
 VALUE "<project>\component\work\BoardTestMss\testbench.vhd,tb_hdl"
-ENDLIST
-LIST USB_IF
-VALUE "<project>\stimulus\ft232h_stub.vhd,tb_hdl"
-VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
-VALUE "<project>\stimulus\usb_if_tc.vhd,tb_hdl"
 ENDLIST
 ENDLIST
 LIST Other_Association
@@ -698,8 +715,8 @@ NAME="Synplify Pro AE"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro AE"
 LOCATION="C:\Actel\Libero_v10.0\Synopsys\synplify_F201109M\bin\synplify_pro.exe"
-PARAM=""
-BATCH=0
+PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
+BATCH=1
 EndProfile
 NAME="ModelSim AE"
 FUNCTION="Simulation"
@@ -719,29 +736,25 @@ ENDLIST
 LIST ProjectState5.1
 LIST "BoardTestCanvas::work"
 LIST Impl1
-LiberoState=Post_Layout
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\synthesis_1\BoardTestCanvas.edn,syn_edn)=StateSuccess
-ideDESIGNER(<project>\designer\impl1\BoardTestCanvas_synthesis_1.adb,adb)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
 ENDLIST
 Used_File_List
 VALUE "<project>\designer\impl1\BoardTestCanvas_fp\BoardTestCanvas.pro,pro"
-VALUE "<project>\synthesis\synthesis_1\BoardTestCanvas.edn,syn_edn"
-VALUE "<project>\synthesis\synthesis_1\BoardTestCanvas_sdc.sdc,syn_sdc"
-VALUE "<project>\synthesis\synthesis_1\BoardTestCanvas.vhd,syn_hdl"
-VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_1_palace.edn,palace_edn"
-VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_1_palace.gcf,palace_gcf"
-VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_1_palace.pdc,palace_pdc"
-VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_1_palace.sdc,palace_sdc"
-VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_1_palace.vhd,palace_hdl"
-VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis_1.adb,adb"
-VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis_1.prb,prb"
-VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis_1.fdb,fdb"
-VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis_1.pdb,pdb"
-VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis_1.stp,stp"
+VALUE "<project>\synthesis\synthesis\BoardTestCanvas.edn,syn_edn"
+VALUE "<project>\synthesis\synthesis\BoardTestCanvas_sdc.sdc,syn_sdc"
+VALUE "<project>\synthesis\synthesis\BoardTestCanvas.vhd,syn_hdl"
+VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_palace.edn,palace_edn"
+VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_palace.gcf,palace_gcf"
+VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_palace.pdc,palace_pdc"
+VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_palace.sdc,palace_sdc"
+VALUE "<project>\phy_synthesis\BoardTestCanvas_synthesis_palace.vhd,palace_hdl"
+VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis.adb,adb"
+VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis.prb,prb"
+VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis.pdb,pdb"
+VALUE "<project>\designer\impl1\BoardTestCanvas_synthesis.stp,stp"
 ENDUsed_File_List
 ENDLIST
 ENDLIST
@@ -793,5 +806,5 @@ LIST OpenedFileList
 SmartDesign;BoardTestCanvas
 SmartDesign;BoardTestMss
 Reports;Reports
-ACTIVEVIEW;BoardTestMss
+ACTIVEVIEW;BoardTestCanvas
 ENDLIST
