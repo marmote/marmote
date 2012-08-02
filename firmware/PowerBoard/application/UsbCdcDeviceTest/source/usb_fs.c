@@ -21,6 +21,8 @@
 #include "usb_pwr.h"
 #include "usb_fs.h"
 
+#include "teton.h"
+
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
@@ -118,6 +120,8 @@ void Handle_USBAsynchXfer (void)
     	SetEPTxCount(ENDP1, length);
     	SetEPTxValid(ENDP1);
 	}
+	//else // from SPI
+	//{
 
  
 
