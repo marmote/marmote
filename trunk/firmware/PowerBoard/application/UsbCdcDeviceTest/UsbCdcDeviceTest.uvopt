@@ -147,23 +147,6 @@
           <Name>-UV0806MBE -O718 -S0 -C0 -N00("ARM CoreSight SW-DP") -D00(1BA01477) -L00(0) -TO18 -TC10000000 -TP21 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO7 -FD20000000 -FC800 -FN1 -FF0STM32F10x_128 -FS08000000 -FL020000</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
-      <Breakpoint>
-        <Bp>
-          <Number>0</Number>
-          <Type>0</Type>
-          <LineNumber>105</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134221168</Address>
-          <ByteObject>0</ByteObject>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename></Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\UsbCdcDeviceTest\../../library/board/source/power_board.c\105</Expression>
-        </Bp>
-      </Breakpoint>
       <WatchWindow1>
         <Ww>
           <count>0</count>
@@ -225,58 +208,32 @@
           <ItemText>status
 </ItemText>
         </Ww>
+        <Ww>
+          <count>11</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>CON_SPI_Buffer_Rx</ItemText>
+        </Ww>
+        <Ww>
+          <count>12</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>rx_idx,0x0A</ItemText>
+        </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>
           <count>0</count>
           <WinNumber>2</WinNumber>
-          <ItemText>CMD_Rx_Length</ItemText>
+          <ItemText>CON_SPI_tx_buffer_idx</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>2</WinNumber>
-          <ItemText>CMD_Rx_Buffer</ItemText>
+          <ItemText>CON_SPI_tx_buffer_len</ItemText>
         </Ww>
         <Ww>
           <count>2</count>
           <WinNumber>2</WinNumber>
-          <ItemText>CMD_List</ItemText>
-        </Ww>
-        <Ww>
-          <count>3</count>
-          <WinNumber>2</WinNumber>
-          <ItemText>i</ItemText>
-        </Ww>
-        <Ww>
-          <count>4</count>
-          <WinNumber>2</WinNumber>
-          <ItemText>j</ItemText>
-        </Ww>
-        <Ww>
-          <count>5</count>
-          <WinNumber>2</WinNumber>
-          <ItemText>cmdTokens</ItemText>
-        </Ww>
-        <Ww>
-          <count>6</count>
-          <WinNumber>2</WinNumber>
-          <ItemText>argc</ItemText>
-        </Ww>
-        <Ww>
-          <count>7</count>
-          <WinNumber>2</WinNumber>
-          <ItemText>msg
-</ItemText>
-        </Ww>
-        <Ww>
-          <count>8</count>
-          <WinNumber>2</WinNumber>
-          <ItemText>data</ItemText>
-        </Ww>
-        <Ww>
-          <count>9</count>
-          <WinNumber>2</WinNumber>
-          <ItemText>addr</ItemText>
+          <ItemText>CON_SPI_tx_buffer</ItemText>
         </Ww>
       </WatchWindow2>
       <MemoryWindow1>
@@ -331,6 +288,10 @@
           <WinId>35904</WinId>
         </Entry>
         <Entry>
+          <Name>System Viewer\GPIOC</Name>
+          <WinId>35902</WinId>
+        </Entry>
+        <Entry>
           <Name>System Viewer\SPI1</Name>
           <WinId>35905</WinId>
         </Entry>
@@ -349,10 +310,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>41</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>46</TopLine>
-      <CurrentLine>66</CurrentLine>
+      <TopLine>66</TopLine>
+      <CurrentLine>93</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\source\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -391,10 +352,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>31</ColumnNumber>
+      <ColumnNumber>53</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>89</TopLine>
-      <CurrentLine>118</CurrentLine>
+      <TopLine>39</TopLine>
+      <CurrentLine>39</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\source\usb_endp.c</PathWithFileName>
       <FilenameWithoutPath>usb_endp.c</FilenameWithoutPath>
@@ -433,10 +394,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>26</ColumnNumber>
+      <ColumnNumber>39</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>195</TopLine>
-      <CurrentLine>200</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>1</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\source\usb_fs.c</PathWithFileName>
       <FilenameWithoutPath>usb_fs.c</FilenameWithoutPath>
@@ -447,10 +408,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>34</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>87</TopLine>
-      <CurrentLine>110</CurrentLine>
+      <TopLine>152</TopLine>
+      <CurrentLine>172</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\source\cmd_def.c</PathWithFileName>
       <FilenameWithoutPath>cmd_def.c</FilenameWithoutPath>
@@ -459,7 +420,7 @@
 
   <Group>
     <GroupName>CMSIS</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
@@ -491,8 +452,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>133</TopLine>
+      <CurrentLine>133</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\CMSIS\source\arm\startup_stm32f10x_md.s</PathWithFileName>
       <FilenameWithoutPath>startup_stm32f10x_md.s</FilenameWithoutPath>
@@ -508,7 +469,7 @@
       <GroupNumber>4</GroupNumber>
       <FileNumber>11</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <Focus>0</Focus>
       <ColumnNumber>4</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -536,15 +497,29 @@
       <GroupNumber>4</GroupNumber>
       <FileNumber>13</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>27</ColumnNumber>
+      <ColumnNumber>34</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>22</TopLine>
-      <CurrentLine>53</CurrentLine>
+      <TopLine>88</TopLine>
+      <CurrentLine>97</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\board\source\power_monitor.c</PathWithFileName>
       <FilenameWithoutPath>power_monitor.c</FilenameWithoutPath>
+    </File>
+    <File>
+      <GroupNumber>4</GroupNumber>
+      <FileNumber>14</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <ColumnNumber>25</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>13</TopLine>
+      <CurrentLine>13</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\library\board\source\teton.c</PathWithFileName>
+      <FilenameWithoutPath>teton.c</FilenameWithoutPath>
     </File>
   </Group>
 
@@ -555,7 +530,7 @@
     <cbSel>0</cbSel>
     <File>
       <GroupNumber>5</GroupNumber>
-      <FileNumber>14</FileNumber>
+      <FileNumber>15</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -569,7 +544,7 @@
     </File>
     <File>
       <GroupNumber>5</GroupNumber>
-      <FileNumber>15</FileNumber>
+      <FileNumber>16</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -583,7 +558,7 @@
     </File>
     <File>
       <GroupNumber>5</GroupNumber>
-      <FileNumber>16</FileNumber>
+      <FileNumber>17</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -597,7 +572,7 @@
     </File>
     <File>
       <GroupNumber>5</GroupNumber>
-      <FileNumber>17</FileNumber>
+      <FileNumber>18</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -611,7 +586,7 @@
     </File>
     <File>
       <GroupNumber>5</GroupNumber>
-      <FileNumber>18</FileNumber>
+      <FileNumber>19</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -625,7 +600,7 @@
     </File>
     <File>
       <GroupNumber>5</GroupNumber>
-      <FileNumber>19</FileNumber>
+      <FileNumber>20</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -641,12 +616,12 @@
 
   <Group>
     <GroupName>Peripheral</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>20</FileNumber>
+      <FileNumber>21</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -660,7 +635,7 @@
     </File>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>21</FileNumber>
+      <FileNumber>22</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -674,7 +649,7 @@
     </File>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>22</FileNumber>
+      <FileNumber>23</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -688,21 +663,21 @@
     </File>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>23</FileNumber>
+      <FileNumber>24</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>57</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>828</TopLine>
+      <CurrentLine>848</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\peripheral\source\stm32f10x_spi.c</PathWithFileName>
       <FilenameWithoutPath>stm32f10x_spi.c</FilenameWithoutPath>
     </File>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>24</FileNumber>
+      <FileNumber>25</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -716,14 +691,14 @@
     </File>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>25</FileNumber>
+      <FileNumber>26</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>5</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>75</TopLine>
+      <CurrentLine>96</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\library\peripheral\source\misc.c</PathWithFileName>
       <FilenameWithoutPath>misc.c</FilenameWithoutPath>
@@ -731,9 +706,9 @@
   </Group>
 
   <AlienFiles>
-    <PathWithFilename>D:\firmware\PowerBoard\application\UsbCdcDeviceTest\include\cmd_def.h</PathWithFilename>
-    <TopLine>1</TopLine>
-    <CurrentLine>17</CurrentLine>
+    <PathWithFilename>D:\firmware\PowerBoard\library\peripheral\include\stm32f10x_spi.h</PathWithFilename>
+    <TopLine>447</TopLine>
+    <CurrentLine>468</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -757,9 +732,9 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>D:\firmware\PowerBoard\application\UsbCdcDeviceTest\include\usb_fs.h</PathWithFilename>
-    <TopLine>13</TopLine>
-    <CurrentLine>13</CurrentLine>
+    <PathWithFilename>D:\firmware\PowerBoard\library\board\include\teton.h</PathWithFilename>
+    <TopLine>15</TopLine>
+    <CurrentLine>15</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -783,35 +758,9 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>D:\firmware\PowerBoard\library\board\include\power_board.h</PathWithFilename>
-    <TopLine>50</TopLine>
-    <CurrentLine>50</CurrentLine>
-    <Constant>0</Constant>
-    <WindowPosition>
-      <length>0</length>
-      <flags>0</flags>
-      <showCmd>0</showCmd>
-      <MinPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MinPosition>
-      <MaxPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MaxPosition>
-      <NormalPosition>
-        <Top>0</Top>
-        <Left>0</Left>
-        <Right>0</Right>
-        <Bottom>0</Bottom>
-      </NormalPosition>
-    </WindowPosition>
-  </AlienFiles>
-
-  <AlienFiles>
-    <PathWithFilename>D:\firmware\PowerBoard\library\board\include\power_monitor.h</PathWithFilename>
-    <TopLine>138</TopLine>
-    <CurrentLine>163</CurrentLine>
+    <PathWithFilename>D:\firmware\PowerBoard\library\peripheral\include\stm32f10x_gpio.h</PathWithFilename>
+    <TopLine>56</TopLine>
+    <CurrentLine>62</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -839,67 +788,61 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>1</ActiveTab>
+      <ActiveTab>0</ActiveTab>
       <Documents>
         <Doc>
-          <Name>.\include\cmd_def.h</Name>
-          <ColumnNumber>10</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>17</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\source\cmd_def.c</Name>
-          <ColumnNumber>15</ColumnNumber>
-          <TopLine>87</TopLine>
-          <CurrentLine>103</CurrentLine>
-        </Doc>
-        <Doc>
           <Name>.\source\main.c</Name>
-          <ColumnNumber>41</ColumnNumber>
-          <TopLine>46</TopLine>
-          <CurrentLine>66</CurrentLine>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>66</TopLine>
+          <CurrentLine>93</CurrentLine>
         </Doc>
         <Doc>
-          <Name>.\source\usb_endp.c</Name>
-          <ColumnNumber>31</ColumnNumber>
-          <TopLine>89</TopLine>
-          <CurrentLine>118</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\source\usb_fs.c</Name>
-          <ColumnNumber>26</ColumnNumber>
-          <TopLine>195</TopLine>
-          <CurrentLine>200</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\include\usb_fs.h</Name>
-          <ColumnNumber>26</ColumnNumber>
+          <Name>..\..\library\board\source\teton.c</Name>
+          <ColumnNumber>25</ColumnNumber>
           <TopLine>13</TopLine>
           <CurrentLine>13</CurrentLine>
         </Doc>
         <Doc>
-          <Name>..\..\library\board\include\power_board.h</Name>
-          <ColumnNumber>77</ColumnNumber>
-          <TopLine>50</TopLine>
-          <CurrentLine>50</CurrentLine>
+          <Name>..\..\library\board\include\teton.h</Name>
+          <ColumnNumber>23</ColumnNumber>
+          <TopLine>15</TopLine>
+          <CurrentLine>15</CurrentLine>
         </Doc>
         <Doc>
-          <Name>..\..\library\board\include\power_monitor.h</Name>
-          <ColumnNumber>11</ColumnNumber>
-          <TopLine>138</TopLine>
-          <CurrentLine>163</CurrentLine>
+          <Name>..\..\library\peripheral\include\stm32f10x_spi.h</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>447</TopLine>
+          <CurrentLine>468</CurrentLine>
         </Doc>
         <Doc>
-          <Name>..\..\library\board\source\power_control.c</Name>
-          <ColumnNumber>5</ColumnNumber>
-          <TopLine>89</TopLine>
-          <CurrentLine>89</CurrentLine>
+          <Name>..\..\library\peripheral\source\stm32f10x_spi.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>828</TopLine>
+          <CurrentLine>848</CurrentLine>
         </Doc>
         <Doc>
-          <Name>..\..\library\board\source\power_monitor.c</Name>
-          <ColumnNumber>27</ColumnNumber>
-          <TopLine>22</TopLine>
-          <CurrentLine>53</CurrentLine>
+          <Name>..\..\library\CMSIS\source\arm\startup_stm32f10x_md.s</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>133</TopLine>
+          <CurrentLine>133</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\source\cmd_def.c</Name>
+          <ColumnNumber>34</ColumnNumber>
+          <TopLine>152</TopLine>
+          <CurrentLine>172</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\library\peripheral\include\stm32f10x_gpio.h</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>56</TopLine>
+          <CurrentLine>62</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\source\usb_fs.c</Name>
+          <ColumnNumber>39</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>1</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

@@ -43,7 +43,9 @@
 #define __TETON_H
 
 #include "stm32f10x.h"
+#include "misc.h"
 #include "stm32f10x_spi.h"
+#include "usb_fs.h"
 
 
 /*
@@ -52,33 +54,33 @@
 void Teton_Init(void);
 
 // GPIOs
-#define CON_SGPIO2                  GPIO_Pin_14 // PC.14 - CON PIN 17
+#define CON_SGPIO2_PIN              GPIO_Pin_14 // PC.14 - CON PIN 17
 #define CON_SGPIO2_GPIO_PORT        GPIOC       // GPIOC
 #define CON_SGPIO2_GPIO_CLK         RCC_APB2Periph_GPIOC
 
-#define CON_SGPIO3                  GPIO_Pin_15 // PC.15 - CON PIN 19
+#define CON_SGPIO3_PIN              GPIO_Pin_15 // PC.15 - CON PIN 19
 #define CON_SGPIO3_GPIO_PORT        GPIOC       // GPIOC
 #define CON_SGPIO3_GPIO_CLK         RCC_APB2Periph_GPIOC
 
 // UART (not used; configured as GPIO input)
-#define CON_SGPIO4                  GPIO_Pin_10 // PA.10 - CON PIN 21 (UART_RX)
+#define CON_SGPIO4_PIN              GPIO_Pin_10 // PA.10 - CON PIN 21 (UART_RX)
 #define CON_SGPIO4_GPIO_PORT        GPIOA       // GPIOA
 #define CON_SGPIO4_GPIO_CLK         RCC_APB2Periph_GPIOA
 
-#define CON_SGPIO5                  GPIO_Pin_9  // PA.9  - CON PIN 23 (UART_TX)
+#define CON_SGPIO5_PIN              GPIO_Pin_9  // PA.9  - CON PIN 23 (UART_TX)
 #define CON_SGPIO5_GPIO_PORT        GPIOA       // GPIOA
 #define CON_SGPIO5_GPIO_CLK         RCC_APB2Periph_GPIOA
 
 // I2C (not implemented yet; configured as GPIO input)
-#define CON_ALERT                   GPIO_Pin_5  // PB.5  - CON PIN 25
+#define CON_ALERT_PIN               GPIO_Pin_5  // PB.5  - CON PIN 25
 #define CON_ALERT_GPIO_PORT         GPIOB       // GPIOB
 #define CON_ALERT_GPIO_CLK          RCC_APB2Periph_GPIOB
 
-#define CON_I2C_SCL                 GPIO_Pin_6  // PB.6  - CON PIN 26
+#define CON_I2C_SCL_PIN             GPIO_Pin_6  // PB.6  - CON PIN 26
 #define CON_I2C_SCL_GPIO_PORT       GPIOB       // GPIOB
 #define CON_I2C_SCL_GPIO_CLK        RCC_APB2Periph_GPIOB
 
-#define CON_I2C_SDA                 GPIO_Pin_7  // PB.7  - CON PIN 28
+#define CON_I2C_SDA_PIN             GPIO_Pin_7  // PB.7  - CON PIN 28
 #define CON_I2C_SDA_GPIO_PORT       GPIOB       // GPIOB
 #define CON_I2C_SDA_GPIO_CLK        RCC_APB2Periph_GPIOB
 
@@ -104,9 +106,11 @@ void Teton_Init(void);
 
 #define CON_SPI                     SPI1
 #define CON_SPI_CLK                 RCC_APB2Periph_SPI1
+#define CON_SPI_IRQn		        SPI1_IRQn
 
 void CON_GPIO_Init(void);
 void CON_SPI_Init(void);
+void CON_SPI_Write(const uint8_t* data, uint8_t len);
 void CON_SPI_WriteRegister(uint8_t addr, uint8_t data);
 uint8_t CON_SPI_ReadRegister(uint8_t addr);
 

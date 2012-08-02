@@ -466,6 +466,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\library\board\source\power_monitor.c</FilePath>
             </File>
+            <File>
+              <FileName>teton.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\library\board\source\teton.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

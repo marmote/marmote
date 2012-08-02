@@ -39,7 +39,7 @@ extern CMD_Type CMD_List[] =
 	"led",  CmdLed,
 	"pwr",  CmdPwr,
 	"reg",  CmdReg,
-	"irq",  CmdIrq,
+	"t",    CmdTeton,
 //	"ccreg",  CmdCcReg,
 //	"mon on", CMD_MonitorOn,
 //	"mon off", CMD_MonitorOff
@@ -164,7 +164,40 @@ uint32_t CmdReg(uint32_t argc, char** argv)
 	return 1;	
 }
 
+uint32_t CmdTeton(uint32_t argc, char** argv)
+{	
+	if (argc == 2) {
+		//if ( strlen(*(argv+1)) == 1 )
+		{
+			CON_SPI_Write((const uint8_t*) *(argv+1), strlen(*(argv+1)));
+			return 0;
+		}
+		
+		/*
+		if (!strcmp(*(argv+1), "on"))
+		{			
+			LED_On(LED2);
+			CON_SGPIO3_GPIO_PORT->BSRR = CON_SGPIO3_PIN;
+			CON_SGPIO2_GPIO_PORT->BRR = CON_SGPIO2_PIN;
+			USB_SendString("\nSF IRQ line asserted");
+			return 0;
+		}
+	
+		if (!strcmp(*(argv+1), "off"))
+		{			
+			LED_Off(LED2);
+			CON_SGPIO3_GPIO_PORT->BRR = CON_SGPIO3_PIN;
+			CON_SGPIO2_GPIO_PORT->BSRR = CON_SGPIO2_PIN;
+			USB_SendString("\nSF IRQ line deasserted");
+			return 0;
+		}
+		*/
+	}
 
+	// Send help message
+  	USB_SendString("\nUsage: t <msg to forward>");
+	return 1;
+}
 
 
 //uint32_t CmdCcReg(uint32_t argc, char** argv)

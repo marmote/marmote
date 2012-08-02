@@ -68,58 +68,58 @@ void CON_GPIO_Init(void)
                             CON_I2C_SDA_GPIO_CLK,
                             ENABLE);
 
-	GPIO_InitStructure.GPIO_Pin = CON_SGPIO2; 
+	GPIO_InitStructure.GPIO_Pin = CON_SGPIO2_PIN; 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING; 
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
 	GPIO_Init(CON_SGPIO2_GPIO_PORT, &GPIO_InitStructure); 
 
-	GPIO_InitStructure.GPIO_Pin = CON_SGPIO3; 
+	GPIO_InitStructure.GPIO_Pin = CON_SGPIO3_PIN; 	
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING; 
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
 	GPIO_Init(CON_SGPIO3_GPIO_PORT, &GPIO_InitStructure); 
 
-	GPIO_InitStructure.GPIO_Pin = CON_SGPIO4; 
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING; 
+	GPIO_InitStructure.GPIO_Pin = CON_SGPIO4_PIN; 
+	//GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING; 
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
 	GPIO_Init(CON_SGPIO4_GPIO_PORT, &GPIO_InitStructure); 
 
-	GPIO_InitStructure.GPIO_Pin = CON_SGPIO5; 
+	GPIO_InitStructure.GPIO_Pin = CON_SGPIO5_PIN; 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING; 
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
 	GPIO_Init(CON_SGPIO5_GPIO_PORT, &GPIO_InitStructure); 
 
-	GPIO_InitStructure.GPIO_Pin = CON_ALERT; 
+	GPIO_InitStructure.GPIO_Pin = CON_ALERT_PIN; 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING; 
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
 	GPIO_Init(CON_ALERT_GPIO_PORT, &GPIO_InitStructure); 
 
-	GPIO_InitStructure.GPIO_Pin = CON_I2C_SCL; 
+	GPIO_InitStructure.GPIO_Pin = CON_I2C_SCL_PIN; 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING; 
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
 	GPIO_Init(CON_I2C_SCL_GPIO_PORT, &GPIO_InitStructure); 
 
-	GPIO_InitStructure.GPIO_Pin = CON_I2C_SDA; 
+	GPIO_InitStructure.GPIO_Pin = CON_I2C_SDA_PIN; 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING; 
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
-	GPIO_Init(CON_I2C_SDA_GPIO_PORT, &GPIO_InitStructure); 
+	GPIO_Init(CON_I2C_SDA_GPIO_PORT, &GPIO_InitStructure);
 }
 
 
 void CON_SPI_Init(void)
 {
+	NVIC_InitTypeDef NVIC_InitStructure;
 	SPI_InitTypeDef  SPI_InitStructure;
-	GPIO_InitTypeDef  GPIO_InitStructure;
+	GPIO_InitTypeDef GPIO_InitStructure;
 
-	//RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
-    RCC_APB2PeriphClockCmd( CON_SPI_NSS_GPIO_CLK  |
+	RCC_APB2PeriphClockCmd( CON_SPI_NSS_GPIO_CLK  |
                             CON_SPI_SCK_GPIO_CLK  |
                             CON_SPI_MISO_GPIO_CLK |
                             CON_SPI_MOSI_GPIO_CLK,
                             ENABLE);
 
     // Enable peripheral clock
-	//RCC->APB2ENR |= RCC_APB2ENR_SPI1EN;
-    RCC_APB2PeriphClockCmd(CON_SPI_CLK, ENABLE);
+	RCC_APB2PeriphClockCmd(CON_SPI_CLK, ENABLE);
     
     // Initialize NSS, SCK, MISO and MOSI pins
 
@@ -129,52 +129,117 @@ void CON_SPI_Init(void)
 
 	GPIO_InitStructure.GPIO_Pin = CON_SPI_NSS_PIN;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
     GPIO_Init(CON_SPI_NSS_GPIO_PORT, &GPIO_InitStructure); 
 
     // SCK
     GPIO_InitStructure.GPIO_Pin = CON_SPI_SCK_PIN;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
     GPIO_Init(CON_SPI_SCK_GPIO_PORT, &GPIO_InitStructure);
 
     // MISO
     GPIO_InitStructure.GPIO_Pin = CON_SPI_MISO_PIN;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; // !
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
     GPIO_Init(CON_SPI_MISO_GPIO_PORT, &GPIO_InitStructure);
 
     // MOSI
     GPIO_InitStructure.GPIO_Pin = CON_SPI_MOSI_PIN;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; // !
     GPIO_Init(CON_SPI_MOSI_GPIO_PORT, &GPIO_InitStructure);
 
-    // Initialize SPI
-    // NOTE: SPI1 is initialized as master for hardware testing only, it is
-    // supposed to act as slave later on
-    // FIXME: Target clock rate?
+    // Initialize SPI (slave)
     // TODO: Calculate prescaler value based on SYSCLK > APB2CLK
     SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
-    SPI_InitStructure.SPI_Mode = SPI_Mode_Master;
+    SPI_InitStructure.SPI_Mode = SPI_Mode_Slave;
     SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;
     SPI_InitStructure.SPI_CPOL = SPI_CPOL_Low;
     SPI_InitStructure.SPI_CPHA = SPI_CPHA_1Edge;
-    SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
+    //SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
     SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_32;
     SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
     SPI_InitStructure.SPI_CRCPolynomial = 7;
-    SPI_Init(SPI1, &SPI_InitStructure);
+    SPI_Init(CON_SPI, &SPI_InitStructure);
 
-    // Enable NSS as output
-    SPI_SSOutputCmd(CON_SPI, ENABLE);
+	// Enable interrupt
+	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1); // ?
+
+	NVIC_InitStructure.NVIC_IRQChannel = CON_SPI_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+	NVIC_Init(&NVIC_InitStructure);		   
+
+  	SPI_I2S_ITConfig(CON_SPI, SPI_I2S_IT_TXE, DISABLE);
+	SPI_I2S_ITConfig(CON_SPI, SPI_I2S_IT_RXNE, ENABLE);
 
     // Enable SPI
     SPI_Cmd(CON_SPI, ENABLE);
 }
 
+/*
+const uint8_t spi_rx_buffer_size = 64;
+uint8_t ridx;
+uint8_t widx;
+uint8_t CON_SPI_rx_buffer[spi_rx_buffer_size];
+*/
+
+
+const uint8_t spi_tx_buffer_size = 64;
+static uint8_t CON_SPI_tx_buffer[spi_tx_buffer_size];
+static uint8_t CON_SPI_tx_buffer_len;
+static uint8_t CON_SPI_tx_buffer_idx;
+
+void SPI1_IRQHandler(void)	// TODO: rename to CON_SPI_IRQHandler
+{
+	
+	uint8_t data;
+
+	if ( SPI_I2S_GetITStatus(CON_SPI, SPI_I2S_IT_TXE) == SET )
+	{
+		if ( CON_SPI_tx_buffer_idx < CON_SPI_tx_buffer_len )
+		{
+			// Transmit further bytes
+			SPI_I2S_SendData(CON_SPI, CON_SPI_tx_buffer[CON_SPI_tx_buffer_idx++]);
+			SPI_I2S_ITConfig(CON_SPI, SPI_I2S_IT_TXE , ENABLE);
+		}
+		else
+		{
+			// Deassert IT request GPIO line
+			CON_SGPIO4_GPIO_PORT->BRR = CON_SGPIO4_PIN;
+			SPI_I2S_ITConfig(CON_SPI, SPI_I2S_IT_TXE , DISABLE);
+		}
+
+		SPI_I2S_ClearITPendingBit(CON_SPI, SPI_I2S_IT_TXE);		
+	}
+	
+	if ( SPI_I2S_GetITStatus(CON_SPI, SPI_I2S_IT_RXNE) == SET )
+	{
+		// Forwared received data to USB console
+		data = SPI_I2S_ReceiveData(CON_SPI);
+		USB_SendMsg((const char*)&data, 1);
+	}
+	
+}
+
+void CON_SPI_Write(const uint8_t* data, uint8_t len)
+{
+	// TODO: Currently overwrites the buffer content -> implement a circular buffer (?)
+	memcpy(CON_SPI_tx_buffer, data, len);
+	CON_SPI_tx_buffer_len = len;
+	CON_SPI_tx_buffer_idx = 0;
+
+	SPI_I2S_SendData(CON_SPI, CON_SPI_tx_buffer[CON_SPI_tx_buffer_idx++]);
+	SPI_I2S_ITConfig(CON_SPI, SPI_I2S_IT_TXE, ENABLE);
+	CON_SGPIO4_GPIO_PORT->BSRR = CON_SGPIO4_PIN;
+	//CON_SGPIO4_GPIO_PORT->BRR = CON_SGPIO4_PIN;
+}
+
+
 void CON_SPI_WriteRegister(uint8_t addr, uint8_t data)
 {
+	/*
 	uint8_t header;							   
 	header = addr & 0x3F; // write, no burst
 
@@ -193,10 +258,12 @@ void CON_SPI_WriteRegister(uint8_t addr, uint8_t data)
 
     // Deassert NSS (CSn)
 	CON_SPI_NSS_GPIO_PORT->BSRR = CON_SPI_NSS_PIN;
+	*/
 }
 
 uint8_t CON_SPI_ReadRegister(uint8_t addr)
 {
+	/*
 	uint8_t header;
     uint8_t data;
 
@@ -223,5 +290,7 @@ uint8_t CON_SPI_ReadRegister(uint8_t addr)
 	CON_SPI_NSS_GPIO_PORT->BSRR = CON_SPI_NSS_PIN;
     
     return data;
+	*/
+	return 0;
 }
 
