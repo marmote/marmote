@@ -20,41 +20,19 @@
  * adding the symbol/define ACTEL_STDIO_THRU_UART to your project and
  * specifying the baud rate using the ACTEL_STDIO_BAUD_RATE define.
  */
-/*
 #ifdef ACTEL_STDIO_THRU_UART
 #include "../../drivers/mss_uart/mss_uart.h"
 
 #ifndef ACTEL_STDIO_BAUD_RATE
 #define ACTEL_STDIO_BAUD_RATE  MSS_UART_57600_BAUD
 #endif
-*/
 
 /*------------------------------------------------------------------------------
  * Global flag used to indicate if the UART driver needs to be initialized.
  */
-/*
 static int g_stdio_uart_init_done = 0;
 
-#endif	// ACTEL_STDIO_THRU_UART
-*/
-
-/*==============================================================================
- * Redirection of standard output to a SmartFusion MSS SPI.
- *------------------------------------------------------------------------------
- * A default implementation for the redirection of the output of printf() to a
- * SPI is provided at the bottom of this file. This redirection is enabled by
- * adding the symbol/define ACTEL_STDIO_THRU_SPI to your project.
- */
-#ifdef ACTEL_STDIO_THRU_SPI
-#include "../../drivers/mss_spi/mss_spi.h"
-
-/*------------------------------------------------------------------------------
- * Global flag used to indicate if the SPI driver needs to be initialized.
- */
-static int g_stdio_spi_init_done = 0;
-static const uint8_t frame_size = 8;
-
-#endif	/* ACTEL_STDIO_THRU_SPI */
+#endif	/* ACTEL_STDIO_THRU_UART */
 
 /*==============================================================================
  * Environment variables.
@@ -177,61 +155,26 @@ int _read(int file, char *ptr, int len)
  */
 int _write_r( void * reent, int file, char * ptr, int len )
 {
-//	/*
-//#ifdef ACTEL_STDIO_THRU_UART
-//    /*--------------------------------------------------------------------------
-//     * Initialize the UART driver if it is the first time this function is
-//     * called.
-//     */
-//    if ( !g_stdio_uart_init_done )
-//    {
-//        MSS_UART_init( &g_mss_uart0, ACTEL_STDIO_BAUD_RATE, (MSS_UART_DATA_8_BITS | MSS_UART_NO_PARITY));
-//        g_stdio_uart_init_done = 1;
-//    }
-//
-//    /*--------------------------------------------------------------------------
-//     * Output text to the UART.
-//     */
-//    MSS_UART_polled_tx( &g_mss_uart0, (uint8_t *)ptr, len );
-//
-//    return len;
-//#elif defined(ACTEL_STDIO_THRU_SPI)   /* ACTEL_STDIO_THRU_SPI */
-
-#ifdef ACTEL_STDIO_THRU_SPI   /* ACTEL_STDIO_THRU_SPI */
+#ifdef ACTEL_STDIO_THRU_UART
     /*--------------------------------------------------------------------------
-     * Initialize the SPI driver if it is the first time this function is
+     * Initialize the UART driver if it is the first time this function is
      * called.
      */
-    if ( !g_stdio_spi_init_done )
+    if ( !g_stdio_uart_init_done )
     {
-        MSS_SPI_init( &g_mss_spi0 );
-        MSS_SPI_configure_master_mode
-        (
-            &g_mss_spi0,
-            MSS_SPI_SLAVE_0,
-            MSS_SPI_MODE0,
-            MSS_SPI_PCLK_DIV_128,
-            frame_size
-        );
-        MSS_SPI_enable( &g_mss_spi0 );
-        g_stdio_spi_init_done = 1;
+        MSS_UART_init( &g_mss_uart0, ACTEL_STDIO_BAUD_RATE, (MSS_UART_DATA_8_BITS | MSS_UART_NO_PARITY));
+        g_stdio_uart_init_done = 1;
     }
     
     /*--------------------------------------------------------------------------
-     * Output text to the SPI.
+     * Output text to the UART.
      */
-    int i;
-    for (i = 0; i < len; i++)
-    {
-    	MSS_SPI_set_slave_select( &g_mss_spi0, MSS_SPI_SLAVE_0 );
-    	MSS_SPI_transfer_frame( &g_mss_spi0, *(ptr+i) );
-    	MSS_SPI_clear_slave_select( &g_mss_spi0, MSS_SPI_SLAVE_0 );
-    }
+    MSS_UART_polled_tx( &g_mss_uart0, (uint8_t *)ptr, len );
     
     return len;
-#else
+#else   /* ACTEL_STDIO_THRU_UART */
     return 0;
-#endif  /* ACTEL_STDIO_THRU_SPI */
+#endif  /* ACTEL_STDIO_THRU_UART */
 }
 
 /*==============================================================================
