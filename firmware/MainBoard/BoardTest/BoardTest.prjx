@@ -652,21 +652,21 @@ ENDLIST
 ENDLIST
 ENDLIST
 LIST AssociatedStimulus
-LIST BoardTestCanvas
-VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
-VALUE "<project>\component\work\BoardTestCanvas\testbench.vhd,tb_hdl"
-ENDLIST
-LIST BoardTestMss
-VALUE "<project>\component\work\BoardTestMss\testbench.vhd,tb_hdl"
+LIST USB_IF_STUB
+VALUE "<project>\stimulus\usb_if_stub_tb.vhd,tb_hdl"
+VALUE "<project>\stimulus\usb_if_tc.vhd,tb_hdl"
 ENDLIST
 LIST USB_IF
 VALUE "<project>\stimulus\ft232h_stub.vhd,tb_hdl"
 VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
 VALUE "<project>\stimulus\usb_if_tc.vhd,tb_hdl"
 ENDLIST
-LIST USB_IF_STUB
-VALUE "<project>\stimulus\usb_if_stub_tb.vhd,tb_hdl"
-VALUE "<project>\stimulus\usb_if_tc.vhd,tb_hdl"
+LIST BoardTestCanvas
+VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
+VALUE "<project>\component\work\BoardTestCanvas\testbench.vhd,tb_hdl"
+ENDLIST
+LIST BoardTestMss
+VALUE "<project>\component\work\BoardTestMss\testbench.vhd,tb_hdl"
 ENDLIST
 ENDLIST
 LIST Other_Association
@@ -824,6 +824,8 @@ ENDLIST
 LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
-StartPage;StartPage
-ACTIVEVIEW;StartPage
+SmartDesign;BoardTestCanvas
+SmartDesign;BoardTestMss
+Reports;Reports
+ACTIVEVIEW;BoardTestCanvas
 ENDLIST

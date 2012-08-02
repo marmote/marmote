@@ -36,6 +36,7 @@ uint32_t CmdHelp(uint32_t argc, char** argv)
 uint32_t CmdLed(uint32_t argc, char** argv)
 {
 	// Toggle LED
+	/*
 	if ( MSS_GPIO_get_outputs() & MSS_GPIO_0_MASK )
 	{
 		MSS_GPIO_set_output( MSS_GPIO_0, 0 );
@@ -44,8 +45,8 @@ uint32_t CmdLed(uint32_t argc, char** argv)
 	{
 		MSS_GPIO_set_output( MSS_GPIO_0, 1 );
 	}
+	*/
 
-	/*
 	if (argc == 2)
 	{
 		if (!strcmp(*(argv+1), "on"))
@@ -60,7 +61,6 @@ uint32_t CmdLed(uint32_t argc, char** argv)
 			return 0;
 		}
 	}
-	*/
 
 	// Send help message
   	Yellowstone_print("\nUsage: t led [on | off]");
