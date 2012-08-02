@@ -167,9 +167,16 @@ uint32_t CmdReg(uint32_t argc, char** argv)
 uint32_t CmdTeton(uint32_t argc, char** argv)
 {	
 	if (argc == 2) {
-		//if ( strlen(*(argv+1)) == 1 )
+		//if ( strlen(*(argv+1)) == 1 )		
 		{
-			CON_SPI_Write((const uint8_t*) *(argv+1), strlen(*(argv+1)));
+			char buf[32];
+			uint8_t arg_len;
+			
+			arg_len = strlen(*(argv+1)) < 32-1 ? strlen(*(argv+1)) : 32-1;
+			strncpy( buf, *(argv+1), arg_len );
+			buf[arg_len] = '\n';
+
+			CON_SPI_Write( (const uint8_t*)buf, arg_len+1 );
 			return 0;
 		}
 		
