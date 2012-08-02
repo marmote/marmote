@@ -74,9 +74,10 @@ void GPIO1_IRQHandler( void )
 		uint8_t i;
 		for ( i = 0; i < spi_rx_buffer_count-1; i++ )
 		{
-			cmd_buffer[i] = spi_rx_buffer[spi_rx_buffer_start + i];
+			cmd_buffer[i] = spi_rx_buffer[(spi_rx_buffer_start + i) % spi_rx_buffer_size];
 		}
-		cmd_length = spi_rx_buffer_count-1;
+		cmd_buffer[spi_rx_buffer_count-1] = '\0';
+		cmd_length = spi_rx_buffer_count;
 
 		spi_rx_buffer_start = cmd_length % spi_rx_buffer_size;
 		spi_rx_buffer_count = 0;
