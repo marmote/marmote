@@ -125,7 +125,9 @@ architecture Behavioral of USB_IF is
         RCLOCK  : in  std_logic;
         FULL    : out std_logic;
         EMPTY   : out std_logic;
-        RESET   : in  std_logic
+        RESET   : in  std_logic;
+        AFULL   : out std_logic;
+        AEMPTY  : out std_logic
     );
     end component;
 
@@ -148,20 +150,51 @@ architecture Behavioral of USB_IF is
     -- Constants
 
     -- Frame fields
-    constant c_SOF : std_logic_vector(31 downto 0) := x"DEADBEEF";
+    constant c_SOF : std_logic_vector(15 downto 0) := x"BEEF";
 
     constant c_FRAME_LENGTH : std_logic_vector(11 downto 0) :=
         std_logic_vector(to_unsigned(g_FRAME_LENGTH, 12));
 
     -- Signals
 
+
+    -- Arbiter SM
+    type arb_sm_t is (
+        st_ARB_IDLE,
+        st_ARB_RX,
+        st_ARB_TX_CTRL,
+        st_ARB_TX_DATA
+    );
+
+    signal s_arbiter_sm_state : arb_sm_t;
+    signal s_arbiter_sm_state_next : arb_sm_t;
+    signal s_rx_sm_start : std_logic;
+    signal s_rx_sm_start_next : std_logic;
+    signal s_tx_ctrl_sm_start : std_logic;
+    signal s_tx_ctrl_sm_start_next : std_logic;
+    signal s_tx_data_sm_start : std_logic;
+    signal s_tx_data_sm_start_next : std_logic;
+
+    signal s_rx_sm_done : std_logic;
+    signal s_tx_ctrl_sm_done : std_logic;
+    signal s_tx_data_sm_done : std_logic;
+
+    signal s_ctrl_data : std_logic_vector(7 downto 0);
+    signal s_tx_ctrl_fifo_out : std_logic_vector(7 downto 0);
+    signal s_tx_ctrl_fifo_we : std_logic;
+    signal s_tx_ctrl_fifo_rd : std_logic;
+    signal s_tx_ctrl_fifo_aempty : std_logic;
+    signal s_tx_ctrl_fifo_afull : std_logic;
+
+    signal s_rx_ctrl_fifo_we : std_logic;
+    signal s_rx_ctrl_fifo_rd : std_logic;
+    signal s_rx_ctrl_fifo_empty : std_logic;
+    signal s_rx_ctrl_fifo_afull : std_logic;
+
     type tx_sm_t is (
         st_IDLE,
-        st_FETCH,
         st_SOF_1,
         st_SOF_2,
-        st_SOF_3,
-        st_SOF_4,
         st_SEQ_MSB,
         st_SEQ_LSB,
         st_DATA_I_MSB,
@@ -181,15 +214,20 @@ architecture Behavioral of USB_IF is
 
     signal s_oe     : std_logic;
     signal s_obuf   : std_logic_vector(7 downto 0);
+    signal s_obuf_next   : std_logic_vector(7 downto 0);
     signal s_ibuf   : std_logic_vector(7 downto 0);
 
     signal s_txe_n  : std_logic;
     signal s_fifo_fetched : std_logic;
     signal s_fifo_fetched_next : std_logic;
+    signal s_last_sample   : std_logic;
+    signal s_last_sample_next   : std_logic;
 
     signal s_wr_n : std_logic;
-    signal s_tx_fifo_re : std_logic;
-    signal s_tx_fifo_re_next : std_logic;
+    signal s_tx_i_fifo_re : std_logic;
+    signal s_tx_i_fifo_re_next : std_logic;
+    signal s_tx_q_fifo_re : std_logic;
+    signal s_tx_q_fifo_re_next : std_logic;
     signal s_tx_fifo_we : std_logic;
     signal s_tx_i_fifo_full : std_logic;
     signal s_tx_i_fifo_empty : std_logic;
@@ -229,19 +267,52 @@ begin
     end generate g_USB_SYNC_FIFO_DATA;
 
         
-    -- NOTE: Port mapping and testing of this FIFO is not finished.
-    u_RX_FIFO : FIFO_512x8
+    -- Control FIFOs
+    u_TX_CTRL_FIFO : FIFO_512x8
+    port map (
+        RESET   => RST,
+        DATA    => s_ctrl_data, -- FIXME: loopback for testing only
+        Q       => s_tx_ctrl_fifo_out,
+        WCLOCK  => usb_clk,
+        WE      => s_tx_ctrl_fifo_we,
+        RCLOCK  => CLK,
+        RE      => s_tx_ctrl_fifo_rd,
+        FULL    => open,
+        EMPTY  => open,
+        AFULL   => s_tx_ctrl_fifo_afull,
+        AEMPTY  => s_tx_ctrl_fifo_aempty
+    );
+
+    u_RX_CTRL_FIFO : FIFO_512x8
     port map (
         RESET   => RST,
         DATA    => s_ibuf,
-        Q       => RXD,
+        Q       => s_ctrl_data, -- FIXME: loopback for testing only
         WCLOCK  => usb_clk,
-        WE      => s_rx_fifo_we,
+        WE      => s_rx_ctrl_fifo_we,
         RCLOCK  => CLK,
-        RE      => s_rx_strobe,
+        RE      => s_rx_ctrl_fifo_rd,
         FULL    => open,
-        EMPTY   => RX_STROBE
+        EMPTY   => s_rx_ctrl_fifo_empty,
+        AFULL   => s_rx_ctrl_fifo_afull,
+        AEMPTY  => open
     );
+
+    -- NOTE: Port mapping and testing of this FIFO is not finished.
+--    u_RX_I_FIFO : FIFO_512x8
+--    port map (
+--        RESET   => RST,
+--        DATA    => s_ibuf,
+--        Q       => RXD,
+--        WCLOCK  => usb_clk,
+--        WE      => s_rx_fifo_we,
+--        RCLOCK  => CLK,
+--        RE      => s_rx_strobe,
+--        FULL    => open,
+--        EMPTY   => RX_STROBE,
+--        AFULL   => open,
+--        AEMPTY  => open
+--    );
 
     s_rx_fifo_we <= '0'; -- FIXME
     s_rx_strobe <= '0'; -- FIXME
@@ -255,7 +326,7 @@ begin
         WCLOCK  => CLK,
         WE      => s_tx_fifo_we,
         RCLOCK  => usb_clk,
-        RE      => s_tx_fifo_re,
+        RE      => s_tx_i_fifo_re,
         FULL    => open,
         EMPTY   => open,
         AFULL   => open,
@@ -270,7 +341,7 @@ begin
         WCLOCK  => CLK,
         WE      => s_tx_fifo_we,
         RCLOCK  => usb_clk,
-        RE      => s_tx_fifo_re,
+        RE      => s_tx_i_fifo_re,
         FULL    => s_tx_i_fifo_full,
         EMPTY   => s_tx_i_fifo_empty,
         AFULL   => s_tx_i_fifo_afull,
@@ -285,27 +356,132 @@ begin
         WCLOCK  => CLK,
         WE      => s_tx_fifo_we,
         RCLOCK  => usb_clk,
-        RE      => s_tx_fifo_re,
+        RE      => s_tx_q_fifo_re,
         FULL    => open,
         EMPTY   => open,
         AFULL   => open,
         AEMPTY  => open
     );
 
---    -----------------------------------
---    -- Input registers               --
---    -----------------------------------
---    p_input_reg : process (rst, usb_clk)
---    begin
---        if rst = '1' then
---            s_txe_n <= '1';
---        elsif rising_edge(usb_clk) then
---            s_txe_n <= TXE_n_pin;
---        end if;
---    end process p_input_reg;
+
+    -----------------------------------
+    -- TX FIFO write                 --
+    -----------------------------------
+    s_tx_fifo_we <= TX_STROBE and not (s_tx_i_fifo_full); -- FIXME: should use SEQ FIFO instead
 
 
     -- Processes
+
+    ----------------------------------------------------
+    -- Arbiter state machine                          --
+    ----------------------------------------------------
+    -- The arbiter handles access to the DATA_pin lines.
+    --
+    -- Priorities:
+    --
+    --  1. Control/Data RX
+    --  2. Control TX
+    --  3. Data TX
+    --
+    ----------------------------------------------------
+    p_arbiter_sm_sync : process (rst, usb_clk)
+    begin
+        if rst = '1' then
+            s_arbiter_sm_state <= st_ARB_IDLE;
+            s_rx_sm_start <= '0';
+            s_tx_ctrl_sm_start <= '0';
+            s_tx_data_sm_start <= '0';
+        elsif rising_edge(usb_clk) then
+            s_arbiter_sm_state <= s_arbiter_sm_state_next;
+            s_rx_sm_start <= s_rx_sm_start_next;
+            s_tx_ctrl_sm_start <= s_tx_ctrl_sm_start_next;
+            s_tx_data_sm_start <= s_tx_data_sm_start_next;
+        end if;
+    end process p_arbiter_sm_sync;
+
+    p_arbiter_sm_comb : process (
+        s_arbiter_sm_state,
+        RXF_n_pin,
+        s_tx_ctrl_fifo_aempty,
+        s_rx_sm_done,
+        s_tx_ctrl_sm_done,
+        s_tx_data_sm_done
+    )
+    begin
+        -- Default values
+        s_arbiter_sm_state_next <= s_arbiter_sm_state;
+        
+        s_rx_sm_start_next <= '0';
+        s_tx_ctrl_sm_start_next <= '0';
+        s_tx_data_sm_start_next <= '0';
+
+        -- Next state logic
+        case s_arbiter_sm_state is
+
+            when st_ARB_IDLE => 
+                -- RX control/data
+                if RXF_n_pin = '0' then
+                    s_rx_sm_start_next <= '1';
+                    s_arbiter_sm_state_next <= st_ARB_RX;
+                -- TX
+                elsif TXE_n_pin = '0' then
+                    -- TX control
+                    if s_tx_ctrl_fifo_aempty = '0' then
+                        s_tx_ctrl_sm_start_next <= '1';
+                        s_arbiter_sm_state_next <= st_ARB_TX_CTRL;
+                    -- TX data
+--                    elsif s_tx_data_fifo_aempty = '0' then
+--                        s_tx_data_sm_start_next <= '1';
+--                        s_arbiter_sm_state_next <= st_ARB_TX_DATA;
+                    end if;
+                end if;
+
+            when st_ARB_RX => 
+                if s_rx_sm_done = '1' then
+                    s_arbiter_sm_state_next <= st_ARB_IDLE;
+                end if;
+
+            when st_ARB_TX_CTRL => 
+                if s_tx_ctrl_sm_done = '1' then
+                    s_arbiter_sm_state_next <= st_ARB_IDLE;
+                end if;
+
+            when st_ARB_TX_DATA => 
+                if s_tx_data_sm_done = '1' then
+                    s_arbiter_sm_state_next <= st_ARB_IDLE;
+                end if;
+
+            when others => 
+                null;
+
+        end case;
+    end process p_arbiter_sm_comb;
+
+    s_rx_sm_done <= '1';
+    s_tx_ctrl_sm_done <= '1';
+    s_tx_data_sm_done <= '1';
+
+
+    -------------------------------------
+    -- Control FIFO                    --
+    -- To be extended to control TX data --
+    -------------------------------------
+--    p_ctrl_fifo_write : process (rst, usb_clk)
+--    begin
+--        if rst = '1' then
+--        elsif rising_edge(usb_clk) then
+----            s_oe <= '0';
+--            OE_n_pin <= '1';
+--            s_rd_n <= '1';
+--            if RXF_n_pin = '0' and s_ctrl_fifo_full = '0' and s_rx_en then
+----                s_oe <= '0';
+--                OE_n_pin <= '0';
+--                s_rd_n <= '0';
+--            end if;
+--        end if;
+--    end process p_tx_fifo_read;
+--
+--    s_tx_fifo_re <= '1' when TXE_n_pin = '0' and s_tx_i_fifo_empty = '0' else '0';
 
     -----------------------------------
     -- Sequence number generator     --
@@ -322,11 +498,6 @@ begin
     end process p_seq_num_gen;
 
 
-    -----------------------------------
-    -- TX FIFO write                 --
-    -----------------------------------
-    s_tx_fifo_we <= TX_STROBE and not (s_tx_i_fifo_full); -- FIXME: should use SEQ FIFO instead
-
 
     -----------------------------------
     -- TX FIFO read and USB transmit --
@@ -336,13 +507,21 @@ begin
         if rst = '1' then
             s_tx_sm_state <= st_IDLE;
             s_tx_sample_ctr <= (others => '0');
-            s_tx_fifo_re <= '0';
+            s_tx_i_fifo_re <= '0';
+            s_tx_q_fifo_re <= '0';
             s_fifo_fetched <= '0';
+            s_obuf <= (others => '0');
+            s_last_sample <= '0';
+            s_txe_n <= '1';
         elsif rising_edge(usb_clk) then
             s_tx_sm_state <= s_tx_sm_state_next;
             s_tx_sample_ctr <= s_tx_sample_ctr_next;
-            s_tx_fifo_re <= s_tx_fifo_re_next;
+            s_tx_i_fifo_re <= s_tx_i_fifo_re_next;
+            s_tx_q_fifo_re <= s_tx_q_fifo_re_next;
             s_fifo_fetched <= s_fifo_fetched_next;
+            s_obuf <= s_obuf_next;
+            s_last_sample <= s_last_sample_next;
+            s_txe_n <= TXE_n_pin;
         end if;
     end process p_tx_fifo_read_sm_sync;
 
@@ -352,18 +531,22 @@ begin
         s_tx_i_fifo_out,
         s_tx_q_fifo_out,
         s_seq_fifo_out,
-        TXE_n_pin,
+        s_obuf,
+        s_txe_n,
         s_fifo_fetched,
+        s_last_sample,
         s_tx_i_fifo_aempty
     )
     begin
        -- Default states
         s_tx_sm_state_next <= s_tx_sm_state;
         s_tx_sample_ctr_next <= s_tx_sample_ctr;
-        s_tx_fifo_re_next <= '0';
+        s_tx_i_fifo_re_next <= '0';
+        s_tx_q_fifo_re_next <= '0';
         s_fifo_fetched_next <= s_fifo_fetched;
 
-        s_obuf <= (others => '0');
+        s_obuf_next <= s_obuf;
+        s_last_sample_next <= s_last_sample;
 
         -- Next state logic
         case s_tx_sm_state is
@@ -372,104 +555,92 @@ begin
             when st_IDLE => 
 
                 s_tx_sample_ctr_next <= (others => '0');
+                s_obuf_next <= c_SOF(15 downto 8);
 
                 if s_tx_i_fifo_aempty = '0' then
-                    s_tx_fifo_re_next <= '1';
+                    s_tx_i_fifo_re_next <= '1';
+                    s_tx_q_fifo_re_next <= '1';
                     s_fifo_fetched_next <= '1';
                     s_tx_sm_state_next <= st_SOF_1;
+                    s_last_sample_next <= '0';
                 end if;
-                
+
             -- Transmit SOF
             when st_SOF_1 => 
 
-                s_obuf <= c_SOF(31 downto 24);
-
-                if TXE_n_pin = '0' then
+                if s_txe_n = '0' then
+                    s_obuf_next <= c_SOF(7 downto 0);
                     s_tx_sm_state_next <= st_SOF_2;
                 end if;
 
             when st_SOF_2 => 
 
-                s_obuf <= c_SOF(23 downto 16);
-
-                if TXE_n_pin = '0' then
-                    s_tx_sm_state_next <= st_SOF_3;
-                end if;
-
-            when st_SOF_3 => 
-
-                s_obuf <= c_SOF(15 downto 8);
-
-                if TXE_n_pin = '0' then
-                    s_tx_sm_state_next <= st_SOF_4;
-                end if;
-
-            when st_SOF_4 => 
-
                 s_tx_sample_ctr_next <= s_tx_sample_ctr + 1;
-                s_obuf <= c_SOF(7 downto 0);
 
-                if TXE_n_pin = '0' then
+                if s_txe_n = '0' then
+                    s_obuf_next <= s_seq_fifo_out(7 downto 0);
                     s_tx_sm_state_next <= st_SEQ_LSB;
                 end if;
 
             when st_SEQ_LSB => 
 
-                s_obuf <= s_seq_fifo_out(7 downto 0);
-
-                if TXE_n_pin = '0' then
+                if s_txe_n = '0' then
+                    s_obuf_next <= s_seq_fifo_out(15 downto 8);
                     s_tx_sm_state_next <= st_SEQ_MSB;
                 end if;
 
             when st_SEQ_MSB => 
 
-                s_obuf <= s_seq_fifo_out(15 downto 8);
-
-                if TXE_n_pin = '0' then
+                if s_txe_n = '0' then
+                    s_obuf_next <= s_tx_i_fifo_out(7 downto 0);
                     s_tx_sm_state_next <= st_DATA_I_LSB;
                 end if;
 
             when st_DATA_I_LSB => 
 
-                s_obuf <= s_tx_i_fifo_out(7 downto 0);
+                if s_txe_n = '0' then
+                    -- Fetch new value
+                    if s_tx_sample_ctr /= unsigned(c_FRAME_LENGTH) then
+                        s_tx_i_fifo_re_next <= '1';
+                    end if;
 
-                if TXE_n_pin = '0' then
+                    s_obuf_next <= s_tx_i_fifo_out(15 downto 8);
                     s_tx_sm_state_next <= st_DATA_I_MSB;
                 end if;
 
             when st_DATA_I_MSB => 
 
-                s_obuf <= s_tx_i_fifo_out(15 downto 8);
-
-                if TXE_n_pin = '0' then
+                if s_txe_n = '0' then
+                    s_obuf_next <= s_tx_q_fifo_out(7 downto 0);
                     s_tx_sm_state_next <= st_DATA_Q_LSB;
                 end if;
 
             when st_DATA_Q_LSB => 
 
-                s_obuf <= s_tx_q_fifo_out(7 downto 0);
-
-                if TXE_n_pin = '0' then
-                    s_tx_sm_state_next <= st_DATA_Q_MSB;
-
+                if s_txe_n = '0' then
                     -- Fetch new value
-                    if s_tx_sample_ctr /= unsigned(c_FRAME_LENGTH) then
-                        s_tx_fifo_re_next <= '1';
+                    if s_tx_sample_ctr = unsigned(c_FRAME_LENGTH) then
+                        s_tx_sample_ctr_next <= (others => '0');
+                        s_last_sample_next <= '1';
+                    else
+                        s_tx_sample_ctr_next <= s_tx_sample_ctr + 1;
+                        s_tx_q_fifo_re_next <= '1';
                     end if;
+
+                    s_obuf_next <= s_tx_q_fifo_out(15 downto 8);
+                    s_tx_sm_state_next <= st_DATA_Q_MSB;
                 end if;
 
             when st_DATA_Q_MSB => 
 
-                s_obuf <= s_tx_q_fifo_out(15 downto 8);
-
-                if TXE_n_pin = '0' then
-                    if s_tx_sample_ctr = unsigned(c_FRAME_LENGTH) then
-                        s_tx_sample_ctr_next <= (others => '0');
+                if s_txe_n = '0' then
+                    if s_last_sample = '1' then
                         s_fifo_fetched_next <= '0';
+                        s_obuf_next <= (others => '0');
                         s_tx_sm_state_next <= st_IDLE;
                     else
-                        s_tx_sample_ctr_next <= s_tx_sample_ctr + 1;
                         s_fifo_fetched_next <= '1';
+                        s_obuf_next <= s_tx_i_fifo_out(7 downto 0);
                         s_tx_sm_state_next <= st_DATA_I_LSB;
                     end if;
                 end if;
@@ -481,41 +652,17 @@ begin
 
     end process p_tx_fifo_read_sm_comb;
 
-    p_tx_fifo_read : process (rst, usb_clk)
+
+    p_tx_fifo_read : process (s_txe_n, s_fifo_fetched)
     begin
-        if rst = '1' then
-            s_wr_n <= '1';
-            s_oe <= '0';
-        elsif rising_edge(usb_clk) then
-            s_oe <= '0';
-            s_wr_n <= '1';
-            if TXE_n_pin = '0' and s_fifo_fetched_next = '1' then
-                s_oe <= '1';
-                s_wr_n <= '0';
-            end if;
+        -- Default states
+        s_oe <= '0';
+        s_wr_n <= '1';
+        if s_txe_n = '0' and s_fifo_fetched = '1' then
+            s_oe <= '1';
+            s_wr_n <= '0';
         end if;
     end process p_tx_fifo_read;
-
-    -------------------------------------
-    -- 8-bit single channel no framing --
-    -------------------------------------
---    p_tx_fifo_read : process (rst, usb_clk)
---    begin
---        if rst = '1' then
---            s_wr_n <= '1';
---            s_oe <= '0';
---        elsif rising_edge(usb_clk) then
---            s_oe <= '0';
---            s_wr_n <= '1';
---            if TXE_n_pin = '0' and s_tx_i_fifo_empty = '0' then
---                s_oe <= '1';
---                s_wr_n <= '0';
---            end if;
---        end if;
---    end process p_tx_fifo_read;
---
---    s_tx_fifo_re <= '1' when TXE_n_pin = '0' and s_tx_i_fifo_empty = '0' else '0';
-    -------------------------------------
 
 
     -- Output assignments

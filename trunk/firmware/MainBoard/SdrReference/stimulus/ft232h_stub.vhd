@@ -105,12 +105,23 @@ begin
 
     p_txe_n_gen : process
     begin
+        -- Initialize
+        DATA_pin <= (others => 'Z');
+        RXF_n_pin <= '1';
         s_txe_n <= '0';
+
         wait for 1000 ns;
         wait until rising_edge(s_usb_clk);
         s_txe_n <= '1';
-        wait for c_USB_CLOCK_PERIOD;
+        wait for 4 * c_USB_CLOCK_PERIOD;
         s_txe_n <= '0';
+
+        wait for 5000 ns;
+        DATA_pin <= x"8F";
+        RXF_n_pin <= '0';
+        wait for 2 * c_USB_CLOCK_PERIOD;
+        DATA_pin <= (others => 'Z');
+        RXF_n_pin <= '1';
         wait;
     end process p_txe_n_gen;
 --    s_txe_n <= '0';
@@ -119,9 +130,9 @@ begin
 
     -- Output assignments
 
-    DATA_pin <= (others => 'Z');
+--    DATA_pin <= (others => 'Z');
 
-    RXF_n_pin <= '0';
+--    RXF_n_pin <= '0';
     TXE_n_pin <= s_txe_n;
     USB_CLK_pin <= s_usb_clk;
 

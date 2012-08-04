@@ -8,7 +8,7 @@
 
 # Family: SmartFusion , Die: A2F500M3G , Package: 256 FBGA , Speed grade: -1 
 
-# Date generated: Fri Jul 13 18:43:17 2012 
+# Date generated: Fri Aug 03 19:00:49 2012 
 
 
 
@@ -48,56 +48,393 @@ set_iobank Bank1 -vcci 3.30 -fixed no
 set_iobank Bank0 -vcci 3.30 -fixed no
 
 #
+# Local clock constraints
+#
+
+
+#
+# Region constraints
+#
+
+
+#
 # I/O constraints
 #
 
-set_io AFE1_CLK -iostd LVCMOS33 -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname A7 -fixed yes
-set_io AFE1_DB\[0\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname B7 -fixed yes
-set_io AFE1_DB\[1\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname B8 -fixed yes
-set_io AFE1_DB\[2\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname B9 -fixed yes
-set_io AFE1_DB\[3\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname A10 -fixed yes
-set_io AFE1_DB\[4\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname B10 -fixed yes
-set_io AFE1_DB\[5\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname A11 -fixed yes
-set_io AFE1_DB\[6\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname B11 -fixed yes
-set_io AFE1_DB\[7\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname B12 -fixed yes
-set_io AFE1_DB\[8\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname A13 -fixed yes
-set_io AFE1_DB\[9\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname B13 -fixed yes
-set_io AFE1_SHDN_n -iostd LVCMOS33 -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname A14 -fixed yes
-set_io AFE1_TR_n -iostd LVCMOS33 -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname B14 -fixed yes
-set_io AFE2_CLK -iostd LVCMOS33 -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname E1 -fixed yes
-set_io AFE2_DB\[0\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname C1 -fixed yes
-set_io AFE2_DB\[1\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname C3 -fixed yes
-set_io AFE2_DB\[2\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname B1 -fixed yes
-set_io AFE2_DB\[3\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname B3 -fixed yes
-set_io AFE2_DB\[4\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname A3 -fixed yes
-set_io AFE2_DB\[5\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname B4 -fixed yes
-set_io AFE2_DB\[6\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname A4 -fixed yes
-set_io AFE2_DB\[7\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname B5 -fixed yes
-set_io AFE2_DB\[8\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname B6 -fixed yes
-set_io AFE2_DB\[9\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname A6 -fixed yes
-set_io AFE2_SHDN_n -iostd LVCMOS33 -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname D6 -fixed yes
-set_io AFE2_TR_n -iostd LVCMOS33 -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname C6 -fixed yes
-set_io LED1 -iostd LVCMOS33 -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname H5 -fixed yes
-set_io LED2 -iostd LVCMOS33 -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname H4 -fixed yes
+set_io AFE1_CLK -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname A7 -fixed yes
+set_io AFE1_DB\[0\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname B7 -fixed yes
+set_io AFE1_DB\[1\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname B8 -fixed yes
+set_io AFE1_DB\[2\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname B9 -fixed yes
+set_io AFE1_DB\[3\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname A10 -fixed yes
+set_io AFE1_DB\[4\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname B10 -fixed yes
+set_io AFE1_DB\[5\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname A11 -fixed yes
+set_io AFE1_DB\[6\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname B11 -fixed yes
+set_io AFE1_DB\[7\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname B12 -fixed yes
+set_io AFE1_DB\[8\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname A13 -fixed yes
+set_io AFE1_DB\[9\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname B13 -fixed yes
+set_io AFE1_SHDN_n -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname A14 -fixed yes
+set_io AFE1_TR_n -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname B14 -fixed yes
+set_io AFE2_CLK -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname E1 -fixed yes
+set_io AFE2_DB\[0\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname C1 -fixed yes
+set_io AFE2_DB\[1\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname C3 -fixed yes
+set_io AFE2_DB\[2\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname B1 -fixed yes
+set_io AFE2_DB\[3\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname B3 -fixed yes
+set_io AFE2_DB\[4\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname A3 -fixed yes
+set_io AFE2_DB\[5\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname B4 -fixed yes
+set_io AFE2_DB\[6\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname A4 -fixed yes
+set_io AFE2_DB\[7\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname B5 -fixed yes
+set_io AFE2_DB\[8\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname B6 -fixed yes
+set_io AFE2_DB\[9\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname A6 -fixed yes
+set_io AFE2_SHDN_n -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname D6 -fixed yes
+set_io AFE2_TR_n -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname C6 -fixed yes
+set_io LED1 -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname H5 -fixed yes
+set_io LED2 -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname H4 -fixed yes
 set_io MAINXIN -pinname R12
-set_io MSS_RESET_N -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -REGISTER No -pinname K4 -fixed yes
-set_io OE_n -iostd LVTTL -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname E16 -fixed yes
-set_io RD_n -iostd LVTTL -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname D14 -fixed yes
-set_io SIWU_n -iostd LVTTL -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname E14 -fixed yes
-set_io SPI_1_CLK -iostd LVTTL -OUT_DRIVE 8 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname L14 -fixed yes
-set_io SPI_1_DI -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -REGISTER No -pinname L15 -fixed yes
-set_io SPI_1_DO -iostd LVTTL -OUT_DRIVE 8 -SLEW High -RES_PULL None -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname L12 -fixed yes
-set_io SPI_1_SS -iostd LVTTL -OUT_DRIVE 8 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname L13 -fixed yes
-set_io TXE_n -iostd LVTTL -REGISTER No -RES_PULL None -SCHMITT_TRIGGER Off -pinname D15 -fixed yes
-set_io UART1_RXD -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -REGISTER No -pinname K15 -fixed yes
-set_io UART1_TXD -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -REGISTER No -pinname K14 -fixed yes
-set_io USB_CLK -iostd LVTTL -REGISTER No -RES_PULL None -SCHMITT_TRIGGER Off -pinname F14 -fixed yes
-set_io USB_DB\[0\] -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname C8 -fixed yes
-set_io USB_DB\[1\] -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname D8 -fixed yes
-set_io USB_DB\[2\] -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname C9 -fixed yes
-set_io USB_DB\[3\] -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname D9 -fixed yes
-set_io USB_DB\[4\] -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname D10 -fixed yes
-set_io USB_DB\[5\] -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname C11 -fixed yes
-set_io USB_DB\[6\] -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname D11 -fixed yes
-set_io USB_DB\[7\] -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname C12 -fixed yes
-set_io WR_n -iostd LVTTL -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL Up -SKEW Off -OUT_LOAD 35 -pinname E15 -fixed yes
+set_io MSS_RESET_N -pinname K4 -fixed yes
+set_io OE_n -pinname E16 -fixed yes
+set_io RD_n -pinname D14 -fixed yes
+set_io SGPIO4 -pinname G2 -fixed yes
+set_io SIWU_n -pinname E14 -fixed yes
+set_io SPI_1_CLK -pinname L14 -fixed yes
+set_io SPI_1_DI -pinname L15 -fixed yes
+set_io SPI_1_DO -pinname L12 -fixed yes
+set_io SPI_1_SS -pinname L13 -fixed yes
+set_io TXE_n -REGISTER No -pinname D15 -fixed yes
+set_io UART1_RXD -pinname K15 -fixed yes
+set_io UART1_TXD -pinname K14 -fixed yes
+set_io USB_CLK -pinname F14 -fixed yes
+set_io USB_DB\[0\] -REGISTER No -pinname C8 -fixed yes
+set_io USB_DB\[1\] -REGISTER No -pinname D8 -fixed yes
+set_io USB_DB\[2\] -REGISTER No -pinname C9 -fixed yes
+set_io USB_DB\[3\] -REGISTER No -pinname D9 -fixed yes
+set_io USB_DB\[4\] -REGISTER No -pinname D10 -fixed yes
+set_io USB_DB\[5\] -REGISTER No -pinname C11 -fixed yes
+set_io USB_DB\[6\] -REGISTER No -pinname D11 -fixed yes
+set_io USB_DB\[7\] -REGISTER No -pinname C12 -fixed yes
+set_io WR_n -RES_PULL Up -pinname E15 -fixed yes
+
+# User Group I2C_0
+set_io I2C_0_SCL -GROUP_NAME I2C_0 -pinname J12 -fixed yes
+set_io I2C_0_SDA -GROUP_NAME I2C_0 -pinname J13 -fixed yes
+
+# User Group SPI_0
+set_io SPI_0_CLK -GROUP_NAME SPI_0 -pinname M15 -fixed yes
+set_io SPI_0_DI -GROUP_NAME SPI_0 -pinname M16 -fixed yes
+set_io SPI_0_DO -GROUP_NAME SPI_0 -pinname N16 -fixed yes
+set_io SPI_0_SS -GROUP_NAME SPI_0 -pinname M13 -fixed yes
+
+#
+# Core cell constraints
+#
+
+set_location USB_IF_0/s_tx_sample_ctr_RNO\[1\] -fixed no 124 40
+set_location USB_IF_0/s_obuf_RNO_3\[7\] -fixed no 126 61
+set_location USB_IF_0/s_tx_sm_state_RNIBAHV\[7\] -fixed no 120 61
+set_location USB_IF_0/s_seq_num_ctr\[14\] -fixed no 148 56
+set_location USB_IF_0/s_tx_sm_state_RNO\[2\] -fixed no 119 24
+set_location USB_IF_0/s_obuf_RNO_6\[0\] -fixed no 130 63
+set_location COUNTER_STUB_0/s_ctr\[15\] -fixed no 125 47
+set_location COUNTER_STUB_0/s_ctr\[14\] -fixed no 122 31
+set_location USB_IF_0/s_last_sample_RNIIRV41 -fixed no 122 47
+set_location COUNTER_STUB_0/un2_txd_q_1_SUM4 -fixed no 113 60
+set_location USB_IF_0/s_tx_q_fifo_re_next_0_sqmuxa_0_a3_2_2 -fixed no 113 38
+set_location USB_IF_0/s_obuf_RNO_3\[6\] -fixed no 125 62
+set_location USB_IF_0/s_tx_sample_ctr\[10\] -fixed no 111 39
+set_location USB_IF_0/s_seq_num_ctr_RNO\[0\] -fixed no 141 45
+set_location USB_IF_0/u_TX_I_FIFO/FIFOBLOCK0_RNI7K9L -fixed no 136 62
+set_location USB_IF_0/s_tx_sample_ctr\[0\] -fixed no 123 38
+set_location USB_IF_0/s_tx_sm_state\[0\] -fixed no 101 54
+set_location USB_IF_0/s_tx_sm_state\[2\] -fixed no 120 24
+set_location USB_IF_0/s_tx_sm_state_RNIB3JL\[0\] -fixed no 110 52
+set_location USB_IF_0/s_tx_sm_state_RNIAAHV\[6\] -fixed no 110 50
+set_location USB_IF_0/s_obuf_RNO_4\[4\] -fixed no 137 63
+set_location USB_IF_0/s_seq_num_ctr\[8\] -fixed no 157 50
+set_location USB_IF_0/s_seq_num_ctr_RNO\[3\] -fixed no 141 40
+set_location USB_IF_0/s_tx_q_fifo_re_next_0_sqmuxa_0_a3_2_3 -fixed no 114 36
+set_location USB_IF_0/s_fifo_fetched_RNI0RE7 -fixed no 183 42
+set_location USB_IF_0/s_seq_num_ctr\[5\] -fixed no 160 58
+set_location USB_IF_0/s_seq_num_ctr_RNO\[15\] -fixed no 159 58
+set_location USB_IF_0/s_obuf_RNO_5\[3\] -fixed no 136 63
+set_location COUNTER_STUB_0/s_ctr\[0\] -fixed no 107 60
+set_location USB_IF_0/s_tx_sample_ctr\[1\] -fixed no 123 40
+set_location USB_IF_0/s_obuf_RNO\[2\] -fixed no 119 63
+set_location COUNTER_STUB_0/s_ctr_RNO\[12\] -fixed no 108 55
+set_location USB_IF_0/s_last_sample -fixed no 123 47
+set_location COUNTER_STUB_0/s_ctr_RNIH1SN\[3\] -fixed no 114 60
+set_location USB_IF_0/s_txe_n -fixed no 183 43
+set_location COUNTER_STUB_0/s_ctr_RNO\[1\] -fixed no 106 60
+set_location COUNTER_STUB_0/s_ctr_RNIILD11\[5\] -fixed no 114 55
+set_location USB_IF_0/s_tx_sample_ctr_RNO\[12\] -fixed no 114 35
+set_location USB_IF_0/s_tx_sample_ctr_RNO_1\[8\] -fixed no 106 39
+set_location USB_IF_0/s_tx_sample_ctr_RNIHV9K1\[2\] -fixed no 112 41
+set_location USB_IF_0/s_tx_sample_ctr_RNO\[6\] -fixed no 109 45
+set_location USB_IF_0/s_obuf_RNO_4\[6\] -fixed no 142 63
+set_location USB_IF_0/s_seq_num_ctr_RNO\[10\] -fixed no 149 52
+set_location USB_IF_0/s_seq_num_ctr_RNO\[4\] -fixed no 141 50
+set_location USB_IF_0/s_tx_sample_ctr\[12\] -fixed no 113 35
+set_location USB_IF_0/s_obuf_RNO_4\[3\] -fixed no 106 62
+set_location USB_IF_0/s_obuf\[3\] -fixed no 103 61
+set_location USB_IF_0/s_tx_q_fifo_re_next_0_sqmuxa_0_a3_2_0 -fixed no 112 39
+set_location USB_IF_0/s_tx_sm_state_RNO\[1\] -fixed no 114 32
+set_location USB_IF_0/s_seq_num_ctr\[11\] -fixed no 145 47
+set_location COUNTER_STUB_0/un2_txd_q_1_SUM13 -fixed no 111 63
+set_location COUNTER_STUB_0/s_ctr_RNO\[11\] -fixed no 108 49
+set_location USB_IF_0/s_obuf_RNO_4\[2\] -fixed no 118 63
+set_location USB_IF_0/s_tx_sample_ctr_RNO_2\[15\] -fixed no 112 35
+set_location USB_IF_0/s_tx_q_fifo_re_next_0_sqmuxa_0_a3_2 -fixed no 114 37
+set_location USB_IF_0/s_tx_sample_ctr_RNIPVDH\[2\] -fixed no 116 43
+set_location USB_IF_0/s_obuf_RNO_4\[7\] -fixed no 127 59
+set_location USB_IF_0/s_obuf_RNO_5\[2\] -fixed no 134 63
+set_location USB_IF_0/s_tx_sample_ctr_RNIBV9K1\[3\] -fixed no 114 41
+set_location COUNTER_STUB_0/s_ctr\[9\] -fixed no 96 56
+set_location COUNTER_STUB_0/s_ctr_RNO\[5\] -fixed no 135 55
+set_location USB_IF_0/s_seq_num_ctr\[15\] -fixed no 159 59
+set_location USB_IF_0/s_tx_sample_ctr_RNO_1\[9\] -fixed no 115 42
+set_location USB_IF_0/s_tx_q_fifo_re_RNO -fixed no 110 53
+set_location COUNTER_STUB_0/un2_txd_q_1_SUM3 -fixed no 112 62
+set_location USB_IF_0/s_obuf_RNO_5\[0\] -fixed no 116 61
+set_location USB_IF_0/s_obuf_RNO\[5\] -fixed no 124 63
+set_location COUNTER_STUB_0/s_ctr\[1\] -fixed no 107 59
+set_location USB_IF_0/s_obuf_RNO\[3\] -fixed no 104 61
+set_location USB_IF_0/s_tx_q_fifo_re_next_0_sqmuxa_0_a3_2_12 -fixed no 115 37
+set_location USB_IF_0/s_fifo_fetched_RNO -fixed no 124 48
+set_location USB_IF_0/s_tx_sample_ctr_RNO_0\[7\] -fixed no 117 42
+set_location USB_IF_0/s_tx_i_fifo_re -fixed no 115 57
+set_location USB_IF_0/u_TX_Q_FIFO/WEBUBBLEA -fixed no 103 63
+set_location USB_IF_0/s_seq_num_ctr_RNO\[2\] -fixed no 146 40
+set_location USB_IF_0/s_tx_q_fifo_re_RNO_0 -fixed no 109 53
+set_location USB_IF_0/s_tx_sm_state_RNO\[0\] -fixed no 101 53
+set_location USB_IF_0/s_obuf_RNO_4\[0\] -fixed no 118 61
+set_location USB_IF_0/s_seq_num_ctr_RNO\[12\] -fixed no 146 46
+set_location USB_IF_0/s_tx_q_fifo_re_next_0_sqmuxa_0_a3_2_RNINLSP -fixed no 111 51
+set_location USB_IF_0/s_tx_sample_ctr_RNO_1\[10\] -fixed no 112 40
+set_location COUNTER_STUB_0/s_ctr_RNIN9VA1\[7\] -fixed no 113 55
+set_location USB_IF_0/s_tx_sample_ctr_RNO\[11\] -fixed no 116 34
+set_location USB_IF_0/s_obuf_RNO\[7\] -fixed no 127 60
+set_location USB_IF_0/s_tx_sample_ctr_RNO\[5\] -fixed no 108 43
+set_location USB_IF_0/s_tx_sample_ctr\[9\] -fixed no 114 40
+set_location USB_IF_0/s_obuf_RNO\[0\] -fixed no 116 62
+set_location USB_IF_0/s_tx_sample_ctr_RNO\[13\] -fixed no 111 34
+set_location USB_IF_0/s_obuf\[1\] -fixed no 101 60
+set_location USB_IF_0/s_seq_num_ctr_RNO\[14\] -fixed no 149 55
+set_location USB_IF_0/s_tx_sample_ctr\[8\] -fixed no 105 38
+set_location USB_IF_0/s_obuf\[5\] -fixed no 125 63
+set_location USB_IF_0/s_tx_sm_state_RNIC31F2\[6\] -fixed no 110 51
+set_location USB_IF_0/s_tx_sample_ctr_RNO_0\[3\] -fixed no 112 43
+set_location USB_IF_0/s_obuf_RNO_5\[4\] -fixed no 107 62
+set_location USB_IF_0/s_seq_num_ctr_RNO\[11\] -fixed no 146 48
+set_location COUNTER_STUB_0/s_ctr_RNISPO4\[1\] -fixed no 106 59
+set_location COUNTER_STUB_0/s_ctr\[11\] -fixed no 108 50
+set_location USB_IF_0/s_obuf_RNO_6\[4\] -fixed no 130 61
+set_location USB_IF_0/s_tx_sample_ctr_RNO\[2\] -fixed no 115 45
+set_location USB_IF_0/s_tx_sample_ctr_RNI305Q\[7\] -fixed no 106 38
+set_location INV_1 -fixed no 190 29
+set_location USB_IF_0/s_seq_num_ctr\[3\] -fixed no 141 39
+set_location COUNTER_STUB_0/un2_txd_q_1_SUM8 -fixed no 106 63
+set_location COUNTER_STUB_0/s_ctr\[5\] -fixed no 136 55
+set_location COUNTER_STUB_0/un2_txd_q_1_SUM11 -fixed no 109 63
+set_location USB_IF_0/s_tx_sample_ctr\[11\] -fixed no 115 35
+set_location COUNTER_STUB_0/un2_txd_q_1_SUM14 -fixed no 112 63
+set_location USB_IF_0/s_seq_num_ctr_RNO_0\[15\] -fixed no 159 57
+set_location USB_IF_0/s_tx_sm_state_RNO\[7\] -fixed no 119 55
+set_location USB_IF_0/s_tx_sm_state\[8\] -fixed no 122 50
+set_location COUNTER_STUB_0/s_ctr_RNI2M8U1\[11\] -fixed no 116 49
+set_location USB_IF_0/s_tx_sample_ctr\[6\] -fixed no 110 45
+set_location COUNTER_STUB_0/s_ctr_RNO\[0\] -fixed no 106 61
+set_location USB_IF_0/s_tx_q_fifo_re_next_0_sqmuxa_0_a3_2_1 -fixed no 114 39
+set_location USB_IF_0/s_tx_sample_ctr_RNO\[9\] -fixed no 115 40
+set_location USB_IF_0/s_tx_sm_state\[5\] -fixed no 120 47
+set_location USB_IF_0/s_tx_q_fifo_re_next_0_sqmuxa_0_a3_2_7 -fixed no 113 39
+set_location USB_IF_0/s_seq_num_ctr\[0\] -fixed no 140 45
+set_location USB_IF_0/s_obuf_RNO_0\[3\] -fixed no 104 62
+set_location USB_IF_0/s_seq_num_ctr\[1\] -fixed no 147 39
+set_location USB_IF_0/s_tx_sample_ctr_RNO\[14\] -fixed no 110 38
+set_location COUNTER_STUB_0/s_ctr_RNO\[6\] -fixed no 128 56
+set_location USB_IF_0/s_obuf_RNO_1\[3\] -fixed no 105 63
+set_location COUNTER_STUB_0/un2_txd_q_1_CO4 -fixed no 113 62
+set_location USB_IF_0/s_tx_sm_state_RNO\[5\] -fixed no 120 46
+set_location USB_IF_0/s_tx_q_fifo_re_next_0_sqmuxa_0_a3_2_11 -fixed no 114 38
+set_location USB_IF_0/s_tx_sample_ctr_RNO\[15\] -fixed no 112 38
+set_location USB_IF_0/s_tx_i_fifo_re_RNO -fixed no 115 56
+set_location USB_IF_0/s_obuf_RNO_2\[5\] -fixed no 123 61
+set_location COUNTER_STUB_0/s_ctr_RNO\[2\] -fixed no 108 59
+set_location COUNTER_STUB_0/un2_txd_q_1_CO6 -fixed no 114 62
+set_location COUNTER_STUB_0/s_ctr_RNO\[14\] -fixed no 121 31
+set_location USB_IF_0/s_tx_sample_ctr\[7\] -fixed no 118 41
+set_location USB_IF_0/s_tx_sample_ctr_RNO_0\[15\] -fixed no 112 37
+set_location USB_IF_0/s_tx_sample_ctr_RNIUVDH\[7\] -fixed no 113 41
+set_location COUNTER_STUB_0/un2_txd_q_1_CO8 -fixed no 109 62
+set_location USB_IF_0/s_tx_sample_ctr_RNO_2\[8\] -fixed no 107 39
+set_location COUNTER_STUB_0/un2_txd_q_1_SUM1 -fixed no 108 60
+set_location USB_IF_0/s_obuf_RNO_0\[0\] -fixed no 117 61
+set_location COUNTER_STUB_0/s_ctr_RNO\[4\] -fixed no 112 60
+set_location COUNTER_STUB_0/un2_txd_q_1_SUM10 -fixed no 108 61
+set_location USB_IF_0/s_fifo_fetched_RNI0RE7_0 -fixed no 185 22
+set_location USB_IF_0/s_obuf_RNO\[4\] -fixed no 121 62
+set_location COUNTER_STUB_0/s_ctr\[13\] -fixed no 117 49
+set_location USB_IF_0/s_obuf\[7\] -fixed no 128 60
+set_location USB_IF_0/s_obuf_RNO_3\[1\] -fixed no 120 62
+set_location USB_IF_0/s_tx_sample_ctr_RNO\[7\] -fixed no 117 41
+set_location USB_IF_0/s_tx_sample_ctr_RNI86TR2\[11\] -fixed no 113 34
+set_location USB_IF_0/s_tx_sm_state_RNO\[8\] -fixed no 122 49
+set_location USB_IF_0/s_tx_sample_ctr_RNILVDH\[1\] -fixed no 123 39
+set_location COUNTER_STUB_0/s_tx_strobe -fixed no 157 49
+set_location USB_IF_0/s_tx_sm_state_RNO\[3\] -fixed no 101 52
+set_location USB_IF_0/s_tx_sample_ctr_RNIBH751\[6\] -fixed no 110 41
+set_location COUNTER_STUB_0/un2_txd_q_1_CO10 -fixed no 110 62
+set_location USB_IF_0/s_seq_num_ctr_RNIGHAD5\[12\] -fixed no 148 54
+set_location USB_IF_0/s_obuf_RNO_3\[2\] -fixed no 119 61
+set_location USB_IF_0/s_obuf_RNO\[6\] -fixed no 127 62
+set_location USB_IF_0/s_tx_sample_ctr\[5\] -fixed no 109 43
+set_location USB_IF_0/s_obuf_RNO_6\[6\] -fixed no 128 63
+set_location COUNTER_STUB_0/s_ctr_RNO\[13\] -fixed no 116 50
+set_location COUNTER_STUB_0/s_ctr\[7\] -fixed no 114 54
+set_location USB_IF_0/s_obuf_RNO_5\[5\] -fixed no 124 60
+set_location USB_IF_0/s_obuf_RNO_0\[5\] -fixed no 123 62
+set_location USB_IF_0/s_tx_sample_ctr\[13\] -fixed no 111 35
+set_location USB_IF_0/s_obuf_RNO_2\[1\] -fixed no 101 63
+set_location USB_IF_0/s_seq_num_ctr_RNIFBM12\[4\] -fixed no 142 50
+set_location USB_IF_0/s_last_sample_RNO -fixed no 123 48
+set_location USB_IF_0/u_TX_I_FIFO/FIFOBLOCK0_RNIVRGV -fixed no 123 49
+set_location USB_IF_0/s_tx_sample_ctr_RNO_0\[14\] -fixed no 111 37
+set_location USB_IF_0/s_seq_num_ctr_RNO\[7\] -fixed no 155 51
+set_location USB_IF_0/s_obuf_RNO_0\[4\] -fixed no 108 62
+set_location USB_IF_0/s_seq_num_ctr\[6\] -fixed no 158 50
+set_location USB_IF_0/s_obuf_RNO_3\[4\] -fixed no 107 63
+set_location USB_IF_0/s_tx_sm_state\[7\] -fixed no 119 54
+set_location USB_IF_0/s_tx_sample_ctr_RNO_2\[10\] -fixed no 113 40
+set_location COUNTER_STUB_0/s_ctr_RNO\[15\] -fixed no 124 47
+set_location COUNTER_STUB_0/s_ctr\[2\] -fixed no 109 60
+set_location COUNTER_STUB_0/un2_txd_q_1_SUM7 -fixed no 115 63
+set_location USB_IF_0/s_seq_num_ctr\[10\] -fixed no 148 53
+set_location COUNTER_STUB_0/un2_txd_q_1_CO12 -fixed no 111 62
+set_location COUNTER_STUB_0/un2_txd_q_1_SUM2 -fixed no 110 61
+set_location USB_IF_0/s_tx_sample_ctr_RNO\[3\] -fixed no 111 43
+set_location USB_IF_0/s_tx_q_fifo_re -fixed no 109 54
+set_location USB_IF_0/s_obuf_RNO\[1\] -fixed no 101 61
+set_location USB_IF_0/s_obuf\[6\] -fixed no 128 62
+set_location USB_IF_0/s_tx_sample_ctr\[3\] -fixed no 111 42
+set_location COUNTER_STUB_0/s_ctr\[10\] -fixed no 95 54
+set_location USB_IF_0/s_tx_sample_ctr_RNO_0\[2\] -fixed no 116 45
+set_location USB_IF_0/s_obuf_RNO_2\[0\] -fixed no 116 63
+set_location USB_IF_0/s_obuf_RNO_5\[1\] -fixed no 132 63
+set_location USB_IF_0/s_obuf_RNO_1\[0\] -fixed no 129 63
+set_location USB_IF_0/s_tx_sample_ctr_RNO_1\[6\] -fixed no 109 44
+set_location COUNTER_STUB_0/s_ctr_RNO\[9\] -fixed no 96 55
+set_location COUNTER_STUB_0/un2_txd_q_1_SUM12 -fixed no 110 63
+set_location USB_IF_0/s_seq_num_ctr\[9\] -fixed no 150 52
+set_location USB_IF_0/s_obuf_RNO_1\[4\] -fixed no 129 62
+set_location COUNTER_STUB_0/s_ctr_RNIKDAE\[0\] -fixed no 113 59
+set_location COUNTER_STUB_0/s_ctr_RNO\[8\] -fixed no 115 55
+set_location USB_IF_0/s_tx_sample_ctr_RNO\[0\] -fixed no 123 37
+set_location USB_IF_0/s_tx_sample_ctr_RNISGHP2\[6\] -fixed no 111 41
+set_location USB_IF_0/s_obuf_RNO_0\[1\] -fixed no 101 62
+set_location USB_IF_0/s_tx_sample_ctr_RNO_0\[9\] -fixed no 115 41
+set_location COUNTER_STUB_0/s_ctr\[6\] -fixed no 128 55
+set_location COUNTER_STUB_0/s_ctr\[3\] -fixed no 111 60
+set_location USB_IF_0/s_seq_num_ctr\[12\] -fixed no 146 45
+set_location USB_IF_0/s_tx_sm_state\[1\] -fixed no 113 32
+set_location USB_IF_0/s_tx_sample_ctr_RNO_0\[12\] -fixed no 114 34
+set_location USB_IF_0/s_obuf_RNO_2\[6\] -fixed no 126 63
+set_location USB_IF_0/s_tx_sample_ctr_RNO\[4\] -fixed no 117 39
+set_location USB_IF_0/s_seq_num_ctr_RNIS9VR2\[6\] -fixed no 155 50
+set_location USB_IF_0/s_obuf_RNO_4\[5\] -fixed no 123 63
+set_location USB_IF_0/s_tx_sm_state\[3\] -fixed no 100 52
+set_location USB_IF_0/s_tx_sample_ctr\[2\] -fixed no 115 44
+set_location USB_IF_0/s_tx_sample_ctr_RNO_0\[8\] -fixed no 104 38
+set_location USB_IF_0/s_tx_sample_ctr_RNO_0\[13\] -fixed no 112 34
+set_location USB_IF_0/s_tx_sample_ctr_RNIUVDH\[2\] -fixed no 112 42
+set_location USB_IF_0/s_tx_sample_ctr\[15\] -fixed no 111 38
+set_location USB_IF_0/s_fifo_fetched -fixed no 182 42
+set_location COUNTER_STUB_0/s_ctr\[4\] -fixed no 113 61
+set_location USB_IF_0/s_tx_sample_ctr_RNIHV4Q\[2\] -fixed no 113 42
+set_location USB_IF_0/s_tx_q_fifo_re_next_0_sqmuxa_0_a3_2_4 -fixed no 115 36
+set_location USB_IF_0/s_obuf_RNO_2\[7\] -fixed no 125 60
+set_location COUNTER_STUB_0/s_ctr_RNO\[10\] -fixed no 95 55
+set_location USB_IF_0/s_seq_num_ctr_RNO\[5\] -fixed no 161 57
+set_location USB_IF_0/s_seq_num_ctr_RNI9SBH4\[10\] -fixed no 149 53
+set_location COUNTER_STUB_0/un2_txd_q_1_SUM6 -fixed no 114 63
+set_location USB_IF_0/s_tx_sample_ctr_RNO_0\[11\] -fixed no 115 34
+set_location USB_IF_0/s_obuf_RNO_0\[6\] -fixed no 126 62
+set_location USB_IF_0/s_obuf_RNO_1\[7\] -fixed no 126 59
+set_location USB_IF_0/s_obuf_RNO_4\[1\] -fixed no 103 62
+set_location USB_IF_0/s_tx_sm_state\[6\] -fixed no 117 54
+set_location COUNTER_STUB_0/un2_txd_q_1_SUM9 -fixed no 108 63
+set_location USB_IF_0/s_tx_sample_ctr_RNICVIB1\[4\] -fixed no 110 43
+set_location USB_IF_0/s_tx_sm_state_RNO\[6\] -fixed no 118 54
+set_location USB_IF_0/s_tx_sample_ctr_RNIEH2B\[10\] -fixed no 110 40
+set_location USB_IF_0/s_tx_i_fifo_re_RNO_0 -fixed no 116 55
+set_location USB_IF_0/s_tx_q_fifo_re_next_0_sqmuxa_0_a3_2_6 -fixed no 115 39
+set_location COUNTER_STUB_0/s_ctr\[12\] -fixed no 107 56
+set_location USB_IF_0/s_obuf_RNO_1\[1\] -fixed no 102 63
+set_location USB_IF_0/u_SEQ_FIFO/WEBUBBLEA -fixed no 135 63
+set_location USB_IF_0/s_obuf_RNO_3\[5\] -fixed no 124 62
+set_location USB_IF_0/s_tx_sm_state\[4\] -fixed no 129 51
+set_location COUNTER_STUB_0/s_ctr_RNO\[7\] -fixed no 113 54
+set_location USB_IF_0/s_obuf_RNO_1\[6\] -fixed no 127 63
+set_location USB_IF_0/s_seq_num_ctr\[2\] -fixed no 147 41
+set_location Teton_MSS_0/MSS_CCC_0/I_XTLOSC -fixed yes 0 41
+set_location USB_IF_0/s_obuf_RNO_0\[2\] -fixed no 118 62
+set_location USB_IF_0/s_tx_q_fifo_re_next_0_sqmuxa_0_a3_2_10 -fixed no 115 38
+set_location USB_IF_0/s_tx_sample_ctr_RNO\[10\] -fixed no 110 39
+set_location USB_IF_0/s_tx_sample_ctr_RNO_1\[7\] -fixed no 116 42
+set_location USB_IF_0/s_tx_sample_ctr_RNO_0\[5\] -fixed no 109 42
+set_location USB_IF_0/s_tx_sample_ctr_RNO_1\[15\] -fixed no 111 36
+set_location USB_IF_0/s_obuf_RNO_2\[2\] -fixed no 117 63
+set_location USB_IF_0/s_txe_n_RNIJ3JL -fixed no 118 55
+set_location USB_IF_0/s_obuf\[4\] -fixed no 121 63
+set_location USB_IF_0/s_seq_num_ctr_RNO\[6\] -fixed no 158 51
+set_location USB_IF_0/s_tx_sm_state_RNO_0\[8\] -fixed no 122 48
+set_location USB_IF_0/s_tx_sample_ctr_RNO_0\[4\] -fixed no 116 40
+set_location USB_IF_0/s_seq_num_ctr_RNO\[9\] -fixed no 150 53
+set_location USB_IF_0/s_tx_sample_ctr\[4\] -fixed no 116 39
+set_location USB_IF_0/s_obuf_RNO_1\[2\] -fixed no 117 62
+set_location USB_IF_0/u_TX_I_FIFO/WEBUBBLEA -fixed no 120 63
+set_location USB_IF_0/s_obuf_RNO_0\[7\] -fixed no 126 60
+set_location USB_IF_0/s_seq_num_ctr_RNID88M3\[8\] -fixed no 156 51
+set_location USB_IF_0/s_seq_num_ctr_RNI6DD71\[2\] -fixed no 142 49
+set_location COUNTER_STUB_0/s_ctr_RNIHP332\[13\] -fixed no 117 48
+set_location USB_IF_0/s_tx_sample_ctr_RNITVDH_0\[4\] -fixed no 114 42
+set_location COUNTER_STUB_0/s_ctr_RNO\[3\] -fixed no 112 59
+set_location COUNTER_STUB_0/s_ctr\[8\] -fixed no 114 56
+set_location USB_IF_0/s_tx_sample_ctr_RNO_0\[1\] -fixed no 124 39
+set_location COUNTER_STUB_0/un2_txd_q_1_CO2 -fixed no 112 61
+set_location USB_IF_0/s_obuf_RNO_5\[7\] -fixed no 143 63
+set_location USB_IF_0/s_tx_sm_state_RNO\[4\] -fixed no 129 50
+set_location USB_IF_0/s_seq_num_ctr\[4\] -fixed no 141 51
+set_location USB_IF_0/s_obuf_RNO_1\[5\] -fixed no 122 62
+set_location USB_IF_0/s_seq_num_ctr_RNO\[8\] -fixed no 156 49
+set_location USB_IF_0/s_tx_sample_ctr_RNO_0\[10\] -fixed no 111 40
+set_location USB_IF_0/s_obuf\[2\] -fixed no 105 62
+set_location USB_IF_0/s_seq_num_ctr_RNO\[1\] -fixed no 147 40
+set_location USB_IF_0/s_tx_sample_ctr_RNO_0\[6\] -fixed no 108 45
+set_location COUNTER_STUB_0/s_ctr_RNI7RIK1\[9\] -fixed no 108 54
+set_location USB_IF_0/s_tx_sample_ctr_RNO_1\[14\] -fixed no 112 36
+set_location USB_IF_0/s_tx_sample_ctr_RNO\[8\] -fixed no 105 39
+set_location USB_IF_0/s_tx_sample_ctr\[14\] -fixed no 110 37
+set_location USB_IF_0/s_fifo_fetched_RNO_0 -fixed no 122 45
+set_location USB_IF_0/s_obuf_RNO_2\[3\] -fixed no 104 63
+set_location USB_IF_0/s_seq_num_ctr\[7\] -fixed no 156 50
+set_location USB_IF_0/s_seq_num_ctr\[13\] -fixed no 162 56
+set_location USB_IF_0/s_obuf\[0\] -fixed no 115 62
+set_location USB_IF_0/s_tx_sample_ctr_RNITVDH\[4\] -fixed no 110 42
+set_location USB_IF_0/s_tx_sm_state_RNILGOK1\[5\] -fixed no 121 47
+set_location USB_IF_0/s_obuf_RNO_2\[4\] -fixed no 122 63
+set_location USB_IF_0/s_tx_sm_state_RNO_0\[2\] -fixed no 119 23
+set_location COUNTER_STUB_0/un2_txd_q_1_SUM5 -fixed no 113 63
+set_location USB_IF_0/s_obuf_RNO_3\[3\] -fixed no 119 62
+set_location USB_IF_0/s_obuf_RNO_5\[6\] -fixed no 125 61
+set_location USB_IF_0/s_obuf_RNO_3\[0\] -fixed no 99 63
+set_location USB_IF_0/s_seq_num_ctr_RNO\[13\] -fixed no 161 56
+set_location USB_IF_0/u_TX_I_FIFO/FIFOBLOCK0 -fixed no 115 64
+set_location Teton_MSS_0/MSS_ADLIB_INST -fixed yes 5 1
+set_location USB_IF_0/u_SEQ_FIFO/FIFOBLOCK0 -fixed no 131 64
+set_location Teton_MSS_0/MSS_CCC_0/I_MSSCCC -fixed yes 0 40
+set_location USB_IF_0/u_TX_Q_FIFO/FIFOBLOCK0 -fixed no 99 64
+
+#
+# Assign/Unassign global clock constraints
+#
+
+delete_buffer_tree SGPIO4_c
+delete_buffer_tree Teton_MSS_0/MSSINT_GPO_0_A

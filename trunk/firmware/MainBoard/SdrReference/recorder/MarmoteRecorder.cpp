@@ -13,13 +13,13 @@
 
 // FTDI device parameters
 static int default_dev;
-#define INTERVAL_TIMEOUT 5000
+#define INTERVAL_TIMEOUT 1000
 
-#define SOF 0xDEADBEEFu
+#define SOF 0xBEEFu
 #define FRAME_LENGTH 16
 
 typedef struct _FTDI_frame {
-	char sof[4];
+	char sof[2];
 	WORD seq;
 	WORD data[FRAME_LENGTH * NUMBER_OF_CHANNELS];
 } FTDI_frame;
@@ -442,32 +442,34 @@ int recorder(int dev, const char* dir, int seq)
 			FTDI_frame* frame = (FTDI_frame*)(rxBuffer+i);
 			
 			
-			if (   frame->sof[0] == char((SOF >> 24) & 0xFF)
-				&& frame->sof[1] == char((SOF >> 16) & 0xFF)
-				&& frame->sof[2] == char((SOF >>  8) & 0xFF)
-				&& frame->sof[3] == char((SOF      ) & 0xFF) )
+			if (   frame->sof[0] == char((SOF >> 8) & 0xFF)
+				&& frame->sof[1] == char((SOF >>  0) & 0xFF) )
 			{		
-				/*
-				printf("\n");
-				printf("+0 SOF: %2X%2X%2X SEQ: %4X DATA I: %4X Q: %4X\n\n", unsigned char(frame->sof[0]), unsigned char(frame->sof[1]), unsigned char(frame->sof[2]), frame->seq, frame->data[0], frame->data[1]);
-				*/
+				
+				//printf("\n\n");
+				//printf("+0 SOF: %2X%2X SEQ: %4X DATA I: %4X Q: %4X\n\n", unsigned char(frame->sof[0]), unsigned char(frame->sof[1]), frame->seq, frame->data[0], frame->data[1]);
+				//printf("+0 SOF: %2X%2X SEQ: %4X\n\n", unsigned char(frame->sof[0]), unsigned char(frame->sof[1]), frame->seq);
+				
 				//printf("+1 SOF: %2X%2X%2X SEQ: %4X DATA I: %4X Q: %4X\n", unsigned char((frame+1)->sof[0]), unsigned char((frame+1)->sof[1]), unsigned char((frame+1)->sof[2]), (frame+1)->seq, (frame+1)->data[0], (frame+1)->data[1]);
 				
 				
-				//for (DWORD j = 0; j < bytesReceived; j++)
+				for (DWORD j = 0; j < FRAME_LENGTH * NUMBER_OF_CHANNELS - 2; j++)
 				{
-					minValue = minValue < frame->data[i] ? minValue : frame->data[i];
-					maxValue = maxValue > frame->data[i] ? maxValue : frame->data[i];
+					minValue = minValue < frame->data[j] ? minValue : frame->data[j];
+					maxValue = maxValue > frame->data[j] ? maxValue : frame->data[j];
+				//	if (frame->data[j]+1 != frame->data[j+2])
+				//		printf("E: %4X + 1 != %4X (j = %d)\n", frame->data[j], frame->data[j+2], j);
 				}
 				
+				//i += sizeof(_FTDI_frame);
+				//*/
 
-				//printf("Min: %4X\tMax: %4X\t", minValue, maxValue);
-
-								
+				// printf("Min: %4X\tMax: %4X\t", minValue, maxValue);
+				
 				// Print frame payload
 				
 				/*
-				for (DWORD j = 0; j < FRAME_LENGTH * NUMBER_OF_CHANNELS; j++)
+				for (DWORD j = 0; j < FRAME_LENGTH * NUMBER_OF_CHANNELS + 2; j++)
 				{
 					printf("%4X ", frame->data[j]);
 					if (j % 8 == 7)
@@ -475,9 +477,8 @@ int recorder(int dev, const char* dir, int seq)
 						printf("\n");
 					}
 				}
+				printf("\n");
 				*/
-				
-				
 				
 				/*
 				// Print raw bytes
