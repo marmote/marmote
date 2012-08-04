@@ -2,7 +2,7 @@
 #include "yellowstone.h"
 
 enum { spi_frame_size = 8 };
-enum { spi_rx_buffer_size = 8 };
+enum { spi_rx_buffer_size = 32 };
 
 uint8_t spi_rx_buffer[spi_rx_buffer_size];
 uint8_t spi_rx_buffer_start = 0;
