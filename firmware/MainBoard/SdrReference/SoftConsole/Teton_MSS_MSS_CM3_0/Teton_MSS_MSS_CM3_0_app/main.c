@@ -21,8 +21,9 @@ void process_cmd_buff(const char* cmd_buff, uint8_t length);
 
 int main()
 {
-	//MSS_GPIO_init();
+	MSS_GPIO_init();
 	Yellowstone_Init();
+	Joshua_init();
 
 	MSS_GPIO_config(MSS_GPIO_0, MSS_GPIO_OUTPUT_MODE);
 	MSS_GPIO_config(MSS_GPIO_1, MSS_GPIO_OUTPUT_MODE);
@@ -65,7 +66,7 @@ void process_cmd_buff(const char* cmd_buff, uint8_t length)
 	                cmd_token = strtok(NULL, " ");
 	            }
 
-				Yellowstone_write("\nACK", 4);
+				Yellowstone_write("\nTACK", 5);
 
 				// Invoke associated command function
 		        cmd_list_ptr->CmdFunction(argc, arg_list);
@@ -81,7 +82,7 @@ void process_cmd_buff(const char* cmd_buff, uint8_t length)
 	// Send NAK if no valid command identified
 	if (parse_result == 1)
 	{
-		Yellowstone_write("\nNAK>", 4);
+		Yellowstone_write("\nTNAK>", 5);
 	}
 
 	// Send '>' prompt
