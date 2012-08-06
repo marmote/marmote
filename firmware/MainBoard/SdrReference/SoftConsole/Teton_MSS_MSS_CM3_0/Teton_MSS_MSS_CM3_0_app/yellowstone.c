@@ -68,7 +68,7 @@ void GPIO2_IRQHandler( void ) // TODO: rename to SPI_0_IRQHandler
 		spi_rx_buffer_count++;
 	}
 
-	cmd_length = 0;
+	//cmd_length = 0;
 	if ( spi_rx_buffer[end] == '\n' )
 	{
 		uint8_t i;

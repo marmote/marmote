@@ -97,9 +97,9 @@ typedef enum __Max2830_Analog_Meas_t
 /**
  * Array representing the 14-bit values of the 16 MAX2830 registers.
  *
- * Note: As MAX2839 does not support register write the value of its
+ * Note: As MAX2830 does not support register read the value of its
  *       registers is kept in this array as a reference. Register reads
- *       implicitly read values from this array.
+ *       return values kept in the max2830_regs array.
  */
 static uint16_t max2830_regs[16] =
 {

@@ -265,8 +265,8 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\constraint\TetonPinout.pdc,pdc"
 STATE="utd"
-TIME="1344038525"
-SIZE="24467"
+TIME="1344268383"
+SIZE="5847"
 ENDFILE
 VALUE "<project>\constraint\TetonTiming.sdc,sdc"
 STATE="utd"
@@ -290,52 +290,52 @@ SIZE="91399"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton.ide_des,ide_des"
 STATE="utd"
-TIME="1344038260"
+TIME="1344267584"
 SIZE="1332"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_compile_log.rpt,log"
 STATE="utd"
-TIME="1344038654"
-SIZE="32094"
+TIME="1344268405"
+SIZE="31865"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\projectData\Teton.pdb,pdb"
 STATE="utd"
-TIME="1344038782"
-SIZE="100352"
+TIME="1344268655"
+SIZE="101376"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\Teton.pdb,pdb"
 STATE="ood"
-TIME="1344038734"
-SIZE="100352"
+TIME="1344268603"
+SIZE="101376"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\Teton.pro,pro"
 STATE="utd"
-TIME="1344038782"
+TIME="1344268655"
 SIZE="1954"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_placeroute_log.rpt,log"
 STATE="utd"
-TIME="1344038688"
+TIME="1344268439"
 SIZE="2408"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_prgdata_log.rpt,log"
 STATE="utd"
-TIME="1344038712"
+TIME="1344268462"
 SIZE="803"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_synthesis.adb,adb"
-STATE="ood"
-TIME="1344038711"
-SIZE="644096"
+STATE="utd"
+TIME="1344268462"
+SIZE="655360"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_synthesis.fdb,fdb"
-STATE="ood"
-TIME="1344038711"
-SIZE="91399"
+STATE="utd"
+TIME="1344268462"
+SIZE="92437"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_synthesis.ide_des,ide_des"
 STATE="utd"
-TIME="1344038712"
+TIME="1344268462"
 SIZE="1371"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_synthesis_1.adb,adb"
@@ -350,7 +350,7 @@ SIZE="148689"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_synthesis_1.ide_des,ide_des"
 STATE="utd"
-TIME="1344038260"
+TIME="1344267584"
 SIZE="1368"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_timingconstraints_log.rpt,log"
@@ -360,7 +360,7 @@ SIZE="1522"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_verifytiming_log.rpt,log"
 STATE="utd"
-TIME="1344038695"
+TIME="1344268445"
 SIZE="1152"
 ENDFILE
 VALUE "<project>\hdl\afe_if.vhd,hdl"
@@ -453,18 +453,18 @@ TIME="1342133562"
 SIZE="7278"
 ENDFILE
 VALUE "<project>\synthesis\synthesis\Teton.edn,syn_edn"
-STATE="ood"
-TIME="1344038602"
-SIZE="373552"
+STATE="utd"
+TIME="1344267607"
+SIZE="376223"
 ENDFILE
 VALUE "<project>\synthesis\synthesis\Teton.so,so"
 STATE="utd"
-TIME="1344038602"
+TIME="1344267607"
 SIZE="224"
 ENDFILE
 VALUE "<project>\synthesis\synthesis\Teton_sdc.sdc,syn_sdc"
-STATE="ood"
-TIME="1344038602"
+STATE="utd"
+TIME="1344267607"
 SIZE="380"
 ENDFILE
 VALUE "<project>\synthesis\synthesis_1\Teton.so,so"
@@ -528,7 +528,10 @@ VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
+LiberoState=Post_Layout
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\synthesis\Teton.edn,syn_edn)=StateSuccess
+ideDESIGNER(<project>\designer\impl1\Teton_synthesis.adb,adb)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -716,7 +719,10 @@ ENDLIST
 ENDLIST
 LIST "Teton::work"
 LIST Impl1
+LiberoState=Post_Layout
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\synthesis\Teton.edn,syn_edn)=StateSuccess
+ideDESIGNER(<project>\designer\impl1\Teton_synthesis.adb,adb)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -773,8 +779,4 @@ ENDLIST
 LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
-SmartDesign;Teton
-SmartDesign;Teton_MSS
-Reports;Reports
-ACTIVEVIEW;Teton
 ENDLIST
