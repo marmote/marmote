@@ -31,9 +31,7 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-extern uint8_t USB_Tx_Buffer[VIRTUAL_COM_PORT_DATA_SIZE];
-//static uint8_t* USB_Tx_Ptr;
-//extern uint8_t USB_Tx_Length;
+extern uint8_t USB_Tx_Buffer[];
 
 static uint8_t USB_Rx_Buffer[VIRTUAL_COM_PORT_DATA_SIZE];
 //static uint8_t* USB_Rx_Ptr;
@@ -86,9 +84,7 @@ void EP3_OUT_Callback(void)
   	USB_Rx_Length = USB_SIL_Read(EP3_OUT, USB_Rx_Buffer);
 				    
 	// Echo characters
-	UserToPMABufferCopy(USB_Rx_Buffer, ENDP1_TXADDR, USB_Rx_Length);
-	SetEPTxCount(ENDP1, USB_Rx_Length);
-	SetEPTxValid(ENDP1);
+	USB_SendMsg((const char*)USB_Rx_Buffer, USB_Rx_Length);
   
 	// Send data to command processor here
 	//CMD_ProcessRxBuffer(USB_Rx_Buffer, USB_Rx_Length);

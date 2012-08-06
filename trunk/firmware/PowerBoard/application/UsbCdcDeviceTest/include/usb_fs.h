@@ -32,10 +32,11 @@
 #define USB_USBDP_GPIO_PORT    	GPIOA
 #define USB_USBDP_GPIO_CLK    	RCC_APB2Periph_GPIOA
 
-static uint8_t USB_Tx_Buffer[VIRTUAL_COM_PORT_DATA_SIZE];
-static uint8_t* USB_Tx_Ptr = USB_Tx_Buffer;
-static uint8_t USB_Tx_Length;
-//uint8_t USB_Tx_Request; 
+enum { USB_TX_BUFFER_SIZE = 256 };
+
+static uint8_t USB_Tx_Buffer[USB_TX_BUFFER_SIZE];
+static uint8_t USB_Tx_Buffer_Start = 0; // Index of first valid element
+static uint8_t USB_Tx_Buffer_Count = 0; // Number of valid elements in buffer
 
 /* Exported functions ------------------------------------------------------- */
 //void Set_System(void);
@@ -51,7 +52,6 @@ void USB_SoftReset(void);
 uint8_t USB_SendMsg(const char* msg, uint8_t length);
 uint8_t USB_SendString(const char* msg);
 uint8_t USB_GetTxLength(void);
-uint8_t* USB_GetTxBuffer(void);
 
 /* External variables --------------------------------------------------------*/
 
