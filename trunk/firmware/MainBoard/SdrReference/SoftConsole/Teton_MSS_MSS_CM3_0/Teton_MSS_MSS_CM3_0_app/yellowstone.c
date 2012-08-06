@@ -14,7 +14,7 @@ uint8_t cmd_buffer[spi_rx_buffer_size];
 
 void Yellowstone_Init(void)
 {
-	MSS_GPIO_init( );
+	// MSS_GPIO_init( );
 	MSS_GPIO_config( MSS_GPIO_0, MSS_GPIO_OUTPUT_MODE );
 	MSS_GPIO_set_output( MSS_GPIO_0, 0 );
 
@@ -30,9 +30,9 @@ void Yellowstone_Init(void)
 	);
 	MSS_SPI_enable( &g_mss_spi0 );
 
-	MSS_GPIO_config ( MSS_GPIO_2, MSS_GPIO_INPUT_MODE | MSS_GPIO_IRQ_LEVEL_HIGH );
-	MSS_GPIO_enable_irq( MSS_GPIO_2 );
-	NVIC_EnableIRQ( GPIO2_IRQn );
+	MSS_GPIO_config ( MSS_GPIO_SPI_0_IT, MSS_GPIO_INPUT_MODE | MSS_GPIO_IRQ_LEVEL_HIGH );
+	MSS_GPIO_enable_irq( MSS_GPIO_SPI_0_IT );
+	NVIC_EnableIRQ( MSS_GPIO_SPI_0_IT_IRQn );
 }
 
 void Yellowstone_write( const char* data, uint8_t length )
@@ -54,7 +54,7 @@ void Yellowstone_print( const char* data )
 	Yellowstone_write( '\n', 1 );
 }
 
-void GPIO2_IRQHandler( void )
+void GPIO2_IRQHandler( void ) // TODO: rename to SPI_0_IRQHandler
 {
 	MSS_SPI_set_slave_select( &g_mss_spi0, MSS_SPI_SLAVE_0 );
 	rx_data = MSS_SPI_transfer_frame( &g_mss_spi0, '.' );

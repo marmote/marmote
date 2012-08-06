@@ -49,17 +49,16 @@
 #include <mss_gpio.h>
 #include <mss_spi.h>
 
-#define MSS_GPIO_LD         	MSS_GPIO_2		// Lock-Detect
 #define MSS_GPIO_SHDN       	MSS_GPIO_3		// Shutdown (active-low)
 #define MSS_GPIO_RXHP       	MSS_GPIO_4		// Receiver Baseband AC-Coupling High-Pass Corner Frequency
 #define MSS_GPIO_ANTSEL     	MSS_GPIO_5		// Antenna Selection
+#define MSS_GPIO_LD         	MSS_GPIO_6		// Lock-Detect
 #define MSS_GPIO_RXTX       	MSS_GPIO_28		// Rx/Tx Mode (Rx = 0, Tx = 1)
 
-// FIXME: Derive these values from the non-mask defines above
-#define MSS_GPIO_LD_MASK		MSS_GPIO_2_MASK
 #define MSS_GPIO_SHDN_MASK      MSS_GPIO_3_MASK
 #define MSS_GPIO_RXHP_MASK      MSS_GPIO_4_MASK
 #define MSS_GPIO_ANTSEL_MASK    MSS_GPIO_5_MASK
+#define MSS_GPIO_LD_MASK		MSS_GPIO_6_MASK
 #define MSS_GPIO_RXTX_MASK      MSS_GPIO_28_MASK
 
 

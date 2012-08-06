@@ -260,7 +260,7 @@ uint32_t CmdMode(uint32_t argc, char** argv)
 				sprintf(buf, "\r\nshutdown");
 				break;
 			case MAX2830_STANDBY_MODE :
-				sprintf(buf, "\r\nstandby");
+				sprintf(buf, "\r\nidle (standby)");
 				break;
 			case MAX2830_RX_MODE :
 				sprintf(buf, "\r\nrx");
