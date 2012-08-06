@@ -7,7 +7,7 @@ extern CMD_Type CMD_List[] =
 	"help", CmdHelp,
 	"led",  CmdLed,
 	"pwr",  CmdPwr,
-	"reg",  CmdReg,
+	//"reg",  CmdReg,
 	"t",    CmdTeton,
 //	"mon on", CMD_MonitorOn,
 //	"mon off", CMD_MonitorOff
@@ -18,6 +18,23 @@ extern CMD_Type CMD_List[] =
 
 uint32_t CmdHelp(uint32_t argc, char** argv)
 {
+	/*
+	char buf[1024];
+	uint16_t i;
+
+	buf[0] = '\n';
+	for ( i = 1; i < 200; i++ )
+	{
+		if ( i % 10 == 0 )
+			buf[i] = i / 10 + '0';
+		else
+			buf[i] = '.';		
+	}
+	USB_SendMsg(buf, i);
+
+	return 0;
+	*/
+	
 	CMD_Type* cmdListItr = CMD_List;
 	
 	USB_SendString("\nAvailable commands:\n");
@@ -152,7 +169,7 @@ uint32_t CmdTeton(uint32_t argc, char** argv)
 		len = strlen(buf);
 		buf[len-1] = '\n';
 
-		CON_SPI_Write( (const uint8_t*)buf, len+1 );
+		CON_SPI_Write( (const uint8_t*)buf, len );
 		return 0;
 	}
 

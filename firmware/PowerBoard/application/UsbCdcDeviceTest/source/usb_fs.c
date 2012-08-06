@@ -110,70 +110,23 @@ void Leave_LowPowerMode(void)
 *******************************************************************************/
 void Handle_USBAsynchXfer (void)
 {
-	uint8_t length;
-	
-	length = USB_GetTxLength();
+	uint8_t length = USB_GetTxLength();
 
-	if (length > 0)
+	if ( length > VIRTUAL_COM_PORT_DATA_SIZE )
 	{
-		UserToPMABufferCopy(USB_GetTxBuffer(), ENDP1_TXADDR, length);
+		length = VIRTUAL_COM_PORT_DATA_SIZE;
+	}
+
+	if ( length > 0 )
+	{
+		UserToPMABufferCopy(USB_Tx_Buffer+USB_Tx_Buffer_Start, ENDP1_TXADDR, length);
+
     	SetEPTxCount(ENDP1, length);
     	SetEPTxValid(ENDP1);
+
+		USB_Tx_Buffer_Count = USB_Tx_Buffer_Count - length;
+		USB_Tx_Buffer_Start = (USB_Tx_Buffer_Start + length) % USB_TX_BUFFER_SIZE;
 	}
-	//else // from SPI
-	//{
-
- 
-
-    /*
-  uint16_t USB_Tx_ptr;
-  uint16_t USB_Tx_length;
-  
-  if(USB_Tx_State != 1)
-  {
-    if (USART_Rx_ptr_out == USART_RX_DATA_SIZE)
-    {
-      USART_Rx_ptr_out = 0;
-    }
-    
-    if(USART_Rx_ptr_out == USART_Rx_ptr_in) 
-    {
-      USB_Tx_State = 0; 
-      return;
-    }
-    
-    if(USART_Rx_ptr_out > USART_Rx_ptr_in) // rollback
-    { 
-      USART_Rx_length = USART_RX_DATA_SIZE - USART_Rx_ptr_out;
-    }
-    else 
-    {
-      USART_Rx_length = USART_Rx_ptr_in - USART_Rx_ptr_out;
-    }
-    
-    if (USART_Rx_length > VIRTUAL_COM_PORT_DATA_SIZE)
-    {
-      USB_Tx_ptr = USART_Rx_ptr_out;
-      USB_Tx_length = VIRTUAL_COM_PORT_DATA_SIZE;
-      
-      USART_Rx_ptr_out += VIRTUAL_COM_PORT_DATA_SIZE;	
-      USART_Rx_length -= VIRTUAL_COM_PORT_DATA_SIZE;	
-    }
-    else
-    {
-      USB_Tx_ptr = USART_Rx_ptr_out;
-      USB_Tx_length = USART_Rx_length;
-      
-      USART_Rx_ptr_out += USART_Rx_length;
-      USART_Rx_length = 0;
-    }
-    USB_Tx_State = 1; 
-    
-    UserToPMABufferCopy(&USART_Rx_Buffer[USB_Tx_ptr], ENDP1_TXADDR, USB_Tx_length);
-    SetEPTxCount(ENDP1, USB_Tx_length);
-    SetEPTxValid(ENDP1); 
-  }  
-*/
 }
 
 
@@ -204,45 +157,43 @@ void USB_SoftReset()
 uint8_t USB_SendMsg(const char* msg, uint8_t length)
 {
     uint8_t i;
-
-    if (USB_Tx_Length + length > VIRTUAL_COM_PORT_DATA_SIZE)
+	uint8_t end;
+	
+	if ( length > USB_TX_BUFFER_SIZE - USB_Tx_Buffer_Count )
     {
         return 1; // FAILURE
     }
 
+	end = (USB_Tx_Buffer_Start + USB_Tx_Buffer_Count) % USB_TX_BUFFER_SIZE;
+
     for (i = 0; i < length; i++)
     {
-        *USB_Tx_Ptr = *(msg+i);
-        USB_Tx_Ptr++;
+        USB_Tx_Buffer[end] = *(msg+i);
+
+        USB_Tx_Buffer_Count++;
+		end = (end + 1) % USB_TX_BUFFER_SIZE;
     }
 
-    USB_Tx_Length += length;
     return 0; // SUCCESS
 }
 
 uint8_t USB_SendString(const char* msg)
 {
-	uint8_t length;
-	
-	length = strlen(msg);
-	return USB_SendMsg(msg, length);
+	return USB_SendMsg(msg, strlen(msg));
 }
 
 
 uint8_t USB_GetTxLength()
 {
-    return USB_Tx_Length;
+	if ( USB_TX_BUFFER_SIZE - USB_Tx_Buffer_Start < (int16_t)USB_Tx_Buffer_Count )
+	{
+		return USB_TX_BUFFER_SIZE - USB_Tx_Buffer_Start;
+	}
+	else
+	{
+		return USB_Tx_Buffer_Count;
+	}
 }
 
-// Assume that the entier buffer can be taken at once
-uint8_t* USB_GetTxBuffer()
-{
-    //uint8_t* ret = USB_Tx_Ptr;
-
-    USB_Tx_Ptr = USB_Tx_Buffer; // ((USB_Tx_Ptr - USB_Tx_Buffer + USB_Tx_Length) % USB_TX_BUFFER_LENGTH_MAX) + USB_Tx_Buffer;
-    USB_Tx_Length = 0;
-
-    return USB_Tx_Ptr;
-}
 
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/
