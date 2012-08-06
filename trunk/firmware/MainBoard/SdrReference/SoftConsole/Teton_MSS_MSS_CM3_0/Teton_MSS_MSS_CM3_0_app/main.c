@@ -38,6 +38,7 @@ int main()
 		if (cmd_length > 0)
 		{
 			process_cmd_buff((const char*)cmd_buffer, cmd_length);
+			cmd_length = 0;
 		}
 	}
 }
