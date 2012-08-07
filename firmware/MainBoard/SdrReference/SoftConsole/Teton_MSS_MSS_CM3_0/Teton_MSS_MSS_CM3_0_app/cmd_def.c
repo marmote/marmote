@@ -14,13 +14,17 @@ CMD_Type CMD_List[] =
 	{"led",  CmdLed},
 	{"afe",  CmdAfe},
 
-	{"reg",  CmdReg},
-	{"freq", CmdFreq},
-	{"gain", CmdGain},
-	{"lpf",  CmdLpf},
-	{"mode", CmdMode},
-	{"rssi", CmdRssi},
-	{"pa",   CmdPa},
+	{"reg",  	CmdReg},
+	{"freq", 	CmdFreq},
+	{"txgain", 	CmdTxGain},
+	{"txbw",  	CmdTxBw},
+	{"rxgain", 	CmdRxGain},
+	{"rxlna", 	CmdRxLna},
+	{"rxvga", 	CmdRxVga},
+	{"rxbw",   	CmdRxBw},
+	{"mode",   	CmdMode},
+	{"rssi",   	CmdRssi},
+	{"pa",     	CmdPa},
 	//{"cal",  CmdCal},
 	{NULL,   NULL}
 };
@@ -186,7 +190,7 @@ uint32_t CmdFreq(uint32_t argc, char** argv)
 }
 
 
-uint32_t CmdGain(uint32_t argc, char** argv)
+uint32_t CmdTxGain(uint32_t argc, char** argv)
 {
 	float gain;
 	char buf[128];
@@ -212,19 +216,115 @@ uint32_t CmdGain(uint32_t argc, char** argv)
 	}
 
 	// Send help message
-	Yellowstone_print("\r\nUsage: gain [<gain in dB>]");
+	Yellowstone_print("\r\nUsage: txgain [<gain in dB>]");
+	return 1;
+}
+
+uint32_t CmdRxLna(uint32_t argc, char** argv)
+{
+	float gain;
+	char buf[128];
+
+	if (argc == 1)
+	{
+		//sprintf(buf, "\r\nRx gain: %4.1f dB", Max2830_get_rx_gain());
+		sprintf(buf, "\r\nRx LNA: %4.1f dB", Max2830_get_rx_lna_gain());
+		Yellowstone_print(buf);
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		gain = atof(*(argv+1));
+		if (gain || !strcmp(*(argv+1), "0"))
+		{
+			Max2830_set_rx_lna_gain(gain);
+
+			sprintf(buf, "\r\nRx LNA: %4.1f dB", Max2830_get_rx_lna_gain());
+			Yellowstone_print(buf);
+			return 0;
+		}
+	}
+
+	// Send help message
+	Yellowstone_print("\r\nUsage: rxlna [<gain in dB>]");
+	return 1;
+}
+
+uint32_t CmdRxVga(uint32_t argc, char** argv)
+{
+	float gain;
+	char buf[128];
+
+	if (argc == 1)
+	{
+		//sprintf(buf, "\r\nRx gain: %4.1f dB", Max2830_get_rx_gain());
+		sprintf(buf, "\r\nRx VGA: %4.1f dB", Max2830_get_rx_vga_gain());
+		Yellowstone_print(buf);
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		gain = atof(*(argv+1));
+		if (gain || !strcmp(*(argv+1), "0"))
+		{
+			Max2830_set_rx_vga_gain(gain);
+
+			sprintf(buf, "\r\nRx VGA: %4.1f dB", Max2830_get_rx_vga_gain());
+			Yellowstone_print(buf);
+			return 0;
+		}
+	}
+
+	// Send help message
+	Yellowstone_print("\r\nUsage: rxvga [<gain in dB>]");
 	return 1;
 }
 
 
-uint32_t CmdLpf(uint32_t argc, char** argv)
+uint32_t CmdRxGain(uint32_t argc, char** argv)
+{
+	float gain;
+	char buf[128];
+
+	if (argc == 1)
+	{
+		//sprintf(buf, "\r\nRx gain: %4.1f dB", Max2830_get_rx_gain());
+		sprintf(buf, "\r\nRx gain: %4.1f dB\r\nLNA: %4.1f dB\r\nVGA: %4.1f dB",
+				Max2830_get_rx_gain(),
+				Max2830_get_rx_lna_gain(),
+				Max2830_get_rx_vga_gain());
+		Yellowstone_print(buf);
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		gain = atof(*(argv+1));
+		if (gain || !strcmp(*(argv+1), "0"))
+		{
+			Max2830_set_rx_gain(gain);
+
+			sprintf(buf, "\r\nRx gain: %4.1f dB", Max2830_get_rx_gain());
+			Yellowstone_print(buf);
+			return 0;
+		}
+	}
+
+	// Send help message
+	Yellowstone_print("\r\nUsage: rxgain [<gain in dB>]");
+	return 1;
+}
+
+uint32_t CmdTxBw(uint32_t argc, char** argv)
 {
 	uint32_t bandwidth;
 	char buf[128];
 
 	if (argc == 1)
 	{
-		sprintf(buf, "\r\nBandwidth: %5u kHz", (int)Max2830_get_bandwidth());
+		sprintf(buf, "\r\nTx bandwidth: %5u kHz", (int)Max2830_get_tx_bandwidth());
 		Yellowstone_print(buf);
 		return 0;
 	}
@@ -234,19 +334,49 @@ uint32_t CmdLpf(uint32_t argc, char** argv)
 		bandwidth = atoi(*(argv+1));
 		if (bandwidth || !strcmp(*(argv+1), "0"))
 		{
-			Max2830_set_bandwidth(bandwidth);
+			Max2830_set_tx_bandwidth(bandwidth);
 
-			sprintf(buf, "\r\nBandwidth: %5u kHz", (int)Max2830_get_bandwidth());
+			sprintf(buf, "\r\nTx bandwidth: %5u kHz", (int)Max2830_get_tx_bandwidth());
 			Yellowstone_print(buf);
 			return 0;
 		}
 	}
 
-		// Send help message
-	Yellowstone_print("\r\nUsage: lpf [<bandwidth in kHz>]");
+	// Send help message
+	Yellowstone_print("\r\nUsage: txbw [<bandwidth in kHz>]");
 	return 1;
 }
 
+
+uint32_t CmdRxBw(uint32_t argc, char** argv)
+{
+	uint32_t bandwidth;
+	char buf[128];
+
+	if (argc == 1)
+	{
+		sprintf(buf, "\r\nRx bandwidth: %5u kHz", (int)Max2830_get_rx_bandwidth());
+		Yellowstone_print(buf);
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		bandwidth = atoi(*(argv+1));
+		if (bandwidth || !strcmp(*(argv+1), "0"))
+		{
+			Max2830_set_rx_bandwidth(bandwidth);
+
+			sprintf(buf, "\r\nBandwidth: %5u kHz", (int)Max2830_get_rx_bandwidth());
+			Yellowstone_print(buf);
+			return 0;
+		}
+	}
+
+	// Send help message
+	Yellowstone_print("\r\nUsage: rxbw [<bandwidth in kHz>]");
+	return 1;
+}
 
 uint32_t CmdMode(uint32_t argc, char** argv)
 {
