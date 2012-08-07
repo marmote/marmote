@@ -12,6 +12,7 @@ _Note: Only changes compared to Rev A and non-implemented functions are listed h
  * Analog baseband filter
   * Should be removable
   * TBD cut-off frequency
+  * Candidate ICs ([http://www.linear.com/product/LTC6602 LTC6602])
  * Clock synchronization between boards (optional) or 1PPS input and output
  * The whole board should be powered down by default (including the TCXO)
  
