@@ -33,8 +33,12 @@ uint32_t CmdAfe(uint32_t argc, char** argv);
 // MAX 2830 commands
 uint32_t CmdReg(uint32_t argc, char** argv);
 uint32_t CmdFreq(uint32_t argc, char** argv);
-uint32_t CmdGain(uint32_t argc, char** argv);
-uint32_t CmdLpf(uint32_t argc, char** argv);
+uint32_t CmdTxGain(uint32_t argc, char** argv);
+uint32_t CmdTxBw(uint32_t argc, char** argv);
+uint32_t CmdRxGain(uint32_t argc, char** argv);
+uint32_t CmdRxLna(uint32_t argc, char** argv);
+uint32_t CmdRxVga(uint32_t argc, char** argv);
+uint32_t CmdRxBw(uint32_t argc, char** argv);
 uint32_t CmdMode(uint32_t argc, char** argv);
 uint32_t CmdRssi(uint32_t argc, char** argv);
 uint32_t CmdPa(uint32_t argc, char** argv);

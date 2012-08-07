@@ -62,7 +62,7 @@
 #define MSS_GPIO_RXTX_MASK      MSS_GPIO_28_MASK
 
 
-static const uint16_t max2830_lpf_bws[24] =
+static const uint16_t max2830_tx_lpf_bws[] =
 {
 		 7200u,  7600u,	 8000u,	 8400u,	 8800u,	 9200u, //  8.0 MHz
 		 9900u,	10450u,	11000u,	11550u,	12100u,	12650u, // 11.0 MHz
@@ -70,6 +70,13 @@ static const uint16_t max2830_lpf_bws[24] =
 		20250u,	21375u,	22500u,	23625u,	24750u,	25875u, // 22.5 MHz
 };
 
+static const uint16_t max2830_rx_lpf_bws[] =
+{
+	    6750u,	 7125u,  7500u,	 7875u,	 8250u, //  7.5 MHz
+	    7650u,	 8075u,  8500u,	 8925u,	 9350u, //  8.5 MHz
+	   13500u,	14250u, 15000u,	15750u,	16500u, // 15.0 MHz
+	   16200u,	17100u, 18000u,	18900u,	19800u, // 18.0 MHz
+};
 
 typedef enum __Max2830_mode_t
 {
@@ -110,11 +117,11 @@ static uint16_t max2830_regs[16] =
 		0x3666,
 		0x00A0,
 		0x0060,
-		0x1022,
+		0x0022,
 		0x2021,
 		0x07B5,
 		0x1DA4,
-		0x007F,
+		0x005F,
 		0x0140,
 		0x0E92,
 		0x0300,
@@ -179,7 +186,7 @@ void Max2830_write_register( uint8_t addr, uint16_t data );
 
 
 /**
- * The Joshua_calibrate() function calibrates the [RX/TX?] path. // FIXME
+ * The Max2830_calibrate() function calibrates the [RX/TX?] path. // FIXME
  *
  * Note: Tx calibration involves sine generation in the baseband and this
  *       feature is NOT IMPLMENTED YET.
@@ -190,7 +197,7 @@ void Max2830_write_register( uint8_t addr, uint16_t data );
  * @return
  *   This function does not return a value.
  */
-//void Joshua_calibrate( void );
+//void Max2830_calibrate( void );
 
 
 
@@ -222,7 +229,7 @@ void Max2830_set_frequency( uint32_t freq );
 
 
 /**
- * The Joshua_get_tx_gain() function reads the actual transmit gain and returns it in dB.
+ * The Max2830_get_tx_gain() function reads the actual transmit gain and returns it in dB.
  *
  * @param
  *   This function does not have a parameter.
@@ -234,8 +241,8 @@ float Max2830_get_tx_gain( void );
 
 
 /**
- * The Max2830_set_tx_gain() function sets the transmitter VGA gain to the dB value given
- * as the parameter.
+ * The Max2830_set_tx_gain() function sets the transmitter VGA gain to the dB
+ * value specified in the parameter.
  *
  * @param gain
  *   The requested transmit gain in dB. The valid gain range is from 0 to 31 dB.
@@ -246,39 +253,162 @@ float Max2830_get_tx_gain( void );
 void Max2830_set_tx_gain( float gain );
 
 
-
 /**
- * The Max2830_get_bandwidth() function reads the baseband
+ * The Max2830_get_tx_bandwidth() function reads the transmit baseband
  * filter cut-off frequency and returns it in kHz.
  *
  * @param
  *   This function does not have a parameter.
  *
  * @return
- *   The baseband filter cut-off frequency in kHz.
+ *   The transmit baseband filter cut-off frequency in kHz.
  */
-uint32_t Max2830_get_bandwidth( void );
+uint32_t Max2830_get_tx_bandwidth( void );
 
 
 /**
- * The Max2830_set_bandwidth() function sets the baseband low-pass filter
- * cut-off frequency to the value specified in the parameter.
+ * The Max2830_set_tx_bandwidth() function sets the transmit baseband low-pass
+ * filter cut-off frequency to the value specified in the parameter.
  *
- * Note: The bandwidth of the baseband filter can be set in coarse steps.
- *       Thus, the actually set frequency may differ from the requested.
- *       Use the Josuha_get_bandwidth() function to determine the actual
+ * Note: The transmit bandwidth of the baseband filter can be set in coarse
+ *       steps. Thus, the actually set frequency may differ from the requested.
+ *       Use the Max2830_get_tx_bandwidth() function to determine the actual
  *       value set.
  *
  * @param
- *   The requested baseband low-pass filter cut-off frequency in Hz.
+ *   The requested transmit baseband low-pass filter cut-off frequency in Hz.
  *
  *   Valid range: TBD
  *
  * @return
  *   This function does not return a value.
  */
-void Max2830_set_bandwidth( uint32_t bandwidth );
+void Max2830_set_tx_bandwidth( uint32_t bandwidth );
 
+
+/**
+ * The Max2830_get_rx_lna_gain() function reads the actual receive LNA path
+ * gain and returns it in dB.
+ *
+ * @param
+ *   This function does not have a parameter.
+ *
+ * @return
+ *   The receive path LNA gain in dB.
+ */
+float Max2830_get_rx_lna_gain( void );
+
+
+/**
+ * The Max2830_set_rx_lna_gain() function sets the receive path LNA gain to the
+ * dB value specified in the parameter.
+ *
+ * @param gain
+ *   The requested receive path LNA gain in dB. The valid gain range is from 0
+ *   to 62 dB with 2 dB resolution.
+ *
+ * @return
+ *   This function does not return a value.
+ */
+void Max2830_set_rx_lna_gain( float gain );
+
+/**
+ * The Max2830_get_rx_vga_gain() function reads the actual receive path VGA
+ * gain and returns it in dB.
+ *
+ * @param
+ *   This function does not have a parameter.
+ *
+ * @return
+ *   The receive path VGA gain in dB.
+ */
+float Max2830_get_rx_vga_gain( void );
+
+
+/**
+ * The Max2830_set_rx_vga_gain() function sets the receiver VGA gains to the
+ * dB value specified in the parameter.
+ *
+ * @param gain
+ *   The requested receive path VGA gain in dB. The valid gain range is from
+ *   0 to 62 dB.
+ *
+ * @return
+ *   This function does not return a value.
+ */
+void Max2830_set_rx_vga_gain( float gain );
+
+
+
+/**
+ * The Max2830_get_rx_gain() function reads the actual total receive gain and
+ * returns it in dB.
+ *
+ * @param
+ *   This function does not have a parameter.
+ *
+ * @return
+ *   The total receive path gain in dB.
+ */
+float Max2830_get_rx_gain( void );
+
+
+/**
+ * The Max2830_set_rx_gain() function sets the receiver VGA gains to the total
+ * dB value specified in the parameter.
+ *
+ * @param gain
+ *   The requested total receive path gain in dB. The valid gain range is from
+ *   0 to 95 dB.
+ *
+ *   The total receive gain control range provided by the MAX2830 is 0 to 95 dB,
+ *   where the available LNA gain values are 0 dB, 17 dB (default) and 33 dB and
+ *   the available baseband VGA gain steps are from 0 to 62 dB in 2 dB steps.
+ *
+ *   If the requested gain value can be set by adjusting only the VGA gain,
+ *   then the LNA gain is not changed. Otherwise the LNA gain is also adjusted.
+ *
+ * @return
+ *   This function does not return a value.
+ */
+void Max2830_set_rx_gain( float gain );
+
+
+/**
+ * The Max2830_get_rx_bandwidth() function reads the low-pass receive
+ * baseband filter cut-off frequency and returns it in kHz.
+ *
+ * @param
+ *   This function does not have a parameter.
+ *
+ * @return
+ *   The receive baseband filter cut-off frequency in kHz.
+ */
+uint32_t Max2830_get_rx_bandwidth( void );
+
+
+/**
+ * The Max2830_set_rx_bandwidth() function sets the low-pass receive baseband
+ * low-pass filter cut-off frequency to the value specified in the parameter.
+ *
+ * Note: The receive bandwidth of the baseband filter can be set in coarse
+ *       steps. Thus, the actually set frequency may differ from the requested.
+ *       Use the Max2830_get_tx_bandwidth() function to determine the actual
+ *       value set.
+ *
+ *       The receive path incorporates a high-pass filter with cut-off frequency
+ *       programmable to 100 Hz, 4 kHz, 30 kHz and 600 kHz. This value is fixed
+ *       at 100 Hz by default.
+ *
+ * @param
+ *   The requested receive baseband low-pass filter cut-off frequency in Hz.
+ *
+ *   Valid range: TBD
+ *
+ * @return
+ *   This function does not return a value.
+ */
+void Max2830_set_rx_bandwidth( uint32_t bandwidth );
 
 
 /**
@@ -301,12 +431,14 @@ void Max2830_set_bandwidth( uint32_t bandwidth );
  */
 Max2830_operating_mode_t Max2830_get_mode( void );
 
+
 /**
- * The Max2830_Set_mode() function sets the operating mode of the MAX2830
+ * The Max2830_set_mode() function sets the operating mode of the MAX2830
  * to the value specified in the parameter.
  *
- * Note: The state of this pin selects not between Rx and Tx modes, but also
- *       between Shutdown and Standby, and Rx Calibration and Tx Calibration.
+ * Note: The state of this pin selects not only between Rx and Tx modes, but
+ * 		 also between Shutdown and Standby, and Rx Calibration and Tx
+ *       Calibration.
  *
  * @param
  *   The requested state of the MAX2830 transceiver.
