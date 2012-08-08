@@ -36,6 +36,7 @@
 //-----------------------------------------------------------------------------
 // Revisions     :
 // Date            Version  Author			Description
+// 2012-07-06      1.2      Sandor Szilvasi Added Rx functions
 // 2012-05-31      1.1      Sandor Szilvasi
 // 2012-05-29      1.0      Benjamin Babjak	Created
 //-----------------------------------------------------------------------------
@@ -76,7 +77,16 @@ void Max2830_init ( )
 	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_RXTX_MASK );	// RX
 
 	Max2830_set_mode( MAX2830_SHUTDOWN_MODE );
-	Max2830_set_rssi_output( MAX2830_ANALOG_MEAS_TXPOW );
+	Max2830_set_rssi_config( MAX2830_ANALOG_MEAS_TXPOW );
+
+	// RSSI pin
+	ACE_init();
+	rssi_handle = ACE_get_channel_handle((const uint8_t*)"J_RSSI");
+
+	if ( rssi_handle == INVALID_CHANNEL_HANDLE )
+	{
+		for (;;);
+	}
 }
 
 
@@ -200,11 +210,8 @@ float Max2830_get_tx_gain( void )
 void Max2830_set_tx_gain( float gain_db )
 {
 	// FIXME: consider using uint8 instead of float for gain_db
-	// TODO: Check if this needs to be set every time
-	//	TX_Gain_Prog_Through_SPI(1); //1 SPI, 0 external digital pins (B6:B1).
-	// Max2830_write_register(9, max2830_regs[9]);
 
-	uint8_t gain;
+	uint16_t gain;
 	uint16_t reg_val;
 
 	if (gain_db > 31.5)
@@ -219,8 +226,8 @@ void Max2830_set_tx_gain( float gain_db )
 
 	gain = 2 * gain_db;
 
-	reg_val = Max2830_read_register(12) & ~0x3F; // Zero [5:0]
-	reg_val |= gain & 0x3F; // Set gain in [5:0]
+	reg_val = Max2830_read_register(12) & ~0x3F; // Zero R12[5:0]
+	reg_val |= gain & 0x3F; // Set gain in R12[5:0]
 
 	Max2830_write_register(12, reg_val);
 }
@@ -563,7 +570,7 @@ void Max2830_set_mode( Max2830_operating_mode_t mode )
 }
 
 
-Max2830_Analog_Meas_t Max2830_get_rssi_output( void )
+Max2830_Analog_Meas_t Max2830_get_rssi_config( void )
 {
 	uint16_t reg_val;
 
@@ -573,7 +580,7 @@ Max2830_Analog_Meas_t Max2830_get_rssi_output( void )
 }
 
 
-void Max2830_set_rssi_output( Max2830_Analog_Meas_t	mode )
+void Max2830_set_rssi_config( Max2830_Analog_Meas_t	mode )
 {
 	uint16_t reg_val;
 
@@ -601,7 +608,14 @@ void Max2830_set_rssi_output( Max2830_Analog_Meas_t	mode )
 	Max2830_write_register(8, reg_val);
 }
 
+uint16_t Max2830_get_rssi_value( void )
+{
+	uint16_t adc_value; // TODO: make this function a single line
 
+	adc_value = ACE_get_ppe_sample(rssi_handle);
+
+	return adc_value;
+}
 
 uint8_t Max2830_get_pa_delay( void )
 {

@@ -48,6 +48,7 @@
 #include <a2fxxxm3.h>
 #include <mss_gpio.h>
 #include <mss_spi.h>
+#include <mss_ace.h>
 
 #define MSS_GPIO_SHDN       	MSS_GPIO_3		// Shutdown (active-low)
 #define MSS_GPIO_RXHP       	MSS_GPIO_4		// Receiver Baseband AC-Coupling High-Pass Corner Frequency
@@ -108,7 +109,8 @@ typedef enum __Max2830_Analog_Meas_t
  *       registers is kept in this array as a reference. Register reads
  *       return values kept in the max2830_regs array.
  */
-static uint16_t max2830_regs[16] =
+/*
+ * static uint16_t max2830_regs[16] =
 {
 		0x1740,
 		0x119A,
@@ -127,7 +129,30 @@ static uint16_t max2830_regs[16] =
 		0x0300,
 		0x0145,
 };
+*/
 
+static uint16_t max2830_regs[16] =
+{
+		0x1740,
+		0x119A,
+		0x1003,
+		0x0079,
+		0x3666,
+		0x00A0,
+		0x0060,
+		0x1022,
+		0x2021,
+		0x07B5,
+		0x1DA4,
+		0x007F,
+		0x0140,
+		0x0E92,
+		0x0300,
+		0x0145,
+};
+
+
+ace_channel_handle_t rssi_handle;
 
 
 /**
@@ -243,6 +268,9 @@ float Max2830_get_tx_gain( void );
 /**
  * The Max2830_set_tx_gain() function sets the transmitter VGA gain to the dB
  * value specified in the parameter.
+ *
+ * Note: Bit 10 in Max2830 register 9 is assumed to be set 1 to enable
+ *       programming through the 3-wire serial interface.
  *
  * @param gain
  *   The requested transmit gain in dB. The valid gain range is from 0 to 31 dB.
@@ -474,7 +502,7 @@ void Max2830_set_mode( Max2830_operating_mode_t mode );
  *	   - MAX2830_ANALOG_MEAS_TEMP
  *	   - MAX2830_ANALOG_MEAS_TXPOW
  */
-Max2830_Analog_Meas_t Max2830_get_rssi_output( void );
+Max2830_Analog_Meas_t Max2830_get_rssi_config( void );
 
 /**
  * The Max2830_set_rssi_output() function selects the analog source connected
@@ -492,7 +520,10 @@ Max2830_Analog_Meas_t Max2830_get_rssi_output( void );
  * @return
  *   This function does not return a value.
  */
-void Max2830_set_rssi_output( Max2830_Analog_Meas_t	value );
+void Max2830_set_rssi_config( Max2830_Analog_Meas_t	value );
+
+// TODO: add description
+uint16_t Max2830_get_rssi_value( void );
 
 
 /**

@@ -8,7 +8,7 @@
 
 # Family: SmartFusion , Die: A2F500M3G , Package: 256 FBGA , Speed grade: -1 
 
-# Date generated: Mon Aug 06 10:53:03 2012 
+# Date generated: Tue Aug 07 16:42:25 2012 
 
 
 
@@ -89,6 +89,7 @@ set_io AFE2_SHDN_n -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW
 set_io AFE2_TR_n -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname C6 -fixed yes
 set_io J_ANTSEL -pinname F1 -fixed yes
 set_io J_LD -pinname F3 -fixed yes
+set_io J_RSSI -pinname P9 -fixed yes
 set_io J_RXHP -pinname G3 -fixed yes
 set_io J_RXTX -pinname K14 -fixed yes
 set_io J_SHDN -pinname E3 -fixed yes
@@ -114,6 +115,7 @@ set_io USB_DB\[4\] -REGISTER No -pinname D10 -fixed yes
 set_io USB_DB\[5\] -REGISTER No -pinname C11 -fixed yes
 set_io USB_DB\[6\] -REGISTER No -pinname D11 -fixed yes
 set_io USB_DB\[7\] -REGISTER No -pinname C12 -fixed yes
+set_io VAREF1 -pinname T9 -fixed yes
 set_io WR_n -RES_PULL Up -pinname E15 -fixed yes
 
 # User Group I2C_0
