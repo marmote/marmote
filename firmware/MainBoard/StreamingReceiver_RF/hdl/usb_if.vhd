@@ -194,7 +194,7 @@ begin
 
 			--------------------------------
 			s_USB_SMPL_BYTE_CNTR	<= (others => '1');
-			s_oe					<= '0';
+			s_oe					<= '1';
 			s_USB_WR_n_pin			<= '1';									-- We don't write to the USB
 			s_USB_RD_n_pin			<= '1';									-- We don't read from the USB
 
@@ -256,17 +256,27 @@ begin
 -----------------------------------------------------------
 -- Move 32 bit sample from temp register to USB in 8 bit chunks
 --
-			s_oe			<= '0';
+			s_oe			<= '1';
 			s_USB_WR_n_pin	<= '1';											-- By default we don't write to the USB
 			s_USB_RD_n_pin	<= '1';											-- By default we don't read from the USB
 
-			if s_READ_FROM_USB_REG_FULL = '0' and USB_RXF_n_pin = '0' and s_USB_WR_n_pin = '1' and READ_SUCCESSFUL = '0' then	-- If there is no writing going on
-				s_USB_RD_n_pin	<= '0';
-			elsif s_TEMP_REG_STATE = c_TEMPREG_FULL and USB_TXE_n_pin = '0' then	-- If TEMP_REG is not empty AND we can start writing to USB
-				s_oe			<= '1';
-				s_USB_WR_n_pin	<= '0';
+
+			if USB_RXF_n_pin = '0' and s_USB_WR_n_pin = '1' and	-- If there is stuff to read from the FTDI and no writing is currently going on
+				s_READ_FROM_USB_REG_FULL = '0' and READ_SUCCESSFUL = '0' then	-- If USB temp read reg is empty and last read already finished
+
+				s_oe			<= '0';
+
+				if s_oe = '0' then 
+					s_USB_RD_n_pin	<= '0';
+				end if;
+
+			elsif s_TEMP_REG_STATE = c_TEMPREG_FULL and USB_TXE_n_pin = '0' then	-- If we have stuff to write (TEMP_REG is not empty) AND we can start writing to USB
+--				s_oe			<= '1';
+--				s_USB_WR_n_pin	<= '0';
 			end if;
 
+
+-----------------------------------------------------------
 			if USB_TXE_n_pin = '0' and s_USB_WR_n_pin = '0' then			-- If write to USB was actually successfull
 
 				s_TEMP_REG(31 downto 8) <= s_TEMP_REG(23 downto 0); 
@@ -277,20 +287,22 @@ begin
 				if s_USB_SMPL_BYTE_CNTR = to_unsigned(0, 2) then
 					s_TEMP_REG_STATE <= c_TEMPREG_EMPTY;
 
-					s_oe			<= '0';									-- There is actually nothing left to write to USB
+--					s_oe			<= '0';									-- There is actually nothing left to write to USB
 					s_USB_WR_n_pin	<= '1';		
 				end if;
 
 			end if;
 
 -----------------------------------------------------------
-			FROM_USB_RDY <= s_READ_FROM_USB_REG_FULL;
+			FROM_USB_RDY <= s_READ_FROM_USB_REG_FULL;						-- We're doing it in the process so we have one clck cycle delay to the actual data
 
 			if USB_RXF_n_pin = '0' and s_USB_RD_n_pin = '0' then			-- If read from USB was actually successfull
 
 				READ_FROM_USB_REG <= s_ibuf;
 				s_READ_FROM_USB_REG_FULL <= '1';
 				
+				s_oe			<= '1';
+				s_USB_RD_n_pin	<= '1';	
 			end if;
 
 			if READ_SUCCESSFUL = '1' then
