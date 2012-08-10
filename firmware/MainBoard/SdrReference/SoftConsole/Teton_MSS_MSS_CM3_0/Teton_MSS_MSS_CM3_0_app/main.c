@@ -67,7 +67,7 @@ void process_cmd_buff(const char* cmd_buff, uint8_t length)
 	                cmd_token = strtok(NULL, " ");
 	            }
 
-				Yellowstone_write("\nTACK", 5);
+				Yellowstone_write("\nACK", 5);
 
 				// Invoke associated command function
 		        cmd_list_ptr->CmdFunction(argc, arg_list);
@@ -83,11 +83,11 @@ void process_cmd_buff(const char* cmd_buff, uint8_t length)
 	// Send NAK if no valid command identified
 	if (parse_result == 1)
 	{
-		Yellowstone_write("\nTNAK>", 5);
+		Yellowstone_write("\nNAK>", 5);
 	}
 
 	// Send '>' prompt
-	Yellowstone_write("\n>", 2);
+	Yellowstone_write("\nT>", 3);
 
 	// Clean up states
 	cmd_length = 0;
