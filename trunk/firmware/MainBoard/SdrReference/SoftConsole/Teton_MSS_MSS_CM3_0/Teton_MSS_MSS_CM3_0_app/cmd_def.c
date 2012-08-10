@@ -36,6 +36,7 @@ uint32_t CmdHelp(uint32_t argc, char** argv)
 
 	Yellowstone_print("\nAvailable commands:\n");
 
+	Yellowstone_print("\n  env");
 	while (cmdListItr->CmdString)
 	{
 		Yellowstone_write("\n  ", 3);
@@ -65,7 +66,7 @@ uint32_t CmdLed(uint32_t argc, char** argv)
 	}
 
 	// Send help message
-  	Yellowstone_print("\nUsage: t led [on | off]");
+  	Yellowstone_print("\nUsage: led [on | off]");
 	return 1;
 }
 
@@ -88,7 +89,7 @@ uint32_t CmdAfe(uint32_t argc, char** argv)
 	}
 
 	// Send help message
-	Yellowstone_print("\nUsage: t afe [on | off ]");
+	Yellowstone_print("\nUsage: afe [on | off ]");
 	return 1;
 }
 
