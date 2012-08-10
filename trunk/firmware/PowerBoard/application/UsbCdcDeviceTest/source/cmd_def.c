@@ -4,50 +4,87 @@
 // List of command words and associated functions
 extern CMD_Type CMD_List[] =
 {
-	"help", CmdHelp,
-	"led",  CmdLed,
-	"pwr",  CmdPwr,
-	//"reg",  CmdReg,
-	"t",    CmdTeton,
+	"env",	CmdEnv, 	ENV_Yellowstone | ENV_Teton,
+	"help", CmdHelp,	ENV_Yellowstone,	
+	"led",  CmdLed,	   	ENV_Yellowstone,
+	"pwr",  CmdPwr,		ENV_Yellowstone,
+//	"t",    CmdTeton,
 //	"mon on", CMD_MonitorOn,
 //	"mon off", CMD_MonitorOff
-	NULL,   NULL
+	NULL,   NULL,		ENV_NONE,
 };
+
+extern ENV_Type ENV_List[] =
+{
+	{"ys", 	ENV_Yellowstone},
+	{"t",	ENV_Teton},
+	{NULL,	ENV_NONE}
+};						   
+
+extern ENV_Enum_Type activeEnv  = ENV_Yellowstone;
 
 
 
 uint32_t CmdHelp(uint32_t argc, char** argv)
-{
-	/*
-	char buf[1024];
-	uint16_t i;
-
-	buf[0] = '\n';
-	for ( i = 1; i < 200; i++ )
-	{
-		if ( i % 10 == 0 )
-			buf[i] = i / 10 + '0';
-		else
-			buf[i] = '.';		
-	}
-	USB_SendMsg(buf, i);
-
-	return 0;
-	*/
-	
+{	
 	CMD_Type* cmdListItr = CMD_List;
 	
 	USB_SendString("\nAvailable commands:\n");
 	
 	while (cmdListItr->CmdString)
 	{
-		USB_SendMsg("\n  ", 3);
-		USB_SendString((const char*)cmdListItr->CmdString);
+		if (activeEnv & cmdListItr->CmdEnv)
+		{
+			USB_SendMsg("\n  ", 3);
+			USB_SendString((const char*)cmdListItr->CmdString);
+		}	  
 		cmdListItr++;
 	}
 	USB_SendMsg("\n", 1);
 	
 	return 0;
+}
+
+
+uint32_t CmdEnv(uint32_t argc, char** argv)
+{
+	const ENV_Type* envListItr = ENV_List;
+
+	if (argc == 1)
+	{
+		while ( envListItr->envString )
+		{
+			USB_SendMsg("\n  ", 3);
+			USB_SendString(envListItr->envString);
+			
+			if (activeEnv == envListItr->envEnum)
+			{
+				USB_SendString("\t(active)");
+			}
+			envListItr++;
+		} 
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		while ( envListItr->envString )
+		{
+			if (!strcmp(*(argv+1), (envListItr->envString)))
+			{			
+				activeEnv = envListItr->envEnum;
+				return 0;
+			}
+			envListItr++;
+		}
+		USB_SendString("\nEnvironment ");
+		USB_SendString(*(argv+1));
+		USB_SendString(" not found");		
+	}
+
+	// Send help message
+  	USB_SendString("\nUsage: env [<new environment>]");
+	return 1;
 }
 
 
