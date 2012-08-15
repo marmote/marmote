@@ -272,7 +272,7 @@ begin
 
 			elsif s_TEMP_REG_STATE = c_TEMPREG_FULL and USB_TXE_n_pin = '0' then	-- If we have stuff to write (TEMP_REG is not empty) AND we can start writing to USB
 --				s_oe			<= '1';
---				s_USB_WR_n_pin	<= '0';
+				s_USB_WR_n_pin	<= '0';
 			end if;
 
 

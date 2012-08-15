@@ -2,7 +2,7 @@
 #define StreamingReceiver_HW_PLATFORM_H_
 /*****************************************************************************
 *
-*Created by Actel SmartDesign  Mon Jul 02 09:59:52 2012
+*Created by Actel SmartDesign  Fri Aug 10 10:27:54 2012
 *
 *Memory map specification for peripherals in StreamingReceiver
 */

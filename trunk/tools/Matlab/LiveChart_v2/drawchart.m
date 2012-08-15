@@ -85,7 +85,7 @@ function [ ] = drawchart( fig_handle, frame_cnt_history, frame_starts, missing_f
     xlim(hax, [freq(1)/1e6 freq(end)/1e6]);
 %    ylim([-50 0]);
     ylim(hax, [-Full_Scale_dB 0]);
-    title(hax, ['Max val I: ' num2str(I_val) ' [dB]; Max f I: ' num2str(I_max_f/1e6) ' [MHz]; Max val Q: ' num2str(Q_val) ' [dB]; Max f Q: ' num2str(Q_max_f/1e6) ' [MHz]']);
+    title(hax, ['Max val I: ' num2str(I_val, '%.1f') ' [dB]; Max f I: ' num2str(I_max_f/1e6, '%.1f') ' [MHz]; Max val Q: ' num2str(Q_val, '%.1f') ' [dB]; Max f Q: ' num2str(Q_max_f/1e6, '%.1f') ' [MHz]']);
     xlabel(hax, 'Frequency [MHz]');
     ylabel(hax, 'Amplitude [dB]');
     hold(hax,'off');
@@ -100,7 +100,7 @@ function [ ] = drawchart( fig_handle, frame_cnt_history, frame_starts, missing_f
     xlim(hax, [c_freq(1)/1e6 c_freq(end)/1e6]);
 %    ylim([-50 0]);
     ylim(hax, [-Full_Scale_dB 0]);
-    title(hax, ['Max val: ' num2str(val) ' [dB]; Max f: ' num2str(max_f/1e6) ' [MHz];']);
+    title(hax, ['Max val: ' num2str(val, '%.1f') ' [dB]; Max f: ' num2str(max_f/1e6, '%.1f') ' [MHz];']);
     xlabel(hax, 'Frequency [MHz]');
     ylabel(hax, 'Amplitude [dB]');
     hold(hax,'off');

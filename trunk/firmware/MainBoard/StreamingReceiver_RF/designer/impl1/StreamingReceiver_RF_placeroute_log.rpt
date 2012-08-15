@@ -35,16 +35,16 @@ Global net placement completed successfully.
 
                         o - o - o - o - o - o
 
-Timing-driven Placer Started: Fri Jul 06 16:23:29 2012
+Timing-driven Placer Started: Wed Aug 15 14:36:27 2012
 
-Placer Finished: Fri Jul 06 16:23:41 2012
-Total Placer CPU Time:     00:00:12
+Placer Finished: Wed Aug 15 14:36:38 2012
+Total Placer CPU Time:     00:00:11
 
                         o - o - o - o - o - o
 
 
 Timing-driven Router 
-Design: StreamingReceiver_RF_synthesis_1Started: Fri Jul 06 16:23:43 2012
+Design: StreamingReceiver_RF_synthesis_1Started: Wed Aug 15 14:36:40 2012
 
  
 Iterative improvement...
@@ -52,14 +52,14 @@ Iterative improvement...
 Timing-driven Router completed successfully.
 
 Design: StreamingReceiver_RF_synthesis_1
-Finished: Fri Jul 06 16:24:07 2012
-Total CPU Time:     00:00:23            Total Elapsed Time: 00:00:24
+Finished: Wed Aug 15 14:37:04 2012
+Total CPU Time:     00:00:24            Total Elapsed Time: 00:00:24
                         o - o - o - o - o - o
 
 Loading the Timing data for the design.
 Finished loading the Timing data.
 
-The Layout command succeeded ( 00:00:44 )
+The Layout command succeeded ( 00:00:43 )
 Wrote status report to file: StreamingReceiver_RF_place_and_route_report.txt
 
 The Report command succeeded ( 00:00:00 )
@@ -76,6 +76,6 @@ Design saved to file
 D:\Work\marmote\firmware\MainBoard\StreamingReceiver_RF\designer\impl1\StreamingReceiver_RF_syn\
 thesis_1.adb.
 
-The Execute Script command succeeded ( 00:00:46 )
+The Execute Script command succeeded ( 00:00:45 )
 Design closed.
 

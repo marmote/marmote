@@ -5,7 +5,7 @@
 Product: Designer
 Release: v10.0 SP2
 Version: 10.0.20.2
-Date: Fri Jul 06 16:24:11 2012
+Date: Wed Aug 15 14:37:08 2012
 Design Name: StreamingReceiver_RF  Family: SmartFusion  Die: A2F500M3G  Package: 256 FBGA
 
 
@@ -14,7 +14,7 @@ I/O Function:
     Type                          | w/o register  | w/ register  | w/ DDR register
     ------------------------------|---------------|--------------|----------------
     Input I/O                     | 4             | 0            | 0
-    Output I/O                    | 10            | 0            | 0
+    Output I/O                    | 10            | 1            | 0
     Bidirectional I/O             | 8             | 0            | 10
     Differential Input I/O Pairs  | 0             | 0            | 0
     Differential Output I/O Pairs | 0             | 0            | 0
@@ -25,7 +25,7 @@ I/O Technology:
     --------------------------------|-------|-------|-------|--------|--------------
     I/O Standard(s)                 | Vcci  | Vref  | Input | Output | Bidirectional
     --------------------------------|-------|-------|-------|--------|--------------
-    LVTTL                           | 3.30v | N/A   | 4     | 10     | 0
+    LVTTL                           | 3.30v | N/A   | 4     | 11     | 0
     LVCMOS33                        | 3.30v | N/A   | 0     | 0      | 18
 
 I/O Bank Resource Usage:
@@ -34,12 +34,12 @@ I/O Bank Resource Usage:
           |-------|-------|------|-------|-------|--------|------|-------|----------
           | Vcci  | Vref  | Used | Total | Used  | Total  | Used | Total | Vref Pins
     ------|-------|-------|------|-------|-------|--------|------|-------|----------
-    Bank0 | 3.30v | N/A   | 15   | 34    | 0     | 17     | N/A  | N/A   | N/A
-    Bank1 | 3.30v | N/A   | 3    | 12    | 0     | 6      | N/A  | N/A   | N/A
+    Bank0 | 3.30v | N/A   | 18   | 34    | 0     | 17     | N/A  | N/A   | N/A
+    Bank1 | 3.30v | N/A   | 7    | 12    | 0     | 6      | N/A  | N/A   | N/A
     Bank2 | MSS   | N/A   | N/A  | N/A   | N/A   | N/A    | N/A  | N/A   | N/A
     Bank3 | ANALOG| N/A   | N/A  | N/A   | N/A   | N/A    | N/A  | N/A   | N/A
     Bank4 | MSS   | N/A   | N/A  | N/A   | N/A   | N/A    | N/A  | N/A   | N/A
-    Bank5 | 3.30v | N/A   | 14   | 20    | 0     | 10     | N/A  | N/A   | N/A
+    Bank5 | 3.30v | N/A   | 8    | 20    | 0     | 10     | N/A  | N/A   | N/A
 
 I/O Voltage Usage:
 
@@ -47,5 +47,5 @@ I/O Voltage Usage:
     -------|-------|------|-------
      Vcci  | Vref  | Used | Total
     -------|-------|------|-------
-     3.30v | N/A   | 32   | 66
+     3.30v | N/A   | 33   | 66
 

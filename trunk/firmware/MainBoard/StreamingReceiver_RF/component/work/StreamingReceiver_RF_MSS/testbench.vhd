@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------
--- Created by Actel SmartDesign Wed Jul 04 07:56:38 2012
+-- Created by Actel SmartDesign Wed Aug 15 14:33:39 2012
 -- Testbench Template
 -- This is a basic testbench that instantiates your design with basic 
 -- clock and reset pins connected.  If your design has special
@@ -28,8 +28,8 @@ architecture behavioral of testbench is
             MSSPSLVERR : in std_logic;
             F2M_GPI_12 : in std_logic;
             MAINXIN : in std_logic;
+            FABINT : in std_logic;
             MSSPRDATA : in std_logic_vector(31 downto 0);
-            DMAREADY : in std_logic_vector(1 downto 0);
             SPI_1_DI : in std_logic;
             MSS_RESET_N : in std_logic;
 
@@ -83,8 +83,8 @@ begin
             MSSPSLVERR => '0',
             F2M_GPI_12 => '0',
             MAINXIN => '0',
+            FABINT => '0',
             MSSPRDATA => (others=> '0'),
-            DMAREADY => (others=> '0'),
             SPI_1_DI => '0',
             MSS_RESET_N => NSYSRESET,
 

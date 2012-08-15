@@ -3,7 +3,7 @@ Timing Report Max Delay Analysis
 SmartTime Version v10.0 SP2
 Actel Corporation - Actel Designer Software Release v10.0 SP2 (Version 10.0.20.2)
 Copyright (c) 1989-2012
-Date: Fri Jul 06 16:24:18 2012
+Date: Wed Aug 15 14:37:15 2012
 
 
 Design: StreamingReceiver_RF
@@ -35,8 +35,8 @@ Min Clock-To-Out (ns):      N/A
 Max Clock-To-Out (ns):      N/A
 
 Clock Domain:               mss_fabric_interface_clock
-Period (ns):                8.917
-Frequency (MHz):            112.145
+Period (ns):                8.564
+Frequency (MHz):            116.768
 Required Period (ns):       N/A
 Required Frequency (MHz):   N/A
 External Setup (ns):        N/A
@@ -49,20 +49,20 @@ Period (ns):                N/A
 Frequency (MHz):            N/A
 Required Period (ns):       N/A
 Required Frequency (MHz):   N/A
-External Setup (ns):        2.945
-External Hold (ns):         -1.032
+External Setup (ns):        4.774
+External Hold (ns):         -1.995
 Min Clock-To-Out (ns):      3.408
-Max Clock-To-Out (ns):      11.804
+Max Clock-To-Out (ns):      12.212
 
 Clock Domain:               mss_ccc_gla1
-Period (ns):                6.602
-Frequency (MHz):            151.469
+Period (ns):                6.149
+Frequency (MHz):            162.628
 Required Period (ns):       N/A
 Required Frequency (MHz):   N/A
 External Setup (ns):        N/A
 External Hold (ns):         N/A
-Min Clock-To-Out (ns):      N/A
-Max Clock-To-Out (ns):      N/A
+Min Clock-To-Out (ns):      3.033
+Max Clock-To-Out (ns):      7.369
 
 Clock Domain:               mss_ccc_gla0
 Period (ns):                12.500
@@ -75,14 +75,14 @@ Min Clock-To-Out (ns):      N/A
 Max Clock-To-Out (ns):      N/A
 
 Clock Domain:               mss_ccc_glb
-Period (ns):                27.295
-Frequency (MHz):            36.637
+Period (ns):                22.779
+Frequency (MHz):            43.900
 Required Period (ns):       N/A
 Required Frequency (MHz):   N/A
-External Setup (ns):        0.615
-External Hold (ns):         0.125
-Min Clock-To-Out (ns):      1.819
-Max Clock-To-Out (ns):      5.545
+External Setup (ns):        0.482
+External Hold (ns):         0.219
+Min Clock-To-Out (ns):      1.810
+Max Clock-To-Out (ns):      5.089
 
 Clock Domain:               StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_XTLOSC:CLKOUT
 Period (ns):                N/A
@@ -91,28 +91,18 @@ Required Period (ns):       N/A
 Required Frequency (MHz):   N/A
 External Setup (ns):        N/A
 External Hold (ns):         N/A
-Min Clock-To-Out (ns):      2.649
-Max Clock-To-Out (ns):      5.755
+Min Clock-To-Out (ns):      2.672
+Max Clock-To-Out (ns):      5.862
 
 Clock Domain:               USB_CLK_pin
-Period (ns):                19.268
-Frequency (MHz):            51.900
+Period (ns):                12.405
+Frequency (MHz):            80.613
 Required Period (ns):       N/A
 Required Frequency (MHz):   N/A
-External Setup (ns):        11.322
-External Hold (ns):         -0.226
-Min Clock-To-Out (ns):      3.284
-Max Clock-To-Out (ns):      10.325
-
-Clock Domain:               atck
-Period (ns):                50.000
-Frequency (MHz):            20.000
-Required Period (ns):       N/A
-Required Frequency (MHz):   N/A
-External Setup (ns):        15.820
-External Hold (ns):         0.000
-Min Clock-To-Out (ns):      7.449
-Max Clock-To-Out (ns):      15.820
+External Setup (ns):        8.424
+External Hold (ns):         -0.796
+Min Clock-To-Out (ns):      3.505
+Max Clock-To-Out (ns):      13.283
 
                             Input to Output
 Min Delay (ns):             N/A
@@ -177,95 +167,95 @@ SET Register to Register
 
 Path 1
   From:                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To:                          StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[28]
-  Delay (ns):                  11.064
+  To:                          StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[20]
+  Delay (ns):                  10.729
   Slack (ns):
-  Arrival (ns):                11.064
+  Arrival (ns):                10.729
   Required (ns):
-  Setup (ns):                  -2.147
-  Minimum Period (ns):         8.917
+  Setup (ns):                  -2.165
+  Minimum Period (ns):         8.564
 
 Path 2
   From:                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
   To:                          StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[24]
-  Delay (ns):                  10.979
+  Delay (ns):                  10.426
   Slack (ns):
-  Arrival (ns):                10.979
+  Arrival (ns):                10.426
   Required (ns):
   Setup (ns):                  -2.164
-  Minimum Period (ns):         8.815
+  Minimum Period (ns):         8.262
 
 Path 3
   From:                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To:                          StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[30]
-  Delay (ns):                  10.760
+  To:                          StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[18]
+  Delay (ns):                  10.424
   Slack (ns):
-  Arrival (ns):                10.760
+  Arrival (ns):                10.424
   Required (ns):
-  Setup (ns):                  -2.149
-  Minimum Period (ns):         8.611
+  Setup (ns):                  -2.166
+  Minimum Period (ns):         8.258
 
 Path 4
   From:                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
   To:                          StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[22]
-  Delay (ns):                  10.762
+  Delay (ns):                  10.244
   Slack (ns):
-  Arrival (ns):                10.762
+  Arrival (ns):                10.244
   Required (ns):
   Setup (ns):                  -2.164
-  Minimum Period (ns):         8.598
+  Minimum Period (ns):         8.080
 
 Path 5
   From:                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To:                          StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[26]
-  Delay (ns):                  10.489
+  To:                          StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[16]
+  Delay (ns):                  10.178
   Slack (ns):
-  Arrival (ns):                10.489
+  Arrival (ns):                10.178
   Required (ns):
-  Setup (ns):                  -2.150
-  Minimum Period (ns):         8.339
+  Setup (ns):                  -2.169
+  Minimum Period (ns):         8.009
 
 
 Expanded Path 1
   From: StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:GLB
-  To: StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[28]
+  To: StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[20]
   data required time                             N/C
-  data arrival time                          -   11.064
+  data arrival time                          -   10.729
   slack                                          N/C
   ________________________________________________________
   Data arrival time calculation
   0.000                        mss_fabric_interface_clock
                +     0.000          Clock source
   0.000                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:GLB (r)
-               +     2.767          cell: ADLIB:MSS_APB_IP
-  2.767                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPSEL (r)
-               +     0.125          net: StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/MSSPSELINT_NET
-  2.892                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_42:PIN1INT (r)
-               +     0.089          cell: ADLIB:MSS_IF
-  2.981                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_42:PIN1 (r)
-               +     1.499          net: StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PSELx
-  4.480                        CoreAPB3_0/CAPB3iool_2[0]:A (r)
-               +     0.604          cell: ADLIB:NOR3A
-  5.084                        CoreAPB3_0/CAPB3iool_2[0]:Y (r)
-               +     1.531          net: CoreAPB3_0_CAPB3iool_2[0]
-  6.615                        CoreAPB3_0/CAPB3O1II/PRDATA_10_i:B (r)
-               +     0.568          cell: ADLIB:NOR3C
-  7.183                        CoreAPB3_0/CAPB3O1II/PRDATA_10_i:Y (r)
-               +     3.379          net: PRDATA_10_i
-  10.562                       StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_57:PIN5 (r)
+               +     2.847          cell: ADLIB:MSS_APB_IP
+  2.847                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPADDR[10] (f)
+               +     0.156          net: StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/MSSPADDR[10]INT_NET
+  3.003                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_33:PIN2INT (f)
+               +     0.094          cell: ADLIB:MSS_IF
+  3.097                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_33:PIN2 (f)
+               +     1.091          net: _CoreAPB3_0_APBmslave0_PADDR_[10]_
+  4.188                        CoreAPB3_0/CAPB3iool_1[0]:B (f)
+               +     0.588          cell: ADLIB:NOR2
+  4.776                        CoreAPB3_0/CAPB3iool_1[0]:Y (r)
+               +     1.206          net: CoreAPB3_0_CAPB3iool_1[0]
+  5.982                        CoreAPB3_0/CAPB3O1II/PRDATA_10_i:A (r)
+               +     0.478          cell: ADLIB:NOR3C
+  6.460                        CoreAPB3_0/CAPB3O1II/PRDATA_10_i:Y (r)
+               +     3.770          net: N_35
+  10.230                       StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_54:PIN4 (r)
                +     0.079          cell: ADLIB:MSS_IF
-  10.641                       StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_57:PIN5INT (r)
-               +     0.423          net: StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/MSSPRDATA[28]INT_NET
-  11.064                       StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[28] (r)
+  10.309                       StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_54:PIN4INT (r)
+               +     0.420          net: StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/MSSPRDATA[20]INT_NET
+  10.729                       StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[20] (r)
                                     
-  11.064                       data arrival time
+  10.729                       data arrival time
   ________________________________________________________
   Data required time calculation
   N/C                          mss_fabric_interface_clock
                +     0.000          Clock source
   N/C                          StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:GLB (r)
-               -    -2.147          Library setup time: ADLIB:MSS_APB_IP
-  N/C                          StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[28]
+               -    -2.165          Library setup time: ADLIB:MSS_APB_IP
+  N/C                          StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:MSSPRDATA[20]
 
 
 END SET Register to Register
@@ -327,19 +317,19 @@ SET External Setup
 Path 1
   From:                        LD
   To:                          StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:GPI[12]
-  Delay (ns):                  3.797
+  Delay (ns):                  5.626
   Slack (ns):
-  Arrival (ns):                3.797
+  Arrival (ns):                5.626
   Required (ns):
   Setup (ns):                  -0.852
-  External Setup (ns):         2.945
+  External Setup (ns):         4.774
 
 
 Expanded Path 1
   From: LD
   To: StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:GPI[12]
   data required time                             N/C
-  data arrival time                          -   3.797
+  data arrival time                          -   5.626
   slack                                          N/C
   ________________________________________________________
   Data arrival time calculation
@@ -352,14 +342,14 @@ Expanded Path 1
   0.967                        LD_pad/U0/U1:YIN (r)
                +     0.039          cell: ADLIB:IOIN_IB
   1.006                        LD_pad/U0/U1:Y (r)
-               +     2.575          net: LD_c
-  3.581                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_96:PIN5 (r)
+               +     4.404          net: LD_c
+  5.410                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_96:PIN5 (r)
                +     0.216          cell: ADLIB:MSS_IF
-  3.797                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_96:PIN5INT (r)
+  5.626                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_96:PIN5INT (r)
                +     0.000          net: StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/GPI[12]INT_NET
-  3.797                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:GPI[12] (r)
+  5.626                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:GPI[12] (r)
                                     
-  3.797                        data arrival time
+  5.626                        data arrival time
   ________________________________________________________
   Data required time calculation
   N/C                          mss_pclk1
@@ -377,30 +367,30 @@ SET Clock to Output
 
 Path 1
   From:                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:PCLK1
-  To:                          ANTSEL
-  Delay (ns):                  11.804
+  To:                          nSHDN
+  Delay (ns):                  12.212
   Slack (ns):
-  Arrival (ns):                11.804
+  Arrival (ns):                12.212
   Required (ns):
-  Clock to Out (ns):           11.804
+  Clock to Out (ns):           12.212
 
 Path 2
   From:                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:PCLK1
-  To:                          RXHP
-  Delay (ns):                  11.544
+  To:                          ANTSEL
+  Delay (ns):                  11.844
   Slack (ns):
-  Arrival (ns):                11.544
+  Arrival (ns):                11.844
   Required (ns):
-  Clock to Out (ns):           11.544
+  Clock to Out (ns):           11.844
 
 Path 3
   From:                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:PCLK1
-  To:                          nSHDN
-  Delay (ns):                  11.044
+  To:                          RXHP
+  Delay (ns):                  11.835
   Slack (ns):
-  Arrival (ns):                11.044
+  Arrival (ns):                11.835
   Required (ns):
-  Clock to Out (ns):           11.044
+  Clock to Out (ns):           11.835
 
 Path 4
   From:                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:PCLK1
@@ -414,38 +404,38 @@ Path 4
 
 Expanded Path 1
   From: StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:PCLK1
-  To: ANTSEL
+  To: nSHDN
   data required time                             N/C
-  data arrival time                          -   11.804
+  data arrival time                          -   12.212
   slack                                          N/C
   ________________________________________________________
   Data arrival time calculation
   0.000                        mss_pclk1
                +     0.000          Clock source
   0.000                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:PCLK1 (r)
-               +     4.152          cell: ADLIB:MSS_APB_IP
-  4.152                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:GPO[15] (f)
-               +     0.000          net: StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/GPO[15]INT_NET
-  4.152                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_99:PIN1INT (f)
+               +     4.174          cell: ADLIB:MSS_APB_IP
+  4.174                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:GPO[13] (f)
+               +     0.000          net: StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/GPO[13]INT_NET
+  4.174                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_97:PIN1INT (f)
                +     0.088          cell: ADLIB:MSS_IF
-  4.240                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_99:PIN1 (f)
-               +     3.595          net: StreamingReceiver_RF_MSS_0/MSSINT_GPO_15_A
-  7.835                        ANTSEL_pad/U0/U1:D (f)
+  4.262                        StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_97:PIN1 (f)
+               +     3.981          net: StreamingReceiver_RF_MSS_0/MSSINT_GPO_13_A
+  8.243                        nSHDN_pad/U0/U1:D (f)
                +     0.600          cell: ADLIB:IOTRI_OB_EB
-  8.435                        ANTSEL_pad/U0/U1:DOUT (f)
-               +     0.000          net: ANTSEL_pad/U0/NET1
-  8.435                        ANTSEL_pad/U0/U0:D (f)
+  8.843                        nSHDN_pad/U0/U1:DOUT (f)
+               +     0.000          net: nSHDN_pad/U0/NET1
+  8.843                        nSHDN_pad/U0/U0:D (f)
                +     3.369          cell: ADLIB:IOPAD_TRI
-  11.804                       ANTSEL_pad/U0/U0:PAD (f)
-               +     0.000          net: ANTSEL
-  11.804                       ANTSEL (f)
+  12.212                       nSHDN_pad/U0/U0:PAD (f)
+               +     0.000          net: nSHDN
+  12.212                       nSHDN (f)
                                     
-  11.804                       data arrival time
+  12.212                       data arrival time
   ________________________________________________________
   Data required time calculation
   N/C                          StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST/U_CORE:PCLK1 (r)
                                     
-  N/C                          ANTSEL (f)
+  N/C                          nSHDN (f)
                                     
   N/C                          data required time
 
@@ -485,59 +475,59 @@ SET Register to Register
 Path 1
   From:                        SAMPLE_APB_0/s_REG_FULL/U1:CLK
   To:                          SAMPLE_APB_0/s_REG_FULL/U1:D
-  Delay (ns):                  6.080
+  Delay (ns):                  5.627
   Slack (ns):
-  Arrival (ns):                6.712
+  Arrival (ns):                6.304
   Required (ns):
   Setup (ns):                  0.522
-  Minimum Period (ns):         6.602
+  Minimum Period (ns):         6.149
 
 Path 2
-  From:                        SAMPLE_APB_0/s_REG_FULL/U1:CLK
-  To:                          SAMPLE_APB_0/REG[3]:E
-  Delay (ns):                  5.753
-  Slack (ns):
-  Arrival (ns):                6.385
-  Required (ns):
-  Setup (ns):                  0.554
-  Minimum Period (ns):         6.282
-
-Path 3
   From:                        SAMPLE_APB_0/s_READ_SUCCESSFUL/U1:CLK
   To:                          SAMPLE_APB_0/s_REG_FULL/U1:D
-  Delay (ns):                  5.616
+  Delay (ns):                  4.861
   Slack (ns):
-  Arrival (ns):                6.248
+  Arrival (ns):                5.529
   Required (ns):
   Setup (ns):                  0.522
-  Minimum Period (ns):         6.138
+  Minimum Period (ns):         5.374
+
+Path 3
+  From:                        SAMPLE_APB_0/s_REG_FULL/U1:CLK
+  To:                          SAMPLE_APB_0/REG[6]:E
+  Delay (ns):                  4.553
+  Slack (ns):
+  Arrival (ns):                5.230
+  Required (ns):
+  Setup (ns):                  0.554
+  Minimum Period (ns):         5.116
 
 Path 4
   From:                        SAMPLE_APB_0/s_REG_FULL/U1:CLK
-  To:                          SAMPLE_APB_0/REG[1]:E
-  Delay (ns):                  5.622
+  To:                          SAMPLE_APB_0/REG[7]:E
+  Delay (ns):                  4.237
   Slack (ns):
-  Arrival (ns):                6.254
+  Arrival (ns):                4.914
   Required (ns):
   Setup (ns):                  0.554
-  Minimum Period (ns):         6.109
+  Minimum Period (ns):         4.779
 
 Path 5
   From:                        SAMPLE_APB_0/s_REG_FULL/U1:CLK
-  To:                          SAMPLE_APB_0/REG[7]:E
-  Delay (ns):                  5.440
+  To:                          SAMPLE_APB_0/REG[0]:E
+  Delay (ns):                  4.237
   Slack (ns):
-  Arrival (ns):                6.072
+  Arrival (ns):                4.914
   Required (ns):
   Setup (ns):                  0.554
-  Minimum Period (ns):         5.969
+  Minimum Period (ns):         4.779
 
 
 Expanded Path 1
   From: SAMPLE_APB_0/s_REG_FULL/U1:CLK
   To: SAMPLE_APB_0/s_REG_FULL/U1:D
   data required time                             N/C
-  data arrival time                          -   6.712
+  data arrival time                          -   6.304
   slack                                          N/C
   ________________________________________________________
   Data arrival time calculation
@@ -548,26 +538,26 @@ Expanded Path 1
   0.000                        StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5INT (r)
                +     0.000          cell: ADLIB:MSS_CCC_GL_IF
   0.000                        StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5 (r)
-               +     0.632          net: FAB_CLK
-  0.632                        SAMPLE_APB_0/s_REG_FULL/U1:CLK (r)
+               +     0.677          net: FAB_CLK
+  0.677                        SAMPLE_APB_0/s_REG_FULL/U1:CLK (r)
                +     0.671          cell: ADLIB:DFN1C0
-  1.303                        SAMPLE_APB_0/s_REG_FULL/U1:Q (f)
-               +     1.086          net: SAMPLE_APB_0/s_REG_FULL
-  2.389                        SAMPLE_APB_0/s_REG_FULL_RNI76EK:B (f)
+  1.348                        SAMPLE_APB_0/s_REG_FULL/U1:Q (f)
+               +     1.379          net: LED1_c
+  2.727                        SAMPLE_APB_0/s_REG_FULL_RNI76EK:B (f)
                +     0.445          cell: ADLIB:NOR3A
-  2.834                        SAMPLE_APB_0/s_REG_FULL_RNI76EK:Y (r)
-               +     1.520          net: SAMPLE_APB_0/s_REG_FULL_0_sqmuxa
-  4.354                        SAMPLE_APB_0/s_REG_FULL_RNO:C (r)
+  3.172                        SAMPLE_APB_0/s_REG_FULL_RNI76EK:Y (r)
+               +     1.607          net: SAMPLE_APB_0/s_REG_FULL_0_sqmuxa
+  4.779                        SAMPLE_APB_0/s_REG_FULL_RNO:C (r)
                +     0.596          cell: ADLIB:AO1A
-  4.950                        SAMPLE_APB_0/s_REG_FULL_RNO:Y (r)
-               +     1.127          net: SAMPLE_APB_0/N_7
-  6.077                        SAMPLE_APB_0/s_REG_FULL/U0:S (r)
+  5.375                        SAMPLE_APB_0/s_REG_FULL_RNO:Y (r)
+               +     0.294          net: SAMPLE_APB_0/N_7
+  5.669                        SAMPLE_APB_0/s_REG_FULL/U0:S (r)
                +     0.339          cell: ADLIB:MX2
-  6.416                        SAMPLE_APB_0/s_REG_FULL/U0:Y (f)
+  6.008                        SAMPLE_APB_0/s_REG_FULL/U0:Y (f)
                +     0.296          net: SAMPLE_APB_0/s_REG_FULL/Y
-  6.712                        SAMPLE_APB_0/s_REG_FULL/U1:D (f)
+  6.304                        SAMPLE_APB_0/s_REG_FULL/U1:D (f)
                                     
-  6.712                        data arrival time
+  6.304                        data arrival time
   ________________________________________________________
   Data required time calculation
   N/C                          mss_ccc_gla1
@@ -577,7 +567,7 @@ Expanded Path 1
   N/C                          StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5INT (r)
                +     0.000          cell: ADLIB:MSS_CCC_GL_IF
   N/C                          StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5 (r)
-               +     0.632          net: FAB_CLK
+               +     0.677          net: FAB_CLK
   N/C                          SAMPLE_APB_0/s_REG_FULL/U1:CLK (r)
                -     0.522          Library setup time: ADLIB:DFN1C0
   N/C                          SAMPLE_APB_0/s_REG_FULL/U1:D
@@ -597,7 +587,55 @@ END SET External Setup
 
 SET Clock to Output
 
-No Path
+Path 1
+  From:                        SAMPLE_APB_0/s_REG_FULL/U1:CLK
+  To:                          LED1
+  Delay (ns):                  6.692
+  Slack (ns):
+  Arrival (ns):                7.369
+  Required (ns):
+  Clock to Out (ns):           7.369
+
+
+Expanded Path 1
+  From: SAMPLE_APB_0/s_REG_FULL/U1:CLK
+  To: LED1
+  data required time                             N/C
+  data arrival time                          -   7.369
+  slack                                          N/C
+  ________________________________________________________
+  Data arrival time calculation
+  0.000                        mss_ccc_gla1
+               +     0.000          Clock source
+  0.000                        StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:GLA (r)
+               +     0.000          net: StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_MSSCCC/GLA_INT
+  0.000                        StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5INT (r)
+               +     0.000          cell: ADLIB:MSS_CCC_GL_IF
+  0.000                        StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1:PIN5 (r)
+               +     0.677          net: FAB_CLK
+  0.677                        SAMPLE_APB_0/s_REG_FULL/U1:CLK (r)
+               +     0.671          cell: ADLIB:DFN1C0
+  1.348                        SAMPLE_APB_0/s_REG_FULL/U1:Q (f)
+               +     2.052          net: LED1_c
+  3.400                        LED1_pad/U0/U1:D (f)
+               +     0.600          cell: ADLIB:IOTRI_OB_EB
+  4.000                        LED1_pad/U0/U1:DOUT (f)
+               +     0.000          net: LED1_pad/U0/NET1
+  4.000                        LED1_pad/U0/U0:D (f)
+               +     3.369          cell: ADLIB:IOPAD_TRI
+  7.369                        LED1_pad/U0/U0:PAD (f)
+               +     0.000          net: LED1
+  7.369                        LED1 (f)
+                                    
+  7.369                        data arrival time
+  ________________________________________________________
+  Data required time calculation
+  N/C                          mss_ccc_gla1
+               +     0.000          Clock source
+  N/C                          StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:GLA (r)
+                                    
+  N/C                          LED1 (f)
+
 
 END SET Clock to Output
 
@@ -721,61 +759,61 @@ Clock Domain mss_ccc_glb
 SET Register to Register
 
 Path 1
-  From:                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[0]:CLK
+  From:                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[1]/U1:CLK
   To:                          USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[31]/U1:D
-  Delay (ns):                  26.741
+  Delay (ns):                  22.273
   Slack (ns):
-  Arrival (ns):                27.432
+  Arrival (ns):                22.952
   Required (ns):
   Setup (ns):                  0.522
-  Minimum Period (ns):         27.295
+  Minimum Period (ns):         22.779
 
 Path 2
-  From:                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[0]:CLK
-  To:                          USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[30]/U1:D
-  Delay (ns):                  26.530
+  From:                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[2]/U1:CLK
+  To:                          USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[31]/U1:D
+  Delay (ns):                  22.240
   Slack (ns):
-  Arrival (ns):                27.221
+  Arrival (ns):                22.919
   Required (ns):
-  Setup (ns):                  0.490
-  Minimum Period (ns):         27.047
+  Setup (ns):                  0.522
+  Minimum Period (ns):         22.746
 
 Path 3
   From:                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[0]:CLK
-  To:                          USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[29]/U1:D
-  Delay (ns):                  25.710
+  To:                          USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[31]/U1:D
+  Delay (ns):                  22.156
   Slack (ns):
-  Arrival (ns):                26.401
+  Arrival (ns):                22.835
   Required (ns):
   Setup (ns):                  0.522
-  Minimum Period (ns):         26.259
+  Minimum Period (ns):         22.662
 
 Path 4
-  From:                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[2]/U1:CLK
-  To:                          USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[31]/U1:D
-  Delay (ns):                  25.394
+  From:                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[1]/U1:CLK
+  To:                          USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[30]/U1:D
+  Delay (ns):                  22.062
   Slack (ns):
-  Arrival (ns):                26.096
+  Arrival (ns):                22.741
   Required (ns):
-  Setup (ns):                  0.522
-  Minimum Period (ns):         25.959
+  Setup (ns):                  0.490
+  Minimum Period (ns):         22.536
 
 Path 5
-  From:                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[1]/U1:CLK
-  To:                          USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[31]/U1:D
-  Delay (ns):                  25.421
+  From:                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[2]/U1:CLK
+  To:                          USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[30]/U1:D
+  Delay (ns):                  22.029
   Slack (ns):
-  Arrival (ns):                26.082
+  Arrival (ns):                22.708
   Required (ns):
-  Setup (ns):                  0.522
-  Minimum Period (ns):         25.945
+  Setup (ns):                  0.490
+  Minimum Period (ns):         22.503
 
 
 Expanded Path 1
-  From: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[0]:CLK
+  From: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[1]/U1:CLK
   To: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[31]/U1:D
   data required time                             N/C
-  data arrival time                          -   27.432
+  data arrival time                          -   22.952
   slack                                          N/C
   ________________________________________________________
   Data arrival time calculation
@@ -786,82 +824,82 @@ Expanded Path 1
   0.000                        StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE2:PIN5INT (r)
                +     0.000          cell: ADLIB:MSS_CCC_GL_IF
   0.000                        StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE2:PIN5 (r)
-               +     0.691          net: AFE2_CLK_pin_c
-  0.691                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[0]:CLK (r)
-               +     0.528          cell: ADLIB:DFN1P0
-  1.219                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[0]:Q (r)
-               +     2.011          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[0]
-  3.230                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNI1CJ8[2]:A (r)
-               +     0.445          cell: ADLIB:NOR3C
-  3.675                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNI1CJ8[2]:Y (r)
-               +     1.131          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c2
-  4.806                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNISIBE[4]:B (r)
+               +     0.679          net: AFE2_CLK_pin_c
+  0.679                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[1]/U1:CLK (r)
+               +     0.528          cell: ADLIB:DFN1C0
+  1.207                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[1]/U1:Q (r)
+               +     0.503          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[1]
+  1.710                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNI1CJ8[2]:B (r)
                +     0.568          cell: ADLIB:NOR3C
-  5.374                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNISIBE[4]:Y (r)
-               +     0.428          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c4
-  5.802                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIR94K[6]:B (r)
+  2.278                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNI1CJ8[2]:Y (r)
+               +     1.067          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c2
+  3.345                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNISIBE[4]:B (r)
                +     0.568          cell: ADLIB:NOR3C
-  6.370                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIR94K[6]:Y (r)
-               +     1.197          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c6
-  7.567                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIUGTP[8]:B (r)
+  3.913                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNISIBE[4]:Y (r)
+               +     0.306          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c4
+  4.219                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIR94K[6]:B (r)
                +     0.568          cell: ADLIB:NOR3C
-  8.135                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIUGTP[8]:Y (r)
-               +     0.427          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c8
-  8.562                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIMATV[10]:B (r)
+  4.787                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIR94K[6]:Y (r)
+               +     0.432          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c6
+  5.219                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIUGTP[8]:B (r)
                +     0.568          cell: ADLIB:NOR3C
-  9.130                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIMATV[10]:Y (r)
-               +     1.124          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c10
-  10.254                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNI3B361[12]:B (r)
+  5.787                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIUGTP[8]:Y (r)
+               +     1.358          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c8
+  7.145                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIMATV[10]:B (r)
                +     0.568          cell: ADLIB:NOR3C
-  10.822                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNI3B361[12]:Y (r)
-               +     1.566          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c12
-  12.388                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIKB9C1[14]:B (r)
+  7.713                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIMATV[10]:Y (r)
+               +     0.369          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c10
+  8.082                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNI3B361[12]:B (r)
                +     0.568          cell: ADLIB:NOR3C
-  12.956                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIKB9C1[14]:Y (r)
-               +     0.431          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c14
-  13.387                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNI9CFI1[16]:B (r)
+  8.650                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNI3B361[12]:Y (r)
+               +     0.369          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c12
+  9.019                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIKB9C1[14]:B (r)
                +     0.568          cell: ADLIB:NOR3C
-  13.955                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNI9CFI1[16]:Y (r)
-               +     1.241          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c16
-  15.196                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNI2DLO1[18]:B (r)
+  9.587                        USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIKB9C1[14]:Y (r)
+               +     1.118          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c14
+  10.705                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNI9CFI1[16]:B (r)
                +     0.568          cell: ADLIB:NOR3C
-  15.764                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNI2DLO1[18]:Y (r)
-               +     1.139          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c18
-  16.903                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIOHRU1[20]:B (r)
+  11.273                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNI9CFI1[16]:Y (r)
+               +     1.483          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c16
+  12.756                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNI2DLO1[18]:B (r)
                +     0.568          cell: ADLIB:NOR3C
-  17.471                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIOHRU1[20]:Y (r)
-               +     0.779          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c20
-  18.250                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIBQ152[22]:B (r)
+  13.324                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNI2DLO1[18]:Y (r)
+               +     0.432          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c18
+  13.756                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIOHRU1[20]:B (r)
                +     0.568          cell: ADLIB:NOR3C
-  18.818                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIBQ152[22]:Y (r)
-               +     1.380          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c22
-  20.198                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNI238B2[24]:B (r)
+  14.324                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIOHRU1[20]:Y (r)
+               +     1.185          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c20
+  15.509                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIBQ152[22]:B (r)
                +     0.568          cell: ADLIB:NOR3C
-  20.766                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNI238B2[24]:Y (r)
-               +     1.166          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c24
-  21.932                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNITBEH2[26]:B (r)
+  16.077                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIBQ152[22]:Y (r)
+               +     0.432          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c22
+  16.509                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNI238B2[24]:B (r)
                +     0.568          cell: ADLIB:NOR3C
-  22.500                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNITBEH2[26]:Y (r)
+  17.077                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNI238B2[24]:Y (r)
+               +     0.735          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c24
+  17.812                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNITBEH2[26]:B (r)
+               +     0.568          cell: ADLIB:NOR3C
+  18.380                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNITBEH2[26]:Y (r)
                +     0.432          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c26
-  22.932                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNISKKN2[28]:B (r)
+  18.812                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNISKKN2[28]:B (r)
                +     0.568          cell: ADLIB:NOR3C
-  23.500                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNISKKN2[28]:Y (r)
-               +     1.335          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c28
-  24.835                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIDPNQ2[29]:A (r)
+  19.380                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNISKKN2[28]:Y (r)
+               +     0.975          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c28
+  20.355                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIDPNQ2[29]:A (r)
                +     0.445          cell: ADLIB:NOR2B
-  25.280                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIDPNQ2[29]:Y (r)
+  20.800                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNIDPNQ2[29]:Y (r)
                +     0.348          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_c29
-  25.628                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNO[31]:B (r)
+  21.148                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNO[31]:B (r)
                +     0.685          cell: ADLIB:AX1C
-  26.313                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNO[31]:Y (f)
+  21.833                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_RNO[31]:Y (f)
                +     0.296          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR_n31
-  26.609                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[31]/U0:A (f)
+  22.129                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[31]/U0:A (f)
                +     0.527          cell: ADLIB:MX2
-  27.136                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[31]/U0:Y (f)
+  22.656                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[31]/U0:Y (f)
                +     0.296          net: USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[31]/Y
-  27.432                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[31]/U1:D (f)
+  22.952                       USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[31]/U1:D (f)
                                     
-  27.432                       data arrival time
+  22.952                       data arrival time
   ________________________________________________________
   Data required time calculation
   N/C                          mss_ccc_glb
@@ -871,7 +909,7 @@ Expanded Path 1
   N/C                          StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE2:PIN5INT (r)
                +     0.000          cell: ADLIB:MSS_CCC_GL_IF
   N/C                          StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE2:PIN5 (r)
-               +     0.659          net: AFE2_CLK_pin_c
+               +     0.695          net: AFE2_CLK_pin_c
   N/C                          USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[31]/U1:CLK (r)
                -     0.522          Library setup time: ADLIB:DFN1C0
   N/C                          USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTR[31]/U1:D
@@ -891,7 +929,7 @@ Path 1
   Arrival (ns):                0.967
   Required (ns):
   Setup (ns):                  0.299
-  External Setup (ns):         0.615
+  External Setup (ns):         0.482
 
 Path 2
   From:                        DATA_pin[5]
@@ -901,17 +939,17 @@ Path 2
   Arrival (ns):                0.967
   Required (ns):
   Setup (ns):                  0.299
-  External Setup (ns):         0.598
+  External Setup (ns):         0.482
 
 Path 3
-  From:                        DATA_pin[0]
-  To:                          AFE_IF_0/g_DDR_INTERFACE_0_u_BIBUF_LVCMOS33/U0/U1:YIN
+  From:                        DATA_pin[7]
+  To:                          AFE_IF_0/g_DDR_INTERFACE_7_u_BIBUF_LVCMOS33/U0/U1:YIN
   Delay (ns):                  0.967
   Slack (ns):
   Arrival (ns):                0.967
   Required (ns):
   Setup (ns):                  0.299
-  External Setup (ns):         0.598
+  External Setup (ns):         0.482
 
 Path 4
   From:                        DATA_pin[8]
@@ -921,17 +959,17 @@ Path 4
   Arrival (ns):                0.967
   Required (ns):
   Setup (ns):                  0.299
-  External Setup (ns):         0.583
+  External Setup (ns):         0.482
 
 Path 5
-  From:                        DATA_pin[7]
-  To:                          AFE_IF_0/g_DDR_INTERFACE_7_u_BIBUF_LVCMOS33/U0/U1:YIN
+  From:                        DATA_pin[6]
+  To:                          AFE_IF_0/g_DDR_INTERFACE_6_u_BIBUF_LVCMOS33/U0/U1:YIN
   Delay (ns):                  0.967
   Slack (ns):
   Arrival (ns):                0.967
   Required (ns):
   Setup (ns):                  0.299
-  External Setup (ns):         0.579
+  External Setup (ns):         0.481
 
 
 Expanded Path 1
@@ -960,7 +998,7 @@ Expanded Path 1
   N/C                          StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE2:PIN5INT (f)
                +     0.000          cell: ADLIB:MSS_CCC_GL_IF
   N/C                          StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE2:PIN5 (f)
-               +     0.651          net: AFE2_CLK_pin_c
+               +     0.784          net: AFE2_CLK_pin_c
   N/C                          AFE_IF_0/g_DDR_INTERFACE_9_u_BIBUF_LVCMOS33/U0/U1:ICLK (f)
                -     0.299          Library setup time: ADLIB:IOBI_ID_OD_EB
   N/C                          AFE_IF_0/g_DDR_INTERFACE_9_u_BIBUF_LVCMOS33/U0/U1:YIN
@@ -973,56 +1011,56 @@ END SET External Setup
 SET Clock to Output
 
 Path 1
-  From:                        AFE_IF_0/s_tx_rx_n:CLK
-  To:                          AFE2_T_R_n_pin
-  Delay (ns):                  4.884
-  Slack (ns):
-  Arrival (ns):                5.545
-  Required (ns):
-  Clock to Out (ns):           5.545
-
-Path 2
-  From:                        AFE_IF_0/g_DDR_INTERFACE_6_u_BIBUF_LVCMOS33/U0/U1:OCLK
-  To:                          DATA_pin[6]
+  From:                        AFE_IF_0/g_DDR_INTERFACE_2_u_BIBUF_LVCMOS33/U0/U1:OCLK
+  To:                          DATA_pin[2]
   Delay (ns):                  4.223
   Slack (ns):
-  Arrival (ns):                4.934
+  Arrival (ns):                5.089
   Required (ns):
-  Clock to Out (ns):           4.934
+  Clock to Out (ns):           5.089
+
+Path 2
+  From:                        AFE_IF_0/g_DDR_INTERFACE_0_u_BIBUF_LVCMOS33/U0/U1:OCLK
+  To:                          DATA_pin[0]
+  Delay (ns):                  4.223
+  Slack (ns):
+  Arrival (ns):                5.085
+  Required (ns):
+  Clock to Out (ns):           5.085
 
 Path 3
   From:                        AFE_IF_0/g_DDR_INTERFACE_1_u_BIBUF_LVCMOS33/U0/U1:OCLK
   To:                          DATA_pin[1]
   Delay (ns):                  4.223
   Slack (ns):
-  Arrival (ns):                4.924
+  Arrival (ns):                5.016
   Required (ns):
-  Clock to Out (ns):           4.924
+  Clock to Out (ns):           5.016
 
 Path 4
+  From:                        AFE_IF_0/g_DDR_INTERFACE_3_u_BIBUF_LVCMOS33/U0/U1:OCLK
+  To:                          DATA_pin[3]
+  Delay (ns):                  4.223
+  Slack (ns):
+  Arrival (ns):                5.016
+  Required (ns):
+  Clock to Out (ns):           5.016
+
+Path 5
   From:                        AFE_IF_0/g_DDR_INTERFACE_4_u_BIBUF_LVCMOS33/U0/U1:OCLK
   To:                          DATA_pin[4]
   Delay (ns):                  4.223
   Slack (ns):
-  Arrival (ns):                4.924
+  Arrival (ns):                5.016
   Required (ns):
-  Clock to Out (ns):           4.924
-
-Path 5
-  From:                        AFE_IF_0/g_DDR_INTERFACE_2_u_BIBUF_LVCMOS33/U0/U1:OCLK
-  To:                          DATA_pin[2]
-  Delay (ns):                  4.223
-  Slack (ns):
-  Arrival (ns):                4.918
-  Required (ns):
-  Clock to Out (ns):           4.918
+  Clock to Out (ns):           5.016
 
 
 Expanded Path 1
-  From: AFE_IF_0/s_tx_rx_n:CLK
-  To: AFE2_T_R_n_pin
+  From: AFE_IF_0/g_DDR_INTERFACE_2_u_BIBUF_LVCMOS33/U0/U1:OCLK
+  To: DATA_pin[2]
   data required time                             N/C
-  data arrival time                          -   5.545
+  data arrival time                          -   5.089
   slack                                          N/C
   ________________________________________________________
   Data arrival time calculation
@@ -1033,29 +1071,25 @@ Expanded Path 1
   0.000                        StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE2:PIN5INT (r)
                +     0.000          cell: ADLIB:MSS_CCC_GL_IF
   0.000                        StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE2:PIN5 (r)
-               +     0.661          net: AFE2_CLK_pin_c
-  0.661                        AFE_IF_0/s_tx_rx_n:CLK (r)
-               +     0.671          cell: ADLIB:DFN1P1
-  1.332                        AFE_IF_0/s_tx_rx_n:Q (f)
-               +     0.314          net: AFE2_T_R_n_pin_c
-  1.646                        AFE2_T_R_n_pin_pad/U0/U1:D (f)
-               +     0.530          cell: ADLIB:IOTRI_OB_EB
-  2.176                        AFE2_T_R_n_pin_pad/U0/U1:DOUT (f)
-               +     0.000          net: AFE2_T_R_n_pin_pad/U0/NET1
-  2.176                        AFE2_T_R_n_pin_pad/U0/U0:D (f)
-               +     3.369          cell: ADLIB:IOPAD_TRI
-  5.545                        AFE2_T_R_n_pin_pad/U0/U0:PAD (f)
-               +     0.000          net: AFE2_T_R_n_pin
-  5.545                        AFE2_T_R_n_pin (f)
+               +     0.866          net: AFE2_CLK_pin_c
+  0.866                        AFE_IF_0/g_DDR_INTERFACE_2_u_BIBUF_LVCMOS33/U0/U1:OCLK (r)
+               +     0.854          cell: ADLIB:IOBI_ID_OD_EB
+  1.720                        AFE_IF_0/g_DDR_INTERFACE_2_u_BIBUF_LVCMOS33/U0/U1:DOUT (f)
+               +     0.000          net: AFE_IF_0/g_DDR_INTERFACE_2_u_BIBUF_LVCMOS33/U0/NET1
+  1.720                        AFE_IF_0/g_DDR_INTERFACE.2.u_BIBUF_LVCMOS33/U0/U0:D (f)
+               +     3.369          cell: ADLIB:IOPAD_BI
+  5.089                        AFE_IF_0/g_DDR_INTERFACE.2.u_BIBUF_LVCMOS33/U0/U0:PAD (f)
+               +     0.000          net: DATA_pin[2]
+  5.089                        DATA_pin[2] (f)
                                     
-  5.545                        data arrival time
+  5.089                        data arrival time
   ________________________________________________________
   Data required time calculation
   N/C                          mss_ccc_glb
                +     0.000          Clock source
   N/C                          StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:GLB (r)
                                     
-  N/C                          AFE2_T_R_n_pin (f)
+  N/C                          DATA_pin[2] (f)
 
 
 END SET Clock to Output
@@ -1109,18 +1143,18 @@ SET Clock to Output
 Path 1
   From:                        StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:CLKA
   To:                          AFE2_CLK_pin
-  Delay (ns):                  5.755
+  Delay (ns):                  5.862
   Slack (ns):
-  Arrival (ns):                5.755
+  Arrival (ns):                5.862
   Required (ns):
-  Clock to Out (ns):           5.755
+  Clock to Out (ns):           5.862
 
 
 Expanded Path 1
   From: StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:CLKA
   To: AFE2_CLK_pin
   data required time                             N/C
-  data arrival time                          -   5.755
+  data arrival time                          -   5.862
   slack                                          N/C
   ________________________________________________________
   Data arrival time calculation
@@ -1135,18 +1169,18 @@ Expanded Path 1
   1.246                        StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE2:PIN5INT (f)
                +     0.000          cell: ADLIB:MSS_CCC_GL_IF
   1.246                        StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE2:PIN5 (f)
-               +     0.658          net: AFE2_CLK_pin_c
-  1.904                        AFE2_CLK_pin_pad/U0/U1:D (f)
+               +     0.647          net: AFE2_CLK_pin_c
+  1.893                        AFE2_CLK_pin_pad/U0/U1:D (f)
                +     0.600          cell: ADLIB:IOTRI_OB_EB
-  2.504                        AFE2_CLK_pin_pad/U0/U1:DOUT (f)
+  2.493                        AFE2_CLK_pin_pad/U0/U1:DOUT (f)
                +     0.000          net: AFE2_CLK_pin_pad/U0/NET1
-  2.504                        AFE2_CLK_pin_pad/U0/U0:D (f)
-               +     3.251          cell: ADLIB:IOPAD_TRI
-  5.755                        AFE2_CLK_pin_pad/U0/U0:PAD (f)
+  2.493                        AFE2_CLK_pin_pad/U0/U0:D (f)
+               +     3.369          cell: ADLIB:IOPAD_TRI
+  5.862                        AFE2_CLK_pin_pad/U0/U0:PAD (f)
                +     0.000          net: AFE2_CLK_pin
-  5.755                        AFE2_CLK_pin (f)
+  5.862                        AFE2_CLK_pin (f)
                                     
-  5.755                        data arrival time
+  5.862                        data arrival time
   ________________________________________________________
   Data required time calculation
   N/C                          StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_XTLOSC:CLKOUT
@@ -1189,61 +1223,61 @@ Clock Domain USB_CLK_pin
 SET Register to Register
 
 Path 1
-  From:                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b3_nfs[2]:CLK
-  To:                          IICE_INST/b8_12m_IFLY/b5_nUTGT/b7_nYhI39s[6]:D
-  Delay (ns):                  18.766
+  From:                        USB_FIFO_IF_0/sample_FIFO_0/\\FIFOBLOCK[1]\\:RCLK
+  To:                          USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG[11]:D
+  Delay (ns):                  11.735
   Slack (ns):
-  Arrival (ns):                20.702
+  Arrival (ns):                13.802
   Required (ns):
-  Setup (ns):                  0.490
-  Minimum Period (ns):         19.268
+  Setup (ns):                  0.522
+  Minimum Period (ns):         12.405
 
 Path 2
-  From:                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b3_nfs[4]:CLK
-  To:                          IICE_INST/b8_12m_IFLY/b5_nUTGT/b7_nYhI39s[6]:D
-  Delay (ns):                  18.157
+  From:                        USB_FIFO_IF_0/sample_FIFO_0/\\FIFOBLOCK[1]\\:RCLK
+  To:                          USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG[30]:D
+  Delay (ns):                  11.657
   Slack (ns):
-  Arrival (ns):                20.093
+  Arrival (ns):                13.724
   Required (ns):
-  Setup (ns):                  0.490
-  Minimum Period (ns):         18.659
+  Setup (ns):                  0.522
+  Minimum Period (ns):         12.330
 
 Path 3
-  From:                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b3_nfs[2]:CLK
-  To:                          IICE_INST/b8_12m_IFLY/b5_nUTGT/b7_nYhI39s[5]:D
-  Delay (ns):                  18.116
+  From:                        USB_FIFO_IF_0/sample_FIFO_0/\\FIFOBLOCK[1]\\:RCLK
+  To:                          USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG[26]:D
+  Delay (ns):                  11.574
   Slack (ns):
-  Arrival (ns):                20.052
+  Arrival (ns):                13.641
   Required (ns):
-  Setup (ns):                  0.490
-  Minimum Period (ns):         18.618
+  Setup (ns):                  0.522
+  Minimum Period (ns):         12.240
 
 Path 4
-  From:                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b3_nfs[3]:CLK
-  To:                          IICE_INST/b8_12m_IFLY/b5_nUTGT/b7_nYhI39s[6]:D
-  Delay (ns):                  17.965
+  From:                        USB_FIFO_IF_0/sample_FIFO_0/\\FIFOBLOCK[1]\\:RCLK
+  To:                          USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG[4]:D
+  Delay (ns):                  11.561
   Slack (ns):
-  Arrival (ns):                19.901
+  Arrival (ns):                13.628
   Required (ns):
   Setup (ns):                  0.490
-  Minimum Period (ns):         18.467
+  Minimum Period (ns):         12.187
 
 Path 5
-  From:                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b3_nfs[0]:CLK
-  To:                          IICE_INST/b8_12m_IFLY/b5_nUTGT/b7_nYhI39s[6]:D
-  Delay (ns):                  17.964
+  From:                        USB_FIFO_IF_0/sample_FIFO_0/\\FIFOBLOCK[1]\\:RCLK
+  To:                          USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG[8]:D
+  Delay (ns):                  11.486
   Slack (ns):
-  Arrival (ns):                19.900
+  Arrival (ns):                13.553
   Required (ns):
   Setup (ns):                  0.490
-  Minimum Period (ns):         18.466
+  Minimum Period (ns):         12.133
 
 
 Expanded Path 1
-  From: IICE_INST/b8_12m_IFLY/b5_nUTGT/b3_nfs[2]:CLK
-  To: IICE_INST/b8_12m_IFLY/b5_nUTGT/b7_nYhI39s[6]:D
+  From: USB_FIFO_IF_0/sample_FIFO_0/\\FIFOBLOCK[1]\\:RCLK
+  To: USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG[11]:D
   data required time                             N/C
-  data arrival time                          -   20.702
+  data arrival time                          -   13.802
   slack                                          N/C
   ________________________________________________________
   Data arrival time calculation
@@ -1258,62 +1292,38 @@ Expanded Path 1
   0.935                        USB_FIFO_IF_0/USB_IF_0/u_USB_CLKBUF/U0/U1:A (r)
                +     0.314          cell: ADLIB:CLKSRC
   1.249                        USB_FIFO_IF_0/USB_IF_0/u_USB_CLKBUF/U0/U1:Y (r)
-               +     0.687          net: USB_IF_0_USB_CLK_OUT
-  1.936                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b3_nfs[2]:CLK (r)
-               +     0.671          cell: ADLIB:DFN1C1
-  2.607                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b3_nfs[2]:Q (f)
-               +     0.958          net: IICE_INST/b8_12m_IFLY/b5_nUTGT/b3_nfs[2]
-  3.565                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b3_nfs_RNIKR1K[0]:B (f)
-               +     0.588          cell: ADLIB:OR2
-  4.153                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b3_nfs_RNIKR1K[0]:Y (f)
-               +     0.294          net: IICE_INST/b8_12m_IFLY/b5_nUTGT/un1_b3_nfs_1_0
-  4.447                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b11_nUTGT_khWqH/b8_vABZ3qsY_RNIURTE1:A (f)
-               +     0.427          cell: ADLIB:OAI1
-  4.874                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b11_nUTGT_khWqH/b8_vABZ3qsY_RNIURTE1:Y (r)
-               +     1.088          net: IICE_INST/b8_12m_IFLY/b5_nUTGT/b6_nUT_fF9
-  5.962                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b13_nAzGfFM_sLsv3_RNIVCLL1[1]:B (r)
-               +     0.468          cell: ADLIB:NOR2A
-  6.430                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b13_nAzGfFM_sLsv3_RNIVCLL1[1]:Y (f)
-               +     1.889          net: IICE_INST/b8_12m_IFLY/b5_nUTGT/N_98
-  8.319                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b13_nAzGfFM_sLsv3_RNI2UCS1[3]:B (f)
+               +     0.818          net: USB_FIFO_IF_0/USB_IF_0_USB_CLK_OUT
+  2.067                        USB_FIFO_IF_0/sample_FIFO_0/\\FIFOBLOCK[1]\\:RCLK (r)
+               +     1.656          cell: ADLIB:FIFO4K18
+  3.723                        USB_FIFO_IF_0/sample_FIFO_0/\\FIFOBLOCK[1]\\:EMPTY (f)
+               +     1.113          net: USB_FIFO_IF_0/sample_FIFO_0/Z_EMPTYX_I[1]_
+  4.836                        USB_FIFO_IF_0/sample_FIFO_0/OR2_EMPTY:B (f)
                +     0.592          cell: ADLIB:OR2
-  8.911                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b13_nAzGfFM_sLsv3_RNI2UCS1[3]:Y (f)
-               +     2.009          net: IICE_INST/b8_12m_IFLY/b5_nUTGT/b6_nUT_fF
-  10.920                       IICE_INST/b8_12m_IFLY/b5_nUTGT/b10_nYhI3_umjB_RNICBUB2:A (f)
-               +     0.574          cell: ADLIB:NOR2A
-  11.494                       IICE_INST/b8_12m_IFLY/b5_nUTGT/b10_nYhI3_umjB_RNICBUB2:Y (f)
-               +     1.438          net: IICE_INST/b8_12m_IFLY/b5_nUTGT/b7_nYhI39s_0_sqmuxa
-  12.932                       IICE_INST/b8_12m_IFLY/b5_nUTGT/un1_b7_nYhI39s_6_I_6:B (f)
-               +     0.574          cell: ADLIB:AND2
-  13.506                       IICE_INST/b8_12m_IFLY/b5_nUTGT/un1_b7_nYhI39s_6_I_6:Y (f)
-               +     0.369          net: IICE_INST/b8_12m_IFLY/b5_nUTGT/DWACT_ADD_CI_0_g_array_0_2[0]
-  13.875                       IICE_INST/b8_12m_IFLY/b5_nUTGT/un1_b7_nYhI39s_6_I_33:B (f)
-               +     0.579          cell: ADLIB:AO1
-  14.454                       IICE_INST/b8_12m_IFLY/b5_nUTGT/un1_b7_nYhI39s_6_I_33:Y (f)
-               +     0.296          net: IICE_INST/b8_12m_IFLY/b5_nUTGT/DWACT_ADD_CI_0_g_array_1_1[0]
-  14.750                       IICE_INST/b8_12m_IFLY/b5_nUTGT/un1_b7_nYhI39s_6_I_38:C (f)
-               +     0.576          cell: ADLIB:AO1
-  15.326                       IICE_INST/b8_12m_IFLY/b5_nUTGT/un1_b7_nYhI39s_6_I_38:Y (f)
-               +     1.340          net: IICE_INST/b8_12m_IFLY/b5_nUTGT/DWACT_ADD_CI_0_g_array_2[0]
-  16.666                       IICE_INST/b8_12m_IFLY/b5_nUTGT/un1_b7_nYhI39s_6_I_35:B (f)
-               +     0.544          cell: ADLIB:AO1
-  17.210                       IICE_INST/b8_12m_IFLY/b5_nUTGT/un1_b7_nYhI39s_6_I_35:Y (f)
-               +     0.764          net: IICE_INST/b8_12m_IFLY/b5_nUTGT/DWACT_ADD_CI_0_g_array_11[0]
-  17.974                       IICE_INST/b8_12m_IFLY/b5_nUTGT/un1_b7_nYhI39s_6_I_30:C (f)
-               +     0.685          cell: ADLIB:XOR3
-  18.659                       IICE_INST/b8_12m_IFLY/b5_nUTGT/un1_b7_nYhI39s_6_I_30:Y (r)
-               +     0.306          net: IICE_INST/b8_12m_IFLY/b5_nUTGT/I_30
-  18.965                       IICE_INST/b8_12m_IFLY/b5_nUTGT/b7_nYhI39s_RNO_0[6]:B (r)
-               +     0.533          cell: ADLIB:MX2C
-  19.498                       IICE_INST/b8_12m_IFLY/b5_nUTGT/b7_nYhI39s_RNO_0[6]:Y (f)
-               +     0.306          net: IICE_INST/b8_12m_IFLY/b5_nUTGT/N_107
-  19.804                       IICE_INST/b8_12m_IFLY/b5_nUTGT/b7_nYhI39s_RNO[6]:B (f)
-               +     0.592          cell: ADLIB:NOR2
-  20.396                       IICE_INST/b8_12m_IFLY/b5_nUTGT/b7_nYhI39s_RNO[6]:Y (r)
-               +     0.306          net: IICE_INST/b8_12m_IFLY/b5_nUTGT/b7_nYhI39s_5[6]
-  20.702                       IICE_INST/b8_12m_IFLY/b5_nUTGT/b7_nYhI39s[6]:D (r)
+  5.428                        USB_FIFO_IF_0/sample_FIFO_0/OR2_EMPTY:Y (f)
+               +     0.427          net: USB_FIFO_IF_0/sample_FIFO_0_EMPTY
+  5.855                        USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_STATE_RNI1PL8[0]:B (f)
+               +     0.568          cell: ADLIB:OR3A
+  6.423                        USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_STATE_RNI1PL8[0]:Y (f)
+               +     1.560          net: USB_FIFO_IF_0/USB_IF_0/un1_s_temp_reg_state
+  7.983                        USB_FIFO_IF_0/USB_IF_0/s_TO_TEMPREG_SMPL_CNTR_RNI85EB_0[0]:B (f)
+               +     0.592          cell: ADLIB:OR2A
+  8.575                        USB_FIFO_IF_0/USB_IF_0/s_TO_TEMPREG_SMPL_CNTR_RNI85EB_0[0]:Y (f)
+               +     1.759          net: USB_FIFO_IF_0/USB_IF_0/s_TO_TEMPREG_SMPL_CNTR_1_sqmuxa_1
+  10.334                       USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_RNO_1[11]:A (f)
+               +     0.473          cell: ADLIB:AO1D
+  10.807                       USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_RNO_1[11]:Y (r)
+               +     1.437          net: USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_7_iv_0[11]
+  12.244                       USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_RNO_0[11]:C (r)
+               +     0.443          cell: ADLIB:OA1B
+  12.687                       USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_RNO_0[11]:Y (f)
+               +     0.294          net: USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_7_iv[11]
+  12.981                       USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_RNO[11]:A (f)
+               +     0.527          cell: ADLIB:MX2
+  13.508                       USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_RNO[11]:Y (f)
+               +     0.294          net: USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_10[11]
+  13.802                       USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG[11]:D (f)
                                     
-  20.702                       data arrival time
+  13.802                       data arrival time
   ________________________________________________________
   Data required time calculation
   N/C                          USB_CLK_pin
@@ -1327,10 +1337,10 @@ Expanded Path 1
   N/C                          USB_FIFO_IF_0/USB_IF_0/u_USB_CLKBUF/U0/U1:A (r)
                +     0.314          cell: ADLIB:CLKSRC
   N/C                          USB_FIFO_IF_0/USB_IF_0/u_USB_CLKBUF/U0/U1:Y (r)
-               +     0.675          net: USB_IF_0_USB_CLK_OUT
-  N/C                          IICE_INST/b8_12m_IFLY/b5_nUTGT/b7_nYhI39s[6]:CLK (r)
-               -     0.490          Library setup time: ADLIB:DFN1
-  N/C                          IICE_INST/b8_12m_IFLY/b5_nUTGT/b7_nYhI39s[6]:D
+               +     0.670          net: USB_FIFO_IF_0/USB_IF_0_USB_CLK_OUT
+  N/C                          USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG[11]:CLK (r)
+               -     0.522          Library setup time: ADLIB:DFN1C0
+  N/C                          USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG[11]:D
 
 
 END SET Register to Register
@@ -1341,96 +1351,92 @@ SET External Setup
 
 Path 1
   From:                        USB_TXE_n_pin
-  To:                          USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG[28]:D
-  Delay (ns):                  12.756
+  To:                          USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_STATE[2]/U1:D
+  Delay (ns):                  9.826
   Slack (ns):
-  Arrival (ns):                12.756
+  Arrival (ns):                9.826
   Required (ns):
-  Setup (ns):                  0.490
-  External Setup (ns):         11.322
+  Setup (ns):                  0.522
+  External Setup (ns):         8.424
 
 Path 2
   From:                        USB_TXE_n_pin
-  To:                          USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG[26]:D
-  Delay (ns):                  12.040
+  To:                          USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_STATE[3]/U1:D
+  Delay (ns):                  9.161
   Slack (ns):
-  Arrival (ns):                12.040
+  Arrival (ns):                9.161
   Required (ns):
-  Setup (ns):                  0.490
-  External Setup (ns):         10.596
+  Setup (ns):                  0.522
+  External Setup (ns):         7.759
 
 Path 3
   From:                        USB_TXE_n_pin
-  To:                          USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG[27]:D
-  Delay (ns):                  11.913
+  To:                          USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_STATE[1]/U1:D
+  Delay (ns):                  8.830
   Slack (ns):
-  Arrival (ns):                11.913
+  Arrival (ns):                8.830
   Required (ns):
-  Setup (ns):                  0.490
-  External Setup (ns):         10.472
+  Setup (ns):                  0.522
+  External Setup (ns):         7.412
 
 Path 4
   From:                        USB_TXE_n_pin
-  To:                          USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG[9]:D
-  Delay (ns):                  11.823
+  To:                          USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_STATE[0]/U1:D
+  Delay (ns):                  8.590
   Slack (ns):
-  Arrival (ns):                11.823
+  Arrival (ns):                8.590
   Required (ns):
   Setup (ns):                  0.522
-  External Setup (ns):         10.421
+  External Setup (ns):         7.172
 
 Path 5
-  From:                        USB_TXE_n_pin
-  To:                          USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG[12]:D
-  Delay (ns):                  11.797
+  From:                        USB_RXF_n_pin
+  To:                          USB_FIFO_IF_0/USB_IF_0/READ_FROM_USB_REG[5]/U1:D
+  Delay (ns):                  8.235
   Slack (ns):
-  Arrival (ns):                11.797
+  Arrival (ns):                8.235
   Required (ns):
   Setup (ns):                  0.522
-  External Setup (ns):         10.388
+  External Setup (ns):         6.864
 
 
 Expanded Path 1
   From: USB_TXE_n_pin
-  To: USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG[28]:D
+  To: USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_STATE[2]/U1:D
   data required time                             N/C
-  data arrival time                          -   12.756
+  data arrival time                          -   9.826
   slack                                          N/C
   ________________________________________________________
   Data arrival time calculation
-  0.000                        USB_TXE_n_pin (f)
+  0.000                        USB_TXE_n_pin (r)
                +     0.000          net: USB_TXE_n_pin
-  0.000                        USB_TXE_n_pin_pad/U0/U0:PAD (f)
-               +     0.670          cell: ADLIB:IOPAD_IN
-  0.670                        USB_TXE_n_pin_pad/U0/U0:Y (f)
+  0.000                        USB_TXE_n_pin_pad/U0/U0:PAD (r)
+               +     0.935          cell: ADLIB:IOPAD_IN
+  0.935                        USB_TXE_n_pin_pad/U0/U0:Y (r)
                +     0.000          net: USB_TXE_n_pin_pad/U0/NET1
-  0.670                        USB_TXE_n_pin_pad/U0/U1:YIN (f)
-               +     0.036          cell: ADLIB:IOIN_IB
-  0.706                        USB_TXE_n_pin_pad/U0/U1:Y (f)
-               +     2.718          net: USB_TXE_n_pin_c
-  3.424                        USB_FIFO_IF_0/USB_IF_0/s_USB_WR_n_pin_RNI120C_0:B (f)
-               +     0.592          cell: ADLIB:NOR2
-  4.016                        USB_FIFO_IF_0/USB_IF_0/s_USB_WR_n_pin_RNI120C_0:Y (r)
-               +     1.837          net: USB_FIFO_IF_0/USB_IF_0/un1_usb_txe_n_pin_0
-  5.853                        USB_FIFO_IF_0/USB_IF_0/s_USB_WR_n_pin_RNIO86I:B (r)
-               +     0.468          cell: ADLIB:OR2
-  6.321                        USB_FIFO_IF_0/USB_IF_0/s_USB_WR_n_pin_RNIO86I:Y (r)
-               +     1.213          net: USB_FIFO_IF_0/USB_IF_0/N_135
-  7.534                        USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_RNO_1[28]:B (r)
-               +     0.829          cell: ADLIB:OA1A
-  8.363                        USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_RNO_1[28]:Y (r)
-               +     1.981          net: USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_10_0_0[28]
-  10.344                       USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_RNO_0[28]:C (r)
-               +     0.362          cell: ADLIB:OA1A
-  10.706                       USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_RNO_0[28]:Y (r)
-               +     1.148          net: USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_10_0_1[28]
-  11.854                       USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_RNO[28]:C (r)
-               +     0.596          cell: ADLIB:AO1C
-  12.450                       USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_RNO[28]:Y (f)
-               +     0.306          net: USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_10[28]
-  12.756                       USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG[28]:D (f)
+  0.935                        USB_TXE_n_pin_pad/U0/U1:YIN (r)
+               +     0.039          cell: ADLIB:IOIN_IB
+  0.974                        USB_TXE_n_pin_pad/U0/U1:Y (r)
+               +     2.903          net: USB_TXE_n_pin_c
+  3.877                        USB_FIFO_IF_0/USB_IF_0/s_USB_WR_n_pin_RNI120C_0:B (r)
+               +     0.538          cell: ADLIB:NOR2
+  4.415                        USB_FIFO_IF_0/USB_IF_0/s_USB_WR_n_pin_RNI120C_0:Y (f)
+               +     1.300          net: USB_FIFO_IF_0/USB_IF_0/un1_usb_txe_n_pin_0
+  5.715                        USB_FIFO_IF_0/USB_IF_0/s_USB_SMPL_BYTE_CNTR_RNI09P51[1]:A (f)
+               +     0.584          cell: ADLIB:NOR3A
+  6.299                        USB_FIFO_IF_0/USB_IF_0/s_USB_SMPL_BYTE_CNTR_RNI09P51[1]:Y (f)
+               +     0.386          net: USB_FIFO_IF_0/USB_IF_0/s_USB_WR_n_pin_0_sqmuxa
+  6.685                        USB_FIFO_IF_0/USB_IF_0/s_USB_SMPL_BYTE_CNTR_RNID7IH1[1]:C (f)
+               +     0.445          cell: ADLIB:NOR3B
+  7.130                        USB_FIFO_IF_0/USB_IF_0/s_USB_SMPL_BYTE_CNTR_RNID7IH1[1]:Y (r)
+               +     2.061          net: USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_STATE_2_sqmuxa
+  9.191                        USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_STATE[2]/U0:S (r)
+               +     0.339          cell: ADLIB:MX2
+  9.530                        USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_STATE[2]/U0:Y (f)
+               +     0.296          net: USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_STATE[2]/Y
+  9.826                        USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_STATE[2]/U1:D (f)
                                     
-  12.756                       data arrival time
+  9.826                        data arrival time
   ________________________________________________________
   Data required time calculation
   N/C                          USB_CLK_pin
@@ -1444,10 +1450,10 @@ Expanded Path 1
   N/C                          USB_FIFO_IF_0/USB_IF_0/u_USB_CLKBUF/U0/U1:A (r)
                +     0.314          cell: ADLIB:CLKSRC
   N/C                          USB_FIFO_IF_0/USB_IF_0/u_USB_CLKBUF/U0/U1:Y (r)
-               +     0.675          net: USB_IF_0_USB_CLK_OUT
-  N/C                          USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG[28]:CLK (r)
-               -     0.490          Library setup time: ADLIB:DFN1C0
-  N/C                          USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG[28]:D
+               +     0.675          net: USB_FIFO_IF_0/USB_IF_0_USB_CLK_OUT
+  N/C                          USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_STATE[2]/U1:CLK (r)
+               -     0.522          Library setup time: ADLIB:DFN1C0
+  N/C                          USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_STATE[2]/U1:D
 
 
 END SET External Setup
@@ -1458,55 +1464,55 @@ SET Clock to Output
 
 Path 1
   From:                        USB_FIFO_IF_0/USB_IF_0/s_oe:CLK
-  To:                          USB_DATA_pin[0]
-  Delay (ns):                  8.437
+  To:                          USB_OE_n_pin
+  Delay (ns):                  11.367
   Slack (ns):
-  Arrival (ns):                10.325
+  Arrival (ns):                13.283
   Required (ns):
-  Clock to Out (ns):           10.325
+  Clock to Out (ns):           13.283
 
 Path 2
   From:                        USB_FIFO_IF_0/USB_IF_0/s_oe:CLK
-  To:                          USB_OE_n_pin
-  Delay (ns):                  8.204
+  To:                          USB_DATA_pin[6]
+  Delay (ns):                  9.473
   Slack (ns):
-  Arrival (ns):                10.092
+  Arrival (ns):                11.389
   Required (ns):
-  Clock to Out (ns):           10.092
+  Clock to Out (ns):           11.389
 
 Path 3
-  From:                        USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG[31]:CLK
+  From:                        USB_FIFO_IF_0/USB_IF_0/s_oe:CLK
   To:                          USB_DATA_pin[7]
-  Delay (ns):                  7.600
+  Delay (ns):                  9.463
   Slack (ns):
-  Arrival (ns):                9.511
+  Arrival (ns):                11.379
   Required (ns):
-  Clock to Out (ns):           9.511
+  Clock to Out (ns):           11.379
 
 Path 4
   From:                        USB_FIFO_IF_0/USB_IF_0/s_oe:CLK
-  To:                          USB_DATA_pin[3]
-  Delay (ns):                  7.306
+  To:                          USB_DATA_pin[4]
+  Delay (ns):                  9.152
   Slack (ns):
-  Arrival (ns):                9.194
+  Arrival (ns):                11.068
   Required (ns):
-  Clock to Out (ns):           9.194
+  Clock to Out (ns):           11.068
 
 Path 5
-  From:                        USB_FIFO_IF_0/USB_IF_0/s_USB_WR_n_pin:CLK
-  To:                          USB_WR_n_pin
-  Delay (ns):                  7.277
+  From:                        USB_FIFO_IF_0/USB_IF_0/s_oe:CLK
+  To:                          USB_DATA_pin[5]
+  Delay (ns):                  9.051
   Slack (ns):
-  Arrival (ns):                9.170
+  Arrival (ns):                10.967
   Required (ns):
-  Clock to Out (ns):           9.170
+  Clock to Out (ns):           10.967
 
 
 Expanded Path 1
   From: USB_FIFO_IF_0/USB_IF_0/s_oe:CLK
-  To: USB_DATA_pin[0]
+  To: USB_OE_n_pin
   data required time                             N/C
-  data arrival time                          -   10.325
+  data arrival time                          -   13.283
   slack                                          N/C
   ________________________________________________________
   Data arrival time calculation
@@ -1521,339 +1527,29 @@ Expanded Path 1
   0.935                        USB_FIFO_IF_0/USB_IF_0/u_USB_CLKBUF/U0/U1:A (r)
                +     0.314          cell: ADLIB:CLKSRC
   1.249                        USB_FIFO_IF_0/USB_IF_0/u_USB_CLKBUF/U0/U1:Y (r)
-               +     0.639          net: USB_IF_0_USB_CLK_OUT
-  1.888                        USB_FIFO_IF_0/USB_IF_0/s_oe:CLK (r)
-               +     0.528          cell: ADLIB:DFN1C0
-  2.416                        USB_FIFO_IF_0/USB_IF_0/s_oe:Q (r)
-               +     4.051          net: USB_OE_n_pin_c
-  6.467                        USB_FIFO_IF_0/USB_IF_0/g_USB_SYNC_FIFO_DATA.0.u_BIBUF_LVCMOS33/U0/U1:E (r)
-               +     0.426          cell: ADLIB:IOBI_IB_OB_EB
-  6.893                        USB_FIFO_IF_0/USB_IF_0/g_USB_SYNC_FIFO_DATA.0.u_BIBUF_LVCMOS33/U0/U1:EOUT (r)
-               +     0.000          net: USB_FIFO_IF_0/USB_IF_0/g_USB_SYNC_FIFO_DATA_0_u_BIBUF_LVCMOS33/U0/NET2
-  6.893                        USB_FIFO_IF_0/USB_IF_0/g_USB_SYNC_FIFO_DATA.0.u_BIBUF_LVCMOS33/U0/U0:E (r)
-               +     3.432          cell: ADLIB:IOPAD_BI
-  10.325                       USB_FIFO_IF_0/USB_IF_0/g_USB_SYNC_FIFO_DATA.0.u_BIBUF_LVCMOS33/U0/U0:PAD (f)
-               +     0.000          net: USB_DATA_pin[0]
-  10.325                       USB_DATA_pin[0] (f)
+               +     0.667          net: USB_FIFO_IF_0/USB_IF_0_USB_CLK_OUT
+  1.916                        USB_FIFO_IF_0/USB_IF_0/s_oe:CLK (r)
+               +     0.671          cell: ADLIB:DFN1P0
+  2.587                        USB_FIFO_IF_0/USB_IF_0/s_oe:Q (f)
+               +     6.915          net: USB_OE_n_pin_c
+  9.502                        USB_OE_n_pin_pad/U0/U1:D (f)
+               +     0.530          cell: ADLIB:IOTRI_OB_EB
+  10.032                       USB_OE_n_pin_pad/U0/U1:DOUT (f)
+               +     0.000          net: USB_OE_n_pin_pad/U0/NET1
+  10.032                       USB_OE_n_pin_pad/U0/U0:D (f)
+               +     3.251          cell: ADLIB:IOPAD_TRI
+  13.283                       USB_OE_n_pin_pad/U0/U0:PAD (f)
+               +     0.000          net: USB_OE_n_pin
+  13.283                       USB_OE_n_pin (f)
                                     
-  10.325                       data arrival time
+  13.283                       data arrival time
   ________________________________________________________
   Data required time calculation
   N/C                          USB_CLK_pin
                +     0.000          Clock source
   N/C                          USB_CLK_pin (r)
                                     
-  N/C                          USB_DATA_pin[0] (f)
-
-
-END SET Clock to Output
-
-----------------------------------------------------
-
-SET Register to Asynchronous
-
-Path 1
-  From:                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b3_nfs[3]:CLK
-  To:                          IICE_INST/b3_SoW_0/b12_2_St6KCa_jHv[5]:CLR
-  Delay (ns):                  9.341
-  Slack (ns):
-  Arrival (ns):                11.277
-  Required (ns):
-  Recovery (ns):               0.271
-  Minimum Period (ns):         9.655
-  Skew (ns):                   0.043
-
-Path 2
-  From:                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b3_nfs[2]:CLK
-  To:                          IICE_INST/b3_SoW_0/b12_2_St6KCa_jHv[5]:CLR
-  Delay (ns):                  9.256
-  Slack (ns):
-  Arrival (ns):                11.192
-  Required (ns):
-  Recovery (ns):               0.271
-  Minimum Period (ns):         9.570
-  Skew (ns):                   0.043
-
-Path 3
-  From:                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b3_nfs[3]:CLK
-  To:                          IICE_INST/b3_SoW_0/b12_2_St6KCa_jHv[0]:CLR
-  Delay (ns):                  9.155
-  Slack (ns):
-  Arrival (ns):                11.091
-  Required (ns):
-  Recovery (ns):               0.271
-  Minimum Period (ns):         9.469
-  Skew (ns):                   0.043
-
-Path 4
-  From:                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b3_nfs[3]:CLK
-  To:                          IICE_INST/b3_SoW_0/b12_2_St6KCa_jHv[1]:CLR
-  Delay (ns):                  9.153
-  Slack (ns):
-  Arrival (ns):                11.089
-  Required (ns):
-  Recovery (ns):               0.271
-  Minimum Period (ns):         9.452
-  Skew (ns):                   0.028
-
-Path 5
-  From:                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b3_nfs[3]:CLK
-  To:                          IICE_INST/b3_SoW_0/b8_FZFFLXYE[5]/U1:CLR
-  Delay (ns):                  9.134
-  Slack (ns):
-  Arrival (ns):                11.070
-  Required (ns):
-  Recovery (ns):               0.271
-  Minimum Period (ns):         9.448
-  Skew (ns):                   0.043
-
-
-Expanded Path 1
-  From: IICE_INST/b8_12m_IFLY/b5_nUTGT/b3_nfs[3]:CLK
-  To: IICE_INST/b3_SoW_0/b12_2_St6KCa_jHv[5]:CLR
-  data required time                             N/C
-  data arrival time                          -   11.277
-  slack                                          N/C
-  ________________________________________________________
-  Data arrival time calculation
-  0.000                        USB_CLK_pin
-               +     0.000          Clock source
-  0.000                        USB_CLK_pin (r)
-               +     0.000          net: USB_CLK_pin
-  0.000                        USB_FIFO_IF_0/USB_IF_0/u_USB_CLKBUF/U0/U0:PAD (r)
-               +     0.935          cell: ADLIB:IOPAD_IN
-  0.935                        USB_FIFO_IF_0/USB_IF_0/u_USB_CLKBUF/U0/U0:Y (r)
-               +     0.000          net: USB_FIFO_IF_0/USB_IF_0/u_USB_CLKBUF/U0/NET1
-  0.935                        USB_FIFO_IF_0/USB_IF_0/u_USB_CLKBUF/U0/U1:A (r)
-               +     0.314          cell: ADLIB:CLKSRC
-  1.249                        USB_FIFO_IF_0/USB_IF_0/u_USB_CLKBUF/U0/U1:Y (r)
-               +     0.687          net: USB_IF_0_USB_CLK_OUT
-  1.936                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b3_nfs[3]:CLK (r)
-               +     0.671          cell: ADLIB:DFN1C1
-  2.607                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b3_nfs[3]:Q (f)
-               +     0.989          net: IICE_INST/b8_12m_IFLY/b5_nUTGT/b3_nfs[3]
-  3.596                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b3_nfs_RNIKH3U[2]:A (f)
-               +     0.445          cell: ADLIB:OR3
-  4.041                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b3_nfs_RNIKH3U[2]:Y (f)
-               +     1.076          net: IICE_INST/b8_12m_IFLY/b5_nUTGT/b6_Ocm0rW7
-  5.117                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b13_nAzGfFM_sLsv3_RNIVFCK1[1]:C (f)
-               +     0.620          cell: ADLIB:NOR3C
-  5.737                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b13_nAzGfFM_sLsv3_RNIVFCK1[1]:Y (f)
-               +     0.296          net: IICE_INST/b8_12m_IFLY/b5_nUTGT/b12_voSc3_gmasbb_0_a3_1
-  6.033                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b13_nAzGfFM_sLsv3_RNITS1A3[0]:B (f)
-               +     0.544          cell: ADLIB:AO1A
-  6.577                        IICE_INST/b8_12m_IFLY/b5_nUTGT/b13_nAzGfFM_sLsv3_RNITS1A3[0]:Y (f)
-               +     1.533          net: IICE_INST/b8_SoWGfWYY
-  8.110                        IICE_INST/b3_SoW_0/b9_voSc3_rGt:C (f)
-               +     0.576          cell: ADLIB:AO1
-  8.686                        IICE_INST/b3_SoW_0/b9_voSc3_rGt:Y (f)
-               +     2.591          net: IICE_INST/b3_SoW_0/b9_voSc3_rGt
-  11.277                       IICE_INST/b3_SoW_0/b12_2_St6KCa_jHv[5]:CLR (f)
-                                    
-  11.277                       data arrival time
-  ________________________________________________________
-  Data required time calculation
-  N/C                          USB_CLK_pin
-               +     0.000          Clock source
-  N/C                          USB_CLK_pin (r)
-               +     0.000          net: USB_CLK_pin
-  N/C                          USB_FIFO_IF_0/USB_IF_0/u_USB_CLKBUF/U0/U0:PAD (r)
-               +     0.935          cell: ADLIB:IOPAD_IN
-  N/C                          USB_FIFO_IF_0/USB_IF_0/u_USB_CLKBUF/U0/U0:Y (r)
-               +     0.000          net: USB_FIFO_IF_0/USB_IF_0/u_USB_CLKBUF/U0/NET1
-  N/C                          USB_FIFO_IF_0/USB_IF_0/u_USB_CLKBUF/U0/U1:A (r)
-               +     0.314          cell: ADLIB:CLKSRC
-  N/C                          USB_FIFO_IF_0/USB_IF_0/u_USB_CLKBUF/U0/U1:Y (r)
-               +     0.644          net: USB_IF_0_USB_CLK_OUT
-  N/C                          IICE_INST/b3_SoW_0/b12_2_St6KCa_jHv[5]:CLK (r)
-               -     0.271          Library recovery time: ADLIB:DFN1C1
-  N/C                          IICE_INST/b3_SoW_0/b12_2_St6KCa_jHv[5]:CLR
-
-
-END SET Register to Asynchronous
-
-----------------------------------------------------
-
-SET External Recovery
-
-No Path
-
-END SET External Recovery
-
-----------------------------------------------------
-
-SET Asynchronous to Register
-
-No Path
-
-END SET Asynchronous to Register
-
-----------------------------------------------------
-
-Clock Domain atck
-
-Info: The maximum frequency of this clock domain is limited by the minimum pulse widths of pin comm_block_INST/jtagi/b9_Rcmi_KsDw:TCK
-
-SET Register to Register
-
-Path 1
-  From:                        comm_block_INST/jtagi/b9_Rcmi_KsDw:TCK
-  To:                          comm_block_INST/jtagi/b9_Rcmi_KsDw:UTDO
-  Delay (ns):                  27.185
-  Slack (ns):
-  Arrival (ns):                27.185
-  Required (ns):
-  Setup (ns):                  15.820
-  Minimum Period (ns):         43.005
-
-
-Expanded Path 1
-  From: comm_block_INST/jtagi/b9_Rcmi_KsDw:TCK
-  To: comm_block_INST/jtagi/b9_Rcmi_KsDw:UTDO
-  data required time                             N/C
-  data arrival time                          -   27.185
-  slack                                          N/C
-  ________________________________________________________
-  Data arrival time calculation
-  0.000                        atck
-               +     0.000          Clock source
-  0.000                        atck (f)
-               +     0.000          net: atck
-  0.000                        comm_block_INST/jtagi/b9_Rcmi_KsDw:TCK (f)
-               +    15.820          cell: ADLIB:UJTAG
-  15.820                       comm_block_INST/jtagi/b9_Rcmi_KsDw:UIREG3 (f)
-               +     1.107          net: comm_block_INST/jtagi/b6_uS_MrX[2]
-  16.927                       comm_block_INST/jtagi/b9_Rcmi_KsDw_RNION17:B (f)
-               +     0.588          cell: ADLIB:NOR2
-  17.515                       comm_block_INST/jtagi/b9_Rcmi_KsDw_RNION17:Y (r)
-               +     0.369          net: comm_block_INST/jtagi/b9_nv_cLqgOF_2
-  17.884                       comm_block_INST/jtagi/b9_Rcmi_KsDw_RNI875L_0:B (r)
-               +     0.568          cell: ADLIB:NOR3C
-  18.452                       comm_block_INST/jtagi/b9_Rcmi_KsDw_RNI875L_0:Y (r)
-               +     2.438          net: comm_block_INST/b9_nv_cLqgOF
-  20.890                       comm_block_INST/b7_Rcmi_ql/b10_dZst39_EF3_RNIN64V[0]:B (r)
-               +     0.470          cell: ADLIB:NOR2B
-  21.360                       comm_block_INST/b7_Rcmi_ql/b10_dZst39_EF3_RNIN64V[0]:Y (r)
-               +     0.296          net: IICE_comm2iice[6]
-  21.656                       IICE_INST/b8_uKr_IFLY/b11_uRrc_9urXBb_RNI1IKE8:C (r)
-               +     0.683          cell: ADLIB:NOR3C
-  22.339                       IICE_INST/b8_uKr_IFLY/b11_uRrc_9urXBb_RNI1IKE8:Y (r)
-               +     1.119          net: IICE_iice2comm
-  23.458                       comm_block_INST/tdo_sig_RNIC9201:A (r)
-               +     0.517          cell: ADLIB:MX2
-  23.975                       comm_block_INST/tdo_sig_RNIC9201:Y (r)
-               +     0.306          net: comm_block_INST/b9_PLF_TJkrj
-  24.281                       comm_block_INST/b7_Rcmi_ql/b9_OvyH3_saL_RNIBIFV1[0]:B (r)
-               +     0.533          cell: ADLIB:MX2
-  24.814                       comm_block_INST/b7_Rcmi_ql/b9_OvyH3_saL_RNIBIFV1[0]:Y (r)
-               +     2.371          net: comm_block_INST/b6_PLF_Bq
-  27.185                       comm_block_INST/jtagi/b9_Rcmi_KsDw:UTDO (r)
-                                    
-  27.185                       data arrival time
-  ________________________________________________________
-  Data required time calculation
-  N/C                          atck
-               +     0.000          Clock source
-  N/C                          atck (f)
-               +     0.000          net: atck
-  N/C                          comm_block_INST/jtagi/b9_Rcmi_KsDw:TCK (f)
-               -    15.820          Library setup time: ADLIB:UJTAG
-  N/C                          comm_block_INST/jtagi/b9_Rcmi_KsDw:UTDO
-
-
-END SET Register to Register
-
-----------------------------------------------------
-
-SET External Setup
-
-Path 1
-  From:                        atms
-  To:                          comm_block_INST/jtagi/b9_Rcmi_KsDw:TMS
-  Delay (ns):                  0.000
-  Slack (ns):
-  Arrival (ns):                0.000
-  Required (ns):
-  Setup (ns):                  15.820
-  External Setup (ns):         15.820
-
-Path 2
-  From:                        atdi
-  To:                          comm_block_INST/jtagi/b9_Rcmi_KsDw:TDI
-  Delay (ns):                  0.000
-  Slack (ns):
-  Arrival (ns):                0.000
-  Required (ns):
-  Setup (ns):                  15.820
-  External Setup (ns):         15.820
-
-
-Expanded Path 1
-  From: atms
-  To: comm_block_INST/jtagi/b9_Rcmi_KsDw:TMS
-  data required time                             N/C
-  data arrival time                          -   0.000
-  slack                                          N/C
-  ________________________________________________________
-  Data arrival time calculation
-  0.000                        atms (r)
-               +     0.000          net: atms
-  0.000                        comm_block_INST/jtagi/b9_Rcmi_KsDw:TMS (r)
-                                    
-  0.000                        data arrival time
-  ________________________________________________________
-  Data required time calculation
-  N/C                          atck
-               +     0.000          Clock source
-  N/C                          atck (r)
-               +     0.000          net: atck
-  N/C                          comm_block_INST/jtagi/b9_Rcmi_KsDw:TCK (r)
-               -    15.820          Library setup time: ADLIB:UJTAG
-  N/C                          comm_block_INST/jtagi/b9_Rcmi_KsDw:TMS
-
-
-END SET External Setup
-
-----------------------------------------------------
-
-SET Clock to Output
-
-Path 1
-  From:                        comm_block_INST/jtagi/b9_Rcmi_KsDw:TCK
-  To:                          atdo
-  Delay (ns):                  15.820
-  Slack (ns):
-  Arrival (ns):                15.820
-  Required (ns):
-  Clock to Out (ns):           15.820
-
-
-Expanded Path 1
-  From: comm_block_INST/jtagi/b9_Rcmi_KsDw:TCK
-  To: atdo
-  data required time                             N/C
-  data arrival time                          -   15.820
-  slack                                          N/C
-  ________________________________________________________
-  Data arrival time calculation
-  0.000                        atck
-               +     0.000          Clock source
-  0.000                        atck (f)
-               +     0.000          net: atck
-  0.000                        comm_block_INST/jtagi/b9_Rcmi_KsDw:TCK (f)
-               +    15.820          cell: ADLIB:UJTAG
-  15.820                       comm_block_INST/jtagi/b9_Rcmi_KsDw:TDO (r)
-               +     0.000          net: atdo
-  15.820                       atdo (r)
-                                    
-  15.820                       data arrival time
-  ________________________________________________________
-  Data required time calculation
-  N/C                          atck
-               +     0.000          Clock source
-  N/C                          atck (r)
-                                    
-  N/C                          atdo (r)
+  N/C                          USB_OE_n_pin (f)
 
 
 END SET Clock to Output
@@ -1870,40 +1566,7 @@ END SET Register to Asynchronous
 
 SET External Recovery
 
-Path 1
-  From:                        atrstb
-  To:                          comm_block_INST/jtagi/b9_Rcmi_KsDw:TRSTB
-  Delay (ns):                  0.000
-  Slack (ns):
-  Arrival (ns):                0.000
-  Required (ns):
-  Recovery (ns):               15.820
-  External Recovery (ns):      15.820
-
-
-Expanded Path 1
-  From: atrstb
-  To: comm_block_INST/jtagi/b9_Rcmi_KsDw:TRSTB
-  data required time                             N/C
-  data arrival time                          -   0.000
-  slack                                          N/C
-  ________________________________________________________
-  Data arrival time calculation
-  0.000                        atrstb (r)
-               +     0.000          net: atrstb
-  0.000                        comm_block_INST/jtagi/b9_Rcmi_KsDw:TRSTB (r)
-                                    
-  0.000                        data arrival time
-  ________________________________________________________
-  Data required time calculation
-  N/C                          atck
-               +     0.000          Clock source
-  N/C                          atck (r)
-               +     0.000          net: atck
-  N/C                          comm_block_INST/jtagi/b9_Rcmi_KsDw:TCK (r)
-               -    15.820          Library recovery time: ADLIB:UJTAG
-  N/C                          comm_block_INST/jtagi/b9_Rcmi_KsDw:TRSTB
-
+No Path
 
 END SET External Recovery
 

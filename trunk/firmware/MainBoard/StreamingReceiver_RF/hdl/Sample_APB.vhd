@@ -36,9 +36,10 @@ entity SAMPLE_APB is
 
 
 -- Misc
-        SMPL_RDY    : out   std_logic
-        
+        SMPL_RDY    : out   std_logic;
 
+-- Debug
+		REG_FULL	: out std_logic  
          );
 end entity;
 
@@ -95,7 +96,7 @@ begin
             if PWRITE = '0' and PSELx = '1' then
                 case PADDR(7 downto 0) is
                     when c_ADDR_DATA =>
-                        PRDATA <= x"000000" & REG;
+                        PRDATA <= s_REG_FULL & b"000" & x"00000" & REG;
 
 						s_REG_FULL <= '0';
 
@@ -141,5 +142,8 @@ begin
     -- APB misc
     PREADY <= '1';
     PSLVERR <= '0';
+
+-- Debug
+	REG_FULL <= s_REG_FULL;
 
 end Behavioral;

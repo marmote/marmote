@@ -30,6 +30,7 @@ entity StreamingReceiver_RF is
           USB_RD_n_pin    : out   std_logic;
           USB_SIWU_N      : out   std_logic;
           USB_RXF_n_pin   : in    std_logic;
+          LED1            : out   std_logic;
           DATA_pin        : inout std_logic_vector(9 downto 0) := (others => 'Z');
           USB_DATA_pin    : inout std_logic_vector(7 downto 0) := (others => 'Z')
         );
@@ -61,18 +62,19 @@ architecture DEF_ARCH of StreamingReceiver_RF is
   component SAMPLE_APB
     port( PCLK            : in    std_logic := 'U';
           PRESETn         : in    std_logic := 'U';
+          PADDR           : in    std_logic_vector(31 downto 0) := (others => 'U');
           PSELx           : in    std_logic := 'U';
           PENABLE         : in    std_logic := 'U';
           PWRITE          : in    std_logic := 'U';
+          PWDATA          : in    std_logic_vector(31 downto 0) := (others => 'U');
           PREADY          : out   std_logic;
+          PRDATA          : out   std_logic_vector(31 downto 0);
           PSLVERR         : out   std_logic;
+          INPUT           : in    std_logic_vector(7 downto 0) := (others => 'U');
           READ_SUCCESSFUL : out   std_logic;
           FROM_USB_RDY    : in    std_logic := 'U';
           SMPL_RDY        : out   std_logic;
-          PADDR           : in    std_logic_vector(31 downto 0) := (others => 'U');
-          PWDATA          : in    std_logic_vector(31 downto 0) := (others => 'U');
-          PRDATA          : out   std_logic_vector(31 downto 0);
-          INPUT           : in    std_logic_vector(7 downto 0) := (others => 'U')
+          REG_FULL        : out   std_logic
         );
   end component;
 
@@ -197,10 +199,10 @@ architecture DEF_ARCH of StreamingReceiver_RF is
           GLB         : out   std_logic;
           MAINXIN     : in    std_logic := 'U';
           FAB_CLK     : out   std_logic;
+          FABINT      : in    std_logic := 'U';
           MSSPADDR    : out   std_logic_vector(19 downto 0);
           MSSPRDATA   : in    std_logic_vector(31 downto 0) := (others => 'U');
-          MSSPWDATA   : out   std_logic_vector(31 downto 0);
-          DMAREADY    : in    std_logic_vector(1 downto 0) := (others => 'U')
+          MSSPWDATA   : out   std_logic_vector(31 downto 0)
         );
   end component;
 
@@ -225,7 +227,7 @@ architecture DEF_ARCH of StreamingReceiver_RF is
         \AFE_IF_0_RX_Q8to0_[4]\, \AFE_IF_0_RX_Q8to0_[3]\, 
         \AFE_IF_0_RX_Q8to0_[2]\, \AFE_IF_0_RX_Q8to0_[1]\, 
         \AFE_IF_0_RX_Q8to0_[0]\, AFE_IF_0_RX_Q9to9, INV_1_Y, 
-        \CoreAPB3_0_APBmslave0_PADDR_[0]\, 
+        \ANTSEL\, \CoreAPB3_0_APBmslave0_PADDR_[0]\, 
         \CoreAPB3_0_APBmslave0_PADDR_[1]\, 
         \CoreAPB3_0_APBmslave0_PADDR_[2]\, 
         \CoreAPB3_0_APBmslave0_PADDR_[3]\, 
@@ -316,8 +318,7 @@ architecture DEF_ARCH of StreamingReceiver_RF is
         \CoreAPB3_0_APBmslave0_PWDATA_[29]\, 
         \CoreAPB3_0_APBmslave0_PWDATA_[30]\, 
         \CoreAPB3_0_APBmslave0_PWDATA_[31]\, 
-        CoreAPB3_0_APBmslave0_PWRITE, 
-        SAMPLE_APB_0_READ_SUCCESSFUL, SAMPLE_APB_0_SMPL_RDY, 
+        CoreAPB3_0_APBmslave0_PWRITE, \nSHDN\, \RXHP\, 
         StreamingReceiver_RF_MSS_0_FAB_CLK, 
         StreamingReceiver_RF_MSS_0_GLB, 
         StreamingReceiver_RF_MSS_0_M2F_RESET_N, INV_2_Y, 
@@ -410,7 +411,6 @@ architecture DEF_ARCH of StreamingReceiver_RF is
         \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[30]\, 
         \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[31]\, 
         StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWRITE, 
-        USB_FIFO_IF_0_FROM_USB_RDY, 
         \USB_FIFO_IF_0_READ_FROM_USB_REG_[7]\, 
         \USB_FIFO_IF_0_READ_FROM_USB_REG_[6]\, 
         \USB_FIFO_IF_0_READ_FROM_USB_REG_[5]\, 
@@ -433,11 +433,10 @@ begin
         StreamingReceiver_RF_MSS_0_GLB, RST_n => 
         StreamingReceiver_RF_MSS_0_M2F_RESET_N, USB_SIWU_N => 
         USB_SIWU_N, FROM_ADC_SMPL_RDY => VCC_net, USB_RXF_n_pin
-         => USB_RXF_n_pin, READ_SUCCESSFUL => 
-        SAMPLE_APB_0_READ_SUCCESSFUL, USB_RD_n_pin => 
-        USB_RD_n_pin, USB_OE_n_pin => USB_OE_n_pin, FROM_USB_RDY
-         => USB_FIFO_IF_0_FROM_USB_RDY, USB_DATA_pin(7) => 
-        USB_DATA_pin(7), USB_DATA_pin(6) => USB_DATA_pin(6), 
+         => USB_RXF_n_pin, READ_SUCCESSFUL => \ANTSEL\, 
+        USB_RD_n_pin => USB_RD_n_pin, USB_OE_n_pin => 
+        USB_OE_n_pin, FROM_USB_RDY => \nSHDN\, USB_DATA_pin(7)
+         => USB_DATA_pin(7), USB_DATA_pin(6) => USB_DATA_pin(6), 
         USB_DATA_pin(5) => USB_DATA_pin(5), USB_DATA_pin(4) => 
         USB_DATA_pin(4), USB_DATA_pin(3) => USB_DATA_pin(3), 
         USB_DATA_pin(2) => USB_DATA_pin(2), USB_DATA_pin(1) => 
@@ -484,33 +483,25 @@ begin
     
     SAMPLE_APB_0 : SAMPLE_APB
       port map(PCLK => StreamingReceiver_RF_MSS_0_FAB_CLK, 
-        PRESETn => StreamingReceiver_RF_MSS_0_M2F_RESET_N, PSELx
-         => CoreAPB3_0_APBmslave0_PSELx, PENABLE => 
-        CoreAPB3_0_APBmslave0_PENABLE, PWRITE => 
-        CoreAPB3_0_APBmslave0_PWRITE, PREADY => 
-        CoreAPB3_0_APBmslave0_PREADY, PSLVERR => 
-        CoreAPB3_0_APBmslave0_PSLVERR, READ_SUCCESSFUL => 
-        SAMPLE_APB_0_READ_SUCCESSFUL, FROM_USB_RDY => 
-        USB_FIFO_IF_0_FROM_USB_RDY, SMPL_RDY => 
-        SAMPLE_APB_0_SMPL_RDY, PADDR(31) => GND_net, PADDR(30)
-         => GND_net, PADDR(29) => GND_net, PADDR(28) => GND_net, 
-        PADDR(27) => GND_net, PADDR(26) => GND_net, PADDR(25) => 
-        GND_net, PADDR(24) => GND_net, PADDR(23) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[23]\, PADDR(22) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[22]\, PADDR(21) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[21]\, PADDR(20) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[20]\, PADDR(19) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[19]\, PADDR(18) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[18]\, PADDR(17) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[17]\, PADDR(16) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[16]\, PADDR(15) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[15]\, PADDR(14) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[14]\, PADDR(13) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[13]\, PADDR(12) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[12]\, PADDR(11) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[11]\, PADDR(10) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[10]\, PADDR(9) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[9]\, PADDR(8) => 
+        PRESETn => StreamingReceiver_RF_MSS_0_M2F_RESET_N, 
+        PADDR(31) => GND_net, PADDR(30) => GND_net, PADDR(29) => 
+        GND_net, PADDR(28) => GND_net, PADDR(27) => GND_net, 
+        PADDR(26) => GND_net, PADDR(25) => GND_net, PADDR(24) => 
+        GND_net, PADDR(23) => \CoreAPB3_0_APBmslave0_PADDR_[23]\, 
+        PADDR(22) => \CoreAPB3_0_APBmslave0_PADDR_[22]\, 
+        PADDR(21) => \CoreAPB3_0_APBmslave0_PADDR_[21]\, 
+        PADDR(20) => \CoreAPB3_0_APBmslave0_PADDR_[20]\, 
+        PADDR(19) => \CoreAPB3_0_APBmslave0_PADDR_[19]\, 
+        PADDR(18) => \CoreAPB3_0_APBmslave0_PADDR_[18]\, 
+        PADDR(17) => \CoreAPB3_0_APBmslave0_PADDR_[17]\, 
+        PADDR(16) => \CoreAPB3_0_APBmslave0_PADDR_[16]\, 
+        PADDR(15) => \CoreAPB3_0_APBmslave0_PADDR_[15]\, 
+        PADDR(14) => \CoreAPB3_0_APBmslave0_PADDR_[14]\, 
+        PADDR(13) => \CoreAPB3_0_APBmslave0_PADDR_[13]\, 
+        PADDR(12) => \CoreAPB3_0_APBmslave0_PADDR_[12]\, 
+        PADDR(11) => \CoreAPB3_0_APBmslave0_PADDR_[11]\, 
+        PADDR(10) => \CoreAPB3_0_APBmslave0_PADDR_[10]\, PADDR(9)
+         => \CoreAPB3_0_APBmslave0_PADDR_[9]\, PADDR(8) => 
         \CoreAPB3_0_APBmslave0_PADDR_[8]\, PADDR(7) => 
         \CoreAPB3_0_APBmslave0_PADDR_[7]\, PADDR(6) => 
         \CoreAPB3_0_APBmslave0_PADDR_[6]\, PADDR(5) => 
@@ -519,7 +510,10 @@ begin
         \CoreAPB3_0_APBmslave0_PADDR_[3]\, PADDR(2) => 
         \CoreAPB3_0_APBmslave0_PADDR_[2]\, PADDR(1) => 
         \CoreAPB3_0_APBmslave0_PADDR_[1]\, PADDR(0) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[0]\, PWDATA(31) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[0]\, PSELx => 
+        CoreAPB3_0_APBmslave0_PSELx, PENABLE => 
+        CoreAPB3_0_APBmslave0_PENABLE, PWRITE => 
+        CoreAPB3_0_APBmslave0_PWRITE, PWDATA(31) => 
         \CoreAPB3_0_APBmslave0_PWDATA_[31]\, PWDATA(30) => 
         \CoreAPB3_0_APBmslave0_PWDATA_[30]\, PWDATA(29) => 
         \CoreAPB3_0_APBmslave0_PWDATA_[29]\, PWDATA(28) => 
@@ -551,7 +545,8 @@ begin
         \CoreAPB3_0_APBmslave0_PWDATA_[3]\, PWDATA(2) => 
         \CoreAPB3_0_APBmslave0_PWDATA_[2]\, PWDATA(1) => 
         \CoreAPB3_0_APBmslave0_PWDATA_[1]\, PWDATA(0) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[0]\, PRDATA(31) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[0]\, PREADY => 
+        CoreAPB3_0_APBmslave0_PREADY, PRDATA(31) => 
         \CoreAPB3_0_APBmslave0_PRDATA_[31]\, PRDATA(30) => 
         \CoreAPB3_0_APBmslave0_PRDATA_[30]\, PRDATA(29) => 
         \CoreAPB3_0_APBmslave0_PRDATA_[29]\, PRDATA(28) => 
@@ -583,7 +578,8 @@ begin
         \CoreAPB3_0_APBmslave0_PRDATA_[3]\, PRDATA(2) => 
         \CoreAPB3_0_APBmslave0_PRDATA_[2]\, PRDATA(1) => 
         \CoreAPB3_0_APBmslave0_PRDATA_[1]\, PRDATA(0) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[0]\, INPUT(7) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[0]\, PSLVERR => 
+        CoreAPB3_0_APBmslave0_PSLVERR, INPUT(7) => 
         \USB_FIFO_IF_0_READ_FROM_USB_REG_[7]\, INPUT(6) => 
         \USB_FIFO_IF_0_READ_FROM_USB_REG_[6]\, INPUT(5) => 
         \USB_FIFO_IF_0_READ_FROM_USB_REG_[5]\, INPUT(4) => 
@@ -591,7 +587,9 @@ begin
         \USB_FIFO_IF_0_READ_FROM_USB_REG_[3]\, INPUT(2) => 
         \USB_FIFO_IF_0_READ_FROM_USB_REG_[2]\, INPUT(1) => 
         \USB_FIFO_IF_0_READ_FROM_USB_REG_[1]\, INPUT(0) => 
-        \USB_FIFO_IF_0_READ_FROM_USB_REG_[0]\);
+        \USB_FIFO_IF_0_READ_FROM_USB_REG_[0]\, READ_SUCCESSFUL
+         => \ANTSEL\, FROM_USB_RDY => \nSHDN\, SMPL_RDY => \RXHP\, 
+        REG_FULL => LED1);
     
     CoreAPB3_0 : CoreAPB3
       generic map(APB_DWIDTH => 32, APBSLOT0ENABLE => 1,
@@ -1160,8 +1158,8 @@ begin
         RXHP, M2F_GPO_13 => nSHDN, F2M_GPI_12 => LD, M2F_RESET_N
          => StreamingReceiver_RF_MSS_0_M2F_RESET_N, GLB => 
         StreamingReceiver_RF_MSS_0_GLB, MAINXIN => MAINXIN, 
-        FAB_CLK => StreamingReceiver_RF_MSS_0_FAB_CLK, 
-        MSSPADDR(19) => 
+        FAB_CLK => StreamingReceiver_RF_MSS_0_FAB_CLK, FABINT => 
+        \RXHP\, MSSPADDR(19) => 
         \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[19]\, 
         MSSPADDR(18) => 
         \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[18]\, 
@@ -1328,9 +1326,7 @@ begin
         MSSPWDATA(1) => 
         \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[1]\, 
         MSSPWDATA(0) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[0]\, 
-        DMAREADY(1) => GND_net, DMAREADY(0) => 
-        SAMPLE_APB_0_SMPL_RDY);
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[0]\);
     
     AFE_IF_0 : entity work.AFE_IF
       port map(CLK => StreamingReceiver_RF_MSS_0_GLB, RST => 

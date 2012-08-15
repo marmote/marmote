@@ -3,7 +3,7 @@
 
 # Version: 10.0 SP2 10.0.20.2
 # Family: SmartFusion , Die: A2F500M3G , Package: 256 FBGA
-# Date generated: Fri Jul 06 13:55:07 2012 
+# Date generated: Wed Aug 15 14:33:52 2012 
 
 
 # 
@@ -24,23 +24,15 @@ define_group -name SPI_1_PADs
 # I/O constraints
 # 
 
-set_io MSS_RESET_N        \
-    -pinname K4           \
-    -fixed yes            \
-    -iostd LVTTL          \
-    -RES_PULL None        \
-    -SCHMITT_TRIGGER Off  \
+set_io MSS_RESET_N    \
+    -pinname K4       \
+    -fixed yes        \
     -DIRECTION Input
 
 
 set_io RXTX            \
     -pinname K14       \
     -fixed yes         \
-    -iostd LVTTL       \
-    -OUT_LOAD 35       \
-    -RES_PULL None     \
-    -SKEW Off          \
-    -SLEW High         \
     -DIRECTION Output
 
 
@@ -49,12 +41,6 @@ set_io RXTX            \
 set_io SPI_1_CLK            \
     -pinname L14            \
     -fixed yes              \
-    -iostd LVTTL            \
-    -OUT_LOAD 35            \
-    -RES_PULL None          \
-    -SCHMITT_TRIGGER Off    \
-    -SKEW Off               \
-    -SLEW High              \
     -GROUP_NAME SPI_1_PADs  \
     -DIRECTION Inout
 
@@ -62,9 +48,6 @@ set_io SPI_1_CLK            \
 set_io SPI_1_DI             \
     -pinname L15            \
     -fixed yes              \
-    -iostd LVTTL            \
-    -RES_PULL None          \
-    -SCHMITT_TRIGGER Off    \
     -GROUP_NAME SPI_1_PADs  \
     -DIRECTION Input
 
@@ -72,11 +55,6 @@ set_io SPI_1_DI             \
 set_io SPI_1_DO             \
     -pinname L12            \
     -fixed yes              \
-    -iostd LVTTL            \
-    -OUT_LOAD 35            \
-    -RES_PULL None          \
-    -SKEW Off               \
-    -SLEW High              \
     -GROUP_NAME SPI_1_PADs  \
     -DIRECTION Output
 
@@ -84,12 +62,6 @@ set_io SPI_1_DO             \
 set_io SPI_1_SS             \
     -pinname L13            \
     -fixed yes              \
-    -iostd LVTTL            \
-    -OUT_LOAD 35            \
-    -RES_PULL None          \
-    -SCHMITT_TRIGGER Off    \
-    -SKEW Off               \
-    -SLEW High              \
     -GROUP_NAME SPI_1_PADs  \
     -DIRECTION Inout
 
@@ -106,6 +78,12 @@ set_io SPI_1_SS             \
 
 # set_io MSS_RESET_N -pinname K4 -fixed yes -DIRECTION Input 
 # set_io RXTX -pinname K14 -fixed yes -DIRECTION Output 
+# set_io SPI_1_CLK -pinname L14 -fixed yes -GROUP_NAME SPI_1_PADs -DIRECTION Inout 
+# set_io SPI_1_DI -pinname L15 -fixed yes -GROUP_NAME SPI_1_PADs -DIRECTION Input 
+# set_io SPI_1_DO -pinname L12 -fixed yes -GROUP_NAME SPI_1_PADs -DIRECTION Output 
+# set_io SPI_1_SS -pinname L13 -fixed yes -GROUP_NAME SPI_1_PADs -DIRECTION Inout 
+# set_io RXTX -pinname K14 -fixed yes -DIRECTION Output 
+# set_io MSS_RESET_N -pinname K4 -fixed yes -DIRECTION Input 
 # set_io SPI_1_CLK -pinname L14 -fixed yes -GROUP_NAME SPI_1_PADs -DIRECTION Inout 
 # set_io SPI_1_DI -pinname L15 -fixed yes -GROUP_NAME SPI_1_PADs -DIRECTION Input 
 # set_io SPI_1_DO -pinname L12 -fixed yes -GROUP_NAME SPI_1_PADs -DIRECTION Output 

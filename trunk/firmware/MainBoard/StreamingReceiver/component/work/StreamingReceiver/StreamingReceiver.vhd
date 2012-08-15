@@ -9,9 +9,9 @@ entity StreamingReceiver is
 
     port( MSS_RESET_N  : in    std_logic;
           MAINXIN      : in    std_logic;
-          AFE1_CLK     : out   std_logic;
-          AFE1_SHDN_n  : out   std_logic;
-          AFE1_TR_n    : out   std_logic;
+          AFE2_CLK     : out   std_logic;
+          AFE2_SHDN_n  : out   std_logic;
+          AFE2_TR_n    : out   std_logic;
           TXE_n_pin    : in    std_logic;
           OE_n_pin     : out   std_logic;
           RD_n_pin     : out   std_logic;
@@ -119,8 +119,8 @@ begin
     AFE_IF_0 : entity work.AFE_IF
       port map(CLK => StreamingReceiver_MSS_0_GLB, RST => INV_2_Y, 
         SHDN => GND_net, TX_RX_n => GND_net, RX_STROBE => OPEN, 
-        TX_STROBE => GND_net, CLK_pin => AFE1_CLK, SHDN_n_pin => 
-        AFE1_SHDN_n, T_R_n_pin => AFE1_TR_n, RX_I(9) => INV_0_Y, 
+        TX_STROBE => GND_net, CLK_pin => AFE2_CLK, SHDN_n_pin => 
+        AFE2_SHDN_n, T_R_n_pin => AFE2_TR_n, RX_I(9) => INV_0_Y, 
         RX_I(8) => \AFE_IF_0_RX_I_[8]\, RX_I(7) => 
         \AFE_IF_0_RX_I_[7]\, RX_I(6) => \AFE_IF_0_RX_I_[6]\, 
         RX_I(5) => \AFE_IF_0_RX_I_[5]\, RX_I(4) => 

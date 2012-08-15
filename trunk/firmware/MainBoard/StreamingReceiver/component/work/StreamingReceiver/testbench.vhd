@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------
--- Created by Actel SmartDesign Mon Jul 02 09:59:50 2012
+-- Created by Actel SmartDesign Fri Aug 10 10:27:52 2012
 -- Testbench Template
 -- This is a basic testbench that instantiates your design with basic 
 -- clock and reset pins connected.  If your design has special
@@ -30,9 +30,9 @@ architecture behavioral of testbench is
             USB_CLK_pin : in std_logic;
 
             -- Outputs
-            AFE1_CLK : out std_logic;
-            AFE1_SHDN_n : out std_logic;
-            AFE1_TR_n : out std_logic;
+            AFE2_CLK : out std_logic;
+            AFE2_SHDN_n : out std_logic;
+            AFE2_TR_n : out std_logic;
             OE_n_pin : out std_logic;
             RD_n_pin : out std_logic;
             WR_n_pin : out std_logic;
@@ -75,9 +75,9 @@ begin
             USB_CLK_pin => SYSCLK,
 
             -- Outputs
-            AFE1_CLK =>  open,
-            AFE1_SHDN_n =>  open,
-            AFE1_TR_n =>  open,
+            AFE2_CLK =>  open,
+            AFE2_SHDN_n =>  open,
+            AFE2_TR_n =>  open,
             OE_n_pin =>  open,
             RD_n_pin =>  open,
             WR_n_pin =>  open,

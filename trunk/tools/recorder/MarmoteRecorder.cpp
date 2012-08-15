@@ -49,6 +49,7 @@ WAVhdr hdr = {{'R', 'I', 'F', 'F'}, 36, {'W', 'A', 'V', 'E'},
 
 void list_ft_devices(void);
 int recorder(int dev, const char* dir, int seq);
+int recsize_b;
 
 
 int _tmain(int argc, _TCHAR* argv[])
@@ -57,8 +58,10 @@ int _tmain(int argc, _TCHAR* argv[])
 	struct arg_int  *dev    = arg_int0("d",  "dev",    "idx",   "set the receiving device (default: last FTDI device)");
 	struct arg_file *dir    = arg_file0("p", "path",   "path",  "set the output directory path (default: current)");
 	struct arg_int  *start  = arg_int0("s",  "start",  "num",   "set the initail seq number (default: last+1)");
+	struct arg_int  *recsize= arg_int0("r",  "recsize",  "num",   "set the number of recorded bytes");
+
 	struct arg_end  *end    = arg_end(20);
-	void*  argtable[] = {help, dev, dir, start, end};
+	void*  argtable[] = {help, dev, dir, start, recsize, end};
 	const char* progname = argv[0];
 
     int nerrors;
@@ -77,9 +80,12 @@ int _tmain(int argc, _TCHAR* argv[])
 	// Set any command line default values prior to parsing
 	dev->ival[0] = default_dev;
 	dir->filename[0] = NULL;
+	recsize->ival[0] = MAX_RAW_BYTE_LEN;
 
 	// Parse the command line as defined by argtable[]
     nerrors = arg_parse(argc, argv, argtable);
+
+	recsize_b = recsize->ival[0];
 
 	// Special case: '--help' takes precedence over error reporting
     if (help->count > 0)
@@ -304,7 +310,8 @@ USB_READ:
 
 
 
-	char *rxBuffer = (char*)malloc(MAX_RAW_BYTE_LEN);
+//	char *rxBuffer = (char*)malloc(MAX_RAW_BYTE_LEN);
+	char *rxBuffer = (char*)malloc(recsize_b);
 	if (rxBuffer == NULL) {
 		printf("ERROR: Insufficient memory available\n");
 		return (1);
@@ -338,9 +345,12 @@ USB_READ:
 		totalBytesReceived = 0;
 
 		// Get the data from FT driver in smaller chunks
-		while (totalBytesReceived < MAX_RAW_BYTE_LEN)
+
+//		while (totalBytesReceived < MAX_RAW_BYTE_LEN)
+		while (totalBytesReceived < recsize_b)
 		{
-			bytesRequested = chunkSize < (MAX_RAW_BYTE_LEN - totalBytesReceived) ? chunkSize : MAX_RAW_BYTE_LEN - totalBytesReceived;
+//			bytesRequested = chunkSize < (MAX_RAW_BYTE_LEN - totalBytesReceived) ? chunkSize : MAX_RAW_BYTE_LEN - totalBytesReceived;
+			bytesRequested = chunkSize < (recsize_b - totalBytesReceived) ? chunkSize : recsize_b - totalBytesReceived;
 
 			ftStatus = FT_Read(ftHandle, rxBuffer + totalBytesReceived,
 				bytesRequested, &bytesReceived);

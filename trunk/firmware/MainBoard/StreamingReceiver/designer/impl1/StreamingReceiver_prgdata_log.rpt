@@ -12,11 +12,11 @@ Warning: Overwriting the existing file:
          fdb.
 
 The Export-map command succeeded ( 00:00:16 )
-CHECKSUM: 8C00
+CHECKSUM: 671F
 Wrote to the file:
 D:\Work\marmote\firmware\MainBoard\StreamingReceiver\designer\impl1\StreamingReceiver.fdb
 
-The Export command succeeded ( 00:00:16 )
+The Export command succeeded ( 00:00:17 )
 Design saved to file
 D:/Work/marmote/firmware/MainBoard/StreamingReceiver/designer/impl1/StreamingReceiver.adb.
 
