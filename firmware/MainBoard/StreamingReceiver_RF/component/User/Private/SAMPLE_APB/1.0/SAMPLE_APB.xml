@@ -98,6 +98,10 @@
         <spirit:name>SMPL_RDY</spirit:name>
         <spirit:direction>out</spirit:direction>
       </spirit:signal>
+      <spirit:signal>
+        <spirit:name>REG_FULL</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
     </spirit:signals>
     <spirit:hwParameters>
     </spirit:hwParameters>

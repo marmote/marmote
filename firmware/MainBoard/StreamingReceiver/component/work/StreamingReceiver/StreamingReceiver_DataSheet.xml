@@ -12,7 +12,7 @@
     <project-description>
     </project-description>
     <location>D:/Work/marmote/firmware/MainBoard/StreamingReceiver/component/work/StreamingReceiver</location>
-    <state>GENERATED ( Mon Jul 02 09:59:53 2012 )</state>
+    <state>GENERATED ( Fri Aug 10 10:27:54 2012 )</state>
     <swide-toolchain>SoftConsole workspace generated to D:\Work\marmote\firmware\MainBoard\StreamingReceiver\SoftConsole</swide-toolchain>
   </project-settings>
   <site-map>
@@ -131,7 +131,7 @@
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>AFE1_SHDN_n</port-name>
+    <port-name>AFE2_SHDN_n</port-name>
     <direction>OUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVTTL</io-standard>
@@ -143,7 +143,7 @@
     <io-standard>LVCMOS33</io-standard>
   </io>
   <io>
-    <port-name>AFE1_TR_n</port-name>
+    <port-name>AFE2_TR_n</port-name>
     <direction>OUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVTTL</io-standard>
@@ -191,7 +191,7 @@
     <io-standard>LVCMOS33</io-standard>
   </io>
   <io>
-    <port-name>AFE1_CLK</port-name>
+    <port-name>AFE2_CLK</port-name>
     <direction>OUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVTTL</io-standard>

@@ -93,7 +93,7 @@ architecture Behavioral of USB_IF is
 	signal s_USB_SMPL_BYTE_CNTR		: unsigned(1 downto 0);									-- USB transmits 1 byte at a time, counts were we are in the 32 bit TEMP_REG
 	signal s_USB_WR_n_pin   		: std_logic;
 
-    signal s_oe     				: std_logic;
+--    signal s_oe     				: std_logic;
     signal s_obuf   				: std_logic_vector(7 downto 0);
     signal s_ibuf					: std_logic_vector(7 downto 0);
 
@@ -113,7 +113,8 @@ begin
         port map (
             PAD => USB_DATA_pin(i),
             D   => s_obuf(i),
-            E   => s_oe,
+--            E   => s_oe,
+            E   => '1',
             Y   => s_ibuf(i)
         );
 
@@ -176,7 +177,7 @@ begin
 
 			--------------------------------
 			s_USB_SMPL_BYTE_CNTR	<= (others => '1');
-			s_oe					<= '0';
+--			s_oe					<= '0';
 			s_USB_WR_n_pin			<= '1';									-- We are not writing to the USB
 
         elsif rising_edge(s_USB_CLK) then
@@ -237,11 +238,11 @@ begin
 -----------------------------------------------------------
 -- Move 32 bit sample from temp register to USB in 8 bit chunks
 --
-			s_oe			<= '0';
+--			s_oe			<= '0';
 			s_USB_WR_n_pin	<= '1';											-- By default we don't write to the USB
 
 			if s_TEMP_REG_STATE = c_TEMPREG_FULL and USB_TXE_n_pin = '0' then	-- If TEMP_REG is not empty AND we can start writing to USB
-				s_oe			<= '1';
+--				s_oe			<= '1';
 				s_USB_WR_n_pin	<= '0';
 			end if;
 
@@ -256,7 +257,7 @@ begin
 				if s_USB_SMPL_BYTE_CNTR = to_unsigned(0, 2) then
 					s_TEMP_REG_STATE <= c_TEMPREG_EMPTY;
 
-					s_oe			<= '0';									-- There is actually nothing left to write to USB
+--					s_oe			<= '0';									-- There is actually nothing left to write to USB
 					s_USB_WR_n_pin	<= '1';		
 				end if;
 

@@ -41,13 +41,13 @@ ENDLIST
 LIST FileManager
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf,actgen_cxf"
 STATE="utd"
-TIME="1341600910"
+TIME="1345059233"
 SIZE="2407"
 PARENT="<project>\component\work\StreamingReceiver_RF\StreamingReceiver_RF.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
 STATE="utd"
-TIME="1341600910"
+TIME="1345059233"
 SIZE="1242"
 LIBRARY="COREAPB3_LIB"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
@@ -96,7 +96,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf,actgen_cxf"
 STATE="utd"
-TIME="1341406598"
+TIME="1345059219"
 SIZE="944"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf"
 ENDFILE
@@ -114,113 +114,113 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_ACE\2.2.100\MSS_ACE.cxf,actgen_cxf"
 STATE="utd"
-TIME="1341406594"
+TIME="1345059215"
 SIZE="252"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_CCC\2.0.106\MSS_CCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1341406594"
+TIME="1345059216"
 SIZE="252"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_CM3\1.0.200\MSS_CM3.cxf,actgen_cxf"
 STATE="utd"
-TIME="1341406594"
+TIME="1345059216"
 SIZE="252"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_COM\1.0.200\MSS_COM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1341406594"
+TIME="1345059216"
 SIZE="252"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_DMA\1.0.101\MSS_DMA.cxf,actgen_cxf"
 STATE="utd"
-TIME="1341406594"
+TIME="1345059216"
 SIZE="252"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_ENVM\2.3.102\MSS_ENVM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1341406595"
+TIME="1345059217"
 SIZE="253"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_FIC\1.0.101\MSS_FIC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1341406595"
+TIME="1345059217"
 SIZE="252"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_FIO\1.0.203\MSS_FIO.cxf,actgen_cxf"
 STATE="utd"
-TIME="1341406595"
+TIME="1345059217"
 SIZE="252"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_GPIO\1.0.101\MSS_GPIO.cxf,actgen_cxf"
 STATE="utd"
-TIME="1341406595"
+TIME="1345059217"
 SIZE="253"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_INTR\1.0.101\MSS_INTR.cxf,actgen_cxf"
 STATE="utd"
-TIME="1341406595"
+TIME="1345059217"
 SIZE="253"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_RESET\1.0.101\MSS_RESET.cxf,actgen_cxf"
 STATE="utd"
-TIME="1341406595"
+TIME="1345059217"
 SIZE="254"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_RTC\1.0.100\MSS_RTC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1341406595"
+TIME="1345059217"
 SIZE="252"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_SPI\1.0.102\MSS_SPI.cxf,actgen_cxf"
 STATE="utd"
-TIME="1341406595"
+TIME="1345059217"
 SIZE="252"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_TIMER\1.0.100\MSS_TIMER.cxf,actgen_cxf"
 STATE="utd"
-TIME="1341406595"
+TIME="1345059217"
 SIZE="254"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_UFROM\1.0.100\MSS_UFROM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1341406595"
+TIME="1345059217"
 SIZE="254"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\work\DESIGN_FIRMWARE\DESIGN_FIRMWARE.cxf,actgen_cxf"
 STATE="utd"
-TIME="1341410527"
+TIME="1345047503"
 SIZE="2201"
 ENDFILE
 VALUE "<project>\component\work\DESIGN_IO\DESIGN_IO.cxf,actgen_cxf"
 STATE="utd"
-TIME="1341330833"
+TIME="1344634259"
 SIZE="413"
 ENDFILE
 VALUE "<project>\component\work\StreamingReceiver_RF\StreamingReceiver_RF.cxf,actgen_cxf"
 STATE="utd"
-TIME="1341600917"
-SIZE="7517"
+TIME="1345059238"
+SIZE="7669"
 ENDFILE
 VALUE "<project>\component\work\StreamingReceiver_RF\StreamingReceiver_RF.pdc,pdc"
 STATE="utd"
-TIME="1341600907"
-SIZE="2586"
+TIME="1345059232"
+SIZE="2196"
 PARENT="<project>\component\work\StreamingReceiver_RF\StreamingReceiver_RF.cxf"
 BEGIN_USE_CONSTRAINT
 TOOL_CONSTRAINT_TYPE="ideDESIGNER"
@@ -230,48 +230,48 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\StreamingReceiver_RF\StreamingReceiver_RF.vhd,hdl"
 STATE="utd"
-TIME="1341600911"
-SIZE="72254"
+TIME="1345059234"
+SIZE="72082"
 PARENT="<project>\component\work\StreamingReceiver_RF\StreamingReceiver_RF.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\StreamingReceiver_RF\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1341600915"
-SIZE="3302"
+TIME="1345059237"
+SIZE="3365"
 PARENT="<project>\component\work\StreamingReceiver_RF\StreamingReceiver_RF.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\StreamingReceiver_RF_MSS\MSS_ACE_0\MSS_ACE_0.log,???"
 STATE="utd"
-TIME="1341406594"
+TIME="1345059215"
 SIZE="31587"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\StreamingReceiver_RF_MSS\MSS_CCC_0\StreamingReceiver_RF_MSS_tmp_MSS_CCC_0_MSS_CCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1341406594"
+TIME="1345059216"
 SIZE="514"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\work\StreamingReceiver_RF_MSS\MSS_CCC_0\StreamingReceiver_RF_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd,hdl"
 STATE="utd"
-TIME="1341406594"
+TIME="1345059216"
 SIZE="7035"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\MSS_CCC_0\StreamingReceiver_RF_MSS_tmp_MSS_CCC_0_MSS_CCC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\StreamingReceiver_RF_MSS\MSS_ENVM_0\MSS_ENVM_0.efc,efc"
 STATE="utd"
-TIME="1341406595"
+TIME="1345059217"
 SIZE="16219"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\StreamingReceiver_RF_MSS\mss_tshell.vhd,hdl"
 STATE="utd"
-TIME="1341406595"
+TIME="1345059217"
 SIZE="22849"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf"
 BEGIN_USE_CONSTRAINT
@@ -283,7 +283,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\StreamingReceiver_RF_MSS\mss_tshell_syn.sdc,sdc"
 STATE="utd"
-TIME="1341406596"
+TIME="1345059217"
 SIZE="216"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf"
 BEGIN_USE_CONSTRAINT
@@ -295,12 +295,12 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf,actgen_cxf"
 STATE="utd"
-TIME="1341406599"
-SIZE="14278"
+TIME="1345059220"
+SIZE="14246"
 ENDFILE
 VALUE "<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.pdc,pdc"
 STATE="utd"
-TIME="1341406587"
+TIME="1345059208"
 SIZE="2182"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf"
 BEGIN_USE_CONSTRAINT
@@ -311,136 +311,156 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.vhd,hdl"
 STATE="utd"
-TIME="1341406598"
-SIZE="35522"
+TIME="1345059219"
+SIZE="35484"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\StreamingReceiver_RF_MSS\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1341406598"
-SIZE="3343"
+TIME="1345059219"
+SIZE="3309"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\USB_FIFO_IF\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1341600903"
+TIME="1344634409"
 SIZE="2851"
 PARENT="<project>\component\work\USB_FIFO_IF\USB_FIFO_IF.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\USB_FIFO_IF\USB_FIFO_IF.cxf,actgen_cxf"
 STATE="utd"
-TIME="1341600903"
+TIME="1344634408"
 SIZE="4174"
 ENDFILE
 VALUE "<project>\component\work\USB_FIFO_IF\USB_FIFO_IF.vhd,hdl"
 STATE="utd"
-TIME="1341600903"
+TIME="1344634408"
 SIZE="8572"
 PARENT="<project>\component\work\USB_FIFO_IF\USB_FIFO_IF.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\designer\impl1\AFE_IF.ide_des,ide_des"
 STATE="utd"
-TIME="1341328842"
+TIME="1344634259"
 SIZE="213"
 ENDFILE
 VALUE "<project>\designer\impl1\StreamingReceiver_RF.adb,adb"
-STATE="utd"
-TIME="1341408037"
-SIZE="766464"
+STATE="ood"
+TIME="1344634259"
+SIZE="779264"
 ENDFILE
 VALUE "<project>\designer\impl1\StreamingReceiver_RF.fdb,fdb"
-STATE="utd"
-TIME="1341408036"
-SIZE="100618"
+STATE="ood"
+TIME="1344634259"
+SIZE="100106"
 ENDFILE
 VALUE "<project>\designer\impl1\StreamingReceiver_RF.ide_des,ide_des"
 STATE="utd"
-TIME="1341408037"
-SIZE="1173"
+TIME="1344976870"
+SIZE="1167"
+ENDFILE
+VALUE "<project>\designer\impl1\StreamingReceiver_RF_2_synthesis_2.adb,adb"
+STATE="ood"
+TIME="1344977014"
+SIZE="1050624"
+ENDFILE
+VALUE "<project>\designer\impl1\StreamingReceiver_RF_2_synthesis_2.fdb,fdb"
+STATE="ood"
+TIME="1344977013"
+SIZE="116513"
+ENDFILE
+VALUE "<project>\designer\impl1\StreamingReceiver_RF_2_synthesis_2.ide_des,ide_des"
+STATE="utd"
+TIME="1344977014"
+SIZE="1331"
 ENDFILE
 VALUE "<project>\designer\impl1\StreamingReceiver_RF_ba.sdf,ba_sdf"
 STATE="ood"
-TIME="1341589003"
+TIME="1344634259"
 SIZE="464734"
 ENDFILE
 VALUE "<project>\designer\impl1\StreamingReceiver_RF_ba.vhd,ba_hdl"
 STATE="ood"
-TIME="1341589003"
+TIME="1344634259"
 SIZE="380513"
 ENDFILE
 VALUE "<project>\designer\impl1\StreamingReceiver_RF_compile_log.rpt,log"
 STATE="utd"
-TIME="1341604246"
-SIZE="38269"
+TIME="1345059311"
+SIZE="36622"
 ENDFILE
 VALUE "<project>\designer\impl1\StreamingReceiver_RF_fp\projectData\StreamingReceiver_RF.pdb,pdb"
 STATE="utd"
-TIME="1341609955"
-SIZE="132608"
+TIME="1345059582"
+SIZE="111104"
 ENDFILE
 VALUE "<project>\designer\impl1\StreamingReceiver_RF_fp\StreamingReceiver_RF.pdb,pdb"
 STATE="utd"
-TIME="1341516351"
-SIZE="109568"
+TIME="1344977032"
+SIZE="125440"
 ENDFILE
 VALUE "<project>\designer\impl1\StreamingReceiver_RF_fp\StreamingReceiver_RF.pro,pro"
 STATE="utd"
-TIME="1341516405"
+TIME="1344977090"
 SIZE="2122"
 ENDFILE
 VALUE "<project>\designer\impl1\StreamingReceiver_RF_placeroute_log.rpt,log"
 STATE="utd"
-TIME="1341606294"
+TIME="1345059428"
 SIZE="2472"
 ENDFILE
 VALUE "<project>\designer\impl1\StreamingReceiver_RF_prgdata_log.rpt,log"
 STATE="utd"
-TIME="1341408037"
-SIZE="956"
+TIME="1344977014"
+SIZE="1035"
 ENDFILE
 VALUE "<project>\designer\impl1\StreamingReceiver_RF_synthesis_1.adb,adb"
 STATE="utd"
-TIME="1341604246"
-SIZE="911872"
+TIME="1344879942"
+SIZE="776192"
 ENDFILE
 VALUE "<project>\designer\impl1\StreamingReceiver_RF_synthesis_1.fdb,fdb"
 STATE="utd"
-TIME="1341604335"
-SIZE="123155"
+TIME="1345040836"
+SIZE="95006"
 ENDFILE
 VALUE "<project>\designer\impl1\StreamingReceiver_RF_synthesis_1.ide_des,ide_des"
 STATE="utd"
-TIME="1341603239"
-SIZE="616"
+TIME="1344976870"
+SIZE="1323"
+ENDFILE
+VALUE "<project>\designer\impl1\StreamingReceiver_RF_timingconstraints_log.rpt,log"
+STATE="utd"
+TIME="1344885562"
+SIZE="1711"
 ENDFILE
 VALUE "<project>\designer\impl1\StreamingReceiver_RF_verifytiming_log.rpt,log"
 STATE="utd"
-TIME="1341606302"
+TIME="1345059436"
 SIZE="1334"
 ENDFILE
 VALUE "<project>\hdl\afe_if.vhd,hdl"
 STATE="utd"
-TIME="1340202819"
+TIME="1344634262"
 SIZE="7713"
 ENDFILE
 VALUE "<project>\hdl\common.vhd,hdl"
 STATE="utd"
-TIME="1341240319"
+TIME="1344634262"
 SIZE="2808"
 ENDFILE
 VALUE "<project>\hdl\Sample_APB.vhd,hdl"
 STATE="utd"
-TIME="1341405781"
-SIZE="3965"
+TIME="1345040410"
+SIZE="4055"
 ENDFILE
 VALUE "<project>\hdl\usb_if.vhd,hdl"
 STATE="utd"
-TIME="1341600879"
-SIZE="11737"
+TIME="1345057658"
+SIZE="12148"
 ENDFILE
 VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
 STATE="utd"
@@ -468,77 +488,77 @@ PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
-TIME="1341600911"
+TIME="1345059234"
 SIZE="631"
 PARENT="<project>\component\work\StreamingReceiver_RF\StreamingReceiver_RF.cxf"
 ENDFILE
 VALUE "<project>\simulation\test.bfm,sim"
 STATE="utd"
-TIME="1341406595"
+TIME="1345059216"
 SIZE="5496"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf"
 ENDFILE
 VALUE "<project>\simulation\user.bfm,sim"
 STATE="utd"
-TIME="1341328746"
+TIME="1344634262"
 SIZE="670"
 PARENT="<project>\component\work\StreamingReceiver_RF_MSS\StreamingReceiver_RF_MSS.cxf"
 ENDFILE
 VALUE "<project>\smartgen\sample_FIFO\sample_FIFO.cxf,actgen_cxf"
 STATE="utd"
-TIME="1341329657"
+TIME="1344634259"
 SIZE="2600"
 ENDFILE
 VALUE "<project>\smartgen\sample_FIFO\sample_FIFO.gen,gen"
 STATE="utd"
-TIME="1341329655"
+TIME="1344634259"
 SIZE="823"
 PARENT="<project>\smartgen\sample_FIFO\sample_FIFO.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\sample_FIFO\sample_FIFO.log,log"
 STATE="utd"
-TIME="1341329656"
+TIME="1344634259"
 SIZE="3005"
 PARENT="<project>\smartgen\sample_FIFO\sample_FIFO.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\sample_FIFO\sample_FIFO.vhd,hdl"
 STATE="utd"
-TIME="1341329657"
+TIME="1344634259"
 SIZE="10955"
 PARENT="<project>\smartgen\sample_FIFO\sample_FIFO.cxf"
 IS_READONLY="TRUE"
 ENDFILE
-VALUE "<project>\synthesis\StreamingReceiver_RF.edn,syn_edn"
-STATE="utd"
-TIME="1341407372"
-SIZE="479080"
-ENDFILE
-VALUE "<project>\synthesis\StreamingReceiver_RF.so,so"
-STATE="utd"
-TIME="1341407372"
-SIZE="265"
-ENDFILE
-VALUE "<project>\synthesis\StreamingReceiver_RF_sdc.sdc,syn_sdc"
-STATE="utd"
-TIME="1341407372"
-SIZE="615"
-ENDFILE
 VALUE "<project>\synthesis\synthesis_1\StreamingReceiver_RF.edn,syn_edn"
 STATE="utd"
-TIME="1341603236"
-SIZE="858263"
+TIME="1344879953"
+SIZE="383053"
 ENDFILE
 VALUE "<project>\synthesis\synthesis_1\StreamingReceiver_RF.so,so"
 STATE="utd"
-TIME="1341599352"
-SIZE="331"
+TIME="1344879953"
+SIZE="277"
 ENDFILE
 VALUE "<project>\synthesis\synthesis_1\StreamingReceiver_RF_sdc.sdc,syn_sdc"
 STATE="utd"
-TIME="1341603235"
-SIZE="902"
+TIME="1344879953"
+SIZE="615"
+ENDFILE
+VALUE "<project>\synthesis\synthesis_2\StreamingReceiver_RF_2.edn,syn_edn"
+STATE="ood"
+TIME="1344976908"
+SIZE="752169"
+ENDFILE
+VALUE "<project>\synthesis\synthesis_2\StreamingReceiver_RF_2.so,so"
+STATE="utd"
+TIME="1344976908"
+SIZE="279"
+ENDFILE
+VALUE "<project>\synthesis\synthesis_2\StreamingReceiver_RF_2_sdc.sdc,syn_sdc"
+STATE="ood"
+TIME="1344976908"
+SIZE="894"
 ENDFILE
 ENDLIST
 LIST UsedFile
@@ -561,8 +581,6 @@ LIST ProjectState5.1
 LIST Impl1
 LiberoState=Post_Layout
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\StreamingReceiver_RF.edn,syn_edn)=StateSuccess
-ideDESIGNER(<project>\designer\impl1\StreamingReceiver_RF.adb,adb)=StateSuccess
 ideSYNTHESIS(<project>\synthesis\synthesis_1\StreamingReceiver_RF.edn,syn_edn)=StateSuccess
 ideDESIGNER(<project>\designer\impl1\StreamingReceiver_RF_synthesis_1.adb,adb)=StateSuccess
 LIST FlowOptions
@@ -581,7 +599,6 @@ VALUE "<project>\phy_synthesis\StreamingReceiver_RF_synthesis_1_palace.sdc,palac
 VALUE "<project>\phy_synthesis\StreamingReceiver_RF_synthesis_1_palace.vhd,palace_hdl"
 VALUE "<project>\designer\impl1\StreamingReceiver_RF_synthesis_1.adb,adb"
 VALUE "<project>\designer\impl1\StreamingReceiver_RF_synthesis_1.prb,prb"
-VALUE "<project>\designer\impl1\StreamingReceiver_RF_synthesis_1.fdb,fdb"
 VALUE "<project>\designer\impl1\StreamingReceiver_RF_synthesis_1.pdb,pdb"
 VALUE "<project>\designer\impl1\StreamingReceiver_RF_synthesis_1.stp,stp"
 ENDUsed_File_List
@@ -625,6 +642,17 @@ ENDLIST
 LIST AssociatedStimulus
 VALUE "<project>\component\work\USB_FIFO_IF\testbench.vhd,tb_hdl"
 ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
 ENDLIST
 LIST "CoreAPB3::COREAPB3_LIB::components"
 FILE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
@@ -639,17 +667,6 @@ ENDLIST
 LIST AssociatedStimulus
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
-ENDLIST
-LIST ProjectState5.1
-LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
 ENDLIST
 ENDLIST
 ENDLIST
@@ -743,8 +760,8 @@ NAME="Synplify Pro AE"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro AE"
 LOCATION="C:\Microsemi\Libero_v10.0\Synopsys\synplify_F201109M\bin\synplify_pro.exe"
-PARAM=""
-BATCH=0
+PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
+BATCH=1
 EndProfile
 NAME="ModelSim AE"
 FUNCTION="Simulation"
@@ -766,8 +783,6 @@ LIST "StreamingReceiver_RF::work"
 LIST Impl1
 LiberoState=Post_Layout
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\StreamingReceiver_RF.edn,syn_edn)=StateSuccess
-ideDESIGNER(<project>\designer\impl1\StreamingReceiver_RF.adb,adb)=StateSuccess
 ideSYNTHESIS(<project>\synthesis\synthesis_1\StreamingReceiver_RF.edn,syn_edn)=StateSuccess
 ideDESIGNER(<project>\designer\impl1\StreamingReceiver_RF_synthesis_1.adb,adb)=StateSuccess
 LIST FlowOptions
@@ -786,7 +801,6 @@ VALUE "<project>\phy_synthesis\StreamingReceiver_RF_synthesis_1_palace.sdc,palac
 VALUE "<project>\phy_synthesis\StreamingReceiver_RF_synthesis_1_palace.vhd,palace_hdl"
 VALUE "<project>\designer\impl1\StreamingReceiver_RF_synthesis_1.adb,adb"
 VALUE "<project>\designer\impl1\StreamingReceiver_RF_synthesis_1.prb,prb"
-VALUE "<project>\designer\impl1\StreamingReceiver_RF_synthesis_1.fdb,fdb"
 VALUE "<project>\designer\impl1\StreamingReceiver_RF_synthesis_1.pdb,pdb"
 VALUE "<project>\designer\impl1\StreamingReceiver_RF_synthesis_1.stp,stp"
 ENDUsed_File_List
@@ -803,7 +817,7 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 ENDLIST
-LIST "CoreAPB3::COREAPB3_LIB::components"
+LIST "USB_FIFO_IF::work"
 LIST Impl1
 ideSTIMULUS=StateSuccess
 LIST FlowOptions

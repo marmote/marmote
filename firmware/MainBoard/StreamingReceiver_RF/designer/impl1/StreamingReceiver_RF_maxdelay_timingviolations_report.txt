@@ -3,7 +3,7 @@ Timing Violation Report Max Delay Analysis
 SmartTime Version v10.0 SP2
 Actel Corporation - Actel Designer Software Release v10.0 SP2 (Version 10.0.20.2)
 Copyright (c) 1989-2012
-Date: Fri Jul 06 16:24:19 2012
+Date: Wed Aug 15 14:37:15 2012
 
 
 Design: StreamingReceiver_RF

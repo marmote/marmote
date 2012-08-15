@@ -12,17 +12,17 @@ Warning: Overwriting the existing file:
          D:/Work/marmote/firmware/MainBoard/StreamingReceiver_RF/designer/impl1/StreamingReceiv\
          er_RF_synthesis_1.fdb.
 
-The Export-map command succeeded ( 00:00:16 )
-CHECKSUM: E2C9
+The Export-map command succeeded ( 00:00:17 )
+CHECKSUM: 6ED3
 Wrote to the file:
 D:\Work\marmote\firmware\MainBoard\StreamingReceiver_RF\designer\impl1\StreamingReceiver_RF_syn\
 thesis_1.fdb
 
-The Export command succeeded ( 00:00:18 )
+The Export command succeeded ( 00:00:20 )
 Design saved to file
 D:/Work/marmote/firmware/MainBoard/StreamingReceiver_RF/designer/impl1/StreamingReceiver_RF_syn\
 thesis_1.adb.
 
-The Execute Script command succeeded ( 00:00:19 )
+The Execute Script command succeeded ( 00:00:21 )
 Design closed.
 

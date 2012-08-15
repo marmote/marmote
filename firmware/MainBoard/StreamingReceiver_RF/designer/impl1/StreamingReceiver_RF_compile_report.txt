@@ -1,13 +1,13 @@
 ***************************************************************************
                                Status Report
-                          Fri Jul 06 16:23:22 2012 ***************************************************************************
+                          Wed Aug 15 14:35:11 2012 ***************************************************************************
 
 Product: Designer
 Release: v10.0 SP2
 Version: 10.0.20.2
 File Name: D:\Work\marmote\firmware\MainBoard\StreamingReceiver_RF\designer\impl1\StreamingReceiver_RF_synthesis_1.adb
 Design Name: StreamingReceiver_RF  Design State: compile
-Last Saved: Fri Jul 06 15:25:24 2012
+Last Saved: Wed Aug 15 14:17:32 2012
 
 ***** Device Data **************************************************
 
@@ -22,7 +22,7 @@ Voltage Range:   COM
 
 ***** Import Variables *********************************************
 
-Source File(s) Imported on Fri Jul 06 16:23:16 2012:
+Source File(s) Imported on Wed Aug 15 14:35:05 2012:
         D:\Work\marmote\firmware\MainBoard\StreamingReceiver_RF\synthesis\synthesis_1\StreamingReceiver_RF.edn
         D:\Work\marmote\firmware\MainBoard\StreamingReceiver_RF\component\work\StreamingReceiver_RF\StreamingReceiver_RF.pdc
 
@@ -88,22 +88,6 @@ Warning: CMP201: Net USB_FIFO_IF_0/sample_FIFO_0/Z_FIFOBLOCK[1]__RD15 drives no 
 Warning: CMP201: Net USB_FIFO_IF_0/sample_FIFO_0/Z_FIFOBLOCK[1]__RD16 drives no load.
 Warning: CMP201: Net USB_FIFO_IF_0/sample_FIFO_0/Z_FIFOBLOCK[1]__RD17 drives no load.
 Warning: CMP201: Net USB_FIFO_IF_0/sample_FIFO_0/Z_AFULLX_I[0]_ drives no load.
-Warning: CMP201: Net IICE_INST/b12_ibScJX_E2_bd drives no load.
-Warning: CMP201: Net IICE_INST/b8_PSyi2XYG drives no load.
-Warning: CMP201: Net IICE_INST/b3_SoW_0/b3_SoW/I_1_RD8 drives no load.
-Warning: CMP201: Net IICE_INST/b3_SoW_0/b3_SoW/DOUT_SIG[9] drives no load.
-Warning: CMP201: Net IICE_INST/b3_SoW_0/b3_SoW/DOUT_SIG[10] drives no load.
-Warning: CMP201: Net IICE_INST/b3_SoW_0/b3_SoW/DOUT_SIG[11] drives no load.
-Warning: CMP201: Net IICE_INST/b3_SoW_0/b3_SoW/DOUT_SIG[12] drives no load.
-Warning: CMP201: Net IICE_INST/b3_SoW_0/b3_SoW/DOUT_SIG[13] drives no load.
-Warning: CMP201: Net IICE_INST/b3_SoW_0/b3_SoW/DOUT_SIG[14] drives no load.
-Warning: CMP201: Net IICE_INST/b3_SoW_0/b3_SoW/DOUT_SIG[15] drives no load.
-Warning: CMP201: Net IICE_INST/b3_SoW_0/b3_SoW/DOUT_SIG[16] drives no load.
-Warning: CMP201: Net IICE_INST/b3_SoW_0/b3_SoW/DOUT_SIG[17] drives no load.
-Warning: CMP201: Net comm_block_INST/jtagi/b9_Rcmi_KsDw_UIREG0 drives no load.
-Warning: CMP201: Net comm_block_INST/jtagi/b9_Rcmi_KsDw_UIREG7 drives no load.
-Warning: CMP201: Net comm_block_INST/jtagi/b9_Rcmi_KsDw_URSTB drives no load.
-Warning: CMP202: Pin comm_block_INST/jtagi/b9_Rcmi_KsDw/U_4:PIN3 drives no load.
 Warning: CMP201: Net StreamingReceiver_RF_MSS_0/ACEFLAGS[0] drives no load.
 Warning: CMP201: Net StreamingReceiver_RF_MSS_0/ACEFLAGS[1] drives no load.
 Warning: CMP201: Net StreamingReceiver_RF_MSS_0/ACEFLAGS[2] drives no load.
@@ -467,18 +451,18 @@ Netlist Optimization Report
 ===========================
 
 Optimized macros:
-  - Dangling net drivers:   3
+  - Dangling net drivers:   0
   - Buffers:                4
   - Inverters:              0
   - Tieoff:                 0
-  - Logic combining:        32
+  - Logic combining:        18
 
-    Total macros optimized  39
+    Total macros optimized  22
 
-Warning: CMP503: Remapped 97 enable flip-flop(s) to a 2-tile implementation because the CLR/PRE
+Warning: CMP503: Remapped 80 enable flip-flop(s) to a 2-tile implementation because the CLR/PRE
          pin on the enable flip-flop is not being driven by a global net.
 
-There were 0 error(s) and 333 warning(s) in this design.
+There were 0 error(s) and 317 warning(s) in this design.
 =====================================================================
 
 Reading previous post-compile physical placement constraints.
@@ -498,26 +482,26 @@ Compile report:
 ===============
 
     Microcontroller Subsystem  Used:      1  Total:      1   (100.00%)
-    Fabric                     Used:   1104  Total:  11520   (9.58%)
-    Fabric IO (W/ clocks)      Used:     32  Total:     66   (48.48%)
+    Fabric                     Used:    535  Total:  11520   (4.64%)
+    Fabric IO (W/ clocks)      Used:     33  Total:     66   (50.00%)
     Fabric Differential IO     Used:      0  Total:     33   (0.00%)
     Dedicated Analog IO        Used:      0  Total:     32   (0.00%)
     Dedicated MSS IO           Used:      6  Total:     27   (22.22%)
-    GLOBAL (Chip+Quadrant)     Used:      2  Total:     15   (13.33%)
+    GLOBAL (Chip+Quadrant)     Used:      1  Total:     15   (6.67%)
     MSS GLOBAL                 Used:      3  Total:      3   (100.00%)
     Fabric CCC                 Used:      0  Total:      1   (0.00%)
     MSS CCC                    Used:      1  Total:      1   (100.00%)
     On-chip RC oscillator      Used:      0  Total:      1   (0.00%)
     Main Crystal oscillator    Used:      1  Total:      1   (100.00%)
     32 KHz Crystal oscillator  Used:      0  Total:      1   (0.00%)
-    RAM/FIFO                   Used:      3  Total:     24   (12.50%)
-    User JTAG                  Used:      1  Total:      1   (100.00%)
+    RAM/FIFO                   Used:      2  Total:     24   (8.33%)
+    User JTAG                  Used:      0  Total:      1   (0.00%)
 
 Global Information:
 
     Type            | Used   | Total
     ----------------|--------|--------------
-    Chip global     | 2      | 3  (66.67%)*
+    Chip global     | 1      | 3  (33.33%)*
     Quadrant global | 0      | 12 (0.00%)
     MSS global      | 3      | 3  (100.00%)
 
@@ -529,15 +513,15 @@ Core Information:
 
     Type    | Instances    | Core tiles
     --------|--------------|-----------
-    COMB    | 726          | 726
-    SEQ     | 378          | 378
+    COMB    | 372          | 372
+    SEQ     | 163          | 163
 
 I/O Function:
 
     Type                          | w/o register  | w/ register  | w/ DDR register
     ------------------------------|---------------|--------------|----------------
     Input I/O                     | 4             | 0            | 0
-    Output I/O                    | 10            | 0            | 0
+    Output I/O                    | 10            | 1            | 0
     Bidirectional I/O             | 8             | 0            | 10
     Differential Input I/O Pairs  | 0             | 0            | 0
     Differential Output I/O Pairs | 0             | 0            | 0
@@ -548,14 +532,16 @@ I/O Technology:
     --------------------------------|-------|-------|-------|--------|--------------
     I/O Standard(s)                 | Vcci  | Vref  | Input | Output | Bidirectional
     --------------------------------|-------|-------|-------|--------|--------------
-    LVTTL                           | 3.30v | N/A   | 4     | 10     | 0
+    LVTTL                           | 3.30v | N/A   | 4     | 11     | 0
     LVCMOS33                        | 3.30v | N/A   | 0     | 0      | 18
 
 I/O Placement:
 
-    Locked  :  32 ( 100.00% )
+    Locked  :  32 ( 96.97% )
     Placed  :   0
-    UnPlaced:   0
+    UnPlaced:   1 (  3.03% )
+
+Warning: Only some I/Os are locked
 
 Net information report:
 =======================
@@ -565,73 +551,66 @@ The following nets drive enable flip-flops that have been remapped to a 2-tile i
     --------------------------
     80      SET/RESET_NET Net   : StreamingReceiver_RF_MSS_0_M2F_RESET_N
                           Driver: StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST
-    10      SET/RESET_NET Net   : IICE_INST/b8_12m_IFLY/b5_nUTGT/b6_nfs_IF[1]
-                          Driver: IICE_INST/b8_12m_IFLY/b5_nUTGT/b11_nUTGT_khWqH/b3_nfs[1]
-    7       SET/RESET_NET Net   : IICE_INST/b3_SoW_0/b9_voSc3_rGt
-                          Driver: IICE_INST/b3_SoW_0/b9_voSc3_rGt
 
 The following nets have been assigned to a chip global resource:
     Fanout  Type          Name
     --------------------------
-    130     CLK_NET       Net   : IICE_comm2iice[11]
-                          Driver: comm_block_INST/jtagi/jtag_clkint_prim/U_CLKSRC
-                          Source: NETLIST
-    128     CLK_NET       Net   : USB_IF_0_USB_CLK_OUT
-                          Driver: USB_FIFO_IF_0/USB_IF_0/u_USB_CLKBUF
-                          Source: NETLIST
     106     CLK_NET       Net   : AFE2_CLK_pin_c
                           Driver: StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_MSSCCC
                           Source: ESSENTIAL
-    21      CLK_NET       Net   : FAB_CLK
+    62      CLK_NET       Net   : USB_FIFO_IF_0/USB_IF_0_USB_CLK_OUT
+                          Driver: USB_FIFO_IF_0/USB_IF_0/u_USB_CLKBUF
+                          Source: NETLIST
+    22      CLK_NET       Net   : FAB_CLK
                           Driver: StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_MSSCCC
                           Source: ESSENTIAL
 
 High fanout nets in the post compile netlist:
     Fanout  Type          Name
     --------------------------
-    152     SET/RESET_NET Net   : StreamingReceiver_RF_MSS_0_M2F_RESET_N
+    150     SET/RESET_NET Net   : StreamingReceiver_RF_MSS_0_M2F_RESET_N
                           Driver: StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST
-    81      INT_NET       Net   : IICE_comm2iice[9]
-                          Driver: comm_block_INST/jtagi/b9_Rcmi_KsDw_RNI43MO
-    34      INT_NET       Net   : comm_block_INST/b12_ORbIwXaEF_bd
-                          Driver: comm_block_INST/b7_Rcmi_ql/b10_dZst39_EF3[7]
-    32      INT_NET       Net   : comm_block_INST/b9_ORb_xNywD/un1_b3_ORb9
-                          Driver: comm_block_INST/b9_ORb_xNywD/un1_b3_ORb9
-    31      SET/RESET_NET Net   : IICE_INST/b8_12m_IFLY/b5_nUTGT/b6_nfs_IF[1]
-                          Driver: IICE_INST/b8_12m_IFLY/b5_nUTGT/b11_nUTGT_khWqH/b3_nfs[1]
-    23      INT_NET       Net   : USB_FIFO_IF_0/USB_IF_0/N_136
-                          Driver: USB_FIFO_IF_0/USB_IF_0/s_USB_WR_n_pin_RNI97EN
-    23      INT_NET       Net   : USB_FIFO_IF_0/USB_IF_0/N_135
-                          Driver: USB_FIFO_IF_0/USB_IF_0/s_USB_WR_n_pin_RNIO86I
-    23      INT_NET       Net   : USB_FIFO_IF_0/USB_IF_0/N_137
-                          Driver: USB_FIFO_IF_0/USB_IF_0/s_USB_WR_n_pin_RNI7QC01
-    22      INT_NET       Net   : IICE_INST/b8_12m_IFLY/b4_PfFz/b5_PbrtL/b6_OKctIF4
-                          Driver: IICE_INST/b8_12m_IFLY/b4_PfFz/b5_PbrtL/b6_OKctIF4
     21      INT_NET       Net   : USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTRe_0
                           Driver: USB_FIFO_IF_0/USB_IF_0/s_FROM_ADC_SMPL_CNTR_RNIGMGE1[1]
+    20      INT_NET       Net   : USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTRe
+                          Driver: USB_FIFO_IF_0/USB_IF_0/s_FROM_ADC_SMPL_CNTR_RNIGMGE1_0[1]
+    18      INT_NET       Net   : USB_FIFO_IF_0/USB_IF_0/un40_s_temp_reg_state_0_0
+                          Driver: USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_STATE_RNIN666[0]
+    17      INT_NET       Net   : USB_FIFO_IF_0/USB_IF_0/s_TO_TEMPREG_SMPL_CNTR_2_sqmuxa_1_0
+                          Driver: USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_STATE_RNI6OCK[0]
+    17      INT_NET       Net   : USB_FIFO_IF_0/USB_IF_0/s_TO_TEMPREG_SMPL_CNTR_1_sqmuxa_1_0
+                          Driver: USB_FIFO_IF_0/USB_IF_0/s_TO_TEMPREG_SMPL_CNTR_RNI85EB[0]
+    17      INT_NET       Net   : USB_FIFO_IF_0/USB_IF_0/un40_s_temp_reg_state
+                          Driver: USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_STATE_RNIN666_0[0]
+    16      INT_NET       Net   : USB_FIFO_IF_0/USB_IF_0/s_FRAME_CURRENT_CNTR_0_sqmuxa_0
+                          Driver: USB_FIFO_IF_0/USB_IF_0/s_FROM_ADC_SMPL_CNTR_RNIU6SQ1[1]
+    16      INT_NET       Net   : USB_FIFO_IF_0/USB_IF_0/s_TO_TEMPREG_SMPL_CNTR_1_sqmuxa_1
+                          Driver: USB_FIFO_IF_0/USB_IF_0/s_TO_TEMPREG_SMPL_CNTR_RNI85EB_0[0]
+    16      INT_NET       Net   : USB_FIFO_IF_0/USB_IF_0/s_TO_TEMPREG_SMPL_CNTR_2_sqmuxa_1
+                          Driver: USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_STATE_RNI6OCK_0[0]
 
 Nets that are candidates for clock assignment and the resulting fanout:
     Fanout  Type          Name
     --------------------------
-    171     SET/RESET_NET Net   : StreamingReceiver_RF_MSS_0_M2F_RESET_N
+    169     SET/RESET_NET Net   : StreamingReceiver_RF_MSS_0_M2F_RESET_N
                           Driver: StreamingReceiver_RF_MSS_0/MSS_ADLIB_INST
-    81      INT_NET       Net   : IICE_comm2iice[9]
-                          Driver: comm_block_INST/jtagi/b9_Rcmi_KsDw_RNI43MO
-    34      INT_NET       Net   : comm_block_INST/b12_ORbIwXaEF_bd
-                          Driver: comm_block_INST/b7_Rcmi_ql/b10_dZst39_EF3[7]
-    32      INT_NET       Net   : comm_block_INST/b9_ORb_xNywD/un1_b3_ORb9
-                          Driver: comm_block_INST/b9_ORb_xNywD/un1_b3_ORb9
-    31      SET/RESET_NET Net   : IICE_INST/b8_12m_IFLY/b5_nUTGT/b6_nfs_IF[1]
-                          Driver: IICE_INST/b8_12m_IFLY/b5_nUTGT/b11_nUTGT_khWqH/b3_nfs[1]
-    23      INT_NET       Net   : USB_FIFO_IF_0/USB_IF_0/N_136
-                          Driver: USB_FIFO_IF_0/USB_IF_0/s_USB_WR_n_pin_RNI97EN
-    23      INT_NET       Net   : USB_FIFO_IF_0/USB_IF_0/N_135
-                          Driver: USB_FIFO_IF_0/USB_IF_0/s_USB_WR_n_pin_RNIO86I
-    23      INT_NET       Net   : USB_FIFO_IF_0/USB_IF_0/N_137
-                          Driver: USB_FIFO_IF_0/USB_IF_0/s_USB_WR_n_pin_RNI7QC01
-    22      INT_NET       Net   : IICE_INST/b8_12m_IFLY/b4_PfFz/b5_PbrtL/b6_OKctIF4
-                          Driver: IICE_INST/b8_12m_IFLY/b4_PfFz/b5_PbrtL/b6_OKctIF4
     21      INT_NET       Net   : USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTRe_0
                           Driver: USB_FIFO_IF_0/USB_IF_0/s_FROM_ADC_SMPL_CNTR_RNIGMGE1[1]
+    20      INT_NET       Net   : USB_FIFO_IF_0/USB_IF_0/s_FRAME_CNTRe
+                          Driver: USB_FIFO_IF_0/USB_IF_0/s_FROM_ADC_SMPL_CNTR_RNIGMGE1_0[1]
+    18      INT_NET       Net   : USB_FIFO_IF_0/USB_IF_0/un40_s_temp_reg_state_0_0
+                          Driver: USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_STATE_RNIN666[0]
+    17      INT_NET       Net   : USB_FIFO_IF_0/USB_IF_0/s_TO_TEMPREG_SMPL_CNTR_2_sqmuxa_1_0
+                          Driver: USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_STATE_RNI6OCK[0]
+    17      INT_NET       Net   : USB_FIFO_IF_0/USB_IF_0/s_TO_TEMPREG_SMPL_CNTR_1_sqmuxa_1_0
+                          Driver: USB_FIFO_IF_0/USB_IF_0/s_TO_TEMPREG_SMPL_CNTR_RNI85EB[0]
+    17      INT_NET       Net   : USB_FIFO_IF_0/USB_IF_0/un40_s_temp_reg_state
+                          Driver: USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_STATE_RNIN666_0[0]
+    16      INT_NET       Net   : USB_FIFO_IF_0/USB_IF_0/s_FRAME_CURRENT_CNTR_0_sqmuxa_0
+                          Driver: USB_FIFO_IF_0/USB_IF_0/s_FROM_ADC_SMPL_CNTR_RNIU6SQ1[1]
+    16      INT_NET       Net   : USB_FIFO_IF_0/USB_IF_0/s_TO_TEMPREG_SMPL_CNTR_1_sqmuxa_1
+                          Driver: USB_FIFO_IF_0/USB_IF_0/s_TO_TEMPREG_SMPL_CNTR_RNI85EB_0[0]
+    16      INT_NET       Net   : USB_FIFO_IF_0/USB_IF_0/s_TO_TEMPREG_SMPL_CNTR_2_sqmuxa_1
+                          Driver: USB_FIFO_IF_0/USB_IF_0/s_TEMP_REG_STATE_RNI6OCK_0[0]
 
 

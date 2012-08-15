@@ -27,6 +27,10 @@ frame_FIFO              = {};
 frame_cnt_FIFO          = [];
 
 
+I_buff_all = [];
+Q_buff_all = [];
+
+
 while (1)
 
     temp = fread(f, 200, 'uint8');
@@ -48,13 +52,18 @@ while (1)
     
     [ frame_FIFO, frame_cnt_FIFO, frame_cnt_history, frame_starts, missing_frames, I_buff, Q_buff, spectrum, I_spectrum, Q_spectrum ] = processing( frame_FIFO, frame_cnt_FIFO, frame_cnt_history );
 
+    [ I_buff_all, Q_buff_all ] = AccumAllSamples( I_buff, Q_buff, I_buff_all, Q_buff_all );
+%    disp(size(I_buff_all));
     drawchart( fig_handle, frame_cnt_history, frame_starts, missing_frames, I_buff, Q_buff, spectrum, I_spectrum, Q_spectrum );
         
-    pause(1/screen_refresh_rate);
+%    pause(1/screen_refresh_rate);
    
 end
 
-
-
 % Disconnect and clean up the server connection. 
 fclose(f); 
+
+figure;
+hold on;
+plot(I_buff_all, 'b');
+plot(Q_buff_all, 'r');

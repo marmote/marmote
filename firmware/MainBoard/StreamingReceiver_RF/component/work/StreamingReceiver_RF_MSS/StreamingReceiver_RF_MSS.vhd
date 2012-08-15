@@ -20,10 +20,10 @@ entity StreamingReceiver_RF_MSS is
           GLB         : out   std_logic;
           MAINXIN     : in    std_logic;
           FAB_CLK     : out   std_logic;
+          FABINT      : in    std_logic;
           MSSPADDR    : out   std_logic_vector(19 downto 0);
           MSSPRDATA   : in    std_logic_vector(31 downto 0);
           MSSPWDATA   : out   std_logic_vector(31 downto 0);
-          DMAREADY    : in    std_logic_vector(1 downto 0);
           SPI_1_DI    : in    std_logic;
           SPI_1_DO    : out   std_logic;
           SPI_1_CLK   : inout std_logic := 'Z';
@@ -521,108 +521,107 @@ begin
          => nc100, FABPRDATA(2) => nc52, FABPRDATA(1) => nc186, 
         FABPRDATA(0) => nc29, FABPREADY => OPEN, FABPSLVERR => 
         OPEN, SYNCCLKFDBK => MSS_ADLIB_INST_SYNCCLKFDBK, CALIBOUT
-         => OPEN, CALIBIN => GND_net, FABINT => GND_net, 
-        MSSINT(7) => nc118, MSSINT(6) => nc60, MSSINT(5) => nc141, 
+         => OPEN, CALIBIN => GND_net, FABINT => FABINT, MSSINT(7)
+         => nc118, MSSINT(6) => nc60, MSSINT(5) => nc141, 
         MSSINT(4) => nc193, MSSINT(3) => nc45, MSSINT(2) => nc53, 
         MSSINT(1) => nc121, MSSINT(0) => nc176, WDINT => OPEN, 
-        F2MRESETn => VCC_net, DMAREADY(1) => DMAREADY(1), 
-        DMAREADY(0) => DMAREADY(0), RXEV => GND_net, VRON => 
-        GND_net, M2FRESETn => M2F_RESET_N, DEEPSLEEP => OPEN, 
-        SLEEP => OPEN, TXEV => OPEN, GPI(31) => GND_net, GPI(30)
-         => GND_net, GPI(29) => GND_net, GPI(28) => GND_net, 
-        GPI(27) => GND_net, GPI(26) => GND_net, GPI(25) => 
-        GND_net, GPI(24) => GND_net, GPI(23) => GND_net, GPI(22)
-         => GND_net, GPI(21) => GND_net, GPI(20) => GND_net, 
-        GPI(19) => GND_net, GPI(18) => GND_net, GPI(17) => 
-        GND_net, GPI(16) => GND_net, GPI(15) => GND_net, GPI(14)
-         => GND_net, GPI(13) => GND_net, GPI(12) => 
-        MSSINT_GPI_12_Y, GPI(11) => GND_net, GPI(10) => GND_net, 
-        GPI(9) => GND_net, GPI(8) => GND_net, GPI(7) => GND_net, 
-        GPI(6) => GND_net, GPI(5) => GND_net, GPI(4) => GND_net, 
-        GPI(3) => GND_net, GPI(2) => GND_net, GPI(1) => GND_net, 
-        GPI(0) => GND_net, GPO(31) => nc158, GPO(30) => nc162, 
-        GPO(29) => nc11, GPO(28) => MSS_GPIO_0_GPIO_28_OUT_D, 
-        GPO(27) => nc131, GPO(26) => nc96, GPO(25) => nc79, 
-        GPO(24) => nc146, GPO(23) => nc89, GPO(22) => nc119, 
-        GPO(21) => nc48, GPO(20) => nc126, GPO(19) => nc195, 
-        GPO(18) => nc188, GPO(17) => nc15, GPO(16) => nc102, 
-        GPO(15) => MSSINT_GPO_15_A, GPO(14) => MSSINT_GPO_14_A, 
-        GPO(13) => MSSINT_GPO_13_A, GPO(12) => nc3, GPO(11) => 
-        nc47, GPO(10) => nc90, GPO(9) => nc159, GPO(8) => nc136, 
-        GPO(7) => nc178, GPO(6) => nc59, GPO(5) => nc18, GPO(4)
-         => nc44, GPO(3) => nc117, GPO(2) => nc189, GPO(1) => 
-        nc164, GPO(0) => nc148, UART0CTSn => GND_net, UART0DSRn
-         => GND_net, UART0RIn => GND_net, UART0DCDn => GND_net, 
-        UART0RTSn => OPEN, UART0DTRn => OPEN, UART1CTSn => 
-        GND_net, UART1DSRn => GND_net, UART1RIn => GND_net, 
-        UART1DCDn => GND_net, UART1RTSn => OPEN, UART1DTRn => 
-        OPEN, I2C0SMBUSNI => GND_net, I2C0SMBALERTNI => GND_net, 
-        I2C0BCLK => GND_net, I2C0SMBUSNO => OPEN, I2C0SMBALERTNO
-         => OPEN, I2C1SMBUSNI => GND_net, I2C1SMBALERTNI => 
-        GND_net, I2C1BCLK => GND_net, I2C1SMBUSNO => OPEN, 
-        I2C1SMBALERTNO => OPEN, MACM2FTXD(1) => nc42, 
-        MACM2FTXD(0) => nc191, MACF2MRXD(1) => GND_net, 
-        MACF2MRXD(0) => GND_net, MACM2FTXEN => OPEN, MACF2MCRSDV
-         => GND_net, MACF2MRXER => GND_net, MACF2MMDI => GND_net, 
-        MACM2FMDO => OPEN, MACM2FMDEN => OPEN, MACM2FMDC => OPEN, 
-        FABSDD0D => GND_net, FABSDD1D => GND_net, FABSDD2D => 
-        GND_net, FABSDD0CLK => GND_net, FABSDD1CLK => GND_net, 
-        FABSDD2CLK => GND_net, FABACETRIG => GND_net, 
-        ACEFLAGS(31) => nc17, ACEFLAGS(30) => nc2, ACEFLAGS(29)
-         => nc110, ACEFLAGS(28) => nc128, ACEFLAGS(27) => nc43, 
-        ACEFLAGS(26) => nc179, ACEFLAGS(25) => nc157, 
-        ACEFLAGS(24) => nc36, ACEFLAGS(23) => nc61, ACEFLAGS(22)
-         => nc104, ACEFLAGS(21) => nc138, ACEFLAGS(20) => nc14, 
-        ACEFLAGS(19) => nc150, ACEFLAGS(18) => nc149, 
-        ACEFLAGS(17) => nc12, ACEFLAGS(16) => nc30, ACEFLAGS(15)
-         => nc187, ACEFLAGS(14) => nc65, ACEFLAGS(13) => nc7, 
-        ACEFLAGS(12) => nc129, ACEFLAGS(11) => nc8, ACEFLAGS(10)
-         => nc13, ACEFLAGS(9) => nc180, ACEFLAGS(8) => nc26, 
-        ACEFLAGS(7) => nc177, ACEFLAGS(6) => nc139, ACEFLAGS(5)
-         => nc163, ACEFLAGS(4) => nc112, ACEFLAGS(3) => nc68, 
-        ACEFLAGS(2) => nc49, ACEFLAGS(1) => nc170, ACEFLAGS(0)
-         => nc91, CMP0 => OPEN, CMP1 => OPEN, CMP2 => OPEN, CMP3
-         => OPEN, CMP4 => OPEN, CMP5 => OPEN, CMP6 => OPEN, CMP7
-         => OPEN, CMP8 => OPEN, CMP9 => OPEN, CMP10 => OPEN, 
-        CMP11 => OPEN, LVTTL0EN => GND_net, LVTTL1EN => GND_net, 
-        LVTTL2EN => GND_net, LVTTL3EN => GND_net, LVTTL4EN => 
-        GND_net, LVTTL5EN => GND_net, LVTTL6EN => GND_net, 
-        LVTTL7EN => GND_net, LVTTL8EN => GND_net, LVTTL9EN => 
-        GND_net, LVTTL10EN => GND_net, LVTTL11EN => GND_net, 
-        LVTTL0 => OPEN, LVTTL1 => OPEN, LVTTL2 => OPEN, LVTTL3
-         => OPEN, LVTTL4 => OPEN, LVTTL5 => OPEN, LVTTL6 => OPEN, 
-        LVTTL7 => OPEN, LVTTL8 => OPEN, LVTTL9 => OPEN, LVTTL10
-         => OPEN, LVTTL11 => OPEN, PUFABn => OPEN, VCC15GOOD => 
-        OPEN, VCC33GOOD => OPEN, FCLK => MSS_ADLIB_INST_FCLK, 
-        MACCLKCCC => MSS_ADLIB_INST_MACCLKCCC, RCOSC => GND_net, 
-        MACCLK => MSS_ADLIB_INST_MACCLK, PLLLOCK => 
-        MSS_ADLIB_INST_PLLLOCK, MSSRESETn => 
-        MSS_RESET_0_MSS_RESET_N_Y, GPOE(31) => nc5, GPOE(30) => 
-        nc20, GPOE(29) => nc147, GPOE(28) => nc67, GPOE(27) => 
-        nc152, GPOE(26) => nc127, GPOE(25) => nc103, GPOE(24) => 
-        nc76, GPOE(23) => nc140, GPOE(22) => nc86, GPOE(21) => 
-        nc95, GPOE(20) => nc120, GPOE(19) => nc165, GPOE(18) => 
-        nc137, GPOE(17) => nc64, GPOE(16) => nc19, GPOE(15) => 
-        nc70, GPOE(14) => nc182, GPOE(13) => nc62, GPOE(12) => 
-        nc80, GPOE(11) => nc130, GPOE(10) => nc98, GPOE(9) => 
-        nc114, GPOE(8) => nc56, GPOE(7) => nc105, GPOE(6) => nc63, 
-        GPOE(5) => nc172, GPOE(4) => nc97, GPOE(3) => nc161, 
-        GPOE(2) => nc31, GPOE(1) => nc154, GPOE(0) => nc50, 
-        SPI0DO => OPEN, SPI0DOE => OPEN, SPI0DI => GND_net, 
-        SPI0CLKI => GND_net, SPI0CLKO => OPEN, SPI0MODE => OPEN, 
-        SPI0SSI => GND_net, SPI0SSO(7) => nc142, SPI0SSO(6) => 
-        nc94, SPI0SSO(5) => nc122, SPI0SSO(4) => nc35, SPI0SSO(3)
-         => nc4, SPI0SSO(2) => nc92, SPI0SSO(1) => nc101, 
-        SPI0SSO(0) => nc184, UART0TXD => OPEN, UART0RXD => 
-        GND_net, I2C0SDAI => GND_net, I2C0SDAO => OPEN, I2C0SCLI
-         => GND_net, I2C0SCLO => OPEN, SPI1DO => MSS_SPI_1_DO_D, 
-        SPI1DOE => MSS_SPI_1_DO_E, SPI1DI => MSS_SPI_1_DI_Y, 
-        SPI1CLKI => MSS_SPI_1_CLK_Y, SPI1CLKO => MSS_SPI_1_CLK_D, 
-        SPI1MODE => MSS_SPI_1_SS_E, SPI1SSI => MSS_SPI_1_SS_Y, 
-        SPI1SSO(7) => nc190, SPI1SSO(6) => nc166, SPI1SSO(5) => 
-        nc132, SPI1SSO(4) => nc21, SPI1SSO(3) => nc93, SPI1SSO(2)
-         => nc69, SPI1SSO(1) => nc174, SPI1SSO(0) => 
-        MSS_SPI_1_SS_D, UART1TXD => OPEN, UART1RXD => GND_net, 
+        F2MRESETn => VCC_net, DMAREADY(1) => GND_net, DMAREADY(0)
+         => GND_net, RXEV => GND_net, VRON => GND_net, M2FRESETn
+         => M2F_RESET_N, DEEPSLEEP => OPEN, SLEEP => OPEN, TXEV
+         => OPEN, GPI(31) => GND_net, GPI(30) => GND_net, GPI(29)
+         => GND_net, GPI(28) => GND_net, GPI(27) => GND_net, 
+        GPI(26) => GND_net, GPI(25) => GND_net, GPI(24) => 
+        GND_net, GPI(23) => GND_net, GPI(22) => GND_net, GPI(21)
+         => GND_net, GPI(20) => GND_net, GPI(19) => GND_net, 
+        GPI(18) => GND_net, GPI(17) => GND_net, GPI(16) => 
+        GND_net, GPI(15) => GND_net, GPI(14) => GND_net, GPI(13)
+         => GND_net, GPI(12) => MSSINT_GPI_12_Y, GPI(11) => 
+        GND_net, GPI(10) => GND_net, GPI(9) => GND_net, GPI(8)
+         => GND_net, GPI(7) => GND_net, GPI(6) => GND_net, GPI(5)
+         => GND_net, GPI(4) => GND_net, GPI(3) => GND_net, GPI(2)
+         => GND_net, GPI(1) => GND_net, GPI(0) => GND_net, 
+        GPO(31) => nc158, GPO(30) => nc162, GPO(29) => nc11, 
+        GPO(28) => MSS_GPIO_0_GPIO_28_OUT_D, GPO(27) => nc131, 
+        GPO(26) => nc96, GPO(25) => nc79, GPO(24) => nc146, 
+        GPO(23) => nc89, GPO(22) => nc119, GPO(21) => nc48, 
+        GPO(20) => nc126, GPO(19) => nc195, GPO(18) => nc188, 
+        GPO(17) => nc15, GPO(16) => nc102, GPO(15) => 
+        MSSINT_GPO_15_A, GPO(14) => MSSINT_GPO_14_A, GPO(13) => 
+        MSSINT_GPO_13_A, GPO(12) => nc3, GPO(11) => nc47, GPO(10)
+         => nc90, GPO(9) => nc159, GPO(8) => nc136, GPO(7) => 
+        nc178, GPO(6) => nc59, GPO(5) => nc18, GPO(4) => nc44, 
+        GPO(3) => nc117, GPO(2) => nc189, GPO(1) => nc164, GPO(0)
+         => nc148, UART0CTSn => GND_net, UART0DSRn => GND_net, 
+        UART0RIn => GND_net, UART0DCDn => GND_net, UART0RTSn => 
+        OPEN, UART0DTRn => OPEN, UART1CTSn => GND_net, UART1DSRn
+         => GND_net, UART1RIn => GND_net, UART1DCDn => GND_net, 
+        UART1RTSn => OPEN, UART1DTRn => OPEN, I2C0SMBUSNI => 
+        GND_net, I2C0SMBALERTNI => GND_net, I2C0BCLK => GND_net, 
+        I2C0SMBUSNO => OPEN, I2C0SMBALERTNO => OPEN, I2C1SMBUSNI
+         => GND_net, I2C1SMBALERTNI => GND_net, I2C1BCLK => 
+        GND_net, I2C1SMBUSNO => OPEN, I2C1SMBALERTNO => OPEN, 
+        MACM2FTXD(1) => nc42, MACM2FTXD(0) => nc191, MACF2MRXD(1)
+         => GND_net, MACF2MRXD(0) => GND_net, MACM2FTXEN => OPEN, 
+        MACF2MCRSDV => GND_net, MACF2MRXER => GND_net, MACF2MMDI
+         => GND_net, MACM2FMDO => OPEN, MACM2FMDEN => OPEN, 
+        MACM2FMDC => OPEN, FABSDD0D => GND_net, FABSDD1D => 
+        GND_net, FABSDD2D => GND_net, FABSDD0CLK => GND_net, 
+        FABSDD1CLK => GND_net, FABSDD2CLK => GND_net, FABACETRIG
+         => GND_net, ACEFLAGS(31) => nc17, ACEFLAGS(30) => nc2, 
+        ACEFLAGS(29) => nc110, ACEFLAGS(28) => nc128, 
+        ACEFLAGS(27) => nc43, ACEFLAGS(26) => nc179, ACEFLAGS(25)
+         => nc157, ACEFLAGS(24) => nc36, ACEFLAGS(23) => nc61, 
+        ACEFLAGS(22) => nc104, ACEFLAGS(21) => nc138, 
+        ACEFLAGS(20) => nc14, ACEFLAGS(19) => nc150, ACEFLAGS(18)
+         => nc149, ACEFLAGS(17) => nc12, ACEFLAGS(16) => nc30, 
+        ACEFLAGS(15) => nc187, ACEFLAGS(14) => nc65, ACEFLAGS(13)
+         => nc7, ACEFLAGS(12) => nc129, ACEFLAGS(11) => nc8, 
+        ACEFLAGS(10) => nc13, ACEFLAGS(9) => nc180, ACEFLAGS(8)
+         => nc26, ACEFLAGS(7) => nc177, ACEFLAGS(6) => nc139, 
+        ACEFLAGS(5) => nc163, ACEFLAGS(4) => nc112, ACEFLAGS(3)
+         => nc68, ACEFLAGS(2) => nc49, ACEFLAGS(1) => nc170, 
+        ACEFLAGS(0) => nc91, CMP0 => OPEN, CMP1 => OPEN, CMP2 => 
+        OPEN, CMP3 => OPEN, CMP4 => OPEN, CMP5 => OPEN, CMP6 => 
+        OPEN, CMP7 => OPEN, CMP8 => OPEN, CMP9 => OPEN, CMP10 => 
+        OPEN, CMP11 => OPEN, LVTTL0EN => GND_net, LVTTL1EN => 
+        GND_net, LVTTL2EN => GND_net, LVTTL3EN => GND_net, 
+        LVTTL4EN => GND_net, LVTTL5EN => GND_net, LVTTL6EN => 
+        GND_net, LVTTL7EN => GND_net, LVTTL8EN => GND_net, 
+        LVTTL9EN => GND_net, LVTTL10EN => GND_net, LVTTL11EN => 
+        GND_net, LVTTL0 => OPEN, LVTTL1 => OPEN, LVTTL2 => OPEN, 
+        LVTTL3 => OPEN, LVTTL4 => OPEN, LVTTL5 => OPEN, LVTTL6
+         => OPEN, LVTTL7 => OPEN, LVTTL8 => OPEN, LVTTL9 => OPEN, 
+        LVTTL10 => OPEN, LVTTL11 => OPEN, PUFABn => OPEN, 
+        VCC15GOOD => OPEN, VCC33GOOD => OPEN, FCLK => 
+        MSS_ADLIB_INST_FCLK, MACCLKCCC => 
+        MSS_ADLIB_INST_MACCLKCCC, RCOSC => GND_net, MACCLK => 
+        MSS_ADLIB_INST_MACCLK, PLLLOCK => MSS_ADLIB_INST_PLLLOCK, 
+        MSSRESETn => MSS_RESET_0_MSS_RESET_N_Y, GPOE(31) => nc5, 
+        GPOE(30) => nc20, GPOE(29) => nc147, GPOE(28) => nc67, 
+        GPOE(27) => nc152, GPOE(26) => nc127, GPOE(25) => nc103, 
+        GPOE(24) => nc76, GPOE(23) => nc140, GPOE(22) => nc86, 
+        GPOE(21) => nc95, GPOE(20) => nc120, GPOE(19) => nc165, 
+        GPOE(18) => nc137, GPOE(17) => nc64, GPOE(16) => nc19, 
+        GPOE(15) => nc70, GPOE(14) => nc182, GPOE(13) => nc62, 
+        GPOE(12) => nc80, GPOE(11) => nc130, GPOE(10) => nc98, 
+        GPOE(9) => nc114, GPOE(8) => nc56, GPOE(7) => nc105, 
+        GPOE(6) => nc63, GPOE(5) => nc172, GPOE(4) => nc97, 
+        GPOE(3) => nc161, GPOE(2) => nc31, GPOE(1) => nc154, 
+        GPOE(0) => nc50, SPI0DO => OPEN, SPI0DOE => OPEN, SPI0DI
+         => GND_net, SPI0CLKI => GND_net, SPI0CLKO => OPEN, 
+        SPI0MODE => OPEN, SPI0SSI => GND_net, SPI0SSO(7) => nc142, 
+        SPI0SSO(6) => nc94, SPI0SSO(5) => nc122, SPI0SSO(4) => 
+        nc35, SPI0SSO(3) => nc4, SPI0SSO(2) => nc92, SPI0SSO(1)
+         => nc101, SPI0SSO(0) => nc184, UART0TXD => OPEN, 
+        UART0RXD => GND_net, I2C0SDAI => GND_net, I2C0SDAO => 
+        OPEN, I2C0SCLI => GND_net, I2C0SCLO => OPEN, SPI1DO => 
+        MSS_SPI_1_DO_D, SPI1DOE => MSS_SPI_1_DO_E, SPI1DI => 
+        MSS_SPI_1_DI_Y, SPI1CLKI => MSS_SPI_1_CLK_Y, SPI1CLKO => 
+        MSS_SPI_1_CLK_D, SPI1MODE => MSS_SPI_1_SS_E, SPI1SSI => 
+        MSS_SPI_1_SS_Y, SPI1SSO(7) => nc190, SPI1SSO(6) => nc166, 
+        SPI1SSO(5) => nc132, SPI1SSO(4) => nc21, SPI1SSO(3) => 
+        nc93, SPI1SSO(2) => nc69, SPI1SSO(1) => nc174, SPI1SSO(0)
+         => MSS_SPI_1_SS_D, UART1TXD => OPEN, UART1RXD => GND_net, 
         I2C1SDAI => GND_net, I2C1SDAO => OPEN, I2C1SCLI => 
         GND_net, I2C1SCLO => OPEN, MACTXD(1) => nc38, MACTXD(0)
          => nc113, MACRXD(1) => GND_net, MACRXD(0) => GND_net, 
