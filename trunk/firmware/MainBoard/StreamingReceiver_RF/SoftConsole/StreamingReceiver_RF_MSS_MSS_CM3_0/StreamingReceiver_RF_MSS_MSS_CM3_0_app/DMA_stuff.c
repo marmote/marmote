@@ -7,9 +7,9 @@
 //static			uint16_t	buffer_size; //in bytes
 extern			uint8_t		buffer[];
 extern			uint16_t	buffer_size; //in bytes
-volatile		uint8_t*	p_WR;
-static			uint8_t*	p_WR_next;
-extern volatile uint8_t*	p_RD;
+				volatile uint8_t * volatile	p_WR;
+static			volatile uint8_t * volatile	p_WR_next;
+extern 			volatile uint8_t * volatile	p_RD;
 
 
 // **************************************************************************
@@ -38,11 +38,11 @@ void next_DMA_transfer()
 //
 //
 // **************************************************************************
-void pdma_handler( void )
+__attribute__ ((interrupt)) void pdma_handler( void )
 {
 	p_WR = p_WR_next;
 
-	uint8_t* p_temp = p_WR_next + CHUNK_LENGTH;
+	volatile uint8_t* volatile p_temp = p_WR_next + CHUNK_LENGTH;
 	if (p_temp + CHUNK_LENGTH >= buffer + buffer_size)
 		p_temp = buffer;
 
@@ -61,7 +61,7 @@ void pdma_handler( void )
 //
 //
 // **************************************************************************
-void init_DMA()
+void init_conf_DMA()
 {
     PDMA_init();
 
@@ -84,7 +84,7 @@ void init_DMA_stuff(/*uint8_t* buff, uint16_t buff_size*/)
 	p_WR_next	= buffer + CHUNK_LENGTH;
 
 
-	init_DMA();
+	init_conf_DMA();
 
 
 	PDMA_start(PDMA_CHANNEL_0,
