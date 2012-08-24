@@ -42,6 +42,7 @@ uint32_t CmdHelp(uint32_t argc, char** argv);
 uint32_t CmdEnv(uint32_t argc, char** argv);
 uint32_t CmdLed(uint32_t argc, char** argv);
 uint32_t CmdPwr(uint32_t argc, char** argv);
+uint32_t CmdUsb(uint32_t argc, char** argv);
 uint32_t CmdReg(uint32_t argc, char** argv);
 uint32_t CmdTeton(uint32_t argc, char** argv);
 
