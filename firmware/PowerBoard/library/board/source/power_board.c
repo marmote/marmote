@@ -49,6 +49,7 @@ void SysTick_Handler(void) {
 	if (msTicks % 500 == 0)
 	{
 //		if (LED1_Enabled)
+		/*
 		if (1)
 		{
 			LED_Toggle(LED1);
@@ -57,6 +58,7 @@ void SysTick_Handler(void) {
 		{
 			LED_Off(LED1);
 		}
+		*/
 		ctr++;
 
 		/*

@@ -8,6 +8,7 @@ extern CMD_Type CMD_List[] =
 	"help", CmdHelp,	ENV_Yellowstone,	
 	"led",  CmdLed,	   	ENV_Yellowstone,
 	"pwr",  CmdPwr,		ENV_Yellowstone,
+	"usb",  CmdUsb,     ENV_Yellowstone,
 //	"t",    CmdTeton,
 //	"mon on", CMD_MonitorOn,
 //	"mon off", CMD_MonitorOff
@@ -94,14 +95,14 @@ uint32_t CmdLed(uint32_t argc, char** argv)
 	{
 		if (!strcmp(*(argv+1), "on"))
 		{			
-			LED_On(LED2);
+			LED_On(LED1);
 			USB_SendString("\nLED is ON");
 			return 0;
 		}
 	
 		if (!strcmp(*(argv+1), "off"))
 		{			
-			LED_Off(LED2);
+			LED_Off(LED1);
 			USB_SendString("\nLED is OFF");
 			return 0;
 		}
@@ -117,17 +118,17 @@ uint32_t CmdPwr(uint32_t argc, char** argv)
 	if (argc == 2) {
 		if (!strcmp(*(argv+1), "on"))
 		{			
-			LED_On(LED2);
+			//LED_On(LED2);
 			POW_EnableMasterSwitch();
-			USB_SendString("\npower is ON");
+			USB_SendString("\nPower rails are ON");
 			return 0;
 		}
 	
 		if (!strcmp(*(argv+1), "off"))
 		{			
-			LED_Off(LED2);
+			//LED_Off(LED2);
 			POW_DisableMasterSwitch();
-			USB_SendString("\npower is OFF");
+			USB_SendString("\nPower rails are OFF");
 			return 0;
 		}
 	}
@@ -137,6 +138,28 @@ uint32_t CmdPwr(uint32_t argc, char** argv)
 	return 1;
 }
 
+uint32_t CmdUsb(uint32_t argc, char** argv)
+{	
+	if (argc == 2) {
+		if (!strcmp(*(argv+1), "on"))
+		{			
+			USB_DisableSuspendMode();
+			USB_SendString("\nUSB power is ON");
+			return 0;
+		}
+	
+		if (!strcmp(*(argv+1), "off"))
+		{			
+			USB_EnableSuspendMode();
+			USB_SendString("\nUSB power is OFF");
+			return 0;
+		}
+	}
+
+	// Send help message
+  	USB_SendString("\nUsage: usb [on | off]");
+	return 1;
+}
 uint32_t CmdReg(uint32_t argc, char** argv)
 {		
 	uint8_t addr, data;
