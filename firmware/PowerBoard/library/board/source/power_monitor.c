@@ -188,9 +188,51 @@ void ADCM_Init(void)
 	     
 	/* Start ADC1 Software Conversion */ 
 	ADC_SoftwareStartConvCmd(ADC1, ENABLE);	
-
-	ADC_TempSensorVrefintCmd(ENABLE); // FIXME: for ADC firmware development only
 }
+
+/*
+ * Returns voltage/current values in mV/mA
+ */
+uint16_t MON_ReadAdc(ADC_Channel_TypeDef adc_ch)	 // FIXME: Come up with a reasonable name
+{
+	uint32_t adc_val;
+	const uint32_t vref = 3300; // mA
+	const uint32_t gain = 50; // MAX9938FEUK
+	const uint32_t rsense = 50; // mOhm
+
+	ADC_RegularChannelConfig(ADC1, adc_ch, 1, ADC_SampleTime_28Cycles5); 
+	
+	ADC_Cmd(ADC1, ENABLE);
+	
+	while(ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == SET);
+
+	adc_val = ADC_GetConversionValue(ADC1);
+
+	switch (adc_ch)
+	{
+		case ADC_CH_V_SUP :
+			
+			adc_val = adc_val * vref * 2 / (1 << 12);			
+			// voltage = adc_val * (float)3.3 / (1 << 12) * 2;
+			break;
+
+		case ADC_CH_I_SUP :
+		case ADC_CH_I_D3V3 :
+		case ADC_CH_I_A3V3 :
+		case ADC_CH_I_D1V5 :
+		case ADC_CH_I_A1V5 :
+
+			adc_val = adc_val * vref * 1000 / rsense / gain / (1 << 12);
+			break;
+
+		default :
+			adc_val = 0;
+			break;
+	}
+
+	return (uint16_t)adc_val;
+}
+
 
 void ADC1_2_IRQHandler(void)
 {

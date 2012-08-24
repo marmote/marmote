@@ -10,6 +10,7 @@
 
 #include "power_board.h"
 #include "teton.h"
+#include "power_monitor.h"
 
 #include "usb_fs.h"
 

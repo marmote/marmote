@@ -79,6 +79,16 @@ typedef enum
 
 #define ADC_CLK        				RCC_APB2Periph_ADC1
 
+typedef enum
+{
+	ADC_CH_V_SUP 	= ADC_Channel_9,
+	ADC_CH_I_SUP 	= ADC_Channel_8,
+	ADC_CH_I_D3V3 	= ADC_Channel_0,
+	ADC_CH_I_A3V3	= ADC_Channel_3,
+	ADC_CH_I_D1V5	= ADC_Channel_1,
+	ADC_CH_I_A1V5	= ADC_Channel_2
+} ADC_Channel_TypeDef;
+
 
 /*-------------------------------------------------------------------*/
 /*                               Battery                             */
@@ -166,7 +176,10 @@ void LED_On (uint32_t led);
 void LED_Off (uint32_t led);
 void LED_Toggle (uint32_t led);
 
-void ADCM_Init(void); // TODO: rename this function
+
+void ADCM_Init(void); // TODO: rename this function or move to monitor_init
+
+uint16_t MON_ReadAdc(ADC_Channel_TypeDef adc_ch);
 
 
 static void BAT_I2C_Init(void);

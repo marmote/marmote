@@ -220,7 +220,7 @@ uint32_t CmdClock(uint32_t argc, char** argv)
 	
 	USB_SendString("\nCurrent clock configuration:\n\n");
 	
-	sprintf(buf, "SYSCLK %8d\n", RCC_Clocks.SYSCLK_Frequency);
+	sprintf(buf, "SYSCLK  %8d\n Hz", RCC_Clocks.SYSCLK_Frequency);
 	USB_SendString(buf);
 
 	sprintf(buf, "HCLK    %8d Hz\n", RCC_Clocks.HCLK_Frequency);
@@ -242,22 +242,29 @@ uint32_t CmdClock(uint32_t argc, char** argv)
 uint32_t CmdAdc(uint32_t argc, char** argv)
 {	
 	char buf[64];
-	uint16_t adc_val;
-	float voltage;
 
-	ADC_Cmd(ADC1, ENABLE);
+	/*
+	sprintf(buf, "\nV_sup:  %4d mV", MON_ReadAdc(ADC_CH_V_SUP));
+	USB_SendString(buf);
+	*/
 
-	while(!ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC))
-	{
-		;
-	}
-
-	adc_val = ADC_GetConversionValue(ADC1);
-	voltage = adc_val * (float)3.3 / (1 << 12);
-		
-	sprintf(buf, "\nADC value: %6.3f V\t(0x%04x)\n", voltage, adc_val);
+	sprintf(buf, "\nI_sup:  %4d mA", MON_ReadAdc(ADC_CH_I_SUP));
 	USB_SendString(buf);
 
+	sprintf(buf, " \tV_sup:  %4d mV", MON_ReadAdc(ADC_CH_V_SUP));
+	USB_SendString(buf);
+
+	sprintf(buf, "\nI_D3V3: %4d mA", MON_ReadAdc(ADC_CH_I_D3V3));
+	USB_SendString(buf);
+
+	sprintf(buf, "\nI_A3V3: %4d mA", MON_ReadAdc(ADC_CH_I_A3V3));
+	USB_SendString(buf);
+
+	sprintf(buf, "\nI_D1V5: %4d mA", MON_ReadAdc(ADC_CH_I_D1V5));
+	USB_SendString(buf);
+
+	sprintf(buf, "\nI_A1V5: %4d mA", MON_ReadAdc(ADC_CH_I_A1V5));
+	USB_SendString(buf);
 		
 	return 0;
 }
