@@ -9,6 +9,8 @@ extern CMD_Type CMD_List[] =
 	"led",  CmdLed,	   	ENV_Yellowstone,
 	"pwr",  CmdPwr,		ENV_Yellowstone,
 	"usb",  CmdUsb,     ENV_Yellowstone,
+	"clk",  CmdClock,   ENV_Yellowstone,
+	"adc",  CmdAdc,     ENV_Yellowstone,
 //	"t",    CmdTeton,
 //	"mon on", CMD_MonitorOn,
 //	"mon off", CMD_MonitorOff
@@ -208,6 +210,58 @@ uint32_t CmdReg(uint32_t argc, char** argv)
 	USB_SendString("\nUsage: reg <addr> [<new value>]");
 	return 1;	
 }
+
+uint32_t CmdClock(uint32_t argc, char** argv)
+{	
+	char buf[64];
+	RCC_ClocksTypeDef RCC_Clocks;
+	
+	RCC_GetClocksFreq(&RCC_Clocks);
+	
+	USB_SendString("\nCurrent clock configuration:\n\n");
+	
+	sprintf(buf, "SYSCLK %8d\n", RCC_Clocks.SYSCLK_Frequency);
+	USB_SendString(buf);
+
+	sprintf(buf, "HCLK    %8d Hz\n", RCC_Clocks.HCLK_Frequency);
+	USB_SendString(buf);
+
+	sprintf(buf, "PCLK1   %8d Hz\n", RCC_Clocks.PCLK1_Frequency);
+	USB_SendString(buf);
+
+	sprintf(buf, "PCLK2   %8d Hz\n", RCC_Clocks.PCLK2_Frequency);
+	USB_SendString(buf);
+
+	sprintf(buf, "ADCCLK  %8d Hz\n", RCC_Clocks.ADCCLK_Frequency);
+	USB_SendString(buf);  
+		
+	return 0;
+}
+
+
+uint32_t CmdAdc(uint32_t argc, char** argv)
+{	
+	char buf[64];
+	uint16_t adc_val;
+	float voltage;
+
+	ADC_Cmd(ADC1, ENABLE);
+
+	while(!ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC))
+	{
+		;
+	}
+
+	adc_val = ADC_GetConversionValue(ADC1);
+	voltage = adc_val * (float)3.3 / (1 << 12);
+		
+	sprintf(buf, "\nADC value: %6.3f V\t(0x%04x)\n", voltage, adc_val);
+	USB_SendString(buf);
+
+		
+	return 0;
+}
+
 
 uint32_t CmdTeton(uint32_t argc, char** argv)
 {	

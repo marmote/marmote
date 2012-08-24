@@ -44,6 +44,7 @@
 
 #include "stm32f10x.h"
 #include "stm32f10x_tim.h"
+#include "stm32f10x_adc.h"
 #include "stm32f10x_i2c.h"
 #include "stm32f10x_spi.h"
 #include "misc.h"
@@ -73,9 +74,10 @@ typedef enum
 #define LED_LED2_GPIO_PORT  		GPIOB		// GPIOB
 #define LED_LED2_GPIO_CLK   		RCC_APB2Periph_GPIOB
 
+
 // ADC (ADC1)
 
-//#define ADC_CLK        				RCC_APB2Periph_ADC1
+#define ADC_CLK        				RCC_APB2Periph_ADC1
 
 
 /*-------------------------------------------------------------------*/
@@ -164,7 +166,8 @@ void LED_On (uint32_t led);
 void LED_Off (uint32_t led);
 void LED_Toggle (uint32_t led);
 
-void ADC_Init(void);
+void ADCM_Init(void); // TODO: rename this function
+
 
 static void BAT_I2C_Init(void);
 /*

@@ -6,10 +6,13 @@
 
 #include <stdlib.h>
 
+#include "stm32f10x_rcc.h"
+
 #include "power_board.h"
 #include "teton.h"
 
 #include "usb_fs.h"
+
 
 typedef enum _ENV_Enum_Type
 {
@@ -43,6 +46,8 @@ uint32_t CmdEnv(uint32_t argc, char** argv);
 uint32_t CmdLed(uint32_t argc, char** argv);
 uint32_t CmdPwr(uint32_t argc, char** argv);
 uint32_t CmdUsb(uint32_t argc, char** argv);
+uint32_t CmdClock(uint32_t argc, char** argv);
+uint32_t CmdAdc(uint32_t argc, char** argv);
 uint32_t CmdReg(uint32_t argc, char** argv);
 uint32_t CmdTeton(uint32_t argc, char** argv);
 
