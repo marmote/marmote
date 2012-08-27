@@ -20,15 +20,10 @@ def Processing(frame_FIFO, frame_cnt_FIFO, frame_cnt_history, DSPconf):
 
 ########################################
 # Signal processing
+    buff = np.array([], dtype=np.int16)
 
     frame_starts = []
     missing_frames = np.array([], dtype=np.uint32)
-    I_buff = np.array([], dtype=np.int16)
-    Q_buff = np.array([], dtype=np.int16)
-    spectrum = np.array([], dtype=np.complex128)
-    I_spectrum = np.array([], dtype=np.complex128)
-    Q_spectrum = np.array([], dtype=np.complex128)
-
 
 # Take all the frames, and put them in one display buffer
 
@@ -38,7 +33,7 @@ def Processing(frame_FIFO, frame_cnt_FIFO, frame_cnt_history, DSPconf):
         combined_length += frame_FIFO[ii].size
 
     if combined_length/channels < N :
-        return frame_FIFO, frame_cnt_FIFO, frame_cnt_history, frame_starts, missing_frames, I_buff, Q_buff, spectrum, I_spectrum, Q_spectrum
+        return frame_FIFO, frame_cnt_FIFO, frame_cnt_history, frame_starts, missing_frames, buff
 
 
     buff = np.array([], dtype=np.int16)
@@ -74,33 +69,7 @@ def Processing(frame_FIFO, frame_cnt_FIFO, frame_cnt_history, DSPconf):
         else :
             frame_FIFO[0] = frame_FIFO[0][copy_length:]
 
-
-# Do actual signal processing on display buffer   
-    I_buff = buff[::2]
-    Q_buff = buff[1::2]
-
-    I_buff = I_buff.astype(float)
-    Q_buff = Q_buff.astype(float)
-
-    I_buff = I_buff/Full_scale
-    Q_buff = Q_buff/Full_scale
-
-    spectrum = 2*abs(np.fft.fft(I_buff + 1j * Q_buff))
-    I_spectrum = 2*abs(np.fft.rfft(I_buff))
-    Q_spectrum = 2*abs(np.fft.rfft(Q_buff))
-
-    spectrum = np.concatenate((spectrum[num_pos_fr:], spectrum[:num_pos_fr]))
-    
-    spectrum = spectrum / N
-    I_spectrum = I_spectrum / N
-    Q_spectrum = Q_spectrum / N
-
-    spectrum = 20 * np.log10(spectrum)
-    I_spectrum = 20 * np.log10(I_spectrum)
-    Q_spectrum = 20 * np.log10(Q_spectrum)
-
-
-    return frame_FIFO, frame_cnt_FIFO, frame_cnt_history, frame_starts, missing_frames, I_buff, Q_buff, spectrum, I_spectrum, Q_spectrum
+    return frame_FIFO, frame_cnt_FIFO, frame_cnt_history, frame_starts, missing_frames, buff
 
 
 
@@ -130,11 +99,5 @@ if __name__ == "__main__":
     frame_cnt_history = np.array(range(100), dtype=np.uint32)
 
 
-    (frame_FIFO, frame_cnt_FIFO, frame_cnt_history, frame_starts, missing_frames, I_buff, Q_buff, spectrum, I_spectrum, Q_spectrum) = Processing(frame_FIFO, frame_cnt_FIFO, frame_cnt_history, DSPconf)
-   
-#    for ii in range(len(frames)):
-#        print frames[ii]
-
-#    print frame_cnt
-
-#    print buff 
+    (frame_FIFO, frame_cnt_FIFO, frame_cnt_history, frame_starts, missing_frames) = Processing(frame_FIFO, frame_cnt_FIFO, frame_cnt_history, DSPconf)
+ 
