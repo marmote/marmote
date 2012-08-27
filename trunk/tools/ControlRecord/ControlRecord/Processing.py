@@ -26,32 +26,39 @@ def Processing(frame_FIFO, frame_cnt_FIFO, frame_cnt_history, DSPconf):
     missing_frames = np.array([], dtype=np.uint32)
 
 # Take all the frames, and put them in one display buffer
-
-    # Do we have enough samples to fill up the display buffer?
-    combined_length = 0
-    for ii in range(len(frame_FIFO)):
-        combined_length += frame_FIFO[ii].size
-
-    if combined_length/channels < N :
+    if len(frame_FIFO) == 0 :
         return frame_FIFO, frame_cnt_FIFO, frame_cnt_history, frame_starts, missing_frames, buff
 
+    if N == 0:
+        N = frame_FIFO[0].size/channels
+    else:
+        # Do we have enough samples to fill up the display buffer?
+        combined_length = 0
+        for ii in range(len(frame_FIFO)):
+            combined_length += frame_FIFO[ii].size
+
+        if combined_length/channels < N :
+            return frame_FIFO, frame_cnt_FIFO, frame_cnt_history, frame_starts, missing_frames, buff
+
+
+########################################
 
     buff = np.array([], dtype=np.int16)
 
 
     while buff.size/channels < N :
         # If this is the first time we encountered this frame we 
-        # 1. copy the frame counter to the history 
-        # 2. save the starting index 
-        # 3. calculate the missing frames
         if (frame_cnt_history.size == 0) or (frame_cnt_history[-1] != frame_cnt_FIFO[0]) :
+            # -> save the starting index 
             frame_starts.append(buff.size/channels)
 
+            # -> calculate the missing frames
             if frame_cnt_history.size == 0 :
                 missing_frames = np.append(missing_frames, 0)
             else :
                 missing_frames = np.append(missing_frames, frame_cnt_FIFO[0] - frame_cnt_history[-1] - 1 )
 
+            # -> copy the frame counter to the history 
             frame_cnt_history = np.append( frame_cnt_history, frame_cnt_FIFO[0] )
             while frame_cnt_history.size > MF_hist_len+1 :
                 frame_cnt_history = frame_cnt_history[1:]

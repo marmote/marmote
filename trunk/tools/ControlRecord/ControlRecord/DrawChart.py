@@ -89,7 +89,7 @@ class FancyDisplay:
 
         lines.append( hax.plot([], [], 'b.-', animated=True)[0] ) #for I
         lines.append( hax.plot([], [], 'g.-', animated=True)[0] ) #for Q
-        hax.set_xlim(0, N*T*1e6)
+        hax.set_xlim(0, (N-1)*T*1e6)
         hax.set_ylim(-1, 1)
         hax.set_title('Time domain')
         hax.set_xlabel('time [usec]')
@@ -111,7 +111,8 @@ class FancyDisplay:
         texts.append( hax.text(0.98, 0.85, '', color='b', horizontalalignment='right', transform=hax.transAxes) )
         texts.append( hax.text(0.98, 0.65, '', color='g', horizontalalignment='right', transform=hax.transAxes) )
     
-        hax.set_xlim(freq[0]/1e6, freq[-1]/1e6)
+#        hax.set_xlim(freq[0]/1e6, freq[-1]/1e6)
+        hax.set_xlim(0, Fs/2./1e6)
         hax.set_ylim(-Full_Scale_dB, 0)
         hax.set_title('Separate spectrum')
         hax.set_xlabel('Frequency [MHz]')
@@ -130,7 +131,8 @@ class FancyDisplay:
 
         texts.append( hax.text(0.98, 0.85, '', color='b', horizontalalignment='right', transform=hax.transAxes) )
     
-        hax.set_xlim(c_freq[0]/1e6, c_freq[-1]/1e6)
+#        hax.set_xlim(c_freq[0]/1e6, c_freq[-1]/1e6)
+        hax.set_xlim(-Fs/2./1e6, Fs/2./1e6)
         hax.set_ylim(-Full_Scale_dB, 0)
         hax.set_title('Combined spectrum')
         hax.set_xlabel('Frequency [MHz]')
@@ -162,7 +164,7 @@ class FancyDisplay:
 
     ########################################
     # Set variables    
-        N               = int(self.DSPconf.N)
+        N               = int(I_buff.size)
         F_offset        = float(self.DSPconf.F_offset)
         Fs              = float(self.DSPconf.Fs)
         Full_Scale      = int(self.DSPconf.Full_scale)
