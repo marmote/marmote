@@ -9,8 +9,8 @@ def SignalProcessing(buff, DSPconf):
 # Set variables
     buff        = buff.view(np.int16)
     
-#    channels    = int(DSPconf.channels)
-    N           = int(DSPconf.N)
+    channels    = int(DSPconf.channels)
+    N           = int(buff.size/channels)
     Full_scale  = int(DSPconf.Full_scale)
     num_pos_fr  = int(DSPconf.num_pos_fr)
     num_neg_fr  = int(DSPconf.num_neg_fr)

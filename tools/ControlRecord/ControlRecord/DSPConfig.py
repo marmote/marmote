@@ -4,7 +4,7 @@ class DSPconf_t:
     def __init__(self):
         self.START_OF_FRAME = np.array([0xA1, 0xBE, 0xAF, 0x01], dtype = np.uint8)
 
-        self.N           = 200
+        self.N           = 400
 
         self.Fs          = 24e6 / 32.    # [Hz] = 750 kHz
         self.F_offset    = 0.            # [Hz]

@@ -15,25 +15,27 @@ class FileDataGenerator:
         if os.path.isdir(FileOrDir) :
             self.filelist = os.listdir(FileOrDir)
             for ii in range(len(self.filelist)) :
-                self.filelist[ii] = FileOrDir + '\\' + self.filelist[ii]
+                self.filelist[ii] = FileOrDir + '/' + self.filelist[ii]
         else :
             self.filelist = [FileOrDir]
 
         self.file_cnt = -1
         self.f = 0
 
+        ##########
 
-################################################################################
-    def data_gen(self):
-        DSPconf = self.DSPconf
+        self.accum = np.array([], dtype=np.uint8)
 
-        accum = np.array([], dtype=np.uint8)
-
-        frame_cnt_history   = np.array([], dtype=np.uint32)
-        frame_FIFO          = []
-        frame_cnt_FIFO      = np.array([], dtype=np.uint32)
+        self.frame_cnt_history   = np.array([], dtype=np.uint32)
+        self.frame_FIFO          = []
+        self.frame_cnt_FIFO      = np.array([], dtype=np.uint32)
 
         self.IterateFileList()
+
+
+################################################################################
+    def GetFrames(self):
+        DSPconf = self.DSPconf
 
         while self.f != 0 :
 
@@ -43,17 +45,27 @@ class FileDataGenerator:
                 self.IterateFileList()
                 continue
 
-            accum = np.append( accum, temp )
+            self.accum = np.append( self.accum, temp )
     
-            ( frames, frame_cnt, accum ) = EF.ExtractFrames(accum, DSPconf)
+            ( frames, frame_cnt, self.accum ) = EF.ExtractFrames( self.accum, DSPconf )
     
             if len(frames) == 0 :
                 continue
 
-            frame_FIFO += frames
-            frame_cnt_FIFO = np.append( frame_cnt_FIFO, frame_cnt )
+            self.frame_FIFO += frames
+            self.frame_cnt_FIFO = np.append( self.frame_cnt_FIFO, frame_cnt )
+
+            break
     
-            ( frame_FIFO, frame_cnt_FIFO, frame_cnt_history, frame_starts, missing_frames, buff ) = P.Processing( frame_FIFO, frame_cnt_FIFO, frame_cnt_history, DSPconf )
+
+################################################################################
+    def data_gen(self):
+        DSPconf = self.DSPconf
+
+        while self.f != 0 :
+            self.GetFrames()
+    
+            ( self.frame_FIFO, self.frame_cnt_FIFO, self.frame_cnt_history, frame_starts, missing_frames, buff ) = P.Processing( self.frame_FIFO, self.frame_cnt_FIFO, self.frame_cnt_history, DSPconf )
 
             if buff.size == 0 :
                 continue
@@ -63,7 +75,7 @@ class FileDataGenerator:
             if I_buff.size == 0 or Q_buff.size == 0:
                 continue
 
-            yield frame_cnt_history, frame_starts, missing_frames, I_buff, Q_buff, spectrum, I_spectrum, Q_spectrum
+            yield self.frame_cnt_history, frame_starts, missing_frames, I_buff, Q_buff, spectrum, I_spectrum, Q_spectrum
 
 
 ################################################################################
