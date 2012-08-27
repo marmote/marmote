@@ -7,8 +7,8 @@
 
  * *Consider using the SmartFusion internal 1.5V regulator because in order to support _Sleep_ and _Power Down_ modes*
  * *Consider connecting the _PU_N_ button to the microcontroller on the Yellowstone power supply board (South Bridge connector)*
- * Consider having a USB data stream and control interface at the same time
  * Rename 'SHDN_n' signals to 'EN'
+ * Consider having a USB data stream and control interface at the same time
   * Connect FT232H ACBUS[9:8] to a MSS UART pins and implementing a UART transmitter in SW.
   * Double check if the above approach makes sense.
 
