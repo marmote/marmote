@@ -1,6 +1,10 @@
 import numpy as np
+
+import matplotlib
+matplotlib.use('WXAgg')
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+
 import time as ttt
 
 
@@ -10,7 +14,7 @@ class FancyDisplay:
 ################################################################################
     def __init__(self, data_gen, DSPconf):
 
-        self.Nsep               = 5
+        self.Nsep               = 40
         self.DSPconf            = DSPconf
         self.fig, self.axarr    = plt.subplots(4, 1)
 
@@ -21,7 +25,7 @@ class FancyDisplay:
         self.displayed_frames = 0
         self.previous_time = ttt.time()
 
-        self.ani = animation.FuncAnimation(self.fig, self.AnimateFigure, data_gen, init_func=self.InitObj, blit=True, interval=1, repeat=False)
+        self.ani = animation.FuncAnimation(self.fig, self.DrawFigure, data_gen, init_func=self.InitObj, blit=True, interval=1, repeat=False)
 
         # save the animation as an mp4.  This requires ffmpeg or mencoder to be
         # installed.  The extra_args ensure that the x264 codec is used, so that
@@ -69,7 +73,7 @@ class FancyDisplay:
         lines.append( hax.plot([], [], '.-', animated=True)[0] )
         hax.set_xlim(-(MF_hist_len-1), 0)
 #        hax.set_yscale("log")
-        hax.set_ylim(0,100)
+        hax.set_ylim(0,5)
         hax.set_title('Frame losses')
         hax.set_xlabel('frame #')
         hax.set_ylabel('lost frames')
@@ -152,9 +156,9 @@ class FancyDisplay:
 
         
 ################################################################################
-    def AnimateFigure(self, data):
+    def DrawFigure(self, data):
 
-        frame_cnt_history, frame_starts, missing_frames, I_buff, Q_buff, spectrum, I_spectrum, Q_spectrum, DSPconf = data
+        frame_cnt_history, frame_starts, missing_frames, I_buff, Q_buff, spectrum, I_spectrum, Q_spectrum = data
 
     ########################################
     # Set variables    
@@ -256,11 +260,16 @@ class FancyDisplay:
         self.displayed_frames += 1
         current_time = ttt.time()
         if current_time - self.previous_time > 3 :
-            print float(self.displayed_frames) / (current_time - self.previous_time) 
+            print '%.1f' % ( float(self.displayed_frames) / (current_time - self.previous_time) )
             self.displayed_frames = 0
             self.previous_time = current_time
 
         return self.GraphObjs[0] + self.GraphObjs[1]
+
+
+################################################################################
+    def ShowFigure(self):
+        plt.show()
 
 
 ################################################################################
@@ -368,8 +377,7 @@ def DrawChart(axarr, frame_cnt_history, frame_starts, missing_frames, I_buff, Q_
     plt.tight_layout()
     plt.draw()
 
-
-
+        
 ################################################################################
 #if __name__ == "__main__":
 #
