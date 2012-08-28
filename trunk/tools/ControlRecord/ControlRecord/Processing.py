@@ -12,10 +12,10 @@ def Processing(frame_FIFO, frame_cnt_FIFO, frame_cnt_history, DSPconf):
 
     channels    = int(DSPconf.channels)
     N           = int(DSPconf.N)
-    Full_scale  = int(DSPconf.Full_scale)
+    Full_scale  = int(DSPconf.Full_scale())
     MF_hist_len = int(DSPconf.MF_hist_len)
-    num_pos_fr  = int(DSPconf.num_pos_fr)
-    num_neg_fr  = int(DSPconf.num_neg_fr)
+    num_pos_fr  = int(DSPconf.num_pos_fr())
+    num_neg_fr  = int(DSPconf.num_neg_fr())
 
 
 ########################################
@@ -29,16 +29,29 @@ def Processing(frame_FIFO, frame_cnt_FIFO, frame_cnt_history, DSPconf):
     if len(frame_FIFO) == 0 :
         return frame_FIFO, frame_cnt_FIFO, frame_cnt_history, frame_starts, missing_frames, buff
 
-    if N == 0:
-        N = frame_FIFO[0].size/channels
-    else:
-        # Do we have enough samples to fill up the display buffer?
-        combined_length = 0
-        for ii in range(len(frame_FIFO)):
-            combined_length += frame_FIFO[ii].size
+#    if N == 0:
+#        N = frame_FIFO[0].size/channels
+#    else:
+#        # Do we have enough samples to fill up the display buffer?
+#        combined_length = 0
+#        for ii in range(len(frame_FIFO)):
+#            combined_length += frame_FIFO[ii].size
+#
+#        if combined_length/channels < N :
+#            return frame_FIFO, frame_cnt_FIFO, frame_cnt_history, frame_starts, missing_frames, buff
 
-        if combined_length/channels < N :
-            return frame_FIFO, frame_cnt_FIFO, frame_cnt_history, frame_starts, missing_frames, buff
+
+    # Do we have enough samples to fill up the display buffer?
+    combined_length = 0
+    for ii in range(len(frame_FIFO)):
+        combined_length += frame_FIFO[ii].size
+
+
+    if N == 0:
+        N = combined_length/channels
+
+    if combined_length/channels < N :
+        return frame_FIFO, frame_cnt_FIFO, frame_cnt_history, frame_starts, missing_frames, buff
 
 
 ########################################

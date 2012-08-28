@@ -12,41 +12,29 @@ import time as ttt
 class FancyDisplay:
 
 ################################################################################
-    def __init__(self, data_gen, DSPconf):
+    def __init__(self, DSPconf, FigureAnimated = True):
 
         self.Nsep               = 40
         self.DSPconf            = DSPconf
         self.fig, self.axarr    = plt.subplots(4, 1)
 
-        self.InitFigure()
+        self.InitFigure(FigureAnimated)
 
         self.fig.tight_layout()
 
-        self.displayed_frames = 0
-        self.previous_time = ttt.time()
-
-        self.ani = animation.FuncAnimation(self.fig, self.DrawFigure, data_gen, init_func=self.InitObj, blit=True, interval=1, repeat=False)
-
-        # save the animation as an mp4.  This requires ffmpeg or mencoder to be
-        # installed.  The extra_args ensure that the x264 codec is used, so that
-        # the video can be embedded in html5.  You may need to adjust this for
-        # your system: for more information, see
-        # http://matplotlib.sourceforge.net/api/animation_api.html
-#        self.ani.save('basic_animation.mp4', fps=30, extra_args=['-vcodec', 'libx264'])
-
 
 ################################################################################
-    def InitFigure(self):
+    def InitFigure(self, FigureAnimated):
 
     ########################################
     # Set variables    
         N               = int(self.DSPconf.N)
         F_offset        = float(self.DSPconf.F_offset)
         Fs              = float(self.DSPconf.Fs)
-        Full_Scale      = int(self.DSPconf.Full_scale)
+        Full_Scale      = int(self.DSPconf.Full_scale())
         MF_hist_len     = int(self.DSPconf.MF_hist_len)
-        num_pos_fr      = int(self.DSPconf.num_pos_fr)
-        num_neg_fr      = int(self.DSPconf.num_neg_fr)
+        num_pos_fr      = int(self.DSPconf.num_pos_fr())
+        num_neg_fr      = int(self.DSPconf.num_neg_fr())
 
 
         Full_Scale_dB   = 20 * np.log10(2*float(Full_Scale))
@@ -70,7 +58,7 @@ class FancyDisplay:
     # Missed frames history
         hax = axarr[0]
 
-        lines.append( hax.plot([], [], '.-', animated=True)[0] )
+        lines.append( hax.plot([], [], '.-', animated=FigureAnimated)[0] )
         hax.set_xlim(-(MF_hist_len-1), 0)
 #        hax.set_yscale("log")
         hax.set_ylim(0,5)
@@ -85,10 +73,14 @@ class FancyDisplay:
         hax.hold(True)
 
         for ii in range(self.Nsep) :
-            lines.append( hax.plot([], [], '-', animated=True)[0] ) #for frame separator indicators
+            lines.append( hax.plot([], [], '-', animated=FigureAnimated)[0] ) #for frame separator indicators
 
-        lines.append( hax.plot([], [], 'b.-', animated=True)[0] ) #for I
-        lines.append( hax.plot([], [], 'g.-', animated=True)[0] ) #for Q
+        lines.append( hax.plot([], [], 'b.-', animated=FigureAnimated)[0] ) #for I
+        lines.append( hax.plot([], [], 'g.-', animated=FigureAnimated)[0] ) #for Q
+
+        texts.append( hax.text(0.98, 0.85, '', color='b', horizontalalignment='right', transform=hax.transAxes, animated=FigureAnimated) )
+        texts.append( hax.text(0.98, 0.65, '', color='g', horizontalalignment='right', transform=hax.transAxes, animated=FigureAnimated) )
+
         hax.set_xlim(0, (N-1)*T*1e6)
         hax.set_ylim(-1, 1)
         hax.set_title('Time domain')
@@ -103,13 +95,13 @@ class FancyDisplay:
 
         hax.hold(True)
 
-        lines.append( hax.plot([], [], 'b', animated=True)[0] ) #for I
-        lines.append( hax.plot([], [], 'g', animated=True)[0] ) #for Q
-        lines.append( hax.plot([], [], 'ro', animated=True)[0] ) #for max points indicators
-        lines.append( hax.plot([], [], 'ro', animated=True)[0] ) #for max points indicators
+        lines.append( hax.plot([], [], 'b', animated=FigureAnimated)[0] ) #for I
+        lines.append( hax.plot([], [], 'g', animated=FigureAnimated)[0] ) #for Q
+        lines.append( hax.plot([], [], 'ro', animated=FigureAnimated)[0] ) #for max points indicators
+        lines.append( hax.plot([], [], 'ro', animated=FigureAnimated)[0] ) #for max points indicators
         
-        texts.append( hax.text(0.98, 0.85, '', color='b', horizontalalignment='right', transform=hax.transAxes) )
-        texts.append( hax.text(0.98, 0.65, '', color='g', horizontalalignment='right', transform=hax.transAxes) )
+        texts.append( hax.text(0.98, 0.85, '', color='b', horizontalalignment='right', transform=hax.transAxes, animated=FigureAnimated) )
+        texts.append( hax.text(0.98, 0.65, '', color='g', horizontalalignment='right', transform=hax.transAxes, animated=FigureAnimated) )
     
 #        hax.set_xlim(freq[0]/1e6, freq[-1]/1e6)
         hax.set_xlim(0, Fs/2./1e6)
@@ -126,10 +118,10 @@ class FancyDisplay:
 
         hax.hold(True)
 
-        lines.append( hax.plot([], [], 'b', animated=True)[0] )
-        lines.append( hax.plot([], [], 'ro', animated=True)[0] ) #for max points indicator
+        lines.append( hax.plot([], [], 'b', animated=FigureAnimated)[0] )
+        lines.append( hax.plot([], [], 'ro', animated=FigureAnimated)[0] ) #for max points indicator
 
-        texts.append( hax.text(0.98, 0.85, '', color='b', horizontalalignment='right', transform=hax.transAxes) )
+        texts.append( hax.text(0.98, 0.85, '', color='b', horizontalalignment='right', transform=hax.transAxes, animated=FigureAnimated) )
     
 #        hax.set_xlim(c_freq[0]/1e6, c_freq[-1]/1e6)
         hax.set_xlim(-Fs/2./1e6, Fs/2./1e6)
@@ -167,10 +159,10 @@ class FancyDisplay:
         N               = int(I_buff.size)
         F_offset        = float(self.DSPconf.F_offset)
         Fs              = float(self.DSPconf.Fs)
-        Full_Scale      = int(self.DSPconf.Full_scale)
+        Full_Scale      = int(self.DSPconf.Full_scale())
         MF_hist_len     = int(self.DSPconf.MF_hist_len)
-        num_pos_fr      = int(self.DSPconf.num_pos_fr)
-        num_neg_fr      = int(self.DSPconf.num_neg_fr)
+        num_pos_fr      = int(self.DSPconf.num_pos_fr())
+        num_neg_fr      = int(self.DSPconf.num_neg_fr())
 
 
         Full_Scale_dB   = 20 * np.log10(2*float(Full_Scale))
@@ -215,6 +207,11 @@ class FancyDisplay:
         lines[lines_cnt].set_data(time*1e6, Q_buff)
         lines_cnt += 1
 
+        texts[texts_cnt].set_text('I: Mean = %.3f' % (np.mean(I_buff)))
+        texts_cnt += 1
+        texts[texts_cnt].set_text('Q: Mean = %.3f' % (np.mean(Q_buff)))
+        texts_cnt += 1
+
 
     # Spectrum
         freq = np.array( range(0,num_pos_fr) )
@@ -235,9 +232,9 @@ class FancyDisplay:
         lines[lines_cnt].set_data(Q_max_f/1e6, Q_val)
         lines_cnt += 1
 
-        texts[texts_cnt].set_text('I: Max val = %.1f [dB]; Max f = %.1f [MHz]' % (I_val, I_max_f))
+        texts[texts_cnt].set_text('I: Max val = %.1f [dB]; Max f = %.1f [MHz]' % (I_val, I_max_f/1e6))
         texts_cnt += 1
-        texts[texts_cnt].set_text('Q: Max val = %.1f [dB]; Max f = %.1f [MHz]' % (Q_val, Q_max_f))
+        texts[texts_cnt].set_text('Q: Max val = %.1f [dB]; Max f = %.1f [MHz]' % (Q_val, Q_max_f/1e6))
         texts_cnt += 1
 
 
@@ -253,10 +250,15 @@ class FancyDisplay:
 
         lines[lines_cnt].set_data(max_f/1e6, val)
 
-        texts[texts_cnt].set_text('Max val = %.1f [dB]; Max f = %.1f [MHz]' % (val, max_f))
+        texts[texts_cnt].set_text('Max val = %.1f [dB]; Max f = %.1f [MHz]' % (val, max_f/1e6))
 
         self.GraphObjs[0] = lines
         self.GraphObjs[1] = texts
+
+
+################################################################################
+    def Animate(self, data):
+        self.DrawFigure(data)
 
     # FPS calculation
         self.displayed_frames += 1
@@ -270,7 +272,23 @@ class FancyDisplay:
 
 
 ################################################################################
+    def SetupAnimation(self, data_gen):
+        self.displayed_frames = 0
+        self.previous_time = ttt.time()
+
+        self.ani = animation.FuncAnimation(self.fig, self.Animate, data_gen, init_func=self.InitObj, blit=True, interval=1, repeat=False)
+
+        # save the animation as an mp4.  This requires ffmpeg or mencoder to be
+        # installed.  The extra_args ensure that the x264 codec is used, so that
+        # the video can be embedded in html5.  You may need to adjust this for
+        # your system: for more information, see
+        # http://matplotlib.sourceforge.net/api/animation_api.html
+#        self.ani.save('basic_animation.mp4', fps=30, extra_args=['-vcodec', 'libx264'])
+
+
+################################################################################
     def ShowFigure(self):
+        plt.draw()
         plt.show()
 
 
@@ -282,14 +300,14 @@ def DrawChart(axarr, frame_cnt_history, frame_starts, missing_frames, I_buff, Q_
     N               = int(DSPconf.N)
     F_offset        = float(DSPconf.F_offset)
     Fs              = float(DSPconf.Fs)
-    Full_Scale      = int(DSPconf.Full_scale)
+    Full_Scale      = int(DSPconf.Full_scale())
 
 
     Full_Scale_dB   = 20 * np.log10(2*float(Full_Scale))
     T               = 1 / Fs
     F               = Fs / N
-    num_pos_fr      = N/2+1             #positive and zero frequency bins
-    num_neg_fr      = N - num_pos_fr    #negative frequency bins    
+    num_pos_fr      = DSPconf.num_pos_fr(N)
+    num_neg_fr      = DSPconf.num_neg_fr(N)
 
 
 ########################################
