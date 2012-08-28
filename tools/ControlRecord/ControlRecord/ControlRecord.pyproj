@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{2b647927-833e-4c26-bfcd-dd0a614dd0a6}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>ControlRecord.py</StartupFile>
+    <StartupFile>DisplayRecording.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -13,7 +13,7 @@
     <Name>ControlRecord</Name>
     <RootNamespace>ControlRecord</RootNamespace>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <CommandLineArguments>-i "D:\Work\Measurements\AE meas 1\AE led break - no shaking\AE led break 1\rec_001.bin"</CommandLineArguments>
+    <CommandLineArguments>-i "D:\Work\Measurements\AE meas 1\AE led break - no shaking\AE led break 1"</CommandLineArguments>
     <InterpreterPath />
     <InterpreterArguments />
   </PropertyGroup>
@@ -26,13 +26,16 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ControlRecord.py" />
+    <Compile Include="CollectFrames.py" />
+    <Compile Include="LiveDisplayRecording.py" />
+    <Compile Include="DisplayRecording.py" />
     <Compile Include="DrawChart.py" />
     <Compile Include="DSPConfig.py" />
     <Compile Include="ExtractFrames.py" />
     <Compile Include="GenerateData.py" />
     <Compile Include="Processing.py" />
     <Compile Include="SignalProcessing.py" />
+    <Compile Include="ThresholdProcessing.py" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
 </Project>

@@ -11,9 +11,9 @@ def SignalProcessing(buff, DSPconf):
     
     channels    = int(DSPconf.channels)
     N           = int(buff.size/channels)
-    Full_scale  = int(DSPconf.Full_scale)
-    num_pos_fr  = int(DSPconf.num_pos_fr)
-    num_neg_fr  = int(DSPconf.num_neg_fr)
+    Full_scale  = int(DSPconf.Full_scale())
+    num_pos_fr  = int(DSPconf.num_pos_fr())
+    num_neg_fr  = int(DSPconf.num_neg_fr())
 
 
 ########################################
@@ -35,8 +35,8 @@ def SignalProcessing(buff, DSPconf):
     I_buff = I_buff.astype(float)
     Q_buff = Q_buff.astype(float)
 
-    I_buff = I_buff/Full_scale
-    Q_buff = Q_buff/Full_scale
+    I_buff = I_buff/Full_scale + 0.103
+    Q_buff = Q_buff/Full_scale + 0.1265
 
     spectrum = 2*abs(np.fft.fft(I_buff + 1j * Q_buff))
     I_spectrum = 2*abs(np.fft.rfft(I_buff))

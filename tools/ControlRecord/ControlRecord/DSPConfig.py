@@ -17,7 +17,22 @@ class DSPconf_t:
 
 ########################################
 # Calculated variables
-        self.Full_scale  = 2**(self.Resolution - 1)
-        self.num_pos_fr  = self.N/2+1               #positive and zero frequency bins
-        self.num_neg_fr  = self.N - self.num_pos_fr #negative frequency bins    
+    def Full_scale(self, Resolution = None):
+        if Resolution is None:
+            Resolution = self.Resolution
+
+        return 2**(Resolution - 1)
+
+    def num_pos_fr(self, N = None):
+        if N is None:
+            N = self.N
+
+        return N/2+1               #positive and zero frequency bins
+
+    def num_neg_fr(self, N = None):
+        if N is None:
+            N = self.N
+
+        return N - self.num_pos_fr(N) #negative frequency bins
+
 

@@ -2,6 +2,7 @@ import numpy as np
 import os
 import ExtractFrames as EF
 import Processing as P
+import ThresholdProcessing as TP
 import SignalProcessing as SP
 
 
@@ -24,6 +25,11 @@ class FileDataGenerator:
 
         ##########
 
+        self.tf = TP.ThresholdFilter(DSPconf)
+
+
+        ##########
+
         self.accum = np.array([], dtype=np.uint8)
 
         self.frame_cnt_history   = np.array([], dtype=np.uint32)
@@ -32,6 +38,11 @@ class FileDataGenerator:
 
         self.IterateFileList()
 
+
+################################################################################
+    def __del__( self ) :
+
+        self.CloseCurrentFile()
 
 ################################################################################
     def GetFrames(self):
@@ -66,6 +77,31 @@ class FileDataGenerator:
             self.GetFrames()
     
             ( self.frame_FIFO, self.frame_cnt_FIFO, self.frame_cnt_history, frame_starts, missing_frames, buff ) = P.Processing( self.frame_FIFO, self.frame_cnt_FIFO, self.frame_cnt_history, DSPconf )
+
+            if buff.size == 0 :
+                continue
+
+            ( I_buff, Q_buff, spectrum, I_spectrum, Q_spectrum ) = SP.SignalProcessing( buff, DSPconf )
+
+            if I_buff.size == 0 or Q_buff.size == 0:
+                continue
+
+            yield self.frame_cnt_history, frame_starts, missing_frames, I_buff, Q_buff, spectrum, I_spectrum, Q_spectrum
+
+
+################################################################################
+    def data_gen_th(self):
+        DSPconf = self.DSPconf
+
+        frame_FIFO          = []
+        frame_cnt_FIFO      = np.array([], dtype=np.uint32)
+
+        while self.f != 0 :
+            self.GetFrames()
+
+            (self.frame_FIFO, self.frame_cnt_FIFO, frame_FIFO, frame_cnt_FIFO) = self.tf.ThresholdProcessing( self.frame_FIFO, self.frame_cnt_FIFO, frame_FIFO, frame_cnt_FIFO )
+    
+            ( frame_FIFO, frame_cnt_FIFO, self.frame_cnt_history, frame_starts, missing_frames, buff ) = P.Processing( frame_FIFO, frame_cnt_FIFO, self.frame_cnt_history, DSPconf )
 
             if buff.size == 0 :
                 continue
