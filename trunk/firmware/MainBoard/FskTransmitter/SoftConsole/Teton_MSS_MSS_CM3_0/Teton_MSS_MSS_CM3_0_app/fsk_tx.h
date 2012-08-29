@@ -18,18 +18,25 @@
 #define FSK_19200_BAUD    19200
 #define FSK_38400_BAUD    38400
 
-
 /**
   Memory mapped structure for FSK TX
  */
 typedef struct
 {
-  __IO uint32_t CTRL;                         /*!< Offset: 0x00  Control Register               */
-  __IO uint32_t DPHA;                         /*!< Offset: 0x04  Delta-phase Register           */
-  __IO uint32_t AMPL;                         /*!< Offset: 0x08  Amplitude Register             */
-  __IO uint32_t MUX;                          /*!< Offset: 0x0C  Amplitude Register             */
-  __IO uint32_t I;                            /*!< Offset: 0x10  Amplitude Register             */
-  __IO uint32_t Q;                            /*!< Offset: 0x14  Amplitude Register             */
+  __O  uint32_t CTRL;                         /*!< Offset: 0x00  Control Register           */
+  __I  uint32_t STAT;                         /*!< Offset: 0x04  Status Register            */
+  __IO uint32_t BAUD;                         /*!< Offset: 0x08  Baud Register           	*/
+  __IO uint32_t DPLO;                         /*!< Offset: 0x0C  Delta-phase low Register   */
+  __IO uint32_t DPHI;                         /*!< Offset: 0x10  Delta-phase high Register  */
+  __IO uint32_t AMPL;                         /*!< Offset: 0x14  Amplitude Register         */
+  __I  uint32_t DUMMY1[2];				      /*!< Offset: 0x1C  Placeholder up to 0x20		*/
+
+  __IO uint32_t I;                            /*!< Offset: 0x20  I Register             	*/
+  __IO uint32_t Q;                            /*!< Offset: 0x24  Q Register             	*/
+  __IO uint32_t MUX;                          /*!< Offset: 0x28  Multiplexer Register       */
+  __I  uint32_t DUMMY2[1];				      /*!< Offset: 0x2C  Placeholder up to 0x30		*/
+
+  __IO uint32_t DATA;                         /*!< Offset: 0x30  Data Register             	*/
 } FSK_TX_Type;
 
 /**
@@ -53,8 +60,7 @@ static uint32_t delta_phase_low;
 
 /**
  * The BBFSK_TX_init() function initializes and starts the FSK TX
- * module in the FPGA fabric. Furthermore, it initializes the timer used for
- * bit-time calculation.
+ * module in the FPGA fabric.
  *
  * @param baud_rate
  *   The baud_rate parameter specifies the baud rate. It can be specified for
@@ -69,7 +75,7 @@ static uint32_t delta_phase_low;
  *
  * @param center_freq
  *   The center_freq parameter specifies the baseband center frequency for FSK
- *   in Hz. Its value should be larger than half the separation_freq.
+ *   in Hz.
  *
  * @param separation_freq
  *   The separation_freq parameter specifies the distance between the FSK low and high
@@ -98,16 +104,17 @@ void FSK_TX_init (
 uint8_t FSK_TX_is_busy( void );
 
 /**
- * The FSK_TX_transmit() function initiates a baseband FSK transmission with
- * a given payload.
+ * The FSK_TX_send() function initiates an FSK transmission with the given
+ * payload.
  *
  * @param payload
- *   The payload parameter specifies the 32-bit payload to be transmitted.
+ *   The payload parameter specifies the 32-bit data to be transmitted.
+ *
  * @return
  *   This function does not return a value.
  *
  */
-void FSK_TX_transmit( uint32_t payload );
+void FSK_TX_send( uint32_t payload );
 
 
 /**
