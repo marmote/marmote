@@ -8,7 +8,8 @@
   * RJ-45 connector magnetic topology seems to be incorrect
   * Ethernet PHY R,,bias,, resistor value is 4.87 Ohm instead of 4.87 kOhm (BOM typo)
   * Consider swapping the SPI0 MISO and MOSI lines if the SmartFusion is to be used as a slave peripheral
-  * R14 is supposed to be DNP (BOM file error)
+  * Component R14 is not supposed to be populated (BOM file error)
+  * R7 and C5 components are labeled incorrectly (swapped) in the assembly drawing
 
 
 = Minor issues =
