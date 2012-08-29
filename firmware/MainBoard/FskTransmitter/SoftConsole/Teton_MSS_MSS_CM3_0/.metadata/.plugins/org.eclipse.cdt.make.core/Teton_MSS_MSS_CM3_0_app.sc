@@ -4,6 +4,9 @@
 <scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
 <instance id="cdt.managedbuild.config.gnu.cross.cortexm3.exe.debug.437611960;cdt.managedbuild.config.gnu.cross.cortexm3.exe.debug.437611960.">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="c:\microsemi\libero_v10.1\softconsole\sourcery-g++\bin\../lib/gcc/arm-none-eabi/4.4.1/include"/>
+<includePath path="c:\microsemi\libero_v10.1\softconsole\sourcery-g++\bin\../lib/gcc/arm-none-eabi/4.4.1/include-fixed"/>
+<includePath path="c:\microsemi\libero_v10.1\softconsole\sourcery-g++\bin\../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/include"/>
 <includePath path="c:\actel\libero_v10.0\softconsole\sourcery-g++\bin\../lib/gcc/arm-none-eabi/4.4.1/include"/>
 <includePath path="c:\actel\libero_v10.0\softconsole\sourcery-g++\bin\../lib/gcc/arm-none-eabi/4.4.1/include-fixed"/>
 <includePath path="c:\actel\libero_v10.0\softconsole\sourcery-g++\bin\../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/include"/>

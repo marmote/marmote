@@ -36,6 +36,7 @@
 //-----------------------------------------------------------------------------
 // Revisions     :
 // Date            Version  Author			Description
+// 2012-07-06      1.2      Sandor Szilvasi Added Rx functions
 // 2012-05-31      1.1      Sandor Szilvasi
 // 2012-05-29      1.0      Benjamin Babjak	Created
 //-----------------------------------------------------------------------------
@@ -64,21 +65,29 @@ void Max2830_init ( )
 
 	// Initialize GPIOs
 
-	//MSS_GPIO_init(); //
+	//MSS_GPIO_init(); // Should be called already
 	MSS_GPIO_config( MSS_GPIO_LD, MSS_GPIO_INPUT_MODE );
 	MSS_GPIO_config( MSS_GPIO_SHDN, MSS_GPIO_OUTPUT_MODE );
 	MSS_GPIO_config( MSS_GPIO_RXHP, MSS_GPIO_OUTPUT_MODE );
 	MSS_GPIO_config( MSS_GPIO_ANTSEL, MSS_GPIO_OUTPUT_MODE );
 	MSS_GPIO_config( MSS_GPIO_RXTX, MSS_GPIO_OUTPUT_MODE );
 
-	// FIXME: revise default values
-	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_RXHP_MASK );	// N/A (since TX)
-	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_ANTSEL_MASK );	// N/A (see RXTX)
-	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_RXTX_MASK );	// N/A (see RXTX)
+	//MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_RXHP_MASK );
+	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_RXHP_MASK );
+	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_ANTSEL_MASK );	// Single antenna (ANT2)
+	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_RXTX_MASK );	// RX
 
 	Max2830_set_mode( MAX2830_SHUTDOWN_MODE );
-	Max2830_set_rssi_output( MAX2830_ANALOG_MEAS_TXPOW );
+	Max2830_set_rssi_config( MAX2830_ANALOG_MEAS_TXPOW );
 
+	// RSSI pin
+	ACE_init();
+	rssi_handle = ACE_get_channel_handle((const uint8_t*)"J_RSSI");
+
+	if ( rssi_handle == INVALID_CHANNEL_HANDLE )
+	{
+		for (;;);
+	}
 }
 
 
@@ -202,11 +211,8 @@ float Max2830_get_tx_gain( void )
 void Max2830_set_tx_gain( float gain_db )
 {
 	// FIXME: consider using uint8 instead of float for gain_db
-	// TODO: Check if this needs to be set every time
-	//	TX_Gain_Prog_Through_SPI(1); //1 SPI, 0 external digital pins (B6:B1).
-	// Max2830_write_register(9, max2830_regs[9]);
 
-	uint8_t gain;
+	uint16_t gain;
 	uint16_t reg_val;
 
 	if (gain_db > 31.5)
@@ -221,27 +227,14 @@ void Max2830_set_tx_gain( float gain_db )
 
 	gain = 2 * gain_db;
 
-	reg_val = Max2830_read_register(12) & ~0x3F; // Zero [5:0]
-	reg_val |= gain & 0x3F; // Set gain in [5:0]
+	reg_val = Max2830_read_register(12) & ~0x3F; // Zero R12[5:0]
+	reg_val |= gain & 0x3F; // Set gain in R12[5:0]
 
 	Max2830_write_register(12, reg_val);
 }
 
-/*
-void Max2830_Set_RXTX( Max2830_RXTX_Mode_t RXTX_mode )
-{
-	if (RXTX_mode == MAX2830_RX_MODE)
-	{
-		MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_RXTX_MASK );
-	}
-	else
-	{
-		MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_RXTX_MASK );
-	}
-}
-*/
 
-uint32_t Max2830_get_bandwidth( void )
+uint32_t Max2830_get_tx_bandwidth( void )
 {
 	uint16_t bw;
 
@@ -249,21 +242,20 @@ uint32_t Max2830_get_bandwidth( void )
 	bw = (Max2830_read_register(8) & 0x3) * 6;
 
 	// Get LPF fine -3dB corner frequency for TX (R7[5:3])
-	// NOTE: Assuming the same value is set for RX
-	bw += Max2830_read_register(7) & 0x7;
+	bw += (Max2830_read_register(7) >> 3 & 0x07);
 
-	return max2830_lpf_bws[bw];
+	return max2830_tx_lpf_bws[bw];
 }
 
 
-void Max2830_set_bandwidth( uint32_t bandwidth )
+void Max2830_set_tx_bandwidth( uint32_t bandwidth )
 {
 	uint16_t i;
 	uint16_t reg_val;
 
-	for ( i = 0 ; i < sizeof(max2830_lpf_bws)/sizeof(uint16_t)-1 ; i++ )
+	for ( i = 0 ; i < sizeof(max2830_tx_lpf_bws)/sizeof(uint16_t)-1 ; i++ )
 	{
-		if ( bandwidth <= max2830_lpf_bws[i] )
+		if ( bandwidth <= max2830_tx_lpf_bws[i] )
 		{
 			break;
 		}
@@ -273,11 +265,185 @@ void Max2830_set_bandwidth( uint32_t bandwidth )
 	reg_val = Max2830_read_register(8) & ~0x3;
 	Max2830_write_register(8, reg_val | (uint16_t)i / 6);
 
-	// Set LPF fine -3dB corner frequency both for RX (R7[2:0]) and TX (R7[5:3])
-	reg_val = Max2830_read_register(7) & ~0x3F;
-	reg_val |= ( ((uint16_t)i % 6 << 3) | (uint16_t)i % 6 ) & 0x3F;
+	// Set LPF fine -3dB corner frequency both for TX (R7[5:3])
+	reg_val = Max2830_read_register(7) & ~0x38;
+	reg_val |= ( (uint16_t)i % 6 << 3 ) & 0x38;
 	Max2830_write_register(7, reg_val);
 }
+
+float Max2830_get_rx_lna_gain( void )
+{
+	uint16_t reg_val;
+	uint8_t gain;
+
+	reg_val = Max2830_read_register(11);
+	gain = 0;
+
+	if ( ((reg_val >> 5) & 0x03) == 0x03 )
+	{
+		return 33;
+	}
+
+	if ( ((reg_val >> 5) & 0x03) == 0x02 )
+	{
+		return 17;
+	}
+
+	return 0;
+}
+
+void Max2830_set_rx_lna_gain( float gain_db )
+{
+	uint16_t reg_val;
+
+	reg_val = Max2830_read_register(11); // R11[6:5]
+
+	// Set register to the nearest possible value (0, 17 or 33 dB)
+
+	// Low (0 dB)
+	reg_val &= ~(0x03 << 5);
+
+	if ( gain_db > 8 )
+	{
+		reg_val |= (0x01 << 6); // Medium (17 dB)
+	}
+
+	if ( gain_db > 25 )
+	{
+		reg_val |= (0x03 << 5); // High (33 dB)
+	}
+
+	Max2830_write_register(11, reg_val);
+}
+
+float Max2830_get_rx_vga_gain( void )
+{
+	uint8_t gain;
+
+	gain = (Max2830_read_register(11) & 0x1F) * 2; // R11[4:0]
+
+	return (float)gain;
+}
+
+void Max2830_set_rx_vga_gain( float gain_db )
+{
+	uint16_t reg_val;
+
+	if ( gain_db > 62 )
+	{
+		gain_db = 62;
+	}
+
+	reg_val = Max2830_read_register(11) & ~(0x1F); // R11[4:0]
+	reg_val |= ( ((uint16_t)gain_db >> 1) & 0x1F);
+
+	Max2830_write_register(11, reg_val);
+}
+
+float Max2830_get_rx_gain( void )
+{
+	return Max2830_get_rx_lna_gain() + Max2830_get_rx_vga_gain();
+}
+
+void Max2830_set_rx_gain( float gain_db )
+{
+	// FIXME: consider using uint8 instead of float for gain_db
+
+	float lna_gain;
+	float vga_gain;
+
+	// Check if the gain value is achievable with setting VGA only
+	lna_gain = Max2830_get_rx_lna_gain();
+	switch ( (uint8_t)lna_gain )
+	{
+		case 33:
+			// High gain spans 33 - 95 dB range
+			if ( gain_db < 17 )
+			{
+				lna_gain = 0;
+				break;
+			}
+
+			if ( gain_db < 33 )
+			{
+				lna_gain = 17;
+				break;
+			}
+		case 17:
+			// Medium gain spans 17 - 79 dB range
+			if ( gain_db > 79 )
+			{
+				lna_gain = 33;
+				break;
+			}
+
+			if ( gain_db < 17 )
+			{
+				lna_gain = 0;
+				break;
+			}
+		case 0:
+		default:
+			// Medium gain spans 0 - 62 dB range
+			if ( gain_db > 79 )
+			{
+				lna_gain = 33;
+				break;
+			}
+
+			if ( gain_db > 62 )
+			{
+				lna_gain = 17;
+				break;
+			}
+	}
+
+	vga_gain = gain_db - lna_gain;
+
+	Max2830_set_rx_lna_gain(lna_gain);
+	Max2830_set_rx_vga_gain(vga_gain);
+}
+
+
+uint32_t Max2830_get_rx_bandwidth( void )
+{
+	uint16_t bw;
+
+	// NOTE: The same registers are used for TX
+
+	// Get RX LPF coarse -3dB corner frequency (R8[1:0])
+	bw = (Max2830_read_register(8) & 0x03) * 5;
+
+	// Get LPF fine -3dB corner frequency for RX (R7[2:0])
+	bw += Max2830_read_register(7) & 0x07;
+
+	return max2830_rx_lpf_bws[bw];
+}
+
+
+void Max2830_set_rx_bandwidth( uint32_t bandwidth )
+{
+	uint16_t i;
+	uint16_t reg_val;
+
+	for ( i = 0 ; i < sizeof(max2830_rx_lpf_bws)/sizeof(uint16_t)-1 ; i++ )
+	{
+		if ( bandwidth <= max2830_rx_lpf_bws[i] )
+		{
+			break;
+		}
+	}
+
+	// Set LPF coarse -3dB corner frequency
+	reg_val = Max2830_read_register(8) & ~0x3; // R8[1:0]
+	Max2830_write_register(8, reg_val | i / 5);
+
+	// Set LPF fine -3dB corner frequency for RX only
+	reg_val = Max2830_read_register(7) & ~0x7; //  R7[2:0]
+	reg_val |= ( i % 5 ) & 0x07;
+	Max2830_write_register(7, reg_val);
+}
+
 
 Max2830_operating_mode_t Max2830_get_mode( void )
 {
@@ -405,7 +571,7 @@ void Max2830_set_mode( Max2830_operating_mode_t mode )
 }
 
 
-Max2830_Analog_Meas_t Max2830_get_rssi_output( void )
+Max2830_Analog_Meas_t Max2830_get_rssi_config( void )
 {
 	uint16_t reg_val;
 
@@ -415,7 +581,7 @@ Max2830_Analog_Meas_t Max2830_get_rssi_output( void )
 }
 
 
-void Max2830_set_rssi_output( Max2830_Analog_Meas_t	mode )
+void Max2830_set_rssi_config( Max2830_Analog_Meas_t	mode )
 {
 	uint16_t reg_val;
 
@@ -443,7 +609,14 @@ void Max2830_set_rssi_output( Max2830_Analog_Meas_t	mode )
 	Max2830_write_register(8, reg_val);
 }
 
+uint16_t Max2830_get_rssi_value( void )
+{
+	uint16_t adc_value; // TODO: make this function a single line
 
+	adc_value = ACE_get_ppe_sample(rssi_handle);
+
+	return adc_value;
+}
 
 uint8_t Max2830_get_pa_delay( void )
 {

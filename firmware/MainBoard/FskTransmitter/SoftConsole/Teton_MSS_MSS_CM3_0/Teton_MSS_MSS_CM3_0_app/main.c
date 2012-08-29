@@ -1,144 +1,108 @@
-#include <Teton_hw_platform.h>
-
-#include <mss_uart.h>
-#include <mss_gpio.h>
 
 #include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
+#include <mss_gpio.h>
+#include <mss_rtc.h>
 
-#include "joshua.h"
-#include "cmd_defs.h"
+#include "yellowstone.h"
+#include "teton.h"
 
-
-cmd_t* cmd_list_ptr;
-char* argList[10];
-
-#define RX_BUFF_SIZE 64
-#define CMD_BUFF_SIZE 256
+#include "cmd_def.h"
 
 
-uint8_t cmd_buff[CMD_BUFF_SIZE];
-uint8_t cmd_buff_idx = 0;
+extern uint8_t cmd_buffer[];
+extern uint8_t cmd_length;
 
 char* cmd_token;
-
+CMD_Type* cmd_list_ptr;
+char* arg_list[10];
 uint32_t argc;
-uint8_t cmd_parse_result;
 
-void process_cmd_buff(uint8_t* cmd_buff, uint8_t length);
-void process_rx_data (uint8_t* rx_buff, uint8_t length)
-;
+void process_cmd_buff(const char* cmd_buff, uint8_t length);
 
-
-//-----------------------------------------------------------------------------
 
 
 int main()
 {
-    uint8_t rx_size;
-    uint8_t uart_buff[RX_BUFF_SIZE];
+    MSS_RTC_init();
 
 	MSS_GPIO_init();
+	Yellowstone_Init();
+	Joshua_init();
 
-	MSS_GPIO_config(MSS_GPIO_0, MSS_GPIO_OUTPUT_MODE);
-	MSS_GPIO_config(MSS_GPIO_1, MSS_GPIO_OUTPUT_MODE);
+    MSS_RTC_configure( MSS_RTC_NO_COUNTER_RESET | MSS_RTC_ENABLE_VOLTAGE_REGULATOR_ON_MATCH );
+    MSS_RTC_start();
 
-	//MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_LED1_MASK );
-	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_LED1_MASK );
-	//MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_LED1_MASK );
-	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_AFE1_SHDN_MASK );
+	MSS_GPIO_config(MSS_GPIO_LED1, MSS_GPIO_OUTPUT_MODE);
+	MSS_GPIO_config(MSS_GPIO_LED2, MSS_GPIO_OUTPUT_MODE);
+	MSS_GPIO_config(MSS_GPIO_AFE_ENABLE, MSS_GPIO_OUTPUT_MODE);
+	MSS_GPIO_config(MSS_GPIO_FPGA_ENABLE, MSS_GPIO_OUTPUT_MODE);
+	//MSS_GPIO_config(MSS_GPIO_8, MSS_GPIO_OUTPUT_MODE);
 
-    MSS_UART_init( &g_mss_uart0, MSS_UART_9600_BAUD,
-                   MSS_UART_DATA_8_BITS | MSS_UART_NO_PARITY | MSS_UART_ONE_STOP_BIT );
+	MSS_GPIO_set_output(MSS_GPIO_LED1, 0);
+	MSS_GPIO_set_output(MSS_GPIO_LED2, 0);
+	MSS_GPIO_set_output(MSS_GPIO_AFE_ENABLE, 0);
+	MSS_GPIO_set_output(MSS_GPIO_FPGA_ENABLE, 0);
+	//MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_AFE1_T_RN_MASK );
+	//MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_LED1_MASK );
+	//MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_AFE_ENABLE_MASK );
 
-    FSK_TX_init( FSK_38400_BAUD, 150000, 0 );
-	FSK_TX->MUX = 1;
-
-    Joshua_init( );
 
 	while( 1 )
 	{
-		rx_size = MSS_UART_get_rx( &g_mss_uart0, uart_buff, RX_BUFF_SIZE );
-		if ( rx_size > 0 )
+		if (cmd_length > 0)
 		{
-			// Echo message
-			while ( !MSS_UART_tx_complete(&g_mss_uart0) );
-			MSS_UART_polled_tx( &g_mss_uart0, uart_buff, rx_size );
-
-			while ( !MSS_UART_tx_complete(&g_mss_uart0) );
-			process_rx_data( uart_buff, rx_size );
+			process_cmd_buff((const char*)cmd_buffer, cmd_length);
+			cmd_length = 0;
 		}
-
 	}
 }
 
 
-//-----------------------------------------------------------------------------
 
-void process_cmd_buff(uint8_t* cmd_buff, uint8_t length)
+void process_cmd_buff(const char* cmd_buff, uint8_t length)
 {
-	cmd_parse_result = 1;
+	uint8_t parse_result = 1;
 
-	// Tokenize command buffer content
-	cmd_token = strtok((char *)cmd_buff, " ");
+	// Tokenize RX buffer content
+	cmd_token = strtok((char *)cmd_buffer, " ");
 	if (cmd_token != NULL)
 	{
-		cmd_list_ptr = cmd_list;
+		cmd_list_ptr = CMD_List;
 		while (cmd_list_ptr->CmdString)
-		{
-			if (!strcmp(cmd_token, cmd_list_ptr->CmdString))
-			{
+	    {
+	        if (!strcmp(cmd_token, (const char*)cmd_list_ptr->CmdString))
+	        {
 				// Set the argList pointers to tokens
-				argc = 0;
+	            argc = 0;
 
-				while ( cmd_token != NULL && argc < 10 )
-				{
-					argList[argc++] = cmd_token;
-					cmd_token = strtok(NULL, " ");
-				}
+	            while ( cmd_token != NULL && argc < 10 )
+	            {
+	                arg_list[argc++] = cmd_token;
+	                cmd_token = strtok(NULL, " ");
+	            }
 
-				while ( !MSS_UART_tx_complete(&g_mss_uart0) );
-				MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)"\r\nACK" );
+				Yellowstone_write("\nACK", 5);
 
 				// Invoke associated command function
-				cmd_list_ptr->CmdFunction(argc, argList);
+		        cmd_list_ptr->CmdFunction(argc, arg_list);
 
-				cmd_parse_result = 0;
-				break;
-			}
+				parse_result = 0;
+	            break;
+	        }
 
 			cmd_list_ptr++;
-		}
+	    }
 	}
 
 	// Send NAK if no valid command identified
-	if (cmd_parse_result == 1)
+	if (parse_result == 1)
 	{
-		while ( !MSS_UART_tx_complete(&g_mss_uart0) );
-		MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)"\r\nNAK" );
+		Yellowstone_write("\nNAK>", 5);
 	}
 
 	// Send '>' prompt
-	while ( !MSS_UART_tx_complete(&g_mss_uart0) );
-	MSS_UART_polled_tx_string( &g_mss_uart0, (uint8_t*)"\r\n>" );
-}
+	Yellowstone_write("\nT>", 3);
 
-void process_rx_data (uint8_t* rx_buff, uint8_t length)
-{
-	uint8_t i;
-	for ( i = 0; i < length; i++ )
-	{
-		if (*(rx_buff+i) == '\r')
-		{
-			cmd_buff[cmd_buff_idx] = '\0';
-			process_cmd_buff(cmd_buff, cmd_buff_idx);
-			cmd_buff_idx = 0;
-		}
-		else // if (*(rx_buff+i) != '\n')
-		{
-			cmd_buff[cmd_buff_idx++] = rx_buff[i];
-		}
-	}
+	// Clean up states
+	cmd_length = 0;
 }
-

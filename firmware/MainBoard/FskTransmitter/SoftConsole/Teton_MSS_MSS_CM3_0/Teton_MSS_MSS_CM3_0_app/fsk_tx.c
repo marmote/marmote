@@ -80,13 +80,13 @@ void Timer1_IRQHandler( void )
 		{
 			//MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_1_MASK );
 			// Load delta-phase register with value corresponding to f_high
-			FSK_TX->DPHA = delta_phase_high;
+			//FSK_TX->DPHA = delta_phase_high;
 		}
 		else
 		{
 			//MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_1_MASK );
 			// Load delta-phase register with value corresponding to f_low
-			FSK_TX->DPHA = delta_phase_low;
+			//FSK_TX->DPHA = delta_phase_low;
 		}
 
 		// Housekeeping section
@@ -115,7 +115,7 @@ void FSK_TX_set_frequency( uint32_t freq )
 	float dpha;
 
 	dpha = (float)freq / (float)g_FrequencyFPGA;
-	FSK_TX->DPHA = (uint32_t)(dpha * (float)((uint32_t)1 << 31) * 2);
+	//FSK_TX->DPHA = (uint32_t)(dpha * (float)((uint32_t)1 << 31) * 2);
 
 	return;
 }
@@ -126,7 +126,7 @@ uint32_t FSK_TX_get_frequency(void)
 {
 	float frequency;
 
-	frequency = (float)FSK_TX->DPHA / (float)((uint32_t)1 << 31) / 2 * g_FrequencyFPGA;
+	//frequency = (float)FSK_TX->DPHA / (float)((uint32_t)1 << 31) / 2 * g_FrequencyFPGA;
 
 	return (uint32_t)frequency;
 }
