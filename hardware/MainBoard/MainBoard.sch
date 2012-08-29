@@ -39407,13 +39407,13 @@ Height: 11.3 mm
 &lt;p&gt;
 Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;http://ww2.pulseeng.com/products/datasheets/J423.pdf&lt;/a&gt;</description>
 <text x="-8.5" y="14.425" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-8.5" y="-14" size="0.4064" layer="27">&gt;VALUE</text>
-<wire x1="-8.79" y1="-13.208" x2="-8.79" y2="13.208" width="0.127" layer="51"/>
+<text x="-8.5" y="-12" size="0.4064" layer="27">&gt;VALUE</text>
+<wire x1="-8.79" y1="-11.208" x2="-8.79" y2="13.208" width="0.127" layer="51"/>
 <wire x1="-8.79" y1="13.208" x2="-6.79" y2="13.208" width="0.127" layer="51"/>
 <wire x1="-6.79" y1="13.208" x2="6.79" y2="13.208" width="0.127" layer="51"/>
 <wire x1="6.79" y1="13.208" x2="8.79" y2="13.208" width="0.127" layer="51"/>
-<wire x1="8.79" y1="13.208" x2="8.79" y2="-13.208" width="0.127" layer="51"/>
-<wire x1="8.79" y1="-13.208" x2="-8.79" y2="-13.208" width="0.127" layer="51"/>
+<wire x1="8.79" y1="13.208" x2="8.79" y2="-11.208" width="0.127" layer="51"/>
+<wire x1="8.79" y1="-11.208" x2="-8.79" y2="-11.208" width="0.127" layer="51"/>
 <pad name="H$2" x="8.7884" y="0" drill="1.5748"/>
 <pad name="H$1" x="-8.7884" y="0" drill="1.5748"/>
 <pad name="14" x="-7.5184" y="8.89" drill="1.27"/>
@@ -39450,12 +39450,12 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J423.pdf"&gt;htt
 <wire x1="5" y1="2.905" x2="3" y2="2.905" width="0.127" layer="51"/>
 <wire x1="3" y1="2.905" x2="2.5" y2="11.905" width="0.127" layer="51"/>
 <wire x1="-9.525" y1="13.97" x2="9.525" y2="13.97" width="0.127" layer="39"/>
-<wire x1="9.525" y1="13.97" x2="9.525" y2="-13.97" width="0.127" layer="39"/>
-<wire x1="9.525" y1="-13.97" x2="-9.525" y2="-13.97" width="0.127" layer="39"/>
-<wire x1="-9.525" y1="-13.97" x2="-9.525" y2="13.97" width="0.127" layer="39"/>
-<wire x1="-8.79" y1="-13.208" x2="-8.79" y2="-2.078" width="0.127" layer="21"/>
-<wire x1="8.79" y1="-2.078" x2="8.79" y2="-13.208" width="0.127" layer="21"/>
-<wire x1="8.79" y1="-13.208" x2="-8.79" y2="-13.208" width="0.127" layer="21"/>
+<wire x1="9.525" y1="13.97" x2="9.525" y2="-11.97" width="0.127" layer="39"/>
+<wire x1="9.525" y1="-11.97" x2="-9.525" y2="-11.97" width="0.127" layer="39"/>
+<wire x1="-9.525" y1="-11.97" x2="-9.525" y2="13.97" width="0.127" layer="39"/>
+<wire x1="-8.79" y1="-11.208" x2="-8.79" y2="-2.078" width="0.127" layer="21"/>
+<wire x1="8.79" y1="-2.078" x2="8.79" y2="-11.208" width="0.127" layer="21"/>
+<wire x1="8.79" y1="-11.208" x2="-8.79" y2="-11.208" width="0.127" layer="21"/>
 <wire x1="-8.79" y1="2.042" x2="-8.79" y2="8.172" width="0.127" layer="21"/>
 <wire x1="8.79" y1="8.172" x2="8.79" y2="2.042" width="0.127" layer="21"/>
 </package>
