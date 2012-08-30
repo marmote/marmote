@@ -83,5 +83,5 @@ void GPIO2_IRQHandler( void ) // TODO: rename to SPI_0_IRQHandler
 		spi_rx_buffer_count = 0;
 	}
 
-	MSS_GPIO_clear_irq( MSS_GPIO_1 );
+	MSS_GPIO_clear_irq( MSS_GPIO_SPI_0_IT );
 }

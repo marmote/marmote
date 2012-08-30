@@ -205,7 +205,7 @@ void FSK_TX_disable(void);
 
 
 /**
- * The FSK_TX_disable() function stopsthe phase accumulator of the NCO in the FPGA,
+ * The FSK_TX_disable() function stops the phase accumulator of the NCO in the FPGA,
  * generating the tone.
  *
  * @param
