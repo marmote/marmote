@@ -2,17 +2,11 @@ import numpy as np
 
 class DSPconf_t:
     def __init__(self):
-        self.START_OF_FRAME = np.array([0xA1, 0xBE, 0xAF, 0x01], dtype = np.uint8)
-
-        self.N           = 400
-
         self.Fs          = 24e6 / 32.    # [Hz] = 750 kHz
         self.F_offset    = 0.            # [Hz]
         self.Resolution  = 16
 
         self.channels    = 2
-
-        self.MF_hist_len = 100
 
 
 ########################################
@@ -23,16 +17,27 @@ class DSPconf_t:
 
         return 2**(Resolution - 1)
 
+
+    def Full_scale_dB(self, Resolution = None):
+        if Resolution is None:
+            Resolution = self.Resolution
+
+        return 20 * np.log10(2*float(self.Full_scale()))
+    
+
     def num_pos_fr(self, N = None):
         if N is None:
-            N = self.N
+            return None
 
-        return N/2+1               #positive and zero frequency bins
+        #positive and zero frequency bins
+        return N/2+1               
+
 
     def num_neg_fr(self, N = None):
         if N is None:
-            N = self.N
+            return None
 
-        return N - self.num_pos_fr(N) #negative frequency bins
+        #negative frequency bins
+        return N - self.num_pos_fr(N) 
 
 

@@ -12,41 +12,26 @@ import time as ttt
 class FancyDisplay:
 
 ################################################################################
-    def __init__(self, DSPconf, FigureAnimated = True):
+    def __init__(self, DSPconf, N = 100, MF_hist_len = 100, FigureAnimated = True):
 
         self.Nsep               = 40
         self.DSPconf            = DSPconf
-        self.fig, self.axarr    = plt.subplots(4, 1)
+#        self.fig, self.axarr    = plt.subplots(4, 1)
+        self.fig, self.axarr    = plt.subplots(3, 1)
 
-        self.InitFigure(FigureAnimated)
-
-        self.fig.tight_layout()
+        self.InitFigure(FigureAnimated, N, MF_hist_len)
 
 
 ################################################################################
-    def InitFigure(self, FigureAnimated):
+    def InitFigure(self, FigureAnimated, N, MF_hist_len = 100):
 
     ########################################
     # Set variables    
-        N               = int(self.DSPconf.N)
         F_offset        = float(self.DSPconf.F_offset)
         Fs              = float(self.DSPconf.Fs)
-        Full_Scale      = int(self.DSPconf.Full_scale())
-        MF_hist_len     = int(self.DSPconf.MF_hist_len)
-        num_pos_fr      = int(self.DSPconf.num_pos_fr())
-        num_neg_fr      = int(self.DSPconf.num_neg_fr())
 
-
-        Full_Scale_dB   = 20 * np.log10(2*float(Full_Scale))
+        Full_Scale_dB   = self.DSPconf.Full_scale_dB()
         T               = 1 / Fs
-        F               = Fs / N
-
-        freq = np.array( range(0,num_pos_fr) )
-        freq = freq*F + F_offset
-
-        c_freq = np.array( range(-num_neg_fr,0) )
-        c_freq = np.append( c_freq, range(0,num_pos_fr) )
-        c_freq = c_freq*F + F_offset
 
     ########################################
     # Draw charts
@@ -61,7 +46,7 @@ class FancyDisplay:
         lines.append( hax.plot([], [], '.-', animated=FigureAnimated)[0] )
         hax.set_xlim(-(MF_hist_len-1), 0)
 #        hax.set_yscale("log")
-        hax.set_ylim(0,5)
+        hax.set_ylim(-0.2,5)
         hax.set_title('Frame losses')
         hax.set_xlabel('frame #')
         hax.set_ylabel('lost frames')
@@ -104,7 +89,7 @@ class FancyDisplay:
         texts.append( hax.text(0.98, 0.65, '', color='g', horizontalalignment='right', transform=hax.transAxes, animated=FigureAnimated) )
     
 #        hax.set_xlim(freq[0]/1e6, freq[-1]/1e6)
-        hax.set_xlim(0, Fs/2./1e6)
+        hax.set_xlim(F_offset, F_offset + Fs/2./1e6)
         hax.set_ylim(-Full_Scale_dB, 0)
         hax.set_title('Separate spectrum')
         hax.set_xlabel('Frequency [MHz]')
@@ -113,28 +98,29 @@ class FancyDisplay:
         hax.hold(False)
 
 
-    # Spectrum IQ
-        hax = axarr[3]
-
-        hax.hold(True)
-
-        lines.append( hax.plot([], [], 'b', animated=FigureAnimated)[0] )
-        lines.append( hax.plot([], [], 'ro', animated=FigureAnimated)[0] ) #for max points indicator
-
-        texts.append( hax.text(0.98, 0.85, '', color='b', horizontalalignment='right', transform=hax.transAxes, animated=FigureAnimated) )
-    
-#        hax.set_xlim(c_freq[0]/1e6, c_freq[-1]/1e6)
-        hax.set_xlim(-Fs/2./1e6, Fs/2./1e6)
-        hax.set_ylim(-Full_Scale_dB, 0)
-        hax.set_title('Combined spectrum')
-        hax.set_xlabel('Frequency [MHz]')
-        hax.set_ylabel('Amplitude [dB]')
-
-        hax.hold(False)
+#    # Spectrum IQ
+#        hax = axarr[3]
+#
+#        hax.hold(True)
+#
+#        lines.append( hax.plot([], [], 'b', animated=FigureAnimated)[0] )
+#        lines.append( hax.plot([], [], 'ro', animated=FigureAnimated)[0] ) #for max points indicator
+#
+#        texts.append( hax.text(0.98, 0.85, '', color='b', horizontalalignment='right', transform=hax.transAxes, animated=FigureAnimated) )
+#    
+#        hax.set_xlim(F_offset - Fs/2./1e6, F_offset + Fs/2./1e6)
+#        hax.set_ylim(-Full_Scale_dB, 0)
+#        hax.set_title('Combined spectrum')
+#        hax.set_xlabel('Frequency [MHz]')
+#        hax.set_ylabel('Amplitude [dB]')
+#
+#        hax.hold(False)
 
     ########################################
     # Save line objects    
         self.GraphObjs = [lines, texts]
+
+        self.fig.tight_layout()
 
 
 ################################################################################
@@ -152,20 +138,16 @@ class FancyDisplay:
 ################################################################################
     def DrawFigure(self, data):
 
-        frame_cnt_history, frame_starts, missing_frames, I_buff, Q_buff, spectrum, I_spectrum, Q_spectrum = data
+        missing_frames, frame_starts, missing_frames, I_buff, Q_buff, I_spectrum, Q_spectrum, = data
 
     ########################################
     # Set variables    
         N               = int(I_buff.size)
         F_offset        = float(self.DSPconf.F_offset)
         Fs              = float(self.DSPconf.Fs)
-        Full_Scale      = int(self.DSPconf.Full_scale())
-        MF_hist_len     = int(self.DSPconf.MF_hist_len)
-        num_pos_fr      = int(self.DSPconf.num_pos_fr())
-        num_neg_fr      = int(self.DSPconf.num_neg_fr())
+        num_pos_fr      = int(self.DSPconf.num_pos_fr(N))
+#        num_neg_fr      = int(self.DSPconf.num_neg_fr(N))
 
-
-        Full_Scale_dB   = 20 * np.log10(2*float(Full_Scale))
         T               = 1 / Fs
         F               = Fs / N
 
@@ -178,9 +160,7 @@ class FancyDisplay:
         texts_cnt = 0
 
     # Missed frames history    
-        MF_history = frame_cnt_history[1:] - frame_cnt_history[:-1] - 1
-
-        lines[lines_cnt].set_data(range(-(MF_history.size-1),1), MF_history)
+        lines[lines_cnt].set_data(range(-(missing_frames.size-1),1), missing_frames)
         lines_cnt += 1
 
 
@@ -191,7 +171,9 @@ class FancyDisplay:
 
                 lines[lines_cnt + ii].set_data([x, x], [-1, 1])
 
-                if missing_frames[ii] == 0 :
+                if ii >= missing_frames.size :
+                    lines[lines_cnt + ii].set_color('b')
+                elif missing_frames[ii] == 0 :
                     lines[lines_cnt + ii].set_color('g')
                 else :
                     lines[lines_cnt + ii].set_color('r')
@@ -213,7 +195,7 @@ class FancyDisplay:
         texts_cnt += 1
 
 
-    # Spectrum
+    # Spectrum separate IQ
         freq = np.array( range(0,num_pos_fr) )
         freq = freq*F + F_offset
 
@@ -238,19 +220,20 @@ class FancyDisplay:
         texts_cnt += 1
 
 
-        c_freq = np.array( range(-num_neg_fr,0) )
-        c_freq = np.append( c_freq, range(0,num_pos_fr) )
-        c_freq = c_freq*F + F_offset
-
-        lines[lines_cnt].set_data(c_freq/1e6, spectrum)
-        lines_cnt += 1
-
-        val     = spectrum.max()
-        max_f   = c_freq[spectrum.argmax()]
-
-        lines[lines_cnt].set_data(max_f/1e6, val)
-
-        texts[texts_cnt].set_text('Max val = %.1f [dB]; Max f = %.1f [MHz]' % (val, max_f/1e6))
+#    # Spectrum IQ
+#        c_freq = np.array( range(-num_neg_fr,0) )
+#        c_freq = np.append( c_freq, range(0,num_pos_fr) )
+#        c_freq = c_freq*F + F_offset
+#
+#        lines[lines_cnt].set_data(c_freq/1e6, spectrum)
+#        lines_cnt += 1
+#
+#        val     = spectrum.max()
+#        max_f   = c_freq[spectrum.argmax()]
+#
+#        lines[lines_cnt].set_data(max_f/1e6, val)
+#
+#        texts[texts_cnt].set_text('Max val = %.1f [dB]; Max f = %.1f [MHz]' % (val, max_f/1e6))
 
         self.GraphObjs[0] = lines
         self.GraphObjs[1] = texts
@@ -292,140 +275,3 @@ class FancyDisplay:
         plt.show()
 
 
-################################################################################
-def DrawChart(axarr, frame_cnt_history, frame_starts, missing_frames, I_buff, Q_buff, spectrum, I_spectrum, Q_spectrum, DSPconf):
-
-########################################
-# Set variables    
-    N               = int(DSPconf.N)
-    F_offset        = float(DSPconf.F_offset)
-    Fs              = float(DSPconf.Fs)
-    Full_Scale      = int(DSPconf.Full_scale())
-
-
-    Full_Scale_dB   = 20 * np.log10(2*float(Full_Scale))
-    T               = 1 / Fs
-    F               = Fs / N
-    num_pos_fr      = DSPconf.num_pos_fr(N)
-    num_neg_fr      = DSPconf.num_neg_fr(N)
-
-
-########################################
-# Draw charts
-    if I_buff.size != N or Q_buff.size != N:
-        return
-
-
-    c_freq = np.array( range(-num_neg_fr,0) )
-    c_freq = np.append( c_freq, range(0,num_pos_fr) )
-    c_freq = c_freq*F + F_offset
-
-    val     = spectrum.max()
-    max_f   = c_freq[spectrum.argmax()]
-
-    
-    freq = np.array( range(0,num_pos_fr) )
-    freq = freq*F + F_offset
-
-    time = np.array( range(0,N) ) *T
-
-    I_val   = I_spectrum.max()
-    I_max_f = freq[I_spectrum.argmax()]
-    Q_val   = Q_spectrum.max()
-    Q_max_f = freq[Q_spectrum.argmax()]
-
-
-# Missing frames history    
-    MF_history = frame_cnt_history[1:] - frame_cnt_history[:-1] - 1
-
-#    hax = fig_handle.add_subplot(4, 1, 1)
-    hax = axarr[0]
-    hax.plot(MF_history, '.-')
-    hax.set_xlim(0, MF_history.size-1)
-    
-    
-# Time
-    hax = axarr[1]
-    hax.hold(True)
-
-    for ii in range(len(frame_starts)) :
-        x = ( frame_starts[ii]*T - T/2 )*1e6
-        if missing_frames[ii] == 0 :
-            hax.plot([x, x], [-1, 1], 'g-')
-        else :
-            hax.plot([x, x], [-1, 1], 'r-')
-    
-    hax.plot(time*1e6, I_buff, 'b.-')
-    hax.plot(time*1e6, Q_buff, 'g.-')
-    hax.set_xlim(0, N*T*1e6)
-    hax.set_ylim(-1, 1)
-    hax.set_xlabel('time [usec]')
-    hax.set_ylabel('Sample []')
-    
-    hax.hold(False)
-
-# Spectrum
-    hax = axarr[2]
-
-    hax.hold(True)
-    hax.plot(freq/1e6, I_spectrum, 'b')
-    hax.plot(freq/1e6, Q_spectrum, 'g')
-    hax.plot(I_max_f/1e6, I_val, 'ro')
-    hax.plot(Q_max_f/1e6, Q_val, 'ro')
-    
-    hax.set_xlim(freq[0]/1e6, freq[-1]/1e6)
-    hax.set_ylim(-Full_Scale_dB, 0)
-#   title(hax, ['Max val I: ' num2str(I_val, '%.1f') ' [dB]; Max f I: ' num2str(I_max_f/1e6, '%.1f') ' [MHz]; Max val Q: ' num2str(Q_val, '%.1f') ' [dB]; Max f Q: ' num2str(Q_max_f/1e6, '%.1f') ' [MHz]']);
-    hax.set_xlabel('Frequency [MHz]')
-    hax.set_ylabel('Amplitude [dB]')
-    hax.hold(False)
-    
-
-    hax = axarr[3]
-
-    hax.hold(True)
-    hax.plot(c_freq/1e6, spectrum, 'b')
-    hax.plot(max_f/1e6, val, 'ro')
-    
-    hax.set_xlim(c_freq[0]/1e6, c_freq[-1]/1e6)
-    hax.set_ylim(-Full_Scale_dB, 0)
-#    title(hax, ['Max val: ' num2str(val, '%.1f') ' [dB]; Max f: ' num2str(max_f/1e6, '%.1f') ' [MHz];']);
-    hax.set_xlabel('Frequency [MHz]')
-    hax.set_ylabel('Amplitude [dB]')
-    hax.hold(False)
-    
-    plt.tight_layout()
-    plt.draw()
-
-        
-################################################################################
-#if __name__ == "__main__":
-#
-#    class DSPconf_t:
-#        def __init__(self):
-#            self.F_offset    = 0
-#            self.Fs          = 1e6
-#            self.channels    = 2
-#            self.N           = 50
-#            self.Full_scale  = 2**(16 - 1)
-#
-#
-#    DSPconf = DSPconf_t()
-#    N = DSPconf.N 
-#
-#
-#    frame_cnt_history   = np.array([1, 2, 3, 4, 5], dtype=np.uint32)
-#    frame_starts        = [0, 25, 40]
-#    missing_frames      = np.array([1, 0, 3], dtype=np.uint32)
-#    I_buff              = np.array(range(0,N), dtype=np.float)/N          
-#    Q_buff              = np.array(range(N,0,-1), dtype=np.float)/N
-#    spectrum            = np.array(range(0,N), dtype=np.float64)-90            
-#    I_spectrum          = np.array(range(0,N/2+1), dtype=np.float64)-90
-#    Q_spectrum          = np.array(range(N/2+1,0,-1), dtype=np.float64)-90           
-#
-#
-#    fig_handle, axarr = CreateFigure()
-#
-#    DrawChart(axarr, frame_cnt_history, frame_starts, missing_frames, I_buff, Q_buff, spectrum, I_spectrum, Q_spectrum, DSPconf)
-#
-#    plt.show()
