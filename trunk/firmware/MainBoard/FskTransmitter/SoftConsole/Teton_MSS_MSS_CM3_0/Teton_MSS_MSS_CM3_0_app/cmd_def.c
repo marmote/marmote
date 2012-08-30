@@ -16,6 +16,8 @@ CMD_Type CMD_List[] =
 	{"clk",  CmdClock},
 	{"afe",  CmdAfe},
 
+	{"iq",   CmdIQ},
+
 	{"fpga", CmdFpga},
 
 	{"reg",  	CmdReg},
@@ -195,6 +197,20 @@ uint32_t CmdClock(uint32_t argc, char** argv)
 
 uint32_t CmdFpga(uint32_t argc, char** argv)
 {
+	if (argc == 1)
+	{
+		Yellowstone_print("\nFPGA fabric is ");
+		if ( MSS_GPIO_get_outputs() & MSS_GPIO_FPGA_ENABLE_MASK )
+		{
+			Yellowstone_print("ON");
+		}
+		else
+		{
+			Yellowstone_print("OFF");
+		}
+		return 0;
+	}
+
 	if (argc == 2)
 	{
 		if (!strcmp(*(argv+1), "on"))
@@ -208,16 +224,6 @@ uint32_t CmdFpga(uint32_t argc, char** argv)
 			MSS_GPIO_set_output( MSS_GPIO_FPGA_ENABLE, 0 );
 			return 0;
 		}
-	}
-
-	Yellowstone_print("\nFPGA fabric is ");
-	if ( MSS_GPIO_get_outputs() & MSS_GPIO_FPGA_ENABLE_MASK )
-	{
-		Yellowstone_print("ON");
-	}
-	else
-	{
-		Yellowstone_print("OFF");
 	}
 
 	// Send help message
@@ -262,6 +268,49 @@ uint32_t CmdAfe(uint32_t argc, char** argv)
 	Yellowstone_print("\nUsage: afe [on | off ]");
 	return 1;
 }
+
+
+uint32_t CmdIQ(uint32_t argc, char** argv)
+{
+	char buf[128];
+	uint32_t i, q;
+
+	if (argc == 1)
+	{
+		sprintf( buf, "\r\nActive path: %s", FSK_TX->MUX ? "CONST" : "FSK");
+		Yellowstone_print(buf);
+		sprintf(buf, "\r\nI : %d\t0x%03x\r\nQ : %d\t0x%03x",
+				(int)FSK_TX->I, (unsigned int)FSK_TX->I,
+				(int)FSK_TX->Q, (unsigned int)FSK_TX->Q);
+		Yellowstone_print(buf);
+		return 0;
+	}
+
+	if (argc == 3)
+	{
+		i = atoi(*(argv+1));
+		q = atoi(*(argv+2));
+		if ((i || !strcmp(*(argv+1), "0")) && (q || !strcmp(*(argv+2), "0")))
+		{
+
+			FSK_TX->MUX = (uint32_t)1;
+
+			FSK_TX->I = i;
+			FSK_TX->Q = q;
+
+			// Readback
+			sprintf(buf, "\r\nI : %d\t0x%03x\r\nQ : %d\t0x%03x",					(int)FSK_TX->I, (unsigned int)FSK_TX->I,
+					(int)FSK_TX->Q, (unsigned int)FSK_TX->Q);
+			Yellowstone_print(buf);
+			return 0;
+		}
+	}
+
+	// Send help message
+	Yellowstone_print("\r\nUsage: path [0 | 1]\t where 0 : FSK, 1 : CONST");
+	return 1;
+}
+
 
 /*
  * MAX2830 related commands
@@ -387,7 +436,7 @@ uint32_t CmdTxGain(uint32_t argc, char** argv)
 	if (argc == 2)
 	{
 		gain = atof(*(argv+1));
-		if (gain || !strcmp(*(argv+1), "0")) // FIXME: test how this condition is handled
+		if (gain || !strcmp(*(argv+1), "0"))
 		{
 			Max2830_set_tx_gain(gain);
 
@@ -464,7 +513,7 @@ uint32_t CmdRxVga(uint32_t argc, char** argv)
 	return 1;
 }
 
-// TODO: make this command rxgain <total gain> | (<lna gain> <vga gain>)
+
 uint32_t CmdRxGain(uint32_t argc, char** argv)
 {
 	float gain;

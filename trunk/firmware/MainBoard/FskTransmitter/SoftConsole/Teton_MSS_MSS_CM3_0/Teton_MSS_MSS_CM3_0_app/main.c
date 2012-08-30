@@ -36,15 +36,11 @@ int main()
 	MSS_GPIO_config(MSS_GPIO_LED2, MSS_GPIO_OUTPUT_MODE);
 	MSS_GPIO_config(MSS_GPIO_AFE_ENABLE, MSS_GPIO_OUTPUT_MODE);
 	MSS_GPIO_config(MSS_GPIO_FPGA_ENABLE, MSS_GPIO_OUTPUT_MODE);
-	//MSS_GPIO_config(MSS_GPIO_8, MSS_GPIO_OUTPUT_MODE);
 
 	MSS_GPIO_set_output(MSS_GPIO_LED1, 0);
 	MSS_GPIO_set_output(MSS_GPIO_LED2, 0);
-	MSS_GPIO_set_output(MSS_GPIO_AFE_ENABLE, 0);
-	MSS_GPIO_set_output(MSS_GPIO_FPGA_ENABLE, 0);
-	//MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_AFE1_T_RN_MASK );
-	//MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_LED1_MASK );
-	//MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_AFE_ENABLE_MASK );
+	MSS_GPIO_set_output(MSS_GPIO_AFE_ENABLE, 1);
+	MSS_GPIO_set_output(MSS_GPIO_FPGA_ENABLE, 1);
 
 
 	while( 1 )
