@@ -5,10 +5,9 @@ import numpy as np
 class DataFrameExtractor:
 
 ################################################################################
-    def __init__(self, min_bytes = 0, START_OF_FRAME = np.array([0xA1, 0xBE, 0xAF], dtype = np.uint8), DATA_FRAME_ID = np.array([0x01], dtype = np.uint8)):
+    def __init__(self, START_OF_FRAME = np.array([0xA1, 0xBE, 0xAF], dtype = np.uint8), DATA_FRAME_ID = np.array([0x01], dtype = np.uint8)):
         self.START_OF_FRAME         = START_OF_FRAME
         self.DATA_FRAME_ID          = DATA_FRAME_ID
-        self.min_bytes              = min_bytes
 
         #################################
         # This class uses a state machine to find frames
@@ -34,11 +33,8 @@ class DataFrameExtractor:
         self.frame_starts = []
         self.frame_cnt = np.array([], dtype=np.uint32)
 
-        # "allocate memory" for buffer, little bit more than the minimum required
-        if min_bytes > 0 :
-            self.byte_buff = np.zeros(min_bytes + 2 * START_OF_FRAME.size, dtype=np.uint8) 
-        else :
-            self.byte_buff = np.zeros(100, dtype=np.uint8) 
+        # "allocate memory" for buffer
+        self.byte_buff = np.zeros(100 + 2 * START_OF_FRAME.size, dtype=np.uint8) 
 
         # indicates the number of valid bytes in buffer
         self.byte_buff_len = 0
@@ -47,8 +43,7 @@ class DataFrameExtractor:
 ################################################################################
     def ClearFromBeginning(self, buff_len) :
 
-        if buff_len > self.byte_buff_len :
-            buff_len = self.byte_buff_len
+        buff_len = min( buff_len, self.byte_buff_len )
 
         while len(self.frame_starts) > 0 and self.frame_starts[0] < buff_len :
             self.frame_starts = self.frame_starts[1:]
@@ -77,28 +72,19 @@ class DataFrameExtractor:
 
     ########################################
     # Extract frames
-        ii = 0
+        for ii in xrange(input_buff_len) :
 
-        while ii < input_buff_len :
-
-            # if we have enough bytes exit
-            if self.min_bytes > 0 :
-                if self.byte_buff_len >= self.min_bytes :
-                    break
-
-
+            ###################
             # Do something with the sample according to the state we are in
 
             if self.state == self.WAITING_STATE :
 
                 # if we are storing the bytes
-                if self.collect_state == True :
+                if self.collect_state :
 
                     # Check to see if the buffer is large enough, if not increase size
-                    if self.min_bytes == 0 : 
-                        if self.byte_buff_len % 100 == 0 :
-                            if self.byte_buff.size < self.byte_buff_len + 1 + 100:
-                                self.byte_buff = np.append( self.byte_buff, np.ones(100, dtype=np.uint8) )
+                    if self.byte_buff.size < self.byte_buff_len + 2 * SOF.size:
+                        self.byte_buff = np.append( self.byte_buff, np.ones(100, dtype=np.uint8) )
 
                     # We are looking for the start of frame sequence and we are storing data
                     # Obvioulsy the start of frame sequence is not stored, but if only parts of it
@@ -127,7 +113,7 @@ class DataFrameExtractor:
                     self.frame_cnt = np.append( self.frame_cnt, self.CNT.view(np.uint32).newbyteorder('B') )
 
 
-
+            ###################
             # State transitions
             if self.state == self.WAITING_STATE :
 
@@ -142,11 +128,8 @@ class DataFrameExtractor:
                     self.SOF_cnt = 0
                     self.state = self.ID_STATE
 
-                    t = self.collect_state
+                    collecting = self.collect_state
                     self.collect_state = False
-
-                    if t == True and self.min_bytes == 0:
-                        break
 
 
             elif self.state == self.ID_STATE :
@@ -167,12 +150,6 @@ class DataFrameExtractor:
                     self.collect_state = True
 
 
-            ii += 1
-
-
-        return ii
-                   
-
 ################################################################################
 if __name__ == "__main__":
 
@@ -190,12 +167,12 @@ if __name__ == "__main__":
 
 
     dfe = DataFrameExtractor()
-    (ii) = dfe.ExtractDataFrames(buff)
+    (ii,) = dfe.ExtractDataFrames(buff)
  
     dfe2 = DataFrameExtractor()
-    (ii) = dfe2.ExtractDataFrames(buff, 30)
+    (ii,) = dfe2.ExtractDataFrames(buff, 30)
     buff = buff[30:]
-    (ii) = dfe2.ExtractDataFrames(buff, 30)
+    (ii,) = dfe2.ExtractDataFrames(buff, 30)
     buff = buff[30:]
-    (ii) = dfe2.ExtractDataFrames(buff, 30)
+    (ii,) = dfe2.ExtractDataFrames(buff, 30)
 

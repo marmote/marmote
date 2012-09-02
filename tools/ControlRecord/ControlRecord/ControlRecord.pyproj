@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{2b647927-833e-4c26-bfcd-dd0a614dd0a6}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>LiveDisplayRecording.py</StartupFile>
+    <StartupFile>DisplayRecording.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -27,16 +27,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CollectFrames.py" />
-    <Compile Include="FileSource.py" />
     <Compile Include="LiveDisplayRecording.py" />
     <Compile Include="DisplayRecording.py" />
-    <Compile Include="DrawChart.py" />
-    <Compile Include="DSPConfig.py" />
-    <Compile Include="ExtractFrames.py" />
-    <Compile Include="GenerateData.py" />
-    <Compile Include="FramePreProcessing.py" />
-    <Compile Include="SignalProcessing.py" />
-    <Compile Include="ThresholdProcessing.py" />
+    <Compile Include="tools\DrawChart.py" />
+    <Compile Include="tools\DSPConfig.py" />
+    <Compile Include="tools\ExtractFrames.py" />
+    <Compile Include="tools\FileSource.py" />
+    <Compile Include="tools\FramePreProcessing.py" />
+    <Compile Include="tools\GenerateDisplayData.py" />
+    <Compile Include="tools\SignalProcessing.py" />
+    <Compile Include="tools\ThresholdProcessing.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="tools\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
 </Project>

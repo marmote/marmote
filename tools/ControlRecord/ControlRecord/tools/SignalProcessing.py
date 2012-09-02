@@ -3,7 +3,7 @@ import numpy as np
 
 
 ################################################################################
-def SignalProcessing(buff, DSPconf):
+def SignalProcessing(frame_starts, buff, DSPconf):
 
 ########################################
 # Set variables
@@ -19,6 +19,9 @@ def SignalProcessing(buff, DSPconf):
 ########################################
 # Signal processing
 
+    for ii in xrange(len(frame_starts)) :
+        frame_starts[ii] /= channels
+
     I_buff = np.array([], dtype=np.int16)
     Q_buff = np.array([], dtype=np.int16)
     I_spectrum = np.array([], dtype=np.complex128)
@@ -26,7 +29,7 @@ def SignalProcessing(buff, DSPconf):
 #    spectrum = np.array([], dtype=np.complex128)
 
     if buff.size == 0 :
-         return I_buff, Q_buff, I_spectrum, Q_spectrum, #spectrum
+         return frame_starts, I_buff, Q_buff, I_spectrum, Q_spectrum, #spectrum
 
 # Do actual signal processing on display buffer   
     I_buff = buff[::2].newbyteorder()
@@ -52,4 +55,4 @@ def SignalProcessing(buff, DSPconf):
 #    spectrum = 20 * np.log10(spectrum)
 
 
-    return I_buff, Q_buff, I_spectrum, Q_spectrum, #spectrum
+    return frame_starts, I_buff, Q_buff, I_spectrum, Q_spectrum#, spectrum

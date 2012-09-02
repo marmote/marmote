@@ -2,8 +2,10 @@ from optparse import OptionParser
 import numpy as np
 
 
-import GenerateData as GD
-import DSPConfig as conf
+import tools.DSPConfig as conf
+import tools.ExtractFrames as EF
+import tools.FramePreProcessing as FPP
+import tools.ThresholdProcessing as TP
 
 
 parser = OptionParser()
@@ -16,29 +18,46 @@ if __name__ == "__main__":
     (options, args) = parser.parse_args()
 
     DSPconf = conf.DSPconf_t()
+    mf_hist_len = 2
 
-    dg = GD.FileDataGenerator(options.inputfileordir, DSPconf)
-#    dg = GD.FileDataGenerator("test.bin", DSPconf)
+        
+    dfe     = EF.DataFrameExtractor()
+    fpp     = FPP.FramePreProcessor(DSPconf.channels, mf_hist_len) # Assumes a resolution of 2 bytes !!!
+    tf      = TP.ThresholdFilter(0.2 * Full_scale)
 
-    frame_FIFO          = []
-    frame_cnt_FIFO      = np.array([], dtype=np.uint32)
 
+#    s = FS.FileSource(options.inputfileordir)
+    s = FS.FileSource('test.bin')
     f = open('./collect.bin', 'wb')
 
-    while dg.f != 0 :
-        dg.GetFrames()
+    accum = np.array([], dtype=np.uint8)
 
-        (dg.frame_FIFO, dg.frame_cnt_FIFO, frame_FIFO, frame_cnt_FIFO) = dg.tf.ThresholdProcessing( dg.frame_FIFO, dg.frame_cnt_FIFO, frame_FIFO, frame_cnt_FIFO )
+    while not s.SourceEmpty() :
+        # 1. Find data frames (if any) in data
+        processed_bytes, got_one_frame = dfe.ExtractDataFrames(accum)
+        accum = accum[processed_bytes:]
 
-        while len(frame_FIFO) :
+        if got_one_frame :
 
-            DSPconf.START_OF_FRAME.tofile(f)
+        # 3. Some minor pre-processing steps
+            dont_care, int_buff, = fpp.Process( dfe.byte_buff, dfe.byte_buff_len, dfe.frame_starts, dfe.frame_cnt, 0 ) 
 
-            frame_cnt_FIFO[0].newbyteorder('B').tofile(f)
+            if tf.Process(int_buff) :
 
-            frame_FIFO[0].tofile(f)
+                DSPconf.START_OF_FRAME.tofile(f)
+
+                frame_cnt_FIFO[0].newbyteorder('B').tofile(f)
+
+                dfe.byte_buff.tofile(f)
+
+            dfe.ClearFromBeginning(dfe.byte_buff_len)
+
+
+
+        # 1. Get some brand new, raw data
+        temp = s.GetBuffer()
+
+        accum = np.append( accum, temp )
+
                 
-            frame_FIFO = frame_FIFO[1:]
-            frame_cnt_FIFO = frame_cnt_FIFO[1:]
-
     f.close()

@@ -2,11 +2,10 @@ from optparse import OptionParser
 
 import sys
 
-import GenerateData as GD
-import SignalProcessing as SP
-import DrawChart as DC
-import Processing as P
-import DSPConfig as conf
+import tools.GenerateDisplayData as GDD
+import tools.SignalProcessing as SP
+import tools.DrawChart as DC
+import tools.DSPConfig as conf
 
 
 parser = OptionParser()
@@ -20,36 +19,32 @@ if __name__ == "__main__":
 
     DSPconf = conf.DSPconf_t()
 
-    DSPconf.N = 0
+    Display_N = 0
+    MF_hist_len = 40
 
-#    dg = GD.FileDataGenerator(options.inputfileordir, DSPconf)
-    dg = GD.FileDataGenerator("collect.bin", DSPconf)
 
-    while dg.f != 0 :
-        dg.GetFrames()
+    #####################################
+    # Get all the data
+#    dg = GDD.FileDataGenerator(options.inputfileordir, DSPconf, Display_N, MF_hist_len)
+    dg = GDD.DisplayDataGenerator("test.bin", DSPconf, Display_N, MF_hist_len)
 
-    ( frame_FIFO, frame_cnt_FIFO, frame_cnt_history, frame_starts, missing_frames, buff ) = P.Processing( dg.frame_FIFO, dg.frame_cnt_FIFO, dg.frame_cnt_history, DSPconf )
+    dg.GetPreProcessedBuff()
 
-    if buff.size == 0 :
+    if dg.int_buff.size == 0 :
         sys.exit(1)
 
-    ( I_buff, Q_buff, spectrum, I_spectrum, Q_spectrum ) = SP.SignalProcessing( buff, DSPconf )
+    frame_starts, I_buff, Q_buff, I_spectrum, Q_spectrum, = SP.SignalProcessing( dg.frame_starts, dg.int_buff, DSPconf )  # Assumes 2 channels !!!
 
-    if I_buff.size == 0 or Q_buff.size == 0:
-        sys.exit(2)
+    data = ( frame_starts, dg.missing_frames, I_buff, Q_buff, I_spectrum, Q_spectrum )
 
-    data = (frame_cnt_history, frame_starts, missing_frames, I_buff, Q_buff, spectrum, I_spectrum, Q_spectrum)
 
-    DSPconf.N = I_buff.size
-    fd = DC.FancyDisplay(DSPconf, False)
+    #####################################
+    # Display 
+    fd = DC.FancyDisplay(DSPconf, I_buff.size, MF_hist_len, False)
 
-#    fd.InitFigure()
     fd.InitObj()
     fd.DrawFigure(data)
     fd.ShowFigure()
-
-
-
-    
+   
 
 

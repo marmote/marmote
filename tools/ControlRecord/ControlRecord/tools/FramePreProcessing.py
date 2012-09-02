@@ -2,45 +2,53 @@ import numpy as np
 
 
 ################################################################################
-class ThresholdFilter:
+class FramePreProcessor:
+    
+################################################################################
+    def __init__(self, channels, mf_hist_len = 100):
+
+        self.channels           = channels
+        self.res                = 2 # resolution in bytes
+        self.mf_hist_len        = mf_hist_len
+
+        self.frame_cnt_history  = np.array([], dtype=np.uint32)
+
 
 ################################################################################
-    def __init__(self, DSPconf):
-        self.TH_level = 0.2 * DSPconf.Full_scale()
-        self.rec_frame_num = 10
-        self.TH_cnt = 0
-
-
-################################################################################
-    def ThresholdProcessing(self, frame_FIFO, frame_cnt_FIFO, frame_FIFO_out, frame_cnt_FIFO_out):
+    def Process(self, byte_buff, byte_buff_len, frame_starts, frame_cnt, N):
 
     ########################################
     # Set variables    
-#        frame_cnt_FIFO      = frame_cnt_FIFO.view(np.uint32)
+        byte_buff   = byte_buff.view(np.uint8)
+
+        byte_buff_len = min( byte_buff_len, byte_buff.size )
+
+        nominal_len = N * self.channels * self.res
+
+        if nominal_len > 0 :
+            if byte_buff_len < nominal_len :
+                byte_buff_len = 0
+            else :
+                byte_buff_len = nominal_len
+
+        buff_len = byte_buff_len - byte_buff_len % (self.channels * self.res)
+        #TODO np.int16 assumes self.res = 2  !!!!!!!!!!!!!!!!!!!!!!!!!!!
+        int_buff = byte_buff[:buff_len].view( dtype=np.int16 )
+
+        frame_starts_out = []
+        ii = 0
+        while ii < len(frame_starts) and frame_starts[ii] < buff_len :
+            frame_starts_out.append( frame_starts[ii]/self.res )
+            self.frame_cnt_history = np.append( self.frame_cnt_history, frame_cnt[ii] )
+            ii += 1
 
 
-    ########################################
-    # Signal processing
-#        frame_FIFO_out = []
-#        frame_cnt_FIFO_out = np.array([], dtype=np.uint32)
+        while self.frame_cnt_history.size > self.mf_hist_len + 1:
+            self.frame_cnt_history = self.frame_cnt_history[1:]
 
-        while len(frame_FIFO) :
 
-            buff = frame_FIFO[0].view(dtype=np.int16).newbyteorder('B')
+        return buff_len, int_buff, frame_starts_out, self.frame_cnt_history[1:] - self.frame_cnt_history[:-1] - 1
 
-            if np.abs(buff).max() >= self.TH_level :
-                self.TH_cnt = self.rec_frame_num
-
-            if self.TH_cnt > 0 :
-                frame_FIFO_out.append(frame_FIFO[0])
-                frame_cnt_FIFO_out = np.append(frame_cnt_FIFO_out, frame_cnt_FIFO[0])
-
-                self.TH_cnt -= 1
-
-            frame_FIFO = frame_FIFO[1:]
-            frame_cnt_FIFO = frame_cnt_FIFO[1:]
-
-        return frame_FIFO, frame_cnt_FIFO, frame_FIFO_out, frame_cnt_FIFO_out
 
 
 ################################################################################

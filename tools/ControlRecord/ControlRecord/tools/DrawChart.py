@@ -138,7 +138,7 @@ class FancyDisplay:
 ################################################################################
     def DrawFigure(self, data):
 
-        missing_frames, frame_starts, missing_frames, I_buff, Q_buff, I_spectrum, Q_spectrum, = data
+        frame_starts, missing_frames, I_buff, Q_buff, I_spectrum, Q_spectrum, = data
 
     ########################################
     # Set variables    
@@ -165,15 +165,15 @@ class FancyDisplay:
 
 
     # Time
-        for ii in range(self.Nsep) :
+        for ii in xrange(self.Nsep) :
             if ii < len(frame_starts) :
-                x = ( frame_starts[ii]*T - T/2 )*1e6
+                x = ( frame_starts[-1-ii]*T - T/2 )*1e6
 
                 lines[lines_cnt + ii].set_data([x, x], [-1, 1])
 
                 if ii >= missing_frames.size :
-                    lines[lines_cnt + ii].set_color('b')
-                elif missing_frames[ii] == 0 :
+                    lines[lines_cnt + ii].set_color('k')
+                elif missing_frames[-1-ii] == 0 :
                     lines[lines_cnt + ii].set_color('g')
                 else :
                     lines[lines_cnt + ii].set_color('r')
