@@ -4,6 +4,15 @@ import os
 import time as ttt
 
 
+def GetHumanReadable(size, precision=2):
+    suffixes=['B','KB','MB','GB','TB','PB','EB','ZB','YB']
+    suffixIndex = 0
+    while size > 1024 and suffixIndex < len(suffixes)-1 :
+        suffixIndex += 1 #increment the index of the suffix
+        size = size/1024.0 #apply the division
+    return "%.*f %s"%(precision,size,suffixes[suffixIndex])
+
+
 ################################################################################
 class FileSource:
 
@@ -54,13 +63,15 @@ class FileSource:
 
             accum = np.append(accum, temp)
             
+            self.bytes_read_file += temp.size
+
 
         self.bytes_read += accum.size
-        self.bytes_read_file += temp.size            
             
         current_time = ttt.time()
         if current_time - self.previous_time > 3 :
-            print 'Bytes read per sec: %.1f at %.2f%%' % ( float(self.bytes_read) / (current_time - self.previous_time),  float(self.bytes_read_file) / self.current_file_size * 100 )
+            BPS = float(self.bytes_read) / (current_time - self.previous_time)
+            print 'Data read per sec: %s at %.2f%%' % ( GetHumanReadable(BPS),  float(self.bytes_read_file) / self.current_file_size * 100 )
             self.bytes_read = 0
             self.previous_time = current_time
            

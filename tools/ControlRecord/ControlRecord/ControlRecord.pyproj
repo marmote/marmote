@@ -33,7 +33,10 @@
     <Compile Include="tools\DSPConfig.py" />
     <Compile Include="tools\ExtractFrames.py" />
     <Compile Include="tools\FileSource.py" />
+    <Compile Include="tools\FrameBuffer.py" />
+    <Compile Include="tools\FrameConfig.py" />
     <Compile Include="tools\FramePreProcessing.py" />
+    <Compile Include="tools\GenerateData.py" />
     <Compile Include="tools\GenerateDisplayData.py" />
     <Compile Include="tools\SignalProcessing.py" />
     <Compile Include="tools\ThresholdProcessing.py" />

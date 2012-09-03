@@ -47,7 +47,7 @@ class FancyDisplay:
         hax.set_xlim(-(MF_hist_len-1), 0)
 #        hax.set_yscale("log")
         hax.set_ylim(-0.2,5)
-        hax.set_title('Frame losses')
+        hax.set_title('Frame loss history')
         hax.set_xlabel('frame #')
         hax.set_ylabel('lost frames')
     
