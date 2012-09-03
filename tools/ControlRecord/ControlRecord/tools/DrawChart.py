@@ -247,7 +247,7 @@ class FancyDisplay:
         self.displayed_frames += 1
         current_time = ttt.time()
         if current_time - self.previous_time > 3 :
-            print '%.1f' % ( float(self.displayed_frames) / (current_time - self.previous_time) )
+            print 'FPS: %.1f' % ( float(self.displayed_frames) / (current_time - self.previous_time) )
             self.displayed_frames = 0
             self.previous_time = current_time
 
