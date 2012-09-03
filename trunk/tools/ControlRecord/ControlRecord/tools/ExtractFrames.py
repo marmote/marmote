@@ -1,11 +1,14 @@
 import numpy as np
+import FrameBuffer as FB
 
 
 ################################################################################
-class DataFrameExtractor:
+class DataFrameExtractor(FB.FrameBuffer):
 
 ################################################################################
     def __init__(self, START_OF_FRAME = np.array([0xA1, 0xBE, 0xAF], dtype = np.uint8), DATA_FRAME_ID = np.array([0x01], dtype = np.uint8)):
+        FB.FrameBuffer.__init__(self)
+
         self.START_OF_FRAME         = START_OF_FRAME
         self.DATA_FRAME_ID          = DATA_FRAME_ID
 
@@ -26,34 +29,6 @@ class DataFrameExtractor:
         # for the frame counter temporary storage
         self.CNT = np.zeros(4, dtype=np.uint8)
         self.CNT_cnt = 0
-
-        #################################
-        # The results 
-
-        self.frame_starts = []
-        self.frame_cnt = np.array([], dtype=np.uint32)
-
-        # "allocate memory" for buffer
-        self.byte_buff = np.zeros(100 + 2 * START_OF_FRAME.size, dtype=np.uint8) 
-
-        # indicates the number of valid bytes in buffer
-        self.byte_buff_len = 0
-
-
-################################################################################
-    def ClearFromBeginning(self, buff_len) :
-
-        buff_len = min( buff_len, self.byte_buff_len )
-
-        while len(self.frame_starts) > 0 and self.frame_starts[0] < buff_len :
-            self.frame_starts = self.frame_starts[1:]
-            self.frame_cnt = self.frame_cnt[1:]
-
-        for ii in xrange(len(self.frame_starts)) :
-            self.frame_starts[ii] -= buff_len
-
-        self.byte_buff[:self.byte_buff_len-buff_len] = self.byte_buff[buff_len:self.byte_buff_len]
-        self.byte_buff_len -= buff_len
 
 
 ################################################################################
@@ -83,8 +58,8 @@ class DataFrameExtractor:
                 if self.collect_state :
 
                     # Check to see if the buffer is large enough, if not increase size
-                    if self.byte_buff.size < self.byte_buff_len + 2 * SOF.size:
-                        self.byte_buff = np.append( self.byte_buff, np.ones(100, dtype=np.uint8) )
+                    while self.byte_buff.size < self.byte_buff_len + 2 * SOF.size:
+                        self.IncreaseBufferSize()
 
                     # We are looking for the start of frame sequence and we are storing data
                     # Obvioulsy the start of frame sequence is not stored, but if only parts of it
@@ -99,10 +74,10 @@ class DataFrameExtractor:
                             self.byte_buff_len += 1
 
 
-            elif self.state == self.ID_STATE :
-
-                if input_buff[ii] == ID[0] :
-                    self.frame_starts.append(self.byte_buff_len)
+#            elif self.state == self.ID_STATE :
+#
+#                if input_buff[ii] == ID[0] :
+#                    self.frame_starts.append(self.byte_buff_len)
 
 
             elif self.state == self.COUNTER_STATE :
@@ -110,6 +85,7 @@ class DataFrameExtractor:
                 self.CNT[self.CNT_cnt] = input_buff[ii]
 
                 if self.CNT_cnt == 3 :
+                    self.frame_starts.append(self.byte_buff_len)
                     self.frame_cnt = np.append( self.frame_cnt, self.CNT.view(np.uint32).newbyteorder('B') )
 
 
@@ -128,7 +104,6 @@ class DataFrameExtractor:
                     self.SOF_cnt = 0
                     self.state = self.ID_STATE
 
-                    collecting = self.collect_state
                     self.collect_state = False
 
 

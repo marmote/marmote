@@ -1,6 +1,8 @@
 import numpy as np
 import os
 
+import time as ttt
+
 
 ################################################################################
 class FileSource:
@@ -19,6 +21,9 @@ class FileSource:
         self.f = None
 
         self.IterateFileList()
+        
+        self.bytes_read = 0
+        self.previous_time = ttt.time()
 
 
 ################################################################################
@@ -34,7 +39,7 @@ class FileSource:
 
 
 ################################################################################
-    def GetBuffer(self, N = 600):
+    def GetBuffer(self, N = 1024):
 
         accum = np.array([], dtype=np.uint8)
 
@@ -48,6 +53,17 @@ class FileSource:
                 continue
 
             accum = np.append(accum, temp)
+            
+
+        self.bytes_read += accum.size
+        self.bytes_read_file += temp.size            
+            
+        current_time = ttt.time()
+        if current_time - self.previous_time > 3 :
+            print 'Bytes read per sec: %.1f at %.2f%%' % ( float(self.bytes_read) / (current_time - self.previous_time),  float(self.bytes_read_file) / self.current_file_size * 100 )
+            self.bytes_read = 0
+            self.previous_time = current_time
+           
 
         return accum
 
@@ -69,3 +85,7 @@ class FileSource:
         if self.file_cnt < len(self.filelist) :
             print 'Opening file: %s' % (self.filelist[self.file_cnt])
             self.f = open(self.filelist[self.file_cnt], 'rb')
+            
+            st = os.stat(self.filelist[self.file_cnt])
+            self.current_file_size = st.st_size
+            self.bytes_read_file = 0
