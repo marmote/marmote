@@ -36,8 +36,7 @@ class ThresholdFilter(FB.FrameBuffer):
 
         processed_bytes = 0
 
-        ii = 0
-        while ii + 1 < len(frame_starts) :
+        for ii in xrange( len(frame_starts) - 1 ) :
             processed_bytes = frame_starts[ii+1]            
             
             t_buff = byte_buff[frame_starts[ii]:frame_starts[ii+1]]
@@ -56,10 +55,4 @@ class ThresholdFilter(FB.FrameBuffer):
             self.byte_buff[self.byte_buff_len : self.byte_buff_len + frame_length] = t_buff
             self.byte_buff_len += frame_length            
 
-            ii += 1
- 
         return processed_bytes
-
-
-
-				

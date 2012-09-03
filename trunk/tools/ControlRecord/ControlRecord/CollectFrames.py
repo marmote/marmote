@@ -3,9 +3,8 @@ import numpy as np
 
 
 import tools.DSPConfig as conf
-import tools.ExtractFrames as EF
-import tools.FramePreProcessing as FPP
-import tools.ThresholdProcessing as TP
+import tools.GenerateData as GD
+import tools.FrameConfig as FC
 
 
 parser = OptionParser()
@@ -18,46 +17,37 @@ if __name__ == "__main__":
     (options, args) = parser.parse_args()
 
     DSPconf = conf.DSPconf_t()
-    mf_hist_len = 2
+    FrameConf = FC.Frameconf_t()
 
-        
-    dfe     = EF.DataFrameExtractor()
-    fpp     = FPP.FramePreProcessor(DSPconf.channels, mf_hist_len) # Assumes a resolution of 2 bytes !!!
-    tf      = TP.ThresholdFilter(0.2 * Full_scale)
+    Display_N = 0
+    MF_hist_len = 4
 
 
-#    s = FS.FileSource(options.inputfileordir)
-    s = FS.FileSource('test.bin')
+    #####################################
+    # Get all the data
+    dg = GD.DataGenerator(options.inputfileordir, DSPconf, Display_N, MF_hist_len)
+#    dg = GD.DataGenerator("test.bin", DSPconf, Display_N, MF_hist_len)
+
+    while not dg.s.SourceEmpty() :
+        dg.GetTHFilteredData()
+
+    if dg.tf.byte_buff_len == 0 :
+        sys.exit(1)
+
+    #####################################
+    # Write data to file
     f = open('./collect.bin', 'wb')
 
-    accum = np.array([], dtype=np.uint8)
+    frame_starts = dg.tf.frame_starts
+    frame_starts.append(dg.tf.byte_buff_len)
 
-    while not s.SourceEmpty() :
-        # 1. Find data frames (if any) in data
-        processed_bytes, got_one_frame = dfe.ExtractDataFrames(accum)
-        accum = accum[processed_bytes:]
+    for ii in xrange(len(frame_starts) - 1) :
 
-        if got_one_frame :
+        FrameConf.START_OF_FRAME.tofile(f)
+        FrameConf.DATA_FRAME_ID.tofile(f)
 
-        # 3. Some minor pre-processing steps
-            dont_care, int_buff, = fpp.Process( dfe.byte_buff, dfe.byte_buff_len, dfe.frame_starts, dfe.frame_cnt, 0 ) 
+        dg.tf.frame_cnt[ii].newbyteorder('B').tofile(f)
 
-            if tf.Process(int_buff) :
-
-                DSPconf.START_OF_FRAME.tofile(f)
-
-                frame_cnt_FIFO[0].newbyteorder('B').tofile(f)
-
-                dfe.byte_buff.tofile(f)
-
-            dfe.ClearFromBeginning(dfe.byte_buff_len)
-
-
-
-        # 1. Get some brand new, raw data
-        temp = s.GetBuffer()
-
-        accum = np.append( accum, temp )
-
+        dg.tf.byte_buff[frame_starts[ii]:frame_starts[ii+1]].tofile(f)
                 
     f.close()

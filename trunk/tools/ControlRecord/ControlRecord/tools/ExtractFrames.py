@@ -6,7 +6,7 @@ import FrameBuffer as FB
 class DataFrameExtractor(FB.FrameBuffer):
 
 ################################################################################
-    def __init__(self, START_OF_FRAME = np.array([0xA1, 0xBE, 0xAF], dtype = np.uint8), DATA_FRAME_ID = np.array([0x01], dtype = np.uint8)):
+    def __init__(self, START_OF_FRAME, DATA_FRAME_ID) :
         FB.FrameBuffer.__init__(self)
 
         self.START_OF_FRAME         = START_OF_FRAME
