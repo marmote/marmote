@@ -71,7 +71,7 @@ class FileSource:
         current_time = ttt.time()
         if current_time - self.previous_time > 3 :
             BPS = float(self.bytes_read) / (current_time - self.previous_time)
-            print 'Data read per sec: %s at %.2f%%' % ( GetHumanReadable(BPS),  float(self.bytes_read_file) / self.current_file_size * 100 )
+            print 'Throughput: %s/s; Progress: %.2f%%' % ( GetHumanReadable(BPS),  float(self.bytes_read_file) / self.current_file_size * 100 )
             self.bytes_read = 0
             self.previous_time = current_time
            

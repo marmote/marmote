@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{2b647927-833e-4c26-bfcd-dd0a614dd0a6}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>DisplayRecording.py</StartupFile>
+    <StartupFile>LiveDisplayRecording.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
