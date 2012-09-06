@@ -1,0 +1,1 @@
+start ipython notebook --pylab

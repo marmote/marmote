@@ -20,9 +20,12 @@ class FileSource:
     def __init__(self, FileOrDir):
         
         if os.path.isdir(FileOrDir) :
-            self.filelist = os.listdir(FileOrDir)
-            for ii in range(len(self.filelist)) :
-                self.filelist[ii] = FileOrDir + '/' + self.filelist[ii]
+            self.filelist_in = os.listdir(FileOrDir)
+            self.filelist = []
+            for ii in range(len(self.filelist_in)) :
+                fname = FileOrDir + '/' + self.filelist_in[ii]
+                if os.path.isfile(fname) :
+                    self.filelist.append(fname)
         else :
             self.filelist = [FileOrDir]
 

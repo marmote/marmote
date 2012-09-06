@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{2b647927-833e-4c26-bfcd-dd0a614dd0a6}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>LiveDisplayRecording.py</StartupFile>
+    <StartupFile>CollectFramesFromSubDirs.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -13,7 +13,7 @@
     <Name>ControlRecord</Name>
     <RootNamespace>ControlRecord</RootNamespace>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <CommandLineArguments>-i "D:\Work\Measurements\AE meas 1\AE led break - no shaking\AE led break 1"</CommandLineArguments>
+    <CommandLineArguments>-i "D:\Work\Measurements\AE meas 2"</CommandLineArguments>
     <InterpreterPath />
     <InterpreterArguments />
   </PropertyGroup>
@@ -27,6 +27,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CollectFrames.py" />
+    <Compile Include="CollectFramesFromSubDirs.py" />
     <Compile Include="LiveDisplayRecording.py" />
     <Compile Include="DisplayRecording.py" />
     <Compile Include="tools\DrawChart.py" />
