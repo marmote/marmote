@@ -21,7 +21,7 @@ class DataGenerator:
         self.dfe    = EF.DataFrameExtractor(FrameConf.START_OF_FRAME, FrameConf.DATA_FRAME_ID)
         self.fpp    = FPP.FramePreProcessor(channels, mf_hist_len) # Assumes a resolution of 2 bytes !!!
 
-        self.tf     = TP.ThresholdFilter(0.2 * DSPconf.Full_scale())
+        self.tf     = TP.ThresholdFilter(0.15 * DSPconf.Full_scale())
 
         ##########
 

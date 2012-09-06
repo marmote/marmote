@@ -1,7 +1,6 @@
 from optparse import OptionParser
-import numpy as np
 
-
+import sys
 import tools.DSPConfig as conf
 import tools.GenerateData as GD
 import tools.FrameConfig as FC
@@ -51,3 +50,5 @@ if __name__ == "__main__":
         dg.tf.byte_buff[frame_starts[ii]:frame_starts[ii+1]].tofile(f)
                 
     f.close()
+
+    #sys.exit(0)
