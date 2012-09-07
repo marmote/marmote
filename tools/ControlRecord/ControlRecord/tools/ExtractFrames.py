@@ -36,7 +36,7 @@ class DataFrameExtractor(FB.FrameBuffer):
 
     ########################################
     # Set variables    
-        input_buff              = input_buff.view(np.uint8)  # Make sure it is interpreted as uint8
+#        input_buff              = input_buff.view(np.uint8)  # Make sure it is interpreted as uint8
         if input_buff_len is None or input_buff_len <= 0 :
             input_buff_len = input_buff.size
         else :
@@ -45,9 +45,18 @@ class DataFrameExtractor(FB.FrameBuffer):
         SOF                     = self.START_OF_FRAME
         ID                      = self.DATA_FRAME_ID
 
+
+        # Check to see if the buffer is large enough, if not increase size
+        worst_case_size = self.byte_buff_len + input_buff_len + 2 * SOF.size
+        size_diff = worst_case_size - self.byte_buff.size
+        if size_diff > 0:
+            self.IncreaseBufferSize(size_diff)
+
+
     ########################################
     # Extract frames
-        for ii in xrange(input_buff_len) :
+
+        for ii in input_buff :
 
             ###################
             # Do something with the sample according to the state we are in
@@ -57,20 +66,27 @@ class DataFrameExtractor(FB.FrameBuffer):
                 # if we are storing the bytes
                 if self.collect_state :
 
-                    # Check to see if the buffer is large enough, if not increase size
-                    while self.byte_buff.size < self.byte_buff_len + 2 * SOF.size:
-                        self.IncreaseBufferSize()
-
                     # We are looking for the start of frame sequence and we are storing data
                     # Obvioulsy the start of frame sequence is not stored, but if only parts of it
                     # are encountered that we have to store
-                    if input_buff[ii] != SOF[self.SOF_cnt] :
+                    if ii != SOF[self.SOF_cnt] :
                         for jj in xrange(self.SOF_cnt) :
                             self.byte_buff[self.byte_buff_len] = SOF[jj]
                             self.byte_buff_len += 1
+###########
+# alt 1.
+#                        for jj in SOF[:self.SOF_cnt] :
+#                            self.byte_buff[self.byte_buff_len] = jj
+#                            self.byte_buff_len += 1
 
-                        if input_buff[ii] != SOF[0] :
-                            self.byte_buff[self.byte_buff_len] = input_buff[ii]
+###########
+# alt 2.
+#                        self.byte_buff[self.byte_buff_len : self.byte_buff_len + self.SOF_cnt] = SOF[:self.SOF_cnt]
+#                        self.byte_buff_len += self.SOF_cnt
+
+
+                        if ii != SOF[0] :
+                            self.byte_buff[self.byte_buff_len] = ii
                             self.byte_buff_len += 1
 
 
@@ -82,7 +98,7 @@ class DataFrameExtractor(FB.FrameBuffer):
 
             elif self.state == self.COUNTER_STATE :
                 
-                self.CNT[self.CNT_cnt] = input_buff[ii]
+                self.CNT[self.CNT_cnt] = ii
 
                 if self.CNT_cnt == 3 :
                     self.frame_starts.append(self.byte_buff_len)
@@ -93,9 +109,9 @@ class DataFrameExtractor(FB.FrameBuffer):
             # State transitions
             if self.state == self.WAITING_STATE :
 
-                if input_buff[ii] == SOF[0] :
+                if ii == SOF[0] :
                     self.SOF_cnt = 1
-                elif input_buff[ii] == SOF[self.SOF_cnt] :
+                elif ii == SOF[self.SOF_cnt] :
                     self.SOF_cnt += 1
                 else :
                     self.SOF_cnt = 0
@@ -109,7 +125,7 @@ class DataFrameExtractor(FB.FrameBuffer):
 
             elif self.state == self.ID_STATE :
 
-                if input_buff[ii] == ID[0] :
+                if ii == ID[0] :
                     self.state = self.COUNTER_STATE
                 else :
                     self.state = self.WAITING_STATE

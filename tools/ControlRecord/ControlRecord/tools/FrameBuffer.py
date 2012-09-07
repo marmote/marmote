@@ -15,7 +15,7 @@ class FrameBuffer:
         # indicates the number of valid bytes in buffer
         self.byte_buff_len = 0
 
-		
+
 ################################################################################
     def IncreaseBufferSize(self, buff_len = 100) :
         self.byte_buff = np.append( self.byte_buff, np.ones(buff_len, dtype=np.uint8) )

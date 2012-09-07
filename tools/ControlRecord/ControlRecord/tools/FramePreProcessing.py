@@ -19,7 +19,7 @@ class FramePreProcessor:
 
     ########################################
     # Set variables    
-        byte_buff   = byte_buff.view(np.uint8)
+#        byte_buff   = byte_buff.view(np.uint8)
 
         byte_buff_len = min( byte_buff_len, byte_buff.size )
 
