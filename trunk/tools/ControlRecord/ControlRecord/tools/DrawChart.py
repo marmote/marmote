@@ -14,7 +14,7 @@ class FancyDisplay:
 ################################################################################
     def __init__(self, DSPconf, N = 100, MF_hist_len = 100, FigureAnimated = True):
 
-        self.Nsep               = 40
+        self.Nsep               = 20
         self.DSPconf            = DSPconf
 #        self.fig, self.axarr    = plt.subplots(4, 1)
         self.fig, self.axarr    = plt.subplots(3, 1)

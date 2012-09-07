@@ -22,8 +22,17 @@ class ThresholdFilter(FB.FrameBuffer):
 
         buff = buff.view(dtype=np.int16).newbyteorder()
 
+        
         if np.abs(buff).max() >= self.TH_level :
             self.TH_cnt = self.rec_frame_num
+
+###########
+# alt 1.
+#        for ii in np.abs(buff) :
+#            if ii >= self.TH_level :
+#                self.TH_cnt = self.rec_frame_num
+#                break
+
 
         return self.TH_cnt > 0
 
