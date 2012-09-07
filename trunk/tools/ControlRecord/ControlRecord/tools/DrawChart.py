@@ -18,6 +18,7 @@ class FancyDisplay:
         self.DSPconf            = DSPconf
 #        self.fig, self.axarr    = plt.subplots(4, 1)
         self.fig, self.axarr    = plt.subplots(3, 1)
+        self.axarr              = self.axarr.flat
 
         self.InitFigure(FigureAnimated, N, MF_hist_len)
 
