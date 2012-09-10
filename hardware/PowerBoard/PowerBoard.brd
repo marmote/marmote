@@ -21,7 +21,7 @@
 <layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
 <layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="25" name="tNames" color="4" fill="1" visible="no" active="yes"/>
 <layer number="26" name="bNames" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
@@ -164,8 +164,8 @@
 <text x="1.1" y="13.4" size="1.27" layer="21" font="vector">DGND</text>
 <text x="67.25" y="35.75" size="1.27" layer="21" font="vector">VBAT</text>
 <text x="17.5" y="12.6" size="1.27" layer="21" font="vector">VSUP</text>
-<text x="37.5" y="12.6" size="1.27" layer="21" font="vector">D3V3</text>
-<text x="37.5" y="17.7" size="1.27" layer="21" font="vector">D1V5</text>
+<text x="37.5" y="17.7" size="1.27" layer="21" font="vector">D3V3</text>
+<text x="37.5" y="12.6" size="1.27" layer="21" font="vector">D1V5</text>
 <text x="48.1" y="12.6" size="1.27" layer="21" font="vector">A1V5</text>
 <text x="48.1" y="17.7" size="1.27" layer="21" font="vector">A3V3</text>
 <text x="10.65" y="35.5" size="1.27" layer="21" font="vector">D3V3_STM</text>
@@ -188,6 +188,17 @@
 <text x="10.5" y="19.3" size="1.27" layer="21" font="vector" rot="R90">F</text>
 <text x="24" y="2" size="1.27" layer="21" font="vector">1</text>
 <text x="64.5" y="2" size="1.27" layer="21" font="vector">83</text>
+<text x="67.6" y="40.4" size="1.27" layer="21" font="vector">SW2</text>
+<text x="45.6" y="52.9" size="1.27" layer="22" font="vector" rot="MR0">DC +5V </text>
+<circle x="46" y="51.5" radius="0.70710625" width="0.1016" layer="22"/>
+<circle x="39" y="51.5" radius="0.70710625" width="0.1016" layer="22"/>
+<wire x1="42" y1="52" x2="42" y2="51" width="0.1016" layer="22" curve="-270"/>
+<wire x1="38.6" y1="51.5" x2="39.4" y2="51.5" width="0.1016" layer="22"/>
+<wire x1="39" y1="51.9" x2="39" y2="51.1" width="0.1016" layer="22"/>
+<wire x1="45.6" y1="51.5" x2="46.4" y2="51.5" width="0.1016" layer="22"/>
+<wire x1="42.3" y1="51.5" x2="39.7" y2="51.5" width="0.1016" layer="22"/>
+<circle x="42.5" y="51.5" radius="0.22360625" width="0.4064" layer="22"/>
+<wire x1="45.3" y1="51.5" x2="43.2" y2="51.5" width="0.1016" layer="22"/>
 </plain>
 <libraries>
 <library name="powerboard">
@@ -10881,10 +10892,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="MPN" value="5009" x="2.8" y="11.5" size="1.778" layer="27" display="off"/>
 <attribute name="DIGI-KEY#" value="5009K-ND" x="2.8" y="11.5" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP3" library="powerboard" package="TESTPOINT" value="TESTPOINT" x="69" y="34">
+<element name="TP3" library="powerboard" package="TESTPOINT" value="TESTPOINT" x="69" y="34" smashed="yes">
 <attribute name="MF" value="Keystone" x="69" y="34" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="5122" x="69" y="34" size="1.778" layer="27" display="off"/>
 <attribute name="DIGI-KEY#" value="5122K-ND" x="69" y="34" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="70.52" y="34.02" size="0.4064" layer="25"/>
 </element>
 <element name="TP4" library="powerboard" package="TESTPOINT" value="TESTPOINT" x="23.4" y="14.1" smashed="yes">
 <attribute name="MF" value="Keystone" x="23.4" y="14.1" size="1.778" layer="27" display="off"/>
@@ -10917,10 +10929,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="MPN" value="5121" x="60.8" y="14.1" size="1.778" layer="27" display="off"/>
 <attribute name="DIGI-KEY#" value="5121K-ND" x="60.8" y="14.1" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP10" library="powerboard" package="TESTPOINT" value="TESTPOINT" x="57.5" y="45.85">
+<element name="TP10" library="powerboard" package="TESTPOINT" value="TESTPOINT" x="57.5" y="45.85" smashed="yes">
 <attribute name="MF" value="Keystone" x="57.5" y="45.85" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="5122" x="57.5" y="45.85" size="1.778" layer="27" display="off"/>
 <attribute name="DIGI-KEY#" value="5122K-ND" x="57.5" y="45.85" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="59.02" y="45.87" size="0.4064" layer="25"/>
 </element>
 <element name="TP11" library="powerboard" package="TESTPOINT" value="TESTPOINT" x="85" y="52" rot="R90">
 <attribute name="MF" value="Keystone" x="85" y="52" size="1.778" layer="27" rot="R90" display="off"/>
