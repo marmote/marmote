@@ -20,6 +20,10 @@ class FrameBuffer:
     def IncreaseBufferSize(self, buff_len = 100) :
         self.byte_buff = np.append( self.byte_buff, np.ones(buff_len, dtype=np.uint8) )
 
+###########
+# alt 1.
+#        self.byte_buff = np.resize(self.byte_buff, ( 1, self.byte_buff.size + buff_len ) )[0]
+
 
 ################################################################################
     def ClearFromBeginning(self, buff_len) :
@@ -33,5 +37,11 @@ class FrameBuffer:
         for ii in xrange(len(self.frame_starts)) :
             self.frame_starts[ii] -= buff_len
 
-        self.byte_buff[:self.byte_buff_len-buff_len] = self.byte_buff[buff_len:self.byte_buff_len]
+
+        self.byte_buff = np.roll(self.byte_buff, -buff_len)
+
+###########
+# alt 1.
+#        self.byte_buff[:self.byte_buff_len-buff_len] = self.byte_buff[buff_len:self.byte_buff_len]
+
         self.byte_buff_len -= buff_len

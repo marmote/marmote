@@ -27,7 +27,7 @@ if __name__ == "__main__":
     MF_hist_len = 200
 
     dg = GDD.DisplayDataGenerator(options.inputfileordir, DSPconf, Display_N, MF_hist_len)
-    fd = DC.FancyDisplay(DSPconf, Display_N, MF_hist_len)
+    fd = DC.FancyDisplay(DSPconf, 5, Display_N, MF_hist_len)
     fd.SetupAnimation(dg.data_gen)
 
     try:
