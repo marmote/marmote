@@ -6,7 +6,7 @@
 == Errata ==
 
  * DONE - Silkscreen labels !D1V5 and !D3V3 are swapped
- * VBUS measurement point not assembled
+ * DONE - VBUS measurement point not assembled
  * DONE - SW2 name missing, needs caption (silk screen)
  * DONE - Power input needs description (silk screen)
 
