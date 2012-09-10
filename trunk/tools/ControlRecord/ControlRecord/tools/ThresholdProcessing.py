@@ -45,7 +45,18 @@ class ThresholdFilter(FB.FrameBuffer):
 
         processed_bytes = 0
 
-        for ii in xrange( len(frame_starts) - 1 ) :
+
+
+        # Check to see if the buffer is large enough, if not increase size
+        worst_case_size = self.byte_buff_len + byte_buff_len
+        size_diff = worst_case_size - self.byte_buff.size
+        if size_diff > 0:
+            self.IncreaseBufferSize(size_diff)
+
+
+
+        len_tmp = len(frame_starts) - 1
+        for ii in xrange( len_tmp ) :
             processed_bytes = frame_starts[ii+1]            
             
             t_buff = byte_buff[frame_starts[ii]:frame_starts[ii+1]]
@@ -58,8 +69,8 @@ class ThresholdFilter(FB.FrameBuffer):
             self.frame_cnt = np.append( self.frame_cnt, frame_cnt[ii] )
 
 
-            while self.byte_buff.size < self.byte_buff_len + frame_length :
-                self.IncreaseBufferSize()
+#            while self.byte_buff.size < self.byte_buff_len + frame_length :
+#                self.IncreaseBufferSize()
             
             self.byte_buff[self.byte_buff_len : self.byte_buff_len + frame_length] = t_buff
             self.byte_buff_len += frame_length            

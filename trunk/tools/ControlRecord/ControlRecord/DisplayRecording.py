@@ -26,7 +26,7 @@ if __name__ == "__main__":
     #####################################
     # Get all the data
 #    dg = GDD.FileDataGenerator(options.inputfileordir, DSPconf, Display_N, MF_hist_len)
-    dg = GDD.DisplayDataGenerator("collect.bin", DSPconf, Display_N, MF_hist_len)
+    dg = GDD.DisplayDataGenerator("collect.bin", DSPconf, Display_N, -1)
 
     dg.GetPreProcessedBuff()
 
@@ -40,9 +40,8 @@ if __name__ == "__main__":
 
     #####################################
     # Display 
-    fd = DC.FancyDisplay(DSPconf, I_buff.size, MF_hist_len, False)
+    fd = DC.FancyDisplay(DSPconf, len(frame_starts), I_buff.size, MF_hist_len, False)
 
-    fd.InitObj()
     fd.DrawFigure(data)
     fd.ShowFigure()
    

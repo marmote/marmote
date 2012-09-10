@@ -35,16 +35,34 @@ class FramePreProcessor:
         #TODO np.int16 assumes self.res = 2  !!!!!!!!!!!!!!!!!!!!!!!!!!!
         int_buff = byte_buff[:buff_len].view( dtype=np.int16 )
 
+
         frame_starts_out = []
         ii = 0
         while ii < len(frame_starts) and frame_starts[ii] < buff_len :
             frame_starts_out.append( frame_starts[ii]/self.res )
-            self.frame_cnt_history = np.append( self.frame_cnt_history, frame_cnt[ii] )
+
+            if self.mf_hist_len :
+                if self.mf_hist_len < 0 or self.frame_cnt_history.size < self.mf_hist_len + 1 :
+                    self.frame_cnt_history = np.append( self.frame_cnt_history, frame_cnt[ii] )
+                else :
+                    self.frame_cnt_history = np.roll( self.frame_cnt_history, -1 )
+                    self.frame_cnt_history[-1] = frame_cnt[ii] 
+
             ii += 1
 
 
-        while self.frame_cnt_history.size > self.mf_hist_len + 1:
-            self.frame_cnt_history = self.frame_cnt_history[1:]
+###########
+# alt 1.
+#        frame_starts_out = []
+#        ii = 0
+#        while ii < len(frame_starts) and frame_starts[ii] < buff_len :
+#            frame_starts_out.append( frame_starts[ii]/self.res )
+#            self.frame_cnt_history = np.append( self.frame_cnt_history, frame_cnt[ii] )
+#            ii += 1
+#
+#
+#        while self.frame_cnt_history.size > self.mf_hist_len + 1:
+#            self.frame_cnt_history = self.frame_cnt_history[1:]
 
 
         return buff_len, int_buff, frame_starts_out, self.frame_cnt_history[1:] - self.frame_cnt_history[:-1] - 1

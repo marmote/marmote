@@ -1,7 +1,7 @@
 import numpy as np
 
 import matplotlib
-matplotlib.use('WXAgg')
+matplotlib.use('GTKAgg')
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
@@ -12,9 +12,9 @@ import time as ttt
 class FancyDisplay:
 
 ################################################################################
-    def __init__(self, DSPconf, N = 100, MF_hist_len = 100, FigureAnimated = True):
+    def __init__(self, DSPconf, Nsep, N = 100, MF_hist_len = 100, FigureAnimated = True):
 
-        self.Nsep               = 20
+        self.Nsep               = Nsep
         self.DSPconf            = DSPconf
 #        self.fig, self.axarr    = plt.subplots(4, 1)
         self.fig, self.axarr    = plt.subplots(3, 1)

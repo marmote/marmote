@@ -19,7 +19,7 @@ if __name__ == "__main__":
     FrameConf = FC.Frameconf_t()
 
     Display_N = 0
-    MF_hist_len = 4
+    MF_hist_len = 0
 
 
     #####################################
