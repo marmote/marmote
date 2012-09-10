@@ -7,7 +7,7 @@
 
  * DONE - External TCXO is connected to MAX2830 XTAL pin (28) instead of CTUNE pin (29)
  * Not really a showstopper - Baseband single-ended to differential conversion maps approximately from single-ended [0 to 0.6V] to differential [0 to -0.5V] (instead of from single-ended [0 to 3.3V] to differential [-0.5V to +0.5V]
- * TCXO power supply digital, ground analog
+ * DONE - TCXO power supply digital, ground analog
  * DONE - Mark for 1. pin for baluns not visible enough
  * DONE - C105, C106 names covered by vias in documentation
 
