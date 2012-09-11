@@ -8,9 +8,9 @@
 </settings>
 <grid distance="0.5" unitdist="mm" unit="mm" style="dots" multiple="1" display="yes" altdistance="0.1" altunitdist="mm" altunit="mm"/>
 <layers>
-<layer number="1" name="SIGNAL1" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="1" name="SIGNAL1" color="4" fill="1" visible="no" active="yes"/>
 <layer number="2" name="GND1" color="2" fill="1" visible="no" active="yes"/>
-<layer number="3" name="SIGNAL2" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="3" name="SIGNAL2" color="4" fill="1" visible="no" active="yes"/>
 <layer number="14" name="GND2" color="2" fill="1" visible="no" active="yes"/>
 <layer number="15" name="SUPPLY" color="14" fill="1" visible="no" active="yes"/>
 <layer number="16" name="GND3" color="3" fill="1" visible="yes" active="yes"/>
@@ -18,15 +18,15 @@
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
 <layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
-<layer number="25" name="tNames" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="25" name="tNames" color="4" fill="1" visible="no" active="yes"/>
 <layer number="26" name="bNames" color="1" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
 <layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
@@ -12029,10 +12029,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="NAME" x="87.56" y="20.245" size="0.4064" layer="25"/>
 <attribute name="VALUE" x="90.715" y="21.825" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="M5" library="RFWBBoard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="2" y="2"/>
-<element name="M6" library="RFWBBoard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="2" y="48"/>
-<element name="M7" library="RFWBBoard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="88" y="48"/>
-<element name="M8" library="RFWBBoard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="88" y="2"/>
+<element name="M5" library="RFWBBoard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="2" y="2" locked="yes"/>
+<element name="M6" library="RFWBBoard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="2" y="48" locked="yes"/>
+<element name="M7" library="RFWBBoard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="88" y="48" locked="yes"/>
+<element name="M8" library="RFWBBoard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="88" y="2" locked="yes"/>
 <element name="U8" library="RFWBBoard" package="SOIC8" value="ICS83021I" x="24" y="13" smashed="yes">
 <attribute name="NAME" x="24.395" y="8.367" size="0.4064" layer="25"/>
 <attribute name="VALUE" x="27.937" y="11.095" size="1.27" layer="27" rot="R90"/>
@@ -12252,6 +12252,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <element name="LOGO5" library="Logo" package="LOGO-VANDERBILT-10MM-SILKSCREEN" value="LOGO-VANDERBILT-600MIL-10MM-SS" x="14" y="39"/>
 <element name="LOGO6" library="Logo" package="LOGO-MARMOTE-10MM-SILKSCREEN" value="LOGO-MARMOTE-600MIL-10MM-SS" x="14" y="27"/>
 <element name="LOGO7" library="Logo" package="LOGO-RADIO-FILLED-10MM-SILKSCREEN" value="LOGO-RADIO-3-600MIL-10MM-SS" x="40.5" y="35.5"/>
+<element name="M9" library="RFWBBoard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="2" y="48" locked="yes" rot="MR0"/>
+<element name="M10" library="RFWBBoard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="88" y="48" locked="yes" rot="MR0"/>
+<element name="M11" library="RFWBBoard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="2" y="2" locked="yes" rot="MR0"/>
+<element name="M12" library="RFWBBoard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="88" y="2" locked="yes" rot="MR0"/>
 </elements>
 <signals>
 <signal name="N$1">

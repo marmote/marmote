@@ -43442,6 +43442,10 @@ v1.0 Initial design</description>
 <part name="LOGO2" library="Logo" deviceset="LOGO-BATTERY-600MIL" device="-10MM-SS"/>
 <part name="U$69" library="powerboard" deviceset="DGND" device=""/>
 <part name="U$70" library="powerboard" deviceset="DGND" device=""/>
+<part name="M9" library="powerboard" deviceset="FIDUCIAL" device="1X2"/>
+<part name="M10" library="powerboard" deviceset="FIDUCIAL" device="1X2"/>
+<part name="M11" library="powerboard" deviceset="FIDUCIAL" device="1X2"/>
+<part name="M12" library="powerboard" deviceset="FIDUCIAL" device="1X2"/>
 </parts>
 <sheets>
 <sheet>
@@ -45590,6 +45594,10 @@ v1.0 Initial design</description>
 </instance>
 <instance part="R51" gate="G$1" x="78.74" y="88.9" rot="R270"/>
 <instance part="U$66" gate="G$1" x="83.82" y="86.36" smashed="yes"/>
+<instance part="M9" gate="G$1" x="40.64" y="10.16"/>
+<instance part="M10" gate="G$1" x="48.26" y="10.16"/>
+<instance part="M11" gate="G$1" x="55.88" y="10.16"/>
+<instance part="M12" gate="G$1" x="63.5" y="10.16"/>
 </instances>
 <busses>
 </busses>

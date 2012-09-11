@@ -8,7 +8,7 @@
 </settings>
 <grid distance="0.5" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.1" altunitdist="mm" altunit="mm"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="GND" color="2" fill="1" visible="no" active="yes"/>
 <layer number="3" name="SUPPLY" color="14" fill="1" visible="no" active="yes"/>
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
@@ -20,14 +20,14 @@
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
 <layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="25" name="tNames" color="4" fill="1" visible="no" active="yes"/>
-<layer number="26" name="bNames" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="26" name="bNames" color="1" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
-<layer number="30" name="bStop" color="7" fill="6" visible="yes" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
 <layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
 <layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
@@ -11165,10 +11165,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <element name="R44" library="powerboard" package="R0603" value="DNP" x="44.9" y="37.4" rot="MR270">
 <attribute name="TOLERANCE" value="" x="43.9" y="37.4" size="1.778" layer="28" rot="MR270" display="off"/>
 </element>
-<element name="M1" library="powerboard" package="3,3" value="MOUNT-HOLE3.3" x="5" y="5"/>
-<element name="M2" library="powerboard" package="3,3" value="MOUNT-HOLE3.3" x="5" y="45"/>
-<element name="M3" library="powerboard" package="3,3" value="MOUNT-HOLE3.3" x="85" y="45"/>
-<element name="M4" library="powerboard" package="3,3" value="MOUNT-HOLE3.3" x="85" y="5"/>
+<element name="M1" library="powerboard" package="3,3" value="MOUNT-HOLE3.3" x="5" y="5" locked="yes"/>
+<element name="M2" library="powerboard" package="3,3" value="MOUNT-HOLE3.3" x="5" y="45" locked="yes"/>
+<element name="M3" library="powerboard" package="3,3" value="MOUNT-HOLE3.3" x="85" y="45" locked="yes"/>
+<element name="M4" library="powerboard" package="3,3" value="MOUNT-HOLE3.3" x="85" y="5" locked="yes"/>
 <element name="U5" library="powerboard" package="SOT25" value="XC9236A15DMR-G" x="47.7" y="35.8" smashed="yes">
 <attribute name="VOUT" value="1.5V" x="47.7" y="35.8" size="1.778" layer="27" display="off"/>
 <attribute name="DIGI-KEY#" value="893-1120-1-ND" x="47.7" y="35.8" size="1.778" layer="27" display="off"/>
@@ -11214,10 +11214,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <element name="R50" library="powerboard" package="R0603" value="22" x="19.5" y="41.5" rot="R270">
 <attribute name="TOLERANCE" value="" x="19.5" y="41.5" size="1.27" layer="27" rot="R270" display="off"/>
 </element>
-<element name="M5" library="powerboard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="2" y="2"/>
-<element name="M6" library="powerboard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="2" y="48"/>
-<element name="M7" library="powerboard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="88" y="48"/>
-<element name="M8" library="powerboard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="88" y="2"/>
+<element name="M5" library="powerboard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="2" y="2" locked="yes"/>
+<element name="M6" library="powerboard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="2" y="48" locked="yes"/>
+<element name="M7" library="powerboard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="88" y="48" locked="yes"/>
+<element name="M8" library="powerboard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="88" y="2" locked="yes"/>
 <element name="R51" library="powerboard" package="R0603" value="1.5k" x="21.5" y="41.5" smashed="yes" rot="R90">
 <attribute name="TOLERANCE" value="" x="21.5" y="41.5" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="22.1858" y="42.389" size="0.4064" layer="25" rot="R270"/>
@@ -11345,6 +11345,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <element name="LOGO5" library="Logo" package="LOGO-VANDERBILT-10MM-SILKSCREEN" value="LOGO-VANDERBILT-600MIL-10MM-SS" x="10.5" y="1.5"/>
 <element name="LOGO6" library="Logo" package="LOGO-MARMOTE-10MM-SILKSCREEN" value="LOGO-MARMOTE-600MIL-10MM-SS" x="74.6" y="29.1"/>
 <element name="LOGO2" library="Logo" package="LOGO-BATTERY-10MM-SILKSCREEN" value="LOGO-BATTERY-600MIL-10MM-SS" x="74.6" y="15.3"/>
+<element name="M9" library="powerboard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="2" y="48" locked="yes" rot="MR0"/>
+<element name="M10" library="powerboard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="88" y="48" locked="yes" rot="MR0"/>
+<element name="M11" library="powerboard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="2" y="2" locked="yes" rot="MR0"/>
+<element name="M12" library="powerboard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="88" y="2" locked="yes" rot="MR0"/>
 </elements>
 <signals>
 <signal name="DGND">

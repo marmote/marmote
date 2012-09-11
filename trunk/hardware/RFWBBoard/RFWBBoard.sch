@@ -39413,6 +39413,10 @@ v1.0 Initial design</description>
 <part name="LOGO5" library="Logo" deviceset="LOGO-VANDERBILT-600MIL" device="-10MM-SS"/>
 <part name="LOGO6" library="Logo" deviceset="LOGO-MARMOTE-600MIL" device="-10MM-SS"/>
 <part name="LOGO7" library="Logo" deviceset="LOGO-RADIO-3-600MIL" device="-10MM-SS"/>
+<part name="M9" library="RFWBBoard" deviceset="FIDUCIAL" device="1X2"/>
+<part name="M10" library="RFWBBoard" deviceset="FIDUCIAL" device="1X2"/>
+<part name="M11" library="RFWBBoard" deviceset="FIDUCIAL" device="1X2"/>
+<part name="M12" library="RFWBBoard" deviceset="FIDUCIAL" device="1X2"/>
 </parts>
 <sheets>
 <sheet>
@@ -39508,6 +39512,10 @@ v1.0 Initial design</description>
 <instance part="M6" gate="G$1" x="114.3" y="15.24"/>
 <instance part="M7" gate="G$1" x="121.92" y="15.24"/>
 <instance part="M8" gate="G$1" x="129.54" y="15.24"/>
+<instance part="M9" gate="G$1" x="106.68" y="7.62"/>
+<instance part="M10" gate="G$1" x="114.3" y="7.62"/>
+<instance part="M11" gate="G$1" x="121.92" y="7.62"/>
+<instance part="M12" gate="G$1" x="129.54" y="7.62"/>
 </instances>
 <busses>
 </busses>
