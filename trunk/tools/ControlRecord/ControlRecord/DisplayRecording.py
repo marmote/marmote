@@ -25,7 +25,7 @@ if __name__ == "__main__":
 
     #####################################
     # Get all the data
-#    dg = GDD.FileDataGenerator(options.inputfileordir, DSPconf, Display_N, MF_hist_len)
+#    dg = GDD.DisplayDataGenerator(options.inputfileordir, DSPconf, Display_N, -1)
     dg = GDD.DisplayDataGenerator("collect.bin", DSPconf, Display_N, -1)
 
     dg.GetPreProcessedBuff()
