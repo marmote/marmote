@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="MarmoteRecorder.cpp" />
+    <ClCompile Include="argtable2\arg_dbl.c">
+      <Filter>argtable2</Filter>
+    </ClCompile>
+    <ClCompile Include="argtable2\arg_end.c">
+      <Filter>argtable2</Filter>
+    </ClCompile>
+    <ClCompile Include="argtable2\arg_file.c">
+      <Filter>argtable2</Filter>
+    </ClCompile>
+    <ClCompile Include="argtable2\arg_int.c">
+      <Filter>argtable2</Filter>
+    </ClCompile>
+    <ClCompile Include="argtable2\arg_lit.c">
+      <Filter>argtable2</Filter>
+    </ClCompile>
+    <ClCompile Include="argtable2\arg_rem.c">
+      <Filter>argtable2</Filter>
+    </ClCompile>
+    <ClCompile Include="argtable2\arg_str.c">
+      <Filter>argtable2</Filter>
+    </ClCompile>
+    <ClCompile Include="argtable2\argtable2.c">
+      <Filter>argtable2</Filter>
+    </ClCompile>
+    <ClCompile Include="argtable2\getopt.c">
+      <Filter>argtable2</Filter>
+    </ClCompile>
+    <ClCompile Include="argtable2\getopt1.c">
+      <Filter>argtable2</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="ftd2xx.h" />
+    <ClInclude Include="argtable2\argtable2.h">
+      <Filter>argtable2</Filter>
+    </ClInclude>
+    <ClInclude Include="argtable2\getopt.h">
+      <Filter>argtable2</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="argtable2">
+      <UniqueIdentifier>{987ac0e1-fb94-4b37-b2cc-4d97e08fbdd8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
