@@ -38889,6 +38889,10 @@ Standard 8.5x11 US Letter frame</description>
 <part name="LOGO1" library="Logo" deviceset="LOGO-MAGNIFYING-GLASS-600MIL" device="-10MM-SS"/>
 <part name="FRAME1" library="BreakoutBoard" deviceset="FRAME-LETTER" device=""/>
 <part name="FRAME2" library="BreakoutBoard" deviceset="FRAME-LETTER" device=""/>
+<part name="M9" library="powerboard" deviceset="FIDUCIAL" device="1X2"/>
+<part name="M10" library="powerboard" deviceset="FIDUCIAL" device="1X2"/>
+<part name="M11" library="powerboard" deviceset="FIDUCIAL" device="1X2"/>
+<part name="M12" library="powerboard" deviceset="FIDUCIAL" device="1X2"/>
 </parts>
 <sheets>
 <sheet>
@@ -39230,6 +39234,10 @@ Standard 8.5x11 US Letter frame</description>
 <instance part="U$12" gate="G$1" x="48.26" y="7.62"/>
 <instance part="FRAME2" gate="G$1" x="0" y="0"/>
 <instance part="FRAME2" gate="G$2" x="147.32" y="0"/>
+<instance part="M9" gate="G$1" x="132.08" y="30.48"/>
+<instance part="M10" gate="G$1" x="139.7" y="30.48"/>
+<instance part="M11" gate="G$1" x="147.32" y="30.48"/>
+<instance part="M12" gate="G$1" x="154.94" y="30.48"/>
 </instances>
 <busses>
 </busses>
