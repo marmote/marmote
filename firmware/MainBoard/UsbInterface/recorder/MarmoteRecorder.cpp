@@ -12,7 +12,7 @@
 
 // FTDI device parameters
 static int default_dev;
-#define INTERVAL_TIMEOUT 500
+#define INTERVAL_TIMEOUT 100
 
 // Wave file parameters
 #define FNAME_SEARCH "rec_???.wav"
@@ -127,7 +127,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		if (ftStatus == FT_OK)
 		{
 			// FT_Write OK
-			printf("Wrote %4d chars: 0x%0X 0x%0X 0x%0X 0x%0X\n", bytesWritten, txBuffer[0], txBuffer[1], txBuffer[2], txBuffer[3]);
+			printf("Wrote %4d chars: 0x%02X 0x%02X 0x%02X 0x%02X\n", bytesWritten, txBuffer[0], txBuffer[1], txBuffer[2], txBuffer[3]);
 		}
 		else
 		{
@@ -150,7 +150,7 @@ int _tmain(int argc, _TCHAR* argv[])
 			}
 			return 1;
 		}
-		printf("Read  %4d chars: 0x%0X 0x%0X 0x%0X 0x%0X\n", bytesReceived, rxBuffer[0], rxBuffer[1], rxBuffer[2], rxBuffer[3]);
+		printf("Read  %4d chars: 0x%02X 0x%02X 0x%02X 0x%02X\n", bytesReceived, rxBuffer[0], rxBuffer[1], rxBuffer[2], rxBuffer[3]);
 	}
 
 	//char c;

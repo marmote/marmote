@@ -351,8 +351,8 @@ SIZE="7331"
 ENDFILE
 VALUE "<project>\hdl\usb_if.vhd,hdl"
 STATE="utd"
-TIME="1347476332"
-SIZE="10444"
+TIME="1347477260"
+SIZE="10420"
 ENDFILE
 VALUE "<project>\simulation\afe_if_wave.do,do"
 STATE="utd"
@@ -367,7 +367,7 @@ PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf"
 ENDFILE
 VALUE "<project>\simulation\run.do,do"
 STATE="utd"
-TIME="1347475277"
+TIME="1347477084"
 SIZE="1434"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
@@ -384,13 +384,13 @@ PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\simulation\usb_if_tb_presynth_simulation.log,log"
 STATE="utd"
-TIME="1347475486"
-SIZE="84557"
+TIME="1347477125"
+SIZE="31052"
 ENDFILE
 VALUE "<project>\simulation\usb_if_wave.do,do"
 STATE="utd"
-TIME="1347475316"
-SIZE="3832"
+TIME="1347477113"
+SIZE="3831"
 ENDFILE
 VALUE "<project>\simulation\user.bfm,sim"
 STATE="utd"
@@ -405,8 +405,8 @@ SIZE="6294"
 ENDFILE
 VALUE "<project>\stimulus\ft232h_stub.vhd,tb_hdl"
 STATE="utd"
-TIME="1347475309"
-SIZE="5538"
+TIME="1347477104"
+SIZE="5535"
 ENDFILE
 VALUE "<project>\stimulus\usb_if_tb.vhd,tb_hdl"
 STATE="utd"

@@ -112,7 +112,7 @@ begin
         wait for 100 ns;
 
         s_txe_n <= '0';
-        wait for 5000*c_USB_CLOCK_PERIOD;
+        wait for 5*c_USB_CLOCK_PERIOD;
         s_txe_n <= '1';
 
         wait for 100 ns;
