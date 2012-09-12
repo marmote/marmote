@@ -152,7 +152,6 @@ architecture Behavioral of USB_IF is
     signal s_tx_ctrl_fifo_we    : std_logic;
     signal s_tx_ctrl_fifo_rd    : std_logic;
     signal s_tx_ctrl_fifo_empty : std_logic;
-    signal s_obuf_loaded         : std_logic;
 
     signal s_rx_ctrl_fifo_full  : std_logic;
     signal s_rx_ctrl_fifo_we    : std_logic;
@@ -237,7 +236,6 @@ begin
             s_oe <= '0';
             s_wr_n <= '1';
             s_obuf_reg <= (others => '0');
---            s_obuf_loaded <= '0';
         elsif rising_edge(usb_clk) then
 
             -- Default values
@@ -264,7 +262,6 @@ begin
                     -- USB write
                     elsif TXE_n_pin = '0' and s_tx_ctrl_fifo_empty = '0' then
                         s_arb_state <= st_ARB_TX;
---                        s_obuf_loaded <= '1';
                     end if;
 
 
@@ -302,31 +299,8 @@ begin
 
 
 
-    s_tx_ctrl_fifo_rd <= '1' when TXE_n_pin = '0' and s_tx_ctrl_fifo_empty =
-                         '0' and (s_arb_state = st_ARB_TX or s_arb_state = st_ARB_IDLE) else '0';
-
-
-
-    ----------------------------------------
-    -- 8-bit single channel tx no framing --
-    ----------------------------------------
---    p_usb_write : process (rst, usb_clk)
---    begin
---        if rst = '1' then
---            s_wr_n <= '1';
---            s_oe <= '0';
---        elsif rising_edge(usb_clk) then
---            s_oe <= '0';
---            s_wr_n <= '1';
---            if TXE_n_pin = '0' and s_tx_i_fifo_empty = '0' then
---                s_oe <= '1';
---                s_wr_n <= '0';
---            end if;
---        end if;
---    end process p_usb_write;
---
---    s_tx_fifo_re <= '1' when TXE_n_pin = '0' and s_tx_i_fifo_empty = '0' else '0';
-    -------------------------------------
+    s_tx_ctrl_fifo_rd <= '1' when TXE_n_pin = '0' and s_tx_ctrl_fifo_empty = '0' and
+                         (s_arb_state = st_ARB_TX or s_arb_state = st_ARB_IDLE) else '0';
 
 
     -- Output assignments

@@ -140,7 +140,7 @@ sim:/usb_if_tb/uut/s_tx_ctrl_fifo_rd
 
 
 #run 1 us
-run 20000 ns
+run 2000 ns
 #run -all
 
 wave zoom full
