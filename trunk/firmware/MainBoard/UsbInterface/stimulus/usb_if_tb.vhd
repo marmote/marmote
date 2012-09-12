@@ -91,7 +91,7 @@ architecture bench of USB_IF_tb is
     --constant sys_clock_period: time := (1000/20) * 1 ns; -- 20 MHz
 --    constant sys_clock_period: time := 50 ns; -- 20 MHz
 --    constant sys_clock_period: time := 25 ns; -- 40 MHz
-    constant sys_clock_period: time := (real(1000)/real(100)) * 1 ns; -- 100 MHz
+    constant sys_clock_period: time := (real(1000)/real(20)) * 1 ns; -- 20 MHz
     constant usb_clock_period: time := (real(1000)/real(60)) * 1 ns; -- 60 MHz
     signal stop_the_clock: boolean;
 

@@ -29,8 +29,8 @@
 -- Description: Interface module for the FT232H USB (FTDI) chip operating in
 --              synchronous FIFO mode.
 --
---              The module transmits 16-bit data to the FTDI chip on 2
---              channels.
+--              The module transmits 8-bit data from and to the FTDI chip on 1
+--              channel.
 --
 -- TODO:
 --  - Add framing control state machine in the USB clock region
@@ -100,16 +100,42 @@ architecture Behavioral of USB_IF is
           );
     end component;
 
+    component FIFO_512x8 is
+    port (
+        DATA    : in  std_logic_vector(7 downto 0);
+        Q       : out std_logic_vector(7 downto 0);
+        WE      : in  std_logic;
+        RE      : in  std_logic;
+        WCLOCK  : in  std_logic;
+        RCLOCK  : in  std_logic;
+        FULL    : out std_logic;
+        EMPTY   : out std_logic;
+        RESET   : in  std_logic
+    );
+    end component;
+
     -- Constants
 
     -- Signals
+
+    -- Arbiter SM
+    type arb_state_t is (
+        st_ARB_IDLE,
+        st_ARB_RX,
+        st_ARB_TX
+    );
+
+    signal s_arb_state      : arb_state_t;
+
 
     signal usb_clk      : std_logic;
 
     -- BIBUF
     signal s_oe         : std_logic;
     signal s_obuf       : std_logic_vector(7 downto 0);
+    signal s_obuf_reg   : std_logic_vector(7 downto 0);
     signal s_ibuf       : std_logic_vector(7 downto 0);
+    signal s_ibuf_reg   : std_logic_vector(7 downto 0);
 
     -- USB read
     signal s_oe_n       : std_logic;
@@ -119,6 +145,20 @@ architecture Behavioral of USB_IF is
     signal s_rx_strobe  : std_logic;
 
     signal s_wr_n       : std_logic;
+
+    -- Control FIFO
+    signal s_ctrl_data_loopback : std_logic_vector(7 downto 0);
+
+    signal s_tx_ctrl_fifo_we    : std_logic;
+    signal s_tx_ctrl_fifo_rd    : std_logic;
+    signal s_tx_ctrl_fifo_empty : std_logic;
+    signal s_obuf_loaded         : std_logic;
+
+    signal s_rx_ctrl_fifo_full  : std_logic;
+    signal s_rx_ctrl_fifo_we    : std_logic;
+    signal s_rx_ctrl_fifo_rd    : std_logic;
+    signal s_rx_ctrl_fifo_empty : std_logic;
+    
 
 begin
 
@@ -133,57 +173,138 @@ begin
         u_BIBUF_LVCMOS33 : BIBUF_LVCMOS33
         port map (
             PAD => DATA_pin(i),
-            D   => s_obuf(i),
+            D   => s_obuf_reg(i),
             E   => s_oe,
             Y   => s_ibuf(i)
         );
 
     end generate g_USB_SYNC_FIFO_DATA;
 
+
+    -- Control FIFOs
+    u_TX_CTRL_FIFO : FIFO_512x8
+    port map (
+        RESET   => RST,
+        DATA    => s_ctrl_data_loopback, -- FIXME: loopback for testing only
+        Q       => s_obuf,
+        WCLOCK  => CLK,
+        WE      => s_tx_ctrl_fifo_we,
+        RCLOCK  => usb_clk,
+        RE      => s_tx_ctrl_fifo_rd,
+        FULL    => open,
+        EMPTY   => s_tx_ctrl_fifo_empty
+    );
+
+
+    u_RX_CTRL_FIFO : FIFO_512x8
+    port map (
+        RESET   => RST,
+        DATA    => s_ibuf_reg,
+        Q       => s_ctrl_data_loopback, -- FIXME: loopback for testing only
+        WCLOCK  => usb_clk,
+        WE      => s_rx_ctrl_fifo_we,
+        RCLOCK  => CLK,
+        RE      => s_rx_ctrl_fifo_rd,
+        FULL    => s_rx_ctrl_fifo_full,
+        EMPTY   => s_rx_ctrl_fifo_empty
+    );
+
+    s_rx_ctrl_fifo_rd <= not s_rx_ctrl_fifo_empty;
+
+
+    p_ctrl_fifo_loopback : process (rst, clk)
+    begin
+        if rst = '1' then
+            s_tx_ctrl_fifo_we <= '0';
+        elsif rising_edge(clk) then
+            s_tx_ctrl_fifo_we <= '0';
+            if s_rx_ctrl_fifo_rd = '1' then
+                s_tx_ctrl_fifo_we <= '1';
+            end if;
+        end if;
+    end process p_ctrl_fifo_loopback;
+
     
-    p_usb_read : process (rst, usb_clk)
+    p_usb_transfer_sync : process (rst, usb_clk)
     begin
         if rst = '1' then
+            s_arb_state <= st_ARB_IDLE;
             s_oe_n <= '1';
             s_rd_n <= '1';
-            s_rxd <= (others => '0');
-            s_rx_strobe <= '0';
+            s_rx_ctrl_fifo_we <= '0';
+            s_ibuf_reg <= (others => '0');
+
+            s_oe <= '0';
+            s_wr_n <= '1';
+            s_obuf_reg <= (others => '0');
+--            s_obuf_loaded <= '0';
         elsif rising_edge(usb_clk) then
 
+            -- Default values
             s_oe_n <= '1';
             s_rd_n <= '1';
-            s_rxd <= s_rxd;
-            s_rx_strobe <= '0';
+            s_rx_ctrl_fifo_we <= '0';
+            s_ibuf_reg <= (others => '0');
 
-            if RXF_n_pin = '0' then
-                s_oe_n <= '0';
+            s_oe <= '0';
+            s_wr_n <= '1';
+            s_obuf_reg <= (others => '0');
 
-                if s_oe_n = '0' then
-                    s_rd_n <= '0';
 
-                    if s_rd_n = '0' then
-                        s_rxd <= s_ibuf;
-                        s_rx_strobe <= '1';
+            case s_arb_state is
+
+                when st_ARB_IDLE =>
+
+
+                    -- USB read
+                    if RXF_n_pin = '0' and s_rx_ctrl_fifo_full = '0' then
+                        s_oe_n <= '0';
+                        s_arb_state <= st_ARB_RX;
+
+                    -- USB write
+                    elsif TXE_n_pin = '0' and s_tx_ctrl_fifo_empty = '0' then
+                        s_arb_state <= st_ARB_TX;
+--                        s_obuf_loaded <= '1';
                     end if;
-                end if;
-            end if;
-        end if;
-    end process p_usb_read;
 
-    s_oe <= '0';
-    s_wr_n <= '1';
-    s_obuf <= (others => '0');
 
-    p_rxd_buf_for_debug : process (rst, usb_clk)
-    begin
-        if rst = '1' then
-            s_rxd_buf <= (others => '0');
-        elsif rising_edge(usb_clk) then
-            if s_rx_strobe = '1' then
-                s_rxd_buf <= s_rxd;
-            end if;
+                when st_ARB_RX =>
+
+                    if RXF_n_pin = '0' and s_rx_ctrl_fifo_full = '0' and s_oe_n = '0' then
+                        s_oe_n <= '0';
+                        s_rd_n <= '0';
+                        if s_rd_n = '0' then
+                            s_ibuf_reg <= s_ibuf;
+                            s_rx_ctrl_fifo_we <= '1';
+                        end if;
+                    else
+                        s_arb_state <= st_ARB_IDLE;
+                    end if;
+
+
+                when st_ARB_TX =>
+                    if TXE_n_pin = '0' and s_tx_ctrl_fifo_empty = '0' then
+                        s_oe <= '1';
+                        s_wr_n <= '0';
+                        s_obuf_reg <= s_obuf;
+                    else
+                        s_arb_state <= st_ARB_IDLE;
+                    end if;
+
+
+                when others =>
+                    null;
+
+            end case;
+
         end if;
-    end process p_rxd_buf_for_debug;
+    end process p_usb_transfer_sync;
+
+
+
+    s_tx_ctrl_fifo_rd <= '1' when TXE_n_pin = '0' and s_tx_ctrl_fifo_empty =
+                         '0' and (s_arb_state = st_ARB_TX or s_arb_state = st_ARB_IDLE) else '0';
+
 
 
     ----------------------------------------
@@ -216,7 +337,9 @@ begin
 
     SIWU_n_pin <= '1'; -- Send only full packets
 
-    RX_STROBE <= s_rx_strobe;
+    RX_STROBE <= s_tx_ctrl_fifo_we;
+    RXD <= s_ctrl_data_loopback;
+--    RX_STROBE <= s_rx_strobe;
 --    RXD <= s_rxd;
     RXD <= s_rxd_buf;
 

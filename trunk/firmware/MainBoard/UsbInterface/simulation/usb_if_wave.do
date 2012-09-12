@@ -8,19 +8,33 @@ add wave  \
 -divider {External pins} \
 -unsigned \
 sim:/usb_if_tb/uut/USB_CLK_pin \
-sim:/usb_if_tb/uut/DATA_pin \
+-divider {Read timing} \
 sim:/usb_if_tb/uut/RXF_n_pin \
+sim:/usb_if_tb/uut/DATA_pin \
 sim:/usb_if_tb/uut/OE_n_pin \
 sim:/usb_if_tb/uut/RD_n_pin \
+-divider {Read timing} \
+sim:/usb_if_tb/uut/TXE_n_pin \
+sim:/usb_if_tb/uut/DATA_pin \
+sim:/usb_if_tb/uut/WR_n_pin \
 -divider IOBUF \
 sim:/usb_if_tb/uut/s_oe \
 sim:/usb_if_tb/uut/s_obuf \
+sim:/usb_if_tb/uut/s_obuf_reg \
 sim:/usb_if_tb/uut/s_ibuf \
+sim:/usb_if_tb/uut/s_ibuf_reg \
 -divider {Internal pins} \
-sim:/usb_if_tb/uut/RX_STROBE \
-sim:/usb_if_tb/uut/s_rxd \
-sim:/usb_if_tb/uut/s_rxd_buf \
-sim:/usb_if_tb/uut/RXD 
+-hex \
+sim:/usb_if_tb/uut/CLK \
+sim:/usb_if_tb/uut/s_arb_state \
+sim:/usb_if_tb/uut/s_rx_ctrl_fifo_we \
+sim:/usb_if_tb/uut/s_rx_ctrl_fifo_empty \
+sim:/usb_if_tb/uut/s_rx_ctrl_fifo_rd \
+sim:/usb_if_tb/uut/s_ctrl_data_loopback \
+sim:/usb_if_tb/uut/s_tx_ctrl_fifo_we \
+sim:/usb_if_tb/uut/s_tx_ctrl_fifo_empty \
+sim:/usb_if_tb/uut/s_tx_ctrl_fifo_rd
+
 
 #add wave  \
 #-divider {External pins} \
@@ -126,7 +140,7 @@ sim:/usb_if_tb/uut/RXD
 
 
 #run 1 us
-run 700 ns
+run 20000 ns
 #run -all
 
 wave zoom full
