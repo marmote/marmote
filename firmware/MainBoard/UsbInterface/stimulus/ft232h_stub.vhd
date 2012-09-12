@@ -89,13 +89,44 @@ begin
     p_stimulus : process
     begin
         s_rxf_n <= '1';
+        s_txe_n <= '1';
         DATA_pin <= (others => 'Z');
+
         wait for 100 ns;
         wait until rising_edge(s_usb_clk);
         wait for 2 ns;
-        s_rxf_n <= '0';
 
+        s_rxf_n <= '0';
         wait for 200 ns;
+        s_rxf_n <= '1';
+
+        wait for 100 ns;
+
+        wait until rising_edge(s_usb_clk);
+        wait for 2 ns;
+
+        s_rxf_n <= '0';
+        wait for 200 ns;
+        s_rxf_n <= '1';
+
+        wait for 100 ns;
+
+        s_txe_n <= '0';
+        wait for 5000*c_USB_CLOCK_PERIOD;
+        s_txe_n <= '1';
+
+        wait for 100 ns;
+
+        s_txe_n <= '0';
+        wait for 1*c_USB_CLOCK_PERIOD;
+        s_txe_n <= '1';
+
+        wait for 100 ns;
+
+        s_txe_n <= '0';
+        wait for 5*c_USB_CLOCK_PERIOD;
+        s_txe_n <= '1';
+
     end process p_stimulus;
 
 
@@ -146,7 +177,7 @@ begin
     end process p_usb_clock_gen;
 
 
-    s_txe_n <= '1';
+--    s_txe_n <= '1';
 
     -- Output assignments
 

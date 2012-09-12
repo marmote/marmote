@@ -12,7 +12,7 @@
 
 // FTDI device parameters
 static int default_dev;
-#define INTERVAL_TIMEOUT 5000
+#define INTERVAL_TIMEOUT 500
 
 // Wave file parameters
 #define FNAME_SEARCH "rec_???.wav"
@@ -67,8 +67,11 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	FT_HANDLE ftHandle;
 	FT_STATUS ftStatus;
-	DWORD BytesWritten;
-	char TxBuffer[128]; // Contains data to write to device
+	DWORD bytesWritten;
+	DWORD bytesRequested;
+	DWORD bytesReceived;
+	char txBuffer[128]; // Contains data to write to device
+	char rxBuffer[4096];
 	int device = 0;
 
 	// Open FTDI device
@@ -83,7 +86,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	printf("DEV %d opened\n", device);
 
 	// Set timeout
-	ftStatus = FT_SetTimeouts(ftHandle, INTERVAL_TIMEOUT, 0);
+	ftStatus = FT_SetTimeouts(ftHandle, INTERVAL_TIMEOUT, 1000);
 	if (ftStatus != FT_OK)
 	{
 		printf("Unable to set DEV timeouts\n");
@@ -113,16 +116,18 @@ int _tmain(int argc, _TCHAR* argv[])
 	while (1)
 	{
 		getchar();
-		TxBuffer[0] = '0' + j;
-		//TxBuffer[0] = 0x3;
+
+		txBuffer[0] = j;
+		txBuffer[1] = j+10;
+		txBuffer[2] = j+20;
+		txBuffer[3] = j+30;
 		
 		//ftStatus = FT_Write(ftHandle, TxBuffer, sizeof(TxBuffer), &BytesWritten);
-		ftStatus = FT_Write(ftHandle, TxBuffer, 1, &BytesWritten);
+		ftStatus = FT_Write(ftHandle, txBuffer, 4, &bytesWritten);
 		if (ftStatus == FT_OK)
 		{
 			// FT_Write OK
-			printf("Wrote %2d chars\n", BytesWritten);
-			//putchar(TxBuffer[0]);
+			printf("Wrote %4d chars: 0x%0X 0x%0X 0x%0X 0x%0X\n", bytesWritten, txBuffer[0], txBuffer[1], txBuffer[2], txBuffer[3]);
 		}
 		else
 		{
@@ -131,6 +136,21 @@ int _tmain(int argc, _TCHAR* argv[])
 		}
 		j++;
 		//Sleep(1000);
+
+		bytesRequested = 4096;
+		bytesReceived = 0;
+		ftStatus = FT_Read(ftHandle, rxBuffer, bytesRequested, &bytesReceived);
+		if (ftStatus != FT_OK)
+		{
+			printf("Unable to read device\n");
+			ftStatus = FT_Close(ftHandle);
+			if (ftStatus != FT_OK)
+			{
+				printf("FT_Close(): FAILED\n");
+			}
+			return 1;
+		}
+		printf("Read  %4d chars: 0x%0X 0x%0X 0x%0X 0x%0X\n", bytesReceived, rxBuffer[0], rxBuffer[1], rxBuffer[2], rxBuffer[3]);
 	}
 
 	//char c;
