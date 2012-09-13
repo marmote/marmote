@@ -211,7 +211,7 @@ void Max2830_write_register( uint8_t addr, uint16_t data );
 
 
 /**
- * The Max2830_calibrate() function calibrates the [RX/TX?] path. // FIXME
+ * The Max2830_calibrate() function calibrates the [RX/TX?] path. // TODO
  *
  * Note: Tx calibration involves sine generation in the baseband and this
  *       feature is NOT IMPLMENTED YET.

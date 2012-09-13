@@ -11,8 +11,12 @@
 CMD_Type CMD_List[] =
 {
 	{"help", CmdHelp},
-	{"led",  CmdLed},
+//	{"led",  CmdLed},
+	{"sleep", CmdSleep},
+	{"clk",  CmdClock},
 	{"afe",  CmdAfe},
+
+//	{"fpga", CmdFpga},
 
 	{"reg",  	CmdReg},
 	{"freq", 	CmdFreq},
@@ -54,13 +58,13 @@ uint32_t CmdLed(uint32_t argc, char** argv)
 	{
 		if (!strcmp(*(argv+1), "on"))
 		{
-			MSS_GPIO_set_output( MSS_GPIO_0, 1 );
+			//MSS_GPIO_set_output( MSS_GPIO_LED1, 1 );
 			return 0;
 		}
 
 		if (!strcmp(*(argv+1), "off"))
 		{
-			MSS_GPIO_set_output( MSS_GPIO_0, 0 );
+			//MSS_GPIO_set_output( MSS_GPIO_LED1, 0 );
 			return 0;
 		}
 	}
@@ -70,20 +74,191 @@ uint32_t CmdLed(uint32_t argc, char** argv)
 	return 1;
 }
 
-
-uint32_t CmdAfe(uint32_t argc, char** argv)
+uint32_t CmdSleep(uint32_t argc, char** argv)
 {
+	uint32_t timeout;
+	uint32_t current_time;
+    uint64_t match;
+
+	char buf[128];
+
+	if (argc == 2)
+	{
+		timeout = atoi(*(argv+1));
+		if (timeout || !strcmp(*(argv+1), "0"))
+		{
+			current_time = MSS_RTC_get_seconds_count();
+
+			sprintf(buf, "\nGoing to sleep at %02d:%02d:%02d for %d s", (int)current_time/3600%24, (int)current_time/60%60, (int)current_time%60, (int)timeout);
+			Yellowstone_print(buf);
+
+			MSS_RTC_disable_irq();
+
+			match = MSS_RTC_get_rtc_count();
+			match = match + ((uint64_t)timeout << 8);
+			MSS_RTC_set_rtc_match( match );
+			MSS_RTC_enable_irq();
+
+	        // Clear RTC match event
+	        //SYSREG->CLR_MSS_SR |= CLR_MSS_SR_RTC_MATCH_IRQ;
+			//SYSREG->SOFT_RST_CR |= SYSREG_FPGA_SOFTRESET_MASK;
+
+			SwitchMssClock(LP_OSC_CLK_SRC);
+			// Wait for interrupt
+			__ASM volatile ("WFI");
+			SwitchMssClock(MAIN_OSC_CLK_SRC);
+
+			//SYSREG->SOFT_RST_CR &= ~SYSREG_FPGA_SOFTRESET_MASK;
+
+			current_time = MSS_RTC_get_seconds_count();
+			sprintf(buf, "\nWoke up at %02d:%02d:%02d", (int)current_time/3600%24, (int)current_time/60%60, (int)current_time%60);
+			Yellowstone_print(buf);
+
+			return 0;
+		}
+	}
+
+	// Send help message
+	Yellowstone_print("\r\nUsage: sleep <timeout in seconds>");
+	return 1;
+}
+
+#define STATASEL_MASK   (1 << 0)
+#define RXASEL_MASK 	(1 << 1)
+#define DYNASEL_MASK 	(1 << 2)
+#define BYPASSA_MASK	(1 << 6)
+#define STATCSEL_MASK	(1 << 16)
+#define RXCSEL_MASK 	(1 << 17)
+#define DYNCSEL_MASK	(1 << 18)
+#define BYPASSC_MASK	(1 << 22)
+
+
+uint32_t CmdClock(uint32_t argc, char** argv)
+{
+	CLK_SRC_Type clock;
+
+	char buf[128];
+
+	if (argc == 1)
+	{
+		clock = GetMssClock();
+
+		Yellowstone_print("\nCLKSRC\t");
+		switch ( clock )
+		{
+			case RC_OSC_CLK_SRC:
+				Yellowstone_print("RC OSC");
+				break;
+			case LP_OSC_CLK_SRC:
+				Yellowstone_print("LP OSC");
+				break;
+			case MAIN_OSC_CLK_SRC :
+				Yellowstone_print("MAIN OSC");
+				break;
+			default:
+				Yellowstone_print("?");
+				break;
+		}
+
+		/*
+		pll_cr = SYSREG->MSS_CCC_PLL_CR;
+
+		n = (pll_cr & 0x7F) + 1;
+		m = ((pll_cr >> 7) & 0x7F) + 1;
+		*/
+
+		SystemCoreClockUpdate();
+
+		sprintf(buf, "\nSYSCLK\t%d Hz", (int)SystemCoreClock);
+		Yellowstone_print(buf);
+
+		sprintf(buf, "\nPCLK0\t%d Hz", (int)g_FrequencyPCLK0);
+		Yellowstone_print(buf);
+
+		sprintf(buf, "\nPCLK1\t%d Hz", (int)g_FrequencyPCLK1);
+		Yellowstone_print(buf);
+
+		sprintf(buf, "\nACE\t%d Hz", (int)g_FrequencyACE);
+		Yellowstone_print(buf);
+
+		sprintf(buf, "\nFPGA\t%d Hz", (int)g_FrequencyFPGA);
+		Yellowstone_print(buf);
+
+		return 0;
+	}
+
+	// Send help message
+  	Yellowstone_print("\nUsage: clk");
+	return 1;
+}
+
+/*
+uint32_t CmdFpga(uint32_t argc, char** argv)
+{
+	if (argc == 1)
+	{
+		Yellowstone_print("\nFPGA fabric is ");
+		if ( MSS_GPIO_get_outputs() & MSS_GPIO_FPGA_ENABLE_MASK )
+		{
+			Yellowstone_print("ON");
+		}
+		else
+		{
+			Yellowstone_print("OFF");
+		}
+		return 0;
+	}
+
 	if (argc == 2)
 	{
 		if (!strcmp(*(argv+1), "on"))
 		{
-			MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_AFE1_SHDN_MASK );
+			MSS_GPIO_set_output( MSS_GPIO_FPGA_ENABLE, 1 );
 			return 0;
 		}
 
 		if (!strcmp(*(argv+1), "off"))
 		{
-			MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_AFE1_SHDN_MASK );
+			MSS_GPIO_set_output( MSS_GPIO_FPGA_ENABLE, 0 );
+			return 0;
+		}
+	}
+
+	// Send help message
+  	Yellowstone_print("\nUsage: fpga [on | off]");
+	return 1;
+}
+*/
+
+
+
+uint32_t CmdAfe(uint32_t argc, char** argv)
+{
+	if (argc == 1)
+	{
+		Yellowstone_print("\nAFE is ");
+		if ( MSS_GPIO_get_outputs() & MSS_GPIO_AFE_ENABLE_MASK )
+		{
+			Yellowstone_print("ON");
+		}
+		else
+		{
+			Yellowstone_print("OFF");
+		}
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		if (!strcmp(*(argv+1), "on"))
+		{
+			MSS_GPIO_set_output( MSS_GPIO_AFE_ENABLE, 1 );
+			return 0;
+		}
+
+		if (!strcmp(*(argv+1), "off"))
+		{
+			MSS_GPIO_set_output( MSS_GPIO_AFE_ENABLE, 0 );
 			return 0;
 		}
 	}
@@ -92,6 +267,8 @@ uint32_t CmdAfe(uint32_t argc, char** argv)
 	Yellowstone_print("\nUsage: afe [on | off ]");
 	return 1;
 }
+
+
 
 /*
  * MAX2830 related commands
@@ -217,7 +394,7 @@ uint32_t CmdTxGain(uint32_t argc, char** argv)
 	if (argc == 2)
 	{
 		gain = atof(*(argv+1));
-		if (gain || !strcmp(*(argv+1), "0")) // FIXME: test how this condition is handled
+		if (gain || !strcmp(*(argv+1), "0"))
 		{
 			Max2830_set_tx_gain(gain);
 
@@ -294,7 +471,7 @@ uint32_t CmdRxVga(uint32_t argc, char** argv)
 	return 1;
 }
 
-// TODO: make this command rxgain <total gain> | (<lna gain> <vga gain>)
+
 uint32_t CmdRxGain(uint32_t argc, char** argv)
 {
 	float gain;

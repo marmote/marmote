@@ -1,11 +1,11 @@
--- Version: 10.0 SP2 10.0.20.2
+-- Version: 10.0 SP1 10.0.10.4
 
 library ieee;
 use ieee.std_logic_1164.all;
 library smartfusion;
 use smartfusion.all;
 
-entity fifo_512x8 is
+entity FIFO_512x8 is
 
     port( DATA   : in    std_logic_vector(7 downto 0);
           Q      : out   std_logic_vector(7 downto 0);
@@ -15,14 +15,12 @@ entity fifo_512x8 is
           RCLOCK : in    std_logic;
           FULL   : out   std_logic;
           EMPTY  : out   std_logic;
-          RESET  : in    std_logic;
-          AEMPTY : out   std_logic;
-          AFULL  : out   std_logic
+          RESET  : in    std_logic
         );
 
-end fifo_512x8;
+end FIFO_512x8;
 
-architecture DEF_ARCH of fifo_512x8 is 
+architecture DEF_ARCH of FIFO_512x8 is 
 
   component INV
     port( A : in    std_logic := 'U';
@@ -122,7 +120,7 @@ architecture DEF_ARCH of fifo_512x8 is
     port(Y : out std_logic); 
   end component;
 
-    signal WEAP, RESETP, \VCC\, \GND\ : std_logic;
+    signal WEBP, RESETP, \VCC\, \GND\ : std_logic;
     signal GND_power_net1 : std_logic;
     signal VCC_power_net1 : std_logic;
 
@@ -131,20 +129,17 @@ begin
     \GND\ <= GND_power_net1;
     \VCC\ <= VCC_power_net1;
 
-    REBUBBLEA : INV
-      port map(A => RE, Y => WEAP);
-    
     RESETBUBBLEA : INV
       port map(A => RESET, Y => RESETP);
     
     FIFOBLOCK0 : FIFO4K18
       port map(AEVAL11 => \GND\, AEVAL10 => \GND\, AEVAL9 => 
         \GND\, AEVAL8 => \GND\, AEVAL7 => \GND\, AEVAL6 => \GND\, 
-        AEVAL5 => \VCC\, AEVAL4 => \VCC\, AEVAL3 => \GND\, AEVAL2
+        AEVAL5 => \GND\, AEVAL4 => \GND\, AEVAL3 => \GND\, AEVAL2
          => \GND\, AEVAL1 => \GND\, AEVAL0 => \GND\, AFVAL11 => 
-        \VCC\, AFVAL10 => \VCC\, AFVAL9 => \VCC\, AFVAL8 => \VCC\, 
-        AFVAL7 => \VCC\, AFVAL6 => \VCC\, AFVAL5 => \GND\, AFVAL4
-         => \VCC\, AFVAL3 => \GND\, AFVAL2 => \GND\, AFVAL1 => 
+        \GND\, AFVAL10 => \GND\, AFVAL9 => \GND\, AFVAL8 => \GND\, 
+        AFVAL7 => \GND\, AFVAL6 => \GND\, AFVAL5 => \GND\, AFVAL4
+         => \GND\, AFVAL3 => \GND\, AFVAL2 => \GND\, AFVAL1 => 
         \GND\, AFVAL0 => \GND\, WD17 => \GND\, WD16 => \GND\, 
         WD15 => \GND\, WD14 => \GND\, WD13 => \GND\, WD12 => 
         \GND\, WD11 => \GND\, WD10 => \GND\, WD9 => \GND\, WD8
@@ -152,15 +147,18 @@ begin
         WD4 => DATA(4), WD3 => DATA(3), WD2 => DATA(2), WD1 => 
         DATA(1), WD0 => DATA(0), WW0 => \VCC\, WW1 => \VCC\, WW2
          => \GND\, RW0 => \VCC\, RW1 => \VCC\, RW2 => \GND\, 
-        RPIPE => \GND\, WEN => WE, REN => WEAP, WBLK => \GND\, 
+        RPIPE => \GND\, WEN => WEBP, REN => RE, WBLK => \GND\, 
         RBLK => \GND\, WCLK => WCLOCK, RCLK => RCLOCK, RESET => 
         RESETP, ESTOP => \VCC\, FSTOP => \VCC\, RD17 => OPEN, 
         RD16 => OPEN, RD15 => OPEN, RD14 => OPEN, RD13 => OPEN, 
         RD12 => OPEN, RD11 => OPEN, RD10 => OPEN, RD9 => OPEN, 
         RD8 => OPEN, RD7 => Q(7), RD6 => Q(6), RD5 => Q(5), RD4
          => Q(4), RD3 => Q(3), RD2 => Q(2), RD1 => Q(1), RD0 => 
-        Q(0), FULL => FULL, AFULL => AFULL, EMPTY => EMPTY, 
-        AEMPTY => AEMPTY);
+        Q(0), FULL => FULL, AFULL => OPEN, EMPTY => EMPTY, AEMPTY
+         => OPEN);
+    
+    WEBUBBLEA : INV
+      port map(A => WE, Y => WEBP);
     
     GND_power_inst1 : GND
       port map( Y => GND_power_net1);
@@ -176,7 +174,7 @@ end DEF_ARCH;
 
 -- _GEN_File_Contents_
 
--- Version:10.0.20.2
+-- Version:10.0.10.4
 -- ACTGENU_CALL:1
 -- BATCH:T
 -- FAM:PA3SOC2
@@ -189,7 +187,7 @@ end DEF_ARCH;
 -- GEN_BHV_VERILOG_VAL:F
 -- MGNTIMER:F
 -- MGNCMPL:T
--- DESDIR:D:/firmware/MainBoard/FIFOGen/smartgen\fifo_512x8
+-- DESDIR:N/A
 -- GEN_BEHV_MODULE:F
 -- SMARTGEN_DIE:IP6X5M2
 -- SMARTGEN_PACKAGE:fg256
@@ -198,20 +196,16 @@ end DEF_ARCH;
 -- RWIDTH:8
 -- WDEPTH:512
 -- RDEPTH:512
--- WE_POLARITY:0
--- RE_POLARITY:0
+-- WE_POLARITY:1
+-- RE_POLARITY:1
 -- RCLK_EDGE:RISE
 -- WCLK_EDGE:RISE
 -- PMODE1:0
--- FLAGS:STATIC
--- AFVAL:506
--- AEVAL:6
+-- FLAGS:NOFLAGS
+-- AFVAL:2
+-- AEVAL:1
 -- ESTOP:NO
 -- FSTOP:NO
--- AFVAL:506
--- AEVAL:6
--- AFFLAG_UNITS:WW
--- AEFLAG_UNITS:RW
 -- DATA_IN_PN:DATA
 -- DATA_OUT_PN:Q
 -- WE_PN:WE
@@ -228,4 +222,5 @@ end DEF_ARCH;
 -- RESET_POLARITY:1
 
 -- _End_Comments_
+
 

@@ -12,6 +12,9 @@
 #include <string.h>
 #include <stdlib.h>
 
+#include <mss_rtc.h>
+#include "clock_mgt.h"
+
 #include "yellowstone.h"
 #include "teton.h"
 #include "joshua.h"
@@ -29,6 +32,11 @@ extern CMD_Type CMD_List[];
 uint32_t CmdHelp(uint32_t argc, char** argv);
 uint32_t CmdLed(uint32_t argc, char** argv);
 uint32_t CmdAfe(uint32_t argc, char** argv);
+
+// Power management
+uint32_t CmdSleep(uint32_t argc, char** argv);
+uint32_t CmdClock(uint32_t argc, char** argv);
+//uint32_t CmdFpga(uint32_t argc, char** argv);
 
 // MAX 2830 commands
 uint32_t CmdReg(uint32_t argc, char** argv);
