@@ -1,6 +1,6 @@
 # Actel Physical design constraints file
 
-# Version: 10.0 SP2 10.0.20.2
+# Version: 10.1 10.1.0.14
 
 # Design Name: Teton 
 
@@ -8,7 +8,7 @@
 
 # Family: SmartFusion , Die: A2F500M3G , Package: 256 FBGA , Speed grade: -1 
 
-# Date generated: Tue Aug 07 16:42:25 2012 
+# Date generated: Thu Sep 13 16:02:49 2012 
 
 
 
@@ -17,9 +17,11 @@
 #
 define_group -name SPI_1
 define_group -name I2C_0_SMBus
+define_group -name SPI_0
+define_group -name I2C_0
 define_group -name SPI_0_PADs
-define_group -name SPI_1_PADs
 define_group -name I2C_0_PADs
+define_group -name SPI_1_PADs
 define_group -name MAC_0_RMII_DATA_FAB
 define_group -name MAC_0_RMII_DATA_FAB_CAPTURE
 define_group -name MAC_0_RMII_PHY_MGMT_PADs
@@ -31,8 +33,6 @@ define_group -name I2C_1_PADs
 define_group -name I2C_1_SMBus
 define_group -name UART_1
 define_group -name UART_0
-define_group -name I2C_0
-define_group -name SPI_0
 define_group -name MAC_RMII_PHY_MGMT_PADs
 define_group -name MAC_RMII_DATA_PADs
 
@@ -48,101 +48,72 @@ set_iobank Bank1 -vcci 3.30 -fixed no
 set_iobank Bank0 -vcci 3.30 -fixed no
 
 #
-# Local clock constraints
-#
-
-
-#
-# Region constraints
-#
-
-
-#
 # I/O constraints
 #
 
-set_io AFE1_CLK -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname A7 -fixed yes
-set_io AFE1_DB\[0\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname B7 -fixed yes
-set_io AFE1_DB\[1\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname B8 -fixed yes
-set_io AFE1_DB\[2\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname B9 -fixed yes
-set_io AFE1_DB\[3\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname A10 -fixed yes
-set_io AFE1_DB\[4\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname B10 -fixed yes
-set_io AFE1_DB\[5\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname A11 -fixed yes
-set_io AFE1_DB\[6\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname B11 -fixed yes
-set_io AFE1_DB\[7\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname B12 -fixed yes
-set_io AFE1_DB\[8\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname A13 -fixed yes
-set_io AFE1_DB\[9\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname B13 -fixed yes
-set_io AFE1_SHDN_n -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname A14 -fixed yes
-set_io AFE1_TR_n -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname B14 -fixed yes
-set_io AFE2_CLK -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname E1 -fixed yes
-set_io AFE2_DB\[0\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname C1 -fixed yes
-set_io AFE2_DB\[1\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname C3 -fixed yes
-set_io AFE2_DB\[2\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname B1 -fixed yes
-set_io AFE2_DB\[3\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname B3 -fixed yes
-set_io AFE2_DB\[4\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname A3 -fixed yes
-set_io AFE2_DB\[5\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname B4 -fixed yes
-set_io AFE2_DB\[6\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname A4 -fixed yes
-set_io AFE2_DB\[7\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname B5 -fixed yes
-set_io AFE2_DB\[8\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname B6 -fixed yes
-set_io AFE2_DB\[9\] -OUT_DRIVE 2 -SLEW Low -REGISTER Yes -pinname A6 -fixed yes
-set_io AFE2_SHDN_n -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname D6 -fixed yes
-set_io AFE2_TR_n -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname C6 -fixed yes
-set_io J_ANTSEL -pinname F1 -fixed yes
-set_io J_LD -pinname F3 -fixed yes
-set_io J_RSSI -pinname P9 -fixed yes
-set_io J_RXHP -pinname G3 -fixed yes
-set_io J_RXTX -pinname K14 -fixed yes
-set_io J_SHDN -pinname E3 -fixed yes
-set_io LED1 -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname H5 -fixed yes
-set_io LED2 -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname H4 -fixed yes
+set_io ACBUS8 -iostd LVTTL -REGISTER No -RES_PULL None -SCHMITT_TRIGGER Off -pinname E12 -fixed yes
+set_io AFE1_CLK -iostd LVCMOS33 -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname A7 -fixed yes
+set_io AFE1_DB\[0\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname B7 -fixed yes
+set_io AFE1_DB\[1\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname B8 -fixed yes
+set_io AFE1_DB\[2\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname B9 -fixed yes
+set_io AFE1_DB\[3\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname A10 -fixed yes
+set_io AFE1_DB\[4\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname B10 -fixed yes
+set_io AFE1_DB\[5\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname A11 -fixed yes
+set_io AFE1_DB\[6\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname B11 -fixed yes
+set_io AFE1_DB\[7\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname B12 -fixed yes
+set_io AFE1_DB\[8\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname A13 -fixed yes
+set_io AFE1_DB\[9\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname B13 -fixed yes
+set_io AFE1_SHDN_n -iostd LVCMOS33 -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname A14 -fixed yes
+set_io AFE1_TR_n -iostd LVCMOS33 -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname B14 -fixed yes
+set_io AFE2_CLK -iostd LVCMOS33 -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname E1 -fixed yes
+set_io AFE2_DB\[0\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname C1 -fixed yes
+set_io AFE2_DB\[1\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname C3 -fixed yes
+set_io AFE2_DB\[2\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname B1 -fixed yes
+set_io AFE2_DB\[3\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname B3 -fixed yes
+set_io AFE2_DB\[4\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname A3 -fixed yes
+set_io AFE2_DB\[5\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname B4 -fixed yes
+set_io AFE2_DB\[6\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname A4 -fixed yes
+set_io AFE2_DB\[7\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname B5 -fixed yes
+set_io AFE2_DB\[8\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname B6 -fixed yes
+set_io AFE2_DB\[9\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname A6 -fixed yes
+set_io AFE2_SHDN_n -iostd LVCMOS33 -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname D6 -fixed yes
+set_io AFE2_TR_n -iostd LVCMOS33 -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname C6 -fixed yes
+set_io I2C_0_SCL -iostd LVTTL -OUT_DRIVE 8 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname J12 -fixed yes
+set_io I2C_0_SDA -iostd LVTTL -OUT_DRIVE 8 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname J13 -fixed yes
+set_io J_ANTSEL -iostd LVTTL -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname F1 -fixed yes
+set_io J_LD -iostd LVTTL -REGISTER No -RES_PULL None -SCHMITT_TRIGGER Off -pinname F3 -fixed yes
+set_io J_RSSI -iostd LVTTL -SLEW Low -REGISTER No -pinname P9 -fixed yes
+set_io J_RXHP -iostd LVTTL -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname G3 -fixed yes
+set_io J_RXTX -iostd LVTTL -OUT_DRIVE 8 -SLEW High -RES_PULL None -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname K14 -fixed yes
+set_io J_SHDN -iostd LVTTL -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname E3 -fixed yes
+set_io LED1 -iostd LVCMOS33 -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname H5 -fixed yes
+set_io LED2 -iostd LVCMOS33 -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname H4 -fixed yes
 set_io MAINXIN -pinname R12
-set_io MSS_RESET_N -pinname K4 -fixed yes
-set_io OE_n -pinname E16 -fixed yes
-set_io RD_n -pinname D14 -fixed yes
-set_io SIWU_n -pinname E14 -fixed yes
-set_io SPI_0_IT -pinname G2 -fixed yes
-set_io SPI_1_CLK -pinname L14 -fixed yes
-set_io SPI_1_DI -pinname L15 -fixed yes
-set_io SPI_1_DO -pinname L12 -fixed yes
-set_io SPI_1_SS -pinname L13 -fixed yes
-set_io TXE_n -REGISTER No -pinname D15 -fixed yes
-set_io USB_CLK -pinname F14 -fixed yes
-set_io USB_DB\[0\] -REGISTER No -pinname C8 -fixed yes
-set_io USB_DB\[1\] -REGISTER No -pinname D8 -fixed yes
-set_io USB_DB\[2\] -REGISTER No -pinname C9 -fixed yes
-set_io USB_DB\[3\] -REGISTER No -pinname D9 -fixed yes
-set_io USB_DB\[4\] -REGISTER No -pinname D10 -fixed yes
-set_io USB_DB\[5\] -REGISTER No -pinname C11 -fixed yes
-set_io USB_DB\[6\] -REGISTER No -pinname D11 -fixed yes
-set_io USB_DB\[7\] -REGISTER No -pinname C12 -fixed yes
-set_io VAREF1 -pinname T9 -fixed yes
-set_io WR_n -RES_PULL Up -pinname E15 -fixed yes
+set_io MSS_RESET_N -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -REGISTER No -pinname K4 -fixed yes
+set_io OE_n -iostd LVTTL -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL Up -SKEW Off -OUT_LOAD 35 -pinname E16 -fixed yes
+set_io RD_n -iostd LVTTL -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL Up -SKEW Off -OUT_LOAD 35 -pinname D14 -fixed yes
+set_io RXF_n -iostd LVTTL -REGISTER No -RES_PULL Up -SCHMITT_TRIGGER Off -pinname D13 -fixed yes
+set_io SIWU_n -iostd LVTTL -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL Up -SKEW Off -OUT_LOAD 35 -pinname E14 -fixed yes
+set_io SPI_0_IT -iostd LVTTL -REGISTER No -RES_PULL None -SCHMITT_TRIGGER Off -pinname G2 -fixed yes
+set_io SPI_1_CLK -iostd LVTTL -OUT_DRIVE 8 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname L14 -fixed yes
+set_io SPI_1_DI -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -REGISTER No -pinname L15 -fixed yes
+set_io SPI_1_DO -iostd LVTTL -OUT_DRIVE 8 -SLEW High -RES_PULL None -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname L12 -fixed yes
+set_io SPI_1_SS -iostd LVTTL -OUT_DRIVE 8 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname L13 -fixed yes
+set_io TXE_n -iostd LVTTL -REGISTER No -RES_PULL None -SCHMITT_TRIGGER Off -pinname D15 -fixed yes
+set_io USB_CLK -iostd LVTTL -REGISTER No -RES_PULL None -SCHMITT_TRIGGER Off -pinname F14 -fixed yes
+set_io USB_DB\[0\] -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL Up -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname C8 -fixed yes
+set_io USB_DB\[1\] -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL Up -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname D8 -fixed yes
+set_io USB_DB\[2\] -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL Up -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname C9 -fixed yes
+set_io USB_DB\[3\] -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL Up -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname D9 -fixed yes
+set_io USB_DB\[4\] -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL Up -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname D10 -fixed yes
+set_io USB_DB\[5\] -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL Up -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname C11 -fixed yes
+set_io USB_DB\[6\] -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL Up -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname D11 -fixed yes
+set_io USB_DB\[7\] -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL Up -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname C12 -fixed yes
+set_io VAREF1 -iostd LVTTL -SLEW Low -REGISTER No -pinname T9 -fixed yes
+set_io WR_n -iostd LVTTL -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL Up -SKEW Off -OUT_LOAD 35 -pinname E15 -fixed yes
 
-# User Group I2C_0
-set_io I2C_0_SCL -GROUP_NAME I2C_0 -pinname J12 -fixed yes
-set_io I2C_0_SDA -GROUP_NAME I2C_0 -pinname J13 -fixed yes
-
-# User Group SPI_0
-set_io SPI_0_CLK -GROUP_NAME SPI_0 -pinname M15 -fixed yes
-set_io SPI_0_DI -GROUP_NAME SPI_0 -pinname M16 -fixed yes
-set_io SPI_0_DO -GROUP_NAME SPI_0 -pinname N16 -fixed yes
-set_io SPI_0_SS -GROUP_NAME SPI_0 -pinname M13 -fixed yes
-
-#
-# Core cell constraints
-#
-
-set_location Teton_MSS_0/MSS_CCC_0/I_XTLOSC -fixed yes 0 41
-set_location Teton_MSS_0/MSS_ADLIB_INST -fixed yes 5 1
-set_location Teton_MSS_0/MSS_CCC_0/I_MSSCCC -fixed yes 0 40
-
-#
-# Assign/Unassign global clock constraints
-#
-
-delete_buffer_tree SPI_0_IT_c
-delete_buffer_tree J_LD_c
-delete_buffer_tree Teton_MSS_0/MSSINT_GPO_0_A
-delete_buffer_tree Teton_MSS_0/MSSINT_GPO_3_A
-delete_buffer_tree Teton_MSS_0/MSSINT_GPO_4_A
-delete_buffer_tree Teton_MSS_0/MSSINT_GPO_5_A
+# User Group SPI_0_PADs
+set_io SPI_0_CLK -iostd LVTTL -OUT_DRIVE 8 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -GROUP_NAME SPI_0_PADs -pinname M15 -fixed yes
+set_io SPI_0_DI -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -REGISTER No -GROUP_NAME SPI_0_PADs -pinname M16 -fixed yes
+set_io SPI_0_DO -iostd LVTTL -OUT_DRIVE 8 -SLEW High -RES_PULL None -SKEW Off -REGISTER No -OUT_LOAD 35 -GROUP_NAME SPI_0_PADs -pinname N16 -fixed yes
+set_io SPI_0_SS -iostd LVTTL -OUT_DRIVE 8 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -GROUP_NAME SPI_0_PADs -pinname M13 -fixed yes

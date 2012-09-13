@@ -1,6 +1,7 @@
 
 #include <string.h>
 #include <mss_gpio.h>
+#include <mss_rtc.h>
 
 #include "yellowstone.h"
 #include "teton.h"
@@ -19,19 +20,39 @@ uint32_t argc;
 void process_cmd_buff(const char* cmd_buff, uint8_t length);
 
 
+volatile uint32_t usb_status;
+
 int main()
 {
+    //MSS_RTC_init();
+
 	MSS_GPIO_init();
 	Yellowstone_Init();
 	Joshua_init();
 
-	MSS_GPIO_config(MSS_GPIO_0, MSS_GPIO_OUTPUT_MODE);
-	MSS_GPIO_config(MSS_GPIO_1, MSS_GPIO_OUTPUT_MODE);
+    //MSS_RTC_configure( MSS_RTC_NO_COUNTER_RESET | MSS_RTC_ENABLE_VOLTAGE_REGULATOR_ON_MATCH );
+    //MSS_RTC_start();
 
-	MSS_GPIO_set_output(MSS_GPIO_0, 1);
-	//MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_AFE1_T_RN_MASK );
-	//MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_LED1_MASK );
-	//MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_AFE1_SHDN_MASK );
+//	MSS_GPIO_config(MSS_GPIO_LED1, MSS_GPIO_OUTPUT_MODE);
+//	MSS_GPIO_config(MSS_GPIO_LED2, MSS_GPIO_OUTPUT_MODE);
+	MSS_GPIO_config(MSS_GPIO_AFE_ENABLE, MSS_GPIO_OUTPUT_MODE);
+	MSS_GPIO_config(MSS_GPIO_USB_CTRL_IT, MSS_GPIO_INPUT_MODE);
+
+//	MSS_GPIO_set_output(MSS_GPIO_LED1, 0);
+//	MSS_GPIO_set_output(MSS_GPIO_LED2, 0);
+	//MSS_GPIO_set_output(MSS_GPIO_AFE_ENABLE, 1);
+//	MSS_GPIO_set_output(MSS_GPIO_FPGA_ENABLE, 1);
+
+	MSS_GPIO_config ( MSS_GPIO_USB_CTRL_IT, MSS_GPIO_INPUT_MODE | MSS_GPIO_IRQ_LEVEL_HIGH );
+	MSS_GPIO_enable_irq( MSS_GPIO_USB_CTRL_IT );
+	NVIC_EnableIRQ( MSS_GPIO_USB_CTRL_IT_IRQn );
+
+	uint8_t j = 0;
+	while (1)
+	{
+		usb_status = USB_CTRL->STAT;
+		USB_CTRL->TXC = j;
+	}
 
 	while( 1 )
 	{
@@ -44,6 +65,16 @@ int main()
 }
 
 
+void GPIO8_IRQHandler( void ) // TODO: rename to USB_CTRL_IRQHandler
+{
+	while ((USB_CTRL->STAT & 0x04) == 0)
+	{
+		usb_status = USB_CTRL->RXC;
+		usb_status = USB_CTRL->STAT;
+	}
+
+	MSS_GPIO_clear_irq( MSS_GPIO_USB_CTRL_IT );
+}
 
 void process_cmd_buff(const char* cmd_buff, uint8_t length)
 {
