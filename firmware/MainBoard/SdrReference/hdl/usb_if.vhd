@@ -149,6 +149,8 @@ architecture Behavioral of USB_IF is
 
     -- Signals
 
+    signal s_test   : std_logic_vector(7 downto 0);
+
     -- Arbiter SM
     type arb_state_t is (
         st_ARB_IDLE,
@@ -162,12 +164,14 @@ architecture Behavioral of USB_IF is
     signal usb_clk      : std_logic;
     signal usb_rst      : std_logic;
 
+    signal s_apb_rst    : std_logic;
     signal s_usb_conn   : std_logic;
 
     -- BIBUF
     signal s_oe         : std_logic;
     signal s_obuf       : std_logic_vector(7 downto 0);
     signal s_obuf_reg   : std_logic_vector(7 downto 0);
+    signal s_obuf_wr    : std_logic;
     signal s_ibuf       : std_logic_vector(7 downto 0);
     signal s_ibuf_reg   : std_logic_vector(7 downto 0);
 
@@ -247,7 +251,7 @@ begin
     u_CTRL_IF_APB : CTRL_IF_APB
     port map (
         PCLK        =>  CLK,
-        PRESETn     =>  not RST,
+        PRESETn     =>  s_apb_rst,
         PADDR       =>  PADDR,
         PSEL        =>  PSEL,
         PENABLE     =>  PENABLE,
@@ -257,8 +261,10 @@ begin
         PRDATA      =>  PRDATA,
         PSLVERR     =>  PSLVERR,
 
+        TEST        =>  s_test,
+
         USB_RST     =>  usb_rst,
-        USB_CONN    =>  not ACBUS8_pin,
+        USB_CONN    =>  s_usb_conn,
 
         RXC_EMPTY   =>  s_rx_ctrl_fifo_empty,
         RXC_DATA    =>  s_rx_ctrl_fifo_data,
@@ -268,6 +274,9 @@ begin
         TXC_WR      =>  s_tx_ctrl_fifo_wr
     );
     
+    s_apb_rst <= not RST;
+    s_usb_conn  <= not ACBUS8_pin;
+
 --    usb_rst <= ACBUS9_pin;
     usb_rst <= RST;
 
@@ -285,6 +294,7 @@ begin
             s_oe <= '0';
             s_wr_n <= '1';
             s_obuf_reg <= (others => '0');
+            s_obuf_wr <= '0';
         elsif rising_edge(usb_clk) then
 
             -- Default values
@@ -296,6 +306,7 @@ begin
             s_oe <= '0';
             s_wr_n <= '1';
             s_obuf_reg <= (others => '0');
+            s_obuf_wr <= s_tx_ctrl_fifo_rd;
 
 
             case s_arb_state is
@@ -355,8 +366,9 @@ begin
     -- Output assignments
 
     -- Data
-    RX_STROBE <= '0';
-    RXD <= s_rx_ctrl_fifo_data;
+    RX_STROBE <= s_tx_ctrl_fifo_wr;
+--    RXD <= s_tx_ctrl_fifo_data;
+    RXD <= s_test;
 
 --    RX_STROBE <= s_rx_strobe;
 --    RXD <= s_rxd;

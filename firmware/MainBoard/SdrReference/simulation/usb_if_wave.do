@@ -31,50 +31,50 @@
 #sim:/usb_if_tb/uut/s_rx_fifo_we \
 #sim:/usb_if_tb/uut/s_rx_strobe
 
-add wave  \
--divider {ARB SM} \
-sim:/usb_if_tb/uut/s_arbiter_sm_state \
-sim:/usb_if_tb/uut/s_rx_sm_start \
-sim:/usb_if_tb/uut/s_tx_ctrl_sm_start \
-sim:/usb_if_tb/uut/s_tx_data_sm_start \
-sim:/usb_if_tb/uut/s_rx_sm_done \
-sim:/usb_if_tb/uut/s_tx_ctrl_sm_done \
-sim:/usb_if_tb/uut/s_tx_data_sm_done
+#add wave  \
+#-divider {ARB SM} \
+#sim:/usb_if_tb/uut/s_arbiter_sm_state \
+#sim:/usb_if_tb/uut/s_rx_sm_start \
+#sim:/usb_if_tb/uut/s_tx_ctrl_sm_start \
+#sim:/usb_if_tb/uut/s_tx_data_sm_start \
+#sim:/usb_if_tb/uut/s_rx_sm_done \
+#sim:/usb_if_tb/uut/s_tx_ctrl_sm_done \
+#sim:/usb_if_tb/uut/s_tx_data_sm_done
 
 
-add wave  \
--divider {TX SM} \
--hex \
-sim:/usb_if_tb/uut/RST \
-sim:/usb_if_tb/uut/USB_CLK \
-sim:/usb_if_tb/uut/s_tx_sm_state \
-sim:/usb_if_tb/uut/s_tx_sm_state_next \
-sim:/usb_if_tb/uut/TXE_n_pin \
-sim:/usb_if_tb/uut/s_txe_n \
-sim:/usb_if_tb/uut/s_fifo_fetched \
-sim:/usb_if_tb/uut/s_last_sample \
-sim:/usb_if_tb/uut/DATA_pin \
--unsigned \
-sim:/usb_if_tb/uut/s_tx_sample_ctr \
--hex \
-sim:/usb_if_tb/uut/s_tx_i_fifo_empty \
-sim:/usb_if_tb/uut/s_tx_i_fifo_aempty \
-sim:/usb_if_tb/uut/s_tx_i_fifo_afull \
-sim:/usb_if_tb/uut/s_obuf \
-sim:/usb_if_tb/uut/s_tx_i_fifo_re \
-sim:/usb_if_tb/uut/s_tx_q_fifo_re \
-sim:/usb_if_tb/uut/s_tx_i_fifo_out \
-sim:/usb_if_tb/uut/s_tx_q_fifo_out \
-sim:/usb_if_tb/uut/s_seq_num_ctr \
-sim:/usb_if_tb/uut/s_seq_fifo_out
-
-#add wave \
-#-divider {PARAMETERS} \
+#add wave  \
+#-divider {TX SM} \
 #-hex \
-#sim:/usb_if_tb/uut/c_FRAME_LENGTH \
-#sim:/usb_if_tb/uut/c_AFULL_VAL
-
-
+#sim:/usb_if_tb/uut/RST \
+#sim:/usb_if_tb/uut/USB_CLK \
+#sim:/usb_if_tb/uut/s_tx_sm_state \
+#sim:/usb_if_tb/uut/s_tx_sm_state_next \
+#sim:/usb_if_tb/uut/TXE_n_pin \
+#sim:/usb_if_tb/uut/s_txe_n \
+#sim:/usb_if_tb/uut/s_fifo_fetched \
+#sim:/usb_if_tb/uut/s_last_sample \
+#sim:/usb_if_tb/uut/DATA_pin \
+#-unsigned \
+#sim:/usb_if_tb/uut/s_tx_sample_ctr \
+#-hex \
+#sim:/usb_if_tb/uut/s_tx_i_fifo_empty \
+#sim:/usb_if_tb/uut/s_tx_i_fifo_aempty \
+#sim:/usb_if_tb/uut/s_tx_i_fifo_afull \
+#sim:/usb_if_tb/uut/s_obuf \
+#sim:/usb_if_tb/uut/s_tx_i_fifo_re \
+#sim:/usb_if_tb/uut/s_tx_q_fifo_re \
+#sim:/usb_if_tb/uut/s_tx_i_fifo_out \
+#sim:/usb_if_tb/uut/s_tx_q_fifo_out \
+#sim:/usb_if_tb/uut/s_seq_num_ctr \
+#sim:/usb_if_tb/uut/s_seq_fifo_out
+#
+##add wave \
+##-divider {PARAMETERS} \
+##-hex \
+##sim:/usb_if_tb/uut/c_FRAME_LENGTH \
+##sim:/usb_if_tb/uut/c_AFULL_VAL
+#
+#
 add wave  \
 -unsigned \
 -divider {TX FIFO} \
