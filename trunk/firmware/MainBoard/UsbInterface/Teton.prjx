@@ -220,7 +220,7 @@ PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\Teton_MSS.cxf,actgen_cxf"
 STATE="utd"
-TIME="1347404915"
+TIME="1347404869"
 SIZE="11604"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\Teton_MSS.pdc,pdc"
@@ -256,7 +256,7 @@ SIZE="4544"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_compile_log.rpt,log"
 STATE="utd"
-TIME="1347475561"
+TIME="1347566542"
 SIZE="39681"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\Teton_synthesis_1.pdb,pdb"
@@ -286,23 +286,23 @@ SIZE="2080"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_placeroute_log.rpt,log"
 STATE="utd"
-TIME="1347475593"
+TIME="1347566582"
 SIZE="2566"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_prgdata_log.rpt,log"
 STATE="utd"
-TIME="1347475613"
+TIME="1347557180"
 SIZE="952"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_synthesis_1.adb,adb"
 STATE="utd"
-TIME="1347475613"
-SIZE="1155584"
+TIME="1347566601"
+SIZE="1162240"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_synthesis_1.fdb,fdb"
 STATE="utd"
-TIME="1347475612"
-SIZE="119539"
+TIME="1347566601"
+SIZE="120561"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_synthesis_1.ide_des,ide_des"
 STATE="utd"
@@ -311,13 +311,13 @@ SIZE="1551"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_synthesis_1_fp\projectData\Teton_synthesis_1.pdb,pdb"
 STATE="utd"
-TIME="1347475706"
-SIZE="128512"
+TIME="1347566837"
+SIZE="129536"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_synthesis_1_fp\Teton_synthesis_1.pdb,pdb"
 STATE="utd"
-TIME="1347475657"
-SIZE="128512"
+TIME="1347566783"
+SIZE="129536"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_synthesis_1_fp\Teton_synthesis_1.pro,pro"
 STATE="utd"
@@ -326,7 +326,7 @@ SIZE="2110"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_verifytiming_log.rpt,log"
 STATE="utd"
-TIME="1347475598"
+TIME="1347566587"
 SIZE="1204"
 ENDFILE
 VALUE "<project>\hdl\afe_if.vhd,hdl"
@@ -351,8 +351,8 @@ SIZE="7331"
 ENDFILE
 VALUE "<project>\hdl\usb_if.vhd,hdl"
 STATE="utd"
-TIME="1347477260"
-SIZE="10420"
+TIME="1347477568"
+SIZE="9558"
 ENDFILE
 VALUE "<project>\simulation\afe_if_wave.do,do"
 STATE="utd"
@@ -367,7 +367,7 @@ PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf"
 ENDFILE
 VALUE "<project>\simulation\run.do,do"
 STATE="utd"
-TIME="1347477084"
+TIME="1347458465"
 SIZE="1434"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
@@ -420,17 +420,17 @@ SIZE="7278"
 ENDFILE
 VALUE "<project>\synthesis\synthesis_1\Teton.edn,syn_edn"
 STATE="utd"
-TIME="1347475547"
-SIZE="987052"
+TIME="1347557087"
+SIZE="987449"
 ENDFILE
 VALUE "<project>\synthesis\synthesis_1\Teton.so,so"
 STATE="utd"
-TIME="1347475547"
+TIME="1347405068"
 SIZE="250"
 ENDFILE
 VALUE "<project>\synthesis\synthesis_1\Teton_sdc.sdc,syn_sdc"
 STATE="utd"
-TIME="1347475547"
+TIME="1347462726"
 SIZE="980"
 ENDFILE
 ENDLIST

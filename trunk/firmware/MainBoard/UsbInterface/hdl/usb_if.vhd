@@ -152,6 +152,7 @@ architecture Behavioral of USB_IF is
     signal s_tx_ctrl_fifo_we    : std_logic;
     signal s_tx_ctrl_fifo_rd    : std_logic;
     signal s_tx_ctrl_fifo_empty : std_logic;
+    signal s_tx_ctrl_fifo_fetched  : std_logic;
 
     signal s_rx_ctrl_fifo_full  : std_logic;
     signal s_rx_ctrl_fifo_we    : std_logic;
@@ -236,6 +237,8 @@ begin
             s_oe <= '0';
             s_wr_n <= '1';
             s_obuf_reg <= (others => '0');
+
+            s_tx_ctrl_fifo_fetched <= '0';
         elsif rising_edge(usb_clk) then
 
             -- Default values
@@ -248,6 +251,9 @@ begin
             s_wr_n <= '1';
             s_obuf_reg <= (others => '0');
 
+            if s_tx_ctrl_fifo_rd = '1' then
+                s_tx_ctrl_fifo_fetched <= not s_tx_ctrl_fifo_empty;
+            end if;
 
             case s_arb_state is
 
@@ -260,7 +266,7 @@ begin
                         s_arb_state <= st_ARB_RX;
 
                     -- USB write
-                    elsif TXE_n_pin = '0' and s_tx_ctrl_fifo_empty = '0' then
+                    elsif TXE_n_pin = '0' and s_tx_ctrl_fifo_fetched = '1' then
                         s_arb_state <= st_ARB_TX;
                     end if;
 
@@ -280,7 +286,7 @@ begin
 
 
                 when st_ARB_TX =>
-                    if TXE_n_pin = '0' and s_tx_ctrl_fifo_empty = '0' then
+                    if TXE_n_pin = '0' and s_tx_ctrl_fifo_fetched = '1' then
                         s_oe <= '1';
                         s_wr_n <= '0';
                         s_obuf_reg <= s_obuf;
@@ -298,9 +304,10 @@ begin
     end process p_usb_transfer_sync;
 
 
-
-    s_tx_ctrl_fifo_rd <= '1' when TXE_n_pin = '0' and s_tx_ctrl_fifo_empty = '0' and
-                         (s_arb_state = st_ARB_TX or s_arb_state = st_ARB_IDLE) else '0';
+    s_tx_ctrl_fifo_rd <= '1' when
+         (s_tx_ctrl_fifo_fetched = '0' and s_tx_ctrl_fifo_empty = '0') or -- auto fetch
+         (TXE_n_pin = '0' and s_tx_ctrl_fifo_fetched = '1' and s_arb_state = st_ARB_TX)
+         else '0';
 
 
     -- Output assignments
