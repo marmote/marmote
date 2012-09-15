@@ -97,25 +97,44 @@ begin
         wait for 2 ns;
 
         s_rxf_n <= '0';
-        wait for 200 ns;
+--        wait for 250 ns;
+        wait for 3*c_USB_CLOCK_PERIOD;
         s_rxf_n <= '1';
 
-        wait for 100 ns;
+        wait for 50 ns;
 
-        wait until rising_edge(s_usb_clk);
-        wait for 2 ns;
+--        wait until rising_edge(s_usb_clk);
+--        wait for 2 ns;
 
-        s_rxf_n <= '0';
-        wait for 200 ns;
-        s_rxf_n <= '1';
+--        s_rxf_n <= '0';
+--        wait for 200 ns;
+--        s_rxf_n <= '1';
 
-        wait for 100 ns;
+        wait for 500 ns;
 
         s_txe_n <= '0';
-        wait for 5*c_USB_CLOCK_PERIOD;
+        wait for 1*c_USB_CLOCK_PERIOD;
         s_txe_n <= '1';
 
-        wait for 100 ns;
+        wait for 50 ns;
+
+        s_txe_n <= '0';
+        wait for 2*c_USB_CLOCK_PERIOD;
+        s_txe_n <= '1';
+
+        wait for 50 ns;
+
+        s_txe_n <= '0';
+        wait for 4*c_USB_CLOCK_PERIOD;
+        s_txe_n <= '1';
+
+        wait for 50 ns;
+
+        s_txe_n <= '0';
+        wait for 20*c_USB_CLOCK_PERIOD;
+        s_txe_n <= '1';
+
+        wait for 50 ns;
 
         s_txe_n <= '0';
         wait for 1*c_USB_CLOCK_PERIOD;

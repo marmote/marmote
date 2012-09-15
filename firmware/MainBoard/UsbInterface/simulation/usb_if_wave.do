@@ -6,7 +6,7 @@ sim:/usb_if_tb/RST
 
 add wave  \
 -divider {External pins} \
--unsigned \
+-hex \
 sim:/usb_if_tb/uut/USB_CLK_pin \
 -divider {Read timing} \
 sim:/usb_if_tb/uut/RXF_n_pin \
@@ -24,16 +24,19 @@ sim:/usb_if_tb/uut/s_obuf_reg \
 sim:/usb_if_tb/uut/s_ibuf \
 sim:/usb_if_tb/uut/s_ibuf_reg \
 -divider {Internal pins} \
--hex \
 sim:/usb_if_tb/uut/CLK \
 sim:/usb_if_tb/uut/s_arb_state \
 sim:/usb_if_tb/uut/s_rx_ctrl_fifo_we \
 sim:/usb_if_tb/uut/s_rx_ctrl_fifo_empty \
 sim:/usb_if_tb/uut/s_rx_ctrl_fifo_rd \
 sim:/usb_if_tb/uut/s_ctrl_data_loopback \
+-divider TX \
 sim:/usb_if_tb/uut/s_tx_ctrl_fifo_we \
+sim:/usb_if_tb/uut/s_tx_ctrl_fifo_rd \
 sim:/usb_if_tb/uut/s_tx_ctrl_fifo_empty \
-sim:/usb_if_tb/uut/s_tx_ctrl_fifo_rd
+sim:/usb_if_tb/uut/s_tx_ctrl_fifo_fetched \
+sim:/usb_if_tb/uut/s_obuf \
+sim:/usb_if_tb/uut/s_obuf_reg
 
 
 #add wave  \
