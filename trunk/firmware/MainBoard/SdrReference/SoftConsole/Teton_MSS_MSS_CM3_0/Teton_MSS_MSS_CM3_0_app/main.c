@@ -50,8 +50,11 @@ int main()
 	uint8_t j = 0;
 	while (1)
 	{
-		usb_status = USB_CTRL->STAT;
+		usb_status = USB_CTRL->TEST;
+		USB_CTRL->TEST = j;
 		USB_CTRL->TXC = j;
+
+		j++;
 	}
 
 	while( 1 )

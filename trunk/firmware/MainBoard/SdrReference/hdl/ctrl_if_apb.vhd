@@ -48,6 +48,8 @@ entity CTRL_IF_APB is
         TXC_DATA    : out std_logic_vector(7 downto 0);
         TXC_WR      : out std_logic;
 
+        TEST        : out std_logic_vector(7 downto 0);
+
          -- APB3 inteface
         PCLK    : in  std_logic;
         PRESETn : in  std_logic;
@@ -84,6 +86,8 @@ architecture Behavioral of CTRL_IF_APB is
     signal s_dout           : std_logic_vector(15 downto 0);
     signal s_pready         : std_logic;
 
+    signal s_test           : std_logic_vector(7 downto 0);
+
 
 begin
 
@@ -97,6 +101,7 @@ begin
 			s_txc_data <= (others => '0');
             s_txc_wr <= '0';
             s_txc_wr_prev <= '0';
+            s_test <= x"01";
 
 		elsif rising_edge(PCLK) then
 
@@ -109,6 +114,8 @@ begin
 					when c_ADDR_TXC =>
 						s_txc_data <= PWDATA(7 downto 0);
                         s_txc_wr <= '1';
+                    when c_ADDR_TEST => 
+						s_test <= PWDATA(7 downto 0);
 					when others =>
 						null;
 				end case;
@@ -143,7 +150,7 @@ begin
                             s_pready <= '1';
                         end if;
                     when c_ADDR_TEST => 
-                        s_dout(7 downto 0) <= x"F5";
+                        s_dout(7 downto 0) <= s_test;
 					when others =>
 						null;
 				end case;
@@ -170,5 +177,7 @@ begin
 	PRDATA <= s_dout;
 	PREADY <= s_pready;
 	PSLVERR <= '0';
+
+    TEST <= s_test;
 
 end Behavioral;

@@ -29,7 +29,7 @@ typedef struct
   __I  uint32_t STAT;                      /*!< Offset: 0x00  Status Register             	*/
   __O  uint32_t TXC;                       /*!< Offset: 0x04  Data Register             	*/
   __I  uint32_t RXC;                       /*!< Offset: 0x08  Data Register             	*/
-  __I  uint32_t TEST;
+  __IO  uint32_t TEST;
 } USB_CTRL_Type;
 
 #define USB_CTRL            ((USB_CTRL_Type *)       USB_IF_0)   /*!< USB CTRL register struct */
