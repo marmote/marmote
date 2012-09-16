@@ -132,6 +132,7 @@ architecture Behavioral of USB_IF is
         TXC_FULL    : in   std_logic;
         TXC_DATA    : out  std_logic_vector(7 downto 0);
         TXC_WR      : out  std_logic;
+        TEST        : out  std_logic_vector(7 downto 0);
         PCLK        : in   std_logic;
         PRESETn     : in   std_logic;
         PADDR       : in   std_logic_vector(31 downto 0);
@@ -152,13 +153,13 @@ architecture Behavioral of USB_IF is
     signal s_test   : std_logic_vector(7 downto 0);
 
     -- Arbiter SM
-    type arb_state_t is (
-        st_ARB_IDLE,
-        st_ARB_RX,
-        st_ARB_TX
+    type usb_state_t is (
+        st_IDLE,
+        st_RX,
+        st_TX
     );
 
-    signal s_arb_state      : arb_state_t;
+    signal s_usb_state      : usb_state_t;
 
 
     signal usb_clk      : std_logic;
@@ -171,7 +172,7 @@ architecture Behavioral of USB_IF is
     signal s_oe         : std_logic;
     signal s_obuf       : std_logic_vector(7 downto 0);
     signal s_obuf_reg   : std_logic_vector(7 downto 0);
-    signal s_obuf_wr    : std_logic;
+    signal s_tx_ctrl_fifo_fetched    : std_logic;
     signal s_ibuf       : std_logic_vector(7 downto 0);
     signal s_ibuf_reg   : std_logic_vector(7 downto 0);
 
@@ -285,7 +286,7 @@ begin
     p_usb_transfer_sync : process (usb_rst, usb_clk)
     begin
         if usb_rst = '1' then
-            s_arb_state <= st_ARB_IDLE;
+            s_usb_state <= st_IDLE;
             s_oe_n <= '1';
             s_rd_n <= '1';
             s_rx_ctrl_fifo_wr <= '0';
@@ -294,7 +295,7 @@ begin
             s_oe <= '0';
             s_wr_n <= '1';
             s_obuf_reg <= (others => '0');
-            s_obuf_wr <= '0';
+            s_tx_ctrl_fifo_fetched <= '0';
         elsif rising_edge(usb_clk) then
 
             -- Default values
@@ -305,27 +306,29 @@ begin
 
             s_oe <= '0';
             s_wr_n <= '1';
+
             s_obuf_reg <= (others => '0');
-            s_obuf_wr <= s_tx_ctrl_fifo_rd;
+            if s_tx_ctrl_fifo_rd = '1' then
+                s_tx_ctrl_fifo_fetched <= not s_tx_ctrl_fifo_empty;
+            end if;
 
+            case s_usb_state is
 
-            case s_arb_state is
-
-                when st_ARB_IDLE =>
+                when st_IDLE =>
 
 
                     -- USB read
                     if RXF_n_pin = '0' and s_rx_ctrl_fifo_full = '0' then
                         s_oe_n <= '0';
-                        s_arb_state <= st_ARB_RX;
+                        s_usb_state <= st_RX;
 
                     -- USB write
-                    elsif TXE_n_pin = '0' and s_tx_ctrl_fifo_empty = '0' then
-                        s_arb_state <= st_ARB_TX;
+                    elsif TXE_n_pin = '0' and s_tx_ctrl_fifo_fetched = '1' then
+                        s_usb_state <= st_TX;
                     end if;
 
 
-                when st_ARB_RX =>
+                when st_RX =>
 
                     if RXF_n_pin = '0' and s_rx_ctrl_fifo_full = '0' and s_oe_n = '0' then
                         s_oe_n <= '0';
@@ -335,17 +338,17 @@ begin
                             s_rx_ctrl_fifo_wr <= '1';
                         end if;
                     else
-                        s_arb_state <= st_ARB_IDLE;
+                        s_usb_state <= st_IDLE;
                     end if;
 
 
-                when st_ARB_TX =>
-                    if TXE_n_pin = '0' and s_tx_ctrl_fifo_empty = '0' then
+                when st_TX =>
+                    if TXE_n_pin = '0' and s_tx_ctrl_fifo_fetched = '1' then
                         s_oe <= '1';
                         s_wr_n <= '0';
                         s_obuf_reg <= s_obuf;
                     else
-                        s_arb_state <= st_ARB_IDLE;
+                        s_usb_state <= st_IDLE;
                     end if;
 
 
@@ -359,8 +362,10 @@ begin
 
 
 
-    s_tx_ctrl_fifo_rd <= '1' when TXE_n_pin = '0' and s_tx_ctrl_fifo_empty = '0' and
-                         (s_arb_state = st_ARB_TX or s_arb_state = st_ARB_IDLE) else '0';
+    s_tx_ctrl_fifo_rd <= '1' when
+                         (s_tx_ctrl_fifo_fetched = '0' and s_tx_ctrl_fifo_empty = '0') or -- auto fetch
+                         (TXE_n_pin = '0' and s_tx_ctrl_fifo_fetched = '1' and s_usb_state = st_TX) -- burst write
+                     else '0';
 
 
     -- Output assignments

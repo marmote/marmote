@@ -47,6 +47,7 @@ int main()
 	MSS_GPIO_enable_irq( MSS_GPIO_USB_CTRL_IT );
 	NVIC_EnableIRQ( MSS_GPIO_USB_CTRL_IT_IRQn );
 
+	/*
 	uint8_t j = 0;
 	while (1)
 	{
@@ -56,6 +57,7 @@ int main()
 
 		j++;
 	}
+	*/
 
 	while( 1 )
 	{
@@ -73,7 +75,7 @@ void GPIO8_IRQHandler( void ) // TODO: rename to USB_CTRL_IRQHandler
 	while ((USB_CTRL->STAT & 0x04) == 0)
 	{
 		usb_status = USB_CTRL->RXC;
-		usb_status = USB_CTRL->STAT;
+		USB_CTRL->TXC = usb_status+1;
 	}
 
 	MSS_GPIO_clear_irq( MSS_GPIO_USB_CTRL_IT );
