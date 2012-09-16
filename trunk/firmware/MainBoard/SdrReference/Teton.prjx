@@ -371,22 +371,22 @@ SIZE="1344"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_compile_log.rpt,log"
 STATE="utd"
-TIME="1347676723"
-SIZE="36278"
+TIME="1347678444"
+SIZE="37083"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\projectData\Teton.pdb,pdb"
 STATE="utd"
-TIME="1347676851"
-SIZE="137728"
+TIME="1347678575"
+SIZE="138752"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\Teton.pdb,pdb"
 STATE="ood"
-TIME="1347676801"
-SIZE="137728"
+TIME="1347678526"
+SIZE="138752"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\Teton.pro,pro"
 STATE="utd"
-TIME="1347676851"
+TIME="1347678575"
 SIZE="1954"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_MSS.ide_des,ide_des"
@@ -396,32 +396,32 @@ SIZE="370"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_placeroute_log.rpt,log"
 STATE="utd"
-TIME="1347676761"
+TIME="1347678485"
 SIZE="2530"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_prgdata_log.rpt,log"
 STATE="utd"
-TIME="1347676781"
+TIME="1347678506"
 SIZE="809"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_synthesis_1.adb,adb"
 STATE="ood"
-TIME="1347676781"
-SIZE="1389568"
+TIME="1347678506"
+SIZE="1453056"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_synthesis_1.fdb,fdb"
 STATE="ood"
-TIME="1347676780"
-SIZE="128306"
+TIME="1347678505"
+SIZE="129331"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_synthesis_1.ide_des,ide_des"
 STATE="utd"
-TIME="1347676781"
+TIME="1347678506"
 SIZE="1383"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_verifytiming_log.rpt,log"
 STATE="utd"
-TIME="1347676766"
+TIME="1347678490"
 SIZE="1154"
 ENDFILE
 VALUE "<project>\designer\impl1\USB_IF.ide_des,ide_des"
@@ -461,8 +461,8 @@ SIZE="7331"
 ENDFILE
 VALUE "<project>\hdl\usb_if.vhd,hdl"
 STATE="utd"
-TIME="1347676608"
-SIZE="11507"
+TIME="1347680303"
+SIZE="11563"
 ENDFILE
 VALUE "<project>\simulation\afe_if_wave.do,do"
 STATE="utd"
@@ -471,7 +471,7 @@ SIZE="970"
 ENDFILE
 VALUE "<project>\simulation\bfmtovec_compile.log,log"
 STATE="utd"
-TIME="1347674554"
+TIME="1347679467"
 SIZE="459"
 ENDFILE
 VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
@@ -500,8 +500,8 @@ PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
 ENDFILE
 VALUE "<project>\simulation\run.do,do"
 STATE="utd"
-TIME="1347674550"
-SIZE="2280"
+TIME="1347679463"
+SIZE="1471"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
@@ -522,8 +522,8 @@ SIZE="2712"
 ENDFILE
 VALUE "<project>\simulation\usb_if_wave.do,do"
 STATE="utd"
-TIME="1342664961"
-SIZE="2863"
+TIME="1347679315"
+SIZE="2905"
 ENDFILE
 VALUE "<project>\simulation\user - Copy.bfm,sim"
 STATE="utd"
@@ -558,17 +558,17 @@ SIZE="7278"
 ENDFILE
 VALUE "<project>\synthesis\synthesis_1\Teton.edn,syn_edn"
 STATE="ood"
-TIME="1347678223"
-SIZE="1230926"
+TIME="1347678425"
+SIZE="1230925"
 ENDFILE
 VALUE "<project>\synthesis\synthesis_1\Teton.so,so"
 STATE="utd"
-TIME="1347678223"
+TIME="1347678425"
 SIZE="226"
 ENDFILE
 VALUE "<project>\synthesis\synthesis_1\Teton_sdc.sdc,syn_sdc"
 STATE="ood"
-TIME="1347678223"
+TIME="1347678425"
 SIZE="980"
 ENDFILE
 VALUE "<project>\synthesis\synwork\Teton_compiler.so,so"
@@ -924,6 +924,8 @@ ENDLIST
 LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
+StartPage;StartPage
+ACTIVEVIEW;StartPage
 ENDLIST
 LIST ModuleSubBlockList
 LIST "AFE_IF::work","hdl\afe_if.vhd","FALSE","FALSE"
