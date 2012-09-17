@@ -161,6 +161,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	//PktHdr_t* pkt;
 	uint32_t freq2;
 
+	uint8_t stream_toggle = 0;
+
 	while (1)
 	{
 		getchar();
@@ -168,35 +170,18 @@ int _tmain(int argc, _TCHAR* argv[])
 		Marmote_SetFrequency(ftHandle, freq);
 		freq2 = Marmote_GetFrequency(ftHandle);
 		printf("Read freq: %u\n", freq2);
-		
-		/*
-		memcpy(txBuffer, &freq, 4);
-		sendMsg(ftHandle, SDR, GET_FREQUENCY, txBuffer, 0);		
 
-		// Read the answer
-		bytesRequested = sizeof(rxBuffer);
-		ftStatus = FT_Read(ftHandle, rxBuffer, bytesRequested, &bytesReceived);
-		if (ftStatus != FT_OK)
+		if (stream_toggle == 1)
 		{
-			printf("readReg(): FT_Read failed\n");
-			return -1;
+			Marmote_StartStreaming(ftHandle);
+			stream_toggle = 0;
+		}
+		else
+		{
+			Marmote_StopStreaming(ftHandle);
+			stream_toggle = 1;
 		}
 
-		printf("Read  %4d chars: ", bytesReceived);
-		for (DWORD i = 0; i < bytesReceived; i++)
-		{
-			printf("%02X ", rxBuffer[i]);
-			if (rxBuffer[i] == SYNC_CHAR_1)
-			{
-				pkt = (PktHdr_t*)(rxBuffer+i);
-			}			
-		}
-		printf("\n");
-		printPkt(pkt);
-
-		printf("Freq: %u\n", *(uint32_t*)pkt->payload);
-		*/
-		
 		freq += 100;
 	}
 

@@ -157,6 +157,16 @@ void process_usb_cmd_buf(const uint8_t* buf)
 					USB_SendMsg( SDR, GET_FREQUENCY, (uint8_t*)&ret_val, sizeof(uint32_t));
 					break;
 
+				case START_STREAMING :
+
+					USB_CTRL->SDR |= SDR_STREAM_ENABLE_MASK;
+					break;
+
+				case STOP_STREAMING :
+
+					USB_CTRL->SDR &= ~SDR_STREAM_ENABLE_MASK;
+					break;
+
 				default :
 					break;
 			}

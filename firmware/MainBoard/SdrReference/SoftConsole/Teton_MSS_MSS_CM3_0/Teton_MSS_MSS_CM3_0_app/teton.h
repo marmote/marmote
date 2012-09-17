@@ -20,12 +20,14 @@
 #define MSS_GPIO_LED2 				MSS_GPIO_7
 #define MSS_GPIO_USB_CTRL_IT 		MSS_GPIO_8
 
-//#define MSS_GPIO_LED1_MASK 			MSS_GPIO_0_MASK
+#define MSS_GPIO_LED1_MASK 			MSS_GPIO_0_MASK
 #define MSS_GPIO_AFE_ENABLE_MASK 	MSS_GPIO_1_MASK
-//#define MSS_GPIO_LED2_MASK 			MSS_GPIO_7_MASK
+#define MSS_GPIO_LED2_MASK 			MSS_GPIO_7_MASK
 #define MSS_GPIO_USB_CTRL_IT_MASK 	MSS_GPIO_8_MASK
 
 #define MSS_GPIO_USB_CTRL_IT_IRQn  	GPIO8_IRQn
+
+#define SDR_STREAM_ENABLE_MASK 		0x01
 
 
 typedef struct
@@ -33,7 +35,7 @@ typedef struct
   __I  uint32_t STAT;                      /*!< Offset: 0x00  Status Register             	*/
   __O  uint32_t TXC;                       /*!< Offset: 0x04  Data Register             	*/
   __I  uint32_t RXC;                       /*!< Offset: 0x08  Data Register             	*/
-  __IO  uint32_t TEST;
+  __IO uint32_t SDR;                       /*!< Offset: 0x0C  Data Register             	*/
 } USB_CTRL_Type;
 
 #define USB_CTRL            ((USB_CTRL_Type *)       USB_IF_0)   /*!< USB CTRL register struct */
@@ -72,14 +74,14 @@ typedef enum _MsgId
 {
 	// Marmote
 	SET_LED = 1,
-	START_STREAM = 2,
-	STOP_STREAM,
 	// SDR
-	SET_FREQUENCY = 3,
-	GET_FREQUENCY = 4,
+	START_STREAMING = 2,
+	STOP_STREAMING = 3,
+	SET_FREQUENCY = 4,
+	GET_FREQUENCY = 5,
 	// MAX2830
-	SET_REG = 5,
-	GET_REG = 6,
+	SET_REG = 6,
+	GET_REG = 7,
 } MsgId_t;
 
 typedef struct
