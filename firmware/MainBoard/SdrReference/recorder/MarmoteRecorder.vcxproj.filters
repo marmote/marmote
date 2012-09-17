@@ -32,6 +32,7 @@
     <ClCompile Include="argtable2\getopt1.c">
       <Filter>argtable2</Filter>
     </ClCompile>
+    <ClCompile Include="MarmoteControl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -43,6 +44,7 @@
     <ClInclude Include="argtable2\getopt.h">
       <Filter>argtable2</Filter>
     </ClInclude>
+    <ClInclude Include="MarmoteControl.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />

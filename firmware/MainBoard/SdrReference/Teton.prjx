@@ -41,13 +41,13 @@ ENDLIST
 LIST FileManager
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf,actgen_cxf"
 STATE="utd"
-TIME="1347676620"
+TIME="1347910433"
 SIZE="2407"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
 STATE="utd"
-TIME="1347676620"
+TIME="1347910433"
 SIZE="1242"
 LIBRARY="COREAPB3_LIB"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
@@ -220,19 +220,19 @@ SIZE="413"
 ENDFILE
 VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1347676621"
+TIME="1347910434"
 SIZE="4321"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.cxf,actgen_cxf"
 STATE="utd"
-TIME="1347676622"
+TIME="1347910438"
 SIZE="11584"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.pdc,pdc"
 STATE="utd"
-TIME="1347676620"
+TIME="1347910432"
 SIZE="5809"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 BEGIN_USE_CONSTRAINT
@@ -243,8 +243,8 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.vhd,hdl"
 STATE="utd"
-TIME="1347676620"
-SIZE="35859"
+TIME="1347910433"
+SIZE="35927"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 IS_READONLY="TRUE"
 ENDFILE
@@ -376,8 +376,8 @@ SIZE="37083"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\projectData\Teton.pdb,pdb"
 STATE="utd"
-TIME="1347678575"
-SIZE="138752"
+TIME="1347910616"
+SIZE="142336"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\Teton.pdb,pdb"
 STATE="ood"
@@ -405,12 +405,12 @@ TIME="1347678506"
 SIZE="809"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_synthesis_1.adb,adb"
-STATE="ood"
+STATE="utd"
 TIME="1347678506"
 SIZE="1453056"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_synthesis_1.fdb,fdb"
-STATE="ood"
+STATE="utd"
 TIME="1347678505"
 SIZE="129331"
 ENDFILE
@@ -461,8 +461,8 @@ SIZE="7331"
 ENDFILE
 VALUE "<project>\hdl\usb_if.vhd,hdl"
 STATE="utd"
-TIME="1347680303"
-SIZE="11563"
+TIME="1347756388"
+SIZE="11808"
 ENDFILE
 VALUE "<project>\simulation\afe_if_wave.do,do"
 STATE="utd"
@@ -505,7 +505,7 @@ SIZE="1471"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
-TIME="1347676620"
+TIME="1347910433"
 SIZE="627"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 ENDFILE
@@ -557,7 +557,7 @@ TIME="1342133562"
 SIZE="7278"
 ENDFILE
 VALUE "<project>\synthesis\synthesis_1\Teton.edn,syn_edn"
-STATE="ood"
+STATE="utd"
 TIME="1347678425"
 SIZE="1230925"
 ENDFILE
@@ -567,7 +567,7 @@ TIME="1347678425"
 SIZE="226"
 ENDFILE
 VALUE "<project>\synthesis\synthesis_1\Teton_sdc.sdc,syn_sdc"
-STATE="ood"
+STATE="utd"
 TIME="1347678425"
 SIZE="980"
 ENDFILE
@@ -628,7 +628,10 @@ VALUE "<project>\constraint\TetonTiming_Synt.sdc,sdc"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
+LiberoState=Post_Layout
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\synthesis_1\Teton.edn,syn_edn)=StateSuccess
+ideDESIGNER(<project>\designer\impl1\Teton_synthesis_1.adb,adb)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -712,17 +715,6 @@ ENDLIST
 LIST AssociatedStimulus
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
-ENDLIST
-LIST ProjectState5.1
-LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
 ENDLIST
 ENDLIST
 ENDLIST
@@ -857,7 +849,10 @@ ENDLIST
 ENDLIST
 LIST "Teton::work"
 LIST Impl1
+LiberoState=Post_Layout
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\synthesis_1\Teton.edn,syn_edn)=StateSuccess
+ideDESIGNER(<project>\designer\impl1\Teton_synthesis_1.adb,adb)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -901,17 +896,6 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 ENDLIST
-LIST "CoreAPB3::COREAPB3_LIB::components"
-LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
 ENDLIST
 LIST ExcludePackageForSimulation
 ENDLIST
@@ -925,7 +909,9 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 StartPage;StartPage
-ACTIVEVIEW;StartPage
+SmartDesign;Teton
+Reports;Reports
+ACTIVEVIEW;Teton
 ENDLIST
 LIST ModuleSubBlockList
 LIST "AFE_IF::work","hdl\afe_if.vhd","FALSE","FALSE"
@@ -1043,8 +1029,8 @@ SUBBLOCK "Teton_MSS::work","component\work\Teton_MSS\Teton_MSS.vhd","TRUE","FALS
 ENDLIST
 LIST "USB_IF_tb::work","stimulus\usb_if_tb.vhd","FALSE","TRUE"
 SUBBLOCK "FT232H_STUB::work","stimulus\ft232h_stub.vhd","FALSE","TRUE"
-SUBBLOCK "USB_IF::work","hdl\usb_if.vhd","FALSE","FALSE"
 SUBBLOCK "USB_IF_TC::work","stimulus\usb_if_tc.vhd","FALSE","TRUE"
+SUBBLOCK "USB_IF::work","hdl\usb_if.vhd","FALSE","FALSE"
 ENDLIST
 LIST "USB_IF_TC::work","stimulus\usb_if_tc.vhd","FALSE","TRUE"
 ENDLIST

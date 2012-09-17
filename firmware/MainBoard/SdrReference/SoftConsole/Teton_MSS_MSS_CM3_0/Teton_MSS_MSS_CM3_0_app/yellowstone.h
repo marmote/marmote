@@ -17,7 +17,7 @@
 #define MSS_GPIO_SPI_0_IT_MASK	MSS_GPIO_2_MASK
 #define MSS_GPIO_SPI_0_IT_IRQn  GPIO2_IRQn
 
-uint8_t cmd_length;
+uint8_t spi_cmd_length;
 
 void Yellowstone_Init(void);
 
