@@ -12,7 +12,7 @@ CMD_Type CMD_List[] =
 {
 	{"help", CmdHelp},
 //	{"led",  CmdLed},
-	{"sleep", CmdSleep},
+//	{"sleep", CmdSleep},
 	{"clk",  CmdClock},
 	{"afe",  CmdAfe},
 
@@ -58,13 +58,13 @@ uint32_t CmdLed(uint32_t argc, char** argv)
 	{
 		if (!strcmp(*(argv+1), "on"))
 		{
-			//MSS_GPIO_set_output( MSS_GPIO_LED1, 1 );
+			MSS_GPIO_set_output( MSS_GPIO_LED1, 1 );
 			return 0;
 		}
 
 		if (!strcmp(*(argv+1), "off"))
 		{
-			//MSS_GPIO_set_output( MSS_GPIO_LED1, 0 );
+			MSS_GPIO_set_output( MSS_GPIO_LED1, 0 );
 			return 0;
 		}
 	}
@@ -74,6 +74,7 @@ uint32_t CmdLed(uint32_t argc, char** argv)
 	return 1;
 }
 
+/*
 uint32_t CmdSleep(uint32_t argc, char** argv)
 {
 	uint32_t timeout;
@@ -122,6 +123,7 @@ uint32_t CmdSleep(uint32_t argc, char** argv)
 	Yellowstone_print("\r\nUsage: sleep <timeout in seconds>");
 	return 1;
 }
+*/
 
 #define STATASEL_MASK   (1 << 0)
 #define RXASEL_MASK 	(1 << 1)

@@ -8,29 +8,13 @@
 
 #include <conio.h>
 
+#include "MarmoteControl.h"
+
 
 
 // FTDI device parameters
 static int default_dev;
 #define INTERVAL_TIMEOUT 200
-
-#define CTRL_SOF 0x5F
-
-enum _cmdID
-{
-	CMD_ID_SET,
-	CMD_ID_GET,
-	CMD_ID_RET
-} cmdID;
-
-typedef struct _UsbCtrl_t
-{
-	char	sof;
-	char	cmdID;
-	WORD	addr;
-	DWORD	data;
-} UsbCtrl_t;
-
 
 // Wave file parameters
 #define FNAME_SEARCH "rec_???.wav"
@@ -68,6 +52,7 @@ WAVhdr hdr = {{'R', 'I', 'F', 'F'}, 36, {'W', 'A', 'V', 'E'},
 
 
 void list_ft_devices(void);
+//void Marmote_writeReg(FT_HANDLE ftHandle, WORD addr, DWORD data);
 
 
 int _tmain(int argc, _TCHAR* argv[])
@@ -171,73 +156,49 @@ int _tmain(int argc, _TCHAR* argv[])
 	// TODO: Deassert reset (ACBUS9)
 
 	
-	int j = 0;
+	uint8_t j = 0;
+	uint32_t freq = (uint32_t)2400e6;
+	//PktHdr_t* pkt;
+	uint32_t freq2;
+
 	while (1)
 	{
 		getchar();
+
+		Marmote_SetFrequency(ftHandle, freq);
+		freq2 = Marmote_GetFrequency(ftHandle);
+		printf("Read freq: %u\n", freq2);
 		
-		txBuffer[0] = 10*j;
-		txBuffer[1] = 10*j+1;
-		txBuffer[2] = 10*j+2;
-		txBuffer[3] = 10*j+3;
-		
-		//ftStatus = FT_Write(ftHandle, TxBuffer, sizeof(txBuffer), &bytesWritten);
-		ftStatus = FT_Write(ftHandle, txBuffer, 4, &bytesWritten);
-		if (ftStatus == FT_OK)
-		{
-			// FT_Write OK
-			printf("Wrote %4d chars: %02X %02X %02X %02X\n", bytesWritten, txBuffer[0], txBuffer[1], txBuffer[2], txBuffer[3]);
-		}
-		else
-		{
-			// FT_Write Failed
-			break;
-		}
-		j++;
-		//Sleep(1000);
-	
-		bytesRequested = 4096;
-		bytesReceived = 0;
+		/*
+		memcpy(txBuffer, &freq, 4);
+		sendMsg(ftHandle, SDR, GET_FREQUENCY, txBuffer, 0);		
+
+		// Read the answer
+		bytesRequested = sizeof(rxBuffer);
 		ftStatus = FT_Read(ftHandle, rxBuffer, bytesRequested, &bytesReceived);
 		if (ftStatus != FT_OK)
 		{
-			printf("Unable to read device\n");
-			ftStatus = FT_Close(ftHandle);
-			if (ftStatus != FT_OK)
-			{
-				printf("FT_Close(): FAILED\n");
-			}
-			return 1;
+			printf("readReg(): FT_Read failed\n");
+			return -1;
 		}
+
 		printf("Read  %4d chars: ", bytesReceived);
 		for (DWORD i = 0; i < bytesReceived; i++)
 		{
 			printf("%02X ", rxBuffer[i]);
+			if (rxBuffer[i] == SYNC_CHAR_1)
+			{
+				pkt = (PktHdr_t*)(rxBuffer+i);
+			}			
 		}
 		printf("\n");
+		printPkt(pkt);
+
+		printf("Freq: %u\n", *(uint32_t*)pkt->payload);
+		*/
+		
+		freq += 100;
 	}
-
-	//char c;
-	//while ((c = getch()) != EOF)
-	//{
-	//	for (int i = 0; i < 100; i++)
-	//	{
-	//		TxBuffer[i] = c;
-	//	}
-
-	//	ftStatus = FT_Write(ftHandle, TxBuffer, 100, &BytesWritten);
-	//	if (ftStatus == FT_OK)
-	//	{
-	//		// FT_Write OK
-	//		printf("Written %2d chars\n", BytesWritten);
-	//		//putchar(c);
-	//	}
-	//	else
-	//	{
-	//		// FT_Write Failed
-	//		break;
-	//	}				
-	//}
 
 	printf("Terminated with ftStatus = %s\n", ftStatus == FT_OK ? "FT_OK" : "FT_ERROR");
 
@@ -289,4 +250,47 @@ void list_ft_devices(void)
 		}
 	}
 }
+
+/*
+DWORD Marmote_readReg(FT_HANDLE ftHandle, WORD addr)
+{
+	FT_STATUS ftStatus;
+	UsbCtrl_t packet;
+	DWORD bytesWritten;
+	DWORD bytesRequested;
+	DWORD bytesReceived;
+	char rxBuffer[128];
+
+	packet.sof = CTRL_SOF;
+	packet.cmdId = CMD_ID_GET;
+	packet.addr = addr;
+
+	ftStatus = FT_Write(ftHandle, &packet, 6, &bytesWritten);
+	if (ftStatus != FT_OK)
+	{		
+		// FT_Write Failed
+		printf("readReg() (FT_Write) failed\n");
+		return -1; // FIXME: solve error handling
+	}
+
+	printf("Sent packet (%d bytes):\n", bytesWritten);
+	printf("SOF:  %4X\n CMD: %4X\nADDR: %4X\n", packet.sof, packet.cmdId, packet.addr);
+	
+	// Read the answer
+	bytesRequested = sizeof(rxBuffer);
+	ftStatus = FT_Read(ftHandle, rxBuffer, bytesRequested, &bytesReceived);
+	if (ftStatus != FT_OK)
+	{
+		printf("readReg() (FT_Read) failed\n");
+		return -1;
+	}
+
+	printf("Read  %4d chars: ", bytesReceived);
+	for (DWORD i = 0; i < bytesReceived; i++)
+	{
+		printf("%02X ", rxBuffer[i]);
+	}
+	printf("\n");
+}
+*/
 

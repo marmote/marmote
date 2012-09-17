@@ -9,7 +9,7 @@ uint8_t spi_rx_buffer_start = 0;
 uint8_t spi_rx_buffer_count = 0;
 uint8_t rx_data;
 
-uint8_t cmd_buffer[spi_rx_buffer_size];
+uint8_t spi_cmd_buf[spi_rx_buffer_size];
 
 
 void Yellowstone_Init(void)
@@ -74,12 +74,12 @@ void GPIO2_IRQHandler( void ) // TODO: rename to SPI_0_IRQHandler
 		uint8_t i;
 		for ( i = 0; i < spi_rx_buffer_count-1; i++ )
 		{
-			cmd_buffer[i] = spi_rx_buffer[(spi_rx_buffer_start + i) % spi_rx_buffer_size];
+			spi_cmd_buf[i] = spi_rx_buffer[(spi_rx_buffer_start + i) % spi_rx_buffer_size];
 		}
-		cmd_buffer[spi_rx_buffer_count-1] = '\0';
-		cmd_length = spi_rx_buffer_count;
+		spi_cmd_buf[spi_rx_buffer_count-1] = '\0';
+		spi_cmd_length = spi_rx_buffer_count;
 
-		spi_rx_buffer_start = cmd_length % spi_rx_buffer_size;
+		spi_rx_buffer_start = spi_cmd_length % spi_rx_buffer_size;
 		spi_rx_buffer_count = 0;
 	}
 
