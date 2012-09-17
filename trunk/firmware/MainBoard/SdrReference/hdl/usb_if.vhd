@@ -132,7 +132,7 @@ architecture Behavioral of USB_IF is
         TXC_FULL    : in   std_logic;
         TXC_DATA    : out  std_logic_vector(7 downto 0);
         TXC_WR      : out  std_logic;
-        TEST        : out  std_logic_vector(7 downto 0);
+        STREAM_EN   : out  std_logic;
         PCLK        : in   std_logic;
         PRESETn     : in   std_logic;
         PADDR       : in   std_logic_vector(31 downto 0);
@@ -150,7 +150,7 @@ architecture Behavioral of USB_IF is
 
     -- Signals
 
-    signal s_test   : std_logic_vector(7 downto 0);
+    signal s_stream_en  : std_logic;
 
     -- Arbiter SM
     type usb_state_t is (
@@ -262,7 +262,7 @@ begin
         PRDATA      =>  PRDATA,
         PSLVERR     =>  PSLVERR,
 
-        TEST        =>  s_test,
+        STREAM_EN   =>  s_stream_en,
 
         USB_RST     =>  usb_rst,
         USB_CONN    =>  s_usb_conn,
@@ -373,7 +373,7 @@ begin
     -- Data
     RX_STROBE <= s_tx_ctrl_fifo_wr;
 --    RXD <= s_tx_ctrl_fifo_data;
-    RXD <= s_test;
+    RXD <= (0 => s_stream_en, others => '0');
 
 --    RX_STROBE <= s_rx_strobe;
 --    RXD <= s_rxd;

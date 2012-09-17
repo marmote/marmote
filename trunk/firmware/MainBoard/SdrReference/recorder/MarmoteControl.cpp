@@ -145,3 +145,15 @@ uint32_t Marmote_GetFrequency(FT_HANDLE ftHandle)
 	
 	return freq;
 }
+
+void Marmote_StartStreaming(FT_HANDLE ftHandle)
+{
+	uint8_t dummy;
+	sendMsg(ftHandle, SDR, START_STREAMING, &dummy, 0);
+}
+
+void Marmote_StopStreaming(FT_HANDLE ftHandle)
+{
+	uint8_t dummy;
+	sendMsg(ftHandle, SDR, STOP_STREAMING, &dummy, 0);
+}

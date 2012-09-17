@@ -41,13 +41,13 @@ ENDLIST
 LIST FileManager
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf,actgen_cxf"
 STATE="utd"
-TIME="1347910433"
+TIME="1347921449"
 SIZE="2407"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
 STATE="utd"
-TIME="1347910433"
+TIME="1347921449"
 SIZE="1242"
 LIBRARY="COREAPB3_LIB"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
@@ -220,19 +220,19 @@ SIZE="413"
 ENDFILE
 VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1347910434"
+TIME="1347921450"
 SIZE="4321"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.cxf,actgen_cxf"
 STATE="utd"
-TIME="1347910438"
+TIME="1347921453"
 SIZE="11584"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.pdc,pdc"
 STATE="utd"
-TIME="1347910432"
+TIME="1347921446"
 SIZE="5809"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 BEGIN_USE_CONSTRAINT
@@ -243,8 +243,8 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.vhd,hdl"
 STATE="utd"
-TIME="1347910433"
-SIZE="35927"
+TIME="1347921449"
+SIZE="35928"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 IS_READONLY="TRUE"
 ENDFILE
@@ -405,12 +405,12 @@ TIME="1347678506"
 SIZE="809"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_synthesis_1.adb,adb"
-STATE="utd"
+STATE="ood"
 TIME="1347678506"
 SIZE="1453056"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_synthesis_1.fdb,fdb"
-STATE="utd"
+STATE="ood"
 TIME="1347678505"
 SIZE="129331"
 ENDFILE
@@ -441,8 +441,8 @@ SIZE="2711"
 ENDFILE
 VALUE "<project>\hdl\ctrl_if_apb.vhd,hdl"
 STATE="utd"
-TIME="1347676661"
-SIZE="5759"
+TIME="1347921192"
+SIZE="5465"
 ENDFILE
 VALUE "<project>\hdl\datapath_stub_apb.vhd,hdl"
 STATE="utd"
@@ -461,8 +461,8 @@ SIZE="7331"
 ENDFILE
 VALUE "<project>\hdl\usb_if.vhd,hdl"
 STATE="utd"
-TIME="1347756388"
-SIZE="11808"
+TIME="1347921404"
+SIZE="11825"
 ENDFILE
 VALUE "<project>\simulation\afe_if_wave.do,do"
 STATE="utd"
@@ -505,7 +505,7 @@ SIZE="1471"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
-TIME="1347910433"
+TIME="1347921449"
 SIZE="627"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 ENDFILE
@@ -557,7 +557,7 @@ TIME="1342133562"
 SIZE="7278"
 ENDFILE
 VALUE "<project>\synthesis\synthesis_1\Teton.edn,syn_edn"
-STATE="utd"
+STATE="ood"
 TIME="1347678425"
 SIZE="1230925"
 ENDFILE
@@ -567,7 +567,7 @@ TIME="1347678425"
 SIZE="226"
 ENDFILE
 VALUE "<project>\synthesis\synthesis_1\Teton_sdc.sdc,syn_sdc"
-STATE="utd"
+STATE="ood"
 TIME="1347678425"
 SIZE="980"
 ENDFILE
@@ -622,16 +622,9 @@ ENDLIST
 LIST AssociatedStimulus
 VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
 ENDLIST
-LIST SynthesisConstraints
-VALUE "<project>\component\work\Teton_MSS\mss_tshell_syn.sdc,sdc"
-VALUE "<project>\constraint\TetonTiming_Synt.sdc,sdc"
-ENDLIST
 LIST ProjectState5.1
 LIST Impl1
-LiberoState=Post_Layout
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\synthesis_1\Teton.edn,syn_edn)=StateSuccess
-ideDESIGNER(<project>\designer\impl1\Teton_synthesis_1.adb,adb)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -849,10 +842,7 @@ ENDLIST
 ENDLIST
 LIST "Teton::work"
 LIST Impl1
-LiberoState=Post_Layout
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\synthesis_1\Teton.edn,syn_edn)=StateSuccess
-ideDESIGNER(<project>\designer\impl1\Teton_synthesis_1.adb,adb)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE

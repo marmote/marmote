@@ -48,7 +48,7 @@ entity CTRL_IF_APB is
         TXC_DATA    : out std_logic_vector(7 downto 0);
         TXC_WR      : out std_logic;
 
-        TEST        : out std_logic_vector(7 downto 0);
+        STREAM_EN   : out std_logic;
 
          -- APB3 inteface
         PCLK    : in  std_logic;
@@ -72,7 +72,7 @@ architecture Behavioral of CTRL_IF_APB is
 	constant c_ADDR_STAT : std_logic_vector(7 downto 0) := x"00"; -- R
 	constant c_ADDR_TXC  : std_logic_vector(7 downto 0) := x"04"; -- W
 	constant c_ADDR_RXC  : std_logic_vector(7 downto 0) := x"08"; -- R
-	constant c_ADDR_TEST : std_logic_vector(7 downto 0) := x"0C"; -- R
+	constant c_ADDR_SDR  : std_logic_vector(7 downto 0) := x"0C"; -- R/W
 
 	-- Default values
 
@@ -86,7 +86,7 @@ architecture Behavioral of CTRL_IF_APB is
     signal s_dout           : std_logic_vector(15 downto 0);
     signal s_pready         : std_logic;
 
-    signal s_test           : std_logic_vector(7 downto 0);
+    signal s_stream_en      : std_logic;
 
 
 begin
@@ -101,7 +101,7 @@ begin
 			s_txc_data <= (others => '0');
             s_txc_wr <= '0';
             s_txc_wr_prev <= '0';
-            s_test <= x"01";
+            s_stream_en <= '0';
 
 		elsif rising_edge(PCLK) then
 
@@ -114,8 +114,8 @@ begin
 					when c_ADDR_TXC =>
 						s_txc_data <= PWDATA(7 downto 0);
                         s_txc_wr <= '1';
-                    when c_ADDR_TEST => 
-						s_test <= PWDATA(7 downto 0);
+                    when c_ADDR_SDR => 
+						s_stream_en <= PWDATA(0);
 					when others =>
 						null;
 				end case;
@@ -149,23 +149,14 @@ begin
                         if s_rxc_rd_prev = '1' then
                             s_pready <= '1';
                         end if;
-                    when c_ADDR_TEST => 
-                        s_dout(7 downto 0) <= s_test;
+                    when c_ADDR_SDR => 
+                        s_dout(0) <= s_stream_en;
 					when others =>
 						null;
 				end case;
 			end if;
 		end if;
 	end process p_REG_READ;
-
-    -- FIXME: make sure the rx fifo is already read
-    -- FIFO read
---    p_RX_FIFO_read : process (PRESETn, PCLK)
---    begin
---        if PRESETn = '0' then
---        elsif rising_edge(PCLK) then
---        end if;
---    end process p_RX_FIFO_read;
 
 
     -- Output assignments
@@ -174,10 +165,10 @@ begin
     TXC_WR <= s_txc_wr and not s_txc_wr_prev;
     RXC_RD <= s_rxc_rd and not s_rxc_rd_prev;
 
+    STREAM_EN <= s_stream_en;
+
 	PRDATA <= s_dout;
 	PREADY <= s_pready;
 	PSLVERR <= '0';
-
-    TEST <= s_test;
 
 end Behavioral;

@@ -25,17 +25,17 @@ typedef enum _MsgClass
 } MsgClass_t;
 
 typedef enum _MsgId
-{	
+{
 	// Marmote
 	SET_LED = 1,
-	START_STREAM = 2,
-	STOP_STREAM,
 	// SDR
-	SET_FREQUENCY = 3,
-	GET_FREQUENCY = 4,
+	START_STREAMING = 2,
+	STOP_STREAMING = 3,
+	SET_FREQUENCY = 4,
+	GET_FREQUENCY = 5,
 	// MAX2830
-	SET_REG = 5,
-	GET_REG = 6,
+	SET_REG = 6,
+	GET_REG = 7,
 } MsgId_t;
 
 typedef struct _PktHdr
@@ -55,5 +55,8 @@ void printPkt(PktHdr_t* pkt);
 
 void Marmote_SetFrequency(FT_HANDLE ftHandle, uint32_t freq_hz);
 uint32_t Marmote_GetFrequency(FT_HANDLE ftHandle);
+
+void Marmote_StartStreaming(FT_HANDLE ftHandle);
+void Marmote_StopStreaming(FT_HANDLE ftHandle);
 
 #endif
