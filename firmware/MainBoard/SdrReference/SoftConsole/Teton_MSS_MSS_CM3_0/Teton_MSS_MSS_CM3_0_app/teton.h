@@ -90,7 +90,7 @@ typedef struct
 	uint8_t sync_2;
 	uint8_t msg_class;
 	uint8_t msg_id;
-	uint16_t len; // payload length (little-endian, max. 128 excluding sync chars, class, id and checksum fields)
+	uint16_t len; // payload length (little-endian, max. 128 excluding sync chars, class, id, length and checksum fields)
 	uint8_t payload[];
 	// uint8_t chk_a;
 	// uint8_t chk_b;
