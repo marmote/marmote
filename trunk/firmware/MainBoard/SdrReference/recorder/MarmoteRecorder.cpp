@@ -164,10 +164,14 @@ int _tmain(int argc, _TCHAR* argv[])
 	uint8_t stream_toggle = 0;
 	PktHdr_t* pkt;
 
+	printf("Streaming ENABLED\n");
+	Marmote_StartStreaming(ftHandle);
+
 	while (1)
 	{
 		getchar();
 
+	
 		bytesRequested = sizeof(rxBuffer);
 		ftStatus = FT_Read(ftHandle, rxBuffer, bytesRequested, &bytesReceived);
 		if (ftStatus != FT_OK)
@@ -190,6 +194,10 @@ int _tmain(int argc, _TCHAR* argv[])
 			}
 		}
 		printf("\n");
+
+		printf("Streaming DISABLED\n");
+		Marmote_StopStreaming(ftHandle);
+	
 
 		/*
 		Marmote_SetFrequency(ftHandle, freq);
