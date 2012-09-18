@@ -364,9 +364,11 @@ begin
 
                     -- USB write
                     elsif TXE_n_pin = '0' then
+                        -- Control FIFO
                         if s_tx_ctrl_fifo_fetched = '1' then
                             s_usb_state <= st_TXC;
-                        elsif s_txd_req = '1' then
+                        -- Data FIFO
+                        elsif s_txd_req = '1' and s_stream_en = '1' then
                             s_obuf_mux_sel <= '1';
                             s_usb_state <= st_TXD;
                         end if;

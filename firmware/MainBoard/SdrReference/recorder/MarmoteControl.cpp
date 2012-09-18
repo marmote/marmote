@@ -40,6 +40,7 @@ void sendMsg(FT_HANDLE ftHandle, MsgClass_t msg_class, MsgId_t msg_id, uint8_t* 
 	ftStatus = FT_Write(ftHandle, (uint8_t*)pkt, sizeof(PktHdr_t) + len + PKT_CHK_LENGTH, &bytesWritten);
 	if (ftStatus == FT_OK)
 	{
+		/*
 		printf("Sent packet (%d bytes):\n", bytesWritten);
 		for (i = 0; i < sizeof(PktHdr_t) + len + PKT_CHK_LENGTH; i++)
 		{
@@ -47,6 +48,7 @@ void sendMsg(FT_HANDLE ftHandle, MsgClass_t msg_class, MsgId_t msg_id, uint8_t* 
 		}
 		printf("\n");
 		printPkt(pkt);
+		*/
 	}
 	else
 	{
