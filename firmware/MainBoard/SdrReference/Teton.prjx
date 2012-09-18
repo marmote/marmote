@@ -361,22 +361,22 @@ SIZE="1261"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_compile_log.rpt,log"
 STATE="utd"
-TIME="1347998456"
-SIZE="37847"
+TIME="1347999251"
+SIZE="37768"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\projectData\Teton.pdb,pdb"
 STATE="utd"
-TIME="1347998591"
+TIME="1347999388"
 SIZE="146944"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\Teton.pdb,pdb"
 STATE="ood"
-TIME="1347998538"
+TIME="1347999335"
 SIZE="146944"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\Teton.pro,pro"
 STATE="utd"
-TIME="1347998591"
+TIME="1347999388"
 SIZE="1954"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_MSS.ide_des,ide_des"
@@ -386,12 +386,12 @@ SIZE="370"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_placeroute_log.rpt,log"
 STATE="utd"
-TIME="1347998498"
+TIME="1347999295"
 SIZE="2527"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_prgdata_log.rpt,log"
 STATE="utd"
-TIME="1347998519"
+TIME="1347999316"
 SIZE="809"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_synthesis.ide_des,ide_des"
@@ -401,22 +401,22 @@ SIZE="438"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_synthesis_1.adb,adb"
 STATE="utd"
-TIME="1347998518"
-SIZE="1736704"
+TIME="1347999315"
+SIZE="1749504"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_synthesis_1.fdb,fdb"
 STATE="utd"
-TIME="1347998518"
+TIME="1347999315"
 SIZE="138034"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_synthesis_1.ide_des,ide_des"
 STATE="utd"
-TIME="1347998518"
+TIME="1347999315"
 SIZE="1375"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_verifytiming_log.rpt,log"
 STATE="utd"
-TIME="1347998504"
+TIME="1347999301"
 SIZE="1154"
 ENDFILE
 VALUE "<project>\designer\impl1\USB_IF.ide_des,ide_des"
@@ -446,13 +446,13 @@ SIZE="5013"
 ENDFILE
 VALUE "<project>\hdl\data_framer.vhd,hdl"
 STATE="utd"
-TIME="1347993796"
-SIZE="7621"
+TIME="1348008732"
+SIZE="11127"
 ENDFILE
 VALUE "<project>\hdl\fifo_256x16.vhd,hdl"
 STATE="utd"
-TIME="1342202243"
-SIZE="7555"
+TIME="1348008608"
+SIZE="6624"
 ENDFILE
 VALUE "<project>\hdl\fifo_512x8.vhd,hdl"
 STATE="utd"
@@ -471,7 +471,7 @@ SIZE="970"
 ENDFILE
 VALUE "<project>\simulation\bfmtovec_compile.log,log"
 STATE="utd"
-TIME="1347993717"
+TIME="1348006159"
 SIZE="459"
 ENDFILE
 VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
@@ -500,13 +500,13 @@ PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
 ENDFILE
 VALUE "<project>\simulation\data_framer_tb_presynth_simulation.log,log"
 STATE="utd"
-TIME="1347993762"
-SIZE="22613"
+TIME="1348006231"
+SIZE="56632"
 ENDFILE
 VALUE "<project>\simulation\run.do,do"
 STATE="utd"
-TIME="1347993361"
-SIZE="1699"
+TIME="1348006007"
+SIZE="1280"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
@@ -588,17 +588,17 @@ SIZE="672"
 ENDFILE
 VALUE "<project>\synthesis\synthesis_1\Teton.edn,syn_edn"
 STATE="utd"
-TIME="1347998414"
-SIZE="1327142"
+TIME="1347999232"
+SIZE="1340181"
 ENDFILE
 VALUE "<project>\synthesis\synthesis_1\Teton.so,so"
 STATE="utd"
-TIME="1347998414"
+TIME="1347999232"
 SIZE="226"
 ENDFILE
 VALUE "<project>\synthesis\synthesis_1\Teton_sdc.sdc,syn_sdc"
 STATE="utd"
-TIME="1347998414"
+TIME="1347999232"
 SIZE="1028"
 ENDFILE
 VALUE "<project>\synthesis\synwork\Teton_compiler.so,so"
@@ -649,8 +649,17 @@ VALUE "<project>\simulation\subsystem.bfm,sim"
 VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
 VALUE "<project>\component\work\Teton\Teton.pdc,pdc"
 ENDLIST
+LIST UserCustomizedFileList
+LIST "ideSIMULATION"
+USE_LIST=TRUE
+FILELIST
+VALUE "<project>\hdl\fifo_256x16.vhd,hdl"
+VALUE "<project>\hdl\data_framer.vhd,hdl"
+ENDFILELIST
+ENDLIST
+ENDLIST 
 LIST AssociatedStimulus
-VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
+VALUE "<project>\stimulus\data_framer_tb.vhd,tb_hdl"
 ENDLIST
 LIST SynthesisConstraints
 VALUE "<project>\component\work\Teton_MSS\mss_tshell_syn.sdc,sdc"
@@ -748,7 +757,7 @@ ENDLIST
 ENDLIST
 LIST AssociatedStimulus
 LIST Teton
-VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
+VALUE "<project>\stimulus\data_framer_tb.vhd,tb_hdl"
 ENDLIST
 LIST AFE_IF
 VALUE "<project>\stimulus\afe_if_tb.vhd,tb_hdl"
@@ -932,6 +941,15 @@ ENDLIST
 LIST CDBOrder
 ENDLIST
 LIST UserCustomizedFileList
+LIST "Teton"
+LIST "ideSIMULATION"
+USE_LIST=TRUE
+FILELIST
+VALUE "<project>\hdl\fifo_256x16.vhd,hdl"
+VALUE "<project>\hdl\data_framer.vhd,hdl"
+ENDFILELIST
+ENDLIST
+ENDLIST
 ENDLIST
 LIST OpenedFileList
 StartPage;StartPage
@@ -967,7 +985,7 @@ SUBBLOCK "SmartFusion_CMSIS_PAL::work","","FALSE","FALSE"
 ENDLIST
 LIST "DESIGN_IO::work","component\work\DESIGN_IO\DESIGN_IO.cxf","TRUE","FALSE"
 ENDLIST
-LIST "fifo_256x16::work","hdl\fifo_256x16.vhd","FALSE","FALSE"
+LIST "FIFO_256x16::work","hdl\fifo_256x16.vhd","FALSE","FALSE"
 ENDLIST
 LIST "FIFO_512x8::work","hdl\fifo_512x8.vhd","FALSE","FALSE"
 ENDLIST

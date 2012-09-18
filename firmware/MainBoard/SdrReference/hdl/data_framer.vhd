@@ -36,7 +36,7 @@
 --              The module receives 2x16-bit data streams and passes them
 --              through synchronizer FIFOs along with sequence numbers.
 --
--- TODO:        Make FIFO AEMPTY and AFULL parameters generic.
+-- TODO:        Simplify checksum calculation.
 ------------------------------------------------------------------------------
 
 library IEEE;
@@ -70,6 +70,26 @@ architecture Behavioral of DATA_FRAMER is
 
     -- Components
 
+    component FIFO_256x16 is
+    generic (
+        g_AFULL     : integer := 192;
+        g_AEMPTY    : integer := 128
+    );
+    port (
+        DATA   : in    std_logic_vector(15 downto 0);
+        Q      : out   std_logic_vector(15 downto 0);
+        WE     : in    std_logic;
+        RE     : in    std_logic;
+        WCLOCK : in    std_logic;
+        RCLOCK : in    std_logic;
+        FULL   : out   std_logic;
+        EMPTY  : out   std_logic;
+        RESET  : in    std_logic;
+        AEMPTY : out   std_logic;
+        AFULL  : out   std_logic
+    );
+    end component;
+    
 
     -- Constants
 
@@ -88,7 +108,7 @@ architecture Behavioral of DATA_FRAMER is
 
     -- Signals
 
-    alias usb_rst is rst;
+    alias USB_RST is RST;
 
     type framer_state_t is (
         st_IDLE,
@@ -98,6 +118,12 @@ architecture Behavioral of DATA_FRAMER is
         st_MSG_ID,
         st_LEN_1,
         st_LEN_2,
+        st_SEQ_MSB,
+        st_SEQ_LSB,
+        st_DATA_I_MSB,
+        st_DATA_I_LSB,
+        st_DATA_Q_MSB,
+        st_DATA_Q_LSB,
         st_CHK_A,
         st_CHK_B
     );
@@ -115,25 +141,57 @@ architecture Behavioral of DATA_FRAMER is
     signal s_txd_req    : std_logic;
     signal s_txd_req_next : std_logic;
 
-    signal s_seq_fifo_aempty : std_logic;
+    -- FIFOs
+    signal s_fifo_wr         : std_logic;
+    signal s_fifo_rd         : std_logic;
+    signal s_fifo_empty      : std_logic;
+    signal s_fifo_aempty     : std_logic;
 
+    signal s_seq_num_ctr     : std_logic_vector(15 downto 0);
+    signal s_seq_fifo_out    : std_logic_vector(15 downto 0);
 
 begin
 
+    assert c_MSG_LEN <= 128
+    report "ERROR: c_MSG_LEN longer than 128 is not supported"
+    severity failure;
+
     -- Port maps
+
+    u_SEQ_FIFO : FIFO_256x16
+    generic map (
+        g_AFULL     => 8,
+        g_AEMPTY    => 4
+    )
+    port map (
+        RESET   => RST,
+--        DATA    => std_logic_vector(s_seq_num_ctr),
+        DATA    => x"1234",
+        Q       => s_seq_fifo_out,
+        WCLOCK  => CLK,
+        WE      => s_fifo_wr,
+        RCLOCK  => USB_CLK,
+        RE      => s_fifo_rd,
+        FULL    => open,
+        EMPTY   => s_fifo_empty,
+        AFULL   => open,
+        AEMPTY  => s_fifo_aempty
+    );
+
+    s_fifo_wr <= TX_STROBE;
 
 
     -- Processes
 
-    p_framer_sync : process (usb_rst, usb_clk)
+    p_framer_sync : process (USB_RST, USB_CLK)
     begin
-        if usb_rst = '1' then
+        if USB_RST = '1' then
             s_state <= st_IDLE;
             s_txd <= (others => '0');
             s_txd_req <= '0';
             s_chk_a <= c_CHK_A;
             s_chk_b <= c_CHK_B;
-        elsif rising_edge(usb_clk) then
+        elsif rising_edge(USB_CLK) then
             s_state <= s_state_next;
             s_txd <= s_txd_next;
             s_txd_req <= s_txd_req_next;
@@ -148,7 +206,8 @@ begin
         s_txd,
         s_chk_a,
         s_chk_b,
-        s_seq_fifo_aempty
+        s_seq_fifo_out,
+        s_fifo_aempty
     )
     begin
         -- Default assignments
@@ -164,7 +223,7 @@ begin
 
             when st_IDLE =>
                 s_txd_next <= c_SYNC_CHAR_1;
-                if s_seq_fifo_aempty = '0' then
+                if s_fifo_aempty = '0' then
                     s_txd_req_next <= '1';
                     s_chk_a_next <= c_CHK_A;
                     s_chk_b_next <= c_CHK_B;
@@ -206,6 +265,54 @@ begin
                 if TXD_RD = '1' then
                     s_chk_a_next <= s_chk_a + s_txd;
                     s_chk_b_next <= s_chk_b + s_chk_a;
+                    s_txd_next <= unsigned(s_seq_fifo_out(15 downto 8));
+                    s_state_next <= st_SEQ_MSB;
+                end if;
+
+            when st_SEQ_MSB => 
+                if TXD_RD = '1' then
+                    s_chk_a_next <= s_chk_a + s_txd;
+                    s_chk_b_next <= s_chk_b + s_chk_a;
+                    s_txd_next <= unsigned(s_seq_fifo_out(7 downto 0));
+                    s_state_next <= st_SEQ_LSB;
+                end if;
+
+            when st_SEQ_LSB => 
+                if TXD_RD = '1' then
+                    s_chk_a_next <= s_chk_a + s_txd;
+                    s_chk_b_next <= s_chk_b + s_chk_a;
+                    s_txd_next <= x"20";
+                    s_state_next <= st_DATA_I_MSB;
+                end if;
+
+            when st_DATA_I_MSB => 
+                if TXD_RD = '1' then
+                    s_chk_a_next <= s_chk_a + s_txd;
+                    s_chk_b_next <= s_chk_b + s_chk_a;
+                    s_txd_next <= x"21";
+                    s_state_next <= st_DATA_I_LSB;
+                end if;
+
+            when st_DATA_I_LSB => 
+                if TXD_RD = '1' then
+                    s_chk_a_next <= s_chk_a + s_txd;
+                    s_chk_b_next <= s_chk_b + s_chk_a;
+                    s_txd_next <= x"30";
+                    s_state_next <= st_DATA_Q_MSB;
+                end if;
+
+            when st_DATA_Q_MSB => 
+                if TXD_RD = '1' then
+                    s_chk_a_next <= s_chk_a + s_txd;
+                    s_chk_b_next <= s_chk_b + s_chk_a;
+                    s_txd_next <= x"31";
+                    s_state_next <= st_DATA_Q_LSB;
+                end if;
+
+            when st_DATA_Q_LSB => 
+                if TXD_RD = '1' then
+                    s_chk_a_next <= s_chk_a + s_txd;
+                    s_chk_b_next <= s_chk_b + s_chk_a;
                     s_txd_next <= s_chk_a + s_txd;
                     s_state_next <= st_CHK_A;
                 end if;
@@ -230,8 +337,6 @@ begin
 
     end process p_framer_comb;
 
-
-    s_seq_fifo_aempty <= '0'; -- FIXME
 
     -- Output assignments
 
