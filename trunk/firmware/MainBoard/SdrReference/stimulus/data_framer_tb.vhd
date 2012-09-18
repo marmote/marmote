@@ -31,7 +31,8 @@ architecture bench of DATA_FRAMER_tb is
   signal TXD_RD: std_logic;
   signal TXD: std_logic_vector(7 downto 0) ;
 
-  constant clock_period: time := 16.667 ns;
+  constant usb_clk_period: time := 16.667 ns;
+  constant sys_clk_period: time := 50 ns;
   signal stop_the_clock: boolean;
 
 begin
@@ -49,7 +50,6 @@ begin
   stimulus: process
   begin
 
-    CLK <= '0';
     TX_I <= (others => '0');
     TX_Q <= (others => '0');
     TX_STROBE <= '0';
@@ -62,15 +62,18 @@ begin
     wait for 5 ns;
 
 
-    wait for 50 ns;
+    wait until falling_edge(clk);
+
+    TX_STROBE <= '1';
+    wait for sys_clk_period * 5;
+    TX_STROBE <= '0';
+
     wait until falling_edge(usb_clk);
     
     -- Uninterrupted transfer
     TXD_RD <= '1';
-    wait for clock_period * 10;
+    wait for usb_clk_period * 20;
     TXD_RD <= '0';
-    wait for clock_period * 10;
-    TXD_RD <= '1';
 
     -- Interrupted transfer
     wait for 50 ns;
@@ -79,11 +82,20 @@ begin
     wait;
   end process;
 
-  clocking: process
+  sys_clocking: process
   begin
     while not stop_the_clock loop
-      usb_clk <= '0', '1' after clock_period / 2;
-      wait for clock_period;
+      clk <= '0', '1' after sys_clk_period / 2;
+      wait for sys_clk_period;
+    end loop;
+    wait;
+  end process;
+
+  usb_clocking: process
+  begin
+    while not stop_the_clock loop
+      usb_clk <= '0', '1' after usb_clk_period / 2;
+      wait for usb_clk_period;
     end loop;
     wait;
   end process;
