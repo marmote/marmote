@@ -16,7 +16,6 @@ architecture bench of DATA_FRAMER_tb is
           TX_STROBE   : in  std_logic;
           USB_CLK     : in  std_logic;
           TXD_REQ     : out std_logic;
-          TXD_EN      : in  std_logic;
           TXD_RD      : in  std_logic;
           TXD         : out std_logic_vector(7 downto 0)
       );
@@ -29,7 +28,6 @@ architecture bench of DATA_FRAMER_tb is
   signal TX_STROBE: std_logic;
   signal USB_CLK: std_logic;
   signal TXD_REQ: std_logic;
-  signal TXD_EN: std_logic;
   signal TXD_RD: std_logic;
   signal TXD: std_logic_vector(7 downto 0) ;
 
@@ -45,7 +43,6 @@ begin
                               TX_STROBE => TX_STROBE,
                               USB_CLK   => USB_CLK,
                               TXD_REQ   => TXD_REQ,
-                              TXD_EN    => TXD_EN,
                               TXD_RD    => TXD_RD,
                               TXD       => TXD );
 
@@ -57,7 +54,6 @@ begin
     TX_Q <= (others => '0');
     TX_STROBE <= '0';
 
-    TXD_EN <= '0';
     TXD_RD <= '0';
   
     rst <= '1';
@@ -66,27 +62,18 @@ begin
     wait for 5 ns;
 
 
-    wait for 100 ns;
+    wait for 50 ns;
     wait until falling_edge(usb_clk);
     
     -- Uninterrupted transfer
-    TXD_EN <= '1';
+    TXD_RD <= '1';
+    wait for clock_period * 10;
+    TXD_RD <= '0';
     wait for clock_period * 10;
     TXD_RD <= '1';
-    wait for clock_period * 20;
-    TXD_RD <= '0';
-    TXD_EN <= '0';
-
-    wait for clock_period * 10;
 
     -- Interrupted transfer
-    TXD_EN <= '1';
-    wait for clock_period * 4;
-    TXD_EN <= '0';
-    wait for clock_period * 10;
-    TXD_EN <= '1';
-    wait for clock_period * 20;
-    TXD_EN <= '0';
+    wait for 50 ns;
 
     stop_the_clock <= true;
     wait;

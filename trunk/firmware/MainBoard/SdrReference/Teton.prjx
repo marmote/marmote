@@ -32,11 +32,11 @@ COREAPB3_LIB
 ENDLIST
 LIST LIBRARY_MSS_BFM_LIB
 ALIAS=..\component\Actel\SmartFusionMSS\MSS\2.5.106\mti\user_verilog\MSS_BFM_LIB
-COMPILE_OPTION=REFRESH_AND_COMPILE
+COMPILE_OPTION=NOCOMPILE
 ENDLIST
 LIST LIBRARY_COREAPB3_LIB
 ALIAS=..\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\user_vhdl\COREAPB3_LIB
-COMPILE_OPTION=REFRESH_AND_COMPILE
+COMPILE_OPTION=NOCOMPILE
 ENDLIST
 LIST FileManager
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf,actgen_cxf"
@@ -461,7 +461,7 @@ SIZE="970"
 ENDFILE
 VALUE "<project>\simulation\bfmtovec_compile.log,log"
 STATE="utd"
-TIME="1347987591"
+TIME="1347993299"
 SIZE="459"
 ENDFILE
 VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
@@ -490,8 +490,8 @@ PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
 ENDFILE
 VALUE "<project>\simulation\run.do,do"
 STATE="utd"
-TIME="1347987444"
-SIZE="1208"
+TIME="1347992053"
+SIZE="1699"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
@@ -538,8 +538,8 @@ SIZE="6294"
 ENDFILE
 VALUE "<project>\stimulus\data_framer_tb.vhd,tb_hdl"
 STATE="utd"
-TIME="1347987589"
-SIZE="2635"
+TIME="1347992093"
+SIZE="2673"
 ENDFILE
 VALUE "<project>\stimulus\ft232h_stub.vhd,tb_hdl"
 STATE="utd"
@@ -776,7 +776,7 @@ Type=max
 RunTime=
 Resolution=1ps
 VsimOpt=
-EntityName=testbench
+EntityName=data_framer_tb
 TopInstanceName=uut
 DoFileName=
 DoFileName2=D:/firmware/MainBoard/SdrReference/simulation/data_framer_wave.do
@@ -1080,6 +1080,9 @@ SUBBLOCK "BFM_APBSLAVE::COREAPB3_LIB","","FALSE","FALSE"
 ENDLIST
 ENDLIST
 LIST ActiveTestBenchList
+LIST "Teton::work"
+ACTIVETESTBENCH "","","FALSE"
+ENDLIST
 LIST "Teton_MSS::work"
 ACTIVETESTBENCH "testbench::work","component\work\Teton_MSS\testbench.vhd","FALSE"
 ENDLIST

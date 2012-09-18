@@ -9,7 +9,6 @@ add wave \
 sim:/data_framer_tb/uut/RST \
 sim:/data_framer_tb/uut/USB_CLK \
 sim:/data_framer_tb/uut/TXD_REQ \
-sim:/data_framer_tb/uut/TXD_EN \
 sim:/data_framer_tb/uut/TXD_RD \
 sim:/data_framer_tb/uut/TXD \
 -divider INTERNAL \

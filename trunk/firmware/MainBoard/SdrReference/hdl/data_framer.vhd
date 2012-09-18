@@ -37,7 +37,6 @@
 --              through synchronizer FIFOs along with sequence numbers.
 --
 -- TODO:        Make FIFO AEMPTY and AFULL parameters generic.
---              Precalculate checksum field for first 4 bytes (class, ID, len)
 ------------------------------------------------------------------------------
 
 library IEEE;
@@ -61,7 +60,6 @@ entity DATA_FRAMER is
         USB_CLK     : in  std_logic;
         
         TXD_REQ     : out std_logic;
-        TXD_EN      : in  std_logic;
         TXD_RD      : in  std_logic;
         TXD         : out std_logic_vector(7 downto 0)
     );
@@ -75,13 +73,17 @@ architecture Behavioral of DATA_FRAMER is
 
     -- Constants
 
-    constant c_SYNC_CHAR_1 : std_logic_vector(7 downto 0) := x"B5";
-    constant c_SYNC_CHAR_2 : std_logic_vector(7 downto 0) := x"63";
+    constant c_SYNC_CHAR_1 : unsigned(7 downto 0) := x"B5";
+    constant c_SYNC_CHAR_2 : unsigned(7 downto 0) := x"63";
 
-    constant c_MSG_CLASS   : std_logic_vector(7 downto 0) := x"0E"; -- FIXME
-    constant c_MSG_ID      : std_logic_vector(7 downto 0) := x"0F"; -- FIXME
+    constant c_MSG_CLASS   : unsigned(7 downto 0) := x"0E"; -- FIXME
+    constant c_MSG_ID      : unsigned(7 downto 0) := x"0F"; -- FIXME
 
-    constant c_MSG_LEN     : std_logic_vector(15 downto 0) := x"0000"; -- FIXME
+    constant c_MSG_LEN     : unsigned(15 downto 0) := x"0000"; -- FIXME
+
+    -- Pre-calculate the first two CHK steps
+    constant c_CHK_A       : unsigned(7 downto 0) := c_MSG_CLASS + c_MSG_ID; 
+    constant c_CHK_B       : unsigned(7 downto 0) := c_MSG_CLASS + c_CHK_A;
 
 
     -- Signals
@@ -103,11 +105,13 @@ architecture Behavioral of DATA_FRAMER is
     signal s_state      : framer_state_t := st_IDLE;
     signal s_state_next : framer_state_t;
 
-    signal s_chk_a      : std_logic_vector(7 downto 0);
-    signal s_chk_b      : std_logic_vector(7 downto 0);
+    signal s_chk_a      : unsigned(7 downto 0);
+    signal s_chk_b      : unsigned(7 downto 0);
+    signal s_chk_a_next : unsigned(7 downto 0);
+    signal s_chk_b_next : unsigned(7 downto 0);
 
-    signal s_txd        : std_logic_vector(7 downto 0);
-    signal s_txd_next   : std_logic_vector(7 downto 0);
+    signal s_txd        : unsigned(7 downto 0);
+    signal s_txd_next   : unsigned(7 downto 0);
     signal s_txd_req    : std_logic;
     signal s_txd_req_next : std_logic;
 
@@ -127,17 +131,23 @@ begin
             s_state <= st_IDLE;
             s_txd <= (others => '0');
             s_txd_req <= '0';
+            s_chk_a <= c_CHK_A;
+            s_chk_b <= c_CHK_B;
         elsif rising_edge(usb_clk) then
-            if TXD_EN = '1' then
-                s_state <= s_state_next;
-            end if;
+            s_state <= s_state_next;
             s_txd <= s_txd_next;
             s_txd_req <= s_txd_req_next;
+            s_chk_a <= s_chk_a_next;
+            s_chk_b <= s_chk_b_next;
         end if;
     end process p_framer_sync;
 
     p_framer_comb : process (
         s_state,
+        TXD_RD,
+        s_txd,
+        s_chk_a,
+        s_chk_b,
         s_seq_fifo_aempty
     )
     begin
@@ -146,6 +156,9 @@ begin
         s_txd_next <= s_txd;
         s_txd_req_next <= s_txd_req;
 
+        s_chk_a_next <= s_chk_a;
+        s_chk_b_next <= s_chk_b;
+
         -- Next state and output logic
         case s_state is
 
@@ -153,53 +166,59 @@ begin
                 s_txd_next <= c_SYNC_CHAR_1;
                 if s_seq_fifo_aempty = '0' then
                     s_txd_req_next <= '1';
+                    s_chk_a_next <= c_CHK_A;
+                    s_chk_b_next <= c_CHK_B;
                     s_state_next <= st_SYNC_1;
                 end if;
 
             when st_SYNC_1 =>
-                s_txd_next <= c_SYNC_CHAR_2;
                 if TXD_RD = '1' then
+                    s_txd_next <= c_SYNC_CHAR_2;
                     s_state_next <= st_SYNC_2;
                 end if;
 
             when st_SYNC_2 =>
-                s_txd_next <= c_MSG_CLASS;
                 if TXD_RD = '1' then
+                    s_txd_next <= c_MSG_CLASS;
                     s_state_next <= st_MSG_CLASS;
                 end if;
 
             when st_MSG_CLASS =>
-                s_txd_next <= c_MSG_ID;
                 if TXD_RD = '1' then
+                    s_txd_next <= c_MSG_ID;
                     s_state_next <= st_MSG_ID;
                 end if;
 
             when st_MSG_ID =>
-                s_txd_next <= c_MSG_LEN(7 downto 0);
                 if TXD_RD = '1' then
+                    s_txd_next <= c_MSG_LEN(7 downto 0);
                     s_state_next <= st_LEN_1;
                 end if;
 
             when st_LEN_1 =>
-                s_txd_next <= c_MSG_LEN(15 downto 8);
                 if TXD_RD = '1' then
+                    s_chk_a_next <= s_chk_a + s_txd;
+                    s_txd_next <= c_MSG_LEN(15 downto 8);
                     s_state_next <= st_LEN_2;
                 end if;
 
             when st_LEN_2 =>
-                s_txd_next <= s_chk_a;
                 if TXD_RD = '1' then
+                    s_chk_a_next <= s_chk_a + s_txd;
+                    s_chk_b_next <= s_chk_b + s_chk_a;
+                    s_txd_next <= s_chk_a + s_txd;
                     s_state_next <= st_CHK_A;
                 end if;
 
             when st_CHK_A =>
-                s_txd_next <= s_chk_b;
                 if TXD_RD = '1' then
+                    s_txd_next <= s_chk_b + s_chk_a;
                     s_state_next <= st_CHK_B;
                 end if;
 
             when st_CHK_B =>
                 if TXD_RD = '1' then
+                    s_txd_next <= (others => '0');
                     s_txd_req_next <= '0';
                     s_state_next <= st_IDLE;
                 end if;
@@ -217,7 +236,7 @@ begin
     -- Output assignments
 
     TXD_REQ <= s_txd_req;
-    TXD <= s_txd;
+    TXD <= std_logic_vector(s_txd);
 
 
 
