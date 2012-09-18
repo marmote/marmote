@@ -56,11 +56,11 @@ entity USB_IF is
         RST         : in  std_logic;
 
         -- Streaming
-        RXD         : out std_logic_vector(7 downto 0);
-        RX_STROBE   : out std_logic;
+        TX_DATA     : in  std_logic_vector(15 downto 0);
+        TX_STROBE   : in  std_logic;
 
         -- USB (FTDI) interface
-        USB_CLK_pin : in std_logic;
+        USB_CLK_pin : in  std_logic;
 
         DATA_pin    : inout std_logic_vector(7 downto 0);
         OE_n_pin    : out std_logic;
@@ -146,6 +146,21 @@ architecture Behavioral of USB_IF is
     );
     end component;
 
+    component DATA_FRAMER is
+    port (
+        CLK         : in  std_logic;
+        RST         : in  std_logic;
+        TX_I        : in  std_logic_vector(15 downto 0);
+        TX_Q        : in  std_logic_vector(15 downto 0);
+        TX_STROBE   : in  std_logic;
+        USB_CLK     : in  std_logic;
+        TXD_REQ     : out std_logic;
+        TXD_EN      : in  std_logic;
+        TXD_RD      : in  std_logic;
+        TXD         : out std_logic_vector(7 downto 0)
+    );
+    end component;
+
     -- Constants
 
     -- Signals
@@ -197,7 +212,12 @@ architecture Behavioral of USB_IF is
     signal s_rx_ctrl_fifo_rd    : std_logic;
     signal s_rx_ctrl_fifo_empty : std_logic;
     signal s_rx_ctrl_fifo_data  : std_logic_vector(7 downto 0);
-    
+
+    -- Data FIFO
+    signal s_txd_req    : std_logic;
+    signal s_txd_en     : std_logic;
+    signal s_txd_rd     : std_logic;
+    signal s_txd        : std_logic;
 
 begin
 
@@ -273,6 +293,20 @@ begin
         TXC_FULL    =>  s_tx_ctrl_fifo_full,
         TXC_DATA    =>  s_tx_ctrl_fifo_data,
         TXC_WR      =>  s_tx_ctrl_fifo_wr
+    );
+
+    u_DATA_FRAMER : DATA_FRAMER
+    port map (
+        CLK         =>  CLK,
+        RST         =>  RST,
+        TX_I        =>  open,
+        TX_Q        =>  open,
+        TX_STROBE   =>  TX_STROBE,
+        USB_CLK     =>  usb_clk,
+        TXD_REQ     =>  s_txd_req,
+        TXD_EN      =>  s_txd_en,
+        TXD_RD      =>  s_txd_rd,
+        TXD         =>  s_txd
     );
     
     s_apb_rst <= not RST;
@@ -369,15 +403,6 @@ begin
 
 
     -- Output assignments
-
-    -- Data
-    RX_STROBE <= s_tx_ctrl_fifo_wr;
---    RXD <= s_tx_ctrl_fifo_data;
-    RXD <= (0 => s_stream_en, others => '0');
-
---    RX_STROBE <= s_rx_strobe;
---    RXD <= s_rxd;
---    RXD <= s_rxd_buf;
 
     OE_n_pin <= s_oe_n;
     RD_n_pin <= s_rd_n;
