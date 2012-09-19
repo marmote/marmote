@@ -37,21 +37,22 @@ architecture bench of DATA_FRAMER_tb is
 
 begin
 
-  uut: DATA_FRAMER port map ( CLK       => CLK,
-                              RST       => RST,
-                              TX_I      => TX_I,
-                              TX_Q      => TX_Q,
-                              TX_STROBE => TX_STROBE,
-                              USB_CLK   => USB_CLK,
-                              TXD_REQ   => TXD_REQ,
-                              TXD_RD    => TXD_RD,
-                              TXD       => TXD );
+    uut: DATA_FRAMER
+    port map (
+       CLK       => CLK,
+       RST       => RST,
+       TX_I      => TX_I,
+       TX_Q      => TX_Q,
+       TX_STROBE => TX_STROBE,
+       USB_CLK   => USB_CLK,
+       TXD_REQ   => TXD_REQ,
+       TXD_RD    => TXD_RD,
+       TXD       => TXD
+    );
 
   stimulus: process
   begin
 
-    TX_I <= (others => '0');
-    TX_Q <= (others => '0');
 
     TXD_RD <= '0';
   
@@ -77,6 +78,8 @@ begin
   fifo_wr : process 
   begin
       TX_STROBE <= '0';
+      TX_I <= x"1234";
+      TX_Q <= x"5678";
       wait until rising_edge(clk);
       wait for 1 ns;
       while not stop_the_clock loop
