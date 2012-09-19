@@ -18,12 +18,9 @@ set sdc_version 1.7
 #define_clock   {atck} -name {atck}  -freq 10 -clockgroup external_jtaggruop
 
 create_clock  -name { USB_CLK } -period 16.667 -waveform { 0.000 8.333  }  { USB_CLK  } 
-create_clock  -name { atck } -period 100.000 -waveform { 0.000 50.000  }  { atck  } 
 
 create_clock  -name { XTLOSC } -period 50.000 -waveform { 0.000 25.000  }  { Teton_MSS_0/MSS_CCC_0/I_XTLOSC:CLKOUT  } 
 
-create_clock  -name { comm_block_INST.tck } -period 1000.000 -waveform { 0.000 500.000  }  { \
-comm_block_INST/jtagi/jtag_clkint_prim/U_CLKSRC:Y  } 
 
 
 
