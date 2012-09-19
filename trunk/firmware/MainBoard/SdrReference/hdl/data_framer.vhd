@@ -147,7 +147,7 @@ architecture Behavioral of DATA_FRAMER is
     signal s_fifo_empty      : std_logic;
     signal s_fifo_aempty     : std_logic;
 
-    signal s_seq_num_ctr     : std_logic_vector(15 downto 0);
+    signal s_seq_num_ctr     : unsigned(15 downto 0);
     signal s_seq_fifo_out    : std_logic_vector(15 downto 0);
 
 begin
@@ -165,8 +165,8 @@ begin
     )
     port map (
         RESET   => RST,
---        DATA    => std_logic_vector(s_seq_num_ctr),
-        DATA    => x"1234",
+        DATA    => std_logic_vector(s_seq_num_ctr),
+--        DATA    => x"1234",
         Q       => s_seq_fifo_out,
         WCLOCK  => CLK,
         WE      => s_fifo_wr,
@@ -218,6 +218,8 @@ begin
         s_chk_a_next <= s_chk_a;
         s_chk_b_next <= s_chk_b;
 
+        s_fifo_rd <= '0'; -- ?
+
         -- Next state and output logic
         case s_state is
 
@@ -259,6 +261,7 @@ begin
                     s_chk_a_next <= s_chk_a + s_txd;
                     s_txd_next <= c_MSG_LEN(15 downto 8);
                     s_state_next <= st_LEN_2;
+                    s_fifo_rd <= '1'; -- ?
                 end if;
 
             when st_LEN_2 =>
@@ -336,6 +339,17 @@ begin
         end case;
 
     end process p_framer_comb;
+
+    p_seq_counter : process (RST, CLK)
+    begin
+        if rst = '1' then
+            s_seq_num_ctr <= (others => '0');
+        elsif rising_edge(CLK) then
+            if TX_STROBE = '1' then
+                s_seq_num_ctr <= s_seq_num_ctr + 1;
+            end if;
+        end if;
+    end process p_seq_counter;
 
 
     -- Output assignments

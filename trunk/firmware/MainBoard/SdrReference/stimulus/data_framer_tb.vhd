@@ -52,7 +52,6 @@ begin
 
     TX_I <= (others => '0');
     TX_Q <= (others => '0');
-    TX_STROBE <= '0';
 
     TXD_RD <= '0';
   
@@ -61,18 +60,11 @@ begin
     rst <= '0';
     wait for 5 ns;
 
-
-    wait until falling_edge(clk);
-
-    TX_STROBE <= '1';
-    wait for sys_clk_period * 5;
-    TX_STROBE <= '0';
-
     wait until falling_edge(usb_clk);
     
     -- Uninterrupted transfer
     TXD_RD <= '1';
-    wait for usb_clk_period * 20;
+    wait for usb_clk_period * 170;
     TXD_RD <= '0';
 
     -- Interrupted transfer
@@ -81,6 +73,20 @@ begin
     stop_the_clock <= true;
     wait;
   end process;
+
+  fifo_wr : process 
+  begin
+      TX_STROBE <= '0';
+      wait until rising_edge(clk);
+      wait for 1 ns;
+      while not stop_the_clock loop
+          TX_STROBE <= '1';
+          wait for sys_clk_period * 1;
+          TX_STROBE <= '0';
+          wait for sys_clk_period * 1;
+      end loop;
+  end process fifo_wr;
+
 
   sys_clocking: process
   begin
