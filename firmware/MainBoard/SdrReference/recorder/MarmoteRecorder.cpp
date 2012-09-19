@@ -163,9 +163,11 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	uint8_t stream_toggle = 0;
 	PktHdr_t* pkt;
+	int jj;
 
 	printf("Streaming ENABLED\n");
 	Marmote_StartStreaming(ftHandle);
+
 
 	while (1)
 	{

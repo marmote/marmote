@@ -49,7 +49,7 @@ use smartfusion.all;
 
 entity DATA_FRAMER is
     generic (
-        g_MSG_LEN   : integer := 128
+        g_SAMPLE_PER_PACKET   : integer := 128
     );
     port (
         -- System clock region
@@ -103,7 +103,8 @@ architecture Behavioral of DATA_FRAMER is
     constant c_MSG_CLASS   : unsigned(7 downto 0) := x"0E"; -- FIXME
     constant c_MSG_ID      : unsigned(7 downto 0) := x"0F"; -- FIXME
 
-    constant c_MSG_LEN     : unsigned(15 downto 0) := to_unsigned(g_MSG_LEN, 16);
+    -- 2 bytes for sequence number + 2-byte samples on 2 channels
+    constant c_MSG_LEN     : unsigned(15 downto 0) := to_unsigned(2+4*g_SAMPLE_PER_PACKET, 16);
 
     -- Pre-calculate the first two CHK steps
     constant c_CHK_A       : unsigned(7 downto 0) := c_MSG_CLASS + c_MSG_ID; 
@@ -135,8 +136,8 @@ architecture Behavioral of DATA_FRAMER is
     signal s_state      : framer_state_t := st_IDLE;
     signal s_state_next : framer_state_t;
 
-    signal s_msg_ctr        : unsigned(7 downto 0);
-    signal s_msg_ctr_next   : unsigned(7 downto 0);
+    signal s_msg_ctr        : unsigned(15 downto 0);
+    signal s_msg_ctr_next   : unsigned(15 downto 0);
 
     signal s_chk_a      : unsigned(7 downto 0);
     signal s_chk_b      : unsigned(7 downto 0);
@@ -169,7 +170,7 @@ begin
     u_SEQ_FIFO : FIFO_256x16
     generic map (
         g_AFULL     => 8,
-        g_AEMPTY    => g_MSG_LEN
+        g_AEMPTY    => g_SAMPLE_PER_PACKET
     )
     port map (
         RESET   => RST,
@@ -188,7 +189,7 @@ begin
     u_DATA_I_FIFO : FIFO_256x16
     generic map (
         g_AFULL     => 8,
-        g_AEMPTY    => g_MSG_LEN
+        g_AEMPTY    => g_SAMPLE_PER_PACKET
     )
     port map (
         RESET   => RST,
@@ -207,7 +208,7 @@ begin
     u_DATA_Q_FIFO : FIFO_256x16
     generic map (
         g_AFULL     => 8,
-        g_AEMPTY    => g_MSG_LEN
+        g_AEMPTY    => g_SAMPLE_PER_PACKET
     )
     port map (
         RESET   => RST,
@@ -272,6 +273,7 @@ begin
 
             when st_IDLE =>
                 s_txd_next <= c_SYNC_CHAR_1;
+                s_msg_ctr_next <= (others => '0');
                 if s_fifo_aempty = '0' then
                     s_txd_req_next <= '1';
                     s_chk_a_next <= c_CHK_A;
@@ -316,7 +318,6 @@ begin
                     s_chk_a_next <= s_chk_a + s_txd;
                     s_chk_b_next <= s_chk_b + s_chk_a;
                     s_txd_next <= unsigned(s_seq_fifo_out(15 downto 8));
-                    s_msg_ctr_next <= (others => '0');
                     s_state_next <= st_SEQ_MSB;
                 end if;
 
@@ -365,7 +366,7 @@ begin
                 if TXD_RD = '1' then
                     s_chk_a_next <= s_chk_a + s_txd;
                     s_chk_b_next <= s_chk_b + s_chk_a;
-                    if s_msg_ctr < c_MSG_LEN then
+                    if s_msg_ctr < to_unsigned(g_SAMPLE_PER_PACKET, 16) then
                         s_txd_next <= unsigned(s_i_fifo_out(15 downto 8));
                         s_state_next <= st_DATA_I_MSB;
                     else
