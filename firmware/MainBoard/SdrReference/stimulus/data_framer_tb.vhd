@@ -31,6 +31,9 @@ architecture bench of DATA_FRAMER_tb is
   signal TXD_RD: std_logic;
   signal TXD: std_logic_vector(7 downto 0) ;
 
+  signal s_tx_i : unsigned(15 downto 0);
+  signal s_tx_q : unsigned(15 downto 0);
+
   constant usb_clk_period: time := 16.667 ns;
   constant sys_clk_period: time := 50 ns;
   signal stop_the_clock: boolean;
@@ -61,15 +64,16 @@ begin
     rst <= '0';
     wait for 5 ns;
 
+    wait for sys_clk_period * 200;
     wait until falling_edge(usb_clk);
     
     -- Uninterrupted transfer
     TXD_RD <= '1';
-    wait for usb_clk_period * 170;
+    wait for usb_clk_period * 700;
     TXD_RD <= '0';
 
     -- Interrupted transfer
-    wait for 50 ns;
+    wait for 5000 ns;
 
     stop_the_clock <= true;
     wait;
@@ -78,8 +82,8 @@ begin
   fifo_wr : process 
   begin
       TX_STROBE <= '0';
-      TX_I <= x"1234";
-      TX_Q <= x"5678";
+      s_tx_i <= x"1234";
+      s_tx_q <= x"5678";
       wait until rising_edge(clk);
       wait for 1 ns;
       while not stop_the_clock loop
@@ -87,8 +91,13 @@ begin
           wait for sys_clk_period * 1;
           TX_STROBE <= '0';
           wait for sys_clk_period * 1;
+          s_tx_i <= s_tx_i+1;
+          s_tx_q <= s_tx_q+1;
       end loop;
   end process fifo_wr;
+
+  TX_I <= std_logic_vector(s_tx_i);
+  TX_Q <= std_logic_vector(s_tx_q);
 
 
   sys_clocking: process

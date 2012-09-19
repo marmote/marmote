@@ -165,13 +165,26 @@ int _tmain(int argc, _TCHAR* argv[])
 	PktHdr_t* pkt;
 	int jj;
 
-	printf("Streaming ENABLED\n");
-	Marmote_StartStreaming(ftHandle);
+	
 
 
 	while (1)
 	{
 		getchar();
+
+		/*
+		ftStatus = FT_Purge(ftHandle, FT_PURGE_RX | FT_PURGE_TX);
+		if (ftStatus != FT_OK) {
+			printf("Unable to flush FIFOs\n");
+			return 1;
+		}*/
+		
+		
+		printf("Starting streaming\n");
+		Marmote_StartStreaming(ftHandle);
+		
+
+		Sleep(100);
 
 	
 		bytesRequested = sizeof(rxBuffer);
@@ -181,6 +194,10 @@ int _tmain(int argc, _TCHAR* argv[])
 			printf("FT_Read failed\n");
 			return -1;
 		}
+
+		
+		//printf("Stopping streaming\n");
+		//Marmote_StopStreaming(ftHandle);
 
 		printf("Read  %4d chars: ", bytesReceived);
 		for (DWORD i = 0; i < bytesReceived; i++)
@@ -197,8 +214,6 @@ int _tmain(int argc, _TCHAR* argv[])
 		}
 		printf("\n");
 
-		printf("Streaming DISABLED\n");
-		Marmote_StopStreaming(ftHandle);
 	
 
 		/*

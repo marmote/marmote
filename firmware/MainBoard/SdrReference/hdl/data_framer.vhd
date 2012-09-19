@@ -38,6 +38,7 @@
 --              through synchronizer FIFOs along with sequence numbers.
 --
 -- TODO:        Simplify checksum calculation.
+--              Flush FIFO on stream enable.
 ------------------------------------------------------------------------------
 
 library IEEE;
@@ -161,8 +162,8 @@ architecture Behavioral of DATA_FRAMER is
 
 begin
 
-    assert c_MSG_LEN <= 128
-    report "ERROR: c_MSG_LEN longer than 128 is not supported"
+    assert g_SAMPLE_PER_PACKET <= 128
+    report "ERROR: Samples more than 128 per packet are not supported (g_SAMPLE_PER_PACKET > 128)"
     severity failure;
 
     -- Port maps
@@ -356,6 +357,7 @@ begin
 
             when st_DATA_Q_MSB => 
                 if TXD_RD = '1' then
+                    s_fifo_rd <= '1';
                     s_chk_a_next <= s_chk_a + s_txd;
                     s_chk_b_next <= s_chk_b + s_chk_a;
                     s_txd_next <= unsigned(s_q_fifo_out(7 downto 0));
