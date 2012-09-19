@@ -27,6 +27,7 @@
 -------------------------------------------------------------------------------
 -- Revisions     :
 -- Date            Version  Author			Description
+-- 2012-09-18      1.1      Sandor Szilvasi	Added SEQ and I/Q FIFOs
 -- 2012-09-18      1.0      Sandor Szilvasi	Transmits empty frames
 ------------------------------------------------------------------------------
 --
@@ -48,7 +49,7 @@ use smartfusion.all;
 
 entity DATA_FRAMER is
     generic (
-        g_MSG_LEN   : integer := 4
+        g_MSG_LEN   : integer := 128
     );
     port (
         -- System clock region
