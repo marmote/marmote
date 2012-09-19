@@ -49,31 +49,51 @@ end entity;
 architecture Behavioral of COUNTER_STUB is
 
     -- Signals
-    signal s_ctr               : unsigned(15 downto 0);
+    signal s_txd_ctr    : unsigned(15 downto 0);
+    signal s_en_ctr     : unsigned(15 downto 0);
+    signal s_en         : std_logic;
 
-	signal s_tx_strobe         : std_logic;
+	signal s_tx_strobe  : std_logic;
 
 begin
 
     -- Processes
 
+    p_txd_counter_en : process (rst, clk)
+    begin
+        if rst = '1' then
+            s_en_ctr <= (others => '0');
+            s_en <= '0';
+        elsif rising_edge(clk) then
+            s_en_ctr <= s_en_ctr + 1;
+            s_en <= '0';
+            if s_en_ctr = 3 then
+                s_en_ctr <= (others => '0');
+                s_en <= '1';
+            end if;
+        end if;
+    end process p_txd_counter_en;
+
+
     p_txd_counter : process (rst, clk)
     begin
         if rst = '1' then
---            s_ctr <= (others => '0');
             s_tx_strobe <= '0';
-            s_ctr <= x"0002";
+            s_txd_ctr <= (15 => '1', others => '0');
         elsif rising_edge(clk) then
-            s_tx_strobe <= '1';
-            s_ctr <= s_ctr + 1;
+            s_tx_strobe <= '0';
+            if s_en = '1' then
+                s_tx_strobe <= '1';
+                s_txd_ctr <= s_txd_ctr + 1;
+            end if;
         end if;
     end process p_txd_counter;
 
 
     -- Output assignments
 
-    TXD_I <= std_logic_vector(s_ctr(15 downto 0));
-    TXD_Q <= std_logic_vector(s_ctr(15 downto 0) + 10);
+    TXD_I <= std_logic_vector(s_txd_ctr(15 downto 0));
+    TXD_Q <= std_logic_vector(s_txd_ctr(15 downto 0) + 16);
     TX_STROBE <= s_tx_strobe;
 
 

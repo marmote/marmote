@@ -150,6 +150,9 @@ architecture Behavioral of USB_IF is
     end component;
 
     component DATA_FRAMER is
+    generic (
+        g_SAMPLE_PER_PACKET   : integer := 128
+    );
     port (
         CLK         : in  std_logic;
         RST         : in  std_logic;
@@ -302,6 +305,9 @@ begin
     );
 
     u_DATA_FRAMER : DATA_FRAMER
+    generic map (
+        g_SAMPLE_PER_PACKET =>  8
+    )   
     port map (
         CLK         =>  CLK,
         RST         =>  RST,
