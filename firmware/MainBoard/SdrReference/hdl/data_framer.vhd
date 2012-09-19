@@ -47,6 +47,9 @@ library smartfusion;
 use smartfusion.all;
 
 entity DATA_FRAMER is
+    generic (
+        g_MSG_LEN   : integer := 4
+    );
     port (
         -- System clock region
         CLK         : in  std_logic;
@@ -99,7 +102,7 @@ architecture Behavioral of DATA_FRAMER is
     constant c_MSG_CLASS   : unsigned(7 downto 0) := x"0E"; -- FIXME
     constant c_MSG_ID      : unsigned(7 downto 0) := x"0F"; -- FIXME
 
-    constant c_MSG_LEN     : unsigned(15 downto 0) := x"0000"; -- FIXME
+    constant c_MSG_LEN     : unsigned(15 downto 0) := to_unsigned(g_MSG_LEN, 16);
 
     -- Pre-calculate the first two CHK steps
     constant c_CHK_A       : unsigned(7 downto 0) := c_MSG_CLASS + c_MSG_ID; 
@@ -131,6 +134,9 @@ architecture Behavioral of DATA_FRAMER is
     signal s_state      : framer_state_t := st_IDLE;
     signal s_state_next : framer_state_t;
 
+    signal s_msg_ctr        : unsigned(7 downto 0);
+    signal s_msg_ctr_next   : unsigned(7 downto 0);
+
     signal s_chk_a      : unsigned(7 downto 0);
     signal s_chk_b      : unsigned(7 downto 0);
     signal s_chk_a_next : unsigned(7 downto 0);
@@ -139,16 +145,17 @@ architecture Behavioral of DATA_FRAMER is
     signal s_txd        : unsigned(7 downto 0);
     signal s_txd_next   : unsigned(7 downto 0);
     signal s_txd_req    : std_logic;
-    signal s_txd_req_next : std_logic;
+    signal s_txd_req_next   : std_logic;
 
     -- FIFOs
-    signal s_fifo_wr         : std_logic;
-    signal s_fifo_rd         : std_logic;
-    signal s_fifo_empty      : std_logic;
-    signal s_fifo_aempty     : std_logic;
+    signal s_fifo_rd        : std_logic;
+    signal s_fifo_empty     : std_logic;
+    signal s_fifo_aempty    : std_logic;
 
-    signal s_seq_num_ctr     : unsigned(15 downto 0);
-    signal s_seq_fifo_out    : std_logic_vector(15 downto 0);
+    signal s_seq_num_ctr    : unsigned(15 downto 0);
+    signal s_seq_fifo_out   : std_logic_vector(15 downto 0);
+    signal s_i_fifo_out     : std_logic_vector(15 downto 0);
+    signal s_q_fifo_out     : std_logic_vector(15 downto 0);
 
 begin
 
@@ -161,15 +168,14 @@ begin
     u_SEQ_FIFO : FIFO_256x16
     generic map (
         g_AFULL     => 8,
-        g_AEMPTY    => 4
+        g_AEMPTY    => g_MSG_LEN
     )
     port map (
         RESET   => RST,
-        DATA    => std_logic_vector(s_seq_num_ctr),
---        DATA    => x"1234",
-        Q       => s_seq_fifo_out,
         WCLOCK  => CLK,
-        WE      => s_fifo_wr,
+        WE      => TX_STROBE,
+        DATA    => std_logic_vector(s_seq_num_ctr),
+        Q       => s_seq_fifo_out,
         RCLOCK  => USB_CLK,
         RE      => s_fifo_rd,
         FULL    => open,
@@ -178,7 +184,43 @@ begin
         AEMPTY  => s_fifo_aempty
     );
 
-    s_fifo_wr <= TX_STROBE;
+    u_DATA_I_FIFO : FIFO_256x16
+    generic map (
+        g_AFULL     => 8,
+        g_AEMPTY    => g_MSG_LEN
+    )
+    port map (
+        RESET   => RST,
+        WCLOCK  => CLK,
+        WE      => TX_STROBE,
+        DATA    => TX_I,
+        Q       => s_i_fifo_out,
+        RCLOCK  => USB_CLK,
+        RE      => s_fifo_rd,
+        FULL    => open,
+        EMPTY   => open,
+        AFULL   => open,
+        AEMPTY  => open
+    );
+
+    u_DATA_Q_FIFO : FIFO_256x16
+    generic map (
+        g_AFULL     => 8,
+        g_AEMPTY    => g_MSG_LEN
+    )
+    port map (
+        RESET   => RST,
+        WCLOCK  => CLK,
+        WE      => TX_STROBE,
+        DATA    => TX_Q,
+        Q       => s_q_fifo_out,
+        RCLOCK  => USB_CLK,
+        RE      => s_fifo_rd,
+        FULL    => open,
+        EMPTY   => open,
+        AFULL   => open,
+        AEMPTY  => open
+    );
 
 
     -- Processes
@@ -187,12 +229,14 @@ begin
     begin
         if USB_RST = '1' then
             s_state <= st_IDLE;
+            s_msg_ctr <= (others => '0');
             s_txd <= (others => '0');
             s_txd_req <= '0';
             s_chk_a <= c_CHK_A;
             s_chk_b <= c_CHK_B;
         elsif rising_edge(USB_CLK) then
             s_state <= s_state_next;
+            s_msg_ctr <= s_msg_ctr_next;
             s_txd <= s_txd_next;
             s_txd_req <= s_txd_req_next;
             s_chk_a <= s_chk_a_next;
@@ -202,6 +246,7 @@ begin
 
     p_framer_comb : process (
         s_state,
+        s_msg_ctr,
         TXD_RD,
         s_txd,
         s_chk_a,
@@ -212,13 +257,14 @@ begin
     begin
         -- Default assignments
         s_state_next <= s_state;
+        s_msg_ctr_next <= s_msg_ctr;
         s_txd_next <= s_txd;
         s_txd_req_next <= s_txd_req;
 
         s_chk_a_next <= s_chk_a;
         s_chk_b_next <= s_chk_b;
 
-        s_fifo_rd <= '0'; -- ?
+        s_fifo_rd <= '0';
 
         -- Next state and output logic
         case s_state is
@@ -261,7 +307,7 @@ begin
                     s_chk_a_next <= s_chk_a + s_txd;
                     s_txd_next <= c_MSG_LEN(15 downto 8);
                     s_state_next <= st_LEN_2;
-                    s_fifo_rd <= '1'; -- ?
+                    s_fifo_rd <= '1';
                 end if;
 
             when st_LEN_2 =>
@@ -269,6 +315,7 @@ begin
                     s_chk_a_next <= s_chk_a + s_txd;
                     s_chk_b_next <= s_chk_b + s_chk_a;
                     s_txd_next <= unsigned(s_seq_fifo_out(15 downto 8));
+                    s_msg_ctr_next <= (others => '0');
                     s_state_next <= st_SEQ_MSB;
                 end if;
 
@@ -284,15 +331,16 @@ begin
                 if TXD_RD = '1' then
                     s_chk_a_next <= s_chk_a + s_txd;
                     s_chk_b_next <= s_chk_b + s_chk_a;
-                    s_txd_next <= x"20";
+                    s_txd_next <= unsigned(s_i_fifo_out(15 downto 8));
                     s_state_next <= st_DATA_I_MSB;
                 end if;
 
             when st_DATA_I_MSB => 
                 if TXD_RD = '1' then
+                    s_msg_ctr_next <= s_msg_ctr + 1;
                     s_chk_a_next <= s_chk_a + s_txd;
                     s_chk_b_next <= s_chk_b + s_chk_a;
-                    s_txd_next <= x"21";
+                    s_txd_next <= unsigned(s_i_fifo_out(7 downto 0));
                     s_state_next <= st_DATA_I_LSB;
                 end if;
 
@@ -300,7 +348,7 @@ begin
                 if TXD_RD = '1' then
                     s_chk_a_next <= s_chk_a + s_txd;
                     s_chk_b_next <= s_chk_b + s_chk_a;
-                    s_txd_next <= x"30";
+                    s_txd_next <= unsigned(s_q_fifo_out(15 downto 8));
                     s_state_next <= st_DATA_Q_MSB;
                 end if;
 
@@ -308,7 +356,7 @@ begin
                 if TXD_RD = '1' then
                     s_chk_a_next <= s_chk_a + s_txd;
                     s_chk_b_next <= s_chk_b + s_chk_a;
-                    s_txd_next <= x"31";
+                    s_txd_next <= unsigned(s_q_fifo_out(7 downto 0));
                     s_state_next <= st_DATA_Q_LSB;
                 end if;
 
@@ -316,8 +364,13 @@ begin
                 if TXD_RD = '1' then
                     s_chk_a_next <= s_chk_a + s_txd;
                     s_chk_b_next <= s_chk_b + s_chk_a;
-                    s_txd_next <= s_chk_a + s_txd;
-                    s_state_next <= st_CHK_A;
+                    if s_msg_ctr < c_MSG_LEN then
+                        s_txd_next <= unsigned(s_i_fifo_out(15 downto 8));
+                        s_state_next <= st_DATA_I_MSB;
+                    else
+                        s_txd_next <= s_chk_a + s_txd;
+                        s_state_next <= st_CHK_A;
+                    end if;
                 end if;
 
             when st_CHK_A =>
