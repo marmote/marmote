@@ -310,7 +310,7 @@ begin
     )   
     port map (
         CLK         =>  CLK,
-        RST         =>  RST,
+        RST         =>  not s_stream_en,
         TX_I        =>  TX_I,
         TX_Q        =>  TX_Q,
         TX_STROBE   =>  TX_STROBE,

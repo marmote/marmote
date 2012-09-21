@@ -356,47 +356,52 @@ SIZE="1333"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_compile_log.rpt,log"
 STATE="utd"
-TIME="1348070693"
-SIZE="38353"
+TIME="1348084986"
+SIZE="38909"
+ENDFILE
+VALUE "<project>\designer\impl1\Teton_fp\projectData\Teton.pdb,pdb"
+STATE="utd"
+TIME="1348085143"
+SIZE="165376"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\Teton.pdb,pdb"
 STATE="ood"
-TIME="1348070793"
-SIZE="164864"
+TIME="1348085091"
+SIZE="165376"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\Teton.pro,pro"
 STATE="utd"
-TIME="1348070842"
+TIME="1348085143"
 SIZE="1954"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_placeroute_log.rpt,log"
 STATE="utd"
-TIME="1348070753"
-SIZE="2530"
+TIME="1348085045"
+SIZE="2589"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_prgdata_log.rpt,log"
 STATE="utd"
-TIME="1348070773"
+TIME="1348085067"
 SIZE="809"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_synthesis_1.adb,adb"
 STATE="utd"
-TIME="1348070773"
-SIZE="2092032"
+TIME="1348085067"
+SIZE="2118656"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_synthesis_1.fdb,fdb"
 STATE="utd"
-TIME="1348070773"
-SIZE="155955"
+TIME="1348085067"
+SIZE="156466"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_synthesis_1.ide_des,ide_des"
 STATE="utd"
-TIME="1348070773"
+TIME="1348085067"
 SIZE="1374"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_verifytiming_log.rpt,log"
 STATE="utd"
-TIME="1348070758"
+TIME="1348085051"
 SIZE="1154"
 ENDFILE
 VALUE "<project>\designer\impl1\USB_IF.ide_des,ide_des"
@@ -441,8 +446,8 @@ SIZE="7331"
 ENDFILE
 VALUE "<project>\hdl\usb_if.vhd,hdl"
 STATE="utd"
-TIME="1348070658"
-SIZE="14050"
+TIME="1348084911"
+SIZE="14062"
 ENDFILE
 VALUE "<project>\simulation\afe_if_wave.do,do"
 STATE="utd"
@@ -451,7 +456,7 @@ SIZE="970"
 ENDFILE
 VALUE "<project>\simulation\bfmtovec_compile.log,log"
 STATE="utd"
-TIME="1348080464"
+TIME="1348080540"
 SIZE="459"
 ENDFILE
 VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
@@ -478,10 +483,15 @@ TIME="1347486895"
 SIZE="3992"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
 ENDFILE
+VALUE "<project>\simulation\data_framer_tb_presynth_simulation.log,log"
+STATE="utd"
+TIME="1348080544"
+SIZE="14315"
+ENDFILE
 VALUE "<project>\simulation\run.do,do"
 STATE="utd"
-TIME="1348080462"
-SIZE="2347"
+TIME="1348080537"
+SIZE="1280"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
@@ -497,8 +507,8 @@ PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\simulation\testbench_presynth_simulation.log,log"
 STATE="utd"
-TIME="1348080466"
-SIZE="16969"
+TIME="1348080519"
+SIZE="13915"
 ENDFILE
 VALUE "<project>\simulation\usb_apb_wave.do,do"
 STATE="utd"
@@ -543,17 +553,17 @@ SIZE="7278"
 ENDFILE
 VALUE "<project>\synthesis\synthesis_1\Teton.edn,syn_edn"
 STATE="utd"
-TIME="1348070675"
-SIZE="1858796"
+TIME="1348084965"
+SIZE="1863430"
 ENDFILE
 VALUE "<project>\synthesis\synthesis_1\Teton.so,so"
 STATE="utd"
-TIME="1348070675"
+TIME="1348084965"
 SIZE="226"
 ENDFILE
 VALUE "<project>\synthesis\synthesis_1\Teton_sdc.sdc,syn_sdc"
 STATE="utd"
-TIME="1348070675"
+TIME="1348084965"
 SIZE="1036"
 ENDFILE
 VALUE "<project>\synthesis\Teton.edn,syn_edn"
@@ -769,7 +779,7 @@ Type=max
 RunTime=
 Resolution=1ps
 VsimOpt=
-EntityName=testbench
+EntityName=data_framer_tb
 TopInstanceName=uut
 DoFileName=
 DoFileName2=D:/firmware/MainBoard/SdrReference/simulation/data_framer_wave.do
@@ -817,7 +827,7 @@ NAME="ModelSim AE"
 FUNCTION="Simulation"
 TOOL="ModelSim"
 LOCATION="C:\Microsemi\Libero_v10.1\Model\win32acoem\modelsim.exe"
-PARAM=" -l testbench_presynth_simulation.log "
+PARAM=""
 BATCH=0
 EndProfile
 NAME="WFL"
@@ -929,7 +939,8 @@ ENDLIST
 ENDLIST
 LIST OpenedFileList
 StartPage;StartPage
-ACTIVEVIEW;StartPage
+Reports;Reports
+ACTIVEVIEW;Reports
 ENDLIST
 LIST ModuleSubBlockList
 LIST "AFE_IF::work","hdl\afe_if.vhd","FALSE","FALSE"
