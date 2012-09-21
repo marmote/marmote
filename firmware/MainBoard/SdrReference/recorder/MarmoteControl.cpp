@@ -98,6 +98,37 @@ void printPkt(PktHdr_t* pkt)
 }
 
 
+bool isChecksumValid(const PktHdr_t* pkt)
+{
+	uint8_t i;
+	const uint8_t* chk_a_ptr;
+	const uint8_t* chk_itr; // iterator for calculating checksum
+	uint8_t chk_a;
+	uint8_t chk_b;
+	
+	chk_a_ptr = pkt->payload + pkt->len;
+	chk_itr = &(pkt->msg_class);
+
+	chk_a = 0;
+	chk_b = 0;
+	for (i = 0; i < 4 + pkt->len; i++)
+	{
+		chk_a += *(chk_itr+i);
+		chk_b += chk_a;
+	}
+
+	if (*chk_a_ptr == chk_a && *(chk_a_ptr+1) == chk_b)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+
+
 void Marmote_SetFrequency(FT_HANDLE ftHandle, uint32_t freq_hz)
 {
 	uint8_t txBuffer[4];

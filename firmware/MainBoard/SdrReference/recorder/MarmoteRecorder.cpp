@@ -14,14 +14,16 @@
 
 // FTDI device parameters
 static int default_dev;
+#define USB_TRANSFER_SIZE 65536uL
+#define USB_REQUEST_SIZE (USB_TRANSFER_SIZE/64*62) // See AN232B-03
 #define INTERVAL_TIMEOUT 200
 
 // Wave file parameters
 #define FNAME_SEARCH "rec_???.wav"
 #define FNAME_FMT "rec_%03d.wav"
 
-#define BITS_PER_SAMPLE 8
-#define NUMBER_OF_CHANNELS 1
+#define BITS_PER_SAMPLE 16
+#define NUMBER_OF_CHANNELS 2
 #define SAMPLE_RATE 44100
 #define MAX_SAMPLE_LEN 1048576*8 // 2^20 samples (1 Msamples)
 #define MAX_RAW_BYTE_LEN (NUMBER_OF_CHANNELS * MAX_SAMPLE_LEN * (BITS_PER_SAMPLE/8))
@@ -52,6 +54,7 @@ WAVhdr hdr = {{'R', 'I', 'F', 'F'}, 36, {'W', 'A', 'V', 'E'},
 
 
 void list_ft_devices(void);
+int recorder(int dev, const char* dir, int seq);
 //void Marmote_writeReg(FT_HANDLE ftHandle, WORD addr, DWORD data);
 
 
@@ -65,28 +68,174 @@ int _tmain(int argc, _TCHAR* argv[])
 	void*  argtable[] = {help, dev, dir, start, end};
 	const char* progname = argv[0];
 
+	int nerrors;
+    int exitcode=0;
+	char dir_buffer[_MAX_PATH];
+
+	// Verify the argtable[] entries were allocated sucessfully
+    if (arg_nullcheck(argtable) != 0)
+	{
+        // NULL entries were detected, some allocations must have failed
+        printf("%s: insufficient memory\n", progname);
+        exitcode=1;
+        goto exit;
+	}
+
+	// Set any command line default values prior to parsing
+	dev->ival[0] = default_dev;
+	dir->filename[0] = NULL;
+
+	// Parse the command line as defined by argtable[]
+    nerrors = arg_parse(argc, argv, argtable);
+
+	// Special case: '--help' takes precedence over error reporting
+    if (help->count > 0)
+	{
+		printf("Usage: %s", progname);
+		arg_print_syntax(stdout, argtable, "\n");
+		printf("Fast recorder program to download shot data from BHDetector sensors.\n");
+		arg_print_glossary(stdout, argtable,"  %-25s %s\n");
+		printf("\nAvailable FTDI devices:\n\n");
+		list_ft_devices();
+		exitcode = 0;
+		goto exit;
+	}
+
+	// If the parser returned any errors then display them and exit
+	if (nerrors > 0)
+	{
+		// Display the error details contained in the arg_end struct
+		arg_print_errors(stdout, end, progname);
+		printf("Try '%s --help' for more information\n", progname);
+		exitcode = 1;
+		goto exit;
+	}
+
+	if (dir->count == 0)
+	{
+		// Get the current working directory
+		if( _getcwd( dir_buffer, _MAX_PATH ) == NULL )
+		{
+			perror( "ERROR: get current directory" );
+			exitcode = 1;
+			goto exit;
+		}
+		dir->filename[0] = dir_buffer;
+	}
+
+	if (GetFileAttributes(dir->filename[0]) != FILE_ATTRIBUTE_DIRECTORY)
+	{
+		printf("%s is not a valid directory\n", dir->filename[0]);
+		exitcode = 1;
+		goto exit;
+	}
+
+	if (start->count == 0) {
+		WIN32_FIND_DATA FindFileData;
+		HANDLE hFind;
+		BOOL found;
+
+		char search_buffer[_MAX_PATH];
+		sprintf_s(search_buffer, _MAX_PATH, "%s\\%s", dir->filename[0], FNAME_SEARCH);
+		start->ival[0] = 0;
+		hFind = FindFirstFile(search_buffer, &FindFileData);
+
+		found = (hFind != INVALID_HANDLE_VALUE);
+		while (found) {
+			int seq, res;
+			res = _stscanf_s(FindFileData.cFileName, FNAME_FMT, &seq);
+			if (res == 1) {
+				start->ival[0] = max(start->ival[0], seq);
+			}
+			else {
+				printf("WARNING: Invalid recording filename scheme detected: ");
+				_tprintf(FindFileData.cFileName);
+				printf("\n");
+			}
+
+			found = FindNextFile(hFind, &FindFileData);
+		}
+
+		FindClose(hFind);
+		start->ival[0]++;
+
+	}
 
 	list_ft_devices();
 
-	FT_HANDLE ftHandle;
-	FT_STATUS ftStatus;
-	DWORD bytesWritten;
-	DWORD bytesRequested;
-	DWORD bytesReceived;
-	unsigned char txBuffer[128]; // Contains data to write to device
-	unsigned char rxBuffer[4096];
-	int device = 0;
+	// normal case: take the command line options at face value
+	exitcode = recorder(dev->ival[0], dir->filename[0], start->ival[0]);
 
-	// Open FTDI device
-	ftStatus = FT_Open(device, &ftHandle);
+	exit:
+    // deallocate each non-null entry in argtable[]
+    arg_freetable(argtable,sizeof(argtable)/sizeof(argtable[0]));
+
+	getchar();
+
+    return exitcode;
+}
+
+
+void list_ft_devices(void)
+{
+	FT_STATUS ftStatus;
+	FT_DEVICE_LIST_INFO_NODE *devInfo;
+	DWORD numDevs;
+
+	unsigned int i;
+
+	// create the device information list
+	ftStatus = FT_CreateDeviceInfoList(&numDevs);
 	if (ftStatus != FT_OK)
 	{
-		printf("Unable to open DEV %d\n", device);
+		// FT_CreateDeviceInfoList failed
+		printf("FT_CreateDeviceInfoList(): FAILED\n");
+	}
+
+	if (numDevs > 0)
+	{
+		// allocate storage for list based on numDevs
+		devInfo = (FT_DEVICE_LIST_INFO_NODE*) malloc(sizeof(FT_DEVICE_LIST_INFO_NODE) * numDevs);
+		
+		// get the device information list
+		ftStatus = FT_GetDeviceInfoList(devInfo, &numDevs);
+		if (ftStatus == FT_OK)
+		{
+			for (i = 0; i < numDevs; i++)
+			{
+				printf("DEV %d:\n", i);
+				printf("\tFlags=0x%x\n", devInfo[i].Flags);
+				printf("\tType=0x%x\n", devInfo[i].Type);
+				printf("\tID=0x%x\n", devInfo[i].ID);
+				printf("\tLocId=0x%x\n", devInfo[i].LocId);
+				printf("\tSerialNumber=%s\n", devInfo[i].SerialNumber);
+				printf("\tDescription=%s\n", devInfo[i].Description);
+				printf("\tftHandle=0x%x\n", devInfo[i].ftHandle);
+				printf("\n");
+			}
+		}
+	}
+}
+
+
+int recorder(int dev, const char* dir, int seq)
+{
+	FT_HANDLE ftHandle;
+	FT_STATUS ftStatus;
+
+	printf("Initalizing recorder:\n\n  DEV=%d\n  CHANNELS=1\n  DIR=%s\n  START=%d\n\n",
+		dev, dir, seq);
+
+	// Open FTDI device
+	ftStatus = FT_Open(dev, &ftHandle);
+	if (ftStatus != FT_OK)
+	{
+		printf("Unable to open DEV %d\n", dev);
 		list_ft_devices();
 		return 1;
 	}
 
-	printf("DEV %d opened\n", device);
+	printf("DEV %d opened\n", dev);
 
 	// Reset FT	
 	ftStatus = FT_ResetDevice(ftHandle);
@@ -96,6 +245,8 @@ int _tmain(int argc, _TCHAR* argv[])
 		return 1;
 	}
 
+	FT_SetUSBParameters(ftHandle, USB_TRANSFER_SIZE, USB_TRANSFER_SIZE);
+
 	// Set timeout
 	ftStatus = FT_SetTimeouts(ftHandle, INTERVAL_TIMEOUT, 1000);
 	if (ftStatus != FT_OK)
@@ -104,7 +255,6 @@ int _tmain(int argc, _TCHAR* argv[])
 		return 1;
 	}
 
-	//Sleep(100);
 	ftStatus = FT_SetBitMode(ftHandle, 0xFF, FT_BITMODE_RESET);
 	if (ftStatus != FT_OK)
 	{
@@ -153,139 +303,176 @@ int _tmain(int argc, _TCHAR* argv[])
 		return 1;
 	}
 
-	// TODO: Deassert reset (ACBUS9)
+	char *sampleBuffer = (char*)malloc(MAX_RAW_BYTE_LEN);
+	if (sampleBuffer == NULL) {
+		printf("ERROR: Insufficient memory available\n");
+		return (1);
+	}
 
+	char fname_buffer[_MAX_PATH];
+	DWORD write_len;
+		
+	DWORD bytesWritten;	
+	DWORD bytesRequested;
+	DWORD bytesReceived;
+	DWORD totalBytesReceived;
+	DWORD totalSamplesReceived;
+	unsigned char rxBuffer[USB_REQUEST_SIZE*2];
+
+	// Performance measure related
+	unsigned int byteCounter = 0;
+	LARGE_INTEGER timePrev, timeNow;
+	LARGE_INTEGER frequency;
+	double elapsedTime;
+
+	QueryPerformanceFrequency(&frequency);
+	QueryPerformanceCounter(&timePrev);
 	
-	uint8_t j = 0;
-	uint32_t freq = (uint32_t)2400e6;
-	//PktHdr_t* pkt;
-	uint32_t freq2;
+	printf("Starting streaming\n");
+	Marmote_StartStreaming(ftHandle);
 
-	uint8_t stream_toggle = 0;
 	PktHdr_t* pkt;
-	int jj;
 
-	
-
-
+	totalBytesReceived = 0;
+		
 	while (1)
 	{
-		getchar();
-
-		/*
-		ftStatus = FT_Purge(ftHandle, FT_PURGE_RX | FT_PURGE_TX);
-		if (ftStatus != FT_OK) {
-			printf("Unable to flush FIFOs\n");
-			return 1;
-		}*/
+		BOOL bResult;
 		
-		
-		printf("Starting streaming\n");
-		Marmote_StartStreaming(ftHandle);
-		
+		totalSamplesReceived = 0;
 
-		Sleep(100);
-
-	
-		bytesRequested = sizeof(rxBuffer);
-		ftStatus = FT_Read(ftHandle, rxBuffer, bytesRequested, &bytesReceived);
-		if (ftStatus != FT_OK)
+		// Get the data from FT driver in smaller chunks
+		while (totalBytesReceived < MAX_RAW_BYTE_LEN)
 		{
-			printf("FT_Read failed\n");
-			return -1;
-		}
+			bytesRequested = USB_REQUEST_SIZE < (MAX_RAW_BYTE_LEN - totalBytesReceived) ? USB_REQUEST_SIZE : MAX_RAW_BYTE_LEN - totalBytesReceived;
 
-		
-		//printf("Stopping streaming\n");
-		//Marmote_StopStreaming(ftHandle);
-
-		printf("Read  %4d chars: ", bytesReceived);
-		for (DWORD i = 0; i < bytesReceived; i++)
-		{
-			printf("%2X ", rxBuffer[i]);
-			if (rxBuffer[i] == SYNC_CHAR_1)
+			ftStatus = FT_Read(ftHandle, rxBuffer,bytesRequested, &bytesReceived);
+			if (ftStatus != FT_OK)
 			{
-				printf("\n");
-				pkt = (PktHdr_t*)(rxBuffer+i);
-				printPkt(pkt);
-				printf("\n");
-				break;
+				printf("Unable to read device\n");
+				Marmote_StopStreaming(ftHandle);				
+				ftStatus = FT_Close(ftHandle);
+				return 1;
 			}
-		}
-		printf("\n");
+		
+			if (bytesReceived < bytesRequested)
+			{	
+				printf("Timeout\n");
+				Marmote_StopStreaming(ftHandle);
+				ftStatus = FT_Close(ftHandle);
+				printf("DEV %d closed\n", dev);
+				printf("Exiting\n");
+				return 0;
+			}
 
+			totalBytesReceived += bytesReceived;
+
+			// Process RX buffer
+			printf("Read  %4d chars: ", bytesReceived);
+
+			DWORD i = 0;
+			while (i < bytesReceived - sizeof(PktHdr_t))
+			{
+				// Find first packet start
+				if (rxBuffer[i] == SYNC_CHAR_1 && rxBuffer[i+1] == SYNC_CHAR_2)
+				{
+					pkt = (PktHdr_t*)rxBuffer[i];
+					if (i < bytesReceived - (sizeof(PktHdr_t) + pkt->len + 2))
+					{
+						if (isChecksumValid(pkt))
+						{
+							// Process packet here
+							printf("Seq: %u\n", (uint16_t)pkt->payload);
+							//memcpy(sampleBuffer, ((uint8_t*)pkt->payload)+2, pkt->len);
+							i = i + sizeof(PktHdr_t) + pkt->len + 2;
+							continue;
+						}
+						else
+						{
+							i++;
+							continue;
+						}
+					}
+					else
+					{
+						// Keep remaining data in buffer
+					}
+				}
+				else
+				{
+					i++;
+				}
+			}
+
+			
+			/*
+			memcpy(sampleBuffer
+					printf("\n");
+					pkt = (PktHdr_t*)(rxBuffer+i);
+					printPkt(pkt);
+					printf("\n");
+					break;
+				}
+			}
+			printf("\n");
+
+			//printf("Total %d bytes received\n", totalBytesReceived);
+			*/
+		}
+		
+
+		//totalBytesReceived = totalSamplesReceived * NUMBER_OF_CHANNELS * BITS_PER_SAMPLE/8;
+
+		sprintf_s(fname_buffer, _MAX_PATH, "%s\\" FNAME_FMT, dir, seq); 
+		printf("%s (%d bytes).\n", fname_buffer, totalBytesReceived);
+
+		HANDLE hFile = CreateFile(fname_buffer,
+									GENERIC_WRITE,
+									0,
+									NULL,
+									CREATE_NEW,
+									0,
+									NULL);
+		if (hFile == INVALID_HANDLE_VALUE) {
+			printf("Unable to create file (hFile == INVALID_HANDLE_VALUE)\n");
+			// Do not return (try again next)
+		}
 	
-
-		/*
-		Marmote_SetFrequency(ftHandle, freq);
-		freq2 = Marmote_GetFrequency(ftHandle);
-		printf("Read freq: %u\n", freq2);
-
-		if (stream_toggle == 1)
-		{
-			Marmote_StartStreaming(ftHandle);
-			stream_toggle = 0;
+		hdr.chunkSize = totalBytesReceived + sizeof(hdr) - 8;
+		hdr.subChunkSize2 = totalBytesReceived;
+		bResult =  WriteFile(hFile, &hdr, sizeof(hdr), &write_len, NULL);
+		if (!bResult || (sizeof(hdr) != write_len)) {
+			printf("Unable to write file (!bResult || (sizeof(hdr) != write_len))\n");
+			// Do not return (try again next)
 		}
-		else
-		{
-			Marmote_StopStreaming(ftHandle);
-			stream_toggle = 1;
-		}
-		*/
 
-		freq += 100;
+		bResult =  WriteFile(hFile, rxBuffer, totalBytesReceived, &write_len, NULL);
+		if (!bResult || (totalBytesReceived != write_len)) {
+			printf("Unable to write file (!bResult || (bytesReceived != write_len))\n");
+			// Do not return (try again next)
+		}
+
+		CloseHandle(hFile);
+
+		// Calculate throughput
+		{
+			QueryPerformanceCounter(&timeNow);
+			elapsedTime = (timeNow.QuadPart - timePrev.QuadPart) * 1.0 / frequency.QuadPart;
+			printf("Throughput: %6.2f MB/s\n", (double)totalBytesReceived / (double)(1 << 20) / elapsedTime);
+
+			timePrev = timeNow;
+			byteCounter = 0;
+		}
+
+		seq++;
 	}
-
-	printf("Terminated with ftStatus = %s\n", ftStatus == FT_OK ? "FT_OK" : "FT_ERROR");
-
-	FT_Close(ftHandle);
-
-	getchar();
-
-    return 0;
 }
 
 
-void list_ft_devices(void)
-{
-	FT_STATUS ftStatus;
-	FT_DEVICE_LIST_INFO_NODE *devInfo;
-	DWORD numDevs;
+	
+	
+	
 
-	unsigned int i;
-
-	// create the device information list
-	ftStatus = FT_CreateDeviceInfoList(&numDevs);
-	if (ftStatus != FT_OK)
-	{
-		// FT_CreateDeviceInfoList failed
-		printf("FT_CreateDeviceInfoList(): FAILED\n");
-	}
-
-	if (numDevs > 0)
-	{
-		// allocate storage for list based on numDevs
-		devInfo = (FT_DEVICE_LIST_INFO_NODE*) malloc(sizeof(FT_DEVICE_LIST_INFO_NODE) * numDevs);
-		
-		// get the device information list
-		ftStatus = FT_GetDeviceInfoList(devInfo, &numDevs);
-		if (ftStatus == FT_OK)
-		{
-			for (i = 0; i < numDevs; i++)
-			{
-				printf("DEV %d:\n", i);
-				printf("\tFlags=0x%x\n", devInfo[i].Flags);
-				printf("\tType=0x%x\n", devInfo[i].Type);
-				printf("\tID=0x%x\n", devInfo[i].ID);
-				printf("\tLocId=0x%x\n", devInfo[i].LocId);
-				printf("\tSerialNumber=%s\n", devInfo[i].SerialNumber);
-				printf("\tDescription=%s\n", devInfo[i].Description);
-				printf("\tftHandle=0x%x\n", devInfo[i].ftHandle);
-				printf("\n");
-			}
-		}
-	}
-}
 
 /*
 DWORD Marmote_readReg(FT_HANDLE ftHandle, WORD addr)

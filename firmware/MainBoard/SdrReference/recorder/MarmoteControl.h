@@ -52,6 +52,7 @@ typedef struct _PktHdr
 
 void sendMsg(FT_HANDLE ftHandle, MsgClass_t pkt_class, MsgId_t msg_id, uint8_t* payload, uint16_t len);
 void printPkt(PktHdr_t* pkt);
+bool isChecksumValid(const PktHdr_t* pkt);
 
 void Marmote_SetFrequency(FT_HANDLE ftHandle, uint32_t freq_hz);
 uint32_t Marmote_GetFrequency(FT_HANDLE ftHandle);
