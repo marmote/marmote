@@ -124,12 +124,12 @@ architecture Behavioral of DATA_FRAMER is
         st_MSG_ID,
         st_LEN_1,
         st_LEN_2,
-        st_SEQ_MSB,
         st_SEQ_LSB,
-        st_DATA_I_MSB,
+        st_SEQ_MSB,
         st_DATA_I_LSB,
-        st_DATA_Q_MSB,
+        st_DATA_I_MSB,
         st_DATA_Q_LSB,
+        st_DATA_Q_MSB,
         st_CHK_A,
         st_CHK_B
     );
@@ -319,14 +319,6 @@ begin
                     s_chk_a_next <= s_chk_a + s_txd;
                     s_chk_b_next <= s_chk_b + s_chk_a;
                     s_txd_next <= unsigned(s_seq_fifo_out(15 downto 8));
-                    s_state_next <= st_SEQ_MSB;
-                end if;
-
-            when st_SEQ_MSB => 
-                if TXD_RD = '1' then
-                    s_chk_a_next <= s_chk_a + s_txd;
-                    s_chk_b_next <= s_chk_b + s_chk_a;
-                    s_txd_next <= unsigned(s_seq_fifo_out(7 downto 0));
                     s_state_next <= st_SEQ_LSB;
                 end if;
 
@@ -334,43 +326,53 @@ begin
                 if TXD_RD = '1' then
                     s_chk_a_next <= s_chk_a + s_txd;
                     s_chk_b_next <= s_chk_b + s_chk_a;
-                    s_txd_next <= unsigned(s_i_fifo_out(15 downto 8));
-                    s_state_next <= st_DATA_I_MSB;
+                    s_txd_next <= unsigned(s_seq_fifo_out(7 downto 0));
+                    s_state_next <= st_SEQ_MSB;
                 end if;
 
-            when st_DATA_I_MSB => 
+            when st_SEQ_MSB => 
                 if TXD_RD = '1' then
-                    s_msg_ctr_next <= s_msg_ctr + 1;
                     s_chk_a_next <= s_chk_a + s_txd;
                     s_chk_b_next <= s_chk_b + s_chk_a;
-                    s_txd_next <= unsigned(s_i_fifo_out(7 downto 0));
+                    s_txd_next <= unsigned(s_i_fifo_out(15 downto 8));
                     s_state_next <= st_DATA_I_LSB;
                 end if;
 
             when st_DATA_I_LSB => 
                 if TXD_RD = '1' then
+                    s_msg_ctr_next <= s_msg_ctr + 1;
+                    s_chk_a_next <= s_chk_a + s_txd;
+                    s_chk_b_next <= s_chk_b + s_chk_a;
+                    s_txd_next <= unsigned(s_i_fifo_out(7 downto 0));
+                    s_state_next <= st_DATA_I_MSB;
+                end if;
+
+            when st_DATA_I_MSB => 
+                if TXD_RD = '1' then
                     s_chk_a_next <= s_chk_a + s_txd;
                     s_chk_b_next <= s_chk_b + s_chk_a;
                     s_txd_next <= unsigned(s_q_fifo_out(15 downto 8));
-                    s_state_next <= st_DATA_Q_MSB;
-                end if;
-
-            when st_DATA_Q_MSB => 
-                if TXD_RD = '1' then
-                    s_fifo_rd <= '1';
-                    s_chk_a_next <= s_chk_a + s_txd;
-                    s_chk_b_next <= s_chk_b + s_chk_a;
-                    s_txd_next <= unsigned(s_q_fifo_out(7 downto 0));
                     s_state_next <= st_DATA_Q_LSB;
                 end if;
 
             when st_DATA_Q_LSB => 
                 if TXD_RD = '1' then
+                    if s_msg_ctr < to_unsigned(g_SAMPLE_PER_PACKET, 16) then
+                        s_fifo_rd <= '1';
+                    end if;
+                    s_chk_a_next <= s_chk_a + s_txd;
+                    s_chk_b_next <= s_chk_b + s_chk_a;
+                    s_txd_next <= unsigned(s_q_fifo_out(7 downto 0));
+                    s_state_next <= st_DATA_Q_MSB;
+                end if;
+
+            when st_DATA_Q_MSB => 
+                if TXD_RD = '1' then
                     s_chk_a_next <= s_chk_a + s_txd;
                     s_chk_b_next <= s_chk_b + s_chk_a;
                     if s_msg_ctr < to_unsigned(g_SAMPLE_PER_PACKET, 16) then
                         s_txd_next <= unsigned(s_i_fifo_out(15 downto 8));
-                        s_state_next <= st_DATA_I_MSB;
+                        s_state_next <= st_DATA_I_LSB;
                     else
                         s_txd_next <= s_chk_a + s_txd;
                         s_state_next <= st_CHK_A;
