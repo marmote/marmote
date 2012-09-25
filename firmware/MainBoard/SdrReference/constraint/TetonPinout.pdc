@@ -85,7 +85,7 @@ set_io J_ANTSEL -iostd LVTTL -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL Non
 set_io J_LD -iostd LVTTL -REGISTER No -RES_PULL None -SCHMITT_TRIGGER Off -pinname F3 -fixed yes
 set_io J_RSSI -iostd LVTTL -SLEW Low -REGISTER No -pinname P9 -fixed yes
 set_io J_RXHP -iostd LVTTL -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname G3 -fixed yes
-set_io J_RXTX -iostd LVTTL -OUT_DRIVE 8 -SLEW High -RES_PULL None -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname K14 -fixed yes
+#set_io J_RXTX -iostd LVTTL -OUT_DRIVE 8 -SLEW High -RES_PULL None -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname K14 -fixed yes
 set_io J_SHDN -iostd LVTTL -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname E3 -fixed yes
 set_io LED1 -iostd LVCMOS33 -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname H5 -fixed yes
 set_io LED2 -iostd LVCMOS33 -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname H4 -fixed yes
