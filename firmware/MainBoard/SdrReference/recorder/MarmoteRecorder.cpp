@@ -319,6 +319,7 @@ int recorder(int dev, const char* dir, int seq)
 	DWORD bytesReceived;
 	int rxBufCount;
 	DWORD sampleBytesReceived;
+	DWORD sampleBytesToWrite;
 	int i, j;
 	unsigned char rxBuffer[USB_REQUEST_SIZE*2];
 
@@ -351,7 +352,6 @@ int recorder(int dev, const char* dir, int seq)
 		isFirstSeq = true;
 		
 		while (sampleBytesReceived < MAX_RAW_BYTE_LEN)
-		//while (sampleBytesReceived < 32768)
 		{
 			bytesRequested = USB_REQUEST_SIZE;
 
@@ -367,7 +367,7 @@ int recorder(int dev, const char* dir, int seq)
 			if (bytesReceived < bytesRequested)
 			{	
 				printf("Timeout\n");
-				printf("bytesReceived: %d / %d\n", bytesReceived, bytesRequested);
+				printf("bytesReceived: %d / %d\n", bytesReceived, (unsigned int)bytesRequested);
 				//Marmote_StopStreaming(ftHandle);
 				//ftStatus = FT_Close(ftHandle);
 				//printf("DEV %d closed\n", dev);
@@ -379,38 +379,9 @@ int recorder(int dev, const char* dir, int seq)
 			rxBufCount += bytesReceived;
 						
 			// Process RX buffer
-			
-			//printf("Read  %4d chars (%d)\n", bytesReceived, rxBufCount);
-				
-			/*
-			printf("RxBuffer content:\n");
-			for (j = 0; j < rxBufCount; j++)
-			{
-				printf("%02X ", (uint8_t)rxBuffer[j]);
-				if (j % 8 == 7)
-					printf("\n");
-			}
-			printf("\n");
-			getchar();
-			*/
-			
-			
-			/*
-			FILE * recFile;
-			recFile = fopen("marmote_rec.dat", "wb");
-			if (recFile)
-			{
-				fwrite(rxBuffer, 1, bytesReceived, recFile);
-			}
-			fclose(recFile);
-			*/
-
 			i = 0;
-
 			while (i < rxBufCount - sizeof(PktHdr_t))
-			{
-				
-				//printf("i: %d\n", i);
+			{				
 				// Check SYNC characters
 				if (!(rxBuffer[i] == SYNC_CHAR_1 && rxBuffer[i+1] == SYNC_CHAR_2))
 				{
@@ -423,11 +394,10 @@ int recorder(int dev, const char* dir, int seq)
 				// Check length
 				if (rxBufCount < i + (sizeof(PktHdr_t) + pkt->len + PKT_CHK_LEN))
 				{
-					//i++;
-					break; // !
+					break;
 				}
 
-
+				// Validate checksum
 				if (!isChecksumValid(pkt))
 				{
 					printf("CHECKSUM ERROR\n");
@@ -437,99 +407,26 @@ int recorder(int dev, const char* dir, int seq)
 				}
 
 				// Process rxBuffer here
-				//printf("Seq: %u -> %u (%04X -> %04X)\n", prevSeq, *(uint16_t*)pkt->payload, prevSeq, *(uint16_t*)pkt->payload);
-
-				if ( !isFirstSeq && (uint16_t)(*(uint16_t*)pkt->payload - prevSeq) != 8)
+				if ( !isFirstSeq && (uint16_t)(*(uint16_t*)pkt->payload - prevSeq) != PKT_SAMPLE_PER_MSG)
 				{
-					//printf("ERR: %u -> %u (%04X -> %04X)\n", prevSeq, *(uint16_t*)pkt->payload, prevSeq, *(uint16_t*)pkt->payload);
 					printf("SEQUENCE ERROR\n");
 					printf("Seq: %u -> %u (%04X -> %04X) Diff: %d\n", prevSeq, *(uint16_t*)pkt->payload, prevSeq, *(uint16_t*)pkt->payload, (uint16_t)(*(uint16_t*)pkt->payload - prevSeq));
-
-					/*
-					if (*(uint16_t*)pkt->payload - prevSeq == 16)
-					{
-						printf("i: %d\tbufCount: %d\n", i, rxBufCount);
-						printf("RxBuffer content:\n");
-						for (j = 0; j < rxBufCount; j++)
-						{
-							printf("%02X ", (uint8_t)rxBuffer[j]);
-							if (j % 8 == 7)
-								printf("\n");
-						}
-						printf("\n");
-						getchar();
-					}
-					*/
 				}
 				prevSeq = *(uint16_t*)pkt->payload;
 				isFirstSeq = false;
 				
-				memcpy(sampleBuffer + sampleBytesReceived, pkt->payload + MSG_SEQ_LEN, pkt->len - MSG_SEQ_LEN);
-				sampleBytesReceived += pkt->len - MSG_SEQ_LEN;
+				// Make sure sampleBuffer does not overflow
+				sampleBytesToWrite = pkt->len - MSG_SEQ_LEN < MAX_RAW_BYTE_LEN - sampleBytesReceived ? pkt->len - MSG_SEQ_LEN : MAX_RAW_BYTE_LEN - sampleBytesReceived;
 
-				//printf("SampleBytesReceived: %d\n", sampleBytesReceived);
+				memcpy(sampleBuffer + sampleBytesReceived, pkt->payload + MSG_SEQ_LEN, sampleBytesToWrite);
+				sampleBytesReceived += sampleBytesToWrite;
 
-				/*
-				printf("SampleBuffer content:\n");
-				for (j = 0; j < sampleBytesReceived; j++)
-				{
-					printf("%02X ", (uint8_t)sampleBuffer[j]);
-					if (j % 8 == 7)
-						printf("\n");
-				}
-				printf("\n");
-
-				getchar();
-				*/
-				
 				i = i + sizeof(PktHdr_t) + pkt->len + PKT_CHK_LEN;
 			}
 			
-			/*
-			printf("\n\nBEFORE\nrxBuffer content (i = %d, rxBufCount = %d):\n", i, rxBufCount);
-			for (j = 0; j < rxBufCount; j++)
-			{
-				printf("%02X ", (uint8_t)rxBuffer[j]);
-				if (j % 8 == 7)
-					printf("\n");
-			}
-			printf("\n");
-			*/
-
 			rxBufCount = rxBufCount - i;
-			memcpy(rxBuffer, rxBuffer+i, rxBufCount);
-
-			/*
-			printf("\nAFTER\nRxBuffer content (i = %d, rxBufCount = %d):\n", i, rxBufCount);
-			for (j = 0; j < rxBufCount; j++)
-			{
-				printf("%02X ", (uint8_t)rxBuffer[j]);
-				if (j % 8 == 7)
-					printf("\n");
-			}
-			printf("\n\n");
-			*/
-			
-			
-			/*
-			memcpy(sampleBuffer
-					printf("\n");
-					pkt = (PktHdr_t*)(rxBuffer+i);
-					printPkt(pkt);
-					printf("\n");
-					break;
-				}
-			}
-			printf("\n");
-
-			//printf("Total %d bytes received\n", rxBufCount);
-			*/
-
-			//printf("SampleBytesReceived: %d\n", sampleBytesReceived);
+			memcpy(rxBuffer, rxBuffer+i, rxBufCount);			
 		}
-
-		
-		//printf("Total %d sample bytes received\n", sampleBytesReceived);
 
 		sprintf_s(fname_buffer, _MAX_PATH, "%s\\" FNAME_FMT, dir, seq); 
 		printf("%s (%d bytes).\n", fname_buffer, sampleBytesReceived);

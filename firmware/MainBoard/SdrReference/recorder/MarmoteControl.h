@@ -18,6 +18,7 @@ typedef unsigned int uint32_t;
 #define PKT_CHK_LEN 2
 #define PKT_LEN_LEN 2
 #define MSG_SEQ_LEN 2
+#define PKT_SAMPLE_PER_MSG 128
 
 typedef enum _MsgClass
 {

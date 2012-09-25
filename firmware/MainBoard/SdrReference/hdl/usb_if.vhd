@@ -25,21 +25,17 @@
 -- ON AN "AS IS" BASIS, AND THE VANDERBILT UNIVERSITY HAS NO OBLIGATION TO
 -- PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 ------------------------------------------------------------------------------
+-- Revisions     :
+-- Date            Version  Author			Description
+-- 2012-09-25      1.0      Sandor Szilvasi	16-bit I/Q samples with framing
+------------------------------------------------------------------------------
 --
 -- Description: Interface module for the FT232H USB (FTDI) chip operating in
 --              synchronous FIFO mode.
 --
---              The module transmits 8-bit data from and to the FTDI chip on 1
---              channel.
+--              The module transmits 16-bit I/Q data to the FTDI chip on 2
+--              channels (I/Q).
 --
--- TODO:
---  - Add framing control state machine in the USB clock region
---  - Add a control channel
---  - Add a flush mechanism to the TX FIFO SM
---  - Make FIFO AFULL, AEMPTY accessible from this module
---
---  - Add logic to sense USB (FTDI) chip presence
---  - Determine the maximum system clock frequency (<60MHz?)
 ------------------------------------------------------------------------------
 
 library IEEE;
@@ -304,7 +300,7 @@ begin
 
     u_DATA_FRAMER : DATA_FRAMER
     generic map (
-        g_SAMPLE_PER_PACKET =>  8
+        g_SAMPLE_PER_PACKET =>  128
     )   
     port map (
         CLK         =>  CLK,

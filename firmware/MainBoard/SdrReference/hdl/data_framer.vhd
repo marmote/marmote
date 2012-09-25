@@ -27,6 +27,7 @@
 -------------------------------------------------------------------------------
 -- Revisions     :
 -- Date            Version  Author			Description
+-- 2012-09-25      1.2      Sandor Szilvasi	Fixed AEMPTY related timing issue
 -- 2012-09-18      1.1      Sandor Szilvasi	Added SEQ and I/Q FIFOs
 -- 2012-09-18      1.0      Sandor Szilvasi	Transmits empty frames
 ------------------------------------------------------------------------------
@@ -116,48 +117,27 @@ architecture Behavioral of DATA_FRAMER is
 
 --    alias USB_RST is RST;
 
---    type framer_state_t is (
---        st_IDLE,
---        st_SYNC_1,
---        st_SYNC_2,
---        st_MSG_CLASS,
---        st_MSG_ID,
---        st_LEN_1,
---        st_LEN_2,
---        st_SEQ_LSB,
---        st_SEQ_MSB,
---        st_DATA_I_LSB,
---        st_DATA_I_MSB,
---        st_DATA_Q_LSB,
---        st_DATA_Q_MSB,
---        st_CHK_A,
---        st_CHK_B
---    );
-
-    -- States redefined for Identify Instrumentor debugging
-    constant st_IDLE        : std_logic_vector(14 downto 0) := "100000000000000";
-    constant st_SYNC_1      : std_logic_vector(14 downto 0) := "010000000000000";
-    constant st_SYNC_2      : std_logic_vector(14 downto 0) := "001000000000000";
-    constant st_MSG_CLASS   : std_logic_vector(14 downto 0) := "000100000000000";
-    constant st_MSG_ID      : std_logic_vector(14 downto 0) := "000010000000000";
-    constant st_LEN_1       : std_logic_vector(14 downto 0) := "000001000000000";
-    constant st_LEN_2       : std_logic_vector(14 downto 0) := "000000100000000";
-    constant st_SEQ_LSB     : std_logic_vector(14 downto 0) := "000000010000000";
-    constant st_SEQ_MSB     : std_logic_vector(14 downto 0) := "000000001000000";
-    constant st_DATA_I_LSB  : std_logic_vector(14 downto 0) := "000000000100000";
-    constant st_DATA_I_MSB  : std_logic_vector(14 downto 0) := "000000000010000";
-    constant st_DATA_Q_LSB  : std_logic_vector(14 downto 0) := "000000000001000";
-    constant st_DATA_Q_MSB  : std_logic_vector(14 downto 0) := "000000000000100";
-    constant st_CHK_A       : std_logic_vector(14 downto 0) := "000000000000010";
-    constant st_CHK_B       : std_logic_vector(14 downto 0) := "000000000000001";
-
+    type framer_state_t is (
+        st_IDLE,
+        st_SYNC_1,
+        st_SYNC_2,
+        st_MSG_CLASS,
+        st_MSG_ID,
+        st_LEN_1,
+        st_LEN_2,
+        st_SEQ_LSB,
+        st_SEQ_MSB,
+        st_DATA_I_LSB,
+        st_DATA_I_MSB,
+        st_DATA_Q_LSB,
+        st_DATA_Q_MSB,
+        st_CHK_A,
+        st_CHK_B
+    );
 
 --    signal s_framer_state      : framer_state_t := st_IDLE;
---    signal s_framer_state      : framer_state_t;
---    signal s_framer_state_next : framer_state_t;
-
-    signal s_framer_state      : std_logic_vector(14 downto 0);
-    signal s_framer_state_next : std_logic_vector(14 downto 0);
+    signal s_framer_state      : framer_state_t;
+    signal s_framer_state_next : framer_state_t;
 
     signal s_msg_ctr        : unsigned(15 downto 0);
     signal s_msg_ctr_next   : unsigned(15 downto 0);
