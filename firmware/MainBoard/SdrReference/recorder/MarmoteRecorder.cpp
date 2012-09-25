@@ -16,7 +16,7 @@
 static int default_dev;
 #define USB_TRANSFER_SIZE (65536uL / 4)
 #define USB_REQUEST_SIZE (USB_TRANSFER_SIZE/64*62) // See AN232B-03
-#define INTERVAL_TIMEOUT 500
+#define INTERVAL_TIMEOUT 100
 
 // Wave file parameters
 #define FNAME_SEARCH "rec_???.wav"
