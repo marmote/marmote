@@ -8,7 +8,7 @@
 
 # Family: SmartFusion , Die: A2F500M3G , Package: 256 FBGA , Speed grade: -1 
 
-# Date generated: Thu Sep 13 16:02:49 2012 
+# Date generated: Mon Sep 24 20:50:14 2012 
 
 
 
@@ -52,6 +52,7 @@ set_iobank Bank0 -vcci 3.30 -fixed no
 #
 
 set_io ACBUS8 -iostd LVTTL -REGISTER No -RES_PULL None -SCHMITT_TRIGGER Off -pinname E12 -fixed yes
+set_io ACBUS9 -iostd LVTTL -REGISTER No -RES_PULL None -SCHMITT_TRIGGER Off -pinname F12 -fixed yes
 set_io AFE1_CLK -iostd LVCMOS33 -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname A7 -fixed yes
 set_io AFE1_DB\[0\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname B7 -fixed yes
 set_io AFE1_DB\[1\] -iostd LVCMOS33 -OUT_DRIVE 2 -SLEW Low -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER Yes -OUT_LOAD 35 -pinname B8 -fixed yes
