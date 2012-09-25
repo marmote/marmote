@@ -26,6 +26,7 @@ static int default_dev;
 #define NUMBER_OF_CHANNELS 2
 #define SAMPLE_RATE 44100
 #define MAX_SAMPLE_LEN 1048576 // 2^20 samples (1 Msamples)
+//#define MAX_SAMPLE_LEN (1048576/2) // 2^20 samples (1 Msamples)
 #define MAX_RAW_BYTE_LEN (NUMBER_OF_CHANNELS * MAX_SAMPLE_LEN * (BITS_PER_SAMPLE/8))
 
 typedef struct _WAVhdr {
@@ -427,6 +428,18 @@ int recorder(int dev, const char* dir, int seq)
 			rxBufCount = rxBufCount - i;
 			memcpy(rxBuffer, rxBuffer+i, rxBufCount);			
 		}
+
+		// DEBUG START
+		/*
+		for (j = 0; j < 16; j = j+2)
+		{
+			printf("%04X ", *(uint16_t*)(sampleBuffer+j+1024));
+		}
+		printf("\n");
+		continue;
+		*/
+
+		// DEBUG END
 
 		sprintf_s(fname_buffer, _MAX_PATH, "%s\\" FNAME_FMT, dir, seq); 
 		printf("%s (%d bytes).\n", fname_buffer, sampleBytesReceived);

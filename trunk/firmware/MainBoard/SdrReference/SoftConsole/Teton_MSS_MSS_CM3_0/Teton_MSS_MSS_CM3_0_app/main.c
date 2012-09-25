@@ -39,7 +39,7 @@ int main()
 
 	MSS_GPIO_set_output(MSS_GPIO_LED1, 0);
 //	MSS_GPIO_set_output(MSS_GPIO_LED2, 0);
-	//MSS_GPIO_set_output(MSS_GPIO_AFE_ENABLE, 1);
+	MSS_GPIO_set_output(MSS_GPIO_AFE_ENABLE, 1);
 //	MSS_GPIO_set_output(MSS_GPIO_FPGA_ENABLE, 1);
 
 	MSS_GPIO_config ( MSS_GPIO_USB_CTRL_IT, MSS_GPIO_INPUT_MODE | MSS_GPIO_IRQ_LEVEL_HIGH );
