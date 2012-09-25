@@ -15,7 +15,9 @@ typedef unsigned int uint32_t;
 #define SYNC_CHAR_1 0xB5
 #define SYNC_CHAR_2 0x63 // ASCII 'b'
 
-#define PKT_CHK_LENGTH 2
+#define PKT_CHK_LEN 2
+#define PKT_LEN_LEN 2
+#define MSG_SEQ_LEN 2
 
 typedef enum _MsgClass
 {

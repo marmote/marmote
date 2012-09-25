@@ -14,9 +14,9 @@
 
 // FTDI device parameters
 static int default_dev;
-#define USB_TRANSFER_SIZE 65536uL
+#define USB_TRANSFER_SIZE (65536uL / 4)
 #define USB_REQUEST_SIZE (USB_TRANSFER_SIZE/64*62) // See AN232B-03
-#define INTERVAL_TIMEOUT 200
+#define INTERVAL_TIMEOUT 500
 
 // Wave file parameters
 #define FNAME_SEARCH "rec_???.wav"
@@ -262,7 +262,7 @@ int recorder(int dev, const char* dir, int seq)
 		return 1;
 	}
 
-	/*
+	
 	// Assert reset (ACBUS9)
 	ftStatus = FT_SetBitMode(ftHandle, 0x88, FT_BITMODE_CBUS_BITBANG);
 	if (ftStatus != FT_OK)
@@ -270,7 +270,8 @@ int recorder(int dev, const char* dir, int seq)
 		printf("Unable to assert RESET\n");
 		return 1;
 	}
-		
+	
+	/*
 	// Set FT 245 Synchronous FIFO mode to enable 60 MHz clock
 	ftStatus = FT_SetBitMode(ftHandle, 0xFF, FT_BITMODE_SYNC_FIFO);
 	if (ftStatus != FT_OK)
@@ -278,6 +279,8 @@ int recorder(int dev, const char* dir, int seq)
 		printf("Unable to set DEV to synchronous FIFO mode (60 MHz clock enable)\n");
 		return 1;
 	}
+	*/
+	Sleep(500);
 
 	// Deassert reset (ACBUS9)
 	ftStatus = FT_SetBitMode(ftHandle, 0x80, FT_BITMODE_CBUS_BITBANG);
@@ -286,7 +289,6 @@ int recorder(int dev, const char* dir, int seq)
 		printf("Unable to deassert RESET\n");
 		return 1;
 	}
-	*/
 	
 	// Set FT 245 Synchronous FIFO mode
 	ftStatus = FT_SetBitMode(ftHandle, 0xFF, FT_BITMODE_SYNC_FIFO);
@@ -315,8 +317,9 @@ int recorder(int dev, const char* dir, int seq)
 	DWORD bytesWritten;	
 	DWORD bytesRequested;
 	DWORD bytesReceived;
-	DWORD totalBytesReceived;
-	DWORD totalSamplesReceived;
+	int rxBufCount;
+	DWORD sampleBytesReceived;
+	int i, j;
 	unsigned char rxBuffer[USB_REQUEST_SIZE*2];
 
 	// Performance measure related
@@ -328,25 +331,29 @@ int recorder(int dev, const char* dir, int seq)
 	QueryPerformanceFrequency(&frequency);
 	QueryPerformanceCounter(&timePrev);
 	
-	printf("Starting streaming\n");
+	printf("Starting streaming\n");	
 	Marmote_StartStreaming(ftHandle);
 
 	PktHdr_t* pkt;
+	uint16_t prevSeq;
+	prevSeq = 0;
 
-	totalBytesReceived = 0;
+	rxBufCount = 0;
 		
 	while (1)
 	{
-		BOOL bResult;
+		BOOL bResult;		
+
+		prevSeq = 0;
+		rxBufCount = 0;
+		sampleBytesReceived = 0;
 		
-		totalSamplesReceived = 0;
-
-		// Get the data from FT driver in smaller chunks
-		while (totalBytesReceived < MAX_RAW_BYTE_LEN)
+		while (sampleBytesReceived < MAX_RAW_BYTE_LEN)
+		//while (sampleBytesReceived < 32768)
 		{
-			bytesRequested = USB_REQUEST_SIZE < (MAX_RAW_BYTE_LEN - totalBytesReceived) ? USB_REQUEST_SIZE : MAX_RAW_BYTE_LEN - totalBytesReceived;
+			bytesRequested = USB_REQUEST_SIZE;
 
-			ftStatus = FT_Read(ftHandle, rxBuffer,bytesRequested, &bytesReceived);
+			ftStatus = FT_Read(ftHandle, rxBuffer + rxBufCount, bytesRequested, &bytesReceived);
 			if (ftStatus != FT_OK)
 			{
 				printf("Unable to read device\n");
@@ -358,52 +365,148 @@ int recorder(int dev, const char* dir, int seq)
 			if (bytesReceived < bytesRequested)
 			{	
 				printf("Timeout\n");
-				Marmote_StopStreaming(ftHandle);
-				ftStatus = FT_Close(ftHandle);
-				printf("DEV %d closed\n", dev);
-				printf("Exiting\n");
-				return 0;
+				printf("bytesReceived: %d / %d\n", bytesReceived, bytesRequested);
+				//Marmote_StopStreaming(ftHandle);
+				//ftStatus = FT_Close(ftHandle);
+				//printf("DEV %d closed\n", dev);
+				//printf("Exiting\n");
+				//return 0;
+				continue;
 			}
 
-			totalBytesReceived += bytesReceived;
-
+			rxBufCount += bytesReceived;
+						
 			// Process RX buffer
-			printf("Read  %4d chars: ", bytesReceived);
-
-			DWORD i = 0;
-			while (i < bytesReceived - sizeof(PktHdr_t))
+			
+			//printf("Read  %4d chars (%d)\n", bytesReceived, rxBufCount);
+				
+			/*
+			printf("RxBuffer content:\n");
+			for (j = 0; j < rxBufCount; j++)
 			{
-				// Find first packet start
-				if (rxBuffer[i] == SYNC_CHAR_1 && rxBuffer[i+1] == SYNC_CHAR_2)
-				{
-					pkt = (PktHdr_t*)rxBuffer[i];
-					if (i < bytesReceived - (sizeof(PktHdr_t) + pkt->len + 2))
-					{
-						if (isChecksumValid(pkt))
-						{
-							// Process packet here
-							printf("Seq: %u\n", (uint16_t)pkt->payload);
-							//memcpy(sampleBuffer, ((uint8_t*)pkt->payload)+2, pkt->len);
-							i = i + sizeof(PktHdr_t) + pkt->len + 2;
-							continue;
-						}
-						else
-						{
-							i++;
-							continue;
-						}
-					}
-					else
-					{
-						// Keep remaining data in buffer
-					}
-				}
-				else
+				printf("%02X ", (uint8_t)rxBuffer[j]);
+				if (j % 8 == 7)
+					printf("\n");
+			}
+			printf("\n");
+			getchar();
+			*/
+			
+			
+			/*
+			FILE * recFile;
+			recFile = fopen("marmote_rec.dat", "wb");
+			if (recFile)
+			{
+				fwrite(rxBuffer, 1, bytesReceived, recFile);
+			}
+			fclose(recFile);
+			*/
+
+			i = 0;
+
+			while (i < rxBufCount - sizeof(PktHdr_t))
+			{
+				
+				//printf("i: %d\n", i);
+				// Check SYNC characters
+				if (!(rxBuffer[i] == SYNC_CHAR_1 && rxBuffer[i+1] == SYNC_CHAR_2))
 				{
 					i++;
+					continue;
 				}
-			}
 
+				pkt = (PktHdr_t*)(rxBuffer+i);
+				
+				// Check length
+				if (rxBufCount < i + (sizeof(PktHdr_t) + pkt->len + PKT_CHK_LEN))
+				{
+					//i++;
+					break; // !
+				}
+
+
+				if (!isChecksumValid(pkt))
+				{
+					printf("CHECKSUM ERROR\n");
+					//printPkt(pkt);
+					i++;
+					continue;
+				}
+
+				// Process rxBuffer here
+				//printf("Seq: %u -> %u (%04X -> %04X)\n", prevSeq, *(uint16_t*)pkt->payload, prevSeq, *(uint16_t*)pkt->payload);
+
+				if ( *(uint16_t*)pkt->payload - prevSeq != 8)
+				{
+					//printf("ERR: %u -> %u (%04X -> %04X)\n", prevSeq, *(uint16_t*)pkt->payload, prevSeq, *(uint16_t*)pkt->payload);
+					printf("SEQUENCE ERROR\n");
+					printf("Seq: %u -> %u (%04X -> %04X) Diff: %d\n", prevSeq, *(uint16_t*)pkt->payload, prevSeq, *(uint16_t*)pkt->payload, *(uint16_t*)pkt->payload - prevSeq);
+
+					/*
+					if (*(uint16_t*)pkt->payload - prevSeq == 16)
+					{
+						printf("i: %d\tbufCount: %d\n", i, rxBufCount);
+						printf("RxBuffer content:\n");
+						for (j = 0; j < rxBufCount; j++)
+						{
+							printf("%02X ", (uint8_t)rxBuffer[j]);
+							if (j % 8 == 7)
+								printf("\n");
+						}
+						printf("\n");
+						getchar();
+					}
+					*/
+				}
+				prevSeq = *(uint16_t*)pkt->payload;
+				
+				memcpy(sampleBuffer + sampleBytesReceived, pkt->payload + MSG_SEQ_LEN, pkt->len - MSG_SEQ_LEN);
+				sampleBytesReceived += pkt->len - MSG_SEQ_LEN;
+
+				//printf("SampleBytesReceived: %d\n", sampleBytesReceived);
+
+				/*
+				printf("SampleBuffer content:\n");
+				for (j = 0; j < sampleBytesReceived; j++)
+				{
+					printf("%02X ", (uint8_t)sampleBuffer[j]);
+					if (j % 8 == 7)
+						printf("\n");
+				}
+				printf("\n");
+
+				getchar();
+				*/
+				
+				i = i + sizeof(PktHdr_t) + pkt->len + PKT_CHK_LEN;
+			}
+			
+			/*
+			printf("\n\nBEFORE\nrxBuffer content (i = %d, rxBufCount = %d):\n", i, rxBufCount);
+			for (j = 0; j < rxBufCount; j++)
+			{
+				printf("%02X ", (uint8_t)rxBuffer[j]);
+				if (j % 8 == 7)
+					printf("\n");
+			}
+			printf("\n");
+			*/
+
+			rxBufCount = rxBufCount - i;
+			memcpy(rxBuffer, rxBuffer+i, rxBufCount);
+
+			/*
+			printf("\nAFTER\nRxBuffer content (i = %d, rxBufCount = %d):\n", i, rxBufCount);
+			for (j = 0; j < rxBufCount; j++)
+			{
+				printf("%02X ", (uint8_t)rxBuffer[j]);
+				if (j % 8 == 7)
+					printf("\n");
+			}
+			printf("\n\n");
+			*/
+			
 			
 			/*
 			memcpy(sampleBuffer
@@ -416,15 +519,17 @@ int recorder(int dev, const char* dir, int seq)
 			}
 			printf("\n");
 
-			//printf("Total %d bytes received\n", totalBytesReceived);
+			//printf("Total %d bytes received\n", rxBufCount);
 			*/
-		}
-		
 
-		//totalBytesReceived = totalSamplesReceived * NUMBER_OF_CHANNELS * BITS_PER_SAMPLE/8;
+			printf("SampleBytesReceived: %d\n", sampleBytesReceived);
+		}
+
+		
+		printf("Total %d sample bytes received\n", sampleBytesReceived);
 
 		sprintf_s(fname_buffer, _MAX_PATH, "%s\\" FNAME_FMT, dir, seq); 
-		printf("%s (%d bytes).\n", fname_buffer, totalBytesReceived);
+		printf("%s (%d bytes).\n", fname_buffer, sampleBytesReceived);
 
 		HANDLE hFile = CreateFile(fname_buffer,
 									GENERIC_WRITE,
@@ -438,17 +543,17 @@ int recorder(int dev, const char* dir, int seq)
 			// Do not return (try again next)
 		}
 	
-		hdr.chunkSize = totalBytesReceived + sizeof(hdr) - 8;
-		hdr.subChunkSize2 = totalBytesReceived;
+		hdr.chunkSize = sampleBytesReceived + sizeof(hdr) - 8;
+		hdr.subChunkSize2 = sampleBytesReceived;
 		bResult =  WriteFile(hFile, &hdr, sizeof(hdr), &write_len, NULL);
 		if (!bResult || (sizeof(hdr) != write_len)) {
 			printf("Unable to write file (!bResult || (sizeof(hdr) != write_len))\n");
 			// Do not return (try again next)
 		}
 
-		bResult =  WriteFile(hFile, rxBuffer, totalBytesReceived, &write_len, NULL);
-		if (!bResult || (totalBytesReceived != write_len)) {
-			printf("Unable to write file (!bResult || (bytesReceived != write_len))\n");
+		bResult =  WriteFile(hFile, sampleBuffer, sampleBytesReceived, &write_len, NULL);
+		if (!bResult || (sampleBytesReceived != write_len)) {
+			printf("Unable to write file (!bResult || (sampleBytesReceived != write_len))\n");
 			// Do not return (try again next)
 		}
 
@@ -458,13 +563,14 @@ int recorder(int dev, const char* dir, int seq)
 		{
 			QueryPerformanceCounter(&timeNow);
 			elapsedTime = (timeNow.QuadPart - timePrev.QuadPart) * 1.0 / frequency.QuadPart;
-			printf("Throughput: %6.2f MB/s\n", (double)totalBytesReceived / (double)(1 << 20) / elapsedTime);
+			printf("Throughput: %6.2f MB/s\n", (double)sampleBytesReceived / (double)(1 << 20) / elapsedTime);
 
 			timePrev = timeNow;
 			byteCounter = 0;
 		}
 
 		seq++;
+		getchar();
 	}
 }
 

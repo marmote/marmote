@@ -67,7 +67,7 @@ begin
         elsif rising_edge(clk) then
             s_en_ctr <= s_en_ctr + 1;
             s_en <= '0';
-            if s_en_ctr = 3 then
+            if s_en_ctr = 19 then
                 s_en_ctr <= (others => '0');
                 s_en <= '1';
             end if;

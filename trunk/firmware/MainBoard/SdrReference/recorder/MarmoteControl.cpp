@@ -37,7 +37,7 @@ void sendMsg(FT_HANDLE ftHandle, MsgClass_t msg_class, MsgId_t msg_id, uint8_t* 
 	}
 
 
-	ftStatus = FT_Write(ftHandle, (uint8_t*)pkt, sizeof(PktHdr_t) + len + PKT_CHK_LENGTH, &bytesWritten);
+	ftStatus = FT_Write(ftHandle, (uint8_t*)pkt, sizeof(PktHdr_t) + len + PKT_CHK_LEN, &bytesWritten);
 	if (ftStatus == FT_OK)
 	{
 		/*
@@ -67,10 +67,12 @@ void printPkt(PktHdr_t* pkt)
 	
 	printf("Sync:\t\t%2X %02X\nClass:\t\t%02X\nId:\t\t%02X\nLength:\t\t%02X\n", pkt->sync_1, pkt->sync_2, pkt->msg_class, pkt->msg_id, pkt->len);
 
-	printf("Payload:\t");
+	printf("Payload:\n");
 	for (i = 0; i < pkt->len; i++)
 	{
 		printf("%02X ", *(pkt->payload+i));
+		if (i % 8 == 7)
+			printf("\n");
 	}
 	printf("\n");
 		
@@ -100,7 +102,7 @@ void printPkt(PktHdr_t* pkt)
 
 bool isChecksumValid(const PktHdr_t* pkt)
 {
-	uint8_t i;
+	int i;
 	const uint8_t* chk_a_ptr;
 	const uint8_t* chk_itr; // iterator for calculating checksum
 	uint8_t chk_a;
@@ -111,7 +113,7 @@ bool isChecksumValid(const PktHdr_t* pkt)
 
 	chk_a = 0;
 	chk_b = 0;
-	for (i = 0; i < 4 + pkt->len; i++)
+	for (i = 0; i < 4 + pkt->len; i++) // FIXME: $
 	{
 		chk_a += *(chk_itr+i);
 		chk_b += chk_a;

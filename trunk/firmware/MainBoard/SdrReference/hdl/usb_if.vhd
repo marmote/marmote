@@ -61,6 +61,7 @@ entity USB_IF is
         TX_STROBE   : in  std_logic;
 
         OBUF_MUX    : out std_logic;
+        STREAM_EN   : out std_logic;
 
         -- USB (FTDI) interface
         USB_CLK_pin : in  std_logic;
@@ -171,6 +172,7 @@ architecture Behavioral of USB_IF is
     -- Signals
 
     signal s_stream_en  : std_logic;
+    signal s_framer_rst : std_logic;
 
     -- Arbiter SM
     type usb_state_t is (
@@ -200,9 +202,6 @@ architecture Behavioral of USB_IF is
     -- USB read
     signal s_oe_n       : std_logic;
     signal s_rd_n       : std_logic;
-    signal s_rxd        : std_logic_vector(7 downto 0);
-    signal s_rxd_buf    : std_logic_vector(7 downto 0); -- Debug
-    signal s_rx_strobe  : std_logic;
 
     signal s_wr_n       : std_logic;
 
@@ -224,7 +223,6 @@ architecture Behavioral of USB_IF is
 
     -- Data FIFO
     signal s_txd_req    : std_logic;
-    signal s_txd_en     : std_logic;
     signal s_txd_rd     : std_logic;
     signal s_tx_data_fifo_out        : std_logic_vector(7 downto 0);
 
@@ -310,7 +308,7 @@ begin
     )   
     port map (
         CLK         =>  CLK,
-        RST         =>  not s_stream_en,
+        RST         =>  usb_rst,
         TX_I        =>  TX_I,
         TX_Q        =>  TX_Q,
         TX_STROBE   =>  TX_STROBE,
@@ -319,12 +317,12 @@ begin
         TXD_RD      =>  s_txd_rd,
         TXD         =>  s_tx_data_fifo_out
     );
-    
+
+    s_framer_rst <= not s_stream_en;
     s_apb_rst <= not RST;
     s_usb_conn  <= not ACBUS8_pin;
 
---    usb_rst <= ACBUS9_pin;
-    usb_rst <= RST;
+    usb_rst <= ACBUS9_pin;
 
     -- Processes
     
@@ -341,6 +339,7 @@ begin
             s_wr_n <= '1';
             s_obuf_reg <= (others => '0');
             s_tx_ctrl_fifo_fetched <= '0';
+            s_obuf_mux_sel <= '0';
         elsif rising_edge(usb_clk) then
 
             -- Default values
@@ -353,8 +352,8 @@ begin
             s_wr_n <= '1';
 
             s_obuf_mux_sel <= '0';
-
             s_obuf_reg <= (others => '0');
+
             if s_tx_ctrl_fifo_rd = '1' then
                 s_tx_ctrl_fifo_fetched <= not s_tx_ctrl_fifo_empty;
             end if;
@@ -452,6 +451,7 @@ begin
     USB_IF_IT <= not s_rx_ctrl_fifo_empty;
 
     OBUF_MUX <= s_obuf_mux_sel;
+    STREAM_EN <= s_stream_en;
 
 end Behavioral;
 

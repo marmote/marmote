@@ -63,6 +63,10 @@
         <spirit:direction>out</spirit:direction>
       </spirit:signal>
       <spirit:signal>
+        <spirit:name>STREAM_EN</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
         <spirit:name>USB_CLK_pin</spirit:name>
         <spirit:direction>in</spirit:direction>
       </spirit:signal>
