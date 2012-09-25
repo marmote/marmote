@@ -116,27 +116,48 @@ architecture Behavioral of DATA_FRAMER is
 
 --    alias USB_RST is RST;
 
-    type framer_state_t is (
-        st_IDLE,
-        st_SYNC_1,
-        st_SYNC_2,
-        st_MSG_CLASS,
-        st_MSG_ID,
-        st_LEN_1,
-        st_LEN_2,
-        st_SEQ_LSB,
-        st_SEQ_MSB,
-        st_DATA_I_LSB,
-        st_DATA_I_MSB,
-        st_DATA_Q_LSB,
-        st_DATA_Q_MSB,
-        st_CHK_A,
-        st_CHK_B
-    );
+--    type framer_state_t is (
+--        st_IDLE,
+--        st_SYNC_1,
+--        st_SYNC_2,
+--        st_MSG_CLASS,
+--        st_MSG_ID,
+--        st_LEN_1,
+--        st_LEN_2,
+--        st_SEQ_LSB,
+--        st_SEQ_MSB,
+--        st_DATA_I_LSB,
+--        st_DATA_I_MSB,
+--        st_DATA_Q_LSB,
+--        st_DATA_Q_MSB,
+--        st_CHK_A,
+--        st_CHK_B
+--    );
 
---    signal s_state      : framer_state_t := st_IDLE;
-    signal s_state      : framer_state_t;
-    signal s_state_next : framer_state_t;
+    -- States redefined for Identify Instrumentor debugging
+    constant st_IDLE        : std_logic_vector(14 downto 0) := "100000000000000";
+    constant st_SYNC_1      : std_logic_vector(14 downto 0) := "010000000000000";
+    constant st_SYNC_2      : std_logic_vector(14 downto 0) := "001000000000000";
+    constant st_MSG_CLASS   : std_logic_vector(14 downto 0) := "000100000000000";
+    constant st_MSG_ID      : std_logic_vector(14 downto 0) := "000010000000000";
+    constant st_LEN_1       : std_logic_vector(14 downto 0) := "000001000000000";
+    constant st_LEN_2       : std_logic_vector(14 downto 0) := "000000100000000";
+    constant st_SEQ_LSB     : std_logic_vector(14 downto 0) := "000000010000000";
+    constant st_SEQ_MSB     : std_logic_vector(14 downto 0) := "000000001000000";
+    constant st_DATA_I_LSB  : std_logic_vector(14 downto 0) := "000000000100000";
+    constant st_DATA_I_MSB  : std_logic_vector(14 downto 0) := "000000000010000";
+    constant st_DATA_Q_LSB  : std_logic_vector(14 downto 0) := "000000000001000";
+    constant st_DATA_Q_MSB  : std_logic_vector(14 downto 0) := "000000000000100";
+    constant st_CHK_A       : std_logic_vector(14 downto 0) := "000000000000010";
+    constant st_CHK_B       : std_logic_vector(14 downto 0) := "000000000000001";
+
+
+--    signal s_framer_state      : framer_state_t := st_IDLE;
+--    signal s_framer_state      : framer_state_t;
+--    signal s_framer_state_next : framer_state_t;
+
+    signal s_framer_state      : std_logic_vector(14 downto 0);
+    signal s_framer_state_next : std_logic_vector(14 downto 0);
 
     signal s_msg_ctr        : unsigned(15 downto 0);
     signal s_msg_ctr_next   : unsigned(15 downto 0);
@@ -154,6 +175,7 @@ architecture Behavioral of DATA_FRAMER is
     -- FIFOs
     signal s_fifo_rd        : std_logic;
     signal s_fifo_aempty    : std_logic;
+    signal s_fifo_aempty_d  : std_logic;
 
     signal s_seq_num_ctr    : unsigned(15 downto 0);
     signal s_seq_fifo_out   : std_logic_vector(15 downto 0);
@@ -231,24 +253,26 @@ begin
     p_framer_sync : process (RST, USB_CLK)
     begin
         if RST = '1' then
-            s_state <= st_IDLE;
+            s_framer_state <= st_IDLE;
             s_msg_ctr <= (others => '0');
             s_txd <= (others => '0');
             s_txd_req <= '0';
             s_chk_a <= c_CHK_A;
             s_chk_b <= c_CHK_B;
+            s_fifo_aempty_d <= '0';
         elsif rising_edge(USB_CLK) then
-            s_state <= s_state_next;
+            s_framer_state <= s_framer_state_next;
             s_msg_ctr <= s_msg_ctr_next;
             s_txd <= s_txd_next;
             s_txd_req <= s_txd_req_next;
             s_chk_a <= s_chk_a_next;
             s_chk_b <= s_chk_b_next;
+            s_fifo_aempty_d <= s_fifo_aempty;
         end if;
     end process p_framer_sync;
 
     p_framer_comb : process (
-        s_state,
+        s_framer_state,
         s_msg_ctr,
         TXD_RD,
         s_txd,
@@ -258,11 +282,11 @@ begin
         s_chk_a,
         s_chk_b,
         s_seq_fifo_out,
-        s_fifo_aempty
+        s_fifo_aempty_d
     )
     begin
         -- Default assignments
-        s_state_next <= s_state;
+        s_framer_state_next <= s_framer_state;
         s_msg_ctr_next <= s_msg_ctr;
         s_txd_next <= s_txd;
         s_txd_req_next <= s_txd_req;
@@ -273,48 +297,48 @@ begin
         s_fifo_rd <= '0';
 
         -- Next state and output logic
-        case s_state is
+        case s_framer_state is
 
             when st_IDLE =>
                 s_txd_next <= c_SYNC_CHAR_1;
                 s_msg_ctr_next <= (others => '0');
-                if s_fifo_aempty = '0' then
+                if s_fifo_aempty_d = '0' then
                     s_txd_req_next <= '1';
                     s_chk_a_next <= c_CHK_A;
                     s_chk_b_next <= c_CHK_B;
-                    s_state_next <= st_SYNC_1;
+                    s_framer_state_next <= st_SYNC_1;
                 end if;
 
             when st_SYNC_1 =>
                 if TXD_RD = '1' then
                     s_txd_next <= c_SYNC_CHAR_2;
-                    s_state_next <= st_SYNC_2;
+                    s_framer_state_next <= st_SYNC_2;
                 end if;
 
             when st_SYNC_2 =>
                 if TXD_RD = '1' then
                     s_txd_next <= c_MSG_CLASS;
-                    s_state_next <= st_MSG_CLASS;
---                    s_state_next <= st_IDLE;
+                    s_framer_state_next <= st_MSG_CLASS;
+--                    s_framer_state_next <= st_IDLE;
                 end if;
 
             when st_MSG_CLASS =>
                 if TXD_RD = '1' then
                     s_txd_next <= c_MSG_ID;
-                    s_state_next <= st_MSG_ID;
+                    s_framer_state_next <= st_MSG_ID;
                 end if;
 
             when st_MSG_ID =>
                 if TXD_RD = '1' then
                     s_txd_next <= c_MSG_LEN(7 downto 0);
-                    s_state_next <= st_LEN_1;
+                    s_framer_state_next <= st_LEN_1;
                 end if;
 
             when st_LEN_1 =>
                 if TXD_RD = '1' then
                     s_chk_a_next <= s_chk_a + s_txd;
                     s_txd_next <= c_MSG_LEN(15 downto 8);
-                    s_state_next <= st_LEN_2;
+                    s_framer_state_next <= st_LEN_2;
                     s_fifo_rd <= '1';
                 end if;
 
@@ -323,7 +347,7 @@ begin
                     s_chk_a_next <= s_chk_a + s_txd;
                     s_chk_b_next <= s_chk_b + s_chk_a;
                     s_txd_next <= unsigned(s_seq_fifo_out(7 downto 0));
-                    s_state_next <= st_SEQ_LSB;
+                    s_framer_state_next <= st_SEQ_LSB;
                 end if;
 
             when st_SEQ_LSB => 
@@ -331,7 +355,7 @@ begin
                     s_chk_a_next <= s_chk_a + s_txd;
                     s_chk_b_next <= s_chk_b + s_chk_a;
                     s_txd_next <= unsigned(s_seq_fifo_out(15 downto 8));
-                    s_state_next <= st_SEQ_MSB;
+                    s_framer_state_next <= st_SEQ_MSB;
                 end if;
 
             when st_SEQ_MSB => 
@@ -339,7 +363,7 @@ begin
                     s_chk_a_next <= s_chk_a + s_txd;
                     s_chk_b_next <= s_chk_b + s_chk_a;
                     s_txd_next <= unsigned(s_i_fifo_out(7 downto 0));
-                    s_state_next <= st_DATA_I_LSB;
+                    s_framer_state_next <= st_DATA_I_LSB;
                 end if;
 
             when st_DATA_I_LSB => 
@@ -348,7 +372,7 @@ begin
                     s_chk_a_next <= s_chk_a + s_txd;
                     s_chk_b_next <= s_chk_b + s_chk_a;
                     s_txd_next <= unsigned(s_i_fifo_out(15 downto 8));
-                    s_state_next <= st_DATA_I_MSB;
+                    s_framer_state_next <= st_DATA_I_MSB;
                 end if;
 
             when st_DATA_I_MSB => 
@@ -356,7 +380,7 @@ begin
                     s_chk_a_next <= s_chk_a + s_txd;
                     s_chk_b_next <= s_chk_b + s_chk_a;
                     s_txd_next <= unsigned(s_q_fifo_out(7 downto 0));
-                    s_state_next <= st_DATA_Q_LSB;
+                    s_framer_state_next <= st_DATA_Q_LSB;
                 end if;
 
             when st_DATA_Q_LSB => 
@@ -367,7 +391,7 @@ begin
                     s_chk_a_next <= s_chk_a + s_txd;
                     s_chk_b_next <= s_chk_b + s_chk_a;
                     s_txd_next <= unsigned(s_q_fifo_out(15 downto 8));
-                    s_state_next <= st_DATA_Q_MSB;
+                    s_framer_state_next <= st_DATA_Q_MSB;
                 end if;
 
             when st_DATA_Q_MSB => 
@@ -376,24 +400,24 @@ begin
                     s_chk_b_next <= s_chk_b + s_chk_a;
                     if s_msg_ctr < to_unsigned(g_SAMPLE_PER_PACKET, 16) then
                         s_txd_next <= unsigned(s_i_fifo_out(7 downto 0));
-                        s_state_next <= st_DATA_I_LSB;
+                        s_framer_state_next <= st_DATA_I_LSB;
                     else
                         s_txd_next <= s_chk_a + s_txd;
-                        s_state_next <= st_CHK_A;
+                        s_framer_state_next <= st_CHK_A;
                     end if;
                 end if;
 
             when st_CHK_A =>
                 if TXD_RD = '1' then
                     s_txd_next <= s_chk_b + s_chk_a;
-                    s_state_next <= st_CHK_B;
+                    s_framer_state_next <= st_CHK_B;
                 end if;
 
             when st_CHK_B =>
                 if TXD_RD = '1' then
                     s_txd_next <= (others => '0');
                     s_txd_req_next <= '0';
-                    s_state_next <= st_IDLE;
+                    s_framer_state_next <= st_IDLE;
                 end if;
 
             when others =>

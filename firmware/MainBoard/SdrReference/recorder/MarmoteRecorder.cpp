@@ -25,7 +25,7 @@ static int default_dev;
 #define BITS_PER_SAMPLE 16
 #define NUMBER_OF_CHANNELS 2
 #define SAMPLE_RATE 44100
-#define MAX_SAMPLE_LEN 1048576*8 // 2^20 samples (1 Msamples)
+#define MAX_SAMPLE_LEN 1048576 // 2^20 samples (1 Msamples)
 #define MAX_RAW_BYTE_LEN (NUMBER_OF_CHANNELS * MAX_SAMPLE_LEN * (BITS_PER_SAMPLE/8))
 
 typedef struct _WAVhdr {
@@ -339,6 +339,7 @@ int recorder(int dev, const char* dir, int seq)
 	prevSeq = 0;
 
 	rxBufCount = 0;
+	bool isFirstSeq;
 		
 	while (1)
 	{
@@ -347,6 +348,7 @@ int recorder(int dev, const char* dir, int seq)
 		prevSeq = 0;
 		rxBufCount = 0;
 		sampleBytesReceived = 0;
+		isFirstSeq = true;
 		
 		while (sampleBytesReceived < MAX_RAW_BYTE_LEN)
 		//while (sampleBytesReceived < 32768)
@@ -437,11 +439,11 @@ int recorder(int dev, const char* dir, int seq)
 				// Process rxBuffer here
 				//printf("Seq: %u -> %u (%04X -> %04X)\n", prevSeq, *(uint16_t*)pkt->payload, prevSeq, *(uint16_t*)pkt->payload);
 
-				if ( *(uint16_t*)pkt->payload - prevSeq != 8)
+				if ( !isFirstSeq && (uint16_t)(*(uint16_t*)pkt->payload - prevSeq) != 8)
 				{
 					//printf("ERR: %u -> %u (%04X -> %04X)\n", prevSeq, *(uint16_t*)pkt->payload, prevSeq, *(uint16_t*)pkt->payload);
 					printf("SEQUENCE ERROR\n");
-					printf("Seq: %u -> %u (%04X -> %04X) Diff: %d\n", prevSeq, *(uint16_t*)pkt->payload, prevSeq, *(uint16_t*)pkt->payload, *(uint16_t*)pkt->payload - prevSeq);
+					printf("Seq: %u -> %u (%04X -> %04X) Diff: %d\n", prevSeq, *(uint16_t*)pkt->payload, prevSeq, *(uint16_t*)pkt->payload, (uint16_t)(*(uint16_t*)pkt->payload - prevSeq));
 
 					/*
 					if (*(uint16_t*)pkt->payload - prevSeq == 16)
@@ -460,6 +462,7 @@ int recorder(int dev, const char* dir, int seq)
 					*/
 				}
 				prevSeq = *(uint16_t*)pkt->payload;
+				isFirstSeq = false;
 				
 				memcpy(sampleBuffer + sampleBytesReceived, pkt->payload + MSG_SEQ_LEN, pkt->len - MSG_SEQ_LEN);
 				sampleBytesReceived += pkt->len - MSG_SEQ_LEN;
@@ -522,11 +525,11 @@ int recorder(int dev, const char* dir, int seq)
 			//printf("Total %d bytes received\n", rxBufCount);
 			*/
 
-			printf("SampleBytesReceived: %d\n", sampleBytesReceived);
+			//printf("SampleBytesReceived: %d\n", sampleBytesReceived);
 		}
 
 		
-		printf("Total %d sample bytes received\n", sampleBytesReceived);
+		//printf("Total %d sample bytes received\n", sampleBytesReceived);
 
 		sprintf_s(fname_buffer, _MAX_PATH, "%s\\" FNAME_FMT, dir, seq); 
 		printf("%s (%d bytes).\n", fname_buffer, sampleBytesReceived);
@@ -570,7 +573,6 @@ int recorder(int dev, const char* dir, int seq)
 		}
 
 		seq++;
-		getchar();
 	}
 }
 
