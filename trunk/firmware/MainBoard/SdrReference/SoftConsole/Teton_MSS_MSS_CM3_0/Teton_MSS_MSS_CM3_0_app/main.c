@@ -35,27 +35,37 @@ int main()
 	MSS_GPIO_config(MSS_GPIO_LED1, MSS_GPIO_OUTPUT_MODE);
 //	MSS_GPIO_config(MSS_GPIO_LED2, MSS_GPIO_OUTPUT_MODE);
 	MSS_GPIO_config(MSS_GPIO_AFE_ENABLE, MSS_GPIO_OUTPUT_MODE);
+	MSS_GPIO_config(MSS_GPIO_AFE_MODE, MSS_GPIO_OUTPUT_MODE);
 	MSS_GPIO_config(MSS_GPIO_USB_CTRL_IT, MSS_GPIO_INPUT_MODE);
 
 	MSS_GPIO_set_output(MSS_GPIO_LED1, 0);
 //	MSS_GPIO_set_output(MSS_GPIO_LED2, 0);
 	MSS_GPIO_set_output(MSS_GPIO_AFE_ENABLE, 1);
+	MSS_GPIO_set_output( MSS_GPIO_AFE_MODE, AFE_MODE_RX );
 //	MSS_GPIO_set_output(MSS_GPIO_FPGA_ENABLE, 1);
 
 	MSS_GPIO_config ( MSS_GPIO_USB_CTRL_IT, MSS_GPIO_INPUT_MODE | MSS_GPIO_IRQ_LEVEL_HIGH );
 	MSS_GPIO_enable_irq( MSS_GPIO_USB_CTRL_IT );
 	NVIC_EnableIRQ( MSS_GPIO_USB_CTRL_IT_IRQn );
 
+	Max2830_set_frequency(2405000000uL);
+	/*
+	// Set up as a transmitter at 2405 MHz as default
+	Max2830_set_frequency(2405000000uL);
+	Max2830_set_mode( MAX2830_TX_MODE );
+	MSS_GPIO_set_output( MSS_GPIO_AFE_MODE, AFE_MODE_TX );
+	*/
+
 
 	while( 1 )
 	{
-		/*
+
 		if (spi_cmd_length > 0)
 		{
 			process_spi_cmd_buf((const char*)spi_cmd_buf, spi_cmd_length);
 			spi_cmd_length = 0;
 		}
-		*/
+
 
 		if (usb_cmd_valid)
 		{

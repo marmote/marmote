@@ -360,7 +360,7 @@ uint32_t CmdFreq(uint32_t argc, char** argv)
 			sprintf(buf, "\r\nFrequency: %12.6f MHz", (float)Max2830_get_frequency()/1e6);
 			*/
 
-			Max2830_set_frequency((uint32_t) (freq*1e6));
+			Max2830_set_frequency((uint32_t) (freq*1e3));
 
 			//sprintf(buf, "\r\nFrequency: %12.6f MHz", Max2830_get_frequency()/1e6);
 			sprintf(buf, "\r\nFrequency: %u Hz", (unsigned int)Max2830_get_frequency());
@@ -376,7 +376,7 @@ uint32_t CmdFreq(uint32_t argc, char** argv)
 	}
 
 	// Send help message
-	Yellowstone_print("\nUsage: freq [<frequency value in MHz>]");
+	Yellowstone_print("\nUsage: freq [<frequency value in kHz>]");
 	return 1;
 }
 
@@ -639,13 +639,16 @@ uint32_t CmdMode(uint32_t argc, char** argv)
 
 		if (!strcmp(*(argv+1), "rx"))
 		{
+			MSS_GPIO_set_output( MSS_GPIO_AFE_MODE, AFE_MODE_RX );
 			Max2830_set_mode( MAX2830_RX_MODE );
 			return 0;
 		}
 
 		if (!strcmp(*(argv+1), "tx"))
 		{
+			// !
 			Max2830_set_mode( MAX2830_TX_MODE );
+			MSS_GPIO_set_output( MSS_GPIO_AFE_MODE, AFE_MODE_TX );
 			return 0;
 		}
 
