@@ -72,8 +72,8 @@ void Max2830_init ( )
 	MSS_GPIO_config( MSS_GPIO_ANTSEL, MSS_GPIO_OUTPUT_MODE );
 	MSS_GPIO_config( MSS_GPIO_RXTX, MSS_GPIO_OUTPUT_MODE );
 
-	//MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_RXHP_MASK );
-	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_RXHP_MASK );
+	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_RXHP_MASK );
+	//MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_RXHP_MASK );
 	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_ANTSEL_MASK );	// Single antenna (ANT2)
 	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_RXTX_MASK );	// RX
 

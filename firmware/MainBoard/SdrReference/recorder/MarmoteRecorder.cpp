@@ -299,6 +299,11 @@ int recorder(int dev, const char* dir, int seq)
 		return 1;
 	}
 
+	printf("Stopping streaming\n");	
+	Marmote_StopStreaming(ftHandle);
+
+	Sleep(100);
+
 	// Purge both Rx and Tx buffers
 	ftStatus = FT_Purge(ftHandle, FT_PURGE_RX | FT_PURGE_TX);
 	if (ftStatus != FT_OK) {
@@ -332,6 +337,23 @@ int recorder(int dev, const char* dir, int seq)
 
 	QueryPerformanceFrequency(&frequency);
 	QueryPerformanceCounter(&timePrev);
+
+	/*
+	Marmote_SetFrequency(ftHandle, 2345.6e6);
+	*/
+	uint32_t freq;
+	
+	/*
+	while (1)
+	{
+		freq = Marmote_GetFrequency(ftHandle);
+		printf("Freq: %u Hz\n", freq);
+		getchar();
+	}
+	*/
+	
+	freq = Marmote_GetFrequency(ftHandle);
+	printf("Freq: %u Hz\n", freq);
 	
 	printf("Starting streaming\n");	
 	Marmote_StartStreaming(ftHandle);
@@ -483,6 +505,7 @@ int recorder(int dev, const char* dir, int seq)
 		}
 
 		seq++;
+		//Sleep(4000);
 	}
 }
 

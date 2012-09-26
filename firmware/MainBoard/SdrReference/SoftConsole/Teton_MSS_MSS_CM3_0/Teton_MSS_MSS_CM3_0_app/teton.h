@@ -14,16 +14,19 @@
 #include <string.h>
 
 
-
 #define MSS_GPIO_LED1 				MSS_GPIO_0
 #define MSS_GPIO_AFE_ENABLE			MSS_GPIO_1
-#define MSS_GPIO_LED2 				MSS_GPIO_7
+//#define MSS_GPIO_LED2 				MSS_GPIO_7
+#define MSS_GPIO_AFE_MODE			MSS_GPIO_7
 #define MSS_GPIO_USB_CTRL_IT 		MSS_GPIO_8
+
 
 #define MSS_GPIO_LED1_MASK 			MSS_GPIO_0_MASK
 #define MSS_GPIO_AFE_ENABLE_MASK 	MSS_GPIO_1_MASK
-#define MSS_GPIO_LED2_MASK 			MSS_GPIO_7_MASK
+//#define MSS_GPIO_LED2_MASK 			MSS_GPIO_7_MASK
+#define MSS_GPIO_AFE_MODE_MASK		MSS_GPIO_7_MASK
 #define MSS_GPIO_USB_CTRL_IT_MASK 	MSS_GPIO_8_MASK
+
 
 #define MSS_GPIO_USB_CTRL_IT_IRQn  	GPIO8_IRQn
 
@@ -56,6 +59,12 @@ typedef enum _usb_pkt_state
 	CHK_A,
 	CHK_B,
 } usb_pkt_state_t;
+
+typedef enum _afe_mode
+{
+	AFE_MODE_RX = 0,
+	AFE_MODE_TX = 1,
+} afe_mode_t;
 
 
 #define USB_BUF_LENGTH 150
