@@ -10,6 +10,7 @@
  * DONE - TCXO power supply digital, ground analog
  * DONE - Mark for 1. pin for baluns not visible enough
  * DONE - C105, C106 names covered by vias in documentation
+ * Consider adding a TPTUNE similar to the one on MAX2830EVKIT
 
 == Notes ==
 
