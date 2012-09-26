@@ -14,4 +14,7 @@
 == Notes ==
 
  * Via test points for potential test pins (clock out, lock detect) would have been useful
- 
+
+== TODO ==
+
+ * Investigate simple carrier transmission phase noise, which is larger than reported in MAX2830 datasheet (measured with USRP 1, can be a fault of USRP 1)
