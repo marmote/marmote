@@ -6,8 +6,8 @@ import SignalProcessing as SP
 class DisplayDataGenerator(GD.DataGenerator):
 
 ################################################################################
-    def __init__(self, FileOrDir, DSPconf, N, mf_hist_len = 100):
-        GD.DataGenerator.__init__(self, FileOrDir, DSPconf, N, mf_hist_len)
+    def __init__(self, Source, DSPconf, N, mf_hist_len = 100):
+        GD.DataGenerator.__init__(self, Source, DSPconf, N, mf_hist_len)
 
         self.DSPconf = DSPconf
         

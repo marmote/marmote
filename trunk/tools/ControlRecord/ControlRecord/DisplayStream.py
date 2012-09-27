@@ -1,9 +1,9 @@
 from optparse import OptionParser
 
-
-import tools.GenerateDisplayData as GDD
-import tools.DrawChart as DC
-import tools.DSPConfig as conf
+import tools.StdinSource            as SS
+import tools.GenerateDisplayData    as GDD
+import tools.DrawChart              as DC
+import tools.DSPConfig              as conf
 
 
 parser = OptionParser()
@@ -26,7 +26,8 @@ if __name__ == "__main__":
     Display_N = 400
     MF_hist_len = 200
 
-    dg = GDD.DisplayDataGenerator(options.inputfileordir, DSPconf, Display_N, MF_hist_len)
+    Source = SS.StdinSource()
+    dg = GDD.DisplayDataGenerator(Source, DSPconf, Display_N, MF_hist_len)
     fd = DC.FancyDisplay(DSPconf, 5, Display_N, MF_hist_len)
     fd.SetupAnimation(dg.data_gen)
 

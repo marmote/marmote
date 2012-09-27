@@ -1,9 +1,11 @@
 from optparse import OptionParser
 
 import sys
-import tools.DSPConfig as conf
-import tools.GenerateData as GD
-import tools.FrameConfig as FC
+
+import tools.FileSource     as FS
+import tools.DSPConfig      as conf
+import tools.GenerateData   as GD
+import tools.FrameConfig    as FC
 
 
 parser = OptionParser()
@@ -24,7 +26,8 @@ if __name__ == "__main__":
 
     #####################################
     # Get all the data
-    dg = GD.DataGenerator(options.inputfileordir, DSPconf, Display_N, MF_hist_len)
+    Source = FS.FileSource(options.inputfileordir)
+    dg = GD.DataGenerator(Source, DSPconf, Display_N, MF_hist_len)
 #    dg = GD.DataGenerator("test.bin", DSPconf, Display_N, MF_hist_len)
 
     while not dg.s.SourceEmpty() :
