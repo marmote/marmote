@@ -28,8 +28,9 @@
   <ItemGroup>
     <Compile Include="CollectFrames.py" />
     <Compile Include="CollectFramesFromSubDirs.py" />
-    <Compile Include="LiveDisplayRecording.py" />
     <Compile Include="DisplayRecording.py" />
+    <Compile Include="DisplayRecording_total.py" />
+    <Compile Include="DisplayStream.py" />
     <Compile Include="tools\DrawChart.py" />
     <Compile Include="tools\DSPConfig.py" />
     <Compile Include="tools\ExtractFrames.py" />
@@ -39,7 +40,9 @@
     <Compile Include="tools\FramePreProcessing.py" />
     <Compile Include="tools\GenerateData.py" />
     <Compile Include="tools\GenerateDisplayData.py" />
+    <Compile Include="tools\HumanReadableDataSize.py" />
     <Compile Include="tools\SignalProcessing.py" />
+    <Compile Include="tools\StdinSource.py" />
     <Compile Include="tools\ThresholdProcessing.py" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,4 @@
-import FileSource as FS
+#import FileSource as FS
 import ExtractFrames as EF
 import FramePreProcessing as FPP
 import ThresholdProcessing as TP
@@ -9,7 +9,7 @@ import FrameConfig as FC
 class DataGenerator:
 
 ################################################################################
-    def __init__(self, FileOrDir, DSPconf, N, mf_hist_len = 100):
+    def __init__(self, Source, DSPconf, N, mf_hist_len = 100):
         FrameConf = FC.Frameconf_t()
 
         self.N      = N
@@ -17,7 +17,8 @@ class DataGenerator:
 
         ##########
 
-        self.s      = FS.FileSource(FileOrDir)
+#        self.s      = FS.FileSource(FileOrDir)
+        self.s      = Source
         self.dfe    = EF.DataFrameExtractor(FrameConf.START_OF_FRAME, FrameConf.DATA_FRAME_ID)
         self.fpp    = FPP.FramePreProcessor(channels, mf_hist_len) # Assumes a resolution of 2 bytes !!!
 
