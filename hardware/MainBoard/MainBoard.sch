@@ -128,7 +128,7 @@
 <layer number="205" name="PDC_Check" color="3" fill="14" visible="yes" active="yes"/>
 <layer number="206" name="206bmp" color="7" fill="10" visible="yes" active="yes"/>
 <layer number="207" name="207bmp" color="8" fill="10" visible="yes" active="yes"/>
-<layer number="208" name="ThumbnailText" color="9" fill="10" visible="yes" active="yes"/>
+<layer number="208" name="ThumbnailText" color="9" fill="10" visible="no" active="yes"/>
 <layer number="216" name="SMD16" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="250" name="Descript" color="3" fill="1" visible="no" active="no"/>
 <layer number="251" name="SMDround" color="12" fill="11" visible="no" active="no"/>
@@ -41254,12 +41254,6 @@ Clock oscillator with output enable.</description>
 <pin name="E" x="2.54" y="-5.08" visible="off" length="short" direction="pas" swaplevel="3" rot="R90"/>
 <pin name="C" x="2.54" y="5.08" visible="off" length="short" direction="pas" swaplevel="2" rot="R270"/>
 </symbol>
-<symbol name="VBUS">
-<wire x1="0.762" y1="1.27" x2="0" y2="2.54" width="0.254" layer="94"/>
-<wire x1="0" y1="2.54" x2="-0.762" y2="1.27" width="0.254" layer="94"/>
-<text x="-1.016" y="3.556" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="VBAT" x="0" y="0" visible="off" length="short" direction="sup" rot="R90"/>
-</symbol>
 <symbol name="93LC56BT">
 <description>&lt;b&gt;93LC56BT&lt;/b&gt;
 &lt;p&gt;
@@ -42703,20 +42697,6 @@ Standard 8.5x11 US Letter frame</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="VBUS">
-<description>&lt;b&gt;USB SUPPLY SYMBOL&lt;/b&gt;&lt;p&gt;
-+5V USB supply voltage</description>
-<gates>
-<gate name="G$1" symbol="VBUS" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="ECX-42" prefix="X">
 <description>&lt;b&gt;ECX-42&lt;/b&gt;
 &lt;p&gt;
@@ -43708,8 +43688,6 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <part name="PORT181" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT190" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT191" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="R56" library="MainBoard" deviceset="R" device="0402" value="39k"/>
-<part name="U$72" library="MainBoard" deviceset="VBUS" device=""/>
 <part name="U$73" library="MainBoard" deviceset="DGND" device=""/>
 <part name="R54" library="MainBoard" deviceset="R" device="0402" value="12k">
 <attribute name="TOLERANCE" value="1%"/>
@@ -48470,8 +48448,6 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <instance part="PORT181" gate="G$1" x="101.6" y="116.84"/>
 <instance part="PORT190" gate="G$1" x="22.86" y="139.7" rot="MR0"/>
 <instance part="PORT191" gate="G$1" x="22.86" y="137.16" rot="MR0"/>
-<instance part="R56" gate="G$1" x="96.52" y="114.3"/>
-<instance part="U$72" gate="G$1" x="111.76" y="114.3"/>
 <instance part="U$73" gate="G$1" x="33.02" y="91.44"/>
 <instance part="R54" gate="G$1" x="30.48" y="127">
 <attribute name="TOLERANCE" x="30.48" y="127" size="1.778" layer="96"/>
@@ -48833,14 +48809,6 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <label x="93.98" y="116.84" size="1.778" layer="97"/>
 </segment>
 </net>
-<net name="!PWRSAV" class="0">
-<segment>
-<pinref part="U5" gate="G$1" pin="ACBUS7"/>
-<label x="99.06" y="114.3" size="1.778" layer="97"/>
-<wire x1="88.9" y1="114.3" x2="91.44" y2="114.3" width="0.1524" layer="91"/>
-<pinref part="R56" gate="G$1" pin="1"/>
-</segment>
-</net>
 <net name="USBDM" class="0">
 <segment>
 <pinref part="U5" gate="G$1" pin="DM"/>
@@ -48853,13 +48821,6 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <pinref part="U5" gate="G$1" pin="DP"/>
 <wire x1="38.1" y1="137.16" x2="33.02" y2="137.16" width="0.1524" layer="91"/>
 <label x="30.48" y="137.16" size="1.778" layer="97" rot="MR0"/>
-</segment>
-</net>
-<net name="VBAT" class="0">
-<segment>
-<pinref part="R56" gate="G$1" pin="2"/>
-<wire x1="99.06" y1="114.3" x2="111.76" y2="114.3" width="0.1524" layer="91"/>
-<pinref part="U$72" gate="G$1" pin="VBAT"/>
 </segment>
 </net>
 <net name="!USB_RESET" class="0">
