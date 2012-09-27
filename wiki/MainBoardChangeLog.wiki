@@ -1,0 +1,9 @@
+#summary One-sentence summary of this page.
+#labels Phase-QA
+
+= Rev B Changes =
+
+  * Corrected issues in BOM file
+  * Corrected VBAT symbol issue in library and removed R53 on PWRSAV line altogether
+  * Ethernet PHY R,,bias,, part number has been corrected in BOM file
+  * Fixed C5 and R7 label on the bottom layer (assembly drawing)
