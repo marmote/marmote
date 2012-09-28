@@ -5,7 +5,7 @@
 Product: Designer
 Release: v10.0 SP2
 Version: 10.0.20.2
-Date: Wed Aug 15 14:37:08 2012
+Date: Wed Sep 26 13:00:35 2012
 Design Name: StreamingReceiver_RF  Family: SmartFusion  Die: A2F500M3G  Package: 256 FBGA
 Design State: Post-Layout
 
@@ -15,7 +15,7 @@ The following nets have been routed to a chip global resource:
     ----------------------
     22                Net   : FAB_CLK
                       Driver: StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE1
-    106               Net   : AFE2_CLK_pin_c
+    128               Net   : AFE2_CLK_pin_c_c
                       Driver: StreamingReceiver_RF_MSS_0/MSS_CCC_0/I_MSSCCC/U_TILE2
     62                Net   : USB_FIFO_IF_0/USB_IF_0_USB_CLK_OUT
                       Driver: USB_FIFO_IF_0/USB_IF_0/u_USB_CLKBUF/U0/U1/U_GL

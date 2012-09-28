@@ -35,16 +35,16 @@ Global net placement completed successfully.
 
                         o - o - o - o - o - o
 
-Timing-driven Placer Started: Wed Aug 15 14:36:27 2012
+Timing-driven Placer Started: Wed Sep 26 12:59:55 2012
 
-Placer Finished: Wed Aug 15 14:36:38 2012
-Total Placer CPU Time:     00:00:11
+Placer Finished: Wed Sep 26 13:00:05 2012
+Total Placer CPU Time:     00:00:10
 
                         o - o - o - o - o - o
 
 
 Timing-driven Router 
-Design: StreamingReceiver_RF_synthesis_1Started: Wed Aug 15 14:36:40 2012
+Design: StreamingReceiver_RF_synthesis_1Started: Wed Sep 26 13:00:07 2012
 
  
 Iterative improvement...
@@ -52,7 +52,7 @@ Iterative improvement...
 Timing-driven Router completed successfully.
 
 Design: StreamingReceiver_RF_synthesis_1
-Finished: Wed Aug 15 14:37:04 2012
+Finished: Wed Sep 26 13:00:31 2012
 Total CPU Time:     00:00:24            Total Elapsed Time: 00:00:24
                         o - o - o - o - o - o
 

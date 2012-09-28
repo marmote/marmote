@@ -25,7 +25,7 @@ Info: Adding FPGA Array data from file
 PDB file
 'D:\Work\marmote\firmware\MainBoard\StreamingReceiver_RF\designer\impl1\StreamingReceiver_RF_fp\
 \StreamingReceiver_RF.pdb' has been loaded successfully.
-DESIGN : StreamingReceiver_RF;  CHECKSUM : 6ED3;  PDB_VERSION : 1.7
+DESIGN : StreamingReceiver_RF;  CHECKSUM : 1883;  PDB_VERSION : 1.7
 The 'update_programming_file' command succeeded.
 The 'set_programming_action' command succeeded.
 programmer '55025' : Scan Chain...
@@ -41,7 +41,7 @@ programmer '55025' : Verifying FPGA Array
 programmer '55025' :         Verifying FPGA Array -- pass
 programmer '55025' : Program System Init and Boot Clients...
 programmer '55025' : Verify System Init and Boot Clients...
-programmer '55025' : Finished: Wed Aug 15 14:39:40 2012 (Elapsed time 00:00:55)
+programmer '55025' : Finished: Wed Sep 26 13:02:21 2012 (Elapsed time 00:00:52)
 programmer '55025' : Executing action PROGRAM PASSED.
 
                         o - o - o - o - o - o

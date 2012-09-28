@@ -31,50 +31,58 @@ entity StreamingReceiver_RF is
           USB_SIWU_N      : out   std_logic;
           USB_RXF_n_pin   : in    std_logic;
           LED1            : out   std_logic;
-          DATA_pin        : inout std_logic_vector(9 downto 0) := (others => 'Z');
-          USB_DATA_pin    : inout std_logic_vector(7 downto 0) := (others => 'Z')
+          AFE2_DATA_pin   : inout std_logic_vector(9 downto 0) := (others => 'Z');
+          USB_DATA_pin    : inout std_logic_vector(7 downto 0) := (others => 'Z');
+          AFE1_DATA_pin   : inout std_logic_vector(9 downto 0) := (others => 'Z');
+          AFE1_CLK_pin    : out   std_logic;
+          AFE1_SHDN_n_pin : out   std_logic;
+          AFE1_T_R_n_pin  : out   std_logic
         );
 
 end StreamingReceiver_RF;
 
 architecture DEF_ARCH of StreamingReceiver_RF is 
 
-  component USB_FIFO_IF
-    port( USB_CLK_pin       : in    std_logic := 'U';
-          USB_TXE_n_pin     : in    std_logic := 'U';
-          USB_WR_n_pin      : out   std_logic;
-          CLK               : in    std_logic := 'U';
-          RST_n             : in    std_logic := 'U';
-          USB_SIWU_N        : out   std_logic;
-          FROM_ADC_SMPL_RDY : in    std_logic := 'U';
-          USB_RXF_n_pin     : in    std_logic := 'U';
-          READ_SUCCESSFUL   : in    std_logic := 'U';
-          USB_RD_n_pin      : out   std_logic;
-          USB_OE_n_pin      : out   std_logic;
-          FROM_USB_RDY      : out   std_logic;
-          USB_DATA_pin      : inout   std_logic_vector(7 downto 0);
-          ADC_Q             : in    std_logic_vector(31 downto 16) := (others => 'U');
-          ADC_I             : in    std_logic_vector(15 downto 0) := (others => 'U');
-          READ_FROM_USB_REG : out   std_logic_vector(7 downto 0)
+  component GND
+    port( Y : out   std_logic
         );
   end component;
 
-  component SAMPLE_APB
-    port( PCLK            : in    std_logic := 'U';
-          PRESETn         : in    std_logic := 'U';
-          PADDR           : in    std_logic_vector(31 downto 0) := (others => 'U');
-          PSELx           : in    std_logic := 'U';
-          PENABLE         : in    std_logic := 'U';
-          PWRITE          : in    std_logic := 'U';
-          PWDATA          : in    std_logic_vector(31 downto 0) := (others => 'U');
-          PREADY          : out   std_logic;
-          PRDATA          : out   std_logic_vector(31 downto 0);
-          PSLVERR         : out   std_logic;
-          INPUT           : in    std_logic_vector(7 downto 0) := (others => 'U');
-          READ_SUCCESSFUL : out   std_logic;
-          FROM_USB_RDY    : in    std_logic := 'U';
-          SMPL_RDY        : out   std_logic;
-          REG_FULL        : out   std_logic
+  component INV
+    port( A : in    std_logic := 'U';
+          Y : out   std_logic
+        );
+  end component;
+
+  component VCC
+    port( Y : out   std_logic
+        );
+  end component;
+
+  component StreamingReceiver_RF_MSS
+    port( MSS_RESET_N : in    std_logic := 'U';
+          SPI_1_DI    : in    std_logic := 'U';
+          SPI_1_DO    : out   std_logic;
+          SPI_1_CLK   : inout   std_logic;
+          SPI_1_SS    : inout   std_logic;
+          MSSPSEL     : out   std_logic;
+          MSSPENABLE  : out   std_logic;
+          MSSPWRITE   : out   std_logic;
+          MSSPREADY   : in    std_logic := 'U';
+          MSSPSLVERR  : in    std_logic := 'U';
+          GPIO_28_OUT : out   std_logic;
+          M2F_GPO_15  : out   std_logic;
+          M2F_GPO_14  : out   std_logic;
+          M2F_GPO_13  : out   std_logic;
+          F2M_GPI_12  : in    std_logic := 'U';
+          M2F_RESET_N : out   std_logic;
+          GLB         : out   std_logic;
+          MAINXIN     : in    std_logic := 'U';
+          FAB_CLK     : out   std_logic;
+          FABINT      : in    std_logic := 'U';
+          MSSPADDR    : out   std_logic_vector(19 downto 0);
+          MSSPRDATA   : in    std_logic_vector(31 downto 0) := (others => 'U');
+          MSSPWDATA   : out   std_logic_vector(31 downto 0)
         );
   end component;
 
@@ -174,46 +182,50 @@ architecture DEF_ARCH of StreamingReceiver_RF is
         );
   end component;
 
-  component VCC
-    port( Y : out   std_logic
+  component AFE_mux
+    port( Data0_port : in    std_logic_vector(19 downto 0) := (others => 'U');
+          Data1_port : in    std_logic_vector(19 downto 0) := (others => 'U');
+          Sel0       : in    std_logic := 'U';
+          Result     : out   std_logic_vector(19 downto 0)
         );
   end component;
 
-  component StreamingReceiver_RF_MSS
-    port( MSS_RESET_N : in    std_logic := 'U';
-          SPI_1_DI    : in    std_logic := 'U';
-          SPI_1_DO    : out   std_logic;
-          SPI_1_CLK   : inout   std_logic;
-          SPI_1_SS    : inout   std_logic;
-          MSSPSEL     : out   std_logic;
-          MSSPENABLE  : out   std_logic;
-          MSSPWRITE   : out   std_logic;
-          MSSPREADY   : in    std_logic := 'U';
-          MSSPSLVERR  : in    std_logic := 'U';
-          GPIO_28_OUT : out   std_logic;
-          M2F_GPO_15  : out   std_logic;
-          M2F_GPO_14  : out   std_logic;
-          M2F_GPO_13  : out   std_logic;
-          F2M_GPI_12  : in    std_logic := 'U';
-          M2F_RESET_N : out   std_logic;
-          GLB         : out   std_logic;
-          MAINXIN     : in    std_logic := 'U';
-          FAB_CLK     : out   std_logic;
-          FABINT      : in    std_logic := 'U';
-          MSSPADDR    : out   std_logic_vector(19 downto 0);
-          MSSPRDATA   : in    std_logic_vector(31 downto 0) := (others => 'U');
-          MSSPWDATA   : out   std_logic_vector(31 downto 0)
+  component SAMPLE_APB
+    port( PCLK            : in    std_logic := 'U';
+          PRESETn         : in    std_logic := 'U';
+          PSELx           : in    std_logic := 'U';
+          PENABLE         : in    std_logic := 'U';
+          PWRITE          : in    std_logic := 'U';
+          PREADY          : out   std_logic;
+          PSLVERR         : out   std_logic;
+          READ_SUCCESSFUL : out   std_logic;
+          FROM_USB_RDY    : in    std_logic := 'U';
+          SMPL_RDY        : out   std_logic;
+          REG_FULL        : out   std_logic;
+          PADDR           : in    std_logic_vector(31 downto 0) := (others => 'U');
+          PWDATA          : in    std_logic_vector(31 downto 0) := (others => 'U');
+          PRDATA          : out   std_logic_vector(31 downto 0);
+          INPUT           : in    std_logic_vector(7 downto 0) := (others => 'U')
         );
   end component;
 
-  component INV
-    port( A : in    std_logic := 'U';
-          Y : out   std_logic
-        );
-  end component;
-
-  component GND
-    port( Y : out   std_logic
+  component USB_FIFO_IF
+    port( USB_CLK_pin       : in    std_logic := 'U';
+          USB_TXE_n_pin     : in    std_logic := 'U';
+          USB_WR_n_pin      : out   std_logic;
+          CLK               : in    std_logic := 'U';
+          RST_n             : in    std_logic := 'U';
+          USB_SIWU_N        : out   std_logic;
+          FROM_ADC_SMPL_RDY : in    std_logic := 'U';
+          USB_RXF_n_pin     : in    std_logic := 'U';
+          READ_SUCCESSFUL   : in    std_logic := 'U';
+          USB_RD_n_pin      : out   std_logic;
+          USB_OE_n_pin      : out   std_logic;
+          FROM_USB_RDY      : out   std_logic;
+          USB_DATA_pin      : inout   std_logic_vector(7 downto 0);
+          ADC_Q             : in    std_logic_vector(31 downto 16) := (others => 'U');
+          ADC_I             : in    std_logic_vector(15 downto 0) := (others => 'U');
+          READ_FROM_USB_REG : out   std_logic_vector(7 downto 0)
         );
   end component;
 
@@ -227,6 +239,30 @@ architecture DEF_ARCH of StreamingReceiver_RF is
         \AFE_IF_0_RX_Q8to0_[4]\, \AFE_IF_0_RX_Q8to0_[3]\, 
         \AFE_IF_0_RX_Q8to0_[2]\, \AFE_IF_0_RX_Q8to0_[1]\, 
         \AFE_IF_0_RX_Q8to0_[0]\, AFE_IF_0_RX_Q9to9, INV_1_Y, 
+        \AFE_IF_1_RX_I8to0_[8]\, \AFE_IF_1_RX_I8to0_[7]\, 
+        \AFE_IF_1_RX_I8to0_[6]\, \AFE_IF_1_RX_I8to0_[5]\, 
+        \AFE_IF_1_RX_I8to0_[4]\, \AFE_IF_1_RX_I8to0_[3]\, 
+        \AFE_IF_1_RX_I8to0_[2]\, \AFE_IF_1_RX_I8to0_[1]\, 
+        \AFE_IF_1_RX_I8to0_[0]\, AFE_IF_1_RX_I9to9, 
+        \AFE_IF_1_RX_Q8to0_[8]\, \AFE_IF_1_RX_Q8to0_[7]\, 
+        \AFE_IF_1_RX_Q8to0_[6]\, \AFE_IF_1_RX_Q8to0_[5]\, 
+        \AFE_IF_1_RX_Q8to0_[4]\, \AFE_IF_1_RX_Q8to0_[3]\, 
+        \AFE_IF_1_RX_Q8to0_[2]\, \AFE_IF_1_RX_Q8to0_[1]\, 
+        \AFE_IF_1_RX_Q8to0_[0]\, AFE_IF_1_RX_Q9to9, 
+        \AFE_mux_0_Result8to0_[8]\, \AFE_mux_0_Result8to0_[7]\, 
+        \AFE_mux_0_Result8to0_[6]\, \AFE_mux_0_Result8to0_[5]\, 
+        \AFE_mux_0_Result8to0_[4]\, \AFE_mux_0_Result8to0_[3]\, 
+        \AFE_mux_0_Result8to0_[2]\, \AFE_mux_0_Result8to0_[1]\, 
+        \AFE_mux_0_Result8to0_[0]\, AFE_mux_0_Result9to9, 
+        \AFE_mux_0_Result18to10_[18]\, 
+        \AFE_mux_0_Result18to10_[17]\, 
+        \AFE_mux_0_Result18to10_[16]\, 
+        \AFE_mux_0_Result18to10_[15]\, 
+        \AFE_mux_0_Result18to10_[14]\, 
+        \AFE_mux_0_Result18to10_[13]\, 
+        \AFE_mux_0_Result18to10_[12]\, 
+        \AFE_mux_0_Result18to10_[11]\, 
+        \AFE_mux_0_Result18to10_[10]\, AFE_mux_0_Result19to19, 
         \ANTSEL\, \CoreAPB3_0_APBmslave0_PADDR_[0]\, 
         \CoreAPB3_0_APBmslave0_PADDR_[1]\, 
         \CoreAPB3_0_APBmslave0_PADDR_[2]\, 
@@ -321,7 +357,7 @@ architecture DEF_ARCH of StreamingReceiver_RF is
         CoreAPB3_0_APBmslave0_PWRITE, \nSHDN\, \RXHP\, 
         StreamingReceiver_RF_MSS_0_FAB_CLK, 
         StreamingReceiver_RF_MSS_0_GLB, 
-        StreamingReceiver_RF_MSS_0_M2F_RESET_N, INV_2_Y, 
+        StreamingReceiver_RF_MSS_0_M2F_RESET_N, INV_2_Y, INV_3_Y, 
         \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[0]\, 
         \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[1]\, 
         \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[2]\, 
@@ -427,169 +463,248 @@ architecture DEF_ARCH of StreamingReceiver_RF is
 begin 
 
 
-    USB_FIFO_IF_0 : USB_FIFO_IF
-      port map(USB_CLK_pin => USB_CLK_pin, USB_TXE_n_pin => 
-        USB_TXE_n_pin, USB_WR_n_pin => USB_WR_n_pin, CLK => 
-        StreamingReceiver_RF_MSS_0_GLB, RST_n => 
-        StreamingReceiver_RF_MSS_0_M2F_RESET_N, USB_SIWU_N => 
-        USB_SIWU_N, FROM_ADC_SMPL_RDY => VCC_net, USB_RXF_n_pin
-         => USB_RXF_n_pin, READ_SUCCESSFUL => \ANTSEL\, 
-        USB_RD_n_pin => USB_RD_n_pin, USB_OE_n_pin => 
-        USB_OE_n_pin, FROM_USB_RDY => \nSHDN\, USB_DATA_pin(7)
-         => USB_DATA_pin(7), USB_DATA_pin(6) => USB_DATA_pin(6), 
-        USB_DATA_pin(5) => USB_DATA_pin(5), USB_DATA_pin(4) => 
-        USB_DATA_pin(4), USB_DATA_pin(3) => USB_DATA_pin(3), 
-        USB_DATA_pin(2) => USB_DATA_pin(2), USB_DATA_pin(1) => 
-        USB_DATA_pin(1), USB_DATA_pin(0) => USB_DATA_pin(0), 
-        ADC_Q(31) => AFE_IF_0_RX_Q9to9, ADC_Q(30) => 
-        \AFE_IF_0_RX_Q8to0_[8]\, ADC_Q(29) => 
-        \AFE_IF_0_RX_Q8to0_[7]\, ADC_Q(28) => 
-        \AFE_IF_0_RX_Q8to0_[6]\, ADC_Q(27) => 
-        \AFE_IF_0_RX_Q8to0_[5]\, ADC_Q(26) => 
-        \AFE_IF_0_RX_Q8to0_[4]\, ADC_Q(25) => 
-        \AFE_IF_0_RX_Q8to0_[3]\, ADC_Q(24) => 
-        \AFE_IF_0_RX_Q8to0_[2]\, ADC_Q(23) => 
-        \AFE_IF_0_RX_Q8to0_[1]\, ADC_Q(22) => 
-        \AFE_IF_0_RX_Q8to0_[0]\, ADC_Q(21) => GND_net, ADC_Q(20)
-         => GND_net, ADC_Q(19) => GND_net, ADC_Q(18) => GND_net, 
-        ADC_Q(17) => GND_net, ADC_Q(16) => GND_net, ADC_I(15) => 
-        AFE_IF_0_RX_I9to9, ADC_I(14) => \AFE_IF_0_RX_I8to0_[8]\, 
-        ADC_I(13) => \AFE_IF_0_RX_I8to0_[7]\, ADC_I(12) => 
-        \AFE_IF_0_RX_I8to0_[6]\, ADC_I(11) => 
-        \AFE_IF_0_RX_I8to0_[5]\, ADC_I(10) => 
-        \AFE_IF_0_RX_I8to0_[4]\, ADC_I(9) => 
-        \AFE_IF_0_RX_I8to0_[3]\, ADC_I(8) => 
-        \AFE_IF_0_RX_I8to0_[2]\, ADC_I(7) => 
-        \AFE_IF_0_RX_I8to0_[1]\, ADC_I(6) => 
-        \AFE_IF_0_RX_I8to0_[0]\, ADC_I(5) => GND_net, ADC_I(4)
-         => GND_net, ADC_I(3) => GND_net, ADC_I(2) => GND_net, 
-        ADC_I(1) => GND_net, ADC_I(0) => GND_net, 
-        READ_FROM_USB_REG(7) => 
-        \USB_FIFO_IF_0_READ_FROM_USB_REG_[7]\, 
-        READ_FROM_USB_REG(6) => 
-        \USB_FIFO_IF_0_READ_FROM_USB_REG_[6]\, 
-        READ_FROM_USB_REG(5) => 
-        \USB_FIFO_IF_0_READ_FROM_USB_REG_[5]\, 
-        READ_FROM_USB_REG(4) => 
-        \USB_FIFO_IF_0_READ_FROM_USB_REG_[4]\, 
-        READ_FROM_USB_REG(3) => 
-        \USB_FIFO_IF_0_READ_FROM_USB_REG_[3]\, 
-        READ_FROM_USB_REG(2) => 
-        \USB_FIFO_IF_0_READ_FROM_USB_REG_[2]\, 
-        READ_FROM_USB_REG(1) => 
-        \USB_FIFO_IF_0_READ_FROM_USB_REG_[1]\, 
-        READ_FROM_USB_REG(0) => 
-        \USB_FIFO_IF_0_READ_FROM_USB_REG_[0]\);
+    \GND\ : GND
+      port map(Y => GND_net);
     
-    SAMPLE_APB_0 : SAMPLE_APB
-      port map(PCLK => StreamingReceiver_RF_MSS_0_FAB_CLK, 
-        PRESETn => StreamingReceiver_RF_MSS_0_M2F_RESET_N, 
-        PADDR(31) => GND_net, PADDR(30) => GND_net, PADDR(29) => 
-        GND_net, PADDR(28) => GND_net, PADDR(27) => GND_net, 
-        PADDR(26) => GND_net, PADDR(25) => GND_net, PADDR(24) => 
-        GND_net, PADDR(23) => \CoreAPB3_0_APBmslave0_PADDR_[23]\, 
-        PADDR(22) => \CoreAPB3_0_APBmslave0_PADDR_[22]\, 
-        PADDR(21) => \CoreAPB3_0_APBmslave0_PADDR_[21]\, 
-        PADDR(20) => \CoreAPB3_0_APBmslave0_PADDR_[20]\, 
-        PADDR(19) => \CoreAPB3_0_APBmslave0_PADDR_[19]\, 
-        PADDR(18) => \CoreAPB3_0_APBmslave0_PADDR_[18]\, 
-        PADDR(17) => \CoreAPB3_0_APBmslave0_PADDR_[17]\, 
-        PADDR(16) => \CoreAPB3_0_APBmslave0_PADDR_[16]\, 
-        PADDR(15) => \CoreAPB3_0_APBmslave0_PADDR_[15]\, 
-        PADDR(14) => \CoreAPB3_0_APBmslave0_PADDR_[14]\, 
-        PADDR(13) => \CoreAPB3_0_APBmslave0_PADDR_[13]\, 
-        PADDR(12) => \CoreAPB3_0_APBmslave0_PADDR_[12]\, 
-        PADDR(11) => \CoreAPB3_0_APBmslave0_PADDR_[11]\, 
-        PADDR(10) => \CoreAPB3_0_APBmslave0_PADDR_[10]\, PADDR(9)
-         => \CoreAPB3_0_APBmslave0_PADDR_[9]\, PADDR(8) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[8]\, PADDR(7) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[7]\, PADDR(6) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[6]\, PADDR(5) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[5]\, PADDR(4) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[4]\, PADDR(3) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[3]\, PADDR(2) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[2]\, PADDR(1) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[1]\, PADDR(0) => 
-        \CoreAPB3_0_APBmslave0_PADDR_[0]\, PSELx => 
-        CoreAPB3_0_APBmslave0_PSELx, PENABLE => 
-        CoreAPB3_0_APBmslave0_PENABLE, PWRITE => 
-        CoreAPB3_0_APBmslave0_PWRITE, PWDATA(31) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[31]\, PWDATA(30) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[30]\, PWDATA(29) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[29]\, PWDATA(28) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[28]\, PWDATA(27) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[27]\, PWDATA(26) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[26]\, PWDATA(25) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[25]\, PWDATA(24) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[24]\, PWDATA(23) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[23]\, PWDATA(22) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[22]\, PWDATA(21) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[21]\, PWDATA(20) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[20]\, PWDATA(19) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[19]\, PWDATA(18) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[18]\, PWDATA(17) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[17]\, PWDATA(16) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[16]\, PWDATA(15) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[15]\, PWDATA(14) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[14]\, PWDATA(13) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[13]\, PWDATA(12) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[12]\, PWDATA(11) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[11]\, PWDATA(10) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[10]\, PWDATA(9) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[9]\, PWDATA(8) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[8]\, PWDATA(7) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[7]\, PWDATA(6) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[6]\, PWDATA(5) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[5]\, PWDATA(4) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[4]\, PWDATA(3) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[3]\, PWDATA(2) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[2]\, PWDATA(1) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[1]\, PWDATA(0) => 
-        \CoreAPB3_0_APBmslave0_PWDATA_[0]\, PREADY => 
-        CoreAPB3_0_APBmslave0_PREADY, PRDATA(31) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[31]\, PRDATA(30) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[30]\, PRDATA(29) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[29]\, PRDATA(28) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[28]\, PRDATA(27) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[27]\, PRDATA(26) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[26]\, PRDATA(25) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[25]\, PRDATA(24) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[24]\, PRDATA(23) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[23]\, PRDATA(22) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[22]\, PRDATA(21) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[21]\, PRDATA(20) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[20]\, PRDATA(19) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[19]\, PRDATA(18) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[18]\, PRDATA(17) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[17]\, PRDATA(16) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[16]\, PRDATA(15) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[15]\, PRDATA(14) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[14]\, PRDATA(13) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[13]\, PRDATA(12) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[12]\, PRDATA(11) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[11]\, PRDATA(10) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[10]\, PRDATA(9) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[9]\, PRDATA(8) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[8]\, PRDATA(7) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[7]\, PRDATA(6) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[6]\, PRDATA(5) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[5]\, PRDATA(4) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[4]\, PRDATA(3) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[3]\, PRDATA(2) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[2]\, PRDATA(1) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[1]\, PRDATA(0) => 
-        \CoreAPB3_0_APBmslave0_PRDATA_[0]\, PSLVERR => 
-        CoreAPB3_0_APBmslave0_PSLVERR, INPUT(7) => 
-        \USB_FIFO_IF_0_READ_FROM_USB_REG_[7]\, INPUT(6) => 
-        \USB_FIFO_IF_0_READ_FROM_USB_REG_[6]\, INPUT(5) => 
-        \USB_FIFO_IF_0_READ_FROM_USB_REG_[5]\, INPUT(4) => 
-        \USB_FIFO_IF_0_READ_FROM_USB_REG_[4]\, INPUT(3) => 
-        \USB_FIFO_IF_0_READ_FROM_USB_REG_[3]\, INPUT(2) => 
-        \USB_FIFO_IF_0_READ_FROM_USB_REG_[2]\, INPUT(1) => 
-        \USB_FIFO_IF_0_READ_FROM_USB_REG_[1]\, INPUT(0) => 
-        \USB_FIFO_IF_0_READ_FROM_USB_REG_[0]\, READ_SUCCESSFUL
-         => \ANTSEL\, FROM_USB_RDY => \nSHDN\, SMPL_RDY => \RXHP\, 
-        REG_FULL => LED1);
+    INV_2 : INV
+      port map(A => StreamingReceiver_RF_MSS_0_M2F_RESET_N, Y => 
+        INV_2_Y);
+    
+    \VCC\ : VCC
+      port map(Y => VCC_net);
+    
+    AFE_IF_0 : entity work.AFE_IF
+      port map(CLK => StreamingReceiver_RF_MSS_0_GLB, RST => 
+        INV_2_Y, SHDN => GND_net, TX_RX_n => GND_net, RX_STROBE
+         => OPEN, TX_STROBE => GND_net, CLK_pin => AFE2_CLK_pin, 
+        SHDN_n_pin => AFE2_SHDN_n_pin, T_R_n_pin => 
+        AFE2_T_R_n_pin, RX_I(9) => INV_0_Y, RX_I(8) => 
+        \AFE_IF_0_RX_I8to0_[8]\, RX_I(7) => 
+        \AFE_IF_0_RX_I8to0_[7]\, RX_I(6) => 
+        \AFE_IF_0_RX_I8to0_[6]\, RX_I(5) => 
+        \AFE_IF_0_RX_I8to0_[5]\, RX_I(4) => 
+        \AFE_IF_0_RX_I8to0_[4]\, RX_I(3) => 
+        \AFE_IF_0_RX_I8to0_[3]\, RX_I(2) => 
+        \AFE_IF_0_RX_I8to0_[2]\, RX_I(1) => 
+        \AFE_IF_0_RX_I8to0_[1]\, RX_I(0) => 
+        \AFE_IF_0_RX_I8to0_[0]\, RX_Q(9) => INV_1_Y, RX_Q(8) => 
+        \AFE_IF_0_RX_Q8to0_[8]\, RX_Q(7) => 
+        \AFE_IF_0_RX_Q8to0_[7]\, RX_Q(6) => 
+        \AFE_IF_0_RX_Q8to0_[6]\, RX_Q(5) => 
+        \AFE_IF_0_RX_Q8to0_[5]\, RX_Q(4) => 
+        \AFE_IF_0_RX_Q8to0_[4]\, RX_Q(3) => 
+        \AFE_IF_0_RX_Q8to0_[3]\, RX_Q(2) => 
+        \AFE_IF_0_RX_Q8to0_[2]\, RX_Q(1) => 
+        \AFE_IF_0_RX_Q8to0_[1]\, RX_Q(0) => 
+        \AFE_IF_0_RX_Q8to0_[0]\, TX_I(9) => GND_net, TX_I(8) => 
+        GND_net, TX_I(7) => GND_net, TX_I(6) => GND_net, TX_I(5)
+         => GND_net, TX_I(4) => GND_net, TX_I(3) => GND_net, 
+        TX_I(2) => GND_net, TX_I(1) => GND_net, TX_I(0) => 
+        GND_net, TX_Q(9) => GND_net, TX_Q(8) => GND_net, TX_Q(7)
+         => GND_net, TX_Q(6) => GND_net, TX_Q(5) => GND_net, 
+        TX_Q(4) => GND_net, TX_Q(3) => GND_net, TX_Q(2) => 
+        GND_net, TX_Q(1) => GND_net, TX_Q(0) => GND_net, 
+        DATA_pin(9) => AFE2_DATA_pin(9), DATA_pin(8) => 
+        AFE2_DATA_pin(8), DATA_pin(7) => AFE2_DATA_pin(7), 
+        DATA_pin(6) => AFE2_DATA_pin(6), DATA_pin(5) => 
+        AFE2_DATA_pin(5), DATA_pin(4) => AFE2_DATA_pin(4), 
+        DATA_pin(3) => AFE2_DATA_pin(3), DATA_pin(2) => 
+        AFE2_DATA_pin(2), DATA_pin(1) => AFE2_DATA_pin(1), 
+        DATA_pin(0) => AFE2_DATA_pin(0));
+    
+    StreamingReceiver_RF_MSS_0 : StreamingReceiver_RF_MSS
+      port map(MSS_RESET_N => MSS_RESET_N, SPI_1_DI => SPI_1_DI, 
+        SPI_1_DO => SPI_1_DO, SPI_1_CLK => SPI_1_CLK, SPI_1_SS
+         => SPI_1_SS, MSSPSEL => 
+        StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PSELx, 
+        MSSPENABLE => 
+        StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PENABLE, 
+        MSSPWRITE => 
+        StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWRITE, 
+        MSSPREADY => 
+        StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PREADY, 
+        MSSPSLVERR => 
+        StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PSLVERR, 
+        GPIO_28_OUT => RXTX, M2F_GPO_15 => ANTSEL, M2F_GPO_14 => 
+        RXHP, M2F_GPO_13 => nSHDN, F2M_GPI_12 => LD, M2F_RESET_N
+         => StreamingReceiver_RF_MSS_0_M2F_RESET_N, GLB => 
+        StreamingReceiver_RF_MSS_0_GLB, MAINXIN => MAINXIN, 
+        FAB_CLK => StreamingReceiver_RF_MSS_0_FAB_CLK, FABINT => 
+        \RXHP\, MSSPADDR(19) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[19]\, 
+        MSSPADDR(18) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[18]\, 
+        MSSPADDR(17) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[17]\, 
+        MSSPADDR(16) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[16]\, 
+        MSSPADDR(15) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[15]\, 
+        MSSPADDR(14) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[14]\, 
+        MSSPADDR(13) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[13]\, 
+        MSSPADDR(12) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[12]\, 
+        MSSPADDR(11) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[11]\, 
+        MSSPADDR(10) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[10]\, 
+        MSSPADDR(9) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[9]\, 
+        MSSPADDR(8) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[8]\, 
+        MSSPADDR(7) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[7]\, 
+        MSSPADDR(6) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[6]\, 
+        MSSPADDR(5) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[5]\, 
+        MSSPADDR(4) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[4]\, 
+        MSSPADDR(3) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[3]\, 
+        MSSPADDR(2) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[2]\, 
+        MSSPADDR(1) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[1]\, 
+        MSSPADDR(0) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[0]\, 
+        MSSPRDATA(31) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[31]\, 
+        MSSPRDATA(30) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[30]\, 
+        MSSPRDATA(29) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[29]\, 
+        MSSPRDATA(28) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[28]\, 
+        MSSPRDATA(27) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[27]\, 
+        MSSPRDATA(26) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[26]\, 
+        MSSPRDATA(25) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[25]\, 
+        MSSPRDATA(24) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[24]\, 
+        MSSPRDATA(23) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[23]\, 
+        MSSPRDATA(22) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[22]\, 
+        MSSPRDATA(21) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[21]\, 
+        MSSPRDATA(20) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[20]\, 
+        MSSPRDATA(19) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[19]\, 
+        MSSPRDATA(18) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[18]\, 
+        MSSPRDATA(17) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[17]\, 
+        MSSPRDATA(16) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[16]\, 
+        MSSPRDATA(15) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[15]\, 
+        MSSPRDATA(14) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[14]\, 
+        MSSPRDATA(13) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[13]\, 
+        MSSPRDATA(12) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[12]\, 
+        MSSPRDATA(11) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[11]\, 
+        MSSPRDATA(10) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[10]\, 
+        MSSPRDATA(9) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[9]\, 
+        MSSPRDATA(8) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[8]\, 
+        MSSPRDATA(7) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[7]\, 
+        MSSPRDATA(6) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[6]\, 
+        MSSPRDATA(5) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[5]\, 
+        MSSPRDATA(4) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[4]\, 
+        MSSPRDATA(3) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[3]\, 
+        MSSPRDATA(2) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[2]\, 
+        MSSPRDATA(1) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[1]\, 
+        MSSPRDATA(0) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[0]\, 
+        MSSPWDATA(31) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[31]\, 
+        MSSPWDATA(30) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[30]\, 
+        MSSPWDATA(29) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[29]\, 
+        MSSPWDATA(28) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[28]\, 
+        MSSPWDATA(27) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[27]\, 
+        MSSPWDATA(26) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[26]\, 
+        MSSPWDATA(25) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[25]\, 
+        MSSPWDATA(24) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[24]\, 
+        MSSPWDATA(23) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[23]\, 
+        MSSPWDATA(22) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[22]\, 
+        MSSPWDATA(21) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[21]\, 
+        MSSPWDATA(20) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[20]\, 
+        MSSPWDATA(19) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[19]\, 
+        MSSPWDATA(18) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[18]\, 
+        MSSPWDATA(17) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[17]\, 
+        MSSPWDATA(16) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[16]\, 
+        MSSPWDATA(15) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[15]\, 
+        MSSPWDATA(14) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[14]\, 
+        MSSPWDATA(13) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[13]\, 
+        MSSPWDATA(12) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[12]\, 
+        MSSPWDATA(11) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[11]\, 
+        MSSPWDATA(10) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[10]\, 
+        MSSPWDATA(9) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[9]\, 
+        MSSPWDATA(8) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[8]\, 
+        MSSPWDATA(7) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[7]\, 
+        MSSPWDATA(6) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[6]\, 
+        MSSPWDATA(5) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[5]\, 
+        MSSPWDATA(4) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[4]\, 
+        MSSPWDATA(3) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[3]\, 
+        MSSPWDATA(2) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[2]\, 
+        MSSPWDATA(1) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[1]\, 
+        MSSPWDATA(0) => 
+        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[0]\);
+    
+    INV_3 : INV
+      port map(A => StreamingReceiver_RF_MSS_0_M2F_RESET_N, Y => 
+        INV_3_Y);
+    
+    INV_1 : INV
+      port map(A => INV_1_Y, Y => AFE_IF_0_RX_Q9to9);
     
     CoreAPB3_0 : CoreAPB3
       generic map(APB_DWIDTH => 32, APBSLOT0ENABLE => 1,
@@ -1138,220 +1253,95 @@ begin
         PRDATAS15(2) => GND_net, PRDATAS15(1) => GND_net, 
         PRDATAS15(0) => GND_net);
     
-    \VCC\ : VCC
-      port map(Y => VCC_net);
+    INV_0 : INV
+      port map(A => INV_0_Y, Y => AFE_IF_0_RX_I9to9);
     
-    StreamingReceiver_RF_MSS_0 : StreamingReceiver_RF_MSS
-      port map(MSS_RESET_N => MSS_RESET_N, SPI_1_DI => SPI_1_DI, 
-        SPI_1_DO => SPI_1_DO, SPI_1_CLK => SPI_1_CLK, SPI_1_SS
-         => SPI_1_SS, MSSPSEL => 
-        StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PSELx, 
-        MSSPENABLE => 
-        StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PENABLE, 
-        MSSPWRITE => 
-        StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWRITE, 
-        MSSPREADY => 
-        StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PREADY, 
-        MSSPSLVERR => 
-        StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PSLVERR, 
-        GPIO_28_OUT => RXTX, M2F_GPO_15 => ANTSEL, M2F_GPO_14 => 
-        RXHP, M2F_GPO_13 => nSHDN, F2M_GPI_12 => LD, M2F_RESET_N
-         => StreamingReceiver_RF_MSS_0_M2F_RESET_N, GLB => 
-        StreamingReceiver_RF_MSS_0_GLB, MAINXIN => MAINXIN, 
-        FAB_CLK => StreamingReceiver_RF_MSS_0_FAB_CLK, FABINT => 
-        \RXHP\, MSSPADDR(19) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[19]\, 
-        MSSPADDR(18) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[18]\, 
-        MSSPADDR(17) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[17]\, 
-        MSSPADDR(16) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[16]\, 
-        MSSPADDR(15) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[15]\, 
-        MSSPADDR(14) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[14]\, 
-        MSSPADDR(13) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[13]\, 
-        MSSPADDR(12) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[12]\, 
-        MSSPADDR(11) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[11]\, 
-        MSSPADDR(10) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[10]\, 
-        MSSPADDR(9) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[9]\, 
-        MSSPADDR(8) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[8]\, 
-        MSSPADDR(7) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[7]\, 
-        MSSPADDR(6) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[6]\, 
-        MSSPADDR(5) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[5]\, 
-        MSSPADDR(4) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[4]\, 
-        MSSPADDR(3) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[3]\, 
-        MSSPADDR(2) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[2]\, 
-        MSSPADDR(1) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[1]\, 
-        MSSPADDR(0) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PADDR_[0]\, 
-        MSSPRDATA(31) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[31]\, 
-        MSSPRDATA(30) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[30]\, 
-        MSSPRDATA(29) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[29]\, 
-        MSSPRDATA(28) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[28]\, 
-        MSSPRDATA(27) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[27]\, 
-        MSSPRDATA(26) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[26]\, 
-        MSSPRDATA(25) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[25]\, 
-        MSSPRDATA(24) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[24]\, 
-        MSSPRDATA(23) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[23]\, 
-        MSSPRDATA(22) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[22]\, 
-        MSSPRDATA(21) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[21]\, 
-        MSSPRDATA(20) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[20]\, 
-        MSSPRDATA(19) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[19]\, 
-        MSSPRDATA(18) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[18]\, 
-        MSSPRDATA(17) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[17]\, 
-        MSSPRDATA(16) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[16]\, 
-        MSSPRDATA(15) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[15]\, 
-        MSSPRDATA(14) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[14]\, 
-        MSSPRDATA(13) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[13]\, 
-        MSSPRDATA(12) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[12]\, 
-        MSSPRDATA(11) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[11]\, 
-        MSSPRDATA(10) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[10]\, 
-        MSSPRDATA(9) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[9]\, 
-        MSSPRDATA(8) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[8]\, 
-        MSSPRDATA(7) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[7]\, 
-        MSSPRDATA(6) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[6]\, 
-        MSSPRDATA(5) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[5]\, 
-        MSSPRDATA(4) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[4]\, 
-        MSSPRDATA(3) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[3]\, 
-        MSSPRDATA(2) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[2]\, 
-        MSSPRDATA(1) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[1]\, 
-        MSSPRDATA(0) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PRDATA_[0]\, 
-        MSSPWDATA(31) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[31]\, 
-        MSSPWDATA(30) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[30]\, 
-        MSSPWDATA(29) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[29]\, 
-        MSSPWDATA(28) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[28]\, 
-        MSSPWDATA(27) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[27]\, 
-        MSSPWDATA(26) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[26]\, 
-        MSSPWDATA(25) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[25]\, 
-        MSSPWDATA(24) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[24]\, 
-        MSSPWDATA(23) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[23]\, 
-        MSSPWDATA(22) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[22]\, 
-        MSSPWDATA(21) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[21]\, 
-        MSSPWDATA(20) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[20]\, 
-        MSSPWDATA(19) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[19]\, 
-        MSSPWDATA(18) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[18]\, 
-        MSSPWDATA(17) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[17]\, 
-        MSSPWDATA(16) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[16]\, 
-        MSSPWDATA(15) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[15]\, 
-        MSSPWDATA(14) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[14]\, 
-        MSSPWDATA(13) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[13]\, 
-        MSSPWDATA(12) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[12]\, 
-        MSSPWDATA(11) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[11]\, 
-        MSSPWDATA(10) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[10]\, 
-        MSSPWDATA(9) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[9]\, 
-        MSSPWDATA(8) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[8]\, 
-        MSSPWDATA(7) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[7]\, 
-        MSSPWDATA(6) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[6]\, 
-        MSSPWDATA(5) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[5]\, 
-        MSSPWDATA(4) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[4]\, 
-        MSSPWDATA(3) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[3]\, 
-        MSSPWDATA(2) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[2]\, 
-        MSSPWDATA(1) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[1]\, 
-        MSSPWDATA(0) => 
-        \StreamingReceiver_RF_MSS_0_MSS_MASTER_APB_PWDATA_[0]\);
+    AFE_mux_0 : AFE_mux
+      port map(Data0_port(19) => AFE_IF_0_RX_I9to9, 
+        Data0_port(18) => \AFE_IF_0_RX_I8to0_[8]\, Data0_port(17)
+         => \AFE_IF_0_RX_I8to0_[7]\, Data0_port(16) => 
+        \AFE_IF_0_RX_I8to0_[6]\, Data0_port(15) => 
+        \AFE_IF_0_RX_I8to0_[5]\, Data0_port(14) => 
+        \AFE_IF_0_RX_I8to0_[4]\, Data0_port(13) => 
+        \AFE_IF_0_RX_I8to0_[3]\, Data0_port(12) => 
+        \AFE_IF_0_RX_I8to0_[2]\, Data0_port(11) => 
+        \AFE_IF_0_RX_I8to0_[1]\, Data0_port(10) => 
+        \AFE_IF_0_RX_I8to0_[0]\, Data0_port(9) => 
+        AFE_IF_0_RX_Q9to9, Data0_port(8) => 
+        \AFE_IF_0_RX_Q8to0_[8]\, Data0_port(7) => 
+        \AFE_IF_0_RX_Q8to0_[7]\, Data0_port(6) => 
+        \AFE_IF_0_RX_Q8to0_[6]\, Data0_port(5) => 
+        \AFE_IF_0_RX_Q8to0_[5]\, Data0_port(4) => 
+        \AFE_IF_0_RX_Q8to0_[4]\, Data0_port(3) => 
+        \AFE_IF_0_RX_Q8to0_[3]\, Data0_port(2) => 
+        \AFE_IF_0_RX_Q8to0_[2]\, Data0_port(1) => 
+        \AFE_IF_0_RX_Q8to0_[1]\, Data0_port(0) => 
+        \AFE_IF_0_RX_Q8to0_[0]\, Data1_port(19) => 
+        AFE_IF_1_RX_I9to9, Data1_port(18) => 
+        \AFE_IF_1_RX_I8to0_[8]\, Data1_port(17) => 
+        \AFE_IF_1_RX_I8to0_[7]\, Data1_port(16) => 
+        \AFE_IF_1_RX_I8to0_[6]\, Data1_port(15) => 
+        \AFE_IF_1_RX_I8to0_[5]\, Data1_port(14) => 
+        \AFE_IF_1_RX_I8to0_[4]\, Data1_port(13) => 
+        \AFE_IF_1_RX_I8to0_[3]\, Data1_port(12) => 
+        \AFE_IF_1_RX_I8to0_[2]\, Data1_port(11) => 
+        \AFE_IF_1_RX_I8to0_[1]\, Data1_port(10) => 
+        \AFE_IF_1_RX_I8to0_[0]\, Data1_port(9) => 
+        AFE_IF_1_RX_Q9to9, Data1_port(8) => 
+        \AFE_IF_1_RX_Q8to0_[8]\, Data1_port(7) => 
+        \AFE_IF_1_RX_Q8to0_[7]\, Data1_port(6) => 
+        \AFE_IF_1_RX_Q8to0_[6]\, Data1_port(5) => 
+        \AFE_IF_1_RX_Q8to0_[5]\, Data1_port(4) => 
+        \AFE_IF_1_RX_Q8to0_[4]\, Data1_port(3) => 
+        \AFE_IF_1_RX_Q8to0_[3]\, Data1_port(2) => 
+        \AFE_IF_1_RX_Q8to0_[2]\, Data1_port(1) => 
+        \AFE_IF_1_RX_Q8to0_[1]\, Data1_port(0) => 
+        \AFE_IF_1_RX_Q8to0_[0]\, Sel0 => VCC_net, Result(19) => 
+        AFE_mux_0_Result19to19, Result(18) => 
+        \AFE_mux_0_Result18to10_[18]\, Result(17) => 
+        \AFE_mux_0_Result18to10_[17]\, Result(16) => 
+        \AFE_mux_0_Result18to10_[16]\, Result(15) => 
+        \AFE_mux_0_Result18to10_[15]\, Result(14) => 
+        \AFE_mux_0_Result18to10_[14]\, Result(13) => 
+        \AFE_mux_0_Result18to10_[13]\, Result(12) => 
+        \AFE_mux_0_Result18to10_[12]\, Result(11) => 
+        \AFE_mux_0_Result18to10_[11]\, Result(10) => 
+        \AFE_mux_0_Result18to10_[10]\, Result(9) => 
+        AFE_mux_0_Result9to9, Result(8) => 
+        \AFE_mux_0_Result8to0_[8]\, Result(7) => 
+        \AFE_mux_0_Result8to0_[7]\, Result(6) => 
+        \AFE_mux_0_Result8to0_[6]\, Result(5) => 
+        \AFE_mux_0_Result8to0_[5]\, Result(4) => 
+        \AFE_mux_0_Result8to0_[4]\, Result(3) => 
+        \AFE_mux_0_Result8to0_[3]\, Result(2) => 
+        \AFE_mux_0_Result8to0_[2]\, Result(1) => 
+        \AFE_mux_0_Result8to0_[1]\, Result(0) => 
+        \AFE_mux_0_Result8to0_[0]\);
     
-    AFE_IF_0 : entity work.AFE_IF
+    AFE_IF_1 : entity work.AFE_IF
       port map(CLK => StreamingReceiver_RF_MSS_0_GLB, RST => 
-        INV_2_Y, SHDN => GND_net, TX_RX_n => GND_net, RX_STROBE
-         => OPEN, TX_STROBE => GND_net, CLK_pin => AFE2_CLK_pin, 
-        SHDN_n_pin => AFE2_SHDN_n_pin, T_R_n_pin => 
-        AFE2_T_R_n_pin, RX_I(9) => INV_0_Y, RX_I(8) => 
-        \AFE_IF_0_RX_I8to0_[8]\, RX_I(7) => 
-        \AFE_IF_0_RX_I8to0_[7]\, RX_I(6) => 
-        \AFE_IF_0_RX_I8to0_[6]\, RX_I(5) => 
-        \AFE_IF_0_RX_I8to0_[5]\, RX_I(4) => 
-        \AFE_IF_0_RX_I8to0_[4]\, RX_I(3) => 
-        \AFE_IF_0_RX_I8to0_[3]\, RX_I(2) => 
-        \AFE_IF_0_RX_I8to0_[2]\, RX_I(1) => 
-        \AFE_IF_0_RX_I8to0_[1]\, RX_I(0) => 
-        \AFE_IF_0_RX_I8to0_[0]\, RX_Q(9) => INV_1_Y, RX_Q(8) => 
-        \AFE_IF_0_RX_Q8to0_[8]\, RX_Q(7) => 
-        \AFE_IF_0_RX_Q8to0_[7]\, RX_Q(6) => 
-        \AFE_IF_0_RX_Q8to0_[6]\, RX_Q(5) => 
-        \AFE_IF_0_RX_Q8to0_[5]\, RX_Q(4) => 
-        \AFE_IF_0_RX_Q8to0_[4]\, RX_Q(3) => 
-        \AFE_IF_0_RX_Q8to0_[3]\, RX_Q(2) => 
-        \AFE_IF_0_RX_Q8to0_[2]\, RX_Q(1) => 
-        \AFE_IF_0_RX_Q8to0_[1]\, RX_Q(0) => 
-        \AFE_IF_0_RX_Q8to0_[0]\, TX_I(9) => GND_net, TX_I(8) => 
+        INV_3_Y, SHDN => GND_net, TX_RX_n => GND_net, RX_STROBE
+         => OPEN, TX_STROBE => GND_net, CLK_pin => AFE1_CLK_pin, 
+        SHDN_n_pin => AFE1_SHDN_n_pin, T_R_n_pin => 
+        AFE1_T_R_n_pin, RX_I(9) => AFE_IF_1_RX_I9to9, RX_I(8) => 
+        \AFE_IF_1_RX_I8to0_[8]\, RX_I(7) => 
+        \AFE_IF_1_RX_I8to0_[7]\, RX_I(6) => 
+        \AFE_IF_1_RX_I8to0_[6]\, RX_I(5) => 
+        \AFE_IF_1_RX_I8to0_[5]\, RX_I(4) => 
+        \AFE_IF_1_RX_I8to0_[4]\, RX_I(3) => 
+        \AFE_IF_1_RX_I8to0_[3]\, RX_I(2) => 
+        \AFE_IF_1_RX_I8to0_[2]\, RX_I(1) => 
+        \AFE_IF_1_RX_I8to0_[1]\, RX_I(0) => 
+        \AFE_IF_1_RX_I8to0_[0]\, RX_Q(9) => AFE_IF_1_RX_Q9to9, 
+        RX_Q(8) => \AFE_IF_1_RX_Q8to0_[8]\, RX_Q(7) => 
+        \AFE_IF_1_RX_Q8to0_[7]\, RX_Q(6) => 
+        \AFE_IF_1_RX_Q8to0_[6]\, RX_Q(5) => 
+        \AFE_IF_1_RX_Q8to0_[5]\, RX_Q(4) => 
+        \AFE_IF_1_RX_Q8to0_[4]\, RX_Q(3) => 
+        \AFE_IF_1_RX_Q8to0_[3]\, RX_Q(2) => 
+        \AFE_IF_1_RX_Q8to0_[2]\, RX_Q(1) => 
+        \AFE_IF_1_RX_Q8to0_[1]\, RX_Q(0) => 
+        \AFE_IF_1_RX_Q8to0_[0]\, TX_I(9) => GND_net, TX_I(8) => 
         GND_net, TX_I(7) => GND_net, TX_I(6) => GND_net, TX_I(5)
          => GND_net, TX_I(4) => GND_net, TX_I(3) => GND_net, 
         TX_I(2) => GND_net, TX_I(1) => GND_net, TX_I(0) => 
@@ -1359,24 +1349,178 @@ begin
          => GND_net, TX_Q(6) => GND_net, TX_Q(5) => GND_net, 
         TX_Q(4) => GND_net, TX_Q(3) => GND_net, TX_Q(2) => 
         GND_net, TX_Q(1) => GND_net, TX_Q(0) => GND_net, 
-        DATA_pin(9) => DATA_pin(9), DATA_pin(8) => DATA_pin(8), 
-        DATA_pin(7) => DATA_pin(7), DATA_pin(6) => DATA_pin(6), 
-        DATA_pin(5) => DATA_pin(5), DATA_pin(4) => DATA_pin(4), 
-        DATA_pin(3) => DATA_pin(3), DATA_pin(2) => DATA_pin(2), 
-        DATA_pin(1) => DATA_pin(1), DATA_pin(0) => DATA_pin(0));
+        DATA_pin(9) => AFE1_DATA_pin(9), DATA_pin(8) => 
+        AFE1_DATA_pin(8), DATA_pin(7) => AFE1_DATA_pin(7), 
+        DATA_pin(6) => AFE1_DATA_pin(6), DATA_pin(5) => 
+        AFE1_DATA_pin(5), DATA_pin(4) => AFE1_DATA_pin(4), 
+        DATA_pin(3) => AFE1_DATA_pin(3), DATA_pin(2) => 
+        AFE1_DATA_pin(2), DATA_pin(1) => AFE1_DATA_pin(1), 
+        DATA_pin(0) => AFE1_DATA_pin(0));
     
-    INV_0 : INV
-      port map(A => INV_0_Y, Y => AFE_IF_0_RX_I9to9);
+    SAMPLE_APB_0 : SAMPLE_APB
+      port map(PCLK => StreamingReceiver_RF_MSS_0_FAB_CLK, 
+        PRESETn => StreamingReceiver_RF_MSS_0_M2F_RESET_N, PSELx
+         => CoreAPB3_0_APBmslave0_PSELx, PENABLE => 
+        CoreAPB3_0_APBmslave0_PENABLE, PWRITE => 
+        CoreAPB3_0_APBmslave0_PWRITE, PREADY => 
+        CoreAPB3_0_APBmslave0_PREADY, PSLVERR => 
+        CoreAPB3_0_APBmslave0_PSLVERR, READ_SUCCESSFUL => 
+        \ANTSEL\, FROM_USB_RDY => \nSHDN\, SMPL_RDY => \RXHP\, 
+        REG_FULL => LED1, PADDR(31) => GND_net, PADDR(30) => 
+        GND_net, PADDR(29) => GND_net, PADDR(28) => GND_net, 
+        PADDR(27) => GND_net, PADDR(26) => GND_net, PADDR(25) => 
+        GND_net, PADDR(24) => GND_net, PADDR(23) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[23]\, PADDR(22) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[22]\, PADDR(21) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[21]\, PADDR(20) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[20]\, PADDR(19) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[19]\, PADDR(18) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[18]\, PADDR(17) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[17]\, PADDR(16) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[16]\, PADDR(15) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[15]\, PADDR(14) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[14]\, PADDR(13) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[13]\, PADDR(12) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[12]\, PADDR(11) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[11]\, PADDR(10) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[10]\, PADDR(9) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[9]\, PADDR(8) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[8]\, PADDR(7) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[7]\, PADDR(6) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[6]\, PADDR(5) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[5]\, PADDR(4) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[4]\, PADDR(3) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[3]\, PADDR(2) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[2]\, PADDR(1) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[1]\, PADDR(0) => 
+        \CoreAPB3_0_APBmslave0_PADDR_[0]\, PWDATA(31) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[31]\, PWDATA(30) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[30]\, PWDATA(29) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[29]\, PWDATA(28) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[28]\, PWDATA(27) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[27]\, PWDATA(26) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[26]\, PWDATA(25) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[25]\, PWDATA(24) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[24]\, PWDATA(23) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[23]\, PWDATA(22) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[22]\, PWDATA(21) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[21]\, PWDATA(20) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[20]\, PWDATA(19) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[19]\, PWDATA(18) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[18]\, PWDATA(17) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[17]\, PWDATA(16) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[16]\, PWDATA(15) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[15]\, PWDATA(14) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[14]\, PWDATA(13) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[13]\, PWDATA(12) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[12]\, PWDATA(11) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[11]\, PWDATA(10) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[10]\, PWDATA(9) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[9]\, PWDATA(8) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[8]\, PWDATA(7) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[7]\, PWDATA(6) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[6]\, PWDATA(5) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[5]\, PWDATA(4) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[4]\, PWDATA(3) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[3]\, PWDATA(2) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[2]\, PWDATA(1) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[1]\, PWDATA(0) => 
+        \CoreAPB3_0_APBmslave0_PWDATA_[0]\, PRDATA(31) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[31]\, PRDATA(30) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[30]\, PRDATA(29) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[29]\, PRDATA(28) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[28]\, PRDATA(27) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[27]\, PRDATA(26) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[26]\, PRDATA(25) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[25]\, PRDATA(24) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[24]\, PRDATA(23) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[23]\, PRDATA(22) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[22]\, PRDATA(21) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[21]\, PRDATA(20) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[20]\, PRDATA(19) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[19]\, PRDATA(18) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[18]\, PRDATA(17) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[17]\, PRDATA(16) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[16]\, PRDATA(15) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[15]\, PRDATA(14) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[14]\, PRDATA(13) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[13]\, PRDATA(12) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[12]\, PRDATA(11) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[11]\, PRDATA(10) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[10]\, PRDATA(9) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[9]\, PRDATA(8) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[8]\, PRDATA(7) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[7]\, PRDATA(6) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[6]\, PRDATA(5) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[5]\, PRDATA(4) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[4]\, PRDATA(3) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[3]\, PRDATA(2) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[2]\, PRDATA(1) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[1]\, PRDATA(0) => 
+        \CoreAPB3_0_APBmslave0_PRDATA_[0]\, INPUT(7) => 
+        \USB_FIFO_IF_0_READ_FROM_USB_REG_[7]\, INPUT(6) => 
+        \USB_FIFO_IF_0_READ_FROM_USB_REG_[6]\, INPUT(5) => 
+        \USB_FIFO_IF_0_READ_FROM_USB_REG_[5]\, INPUT(4) => 
+        \USB_FIFO_IF_0_READ_FROM_USB_REG_[4]\, INPUT(3) => 
+        \USB_FIFO_IF_0_READ_FROM_USB_REG_[3]\, INPUT(2) => 
+        \USB_FIFO_IF_0_READ_FROM_USB_REG_[2]\, INPUT(1) => 
+        \USB_FIFO_IF_0_READ_FROM_USB_REG_[1]\, INPUT(0) => 
+        \USB_FIFO_IF_0_READ_FROM_USB_REG_[0]\);
     
-    \GND\ : GND
-      port map(Y => GND_net);
-    
-    INV_2 : INV
-      port map(A => StreamingReceiver_RF_MSS_0_M2F_RESET_N, Y => 
-        INV_2_Y);
-    
-    INV_1 : INV
-      port map(A => INV_1_Y, Y => AFE_IF_0_RX_Q9to9);
+    USB_FIFO_IF_0 : USB_FIFO_IF
+      port map(USB_CLK_pin => USB_CLK_pin, USB_TXE_n_pin => 
+        USB_TXE_n_pin, USB_WR_n_pin => USB_WR_n_pin, CLK => 
+        StreamingReceiver_RF_MSS_0_GLB, RST_n => 
+        StreamingReceiver_RF_MSS_0_M2F_RESET_N, USB_SIWU_N => 
+        USB_SIWU_N, FROM_ADC_SMPL_RDY => VCC_net, USB_RXF_n_pin
+         => USB_RXF_n_pin, READ_SUCCESSFUL => \ANTSEL\, 
+        USB_RD_n_pin => USB_RD_n_pin, USB_OE_n_pin => 
+        USB_OE_n_pin, FROM_USB_RDY => \nSHDN\, USB_DATA_pin(7)
+         => USB_DATA_pin(7), USB_DATA_pin(6) => USB_DATA_pin(6), 
+        USB_DATA_pin(5) => USB_DATA_pin(5), USB_DATA_pin(4) => 
+        USB_DATA_pin(4), USB_DATA_pin(3) => USB_DATA_pin(3), 
+        USB_DATA_pin(2) => USB_DATA_pin(2), USB_DATA_pin(1) => 
+        USB_DATA_pin(1), USB_DATA_pin(0) => USB_DATA_pin(0), 
+        ADC_Q(31) => AFE_mux_0_Result9to9, ADC_Q(30) => 
+        \AFE_mux_0_Result8to0_[8]\, ADC_Q(29) => 
+        \AFE_mux_0_Result8to0_[7]\, ADC_Q(28) => 
+        \AFE_mux_0_Result8to0_[6]\, ADC_Q(27) => 
+        \AFE_mux_0_Result8to0_[5]\, ADC_Q(26) => 
+        \AFE_mux_0_Result8to0_[4]\, ADC_Q(25) => 
+        \AFE_mux_0_Result8to0_[3]\, ADC_Q(24) => 
+        \AFE_mux_0_Result8to0_[2]\, ADC_Q(23) => 
+        \AFE_mux_0_Result8to0_[1]\, ADC_Q(22) => 
+        \AFE_mux_0_Result8to0_[0]\, ADC_Q(21) => GND_net, 
+        ADC_Q(20) => GND_net, ADC_Q(19) => GND_net, ADC_Q(18) => 
+        GND_net, ADC_Q(17) => GND_net, ADC_Q(16) => GND_net, 
+        ADC_I(15) => AFE_mux_0_Result19to19, ADC_I(14) => 
+        \AFE_mux_0_Result18to10_[18]\, ADC_I(13) => 
+        \AFE_mux_0_Result18to10_[17]\, ADC_I(12) => 
+        \AFE_mux_0_Result18to10_[16]\, ADC_I(11) => 
+        \AFE_mux_0_Result18to10_[15]\, ADC_I(10) => 
+        \AFE_mux_0_Result18to10_[14]\, ADC_I(9) => 
+        \AFE_mux_0_Result18to10_[13]\, ADC_I(8) => 
+        \AFE_mux_0_Result18to10_[12]\, ADC_I(7) => 
+        \AFE_mux_0_Result18to10_[11]\, ADC_I(6) => 
+        \AFE_mux_0_Result18to10_[10]\, ADC_I(5) => GND_net, 
+        ADC_I(4) => GND_net, ADC_I(3) => GND_net, ADC_I(2) => 
+        GND_net, ADC_I(1) => GND_net, ADC_I(0) => GND_net, 
+        READ_FROM_USB_REG(7) => 
+        \USB_FIFO_IF_0_READ_FROM_USB_REG_[7]\, 
+        READ_FROM_USB_REG(6) => 
+        \USB_FIFO_IF_0_READ_FROM_USB_REG_[6]\, 
+        READ_FROM_USB_REG(5) => 
+        \USB_FIFO_IF_0_READ_FROM_USB_REG_[5]\, 
+        READ_FROM_USB_REG(4) => 
+        \USB_FIFO_IF_0_READ_FROM_USB_REG_[4]\, 
+        READ_FROM_USB_REG(3) => 
+        \USB_FIFO_IF_0_READ_FROM_USB_REG_[3]\, 
+        READ_FROM_USB_REG(2) => 
+        \USB_FIFO_IF_0_READ_FROM_USB_REG_[2]\, 
+        READ_FROM_USB_REG(1) => 
+        \USB_FIFO_IF_0_READ_FROM_USB_REG_[1]\, 
+        READ_FROM_USB_REG(0) => 
+        \USB_FIFO_IF_0_READ_FROM_USB_REG_[0]\);
     
 
 end DEF_ARCH; 

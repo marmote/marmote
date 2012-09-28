@@ -28,7 +28,7 @@ void CThroughput_Calculator::Calculate_Throughput()
 	if (elapsed_time < 3)
 		return;
 
-	printf("Throughput: %6.2f MB/s\n", (double)bytes / (double)(1 << 20) / elapsed_time);
+	fprintf( stderr, "Throughput: %6.2f MB/s\n", (double)bytes / (double)(1 << 20) / elapsed_time);
 
 	bytes = 0;
 	time_prev = time_now;

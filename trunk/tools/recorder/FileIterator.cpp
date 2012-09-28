@@ -22,7 +22,7 @@ void CFile_Iterator::Close_Current()
 	{
 		CloseHandle(hFile);
 		hFile = INVALID_HANDLE_VALUE;
-		printf("%s (%d bytes).\n", current_file_name, current_size);
+		fprintf( stderr, "%s (%d bytes).\n", current_file_name, current_size);
 	}
 }
 
@@ -49,14 +49,14 @@ void CFile_Iterator::Iterate()
 
 		if ( CreateDirectory( dir, 0 ) )
 		{
-			printf("Created directory: %s\n", dir);
+			fprintf( stderr, "Created directory: %s\n", dir);
 			break;
 		}
 
 		if ( GetLastError() == ERROR_ALREADY_EXISTS )
 			break;
 
-		printf("Couldn't create directory: %s\n", dir);
+		fprintf( stderr, "Couldn't create directory: %s\n", dir);
 		dir_counter++;
 	}
 
@@ -66,7 +66,7 @@ void CFile_Iterator::Iterate()
 		sprintf(current_file_name, "%s\\" FNAME_FMT, dir, seq); 
 		seq++;
 
-		printf("Trying to open %s... ", current_file_name);
+		fprintf( stderr, "Trying to open %s... ", current_file_name);
 
 		hFile = CreateFile(current_file_name,
 								GENERIC_WRITE,
@@ -77,10 +77,10 @@ void CFile_Iterator::Iterate()
 								NULL);
 
 		if (hFile == INVALID_HANDLE_VALUE)
-			printf("Failure.\n");
+			fprintf( stderr, "Failure.\n");
 	}
 
-	printf("Succes.\n");
+	fprintf( stderr, "Succes.\n");
 
 	current_size = 0;
 }
