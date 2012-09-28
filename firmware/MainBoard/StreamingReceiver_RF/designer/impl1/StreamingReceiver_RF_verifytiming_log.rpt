@@ -18,7 +18,7 @@ Wrote timing report to file: StreamingReceiver_RF_maxdelay_timing_report.txt
 The Report command succeeded ( 00:00:03 )
 Wrote timing report to file: StreamingReceiver_RF_mindelay_timing_report.txt
 
-The Report command succeeded ( 00:00:00 )
+The Report command succeeded ( 00:00:01 )
 Wrote timing_violations report to file:
 StreamingReceiver_RF_maxdelay_timingviolations_report.txt
 

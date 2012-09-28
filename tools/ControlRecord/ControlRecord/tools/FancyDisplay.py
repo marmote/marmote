@@ -12,12 +12,16 @@ import time as ttt
 class FancyDisplay:
 
 ################################################################################
-    def __init__(self, DSPconf, Nsep, N = 100, MF_hist_len = 100, FigureAnimated = True):
+    def __init__(self, DSPconf, Nsep, N = 100, MF_hist_len = 100, FigureAnimated = True, RF = False):
 
         self.Nsep               = Nsep
         self.DSPconf            = DSPconf
-#        self.fig, self.axarr    = plt.subplots(4, 1)
-        self.fig, self.axarr    = plt.subplots(3, 1)
+        self.RF                 = RF
+        if self.RF :
+            self.fig, self.axarr    = plt.subplots(4, 1)
+        else :
+            self.fig, self.axarr    = plt.subplots(3, 1)
+
         self.axarr              = self.axarr.flat
 
         self.InitFigure(FigureAnimated, N, MF_hist_len)
@@ -28,7 +32,11 @@ class FancyDisplay:
 
     ########################################
     # Set variables    
-        F_offset        = float(self.DSPconf.F_offset)
+        if self.RF :
+            F_offset        = float(self.DSPconf.F_offset)
+        else :
+            F_offset        = 0
+
         Fs              = float(self.DSPconf.Fs)
 
         Full_Scale_dB   = self.DSPconf.Full_scale_dB()
@@ -89,9 +97,13 @@ class FancyDisplay:
         texts.append( hax.text(0.98, 0.85, '', color='b', horizontalalignment='right', transform=hax.transAxes, animated=FigureAnimated) )
         texts.append( hax.text(0.98, 0.65, '', color='g', horizontalalignment='right', transform=hax.transAxes, animated=FigureAnimated) )
     
-#        hax.set_xlim(freq[0]/1e6, freq[-1]/1e6)
-        hax.set_xlim(F_offset, F_offset + Fs/2./1e6)
+        hax.set_xlim(F_offset/1e6, (F_offset + Fs/2.)/1e6)
         hax.set_ylim(-Full_Scale_dB, 0)
+
+ #       myfmt = plt.ScalarFormatter(useOffset=True, useMathText=True)
+ #       myfmt._set_offset(F_offset/1e6)
+ #       hax.xaxis.set_major_formatter(myfmt)
+ 
         hax.set_title('Separate spectrum')
         hax.set_xlabel('Frequency [MHz]')
         hax.set_ylabel('Amplitude [dB]')
@@ -99,23 +111,29 @@ class FancyDisplay:
         hax.hold(False)
 
 
-#    # Spectrum IQ
-#        hax = axarr[3]
-#
-#        hax.hold(True)
-#
-#        lines.append( hax.plot([], [], 'b', animated=FigureAnimated)[0] )
-#        lines.append( hax.plot([], [], 'ro', animated=FigureAnimated)[0] ) #for max points indicator
-#
-#        texts.append( hax.text(0.98, 0.85, '', color='b', horizontalalignment='right', transform=hax.transAxes, animated=FigureAnimated) )
-#    
-#        hax.set_xlim(F_offset - Fs/2./1e6, F_offset + Fs/2./1e6)
-#        hax.set_ylim(-Full_Scale_dB, 0)
-#        hax.set_title('Combined spectrum')
-#        hax.set_xlabel('Frequency [MHz]')
-#        hax.set_ylabel('Amplitude [dB]')
-#
-#        hax.hold(False)
+    # Spectrum IQ
+        if self.RF :
+            hax = axarr[3]
+
+            hax.hold(True)
+
+            lines.append( hax.plot([], [], 'b', animated=FigureAnimated)[0] )
+            lines.append( hax.plot([], [], 'ro', animated=FigureAnimated)[0] ) #for max points indicator
+
+            texts.append( hax.text(0.98, 0.85, '', color='b', horizontalalignment='right', transform=hax.transAxes, animated=FigureAnimated) )
+    
+            hax.set_xlim((F_offset - Fs/2.)/1e6, (F_offset + Fs/2.)/1e6)
+            hax.set_ylim(-Full_Scale_dB, 0)
+
+ #           myfmt = plt.ScalarFormatter(useOffset=True, useMathText=True)
+ #           myfmt._set_offset(F_offset/1e6)
+ #           hax.xaxis.set_major_formatter(myfmt)
+
+            hax.set_title('Combined spectrum')
+            hax.set_xlabel('Frequency [MHz]')
+            hax.set_ylabel('Amplitude [dB]')
+
+            hax.hold(False)
 
     ########################################
     # Save line objects    
@@ -139,7 +157,7 @@ class FancyDisplay:
 ################################################################################
     def DrawFigure(self, data):
 
-        frame_starts, missing_frames, I_buff, Q_buff, I_spectrum, Q_spectrum, = data
+        frame_starts, missing_frames, I_buff, Q_buff, I_spectrum, Q_spectrum, spectrum = data
 
     ########################################
     # Set variables    
@@ -147,7 +165,7 @@ class FancyDisplay:
         F_offset        = float(self.DSPconf.F_offset)
         Fs              = float(self.DSPconf.Fs)
         num_pos_fr      = int(self.DSPconf.num_pos_fr(N))
-#        num_neg_fr      = int(self.DSPconf.num_neg_fr(N))
+        num_neg_fr      = int(self.DSPconf.num_neg_fr(N))
 
         T               = 1 / Fs
         F               = Fs / N
@@ -221,20 +239,20 @@ class FancyDisplay:
         texts_cnt += 1
 
 
-#    # Spectrum IQ
-#        c_freq = np.array( range(-num_neg_fr,0) )
-#        c_freq = np.append( c_freq, range(0,num_pos_fr) )
-#        c_freq = c_freq*F + F_offset
-#
-#        lines[lines_cnt].set_data(c_freq/1e6, spectrum)
-#        lines_cnt += 1
-#
-#        val     = spectrum.max()
-#        max_f   = c_freq[spectrum.argmax()]
-#
-#        lines[lines_cnt].set_data(max_f/1e6, val)
-#
-#        texts[texts_cnt].set_text('Max val = %.1f [dB]; Max f = %.1f [MHz]' % (val, max_f/1e6))
+    # Spectrum IQ
+        if self.RF :
+            c_freq = np.array( range(-num_neg_fr,num_pos_fr) )
+            c_freq = c_freq*F + F_offset
+
+            lines[lines_cnt].set_data(c_freq/1e6, spectrum)
+            lines_cnt += 1
+
+            val     = spectrum.max()
+            max_f   = c_freq[spectrum.argmax()]
+
+            lines[lines_cnt].set_data(max_f/1e6, val)
+
+            texts[texts_cnt].set_text('Max val = %.1f [dB]; Max f = %.1f [MHz]' % (val, max_f/1e6))
 
         self.GraphObjs[0] = lines
         self.GraphObjs[1] = texts

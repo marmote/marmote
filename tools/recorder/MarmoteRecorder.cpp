@@ -21,6 +21,8 @@
 #define MAX_SAMPLE_LEN 1048576*8 // 2^20 samples (1 Msamples)
 #define MAX_RAW_BYTE_LEN (NUMBER_OF_CHANNELS * MAX_SAMPLE_LEN * (BITS_PER_SAMPLE/8))
 
+#define MAX_RX_BUFF_SIZE 4096 // Driver seems to handle at most 131072
+
 
 
 
@@ -33,7 +35,7 @@ int Print_working_dir()
 	if (!_getcwd(path, _MAX_PATH))
 		return errno;
 
-	printf ("The current working directory is %s\n", path);
+	fprintf (stderr, "The current working directory is %s\n", path);
 
 	return 0;
 }
@@ -51,7 +53,7 @@ void list_ft_devices()
 	// create the device information list
 	if ( FT_CreateDeviceInfoList(&numDevs) != FT_OK )
 		// FT_CreateDeviceInfoList failed
-		printf("FT_CreateDeviceInfoList(): FAILED\n");
+		fprintf( stderr, "FT_CreateDeviceInfoList(): FAILED\n");
 
 
 	if (!numDevs)
@@ -68,15 +70,15 @@ void list_ft_devices()
 
 	for (i = 0; i < numDevs; i++)
 	{
-		printf("DEV %d:\n", i);
-		printf("\tFlags=0x%x\n",		devInfo[i].Flags);
-		printf("\tType=0x%x\n",			devInfo[i].Type);
-		printf("\tID=0x%x\n",			devInfo[i].ID);
-		printf("\tLocId=0x%x\n",		devInfo[i].LocId);
-		printf("\tSerialNumber=%s\n",	devInfo[i].SerialNumber);
-		printf("\tDescription=%s\n",	devInfo[i].Description);
-		printf("\tftHandle=0x%x\n",		devInfo[i].ftHandle);
-		printf("\n");
+		fprintf( stderr, "DEV %d:\n", i);
+		fprintf( stderr, "\tFlags=0x%x\n",		devInfo[i].Flags);
+		fprintf( stderr, "\tType=0x%x\n",		devInfo[i].Type);
+		fprintf( stderr, "\tID=0x%x\n",			devInfo[i].ID);
+		fprintf( stderr, "\tLocId=0x%x\n",		devInfo[i].LocId);
+		fprintf( stderr, "\tSerialNumber=%s\n",	devInfo[i].SerialNumber);
+		fprintf( stderr, "\tDescription=%s\n",	devInfo[i].Description);
+		fprintf( stderr, "\tftHandle=0x%x\n",	devInfo[i].ftHandle);
+		fprintf( stderr, "\n");
 	}
 }
  
@@ -88,24 +90,24 @@ int Open_FTDI_dev(int dev, FT_HANDLE &ftHandle)
 	// Open FTDI device
 	if ( FT_Open(dev, &ftHandle) != FT_OK )
 	{
-		printf("Unable to open DEV %d\n", dev);
+		fprintf( stderr, "Unable to open DEV %d\n", dev);
 //		list_ft_devices();
 		return 1;
 	}
 
-	printf("DEV %d opened\n", dev);
+	fprintf( stderr, "DEV %d opened\n", dev);
 
 	// Set timeout
 	if ( FT_SetTimeouts(ftHandle, INTERVAL_TIMEOUT, 0) != FT_OK )
 	{
-		printf("Unable to set DEV timeouts\n");
+		fprintf( stderr, "Unable to set DEV timeouts\n");
 		return 1;
 	}
 
 	// Reset FT	
 	if ( FT_SetBitMode(ftHandle, 0xFF, FT_BITMODE_RESET) != FT_OK )
 	{
-		printf("Unable to set DEV to RESET mode\n");
+		fprintf( stderr, "Unable to set DEV to RESET mode\n");
 		return 1;
 	}
 
@@ -114,7 +116,7 @@ int Open_FTDI_dev(int dev, FT_HANDLE &ftHandle)
 	// Set FT 245 Synchronous FIFO mode
 	if ( FT_SetBitMode(ftHandle, 0xFF, FT_BITMODE_SYNC_FIFO) != FT_OK )
 	{
-		printf("Unable to set DEV to synchronous FIFO mode\n");
+		fprintf( stderr, "Unable to set DEV to synchronous FIFO mode\n");
 		return 1;
 	}
 
@@ -131,11 +133,11 @@ int Close_FTDI_dev(int dev, FT_HANDLE &ftHandle)
 	// Close FTDI device
 	if ( FT_Close(ftHandle) != FT_OK )
 	{
-		printf("FT_Close(): FAILED\n");
+		fprintf( stderr, "FT_Close(): FAILED\n");
 		return 1;
 	}
 
-	printf("DEV %d closed\n", dev);
+	fprintf( stderr, "DEV %d closed\n", dev);
 	return 0;
 }
 
@@ -151,33 +153,33 @@ int Send_config(FT_HANDLE &ftHandle)
 
 	if (!fp)
 	{
-		printf("Configuration file \"config\" was not found\n");
+		fprintf( stderr, "Configuration file \"config\" was not found\n");
 		return 1;
 	}
 	
-	printf("Configuration file \"config\" was opened\n");
+	fprintf( stderr, "Configuration file \"config\" was opened\n");
 
 	if ( fread((void*) f_buff, sizeof(char), 28, fp) != 28 )
 	{
-		printf("Couldn't read 28 bytes from configuration file\n");
+		fprintf( stderr, "Couldn't read 28 bytes from configuration file\n");
 		fclose(fp);
 		return 1;
 	}
 
-	printf("Read 28 bytes from configuration file\n");
+	fprintf( stderr, "Read 28 bytes from configuration file\n");
 
 	fclose(fp);
-	printf("Configuration file closed\n");
+	fprintf( stderr, "Configuration file closed\n");
 
 	DWORD		BytesWritten;
 
 	if ( FT_Write(ftHandle, (void*) f_buff, 28*sizeof(char), &BytesWritten) != FT_OK )
 	{
-		printf("Unable to send configuration\n");
+		fprintf( stderr, "Unable to send configuration\n");
 		return 1;
 	}
 
-	printf("Configuration sent\n");
+	fprintf( stderr, "Configuration sent\n");
 
 	return 0;
 }
@@ -185,15 +187,16 @@ int Send_config(FT_HANDLE &ftHandle)
 
 /*******************************************************************************
 *******************************************************************************/
-int Read_from_FTDI_dev(DWORD &BytesRequested, DWORD &BytesReceived, char *rx_buff, FT_HANDLE &ftHandle)
+int Read_from_FTDI_dev(DWORD		BytesRequested, 
+						DWORD		&BytesReceived, 
+						char		*rx_buff,
+						FT_HANDLE	&ftHandle)
 {
-	DWORD chunkSize = 4092; // Driver seems to handle at most 131072
-	
-	BytesRequested = min(chunkSize, BytesRequested);
+	DWORD BytesReq = min(MAX_RX_BUFF_SIZE, BytesRequested);
 
-	if ( FT_Read(ftHandle, rx_buff, BytesRequested, &BytesReceived) != FT_OK )
+	if ( FT_Read(ftHandle, rx_buff, BytesReq, &BytesReceived) != FT_OK )
 	{
-		printf("Unable to read device\n");
+		fprintf( stderr, "Unable to read device\n");
 		return 1;
 	}
 		
@@ -206,17 +209,18 @@ int Read_from_FTDI_dev(DWORD &BytesRequested, DWORD &BytesReceived, char *rx_buf
 int Recorder(char*			work_dir, 
 			int				&dev_num, 
 			unsigned long	&rec_size,
-			unsigned long	&start_seq)
+			unsigned long	&start_seq,
+			char			&interact)
 {
 	FT_HANDLE	ftHandle;
 	int			error_code;
 	
 
 	/*****************************************/
-	char *rx_buff = (char*) malloc(rec_size);
+	char *rx_buff = (char*) malloc(MAX_RX_BUFF_SIZE);
 	if (!rx_buff) 
 	{
-		printf("ERROR: Insufficient memory available\n");
+		fprintf( stderr, "ERROR: Insufficient memory available\n");
 		return 1;
 	}
 	unsigned long rx_buff_size = 0;
@@ -233,11 +237,13 @@ int Recorder(char*			work_dir,
 
 
 	HANDLE  stdIn = GetStdHandle(STD_INPUT_HANDLE);
+	HANDLE  stdOutput = GetStdHandle(STD_OUTPUT_HANDLE);
 	gh[0] = stdIn;
 
 
+
 	/*****************************************/
-	printf("Initalizing recorder:\n\n	DIR=%s\n	DEV=%d\n\n", work_dir, dev_num);
+	fprintf( stderr, "Initalizing recorder:\n\n	DIR=%s\n	DEV=%d\n\n", work_dir, dev_num);
 	if ( error_code = Open_FTDI_dev(dev_num, ftHandle) )
 		return error_code;
 
@@ -254,12 +260,12 @@ int Recorder(char*			work_dir,
 
 
 	/*****************************************/
-	//printf("Sending configuration:\n");
+	//fprintf( stderr, "Sending configuration:\n");
 	//Send_config(ftHandle);
 
 
 	/*****************************************/
-	printf("Starting recording:\n");
+	fprintf( stderr, "Starting recording:\n");
 
 
 	char store = 1;
@@ -267,11 +273,29 @@ int Recorder(char*			work_dir,
 
 	DWORD	saveMode;
 	GetConsoleMode(stdIn, &saveMode);
-	SetConsoleMode(stdIn, ENABLE_PROCESSED_INPUT);
+	SetConsoleMode(stdIn, ~ENABLE_ECHO_INPUT & 
+						~ENABLE_EXTENDED_FLAGS & 
+						~ENABLE_INSERT_MODE & 
+						~ENABLE_LINE_INPUT &
+						~ENABLE_MOUSE_INPUT &
+						ENABLE_PROCESSED_INPUT &
+						~ENABLE_QUICK_EDIT_MODE &
+						~ENABLE_WINDOW_INPUT &
+						~0x00FF);
+
+	SetConsoleMode(stdOutput, ~ENABLE_PROCESSED_OUTPUT & 
+						~ENABLE_WRAP_AT_EOL_OUTPUT &
+						~0x0003 );
 
 	
 	CThroughput_Calculator	TPC;
-	CFile_Iterator			FI(work_dir, start_seq);
+
+	CFile_Iterator*			FI;
+	if (interact)
+		FI = NULL;
+	else
+		FI = new CFile_Iterator(work_dir, start_seq);
+
 	DWORD					total_RxBytes = 0;
 
 	while (1)
@@ -286,24 +310,44 @@ int Recorder(char*			work_dir,
 			//There is stuff in buffer to write to file
 			while (rx_buff_size)
 			{
-				if (FI.hFile == INVALID_HANDLE_VALUE)
-					FI.Iterate();
+				if (FI)
+					if (FI->hFile == INVALID_HANDLE_VALUE)
+						FI->Iterate();
 
-				unsigned long BytesToWrite = min(rec_size - FI.current_size, rx_buff_size);
+				unsigned long BytesToWrite;
+				
+				if (FI)
+					BytesToWrite = min(rec_size - FI->current_size, rx_buff_size);
+				else
+					BytesToWrite = rx_buff_size;
+
+				HANDLE h;
+				
+				if (FI)
+					h = FI->hFile;
+				else
+					h = stdOutput;
+
+
 
 				unsigned long write_len;
+				if (!WriteFile(h, rx_buff, BytesToWrite, &write_len, NULL))
+					fprintf( stderr, "Unable to write file\n");
 
-				if (!WriteFile(FI.hFile, rx_buff, BytesToWrite, &write_len, NULL))
-					printf("Unable to write file\n");
+//				if (!FlushFileBuffers(h))
+//					fprintf( stderr, "Unable to flush file\n");
 
-				memmove(rx_buff, rx_buff + BytesToWrite, rx_buff_size - BytesToWrite);
-				rx_buff_size -= BytesToWrite;
+				memmove(rx_buff, rx_buff + write_len, rx_buff_size - write_len);
+				rx_buff_size -= write_len;
 
-				TPC.Inc_Byte_Counter(BytesToWrite);
-				FI.Inc_size(BytesToWrite);
+				TPC.Inc_Byte_Counter(write_len);
+				if (FI)
+				{
+					FI->Inc_size(write_len);
 
-				if ( FI.current_size >= rec_size )
-					FI.Close_Current();
+					if ( FI->current_size >= rec_size )
+						FI->Close_Current();
+				}
 			}
 
 			//there is stuff to read from FTDI
@@ -335,29 +379,29 @@ int Recorder(char*			work_dir,
 			    DWORD num;
 				INPUT_RECORD irInBuf; 
 				ReadConsoleInput(stdIn, &irInBuf, 1, &num);
-				SetConsoleMode(stdIn, saveMode);
 
 				if (num)
 					if (irInBuf.EventType == KEY_EVENT && irInBuf.Event.KeyEvent.bKeyDown )
 					{
 						if (irInBuf.Event.KeyEvent.uChar.AsciiChar == 'n')
 						{
-							FI.Inc_dir_counter();
-							FI.Iterate();
+							if (FI)
+							{
+								FI->Inc_dir_counter();
+								FI->Iterate();
+							}
 						}
 						else if (irInBuf.Event.KeyEvent.uChar.AsciiChar == 's')
 						{	
 							store = !store;
 
 							if (store)
-								printf("Recorder started.\n");
+								fprintf( stderr, "Recorder started.\n");
 							else
-								printf("Recorder halted.\n");
+								fprintf( stderr, "Recorder halted.\n");
 						}
 					}
 
-				GetConsoleMode(stdIn, &saveMode);
-				SetConsoleMode(stdIn, ENABLE_PROCESSED_INPUT);
 
 				break; 
 
@@ -388,6 +432,8 @@ int Recorder(char*			work_dir,
 
 	}
 
+	if (FI)
+		delete FI;
 
 	/*****************************************/
 	Close_FTDI_dev(dev_num, ftHandle);
@@ -409,7 +455,8 @@ int Handle_parameters(int argc, _TCHAR* argv[],
 					char*			work_dir, 
 					int				&dev_num, 
 					unsigned long	&rec_size, 
-					unsigned long	&start_seq)
+					unsigned long	&start_seq,
+					char			&interact)
 {
 
 	/********************************************/
@@ -426,9 +473,10 @@ int Handle_parameters(int argc, _TCHAR* argv[],
 	struct arg_file *dir    = arg_file0("p",	"path",		"path",		"set the output directory path		(default: .)");
 	struct arg_int  *start  = arg_int0(	"s",	"start",	"num",		"set the initial seq number			(default: first available)");
 	struct arg_int  *recsize= arg_int0(	"r",	"recsize",	"num",		info_string);
+	struct arg_lit	*outSO	= arg_lit0(	"i",	"interact",				"print samples to standard output");
 	struct arg_end  *end    = arg_end(20);
 
-	void*  argtable[]		= {help, dev, dir, start, recsize, end};
+	void*  argtable[]		= {help, dev, dir, start, recsize, outSO, end};
 
 	const char* progname	= argv[0];
 
@@ -436,7 +484,7 @@ int Handle_parameters(int argc, _TCHAR* argv[],
     if (arg_nullcheck(argtable))
 	{
         // NULL entries were detected, some allocations must have failed
-        printf("%s: insufficient memory\n", progname);
+        fprintf( stderr, "%s: insufficient memory\n", progname);
         return 1;
 	}
 
@@ -460,11 +508,11 @@ int Handle_parameters(int argc, _TCHAR* argv[],
 	// Special case: '--help' takes precedence over error reporting
     if (help->count > 0)
 	{
-		printf("Usage: %s", progname);
+		fprintf( stderr, "Usage: %s", progname);
 		arg_print_syntax(stdout, argtable, "\n");
-		printf("Fast recorder program to save raw samples to disk.\n");
+		fprintf( stderr, "Fast recorder program to save raw samples to disk.\n");
 		arg_print_glossary(stdout, argtable,"  %-25s %s\n");
-		printf("\nAvailable FTDI devices:\n\n");
+		fprintf( stderr, "\nAvailable FTDI devices:\n\n");
 		list_ft_devices();
 		return 2;
 	}
@@ -474,7 +522,7 @@ int Handle_parameters(int argc, _TCHAR* argv[],
 	{
 		// Display the error details contained in the arg_end struct
 		arg_print_errors(stdout, end, progname);
-		printf("Try '%s --help' for more information\n", progname);
+		fprintf( stderr, "Try '%s --help' for more information\n", progname);
 		return 1;
 	}
 
@@ -485,7 +533,7 @@ int Handle_parameters(int argc, _TCHAR* argv[],
 		
 		if (GetFileAttributes(dir->filename[0]) != FILE_ATTRIBUTE_DIRECTORY)
 		{
-			printf("%s is not a valid directory\n", dir->filename[0]);
+			fprintf( stderr, "%s is not a valid directory\n", dir->filename[0]);
 			return 1;
 		}
 
@@ -512,6 +560,9 @@ int Handle_parameters(int argc, _TCHAR* argv[],
 	rec_size = recsize->ival[0]; 
 
 
+	//
+	interact = (outSO->count > 0);
+
 
 	 // deallocate each non-null entry in argtable[]
     arg_freetable(argtable,sizeof(argtable)/sizeof(argtable[0]));
@@ -532,14 +583,15 @@ int _tmain(int argc, _TCHAR* argv[])
 	int				dev_num;
 	unsigned long	rec_size;
 	unsigned long	start_seq;
+	char			interact;
 	
 
-	if ( error_code = Handle_parameters(argc, argv, work_dir, dev_num, rec_size, start_seq) )
+	if ( error_code = Handle_parameters(argc, argv, work_dir, dev_num, rec_size, start_seq, interact) )
 		return error_code;
 
 //	list_ft_devices();
 
-	Recorder(work_dir, dev_num, rec_size, start_seq);
+	Recorder(work_dir, dev_num, rec_size, start_seq, interact);
 
 	return 0;
 }

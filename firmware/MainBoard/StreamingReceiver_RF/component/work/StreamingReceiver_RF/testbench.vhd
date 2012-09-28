@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------
--- Created by Actel SmartDesign Wed Aug 15 14:33:54 2012
+-- Created by Actel SmartDesign Wed Sep 26 12:09:06 2012
 -- Testbench Template
 -- This is a basic testbench that instantiates your design with basic 
 -- clock and reset pins connected.  If your design has special
@@ -46,12 +46,16 @@ architecture behavioral of testbench is
             USB_RD_n_pin : out std_logic;
             USB_SIWU_N : out std_logic;
             LED1 : out std_logic;
+            AFE1_CLK_pin : out std_logic;
+            AFE1_SHDN_n_pin : out std_logic;
+            AFE1_T_R_n_pin : out std_logic;
 
             -- Inouts
             SPI_1_SS : inout std_logic;
             SPI_1_CLK : inout std_logic;
-            DATA_pin : inout std_logic_vector(9 downto 0);
-            USB_DATA_pin : inout std_logic_vector(7 downto 0)
+            AFE2_DATA_pin : inout std_logic_vector(9 downto 0);
+            USB_DATA_pin : inout std_logic_vector(7 downto 0);
+            AFE1_DATA_pin : inout std_logic_vector(9 downto 0)
 
         );
     end component;
@@ -102,12 +106,16 @@ begin
             USB_RD_n_pin =>  open,
             USB_SIWU_N =>  open,
             LED1 =>  open,
+            AFE1_CLK_pin =>  open,
+            AFE1_SHDN_n_pin =>  open,
+            AFE1_T_R_n_pin =>  open,
 
             -- Inouts
             SPI_1_SS =>  open,
             SPI_1_CLK =>  open,
-            DATA_pin => open,
-            USB_DATA_pin => open
+            AFE2_DATA_pin => open,
+            USB_DATA_pin => open,
+            AFE1_DATA_pin => open
 
         );
 

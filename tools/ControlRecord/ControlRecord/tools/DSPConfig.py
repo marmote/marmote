@@ -41,3 +41,8 @@ class DSPconf_t:
         return N - self.num_pos_fr(N) 
 
 
+class DSPconf_RF_t(DSPconf_t):
+    def __init__(self):
+        DSPconf_t.__init__(self)
+
+        self.F_offset    = 2.4e9            # [Hz]

@@ -12,7 +12,7 @@
     <project-description>
     </project-description>
     <location>D:/Work/marmote/firmware/MainBoard/StreamingReceiver_RF/component/work/StreamingReceiver_RF</location>
-    <state>GENERATED ( Wed Aug 15 14:33:58 2012 )</state>
+    <state>GENERATED ( Wed Sep 26 12:09:08 2012 )</state>
     <swide-toolchain>SoftConsole workspace generated to D:\Work\marmote\firmware\MainBoard\StreamingReceiver_RF\SoftConsole</swide-toolchain>
   </project-settings>
   <site-map>
@@ -32,101 +32,18 @@
     <file>D:\Work\marmote\firmware\MainBoard\StreamingReceiver_RF\hdl\common.vhd</file>
     <file>D:\Work\marmote\firmware\MainBoard\StreamingReceiver_RF\hdl\Sample_APB.vhd</file>
     <file>D:\Work\marmote\firmware\MainBoard\StreamingReceiver_RF\hdl\usb_if.vhd</file>
+    <file>D:\Work\marmote\firmware\MainBoard\StreamingReceiver_RF\smartgen\AFE_mux\AFE_mux.vhd</file>
     <file>D:\Work\marmote\firmware\MainBoard\StreamingReceiver_RF\smartgen\sample_FIFO\sample_FIFO.vhd</file>
   </fileset>
   <fileset>
     <name>Flash Memory File(s)</name>
-    <file>D:\Work\marmote\firmware\MainBoard\StreamingReceiver_RF\component\work\D:/Work/marmote/firmware/MainBoard/StreamingReceiver_RF/component/work/StreamingReceiver_RF_MSS/MSS_ENVM_0/MSS_ENVM_0.efc</file>
+    <file>D:\Work\marmote\firmware\MainBoard\StreamingReceiver_RF\component\work\./MSS_ENVM_0/MSS_ENVM_0.efc</file>
   </fileset>
   <io>
-    <port-name>DATA_pin[2]</port-name>
+    <port-name>AFE2_DATA_pin[2]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
-  </io>
-  <io>
-    <port-name>USB_RXF_n_pin</port-name>
-    <direction>IN</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>RXTX</port-name>
-    <direction>OUT</direction>
-    <pin-number>K14</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>DATA_pin[3]</port-name>
-    <direction>INOUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVCMOS33</io-standard>
-  </io>
-  <io>
-    <port-name>AFE2_T_R_n_pin</port-name>
-    <direction>OUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>USB_DATA_pin[6]</port-name>
-    <direction>INOUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVCMOS33</io-standard>
-  </io>
-  <io>
-    <port-name>SPI_1_DI</port-name>
-    <direction>IN</direction>
-    <pin-number>L15</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>USB_TXE_n_pin</port-name>
-    <direction>IN</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>LED1</port-name>
-    <direction>OUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>RXHP</port-name>
-    <direction>OUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>USB_DATA_pin[4]</port-name>
-    <direction>INOUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVCMOS33</io-standard>
-  </io>
-  <io>
-    <port-name>SPI_1_DO</port-name>
-    <direction>OUT</direction>
-    <pin-number>L12</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>USB_CLK_pin</port-name>
-    <direction>IN</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>DATA_pin[9]</port-name>
-    <direction>INOUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVCMOS33</io-standard>
-  </io>
-  <io>
-    <port-name>MAINXIN</port-name>
-    <direction>IN</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
   </io>
   <io>
     <port-name>USB_DATA_pin[5]</port-name>
@@ -135,67 +52,7 @@
     <io-standard>LVCMOS33</io-standard>
   </io>
   <io>
-    <port-name>DATA_pin[1]</port-name>
-    <direction>INOUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVCMOS33</io-standard>
-  </io>
-  <io>
-    <port-name>DATA_pin[4]</port-name>
-    <direction>INOUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVCMOS33</io-standard>
-  </io>
-  <io>
-    <port-name>DATA_pin[5]</port-name>
-    <direction>INOUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVCMOS33</io-standard>
-  </io>
-  <io>
-    <port-name>SPI_1_SS</port-name>
-    <direction>INOUT</direction>
-    <pin-number>L13</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>SPI_1_CLK</port-name>
-    <direction>INOUT</direction>
-    <pin-number>L14</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>USB_RD_n_pin</port-name>
-    <direction>OUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>USB_SIWU_N</port-name>
-    <direction>OUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>USB_DATA_pin[1]</port-name>
-    <direction>INOUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVCMOS33</io-standard>
-  </io>
-  <io>
-    <port-name>nSHDN</port-name>
-    <direction>OUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>AFE2_CLK_pin</port-name>
-    <direction>OUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>DATA_pin[0]</port-name>
+    <port-name>USB_DATA_pin[4]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
@@ -207,25 +64,37 @@
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>DATA_pin[8]</port-name>
+    <port-name>USB_RXF_n_pin</port-name>
+    <direction>IN</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>SPI_1_SS</port-name>
+    <direction>INOUT</direction>
+    <pin-number>L13</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>AFE1_DATA_pin[7]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
   </io>
   <io>
-    <port-name>USB_DATA_pin[7]</port-name>
+    <port-name>AFE2_CLK_pin</port-name>
+    <direction>OUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>USB_DATA_pin[6]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
   </io>
   <io>
-    <port-name>USB_DATA_pin[0]</port-name>
-    <direction>INOUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVCMOS33</io-standard>
-  </io>
-  <io>
-    <port-name>ANTSEL</port-name>
+    <port-name>nSHDN</port-name>
     <direction>OUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVTTL</io-standard>
@@ -237,25 +106,61 @@
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>USB_WR_n_pin</port-name>
+    <port-name>RXTX</port-name>
+    <direction>OUT</direction>
+    <pin-number>K14</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>AFE1_DATA_pin[8]</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
+    <port-name>SPI_1_DI</port-name>
+    <direction>IN</direction>
+    <pin-number>L15</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>AFE1_DATA_pin[0]</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
+    <port-name>AFE1_DATA_pin[2]</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
+    <port-name>MAINXIN</port-name>
+    <direction>IN</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>RXHP</port-name>
     <direction>OUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>DATA_pin[6]</port-name>
+    <port-name>AFE2_DATA_pin[5]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
   </io>
   <io>
-    <port-name>USB_DATA_pin[2]</port-name>
+    <port-name>AFE1_DATA_pin[9]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
   </io>
   <io>
-    <port-name>USB_DATA_pin[3]</port-name>
+    <port-name>USB_DATA_pin[1]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
@@ -267,13 +172,187 @@
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
+    <port-name>USB_DATA_pin[7]</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
+    <port-name>SPI_1_CLK</port-name>
+    <direction>INOUT</direction>
+    <pin-number>L14</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>USB_SIWU_N</port-name>
+    <direction>OUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>USB_WR_n_pin</port-name>
+    <direction>OUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>AFE2_DATA_pin[7]</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
+    <port-name>AFE2_DATA_pin[6]</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
+    <port-name>SPI_1_DO</port-name>
+    <direction>OUT</direction>
+    <pin-number>L12</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>AFE2_DATA_pin[0]</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
+    <port-name>AFE1_DATA_pin[3]</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
+    <port-name>AFE2_DATA_pin[8]</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
+    <port-name>USB_DATA_pin[2]</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
+    <port-name>AFE1_T_R_n_pin</port-name>
+    <direction>OUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>AFE2_DATA_pin[1]</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
     <port-name>LD</port-name>
     <direction>IN</direction>
     <pin-number>-</pin-number>
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>DATA_pin[7]</port-name>
+    <port-name>USB_CLK_pin</port-name>
+    <direction>IN</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>USB_TXE_n_pin</port-name>
+    <direction>IN</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>AFE1_SHDN_n_pin</port-name>
+    <direction>OUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>USB_DATA_pin[0]</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
+    <port-name>AFE1_DATA_pin[5]</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
+    <port-name>AFE1_DATA_pin[4]</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
+    <port-name>AFE2_T_R_n_pin</port-name>
+    <direction>OUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>AFE2_DATA_pin[3]</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
+    <port-name>AFE1_DATA_pin[6]</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
+    <port-name>AFE1_CLK_pin</port-name>
+    <direction>OUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>USB_DATA_pin[3]</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
+    <port-name>AFE2_DATA_pin[9]</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
+    <port-name>LED1</port-name>
+    <direction>OUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>USB_RD_n_pin</port-name>
+    <direction>OUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>ANTSEL</port-name>
+    <direction>OUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVTTL</io-standard>
+  </io>
+  <io>
+    <port-name>AFE2_DATA_pin[4]</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
+    <port-name>AFE1_DATA_pin[1]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
@@ -283,6 +362,18 @@
     <core-exttype>AFE_IF</core-exttype>
     <core-location>hdl\afe_if.vhd</core-location>
     <core-name>AFE_IF_0</core-name>
+  </core>
+  <core type="HdlModule">
+    <core-type>HdlModule</core-type>
+    <core-exttype>AFE_IF</core-exttype>
+    <core-location>hdl\afe_if.vhd</core-location>
+    <core-name>AFE_IF_1</core-name>
+  </core>
+  <core type="ComponentModule">
+    <core-type>ComponentModule</core-type>
+    <core-exttype>SmartGen</core-exttype>
+    <core-location>D:/Work/marmote/firmware/MainBoard/StreamingReceiver_RF/smartgen/AFE_mux</core-location>
+    <core-name>AFE_mux_0</core-name>
   </core>
   <core type="SpiritModule">
     <core-exttype>IP</core-exttype>
