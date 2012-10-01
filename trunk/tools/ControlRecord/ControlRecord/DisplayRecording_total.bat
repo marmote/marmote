@@ -1,0 +1,1 @@
+python DisplayRecording_total.py -i collect2.bin

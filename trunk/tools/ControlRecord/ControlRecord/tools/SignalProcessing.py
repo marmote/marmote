@@ -36,8 +36,8 @@ def SignalProcessing(frame_starts, buff, DSPconf, RF=False):
     I_buff = I_buff.astype(float)
     Q_buff = Q_buff.astype(float)
 
-    I_buff = I_buff/Full_scale + 0.103
-    Q_buff = Q_buff/Full_scale + 0.1265
+    I_buff = I_buff/Full_scale + 0.001 #+ 0.103
+    Q_buff = Q_buff/Full_scale + 0.026 #+ 0.1265
 
     I_spectrum = 2*abs(np.fft.rfft(I_buff))
     Q_spectrum = 2*abs(np.fft.rfft(Q_buff))
