@@ -4,6 +4,12 @@
 = Rev B =
 
 _Note: Only changes compared to Rev A and non-implemented functions are listed here._
+ 
+ * *LDO for VCCVCO and other A3V3 powered lines*
+ * *Footprint for both the TCXO and an external XTAL*
+ * Consider using a low-phase-noise (RF) TCXO
+ * Via fence around the IC
+ * Via openings for test points (e.g. CLKOUT)
 
  * Power-down mode for 20 MHz oscillator
  * VCTCXO (controlled from AFE DAC) instead of simple TCXO
