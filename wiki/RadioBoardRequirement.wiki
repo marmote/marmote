@@ -12,6 +12,7 @@ _Note: Only changes compared to Rev A and non-implemented functions are listed h
  * Via openings for test points (e.g. CLKOUT)
 
  * Power-down mode for 20 MHz oscillator
+ * Add a zero ohm resistor to optionally shut down the baseband section
  * VCTCXO (controlled from AFE DAC) instead of simple TCXO
  * Second antenna in the same band for MIMO applications
 
