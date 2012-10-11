@@ -1,1 +1,0 @@
-python CollectFramesFromSubDirs.py -i ..\..\..\..\Measurements\PenTest_AluminiumBeam3
