@@ -1,1 +1,0 @@
-call ..\..\recorder\Release\MarmoteRecorder.exe -i | python -u .\DisplayStdinStream.py -r

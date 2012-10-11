@@ -1,0 +1,1 @@
+python -u ..\ControlRecord\DisplayStdinStream.py < "D:\Work\Measurements\AE meas 2\1\rec_001.bin"
