@@ -71,6 +71,7 @@ def ReadAEMeas(dir):
 	y2 = []
 	AE_start = []
 	AE_start2 = []
+	TD_meas = []
 	fnames = []
 
 
@@ -104,11 +105,13 @@ def ReadAEMeas(dir):
 				val = jj
 				break
 		AE_start2.append(val * T)
+		
+		TD_meas.append(AE_start2[-1] - AE_start[-1])
 
         #output    
 		y.append(I_buff)
 		y2.append(Q_buff)
     
 		fnames.append(filelist[ii])
-		
-	return y, y2, AE_start, AE_start2, T, fnames
+	
+	return y, y2, AE_start, AE_start2, TD_meas, T, fnames
