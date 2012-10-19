@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def PlotAEMeas(y, y2, AE_start, AE_start2, T, fnames, positions) :
+def PlotAEMeas(y, y2, AE_start, AE_start2, T, fnames, positions, y_lim_min = -1.1, y_lim_max = 1.1) :
 	rows = 1
 	cols = 1
 
@@ -25,22 +25,29 @@ def PlotAEMeas(y, y2, AE_start, AE_start2, T, fnames, positions) :
 			N = y[ii].size
 			time = np.array( xrange(0,N) ) *T
     
-			if AE_start[ii] < AE_start2[ii] :
-				axarr[axarr_cnt].plot(time, y[ii], 'g')
-				axarr[axarr_cnt].plot(time, y2[ii], 'b')
-			else :
-				axarr[axarr_cnt].plot(time, y2[ii], 'b')
-				axarr[axarr_cnt].plot(time, y[ii], 'g')
+			if AE_start is not None and AE_start2 is not None :
+				if AE_start[ii] < AE_start2[ii] :
+					axarr[axarr_cnt].plot(time, y[ii], 'g')
+					axarr[axarr_cnt].plot(time, y2[ii], 'b')
+				else :
+					axarr[axarr_cnt].plot(time, y2[ii], 'b')
+					axarr[axarr_cnt].plot(time, y[ii], 'g')
         
-			axarr[axarr_cnt].plot([AE_start[ii], AE_start[ii]], [-1, 1], 'r')
-			axarr[axarr_cnt].plot([AE_start2[ii], AE_start2[ii]], [-1, 1], 'r')
+				axarr[axarr_cnt].plot([AE_start[ii], AE_start[ii]], [-1, 1], 'r')
+				axarr[axarr_cnt].plot([AE_start2[ii], AE_start2[ii]], [-1, 1], 'r')
+			else :
+				axarr[axarr_cnt].plot(time, y[ii], 'g')
+				axarr[axarr_cnt].plot(time, y2[ii], 'b')
+				
 			axarr[axarr_cnt].hold('off')
 			axarr[axarr_cnt].locator_params(axis='both', nbins=4)
 			axarr[axarr_cnt].ticklabel_format(scilimits=(-3,3))
-			axarr[axarr_cnt].set_ylim(-1.1, 1.1)
+			axarr[axarr_cnt].set_ylim(y_lim_min, y_lim_max)
 			axarr[axarr_cnt].set_xlim(0, 1000)
-#			axarr[axarr_cnt].set_title('%s\nTD = %.2f\npos %d' % (fnames[ii], AE_start2[ii] - AE_start[ii], positions[ii]))
-			axarr[axarr_cnt].set_title('pos %d\nTD = %.2f' % (positions[ii], AE_start2[ii] - AE_start[ii]))
+			if AE_start is not None and AE_start2 is not None :
+				axarr[axarr_cnt].set_title('pos %d\nTD = %.2f' % (positions[ii], AE_start2[ii] - AE_start[ii]))
+			else:
+				axarr[axarr_cnt].set_title('pos %d' % (positions[ii]))
 			
 		axarr_cnt += 1
     
