@@ -80,7 +80,7 @@ void CFile_Iterator::Iterate()
 			fprintf( stderr, "Failure.\n");
 	}
 
-	fprintf( stderr, "Succes.\n");
+	fprintf( stderr, "Success.\n");
 
 	current_size = 0;
 }
