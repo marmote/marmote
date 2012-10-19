@@ -64,14 +64,8 @@ def ReadAEMeas(dir):
 	Fs	= float(DSPconf.Fs)    
 	T	= 1 / Fs * 1e6
 	
-	th_cross_level = 0.15
-	
-	
 	y = []
 	y2 = []
-	AE_start = []
-	AE_start2 = []
-	TD_meas = []
 	fnames = []
 
 
@@ -88,25 +82,6 @@ def ReadAEMeas(dir):
 		frame_starts, I_buff, Q_buff, I_spectrum, Q_spectrum, spectrum = SP.SignalProcessing( dg.frame_starts, dg.int_buff, DSPconf )  # Assumes 2 channels !!!
 
 	#Generate data
-	
-		#Find AE signal beginnings
-		max_val = np.amax(np.absolute(I_buff))
-		val = 0
-		for jj in xrange(I_buff.size) :
-			if I_buff[jj] >= max_val*th_cross_level : 
-				val = jj
-				break
-		AE_start.append(val * T)
-    
-		max_val2 = np.amax(np.absolute(Q_buff))
-		val = 0
-		for jj in xrange(Q_buff.size) :
-			if Q_buff[jj] >= max_val2*th_cross_level : 
-				val = jj
-				break
-		AE_start2.append(val * T)
-		
-		TD_meas.append(AE_start2[-1] - AE_start[-1])
 
         #output    
 		y.append(I_buff)
@@ -114,4 +89,4 @@ def ReadAEMeas(dir):
     
 		fnames.append(filelist[ii])
 	
-	return y, y2, AE_start, AE_start2, TD_meas, T, fnames
+	return y, y2, T, fnames
