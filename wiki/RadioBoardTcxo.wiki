@@ -1,0 +1,39 @@
+#summary Measurement results related to the TCXO on the Joshua radio front-end.
+#labels Phase-Support,Phase-QA
+
+= Measurement setup =
+
+== Receiver ==
+
+USRP1 with an RFX2400 daughterboard tuned to 2.40495 GHz (all cases).
+
+== Transmitter ==
+
+=== 1. No transmitter (receiver noise level) ===
+
+http://marmote.googlecode.com/svn/trunk/hardware/RFWBBoard/Misc/2012-10-19%20-%20Noise%20level.png
+
+=== 2. USRP1 transmitting at 2.405 GHz ===
+
+http://marmote.googlecode.com/svn/trunk/hardware/RFWBBoard/Misc/2012-10-19%20-%20USRP%20TX.png
+
+=== 3. Marmote transmitting at 2.405 GHz with *FOX924 20 MHz TCXO* ===
+
+The CMOS output of the TCXO is fed to the SmartFusion PLL directly. The 20 MHz PLL output drives the external AFEs.
+
+http://marmote.googlecode.com/svn/trunk/hardware/RFWBBoard/Misc/2012-10-19%20-%20Marmote%20MAX924%2020%20MHz%20TCXO%20TX.png
+
+=== 4. Marmote transmitting at 2.405 GHz with *precision 20 MHz TCXO* ===
+The clipped sine output of the TCXO is fed to the MAX2830 and then the SmartFusion PLL. The 20 MHz PLL output drives the external AFEs.
+
+http://marmote.googlecode.com/svn/trunk/hardware/RFWBBoard/Misc/2012-10-19%20-%20Marmote%20Precision%2020%20MHz%20TCXO%20TX.png
+
+=== 5. Marmote transmitting at 2.405 GHz with *precision 26 MHz TCXO* ===
+The clipped sine output of the TCXO is fed to the MAX2830 and then the SmartFusion PLL. The 20 MHz PLL output drives the external AFEs.
+
+http://marmote.googlecode.com/svn/trunk/hardware/RFWBBoard/Misc/2012-10-19%20-%20Marmote%20Precision%2026%20MHz%20TCXO%20TX.png
+
+= Remarks =
+ 
+ * In all cases the signal seems approximately 40dBc clean
+ * Looking at the (precision) TCXO output past the AC coupling capacitor using an oscilloscope, the signal looked 'somewhat noisy'
