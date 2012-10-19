@@ -49,12 +49,12 @@ int main()
 	NVIC_EnableIRQ( MSS_GPIO_USB_CTRL_IT_IRQn );
 
 	Max2830_set_frequency(2405000000uL);
-	/*
+
 	// Set up as a transmitter at 2405 MHz as default
 	Max2830_set_frequency(2405000000uL);
 	Max2830_set_mode( MAX2830_TX_MODE );
 	MSS_GPIO_set_output( MSS_GPIO_AFE_MODE, AFE_MODE_TX );
-	*/
+
 
 
 	while( 1 )
