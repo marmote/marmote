@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{54027d41-2ea8-4814-b479-4bc17a7cd2d0}</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>FancyPlotDWT.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>helperfuncs</Name>
+    <RootNamespace>helperfuncs</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CalculateCost_ShannonEntropy.py" />
+    <Compile Include="CalculateTDOA_threshold_method.py" />
+    <Compile Include="CalculateTheoreticalTDOA.py" />
+    <Compile Include="CalculateTotalCostofEachLevel.py" />
+    <Compile Include="CompleteDWT.py" />
+    <Compile Include="FancyPlotDWT.py" />
+    <Compile Include="FindBestBasis.py" />
+    <Compile Include="PickBasisFromCompleteDWT.py" />
+    <Compile Include="PlotAEMeas.py" />
+    <Compile Include="PlotDWT.py" />
+    <Compile Include="PlotSpecgram.py" />
+    <Compile Include="PlotTDOAvsDist.py" />
+    <Compile Include="PlotTDOAvsPos.py" />
+    <Compile Include="ReadAEMeas.py" />
+    <Compile Include="TrimToPowerof2.py" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+</Project>
