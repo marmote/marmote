@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{54027d41-2ea8-4814-b479-4bc17a7cd2d0}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>FancyPlotDWT.py</StartupFile>
+    <StartupFile>FancyPlotDWT_image.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -28,6 +28,7 @@
     <Compile Include="CalculateTotalCostofEachLevel.py" />
     <Compile Include="CompleteDWT.py" />
     <Compile Include="FancyPlotDWT.py" />
+    <Compile Include="FancyPlotDWT_image.py" />
     <Compile Include="FindBestBasis.py" />
     <Compile Include="PickBasisFromCompleteDWT.py" />
     <Compile Include="PlotAEMeas.py" />
