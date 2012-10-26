@@ -29,16 +29,22 @@ def func(c) :
                 print "Generated row %d"%row
             
 
-    return res
+    return N, res
     
 
-def FancyPlotDWT(c, Fs) :			
+def FancyPlotDWT(c, Fs, subtitle=None) :			
     Fs = float(Fs)
-    Z = func(c)
+    N, Z = func(c)
 
     fig, ax = plt.subplots(1, 1)
-    im = ax.imshow(Z, origin='lower', cmap=cm.spectral, interpolation='nearest')
+    im = ax.imshow(Z, origin='lower', cmap=cm.gist_heat, interpolation='nearest', extent=[0., (N+1)/Fs, 0., Fs/2], aspect='auto')
     fig.colorbar(im)
+    if subtitle is None :
+        ax.set_title('Discrete Wavelet Transfrom')
+    else:
+        ax.set_title('Discrete Wavelet Transfrom\n%s'%(subtitle))
+    ax.set_xlabel('time [sec]')
+    ax.set_ylabel('frequency [Hz]')
 
 
 ################################################################################

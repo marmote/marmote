@@ -30,6 +30,7 @@
     <Compile Include="FancyPlotDWT.py" />
     <Compile Include="FancyPlotDWT_image.py" />
     <Compile Include="FindBestBasis.py" />
+    <Compile Include="GetUsefulDWTlevels.py" />
     <Compile Include="PickBasisFromCompleteDWT.py" />
     <Compile Include="PlotAEMeas.py" />
     <Compile Include="PlotDWT.py" />
