@@ -35,5 +35,4 @@ http://marmote.googlecode.com/svn/trunk/hardware/RFWBBoard/Misc/2012-10-19%20-%2
 
 = Remarks =
  
- * In all cases the signal seems approximately 40dBc clean
- * Looking at the (precision) TCXO output past the AC coupling capacitor using an oscilloscope, the signal looked 'somewhat noisy'
+ * In all cases the signal seems to be approximately 40dBc clean
