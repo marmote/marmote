@@ -11,7 +11,7 @@ def DWT_recursive(c, flip = False) :
     cll.append(cl)
     
     #exit condition
-    if c.size <= 1 :
+    if c.size <= 1 or c.size % 2 :
         return cll 
     
     #actual data generation for this level
