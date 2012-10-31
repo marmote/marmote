@@ -22,7 +22,7 @@ def PlotSpecgram(y, Fs) :
     fig, ax = plt.subplots(1, 1, sharex=True, sharey=True ) 
 
     NFFT = 512
-    noverlap = 500
+    noverlap = 256
 
     time_max = y.size/Fs - NFFT/Fs
 
