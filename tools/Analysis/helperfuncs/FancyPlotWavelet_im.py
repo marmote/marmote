@@ -5,25 +5,37 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 
 
-def func(c) :
-    N = 0
-    for ii in xrange(len(c)) :
-        N += c[ii].size
-
-
+def func(Packets, Levels, N) :
     res = np.zeros( (N, N) )
 
     row = 0
-    for ct in c :
+    for ii in xrange(len(Packets)) :
+        p = Packets[ii]
+        #print "Packets[ii].size: %d"%p.size
+
+        temp = 1. / 2**Levels[ii]
+        level_N = int(N * temp)
+
+        start_idx = int((p.size - level_N)/2)
+        stop_idx = start_idx + level_N
+            
+        p = p[start_idx:stop_idx]
+
         for column in xrange(N) :
-            res[row, column] = np.abs(ct[column * ct.size / N])
+            #print "row: %d"%row
+            #print "column: %d"%column
+            #print "temp: %d"%temp
+            #print "column * temp: %d"%(column * temp)
+            #print "p.size: %d"%p.size
+            #print "---"
+            res[row, column] = np.abs(p[column * temp])
 
         row += 1
 
         if row % 100 == 0 :
             print "Generated row %d"%row
 
-        for jj in xrange(ct.size-1) :
+        for jj in xrange(level_N-1) :
             res[row, :] = res[row-1, :]
             row += 1
 
@@ -31,12 +43,12 @@ def func(c) :
                 print "Generated row %d"%row
             
 
-    return N, res
+    return res
     
 
-def FancyPlotDWT(c, Fs, subtitle=None) :			
+def FancyPlotWavelet(Packets, Levels, N, Fs, subtitle=None) :			
     Fs = float(Fs)
-    N, Z = func(c)
+    Z = func(Packets, Levels, N)
 
     fig, ax = plt.subplots(1, 1)
     im = ax.imshow(Z, origin='lower', cmap=cm.gist_heat, interpolation='nearest', extent=[0., (N+1)/Fs, 0., Fs/2], aspect='auto')
@@ -52,7 +64,7 @@ def FancyPlotDWT(c, Fs, subtitle=None) :
 ################################################################################
 if __name__ == "__main__":
 
-    c = [ np.array([1, 0]),
+    Packets = [ np.array([1, 0, 1, 1, 1, 1, 1, 1, 1]),
     np.array([0, 1]),
     np.array([1, 0, 1, 0]),
     np.array([0, 1, 0, 0.3, 0, 1, 0, 1]),
@@ -61,6 +73,7 @@ if __name__ == "__main__":
     np.array([1, 0]),
     np.array([0, 1]), 
     np.array([0, 1]),
+    np.array([0, 1]),
     np.array([1, 0, 1, 0]),
     np.array([0, 1, 0, 0.9, 0, 1, 0, 1]),
     np.array([1, 0, 1, 0, 1, 0, 1, 0]),
@@ -68,6 +81,7 @@ if __name__ == "__main__":
     np.array([0, 1, 0, 0.9, 0, 1, 0, 1]),
     np.array([1, 0, 1, 0, 1, 0, 1, 0]),
     np.array([1, 0, 0.5, 0]),
+    np.array([0, 1]),
     np.array([1, 0]),
     np.array([0, 1]), 
     np.array([0, 1]),
@@ -78,5 +92,8 @@ if __name__ == "__main__":
     np.array([1, 0]),
     np.array([0, 1]) ]
 
-    FancyPlotDWT(c, 1)
+    Levels = [6, 6, 5, 4, 4, 5, 6, 6, 6, 6, 5, 4, 4, 3, 4, 4, 5, 6, 6, 6, 6, 5, 4, 4, 5, 6, 6]
+
+
+    FancyPlotWavelet(Packets, Levels, N=128, Fs=1)
     plt.show()
