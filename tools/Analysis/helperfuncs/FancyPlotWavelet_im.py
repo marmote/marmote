@@ -8,10 +8,12 @@ import matplotlib.cm as cm
 def func(Packets, Levels, N) :
     res = np.zeros( (N, N) )
 
+#    print Packets
+
     row = 0
     for ii in xrange(len(Packets)) :
         p = Packets[ii]
-        #print "Packets[ii].size: %d"%p.size
+#        print "Packets[ii].size: %d"%p.size
 
         temp = 1. / 2**Levels[ii]
         level_N = int(N * temp)
@@ -22,12 +24,12 @@ def func(Packets, Levels, N) :
         p = p[start_idx:stop_idx]
 
         for column in xrange(N) :
-            #print "row: %d"%row
-            #print "column: %d"%column
-            #print "temp: %d"%temp
-            #print "column * temp: %d"%(column * temp)
-            #print "p.size: %d"%p.size
-            #print "---"
+#            print "row: %d"%row
+#            print "column: %d"%column
+#            print "temp: %d"%temp
+#            print "column * temp: %d"%(column * temp)
+#            print "p.size: %d"%p.size
+#            print "---"
             res[row, column] = np.abs(p[column * temp])
 
         row += 1
@@ -46,17 +48,15 @@ def func(Packets, Levels, N) :
     return res
     
 
-def FancyPlotWavelet(Packets, Levels, N, Fs, subtitle=None) :			
+def FancyPlotWavelet(Packets, Levels, N, Fs, title=None) :			
     Fs = float(Fs)
     Z = func(Packets, Levels, N)
 
     fig, ax = plt.subplots(1, 1)
     im = ax.imshow(Z, origin='lower', cmap=cm.gist_heat, interpolation='nearest', extent=[0., (N+1)/Fs, 0., Fs/2], aspect='auto')
     fig.colorbar(im)
-    if subtitle is None :
-        ax.set_title('Discrete Wavelet Transfrom')
-    else:
-        ax.set_title('Discrete Wavelet Transfrom\n%s'%(subtitle))
+    if title is not None :
+        ax.set_title(title)
     ax.set_xlabel('time [sec]')
     ax.set_ylabel('frequency [Hz]')
 
@@ -94,6 +94,23 @@ if __name__ == "__main__":
 
     Levels = [6, 6, 5, 4, 4, 5, 6, 6, 6, 6, 5, 4, 4, 3, 4, 4, 5, 6, 6, 6, 6, 5, 4, 4, 5, 6, 6]
 
-
     FancyPlotWavelet(Packets, Levels, N=128, Fs=1)
+
+
+    import pywt
+    import numpy as np
+    y = np.array(xrange(64))*0
+    y[40] = 1
+    Fs = 1
+
+    w = pywt.Wavelet('haar')
+
+    c = pywt.wavedec(y, w, mode='zpd')
+
+    levels = range(len(c)-1,0,-1)
+    levels = [levels[0]] + levels
+
+    FancyPlotWavelet(c, levels, y.size, Fs)
+
+    
     plt.show()
