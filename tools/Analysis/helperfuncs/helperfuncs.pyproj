@@ -29,6 +29,7 @@
     <Compile Include="FullWPD.py" />
     <Compile Include="FancyPlotWavelet_im.py" />
     <Compile Include="BestBasis.py" />
+    <Compile Include="SignalGenerator.py" />
     <Compile Include="UsablePacketTableLevels.py" />
     <Compile Include="PickBases.py" />
     <Compile Include="PlotAEMeas.py" />
