@@ -37,24 +37,44 @@ if __name__ == "__main__":
         os.makedirs('./results')
 
     for ii in xrange(len(pathlist)) :
-        ret = os.system( 'python CollectFrames.py -i "%s"' % pathlist[ii] )
+        ret = os.system( 'python ../ControlRecord/CollectFrames.py -i "%s"' % pathlist[ii] )
 
         if ret :
             continue
 
-        new_name = dirlist[ii] + '.bin'
-        if os.path.isfile('./results/' + new_name) :
-            os.remove('./results/' + new_name)
-        if os.path.isfile(new_name) :
-            os.remove(new_name)
+#        new_name = dirlist[ii] + '.bin'
+#        if os.path.isfile('./results/' + new_name) :
+#            os.remove('./results/' + new_name)
+#        if os.path.isfile(new_name) :
+#            os.remove(new_name)
+#
+#        os.rename('collect.bin', new_name)
+#
+#        try:
+#            shutil.move(new_name, './results')
+#
+#        except:
+#            pass
+#
+#        finally:
+#            pass
 
-        os.rename('collect.bin', new_name)
 
-        try:
-            shutil.move(new_name, './results')
+        new_dir = './results/' + dirlist[ii]
+        os.makedirs(new_dir)
 
-        except:
-            pass
 
-        finally:
-            pass
+        collect_filelist = os.listdir('.')
+
+        for collect_file in collect_filelist :
+            if os.path.isfile('./' + collect_file) :
+                if collect_file[0:7] == 'collect' and collect_file[-4:] == '.bin' :
+
+                    try:
+                        shutil.move('./' + collect_file, new_dir)
+
+                    except:
+                        pass
+
+                    finally:
+                        pass
