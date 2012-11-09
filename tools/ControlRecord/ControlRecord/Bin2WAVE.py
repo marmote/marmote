@@ -5,7 +5,8 @@ import sys
 import tools.FileSource     as FS
 import tools.DSPConfig      as conf
 import tools.GenerateData   as GD
-import tools.FrameConfig    as FC
+
+import wave
 
 
 parser = OptionParser()
@@ -18,43 +19,33 @@ if __name__ == "__main__":
     (options, args) = parser.parse_args()
 
     DSPconf = conf.DSPconf_t()
-    FrameConf = FC.Frameconf_t()
 
-    Display_N = 0
+    Display_N = 1000
     MF_hist_len = 0
 
 
     Source = FS.FileSource(options.inputfileordir)
     dg = GD.DataGenerator(Source, DSPconf, Display_N, MF_hist_len)
+    
+
+    fp = wave.open(options.inputfileordir + '.wav', 'w') 
+    fp.setparams((2, 2, 44100, 0, 'NONE', 'not compressed'))
+
 
     while True :
         #####################################
-        # Get all the data
-        dg.tf.ClearFromBeginning( dg.tf.byte_buff_len )
-        
-        dg.GetTHFilteredData(stop_after_each = True)
-
-        if dg.tf.byte_buff_len == 0 :
+        # Get data
+        dg.GetPreProcessedBuff()
+    
+        if dg.int_buff.size == 0 :
             sys.exit(0)
+
 
         #####################################
         # Write data to file
-        f = open('./collect_%d.bin'%dg.tf.frame_cnt[0], 'wb')
+        #value_str = ''.join(dg.int_buff)
 
-    
-        frame_starts = list(dg.tf.frame_starts)
-        frame_starts.append(dg.tf.byte_buff_len)
+#        fp.writeframesraw(value_str)
+        fp.writeframesraw(dg.int_buff)
 
-        #print "len(frames_starts) : %d"%len(frame_starts)
-        #print "dg.tf.frame_cnt.size : %d"%dg.tf.frame_cnt.size
-
-        for ii in xrange(len(frame_starts) - 1) :
-
-            FrameConf.START_OF_FRAME.tofile(f)
-            FrameConf.DATA_FRAME_ID.tofile(f)
-
-            dg.tf.frame_cnt[ii].newbyteorder('B').tofile(f)
-
-            dg.tf.byte_buff[frame_starts[ii]:frame_starts[ii+1]].tofile(f)
-                
-        f.close()
+    fp.close()

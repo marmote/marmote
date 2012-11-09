@@ -34,11 +34,11 @@ class ThresholdFilter(FB.FrameBuffer):
 #                break
 
 
-        return self.TH_cnt > 0
+        return self.TH_cnt
 
         
 ################################################################################
-    def Process(self, byte_buff, byte_buff_len, frame_starts, frame_cnt, process_fragments):
+    def Process(self, byte_buff, byte_buff_len, frame_starts, frame_cnt, process_fragments, stop_after_each = False):
 
         if process_fragments :
             frame_starts = frame_starts + [byte_buff_len]
@@ -62,8 +62,14 @@ class ThresholdFilter(FB.FrameBuffer):
             t_buff = byte_buff[frame_starts[ii]:frame_starts[ii+1]]
             frame_length = frame_starts[ii+1] - frame_starts[ii]
 
-            if not self.ThresholdLogic(t_buff) :            
+            prev_TH_cnt = self.TH_cnt
+            self.ThresholdLogic(t_buff)
+            if not self.TH_cnt :            
+                if stop_after_each and prev_TH_cnt :
+                    return processed_bytes
+
                 continue
+
 
             self.frame_starts.append(self.byte_buff_len)
             self.frame_cnt = np.append( self.frame_cnt, frame_cnt[ii] )
@@ -76,3 +82,7 @@ class ThresholdFilter(FB.FrameBuffer):
             self.byte_buff_len += frame_length            
 
         return processed_bytes
+
+        #Return if done with the input buffer
+        #OR
+        #return if stop_after_each is True AND a signal end was detected

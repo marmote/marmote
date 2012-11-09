@@ -71,20 +71,30 @@ class DataGenerator:
 
 
 ################################################################################
-    def GetTHFilteredData(self) :
+    def GetTHFilteredData(self, stop_after_each = False) :
                     
         while 1 :
+            # 3. Filter data frames
             prev_size = self.tf.byte_buff_len                
                 
             process_fragments = self.s.SourceEmpty()
-            processed_bytes2 = self.tf.Process( self.dfe.byte_buff, self.dfe.byte_buff_len, self.dfe.frame_starts, self.dfe.frame_cnt, process_fragments ) 
+            processed_bytes2 = self.tf.Process( self.dfe.byte_buff, self.dfe.byte_buff_len, self.dfe.frame_starts, self.dfe.frame_cnt, process_fragments, stop_after_each ) 
             self.dfe.ClearFromBeginning( processed_bytes2 ) # Clear any previous data, that was already processed
 
-            if self.tf.byte_buff_len > prev_size or self.s.SourceEmpty():
-                break
-            elif self.tf.byte_buff_len == prev_size :
-                # 2. Get some brand new, raw data
-                temp = self.s.GetBuffer()
 
-                # 3. Find data frames (if any) in data
-                self.dfe.ExtractDataFrames(temp)                        
+            #Question: Do we return with the data we have at this point, or do we read more?
+            if self.s.SourceEmpty() :
+                break
+
+            if self.tf.byte_buff_len > prev_size :
+                if not stop_after_each :
+                    break
+
+                if self.tf.TH_cnt == 0 :
+                    break
+
+            # 1. Get some brand new, raw data
+            temp = self.s.GetBuffer()
+
+            # 2. Find data frames (if any) in data
+            self.dfe.ExtractDataFrames(temp)                        
