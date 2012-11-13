@@ -18,7 +18,7 @@ class FrameBuffer:
 
 ################################################################################
     def IncreaseBufferSize(self, buff_len = 100) :
-        self.byte_buff = np.append( self.byte_buff, np.ones(buff_len, dtype=np.uint8) )
+        self.byte_buff = np.append( self.byte_buff, np.zeros(buff_len, dtype=np.uint8) )
 
 ###########
 # alt 1.
@@ -45,3 +45,9 @@ class FrameBuffer:
 #        self.byte_buff[:self.byte_buff_len-buff_len] = self.byte_buff[buff_len:self.byte_buff_len]
 
         self.byte_buff_len -= buff_len
+        
+
+################################################################################
+    def AddToEnd(self, in_buff) :
+        self.byte_buff[self.byte_buff_len : self.byte_buff_len + in_buff.size] = in_buff
+        self.byte_buff_len += in_buff.size  
