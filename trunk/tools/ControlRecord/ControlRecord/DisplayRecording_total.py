@@ -33,13 +33,14 @@ if __name__ == "__main__":
     # Get all the data
     Source = FS.FileSource(options.inputfileordir)
     dg = GD.DataGenerator(Source, DSPconf, Display_N, -1)
+    spc = SP.SignalProcessingChain(DSPconf, filtering=True)
 
     dg.GetPreProcessedBuff()
 
     if dg.int_buff.size == 0 :
         sys.exit(1)
 
-    frame_starts, I_buff, Q_buff, I_spectrum, Q_spectrum, spectrum = SP.SignalProcessing( dg.frame_starts, dg.int_buff, DSPconf, options.RF )  # Assumes 2 channels !!!
+    frame_starts, I_buff, Q_buff, I_spectrum, Q_spectrum, spectrum = spc.SignalProcessing( dg.frame_starts, dg.int_buff, options.RF )  # Assumes 2 channels !!!
 
     data = ( frame_starts, dg.missing_frames, I_buff, Q_buff, I_spectrum, Q_spectrum, spectrum )
 

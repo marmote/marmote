@@ -70,9 +70,13 @@ class DataFrameExtractor(FB.FrameBuffer):
                     # Obvioulsy the start of frame sequence is not stored, but if only parts of it
                     # are encountered that we have to store
                     if ii != SOF[self.SOF_cnt] :
-                        for jj in xrange(self.SOF_cnt) :
-                            self.byte_buff[self.byte_buff_len] = SOF[jj]
-                            self.byte_buff_len += 1
+                        self.AddToEnd(SOF[:self.SOF_cnt])
+###########
+# alt
+#                        for jj in xrange(self.SOF_cnt) :
+#                            self.byte_buff[self.byte_buff_len] = SOF[jj]
+#                            self.byte_buff_len += 1
+
 ###########
 # alt 1.
 #                        for jj in SOF[:self.SOF_cnt] :
@@ -86,8 +90,11 @@ class DataFrameExtractor(FB.FrameBuffer):
 
 
                         if ii != SOF[0] :
-                            self.byte_buff[self.byte_buff_len] = ii
-                            self.byte_buff_len += 1
+                            self.AddToEnd(np.array([ii], dtype=np.uint8))
+###########
+# alt
+#                            self.byte_buff[self.byte_buff_len] = ii
+#                            self.byte_buff_len += 1
 
 
 #            elif self.state == self.ID_STATE :
