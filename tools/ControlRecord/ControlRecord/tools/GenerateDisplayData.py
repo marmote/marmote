@@ -9,7 +9,7 @@ class DisplayDataGenerator(GD.DataGenerator):
     def __init__(self, Source, DSPconf, N, mf_hist_len = 100, RF = False):
         GD.DataGenerator.__init__(self, Source, DSPconf, N, mf_hist_len)
 
-        self.spc = SP.SignalProcessingChain(DSPconf, filtering=True)
+        self.spc = SP.SignalProcessingChain(DSPconf, filtering=False)
 
         self.DSPconf = DSPconf
         self.RF      = RF

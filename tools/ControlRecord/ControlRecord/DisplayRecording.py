@@ -22,7 +22,7 @@ if __name__ == "__main__":
     else :
         DSPconf = conf.DSPconf_t()
 
-    Display_N = 400
+    Display_N = 512
     MF_hist_len = 200
 
     Source = FS.FileSource(options.inputfileordir)
