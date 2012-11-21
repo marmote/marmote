@@ -23,9 +23,6 @@ class DataFrameExtractor(FB.FrameBuffer):
         self.state              = self.WAITING_STATE
         self.collect_state      = False
 
-        # indicates how much of the START_OF_FRAME pattern was found
-        self.SOF_cnt = 0
-
         # for the frame counter temporary storage
         self.CNT = np.zeros(4, dtype=np.uint8)
         self.CNT_cnt = 0
@@ -55,8 +52,25 @@ class DataFrameExtractor(FB.FrameBuffer):
 
     ########################################
     # Extract frames
+        t = self.START_OF_FRAME.size
 
-        for ii in input_buff :
+        pp = 0
+        p = 0
+        while p < input_buff_len - t + 1 :
+
+            if self.state == self.WAITING_STATE :
+
+                SOF_found = False
+                start_idx = p
+                stop_idx = input_buff_len - t + 1
+                p = stop_idx
+                for ii in xrange(start_idx, stop_idx) :
+
+                    if np.array_equal( input_buff[ii:ii+t], SOF ) :
+                        SOF_found = True
+                        p = ii
+                        break
+
 
             ###################
             # Do something with the sample according to the state we are in
@@ -66,47 +80,13 @@ class DataFrameExtractor(FB.FrameBuffer):
                 # if we are storing the bytes
                 if self.collect_state :
 
-                    # We are looking for the start of frame sequence and we are storing data
-                    # Obvioulsy the start of frame sequence is not stored, but if only parts of it
-                    # are encountered that we have to store
-                    if ii != SOF[self.SOF_cnt] :
-                        self.byte_buff[self.byte_buff_len : self.byte_buff_len + self.SOF_cnt] = SOF[:self.SOF_cnt]
-                        self.byte_buff_len += self.SOF_cnt
-
-###########
-# alt
-#                        for jj in xrange(self.SOF_cnt) :
-#                            self.byte_buff[self.byte_buff_len] = SOF[jj]
-#                            self.byte_buff_len += 1
-
-###########
-# alt 1.
-#                        for jj in SOF[:self.SOF_cnt] :
-#                            self.byte_buff[self.byte_buff_len] = jj
-#                            self.byte_buff_len += 1
-
-###########
-# alt 2.
-#                        self.AddToEnd(SOF[:self.SOF_cnt])
-
-                        if ii != SOF[0] :
-                            self.byte_buff[self.byte_buff_len] = ii
-                            self.byte_buff_len += 1
-###########
-# alt
-#                            self.AddToEnd(np.array([ii], dtype=np.uint8))
-
-
-
-#            elif self.state == self.ID_STATE :
-#
-#                if input_buff[ii] == ID[0] :
-#                    self.frame_starts.append(self.byte_buff_len)
+                    self.byte_buff[self.byte_buff_len : self.byte_buff_len + p - pp] = input_buff[pp:p]
+                    self.byte_buff_len += p - pp
 
 
             elif self.state == self.COUNTER_STATE :
                 
-                self.CNT[self.CNT_cnt] = ii
+                self.CNT[self.CNT_cnt] = input_buff[p]
 
                 if self.CNT_cnt == 3 :
                     self.frame_starts.append(self.byte_buff_len)
@@ -117,26 +97,22 @@ class DataFrameExtractor(FB.FrameBuffer):
             # State transitions
             if self.state == self.WAITING_STATE :
 
-                if ii == SOF[0] :
-                    self.SOF_cnt = 1
-                elif ii == SOF[self.SOF_cnt] :
-                    self.SOF_cnt += 1
-                else :
-                    self.SOF_cnt = 0
-
-                if self.SOF_cnt >= SOF.size :
-                    self.SOF_cnt = 0
+                if SOF_found == True :
                     self.state = self.ID_STATE
 
                     self.collect_state = False
 
+                    p += t
+
 
             elif self.state == self.ID_STATE :
 
-                if ii == ID[0] :
+                if input_buff[p] == ID[0] :
                     self.state = self.COUNTER_STATE
                 else :
                     self.state = self.WAITING_STATE
+
+                p += 1
 
 
             elif self.state == self.COUNTER_STATE :
@@ -147,6 +123,9 @@ class DataFrameExtractor(FB.FrameBuffer):
                     self.CNT_cnt = 0
                     self.state = self.WAITING_STATE
                     self.collect_state = True
+
+                p += 1
+                pp = p
 
 
 ################################################################################

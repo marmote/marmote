@@ -3,15 +3,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2b647927-833e-4c26-bfcd-dd0a614dd0a6}</ProjectGuid>
+    <ProjectGuid>{ea649536-2750-480e-b7c3-46abdc3fdc52}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>DisplayRecording.py</StartupFile>
+    <StartupFile>FFT_test.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>ControlRecord</Name>
-    <RootNamespace>ControlRecord</RootNamespace>
+    <Name>ControlRecord_GNUradio</Name>
+    <RootNamespace>ControlRecord_GNUradio</RootNamespace>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
     <CommandLineArguments>-i D:\Work\Measurements\BreakTest_AluminiumBeam\4-1\rec_105.bin</CommandLineArguments>
     <InterpreterPath />
@@ -26,28 +26,19 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Bin2WAVE.py" />
     <Compile Include="CollectFrames.py" />
-    <Compile Include="CollectFramesFromSubDirs.py" />
-    <Compile Include="DisplayRecording.py" />
-    <Compile Include="DisplayRecording_total.py" />
-    <Compile Include="DisplayStdinStream.py" />
-    <Compile Include="tools\DSPConfig.py" />
+    <Compile Include="FFT_test.py" />
+    <Compile Include="GNUradio_blocks\FrameSource.py" />
     <Compile Include="tools\ExtractFrames.py" />
-    <Compile Include="tools\FancyDisplay.py" />
+    <Compile Include="tools\ExtractNsamples16Bit.py" />
     <Compile Include="tools\FileSource.py" />
-    <Compile Include="tools\FIRfiltering.py" />
     <Compile Include="tools\FrameBuffer.py" />
     <Compile Include="tools\FrameConfig.py" />
-    <Compile Include="tools\FramePreProcessing.py" />
-    <Compile Include="tools\GenerateData.py" />
-    <Compile Include="tools\GenerateDisplayData.py" />
     <Compile Include="tools\HumanReadableDataSize.py" />
-    <Compile Include="tools\SignalProcessing.py" />
-    <Compile Include="tools\StdinSource.py" />
-    <Compile Include="tools\ThresholdProcessing.py" />
+    <Compile Include="tools\MyProfiler.py" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="GNUradio_blocks\" />
     <Folder Include="tools\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
