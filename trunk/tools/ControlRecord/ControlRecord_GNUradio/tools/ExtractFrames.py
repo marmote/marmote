@@ -97,13 +97,6 @@ class DataFrameExtractor(FB.FrameBuffer):
 #                            self.AddToEnd(np.array([ii], dtype=np.uint8))
 
 
-
-#            elif self.state == self.ID_STATE :
-#
-#                if input_buff[ii] == ID[0] :
-#                    self.frame_starts.append(self.byte_buff_len)
-
-
             elif self.state == self.COUNTER_STATE :
                 
                 self.CNT[self.CNT_cnt] = ii

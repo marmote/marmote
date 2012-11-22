@@ -9,7 +9,7 @@ class ExtractNsamples16Bit:
         pass
 
 ################################################################################
-    def Process(self, byte_buff, byte_buff_len, frame_starts, frame_cnt, N):
+    def Process(self, byte_buff, byte_buff_len, frame_starts, frame_cnt, N = 0):
     ########################################
     # Fixed values
         channels           = 2
@@ -18,7 +18,7 @@ class ExtractNsamples16Bit:
 
     ########################################
     # Set variables    
-#        byte_buff   = byte_buff.view(np.uint8)
+        byte_buff   = byte_buff.view(np.uint8)
 
         byte_buff_len = min( byte_buff_len, byte_buff.size )
 
@@ -35,17 +35,12 @@ class ExtractNsamples16Bit:
 
 
         frame_starts_out = []
+        frame_cnt_out = [] 
         ii = 0
         while ii < len(frame_starts) and frame_starts[ii] < buff_len :
             frame_starts_out.append( frame_starts[ii]/res )
-
-#            if self.mf_hist_len :
-#                if self.mf_hist_len < 0 or self.frame_cnt_history.size < self.mf_hist_len + 1 :
-#                    self.frame_cnt_history = np.append( self.frame_cnt_history, frame_cnt[ii] )
-#                else :
-#                    self.frame_cnt_history = np.roll( self.frame_cnt_history, -1 )
-#                    self.frame_cnt_history[-1] = frame_cnt[ii] 
+            frame_cnt_out.append( frame_cnt[ii] ) 
 
             ii += 1
 
-        return buff_len, int_buff, frame_starts_out
+        return buff_len, int_buff, frame_starts_out, frame_cnt_out

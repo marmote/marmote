@@ -24,6 +24,9 @@ import time as ttt
 from gnuradio import gr
 import gnuradio.extras
 
+from gruel import pmt as pmt
+
+
 import numpy as np
 
 
@@ -83,7 +86,7 @@ class FrameSource(gr.block):
                 # 1. Some minor pre-processing steps
                 self.dfe.ClearFromBeginning( self.processed_bytes ) # Clear any previous data, that was already processed
                 
-                self.processed_bytes, self.int_buff, self.frame_starts = self.eNs16b.Process( self.dfe.byte_buff, self.dfe.byte_buff_len, self.dfe.frame_starts, self.dfe.frame_cnt, self.N ) 
+                self.processed_bytes, self.int_buff, self.frame_starts, self.frame_cnt = self.eNs16b.Process( self.dfe.byte_buff, self.dfe.byte_buff_len, self.dfe.frame_starts, self.dfe.frame_cnt, self.N ) 
 #Profiling begin
 #                self.MyProfiler3.stop_timer()
 #Profiling end
@@ -100,7 +103,7 @@ class FrameSource(gr.block):
 #            self.MyProfiler4.start_timer()
 #Profiling end
             # 2. Get some brand new, raw data
-            accum, accum_length = self.s.GetBuffer(1000)
+            accum, accum_length = self.s.GetBuffer(10000)
 #Profiling begin
 #            self.MyProfiler4.stop_timer()
 #Profiling end
@@ -125,16 +128,25 @@ class FrameSource(gr.block):
         #process data
         output_items[0][:self.int_buff.size] = self.int_buff
 
+        for ii in xrange(len(self.frame_starts)) :
+            offset = self.nitems_written(0) + self.frame_starts[ii]
+            key = pmt.pmt_string_to_symbol( "Frame counter" )
+            value = pmt.pmt_string_to_symbol( "%d"%self.frame_cnt[ii] )
+
+            self.add_item_tag(0, offset, key, value)
+
+
 #Profiling begin
         current_time = ttt.time()
         if current_time - self.previous_time > 3 :
-            print 'GenerateData processing time: %.3f' % ( self.MyProfiler.get_result() * 1e3 )
-            print 'GenerateData waiting time: %.3f' % ( self.MyProfiler2.get_result() * 1e3 )
-#            print 'GenerateData eNs16b time: %.3f' % ( self.MyProfiler3.get_result() * 1e3 )
-#            print 'GenerateData source time: %.3f' % ( self.MyProfiler4.get_result() * 1e3 )
-            print 'GenerateData dfe time: %.3f' % ( self.MyProfiler5.get_result() * 1e3  )
-#            print 'GenerateData combined time: %.3f' % ( self.MyProfiler6.get_result() * 1e3  )
-#            print 'GenerateData wait combined time: %.3f' % ( self.MyProfiler7.get_result() * 1e3  )
+            print 'FrameSource average processing time: %.3f ms' % ( self.MyProfiler.get_result() * 1e3 )
+            print 'FrameSource average processing time per sample: %.3f us' % ( self.MyProfiler.get_result() * 1e6/self.N )
+            print 'FrameSource average waiting time: %.3f ms' % ( self.MyProfiler2.get_result() * 1e3 )
+#            print 'FrameSource average eNs16b time: %.3f ms' % ( self.MyProfiler3.get_result() * 1e3 )
+#            print 'FrameSource average source time: %.3f ms' % ( self.MyProfiler4.get_result() * 1e3 )
+            print 'FrameSource average dfe time: %.3f ms' % ( self.MyProfiler5.get_result() * 1e3  )
+#            print 'FrameSource average combined time: %.3f ms' % ( self.MyProfiler6.get_result() * 1e3  )
+#            print 'FrameSource average wait combined time: %.3f ms' % ( self.MyProfiler7.get_result() * 1e3  )
             self.previous_time = current_time
 #
         self.MyProfiler.stop_timer()
