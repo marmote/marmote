@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{ea649536-2750-480e-b7c3-46abdc3fdc52}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>FFT_test.py</StartupFile>
+    <StartupFile>CollectFrames.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -28,6 +28,9 @@
   <ItemGroup>
     <Compile Include="CollectFrames.py" />
     <Compile Include="FFT_test.py" />
+    <Compile Include="gnuradiotest.py" />
+    <Compile Include="gnuradiotest2.py" />
+    <Compile Include="GNUradio_blocks\FrameToFileSink.py" />
     <Compile Include="GNUradio_blocks\FrameSource.py" />
     <Compile Include="tools\ExtractFrames.py" />
     <Compile Include="tools\ExtractNsamples16Bit.py" />
