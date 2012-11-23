@@ -138,7 +138,6 @@ void Max2830_write_register(uint8_t addr, uint16_t data)
 
 void Max2830_set_frequency( uint32_t freq_hz )
 {
-	uint32_t	f_LO = 20e6; // Frequency of the TCXO on the RF board
 	uint8_t		RefFreqDivider = 1; // Either 1 or 2
 
 	uint32_t	f_Comp;
@@ -150,7 +149,7 @@ void Max2830_set_frequency( uint32_t freq_hz )
 		return;
 	}
 
-	f_Comp = f_LO / RefFreqDivider;
+	f_Comp = LO_FREQUENCY / RefFreqDivider;
 
 	IntegerDivider = (uint8_t) (freq_hz / f_Comp);
 	if (IntegerDivider < 64)
@@ -180,14 +179,13 @@ uint32_t Max2830_get_frequency( void )
 	// TODO: read reference frequency divider ratio (assume bit value 0 now - divide by 1)
 
 	const uint32_t FREQ_CONST = 1048575; // 2^20-1  or (1 << 19) - 1;
-	uint32_t	f_LO = 20e6; // Frequency of the TCXO on the RF board
 	uint8_t		RefFreqDivider = 1; // Either 1 or 2
 	uint8_t IntegerDivider;
 	uint32_t FractionalDivider;
 	uint32_t freq_hz;
 	uint32_t	f_Comp;
 
-	f_Comp = f_LO / RefFreqDivider;
+	f_Comp = LO_FREQUENCY / RefFreqDivider;
 
 	IntegerDivider = Max2830_read_register(3) & 0xFF;				//  [7:0] -> IntegerDivider[7:0]
 	FractionalDivider  = (Max2830_read_register(3) >> 8) & 0x3F;	// [13:8] -> FractionalDivider[5:0]

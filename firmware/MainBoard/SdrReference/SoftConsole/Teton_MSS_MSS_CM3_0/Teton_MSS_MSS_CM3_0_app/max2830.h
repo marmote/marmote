@@ -62,6 +62,8 @@
 #define MSS_GPIO_LD_MASK		MSS_GPIO_6_MASK
 #define MSS_GPIO_RXTX_MASK      MSS_GPIO_28_MASK
 
+#define LO_FREQUENCY			20000000uL		// Frequency of the TCXO on the Joshua board
+
 
 static const uint16_t max2830_tx_lpf_bws[] =
 {
@@ -109,8 +111,7 @@ typedef enum __Max2830_Analog_Meas_t
  *       registers is kept in this array as a reference. Register reads
  *       return values kept in the max2830_regs array.
  */
-/*
- * static uint16_t max2830_regs[16] =
+static uint16_t max2830_regs[16] =
 {
 		0x1740,
 		0x119A,
@@ -129,8 +130,8 @@ typedef enum __Max2830_Analog_Meas_t
 		0x0300,
 		0x0145,
 };
-*/
 
+/*
 static uint16_t max2830_regs[16] =
 {
 		0x1740,
@@ -138,8 +139,8 @@ static uint16_t max2830_regs[16] =
 		0x1003,
 		0x0079,
 		0x3666,
-		0x00A0, // (for 20 MHz TCXO)
-		//0x00A4, // Divide reference frequency by 2 (for 40 MHz XTAL)
+		0x00A0, // R5 (for 20 MHz TCXO)
+		//0x00A4, // R5 Divide reference frequency by 2 (for 40 MHz XTAL)
 		0x0060,
 		0x1022,
 		0x2021,
@@ -148,10 +149,10 @@ static uint16_t max2830_regs[16] =
 		0x007F,
 		0x0140,
 		0x0E92,
-		0x0300,
+		0x0300, // R14
 		0x0145,
 };
-
+*/
 
 ace_channel_handle_t rssi_handle;
 
