@@ -50,11 +50,17 @@ int main()
 
 	Max2830_set_frequency(2405000000uL);
 
-	// Set up as a transmitter at 2405 MHz as default
+	// Set up as a transmitter at 2405 MHz by default
+	/*
 	Max2830_set_frequency(2405000000uL);
 	Max2830_set_mode( MAX2830_TX_MODE );
 	MSS_GPIO_set_output( MSS_GPIO_AFE_MODE, AFE_MODE_TX );
+	*/
 
+	// Set up as a receiver at 2405 MHz by default
+	Max2830_set_frequency(2405000000uL);
+	MSS_GPIO_set_output( MSS_GPIO_AFE_MODE, AFE_MODE_RX );
+	Max2830_set_mode( MAX2830_RX_MODE );
 
 
 	while( 1 )
