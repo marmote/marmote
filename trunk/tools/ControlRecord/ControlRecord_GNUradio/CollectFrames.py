@@ -28,7 +28,7 @@ class Top_Block(gr.top_block):
         ##################################################
         # Blocks
         ##################################################
-        self.frame_source = FrameS.FrameSource(Source, N=6*1024)
+        self.frame_source = FrameS.FrameSource(Source, N=6*1024, complete_buffs_only = False)
         self.frame_sink = FrameTFS.FrameToFileSink()
 
 

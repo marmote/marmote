@@ -56,7 +56,7 @@ class DataFrameExtractor(FB.FrameBuffer):
     ########################################
     # Extract frames
 
-        for ii in input_buff :
+        for ii in input_buff[0:input_buff_len] :
 
             ###################
             # Do something with the sample according to the state we are in
