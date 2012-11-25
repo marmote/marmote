@@ -63,17 +63,30 @@ class FrameToFileSink(gr.block):
         # Write data to file
 #        f = open('./collect_%d.bin'%frame_cnt[0], 'wb')
 
-        frame_starts.append(ninput_items)
 
-        for ii in xrange(len(frame_starts) - 1) :
+        start_idx = 0
+
+        while True :
+            if frame_cnt.size == 0 :
+                input[start_idx:ninput_items].tofile(self.f)
+                break
+
+
+            input[start_idx:frame_starts[0]].tofile(self.f)
 
             self.FrameConf.START_OF_FRAME.tofile(self.f)
             self.FrameConf.DATA_FRAME_ID.tofile(self.f)
+            
+            frame_cnt[0].newbyteorder('B').tofile(self.f)
 
-            frame_cnt[ii].newbyteorder('B').tofile(self.f)
 
-            input[frame_starts[ii]:frame_starts[ii+1]].tofile(self.f)
-                
+            start_idx = frame_starts[0]
+
+            frame_cnt = frame_cnt[1:]
+            frame_starts = frame_starts[1:]
+
+
+#        self.f.flush()                
 #        f.close()
 
         return ninput_items

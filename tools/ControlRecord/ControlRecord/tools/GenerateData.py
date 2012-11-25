@@ -9,10 +9,11 @@ import FrameConfig as FC
 class DataGenerator:
 
 ################################################################################
-    def __init__(self, Source, DSPconf, N, mf_hist_len = 100):
+    def __init__(self, Source, DSPconf, N, mf_hist_len = 100, complete_buffs_only = True):
         FrameConf = FC.Frameconf_t()
 
         self.N      = N
+        self.complete_buffs_only = complete_buffs_only
         channels    = DSPconf.channels
 
         ##########
@@ -37,15 +38,44 @@ class DataGenerator:
 ################################################################################
     def GetPreProcessedBuff(self):
 
+        N = self.N
+
         while 1 :
-            if self.N > 0 or self.s.SourceEmpty() :
+            if N > 0 or self.s.SourceEmpty() :
 
                 # 1. Some minor pre-processing steps
                 self.dfe.ClearFromBeginning( self.processed_bytes ) # Clear any previous data, that was already processed
-                self.processed_bytes, self.int_buff, self.frame_starts, self.missing_frames = self.fpp.Process( self.dfe.byte_buff, self.dfe.byte_buff_len, self.dfe.frame_starts, self.dfe.frame_cnt, self.N ) 
+                self.processed_bytes, self.int_buff, self.frame_starts, self.missing_frames = self.fpp.Process( self.dfe.byte_buff, self.dfe.byte_buff_len, self.dfe.frame_starts, self.dfe.frame_cnt, N ) 
 
                 if self.s.SourceEmpty() or self.int_buff.size > 0 :
                     break
+
+                # If we have any new data, return it
+                if self.int_buff.size > 0 :
+                    break
+
+                # There's no new data
+
+                if self.s.SourceEmpty() :
+                    # There's no new data, but the source is already empty, so there is not going to be new data
+                    # But there still might be some left in the input buffer (self.dfe.byte_buff)
+
+                    # If we only work with full output buffers (self.int_buff.size == ch_number*N), return now, and call it a day
+                    if self.complete_buffs_only :
+                        break
+                    # We work with partial buffers as well
+
+                    # However N == 0 indicates, that we take any output buffer size, so the fact that int_buff was empty really means
+                    # that there's nothing left to work with
+                    if N == 0 :
+                        break
+
+                    # There's a chance that at this point there's still something left
+                    # let's look at it again
+                    self.processed_bytes = 0
+                    N = 0
+                    continue
+
 
             # 2. Get some brand new, raw data
             temp = self.s.GetBuffer()

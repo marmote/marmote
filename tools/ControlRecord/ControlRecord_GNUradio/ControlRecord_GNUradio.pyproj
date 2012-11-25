@@ -13,7 +13,7 @@
     <Name>ControlRecord_GNUradio</Name>
     <RootNamespace>ControlRecord_GNUradio</RootNamespace>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <CommandLineArguments>-i D:\Work\Measurements\BreakTest_AluminiumBeam\4-1\rec_105.bin</CommandLineArguments>
+    <CommandLineArguments>-i test.bin</CommandLineArguments>
     <InterpreterPath />
     <InterpreterArguments />
   </PropertyGroup>

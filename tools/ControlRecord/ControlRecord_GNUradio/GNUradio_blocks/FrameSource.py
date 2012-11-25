@@ -34,7 +34,7 @@ import numpy as np
 class FrameSource(gr.block):
 
 ################################################################################
-    def __init__(self, Source, N=1024):
+    def __init__(self, Source, N=1024, complete_buffs_only = True):
         gr.block.__init__(self, name="Generic Data Source Two channel 16 bit data source", in_sig=None, out_sig=[np.int16])
 
         FrameConf = FC.Frameconf_t()
@@ -42,6 +42,7 @@ class FrameSource(gr.block):
         ##########
 
         self.N      = N
+        self.complete_buffs_only = complete_buffs_only
 
         self.s      = Source
         self.dfe    = EF.DataFrameExtractor(FrameConf.START_OF_FRAME, FrameConf.DATA_FRAME_ID)
@@ -61,6 +62,7 @@ class FrameSource(gr.block):
 
         ##########
 
+        self.abcdefg = 0
         self.processed_bytes = 0
 
 
@@ -77,22 +79,96 @@ class FrameSource(gr.block):
         self.MyProfiler.start_timer()
 #Profiling end
 
+        N = self.N
+
         while 1 :
-            if self.N > 0 or self.s.SourceEmpty() :
+            if N > 0 or self.s.SourceEmpty() :
 #Profiling begin
 #                self.MyProfiler3.start_timer()
 #Profiling end
 
+#                f = open('./temp.bin', 'ab')
+#                for ii in xrange(len(self.dfe.frame_starts)):
+#                    f.write('Frame start: %d, Frame cnt: %d\n'%(self.dfe.frame_starts[ii] , self.dfe.frame_cnt[ii]))
+#
+#                f.close()
+
                 # 1. Some minor pre-processing steps
+                f = open('./temp2.bin', 'ab')
+                f.write('Clear from beginning: %d, current size: %d\n'%(self.processed_bytes, self.dfe.byte_buff_len ))
+                f.close()
+
                 self.dfe.ClearFromBeginning( self.processed_bytes ) # Clear any previous data, that was already processed
-                
-                self.processed_bytes, self.int_buff, self.frame_starts, self.frame_cnt = self.eNs16b.Process( self.dfe.byte_buff, self.dfe.byte_buff_len, self.dfe.frame_starts, self.dfe.frame_cnt, self.N ) 
+
+                f = open('./temp2.bin', 'ab')
+                f.write('Left after clear from beginning: %d\n'%(self.dfe.byte_buff_len ))
+                f.close()
+
+                self.processed_bytes, self.int_buff, self.frame_starts, self.frame_cnt = self.eNs16b.Process( self.dfe.byte_buff, self.dfe.byte_buff_len, self.dfe.frame_starts, self.dfe.frame_cnt, N ) 
+
+                f = open('./temp2.bin', 'ab')
+                f.write('N: %d, processed_bytes: %d, int_buff.size: %d\n'%(N, self.processed_bytes , self.int_buff.size))
+                f.close()
+
+                if self.processed_bytes:
+                    f = open('./temp2.bin', 'ab')
+                    for ii in xrange(len(self.dfe.frame_starts)):
+                        if self.dfe.frame_starts[ii] > self.processed_bytes :
+                            break
+
+                        f.write('Frame start: %d, Frame cnt: %d, diff: %d\n'%(self.dfe.frame_starts[ii] , self.dfe.frame_cnt[ii], self.dfe.frame_cnt[ii] - self.abcdefg))
+                        self.abcdefg = self.dfe.frame_cnt[ii]
+                    f.close()
+
 #Profiling begin
 #                self.MyProfiler3.stop_timer()
 #Profiling end
 
-                if self.s.SourceEmpty() or self.int_buff.size > 0 :
+                # If we have any new data, return it
+                if self.int_buff.size > 0 :
+                    if N == 0 :
+                        f = open('./temp2.bin', 'ab')
+                        f.write('N==0, DATA\n')
+                        f.close()
+
                     break
+
+                # There's no new data
+
+                if self.s.SourceEmpty() :
+                    f = open('./temp2.bin', 'ab')
+                    f.write('SOURCE EMPTY\n')
+                    f.close()
+                    # There's no new data, but the source is already empty, so there is not going to be new data
+                    # But there still might be some left in the input buffer (self.dfe.byte_buff)
+
+                    # If we only work with full output buffers (self.int_buff.size == ch_number*N), return now, and call it a day
+                    if self.complete_buffs_only :
+                        break
+                    f = open('./temp2.bin', 'ab')
+                    f.write('NON COMPLETE BUFFS\n')
+                    f.close()
+                    # We work with partial buffers as well
+
+                    # However N == 0 indicates, that we take any output buffer size, so the fact that int_buff was empty really means
+                    # that there's nothing left to work with
+                    if N == 0 :
+                        break
+                    f = open('./temp2.bin', 'ab')
+                    f.write('N>0\n')
+                    f.close()
+                    # There's a chance that at this point there's still something left
+                    # let's look at it again
+                    self.processed_bytes = 0
+                    N = 0
+                    f = open('./temp2.bin', 'ab')
+                    f.write('TRY AGAIN!\n')
+                    f.close()
+                    continue
+               
+            f = open('./temp2.bin', 'ab')
+            f.write('Get new data from file\n')
+            f.close()
 
 #Profiling begin
 #            self.MyProfiler7.stop_timer()
@@ -112,12 +188,36 @@ class FrameSource(gr.block):
 #Profiling begin
             self.MyProfiler5.start_timer()
 #Profiling end
+
+            f = open('./temp2.bin', 'ab')
+            f.write('accum_length2: %d\n'%accum_length)
+            f.close()
             # 3. Find data frames (if any) in data
-            self.dfe.ExtractDataFrames(accum)
+
+            f = open('./temp2.bin', 'ab')
+            f.write('self.dfe.byte_buff_len before: %d\n'%(self.dfe.byte_buff_len ))
+            f.close()
+
+            proc_bytes = self.dfe.ExtractDataFrames(accum, accum_length)
+
+            f = open('./temp2.bin', 'ab')
+            f.write('self.dfe.byte_buff_len after: %d\n'%(self.dfe.byte_buff_len ))
+            f.close()
 #Profiling begin
             self.MyProfiler5.stop_timer()
 #Profiling end
-            self.s.ClearFromBeginning(accum_length) 
+
+#            f = open('./temp2.bin', 'ab')
+#            for ii in xrange(len(self.dfe.frame_starts)):
+#                f.write('Frame start: %d, Frame cnt: %d, diff: %d\n'%(self.dfe.frame_starts[ii] , self.dfe.frame_cnt[ii], self.dfe.frame_cnt[ii] - self.abcdefg))
+#                self.abcdefg = self.dfe.frame_cnt[ii]
+#            f.close()
+
+            #f = open('./temp2.bin', 'wb')
+            #accum[:accum_length].tofile(f)
+            #f.close()
+
+            self.s.ClearFromBeginning(proc_bytes) 
 
 #Profiling begin
 #            self.MyProfiler6.stop_timer()
@@ -155,4 +255,8 @@ class FrameSource(gr.block):
 
         #return produced
 #        return len(output)
-        return self.int_buff.size
+        if self.s.SourceEmpty() and self.int_buff.size == 0 :
+            print 'Source empty.'
+            return -1
+        else :
+            return self.int_buff.size

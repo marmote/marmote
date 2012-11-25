@@ -53,7 +53,15 @@ class FileSource:
         while not self.SourceEmpty() and self.accum_length < N :
             N_new = N - self.accum_length
 
+            f = open('./temp2.bin', 'ab')
+            f.write('N_new: %d\n'%N_new)
+            f.close()
+
             temp = np.fromfile(self.f, dtype=np.uint8, count=N_new)
+
+            f = open('./temp2.bin', 'ab')
+            f.write('Read temp size: %d\n'%temp.size)
+            f.close()
 
             if temp.size == 0 :
                 self.IterateFileList()
@@ -79,6 +87,10 @@ class FileSource:
             print 'Throughput: %s/s; Progress: %.2f%%' % ( GetHumanReadableDataSize(BPS),  float(self.bytes_read_file) / self.current_file_size * 100 )
             self.bytes_read = 0
             self.previous_time = current_time
+
+        f = open('./temp2.bin', 'ab')
+        f.write('accum_length: %d\n'%self.accum_length)
+        f.close()
            
         return self.accum, self.accum_length
 
