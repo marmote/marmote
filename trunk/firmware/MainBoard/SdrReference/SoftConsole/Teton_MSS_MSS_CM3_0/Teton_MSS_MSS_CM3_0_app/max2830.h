@@ -121,7 +121,7 @@ static uint16_t max2830_regs[16] =
 		0x00A0,
 		0x0060,
 		0x0022,
-		0x2021,
+		0x3021,
 		0x07B5,
 		0x1DA4,
 		0x005F,
@@ -143,7 +143,7 @@ static uint16_t max2830_regs[16] =
 		//0x00A4, // R5 Divide reference frequency by 2 (for 40 MHz XTAL)
 		0x0060,
 		0x1022,
-		0x2021,
+		0x3021,
 		0x07B5,
 		0x1DA4,
 		0x007F,
