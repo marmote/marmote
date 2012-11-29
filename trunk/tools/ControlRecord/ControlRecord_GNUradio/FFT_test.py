@@ -4,7 +4,9 @@ from gnuradio import gr
 import gnuradio.extras
 
 
+from gnuradio.gr import firdes
 from gnuradio.wxgui import fftsink2
+from gnuradio.wxgui import scopesink2
 from grc_gnuradio import wxgui as grc_wxgui
 
 
@@ -27,12 +29,29 @@ class Top_Block(grc_wxgui.top_block_gui):
         # Variables
         ##################################################
         self.samp_rate = samp_rate = 750e3
-
+        self.transition = transition = 100e3
+        self.cutoff = cutoff = 100000
 
         ##################################################
         # Blocks
         ##################################################
-        self.frame_source = FrameS.FrameSource(Source, N=5*1024)
+        self.frame_source = FrameS.FrameSource(Source)
+
+        self.wxgui_scopesink2_0 = scopesink2.scope_sink_f(
+			self.GetWin(),
+			title="Scope Plot",
+			sample_rate=samp_rate,
+			v_scale=0.2,
+			v_offset=0,
+			t_scale=0.0000500,
+			ac_couple=False,
+			xy_mode=False,
+			num_inputs=1,
+			trig_mode=gr.gr_TRIG_MODE_AUTO,
+			y_axis_label="Counts",
+		)
+
+        self.Add(self.wxgui_scopesink2_0.win)
 
         self.wxgui_fftsink2_0 = fftsink2.fft_sink_f(
 			self.GetWin(),
@@ -43,7 +62,7 @@ class Top_Block(grc_wxgui.top_block_gui):
 			ref_scale=2.0,
 			sample_rate=samp_rate,
 			fft_size=512,
-			fft_rate=4*480,
+			fft_rate=10*480,
 			average=False,
 			avg_alpha=None,
 			title="FFT Plot",
@@ -52,17 +71,19 @@ class Top_Block(grc_wxgui.top_block_gui):
 
         self.Add(self.wxgui_fftsink2_0.win)
         self.gr_short_to_float_0 = gr.short_to_float(1, 32768)
+        self.high_pass_filter_0 = gr.fir_filter_fff(1, firdes.high_pass(
+			1, samp_rate, cutoff, transition, firdes.WIN_RECTANGULAR, 6.76))
         self.gr_null_sink_0 = gr.null_sink(gr.sizeof_short*1)
-        self.gr_deinterleave_0 = gr.deinterleave(gr.sizeof_short*1)
 
 
         ##################################################
         # Connections
         ##################################################
-        self.connect((self.frame_source, 0), (self.gr_deinterleave_0, 0))
-        self.connect((self.gr_deinterleave_0, 1), (self.gr_null_sink_0, 0))
-        self.connect((self.gr_deinterleave_0, 0), (self.gr_short_to_float_0, 0))
-        self.connect((self.gr_short_to_float_0, 0), (self.wxgui_fftsink2_0, 0))
+        self.connect((self.frame_source, 0), (self.gr_short_to_float_0, 0))
+        self.connect((self.gr_short_to_float_0, 0), (self.high_pass_filter_0, 0))
+        self.connect((self.frame_source, 1), (self.gr_null_sink_0, 0))
+        self.connect((self.high_pass_filter_0, 0), (self.wxgui_fftsink2_0, 0))
+        self.connect((self.high_pass_filter_0, 0), (self.wxgui_scopesink2_0, 0))
 
 
 ################################################################################

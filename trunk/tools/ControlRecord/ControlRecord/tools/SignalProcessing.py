@@ -62,14 +62,14 @@ class SignalProcessingChain :
             I_buff = self.I_HPF.Process(I_buff)
             Q_buff = self.Q_HPF.Process(Q_buff)
 
-        I_spectrum = 2*abs(np.fft.rfft(I_buff))
-        Q_spectrum = 2*abs(np.fft.rfft(Q_buff))
+        I_spectrum = abs(np.fft.rfft(I_buff))
+        Q_spectrum = abs(np.fft.rfft(Q_buff))
     
-        I_spectrum = I_spectrum / N
-        Q_spectrum = Q_spectrum / N
+#        I_spectrum = I_spectrum / N
+#        Q_spectrum = Q_spectrum / N
 
-        I_spectrum = 20 * np.log10(I_spectrum)
-        Q_spectrum = 20 * np.log10(Q_spectrum)
+        I_spectrum = 20 * np.log10(I_spectrum) - 10 * np.log10(N)
+        Q_spectrum = 20 * np.log10(Q_spectrum) - 10 * np.log10(N)
 
         if RF:
             num_pos_fr  = int(DSPconf.num_pos_fr(N))
