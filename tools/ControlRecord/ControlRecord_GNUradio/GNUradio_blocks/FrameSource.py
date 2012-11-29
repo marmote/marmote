@@ -16,8 +16,8 @@ import FrameConfig as FC
 import ExtractNsamples16Bit as ENS16B
 
 #Profiling begin
-import MyProfiler
-import time as ttt
+#import MyProfiler
+#import time as ttt
 #Profiling end
 
 
@@ -34,31 +34,29 @@ import numpy as np
 class FrameSource(gr.block):
 
 ################################################################################
-    def __init__(self, Source, N=1024, complete_buffs_only = True):
-        gr.block.__init__(self, name="Generic Data Source Two channel 16 bit data source", in_sig=None, out_sig=[np.int16])
+    def __init__(self, Source):
+        gr.block.__init__(self, name="Generic Data Source (Two channel, 16 bit)", in_sig=None, out_sig=[np.int16, np.int16])
+#        self.set_auto_consume(False)
 
         FrameConf = FC.Frameconf_t()
 
         ##########
-
-        self.N      = N
-        self.complete_buffs_only = complete_buffs_only
-
         self.s      = Source
         self.dfe    = EF.DataFrameExtractor(FrameConf.START_OF_FRAME, FrameConf.DATA_FRAME_ID)
         self.eNs16b = ENS16B.ExtractNsamples16Bit()
 
 #Profiling begin
-        average_len = 1000
-        self.MyProfiler = MyProfiler.MyProfiler(average_len)
-        self.MyProfiler2 = MyProfiler.MyProfiler(average_len)
-        self.MyProfiler5 = MyProfiler.MyProfiler(average_len)
-        self.previous_time = ttt.time()
+#        average_len = 1000
+#        self.MyProfiler = MyProfiler.MyProfiler(average_len)
+#        self.MyProfiler2 = MyProfiler.MyProfiler(average_len)
+#        self.MyProfiler5 = MyProfiler.MyProfiler(average_len)
+#        self.previous_time = ttt.time()
 #Profiling end
 
         ##########
 
-        self.processed_bytes = 0
+#        self.cum = 0
+#        self.processed_bytes = 0
 
 
 ################################################################################
@@ -67,91 +65,112 @@ class FrameSource(gr.block):
 
 
 ################################################################################
+#    def forecast(self, noutput_items, ninput_items_required):
+#        #setup size of input_items[i] for work call
+#        for i in range(len(ninput_items_required)):
+#            ninput_items_required[i] = noutput_items
+
+
+################################################################################
     def work(self, input_items, output_items):
+#        g = open('./work.txt', 'ab')
+#        g.write("FrameSource start\n")
+#        g.close
 
 #Profiling begin
-        self.MyProfiler2.stop_timer()
-        self.MyProfiler.start_timer()
+#        self.MyProfiler2.stop_timer()
+#        self.MyProfiler.start_timer()
 #Profiling end
 
-        N = self.N
+        N = min( len(output_items[0]), len(output_items[1]) )
+
+ #       f = open('./frame_source.txt', 'ab')
+ #       f.write("%d "%(N))
+ #       f.close()
+
+
+        if N == 0 :
+#            g = open('./work.txt', 'ab')
+#            g.write("FrameSource stop\n")
+#            g.close
+            print 'FrameSource error: No space in output buffers!'
+            return 0
+
+        noutput_items = 0
+
 
         while 1 :
-            if N > 0 or self.s.SourceEmpty() :
-                # 1. Some minor pre-processing steps
-                self.dfe.ClearFromBeginning( self.processed_bytes ) # Clear any previous data, that was already processed
+            # 1. Some minor pre-processing steps
+            self.processed_bytes, self.int_buff, self.frame_starts, self.frame_cnt = self.eNs16b.Process( self.dfe.byte_buff, self.dfe.byte_buff_len, self.dfe.frame_starts, self.dfe.frame_cnt, N - noutput_items ) 
 
-                self.processed_bytes, self.int_buff, self.frame_starts, self.frame_cnt = self.eNs16b.Process( self.dfe.byte_buff, self.dfe.byte_buff_len, self.dfe.frame_starts, self.dfe.frame_cnt, N ) 
+            if self.int_buff.size :
+                output_items[0][noutput_items : noutput_items + self.int_buff.size/2] = self.int_buff[0::2]
+                output_items[1][noutput_items : noutput_items + self.int_buff.size/2] = self.int_buff[1::2]
 
-                # If we have any new data, return it
-                if self.int_buff.size > 0 :
-                    break
+                for ii in xrange(len(self.frame_starts)) :
+                    offset0 = self.nitems_written(0) + noutput_items + self.frame_starts[ii]/2
+                    offset1 = self.nitems_written(1) + noutput_items + self.frame_starts[ii]/2
+                    key = pmt.pmt_string_to_symbol( "Frame counter" )
+                    value = pmt.pmt_string_to_symbol( "%d"%self.frame_cnt[ii] )
 
-                # There's no new data
-                if self.s.SourceEmpty() :
-                    # There's no new data, but the source is already empty, so there is not going to be new data
-                    # But there still might be some left in the input buffer (self.dfe.byte_buff)
+                    self.add_item_tag(0, offset0, key, value)
+                    self.add_item_tag(1, offset1, key, value)
 
-                    # If we only work with full output buffers (self.int_buff.size == ch_number*N), return now, and call it a day
-                    if self.complete_buffs_only :
-                        break
-                    # We work with partial buffers as well
+                noutput_items += self.int_buff.size/2
 
-                    # However N == 0 indicates, that we take any output buffer size, so the fact that int_buff was empty really means
-                    # that there's nothing left to work with
-                    if N == 0 :
-                        break
 
-                    # There's a chance that at this point there's still something left
-                    # let's look at it again
-                    self.processed_bytes = 0
-                    N = 0
-                    continue
-               
+            self.dfe.ClearFromBeginning( self.processed_bytes ) # Clear any previous data, that was already processed
+
+            # If we have enough data
+            if noutput_items >= N :
+                break
+
+            # Not enough but there's not gonna be any new
+            if self.s.SourceEmpty() :
+                break
+
+              
             # 2. Get some brand new, raw data
             accum, accum_length = self.s.GetBuffer(10000)
             
 #Profiling begin
-            self.MyProfiler5.start_timer()
+#            self.MyProfiler5.start_timer()
 #Profiling end
 
             # 3. Find data frames (if any) in data
             proc_bytes = self.dfe.ExtractDataFrames(accum, accum_length)
-
-#Profiling begin
-            self.MyProfiler5.stop_timer()
-#Profiling end
-
             self.s.ClearFromBeginning(proc_bytes) 
 
-        #process data
-        output_items[0][:self.int_buff.size] = self.int_buff
+#Profiling begin
+#            self.MyProfiler5.stop_timer()
+#Profiling end
+            
 
-        for ii in xrange(len(self.frame_starts)) :
-            offset = self.nitems_written(0) + self.frame_starts[ii]
-            key = pmt.pmt_string_to_symbol( "Frame counter" )
-            value = pmt.pmt_string_to_symbol( "%d"%self.frame_cnt[ii] )
-
-            self.add_item_tag(0, offset, key, value)
-
+#        f = open('./frame_source.txt', 'ab')
+#        f.write("%d %d\n"%(len(output_items[0]), self.int_buff.size))
+#        f.close()
 
 #Profiling begin
-        current_time = ttt.time()
-        if current_time - self.previous_time > 3 :
-            print 'FrameSource average processing time: %.3f ms' % ( self.MyProfiler.get_result() * 1e3 )
-            print 'FrameSource average processing time per sample: %.3f us' % ( self.MyProfiler.get_result() * 1e6/self.N )
-            print 'FrameSource average waiting time: %.3f ms' % ( self.MyProfiler2.get_result() * 1e3 )
-            print 'FrameSource average dfe time: %.3f ms' % ( self.MyProfiler5.get_result() * 1e3  )
+#        current_time = ttt.time()
+#        if current_time - self.previous_time > 3 :
+#            print 'FrameSource average processing time: %.3f ms' % ( self.MyProfiler.get_result() * 1e3 )
+#            print 'FrameSource average waiting time: %.3f ms' % ( self.MyProfiler2.get_result() * 1e3 )
+#            print 'FrameSource average dfe time: %.3f ms' % ( self.MyProfiler5.get_result() * 1e3  )
 
-            self.previous_time = current_time
+#            self.previous_time = current_time
 
-        self.MyProfiler.stop_timer()
-        self.MyProfiler2.start_timer()
+#        self.MyProfiler.stop_timer()
+#        self.MyProfiler2.start_timer()
 #Profiling end
 
+#        self.cum += self.int_buff.size
+#        g = open('./work.txt', 'ab')
+#        g.write("FrameSource stop, out: %d, total: %d\n"%(self.int_buff.size, self.cum))
+#        g.close
+
         #return produced
-        if self.s.SourceEmpty() and self.int_buff.size == 0 :
+        if noutput_items == 0 and self.s.SourceEmpty() :
             print 'Source empty.'
             return -1
         else :
-            return self.int_buff.size
+            return noutput_items

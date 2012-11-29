@@ -25,13 +25,10 @@ class ExtractNsamples16Bit:
         nominal_len = N * channels * res
 
         if nominal_len > 0 :
-            if byte_buff_len < nominal_len :
-                byte_buff_len = 0
-            else :
-                byte_buff_len = nominal_len
+            byte_buff_len = min( byte_buff_len, nominal_len )
 
         buff_len = byte_buff_len - byte_buff_len % (channels * res)
-        int_buff = byte_buff[:buff_len].view( dtype=np.int16 )
+        int_buff = byte_buff[:buff_len].view( dtype=np.int16 ).newbyteorder()
 
 
         frame_starts_out = []
