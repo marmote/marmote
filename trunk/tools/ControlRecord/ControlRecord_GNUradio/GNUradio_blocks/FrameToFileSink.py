@@ -3,7 +3,7 @@ import os
 import sys
 
 mpath = os.path.split(__file__)[0]
-addpath = os.path.abspath(os.path.join(mpath, '..\\tools'))
+addpath = os.path.abspath(os.path.join(mpath, '../tools'))
 
 if addpath not in sys.path :
 	sys.path.append(addpath)
