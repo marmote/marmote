@@ -37,7 +37,7 @@ class DataFrameExtractor(FB.FrameBuffer):
     ########################################
     # Set variables    
 #        input_buff              = input_buff.view(np.uint8)  # Make sure it is interpreted as uint8
-        if input_buff_len is None or input_buff_len <= 0 :
+        if input_buff_len is None :
             input_buff_len = input_buff.size
         else :
             input_buff_len = min(input_buff_len, input_buff.size)

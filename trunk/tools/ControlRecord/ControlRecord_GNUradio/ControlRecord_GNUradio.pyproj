@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{ea649536-2750-480e-b7c3-46abdc3fdc52}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>FFT_test.py</StartupFile>
+    <StartupFile>testdatagen.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -35,6 +35,7 @@
     <Compile Include="GNUradio_blocks\FrameToFileSink.py" />
     <Compile Include="GNUradio_blocks\FrameSource.py" />
     <Compile Include="Test.py" />
+    <Compile Include="testdatagen.py" />
     <Compile Include="tools\ExtractFrames.py" />
     <Compile Include="tools\ExtractNsamples16Bit.py" />
     <Compile Include="tools\FileSource.py" />
