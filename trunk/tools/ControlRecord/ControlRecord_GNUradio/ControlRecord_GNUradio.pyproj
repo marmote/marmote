@@ -27,6 +27,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CollectFrames.py" />
+    <Compile Include="CollectFramesFromSubDirs.py" />
     <Compile Include="FFT_test.py" />
     <Compile Include="FrameCopy_test.py" />
     <Compile Include="gnuradiotest.py" />
