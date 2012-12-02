@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{ea649536-2750-480e-b7c3-46abdc3fdc52}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>testdatagen.py</StartupFile>
+    <StartupFile>FrameCopy_test.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>

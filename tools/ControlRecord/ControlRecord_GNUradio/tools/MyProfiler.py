@@ -22,7 +22,9 @@ class MyProfiler:
     def stop_timer(self):
         if self.hist_len >= self.history.size :
             self.hist_len -= 1
-            self.history[:-1] = self.history[1:]
+            self.history = np.roll(self.history, -1)
+#LINUX compatibility
+#            self.history[:-1] = self.history[1:]
 
         self.history[self.hist_len] = ttt.time() - self.t1
 

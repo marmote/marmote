@@ -82,7 +82,7 @@ class FrameSource(gr.block):
 #        self.MyProfiler.start_timer()
 #Profiling end
 
-        N = min( len(output_items[0]), len(output_items[1]) )
+        N = min( len(output_items[0]), len(output_items[1]), 1024 )
 
  #       f = open('./frame_source.txt', 'ab')
  #       f.write("%d "%(N))

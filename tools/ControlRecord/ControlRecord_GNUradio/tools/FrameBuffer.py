@@ -31,14 +31,18 @@ class FrameBuffer:
         buff_len = min( buff_len, self.byte_buff_len )
 
         while len(self.frame_starts) > 0 and self.frame_starts[0] < buff_len :
-            self.frame_starts = self.frame_starts[1:]
-            self.frame_cnt = self.frame_cnt[1:]
+            self.frame_starts.pop(0)
+            self.frame_cnt = np.delete( self.frame_cnt, [0] )
+#LINUX compatibility
+#            self.frame_starts = self.frame_starts[1:]
+#            self.frame_cnt = self.frame_cnt[1:]
 
         for ii in xrange(len(self.frame_starts)) :
             self.frame_starts[ii] -= buff_len
 
-
-        self.byte_buff[0:self.byte_buff_len - buff_len] = self.byte_buff[buff_len:self.byte_buff_len]
+        self.byte_buff = np.delete( self.byte_buff, xrange(buff_len) )
+#LINUX compatibility
+#        self.byte_buff[0:self.byte_buff_len - buff_len] = self.byte_buff[buff_len:self.byte_buff_len]
 
 ###########
 # alt 1.
