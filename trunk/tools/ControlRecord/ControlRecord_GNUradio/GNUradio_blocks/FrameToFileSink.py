@@ -109,7 +109,9 @@ class FrameToFileSink(gr.block):
                 ending = ninput_items
             else :
                 ending = threshold_events[0]
-                threshold_events = threshold_events[1:]
+                threshold_events.pop(0)
+#LINUX compatibility
+#                threshold_events = threshold_events[1:]
 
 
             if beginning != ending :
@@ -135,8 +137,11 @@ class FrameToFileSink(gr.block):
 
                     start_idx = frame_starts[0]
 
-                    frame_cnt = frame_cnt[1:]
-                    frame_starts = frame_starts[1:]
+                    frame_cnt = np.delete(frame_cnt, [0])
+                    frame_starts.pop(0)
+#LINUX compatibility
+#                    frame_cnt = frame_cnt[1:]
+#                    frame_starts = frame_starts[1:]
 
 
             beginning = ending

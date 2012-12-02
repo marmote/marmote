@@ -88,7 +88,9 @@ class FileSource:
 
         buff_len = min( buff_len, self.accum_length )
 
-        self.accum[0:self.accum_length - buff_len] = self.accum[buff_len:self.accum_length]
+        self.accum = np.delete(self.accum, xrange(buff_len) )
+#LINUX compatibility
+#        self.accum[0:self.accum_length - buff_len] = self.accum[buff_len:self.accum_length]
 
         self.accum_length -= buff_len
 

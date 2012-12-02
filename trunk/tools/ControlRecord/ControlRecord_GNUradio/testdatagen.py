@@ -41,7 +41,7 @@ if __name__ == "__main__":
                       0xFF, 0xEE, 0xDD, 0xCC, 0xBB, 0xAA, 0x99, 0x88],dtype=np.uint8)
 
     g = open('./test.bin', 'wb')
-    f = open('./test.norfame.bin', 'wb')
+    f = open('./test.noframe.bin', 'wb')
 
     frame_cnt = np.array([95558972], dtype=np.uint32)
     for ii in xrange(10000) :
@@ -51,8 +51,11 @@ if __name__ == "__main__":
         frame_cnt[0].newbyteorder('B').tofile(g)
         frame_cnt[0] += 1
 
-        dummy.tofile(g)
-        dummy.tofile(f)
+#        buff = dummy
+        buff = np.random.randint(256, size=dummy.size).astype(np.uint8)
+
+        buff.tofile(g)
+        buff.tofile(f)
 
     g.close()
     f.close()
