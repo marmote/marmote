@@ -37,7 +37,7 @@ if __name__ == "__main__":
         os.makedirs('./results')
 
     for ii in xrange(len(pathlist)) :
-        ret = os.system( 'python ../ControlRecord/CollectFrames.py -i "%s"' % pathlist[ii] )
+        ret = os.system( 'python ./CollectFrames.py -i "%s"' % pathlist[ii] )
 
         if ret :
             continue
