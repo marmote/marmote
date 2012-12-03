@@ -36,57 +36,57 @@ def keynat(string):
             r.append(c)
     return r   
 
-	
+
 def ReadAEMeas(dir):
-	""""""
+    """"""
 #Generate file list
 
-	DSPconf = conf.DSPconf_t()
-	Display_N = 0
-	MF_hist_len = 4
+    DSPconf = conf.DSPconf_t()
+    Display_N = 0
+    MF_hist_len = 4
 
-	filelist_in = os.listdir(dir)
-	filepath = []
-	filelist = []
+    filelist_in = os.listdir(dir)
+    filepath = []
+    filelist = []
 
-	for ii in xrange(len(filelist_in)) :
-		fname = dir + '/' + filelist_in[ii]
-		if os.path.isfile(fname) :
-			filepath.append(fname)
-			filelist.append(filelist_in[ii])
+    for ii in xrange(len(filelist_in)) :
+        fname = dir + '/' + filelist_in[ii]
+        if os.path.isfile(fname) :
+            filepath.append(fname)
+            filelist.append(filelist_in[ii])
 
-     
-	filepath = sorted(filepath, key=keynat)        
-	filelist = sorted(filelist, key=keynat) 
+    filepath = sorted(filepath, key=keynat)        
+    filelist = sorted(filelist, key=keynat) 
 
-	
+
 #Extract data
-	Fs	= float(DSPconf.Fs)    
-	T	= 1 / Fs * 1e6
-	
-	y = []
-	y2 = []
-	fnames = []
+    Fs	= float(DSPconf.Fs)    
+    T	= 1 / Fs * 1e6
+
+    y = []
+    y2 = []
+    fnames = []
 
 
-	for ii in xrange(len(filelist)) :
-	#Read files
-		source = FS.FileSource(filepath[ii])
-		dg = GDD.DisplayDataGenerator(source, DSPconf, Display_N, MF_hist_len)
+    for ii in xrange(len(filelist)) :
+    #Read files
+        source = FS.FileSource(filepath[ii])
+        dg = GDD.DisplayDataGenerator(source, DSPconf, Display_N, MF_hist_len)
+        spc = SP.SignalProcessingChain(DSPconf)
 
-		dg.GetPreProcessedBuff()
+        dg.GetPreProcessedBuff()
 
-		if dg.int_buff.size == 0 :
-			continue
+        if dg.int_buff.size == 0 :
+            continue
 
-		frame_starts, I_buff, Q_buff, I_spectrum, Q_spectrum, spectrum = SP.SignalProcessing( dg.frame_starts, dg.int_buff, DSPconf )  # Assumes 2 channels !!!
+        frame_starts, I_buff, Q_buff, I_spectrum, Q_spectrum, spectrum = spc.SignalProcessing( dg.frame_starts, dg.int_buff )  # Assumes 2 channels !!!
 
-	#Generate data
+    #Generate data
 
         #output    
-		y.append(I_buff)
-		y2.append(Q_buff)
-    
-		fnames.append(filelist[ii])
-	
-	return y, y2, T, fnames
+        y.append(I_buff)
+        y2.append(Q_buff)
+   
+        fnames.append(filelist[ii])
+
+    return y, y2, T, fnames
