@@ -3,6 +3,7 @@ from optparse import OptionParser
 import sys
 import os
 import shutil
+from tools.keynat import keynat
 
 
 
@@ -23,6 +24,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     filelist = os.listdir(dir)
+    filelist.sort( key=keynat )
     dirlist = []
     pathlist = []
 

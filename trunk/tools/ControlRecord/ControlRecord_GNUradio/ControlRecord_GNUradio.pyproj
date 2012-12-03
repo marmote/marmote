@@ -43,6 +43,7 @@
     <Compile Include="tools\FrameBuffer.py" />
     <Compile Include="tools\FrameConfig.py" />
     <Compile Include="tools\HumanReadableDataSize.py" />
+    <Compile Include="tools\keynat.py" />
     <Compile Include="tools\MyProfiler.py" />
   </ItemGroup>
   <ItemGroup>
