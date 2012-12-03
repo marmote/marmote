@@ -43,6 +43,7 @@
     <Compile Include="tools\GenerateData.py" />
     <Compile Include="tools\GenerateDisplayData.py" />
     <Compile Include="tools\HumanReadableDataSize.py" />
+    <Compile Include="tools\keynat.py" />
     <Compile Include="tools\SignalProcessing.py" />
     <Compile Include="tools\StdinSource.py" />
     <Compile Include="tools\ThresholdProcessing.py" />

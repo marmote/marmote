@@ -2,8 +2,9 @@ import numpy as np
 import os
 
 import time as ttt
-from HumanReadableDataSize import GetHumanReadableDataSize
 
+from HumanReadableDataSize import GetHumanReadableDataSize
+from keynat import keynat
 
 
 ################################################################################
@@ -14,6 +15,8 @@ class FileSource:
         
         if os.path.isdir(FileOrDir) :
             self.filelist_in = os.listdir(FileOrDir)
+            self.filelist_in.sort( key=keynat )
+
             self.filelist = []
             for ii in range(len(self.filelist_in)) :
                 fname = FileOrDir + '/' + self.filelist_in[ii]
