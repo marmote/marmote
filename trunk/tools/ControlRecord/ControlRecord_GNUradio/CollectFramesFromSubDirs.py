@@ -29,7 +29,11 @@ if __name__ == "__main__":
     pathlist = []
 
     for ii in xrange(len(filelist)) :
-        new_path = dir + '/' + filelist[ii]
+        new_path = dir
+        if new_path[-1] != '/' :
+            new_path += '/'
+        new_path += filelist[ii]
+
         if os.path.isdir(new_path) :
             dirlist.append(filelist[ii])
             pathlist.append(new_path)
