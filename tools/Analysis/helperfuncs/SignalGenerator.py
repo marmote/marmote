@@ -22,4 +22,4 @@ def SignalGenerator(N = 2048*2, Fs = 1e3, f_start = 100, f_stop = 300, f_steps =
     for ii in xrange(N-1) :
         fint[ii+1] = fint[ii] + (f[ii+1]-f[ii])*Ts/2 + f[ii]*Ts
     
-    return np.sin(2*np.pi*fint)
+    return np.sin(2*np.pi*fint), f, fint
