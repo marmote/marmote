@@ -11,7 +11,7 @@ from grc_gnuradio import wxgui as grc_wxgui
 
 
 import tools.FileSource     as FS
-import GNUradio_blocks.FrameSource   as FrameS
+import GNUradio_blocks_pure_python.FrameSource   as FrameS
 
 
 parser = OptionParser()

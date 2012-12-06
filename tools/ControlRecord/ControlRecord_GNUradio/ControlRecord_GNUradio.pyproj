@@ -13,7 +13,7 @@
     <Name>ControlRecord_GNUradio</Name>
     <RootNamespace>ControlRecord_GNUradio</RootNamespace>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <CommandLineArguments>-i test.bin</CommandLineArguments>
+    <CommandLineArguments>-i D:\Work\Measurements\BreakTest_AluminiumBeam\meas\1-0.5\rec_001.bin</CommandLineArguments>
     <InterpreterPath />
     <InterpreterArguments />
   </PropertyGroup>
@@ -30,11 +30,11 @@
     <Compile Include="CollectFramesFromSubDirs.py" />
     <Compile Include="FFT_test.py" />
     <Compile Include="FrameCopy_test.py" />
-    <Compile Include="gnuradiotest.py" />
-    <Compile Include="gnuradiotest2.py" />
-    <Compile Include="GNUradio_blocks\CustomTwoChannelThreshold.py" />
-    <Compile Include="GNUradio_blocks\FrameToFileSink.py" />
-    <Compile Include="GNUradio_blocks\FrameSource.py" />
+    <Compile Include="GNUradio_basic_test\gnuradiotest.py" />
+    <Compile Include="GNUradio_basic_test\gnuradiotest2.py" />
+    <Compile Include="GNUradio_blocks_pure_python\CustomTwoChannelThreshold.py" />
+    <Compile Include="GNUradio_blocks_pure_python\FrameToFileSink.py" />
+    <Compile Include="GNUradio_blocks_pure_python\FrameSource.py" />
     <Compile Include="Test.py" />
     <Compile Include="testdatagen.py" />
     <Compile Include="tools\ExtractFrames.py" />
@@ -47,7 +47,8 @@
     <Compile Include="tools\MyProfiler.py" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="GNUradio_blocks\" />
+    <Folder Include="GNUradio_blocks_pure_python" />
+    <Folder Include="GNUradio_basic_test\" />
     <Folder Include="tools\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
