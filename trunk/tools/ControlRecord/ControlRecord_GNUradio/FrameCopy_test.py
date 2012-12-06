@@ -4,8 +4,8 @@ from gnuradio import gr
 import gnuradio.extras
 
 import tools.FileSource     as FS
-import GNUradio_blocks.FrameSource   as FrameS
-import GNUradio_blocks.FrameToFileSink   as FrameTFS
+import GNUradio_blocks_pure_python.FrameSource   as FrameS
+import GNUradio_blocks_pure_python.FrameToFileSink   as FrameTFS
 
 
 parser = OptionParser()

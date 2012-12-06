@@ -7,12 +7,33 @@ import tools.FileSource     as FS
 import GNUradio_blocks_pure_python.FrameSource   as FrameS
 import GNUradio_blocks_pure_python.FrameToFileSink   as FrameTFS
 import GNUradio_blocks_pure_python.CustomTwoChannelThreshold as Threshold
-from gnuradio.gr import firdes
+
+import numpy as np
 
 
 parser = OptionParser()
 parser.add_option("-i", "--input", dest="inputfileordir",
                   help="Input binary file or directory containing binary files <FILEORDIRNAME> (default %default)", metavar="FILEORDIRNAME", default="input.bin")
+
+
+class custom_block(gr.block):
+    
+    def __init__(self, args):
+        gr.block.__init__(self, name="my adder",
+        in_sig=[np.int16],
+        out_sig=[np.int16])
+
+
+    def work(self, input_items, output_items):
+        #buffer references
+        input = np.array(input_items[0], dtype=np.int16)
+        output = output_items[0]
+
+        #process data
+        output[:] = input + 1
+
+        #return produced
+        return len(output)
 
 
 ################################################################################
@@ -25,52 +46,47 @@ class Top_Block(gr.top_block):
         # Variables
         ##################################################
         self.samp_rate = samp_rate = 750e3
-        self.transition = transition = 100e3
-        self.cutoff = cutoff = 100000
 
 
         ##################################################
         # Blocks
         ##################################################
-        self.frame_source = FrameS.FrameSource(Source)
-
-        self.gr_short_to_float_0 = gr.short_to_float(1, 32768)
-        self.gr_short_to_float_1 = gr.short_to_float(1, 32768)
-
-        self.high_pass_filter_0 = gr.fir_filter_fff(1, firdes.high_pass(
-			1, samp_rate, cutoff, transition, firdes.WIN_RECTANGULAR, 6.76))
-        self.high_pass_filter_1 = gr.fir_filter_fff(1, firdes.high_pass(
-			1, samp_rate, cutoff, transition, firdes.WIN_RECTANGULAR, 6.76))
-
-        self.gr_float_to_short_0 = gr.float_to_short(1, 32768)
-        self.gr_float_to_short_1 = gr.float_to_short(1, 32768)
-
+        self.frame_source = FrameS.FrameSource(Source, N=6*1024, complete_buffs_only = False)
+        self.frame_sink = FrameTFS.FrameToFileSink()
         self.threshold = Threshold.CustomTwoChannelThreshold()
-
+        self.gr_deinterleave = gr.deinterleave(gr.sizeof_short*1)
         self.gr_interleave = gr.interleave(gr.sizeof_short*1)
 
-        self.frame_sink = FrameTFS.FrameToFileSink()
+        self.sink_queue = gr.msg_queue()
+        self.msg_sink = gr.message_sink(gr.sizeof_short, self.sink_queue, True)
+        self.testblock = custom_block(None)
 
 
         ##################################################
         # Connections
         ##################################################
-        self.connect((self.frame_source, 0), (self.gr_short_to_float_0, 0))
-        self.connect((self.frame_source, 1), (self.gr_short_to_float_1, 0))
+        self.connect((self.frame_source, 0), (self.gr_deinterleave, 0))
 
-        self.connect((self.gr_short_to_float_0, 0), (self.high_pass_filter_0, 0))
-        self.connect((self.gr_short_to_float_1, 0), (self.high_pass_filter_1, 0))
-
-        self.connect((self.high_pass_filter_0, 0), (self.gr_float_to_short_0, 0))
-        self.connect((self.high_pass_filter_1, 0), (self.gr_float_to_short_1, 0))
-
-        self.connect((self.gr_float_to_short_0, 0), (self.threshold, 0))
-        self.connect((self.gr_float_to_short_1, 0), (self.threshold, 1))
+        self.connect((self.gr_deinterleave, 0), (self.threshold, 0))
+        self.connect((self.gr_deinterleave, 1), (self.threshold, 1))
 
         self.connect((self.threshold, 0), (self.gr_interleave, 0))
         self.connect((self.threshold, 1), (self.gr_interleave, 1))
 
         self.connect((self.gr_interleave, 0), (self.frame_sink, 0))
+
+
+        self.connect((self.frame_source, 0), (self.testblock, 0))
+        self.connect((self.testblock, 0), (self.msg_sink, 0))
+
+
+    def recv_pkt(self):
+        pkt = ""
+
+        #if self.sink_queue.count():
+        pkt = self.sink_queue.delete_head().to_string()
+
+        return pkt  
 
 
 ################################################################################
@@ -81,4 +97,8 @@ if __name__ == "__main__":
 
     tb = Top_Block(s)
 
-    tb.run()
+    tb.start()
+
+    tempval = tb.recv_pkt()
+
+    tb.wait()
