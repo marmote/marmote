@@ -37,7 +37,7 @@ def keynat(string):
     return r   
 
 
-def ReadAEMeas(dir):
+def ReadAEMeas(FileOrDir):
     """"""
 #Generate file list
 
@@ -45,19 +45,23 @@ def ReadAEMeas(dir):
     Display_N = 0
     MF_hist_len = 4
 
-    filelist_in = os.listdir(dir)
-    filepath = []
-    filelist = []
+    if os.path.isdir(FileOrDir) :
+        filelist_in = os.listdir(FileOrDir)
+        filepath = []
+        filelist = []
 
-    for ii in xrange(len(filelist_in)) :
-        fname = dir + '/' + filelist_in[ii]
-        if os.path.isfile(fname) :
-            filepath.append(fname)
-            filelist.append(filelist_in[ii])
+        for ii in xrange(len(filelist_in)) :
+            fname = os.path.join( FileOrDir, filelist_in[ii] )
+            if os.path.isfile(fname) :
+                filepath.append(fname)
+                filelist.append(filelist_in[ii])
 
-    filepath = sorted(filepath, key=keynat)        
-    filelist = sorted(filelist, key=keynat) 
-
+        filepath = sorted(filepath, key=keynat)        
+        filelist = sorted(filelist, key=keynat)
+         
+    else :
+        filepath = [FileOrDir]        
+        filelist = [os.path.basename(os.path.normpath(FileOrDir))] 
 
 #Extract data
     Fs	= float(DSPconf.Fs)    

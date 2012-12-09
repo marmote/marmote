@@ -40,8 +40,6 @@ class CustomTwoChannelThreshold(gr.block):
 #        g.write("CustomTwoChannelThreshold start\n")
 #        g.close    
 
-        nread = self.nitems_read(0) #number of items read on port 0
-
         ninput_items = min( len(input_items[0]), len(input_items[1]), len(output_items[0]), len(output_items[1]) )
 #        input1 = np.array(input_items[0][:ninput_items], dtype=np.int16)
 #        input2 = np.array(input_items[1][:ninput_items], dtype=np.int16)

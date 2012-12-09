@@ -19,10 +19,7 @@ class FileSource:
 
             self.filelist = []
             for ii in range(len(self.filelist_in)) :
-                fname = FileOrDir
-                if fname[-1] != '/' :
-                    fname += '/'
-                fname += self.filelist_in[ii]
+                fname = os.path.join( FileOrDir, self.filelist_in[ii] )
 
                 if os.path.isfile(fname) :
                     self.filelist.append(fname)
