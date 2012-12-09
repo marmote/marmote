@@ -8,6 +8,8 @@ import GNUradio_blocks_pure_python.FrameSource   as FrameS
 import GNUradio_blocks_pure_python.FrameToFileSink   as FrameTFS
 from gnuradio.gr import firdes
 
+import two_channel_threshold.two_channel_threshold_swig as tct
+
 
 parser = OptionParser()
 parser.add_option("-i", "--input", dest="inputfileordir",
@@ -44,7 +46,7 @@ class Top_Block(gr.top_block):
         self.gr_float_to_short_0 = gr.float_to_short(1, 32768)
         self.gr_float_to_short_1 = gr.float_to_short(1, 32768)
 
-        self.gr_threshold = gr.two_channel_threshold_ssss(4915, 300, 300)
+        self.gr_threshold = tct.two_channel_threshold_ssss(4915, 300, 300)
 
         self.gr_interleave = gr.interleave(gr.sizeof_short*1)
 
