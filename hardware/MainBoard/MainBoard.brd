@@ -11,7 +11,7 @@
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
 <layer number="2" name="GND" color="1" fill="3" visible="no" active="yes"/>
 <layer number="3" name="Inner1" color="13" fill="3" visible="yes" active="yes"/>
-<layer number="14" name="Inner2" color="10" fill="6" visible="yes" active="yes"/>
+<layer number="14" name="Inner2" color="10" fill="6" visible="no" active="yes"/>
 <layer number="15" name="D3V3" color="4" fill="3" visible="no" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
@@ -17409,7 +17409,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="J5" pad="14"/>
 <wire x1="30.5" y1="25.25" x2="30.5" y2="8.85" width="0.1524" layer="1"/>
 </signal>
-<signal name="NGPIO3">
+<signal name="NGPIO4">
 <contactref element="J5" pad="19"/>
 <wire x1="33.5" y1="5.15" x2="33.5" y2="3.5" width="0.1524" layer="1"/>
 <via x="33.5" y="3.5" extent="1-16" drill="0.2032" alwaysstop="yes"/>
@@ -17425,7 +17425,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="53" y="35" extent="1-16" drill="0.2032"/>
 <wire x1="53" y1="35" x2="53.5" y2="34.5" width="0.1524" layer="3"/>
 </signal>
-<signal name="NGPIO2">
+<signal name="NGPIO3">
 <contactref element="J5" pad="17"/>
 <wire x1="32.5" y1="5.15" x2="32.5" y2="3.5" width="0.1524" layer="1"/>
 <via x="32.5" y="3.5" extent="1-16" drill="0.2032" alwaysstop="yes"/>
@@ -17469,7 +17469,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="J4" pad="23"/>
 <wire x1="35.5" y1="5.15" x2="35.5" y2="3.5" width="0.1524" layer="16"/>
 </signal>
-<signal name="NGPIO1">
+<signal name="NGPIO7">
 <wire x1="31" y1="20" x2="36" y2="25" width="0.1524" layer="3"/>
 <wire x1="36" y1="25" x2="46.25" y2="25" width="0.1524" layer="3"/>
 <wire x1="51" y1="34" x2="51" y2="29.75" width="0.1524" layer="3"/>
@@ -17490,7 +17490,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="68" y1="26.25" x2="67.5" y2="26.75" width="0.1524" layer="1"/>
 <wire x1="67.5" y1="26.75" x2="67.5" y2="27.35" width="0.1524" layer="1"/>
 </signal>
-<signal name="SGPIO5">
+<signal name="NGPIO6">
 <via x="36" y="3" extent="1-16" drill="0.2032" alwaysstop="yes"/>
 <wire x1="36" y1="3" x2="36" y2="4" width="0.1524" layer="3"/>
 <wire x1="36" y1="4" x2="38" y2="6" width="0.1524" layer="3"/>
@@ -17509,7 +17509,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="35.5" y1="4.25" x2="36" y2="3.75" width="0.1524" layer="1"/>
 <wire x1="36" y1="3.75" x2="36" y2="3" width="0.1524" layer="1"/>
 </signal>
-<signal name="SGPIO4">
+<signal name="NGPIO5">
 <via x="35" y="3" extent="1-16" drill="0.2032" alwaysstop="yes"/>
 <wire x1="35" y1="3" x2="35" y2="4" width="0.1524" layer="3"/>
 <wire x1="35" y1="4" x2="37.5" y2="6.5" width="0.1524" layer="3"/>
@@ -17528,7 +17528,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="34.5" y1="4.25" x2="35" y2="3.75" width="0.1524" layer="1"/>
 <wire x1="35" y1="3.75" x2="35" y2="3" width="0.1524" layer="1"/>
 </signal>
-<signal name="SGPIO3">
+<signal name="SGPIO1">
 <wire x1="33.5" y1="4.25" x2="34" y2="3.75" width="0.1524" layer="16"/>
 <wire x1="34" y1="3.75" x2="34" y2="3" width="0.1524" layer="16"/>
 <via x="34" y="3" extent="1-16" drill="0.2032" alwaysstop="yes"/>
@@ -17546,7 +17546,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="J4" pad="19"/>
 <wire x1="33.5" y1="4.25" x2="33.5" y2="5.15" width="0.1524" layer="16"/>
 </signal>
-<signal name="SGPIO2">
+<signal name="SGPIO0">
 <wire x1="33" y1="3.75" x2="33" y2="3" width="0.1524" layer="16"/>
 <via x="33" y="3" extent="1-16" drill="0.2032" alwaysstop="yes"/>
 <wire x1="33" y1="3" x2="33" y2="5" width="0.1524" layer="3"/>
@@ -17682,7 +17682,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="53.25" y1="38.5" x2="54" y2="38.5" width="0.1524" layer="3"/>
 <wire x1="54" y1="38.5" x2="55.5" y2="37" width="0.1524" layer="3"/>
 </signal>
-<signal name="NGPIO0">
+<signal name="NGPIO2">
 <via x="31.5" y="7" extent="1-16" drill="0.2032" alwaysstop="yes"/>
 <wire x1="50.5" y1="34.5" x2="50.5" y2="30" width="0.1524" layer="3"/>
 <wire x1="50.5" y1="30" x2="46" y2="25.5" width="0.1524" layer="3"/>
@@ -17697,7 +17697,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="J5" pad="15"/>
 <wire x1="31.5" y1="5.15" x2="31.5" y2="7" width="0.1524" layer="1"/>
 </signal>
-<signal name="SGPIO1">
+<signal name="NGPIO1">
 <wire x1="35.5" y1="26" x2="45.75" y2="26" width="0.1524" layer="3"/>
 <wire x1="49.5" y1="33.5" x2="49.5" y2="29.75" width="0.1524" layer="3"/>
 <wire x1="49.5" y1="29.75" x2="45.75" y2="26" width="0.1524" layer="3"/>
@@ -17712,7 +17712,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="J5" pad="13"/>
 <wire x1="30.5" y1="5.15" x2="30.5" y2="7" width="0.1524" layer="1"/>
 </signal>
-<signal name="SGPIO0">
+<signal name="NGPIO0">
 <wire x1="48" y1="33" x2="48" y2="30.25" width="0.1524" layer="3"/>
 <wire x1="48" y1="30.25" x2="44.25" y2="26.5" width="0.1524" layer="3"/>
 <wire x1="44.25" y1="26.5" x2="35.25" y2="26.5" width="0.1524" layer="3"/>
