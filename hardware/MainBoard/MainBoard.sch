@@ -50012,17 +50012,17 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <instance part="PORT339" gate="G$1" x="149.86" y="137.16"/>
 <instance part="PORT333" gate="G$1" x="170.18" y="129.54" rot="MR0"/>
 <instance part="PORT341" gate="G$1" x="170.18" y="132.08" rot="MR0"/>
-<instance part="PORT342" gate="G$1" x="170.18" y="134.62" rot="MR0"/>
-<instance part="PORT345" gate="G$1" x="170.18" y="137.16" rot="MR0"/>
+<instance part="PORT342" gate="G$1" x="101.6" y="134.62" rot="MR0"/>
+<instance part="PORT345" gate="G$1" x="101.6" y="137.16" rot="MR0"/>
 <instance part="PORT346" gate="G$1" x="170.18" y="139.7" rot="MR0"/>
 <instance part="PORT347" gate="G$1" x="170.18" y="142.24" rot="MR0"/>
 <instance part="PORT348" gate="G$1" x="101.6" y="142.24" rot="MR0"/>
 <instance part="PORT349" gate="G$1" x="233.68" y="144.78"/>
 <instance part="PORT350" gate="G$1" x="170.18" y="144.78" rot="MR0"/>
 <instance part="PORT323" gate="G$1" x="101.6" y="132.08" rot="MR0"/>
-<instance part="PORT351" gate="G$1" x="101.6" y="137.16" rot="MR0"/>
+<instance part="PORT351" gate="G$1" x="170.18" y="137.16" rot="MR0"/>
 <instance part="PORT352" gate="G$1" x="101.6" y="139.7" rot="MR0"/>
-<instance part="PORT49" gate="G$1" x="101.6" y="134.62" rot="MR0"/>
+<instance part="PORT49" gate="G$1" x="170.18" y="134.62" rot="MR0"/>
 <instance part="PORT50" gate="G$1" x="101.6" y="129.54" rot="MR0"/>
 <instance part="R76" gate="G$1" x="78.74" y="58.42">
 <attribute name="DNP" x="80.01" y="59.69" size="1.778" layer="96" display="name"/>
@@ -50805,16 +50805,18 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 </net>
 <net name="UART1_RXD" class="0">
 <segment>
-<label x="182.88" y="134.62" size="1.778" layer="95" rot="MR0"/>
-<pinref part="J5" gate="G$1" pin="23"/>
-<wire x1="185.42" y1="134.62" x2="195.58" y2="134.62" width="0.1524" layer="91"/>
+<label x="114.3" y="134.62" size="1.778" layer="95" rot="MR0"/>
+<wire x1="116.84" y1="134.62" x2="119.38" y2="134.62" width="0.1524" layer="91"/>
+<pinref part="J4" gate="G$1" pin="23"/>
+<wire x1="119.38" y1="134.62" x2="121.92" y2="134.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="UART1_TXD" class="0">
 <segment>
-<label x="182.88" y="137.16" size="1.778" layer="95" rot="MR0"/>
-<pinref part="J5" gate="G$1" pin="21"/>
-<wire x1="185.42" y1="137.16" x2="195.58" y2="137.16" width="0.1524" layer="91"/>
+<label x="114.3" y="137.16" size="1.778" layer="95" rot="MR0"/>
+<wire x1="116.84" y1="137.16" x2="119.38" y2="137.16" width="0.1524" layer="91"/>
+<pinref part="J4" gate="G$1" pin="21"/>
+<wire x1="119.38" y1="137.16" x2="121.92" y2="137.16" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="NGPIO3" class="0">
@@ -50911,9 +50913,10 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 </net>
 <net name="SGPIO4" class="0">
 <segment>
-<label x="114.3" y="137.16" size="1.778" layer="95" rot="MR0"/>
-<pinref part="J4" gate="G$1" pin="21"/>
-<wire x1="116.84" y1="137.16" x2="121.92" y2="137.16" width="0.1524" layer="91"/>
+<label x="182.88" y="137.16" size="1.778" layer="95" rot="MR0"/>
+<wire x1="185.42" y1="137.16" x2="187.96" y2="137.16" width="0.1524" layer="91"/>
+<pinref part="J5" gate="G$1" pin="21"/>
+<wire x1="187.96" y1="137.16" x2="195.58" y2="137.16" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SGPIO3" class="0">
@@ -50937,9 +50940,10 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 </net>
 <net name="SGPIO5" class="0">
 <segment>
-<pinref part="J4" gate="G$1" pin="23"/>
-<wire x1="121.92" y1="134.62" x2="116.84" y2="134.62" width="0.1524" layer="91"/>
-<label x="114.3" y="134.62" size="1.778" layer="95" rot="MR0"/>
+<wire x1="187.96" y1="134.62" x2="185.42" y2="134.62" width="0.1524" layer="91"/>
+<label x="182.88" y="134.62" size="1.778" layer="95" rot="MR0"/>
+<pinref part="J5" gate="G$1" pin="23"/>
+<wire x1="187.96" y1="134.62" x2="195.58" y2="134.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="NGPIO0" class="0">
