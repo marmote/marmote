@@ -43861,11 +43861,6 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <part name="R4" library="MainBoard" deviceset="R" device="0402" value="0">
 <attribute name="TOLERANCE" value=""/>
 </part>
-<part name="PORT246" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="PORT251" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="PORT252" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="PORT253" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="PORT254" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT255" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="R1" library="MainBoard" deviceset="R" device="0402" value="10k">
 <attribute name="TOLERANCE" value=""/>
@@ -44064,9 +44059,6 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <part name="PORT318" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT175" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT319" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="PORT247" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="PORT250" library="MainBoard" deviceset="PORT5" device=""/>
-<part name="PORT320" library="MainBoard" deviceset="PORT5" device=""/>
 <part name="PORT321" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT324" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT325" library="MainBoard" deviceset="PORT7" device=""/>
@@ -44203,8 +44195,6 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <part name="C17" library="MainBoard" deviceset="C" device="0402" value="0.1uF"/>
 <part name="U$152" library="MainBoard" deviceset="D3V3" device=""/>
 <part name="U$149" library="MainBoard" deviceset="DGND" device=""/>
-<part name="PORT290" library="MainBoard" deviceset="PORT7" device=""/>
-<part name="PORT291" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="R76" library="MainBoard" deviceset="R" device="0603" value="0">
 <attribute name="DNP" value="on"/>
 </part>
@@ -44230,6 +44220,16 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <part name="U$154" library="MainBoard" deviceset="AGND" device=""/>
 <part name="PORT93" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT95" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT98" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT99" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT132" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT152" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT153" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT154" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT155" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT156" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT157" library="MainBoard" deviceset="PORT7" device=""/>
+<part name="PORT162" library="MainBoard" deviceset="PORT7" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -49917,8 +49917,8 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <instances>
 <instance part="J5" gate="G$1" x="200.66" y="114.3"/>
 <instance part="J3" gate="G$1" x="53.34" y="149.86"/>
-<instance part="U$5" gate="G$1" x="99.06" y="149.86"/>
-<instance part="U$6" gate="G$1" x="157.48" y="149.86"/>
+<instance part="U$5" gate="G$1" x="114.3" y="149.86"/>
+<instance part="U$6" gate="G$1" x="142.24" y="149.86"/>
 <instance part="PORT1" gate="G$1" x="149.86" y="160.02"/>
 <instance part="PORT2" gate="G$1" x="149.86" y="157.48"/>
 <instance part="PORT3" gate="G$1" x="149.86" y="154.94"/>
@@ -49937,7 +49937,7 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <instance part="PORT15" gate="G$1" x="175.26" y="160.02" rot="MR0"/>
 <instance part="PORT16" gate="G$1" x="175.26" y="157.48" rot="MR0"/>
 <instance part="PORT17" gate="G$1" x="175.26" y="154.94" rot="MR0"/>
-<instance part="U$14" gate="G$1" x="236.22" y="149.86"/>
+<instance part="U$14" gate="G$1" x="238.76" y="149.86"/>
 <instance part="PORT19" gate="G$1" x="228.6" y="160.02"/>
 <instance part="PORT20" gate="G$1" x="228.6" y="157.48"/>
 <instance part="PORT21" gate="G$1" x="228.6" y="154.94"/>
@@ -49996,11 +49996,6 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <instance part="PORT205" gate="G$1" x="27.94" y="144.78" rot="MR0"/>
 <instance part="PORT199" gate="G$1" x="81.28" y="149.86"/>
 <instance part="PORT200" gate="G$1" x="81.28" y="147.32"/>
-<instance part="PORT246" gate="G$1" x="228.6" y="142.24"/>
-<instance part="PORT251" gate="G$1" x="228.6" y="149.86"/>
-<instance part="PORT252" gate="G$1" x="228.6" y="147.32"/>
-<instance part="PORT253" gate="G$1" x="228.6" y="132.08"/>
-<instance part="PORT254" gate="G$1" x="228.6" y="129.54"/>
 <instance part="M1" gate="G$1" x="25.4" y="22.86"/>
 <instance part="M2" gate="G$1" x="33.02" y="22.86"/>
 <instance part="M3" gate="G$1" x="40.64" y="22.86"/>
@@ -50009,9 +50004,6 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <instance part="M6" gate="G$1" x="73.66" y="22.86"/>
 <instance part="M7" gate="G$1" x="81.28" y="22.86"/>
 <instance part="M8" gate="G$1" x="88.9" y="22.86"/>
-<instance part="PORT247" gate="G$1" x="228.6" y="134.62"/>
-<instance part="PORT250" gate="G$1" x="228.6" y="139.7"/>
-<instance part="PORT320" gate="G$1" x="228.6" y="137.16"/>
 <instance part="PORT334" gate="G$1" x="149.86" y="142.24"/>
 <instance part="PORT335" gate="G$1" x="149.86" y="132.08"/>
 <instance part="PORT336" gate="G$1" x="149.86" y="129.54"/>
@@ -50025,15 +50017,13 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <instance part="PORT346" gate="G$1" x="170.18" y="139.7" rot="MR0"/>
 <instance part="PORT347" gate="G$1" x="170.18" y="142.24" rot="MR0"/>
 <instance part="PORT348" gate="G$1" x="101.6" y="142.24" rot="MR0"/>
-<instance part="PORT349" gate="G$1" x="170.18" y="147.32" rot="MR0"/>
-<instance part="PORT350" gate="G$1" x="170.18" y="149.86" rot="MR0"/>
+<instance part="PORT349" gate="G$1" x="233.68" y="144.78"/>
+<instance part="PORT350" gate="G$1" x="170.18" y="144.78" rot="MR0"/>
 <instance part="PORT323" gate="G$1" x="101.6" y="132.08" rot="MR0"/>
 <instance part="PORT351" gate="G$1" x="101.6" y="137.16" rot="MR0"/>
 <instance part="PORT352" gate="G$1" x="101.6" y="139.7" rot="MR0"/>
 <instance part="PORT49" gate="G$1" x="101.6" y="134.62" rot="MR0"/>
 <instance part="PORT50" gate="G$1" x="101.6" y="129.54" rot="MR0"/>
-<instance part="PORT290" gate="G$1" x="101.6" y="149.86" rot="MR0"/>
-<instance part="PORT291" gate="G$1" x="101.6" y="147.32" rot="MR0"/>
 <instance part="R76" gate="G$1" x="78.74" y="58.42">
 <attribute name="DNP" x="80.01" y="59.69" size="1.778" layer="96" display="name"/>
 </instance>
@@ -50047,6 +50037,16 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <instance part="U$128" gate="G$1" x="33.02" y="50.8"/>
 <instance part="U$148" gate="G$1" x="40.64" y="50.8"/>
 <instance part="U$154" gate="G$1" x="48.26" y="50.8"/>
+<instance part="PORT98" gate="G$1" x="170.18" y="149.86" rot="MR0"/>
+<instance part="PORT99" gate="G$1" x="233.68" y="129.54"/>
+<instance part="PORT132" gate="G$1" x="233.68" y="132.08"/>
+<instance part="PORT152" gate="G$1" x="233.68" y="134.62"/>
+<instance part="PORT153" gate="G$1" x="233.68" y="137.16"/>
+<instance part="PORT154" gate="G$1" x="233.68" y="139.7"/>
+<instance part="PORT155" gate="G$1" x="233.68" y="142.24"/>
+<instance part="PORT156" gate="G$1" x="233.68" y="147.32"/>
+<instance part="PORT157" gate="G$1" x="233.68" y="149.86"/>
+<instance part="PORT162" gate="G$1" x="170.18" y="147.32" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -50121,7 +50121,7 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <segment>
 <wire x1="121.92" y1="162.56" x2="119.38" y2="162.56" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="152.4" x2="119.38" y2="162.56" width="0.1524" layer="91"/>
-<wire x1="119.38" y1="152.4" x2="99.06" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="152.4" x2="114.3" y2="152.4" width="0.1524" layer="91"/>
 <pinref part="U$5" gate="G$1" pin="DGND"/>
 <pinref part="J4" gate="G$1" pin="1"/>
 <pinref part="J4" gate="G$1" pin="9"/>
@@ -50132,7 +50132,7 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <wire x1="119.38" y1="144.78" x2="121.92" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="137.16" y1="152.4" x2="157.48" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="152.4" x2="142.24" y2="152.4" width="0.1524" layer="91"/>
 <wire x1="134.62" y1="162.56" x2="137.16" y2="162.56" width="0.1524" layer="91"/>
 <wire x1="137.16" y1="162.56" x2="137.16" y2="152.4" width="0.1524" layer="91"/>
 <pinref part="U$6" gate="G$1" pin="DGND"/>
@@ -50153,21 +50153,15 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <pinref part="J5" gate="G$1" pin="1"/>
 <wire x1="193.04" y1="162.56" x2="195.58" y2="162.56" width="0.1524" layer="91"/>
 <junction x="193.04" y="152.4"/>
-<pinref part="J5" gate="G$1" pin="15"/>
-<wire x1="195.58" y1="144.78" x2="193.04" y2="144.78" width="0.1524" layer="91"/>
-<wire x1="193.04" y1="144.78" x2="193.04" y2="152.4" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="210.82" y1="152.4" x2="236.22" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="210.82" y1="152.4" x2="238.76" y2="152.4" width="0.1524" layer="91"/>
 <wire x1="210.82" y1="162.56" x2="210.82" y2="152.4" width="0.1524" layer="91"/>
 <pinref part="U$14" gate="G$1" pin="DGND"/>
 <pinref part="J5" gate="G$1" pin="10"/>
 <wire x1="208.28" y1="152.4" x2="210.82" y2="152.4" width="0.1524" layer="91"/>
 <pinref part="J5" gate="G$1" pin="2"/>
 <wire x1="210.82" y1="162.56" x2="208.28" y2="162.56" width="0.1524" layer="91"/>
-<wire x1="210.82" y1="152.4" x2="210.82" y2="144.78" width="0.1524" layer="91"/>
-<pinref part="J5" gate="G$1" pin="16"/>
-<wire x1="208.28" y1="144.78" x2="210.82" y2="144.78" width="0.1524" layer="91"/>
 <junction x="210.82" y="152.4"/>
 </segment>
 <segment>
@@ -50846,9 +50840,10 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 </net>
 <net name="NGPIO1" class="0">
 <segment>
-<pinref part="J5" gate="G$1" pin="13"/>
-<wire x1="195.58" y1="147.32" x2="185.42" y2="147.32" width="0.1524" layer="91"/>
-<label x="182.88" y="147.32" size="1.778" layer="95" rot="MR0"/>
+<wire x1="218.44" y1="144.78" x2="213.36" y2="144.78" width="0.1524" layer="91"/>
+<label x="220.98" y="144.78" size="1.778" layer="95"/>
+<pinref part="J5" gate="G$1" pin="16"/>
+<wire x1="213.36" y1="144.78" x2="208.28" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SF_TM1" class="0">
@@ -50949,23 +50944,26 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 </net>
 <net name="NGPIO0" class="0">
 <segment>
-<pinref part="J5" gate="G$1" pin="11"/>
-<wire x1="195.58" y1="149.86" x2="185.42" y2="149.86" width="0.1524" layer="91"/>
-<label x="182.88" y="149.86" size="1.778" layer="95" rot="MR0"/>
+<wire x1="187.96" y1="144.78" x2="185.42" y2="144.78" width="0.1524" layer="91"/>
+<label x="182.88" y="144.78" size="1.778" layer="95" rot="MR0"/>
+<pinref part="J5" gate="G$1" pin="15"/>
+<wire x1="187.96" y1="144.78" x2="195.58" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SGPIO1" class="0">
 <segment>
-<pinref part="J4" gate="G$1" pin="13"/>
-<wire x1="121.92" y1="147.32" x2="116.84" y2="147.32" width="0.1524" layer="91"/>
-<label x="114.3" y="147.32" size="1.778" layer="95" rot="MR0"/>
+<wire x1="185.42" y1="147.32" x2="190.5" y2="147.32" width="0.1524" layer="91"/>
+<label x="182.88" y="147.32" size="1.778" layer="95" rot="MR0"/>
+<pinref part="J5" gate="G$1" pin="13"/>
+<wire x1="190.5" y1="147.32" x2="195.58" y2="147.32" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SGPIO0" class="0">
 <segment>
-<pinref part="J4" gate="G$1" pin="11"/>
-<wire x1="121.92" y1="149.86" x2="116.84" y2="149.86" width="0.1524" layer="91"/>
-<label x="114.3" y="149.86" size="1.778" layer="95" rot="MR0"/>
+<wire x1="190.5" y1="149.86" x2="185.42" y2="149.86" width="0.1524" layer="91"/>
+<label x="182.88" y="149.86" size="1.778" layer="95" rot="MR0"/>
+<pinref part="J5" gate="G$1" pin="11"/>
+<wire x1="190.5" y1="149.86" x2="195.58" y2="149.86" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SF_ADC3" class="0">
