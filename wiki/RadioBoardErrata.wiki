@@ -5,17 +5,10 @@
 
 == Errata ==
 
- * DONE - External TCXO is connected to MAX2830 XTAL pin (28) instead of CTUNE pin (29)
- * Not really a showstopper - Baseband single-ended to differential conversion maps approximately from single-ended [0 to 0.6V] to differential [0 to -0.5V] (instead of from single-ended [0 to 3.3V] to differential [-0.5V to +0.5V]
- * DONE - TCXO power supply digital, ground analog
- * DONE - Mark for 1. pin for baluns not visible enough
- * DONE - C105, C106 names covered by vias in documentation
- * Consider adding a TPTUNE similar to the one on MAX2830EVKIT
-
-== Notes ==
-
- * Via test points for potential test pins (clock out, lock detect) would have been useful
-
-== TODO ==
-
- * Investigate simple carrier transmission phase noise, which is larger than reported in MAX2830 datasheet (measured with USRP 1, can be a fault of USRP 1)
+ * External TCXO is connected to MAX2830 XTAL pin (28) instead of CTUNE pin (29) *(fixed)*
+ * Baseband single-ended to differential conversion maps approximately from single-ended [0 to 0.6V] to differential [0 to -0.5V] (instead of from single-ended [0 to 3.3V] to differential [-0.5V to +0.5V] (confirm whether this is what we want)
+ * TCXO power supply digital, ground analog *(fixed)*
+ * Mark for 1. pin for baluns not visible enough *(fixed)*
+ * C105, C106 names covered by vias in documentation *(fixed)*
+ * Consider adding a testpoint to the MAX2830 tune pin (similarly to TPTUNE on the MAX2830EVKIT)
+ * Add (via) test points for the pins such as CLKOUT, LD)
