@@ -49412,14 +49412,14 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <label x="223.52" y="149.86" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="NGPIO3" class="0">
+<net name="NGPIO4" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[9]/GEC1/IO80PDB5V0"/>
 <wire x1="215.9" y1="132.08" x2="220.98" y2="132.08" width="0.1524" layer="91"/>
 <label x="223.52" y="132.08" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SGPIO4" class="0">
+<net name="NGPIO5" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[7]/GEB1/IO79PDB5V0"/>
 <wire x1="215.9" y1="137.16" x2="220.98" y2="137.16" width="0.1524" layer="91"/>
@@ -49433,28 +49433,28 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <label x="223.52" y="144.78" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SGPIO2" class="0">
+<net name="SGPIO0" class="0">
 <segment>
 <label x="223.52" y="124.46" size="1.778" layer="97"/>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[12]/IO87NDB5V0"/>
 <wire x1="220.98" y1="124.46" x2="215.9" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="SGPIO3" class="0">
+<net name="SGPIO1" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[8]/GEC0/IO80NDB5V0"/>
 <wire x1="215.9" y1="134.62" x2="220.98" y2="134.62" width="0.1524" layer="91"/>
 <label x="223.52" y="134.62" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="NGPIO2" class="0">
+<net name="NGPIO3" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[6]/GEB0/IO79NDB5V0"/>
 <wire x1="215.9" y1="139.7" x2="220.98" y2="139.7" width="0.1524" layer="91"/>
 <label x="223.52" y="139.7" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SGPIO5" class="0">
+<net name="NGPIO6" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[5]/GEA1/IO78PPB5V0"/>
 <wire x1="215.9" y1="142.24" x2="220.98" y2="142.24" width="0.1524" layer="91"/>
@@ -49475,14 +49475,14 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <label x="223.52" y="101.6" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SGPIO0" class="0">
+<net name="NGPIO0" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_CLK/GAA0/IO02NDB0V0"/>
 <wire x1="215.9" y1="91.44" x2="220.98" y2="91.44" width="0.1524" layer="91"/>
 <label x="223.52" y="91.44" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SGPIO1" class="0">
+<net name="NGPIO1" class="0">
 <segment>
 <pinref part="U1" gate="-EXTERNAL-MEMORY-CONTROLLER" pin="EMC_DB[10]/IO86NPB5V0"/>
 <wire x1="215.9" y1="129.54" x2="220.98" y2="129.54" width="0.1524" layer="91"/>
@@ -49881,14 +49881,14 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <label x="35.56" y="147.32" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="NGPIO1" class="0">
+<net name="NGPIO7" class="0">
 <segment>
 <pinref part="U1" gate="-IOB" pin="GFA2/IO85PDB5V0"/>
 <wire x1="210.82" y1="66.04" x2="215.9" y2="66.04" width="0.1524" layer="91"/>
 <label x="218.44" y="66.04" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="NGPIO0" class="0">
+<net name="NGPIO2" class="0">
 <segment>
 <pinref part="U1" gate="-IOB" pin="GFB2/IO85NDB5V0"/>
 <wire x1="210.82" y1="63.5" x2="215.9" y2="63.5" width="0.1524" layer="91"/>
@@ -50819,28 +50819,28 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <wire x1="119.38" y1="137.16" x2="121.92" y2="137.16" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="NGPIO3" class="0">
+<net name="NGPIO4" class="0">
 <segment>
 <pinref part="J5" gate="G$1" pin="19"/>
 <wire x1="195.58" y1="139.7" x2="185.42" y2="139.7" width="0.1524" layer="91"/>
 <label x="182.88" y="139.7" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="NGPIO2" class="0">
+<net name="NGPIO3" class="0">
 <segment>
 <pinref part="J5" gate="G$1" pin="17"/>
 <wire x1="195.58" y1="142.24" x2="185.42" y2="142.24" width="0.1524" layer="91"/>
 <label x="182.88" y="142.24" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="SGPIO2" class="0">
+<net name="SGPIO0" class="0">
 <segment>
 <label x="114.3" y="142.24" size="1.778" layer="95" rot="MR0"/>
 <pinref part="J4" gate="G$1" pin="17"/>
 <wire x1="116.84" y1="142.24" x2="121.92" y2="142.24" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="NGPIO1" class="0">
+<net name="NGPIO7" class="0">
 <segment>
 <wire x1="218.44" y1="144.78" x2="213.36" y2="144.78" width="0.1524" layer="91"/>
 <label x="220.98" y="144.78" size="1.778" layer="95"/>
@@ -50911,7 +50911,7 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <wire x1="185.42" y1="101.6" x2="195.58" y2="101.6" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="SGPIO4" class="0">
+<net name="NGPIO5" class="0">
 <segment>
 <label x="182.88" y="137.16" size="1.778" layer="95" rot="MR0"/>
 <wire x1="185.42" y1="137.16" x2="187.96" y2="137.16" width="0.1524" layer="91"/>
@@ -50919,7 +50919,7 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <wire x1="187.96" y1="137.16" x2="195.58" y2="137.16" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="SGPIO3" class="0">
+<net name="SGPIO1" class="0">
 <segment>
 <label x="114.3" y="139.7" size="1.778" layer="95" rot="MR0"/>
 <pinref part="J4" gate="G$1" pin="19"/>
@@ -50938,7 +50938,7 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <wire x1="116.84" y1="132.08" x2="121.92" y2="132.08" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="SGPIO5" class="0">
+<net name="NGPIO6" class="0">
 <segment>
 <wire x1="187.96" y1="134.62" x2="185.42" y2="134.62" width="0.1524" layer="91"/>
 <label x="182.88" y="134.62" size="1.778" layer="95" rot="MR0"/>
@@ -50946,7 +50946,7 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <wire x1="187.96" y1="134.62" x2="195.58" y2="134.62" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="NGPIO0" class="0">
+<net name="NGPIO2" class="0">
 <segment>
 <wire x1="187.96" y1="144.78" x2="185.42" y2="144.78" width="0.1524" layer="91"/>
 <label x="182.88" y="144.78" size="1.778" layer="95" rot="MR0"/>
@@ -50954,7 +50954,7 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <wire x1="187.96" y1="144.78" x2="195.58" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="SGPIO1" class="0">
+<net name="NGPIO1" class="0">
 <segment>
 <wire x1="185.42" y1="147.32" x2="190.5" y2="147.32" width="0.1524" layer="91"/>
 <label x="182.88" y="147.32" size="1.778" layer="95" rot="MR0"/>
@@ -50962,7 +50962,7 @@ Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelc
 <wire x1="190.5" y1="147.32" x2="195.58" y2="147.32" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="SGPIO0" class="0">
+<net name="NGPIO0" class="0">
 <segment>
 <wire x1="190.5" y1="149.86" x2="185.42" y2="149.86" width="0.1524" layer="91"/>
 <label x="182.88" y="149.86" size="1.778" layer="95" rot="MR0"/>
