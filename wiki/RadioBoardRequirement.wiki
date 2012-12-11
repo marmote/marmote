@@ -7,22 +7,27 @@ _Note: Only changes compared to Rev A and non-implemented functions are listed h
  
  * *LDO for VCCVCO and other A3V3 powered lines*
  * *Footprint for both the TCXO and an external XTAL*
- * Consider using a low-phase-noise (RF) TCXO
+   * Single ended connection from the TCXO output to the SmartFusion (REF_CLK+)
+ * *Clock synchronization between boards (optional) or 1PPS input and output*
+  * 1 PPM input with SMA connector
+  * Connection to the SmartFusion (through REF_CLK-)
+ * * FPGA I/O connection to the following pins (B1, B2, B3, B4, B5, TXRX, LD, SHDN)*
+  * Parallel I/O lines for gain cotnrol (VGA section at least)
+
+ * ~~Consider using a low-phase-noise (RF) TCXO~~
+ * ~~VCTCXO (controlled from AFE DAC) instead of simple TCXO~~
  * Via fence around the IC
- * Via openings for test points (e.g. CLKOUT)
+ * *Via openings for test points (e.g. CLKOUT)*
 
  * Power-down mode for 20 MHz oscillator
  * Add a zero ohm resistor to optionally shut down the baseband section
- * VCTCXO (controlled from AFE DAC) instead of simple TCXO
- * Second antenna in the same band for MIMO applications
+ * ~~Second antenna in the same band for MIMO applications~~
 
  * Analog baseband filter
   * Should be removable
   * TBD cut-off frequency
   * Candidate ICs ([http://www.linear.com/product/LTC6602 LTC6602])
- * *Clock synchronization between boards (optional) or 1PPS input and output*
  * The whole board should be powered down by default (including the TCXO)
- * Parallel I/O lines for AGC cotnrol
  
 
 = Rev A =
