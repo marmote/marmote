@@ -5,14 +5,14 @@
 
 == Debug ==
 
- * *Consider using the SmartFusion internal 1.5V regulator to support _Sleep_ and _Power Down_ modes*
- * *Consider connecting the _PU_N_ button to the microcontroller on the Yellowstone power supply board (South Bridge connector)*
- * Rename 'SHDN_n' signals to 'EN'
+ * *Consider using the SmartFusion internal 1.5V regulator to support _Sleep_ and _Power Down_ modes* (dropped this requirement)
+ * *Consider connecting the _PU_N_ button to the microcontroller on the Yellowstone power supply board (South Bridge connector)* (connected through a 0Ohm resisitor)
+ * Rename 'SHDN_n' signals to 'EN' (dropped this requirement)
  * ~~Consider having a USB data stream and control interface at the same time~~
   * ~~Connect FT232H ACBUS[9:8] to a MSS UART pins and implement a UART transmitter in SW.~~
   * ~~Double check if the above approach makes sense.~~
 
- * Consider replacing the programmer connector with a right-angle one
+ * Consider replacing the programmer connector with a right-angle one (N/A at Digi-Key or Mouser)
  * Correct R14 to DNP in BOM file *(fixed)*
 
 
