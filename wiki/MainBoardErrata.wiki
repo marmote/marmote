@@ -14,7 +14,7 @@
 
 = Minor issues =
 
-  * 'USB' silkscreen label next to a D3V3 test point is distracting
+  * 'USB' silkscreen label next to a D3V3 test point is misleading
   * RJ45 silkscreen-footprint is larger than the actual device
   * The right-angle push buttons could be slightly (1 mm) closer to the board edge
   * The right-angle LEDs could be slightly (1 mm) closer to the board edge
