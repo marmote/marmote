@@ -1,4 +1,4 @@
-#summary Log of changes in the MainBoard design.
+#summary Log of changes in the MainBoard design
 #labels Phase-QA
 
 = Rev B Changes =
