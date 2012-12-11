@@ -44219,6 +44219,10 @@ Ground for the galvanically decoupled Ethernet chassis.</description>
 <part name="U$72" library="MainBoard" deviceset="EGND" device=""/>
 <part name="U$155" library="MainBoard" deviceset="EGND" device=""/>
 <part name="U$96" library="MainBoard" deviceset="EGND" device=""/>
+<part name="M9" library="MainBoard" deviceset="FIDUCIAL" device="1X2"/>
+<part name="M10" library="MainBoard" deviceset="FIDUCIAL" device="1X2"/>
+<part name="M11" library="MainBoard" deviceset="FIDUCIAL" device="1X2"/>
+<part name="M12" library="MainBoard" deviceset="FIDUCIAL" device="1X2"/>
 </parts>
 <sheets>
 <sheet>
@@ -50049,6 +50053,10 @@ Ground for the galvanically decoupled Ethernet chassis.</description>
 <instance part="PORT156" gate="G$1" x="233.68" y="147.32"/>
 <instance part="PORT157" gate="G$1" x="233.68" y="149.86"/>
 <instance part="PORT162" gate="G$1" x="170.18" y="147.32" rot="MR0"/>
+<instance part="M9" gate="G$1" x="116.84" y="22.86"/>
+<instance part="M10" gate="G$1" x="124.46" y="22.86"/>
+<instance part="M11" gate="G$1" x="132.08" y="22.86"/>
+<instance part="M12" gate="G$1" x="139.7" y="22.86"/>
 </instances>
 <busses>
 </busses>
