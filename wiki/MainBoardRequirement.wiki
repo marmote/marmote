@@ -13,7 +13,7 @@
   * ~~Double check if the above approach makes sense.~~
 
  * Consider replacing the programmer connector with a right-angle one
- * Correct R14 to DNP in BOM file
+ * Correct R14 to DNP in BOM file *(fixed)*
 
 
 ----
