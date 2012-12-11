@@ -1,7 +1,11 @@
-#summary One-sentence summary of this page.
+#summary Log of changes in the MainBoard design.
 #labels Phase-QA
 
 = Rev B Changes =
+
+  * Removed C117 and fixed C116 (rated 250V)
+  * Replaced J2 (RJ-45) connector with J0011D21BNL
+  * Reassigned and rerouted North Bridge GPIOs to parallel gain control (every GPIO is driven by FPGA I/O now)
 
   * Corrected issues in BOM file
   * Corrected VBAT symbol issue in library and removed R53 on PWRSAV line altogether
