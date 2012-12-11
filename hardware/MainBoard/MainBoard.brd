@@ -9,25 +9,25 @@
 <grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.25" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
-<layer number="2" name="GND" color="1" fill="3" visible="no" active="yes"/>
-<layer number="3" name="Inner1" color="13" fill="3" visible="no" active="yes"/>
-<layer number="14" name="Inner2" color="10" fill="6" visible="no" active="yes"/>
-<layer number="15" name="D3V3" color="4" fill="3" visible="no" active="yes"/>
+<layer number="2" name="GND" color="1" fill="3" visible="yes" active="yes"/>
+<layer number="3" name="Inner1" color="13" fill="3" visible="yes" active="yes"/>
+<layer number="14" name="Inner2" color="10" fill="6" visible="yes" active="yes"/>
+<layer number="15" name="D3V3" color="4" fill="3" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="25" name="tNames" color="4" fill="1" visible="yes" active="yes"/>
-<layer number="26" name="bNames" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="25" name="tNames" color="4" fill="1" visible="no" active="yes"/>
+<layer number="26" name="bNames" color="15" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="8" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
-<layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="6" visible="yes" active="yes"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
 <layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
 <layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
@@ -37,12 +37,12 @@
 <layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
 <layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
-<layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="yes"/>
+<layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
-<layer number="42" name="bRestrict" color="1" fill="10" visible="no" active="yes"/>
-<layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
+<layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
+<layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
@@ -63,7 +63,7 @@
 <layer number="98" name="Guide" color="6" fill="1" visible="no" active="no"/>
 <layer number="100" name="Muster" color="7" fill="1" visible="no" active="no"/>
 <layer number="101" name="Patch_Top" color="12" fill="4" visible="no" active="yes"/>
-<layer number="102" name="Vscore" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="102" name="Vscore" color="7" fill="1" visible="no" active="yes"/>
 <layer number="103" name="tMap" color="7" fill="1" visible="no" active="yes"/>
 <layer number="104" name="Name" color="7" fill="1" visible="no" active="yes"/>
 <layer number="105" name="tPlate" color="7" fill="1" visible="no" active="yes"/>
@@ -10924,7 +10924,7 @@ Chip capacitor
 <wire x1="1.973" y1="0.983" x2="1.973" y2="-0.983" width="0.0508" layer="39"/>
 <wire x1="1.973" y1="-0.983" x2="-1.973" y2="-0.983" width="0.0508" layer="39"/>
 <wire x1="-1.973" y1="-0.983" x2="-1.973" y2="0.983" width="0.0508" layer="39"/>
-<wire x1="0" y1="0.0305" x2="0" y2="-0.0305" width="0.5588" layer="21"/>
+<wire x1="0" y1="0.0305" x2="0" y2="-0.0305" width="0.4572" layer="21"/>
 <smd name="1" x="-0.95" y="0" dx="1.3" dy="1.5" layer="1"/>
 <smd name="2" x="0.95" y="0" dx="1.3" dy="1.5" layer="1"/>
 <text x="-1.016" y="0.9652" size="0.4064" layer="25">&gt;NAME</text>
@@ -11389,11 +11389,11 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J403.pdf"&gt;htt
 <wire x1="9.525" y1="11.43" x2="9.525" y2="-11.335" width="0.127" layer="39"/>
 <wire x1="9.525" y1="-11.335" x2="-9.525" y2="-11.335" width="0.127" layer="39"/>
 <wire x1="-9.525" y1="-11.335" x2="-9.525" y2="11.43" width="0.127" layer="39"/>
-<wire x1="-8.128" y1="-10.7823" x2="-8.128" y2="-2.078" width="0.127" layer="21"/>
-<wire x1="8.128" y1="-2.078" x2="8.128" y2="-10.7823" width="0.127" layer="21"/>
+<wire x1="-8.128" y1="-10.7823" x2="-8.128" y2="-5.078" width="0.127" layer="21"/>
+<wire x1="8.128" y1="-5.078" x2="8.128" y2="-10.7823" width="0.127" layer="21"/>
 <wire x1="8.128" y1="-10.7823" x2="-8.128" y2="-10.7823" width="0.127" layer="21"/>
-<wire x1="-8.128" y1="2.042" x2="-8.128" y2="8.172" width="0.127" layer="21"/>
-<wire x1="8.128" y1="8.172" x2="8.128" y2="2.042" width="0.127" layer="21"/>
+<wire x1="-8.128" y1="-1.208" x2="-8.128" y2="8.172" width="0.127" layer="21"/>
+<wire x1="8.128" y1="8.172" x2="8.128" y2="-1.208" width="0.127" layer="21"/>
 <rectangle x1="-7.874" y1="7.874" x2="7.874" y2="10.795" layer="41"/>
 </package>
 </packages>
@@ -12254,8 +12254,8 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="NAME" x="82.861" y="28.0842" size="0.4064" layer="25"/>
 <attribute name="VALUE" x="82.389" y="29.2406" size="0.4064" layer="27" rot="R180"/>
 </element>
-<element name="R42" library="MainBoard" package="R0402" value="100" x="80" y="50.75" rot="MR270">
-<attribute name="TOLERANCE" value="" x="80" y="50.75" size="1.778" layer="28" rot="MR270" display="off"/>
+<element name="R42" library="MainBoard" package="R0402" value="100" x="74.25" y="52.25" rot="MR0">
+<attribute name="TOLERANCE" value="" x="74.25" y="52.25" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
 <element name="R32" library="MainBoard" package="R0402" value="100" x="61" y="50.5" rot="MR0">
 <attribute name="TOLERANCE" value="" x="61" y="50.5" size="1.778" layer="28" rot="MR0" display="off"/>
@@ -12265,22 +12265,22 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="VALUE" x="70.861" y="37.4906" size="0.4064" layer="28" rot="MR180"/>
 </element>
 <element name="C122" library="MainBoard" package="C0402" value="0.1uF" x="69.25" y="42.25" rot="MR0"/>
-<element name="R48" library="MainBoard" package="R0402" value="2.2k" x="68" y="49.75" smashed="yes" rot="MR180">
-<attribute name="TOLERANCE" value="" x="68" y="49.75" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="PAGE3" value="Clock and Reset" x="68" y="49.75" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="PAGE4" value="Ethernet" x="68" y="49.75" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="68" y="49.75" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="68" y="49.75" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="68" y="49.75" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="TITLE" value="Main Board" x="68" y="49.75" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="68" y="49.75" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="68" y="49.75" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="68" y="49.75" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="REVISION" value="A" x="68" y="49.75" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="68" y="49.75" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="68" y="49.75" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="NAME" x="68.389" y="50.3342" size="0.4064" layer="26" rot="MR0"/>
-<attribute name="VALUE" x="67.111" y="50.7406" size="0.4064" layer="28" rot="MR180"/>
+<element name="R48" library="MainBoard" package="R0402" value="2.2k" x="75.5" y="34.25" smashed="yes" rot="MR0">
+<attribute name="TOLERANCE" value="" x="75.5" y="34.25" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE3" value="Clock and Reset" x="75.5" y="34.25" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE4" value="Ethernet" x="75.5" y="34.25" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="75.5" y="34.25" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="75.5" y="34.25" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="75.5" y="34.25" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="TITLE" value="Main Board" x="75.5" y="34.25" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="75.5" y="34.25" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="75.5" y="34.25" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="75.5" y="34.25" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="REVISION" value="A" x="75.5" y="34.25" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="75.5" y="34.25" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="75.5" y="34.25" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="NAME" x="75.111" y="33.6658" size="0.4064" layer="26" rot="MR180"/>
+<attribute name="VALUE" x="76.389" y="33.2594" size="0.4064" layer="28" rot="MR0"/>
 </element>
 <element name="R47" library="MainBoard" package="R0402" value="2.2k" x="77.5" y="30.5" smashed="yes" rot="MR180">
 <attribute name="TOLERANCE" value="" x="77.5" y="30.5" size="1.778" layer="28" rot="MR180" display="off"/>
@@ -12299,20 +12299,20 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="NAME" x="78.139" y="31.0842" size="0.4064" layer="26" rot="MR0"/>
 <attribute name="VALUE" x="76.611" y="31.4906" size="0.4064" layer="28" rot="MR180"/>
 </element>
-<element name="R46" library="MainBoard" package="R0402" value="2.2k" x="71.5" y="47.75" rot="MR0">
-<attribute name="PAGE3" value="Clock and Reset" x="71.5" y="47.75" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE4" value="Ethernet" x="71.5" y="47.75" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="71.5" y="47.75" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="71.5" y="47.75" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="71.5" y="47.75" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="TITLE" value="Main Board" x="71.5" y="47.75" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="71.5" y="47.75" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="71.5" y="47.75" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="71.5" y="47.75" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="REVISION" value="A" x="71.5" y="47.75" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="71.5" y="47.75" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="71.5" y="47.75" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="TOLERANCE" value="" x="71.5" y="47.75" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="R46" library="MainBoard" package="R0402" value="2.2k" x="80" y="34.25" rot="MR180">
+<attribute name="PAGE3" value="Clock and Reset" x="80" y="34.25" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE4" value="Ethernet" x="80" y="34.25" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="80" y="34.25" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="80" y="34.25" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="80" y="34.25" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="TITLE" value="Main Board" x="80" y="34.25" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="80" y="34.25" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="80" y="34.25" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="80" y="34.25" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="REVISION" value="A" x="80" y="34.25" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="80" y="34.25" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="80" y="34.25" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="TOLERANCE" value="" x="80" y="34.25" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
 <element name="C119" library="MainBoard" package="C0402" value="0.1uF" x="77.5" y="28.25" smashed="yes" rot="MR180">
 <attribute name="NAME" x="78.139" y="28.8342" size="0.4064" layer="26" rot="MR0"/>
@@ -12485,8 +12485,8 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="NAME" x="67.861" y="28.4158" size="0.4064" layer="26" rot="MR180"/>
 <attribute name="VALUE" x="67.389" y="27.2594" size="0.4064" layer="28" rot="MR0"/>
 </element>
-<element name="R31" library="MainBoard" package="R0402" value="1.5k" x="62.5" y="38.5" rot="MR270">
-<attribute name="TOLERANCE" value="" x="62.5" y="38.5" size="1.778" layer="28" rot="MR270" display="off"/>
+<element name="R31" library="MainBoard" package="R0402" value="1.5k" x="62.25" y="38.5" rot="MR270">
+<attribute name="TOLERANCE" value="" x="62.25" y="38.5" size="1.778" layer="28" rot="MR270" display="off"/>
 </element>
 <element name="R37" library="MainBoard" package="R0402" value="22" x="67.5" y="28" smashed="yes" rot="R270">
 <attribute name="PAGE3" value="Clock and Reset" x="67.5" y="28" size="1.778" layer="27" rot="R270" display="off"/>
@@ -13326,20 +13326,20 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="NAME" x="3.341" y="10.5908" size="0.4064" layer="25"/>
 <attribute name="VALUE" x="0.477" y="12.049" size="0.4064" layer="27" rot="R270"/>
 </element>
-<element name="C116" library="MainBoard" package="C0805" value="1000pF" x="65.25" y="42.25" rot="MR90">
-<attribute name="PAGE3" value="Clock and Reset" x="65.25" y="42.25" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="PAGE4" value="Ethernet" x="65.25" y="42.25" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="65.25" y="42.25" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="PAGE5" value="Digital Signal" x="65.25" y="42.25" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="PAGE6" value="Analog Front-Ends" x="65.25" y="42.25" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="TITLE" value="Main Board" x="65.25" y="42.25" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="PAGE7" value="Connectors" x="65.25" y="42.25" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="PAGE9" value="Caps, Pulls and TPs" x="65.25" y="42.25" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="AUTHOR" value="Sandor Szilvasi" x="65.25" y="42.25" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="REVISION" value="A" x="65.25" y="42.25" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="PAGE1" value="Cover Page" x="65.25" y="42.25" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="PAGE2" value="FPGA Power Supply" x="65.25" y="42.25" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="RATING" value="1000V" x="65.25" y="42.25" size="1.778" layer="28" rot="MR90" display="off"/>
+<element name="C116" library="MainBoard" package="C0805" value="1000pF" x="64" y="40.25" rot="MR270">
+<attribute name="PAGE3" value="Clock and Reset" x="64" y="40.25" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="PAGE4" value="Ethernet" x="64" y="40.25" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu" x="64" y="40.25" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="PAGE5" value="Digital Signal" x="64" y="40.25" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="PAGE6" value="Analog Front-Ends" x="64" y="40.25" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="TITLE" value="Main Board" x="64" y="40.25" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="PAGE7" value="Connectors" x="64" y="40.25" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="PAGE9" value="Caps, Pulls and TPs" x="64" y="40.25" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="AUTHOR" value="Sandor Szilvasi" x="64" y="40.25" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="REVISION" value="A" x="64" y="40.25" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="PAGE1" value="Cover Page" x="64" y="40.25" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="PAGE2" value="FPGA Power Supply" x="64" y="40.25" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="RATING" value="1000V" x="64" y="40.25" size="1.778" layer="28" rot="MR270" display="off"/>
 </element>
 <element name="TP1" library="MainBoard" package="TESTPOINT" value="TESTPOINT-YELLOW" x="28.5" y="52.25">
 <attribute name="DIGI-KEY#" value="5009K-ND" x="28.5" y="52.25" size="1.778" layer="27" display="off"/>
@@ -13781,8 +13781,8 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="81.75" y="23.75" extent="1-16" drill="0.2032"/>
 <wire x1="28.5" y1="8.85" x2="28.5" y2="7" width="0.6096" layer="16"/>
 <wire x1="28.5" y1="8.85" x2="28.5" y2="10.5" width="0.6096" layer="16"/>
-<via x="67" y="43.75" extent="1-16" drill="0.2032"/>
-<via x="67" y="42.75" extent="1-16" drill="0.2032"/>
+<via x="65.5" y="39.5" extent="1-16" drill="0.2032"/>
+<via x="64" y="37.5" extent="1-16" drill="0.2032"/>
 </signal>
 <signal name="D1V5">
 <contactref element="U1" pad="J7"/>
@@ -14130,12 +14130,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="14.5" y="33.25" extent="1-16" drill="0.2032"/>
 <wire x1="15.75" y1="21.35" x2="15.75" y2="20" width="0.1524" layer="16"/>
 <via x="15.75" y="20" extent="1-16" drill="0.2032"/>
-<wire x1="80" y1="50.1" x2="80" y2="48.75" width="0.1524" layer="16"/>
-<via x="80" y="48.75" extent="1-16" drill="0.2032"/>
-<via x="68.75" y="48.75" extent="1-16" drill="0.2032"/>
-<wire x1="70.85" y1="47.75" x2="70.75" y2="47.85" width="0.1524" layer="16"/>
-<wire x1="70.75" y1="47.85" x2="70.75" y2="48.75" width="0.1524" layer="16"/>
-<via x="70.75" y="48.75" extent="1-16" drill="0.2032"/>
+<via x="72.5" y="52.25" extent="1-16" drill="0.2032"/>
+<via x="73.5" y="34.25" extent="1-16" drill="0.2032"/>
+<via x="82" y="34.25" extent="1-16" drill="0.2032"/>
 <wire x1="65.85" y1="27.25" x2="65.75" y2="27.15" width="0.1524" layer="16"/>
 <wire x1="65.75" y1="27.15" x2="65.75" y2="26.5" width="0.1524" layer="16"/>
 <via x="65.75" y="26.5" extent="1-16" drill="0.2032"/>
@@ -14167,7 +14164,6 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="58.5" y="47.5" extent="1-16" drill="0.2032"/>
 <wire x1="58.7" y1="46.55" x2="58.5" y2="46.75" width="0.1524" layer="1"/>
 <wire x1="58.5" y1="46.75" x2="58.5" y2="47.5" width="0.1524" layer="1"/>
-<wire x1="62.5" y1="37.85" x2="62.5" y2="36.75" width="0.1524" layer="16"/>
 <via x="62.5" y="36.75" extent="1-16" drill="0.2032"/>
 <wire x1="56.75" y1="38.15" x2="56.9" y2="38.25" width="0.1524" layer="16"/>
 <wire x1="56.9" y1="38.25" x2="58" y2="38.25" width="0.1524" layer="16"/>
@@ -14199,8 +14195,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="59" y1="49.25" x2="59.75" y2="50" width="0.1524" layer="16"/>
 <wire x1="60.35" y1="50.5" x2="60.25" y2="50.5" width="0.1524" layer="16"/>
 <wire x1="60.25" y1="50.5" x2="59.75" y2="50" width="0.1524" layer="16"/>
-<wire x1="68.65" y1="49.75" x2="68.75" y2="49.65" width="0.1524" layer="16"/>
-<wire x1="68.75" y1="49.65" x2="68.75" y2="48.75" width="0.1524" layer="16"/>
+<wire x1="73.6" y1="52.25" x2="72.5" y2="52.25" width="0.1524" layer="16"/>
+<wire x1="80.65" y1="34.25" x2="82" y2="34.25" width="0.1524" layer="16"/>
+<wire x1="74.85" y1="34.25" x2="73.5" y2="34.25" width="0.1524" layer="16"/>
+<wire x1="62.25" y1="37.85" x2="62.25" y2="37" width="0.1524" layer="16"/>
+<wire x1="62.25" y1="37" x2="62.5" y2="36.75" width="0.1524" layer="16"/>
 </signal>
 <signal name="A3V3">
 <contactref element="U2" pad="46"/>
@@ -16469,10 +16468,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 </signal>
 <signal name="COM+">
 <contactref element="R42" pad="1"/>
-<wire x1="79.95" y1="51.35" x2="80" y2="51.4" width="0.1524" layer="16"/>
 <contactref element="J2" pad="9"/>
-<wire x1="79.95" y1="51.35" x2="77.3768" y2="51.35" width="0.1524" layer="16"/>
-<wire x1="77.3768" y1="51.35" x2="76.8246" y2="51.9022" width="0.1524" layer="16"/>
+<wire x1="76.8246" y1="51.9022" x2="76.4768" y2="52.25" width="0.1524" layer="16"/>
+<wire x1="76.4768" y1="52.25" x2="74.9" y2="52.25" width="0.1524" layer="16"/>
 </signal>
 <signal name="LED_ETH_ACT">
 <contactref element="U6" pad="26"/>
@@ -16482,14 +16480,13 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="77.5" y1="34.25" x2="76.25" y2="33" width="0.1524" layer="1"/>
 <wire x1="76.25" y1="33" x2="76.25" y2="29.2" width="0.1524" layer="1"/>
 <contactref element="J2" pad="11"/>
-<wire x1="66.7154" y1="51.9022" x2="67.35" y2="51.2676" width="0.1524" layer="16"/>
-<wire x1="67.35" y1="51.2676" x2="67.35" y2="49.75" width="0.1524" layer="16"/>
 <wire x1="77.5" y1="37.5" x2="77.5" y2="40" width="0.1524" layer="16"/>
 <wire x1="77.5" y1="40" x2="71" y2="46.5" width="0.1524" layer="16"/>
-<wire x1="71" y1="46.5" x2="69.75" y2="46.5" width="0.1524" layer="16"/>
-<wire x1="69.75" y1="46.5" x2="67.5" y2="48.75" width="0.1524" layer="16"/>
-<wire x1="67.5" y1="48.75" x2="67.35" y2="48.9" width="0.1524" layer="16"/>
-<wire x1="67.35" y1="48.9" x2="67.35" y2="49.75" width="0.1524" layer="16"/>
+<wire x1="71" y1="46.5" x2="68.75" y2="48.75" width="0.1524" layer="16"/>
+<wire x1="66.85" y1="50.65" x2="68.75" y2="48.75" width="0.1524" layer="16"/>
+<wire x1="76.15" y1="34.25" x2="77.5" y2="34.25" width="0.1524" layer="16"/>
+<wire x1="66.85" y1="50.65" x2="66.7154" y2="50.7846" width="0.1524" layer="16"/>
+<wire x1="66.7154" y1="50.7846" x2="66.7154" y2="51.9022" width="0.1524" layer="16"/>
 </signal>
 <signal name="LED_ETH_LINK">
 <contactref element="U6" pad="28"/>
@@ -16499,14 +16496,16 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="75.25" y="30.75" extent="1-16" drill="0.2032"/>
 <wire x1="75.25" y1="30.75" x2="75.25" y2="31.25" width="0.1524" layer="16"/>
 <wire x1="75.25" y1="31.25" x2="78.25" y2="34.25" width="0.1524" layer="16"/>
-<wire x1="72" y1="47.5" x2="72.15" y2="47.75" width="0.1524" layer="16"/>
 <contactref element="J2" pad="10"/>
-<wire x1="74.2846" y1="50.3782" x2="72.15" y2="48.2436" width="0.1524" layer="16"/>
-<wire x1="72.15" y1="48.2436" x2="72.15" y2="47.75" width="0.1524" layer="16"/>
 <wire x1="78.25" y1="37.5" x2="78.25" y2="40.5" width="0.1524" layer="16"/>
-<wire x1="78.25" y1="40.5" x2="72.25" y2="46.5" width="0.1524" layer="16"/>
-<wire x1="72.15" y1="47.75" x2="72.15" y2="46.6" width="0.1524" layer="16"/>
-<wire x1="72.15" y1="46.6" x2="72.25" y2="46.5" width="0.1524" layer="16"/>
+<wire x1="75.15" y1="43.6" x2="75.25" y2="43.5" width="0.1524" layer="16"/>
+<wire x1="75.25" y1="43.5" x2="78.25" y2="40.5" width="0.1524" layer="16"/>
+<wire x1="73" y1="48.75" x2="73" y2="45.75" width="0.1524" layer="16"/>
+<wire x1="73" y1="45.75" x2="74.2846" y2="44.4654" width="0.1524" layer="16"/>
+<wire x1="74.2846" y1="44.4654" x2="75.25" y2="43.5" width="0.1524" layer="16"/>
+<wire x1="73" y1="48.75" x2="73" y2="49.0936" width="0.1524" layer="16"/>
+<wire x1="73" y1="49.0936" x2="74.2846" y2="50.3782" width="0.1524" layer="16"/>
+<wire x1="78.25" y1="34.25" x2="79.35" y2="34.25" width="0.1524" layer="16"/>
 </signal>
 <signal name="E3V3">
 <contactref element="C121" pad="1"/>
@@ -16598,7 +16597,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="53" y1="39" x2="61.25" y2="39" width="0.1524" layer="1"/>
 <via x="61.25" y="39" extent="1-16" drill="0.2032"/>
 <wire x1="61.25" y1="39" x2="62.25" y2="39" width="0.1524" layer="16"/>
-<wire x1="62.5" y1="39.15" x2="62.25" y2="39" width="0.1524" layer="16"/>
+<wire x1="62.25" y1="39.15" x2="62.25" y2="39" width="0.1524" layer="16"/>
 </signal>
 <signal name="MAC_TXEN">
 <contactref element="U1" pad="L2"/>
@@ -16849,9 +16848,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="74.75" y="30.5" extent="1-16" drill="0.2032" alwaysstop="yes"/>
 <wire x1="50" y1="40" x2="50.5" y2="40.5" width="0.1524" layer="16"/>
 <wire x1="74.75" y1="30.5" x2="70" y2="35.25" width="0.1524" layer="14"/>
-<wire x1="70" y1="35.25" x2="64.5" y2="35.25" width="0.1524" layer="14"/>
-<wire x1="64.5" y1="35.25" x2="62.5" y2="37.25" width="0.1524" layer="14"/>
-<wire x1="62.5" y1="37.25" x2="62.5" y2="41" width="0.1524" layer="14"/>
+<wire x1="70" y1="35.25" x2="65" y2="35.25" width="0.1524" layer="14"/>
+<wire x1="65" y1="35.25" x2="62.5" y2="37.75" width="0.1524" layer="14"/>
+<wire x1="62.5" y1="37.75" x2="62.5" y2="41" width="0.1524" layer="14"/>
 <wire x1="62.5" y1="41" x2="52" y2="41" width="0.1524" layer="16"/>
 <wire x1="52" y1="41" x2="51.5" y2="40.5" width="0.1524" layer="16"/>
 <wire x1="51.5" y1="40.5" x2="50.5" y2="40.5" width="0.1524" layer="16"/>
@@ -17740,13 +17739,155 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <vertex x="80" y="36"/>
 <vertex x="61" y="36"/>
 </polygon>
-<wire x1="65.25" y1="41.3" x2="65.9" y2="40.65" width="0.3048" layer="16"/>
-<wire x1="65.9" y1="40.65" x2="67.325" y2="40.65" width="0.3048" layer="16"/>
-<wire x1="65.25" y1="41.3" x2="63.95" y2="41.3" width="0.3048" layer="16"/>
-<wire x1="63.95" y1="41.3" x2="62.75" y2="42.5" width="0.3048" layer="16"/>
-<wire x1="62.75" y1="42.5" x2="62.75" y2="43.25" width="0.3048" layer="16"/>
+<wire x1="64" y1="41.2" x2="63.95" y2="41.3" width="0.3048" layer="16"/>
+<wire x1="64" y1="41.2" x2="64" y2="41" width="0.3048" layer="16"/>
+<wire x1="64" y1="41" x2="64" y2="42.578" width="0.3048" layer="16"/>
+<wire x1="64" y1="42.578" x2="62.626" y2="43.952" width="0.3048" layer="16"/>
+<wire x1="64" y1="41" x2="66" y2="41" width="0.3048" layer="16"/>
+<wire x1="66" y1="41" x2="67" y2="41" width="0.3048" layer="16"/>
+<wire x1="67" y1="41" x2="67.25" y2="40.75" width="0.3048" layer="16"/>
 </signal>
 </signals>
+<errors>
+<approved hash="2,20,933d9cc19ab7954b"/>
+<approved hash="2,20,43213cdd3aa94555"/>
+<approved hash="18,29,db13ac32d348a469"/>
+<approved hash="18,29,da93a712d668abe9"/>
+<approved hash="18,29,5dac9910b6ad945a"/>
+<approved hash="18,29,5dac9910b6ad945a"/>
+<approved hash="18,29,8d47a687434ca0ff"/>
+<approved hash="18,29,8d47a687434ca0ff"/>
+<approved hash="18,29,cf1aeb3797c87b96"/>
+<approved hash="18,29,7a34a52fb5e08cb0"/>
+<approved hash="18,29,cf1aeb3797c87b96"/>
+<approved hash="18,29,7a34a52fb5e08cb0"/>
+<approved hash="18,29,1a9f671e16546bd5"/>
+<approved hash="18,29,1b1f6c3e13746455"/>
+<approved hash="18,30,ebb6f099bdd55b31"/>
+<approved hash="18,30,ebb6f099bdd55b31"/>
+<approved hash="18,30,37e21211ecd80e48"/>
+<approved hash="18,30,37e21211ecd80e48"/>
+<approved hash="18,30,422598080fc0128e"/>
+<approved hash="18,30,b308cd60ce4ca9cc"/>
+<approved hash="18,30,422598080fc0128e"/>
+<approved hash="18,30,b308cd60ce4ca9cc"/>
+<approved hash="18,30,4d4a929d7df9a22c"/>
+<approved hash="18,30,8ed800f68cc0e84e"/>
+<approved hash="6,1,8e29a0bb0be4b10f"/>
+<approved hash="6,1,b6348b5c47fad33b"/>
+<approved hash="4,1,7ba3bbfdd2535e89"/>
+<approved hash="4,1,981bb04353d6b4bb"/>
+<approved hash="4,1,789db2a9eeac5e01"/>
+<approved hash="4,1,9f55b4ef3a8bb007"/>
+<approved hash="4,1,b0cf647d521f05b1"/>
+<approved hash="4,1,569ec61f96847dd7"/>
+<approved hash="4,1,593f9b8f36d97781"/>
+<approved hash="4,1,189ae7f54343de06"/>
+<approved hash="4,1,993a6f555161234c"/>
+<approved hash="4,1,77e5c633972c5c74"/>
+<approved hash="4,1,391e997d36491968"/>
+<approved hash="4,1,7dd3e1e5405bbe43"/>
+<approved hash="4,1,4fcd961ae2be2cf1"/>
+<approved hash="4,1,cf03910de5423dd5"/>
+<approved hash="4,1,dbc2a5d4e99962fc"/>
+<approved hash="4,1,78d6b9cbec5f48a0"/>
+<approved hash="4,1,3329150d6bfdcd12"/>
+<approved hash="4,1,4cb3981f8b76a4d9"/>
+<approved hash="4,1,e4617d0b7ade5be1"/>
+<approved hash="4,1,56568ee4bef7b065"/>
+<approved hash="4,1,c61781954006478c"/>
+<approved hash="4,1,0a3e199f467c175e"/>
+<approved hash="4,1,02d2edfd51778f31"/>
+<approved hash="4,1,18ceb653a39e3a30"/>
+<approved hash="4,1,85ddeb8051779f42"/>
+<approved hash="4,1,8fde3b7a587b3ecd"/>
+<approved hash="4,1,992312bcb0f119e8"/>
+<approved hash="4,1,960f139db1b6da11"/>
+<approved hash="4,1,bbc8fc69ff8a0f56"/>
+<approved hash="4,1,fc59fb3a9b30f48d"/>
+<approved hash="4,1,01d630f37f57a5f9"/>
+<approved hash="4,1,992312bcb0f119e8"/>
+<approved hash="4,1,960f139db1b6da11"/>
+<approved hash="4,1,bbc8fc69ff8a0f56"/>
+<approved hash="4,1,fc59fb3a9b30f48d"/>
+<approved hash="4,1,01d630f37f57a5f9"/>
+<approved hash="4,1,b94326948a2a5113"/>
+<approved hash="4,1,84bdcc8f5fe38b32"/>
+<approved hash="4,1,84bdcc8f5fe38b32"/>
+<approved hash="4,1,7cabc8ab8dae69fe"/>
+<approved hash="4,1,7cabc8ab8dae69fe"/>
+<approved hash="4,1,fa743ef70855fec4"/>
+<approved hash="4,1,fa743ef70855fec4"/>
+<approved hash="4,1,2d0d24fae7c70381"/>
+<approved hash="4,1,2d0d24fae7c70381"/>
+<approved hash="4,1,bd4ab2318a076ef7"/>
+<approved hash="4,1,bd4ab2318a076ef7"/>
+<approved hash="4,1,e654a8eaabd6383e"/>
+<approved hash="6,1,65fe5793857a2e84"/>
+<approved hash="6,1,a2ad44ad36c8748b"/>
+<approved hash="4,2,c61781954006478c"/>
+<approved hash="4,2,18ceb653a39e3a30"/>
+<approved hash="4,2,01d630f37f57a5f9"/>
+<approved hash="4,2,01d630f37f57a5f9"/>
+<approved hash="4,2,b94326948a2a5113"/>
+<approved hash="4,2,bd4ab2318a076ef7"/>
+<approved hash="4,2,bd4ab2318a076ef7"/>
+<approved hash="4,2,e654a8eaabd6383e"/>
+<approved hash="4,3,18ceb653a39e3a30"/>
+<approved hash="4,3,c61781954006478c"/>
+<approved hash="4,3,6e9249c400ed17be"/>
+<approved hash="4,3,01d630f37f57a5f9"/>
+<approved hash="4,3,01d630f37f57a5f9"/>
+<approved hash="4,3,b94326948a2a5113"/>
+<approved hash="4,3,bd4ab2318a076ef7"/>
+<approved hash="4,3,bd4ab2318a076ef7"/>
+<approved hash="4,3,e654a8eaabd6383e"/>
+<approved hash="4,14,18ceb653a39e3a30"/>
+<approved hash="4,14,c61781954006478c"/>
+<approved hash="4,14,01d630f37f57a5f9"/>
+<approved hash="4,14,01d630f37f57a5f9"/>
+<approved hash="4,14,b94326948a2a5113"/>
+<approved hash="4,14,bd4ab2318a076ef7"/>
+<approved hash="4,14,bd4ab2318a076ef7"/>
+<approved hash="4,14,e654a8eaabd6383e"/>
+<approved hash="4,15,c61781954006478c"/>
+<approved hash="4,15,18ceb653a39e3a30"/>
+<approved hash="4,15,01d630f37f57a5f9"/>
+<approved hash="4,15,01d630f37f57a5f9"/>
+<approved hash="4,15,b94326948a2a5113"/>
+<approved hash="4,15,bd4ab2318a076ef7"/>
+<approved hash="4,15,bd4ab2318a076ef7"/>
+<approved hash="4,15,e654a8eaabd6383e"/>
+<approved hash="6,16,b6348b5c47fad33b"/>
+<approved hash="6,16,8e29a0bb0be4b10f"/>
+<approved hash="4,16,c61781954006478c"/>
+<approved hash="4,16,18ceb653a39e3a30"/>
+<approved hash="4,16,c37b39e2868a813f"/>
+<approved hash="4,16,960f139db1b6da11"/>
+<approved hash="4,16,992312bcb0f119e8"/>
+<approved hash="4,16,fc59fb3a9b30f48d"/>
+<approved hash="4,16,bbc8fc69ff8a0f56"/>
+<approved hash="4,16,01d630f37f57a5f9"/>
+<approved hash="4,16,960f139db1b6da11"/>
+<approved hash="4,16,992312bcb0f119e8"/>
+<approved hash="4,16,fc59fb3a9b30f48d"/>
+<approved hash="4,16,bbc8fc69ff8a0f56"/>
+<approved hash="4,16,01d630f37f57a5f9"/>
+<approved hash="4,16,b94326948a2a5113"/>
+<approved hash="4,16,84bdcc8f5fe38b32"/>
+<approved hash="4,16,84bdcc8f5fe38b32"/>
+<approved hash="4,16,7cabc8ab8dae69fe"/>
+<approved hash="4,16,7cabc8ab8dae69fe"/>
+<approved hash="4,16,fa743ef70855fec4"/>
+<approved hash="4,16,fa743ef70855fec4"/>
+<approved hash="4,16,2d0d24fae7c70381"/>
+<approved hash="4,16,2d0d24fae7c70381"/>
+<approved hash="4,16,bd4ab2318a076ef7"/>
+<approved hash="4,16,bd4ab2318a076ef7"/>
+<approved hash="4,16,e654a8eaabd6383e"/>
+<approved hash="6,16,65fe5793857a2e84"/>
+<approved hash="6,16,a2ad44ad36c8748b"/>
+</errors>
 </board>
 </drawing>
 </eagle>
