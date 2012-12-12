@@ -50138,9 +50138,6 @@ Ground for the galvanically decoupled Ethernet chassis.</description>
 <pinref part="J4" gate="G$1" pin="9"/>
 <wire x1="119.38" y1="152.4" x2="121.92" y2="152.4" width="0.1524" layer="91"/>
 <junction x="119.38" y="152.4"/>
-<wire x1="119.38" y1="152.4" x2="119.38" y2="144.78" width="0.1524" layer="91"/>
-<pinref part="J4" gate="G$1" pin="15"/>
-<wire x1="119.38" y1="144.78" x2="121.92" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="137.16" y1="152.4" x2="142.24" y2="152.4" width="0.1524" layer="91"/>
@@ -50151,9 +50148,6 @@ Ground for the galvanically decoupled Ethernet chassis.</description>
 <pinref part="J4" gate="G$1" pin="10"/>
 <wire x1="134.62" y1="152.4" x2="137.16" y2="152.4" width="0.1524" layer="91"/>
 <junction x="137.16" y="152.4"/>
-<pinref part="J4" gate="G$1" pin="16"/>
-<wire x1="134.62" y1="144.78" x2="137.16" y2="144.78" width="0.1524" layer="91"/>
-<wire x1="137.16" y1="144.78" x2="137.16" y2="152.4" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="193.04" y1="152.4" x2="193.04" y2="162.56" width="0.1524" layer="91"/>
