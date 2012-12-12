@@ -39920,14 +39920,14 @@ v1.0 Initial design</description>
 </net>
 <net name="B6" class="0">
 <segment>
-<wire x1="27.94" y1="99.06" x2="50.8" y2="99.06" width="0.1524" layer="91"/>
-<label x="30.48" y="99.06" size="1.778" layer="95"/>
+<wire x1="25.4" y1="154.94" x2="48.26" y2="154.94" width="0.1524" layer="91"/>
+<label x="27.94" y="154.94" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="B7" class="0">
 <segment>
-<wire x1="27.94" y1="96.52" x2="50.8" y2="96.52" width="0.1524" layer="91"/>
-<label x="30.48" y="96.52" size="1.778" layer="95"/>
+<wire x1="25.4" y1="152.4" x2="48.26" y2="152.4" width="0.1524" layer="91"/>
+<label x="27.94" y="152.4" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
