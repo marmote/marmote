@@ -5,7 +5,7 @@
 
 == Errata ==
 
- * DONE - Only 4 DGND pins left out of 6 (2 became IO pins) 
+ * DONE - Only 4 DGND pins left out of 6 on mezzanine (2 became IO pins) 
  * DONE - Silkscreen labels !D1V5 and !D3V3 are swapped
  * DONE - VBUS measurement point not assembled
  * DONE - SW2 name missing, needs caption (silk screen)
