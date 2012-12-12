@@ -9,10 +9,10 @@
 <grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.25" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
-<layer number="2" name="GND" color="1" fill="3" visible="yes" active="yes"/>
-<layer number="3" name="Inner1" color="13" fill="3" visible="yes" active="yes"/>
-<layer number="14" name="Inner2" color="10" fill="6" visible="yes" active="yes"/>
-<layer number="15" name="D3V3" color="4" fill="3" visible="yes" active="yes"/>
+<layer number="2" name="GND" color="1" fill="3" visible="no" active="yes"/>
+<layer number="3" name="Inner1" color="13" fill="3" visible="no" active="yes"/>
+<layer number="14" name="Inner2" color="10" fill="6" visible="no" active="yes"/>
+<layer number="15" name="D3V3" color="4" fill="3" visible="no" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
@@ -13649,8 +13649,6 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="79.5" y="23.25" extent="1-16" drill="0.2032"/>
 <wire x1="78.2" y1="25.25" x2="79.5" y2="25.25" width="0.3048" layer="1"/>
 <via x="79.5" y="25.25" extent="1-16" drill="0.2032"/>
-<contactref element="J4" pad="15"/>
-<contactref element="J4" pad="16"/>
 <wire x1="38.5" y1="31.5" x2="37.5" y2="31.5" width="0.1524" layer="1"/>
 <contactref element="C30" pad="2"/>
 <contactref element="C33" pad="2"/>
@@ -17748,146 +17746,6 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="67" y1="41" x2="67.25" y2="40.75" width="0.3048" layer="16"/>
 </signal>
 </signals>
-<errors>
-<approved hash="2,20,933d9cc19ab7954b"/>
-<approved hash="2,20,43213cdd3aa94555"/>
-<approved hash="18,29,db13ac32d348a469"/>
-<approved hash="18,29,da93a712d668abe9"/>
-<approved hash="18,29,5dac9910b6ad945a"/>
-<approved hash="18,29,5dac9910b6ad945a"/>
-<approved hash="18,29,8d47a687434ca0ff"/>
-<approved hash="18,29,8d47a687434ca0ff"/>
-<approved hash="18,29,cf1aeb3797c87b96"/>
-<approved hash="18,29,7a34a52fb5e08cb0"/>
-<approved hash="18,29,cf1aeb3797c87b96"/>
-<approved hash="18,29,7a34a52fb5e08cb0"/>
-<approved hash="18,29,1a9f671e16546bd5"/>
-<approved hash="18,29,1b1f6c3e13746455"/>
-<approved hash="18,30,ebb6f099bdd55b31"/>
-<approved hash="18,30,ebb6f099bdd55b31"/>
-<approved hash="18,30,37e21211ecd80e48"/>
-<approved hash="18,30,37e21211ecd80e48"/>
-<approved hash="18,30,422598080fc0128e"/>
-<approved hash="18,30,b308cd60ce4ca9cc"/>
-<approved hash="18,30,422598080fc0128e"/>
-<approved hash="18,30,b308cd60ce4ca9cc"/>
-<approved hash="18,30,4d4a929d7df9a22c"/>
-<approved hash="18,30,8ed800f68cc0e84e"/>
-<approved hash="6,1,8e29a0bb0be4b10f"/>
-<approved hash="6,1,b6348b5c47fad33b"/>
-<approved hash="4,1,7ba3bbfdd2535e89"/>
-<approved hash="4,1,981bb04353d6b4bb"/>
-<approved hash="4,1,789db2a9eeac5e01"/>
-<approved hash="4,1,9f55b4ef3a8bb007"/>
-<approved hash="4,1,b0cf647d521f05b1"/>
-<approved hash="4,1,569ec61f96847dd7"/>
-<approved hash="4,1,593f9b8f36d97781"/>
-<approved hash="4,1,189ae7f54343de06"/>
-<approved hash="4,1,993a6f555161234c"/>
-<approved hash="4,1,77e5c633972c5c74"/>
-<approved hash="4,1,391e997d36491968"/>
-<approved hash="4,1,7dd3e1e5405bbe43"/>
-<approved hash="4,1,4fcd961ae2be2cf1"/>
-<approved hash="4,1,cf03910de5423dd5"/>
-<approved hash="4,1,dbc2a5d4e99962fc"/>
-<approved hash="4,1,78d6b9cbec5f48a0"/>
-<approved hash="4,1,3329150d6bfdcd12"/>
-<approved hash="4,1,4cb3981f8b76a4d9"/>
-<approved hash="4,1,e4617d0b7ade5be1"/>
-<approved hash="4,1,56568ee4bef7b065"/>
-<approved hash="4,1,c61781954006478c"/>
-<approved hash="4,1,0a3e199f467c175e"/>
-<approved hash="4,1,02d2edfd51778f31"/>
-<approved hash="4,1,18ceb653a39e3a30"/>
-<approved hash="4,1,85ddeb8051779f42"/>
-<approved hash="4,1,8fde3b7a587b3ecd"/>
-<approved hash="4,1,992312bcb0f119e8"/>
-<approved hash="4,1,960f139db1b6da11"/>
-<approved hash="4,1,bbc8fc69ff8a0f56"/>
-<approved hash="4,1,fc59fb3a9b30f48d"/>
-<approved hash="4,1,01d630f37f57a5f9"/>
-<approved hash="4,1,992312bcb0f119e8"/>
-<approved hash="4,1,960f139db1b6da11"/>
-<approved hash="4,1,bbc8fc69ff8a0f56"/>
-<approved hash="4,1,fc59fb3a9b30f48d"/>
-<approved hash="4,1,01d630f37f57a5f9"/>
-<approved hash="4,1,b94326948a2a5113"/>
-<approved hash="4,1,84bdcc8f5fe38b32"/>
-<approved hash="4,1,84bdcc8f5fe38b32"/>
-<approved hash="4,1,7cabc8ab8dae69fe"/>
-<approved hash="4,1,7cabc8ab8dae69fe"/>
-<approved hash="4,1,fa743ef70855fec4"/>
-<approved hash="4,1,fa743ef70855fec4"/>
-<approved hash="4,1,2d0d24fae7c70381"/>
-<approved hash="4,1,2d0d24fae7c70381"/>
-<approved hash="4,1,bd4ab2318a076ef7"/>
-<approved hash="4,1,bd4ab2318a076ef7"/>
-<approved hash="4,1,e654a8eaabd6383e"/>
-<approved hash="6,1,65fe5793857a2e84"/>
-<approved hash="6,1,a2ad44ad36c8748b"/>
-<approved hash="4,2,c61781954006478c"/>
-<approved hash="4,2,18ceb653a39e3a30"/>
-<approved hash="4,2,01d630f37f57a5f9"/>
-<approved hash="4,2,01d630f37f57a5f9"/>
-<approved hash="4,2,b94326948a2a5113"/>
-<approved hash="4,2,bd4ab2318a076ef7"/>
-<approved hash="4,2,bd4ab2318a076ef7"/>
-<approved hash="4,2,e654a8eaabd6383e"/>
-<approved hash="4,3,18ceb653a39e3a30"/>
-<approved hash="4,3,c61781954006478c"/>
-<approved hash="4,3,6e9249c400ed17be"/>
-<approved hash="4,3,01d630f37f57a5f9"/>
-<approved hash="4,3,01d630f37f57a5f9"/>
-<approved hash="4,3,b94326948a2a5113"/>
-<approved hash="4,3,bd4ab2318a076ef7"/>
-<approved hash="4,3,bd4ab2318a076ef7"/>
-<approved hash="4,3,e654a8eaabd6383e"/>
-<approved hash="4,14,18ceb653a39e3a30"/>
-<approved hash="4,14,c61781954006478c"/>
-<approved hash="4,14,01d630f37f57a5f9"/>
-<approved hash="4,14,01d630f37f57a5f9"/>
-<approved hash="4,14,b94326948a2a5113"/>
-<approved hash="4,14,bd4ab2318a076ef7"/>
-<approved hash="4,14,bd4ab2318a076ef7"/>
-<approved hash="4,14,e654a8eaabd6383e"/>
-<approved hash="4,15,c61781954006478c"/>
-<approved hash="4,15,18ceb653a39e3a30"/>
-<approved hash="4,15,01d630f37f57a5f9"/>
-<approved hash="4,15,01d630f37f57a5f9"/>
-<approved hash="4,15,b94326948a2a5113"/>
-<approved hash="4,15,bd4ab2318a076ef7"/>
-<approved hash="4,15,bd4ab2318a076ef7"/>
-<approved hash="4,15,e654a8eaabd6383e"/>
-<approved hash="6,16,b6348b5c47fad33b"/>
-<approved hash="6,16,8e29a0bb0be4b10f"/>
-<approved hash="4,16,c61781954006478c"/>
-<approved hash="4,16,18ceb653a39e3a30"/>
-<approved hash="4,16,c37b39e2868a813f"/>
-<approved hash="4,16,960f139db1b6da11"/>
-<approved hash="4,16,992312bcb0f119e8"/>
-<approved hash="4,16,fc59fb3a9b30f48d"/>
-<approved hash="4,16,bbc8fc69ff8a0f56"/>
-<approved hash="4,16,01d630f37f57a5f9"/>
-<approved hash="4,16,960f139db1b6da11"/>
-<approved hash="4,16,992312bcb0f119e8"/>
-<approved hash="4,16,fc59fb3a9b30f48d"/>
-<approved hash="4,16,bbc8fc69ff8a0f56"/>
-<approved hash="4,16,01d630f37f57a5f9"/>
-<approved hash="4,16,b94326948a2a5113"/>
-<approved hash="4,16,84bdcc8f5fe38b32"/>
-<approved hash="4,16,84bdcc8f5fe38b32"/>
-<approved hash="4,16,7cabc8ab8dae69fe"/>
-<approved hash="4,16,7cabc8ab8dae69fe"/>
-<approved hash="4,16,fa743ef70855fec4"/>
-<approved hash="4,16,fa743ef70855fec4"/>
-<approved hash="4,16,2d0d24fae7c70381"/>
-<approved hash="4,16,2d0d24fae7c70381"/>
-<approved hash="4,16,bd4ab2318a076ef7"/>
-<approved hash="4,16,bd4ab2318a076ef7"/>
-<approved hash="4,16,e654a8eaabd6383e"/>
-<approved hash="6,16,65fe5793857a2e84"/>
-<approved hash="6,16,a2ad44ad36c8748b"/>
-</errors>
 </board>
 </drawing>
 </eagle>
