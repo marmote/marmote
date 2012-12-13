@@ -1,12 +1,12 @@
 Model {
-  Name			  "gmsk"
+  Name			  "gmsk_ref"
   Version		  7.9
   MdlSubVersion		  0
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.303"
+    ComputedModelVersion    "1.304"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "sszilvasi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Dec 11 16:42:56 2012"
-  RTWModifiedTimeStamp	  277141882
-  ModelVersionFormat	  "1.%<AutoIncrement:303>"
+  LastModifiedDate	  "Thu Dec 13 11:02:59 2012"
+  RTWModifiedTimeStamp	  277294417
+  ModelVersionFormat	  "1.%<AutoIncrement:304>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -69,6 +69,7 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "gmsk"
+    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -134,7 +135,7 @@ Model {
 	  $ObjectID		  3
 	  Version		  "1.12.0"
 	  StartTime		  "0.0"
-	  StopTime		  "1e3"
+	  StopTime		  "1e2"
 	  AbsTol		  "auto"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
@@ -894,7 +895,7 @@ Model {
     }
   }
   System {
-    Name		    "gmsk"
+    Name		    "gmsk_ref"
     Location		    [15, 99, 1863, 1053]
     Open		    on
     ModelBrowserVisibility  off
@@ -4099,7 +4100,7 @@ Model {
       ZOrder		      -16
       Floating		      off
       Location		      [1921, 48, 3521, 1199]
-      Open		      on
+      Open		      off
       NumInputPorts	      "3"
       ZoomMode		      "yonly"
       List {
