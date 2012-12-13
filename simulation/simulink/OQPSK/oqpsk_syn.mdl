@@ -1,0 +1,2464 @@
+Model {
+  Name			  "oqpsk_syn"
+  Version		  7.9
+  MdlSubVersion		  0
+  GraphicalInterface {
+    NumRootInports	    0
+    NumRootOutports	    0
+    ParameterArgumentNames  ""
+    ComputedModelVersion    "1.280"
+    NumModelReferences	    0
+    NumTestPointedSignals   0
+  }
+  SavedCharacterEncoding  "windows-1252"
+  PreLoadFcn		  "oqpsk_syn_init;"
+  SaveDefaultBlockParams  on
+  ScopeRefreshTime	  0.035000
+  OverrideScopeRefreshTime on
+  DisableAllScopes	  off
+  DataTypeOverride	  "UseLocalSettings"
+  DataTypeOverrideAppliesTo "AllNumericTypes"
+  MinMaxOverflowLogging	  "UseLocalSettings"
+  MinMaxOverflowArchiveMode "Overwrite"
+  FPTRunName		  "Run 1"
+  MaxMDLFileLineLength	  120
+  UserBdParams		  "synDspstartup"
+  synDspstartup		  "OK"
+  Created		  "Tue Nov 27 10:47:22 2012"
+  Creator		  "sszilvasi"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "sszilvasi"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Wed Dec 12 16:41:40 2012"
+  RTWModifiedTimeStamp	  277226044
+  ModelVersionFormat	  "1.%<AutoIncrement:280>"
+  ConfigurationManager	  "None"
+  SampleTimeColors	  on
+  SampleTimeAnnotations	  on
+  LibraryLinkDisplay	  "disabled"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowDesignRanges	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ShowTestPointIcons	  on
+  ShowSignalResolutionIcons on
+  ShowViewerIcons	  on
+  SortedOrder		  off
+  ExecutionContextIcon	  off
+  ShowLinearizationAnnotations on
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  SimulationMode	  "normal"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  AccelSystemTargetFile	  "accel.tlc"
+  AccelTemplateMakefile	  "accel_default_tmf"
+  AccelMakeCommand	  "make_rtw"
+  TryForcingSFcnDF	  off
+  Object {
+    $PropName		    "DataLoggingOverride"
+    $ObjectID		    1
+    $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
+    model_		    "oqpsk_reference"
+    overrideMode_	    [0.0]
+    Array {
+      Type		      "Cell"
+      Dimension		      1
+      Cell		      "oqpsk_reference"
+      PropName		      "logAsSpecifiedByModels_"
+    }
+    Array {
+      Type		      "Cell"
+      Dimension		      1
+      Cell		      []
+      PropName		      "logAsSpecifiedByModelsSSIDs_"
+    }
+  }
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  CovForceBlockReductionOff on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  CovReportOnPause	  on
+  CovModelRefEnable	  "Off"
+  CovExternalEMLEnable	  off
+  ExtModeBatchMode	  off
+  ExtModeEnableFloating	  on
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigDurationFloating "auto"
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  BufferReuse		  on
+  ShowModelReferenceBlockVersion off
+  ShowModelReferenceBlockIO off
+  Array {
+    Type		    "Handle"
+    Dimension		    1
+    Simulink.ConfigSet {
+      $ObjectID		      2
+      Version		      "1.12.0"
+      Array {
+	Type			"Handle"
+	Dimension		8
+	Simulink.SolverCC {
+	  $ObjectID		  3
+	  Version		  "1.12.0"
+	  StartTime		  "0.0"
+	  StopTime		  "1e2"
+	  AbsTol		  "auto"
+	  FixedStep		  "auto"
+	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
+	  MaxOrder		  5
+	  ZcThreshold		  "auto"
+	  ConsecutiveZCsStepRelTol "10*128*eps"
+	  MaxConsecutiveZCs	  "1000"
+	  ExtrapolationOrder	  4
+	  NumberNewtonIterations  1
+	  MaxStep		  "auto"
+	  MinStep		  "auto"
+	  MaxConsecutiveMinStep	  "1"
+	  RelTol		  "1e-3"
+	  SolverMode		  "SingleTasking"
+	  EnableConcurrentExecution off
+	  ConcurrentTasks	  off
+	  Solver		  "FixedStepDiscrete"
+	  SolverName		  "FixedStepDiscrete"
+	  SolverJacobianMethodControl "auto"
+	  ShapePreserveControl	  "DisableAll"
+	  ZeroCrossControl	  "UseLocalSettings"
+	  ZeroCrossAlgorithm	  "Nonadaptive"
+	  AlgebraicLoopSolver	  "TrustRegion"
+	  SolverResetMethod	  "Fast"
+	  PositivePriorityOrder	  off
+	  AutoInsertRateTranBlk	  off
+	  SampleTimeConstraint	  "Unconstrained"
+	  InsertRTBMode		  "Whenever possible"
+	}
+	Simulink.DataIOCC {
+	  $ObjectID		  4
+	  Version		  "1.12.0"
+	  Decimation		  "1"
+	  ExternalInput		  "[t, u]"
+	  FinalStateName	  "xFinal"
+	  InitialState		  "xInitial"
+	  LimitDataPoints	  on
+	  MaxDataPoints		  "1000"
+	  LoadExternalInput	  off
+	  LoadInitialState	  off
+	  SaveFinalState	  off
+	  SaveCompleteFinalSimState off
+	  SaveFormat		  "Array"
+	  SignalLoggingSaveFormat "ModelDataLogs"
+	  SaveOutput		  off
+	  SaveState		  off
+	  SignalLogging		  off
+	  DSMLogging		  on
+	  InspectSignalLogs	  off
+	  SaveTime		  off
+	  ReturnWorkspaceOutputs  off
+	  StateSaveName		  "xout"
+	  TimeSaveName		  "tout"
+	  OutputSaveName	  "yout"
+	  SignalLoggingName	  "logsout"
+	  DSMLoggingName	  "dsmout"
+	  OutputOption		  "RefineOutputTimes"
+	  OutputTimes		  "[]"
+	  ReturnWorkspaceOutputsName "out"
+	  Refine		  "1"
+	}
+	Simulink.OptimizationCC {
+	  $ObjectID		  5
+	  Version		  "1.12.0"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    8
+	    Cell		    "BooleansAsBitfields"
+	    Cell		    "PassReuseOutputArgsAs"
+	    Cell		    "PassReuseOutputArgsThreshold"
+	    Cell		    "ZeroExternalMemoryAtStartup"
+	    Cell		    "ZeroInternalMemoryAtStartup"
+	    Cell		    "OptimizeModelRefInitCode"
+	    Cell		    "NoFixptDivByZeroProtection"
+	    Cell		    "UseSpecifiedMinMax"
+	    PropName		    "DisabledProps"
+	  }
+	  BlockReduction	  on
+	  BooleanDataType	  on
+	  ConditionallyExecuteInputs on
+	  InlineParams		  on
+	  UseIntDivNetSlope	  off
+	  UseFloatMulNetSlope	  off
+	  UseSpecifiedMinMax	  off
+	  InlineInvariantSignals  off
+	  OptimizeBlockIOStorage  on
+	  BufferReuse		  on
+	  EnhancedBackFolding	  off
+	  StrengthReduction	  off
+	  ExpressionFolding	  on
+	  BooleansAsBitfields	  off
+	  BitfieldContainerType	  "uint_T"
+	  EnableMemcpy		  on
+	  MemcpyThreshold	  64
+	  PassReuseOutputArgsAs	  "Structure reference"
+	  ExpressionDepthLimit	  2147483647
+	  FoldNonRolledExpr	  on
+	  LocalBlockOutputs	  on
+	  RollThreshold		  5
+	  SystemCodeInlineAuto	  off
+	  StateBitsets		  off
+	  DataBitsets		  off
+	  UseTempVars		  off
+	  ZeroExternalMemoryAtStartup on
+	  ZeroInternalMemoryAtStartup on
+	  InitFltsAndDblsToZero	  off
+	  NoFixptDivByZeroProtection off
+	  EfficientFloat2IntCast  off
+	  EfficientMapNaN2IntZero on
+	  OptimizeModelRefInitCode off
+	  LifeSpan		  "inf"
+	  MaxStackSize		  "Inherit from target"
+	  BufferReusableBoundary  on
+	  SimCompilerOptimization "Off"
+	  AccelVerboseBuild	  off
+	  ParallelExecutionInRapidAccelerator on
+	}
+	Simulink.DebuggingCC {
+	  $ObjectID		  6
+	  Version		  "1.12.0"
+	  RTPrefix		  "error"
+	  ConsistencyChecking	  "none"
+	  ArrayBoundsChecking	  "none"
+	  SignalInfNanChecking	  "none"
+	  SignalRangeChecking	  "none"
+	  ReadBeforeWriteMsg	  "UseLocalSettings"
+	  WriteAfterWriteMsg	  "UseLocalSettings"
+	  WriteAfterReadMsg	  "UseLocalSettings"
+	  AlgebraicLoopMsg	  "error"
+	  ArtificialAlgebraicLoopMsg "warning"
+	  SaveWithDisabledLinksMsg "warning"
+	  SaveWithParameterizedLinksMsg	"warning"
+	  CheckSSInitialOutputMsg on
+	  UnderspecifiedInitializationDetection	"Classic"
+	  MergeDetectMultiDrivingBlocksExec "none"
+	  CheckExecutionContextPreStartOutputMsg off
+	  CheckExecutionContextRuntimeOutputMsg	off
+	  SignalResolutionControl "UseLocalSettings"
+	  BlockPriorityViolationMsg "warning"
+	  MinStepSizeMsg	  "warning"
+	  TimeAdjustmentMsg	  "none"
+	  MaxConsecutiveZCsMsg	  "error"
+	  MaskedZcDiagnostic	  "warning"
+	  IgnoredZcDiagnostic	  "warning"
+	  SolverPrmCheckMsg	  "warning"
+	  InheritedTsInSrcMsg	  "none"
+	  DiscreteInheritContinuousMsg "warning"
+	  MultiTaskDSMMsg	  "error"
+	  MultiTaskCondExecSysMsg "error"
+	  MultiTaskRateTransMsg	  "error"
+	  SingleTaskRateTransMsg  "none"
+	  TasksWithSamePriorityMsg "warning"
+	  SigSpecEnsureSampleTimeMsg "warning"
+	  CheckMatrixSingularityMsg "none"
+	  IntegerOverflowMsg	  "warning"
+	  Int32ToFloatConvMsg	  "warning"
+	  ParameterDowncastMsg	  "error"
+	  ParameterOverflowMsg	  "error"
+	  ParameterUnderflowMsg	  "none"
+	  ParameterPrecisionLossMsg "warning"
+	  ParameterTunabilityLossMsg "warning"
+	  FixptConstUnderflowMsg  "none"
+	  FixptConstOverflowMsg	  "none"
+	  FixptConstPrecisionLossMsg "none"
+	  UnderSpecifiedDataTypeMsg "none"
+	  UnnecessaryDatatypeConvMsg "none"
+	  VectorMatrixConversionMsg "none"
+	  InvalidFcnCallConnMsg	  "error"
+	  FcnCallInpInsideContextMsg "Enable All"
+	  SignalLabelMismatchMsg  "none"
+	  UnconnectedInputMsg	  "warning"
+	  UnconnectedOutputMsg	  "warning"
+	  UnconnectedLineMsg	  "warning"
+	  SFcnCompatibilityMsg	  "none"
+	  FrameProcessingCompatibilityMsg "warning"
+	  UniqueDataStoreMsg	  "none"
+	  BusObjectLabelMismatch  "warning"
+	  RootOutportRequireBusObject "warning"
+	  AssertControl		  "UseLocalSettings"
+	  EnableOverflowDetection off
+	  ModelReferenceIOMsg	  "none"
+	  ModelReferenceMultiInstanceNormalModeStructChecksumCheck "error"
+	  ModelReferenceVersionMismatchMessage "none"
+	  ModelReferenceIOMismatchMessage "none"
+	  ModelReferenceCSMismatchMessage "none"
+	  UnknownTsInhSupMsg	  "warning"
+	  ModelReferenceDataLoggingMessage "warning"
+	  ModelReferenceSymbolNameMessage "warning"
+	  ModelReferenceExtraNoncontSigs "error"
+	  StateNameClashWarn	  "warning"
+	  SimStateInterfaceChecksumMismatchMsg "warning"
+	  SimStateOlderReleaseMsg "error"
+	  InitInArrayFormatMsg	  "warning"
+	  StrictBusMsg		  "ErrorLevel1"
+	  BusNameAdapt		  "WarnAndRepair"
+	  NonBusSignalsTreatedAsBus "none"
+	  LoggingUnavailableSignals "error"
+	  BlockIODiagnostic	  "none"
+	  SFUnusedDataAndEventsDiag "warning"
+	  SFUnexpectedBacktrackingDiag "warning"
+	  SFInvalidInputDataAccessInChartInitDiag "warning"
+	  SFNoUnconditionalDefaultTransitionDiag "warning"
+	  SFTransitionOutsideNaturalParentDiag "warning"
+	  SFUnconditionalTransitionShadowingDiag "warning"
+	}
+	Simulink.HardwareCC {
+	  $ObjectID		  7
+	  Version		  "1.12.0"
+	  ProdBitPerChar	  8
+	  ProdBitPerShort	  16
+	  ProdBitPerInt		  32
+	  ProdBitPerLong	  32
+	  ProdBitPerFloat	  32
+	  ProdBitPerDouble	  64
+	  ProdBitPerPointer	  32
+	  ProdLargestAtomicInteger "Char"
+	  ProdLargestAtomicFloat  "None"
+	  ProdIntDivRoundTo	  "Undefined"
+	  ProdEndianess		  "Unspecified"
+	  ProdWordSize		  32
+	  ProdShiftRightIntArith  on
+	  ProdHWDeviceType	  "32-bit Generic"
+	  TargetBitPerChar	  8
+	  TargetBitPerShort	  16
+	  TargetBitPerInt	  32
+	  TargetBitPerLong	  32
+	  TargetBitPerFloat	  32
+	  TargetBitPerDouble	  64
+	  TargetBitPerPointer	  32
+	  TargetLargestAtomicInteger "Char"
+	  TargetLargestAtomicFloat "None"
+	  TargetShiftRightIntArith on
+	  TargetIntDivRoundTo	  "Undefined"
+	  TargetEndianess	  "Unspecified"
+	  TargetWordSize	  32
+	  TargetTypeEmulationWarnSuppressLevel 0
+	  TargetPreprocMaxBitsSint 32
+	  TargetPreprocMaxBitsUint 32
+	  TargetHWDeviceType	  "Specified"
+	  TargetUnknown		  off
+	  ProdEqTarget		  on
+	}
+	Simulink.ModelReferenceCC {
+	  $ObjectID		  8
+	  Version		  "1.12.0"
+	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
+	  CheckModelReferenceTargetMessage "error"
+	  EnableParallelModelReferenceBuilds off
+	  ParallelModelReferenceErrorOnInvalidPool on
+	  ParallelModelReferenceMATLABWorkerInit "None"
+	  ModelReferenceNumInstancesAllowed "Multi"
+	  PropagateVarSize	  "Infer from blocks in model"
+	  ModelReferencePassRootInputsByReference on
+	  ModelReferenceMinAlgLoopOccurrences off
+	  PropagateSignalLabelsOutOfModel off
+	  SupportModelReferenceSimTargetCustomCode off
+	}
+	Simulink.SFSimCC {
+	  $ObjectID		  9
+	  Version		  "1.12.0"
+	  SFSimEnableDebug	  on
+	  SFSimOverflowDetection  on
+	  SFSimEcho		  on
+	  SimBlas		  on
+	  SimCtrlC		  on
+	  SimExtrinsic		  on
+	  SimIntegrity		  on
+	  SimUseLocalCustomCode	  off
+	  SimParseCustomCode	  on
+	  SimBuildMode		  "sf_incremental_build"
+	}
+	Simulink.RTWCC {
+	  $BackupClass		  "Simulink.RTWCC"
+	  $ObjectID		  10
+	  Version		  "1.12.0"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    9
+	    Cell		    "IncludeHyperlinkInReport"
+	    Cell		    "GenerateTraceInfo"
+	    Cell		    "GenerateTraceReport"
+	    Cell		    "GenerateTraceReportSl"
+	    Cell		    "GenerateTraceReportSf"
+	    Cell		    "GenerateTraceReportEml"
+	    Cell		    "GenerateWebview"
+	    Cell		    "GenerateCodeMetricsReport"
+	    Cell		    "GenerateCodeReplacementReport"
+	    PropName		    "DisabledProps"
+	  }
+	  SystemTargetFile	  "grt.tlc"
+	  GenCodeOnly		  off
+	  MakeCommand		  "make_rtw"
+	  GenerateMakefile	  on
+	  TemplateMakefile	  "grt_default_tmf"
+	  GenerateReport	  off
+	  SaveLog		  off
+	  RTWVerbose		  on
+	  RetainRTWFile		  off
+	  ProfileTLC		  off
+	  TLCDebug		  off
+	  TLCCoverage		  off
+	  TLCAssert		  off
+	  ProcessScriptMode	  "Default"
+	  ConfigurationMode	  "Optimized"
+	  ConfigAtBuild		  off
+	  RTWUseLocalCustomCode	  off
+	  RTWUseSimCustomCode	  off
+	  IncludeHyperlinkInReport off
+	  LaunchReport		  off
+	  TargetLang		  "C"
+	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
+	  IncludeERTFirstTime	  off
+	  GenerateTraceInfo	  off
+	  GenerateTraceReport	  off
+	  GenerateTraceReportSl	  off
+	  GenerateTraceReportSf	  off
+	  GenerateTraceReportEml  off
+	  GenerateCodeInfo	  off
+	  GenerateWebview	  off
+	  GenerateCodeMetricsReport off
+	  GenerateCodeReplacementReport	off
+	  RTWCompilerOptimization "Off"
+	  CheckMdlBeforeBuild	  "Off"
+	  CustomRebuildMode	  "OnUpdate"
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    2
+	    Simulink.CodeAppCC {
+	      $ObjectID		      11
+	      Version		      "1.12.0"
+	      Array {
+		Type			"Cell"
+		Dimension		21
+		Cell			"IgnoreCustomStorageClasses"
+		Cell			"IgnoreTestpoints"
+		Cell			"InsertBlockDesc"
+		Cell			"InsertPolySpaceComments"
+		Cell			"SFDataObjDesc"
+		Cell			"MATLABFcnDesc"
+		Cell			"SimulinkDataObjDesc"
+		Cell			"DefineNamingRule"
+		Cell			"SignalNamingRule"
+		Cell			"ParamNamingRule"
+		Cell			"InlinedPrmAccess"
+		Cell			"CustomSymbolStr"
+		Cell			"CustomSymbolStrGlobalVar"
+		Cell			"CustomSymbolStrType"
+		Cell			"CustomSymbolStrField"
+		Cell			"CustomSymbolStrFcn"
+		Cell			"CustomSymbolStrFcnArg"
+		Cell			"CustomSymbolStrBlkIO"
+		Cell			"CustomSymbolStrTmpVar"
+		Cell			"CustomSymbolStrMacro"
+		Cell			"ReqsInCode"
+		PropName		"DisabledProps"
+	      }
+	      ForceParamTrailComments off
+	      GenerateComments	      on
+	      IgnoreCustomStorageClasses on
+	      IgnoreTestpoints	      off
+	      IncHierarchyInIds	      off
+	      MaxIdLength	      31
+	      PreserveName	      off
+	      PreserveNameWithParent  off
+	      ShowEliminatedStatement off
+	      IncAutoGenComments      off
+	      SimulinkDataObjDesc     off
+	      SFDataObjDesc	      off
+	      MATLABFcnDesc	      off
+	      IncDataTypeInIds	      off
+	      MangleLength	      1
+	      CustomSymbolStrGlobalVar "$R$N$M"
+	      CustomSymbolStrType     "$N$R$M"
+	      CustomSymbolStrField    "$N$M"
+	      CustomSymbolStrFcn      "$R$N$M$F"
+	      CustomSymbolStrFcnArg   "rt$I$N$M"
+	      CustomSymbolStrBlkIO    "rtb_$N$M"
+	      CustomSymbolStrTmpVar   "$N$M"
+	      CustomSymbolStrMacro    "$R$N$M"
+	      DefineNamingRule	      "None"
+	      ParamNamingRule	      "None"
+	      SignalNamingRule	      "None"
+	      InsertBlockDesc	      off
+	      InsertPolySpaceComments off
+	      SimulinkBlockComments   on
+	      MATLABSourceComments    off
+	      EnableCustomComments    off
+	      InlinedPrmAccess	      "Literals"
+	      ReqsInCode	      off
+	      UseSimReservedNames     off
+	    }
+	    Simulink.GRTTargetCC {
+	      $BackupClass	      "Simulink.TargetCC"
+	      $ObjectID		      12
+	      Version		      "1.12.0"
+	      Array {
+		Type			"Cell"
+		Dimension		16
+		Cell			"GeneratePreprocessorConditionals"
+		Cell			"IncludeMdlTerminateFcn"
+		Cell			"CombineOutputUpdateFcns"
+		Cell			"SuppressErrorStatus"
+		Cell			"ERTCustomFileBanners"
+		Cell			"GenerateSampleERTMain"
+		Cell			"GenerateTestInterfaces"
+		Cell			"ModelStepFunctionPrototypeControlCompliant"
+		Cell			"CPPClassGenCompliant"
+		Cell			"MultiInstanceERTCode"
+		Cell			"PurelyIntegerCode"
+		Cell			"SupportComplex"
+		Cell			"SupportAbsoluteTime"
+		Cell			"SupportContinuousTime"
+		Cell			"SupportNonInlinedSFcns"
+		Cell			"PortableWordSizes"
+		PropName		"DisabledProps"
+	      }
+	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
+	      TargetLibSuffix	      ""
+	      TargetPreCompLibLocation ""
+	      CodeReplacementLibrary  "ANSI_C"
+	      UtilityFuncGeneration   "Auto"
+	      ERTMultiwordTypeDef     "System defined"
+	      CodeExecutionProfiling  off
+	      ERTMultiwordLength      256
+	      MultiwordLength	      2048
+	      GenerateFullHeader      on
+	      GenerateSampleERTMain   off
+	      GenerateTestInterfaces  off
+	      IsPILTarget	      off
+	      ModelReferenceCompliant on
+	      ParMdlRefBuildCompliant on
+	      CompOptLevelCompliant   on
+	      ConcurrentExecutionCompliant on
+	      IncludeMdlTerminateFcn  on
+	      GeneratePreprocessorConditionals "Disable all"
+	      CombineOutputUpdateFcns on
+	      CombineSignalStateStructs	off
+	      SuppressErrorStatus     off
+	      ERTFirstTimeCompliant   off
+	      IncludeFileDelimiter    "Auto"
+	      ERTCustomFileBanners    off
+	      SupportAbsoluteTime     on
+	      LogVarNameModifier      "rt_"
+	      MatFileLogging	      on
+	      MultiInstanceERTCode    off
+	      SupportNonFinite	      on
+	      SupportComplex	      on
+	      PurelyIntegerCode	      off
+	      SupportContinuousTime   on
+	      SupportNonInlinedSFcns  on
+	      SupportVariableSizeSignals off
+	      EnableShiftOperators    on
+	      ParenthesesLevel	      "Nominal"
+	      PortableWordSizes	      off
+	      ModelStepFunctionPrototypeControlCompliant off
+	      CPPClassGenCompliant    off
+	      AutosarCompliant	      off
+	      GRTInterface	      off
+	      UseMalloc		      off
+	      ExtMode		      off
+	      ExtModeStaticAlloc      off
+	      ExtModeTesting	      off
+	      ExtModeStaticAllocSize  1000000
+	      ExtModeTransport	      0
+	      ExtModeMexFile	      "ext_comm"
+	      ExtModeIntrfLevel	      "Level1"
+	      RTWCAPISignals	      off
+	      RTWCAPIParams	      off
+	      RTWCAPIStates	      off
+	      RTWCAPIRootIO	      off
+	      GenerateASAP2	      off
+	    }
+	    PropName		    "Components"
+	  }
+	}
+	PropName		"Components"
+      }
+      Name		      "Configuration"
+      CurrentDlgPage	      "Solver"
+      ConfigPrmDlgPosition     [ 520, 285, 1400, 915 ] 
+    }
+    PropName		    "ConfigurationSets"
+  }
+  Simulink.ConfigSet {
+    $PropName		    "ActiveConfigurationSet"
+    $ObjectID		    2
+  }
+  ExplicitPartitioning	  off
+  BlockDefaults {
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+    BlockRotation	    0
+    BlockMirror		    off
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    UseDisplayTextAsClickCallback off
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      Buffer
+      N			      "64"
+      V			      "0"
+      ic		      "0"
+      TreatMby1Signals	      "M channels (this choice will be removed - see release notes)"
+      HasFrameUpgradeWarning  on
+    }
+    Block {
+      BlockType		      ComplexToRealImag
+      Output		      "Real and imag"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      DataTypeConversion
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+      LockScale		      off
+      ConvertRealWorld	      "Real World Value (RWV)"
+      RndMeth		      "Zero"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Delay
+      DelayLengthSource	      "Dialog"
+      DelayLength	      "2"
+      DelayLengthUpperLimit   "100"
+      InitialConditionSource  "Dialog"
+      InitialCondition	      "0.0"
+      ExternalReset	      "None"
+      PreventDirectFeedthrough off
+      DiagnosticForOutOfRangeDelayLength "None"
+      RemoveProtectionDelayLength off
+      InputProcessing	      "Elements as channels (sample based)"
+      UseCircularBuffer	      off
+      SampleTime	      "-1"
+      StateMustResolveToSignalObject off
+      CodeGenStateStorageClass "Auto"
+    }
+    Block {
+      BlockType		      Display
+      Format		      "short"
+      Decimation	      "10"
+      Floating		      off
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      From
+      IconDisplay	      "Tag"
+      TagVisibility	      "local"
+    }
+    Block {
+      BlockType		      Goto
+      IconDisplay	      "Tag"
+      TagVisibility	      "local"
+    }
+    Block {
+      BlockType		      RealImagToComplex
+      Input		      "Real and imag"
+      ConstantPart	      "0"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Scope
+      ModelBased	      off
+      TickLabels	      "OneTimeTick"
+      ZoomMode		      "on"
+      Grid		      "on"
+      TimeRange		      "auto"
+      YMin		      "-5"
+      YMax		      "5"
+      SaveToWorkspace	      off
+      SaveName		      "ScopeData"
+      DataFormat	      "Array"
+      LimitDataPoints	      on
+      MaxDataPoints	      "5000"
+      Decimation	      "1"
+      SampleInput	      off
+      SampleTime	      "-1"
+    }
+  }
+  System {
+    Name		    "oqpsk_syn"
+    Location		    [2, 74, 1918, 1139]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    SIDHighWatermark	    "145"
+    Block {
+      BlockType		      Reference
+      Name		      "AWGN\nChannel"
+      SID		      "5"
+      Ports		      [1, 1]
+      Position		      [1240, 116, 1335, 174]
+      LibraryVersion	      "1.465"
+      UserDataPersistent      on
+      UserData		      "DataTag0"
+      SourceBlock	      "commchan3/AWGN\nChannel"
+      SourceType	      "AWGN Channel"
+      InputProcessing	      "Columns as channels (frame based)"
+      seed		      "67"
+      noiseMode		      "Signal to noise ratio  (SNR)"
+      EbNodB		      "30"
+      EsNodB		      "10"
+      SNRdB		      "oqpsk_syn_params.snr"
+      bitsPerSym	      "1"
+      Ps		      "1"
+      Tsym		      "1"
+      variance		      "1"
+    }
+    Block {
+      BlockType		      Display
+      Name		      "BER"
+      SID		      "41"
+      Ports		      [1]
+      Position		      [1495, 585, 1585, 615]
+      ZOrder		      -1
+      Decimation	      "1"
+      Lockdown		      off
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Bernoulli Binary\nGenerator"
+      SID		      "142"
+      Ports		      [0, 1]
+      Position		      [55, 128, 135, 172]
+      LibraryVersion	      "1.111"
+      FontName		      "Arial"
+      SourceBlock	      "commrandsrc2/Bernoulli Binary\nGenerator"
+      SourceType	      "Bernoulli Binary Generator"
+      P			      "0.5"
+      seed		      "61"
+      Ts		      "1"
+      frameBased	      off
+      sampPerFrame	      "1"
+      orient		      off
+      outDataType	      "double"
+    }
+    Block {
+      BlockType		      Buffer
+      Name		      "Buffer"
+      SID		      "48"
+      Position		      [580, 784, 620, 836]
+      TreatMby1Signals	      "One channel"
+    }
+    Block {
+      BlockType		      Buffer
+      Name		      "Buffer1"
+      SID		      "49"
+      Position		      [580, 874, 620, 926]
+      TreatMby1Signals	      "One channel"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Comparator I"
+      SID		      "98"
+      Ports		      [1, 1]
+      Position		      [645, 500, 685, 540]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Math Functions/Comparator"
+      SourceType	      "Synphony Model Compiler Comparator"
+      syn_comp_opr	      "a>b"
+      syn_comp_const	      on
+      syn_comp_val	      "0"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "14"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Comparator Q"
+      SID		      "99"
+      Ports		      [1, 1]
+      Position		      [645, 610, 685, 650]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Math Functions/Comparator"
+      SourceType	      "Synphony Model Compiler Comparator"
+      syn_comp_opr	      "a>b"
+      syn_comp_const	      on
+      syn_comp_val	      "0"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "14"
+    }
+    Block {
+      BlockType		      ComplexToRealImag
+      Name		      "Complex to\nReal-Imag"
+      SID		      "83"
+      Ports		      [1, 2]
+      Position		      [165, 563, 195, 592]
+    }
+    Block {
+      BlockType		      ComplexToRealImag
+      Name		      "Complex to\nReal-Imag1"
+      SID		      "125"
+      Ports		      [1, 2]
+      Position		      [1360, 718, 1390, 747]
+    }
+    Block {
+      BlockType		      ComplexToRealImag
+      Name		      "Complex to\nReal-Imag2"
+      SID		      "126"
+      Ports		      [1, 2]
+      Position		      [1360, 793, 1390, 822]
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Concatenate"
+      SID		      "97"
+      Ports		      [2, 1]
+      Position		      [745, 560, 805, 600]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Signal Operations/Concat"
+      SourceType	      "Synphony Model Compiler Concat"
+      syn_in_nb		      "2"
+      syn_out_f		      "Automatic"
+      syn_out_wl	      "16"
+      syn_out_fl	      "8"
+      syn_out_dt	      "signed"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "8"
+    }
+    Block {
+      BlockType		      DataTypeConversion
+      Name		      "Data Type Conversion"
+      SID		      "145"
+      Position		      [1120, 23, 1195, 57]
+      ZOrder		      -5
+      OutDataTypeStr	      "fixdt(1,16,13)"
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      Display
+      Name		      "Delay"
+      SID		      "135"
+      Ports		      [1]
+      Position		      [1495, 470, 1585, 500]
+      ZOrder		      -1
+      Decimation	      "1"
+      Lockdown		      off
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Delay1"
+      SID		      "50"
+      Ports		      [1, 1]
+      Position		      [520, 789, 555, 831]
+      ZOrder		      -3
+      LibraryVersion	      "1.726"
+      UserDataPersistent      on
+      UserData		      "DataTag1"
+      SourceBlock	      "dspsigops/Delay"
+      SourceType	      "Delay"
+      InputProcessing	      "Columns as channels (frame based)"
+      dly_unit		      "Samples"
+      delay		      "8"
+      ic_detail		      off
+      dif_ic_for_ch	      off
+      dif_ic_for_dly	      off
+      ic		      "0"
+      reset_popup	      "None"
+    }
+    Block {
+      BlockType		      Delay
+      Name		      "Delay2"
+      SID		      "137"
+      Ports		      [1, 1]
+      Position		      [555, 193, 590, 227]
+      InputPortMap	      "u0"
+      DelayLength	      "oqpsk_syn_params.N/2"
+    }
+    Block {
+      BlockType		      Delay
+      Name		      "Delay3"
+      SID		      "144"
+      Ports		      [1, 1]
+      Position		      [460, 503, 495, 537]
+      InputPortMap	      "u0"
+      DelayLength	      "oqpsk_syn_params.N/2"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Downsample"
+      SID		      "90"
+      Ports		      [1, 1]
+      Position		      [525, 500, 565, 540]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Signal Operations/Downsample"
+      SourceType	      "Synphony Model Compiler Downsample"
+      syn_r_val		      "oqpsk_syn_params.N"
+      syn_sample_offset	      "8"
+      syn_sync_mode	      "No Sync"
+      synBlockType	      "primitive"
+      synLatency	      "1"
+      synBlockId	      "7"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Downsample1"
+      SID		      "91"
+      Ports		      [1, 1]
+      Position		      [525, 610, 565, 650]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Signal Operations/Downsample"
+      SourceType	      "Synphony Model Compiler Downsample"
+      syn_r_val		      "oqpsk_syn_params.N"
+      syn_sample_offset	      "8"
+      syn_sync_mode	      "No Sync"
+      synBlockType	      "primitive"
+      synLatency	      "1"
+      synBlockId	      "7"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "EVM Measurement"
+      SID		      "42"
+      Ports		      [2, 1]
+      Position		      [670, 798, 755, 842]
+      LibraryVersion	      "1.270"
+      SourceBlock	      "commutil2/EVM Measurement"
+      SourceType	      "EVM Measurement"
+      normMethod	      "Average reference signal power"
+      averagePower	      "1"
+      peakPower		      "1"
+      maxOrMinOut	      off
+      percentileOut	      off
+      percentileVal	      "95"
+      nSym		      off
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Error Rate\nCalculation"
+      SID		      "35"
+      Ports		      [2, 1]
+      Position		      [1385, 572, 1460, 623]
+      LibraryVersion	      "1.316"
+      SourceBlock	      "commsink2/Error Rate\nCalculation"
+      SourceType	      "Error Rate Calculation"
+      N			      "14"
+      st_delay		      "0"
+      cp_mode		      "Entire frame"
+      subframe		      "[]"
+      PMode		      "Port"
+      WsName		      "ErrorVec"
+      RsMode2		      off
+      stop		      off
+      numErr		      "100"
+      maxBits		      "1e6"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Find Delay"
+      SID		      "134"
+      Ports		      [2, 1]
+      Position		      [1380, 463, 1460, 507]
+      LibraryVersion	      "1.270"
+      SourceBlock	      "commutil2/Find Delay"
+      SourceType	      "Find Delay"
+      corrLength	      "200"
+      chgSigOP		      off
+      stopUpdate	      off
+      numConstDelay	      "3"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From"
+      SID		      "38"
+      Position		      [1240, 540, 1290, 570]
+      ZOrder		      -9
+      GotoTag		      "TxBit"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From1"
+      SID		      "39"
+      Position		      [1240, 597, 1290, 623]
+      ZOrder		      -9
+      GotoTag		      "RxBit"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From2"
+      SID		      "46"
+      Position		      [455, 796, 495, 824]
+      ZOrder		      -9
+      GotoTag		      "TxSym"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From3"
+      SID		      "86"
+      Position		      [85, 566, 125, 594]
+      ZOrder		      -9
+      GotoTag		      "RxCh"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From7"
+      SID		      "127"
+      Position		      [1275, 721, 1330, 749]
+      ZOrder		      -9
+      GotoTag		      "TxSym"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From9"
+      SID		      "128"
+      Position		      [1275, 796, 1330, 824]
+      ZOrder		      -9
+      GotoTag		      "RxSym"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto1"
+      SID		      "37"
+      Position		      [270, 55, 310, 85]
+      ZOrder		      -10
+      GotoTag		      "TxBit"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto2"
+      SID		      "44"
+      Position		      [1250, 25, 1290, 55]
+      ZOrder		      -10
+      GotoTag		      "TxSym"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto3"
+      SID		      "87"
+      Position		      [1390, 130, 1430, 160]
+      ZOrder		      -10
+      GotoTag		      "RxCh"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto4"
+      SID		      "94"
+      Position		      [1145, 570, 1195, 590]
+      ZOrder		      -10
+      GotoTag		      "RxBit"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto5"
+      SID		      "129"
+      Position		      [545, 380, 595, 400]
+      ZOrder		      -10
+      GotoTag		      "RxSym"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Half-sine pulse I"
+      SID		      "139"
+      Ports		      [1, 1]
+      Position		      [665, 60, 725, 120]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Filtering/FIR"
+      SourceType	      "Synphony Model Compiler FIR"
+      syn_coef_vec	      "sin(pi/oqpsk_syn_params.N*[0:oqpsk_syn_params.N-1])"
+      syn_coef_fl	      "15"
+      syn_coef_rnd	      "Nearest"
+      syn_show_q	      off
+      syn_dp_f		      "Automatic"
+      syn_dp_wl		      "16"
+      syn_dp_fl		      "8"
+      syn_dp_sat	      off
+      syn_dp_rnd	      "Floor (Truncate)"
+      syn_out_f		      "Specify"
+      syn_out_wl	      "16"
+      syn_out_fl	      "13"
+      syn_out_dt	      "signed"
+      syn_out_sat	      off
+      syn_out_rnd	      "Floor (Truncate)"
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "80"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Half-sine pulse Q"
+      SID		      "140"
+      Ports		      [1, 1]
+      Position		      [665, 180, 725, 240]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Filtering/FIR"
+      SourceType	      "Synphony Model Compiler FIR"
+      syn_coef_vec	      "sin(pi/oqpsk_syn_params.N*[0:oqpsk_syn_params.N-1])"
+      syn_coef_fl	      "15"
+      syn_coef_rnd	      "Nearest"
+      syn_show_q	      off
+      syn_dp_f		      "Automatic"
+      syn_dp_wl		      "16"
+      syn_dp_fl		      "8"
+      syn_dp_sat	      off
+      syn_dp_rnd	      "Floor (Truncate)"
+      syn_out_f		      "Specify"
+      syn_out_wl	      "16"
+      syn_out_fl	      "13"
+      syn_out_dt	      "signed"
+      syn_out_sat	      off
+      syn_out_rnd	      "Floor (Truncate)"
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "80"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "I LUT\nBinary consteallation "
+      SID		      "65"
+      Ports		      [1, 1]
+      Position		      [370, 70, 430, 110]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Memories/ROM"
+      SourceType	      "Synphony Model Compiler ROM"
+      syn_rom_vec	      "[1 -1 -1 1]"
+      syn_out_wl	      "2"
+      syn_out_fl	      "0"
+      syn_out_dt	      "signed"
+      syn_out_sat	      off
+      syn_out_rnd	      on
+      synBlockType	      "primitive"
+      synLatency	      "1"
+      synBlockId	      "62"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "K I"
+      SID		      "68"
+      Ports		      [1, 1]
+      Position		      [885, 70, 925, 110]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Math Functions/Gain"
+      SourceType	      "Synphony Model Compiler Gain"
+      syn_gain_val	      "1/2"
+      syn_gain_fl	      "2"
+      syn_gain_dt	      "signed"
+      syn_gain_rnd	      on
+      syn_out_f		      "Full Precision"
+      syn_out_wl	      "16"
+      syn_out_fl	      "8"
+      syn_out_dt	      "signed"
+      syn_out_sat	      off
+      syn_out_rnd	      "Floor (Truncate)"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "3"
+      syn_opr_mode	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "K Q"
+      SID		      "62"
+      Ports		      [1, 1]
+      Position		      [885, 189, 925, 231]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Math Functions/Gain"
+      SourceType	      "Synphony Model Compiler Gain"
+      syn_gain_val	      "1/2"
+      syn_gain_fl	      "2"
+      syn_gain_dt	      "signed"
+      syn_gain_rnd	      on
+      syn_out_f		      "Full Precision"
+      syn_out_wl	      "16"
+      syn_out_fl	      "8"
+      syn_out_dt	      "signed"
+      syn_out_sat	      off
+      syn_out_rnd	      "Floor (Truncate)"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "3"
+      syn_opr_mode	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Parallel to Serial"
+      SID		      "92"
+      Ports		      [1, 1]
+      Position		      [965, 560, 1025, 600]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Signal Operations/Parallel to Serial"
+      SourceType	      "Synphony Model Compiler Parallel to Serial"
+      syn_pack_nb	      "2"
+      syn_pack_ord	      "LSB to MSB"
+      synBlockType	      "custom"
+      synLatency	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Q LUT\nBinary consteallation"
+      SID		      "60"
+      Ports		      [1, 1]
+      Position		      [370, 190, 430, 230]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Memories/ROM"
+      SourceType	      "Synphony Model Compiler ROM"
+      syn_rom_vec	      "[1 1 -1 -1]"
+      syn_out_wl	      "2"
+      syn_out_fl	      "0"
+      syn_out_dt	      "signed"
+      syn_out_sat	      off
+      syn_out_rnd	      on
+      synBlockType	      "primitive"
+      synLatency	      "1"
+      synBlockId	      "62"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "QPSK\nBinary consteallation"
+      SID		      "133"
+      Ports		      [1, 1]
+      Position		      [840, 560, 900, 600]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Memories/ROM"
+      SourceType	      "Synphony Model Compiler ROM"
+      syn_rom_vec	      "[2 1 3 0]"
+      syn_out_wl	      "2"
+      syn_out_fl	      "0"
+      syn_out_dt	      "unsigned"
+      syn_out_sat	      off
+      syn_out_rnd	      on
+      synBlockType	      "primitive"
+      synLatency	      "1"
+      synBlockId	      "62"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "RCOS Filter\nFIR I"
+      SID		      "66"
+      Ports		      [1, 1]
+      Position		      [790, 60, 850, 120]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Filtering/FIR"
+      SourceType	      "Synphony Model Compiler FIR"
+      syn_coef_vec	      "rcosfir(0.5,5,4,1,'sqrt')"
+      syn_coef_fl	      "15"
+      syn_coef_rnd	      "Nearest"
+      syn_show_q	      off
+      syn_dp_f		      "Automatic"
+      syn_dp_wl		      "16"
+      syn_dp_fl		      "8"
+      syn_dp_sat	      off
+      syn_dp_rnd	      "Floor (Truncate)"
+      syn_out_f		      "Specify"
+      syn_out_wl	      "16"
+      syn_out_fl	      "13"
+      syn_out_dt	      "signed"
+      syn_out_sat	      off
+      syn_out_rnd	      "Floor (Truncate)"
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "80"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "RCOS Filter\nFIR Q"
+      SID		      "54"
+      Ports		      [1, 1]
+      Position		      [790, 180, 850, 240]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Filtering/FIR"
+      SourceType	      "Synphony Model Compiler FIR"
+      syn_coef_vec	      "rcosfir(0.5,5,4,1,'sqrt')"
+      syn_coef_fl	      "15"
+      syn_coef_rnd	      "Nearest"
+      syn_show_q	      off
+      syn_dp_f		      "Automatic"
+      syn_dp_wl		      "16"
+      syn_dp_fl		      "8"
+      syn_dp_sat	      off
+      syn_dp_rnd	      "Floor (Truncate)"
+      syn_out_f		      "Specify"
+      syn_out_wl	      "16"
+      syn_out_fl	      "13"
+      syn_out_dt	      "signed"
+      syn_out_sat	      off
+      syn_out_rnd	      "Floor (Truncate)"
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "80"
+    }
+    Block {
+      BlockType		      Display
+      Name		      "RMS EVM [%]"
+      SID		      "43"
+      Ports		      [1]
+      Position		      [795, 805, 885, 835]
+      ZOrder		      -1
+      Decimation	      "1"
+      Lockdown		      off
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "RX_D"
+      SID		      "93"
+      Ports		      [1, 1]
+      Position		      [1085, 570, 1105, 590]
+      BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Ports & Subsystems/Port Out"
+      SourceType	      "Synphony Model Compiler Port Out"
+      syn_capture	      off
+      syn_register	      off
+      synBlockType	      "port"
+      synLatency	      "0"
+      synBlockId	      "1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "RX_I"
+      SID		      "84"
+      Ports		      [1, 1]
+      Position		      [250, 510, 270, 530]
+      BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Ports & Subsystems/Port In"
+      SourceType	      "Synphony Model Compiler Port In"
+      syn_out_wl	      "16"
+      syn_out_fl	      "14"
+      syn_out_dt	      "signed"
+      syn_out_st	      "-1"
+      syn_capture	      off
+      syn_register	      off
+      syn_out_sat	      off
+      syn_out_rnd	      on
+      synBlockType	      "port"
+      synLatency	      "0"
+      synBlockId	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "RX_Q"
+      SID		      "85"
+      Ports		      [1, 1]
+      Position		      [250, 620, 270, 640]
+      BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Ports & Subsystems/Port In"
+      SourceType	      "Synphony Model Compiler Port In"
+      syn_out_wl	      "16"
+      syn_out_fl	      "14"
+      syn_out_dt	      "signed"
+      syn_out_st	      "-1"
+      syn_capture	      off
+      syn_register	      off
+      syn_out_sat	      off
+      syn_out_rnd	      on
+      synBlockType	      "port"
+      synLatency	      "0"
+      synBlockId	      "0"
+    }
+    Block {
+      BlockType		      RealImagToComplex
+      Name		      "Real-Imag to\nComplex"
+      SID		      "56"
+      Ports		      [2, 1]
+      Position		      [1040, 128, 1070, 157]
+    }
+    Block {
+      BlockType		      RealImagToComplex
+      Name		      "Real-Imag to\nComplex1"
+      SID		      "95"
+      Ports		      [2, 1]
+      Position		      [675, 673, 705, 702]
+    }
+    Block {
+      BlockType		      RealImagToComplex
+      Name		      "Real-Imag to\nComplex2"
+      SID		      "110"
+      Ports		      [2, 1]
+      Position		      [470, 433, 500, 462]
+    }
+    Block {
+      BlockType		      RealImagToComplex
+      Name		      "Real-Imag to\nComplex3"
+      SID		      "122"
+      Ports		      [2, 1]
+      Position		      [495, 883, 525, 912]
+    }
+    Block {
+      BlockType		      RealImagToComplex
+      Name		      "Real-Imag to\nComplex4"
+      SID		      "123"
+      Ports		      [2, 1]
+      Position		      [1030, 23, 1060, 52]
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Receive RCOS Filter\nFIR I"
+      SID		      "89"
+      Ports		      [1, 1]
+      Position		      [325, 490, 385, 550]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Filtering/FIR"
+      SourceType	      "Synphony Model Compiler FIR"
+      syn_coef_vec	      "rcosfir(0.5,5,4,1,'sqrt')"
+      syn_coef_fl	      "15"
+      syn_coef_rnd	      "Nearest"
+      syn_show_q	      off
+      syn_dp_f		      "Automatic"
+      syn_dp_wl		      "16"
+      syn_dp_fl		      "8"
+      syn_dp_sat	      off
+      syn_dp_rnd	      "Floor (Truncate)"
+      syn_out_f		      "Specify"
+      syn_out_wl	      "16"
+      syn_out_fl	      "13"
+      syn_out_dt	      "signed"
+      syn_out_sat	      off
+      syn_out_rnd	      "Floor (Truncate)"
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "80"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Receive RCOS Filter\nFIR Q"
+      SID		      "88"
+      Ports		      [1, 1]
+      Position		      [325, 600, 385, 660]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Filtering/FIR"
+      SourceType	      "Synphony Model Compiler FIR"
+      syn_coef_vec	      "rcosfir(0.5,5,4,1,'sqrt')"
+      syn_coef_fl	      "15"
+      syn_coef_rnd	      "Nearest"
+      syn_show_q	      off
+      syn_dp_f		      "Automatic"
+      syn_dp_wl		      "16"
+      syn_dp_fl		      "8"
+      syn_dp_sat	      off
+      syn_dp_rnd	      "Floor (Truncate)"
+      syn_out_f		      "Specify"
+      syn_out_wl	      "16"
+      syn_out_fl	      "13"
+      syn_out_dt	      "signed"
+      syn_out_sat	      off
+      syn_out_rnd	      "Floor (Truncate)"
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "80"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Rx Signal\n(Downsampled)"
+      SID		      "96"
+      Tag		      "ScatterPlot"
+      Ports		      [1]
+      Position		      [760, 664, 835, 716]
+      LibraryVersion	      "1.316"
+      SourceBlock	      "commsink2/Discrete-Time\nScatter Plot\nScope"
+      SourceType	      "Discrete-Time Scatter Plot Scope"
+      sampPerSymb	      "1"
+      offsetEye		      "0"
+      numTraces		      "200"
+      numNewFrames	      "40"
+      LineMarkers	      "."
+      LineColors	      "b"
+      fading		      on
+      render		      on
+      AxisGrid		      on
+      xMin		      "-2.2368896484375"
+      xMax		      "2.36206420898437"
+      yMin		      "-2.29389785766602"
+      yMax		      "2.30505599975586"
+      inphaseLabel	      "In-phase Amplitude"
+      quadratureLabel	      "Quadrature Amplitude"
+      openScopeAtSimStart     off
+      FrameNumber	      off
+      FigPos		      "get(0,'defaultfigureposition');"
+      figTitle		      "Scatter Plot"
+      numLinesMax	      "8"
+      block_type_	      "scatter"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Rx Signal\n(Filtered)"
+      SID		      "109"
+      Tag		      "ScatterPlot"
+      Ports		      [1]
+      Position		      [530, 424, 605, 476]
+      LibraryVersion	      "1.316"
+      SourceBlock	      "commsink2/Discrete-Time\nScatter Plot\nScope"
+      SourceType	      "Discrete-Time Scatter Plot Scope"
+      sampPerSymb	      "oqpsk_syn_params.N"
+      offsetEye		      "12"
+      numTraces		      "200"
+      numNewFrames	      "40"
+      LineMarkers	      "."
+      LineColors	      "b"
+      fading		      on
+      render		      on
+      AxisGrid		      on
+      xMin		      "-3.36879364013672"
+      xMax		      "3.36598480224609"
+      yMin		      "-3.36634521484375"
+      yMax		      "3.36843322753906"
+      inphaseLabel	      "In-phase Amplitude"
+      quadratureLabel	      "Quadrature Amplitude"
+      openScopeAtSimStart     off
+      FrameNumber	      off
+      FigPos		      "get(0,'defaultfigureposition');"
+      figTitle		      "Scatter Plot"
+      numLinesMax	      "8"
+      block_type_	      "scatter"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Rx Signal\n(Raw)"
+      SID		      "51"
+      Tag		      "ScatterPlot"
+      Ports		      [1]
+      Position		      [195, 424, 270, 476]
+      LibraryVersion	      "1.316"
+      SourceBlock	      "commsink2/Discrete-Time\nScatter Plot\nScope"
+      SourceType	      "Discrete-Time Scatter Plot Scope"
+      sampPerSymb	      "oqpsk_syn_params.N"
+      offsetEye		      "8"
+      numTraces		      "200"
+      numNewFrames	      "40"
+      LineMarkers	      "."
+      LineColors	      "b"
+      fading		      on
+      render		      on
+      AxisGrid		      on
+      xMin		      "-2.21685054225205"
+      xMax		      "2.21272506884322"
+      yMin		      "-2.21171497145292"
+      yMax		      "2.21786063964235"
+      inphaseLabel	      "In-phase Amplitude"
+      quadratureLabel	      "Quadrature Amplitude"
+      openScopeAtSimStart     off
+      FrameNumber	      off
+      FigPos		      "get(0,'defaultfigureposition');"
+      figTitle		      "Scatter Plot"
+      numLinesMax	      "8"
+      block_type_	      "scatter"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Scope"
+      SID		      "105"
+      Ports		      [2]
+      Position		      [650, 561, 680, 594]
+      ZOrder		      -16
+      Floating		      off
+      Location		      [1921, 48, 3521, 1199]
+      Open		      off
+      NumInputPorts	      "2"
+      ZoomMode		      "xonly"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+	axes2			"%<SignalLabel>"
+      }
+      List {
+	ListType		ScopeGraphics
+	FigureColor		"[0.5 0.5 0.5]"
+	AxesColor		"[0 0 0]"
+	AxesTickColor		"[1 1 1]"
+	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+	LineStyles		"-|-|-|-|-|-"
+	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
+	MarkerStyles		"none|none|none|none|none|none"
+      }
+      ShowLegends	      off
+      YMin		      "-5~-5"
+      YMax		      "5~5"
+      DataFormat	      "StructureWithTime"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Serial to Parallel"
+      SID		      "69"
+      Ports		      [1, 1]
+      Position		      [260, 130, 320, 170]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Signal Operations/Serial to Parallel"
+      SourceType	      "Synphony Model Compiler Serial to Parallel"
+      syn_pack_nb	      "2"
+      syn_pack_ord	      "LSB to MSB"
+      syn_out_f		      "Automatic"
+      syn_out_wl	      "17"
+      syn_out_fl	      "9"
+      syn_out_dt	      "signed"
+      synBlockType	      "custom"
+      synLatency	      "1"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Symbol"
+      SID		      "124"
+      Ports		      [4]
+      Position		      [1475, 753, 1505, 787]
+      ZOrder		      -16
+      Floating		      off
+      Location		      [1921, 48, 3521, 1199]
+      Open		      on
+      NumInputPorts	      "4"
+      ZoomMode		      "xonly"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+	axes2			"%<SignalLabel>"
+	axes3			"%<SignalLabel>"
+	axes4			"%<SignalLabel>"
+      }
+      List {
+	ListType		ScopeGraphics
+	FigureColor		"[0.5 0.5 0.5]"
+	AxesColor		"[0 0 0]"
+	AxesTickColor		"[1 1 1]"
+	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+	LineStyles		"-|-|-|-|-|-"
+	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
+	MarkerStyles		"none|none|none|none|none|none"
+      }
+      ShowLegends	      off
+      YMin		      "-5~-5~-5~-5"
+      YMax		      "5~5~5~5"
+      SaveName		      "ScopeData3"
+      DataFormat	      "StructureWithTime"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Symbol1"
+      SID		      "141"
+      Ports		      [7]
+      Position		      [910, 295, 980, 395]
+      ZOrder		      -16
+      Floating		      off
+      Location		      [1, 48, 1921, 1159]
+      Open		      off
+      NumInputPorts	      "7"
+      ZoomMode		      "xonly"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+	axes2			"%<SignalLabel>"
+	axes3			"%<SignalLabel>"
+	axes4			"%<SignalLabel>"
+	axes5			"%<SignalLabel>"
+	axes6			"%<SignalLabel>"
+	axes7			"%<SignalLabel>"
+      }
+      List {
+	ListType		ScopeGraphics
+	FigureColor		"[0.5 0.5 0.5]"
+	AxesColor		"[0 0 0]"
+	AxesTickColor		"[1 1 1]"
+	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+	LineStyles		"-|-|-|-|-|-"
+	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
+	MarkerStyles		"none|none|none|none|none|none"
+      }
+      ShowLegends	      off
+      YMin		      "-5~-5~-5~-5~-5~-5~-5"
+      YMax		      "5~5~5~5~5~5~5"
+      SaveName		      "ScopeData1"
+      DataFormat	      "StructureWithTime"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "TX_D"
+      SID		      "57"
+      Ports		      [1, 1]
+      Position		      [205, 140, 225, 160]
+      BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Ports & Subsystems/Port In"
+      SourceType	      "Synphony Model Compiler Port In"
+      syn_out_wl	      "1"
+      syn_out_fl	      "0"
+      syn_out_dt	      "unsigned"
+      syn_out_st	      "-1"
+      syn_capture	      off
+      syn_register	      off
+      syn_out_sat	      off
+      syn_out_rnd	      on
+      synBlockType	      "port"
+      synLatency	      "0"
+      synBlockId	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "TX_I"
+      SID		      "58"
+      Ports		      [1, 1]
+      Position		      [965, 80, 985, 100]
+      BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Ports & Subsystems/Port Out"
+      SourceType	      "Synphony Model Compiler Port Out"
+      syn_capture	      off
+      syn_register	      off
+      synBlockType	      "port"
+      synLatency	      "0"
+      synBlockId	      "1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "TX_Q"
+      SID		      "59"
+      Ports		      [1, 1]
+      Position		      [965, 200, 985, 220]
+      BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Ports & Subsystems/Port Out"
+      SourceType	      "Synphony Model Compiler Port Out"
+      syn_capture	      off
+      syn_register	      off
+      synBlockType	      "port"
+      synLatency	      "0"
+      synBlockId	      "1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Tx Signal"
+      SID		      "30"
+      Tag		      "ScatterPlot"
+      Ports		      [1]
+      Position		      [1215, 229, 1290, 281]
+      LibraryVersion	      "1.316"
+      SourceBlock	      "commsink2/Discrete-Time\nScatter Plot\nScope"
+      SourceType	      "Discrete-Time Scatter Plot Scope"
+      sampPerSymb	      "oqpsk_syn_params.N"
+      offsetEye		      "8"
+      numTraces		      "200"
+      numNewFrames	      "40"
+      LineMarkers	      "."
+      LineColors	      "b"
+      fading		      on
+      render		      on
+      AxisGrid		      on
+      xMin		      "-2.21417953491211"
+      xMax		      "2.2104899597168"
+      yMin		      "-2.20969848632812"
+      yMax		      "2.21497100830078"
+      inphaseLabel	      "In-phase Amplitude"
+      quadratureLabel	      "Quadrature Amplitude"
+      openScopeAtSimStart     off
+      FrameNumber	      off
+      FigPos		      "get(0,'defaultfigureposition');"
+      figTitle		      "Scatter Plot"
+      numLinesMax	      "8"
+      block_type_	      "scatter"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Tx Signal\nEye Diagram"
+      SID		      "29"
+      Tag		      "EyeDiagram"
+      Ports		      [1]
+      Position		      [1215, 314, 1290, 366]
+      LibraryVersion	      "1.316"
+      SourceBlock	      "commsink2/Discrete-Time\nEye Diagram\nScope"
+      SourceType	      "Discrete-Time Eye Diagram Scope"
+      sampPerSymb	      "8"
+      offsetEye		      "0"
+      symbPerTrace	      "1"
+      numTraces		      "40"
+      numNewFrames	      "10"
+      LineStyles	      "-"
+      LineColors	      "b"
+      dupPoints		      on
+      fading		      on
+      render		      on
+      AxisGrid		      on
+      yMin		      "-18.129248046875"
+      yMax		      "6.77067138671875"
+      inphaseLabel	      "In-phase Amplitude"
+      quadratureLabel	      "Quadrature Amplitude"
+      openScopeAtSimStart     off
+      dispDiagram	      "In-phase and Quadrature"
+      FrameNumber	      off
+      FigPos		      "get(0,'defaultfigureposition');"
+      figTitle		      "Eye Diagram"
+      block_type_	      "eye"
+      numLinesMax	      "8"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Upsample I"
+      SID		      "67"
+      Ports		      [1, 1]
+      Position		      [485, 70, 525, 110]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Signal Operations/Upsample"
+      SourceType	      "Synphony Model Compiler Upsample"
+      syn_r_val		      "oqpsk_syn_params.N"
+      syn_in_hold	      off
+      syn_sample_offset	      "0"
+      syn_sync_mode	      "No Sync"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "6"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Upsample Q"
+      SID		      "61"
+      Ports		      [1, 1]
+      Position		      [485, 190, 525, 230]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Signal Operations/Upsample"
+      SourceType	      "Synphony Model Compiler Upsample"
+      syn_r_val		      "oqpsk_syn_params.N"
+      syn_in_hold	      off
+      syn_sample_offset	      "0"
+      syn_sync_mode	      "No Sync"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "6"
+    }
+    Line {
+      SrcBlock		      "From"
+      SrcPort		      1
+      Points		      [0, 30; 20, 0]
+      Branch {
+	DstBlock		"Error Rate\nCalculation"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -110]
+	DstBlock		"Find Delay"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "From1"
+      SrcPort		      1
+      Points		      [35, 0]
+      Branch {
+	DstBlock		"Error Rate\nCalculation"
+	DstPort			2
+      }
+      Branch {
+	Points			[0, -115]
+	DstBlock		"Find Delay"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "Error Rate\nCalculation"
+      SrcPort		      1
+      DstBlock		      "BER"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "EVM Measurement"
+      SrcPort		      1
+      DstBlock		      "RMS EVM [%]"
+      DstPort		      1
+    }
+    Line {
+      Labels		      [0, 0]
+      SrcBlock		      "Buffer1"
+      SrcPort		      1
+      Points		      [15, 0; 0, -70]
+      DstBlock		      "EVM Measurement"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "From2"
+      SrcPort		      1
+      DstBlock		      "Delay1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Delay1"
+      SrcPort		      1
+      DstBlock		      "Buffer"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Buffer"
+      SrcPort		      1
+      DstBlock		      "EVM Measurement"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Upsample Q"
+      SrcPort		      1
+      DstBlock		      "Delay2"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "TX_D"
+      SrcPort		      1
+      DstBlock		      "Serial to Parallel"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Q LUT\nBinary consteallation"
+      SrcPort		      1
+      Points		      [20, 0]
+      Branch {
+	DstBlock		"Upsample Q"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 120]
+	DstBlock		"Symbol1"
+	DstPort			3
+      }
+    }
+    Line {
+      SrcBlock		      "RCOS Filter\nFIR Q"
+      SrcPort		      1
+      DstBlock		      "K Q"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "TX_I"
+      SrcPort		      1
+      Points		      [5, 0; 0, 45]
+      DstBlock		      "Real-Imag to\nComplex"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "TX_Q"
+      SrcPort		      1
+      Points		      [5, 0; 0, -60]
+      DstBlock		      "Real-Imag to\nComplex"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "K Q"
+      SrcPort		      1
+      Points		      [15, 0]
+      Branch {
+	DstBlock		"TX_Q"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -165]
+	DstBlock		"Real-Imag to\nComplex4"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "Real-Imag to\nComplex"
+      SrcPort		      1
+      Points		      [90, 0]
+      Branch {
+	DstBlock		"AWGN\nChannel"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 110]
+	Branch {
+	  DstBlock		  "Tx Signal"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [0, 85]
+	  DstBlock		  "Tx Signal\nEye Diagram"
+	  DstPort		  1
+	}
+      }
+    }
+    Line {
+      SrcBlock		      "RCOS Filter\nFIR I"
+      SrcPort		      1
+      DstBlock		      "K I"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "K I"
+      SrcPort		      1
+      Points		      [5, 0]
+      Branch {
+	DstBlock		"TX_I"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -60]
+	DstBlock		"Real-Imag to\nComplex4"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "I LUT\nBinary consteallation "
+      SrcPort		      1
+      Points		      [5, 0]
+      Branch {
+	DstBlock		"Upsample I"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 225]
+	DstBlock		"Symbol1"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "Serial to Parallel"
+      SrcPort		      1
+      Points		      [20, 0]
+      Branch {
+	Labels			[1, 0]
+	Points			[0, 60]
+	DstBlock		"Q LUT\nBinary consteallation"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -60]
+	DstBlock		"I LUT\nBinary consteallation "
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Bernoulli Binary\nGenerator"
+      SrcPort		      1
+      Points		      [40, 0]
+      Branch {
+	DstBlock		"TX_D"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -80]
+	DstBlock		"Goto1"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 150]
+	DstBlock		"Symbol1"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "From3"
+      SrcPort		      1
+      Points		      [10, 0]
+      Branch {
+	DstBlock		"Complex to\nReal-Imag"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -130]
+	DstBlock		"Rx Signal\n(Raw)"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Complex to\nReal-Imag"
+      SrcPort		      1
+      Points		      [15, 0; 0, -50]
+      DstBlock		      "RX_I"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Complex to\nReal-Imag"
+      SrcPort		      2
+      Points		      [15, 0; 0, 45]
+      DstBlock		      "RX_Q"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "AWGN\nChannel"
+      SrcPort		      1
+      DstBlock		      "Goto3"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "RX_I"
+      SrcPort		      1
+      Points		      [10, 0]
+      Branch {
+	DstBlock		"Receive RCOS Filter\nFIR I"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -80]
+	DstBlock		"Real-Imag to\nComplex2"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "RX_Q"
+      SrcPort		      1
+      Points		      [25, 0]
+      Branch {
+	DstBlock		"Receive RCOS Filter\nFIR Q"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -175]
+	DstBlock		"Real-Imag to\nComplex2"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "Receive RCOS Filter\nFIR I"
+      SrcPort		      1
+      Points		      [30, 0]
+      Branch {
+	Points			[0, 370]
+	DstBlock		"Real-Imag to\nComplex3"
+	DstPort			1
+      }
+      Branch {
+	DstBlock		"Delay3"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Receive RCOS Filter\nFIR Q"
+      SrcPort		      1
+      Points		      [50, 0]
+      Branch {
+	Points			[0, 275]
+	DstBlock		"Real-Imag to\nComplex3"
+	DstPort			2
+      }
+      Branch {
+	DstBlock		"Downsample1"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Parallel to Serial"
+      SrcPort		      1
+      DstBlock		      "RX_D"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "RX_D"
+      SrcPort		      1
+      DstBlock		      "Goto4"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Downsample"
+      SrcPort		      1
+      Points		      [40, 0]
+      Branch {
+	Points			[0, 160]
+	DstBlock		"Real-Imag to\nComplex1"
+	DstPort			1
+      }
+      Branch {
+	Points			[10, 0]
+	Branch {
+	  DstBlock		  "Comparator I"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [0, 50]
+	  DstBlock		  "Scope"
+	  DstPort		  1
+	}
+      }
+    }
+    Line {
+      SrcBlock		      "Downsample1"
+      SrcPort		      1
+      Points		      [30, 0]
+      Branch {
+	Points			[0, 65]
+	DstBlock		"Real-Imag to\nComplex1"
+	DstPort			2
+      }
+      Branch {
+	Points			[20, 0]
+	Branch {
+	  DstBlock		  "Comparator Q"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [0, -45]
+	  DstBlock		  "Scope"
+	  DstPort		  2
+	}
+      }
+    }
+    Line {
+      SrcBlock		      "Real-Imag to\nComplex1"
+      SrcPort		      1
+      DstBlock		      "Rx Signal\n(Downsampled)"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Concatenate"
+      SrcPort		      1
+      DstBlock		      "QPSK\nBinary consteallation"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Real-Imag to\nComplex2"
+      SrcPort		      1
+      Points		      [5, 0]
+      Branch {
+	DstBlock		"Rx Signal\n(Filtered)"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -60]
+	DstBlock		"Goto5"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Real-Imag to\nComplex3"
+      SrcPort		      1
+      DstBlock		      "Buffer1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Real-Imag to\nComplex4"
+      SrcPort		      1
+      DstBlock		      "Data Type Conversion"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "From7"
+      SrcPort		      1
+      DstBlock		      "Complex to\nReal-Imag1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "From9"
+      SrcPort		      1
+      DstBlock		      "Complex to\nReal-Imag2"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Complex to\nReal-Imag1"
+      SrcPort		      1
+      Points		      [45, 0; 0, 30]
+      DstBlock		      "Symbol"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Complex to\nReal-Imag1"
+      SrcPort		      2
+      Points		      [30, 0; 0, 25]
+      DstBlock		      "Symbol"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Complex to\nReal-Imag2"
+      SrcPort		      1
+      Points		      [30, 0; 0, -25]
+      DstBlock		      "Symbol"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Complex to\nReal-Imag2"
+      SrcPort		      2
+      Points		      [45, 0; 0, -30]
+      DstBlock		      "Symbol"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "Comparator I"
+      SrcPort		      1
+      Points		      [30, 0; 0, 50]
+      DstBlock		      "Concatenate"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Comparator Q"
+      SrcPort		      1
+      Points		      [30, 0; 0, -40]
+      DstBlock		      "Concatenate"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "QPSK\nBinary consteallation"
+      SrcPort		      1
+      DstBlock		      "Parallel to Serial"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Find Delay"
+      SrcPort		      1
+      DstBlock		      "Delay"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Upsample I"
+      SrcPort		      1
+      Points		      [85, 0]
+      Branch {
+	DstBlock		"Half-sine pulse I"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 255]
+	DstBlock		"Symbol1"
+	DstPort			4
+      }
+    }
+    Line {
+      SrcBlock		      "Half-sine pulse I"
+      SrcPort		      1
+      Points		      [20, 0]
+      Branch {
+	DstBlock		"RCOS Filter\nFIR I"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 285]
+	DstBlock		"Symbol1"
+	DstPort			6
+      }
+    }
+    Line {
+      SrcBlock		      "Delay2"
+      SrcPort		      1
+      Points		      [35, 0]
+      Branch {
+	DstBlock		"Half-sine pulse Q"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 150]
+	DstBlock		"Symbol1"
+	DstPort			5
+      }
+    }
+    Line {
+      SrcBlock		      "Half-sine pulse Q"
+      SrcPort		      1
+      Points		      [35, 0]
+      Branch {
+	DstBlock		"RCOS Filter\nFIR Q"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 180]
+	DstBlock		"Symbol1"
+	DstPort			7
+      }
+    }
+    Line {
+      SrcBlock		      "Delay3"
+      SrcPort		      1
+      DstBlock		      "Downsample"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Data Type Conversion"
+      SrcPort		      1
+      DstBlock		      "Goto2"
+      DstPort		      1
+    }
+    Annotation {
+      SID		      "18"
+      Position		      [249, 766]
+    }
+    Annotation {
+      SID		      "82"
+      Name		      "Check the raised cosine filters"
+      Position		      [992, 263]
+      DropShadow	      on
+      FontName		      "Arial"
+      FontSize		      12
+    }
+  }
+}
+MatData {
+  NumRecords		  2
+  DataRecord {
+    Tag			    DataTag1
+    Data		    "  %)30     .    B     8    (     @         %    \"     $    !     0         %  0 $P    $    3    :&%S26"
+    "YH97)I=&5D3W!T:6]N        #@   #     &    \"     D\"        !0    @    !     0    $          @ !  $    "
+  }
+  DataRecord {
+    Tag			    DataTag0
+    Data		    "  %)30     .    B     8    (     @         %    \"     $    !     0         %  0 $P    $    3    :&%S26"
+    "YH97)I=&5D3W!T:6]N        #@   #     &    \"     D\"        !0    @    !     0    $          @ !  $    "
+  }
+}
