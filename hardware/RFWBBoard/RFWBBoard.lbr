@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="mm"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
@@ -1589,6 +1589,69 @@ Small fiducial for automated assembly
 &lt;i&gt;Source: Sparkfun EAGLE library&lt;/i&gt;</description>
 <smd name="1" x="0" y="0" dx="1" dy="1" layer="1" roundness="100" cream="no"/>
 </package>
+<package name="TESTPOINT">
+<description>&lt;b&gt;.063 (1.6) Diameter Via&lt;/b&gt;</description>
+<pad name="1" x="0" y="0" drill="1.6002"/>
+<text x="-0.48" y="1.52" size="0.4064" layer="25">&gt;NAME</text>
+</package>
+<package name="SWITCH-DIP-CJS">
+<description>&lt;b&gt;CJS DIP Switch&lt;/b&gt;
+&lt;p&gt;
+CJS sufrace mount SPDT DIP Switch.
+&lt;p&gt;
+Source: &lt;a href="http://media.digikey.com/pdf/Data%20Sheets/COPAL%20Electronics%20PDFs/CJS.pdf"&gt;http://media.digikey.com/pdf/Data%20Sheets/COPAL%20Electronics%20PDFs/CJS.pdf&lt;/a&gt;</description>
+<wire x1="-2.7" y1="1.25" x2="-2.2" y2="1.25" width="0.127" layer="51"/>
+<wire x1="-2.2" y1="1.25" x2="2.7" y2="1.25" width="0.127" layer="51"/>
+<wire x1="2.7" y1="1.25" x2="2.7" y2="-1.25" width="0.127" layer="51"/>
+<wire x1="2.7" y1="-1.25" x2="-2.7" y2="-1.25" width="0.127" layer="51"/>
+<wire x1="-2.7" y1="-1.25" x2="-2.7" y2="0.75" width="0.127" layer="51"/>
+<smd name="1" x="-1.75" y="-1.15" dx="1" dy="1.6" layer="1"/>
+<smd name="3" x="1.75" y="-1.15" dx="1" dy="1.6" layer="1"/>
+<smd name="2" x="0" y="1.15" dx="1" dy="1.6" layer="1"/>
+<wire x1="-2.7" y1="0.75" x2="-2.7" y2="1.25" width="0.127" layer="51"/>
+<wire x1="-3" y1="-1" x2="-2.75" y2="-1.25" width="0.127" layer="21"/>
+<wire x1="-2.75" y1="-1.25" x2="-3" y2="-1.5" width="0.127" layer="21"/>
+<wire x1="-3" y1="-1.5" x2="-3" y2="-1" width="0.127" layer="21"/>
+<text x="-3" y="-3" size="0.4064" layer="25">&gt;NAME</text>
+<text x="-3" y="2.25" size="0.4064" layer="27">&gt;VALUE</text>
+<wire x1="-2.7" y1="0.75" x2="-2.2" y2="1.25" width="0.127" layer="51"/>
+<wire x1="-1.6" y1="0.5" x2="1.6" y2="0.5" width="0.0762" layer="51"/>
+<wire x1="1.6" y1="0.5" x2="1.6" y2="-0.5" width="0.0762" layer="51"/>
+<wire x1="1.6" y1="-0.5" x2="-1.6" y2="-0.5" width="0.0762" layer="51"/>
+<wire x1="-1.6" y1="-0.5" x2="-1.6" y2="0.5" width="0.0762" layer="51"/>
+<wire x1="-1.6" y1="-0.5" x2="-0.75" y2="-0.35" width="0.0762" layer="51"/>
+<wire x1="-0.75" y1="-0.35" x2="-0.75" y2="0.35" width="0.0762" layer="51"/>
+<wire x1="-0.75" y1="0.35" x2="-1.6" y2="0.5" width="0.0762" layer="51"/>
+<wire x1="-0.75" y1="0.35" x2="0.75" y2="0.35" width="0.0762" layer="51"/>
+<wire x1="0.75" y1="0.35" x2="1.6" y2="0.5" width="0.0762" layer="51"/>
+<wire x1="-0.75" y1="-0.35" x2="0.75" y2="-0.35" width="0.0762" layer="51"/>
+<wire x1="0.75" y1="-0.35" x2="1.6" y2="-0.5" width="0.0762" layer="51"/>
+<wire x1="0.75" y1="0.35" x2="0.75" y2="-0.35" width="0.0762" layer="51"/>
+</package>
+<package name="CX3225SB">
+<description>&lt;b&gt;ECX-42&lt;/b&gt;
+&lt;p&gt;
+Compact SMD crystal in 4 x 2.5 x 0.8 mm ceramic package.
+&lt;p&gt;
+Source: &lt;a href="http://www.ecsxtal.com/store/pdf/ECX_42.pdf"&gt; http://www.ecsxtal.com/store/pdf/ECX_42.pdf&lt;/a&gt;
+&lt;p&gt;
+&lt;i&gt;&lt;b&gt;Note:&lt;/b&gt; Device has two GND pins named DGND&lt;/i&gt;</description>
+<smd name="4" x="-1.15" y="0.925" dx="1.3" dy="1.05" layer="1"/>
+<smd name="1" x="-1.15" y="-0.925" dx="1.3" dy="1.05" layer="1"/>
+<smd name="2" x="1.15" y="-0.925" dx="1.3" dy="1.05" layer="1"/>
+<smd name="3" x="1.15" y="0.925" dx="1.3" dy="1.05" layer="1"/>
+<wire x1="-1.6" y1="1.25" x2="1.6" y2="1.25" width="0.127" layer="51"/>
+<wire x1="1.6" y1="1.25" x2="1.6" y2="-1.25" width="0.127" layer="51"/>
+<wire x1="1.6" y1="-1.25" x2="-1.6" y2="-1.25" width="0.127" layer="51"/>
+<wire x1="-1.6" y1="-1.25" x2="-1.6" y2="1.25" width="0.127" layer="51"/>
+<circle x="-2.4325" y="-2.0675" radius="0.1" width="0.2032" layer="21"/>
+<text x="-2" y="-2" size="0.4064" layer="27">&gt;VALUE</text>
+<text x="-2" y="1.75" size="0.4064" layer="25">&gt;NAME</text>
+<wire x1="-1.905" y1="1.5875" x2="-1.905" y2="-1.5875" width="0.0508" layer="39"/>
+<wire x1="-1.905" y1="-1.5875" x2="1.905" y2="-1.5875" width="0.0508" layer="39"/>
+<wire x1="1.905" y1="-1.5875" x2="1.905" y2="1.5875" width="0.0508" layer="39"/>
+<wire x1="1.905" y1="1.5875" x2="-1.905" y2="1.5875" width="0.0508" layer="39"/>
+</package>
 </packages>
 <symbols>
 <symbol name="AUTHOR-FIELD">
@@ -2460,6 +2523,50 @@ Small fiducial for automated assembly
 <wire x1="10.16" y1="2.54" x2="2.54" y2="2.54" width="0.254" layer="94"/>
 <text x="-10.16" y="8.89" size="1.778" layer="95">&gt;NAME</text>
 <text x="-10.16" y="-10.16" size="1.778" layer="96">&gt;VALUE</text>
+</symbol>
+<symbol name="TESTPOINT">
+<wire x1="0" y1="-2.54" x2="0" y2="-1.778" width="0.1524" layer="94"/>
+<circle x="0" y="0" radius="1.796" width="0.254" layer="94"/>
+<text x="-2.54" y="2.54" size="1.778" layer="95">&gt;NAME</text>
+<pin name="1" x="0" y="-2.54" visible="off" length="point" direction="pwr" rot="R90"/>
+</symbol>
+<symbol name="SWITCH-SPDT">
+<description>&lt;b&gt;SPDT Switch symbol&lt;/b&gt;</description>
+<wire x1="3.175" y1="1.27" x2="-1.905" y2="0" width="0.2032" layer="94"/>
+<wire x1="-5.08" y1="0" x2="-3.175" y2="0" width="0.2032" layer="94"/>
+<wire x1="3.175" y1="2.54" x2="5.08" y2="2.54" width="0.2032" layer="94"/>
+<wire x1="3.175" y1="-2.54" x2="5.08" y2="-2.54" width="0.2032" layer="94"/>
+<circle x="-2.54" y="0" radius="0.635" width="0.2032" layer="94"/>
+<circle x="2.54" y="2.54" radius="0.635" width="0.2032" layer="94"/>
+<circle x="2.54" y="-2.54" radius="0.635" width="0.2032" layer="94"/>
+<text x="-5.08" y="2.54" size="1.27" layer="95">&gt;NAME</text>
+<pin name="2" x="-5.08" y="0" visible="pad" length="point" direction="pas"/>
+<pin name="1" x="5.08" y="2.54" visible="pad" length="point" direction="pas" rot="R180"/>
+<pin name="3" x="5.08" y="-2.54" visible="pad" length="point" direction="pas" rot="R180"/>
+</symbol>
+<symbol name="CRYSTAL-4">
+<wire x1="-2.667" y1="1.524" x2="-2.667" y2="-1.524" width="0.254" layer="94"/>
+<wire x1="-2.667" y1="-1.524" x2="0.127" y2="-1.524" width="0.254" layer="94"/>
+<wire x1="0.127" y1="-1.524" x2="0.127" y2="1.524" width="0.254" layer="94"/>
+<wire x1="0.127" y1="1.524" x2="-2.667" y2="1.524" width="0.254" layer="94"/>
+<wire x1="1.016" y1="1.778" x2="1.016" y2="-1.778" width="0.254" layer="94"/>
+<wire x1="-3.556" y1="1.778" x2="-3.556" y2="-1.778" width="0.254" layer="94"/>
+<text x="-6.604" y="6.858" size="1.778" layer="95">&gt;NAME</text>
+<text x="-6.604" y="4.826" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="3" x="5.08" y="0" visible="pad" length="short" direction="pas" rot="R180"/>
+<pin name="1" x="-7.62" y="0" visible="pad" length="short" direction="pas"/>
+<pin name="2" x="-2.54" y="-7.62" visible="pad" length="short" direction="pwr" rot="R90"/>
+<pin name="4" x="0" y="-7.62" visible="pad" length="short" direction="pwr" rot="R90"/>
+<wire x1="-6.35" y1="3.81" x2="3.81" y2="3.81" width="0.254" layer="94"/>
+<wire x1="3.81" y1="3.81" x2="3.81" y2="-3.81" width="0.254" layer="94"/>
+<wire x1="3.81" y1="-3.81" x2="0" y2="-3.81" width="0.254" layer="94"/>
+<wire x1="0" y1="-3.81" x2="-2.54" y2="-3.81" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-3.81" x2="-6.35" y2="-3.81" width="0.254" layer="94"/>
+<wire x1="-6.35" y1="-3.81" x2="-6.35" y2="3.81" width="0.254" layer="94"/>
+<wire x1="-3.81" y1="0" x2="-5.08" y2="0" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-5.08" x2="-2.54" y2="-3.81" width="0.254" layer="94"/>
+<wire x1="0" y1="-5.08" x2="0" y2="-3.81" width="0.254" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -3971,6 +4078,131 @@ Source: &lt;a href="http://www.idt.com/sites/default/files/documents/IDT_83021I_
 <connect gate="G$1" pin="NCLK" pad="3"/>
 <connect gate="G$1" pin="Q0" pad="7"/>
 <connect gate="G$1" pin="VDD" pad="8"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TESTPOINT" prefix="TP">
+<description>&lt;b&gt;Test Point&lt;/b&gt;
+&lt;p&gt;
+Keystone compact through hole mount test point for SUPPLY and GROUND signals
+&lt;p&gt;
+&lt;b&gt;Terminal:&lt;/b&gt;
+.015 (.38) × .032 (.81) thick&lt;br&gt;
+Phosphor Bronze Wire, Silver Plate&lt;br&gt;
+&lt;b&gt;Base:&lt;/b&gt; Nylon 46, UL Rated 94V-0&lt;br&gt;
+&lt;b&gt;Mtg. Hole:&lt;/b&gt; .063 (1.6) Diameter
+&lt;p&gt;
+Source: &lt;a href="http://www.keyelco.com/pdfs/M55p51.pdf"&gt;http://www.keyelco.com/pdfs/M55p51.pdf&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="TESTPOINT" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="TESTPOINT">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+</connects>
+<technologies>
+<technology name="-BLACK">
+<attribute name="DIGI-KEY#" value="5006K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5006"/>
+</technology>
+<technology name="-BLUE">
+<attribute name="DIGI-KEY#" value="5122K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5122"/>
+</technology>
+<technology name="-BROWN">
+<attribute name="DIGI-KEY#" value="5120K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5120"/>
+</technology>
+<technology name="-GREEN">
+<attribute name="DIGI-KEY#" value="5121K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5121"/>
+</technology>
+<technology name="-GREY">
+<attribute name="DIGI-KEY#" value="5123K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5123"/>
+</technology>
+<technology name="-ORANGE">
+<attribute name="DIGI-KEY#" value="5008K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5008"/>
+</technology>
+<technology name="-PURPLE">
+<attribute name="DIGI-KEY#" value="5124K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5124"/>
+</technology>
+<technology name="-RED">
+<attribute name="DIGI-KEY#" value="5005K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5005"/>
+</technology>
+<technology name="-WHITE">
+<attribute name="DIGI-KEY#" value="5007K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5007"/>
+</technology>
+<technology name="-YELLOW">
+<attribute name="DIGI-KEY#" value="5009K-ND"/>
+<attribute name="MF" value="Keystone"/>
+<attribute name="MPN" value="5009"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SWITCH-CJS-1200" prefix="SW">
+<description>&lt;b&gt;CJS-1200 SPDT Switch&lt;/b&gt;
+&lt;p&gt;
+Source:
+&lt;a href="http://media.digikey.com/pdf/Data%20Sheets/COPAL%20Electronics%20PDFs/CJS.pdf"&gt;http://media.digikey.com/pdf/Data%20Sheets/COPAL%20Electronics%20PDFs/CJS.pdf&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="SWITCH-SPDT" x="0" y="0"/>
+</gates>
+<devices>
+<device name="TA" package="SWITCH-DIP-CJS">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DIGI-KEY#" value="563-1021-1-ND"/>
+<attribute name="MF" value="CJS"/>
+<attribute name="MPN" value="CJS-1200TA"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="CX3225SB" prefix="X">
+<description>&lt;b&gt;CX3225SB&lt;/b&gt;
+&lt;p&gt;
+Compact SMD crystal in 3.2 x 2.5 x 0.55 mm ceramic package.
+&lt;p&gt;
+Source: &lt;a href="http://global.kyocera.com/prdct/electro/pdf/xtal/cx3225sb_cs_e.pdf"&gt;http://global.kyocera.com/prdct/electro/pdf/xtal/cx3225sb_cs_e.pdf&lt;/a&gt;
+&lt;p&gt;
+&lt;i&gt;&lt;b&gt;Note:&lt;/b&gt; Device has two GND pins named DGND&lt;/i&gt;</description>
+<gates>
+<gate name="XTAL" symbol="CRYSTAL-4" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="CX3225SB">
+<connects>
+<connect gate="XTAL" pin="1" pad="1"/>
+<connect gate="XTAL" pin="2" pad="2"/>
+<connect gate="XTAL" pin="3" pad="3"/>
+<connect gate="XTAL" pin="4" pad="4"/>
 </connects>
 <technologies>
 <technology name=""/>
