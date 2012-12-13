@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.148"
+    ComputedModelVersion    "1.151"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "sszilvasi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Dec 13 14:43:13 2012"
+  LastModifiedDate	  "Thu Dec 13 14:45:15 2012"
   RTWModifiedTimeStamp	  277295144
-  ModelVersionFormat	  "1.%<AutoIncrement:148>"
+  ModelVersionFormat	  "1.%<AutoIncrement:151>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  on
@@ -703,7 +703,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "148"
+    SIDHighWatermark	    "149"
     Block {
       BlockType		      Reference
       Name		      "Binary Logic"
@@ -796,6 +796,22 @@ Model {
       syn_en_port	      on
       synBlockType	      "custom"
       synLatency	      "1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Channel select\nregister1"
+      SID		      "149"
+      Ports		      [1, 1]
+      Position		      [95, 230, 135, 270]
+      LibraryVersion	      "1.3722"
+      FontSize		      9.500000
+      SourceBlock	      "shlslibv1/Memories/Register"
+      SourceType	      "Synphony Model Compiler Register"
+      syn_delay_val	      "0"
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "custom"
+      synLatency	      "0"
     }
     Block {
       BlockType		      Reference
@@ -1077,11 +1093,11 @@ Model {
       Name		      "Sequence"
       SID		      "1"
       Ports		      [0, 1]
-      Position		      [40, 218, 125, 282]
+      Position		      [15, 224, 60, 276]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Sources/Sequence"
       SourceType	      "Synphony Model Compiler Sequence"
-      syn_seq_vec	      "[zeros(1,8) 0 0 0 1 1 0 1 0 1]"
+      syn_seq_vec	      "[zeros(1,8) 0 0 1 1 0 1 0 1]"
       syn_seq_wl	      "1"
       syn_seq_fl	      "0"
       syn_seq_dt	      "unsigned"
@@ -1338,7 +1354,7 @@ Model {
       Labels		      [0, 0]
       SrcBlock		      "Sequence"
       SrcPort		      1
-      DstBlock		      "Decommutator2"
+      DstBlock		      "Channel select\nregister1"
       DstPort		      1
     }
     Line {
@@ -1724,6 +1740,12 @@ Model {
       Points		      [50, 0]
       DstBlock		      "Multiplexer output2"
       DstPort		      4
+    }
+    Line {
+      SrcBlock		      "Channel select\nregister1"
+      SrcPort		      1
+      DstBlock		      "Decommutator2"
+      DstPort		      1
     }
     Annotation {
       SID		      "82"
