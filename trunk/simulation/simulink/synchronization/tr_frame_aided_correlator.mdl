@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.216"
+    ComputedModelVersion    "1.261"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "sszilvasi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Dec 13 17:00:28 2012"
-  RTWModifiedTimeStamp	  277312074
-  ModelVersionFormat	  "1.%<AutoIncrement:216>"
+  LastModifiedDate	  "Thu Dec 13 20:38:39 2012"
+  RTWModifiedTimeStamp	  277331871
+  ModelVersionFormat	  "1.%<AutoIncrement:261>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  on
@@ -69,6 +69,7 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "tr_frame_aided_correlator"
+    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -134,7 +135,7 @@ Model {
 	  $ObjectID		  3
 	  Version		  "1.12.0"
 	  StartTime		  "0.0"
-	  StopTime		  "500"
+	  StopTime		  "1e2"
 	  AbsTol		  "auto"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
@@ -658,19 +659,88 @@ Model {
   }
   BlockParameterDefaults {
     Block {
-      BlockType		      From
-      IconDisplay	      "Tag"
-      TagVisibility	      "local"
+      BlockType		      Inport
+      Port		      "1"
+      OutputFunctionCall      off
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchInputForFeedbackSignals off
+      Interpolate	      on
     }
     Block {
-      BlockType		      Goto
-      IconDisplay	      "Tag"
-      TagVisibility	      "local"
+      BlockType		      Outport
+      Port		      "1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      SourceOfInitialOutputValue "Dialog"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      Scope
+      ModelBased	      off
+      TickLabels	      "OneTimeTick"
+      ZoomMode		      "on"
+      Grid		      "on"
+      TimeRange		      "auto"
+      YMin		      "-5"
+      YMax		      "5"
+      SaveToWorkspace	      off
+      SaveName		      "ScopeData"
+      DataFormat	      "Array"
+      LimitDataPoints	      on
+      MaxDataPoints	      "5000"
+      Decimation	      "1"
+      SampleInput	      off
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      "FromPortIcon"
+      Permissions	      "ReadWrite"
+      PermitHierarchicalResolution "All"
+      TreatAsAtomicUnit	      off
+      CheckFcnCallInpInsideContextMsg off
+      SystemSampleTime	      "-1"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      DataTypeOverrideAppliesTo	"AllNumericTypes"
+      MinMaxOverflowLogging   "UseLocalSettings"
+      SFBlockType	      "NONE"
+      Variant		      off
+      GeneratePreprocessorConditionals off
+    }
+    Block {
+      BlockType		      Terminator
     }
   }
   System {
     Name		    "tr_frame_aided_correlator"
-    Location		    [2, 82, 3498, 1147]
+    Location		    [2, 82, 1881, 1051]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -684,1126 +754,1308 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "177"
-    Block {
-      BlockType		      Reference
-      Name		      "1-bit XOR"
-      SID		      "81"
-      Ports		      [2, 1]
-      Position		      [765, 280, 805, 320]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Math Functions/Add"
-      SourceType	      "Synphony Model Compiler Add"
-      syn_add_opr	      "++"
-      syn_out_f		      "Specify"
-      syn_out_wl	      "1"
-      syn_out_fl	      "0"
-      syn_out_dt	      "unsigned"
-      syn_out_sat	      off
-      syn_out_rnd	      "Floor (Truncate)"
-      synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "96"
-      syn_sum_of_rows	      off
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Binary Logic"
-      SID		      "131"
-      Ports		      [2, 1]
-      Position		      [1435, 234, 1505, 281]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Math Functions/Binary Logic"
-      SourceType	      "Synphony Model Compiler Binary Logic"
-      syn_binlog_exp	      "a&~b"
-      synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "13"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Binary Logic2"
-      SID		      "140"
-      Ports		      [2, 1]
-      Position		      [975, 419, 1040, 461]
-      NamePlacement	      "alternate"
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Math Functions/Binary Logic"
-      SourceType	      "Synphony Model Compiler Binary Logic"
-      syn_binlog_exp	      "a|b"
-      synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "13"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Binary Logic3"
-      SID		      "165"
-      Ports		      [3, 1]
-      Position		      [1210, 440, 1280, 500]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Math Functions/Binary Logic"
-      SourceType	      "Synphony Model Compiler Binary Logic"
-      syn_binlog_exp	      "a|b|c"
-      synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "13"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Binary Logic4"
-      SID		      "164"
-      Ports		      [2, 1]
-      Position		      [975, 499, 1040, 541]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Math Functions/Binary Logic"
-      SourceType	      "Synphony Model Compiler Binary Logic"
-      syn_binlog_exp	      "a|b"
-      synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "13"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Binary OR"
-      SID		      "132"
-      Ports		      [8, 1]
-      Position		      [1325, 160, 1375, 330]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Math Functions/Binary Logic"
-      SourceType	      "Synphony Model Compiler Binary Logic"
-      syn_binlog_exp	      "a|b|c|d|e|f|g|h"
-      synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "13"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Channel select\nregister"
-      SID		      "141"
-      Ports		      [2, 1]
-      Position		      [1090, 275, 1130, 315]
-      LibraryVersion	      "1.3722"
-      FontSize		      9.500000
-      SourceBlock	      "shlslibv1/Memories/Register"
-      SourceType	      "Synphony Model Compiler Register"
-      syn_delay_val	      "1"
-      syn_rst_port	      off
-      syn_en_port	      on
-      synBlockType	      "custom"
-      synLatency	      "1"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Concatenate for matrix reshaping"
-      SID		      "76"
-      Ports		      [8, 1]
-      Position		      [535, 40, 620, 575]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Signal Operations/Vector Concat"
-      SourceType	      "Synphony Model Compiler Vector Concat"
-      syn_in_nb		      "8"
-      syn_out_f		      "Full Precision"
-      syn_out_wl	      "16"
-      syn_out_fl	      "8"
-      syn_out_dt	      "signed"
-      synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "19"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Constant 1"
-      SID		      "135"
-      Ports		      [0, 1]
-      Position		      [1450, 145, 1490, 185]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Sources/Constant"
-      SourceType	      "Synphony Model Compiler Constant"
-      syn_cst_val	      "1"
-      syn_cst_fl	      "0"
-      syn_cst_dt	      "unsigned"
-      syn_cst_rnd	      on
-      syn_cst_st	      "-1"
-      synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "15"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Convert to matrix1"
-      SID		      "87"
-      Ports		      [1, 1]
-      Position		      [670, 292, 710, 328]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Signal Operations/Reshape"
-      SourceType	      "Synphony Model Compiler Reshape"
-      syn_op_dim_type	      "Specify"
-      syn_op_dim	      "[4 8]"
-      syn_ip_order	      "Row First"
-      syn_op_order	      "Column First"
-      syn_inh_port	      off
-      synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "158"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Correlation constant\n(Frame header)"
-      SID		      "77"
-      Ports		      [0, 1]
-      Position		      [640, 207, 735, 253]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Sources/Constant"
-      SourceType	      "Synphony Model Compiler Constant"
-      syn_cst_val	      "[1 1 0 0]'*ones(1,8)"
-      syn_cst_fl	      "0"
-      syn_cst_dt	      "unsigned"
-      syn_cst_rnd	      on
-      syn_cst_st	      "-1"
-      synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "15"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Decommutator2"
-      SID		      "71"
-      Ports		      [1, 8]
-      Position		      [215, 45, 295, 570]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Signal Operations/Decommutator"
-      SourceType	      "Synphony Model Compiler Decommutator"
-      syn_outport_nb	      "8"
-      syn_outport_vec	      off
-      synBlockType	      "custom"
-      synLatency	      "1"
-      Port {
-	PortNumber		1
-	Name			"Ch1"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
-      }
-    }
+    SIDHighWatermark	    "197"
     Block {
       BlockType		      Reference
       Name		      "Delay"
-      SID		      "176"
+      SID		      "196"
       Ports		      [1, 1]
-      Position		      [1645, 230, 1685, 270]
+      Position		      [515, 310, 555, 350]
       LibraryVersion	      "1.3722"
-      FontSize		      9.500000
-      SourceBlock	      "shlslibv1/Memories/Register"
-      SourceType	      "Synphony Model Compiler Register"
-      syn_delay_val	      "1"
+      SourceBlock	      "shlslibv1/Memories/Delay"
+      SourceType	      "Synphony Model Compiler Delay"
+      syn_delay_val	      "0"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "104"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Scope"
+      SID		      "194"
+      Ports		      [2]
+      Position		      [940, 282, 985, 373]
+      ZOrder		      -16
+      Floating		      off
+      Location		      [468, 514, 1915, 863]
+      Open		      on
+      NumInputPorts	      "2"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+	axes2			"%<SignalLabel>"
+      }
+      List {
+	ListType		ScopeGraphics
+	FigureColor		"[0.5 0.5 0.5]"
+	AxesColor		"[0 0 0]"
+	AxesTickColor		"[1 1 1]"
+	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+	LineStyles		"-|-|-|-|-|-"
+	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
+	MarkerStyles		"none|none|none|none|none|none"
+      }
+      ShowLegends	      off
+      YMin		      "-0.5~-1.5"
+      YMax		      "1.5~1.5"
+      DataFormat	      "StructureWithTime"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Sequence"
+      SID		      "195"
+      Ports		      [0, 1]
+      Position		      [405, 310, 445, 350]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Sources/Sequence"
+      SourceType	      "Synphony Model Compiler Sequence"
+      syn_seq_vec	      "[0 zeros(1,4) 1 zeros(1,7) 1 zeros(1,7) 0 zeros(1,7) 0 zeros(1,7) 1 zeros(1,7) 0 zeros(1,7) 1"
+      " zeros(1,7) 0 1 0 2 0 1 0]"
+      syn_seq_wl	      "1"
+      syn_seq_fl	      "0"
+      syn_seq_dt	      "unsigned"
       syn_rst_port	      off
       syn_en_port	      off
+      syn_seq_st	      "1"
       synBlockType	      "custom"
       synLatency	      "1"
     }
     Block {
-      BlockType		      Reference
-      Name		      "Frame found"
-      SID		      "133"
-      Ports		      [2, 1]
-      Position		      [1550, 230, 1590, 270]
-      LibraryVersion	      "1.3722"
-      FontSize		      9.500000
-      SourceBlock	      "shlslibv1/Memories/Register"
-      SourceType	      "Synphony Model Compiler Register"
-      syn_delay_val	      "1"
-      syn_rst_port	      off
-      syn_en_port	      on
-      synBlockType	      "custom"
-      synLatency	      "1"
-    }
-    Block {
-      BlockType		      From
-      Name		      "From"
-      SID		      "145"
-      Position		      [650, 488, 745, 512]
-      ZOrder		      -9
-      GotoTag		      "channel_select"
-    }
-    Block {
-      BlockType		      Goto
-      Name		      "Goto"
-      SID		      "143"
-      Position		      [1035, 157, 1130, 183]
-      ZOrder		      -10
-      BlockMirror	      on
-      GotoTag		      "channel_select"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Port In"
-      SID		      "177"
-      Ports		      [1, 1]
-      Position		      [130, 300, 150, 320]
-      BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Ports & Subsystems/Port In"
-      SourceType	      "Synphony Model Compiler Port In"
-      syn_out_wl	      "1"
-      syn_out_fl	      "0"
-      syn_out_dt	      "unsigned"
-      syn_out_st	      "-1"
-      syn_capture	      off
-      syn_register	      on
-      syn_out_sat	      off
-      syn_out_rnd	      on
-      synBlockType	      "port"
-      synLatency	      "1"
-      synBlockId	      "0"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Shift Register0"
-      SID		      "70"
-      Ports		      [1, 1]
-      Position		      [420, 60, 495, 100]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Memories/Shift Register"
-      SourceType	      "Synphony Model Compiler Shift Register"
-      syn_shift_dynamic	      off
-      syn_shift_vec	      "[0:3]"
-      syn_shift_val	      "16"
-      syn_vect_out	      "Merge to vector"
-      syn_rst_val	      "All zeros"
-      syn_rst_vec	      "0"
-      syn_rst_port	      off
-      syn_en_port	      off
-      synBlockType	      "primitive"
-      synLatency	      "(addr+1)"
-      synBlockId	      "93"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Shift Register1"
-      SID		      "73"
-      Ports		      [1, 1]
-      Position		      [420, 124, 495, 166]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Memories/Shift Register"
-      SourceType	      "Synphony Model Compiler Shift Register"
-      syn_shift_dynamic	      off
-      syn_shift_vec	      "[0:3]"
-      syn_shift_val	      "16"
-      syn_vect_out	      "Merge to vector"
-      syn_rst_val	      "All zeros"
-      syn_rst_vec	      "0"
-      syn_rst_port	      off
-      syn_en_port	      off
-      synBlockType	      "primitive"
-      synLatency	      "(addr+1)"
-      synBlockId	      "93"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Shift Register2"
-      SID		      "74"
-      Ports		      [1, 1]
-      Position		      [420, 189, 495, 231]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Memories/Shift Register"
-      SourceType	      "Synphony Model Compiler Shift Register"
-      syn_shift_dynamic	      off
-      syn_shift_vec	      "[0:3]"
-      syn_shift_val	      "16"
-      syn_vect_out	      "Merge to vector"
-      syn_rst_val	      "All zeros"
-      syn_rst_vec	      "0"
-      syn_rst_port	      off
-      syn_en_port	      off
-      synBlockType	      "primitive"
-      synLatency	      "(addr+1)"
-      synBlockId	      "93"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Shift Register3"
-      SID		      "75"
-      Ports		      [1, 1]
-      Position		      [420, 254, 495, 296]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Memories/Shift Register"
-      SourceType	      "Synphony Model Compiler Shift Register"
-      syn_shift_dynamic	      off
-      syn_shift_vec	      "[0:3]"
-      syn_shift_val	      "16"
-      syn_vect_out	      "Merge to vector"
-      syn_rst_val	      "All zeros"
-      syn_rst_vec	      "0"
-      syn_rst_port	      off
-      syn_en_port	      off
-      synBlockType	      "primitive"
-      synLatency	      "(addr+1)"
-      synBlockId	      "93"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Shift Register4"
-      SID		      "155"
-      Ports		      [1, 1]
-      Position		      [420, 319, 495, 361]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Memories/Shift Register"
-      SourceType	      "Synphony Model Compiler Shift Register"
-      syn_shift_dynamic	      off
-      syn_shift_vec	      "[0:3]"
-      syn_shift_val	      "16"
-      syn_vect_out	      "Merge to vector"
-      syn_rst_val	      "All zeros"
-      syn_rst_vec	      "0"
-      syn_rst_port	      off
-      syn_en_port	      off
-      synBlockType	      "primitive"
-      synLatency	      "(addr+1)"
-      synBlockId	      "93"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Shift Register5"
-      SID		      "156"
-      Ports		      [1, 1]
-      Position		      [420, 384, 495, 426]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Memories/Shift Register"
-      SourceType	      "Synphony Model Compiler Shift Register"
-      syn_shift_dynamic	      off
-      syn_shift_vec	      "[0:3]"
-      syn_shift_val	      "16"
-      syn_vect_out	      "Merge to vector"
-      syn_rst_val	      "All zeros"
-      syn_rst_vec	      "0"
-      syn_rst_port	      off
-      syn_en_port	      off
-      synBlockType	      "primitive"
-      synLatency	      "(addr+1)"
-      synBlockId	      "93"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Shift Register6"
-      SID		      "157"
-      Ports		      [1, 1]
-      Position		      [420, 449, 495, 491]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Memories/Shift Register"
-      SourceType	      "Synphony Model Compiler Shift Register"
-      syn_shift_dynamic	      off
-      syn_shift_vec	      "[0:3]"
-      syn_shift_val	      "16"
-      syn_vect_out	      "Merge to vector"
-      syn_rst_val	      "All zeros"
-      syn_rst_vec	      "0"
-      syn_rst_port	      off
-      syn_en_port	      off
-      synBlockType	      "primitive"
-      synLatency	      "(addr+1)"
-      synBlockId	      "93"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Shift Register7"
-      SID		      "158"
-      Ports		      [1, 1]
-      Position		      [420, 514, 495, 556]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Memories/Shift Register"
-      SourceType	      "Synphony Model Compiler Shift Register"
-      syn_shift_dynamic	      off
-      syn_shift_vec	      "[0:3]"
-      syn_shift_val	      "16"
-      syn_vect_out	      "Merge to vector"
-      syn_rst_val	      "All zeros"
-      syn_rst_vec	      "0"
-      syn_rst_port	      off
-      syn_en_port	      off
-      synBlockType	      "primitive"
-      synLatency	      "(addr+1)"
-      synBlockId	      "93"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Sum of rows"
-      SID		      "80"
-      Ports		      [1, 1]
-      Position		      [840, 280, 880, 320]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Math Functions/Add"
-      SourceType	      "Synphony Model Compiler Add"
-      syn_add_opr	      "+"
-      syn_out_f		      "Specify"
-      syn_out_wl	      "3"
-      syn_out_fl	      "0"
-      syn_out_dt	      "unsigned"
-      syn_out_sat	      off
-      syn_out_rnd	      "Floor (Truncate)"
-      synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "96"
-      syn_sum_of_rows	      on
-      Port {
-	PortNumber		1
-	Name			"Correlation metric"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
+      BlockType		      SubSystem
+      Name		      "Subsystem"
+      SID		      "190"
+      Ports		      [1, 2]
+      Position		      [630, 280, 825, 375]
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskPromptString	      "Synchronization pattern"
+      MaskStyleString	      "edit"
+      MaskVariables	      "sync_pattern=@1;"
+      MaskTunableValueString  "off"
+      MaskEnableString	      "on"
+      MaskVisibilityString    "on"
+      MaskToolTipString	      "on"
+      MaskDisplay	      "fprintf('Correlator-based\\nTiming Phase Recovery')\nport_label('input',1,'bit_in')\nport_lab"
+      "el('output',1,'bit_valid')\nport_label('output',2,'bit_out')\n"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      MaskValueString	      "[1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0]"
+      System {
+	Name			"Subsystem"
+	Location		[10, 107, 1825, 1029]
+	Open			on
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "bit_in"
+	  SID			  "192"
+	  Position		  [25, 288, 55, 302]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Binary Logic"
+	  SID			  "131"
+	  Ports			  [2, 1]
+	  Position		  [1410, 219, 1480, 266]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Math Functions/Binary Logic"
+	  SourceType		  "Synphony Model Compiler Binary Logic"
+	  syn_binlog_exp	  "a&~b"
+	  synBlockType		  "primitive"
+	  synLatency		  "0"
+	  synBlockId		  "13"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Binary Logic2"
+	  SID			  "140"
+	  Ports			  [2, 1]
+	  Position		  [950, 404, 1015, 446]
+	  NamePlacement		  "alternate"
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Math Functions/Binary Logic"
+	  SourceType		  "Synphony Model Compiler Binary Logic"
+	  syn_binlog_exp	  "a|b"
+	  synBlockType		  "primitive"
+	  synLatency		  "0"
+	  synBlockId		  "13"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Binary Logic3"
+	  SID			  "165"
+	  Ports			  [3, 1]
+	  Position		  [1185, 425, 1255, 485]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Math Functions/Binary Logic"
+	  SourceType		  "Synphony Model Compiler Binary Logic"
+	  syn_binlog_exp	  "a|b|c"
+	  synBlockType		  "primitive"
+	  synLatency		  "0"
+	  synBlockId		  "13"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Binary Logic4"
+	  SID			  "164"
+	  Ports			  [2, 1]
+	  Position		  [950, 484, 1015, 526]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Math Functions/Binary Logic"
+	  SourceType		  "Synphony Model Compiler Binary Logic"
+	  syn_binlog_exp	  "a|b"
+	  synBlockType		  "primitive"
+	  synLatency		  "0"
+	  synBlockId		  "13"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Binary OR"
+	  SID			  "132"
+	  Ports			  [8, 1]
+	  Position		  [1300, 145, 1350, 315]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Math Functions/Binary Logic"
+	  SourceType		  "Synphony Model Compiler Binary Logic"
+	  syn_binlog_exp	  "a|b|c|d|e|f|g|h"
+	  synBlockType		  "primitive"
+	  synLatency		  "0"
+	  synBlockId		  "13"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Channel select\nregister"
+	  SID			  "141"
+	  Ports			  [2, 1]
+	  Position		  [1065, 260, 1105, 300]
+	  LibraryVersion	  "1.3722"
+	  FontSize		  9.500000
+	  SourceBlock		  "shlslibv1/Memories/Register"
+	  SourceType		  "Synphony Model Compiler Register"
+	  syn_delay_val		  "1"
+	  syn_rst_port		  off
+	  syn_en_port		  on
+	  synBlockType		  "custom"
+	  synLatency		  "1"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Concatenate for matrix reshaping"
+	  SID			  "76"
+	  Ports			  [8, 1]
+	  Position		  [510, 25, 595, 560]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Signal Operations/Vector Concat"
+	  SourceType		  "Synphony Model Compiler Vector Concat"
+	  syn_in_nb		  "8"
+	  syn_out_f		  "Full Precision"
+	  syn_out_wl		  "16"
+	  syn_out_fl		  "8"
+	  syn_out_dt		  "signed"
+	  synBlockType		  "primitive"
+	  synLatency		  "0"
+	  synBlockId		  "19"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Constant 1"
+	  SID			  "135"
+	  Ports			  [0, 1]
+	  Position		  [1425, 130, 1465, 170]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Sources/Constant"
+	  SourceType		  "Synphony Model Compiler Constant"
+	  syn_cst_val		  "1"
+	  syn_cst_fl		  "0"
+	  syn_cst_dt		  "unsigned"
+	  syn_cst_rnd		  on
+	  syn_cst_st		  "-1"
+	  synBlockType		  "primitive"
+	  synLatency		  "0"
+	  synBlockId		  "15"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Convert to matrix1"
+	  SID			  "87"
+	  Ports			  [1, 1]
+	  Position		  [645, 277, 685, 313]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Signal Operations/Reshape"
+	  SourceType		  "Synphony Model Compiler Reshape"
+	  syn_op_dim_type	  "Specify"
+	  syn_op_dim		  "[length(sync_pattern) 8]"
+	  syn_ip_order		  "Row First"
+	  syn_op_order		  "Column First"
+	  syn_inh_port		  off
+	  synBlockType		  "primitive"
+	  synLatency		  "0"
+	  synBlockId		  "158"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Correlation constant\n(Frame header)"
+	  SID			  "77"
+	  Ports			  [0, 1]
+	  Position		  [615, 192, 710, 238]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Sources/Constant"
+	  SourceType		  "Synphony Model Compiler Constant"
+	  syn_cst_val		  "[sync_pattern]'*ones(1,8)"
+	  syn_cst_fl		  "0"
+	  syn_cst_dt		  "unsigned"
+	  syn_cst_rnd		  on
+	  syn_cst_st		  "-1"
+	  synBlockType		  "primitive"
+	  synLatency		  "0"
+	  synBlockId		  "15"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Decommutator2"
+	  SID			  "71"
+	  Ports			  [1, 8]
+	  Position		  [190, 30, 270, 555]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Signal Operations/Decommutator"
+	  SourceType		  "Synphony Model Compiler Decommutator"
+	  syn_outport_nb	  "8"
+	  syn_outport_vec	  off
+	  synBlockType		  "custom"
+	  synLatency		  "1"
+	  Port {
+	    PortNumber		    1
+	    Name		    "Ch1"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Delay"
+	  SID			  "176"
+	  Ports			  [1, 1]
+	  Position		  [1585, 750, 1625, 790]
+	  LibraryVersion	  "1.3722"
+	  FontSize		  9.500000
+	  SourceBlock		  "shlslibv1/Memories/Register"
+	  SourceType		  "Synphony Model Compiler Register"
+	  syn_delay_val		  "0"
+	  syn_rst_port		  off
+	  syn_en_port		  off
+	  synBlockType		  "custom"
+	  synLatency		  "0"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Frame found"
+	  SID			  "133"
+	  Ports			  [2, 1]
+	  Position		  [1525, 215, 1565, 255]
+	  LibraryVersion	  "1.3722"
+	  FontSize		  9.500000
+	  SourceBlock		  "shlslibv1/Memories/Register"
+	  SourceType		  "Synphony Model Compiler Register"
+	  syn_delay_val		  "1"
+	  syn_rst_port		  off
+	  syn_en_port		  on
+	  synBlockType		  "custom"
+	  synLatency		  "1"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "One bit XOR"
+	  SID			  "81"
+	  Ports			  [2, 1]
+	  Position		  [740, 265, 780, 305]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Math Functions/Add"
+	  SourceType		  "Synphony Model Compiler Add"
+	  syn_add_opr		  "++"
+	  syn_out_f		  "Specify"
+	  syn_out_wl		  "1"
+	  syn_out_fl		  "0"
+	  syn_out_dt		  "unsigned"
+	  syn_out_sat		  off
+	  syn_out_rnd		  "Floor (Truncate)"
+	  synBlockType		  "primitive"
+	  synLatency		  "0"
+	  synBlockId		  "96"
+	  syn_sum_of_rows	  off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "SHLSTool"
+	  SID			  "197"
+	  Ports			  []
+	  Position		  [75, 75, 115, 115]
+	  ForegroundColor	  "[0.501961, 0.000000, 0.000000]"
+	  BackgroundColor	  "[0.870590, 0.752940, 0.752940]"
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/SHLSTool"
+	  SourceType		  "Synphony HLS Toolbox"
+	  synBlockType		  "tool"
+	  syn_dsp_mode		  "FPGA"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Shift Register0"
+	  SID			  "70"
+	  Ports			  [1, 1]
+	  Position		  [395, 45, 470, 85]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Memories/Shift Register"
+	  SourceType		  "Synphony Model Compiler Shift Register"
+	  syn_shift_dynamic	  off
+	  syn_shift_vec		  "[0:length(sync_pattern)-1]"
+	  syn_shift_val		  "16"
+	  syn_vect_out		  "Merge to vector"
+	  syn_rst_val		  "All zeros"
+	  syn_rst_vec		  "0"
+	  syn_rst_port		  off
+	  syn_en_port		  off
+	  synBlockType		  "primitive"
+	  synLatency		  "(addr+1)"
+	  synBlockId		  "93"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Shift Register1"
+	  SID			  "73"
+	  Ports			  [1, 1]
+	  Position		  [395, 109, 470, 151]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Memories/Shift Register"
+	  SourceType		  "Synphony Model Compiler Shift Register"
+	  syn_shift_dynamic	  off
+	  syn_shift_vec		  "[0:length(sync_pattern)-1]"
+	  syn_shift_val		  "16"
+	  syn_vect_out		  "Merge to vector"
+	  syn_rst_val		  "All zeros"
+	  syn_rst_vec		  "0"
+	  syn_rst_port		  off
+	  syn_en_port		  off
+	  synBlockType		  "primitive"
+	  synLatency		  "(addr+1)"
+	  synBlockId		  "93"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Shift Register2"
+	  SID			  "74"
+	  Ports			  [1, 1]
+	  Position		  [395, 174, 470, 216]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Memories/Shift Register"
+	  SourceType		  "Synphony Model Compiler Shift Register"
+	  syn_shift_dynamic	  off
+	  syn_shift_vec		  "[0:length(sync_pattern)-1]"
+	  syn_shift_val		  "16"
+	  syn_vect_out		  "Merge to vector"
+	  syn_rst_val		  "All zeros"
+	  syn_rst_vec		  "0"
+	  syn_rst_port		  off
+	  syn_en_port		  off
+	  synBlockType		  "primitive"
+	  synLatency		  "(addr+1)"
+	  synBlockId		  "93"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Shift Register3"
+	  SID			  "75"
+	  Ports			  [1, 1]
+	  Position		  [395, 239, 470, 281]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Memories/Shift Register"
+	  SourceType		  "Synphony Model Compiler Shift Register"
+	  syn_shift_dynamic	  off
+	  syn_shift_vec		  "[0:length(sync_pattern)-1]"
+	  syn_shift_val		  "16"
+	  syn_vect_out		  "Merge to vector"
+	  syn_rst_val		  "All zeros"
+	  syn_rst_vec		  "0"
+	  syn_rst_port		  off
+	  syn_en_port		  off
+	  synBlockType		  "primitive"
+	  synLatency		  "(addr+1)"
+	  synBlockId		  "93"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Shift Register4"
+	  SID			  "155"
+	  Ports			  [1, 1]
+	  Position		  [395, 304, 470, 346]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Memories/Shift Register"
+	  SourceType		  "Synphony Model Compiler Shift Register"
+	  syn_shift_dynamic	  off
+	  syn_shift_vec		  "[0:length(sync_pattern)-1]"
+	  syn_shift_val		  "16"
+	  syn_vect_out		  "Merge to vector"
+	  syn_rst_val		  "All zeros"
+	  syn_rst_vec		  "0"
+	  syn_rst_port		  off
+	  syn_en_port		  off
+	  synBlockType		  "primitive"
+	  synLatency		  "(addr+1)"
+	  synBlockId		  "93"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Shift Register5"
+	  SID			  "156"
+	  Ports			  [1, 1]
+	  Position		  [395, 369, 470, 411]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Memories/Shift Register"
+	  SourceType		  "Synphony Model Compiler Shift Register"
+	  syn_shift_dynamic	  off
+	  syn_shift_vec		  "[0:length(sync_pattern)-1]"
+	  syn_shift_val		  "16"
+	  syn_vect_out		  "Merge to vector"
+	  syn_rst_val		  "All zeros"
+	  syn_rst_vec		  "0"
+	  syn_rst_port		  off
+	  syn_en_port		  off
+	  synBlockType		  "primitive"
+	  synLatency		  "(addr+1)"
+	  synBlockId		  "93"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Shift Register6"
+	  SID			  "157"
+	  Ports			  [1, 1]
+	  Position		  [395, 434, 470, 476]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Memories/Shift Register"
+	  SourceType		  "Synphony Model Compiler Shift Register"
+	  syn_shift_dynamic	  off
+	  syn_shift_vec		  "[0:length(sync_pattern)-1]"
+	  syn_shift_val		  "16"
+	  syn_vect_out		  "Merge to vector"
+	  syn_rst_val		  "All zeros"
+	  syn_rst_vec		  "0"
+	  syn_rst_port		  off
+	  syn_en_port		  off
+	  synBlockType		  "primitive"
+	  synLatency		  "(addr+1)"
+	  synBlockId		  "93"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Shift Register7"
+	  SID			  "158"
+	  Ports			  [1, 1]
+	  Position		  [395, 499, 470, 541]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Memories/Shift Register"
+	  SourceType		  "Synphony Model Compiler Shift Register"
+	  syn_shift_dynamic	  off
+	  syn_shift_vec		  "[0:length(sync_pattern)-1]"
+	  syn_shift_val		  "16"
+	  syn_vect_out		  "Merge to vector"
+	  syn_rst_val		  "All zeros"
+	  syn_rst_vec		  "0"
+	  syn_rst_port		  off
+	  syn_en_port		  off
+	  synBlockType		  "primitive"
+	  synLatency		  "(addr+1)"
+	  synBlockId		  "93"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Sum of rows"
+	  SID			  "80"
+	  Ports			  [1, 1]
+	  Position		  [815, 265, 855, 305]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Math Functions/Add"
+	  SourceType		  "Synphony Model Compiler Add"
+	  syn_add_opr		  "+"
+	  syn_out_f		  "Specify"
+	  syn_out_wl		  "3"
+	  syn_out_fl		  "0"
+	  syn_out_dt		  "unsigned"
+	  syn_out_sat		  off
+	  syn_out_rnd		  "Floor (Truncate)"
+	  synBlockType		  "primitive"
+	  synLatency		  "0"
+	  synBlockId		  "96"
+	  syn_sum_of_rows	  on
+	  Port {
+	    PortNumber		    1
+	    Name		    "Correlation metric"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Switch"
+	  SID			  "121"
+	  Ports			  [3, 1]
+	  Position		  [1085, 635, 1125, 675]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Signal Operations/Switch"
+	  SourceType		  "Synphony Model Compiler Switch"
+	  switchCriteria	  "u2 > Threshold"
+	  switchThresh		  "0"
+	  synBlockType		  "custom"
+	  synLatency		  "0"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Switch1"
+	  SID			  "122"
+	  Ports			  [3, 1]
+	  Position		  [1085, 710, 1125, 750]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Signal Operations/Switch"
+	  SourceType		  "Synphony Model Compiler Switch"
+	  switchCriteria	  "u2 > Threshold"
+	  switchThresh		  "0"
+	  synBlockType		  "custom"
+	  synLatency		  "0"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Switch2"
+	  SID			  "130"
+	  Ports			  [3, 1]
+	  Position		  [1200, 670, 1240, 710]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Signal Operations/Switch"
+	  SourceType		  "Synphony Model Compiler Switch"
+	  switchCriteria	  "u2 > Threshold"
+	  switchThresh		  "0"
+	  synBlockType		  "custom"
+	  synLatency		  "0"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Switch3"
+	  SID			  "159"
+	  Ports			  [3, 1]
+	  Position		  [1085, 780, 1125, 820]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Signal Operations/Switch"
+	  SourceType		  "Synphony Model Compiler Switch"
+	  switchCriteria	  "u2 > Threshold"
+	  switchThresh		  "0"
+	  synBlockType		  "custom"
+	  synLatency		  "0"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Switch4"
+	  SID			  "160"
+	  Ports			  [3, 1]
+	  Position		  [1085, 855, 1125, 895]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Signal Operations/Switch"
+	  SourceType		  "Synphony Model Compiler Switch"
+	  switchCriteria	  "u2 > Threshold"
+	  switchThresh		  "0"
+	  synBlockType		  "custom"
+	  synLatency		  "0"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Switch5"
+	  SID			  "161"
+	  Ports			  [3, 1]
+	  Position		  [1200, 815, 1240, 855]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Signal Operations/Switch"
+	  SourceType		  "Synphony Model Compiler Switch"
+	  switchCriteria	  "u2 > Threshold"
+	  switchThresh		  "0"
+	  synBlockType		  "custom"
+	  synLatency		  "0"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Switch6"
+	  SID			  "162"
+	  Ports			  [3, 1]
+	  Position		  [1315, 750, 1355, 790]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Signal Operations/Switch"
+	  SourceType		  "Synphony Model Compiler Switch"
+	  switchCriteria	  "u2 > Threshold"
+	  switchThresh		  "0"
+	  synBlockType		  "custom"
+	  synLatency		  "0"
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "Terminator"
+	  SID			  "189"
+	  Position		  [820, 545, 840, 565]
+	  ZOrder		  -20
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Threshold logic"
+	  SID			  "100"
+	  Ports			  [1, 1]
+	  Position		  [940, 210, 980, 250]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Math Functions/Comparator"
+	  SourceType		  "Synphony Model Compiler Comparator"
+	  syn_comp_opr		  "a==b"
+	  syn_comp_const	  on
+	  syn_comp_val		  "0"
+	  synBlockType		  "primitive"
+	  synLatency		  "0"
+	  synBlockId		  "14"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Vector Split"
+	  SID			  "102"
+	  Ports			  [1, 8]
+	  Position		  [1175, 141, 1220, 319]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Signal Operations/Vector Split"
+	  SourceType		  "Synphony Model Compiler Vector Split"
+	  syn_out_nb		  "8"
+	  synBlockType		  "primitive"
+	  synLatency		  "0"
+	  synBlockId		  "20"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Vector Split1"
+	  SID			  "144"
+	  Ports			  [1, 8]
+	  Position		  [750, 396, 795, 574]
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Signal Operations/Vector Split"
+	  SourceType		  "Synphony Model Compiler Vector Split"
+	  syn_out_nb		  "8"
+	  synBlockType		  "primitive"
+	  synLatency		  "0"
+	  synBlockId		  "20"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "bit_in_reg"
+	  SID			  "177"
+	  Ports			  [1, 1]
+	  Position		  [105, 285, 125, 305]
+	  BackgroundColor	  "[0.870590, 0.752940, 0.752940]"
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Ports & Subsystems/Port In"
+	  SourceType		  "Synphony Model Compiler Port In"
+	  syn_out_wl		  "1"
+	  syn_out_fl		  "0"
+	  syn_out_dt		  "unsigned"
+	  syn_out_st		  "-1"
+	  syn_capture		  off
+	  syn_register		  on
+	  syn_out_sat		  off
+	  syn_out_rnd		  on
+	  synBlockType		  "port"
+	  synLatency		  "1"
+	  synBlockId		  "0"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "bit_out_reg"
+	  SID			  "154"
+	  Ports			  [1, 1]
+	  Position		  [1710, 760, 1730, 780]
+	  BackgroundColor	  "[0.870590, 0.752940, 0.752940]"
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Ports & Subsystems/Port Out"
+	  SourceType		  "Synphony Model Compiler Port Out"
+	  syn_capture		  off
+	  syn_register		  on
+	  synBlockType		  "port"
+	  synLatency		  "1"
+	  synBlockId		  "1"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "bit_valid_reg"
+	  SID			  "153"
+	  Ports			  [1, 1]
+	  Position		  [1710, 225, 1730, 245]
+	  BackgroundColor	  "[0.870590, 0.752940, 0.752940]"
+	  LibraryVersion	  "1.3722"
+	  SourceBlock		  "shlslibv1/Ports & Subsystems/Port Out"
+	  SourceType		  "Synphony Model Compiler Port Out"
+	  syn_capture		  off
+	  syn_register		  on
+	  synBlockType		  "port"
+	  synLatency		  "1"
+	  synBlockId		  "1"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "bit_valid"
+	  SID			  "191"
+	  Position		  [1760, 228, 1790, 242]
+	  ZOrder		  -23
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "bit_out"
+	  SID			  "193"
+	  Position		  [1760, 763, 1790, 777]
+	  ZOrder		  -23
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  Name			  "Ch1"
+	  SrcBlock		  "Decommutator2"
+	  SrcPort		  1
+	  Points		  [25, 0]
+	  Branch {
+	    DstBlock		    "Shift Register0"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 575]
+	    DstBlock		    "Switch"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Decommutator2"
+	  SrcPort		  2
+	  Points		  [35, 0]
+	  Branch {
+	    DstBlock		    "Shift Register1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 540]
+	    DstBlock		    "Switch"
+	    DstPort		    3
+	  }
+	}
+	Line {
+	  SrcBlock		  "Decommutator2"
+	  SrcPort		  3
+	  Points		  [45, 0]
+	  Branch {
+	    DstBlock		    "Shift Register2"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 520]
+	    DstBlock		    "Switch1"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Decommutator2"
+	  SrcPort		  4
+	  Points		  [55, 0]
+	  Branch {
+	    DstBlock		    "Shift Register3"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 485]
+	    DstBlock		    "Switch1"
+	    DstPort		    3
+	  }
+	}
+	Line {
+	  SrcBlock		  "Shift Register0"
+	  SrcPort		  1
+	  DstBlock		  "Concatenate for matrix reshaping"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Shift Register1"
+	  SrcPort		  1
+	  DstBlock		  "Concatenate for matrix reshaping"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Shift Register2"
+	  SrcPort		  1
+	  DstBlock		  "Concatenate for matrix reshaping"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Shift Register3"
+	  SrcPort		  1
+	  DstBlock		  "Concatenate for matrix reshaping"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "Correlation metric"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Sum of rows"
+	  SrcPort		  1
+	  Points		  [40, 0; 0, -55]
+	  DstBlock		  "Threshold logic"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "One bit XOR"
+	  SrcPort		  1
+	  DstBlock		  "Sum of rows"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Concatenate for matrix reshaping"
+	  SrcPort		  1
+	  DstBlock		  "Convert to matrix1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Vector Split"
+	  SrcPort		  1
+	  DstBlock		  "Binary OR"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Vector Split"
+	  SrcPort		  2
+	  DstBlock		  "Binary OR"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Vector Split"
+	  SrcPort		  3
+	  DstBlock		  "Binary OR"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Vector Split"
+	  SrcPort		  4
+	  DstBlock		  "Binary OR"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  Points		  [0, 20]
+	  DstBlock		  "Switch2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Switch1"
+	  SrcPort		  1
+	  Points		  [0, -25]
+	  DstBlock		  "Switch2"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Binary OR"
+	  SrcPort		  1
+	  DstBlock		  "Binary Logic"
+	  DstPort		  1
+	}
+	Line {
+	  Labels		  [1, 0]
+	  SrcBlock		  "Frame found"
+	  SrcPort		  1
+	  Points		  [25, 0]
+	  Branch {
+	    Points		    [0, 65; -210, 0; 0, -45]
+	    DstBlock		    "Binary Logic"
+	    DstPort		    2
+	  }
+	  Branch {
+	    DstBlock		    "bit_valid_reg"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Binary Logic"
+	  SrcPort		  1
+	  Points		  [15, 0]
+	  Branch {
+	    DstBlock		    "Frame found"
+	    DstPort		    2
+	  }
+	  Branch {
+	    Points		    [0, 95; -480, 0; 0, -50]
+	    DstBlock		    "Channel select\nregister"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  SrcBlock		  "Constant 1"
+	  SrcPort		  1
+	  Points		  [30, 0; 0, 75]
+	  DstBlock		  "Frame found"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Vector Split1"
+	  SrcPort		  1
+	  Points		  [100, 0]
+	  Branch {
+	    Points		    [0, 240]
+	    DstBlock		    "Switch"
+	    DstPort		    2
+	  }
+	  Branch {
+	    DstBlock		    "Binary Logic2"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Vector Split1"
+	  SrcPort		  3
+	  Points		  [85, 0]
+	  Branch {
+	    Points		    [0, 275]
+	    DstBlock		    "Switch1"
+	    DstPort		    2
+	  }
+	  Branch {
+	    DstBlock		    "Binary Logic3"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  SrcBlock		  "Binary Logic2"
+	  SrcPort		  1
+	  Points		  [40, 0; 0, 10]
+	  Branch {
+	    Points		    [0, 255]
+	    DstBlock		    "Switch2"
+	    DstPort		    2
+	  }
+	  Branch {
+	    DstBlock		    "Binary Logic3"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Vector Split1"
+	  SrcPort		  2
+	  DstBlock		  "Binary Logic2"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Threshold logic"
+	  SrcPort		  1
+	  Points		  [35, 0]
+	  Branch {
+	    DstBlock		    "Vector Split"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 40]
+	    DstBlock		    "Channel select\nregister"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Channel select\nregister"
+	  SrcPort		  1
+	  Points		  [20, 0; 0, -125; -525, 0; 0, 330]
+	  DstBlock		  "Vector Split1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Correlation constant\n(Frame header)"
+	  SrcPort		  1
+	  Points		  [10, 0]
+	  DstBlock		  "One bit XOR"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Decommutator2"
+	  SrcPort		  5
+	  Points		  [65, 0]
+	  Branch {
+	    DstBlock		    "Shift Register4"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 460]
+	    DstBlock		    "Switch3"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Decommutator2"
+	  SrcPort		  6
+	  Points		  [75, 0]
+	  Branch {
+	    DstBlock		    "Shift Register5"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 425]
+	    DstBlock		    "Switch3"
+	    DstPort		    3
+	  }
+	}
+	Line {
+	  SrcBlock		  "Decommutator2"
+	  SrcPort		  7
+	  Points		  [85, 0]
+	  Branch {
+	    DstBlock		    "Shift Register6"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 405]
+	    DstBlock		    "Switch4"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Decommutator2"
+	  SrcPort		  8
+	  Points		  [95, 0]
+	  Branch {
+	    DstBlock		    "Shift Register7"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 370]
+	    DstBlock		    "Switch4"
+	    DstPort		    3
+	  }
+	}
+	Line {
+	  SrcBlock		  "Shift Register4"
+	  SrcPort		  1
+	  DstBlock		  "Concatenate for matrix reshaping"
+	  DstPort		  5
+	}
+	Line {
+	  SrcBlock		  "Shift Register5"
+	  SrcPort		  1
+	  DstBlock		  "Concatenate for matrix reshaping"
+	  DstPort		  6
+	}
+	Line {
+	  SrcBlock		  "Shift Register6"
+	  SrcPort		  1
+	  DstBlock		  "Concatenate for matrix reshaping"
+	  DstPort		  7
+	}
+	Line {
+	  SrcBlock		  "Shift Register7"
+	  SrcPort		  1
+	  DstBlock		  "Concatenate for matrix reshaping"
+	  DstPort		  8
+	}
+	Line {
+	  SrcBlock		  "Vector Split"
+	  SrcPort		  5
+	  DstBlock		  "Binary OR"
+	  DstPort		  5
+	}
+	Line {
+	  SrcBlock		  "Vector Split"
+	  SrcPort		  6
+	  DstBlock		  "Binary OR"
+	  DstPort		  6
+	}
+	Line {
+	  SrcBlock		  "Vector Split"
+	  SrcPort		  7
+	  DstBlock		  "Binary OR"
+	  DstPort		  7
+	}
+	Line {
+	  SrcBlock		  "Vector Split"
+	  SrcPort		  8
+	  DstBlock		  "Binary OR"
+	  DstPort		  8
+	}
+	Line {
+	  SrcBlock		  "Switch3"
+	  SrcPort		  1
+	  Points		  [0, 20]
+	  DstBlock		  "Switch5"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Switch4"
+	  SrcPort		  1
+	  Points		  [0, -25]
+	  DstBlock		  "Switch5"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Switch5"
+	  SrcPort		  1
+	  Points		  [5, 0; 0, -50]
+	  DstBlock		  "Switch6"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Switch2"
+	  SrcPort		  1
+	  Points		  [5, 0; 0, 65]
+	  DstBlock		  "Switch6"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Switch6"
+	  SrcPort		  1
+	  DstBlock		  "Delay"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Vector Split1"
+	  SrcPort		  5
+	  Points		  [70, 0]
+	  Branch {
+	    Points		    [0, 305]
+	    DstBlock		    "Switch3"
+	    DstPort		    2
+	  }
+	  Branch {
+	    DstBlock		    "Binary Logic4"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Vector Split1"
+	  SrcPort		  7
+	  Points		  [55, 0; 0, 340]
+	  DstBlock		  "Switch4"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Vector Split1"
+	  SrcPort		  6
+	  DstBlock		  "Binary Logic4"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Binary Logic4"
+	  SrcPort		  1
+	  Points		  [0, 330]
+	  DstBlock		  "Switch5"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Vector Split1"
+	  SrcPort		  4
+	  DstBlock		  "Binary Logic3"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Binary Logic3"
+	  SrcPort		  1
+	  Points		  [35, 0; 0, 315]
+	  DstBlock		  "Switch6"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Convert to matrix1"
+	  SrcPort		  1
+	  DstBlock		  "One bit XOR"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "bit_in_reg"
+	  SrcPort		  1
+	  DstBlock		  "Decommutator2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "bit_in"
+	  SrcPort		  1
+	  DstBlock		  "bit_in_reg"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "bit_valid_reg"
+	  SrcPort		  1
+	  DstBlock		  "bit_valid"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "bit_out_reg"
+	  SrcPort		  1
+	  DstBlock		  "bit_out"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Vector Split1"
+	  SrcPort		  8
+	  DstBlock		  "Terminator"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Delay"
+	  SrcPort		  1
+	  DstBlock		  "bit_out_reg"
+	  DstPort		  1
+	}
+	Annotation {
+	  SID			  "82"
+	  Position		  [664, 348]
+	}
+	Annotation {
+	  SID			  "120"
+	  Name			  "Correlator based decision (frame) directed feed-forward timing recovery block\nbased on 8x oversampled 1-"
+	  "bit demodulated signal"
+	  Position		  [936, 33]
+	  DropShadow		  on
+	  FontName		  "Arial"
+	  FontSize		  12
+	}
       }
     }
-    Block {
-      BlockType		      Reference
-      Name		      "Switch"
-      SID		      "121"
-      Ports		      [3, 1]
-      Position		      [1110, 650, 1150, 690]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Signal Operations/Switch"
-      SourceType	      "Synphony Model Compiler Switch"
-      switchCriteria	      "u2 > Threshold"
-      switchThresh	      "0"
-      synBlockType	      "custom"
-      synLatency	      "0"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Switch1"
-      SID		      "122"
-      Ports		      [3, 1]
-      Position		      [1110, 725, 1150, 765]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Signal Operations/Switch"
-      SourceType	      "Synphony Model Compiler Switch"
-      switchCriteria	      "u2 > Threshold"
-      switchThresh	      "0"
-      synBlockType	      "custom"
-      synLatency	      "0"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Switch2"
-      SID		      "130"
-      Ports		      [3, 1]
-      Position		      [1225, 685, 1265, 725]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Signal Operations/Switch"
-      SourceType	      "Synphony Model Compiler Switch"
-      switchCriteria	      "u2 > Threshold"
-      switchThresh	      "0"
-      synBlockType	      "custom"
-      synLatency	      "0"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Switch3"
-      SID		      "159"
-      Ports		      [3, 1]
-      Position		      [1110, 795, 1150, 835]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Signal Operations/Switch"
-      SourceType	      "Synphony Model Compiler Switch"
-      switchCriteria	      "u2 > Threshold"
-      switchThresh	      "0"
-      synBlockType	      "custom"
-      synLatency	      "0"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Switch4"
-      SID		      "160"
-      Ports		      [3, 1]
-      Position		      [1110, 870, 1150, 910]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Signal Operations/Switch"
-      SourceType	      "Synphony Model Compiler Switch"
-      switchCriteria	      "u2 > Threshold"
-      switchThresh	      "0"
-      synBlockType	      "custom"
-      synLatency	      "0"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Switch5"
-      SID		      "161"
-      Ports		      [3, 1]
-      Position		      [1225, 830, 1265, 870]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Signal Operations/Switch"
-      SourceType	      "Synphony Model Compiler Switch"
-      switchCriteria	      "u2 > Threshold"
-      switchThresh	      "0"
-      synBlockType	      "custom"
-      synLatency	      "0"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Switch6"
-      SID		      "162"
-      Ports		      [3, 1]
-      Position		      [1340, 765, 1380, 805]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Signal Operations/Switch"
-      SourceType	      "Synphony Model Compiler Switch"
-      switchCriteria	      "u2 > Threshold"
-      switchThresh	      "0"
-      synBlockType	      "custom"
-      synLatency	      "0"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Threshold logic"
-      SID		      "100"
-      Ports		      [1, 1]
-      Position		      [975, 225, 1015, 265]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Math Functions/Comparator"
-      SourceType	      "Synphony Model Compiler Comparator"
-      syn_comp_opr	      "a==b"
-      syn_comp_const	      on
-      syn_comp_val	      "0"
-      synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "14"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Vector Split"
-      SID		      "102"
-      Ports		      [1, 8]
-      Position		      [1200, 156, 1245, 334]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Signal Operations/Vector Split"
-      SourceType	      "Synphony Model Compiler Vector Split"
-      syn_out_nb	      "8"
-      synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "20"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Vector Split1"
-      SID		      "144"
-      Ports		      [1, 8]
-      Position		      [775, 411, 820, 589]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Signal Operations/Vector Split"
-      SourceType	      "Synphony Model Compiler Vector Split"
-      syn_out_nb	      "8"
-      synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "20"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "bit_out"
-      SID		      "154"
-      Ports		      [1, 1]
-      Position		      [1735, 775, 1755, 795]
-      BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Ports & Subsystems/Port Out"
-      SourceType	      "Synphony Model Compiler Port Out"
-      syn_capture	      off
-      syn_register	      on
-      synBlockType	      "port"
-      synLatency	      "1"
-      synBlockId	      "1"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "bit_valid"
-      SID		      "153"
-      Ports		      [1, 1]
-      Position		      [1735, 240, 1755, 260]
-      BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Ports & Subsystems/Port Out"
-      SourceType	      "Synphony Model Compiler Port Out"
-      syn_capture	      off
-      syn_register	      on
-      synBlockType	      "port"
-      synLatency	      "1"
-      synBlockId	      "1"
-    }
     Line {
-      Name		      "Ch1"
-      SrcBlock		      "Decommutator2"
+      SrcBlock		      "Subsystem"
       SrcPort		      1
-      Points		      [25, 0]
-      Branch {
-	DstBlock		"Shift Register0"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 575]
-	DstBlock		"Switch"
-	DstPort			1
-      }
-    }
-    Line {
-      SrcBlock		      "Decommutator2"
-      SrcPort		      2
-      Points		      [35, 0]
-      Branch {
-	DstBlock		"Shift Register1"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 540]
-	DstBlock		"Switch"
-	DstPort			3
-      }
-    }
-    Line {
-      SrcBlock		      "Decommutator2"
-      SrcPort		      3
-      Points		      [45, 0]
-      Branch {
-	DstBlock		"Shift Register2"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 520]
-	DstBlock		"Switch1"
-	DstPort			1
-      }
-    }
-    Line {
-      SrcBlock		      "Decommutator2"
-      SrcPort		      4
-      Points		      [55, 0]
-      Branch {
-	DstBlock		"Shift Register3"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 485]
-	DstBlock		"Switch1"
-	DstPort			3
-      }
-    }
-    Line {
-      SrcBlock		      "Shift Register0"
-      SrcPort		      1
-      DstBlock		      "Concatenate for matrix reshaping"
+      DstBlock		      "Scope"
       DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Shift Register1"
-      SrcPort		      1
-      DstBlock		      "Concatenate for matrix reshaping"
-      DstPort		      2
-    }
-    Line {
-      SrcBlock		      "Shift Register2"
-      SrcPort		      1
-      DstBlock		      "Concatenate for matrix reshaping"
-      DstPort		      3
-    }
-    Line {
-      SrcBlock		      "Shift Register3"
-      SrcPort		      1
-      DstBlock		      "Concatenate for matrix reshaping"
-      DstPort		      4
-    }
-    Line {
-      Name		      "Correlation metric"
-      Labels		      [0, 0]
-      SrcBlock		      "Sum of rows"
-      SrcPort		      1
-      Points		      [40, 0; 0, -55]
-      DstBlock		      "Threshold logic"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "1-bit XOR"
-      SrcPort		      1
-      DstBlock		      "Sum of rows"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Concatenate for matrix reshaping"
-      SrcPort		      1
-      DstBlock		      "Convert to matrix1"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Vector Split"
-      SrcPort		      1
-      DstBlock		      "Binary OR"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Vector Split"
-      SrcPort		      2
-      DstBlock		      "Binary OR"
-      DstPort		      2
-    }
-    Line {
-      SrcBlock		      "Vector Split"
-      SrcPort		      3
-      DstBlock		      "Binary OR"
-      DstPort		      3
-    }
-    Line {
-      SrcBlock		      "Vector Split"
-      SrcPort		      4
-      DstBlock		      "Binary OR"
-      DstPort		      4
-    }
-    Line {
-      SrcBlock		      "Switch"
-      SrcPort		      1
-      Points		      [25, 0; 0, 20]
-      DstBlock		      "Switch2"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Switch1"
-      SrcPort		      1
-      Points		      [25, 0; 0, -25]
-      DstBlock		      "Switch2"
-      DstPort		      3
-    }
-    Line {
-      SrcBlock		      "Binary OR"
-      SrcPort		      1
-      DstBlock		      "Binary Logic"
-      DstPort		      1
-    }
-    Line {
-      Labels		      [1, 0]
-      SrcBlock		      "Frame found"
-      SrcPort		      1
-      Points		      [25, 0]
-      Branch {
-	Points			[0, 65; -200, 0]
-	DstBlock		"Binary Logic"
-	DstPort			2
-      }
-      Branch {
-	DstBlock		"Delay"
-	DstPort			1
-      }
-    }
-    Line {
-      SrcBlock		      "Binary Logic"
-      SrcPort		      1
-      Points		      [15, 0]
-      Branch {
-	DstBlock		"Frame found"
-	DstPort			2
-      }
-      Branch {
-	Points			[0, 95; -490, 0; 0, -50]
-	DstBlock		"Channel select\nregister"
-	DstPort			2
-      }
-    }
-    Line {
-      SrcBlock		      "Constant 1"
-      SrcPort		      1
-      Points		      [30, 0; 0, 75]
-      DstBlock		      "Frame found"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Vector Split1"
-      SrcPort		      1
-      Points		      [100, 0]
-      Branch {
-	Points			[0, 240]
-	DstBlock		"Switch"
-	DstPort			2
-      }
-      Branch {
-	DstBlock		"Binary Logic2"
-	DstPort			1
-      }
-    }
-    Line {
-      SrcBlock		      "Vector Split1"
-      SrcPort		      3
-      Points		      [85, 0]
-      Branch {
-	Points			[0, 275]
-	DstBlock		"Switch1"
-	DstPort			2
-      }
-      Branch {
-	DstBlock		"Binary Logic3"
-	DstPort			2
-      }
-    }
-    Line {
-      SrcBlock		      "Binary Logic2"
-      SrcPort		      1
-      Points		      [40, 0; 0, 10]
-      Branch {
-	Points			[0, 255]
-	DstBlock		"Switch2"
-	DstPort			2
-      }
-      Branch {
-	DstBlock		"Binary Logic3"
-	DstPort			1
-      }
-    }
-    Line {
-      SrcBlock		      "From"
-      SrcPort		      1
-      DstBlock		      "Vector Split1"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Vector Split1"
-      SrcPort		      2
-      DstBlock		      "Binary Logic2"
-      DstPort		      2
-    }
-    Line {
-      SrcBlock		      "Threshold logic"
-      SrcPort		      1
-      Points		      [35, 0]
-      Branch {
-	DstBlock		"Vector Split"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 40]
-	DstBlock		"Channel select\nregister"
-	DstPort			1
-      }
-    }
-    Line {
-      SrcBlock		      "Channel select\nregister"
-      SrcPort		      1
-      Points		      [25, 0; 0, -125]
-      DstBlock		      "Goto"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Correlation constant\n(Frame header)"
-      SrcPort		      1
-      Points		      [10, 0]
-      DstBlock		      "1-bit XOR"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Decommutator2"
-      SrcPort		      5
-      Points		      [65, 0]
-      Branch {
-	DstBlock		"Shift Register4"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 460]
-	DstBlock		"Switch3"
-	DstPort			1
-      }
-    }
-    Line {
-      SrcBlock		      "Decommutator2"
-      SrcPort		      6
-      Points		      [75, 0]
-      Branch {
-	DstBlock		"Shift Register5"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 425]
-	DstBlock		"Switch3"
-	DstPort			3
-      }
-    }
-    Line {
-      SrcBlock		      "Decommutator2"
-      SrcPort		      7
-      Points		      [85, 0]
-      Branch {
-	DstBlock		"Shift Register6"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 405]
-	DstBlock		"Switch4"
-	DstPort			1
-      }
-    }
-    Line {
-      SrcBlock		      "Decommutator2"
-      SrcPort		      8
-      Points		      [95, 0]
-      Branch {
-	DstBlock		"Shift Register7"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 370]
-	DstBlock		"Switch4"
-	DstPort			3
-      }
-    }
-    Line {
-      SrcBlock		      "Shift Register4"
-      SrcPort		      1
-      DstBlock		      "Concatenate for matrix reshaping"
-      DstPort		      5
-    }
-    Line {
-      SrcBlock		      "Shift Register5"
-      SrcPort		      1
-      DstBlock		      "Concatenate for matrix reshaping"
-      DstPort		      6
-    }
-    Line {
-      SrcBlock		      "Shift Register6"
-      SrcPort		      1
-      DstBlock		      "Concatenate for matrix reshaping"
-      DstPort		      7
-    }
-    Line {
-      SrcBlock		      "Shift Register7"
-      SrcPort		      1
-      DstBlock		      "Concatenate for matrix reshaping"
-      DstPort		      8
-    }
-    Line {
-      SrcBlock		      "Vector Split"
-      SrcPort		      5
-      DstBlock		      "Binary OR"
-      DstPort		      5
-    }
-    Line {
-      SrcBlock		      "Vector Split"
-      SrcPort		      6
-      DstBlock		      "Binary OR"
-      DstPort		      6
-    }
-    Line {
-      SrcBlock		      "Vector Split"
-      SrcPort		      7
-      DstBlock		      "Binary OR"
-      DstPort		      7
-    }
-    Line {
-      SrcBlock		      "Vector Split"
-      SrcPort		      8
-      DstBlock		      "Binary OR"
-      DstPort		      8
-    }
-    Line {
-      SrcBlock		      "Switch3"
-      SrcPort		      1
-      Points		      [25, 0; 0, 20]
-      DstBlock		      "Switch5"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Switch4"
-      SrcPort		      1
-      Points		      [25, 0; 0, -25]
-      DstBlock		      "Switch5"
-      DstPort		      3
-    }
-    Line {
-      SrcBlock		      "Switch5"
-      SrcPort		      1
-      Points		      [5, 0; 0, -50]
-      DstBlock		      "Switch6"
-      DstPort		      3
-    }
-    Line {
-      SrcBlock		      "Switch2"
-      SrcPort		      1
-      Points		      [5, 0; 0, 65]
-      DstBlock		      "Switch6"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Switch6"
-      SrcPort		      1
-      DstBlock		      "bit_out"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Vector Split1"
-      SrcPort		      5
-      Points		      [70, 0]
-      Branch {
-	Points			[0, 305]
-	DstBlock		"Switch3"
-	DstPort			2
-      }
-      Branch {
-	DstBlock		"Binary Logic4"
-	DstPort			1
-      }
-    }
-    Line {
-      SrcBlock		      "Vector Split1"
-      SrcPort		      7
-      Points		      [55, 0; 0, 340]
-      DstBlock		      "Switch4"
-      DstPort		      2
-    }
-    Line {
-      SrcBlock		      "Vector Split1"
-      SrcPort		      6
-      DstBlock		      "Binary Logic4"
-      DstPort		      2
-    }
-    Line {
-      SrcBlock		      "Binary Logic4"
-      SrcPort		      1
-      Points		      [25, 0; 0, 330]
-      DstBlock		      "Switch5"
-      DstPort		      2
-    }
-    Line {
-      SrcBlock		      "Vector Split1"
-      SrcPort		      4
-      DstBlock		      "Binary Logic3"
-      DstPort		      3
-    }
-    Line {
-      SrcBlock		      "Binary Logic3"
-      SrcPort		      1
-      Points		      [35, 0; 0, 315]
-      DstBlock		      "Switch6"
-      DstPort		      2
-    }
-    Line {
-      SrcBlock		      "Convert to matrix1"
-      SrcPort		      1
-      DstBlock		      "1-bit XOR"
-      DstPort		      2
     }
     Line {
       SrcBlock		      "Delay"
       SrcPort		      1
-      DstBlock		      "bit_valid"
+      DstBlock		      "Subsystem"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Port In"
+      SrcBlock		      "Subsystem"
+      SrcPort		      2
+      DstBlock		      "Scope"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Sequence"
       SrcPort		      1
-      DstBlock		      "Decommutator2"
+      DstBlock		      "Delay"
       DstPort		      1
-    }
-    Annotation {
-      SID		      "82"
-      Position		      [689, 363]
-    }
-    Annotation {
-      SID		      "120"
-      Name		      "Correlator based decision (frame) directed feed-forward timing recovery block\nbased on 8x oversamp"
-      "led 1-bit demodulated signal"
-      Position		      [961, 48]
-      DropShadow	      on
-      FontName		      "Arial"
-      FontSize		      12
     }
   }
 }
