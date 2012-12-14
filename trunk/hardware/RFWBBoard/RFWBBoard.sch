@@ -39381,8 +39381,7 @@ v1.0 Initial design</description>
 <part name="C124" library="RFWBBoard" deviceset="C" device="0402" value="100nF"/>
 <part name="C125" library="RFWBBoard" deviceset="C" device="0402" value="100pF"/>
 <part name="C123" library="RFWBBoard" deviceset="C" device="0805" value="10uF"/>
-<part name="R3" library="RFWBBoard" deviceset="R" device="0603" value="DNP"/>
-<part name="R4" library="RFWBBoard" deviceset="R" device="0603" value="DNP">
+<part name="R4" library="RFWBBoard" deviceset="R" device="1206" value="DNP">
 <attribute name="TOLERANCE" value=""/>
 </part>
 <part name="FRAME6" library="RFWBBoard" deviceset="FRAME-LETTER" device=""/>
@@ -39416,7 +39415,7 @@ v1.0 Initial design</description>
 <part name="R6" library="RFWBBoard" deviceset="R" device="0402" value="0">
 <attribute name="TOLERANCE" value=""/>
 </part>
-<part name="R7" library="RFWBBoard" deviceset="R" device="0402" value="0">
+<part name="R7" library="RFWBBoard" deviceset="R" device="1206" value="0">
 <attribute name="TOLERANCE" value=""/>
 </part>
 <part name="C126" library="RFWBBoard" deviceset="C" device="0402" value="18pF"/>
@@ -39424,10 +39423,10 @@ v1.0 Initial design</description>
 <part name="X9" library="RFWBBoard" deviceset="CX3225SB" device=""/>
 <part name="SW1" library="RFWBBoard" deviceset="SWITCH-CJS-1200" device="TA"/>
 <part name="SW2" library="RFWBBoard" deviceset="SWITCH-CJS-1200" device="TA"/>
-<part name="R8" library="RFWBBoard" deviceset="R" device="0402" value="0">
+<part name="R8" library="RFWBBoard" deviceset="R" device="1206" value="0">
 <attribute name="TOLERANCE" value=""/>
 </part>
-<part name="R9" library="RFWBBoard" deviceset="R" device="0603" value="0">
+<part name="R9" library="RFWBBoard" deviceset="R" device="1206" value="0">
 <attribute name="TOLERANCE" value=""/>
 </part>
 <part name="SW3" library="RFWBBoard" deviceset="SWITCH-CJS-1200" device="TA"/>
@@ -39632,9 +39631,9 @@ v1.0 Initial design</description>
 </net>
 <net name="LD" class="0">
 <segment>
-<wire x1="111.76" y1="144.78" x2="86.36" y2="144.78" width="0.1524" layer="91"/>
-<label x="88.9" y="144.78" size="1.778" layer="95"/>
-<pinref part="J1" gate="G$1" pin="11"/>
+<wire x1="111.76" y1="142.24" x2="86.36" y2="142.24" width="0.1524" layer="91"/>
+<label x="88.9" y="142.24" size="1.778" layer="95"/>
+<pinref part="J1" gate="G$1" pin="13"/>
 </segment>
 </net>
 <net name="CLK1" class="0">
@@ -39825,16 +39824,16 @@ v1.0 Initial design</description>
 </net>
 <net name="RXTX" class="0">
 <segment>
-<wire x1="86.36" y1="132.08" x2="111.76" y2="132.08" width="0.1524" layer="91"/>
-<label x="88.9" y="132.08" size="1.778" layer="95"/>
-<pinref part="J1" gate="G$1" pin="21"/>
+<wire x1="86.36" y1="129.54" x2="111.76" y2="129.54" width="0.1524" layer="91"/>
+<label x="88.9" y="129.54" size="1.778" layer="95"/>
+<pinref part="J1" gate="G$1" pin="23"/>
 </segment>
 </net>
 <net name="!SHDN" class="0">
 <segment>
-<wire x1="86.36" y1="142.24" x2="111.76" y2="142.24" width="0.1524" layer="91"/>
-<label x="88.9" y="142.24" size="1.778" layer="95"/>
-<pinref part="J1" gate="G$1" pin="13"/>
+<wire x1="86.36" y1="137.16" x2="111.76" y2="137.16" width="0.1524" layer="91"/>
+<label x="88.9" y="137.16" size="1.778" layer="95"/>
+<pinref part="J1" gate="G$1" pin="17"/>
 </segment>
 </net>
 <net name="RSSI" class="0">
@@ -39908,9 +39907,9 @@ v1.0 Initial design</description>
 </net>
 <net name="B1" class="0">
 <segment>
-<wire x1="86.36" y1="139.7" x2="111.76" y2="139.7" width="0.1524" layer="91"/>
-<label x="88.9" y="139.7" size="1.778" layer="95"/>
-<pinref part="J1" gate="G$1" pin="15"/>
+<wire x1="86.36" y1="144.78" x2="111.76" y2="144.78" width="0.1524" layer="91"/>
+<label x="88.9" y="144.78" size="1.778" layer="95"/>
+<pinref part="J1" gate="G$1" pin="11"/>
 </segment>
 </net>
 <net name="B2" class="0">
@@ -39922,16 +39921,16 @@ v1.0 Initial design</description>
 </net>
 <net name="B3" class="0">
 <segment>
-<wire x1="86.36" y1="137.16" x2="111.76" y2="137.16" width="0.1524" layer="91"/>
-<label x="88.9" y="137.16" size="1.778" layer="95"/>
-<pinref part="J1" gate="G$1" pin="17"/>
+<wire x1="86.36" y1="132.08" x2="111.76" y2="132.08" width="0.1524" layer="91"/>
+<label x="88.9" y="132.08" size="1.778" layer="95"/>
+<pinref part="J1" gate="G$1" pin="21"/>
 </segment>
 </net>
 <net name="B4" class="0">
 <segment>
-<wire x1="86.36" y1="129.54" x2="111.76" y2="129.54" width="0.1524" layer="91"/>
-<label x="88.9" y="129.54" size="1.778" layer="95"/>
-<pinref part="J1" gate="G$1" pin="23"/>
+<wire x1="86.36" y1="139.7" x2="111.76" y2="139.7" width="0.1524" layer="91"/>
+<label x="88.9" y="139.7" size="1.778" layer="95"/>
+<pinref part="J1" gate="G$1" pin="15"/>
 </segment>
 </net>
 <net name="B5" class="0">
@@ -41730,7 +41729,6 @@ v1.0 Initial design</description>
 <instance part="C114" gate="G$1" x="157.48" y="83.82"/>
 <instance part="C101" gate="G$1" x="78.74" y="53.34"/>
 <instance part="C102" gate="G$1" x="88.9" y="53.34"/>
-<instance part="R3" gate="G$1" x="149.86" y="55.88"/>
 <instance part="R4" gate="G$1" x="149.86" y="48.26"/>
 <instance part="R9" gate="G$1" x="116.84" y="27.94"/>
 </instances>
@@ -41836,14 +41834,9 @@ v1.0 Initial design</description>
 <label x="182.88" y="139.7" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R3" gate="G$1" pin="2"/>
-<wire x1="152.4" y1="55.88" x2="154.94" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="154.94" y1="55.88" x2="154.94" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="154.94" y1="48.26" x2="165.1" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="48.26" x2="165.1" y2="48.26" width="0.1524" layer="91"/>
 <label x="157.48" y="48.26" size="1.778" layer="95"/>
 <pinref part="R4" gate="G$1" pin="2"/>
-<wire x1="152.4" y1="48.26" x2="154.94" y2="48.26" width="0.1524" layer="91"/>
-<junction x="154.94" y="48.26"/>
 </segment>
 </net>
 <net name="BYPASS" class="0">
@@ -41856,14 +41849,9 @@ v1.0 Initial design</description>
 </net>
 <net name="DGND" class="0">
 <segment>
-<pinref part="R3" gate="G$1" pin="1"/>
-<wire x1="144.78" y1="55.88" x2="142.24" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="142.24" y1="55.88" x2="142.24" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="142.24" y1="48.26" x2="132.08" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="48.26" x2="132.08" y2="48.26" width="0.1524" layer="91"/>
 <label x="132.08" y="48.26" size="1.778" layer="95"/>
 <pinref part="R4" gate="G$1" pin="1"/>
-<wire x1="144.78" y1="48.26" x2="142.24" y2="48.26" width="0.1524" layer="91"/>
-<junction x="142.24" y="48.26"/>
 </segment>
 </net>
 <net name="A3V3_RF" class="0">
