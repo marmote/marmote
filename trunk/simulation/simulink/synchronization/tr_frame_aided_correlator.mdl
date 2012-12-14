@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.261"
+    ComputedModelVersion    "1.286"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "sszilvasi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Dec 13 20:38:39 2012"
-  RTWModifiedTimeStamp	  277331871
-  ModelVersionFormat	  "1.%<AutoIncrement:261>"
+  LastModifiedDate	  "Fri Dec 14 10:35:13 2012"
+  RTWModifiedTimeStamp	  277378779
+  ModelVersionFormat	  "1.%<AutoIncrement:286>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  on
@@ -69,7 +69,6 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "tr_frame_aided_correlator"
-    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -135,7 +134,7 @@ Model {
 	  $ObjectID		  3
 	  Version		  "1.12.0"
 	  StartTime		  "0.0"
-	  StopTime		  "1e2"
+	  StopTime		  "1e3"
 	  AbsTol		  "auto"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
@@ -740,7 +739,7 @@ Model {
   }
   System {
     Name		    "tr_frame_aided_correlator"
-    Location		    [2, 82, 1881, 1051]
+    Location		    [212, 353, 965, 642]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -754,19 +753,19 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "197"
+    SIDHighWatermark	    "214"
     Block {
       BlockType		      Reference
       Name		      "Delay"
       SID		      "196"
       Ports		      [1, 1]
-      Position		      [515, 310, 555, 350]
+      Position		      [175, 100, 215, 140]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Memories/Delay"
       SourceType	      "Synphony Model Compiler Delay"
-      syn_delay_val	      "0"
+      syn_delay_val	      "1"
       synBlockType	      "primitive"
-      synLatency	      "0"
+      synLatency	      "1"
       synBlockId	      "104"
     }
     Block {
@@ -774,11 +773,11 @@ Model {
       Name		      "Scope"
       SID		      "194"
       Ports		      [2]
-      Position		      [940, 282, 985, 373]
+      Position		      [600, 72, 645, 163]
       ZOrder		      -16
       Floating		      off
-      Location		      [468, 514, 1915, 863]
-      Open		      on
+      Location		      [1939, 373, 3386, 722]
+      Open		      off
       NumInputPorts	      "2"
       List {
 	ListType		AxesTitles
@@ -806,18 +805,18 @@ Model {
       Name		      "Sequence"
       SID		      "195"
       Ports		      [0, 1]
-      Position		      [405, 310, 445, 350]
+      Position		      [65, 100, 105, 140]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Sources/Sequence"
       SourceType	      "Synphony Model Compiler Sequence"
-      syn_seq_vec	      "[0 zeros(1,4) 1 zeros(1,7) 1 zeros(1,7) 0 zeros(1,7) 0 zeros(1,7) 1 zeros(1,7) 0 zeros(1,7) 1"
-      " zeros(1,7) 0 1 0 2 0 1 0]"
+      syn_seq_vec	      "[zeros(1,16) 1 zeros(1,7) 1 zeros(1,7) 0 zeros(1,7) 0 zeros(1,7) 1 zeros(1,7) 0 zeros(1,7) 1 "
+      "zeros(1,7) 0 1 0 2 0 1 0]"
       syn_seq_wl	      "1"
       syn_seq_fl	      "0"
       syn_seq_dt	      "unsigned"
       syn_rst_port	      off
       syn_en_port	      off
-      syn_seq_st	      "1"
+      syn_seq_st	      "1/20e6"
       synBlockType	      "custom"
       synLatency	      "1"
     }
@@ -826,7 +825,7 @@ Model {
       Name		      "Subsystem"
       SID		      "190"
       Ports		      [1, 2]
-      Position		      [630, 280, 825, 375]
+      Position		      [305, 70, 500, 165]
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
       RTWSystemCode	      "Auto"
@@ -848,10 +847,10 @@ Model {
       MaskIconRotate	      "none"
       MaskPortRotate	      "default"
       MaskIconUnits	      "autoscale"
-      MaskValueString	      "[1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0]"
+      MaskValueString	      "[1 1 0 0 1 0 1 0 1 1 0 0 1 0 1 0 1 1 0 0 1 0 1 0 1 1 0 0 1 0 1 0]"
       System {
 	Name			"Subsystem"
-	Location		[10, 107, 1825, 1029]
+	Location		[26, 85, 1871, 1109]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -948,7 +947,7 @@ Model {
 	  Name			  "Channel select\nregister"
 	  SID			  "141"
 	  Ports			  [2, 1]
-	  Position		  [1065, 260, 1105, 300]
+	  Position		  [1085, 265, 1125, 305]
 	  LibraryVersion	  "1.3722"
 	  FontSize		  9.500000
 	  SourceBlock		  "shlslibv1/Memories/Register"
@@ -1015,14 +1014,14 @@ Model {
 	}
 	Block {
 	  BlockType		  Reference
-	  Name			  "Correlation constant\n(Frame header)"
+	  Name			  "Correlation constant\n(Sync pattern)"
 	  SID			  "77"
 	  Ports			  [0, 1]
-	  Position		  [615, 192, 710, 238]
+	  Position		  [605, 192, 710, 238]
 	  LibraryVersion	  "1.3722"
 	  SourceBlock		  "shlslibv1/Sources/Constant"
 	  SourceType		  "Synphony Model Compiler Constant"
-	  syn_cst_val		  "[sync_pattern]'*ones(1,8)"
+	  syn_cst_val		  "fliplr([sync_pattern])'*ones(1,8)"
 	  syn_cst_fl		  "0"
 	  syn_cst_dt		  "unsigned"
 	  syn_cst_rnd		  on
@@ -1053,19 +1052,131 @@ Model {
 	}
 	Block {
 	  BlockType		  Reference
-	  Name			  "Delay"
-	  SID			  "176"
+	  Name			  "Delay1"
+	  SID			  "207"
 	  Ports			  [1, 1]
-	  Position		  [1585, 750, 1625, 790]
+	  Position		  [440, 620, 480, 660]
 	  LibraryVersion	  "1.3722"
 	  FontSize		  9.500000
 	  SourceBlock		  "shlslibv1/Memories/Register"
 	  SourceType		  "Synphony Model Compiler Register"
-	  syn_delay_val		  "0"
+	  syn_delay_val		  "1"
 	  syn_rst_port		  off
 	  syn_en_port		  off
 	  synBlockType		  "custom"
-	  synLatency		  "0"
+	  synLatency		  "1"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Delay2"
+	  SID			  "208"
+	  Ports			  [1, 1]
+	  Position		  [510, 650, 550, 690]
+	  LibraryVersion	  "1.3722"
+	  FontSize		  9.500000
+	  SourceBlock		  "shlslibv1/Memories/Register"
+	  SourceType		  "Synphony Model Compiler Register"
+	  syn_delay_val		  "1"
+	  syn_rst_port		  off
+	  syn_en_port		  off
+	  synBlockType		  "custom"
+	  synLatency		  "1"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Delay3"
+	  SID			  "209"
+	  Ports			  [1, 1]
+	  Position		  [440, 695, 480, 735]
+	  LibraryVersion	  "1.3722"
+	  FontSize		  9.500000
+	  SourceBlock		  "shlslibv1/Memories/Register"
+	  SourceType		  "Synphony Model Compiler Register"
+	  syn_delay_val		  "1"
+	  syn_rst_port		  off
+	  syn_en_port		  off
+	  synBlockType		  "custom"
+	  synLatency		  "1"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Delay4"
+	  SID			  "210"
+	  Ports			  [1, 1]
+	  Position		  [510, 725, 550, 765]
+	  LibraryVersion	  "1.3722"
+	  FontSize		  9.500000
+	  SourceBlock		  "shlslibv1/Memories/Register"
+	  SourceType		  "Synphony Model Compiler Register"
+	  syn_delay_val		  "1"
+	  syn_rst_port		  off
+	  syn_en_port		  off
+	  synBlockType		  "custom"
+	  synLatency		  "1"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Delay5"
+	  SID			  "211"
+	  Ports			  [1, 1]
+	  Position		  [440, 765, 480, 805]
+	  LibraryVersion	  "1.3722"
+	  FontSize		  9.500000
+	  SourceBlock		  "shlslibv1/Memories/Register"
+	  SourceType		  "Synphony Model Compiler Register"
+	  syn_delay_val		  "1"
+	  syn_rst_port		  off
+	  syn_en_port		  off
+	  synBlockType		  "custom"
+	  synLatency		  "1"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Delay6"
+	  SID			  "212"
+	  Ports			  [1, 1]
+	  Position		  [510, 795, 550, 835]
+	  LibraryVersion	  "1.3722"
+	  FontSize		  9.500000
+	  SourceBlock		  "shlslibv1/Memories/Register"
+	  SourceType		  "Synphony Model Compiler Register"
+	  syn_delay_val		  "1"
+	  syn_rst_port		  off
+	  syn_en_port		  off
+	  synBlockType		  "custom"
+	  synLatency		  "1"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Delay7"
+	  SID			  "213"
+	  Ports			  [1, 1]
+	  Position		  [440, 840, 480, 880]
+	  LibraryVersion	  "1.3722"
+	  FontSize		  9.500000
+	  SourceBlock		  "shlslibv1/Memories/Register"
+	  SourceType		  "Synphony Model Compiler Register"
+	  syn_delay_val		  "1"
+	  syn_rst_port		  off
+	  syn_en_port		  off
+	  synBlockType		  "custom"
+	  synLatency		  "1"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Delay8"
+	  SID			  "214"
+	  Ports			  [1, 1]
+	  Position		  [510, 870, 550, 910]
+	  LibraryVersion	  "1.3722"
+	  FontSize		  9.500000
+	  SourceBlock		  "shlslibv1/Memories/Register"
+	  SourceType		  "Synphony Model Compiler Register"
+	  syn_delay_val		  "1"
+	  syn_rst_port		  off
+	  syn_en_port		  off
+	  synBlockType		  "custom"
+	  synLatency		  "1"
 	}
 	Block {
 	  BlockType		  Reference
@@ -1415,7 +1526,7 @@ Model {
 	  BlockType		  Terminator
 	  Name			  "Terminator"
 	  SID			  "189"
-	  Position		  [820, 545, 840, 565]
+	  Position		  [815, 545, 835, 565]
 	  ZOrder		  -20
 	}
 	Block {
@@ -1453,7 +1564,7 @@ Model {
 	  Name			  "Vector Split1"
 	  SID			  "144"
 	  Ports			  [1, 8]
-	  Position		  [750, 396, 795, 574]
+	  Position		  [715, 396, 760, 574]
 	  LibraryVersion	  "1.3722"
 	  SourceBlock		  "shlslibv1/Signal Operations/Vector Split"
 	  SourceType		  "Synphony Model Compiler Vector Split"
@@ -1544,7 +1655,7 @@ Model {
 	  }
 	  Branch {
 	    Points		    [0, 575]
-	    DstBlock		    "Switch"
+	    DstBlock		    "Delay1"
 	    DstPort		    1
 	  }
 	}
@@ -1558,8 +1669,8 @@ Model {
 	  }
 	  Branch {
 	    Points		    [0, 540]
-	    DstBlock		    "Switch"
-	    DstPort		    3
+	    DstBlock		    "Delay2"
+	    DstPort		    1
 	  }
 	}
 	Line {
@@ -1572,7 +1683,7 @@ Model {
 	  }
 	  Branch {
 	    Points		    [0, 520]
-	    DstBlock		    "Switch1"
+	    DstBlock		    "Delay3"
 	    DstPort		    1
 	  }
 	}
@@ -1586,8 +1697,8 @@ Model {
 	  }
 	  Branch {
 	    Points		    [0, 485]
-	    DstBlock		    "Switch1"
-	    DstPort		    3
+	    DstBlock		    "Delay4"
+	    DstPort		    1
 	  }
 	}
 	Line {
@@ -1703,7 +1814,7 @@ Model {
 	    DstPort		    2
 	  }
 	  Branch {
-	    Points		    [0, 95; -480, 0; 0, -50]
+	    Points		    [0, 95; -475, 0; 0, -45]
 	    DstBlock		    "Channel select\nregister"
 	    DstPort		    2
 	  }
@@ -1718,7 +1829,7 @@ Model {
 	Line {
 	  SrcBlock		  "Vector Split1"
 	  SrcPort		  1
-	  Points		  [100, 0]
+	  Points		  [135, 0]
 	  Branch {
 	    Points		    [0, 240]
 	    DstBlock		    "Switch"
@@ -1732,7 +1843,7 @@ Model {
 	Line {
 	  SrcBlock		  "Vector Split1"
 	  SrcPort		  3
-	  Points		  [85, 0]
+	  Points		  [120, 0]
 	  Branch {
 	    Points		    [0, 275]
 	    DstBlock		    "Switch1"
@@ -1766,26 +1877,19 @@ Model {
 	Line {
 	  SrcBlock		  "Threshold logic"
 	  SrcPort		  1
-	  Points		  [35, 0]
+	  Points		  [40, 0]
 	  Branch {
 	    DstBlock		    "Vector Split"
 	    DstPort		    1
 	  }
 	  Branch {
-	    Points		    [0, 40]
+	    Points		    [0, 45]
 	    DstBlock		    "Channel select\nregister"
 	    DstPort		    1
 	  }
 	}
 	Line {
-	  SrcBlock		  "Channel select\nregister"
-	  SrcPort		  1
-	  Points		  [20, 0; 0, -125; -525, 0; 0, 330]
-	  DstBlock		  "Vector Split1"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Correlation constant\n(Frame header)"
+	  SrcBlock		  "Correlation constant\n(Sync pattern)"
 	  SrcPort		  1
 	  Points		  [10, 0]
 	  DstBlock		  "One bit XOR"
@@ -1801,7 +1905,7 @@ Model {
 	  }
 	  Branch {
 	    Points		    [0, 460]
-	    DstBlock		    "Switch3"
+	    DstBlock		    "Delay5"
 	    DstPort		    1
 	  }
 	}
@@ -1815,8 +1919,8 @@ Model {
 	  }
 	  Branch {
 	    Points		    [0, 425]
-	    DstBlock		    "Switch3"
-	    DstPort		    3
+	    DstBlock		    "Delay6"
+	    DstPort		    1
 	  }
 	}
 	Line {
@@ -1829,7 +1933,7 @@ Model {
 	  }
 	  Branch {
 	    Points		    [0, 405]
-	    DstBlock		    "Switch4"
+	    DstBlock		    "Delay7"
 	    DstPort		    1
 	  }
 	}
@@ -1843,8 +1947,8 @@ Model {
 	  }
 	  Branch {
 	    Points		    [0, 370]
-	    DstBlock		    "Switch4"
-	    DstPort		    3
+	    DstBlock		    "Delay8"
+	    DstPort		    1
 	  }
 	}
 	Line {
@@ -1926,13 +2030,13 @@ Model {
 	Line {
 	  SrcBlock		  "Switch6"
 	  SrcPort		  1
-	  DstBlock		  "Delay"
+	  DstBlock		  "bit_out_reg"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "Vector Split1"
 	  SrcPort		  5
-	  Points		  [70, 0]
+	  Points		  [105, 0]
 	  Branch {
 	    Points		    [0, 305]
 	    DstBlock		    "Switch3"
@@ -1946,7 +2050,7 @@ Model {
 	Line {
 	  SrcBlock		  "Vector Split1"
 	  SrcPort		  7
-	  Points		  [55, 0; 0, 340]
+	  Points		  [90, 0; 0, 340]
 	  DstBlock		  "Switch4"
 	  DstPort		  2
 	}
@@ -1959,7 +2063,7 @@ Model {
 	Line {
 	  SrcBlock		  "Binary Logic4"
 	  SrcPort		  1
-	  Points		  [0, 330]
+	  Points		  [15, 0; 0, 330]
 	  DstBlock		  "Switch5"
 	  DstPort		  2
 	}
@@ -2013,10 +2117,59 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "Delay"
+	  SrcBlock		  "Channel select\nregister"
 	  SrcPort		  1
-	  DstBlock		  "bit_out_reg"
+	  Points		  [20, 0; 0, 85; -485, 0; 0, 115]
+	  DstBlock		  "Vector Split1"
 	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Delay1"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Delay2"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Delay3"
+	  SrcPort		  1
+	  DstBlock		  "Switch1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Delay4"
+	  SrcPort		  1
+	  DstBlock		  "Switch1"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Delay5"
+	  SrcPort		  1
+	  DstBlock		  "Switch3"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Delay6"
+	  SrcPort		  1
+	  DstBlock		  "Switch3"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Delay7"
+	  SrcPort		  1
+	  DstBlock		  "Switch4"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Delay8"
+	  SrcPort		  1
+	  DstBlock		  "Switch4"
+	  DstPort		  3
 	}
 	Annotation {
 	  SID			  "82"
@@ -2024,8 +2177,8 @@ Model {
 	}
 	Annotation {
 	  SID			  "120"
-	  Name			  "Correlator based decision (frame) directed feed-forward timing recovery block\nbased on 8x oversampled 1-"
-	  "bit demodulated signal"
+	  Name			  "Correlator based decision directed feed-forward timing recovery block\nusing 8x oversampled 1-bit demodul"
+	  "ated signal"
 	  Position		  [936, 33]
 	  DropShadow		  on
 	  FontName		  "Arial"
