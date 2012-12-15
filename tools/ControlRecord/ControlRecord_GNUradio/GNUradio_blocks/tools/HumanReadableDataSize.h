@@ -1,1 +1,1 @@
-void GetHumanReadableDataSize(char* str, unsigned long size, unsigned char precision = 2);
+void GetHumanReadableDataSize(char* str, double size, unsigned char precision = 2);
