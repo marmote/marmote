@@ -19,4 +19,4 @@ class FrameBuffer
 		unsigned char*				byte_buff;
 		unsigned long				byte_buff_len;
 		unsigned long				byte_buff_total_len;
-}
+};

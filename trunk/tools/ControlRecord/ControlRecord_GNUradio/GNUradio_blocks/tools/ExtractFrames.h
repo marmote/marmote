@@ -21,4 +21,4 @@ class ExtractFrames
         unsigned char CNT [4]; 
         unsigned char CNT_cnt;
 
-}
+};
