@@ -35,48 +35,61 @@ FileSource::FileSource(char* FileOrDir)
 	accum_total_len(0)
 
 {
-	DIR				*dir_p;
+	struct stat		stbuf;
 
-    dir_p = opendir(FileOrDir); // Open the current directory		
-
-	if ( dir_p )
+	if( stat( FileOrDir, &stbuf ) == -1 )
 	{
-		struct dirent	*dir_entry_p;
-
-		while ( !( dir_entry_p = readdir(dir_p) ) ) // read each entry until NULL.
-		{
-//			filelist.push( (char*) malloc( strlen(FileOrDir) + strlen(dir_entry_p->d_name) + 2 ) );
-//			
-//			strcpy( filelist.back(), FileOrDir );
-//			if ( filelist.back()[strlen(filelist.back())-1] != '/' )
-//				strcat( filelist.back(), "/" );
-//			strcat( filelist.back(), dir_entry_p->d_name );
-
-			char*	temp = (char*) malloc( strlen(FileOrDir) + strlen(dir_entry_p->d_name) + 2 );
-
-			strcpy( temp, FileOrDir );
-			if ( temp[strlen(temp)-1] != '/' )
-				strcat( temp, "/" );
-			strcat( temp, dir_entry_p->d_name );
-
-			filelist.push( temp );
-		}
-
-		closedir(dir_p);
+		printf("Unable to get information on file or directory: %s\n", FileOrDir);
+		goto l1;
 	}
-	else if ( errno == ENOTDIR )
-	{
-//		filelist.push( (char*) malloc( strlen(FileOrDir) + 1 ) );
-//
-//		strcpy( filelist.back(), FileOrDir );
 
+	if ( S_ISDIR(stbuf.st_mode) )
+	{
+		DIR				*dir_p;
+
+		dir_p = opendir(FileOrDir); // Open the current directory		
+
+		if ( dir_p )
+		{
+			struct dirent	*dir_entry_p;
+
+			while ( dir_entry_p = readdir(dir_p) ) // read each entry until NULL.
+			{
+				if ( !strcmp( dir_entry_p->d_name, "." ) || !strcmp( dir_entry_p->d_name, ".." ) )
+					continue;
+
+				char*	temp = (char*) malloc( strlen(FileOrDir) + strlen(dir_entry_p->d_name) + 2 );
+
+				strcpy( temp, FileOrDir );
+				if ( temp[strlen(temp)-1] != '/' )
+					strcat( temp, "/" );
+				strcat( temp, dir_entry_p->d_name );
+
+
+				if( stat( temp, &stbuf ) == -1 )
+					continue;
+
+				if ( !S_ISREG(stbuf.st_mode) )
+					continue;
+
+				filelist.push( temp );
+			}
+
+			closedir(dir_p);
+		}
+	}
+	else if ( S_ISREG(stbuf.st_mode) )
+	{
 		char*	temp = (char*) malloc( strlen(FileOrDir) + 1 );
 
 		strcpy( temp, FileOrDir );
 
 		filelist.push( temp );
 	}
+	else
+		printf("Specified path is neither a file nor a directory: %s\n", FileOrDir);
 
+l1:
 	IterateFileList();
 
 	time( &previous_time );
@@ -105,7 +118,7 @@ char FileSource::SourceEmpty()
 }
 
 
-void FileSource::GetBuffer( size_t N = 1024 )
+fs_ret_t FileSource::GetBuffer( size_t N = 1024 )
 {
 	while ( !SourceEmpty() && accum_len < N )
 	{
@@ -132,17 +145,21 @@ void FileSource::GetBuffer( size_t N = 1024 )
 	}
             
 	time_t current_time = time( NULL );
-	if ( difftime( previous_time, current_time ) > 3.0 )
+	if ( difftime( current_time, previous_time ) > 3.0 )
 	{
 		char BPS_str[100];
-		GetHumanReadableDataSize( BPS_str, double(bytes_read) / difftime( previous_time, current_time ) );
-		printf("Throughput: %s/s; Progress: %.2f%%", BPS_str, ((double) current_file_bytes_read) / ((double) current_file_size) * 100.0 );
+		GetHumanReadableDataSize( BPS_str, double(bytes_read) / difftime( current_time, previous_time ) );
+		printf("Throughput: %s/s; Progress: %.2f%%\n", BPS_str, ((double) current_file_bytes_read) / ((double) current_file_size) * 100.0 );
 
 		bytes_read = 0;
 		previous_time = current_time;
 	}
 
-//	return self.accum, self.accum_length
+	fs_ret_t ret_s;
+	ret_s.accum = accum;
+	ret_s.accum_len = accum_len;
+	ret_s.accum_total_len = accum_total_len;
+	return ret_s;
 }
 
 
@@ -167,7 +184,7 @@ void FileSource::CloseCurrentFile()
 	if ( !current_file_full_path )
 		return;
 
-	printf("Closed file: %s", current_file_full_path );
+	printf("Closed file: %s\n", current_file_full_path );
 	free( current_file_full_path );
 	current_file_full_path = NULL;
 }
@@ -189,12 +206,12 @@ void FileSource::IterateFileList()
 		filelist.pop();
 
 
-		printf("Opening file: %s", current_file_full_path );
+		printf("Opening file: %s\n", current_file_full_path );
 		file_p = fopen( current_file_full_path, "rb" );
 
 		if (!file_p)
 		{
-			printf("Error opening file: %s", current_file_full_path );
+			printf("Error opening file: %s\n", current_file_full_path );
 			free( current_file_full_path );
 			current_file_full_path = NULL;
 			continue;

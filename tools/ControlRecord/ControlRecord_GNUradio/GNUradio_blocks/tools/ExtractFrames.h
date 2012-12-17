@@ -1,15 +1,14 @@
 #include "FrameBuffer.h"
-#include "FrameConfig.h"
 
 
 class DataFrameExtractor
 	: public FrameBuffer
 {
 	public:
-		DataFrameExtractor (unsigned char SOF_in[],
-							unsigned char SOF_SIZE_in,
-							unsigned char ID_in[],
-							unsigned char ID_SIZE_in);
+		DataFrameExtractor (const unsigned char SOF_in[],
+							const unsigned char SOF_SIZE_in,
+							const unsigned char ID_in[],
+							const unsigned char ID_SIZE_in);
 		~DataFrameExtractor ();
 
 		unsigned long ExtractDataFrames( unsigned char* input_buff, unsigned long input_buff_len );
@@ -18,7 +17,7 @@ class DataFrameExtractor
 		unsigned char*	SOF;
 		unsigned char	SOF_SIZE;
 		unsigned char*	ID;
-		unsigned char	ID_SIZE_in;
+		unsigned char	ID_SIZE;
 
 		unsigned char state;
 		unsigned char collect_state;

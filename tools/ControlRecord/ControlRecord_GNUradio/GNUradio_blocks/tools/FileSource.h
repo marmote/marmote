@@ -10,17 +10,25 @@ class CompareStrings
 };
 
 
+typedef struct fs_ret_s
+{
+	unsigned char*	accum;
+	unsigned long	accum_len;
+	unsigned long	accum_total_len;
+} fs_ret_t;
+
+
 class FileSource
 {
 	public:
 		FileSource (char* FileOrDir);
 		~FileSource ();
 
-		char SourceEmpty();
-		void GetBuffer( size_t N );
-		void ClearFromBeginning( unsigned long buff_len );
-		void CloseCurrentFile();
-		void IterateFileList();
+		char		SourceEmpty();
+		fs_ret_t	GetBuffer( size_t N );
+		void		ClearFromBeginning( unsigned long buff_len );
+		void		CloseCurrentFile();
+		void		IterateFileList();
 
 
 	private:

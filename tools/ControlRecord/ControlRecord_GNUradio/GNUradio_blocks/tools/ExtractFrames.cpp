@@ -6,10 +6,10 @@
 #define COUNTER_STATE	2 // Collecting the frame counter
 
 
-DataFrameExtractor::DataFrameExtractor (unsigned char SOF_in[],
-										unsigned char SOF_SIZE_in,
-										unsigned char ID_in[],
-										unsigned char ID_SIZE_in)
+DataFrameExtractor::DataFrameExtractor (const unsigned char SOF_in[],
+										const unsigned char SOF_SIZE_in,
+										const unsigned char ID_in[],
+										const unsigned char ID_SIZE_in)
 	: 
 	SOF_SIZE(SOF_SIZE_in),
 	ID_SIZE(ID_SIZE_in),
@@ -36,7 +36,7 @@ DataFrameExtractor::~DataFrameExtractor ()
 unsigned long DataFrameExtractor::ExtractDataFrames( unsigned char* input_buff, unsigned long input_buff_len )
 {
 	// Check to see if the buffer is large enough, if not increase size
-	unsigned long worst_case_size = byte_buff_len + input_buff_len + 2 * START_OF_FRAME_SIZE;
+	unsigned long worst_case_size = byte_buff_len + input_buff_len + 2 * SOF_SIZE;
 	if ( byte_buff_total_len < worst_case_size )
 		IncreaseBufferSize( worst_case_size - byte_buff_total_len );
 
@@ -91,7 +91,7 @@ unsigned long DataFrameExtractor::ExtractDataFrames( unsigned char* input_buff, 
 			else 
 				SOF_cnt = 0;
 
-			if ( SOF_cnt >= START_OF_FRAME_SIZE )
+			if ( SOF_cnt >= SOF_SIZE )
 			{
 				SOF_cnt = 0;
 				state = ID_STATE;

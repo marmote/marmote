@@ -12,8 +12,8 @@ typedef struct eNs16b_ret_s
 class ExtractNsamples16Bit
 {
 	public:
-		ExtractNsamples16Bit ();
-		~ExtractNsamples16Bit ();
+		ExtractNsamples16Bit();
+		~ExtractNsamples16Bit();
 
 		eNs16b_ret_t Process(unsigned long			byte_buff_len, 
 						std::queue<unsigned long>	frame_starts, 
