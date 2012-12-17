@@ -1,5 +1,4 @@
 #include "ExtractFrames.h"
-#include "FrameConfig.h"
 
 
 #define WAITING_STATE	0 // Waiting for frame start
@@ -7,29 +6,35 @@
 #define COUNTER_STATE	2 // Collecting the frame counter
 
 
-ExtractFrames::ExtractFrames ()
-	: state(WAITING_STATE),
+DataFrameExtractor::DataFrameExtractor (unsigned char SOF_in[],
+										unsigned char SOF_SIZE_in,
+										unsigned char ID_in[],
+										unsigned char ID_SIZE_in)
+	: 
+	SOF_SIZE(SOF_SIZE_in),
+	ID_SIZE(ID_SIZE_in),
+	state(WAITING_STATE),
 	collect_state(0),
 	SOF_cnt(0),
 	CNT_cnt(0)
 {
+	SOF = (unsigned char*) malloc( SOF_SIZE * sizeof(unsigned char) );
+	ID = (unsigned char*) malloc( ID_SIZE * sizeof(unsigned char) );
+
+	memcpy( SOF, SOF_in, SOF_SIZE );
+	memcpy( ID, ID_in, ID_SIZE );
 }
 
 
-ExtractFrames::~ExtractFrames () 
+DataFrameExtractor::~DataFrameExtractor () 
 {
+	free(SOF);
+	free(ID);
 }
 
 
-unsigned long ExtractFrames::ExtractDataFrames( unsigned char* input_buff, unsigned long input_buff_len )
+unsigned long DataFrameExtractor::ExtractDataFrames( unsigned char* input_buff, unsigned long input_buff_len )
 {
-	////////////////////////////////////////
-	// Set variables    
-
-	unsigned char SOF[4] = START_OF_FRAME;
-	unsigned char ID[1] = DATA_FRAME_ID;
-
-
 	// Check to see if the buffer is large enough, if not increase size
 	unsigned long worst_case_size = byte_buff_len + input_buff_len + 2 * START_OF_FRAME_SIZE;
 	if ( byte_buff_total_len < worst_case_size )

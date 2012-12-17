@@ -1,7 +1,12 @@
 #include "HumanReadableDataSize.h"
+//#include "strnatcmp.h"
+#include "strnatcmp.h"
+
 #include "FileSource.h"
 
 #include <string.h>
+
+#include <dirent.h>
 
 //#include <io.h>
 #include <fcntl.h>
@@ -9,10 +14,18 @@
 #include <sys/types.h>
 
 
+
+
+bool CompareStrings::operator()(char* str1, char* str2)
+// Returns true if t1 is earlier than t2
+{
+	return strnatcmp(str1, str2) >= 0;
+}
+
+
+
 FileSource::FileSource(char* FileOrDir)
 	: file_p(NULL),
-	dir_p(NULL),
-	path(NULL),
 	current_file_full_path(NULL),
 	current_file_size(0),
 	current_file_bytes_read(0),
@@ -22,29 +35,51 @@ FileSource::FileSource(char* FileOrDir)
 	accum_total_len(0)
 
 {
-	path = (char*) malloc( strlen(FileOrDir) + 1 );
-	strcpy( path, FileOrDir );
+	DIR				*dir_p;
+
     dir_p = opendir(FileOrDir); // Open the current directory		
-				
 
-/*	if os.path.isdir(FileOrDir) :
-		self.filelist_in = os.listdir(FileOrDir)
-		self.filelist_in.sort( key=keynat )
+	if ( dir_p )
+	{
+		struct dirent	*dir_entry_p;
 
-		self.filelist = []
-		for ii in range(len(self.filelist_in)) :
-			fname = os.path.join( FileOrDir, self.filelist_in[ii] )
+		while ( !( dir_entry_p = readdir(dir_p) ) ) // read each entry until NULL.
+		{
+//			filelist.push( (char*) malloc( strlen(FileOrDir) + strlen(dir_entry_p->d_name) + 2 ) );
+//			
+//			strcpy( filelist.back(), FileOrDir );
+//			if ( filelist.back()[strlen(filelist.back())-1] != '/' )
+//				strcat( filelist.back(), "/" );
+//			strcat( filelist.back(), dir_entry_p->d_name );
 
-			if os.path.isfile(fname) :
-				self.filelist.append(fname)
-	else :
-		self.filelist = [FileOrDir]
+			char*	temp = (char*) malloc( strlen(FileOrDir) + strlen(dir_entry_p->d_name) + 2 );
 
-	self.file_cnt = -1
-*/  
-	time( &previous_time );
+			strcpy( temp, FileOrDir );
+			if ( temp[strlen(temp)-1] != '/' )
+				strcat( temp, "/" );
+			strcat( temp, dir_entry_p->d_name );
+
+			filelist.push( temp );
+		}
+
+		closedir(dir_p);
+	}
+	else if ( errno == ENOTDIR )
+	{
+//		filelist.push( (char*) malloc( strlen(FileOrDir) + 1 ) );
+//
+//		strcpy( filelist.back(), FileOrDir );
+
+		char*	temp = (char*) malloc( strlen(FileOrDir) + 1 );
+
+		strcpy( temp, FileOrDir );
+
+		filelist.push( temp );
+	}
 
 	IterateFileList();
+
+	time( &previous_time );
 }
 
 
@@ -52,9 +87,15 @@ FileSource::~FileSource()
 {
 	CloseCurrentFile();
 
-	closedir(dir_p);
-	free(path);
 	free(accum);
+	accum = NULL;
+
+	while ( !filelist.empty() )
+	{
+//		free(filelist.front());
+		free(filelist.top());
+		filelist.pop();
+	}
 }
 
 
@@ -101,7 +142,7 @@ void FileSource::GetBuffer( size_t N = 1024 )
 		previous_time = current_time;
 	}
 
-	return self.accum, self.accum_length
+//	return self.accum, self.accum_length
 }
 
 
@@ -136,20 +177,16 @@ void FileSource::IterateFileList()
 {
 	CloseCurrentFile();
 
-	if ( !dir_p )
-		return;
-
-	while (!file_p)
+	while (!file_p && !filelist.empty())
 	{
+//		current_file_full_path = (char*) malloc( strlen(filelist.front()) + 1 );
+//		strcpy( current_file_full_path, filelist.front() );
+		current_file_full_path = (char*) malloc( strlen(filelist.top()) + 1 );
+		strcpy( current_file_full_path, filelist.top() );
 
-		if ( !( dir_entry_p = readdir(dir_p) ) ) // read each entry until NULL.
-			return;
-
-		current_file_full_path = (char*) malloc( strlen(path) + strlen(dir_entry_p->d_name) + 2 );
-		strcpy( current_file_full_path, path );
-		if ( path[strlen(current_file_full_path)-1] != '/' )
-			strcat( current_file_full_path, "/" );
-		strcat( current_file_full_path, dir_entry_p->d_name );
+//		free(filelist.front());
+		free(filelist.top());
+		filelist.pop();
 
 
 		printf("Opening file: %s", current_file_full_path );
@@ -158,6 +195,8 @@ void FileSource::IterateFileList()
 		if (!file_p)
 		{
 			printf("Error opening file: %s", current_file_full_path );
+			free( current_file_full_path );
+			current_file_full_path = NULL;
 			continue;
 		}
 
@@ -172,7 +211,7 @@ void FileSource::IterateFileList()
 //		fseek(file_p, 0, SEEK_SET);			// seek back to beginning of file
 
 		struct stat stbuf;
-		if ( fstat(fileno(file_p), &stbuf) == -1 ) {} 	/* Handle Error */
+		if ( fstat(fileno(file_p), &stbuf) == -1 ) {} 	// Handle Error 
 
 		current_file_size = (size_t) stbuf.st_size;	// get current file pointer
 		current_file_bytes_read = 0;
