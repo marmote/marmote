@@ -15,14 +15,16 @@ int main(int argc, char* argv[])
 //	FileSource				s("D:/Work/Measurements/BreakTest_AluminiumBeam/meas/1-0.5/rec_001.bin");
 	FileSource				s("D:/Work/Measurements/BreakTest_AluminiumBeam/meas/1-0.5");
 
-
-	short* output_items0 = (short*) malloc( 1000 * sizeof(short) );
-	short* output_items1 = (short*) malloc( 1000 * sizeof(short) );
+#define N_TEST_LEN	1000
 
 
+	short* output_items0 = (short*) malloc( N_TEST_LEN * sizeof(short) );
+	short* output_items1 = (short*) malloc( N_TEST_LEN * sizeof(short) );
 
 
-	unsigned long N = 1000;
+
+
+	unsigned long N = N_TEST_LEN;
 
 	if ( N == 0 )
 	{
@@ -41,7 +43,7 @@ do
 	while (1)
 	{
 		// 1. Some minor pre-processing steps
-		eNs16b_ret_t ret_s = eNs16b.Process(dfe.byte_buff_len, dfe.frame_starts, dfe.frame_cnt, N - noutput ); 
+		eNs16b_ret_t ret_s = eNs16b.Process( dfe.byte_buff_len, dfe.frame_starts, dfe.frame_cnt, N - noutput ); 
 
 		if ( ret_s.buff_len )
 		{
