@@ -51,6 +51,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\POSIX_compatibility_on_win;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CallingConvention>Cdecl</CallingConvention>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -67,6 +68,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\POSIX_compatibility_on_win;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CallingConvention>Cdecl</CallingConvention>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -77,17 +79,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ExtractFrames.cpp" />
+    <ClCompile Include="ExtractNsamples16bit.cpp" />
     <ClCompile Include="FileSource.cpp" />
     <ClCompile Include="FrameBuffer.cpp" />
     <ClCompile Include="HumanReadableDataSize.cpp" />
+    <ClCompile Include="strnatcmp.cpp" />
     <ClCompile Include="tools.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ExtractFrames.h" />
+    <ClInclude Include="ExtractNsamples16bit.h" />
     <ClInclude Include="FileSource.h" />
     <ClInclude Include="FrameBuffer.h" />
     <ClInclude Include="FrameConfig.h" />
     <ClInclude Include="HumanReadableDataSize.h" />
+    <ClInclude Include="strnatcmp.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
