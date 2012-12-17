@@ -1,7 +1,17 @@
 #include "ExtractNsamples16bit.h"
 
 
-eNs16b_ret_t ExtractNsamples16Bit::Process(unsigned long				byte_buff_len, 
+ExtractNsamples16Bit::ExtractNsamples16Bit()
+{
+}
+
+
+ExtractNsamples16Bit::~ExtractNsamples16Bit()
+{
+}
+
+
+eNs16b_ret_t ExtractNsamples16Bit::Process(unsigned long			byte_buff_len, 
 										std::queue<unsigned long>	frame_starts, 
 										std::queue<unsigned long>	frame_cnt,
 										unsigned long				N = 0)
