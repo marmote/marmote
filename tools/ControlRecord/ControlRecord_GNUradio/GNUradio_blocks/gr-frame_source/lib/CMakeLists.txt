@@ -26,7 +26,7 @@ include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIRS})
 
 add_library(gnuradio-frame_source SHARED frame_source_ss_impl.cc )
-target_link_libraries(gnuradio-frame_source ${Boost_LIBRARIES} ${GRUEL_LIBRARIES} ${GNURADIO_CORE_LIBRARIES})
+target_link_libraries(gnuradio-frame_source ${Boost_LIBRARIES} ${GRUEL_LIBRARIES} ${GNURADIO_CORE_LIBRARIES} tools)
 set_target_properties(gnuradio-frame_source PROPERTIES DEFINE_SYMBOL "gnuradio_frame_source_EXPORTS")
 
 ########################################################################

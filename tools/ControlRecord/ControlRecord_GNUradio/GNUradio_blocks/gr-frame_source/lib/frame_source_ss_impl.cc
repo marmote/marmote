@@ -49,7 +49,12 @@ frame_source_ss::make(char* FileOrDir)
 frame_source_ss_impl::frame_source_ss_impl(char* FileOrDir)
 	:	gr_sync_block("frame_source_ss",
 					gr_make_io_signature(0, 0, 0),
-					gr_make_io_signature(2, 2, sizeof (short)) )
+					gr_make_io_signature(2, 2, sizeof (short)) ),
+		dfe((unsigned char*) START_OF_FRAME, 
+			START_OF_FRAME_SIZE, 
+			(unsigned char*) DATA_FRAME_ID, 
+			DATA_FRAME_ID_SIZE),
+		s(FileOrDir)
 {
 }
 
@@ -63,7 +68,7 @@ frame_source_ss_impl::~frame_source_ss_impl()
 
 
 /***************************************************************************************
-* General Work (hoping to get promoted to Admiral Work one day... I'm so funny!)
+* Work
 ***************************************************************************************/
 int
 frame_source_ss_impl::work(int							noutput_items,
@@ -105,7 +110,7 @@ frame_source_ss_impl::work(int							noutput_items,
 				uint64_t offset1 = this->nitems_written(1) + noutput + ret_s.frame_starts.front()/2;
 				pmt::pmt_t key		= pmt::pmt_string_to_symbol( "Frame counter" );
 				char temp[50];
-				sprintf( temp, "%d", ret_s.frame_cnt.front() );
+				sprintf( temp, "%d", (int) ret_s.frame_cnt.front() );
 				pmt::pmt_t value	= pmt::pmt_string_to_symbol( temp );
 
 				this->add_item_tag(0, offset0, key, value);

@@ -1,5 +1,7 @@
 #include "ExtractFrames.h"
 
+#include <stdlib.h>
+#include <string.h>
 
 #define WAITING_STATE	0 // Waiting for frame start
 #define ID_STATE		1

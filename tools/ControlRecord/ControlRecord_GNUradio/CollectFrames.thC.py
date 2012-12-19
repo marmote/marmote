@@ -3,11 +3,12 @@ from optparse import OptionParser
 from gnuradio import gr
 import gnuradio.extras
 
+import tools.FileSource     as FS
+import GNUradio_blocks_pure_python.FrameSource   as FrameS
 import GNUradio_blocks_pure_python.FrameToFileSink   as FrameTFS
 from gnuradio.gr import firdes
 
 import two_channel_threshold.two_channel_threshold_swig as tct
-import frame_source.frame_source_swig as fs
 
 
 parser = OptionParser()
@@ -18,7 +19,7 @@ parser.add_option("-i", "--input", dest="inputfileordir",
 ################################################################################
 class Top_Block(gr.top_block):
 
-    def __init__(self, FileOrDir):
+    def __init__(self, Source):
         gr.top_block.__init__(self, "Top Block")
 
         ##################################################
@@ -32,7 +33,7 @@ class Top_Block(gr.top_block):
         ##################################################
         # Blocks
         ##################################################
-        self.frame_source = fs.frame_source_ss(FileOrDir)
+        self.frame_source = FrameS.FrameSource(Source)
 
         self.gr_short_to_float_0 = gr.short_to_float(1, 32768)
         self.gr_short_to_float_1 = gr.short_to_float(1, 32768)
@@ -77,6 +78,8 @@ class Top_Block(gr.top_block):
 if __name__ == "__main__":
     (options, args) = parser.parse_args()
 
-    tb = Top_Block(options.inputfileordir)
+    s = FS.FileSource(options.inputfileordir)
+
+    tb = Top_Block(s)
 
     tb.run()
