@@ -4,6 +4,7 @@
 
 #include "FileSource.h"
 
+#include <stdlib.h>
 #include <string.h>
 
 #include <dirent.h>

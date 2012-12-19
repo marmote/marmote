@@ -23,6 +23,13 @@
 
 #include <frame_source/frame_source_ss.h>
 
+
+#include "../../tools/ExtractNsamples16bit.h"
+#include "../../tools/ExtractFrames.h"
+#include "../../tools/FrameConfig.h"
+#include "../../tools/FileSource.h"
+
+
 namespace gr 
 {
 namespace frame_source 
@@ -34,7 +41,10 @@ class frame_source_ss_impl
 	: public frame_source_ss
 {
 	private:
-      // Nothing to declare in this block.
+		ExtractNsamples16Bit	eNs16b;
+		DataFrameExtractor		dfe;
+		FileSource				s;
+
 
     public:
 		frame_source_ss_impl(char* FileOrDir);

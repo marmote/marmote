@@ -115,6 +115,7 @@ link_directories(
     ${GRUEL_LIBRARY_DIRS}
     ${CPPUNIT_LIBRARY_DIRS}
     ${GNURADIO_CORE_LIBRARY_DIRS}
+    ${CMAKE_SOURCE_DIR}/../tools
 )
 
 # Set component parameters
