@@ -14,6 +14,11 @@ FrameBuffer::FrameBuffer ()
 
 FrameBuffer::~FrameBuffer () 
 {
+	if (!byte_buff)
+		return;
+
+	free(byte_buff);
+	byte_buff = NULL;
 }
 
 
