@@ -98,16 +98,21 @@ frame_source_ss_impl::work(int							noutput_items,
 
 		if ( ret_s.buff_len )
 		{
+			////////////////////////////////////////
+			// Fixed values
+			unsigned char	channels	= 2;
+			unsigned char	res			= 2; // resolution in bytes
+
 			for (unsigned long i=0; i<N; i++)
 			{
-				out1[i] = *((short*) (&dfe.byte_buff[i*2*2]));
-				out2[i] = *((short*) (&dfe.byte_buff[i*2*2+2]));
+				out1[i] = *((short*) (&dfe.byte_buff[i*channels*res]));
+				out2[i] = *((short*) (&dfe.byte_buff[i*channels*res+res]));
 			}
 
 			while ( !ret_s.frame_starts.empty() )
 			{
-				uint64_t offset0 = this->nitems_written(0) + noutput + ret_s.frame_starts.front()/2;
-				uint64_t offset1 = this->nitems_written(1) + noutput + ret_s.frame_starts.front()/2;
+				uint64_t offset0 = this->nitems_written(0) + noutput + ret_s.frame_starts.front()/(channels*res);
+				uint64_t offset1 = this->nitems_written(1) + noutput + ret_s.frame_starts.front()/(channels*res);
 				pmt::pmt_t key		= pmt::pmt_string_to_symbol( "Frame counter" );
 				char temp[50];
 				sprintf( temp, "%d", (int) ret_s.frame_cnt.front() );
@@ -120,7 +125,7 @@ frame_source_ss_impl::work(int							noutput_items,
 				ret_s.frame_cnt.pop();
 			}
 
-			noutput += ret_s.buff_len/2/2;
+			noutput += ret_s.buff_len/(channels*res);
 		}
 
 		dfe.ClearFromBeginning( ret_s.buff_len ); // Clear any previous data, that was already processed

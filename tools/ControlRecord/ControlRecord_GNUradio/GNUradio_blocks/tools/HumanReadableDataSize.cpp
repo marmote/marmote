@@ -3,7 +3,7 @@
 
 void GetHumanReadableDataSize(char* str, double size, unsigned char precision)
 {
-	char suffixes[9][3] = {"B","KB","MB","GB","TB","PB","EB","ZB","YB"};
+	const static char suffixes[9][3] = {"B","KB","MB","GB","TB","PB","EB","ZB","YB"};
     unsigned char suffixIndex = 0;
 
     while ( size > 1024.0 && suffixIndex < 8 )

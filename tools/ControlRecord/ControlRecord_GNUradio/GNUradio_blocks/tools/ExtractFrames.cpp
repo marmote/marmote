@@ -78,7 +78,14 @@ unsigned long DataFrameExtractor::ExtractDataFrames( unsigned char* input_buff, 
 			if ( CNT_cnt == 3 )
 			{
 				frame_starts.push(byte_buff_len);
-				frame_cnt.push( *( (unsigned int*) CNT ) );
+
+
+				unsigned long temp = 0;
+
+				for (unsigned char i = 0; i<4; i++)
+					temp = (temp << 8) + CNT[i];
+
+				frame_cnt.push( temp );
 			}
 		}
 
