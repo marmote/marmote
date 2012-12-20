@@ -18,8 +18,8 @@ int main(int argc, char* argv[])
 #define N_TEST_LEN	1000
 
 
-	short* output_items0 = (short*) malloc( N_TEST_LEN * sizeof(short) );
-	short* output_items1 = (short*) malloc( N_TEST_LEN * sizeof(short) );
+	short output_items0[N_TEST_LEN];
+	short output_items1[N_TEST_LEN];
 
 
 

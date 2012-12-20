@@ -68,12 +68,15 @@ FileSource::FileSource(char* FileOrDir)
 
 
 				if( stat( temp, &stbuf ) == -1 )
-					continue;
+					goto cont;
 
 				if ( !S_ISREG(stbuf.st_mode) )
-					continue;
+					goto cont;
 
 				filelist.push( temp );
+				continue;
+cont:
+				free(temp);
 			}
 
 			closedir(dir_p);
@@ -106,7 +109,6 @@ FileSource::~FileSource()
 
 	while ( !filelist.empty() )
 	{
-//		free(filelist.front());
 		free(filelist.top());
 		filelist.pop();
 	}
@@ -197,13 +199,8 @@ void FileSource::IterateFileList()
 
 	while (!file_p && !filelist.empty())
 	{
-//		current_file_full_path = (char*) malloc( strlen(filelist.front()) + 1 );
-//		strcpy( current_file_full_path, filelist.front() );
-		current_file_full_path = (char*) malloc( strlen(filelist.top()) + 1 );
-		strcpy( current_file_full_path, filelist.top() );
+		current_file_full_path = filelist.top();
 
-//		free(filelist.front());
-		free(filelist.top());
 		filelist.pop();
 
 
