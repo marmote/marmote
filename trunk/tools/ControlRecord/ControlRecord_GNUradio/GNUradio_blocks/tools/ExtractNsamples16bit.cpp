@@ -34,7 +34,7 @@ eNs16b_ret_t ExtractNsamples16Bit::Process(unsigned long			byte_buff_len,
 
 	while (!frame_starts.empty() && frame_starts.front() < ret_s.buff_len)
 	{
-		ret_s.frame_starts.push( frame_starts.front()/res );
+		ret_s.frame_starts.push( frame_starts.front() );
 		ret_s.frame_cnt.push( frame_cnt.front() );
 
 		frame_starts.pop();
