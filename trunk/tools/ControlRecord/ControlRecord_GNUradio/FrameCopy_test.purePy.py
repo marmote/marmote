@@ -3,10 +3,9 @@ from optparse import OptionParser
 from gnuradio import gr
 import gnuradio.extras
 
-import GNUradio_blocks_pure_python.FrameToFileSink_numtag   as FrameTFS
-
-
-import frame_source.frame_source_swig as fs
+import tools.FileSource     as FS
+import GNUradio_blocks_pure_python.FrameSource   as FrameS
+import GNUradio_blocks_pure_python.FrameToFileSink   as FrameTFS
 
 
 parser = OptionParser()
@@ -17,7 +16,7 @@ parser.add_option("-i", "--input", dest="inputfileordir",
 ################################################################################
 class Top_Block(gr.top_block):
 
-    def __init__(self, FileOrDir):
+    def __init__(self, Source):
         gr.top_block.__init__(self, "Top Block")
 
         ##################################################
@@ -29,7 +28,7 @@ class Top_Block(gr.top_block):
         ##################################################
         # Blocks
         ##################################################
-        self.frame_source = fs.frame_source_ss(FileOrDir)
+        self.frame_source = FrameS.FrameSource(Source)
         self.frame_sink = FrameTFS.FrameToFileSink()
         self.gr_interleave = gr.interleave(gr.sizeof_short*1)
 
@@ -48,6 +47,8 @@ class Top_Block(gr.top_block):
 if __name__ == "__main__":
     (options, args) = parser.parse_args()
 
-    tb = Top_Block(options.inputfileordir)
+    s = FS.FileSource(options.inputfileordir)
+
+    tb = Top_Block(s)
 
     tb.run()

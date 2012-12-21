@@ -103,20 +103,26 @@ frame_source_ss_impl::work(int							noutput_items,
 			unsigned char	channels	= 2;
 			unsigned char	res			= 2; // resolution in bytes
 
-			for (unsigned long i=0; i<N; i++)
+
+			for (unsigned long i=0; i < ret_s.buff_len/(channels*res); i++)
 			{
-				out1[i] = *((short*) (&dfe.byte_buff[i*channels*res]));
-				out2[i] = *((short*) (&dfe.byte_buff[i*channels*res+res]));
+//				out1[i] = *((short*) (&dfe.byte_buff[i*channels*res]));
+//				out2[i] = *((short*) (&dfe.byte_buff[i*channels*res+res]));
+				out1[noutput + i] = (((short) dfe.byte_buff[i*channels*res + 0]) << 8) + ((short) dfe.byte_buff[i*channels*res + 1]);
+				out2[noutput + i] = (((short) dfe.byte_buff[i*channels*res + 2]) << 8) + ((short) dfe.byte_buff[i*channels*res + 3]);
 			}
 
 			while ( !ret_s.frame_starts.empty() )
 			{
-				uint64_t offset0 = this->nitems_written(0) + noutput + ret_s.frame_starts.front()/(channels*res);
-				uint64_t offset1 = this->nitems_written(1) + noutput + ret_s.frame_starts.front()/(channels*res);
+				const uint64_t offset0 = this->nitems_written(0) + noutput + ret_s.frame_starts.front()/(channels*res);
+				const uint64_t offset1 = this->nitems_written(1) + noutput + ret_s.frame_starts.front()/(channels*res);
 				pmt::pmt_t key		= pmt::pmt_string_to_symbol( "Frame counter" );
-				char temp[50];
-				sprintf( temp, "%d", (int) ret_s.frame_cnt.front() );
+/*				char temp[50];
+				sprintf( temp, "%d", (unsigned int) ret_s.frame_cnt.front() );
 				pmt::pmt_t value	= pmt::pmt_string_to_symbol( temp );
+*/
+//				pmt::pmt_t value	= pmt::pmt_string_to_symbol( "" );
+				pmt::pmt_t value	= pmt::pmt_from_long( (long) ret_s.frame_cnt.front() );
 
 				this->add_item_tag(0, offset0, key, value);
 				this->add_item_tag(1, offset1, key, value);
@@ -127,6 +133,14 @@ frame_source_ss_impl::work(int							noutput_items,
 
 			noutput += ret_s.buff_len/(channels*res);
 		}
+
+/*
+		{
+		    FILE* tempfp = fopen("DebugDump2.bin", "ab");
+		    fwrite( (void*) dfe.byte_buff, sizeof(unsigned char), ret_s.buff_len, tempfp ); 
+		    fclose(tempfp);
+		}
+*/
 
 		dfe.ClearFromBeginning( ret_s.buff_len ); // Clear any previous data, that was already processed
 
@@ -146,6 +160,13 @@ frame_source_ss_impl::work(int							noutput_items,
 
 		// 3. Find data frames (if any) in data
 		unsigned long proc_bytes = dfe.ExtractDataFrames(ret_s2.accum, ret_s2.accum_len);
+/*
+		{
+		    FILE* tempfp = fopen("DebugDump1.bin", "ab");
+		    fwrite( (void*) ret_s2.accum, sizeof(unsigned char), proc_bytes, tempfp ); 
+		    fclose(tempfp);
+		}
+*/
 		s.ClearFromBeginning(proc_bytes);
 	}
 

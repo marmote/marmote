@@ -59,6 +59,8 @@ FileSource::FileSource(char* FileOrDir)
 				if ( !strcmp( dir_entry_p->d_name, "." ) || !strcmp( dir_entry_p->d_name, ".." ) )
 					continue;
 
+//				printf("Allocating memory for \"temp\" in dir listing, size: %d\n", (int) (strlen(FileOrDir) + strlen(dir_entry_p->d_name) + 2) );
+
 				char*	temp = (char*) malloc( strlen(FileOrDir) + strlen(dir_entry_p->d_name) + 2 );
 
 				strcpy( temp, FileOrDir );
@@ -76,6 +78,7 @@ FileSource::FileSource(char* FileOrDir)
 				filelist.push( temp );
 				continue;
 cont:
+//				printf("Freeing memory for \"temp\" in dir listing because of error.\n" );
 				free(temp);
 			}
 
@@ -84,6 +87,7 @@ cont:
 	}
 	else if ( S_ISREG(stbuf.st_mode) )
 	{
+//		printf("Allocating memory for \"temp\" in file listing, size: %d\n", (int) (strlen(FileOrDir) + 1) );
 		char*	temp = (char*) malloc( strlen(FileOrDir) + 1 );
 
 		strcpy( temp, FileOrDir );
@@ -104,11 +108,13 @@ FileSource::~FileSource()
 {
 	CloseCurrentFile();
 
+//	printf("Freeing memory for \"accum\" in destructor.\n" );
 	free(accum);
 	accum = NULL;
 
 	while ( !filelist.empty() )
 	{
+//		printf("Freeing memory for \"filelist\" in destructor.\n" );
 		free(filelist.top());
 		filelist.pop();
 	}
@@ -188,6 +194,7 @@ void FileSource::CloseCurrentFile()
 		return;
 
 	printf("Closed file: %s\n", current_file_full_path );
+//	printf("Freeing memory for \"current_file_full_path\" in CloseCurrentFile.\n" );
 	free( current_file_full_path );
 	current_file_full_path = NULL;
 }
@@ -210,6 +217,7 @@ void FileSource::IterateFileList()
 		if (!file_p)
 		{
 			printf("Error opening file: %s\n", current_file_full_path );
+//			printf("Freeing memory for \"current_file_path\" in IterateFileList because file open error.\n" );
 			free( current_file_full_path );
 			current_file_full_path = NULL;
 			continue;
@@ -237,5 +245,6 @@ void FileSource::IterateFileList()
 void FileSource::IncreaseBufferSize( unsigned long inc_buff_len )
 {
 	accum_total_len += inc_buff_len;
+//	printf("Reallocating memory for \"accum\" in increase buffer, size: %d\n", (int) accum_total_len );
 	accum = (unsigned char*) realloc( (void*) accum, accum_total_len );
 }
