@@ -1,6 +1,7 @@
 #include "FrameBuffer.h"
 
 #include <stdlib.h>
+//#include <stdio.h>
 #include <string.h>
 
 
@@ -17,6 +18,7 @@ FrameBuffer::~FrameBuffer ()
 	if (!byte_buff)
 		return;
 
+//	printf("Freeing memory for \"byte_buff\" in FrameBuffer destructor.\n");
 	free(byte_buff);
 	byte_buff = NULL;
 }
@@ -25,6 +27,7 @@ FrameBuffer::~FrameBuffer ()
 void FrameBuffer::IncreaseBufferSize( unsigned long inc_buff_len )
 {
 	byte_buff_total_len += inc_buff_len;
+//	printf("Reallocating memory for \"byte_buff\" in FrameBuffer IncreaseBufferSize: %d\n", (int) byte_buff_total_len);
 	byte_buff = (unsigned char*) realloc( (void*) byte_buff, byte_buff_total_len );
 }
 
