@@ -3,7 +3,7 @@ from optparse import OptionParser
 from gnuradio import gr
 import gnuradio.extras
 
-import GNUradio_blocks_pure_python.FrameToFileSink   as FrameTFS
+import GNUradio_blocks_pure_python.FrameToFileSink_numtag   as FrameTFS
 from gnuradio.gr import firdes
 
 import two_channel_threshold.two_channel_threshold_swig as tct

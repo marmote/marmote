@@ -103,7 +103,7 @@ two_channel_threshold_ssss_impl::general_work (int						noutput_items,
 	int noutput = 0;
 
 		
-	for (size_t i = 0; i < ninput; i++)
+	for (long i = 0; i < ninput; i++)
 	{
 		if ( (abs(input1[i]) > d_threshold) || (abs(input2[i]) > d_threshold) )
 		{
@@ -127,8 +127,9 @@ two_channel_threshold_ssss_impl::general_work (int						noutput_items,
 
 		d_wash_out_counter--;
 				
-		out1[noutput] = input1[i];
-		out2[noutput] = input2[i];
+		out1[noutput] = input1[i - d_pre_trig_samples];
+		out2[noutput] = input2[i - d_pre_trig_samples];
+		noutput++;
 	} 
 
 	// Tell runtime system how many input items we consumed on
