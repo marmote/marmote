@@ -1,7 +1,7 @@
 import numpy as np
 
 import matplotlib
-matplotlib.use('GTKAgg')
+matplotlib.use('GTKAgg', warn=False)
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
