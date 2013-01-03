@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def PlotAEMeas(y, y2, AE_start, AE_start2, T, fnames, positions, y_lim_min = -1.1, y_lim_max = 1.1) :
+def PlotAEMeas(y, y2, AE_start, AE_start2, T, fnames, positions, x_lim_min = 0, x_lim_max = 1000, y_lim_min = -1.1, y_lim_max = 1.1, threshold=None) :
     rows = 1
     cols = 1
 
@@ -43,11 +43,15 @@ def PlotAEMeas(y, y2, AE_start, AE_start2, T, fnames, positions, y_lim_min = -1.
                 axarr[axarr_cnt].plot(time, y[ii], 'g')
                 axarr[axarr_cnt].plot(time, y2[ii], 'b')
 
+            if threshold is not None:
+                axarr[axarr_cnt].plot([x_lim_min, x_lim_max], [threshold, threshold], 'r')
+                axarr[axarr_cnt].plot([x_lim_min, x_lim_max], [-threshold, -threshold], 'r')
+
             axarr[axarr_cnt].hold('off')
             axarr[axarr_cnt].locator_params(axis='both', nbins=4)
             axarr[axarr_cnt].ticklabel_format(scilimits=(-3,3))
             axarr[axarr_cnt].set_ylim(y_lim_min, y_lim_max)
-            axarr[axarr_cnt].set_xlim(0, 1000)
+            axarr[axarr_cnt].set_xlim(x_lim_min, x_lim_max)
             if AE_start is not None and AE_start2 is not None :
                 axarr[axarr_cnt].set_title('pos %d\nTD = %.2f' % (positions[ii], AE_start2[ii] - AE_start[ii]))
             else:
