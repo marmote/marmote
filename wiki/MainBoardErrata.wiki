@@ -1,4 +1,4 @@
-#summary Errata for the "Teton" Main Board Rev A
+#summary Errata for the "Teton" Main Board revisions
 #labels Phase-Support
 
 = Rev B =
