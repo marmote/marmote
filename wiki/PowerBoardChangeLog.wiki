@@ -1,7 +1,13 @@
 #summary Log of changes on the Power Supply Board between different revisions
 #labels Phase-Support,Phase-Deploy
 
-= From Rev A to Rev B =
+= Rev C =
+
+ # 2 former DGND pins became I/O pins (P15 and P16)
+ # Fixed the silkscreen placement for D1V5 and D3V3
+ # Added name and caption for SW2 and 5V input on the silkscreen 
+
+= Rev B =
 
  # The !CHRG pin of the LTC4085 is connected to a microcontroller GPIO (PB9) instead of an external LED (LED0)
  # LED0 has been removed
