@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.1">
+<eagle version="6.4">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -44190,7 +44190,7 @@ Ground for the galvanically decoupled Ethernet chassis.</description>
 <part name="PORT7" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="PORT11" library="MainBoard" deviceset="PORT7" device=""/>
 <part name="C116" library="MainBoard" deviceset="C" device="0805" value="1000pF">
-<attribute name="RATING" value="1000V"/>
+<attribute name="RATING" value="250V"/>
 </part>
 <part name="U$95" library="MainBoard" deviceset="DGND" device=""/>
 <part name="PORT116" library="MainBoard" deviceset="PORT7" device=""/>
