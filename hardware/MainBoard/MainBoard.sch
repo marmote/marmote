@@ -41237,7 +41237,7 @@ Clock oscillator with output enable.</description>
 <text x="60.96" y="11.43" size="2.54" layer="94">Rev:</text>
 <text x="1.27" y="11.43" size="2.54" layer="94">Title:</text>
 <text x="12.7" y="11.43" size="2.54" layer="94">&gt;TITLE</text>
-<text x="7.874" y="1.27" size="2.54" layer="94" ratio="12">Copyright © 2012 Vanderbilt University, ISIS</text>
+<text x="7.874" y="1.27" size="2.54" layer="94" ratio="12">Copyright © 2013 Vanderbilt University, ISIS</text>
 <text x="74.93" y="11.43" size="2.54" layer="94">&gt;REVISION</text>
 </symbol>
 <symbol name="NPN">
@@ -41277,8 +41277,7 @@ Source: &lt;a href="http://ww1.microchip.com/downloads/en/DeviceDoc/21794F.pdf"&
 <text x="-7.62" y="5.715" size="1.778" layer="95">&gt;NAME</text>
 <text x="-7.62" y="-10.16" size="1.778" layer="96">&gt;VALUE</text>
 </symbol>
-<symbol name="L@1">
-<description>&lt;b&gt;Bead&lt;/b&gt;</description>
+<symbol name="BEAD">
 <wire x1="0" y1="3.81" x2="1.27" y2="2.54" width="0.254" layer="94" curve="-90"/>
 <wire x1="0" y1="1.27" x2="1.27" y2="2.54" width="0.254" layer="94" curve="90"/>
 <wire x1="0" y1="1.27" x2="1.27" y2="0" width="0.254" layer="94" curve="-90"/>
@@ -42746,7 +42745,7 @@ Source: &lt;a href="http://ww1.microchip.com/downloads/en/DeviceDoc/21794F.pdf"&
 <deviceset name="BEAD" prefix="B" uservalue="yes">
 <description>&lt;b&gt;BEAD&lt;/b&gt;</description>
 <gates>
-<gate name="G$1" symbol="L@1" x="0" y="0"/>
+<gate name="G$1" symbol="BEAD" x="0" y="0"/>
 </gates>
 <devices>
 <device name="0402" package="L0402">
@@ -43285,7 +43284,7 @@ Ground for the galvanically decoupled Ethernet chassis.</description>
 <attribute name="PAGE7" value="Ethernet"/>
 <attribute name="PAGE8" value="USB and AFE dig."/>
 <attribute name="PAGE9" value="I/O signals"/>
-<attribute name="REVISION" value="A"/>
+<attribute name="REVISION" value="B"/>
 <attribute name="TITLE" value="Teton"/>
 <attribute name="VERIFIER" value="Peter Volgyesi"/>
 <attribute name="VERIFIEREMAIL" value="peter.volgyesi@vanderbilt.edu"/>

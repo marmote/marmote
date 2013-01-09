@@ -18,7 +18,7 @@
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
@@ -187,7 +187,7 @@
 <text x="85.25" y="10.25" size="1.27" layer="22" font="vector" rot="MR90">http://marmote.googlecode.com</text>
 <text x="13.75" y="30.75" size="1.778" layer="22" font="vector" rot="MR0">Rev</text>
 <text x="7.75" y="30.75" size="1.778" layer="22" font="vector" rot="MR0">&gt;REVISION</text>
-<text x="87.5" y="4.5" size="1.27" layer="22" font="vector" rot="MR90">Copyright c 2012</text>
+<text x="87.5" y="4.5" size="1.27" layer="22" font="vector" rot="MR90">Copyright c 2013</text>
 <text x="87.5" y="24.5" size="1.27" layer="22" font="vector" rot="MR90">Vanderbilt University, ISIS</text>
 <circle x="87.95" y="15.75" radius="0.85" width="0.127" layer="22"/>
 <wire x1="33" y1="33.75" x2="33" y2="26.05" width="0.2032" layer="22"/>
@@ -11400,7 +11400,7 @@ Source: &lt;a href="http://ww2.pulseeng.com/products/datasheets/J403.pdf"&gt;htt
 </library>
 </libraries>
 <attributes>
-<attribute name="REVISION" value="A"/>
+<attribute name="REVISION" value="B"/>
 <attribute name="TITLE" value="Teton"/>
 </attributes>
 <variantdefs>
