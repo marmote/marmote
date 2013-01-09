@@ -14,7 +14,7 @@
 
 = Minor issues =
 
-  * Only 4 DGND pins left out of 6 on mezzanine (2 became IO pins)
+  * Only 4 DGND pins remained on mezzanine connector (2 of the former 6 became I/O pins)
   * 'USB' silkscreen label next to a D3V3 test point is misleading *(fixed)*
   * RJ45 silkscreen-footprint is larger than the actual device *(fixed)*
   * The right-angle push buttons could be slightly (1 mm) closer to the board edge
