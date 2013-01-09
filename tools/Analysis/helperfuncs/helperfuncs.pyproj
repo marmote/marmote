@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{54027d41-2ea8-4814-b479-4bc17a7cd2d0}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>FancyPlotWavelet_im.py</StartupFile>
+    <StartupFile>PlotAEMeas.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,24 +22,28 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="BestBasis.py" />
     <Compile Include="CalculateCost_ShannonEntropy.py" />
+    <Compile Include="CalculateTDOA_AIC_method.py" />
     <Compile Include="CalculateTDOA_threshold_method.py" />
     <Compile Include="CalculateTheoreticalTDOA.py" />
     <Compile Include="CalculateTotalCostofEachLevel.py" />
-    <Compile Include="FullWPD.py" />
     <Compile Include="FancyPlotWavelet_im.py" />
-    <Compile Include="BestBasis.py" />
+    <Compile Include="FullWPD.py" />
     <Compile Include="FunctionDisplayRecording_total.py" />
-    <Compile Include="SignalGenerator.py" />
-    <Compile Include="UsablePacketTableLevels.py" />
+    <Compile Include="Onset_AIC.py" />
+    <Compile Include="Onset_Threshold.py" />
     <Compile Include="PickBases.py" />
     <Compile Include="PlotAEMeas.py" />
     <Compile Include="PlotDWT.py" />
     <Compile Include="PlotSpecgram.py" />
+    <Compile Include="PlotTDHist.py" />
     <Compile Include="PlotTDOAvsDist.py" />
     <Compile Include="PlotTDOAvsPos.py" />
     <Compile Include="ReadAEMeas.py" />
+    <Compile Include="SignalGenerator.py" />
     <Compile Include="TrimToPowerof2.py" />
+    <Compile Include="UsablePacketTableLevels.py" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
 </Project>
