@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.1">
+<eagle version="6.4">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -2275,7 +2275,7 @@ Source: &lt;a href="http://media.digikey.com/pdf/Data%20Sheets/COPAL%20Electroni
 <text x="78.74" y="11.43" size="2.54" layer="94">Rev:</text>
 <text x="19.05" y="11.43" size="2.54" layer="94">Title:</text>
 <text x="30.48" y="11.43" size="2.54" layer="94">&gt;TITLE</text>
-<text x="25.654" y="1.27" size="2.54" layer="94" ratio="12">Copyright © 2012 Vanderbilt University, ISIS</text>
+<text x="25.654" y="1.27" size="2.54" layer="94" ratio="12">&gt;COPYRIGHT</text>
 <text x="92.71" y="11.43" size="2.54" layer="94">&gt;REVISION</text>
 </symbol>
 <symbol name="CON-SD">
@@ -43041,7 +43041,7 @@ v1.0 Initial design</description>
 <attributes>
 <attribute name="AUTHOR" value="Sandor Szilvasi"/>
 <attribute name="AUTHOREMAIL" value="sandor.szilvasi@vanderbilt.edu"/>
-<attribute name="COPYRIGHT" value="Copyright © 2011 Vanderbilt University, ISIS"/>
+<attribute name="COPYRIGHT" value="Copyright © 2013 Vanderbilt University, ISIS"/>
 <attribute name="PAGE1" value="Cover Page"/>
 <attribute name="PAGE2" value="Power Supply"/>
 <attribute name="PAGE3" value="Current Monitor"/>
@@ -43049,7 +43049,7 @@ v1.0 Initial design</description>
 <attribute name="PAGE5" value="Connector"/>
 <attribute name="REVIEWER" value="Benjamin Babjak"/>
 <attribute name="REVIEWEREMAIL" value="benjamin.babjak@vanderbilt.edu"/>
-<attribute name="REVISION" value="B"/>
+<attribute name="REVISION" value="C"/>
 <attribute name="TITLE" value="Yellowstone"/>
 </attributes>
 <variantdefs>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.1">
+<eagle version="6.4">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -16,10 +16,10 @@
 <layer number="16" name="Bottom" color="11" fill="1" visible="no" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
-<layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="yes"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="25" name="tNames" color="4" fill="1" visible="no" active="yes"/>
@@ -36,9 +36,9 @@
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
 <layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
 <layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
-<layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="yes"/>
-<layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="yes"/>
+<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
 <layer number="42" name="bRestrict" color="1" fill="10" visible="no" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
@@ -49,7 +49,7 @@
 <layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="yes"/>
 <layer number="51" name="tDocu" color="12" fill="1" visible="no" active="yes"/>
-<layer number="52" name="bDocu" color="9" fill="1" visible="yes" active="yes"/>
+<layer number="52" name="bDocu" color="9" fill="1" visible="no" active="yes"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="yes"/>
@@ -180,7 +180,7 @@
 <text x="33.05" y="24.2" size="1.778" layer="22" font="vector" rot="MR0">&gt;REVISION</text>
 <rectangle x1="15" y1="43.5" x2="65" y2="53.5" layer="40"/>
 <rectangle x1="15" y1="6" x2="65" y2="16" layer="40"/>
-<text x="68.5" y="3.5" size="1.27" layer="22" font="vector" rot="MR0">Copyright c 2012</text>
+<text x="68.5" y="3.5" size="1.27" layer="22" font="vector" rot="MR0">Copyright c 2013</text>
 <text x="48.5" y="3.5" size="1.27" layer="22" font="vector" rot="MR0">Vanderbilt University, ISIS</text>
 <circle x="57.3" y="4" radius="0.85" width="0.127" layer="22"/>
 <text x="11.9" y="44.65" size="1.27" layer="21" font="vector">VBUS</text>
@@ -10577,7 +10577,7 @@ Preliminary top-layer10 x 10 mm  logo for the Marmote platform power supply modu
 </library>
 </libraries>
 <attributes>
-<attribute name="REVISION" value="B"/>
+<attribute name="REVISION" value="C"/>
 <attribute name="TITLE" value="Yellowstone"/>
 </attributes>
 <variantdefs>
@@ -10586,7 +10586,7 @@ Preliminary top-layer10 x 10 mm  logo for the Marmote platform power supply modu
 <class number="0" name="default" width="0" drill="0">
 </class>
 </classes>
-<designrules>
+<designrules name="default">
 <description language="de">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
 &lt;p&gt;
 Die Standard-Design-Rules sind so gewählt, dass sie für 
