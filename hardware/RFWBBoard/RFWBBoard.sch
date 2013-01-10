@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.1">
+<eagle version="6.4">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -1424,33 +1424,33 @@ Source: &lt;a href="http://media.digikey.com/pdf/Data%20Sheets/COPAL%20Electroni
 <wire x1="0" y1="0" x2="248.92" y2="0" width="0.4064" layer="94"/>
 </symbol>
 <symbol name="FRAME-DOCFIELD">
-<wire x1="17.78" y1="5.08" x2="76.2" y2="5.08" width="0.254" layer="94"/>
-<wire x1="17.78" y1="5.08" x2="17.78" y2="10.16" width="0.254" layer="94"/>
-<wire x1="17.78" y1="10.16" x2="76.2" y2="10.16" width="0.254" layer="94"/>
-<wire x1="76.2" y1="10.16" x2="76.2" y2="5.08" width="0.254" layer="94"/>
-<wire x1="76.2" y1="5.08" x2="101.6" y2="5.08" width="0.254" layer="94"/>
-<wire x1="101.6" y1="10.16" x2="76.2" y2="10.16" width="0.254" layer="94"/>
-<wire x1="101.6" y1="10.16" x2="101.6" y2="5.08" width="0.254" layer="94"/>
-<wire x1="17.78" y1="10.16" x2="17.78" y2="15.24" width="0.254" layer="94"/>
-<wire x1="101.6" y1="30.48" x2="17.78" y2="30.48" width="0.254" layer="94"/>
-<wire x1="101.6" y1="30.48" x2="101.6" y2="15.24" width="0.254" layer="94"/>
-<wire x1="17.78" y1="15.24" x2="76.2" y2="15.24" width="0.254" layer="94"/>
-<wire x1="76.2" y1="15.24" x2="101.6" y2="15.24" width="0.254" layer="94"/>
-<wire x1="17.78" y1="15.24" x2="17.78" y2="30.48" width="0.254" layer="94"/>
-<wire x1="101.6" y1="15.24" x2="101.6" y2="10.16" width="0.254" layer="94"/>
-<wire x1="17.78" y1="5.08" x2="17.78" y2="0" width="0.254" layer="94"/>
-<wire x1="17.78" y1="0" x2="101.6" y2="0" width="0.254" layer="94"/>
-<wire x1="101.6" y1="0" x2="101.6" y2="5.08" width="0.254" layer="94"/>
-<wire x1="76.2" y1="10.16" x2="76.2" y2="15.24" width="0.254" layer="94"/>
-<text x="19.05" y="6.35" size="2.54" layer="94">Date:</text>
-<text x="30.48" y="6.35" size="2.54" layer="94">&gt;LAST_DATE_TIME</text>
-<text x="78.74" y="6.35" size="2.54" layer="94">Sheet:</text>
-<text x="91.44" y="6.35" size="2.54" layer="94">&gt;SHEET</text>
-<text x="78.74" y="11.43" size="2.54" layer="94">Rev:</text>
-<text x="19.05" y="11.43" size="2.54" layer="94">Title:</text>
-<text x="30.48" y="11.43" size="2.54" layer="94">&gt;TITLE</text>
-<text x="25.654" y="1.27" size="2.54" layer="94" ratio="12">Copyright © 2012 Vanderbilt University, ISIS</text>
-<text x="92.71" y="11.43" size="2.54" layer="94">&gt;REVISION</text>
+<wire x1="0" y1="5.08" x2="58.42" y2="5.08" width="0.254" layer="94"/>
+<wire x1="0" y1="5.08" x2="0" y2="10.16" width="0.254" layer="94"/>
+<wire x1="0" y1="10.16" x2="58.42" y2="10.16" width="0.254" layer="94"/>
+<wire x1="58.42" y1="10.16" x2="58.42" y2="5.08" width="0.254" layer="94"/>
+<wire x1="58.42" y1="5.08" x2="83.82" y2="5.08" width="0.254" layer="94"/>
+<wire x1="83.82" y1="10.16" x2="58.42" y2="10.16" width="0.254" layer="94"/>
+<wire x1="83.82" y1="10.16" x2="83.82" y2="5.08" width="0.254" layer="94"/>
+<wire x1="0" y1="10.16" x2="0" y2="15.24" width="0.254" layer="94"/>
+<wire x1="83.82" y1="30.48" x2="0" y2="30.48" width="0.254" layer="94"/>
+<wire x1="83.82" y1="30.48" x2="83.82" y2="15.24" width="0.254" layer="94"/>
+<wire x1="0" y1="15.24" x2="58.42" y2="15.24" width="0.254" layer="94"/>
+<wire x1="58.42" y1="15.24" x2="83.82" y2="15.24" width="0.254" layer="94"/>
+<wire x1="0" y1="15.24" x2="0" y2="30.48" width="0.254" layer="94"/>
+<wire x1="83.82" y1="15.24" x2="83.82" y2="10.16" width="0.254" layer="94"/>
+<wire x1="0" y1="5.08" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="83.82" y2="0" width="0.254" layer="94"/>
+<wire x1="83.82" y1="0" x2="83.82" y2="5.08" width="0.254" layer="94"/>
+<wire x1="58.42" y1="10.16" x2="58.42" y2="15.24" width="0.254" layer="94"/>
+<text x="1.27" y="6.35" size="2.54" layer="94">Date:</text>
+<text x="12.7" y="6.35" size="2.54" layer="94">&gt;LAST_DATE_TIME</text>
+<text x="60.96" y="6.35" size="2.54" layer="94">Sheet:</text>
+<text x="73.66" y="6.35" size="2.54" layer="94">&gt;SHEET</text>
+<text x="60.96" y="11.43" size="2.54" layer="94">Rev:</text>
+<text x="1.27" y="11.43" size="2.54" layer="94">Title:</text>
+<text x="12.7" y="11.43" size="2.54" layer="94">&gt;TITLE</text>
+<text x="7.874" y="1.27" size="2.54" layer="94" ratio="12">&gt;COPYRIGHT</text>
+<text x="74.93" y="11.43" size="2.54" layer="94">&gt;REVISION</text>
 </symbol>
 <symbol name="MOUNT-HOLE">
 <wire x1="0" y1="1.27" x2="1.27" y2="0" width="1.524" layer="94" curve="-90" cap="flat"/>
@@ -39226,6 +39226,7 @@ v1.0 Initial design</description>
 <attributes>
 <attribute name="AUTHOR" value="Benjamin Babjak"/>
 <attribute name="AUTHOREMAIL" value="benjamin.babjak@vanderbilt.edu"/>
+<attribute name="COPYRIGHT" value="Copyright © 2013 Vanderbilt University, ISIS"/>
 <attribute name="PAGE1" value="Cover page"/>
 <attribute name="PAGE2" value="Connector"/>
 <attribute name="PAGE3" value="Baseband signals"/>
@@ -39237,7 +39238,7 @@ v1.0 Initial design</description>
 <attribute name="REVIEWER2" value="Sandor Szilvasi"/>
 <attribute name="REVIEWEREMAIL1" value="peter.volgyesi@vanderbilt.edu"/>
 <attribute name="REVIEWEREMAIL2" value="sandor.szilvasi@vanderbilt.edu"/>
-<attribute name="REVISION" value="A"/>
+<attribute name="REVISION" value="B"/>
 <attribute name="TITLE" value="Joshua"/>
 </attributes>
 <variantdefs>
@@ -39449,7 +39450,7 @@ v1.0 Initial design</description>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
-<instance part="FRAME1" gate="G$2" x="147.32" y="0"/>
+<instance part="FRAME1" gate="G$2" x="165.1" y="0"/>
 <instance part="U$1" gate="G$1" x="0" y="0"/>
 <instance part="U$2" gate="G$1" x="81.28" y="0"/>
 <instance part="LOGO4" gate="G$1" x="104.14" y="53.34"/>
@@ -39518,7 +39519,7 @@ v1.0 Initial design</description>
 </plain>
 <instances>
 <instance part="FRAME2" gate="G$1" x="0" y="0"/>
-<instance part="FRAME2" gate="G$2" x="147.32" y="0"/>
+<instance part="FRAME2" gate="G$2" x="165.1" y="0"/>
 <instance part="M1" gate="G$1" x="106.68" y="25.4"/>
 <instance part="M2" gate="G$1" x="114.3" y="25.4"/>
 <instance part="M3" gate="G$1" x="121.92" y="25.4"/>
@@ -39965,7 +39966,7 @@ v1.0 Initial design</description>
 </plain>
 <instances>
 <instance part="FRAME3" gate="G$1" x="0" y="0"/>
-<instance part="FRAME3" gate="G$2" x="147.32" y="0"/>
+<instance part="FRAME3" gate="G$2" x="165.1" y="0"/>
 <instance part="U4" gate="G$1" x="205.74" y="160.02" smashed="yes">
 <attribute name="NAME" x="208.28" y="165.1" size="1.778" layer="95"/>
 <attribute name="VALUE" x="213.36" y="160.02" size="1.778" layer="96"/>
@@ -40782,7 +40783,7 @@ v1.0 Initial design</description>
 </plain>
 <instances>
 <instance part="FRAME7" gate="G$1" x="0" y="0"/>
-<instance part="FRAME7" gate="G$2" x="147.32" y="0"/>
+<instance part="FRAME7" gate="G$2" x="165.1" y="0"/>
 <instance part="U1" gate="-ANT" x="60.96" y="124.46"/>
 <instance part="U1" gate="-RX" x="60.96" y="83.82"/>
 <instance part="U1" gate="-TX" x="60.96" y="63.5"/>
@@ -41003,7 +41004,7 @@ v1.0 Initial design</description>
 </plain>
 <instances>
 <instance part="FRAME4" gate="G$1" x="0" y="0"/>
-<instance part="FRAME4" gate="G$2" x="147.32" y="0"/>
+<instance part="FRAME4" gate="G$2" x="165.1" y="0"/>
 <instance part="U1" gate="-CONTROL" x="15.24" y="127"/>
 <instance part="U1" gate="-GAIN" x="20.32" y="78.74"/>
 <instance part="U1" gate="-SERIAL" x="25.4" y="99.06"/>
@@ -41379,7 +41380,7 @@ v1.0 Initial design</description>
 </plain>
 <instances>
 <instance part="FRAME6" gate="G$1" x="0" y="0"/>
-<instance part="FRAME6" gate="G$2" x="147.32" y="0"/>
+<instance part="FRAME6" gate="G$2" x="165.1" y="0"/>
 <instance part="U1" gate="-PLL-XTAL" x="50.8" y="132.08"/>
 <instance part="C118" gate="G$1" x="127" y="139.7" smashed="yes" rot="R90">
 <attribute name="NAME" x="120.396" y="140.081" size="1.778" layer="95"/>
@@ -41680,7 +41681,7 @@ v1.0 Initial design</description>
 </plain>
 <instances>
 <instance part="FRAME5" gate="G$1" x="0" y="0"/>
-<instance part="FRAME5" gate="G$2" x="147.32" y="0"/>
+<instance part="FRAME5" gate="G$2" x="165.1" y="0"/>
 <instance part="U1" gate="-SUPPLY" x="55.88" y="144.78"/>
 <instance part="C103" gate="G$1" x="132.08" y="142.24" smashed="yes" rot="R90">
 <attribute name="NAME" x="125.476" y="142.621" size="1.778" layer="95"/>
