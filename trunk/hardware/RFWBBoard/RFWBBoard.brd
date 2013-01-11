@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.1">
+<eagle version="6.4">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -9,25 +9,25 @@
 <grid distance="0.5" unitdist="mm" unit="mm" style="dots" multiple="1" display="yes" altdistance="0.1" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="SIGNAL1" color="4" fill="1" visible="yes" active="yes"/>
-<layer number="2" name="GND1" color="2" fill="1" visible="no" active="yes"/>
-<layer number="3" name="SIGNAL2" color="4" fill="1" visible="no" active="yes"/>
-<layer number="14" name="GND2" color="2" fill="1" visible="no" active="yes"/>
-<layer number="15" name="SUPPLY" color="14" fill="1" visible="no" active="yes"/>
+<layer number="2" name="GND1" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="3" name="SIGNAL2" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="14" name="GND2" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="15" name="SUPPLY" color="14" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="GND3" color="3" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="25" name="tNames" color="4" fill="1" visible="no" active="yes"/>
 <layer number="26" name="bNames" color="1" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
-<layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="6" visible="yes" active="yes"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
 <layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
 <layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
@@ -42,10 +42,10 @@
 <layer number="42" name="bRestrict" color="1" fill="10" visible="no" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
-<layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="yes"/>
 <layer number="51" name="tDocu" color="12" fill="1" visible="no" active="yes"/>
@@ -191,7 +191,7 @@
 <text x="59.5" y="30" size="1.27" layer="22" font="vector" rot="MR0">7.5-18 MHz wide 2.4-2.5 GHz</text>
 <text x="57.75" y="24.75" size="1.27" layer="22" font="vector" rot="MR0">for the Marmote platform</text>
 <text x="61.25" y="16.25" size="1.27" layer="22" font="vector" rot="MR0">http://marmote.googlecode.com</text>
-<text x="69" y="19" size="1.27" layer="22" font="vector" rot="MR0">Copyright c 2012</text>
+<text x="69" y="19" size="1.27" layer="22" font="vector" rot="MR0">Copyright c 2013</text>
 <text x="49" y="19" size="1.27" layer="22" font="vector" rot="MR0">Vanderbilt University, ISIS</text>
 <circle x="57.75" y="19.45" radius="0.85" width="0.127" layer="22"/>
 <wire x1="9" y1="9.8" x2="4.8" y2="9.8" width="0.2032" layer="21"/>
@@ -201,14 +201,12 @@
 <text x="35.5" y="33" size="1.778" layer="22" font="vector" rot="MR0">&gt;REV</text>
 <text x="56" y="27.5" size="1.27" layer="22" font="vector" rot="MR0">and Baseband module</text>
 <wire x1="17.5" y1="24" x2="1.5" y2="24" width="0.3048" layer="21"/>
-<text x="20.5" y="38.5" size="1.27" layer="21" font="vector" rot="SR270">ANTSEL</text>
-<text x="16" y="38.5" size="1.27" layer="21" font="vector" rot="SR270">RXHP</text>
-<text x="11.5" y="38.5" size="1.27" layer="21" font="vector" rot="SR270">B6</text>
-<text x="7" y="38.5" size="1.27" layer="21" font="vector" rot="SR270">B7</text>
-<text x="24.35" y="29.75" size="1.27" layer="21" font="vector" rot="SR270">0</text>
-<text x="24.35" y="26.1" size="1.27" layer="21" font="vector" rot="SR270">1</text>
-<text x="2.85" y="29.75" size="1.27" layer="21" font="vector" rot="SR270">0</text>
-<text x="2.85" y="26.1" size="1.27" layer="21" font="vector" rot="SR270">1</text>
+<text x="21.5" y="31" size="1.27" layer="21" font="vector" rot="SR90">ANTSEL</text>
+<text x="17" y="31" size="1.27" layer="21" font="vector" rot="SR90">RXHP</text>
+<text x="12.5" y="31" size="1.27" layer="21" font="vector" rot="SR90">B6</text>
+<text x="8" y="31" size="1.27" layer="21" font="vector" rot="SR90">B7</text>
+<text x="5.15" y="28.75" size="1.27" layer="21" font="vector" rot="SR90">0</text>
+<text x="5.15" y="25.4" size="1.27" layer="21" font="vector" rot="SR90">1</text>
 </plain>
 <libraries>
 <library name="RFWBBoard">
@@ -11498,7 +11496,7 @@ v1.0 Contains all logos used for the Marmote Power Board (Rev A)</description>
 </library>
 </libraries>
 <attributes>
-<attribute name="REV" value="A"/>
+<attribute name="REV" value="B"/>
 <attribute name="TITLE" value="Joshua"/>
 </attributes>
 <variantdefs>
@@ -11507,7 +11505,7 @@ v1.0 Contains all logos used for the Marmote Power Board (Rev A)</description>
 <class number="0" name="default" width="0" drill="0">
 </class>
 </classes>
-<designrules>
+<designrules name="default">
 <description language="de">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
 &lt;p&gt;
 Die Standard-Design-Rules sind so gewählt, dass sie für 
@@ -11682,7 +11680,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="VALUE" x="43.437778125" y="28.842909375" size="0.4064" layer="27" rot="R315"/>
 </element>
 <element name="C118" library="RFWBBoard" package="C0402" value="68pF" x="39.3" y="18" smashed="yes" rot="R225">
-<attribute name="NAME" x="37.758290625" y="17.234475" size="0.4064" layer="25" rot="R45"/>
+<attribute name="NAME" x="37.758290625" y="17.134475" size="0.4064" layer="25" rot="R45"/>
 <attribute name="VALUE" x="39.22815625" y="19.329075" size="0.4064" layer="27" rot="R225"/>
 </element>
 <element name="C119" library="RFWBBoard" package="C0402" value="2200pF" x="33.7" y="23.7" smashed="yes" rot="R225">
@@ -11690,7 +11688,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="VALUE" x="33.62815625" y="25.029075" size="0.4064" layer="27" rot="R225"/>
 </element>
 <element name="C120" library="RFWBBoard" package="C0402" value="100pF" x="36.5" y="25.9" smashed="yes" rot="R135">
-<attribute name="NAME" x="36.434475" y="26.7917125" size="0.4064" layer="25" rot="R315"/>
+<attribute name="NAME" x="34.634475" y="28.0917125" size="0.4064" layer="25" rot="R315"/>
 <attribute name="VALUE" x="37.829075" y="25.971840625" size="0.4064" layer="27" rot="R135"/>
 </element>
 <element name="R101" library="RFWBBoard" package="R0402" value="750" x="35.9" y="24.4" smashed="yes" rot="R315">
@@ -11708,11 +11706,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="VALUE" x="48.670921875" y="22.42815625" size="0.4064" layer="27" rot="R315"/>
 </element>
 <element name="C117" library="RFWBBoard" package="C0402" value="100nF" x="40.2" y="16.5" smashed="yes" rot="R225">
-<attribute name="NAME" x="39.208290625" y="16.334475" size="0.4064" layer="25" rot="R45"/>
+<attribute name="NAME" x="39.208290625" y="16.234475" size="0.4064" layer="25" rot="R45"/>
 <attribute name="VALUE" x="40.12815625" y="17.829075" size="0.4064" layer="27" rot="R225"/>
 </element>
 <element name="C104" library="RFWBBoard" package="C0402" value="DNP" x="41.4" y="29.5" smashed="yes" rot="R135">
-<attribute name="NAME" x="40.834475" y="30.8417125" size="0.4064" layer="25" rot="R315"/>
+<attribute name="NAME" x="39.234475" y="31.3417125" size="0.4064" layer="25" rot="R315"/>
 <attribute name="VALUE" x="42.729075" y="29.571840625" size="0.4064" layer="27" rot="R135"/>
 </element>
 <element name="C106" library="RFWBBoard" package="C0402" value="100pF" x="49.6" y="31" smashed="yes" rot="R270">
@@ -11720,7 +11718,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="VALUE" x="48.6094" y="31.888996875" size="0.4064" layer="27" rot="R270"/>
 </element>
 <element name="C107" library="RFWBBoard" package="C0402" value="100pF" x="39.9" y="28.2" smashed="yes" rot="R135">
-<attribute name="NAME" x="39.334475" y="29.5417125" size="0.4064" layer="25" rot="R315"/>
+<attribute name="NAME" x="37.534475" y="29.9417125" size="0.4064" layer="25" rot="R315"/>
 <attribute name="VALUE" x="41.229075" y="28.271840625" size="0.4064" layer="27" rot="R135"/>
 </element>
 <element name="C108" library="RFWBBoard" package="C0402" value="100pF" x="49" y="20.9" smashed="yes" rot="R315">
@@ -11736,11 +11734,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="VALUE" x="45.970921875" y="17.22815625" size="0.4064" layer="27" rot="R315"/>
 </element>
 <element name="C111" library="RFWBBoard" package="C0402" value="10nF" x="37.6" y="27.1" smashed="yes" rot="R135">
-<attribute name="NAME" x="36.984475" y="28.4917125" size="0.4064" layer="25" rot="R315"/>
+<attribute name="NAME" x="35.184475" y="28.4917125" size="0.4064" layer="25" rot="R315"/>
 <attribute name="VALUE" x="38.929075" y="27.171840625" size="0.4064" layer="27" rot="R135"/>
 </element>
 <element name="C112" library="RFWBBoard" package="C0402" value="10nF" x="35" y="22.1" smashed="yes" rot="R225">
-<attribute name="NAME" x="33.358290625" y="21.234475" size="0.4064" layer="25" rot="R45"/>
+<attribute name="NAME" x="34.058290625" y="21.934475" size="0.4064" layer="25" rot="R45"/>
 <attribute name="VALUE" x="34.92815625" y="23.429075" size="0.4064" layer="27" rot="R225"/>
 </element>
 <element name="C113" library="RFWBBoard" package="C0402" value="10nF" x="35.6" y="20.1" smashed="yes" rot="R225">
@@ -11760,7 +11758,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="VALUE" x="46.5768" y="33.2684" size="0.4064" layer="27" rot="R270"/>
 </element>
 <element name="C114" library="RFWBBoard" package="C0805" value="10uF" x="36.7" y="15.1" smashed="yes" rot="R225">
-<attribute name="NAME" x="34.70091875" y="14.88591875" size="0.4064" layer="25" rot="R225"/>
+<attribute name="NAME" x="35.00091875" y="15.38591875" size="0.4064" layer="25" rot="R225"/>
 <attribute name="VALUE" x="36.484471875" y="16.752365625" size="0.4064" layer="27" rot="R225"/>
 </element>
 <element name="C101" library="RFWBBoard" package="CPOL2012" value="10uF" x="55.15" y="19.4" smashed="yes" rot="R45">
@@ -11768,11 +11766,11 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="VALUE" x="55.719078125" y="17.394078125" size="0.4064" layer="27" rot="R45"/>
 </element>
 <element name="C102" library="RFWBBoard" package="C0402" value="100nF" x="53.8" y="20.65" smashed="yes" rot="R45">
-<attribute name="NAME" x="54.4907" y="22.0254625" size="0.4064" layer="25" rot="R45"/>
+<attribute name="NAME" x="53.2907" y="21.0254625" size="0.4064" layer="25" rot="R45"/>
 <attribute name="VALUE" x="53.871840625" y="19.320921875" size="0.4064" layer="27" rot="R45"/>
 </element>
 <element name="C121" library="RFWBBoard" package="C0402" value="1000pF" x="33.3" y="19.6" smashed="yes" rot="R90">
-<attribute name="NAME" x="32.346765625" y="19.7616125" size="0.4064" layer="25" rot="R270"/>
+<attribute name="NAME" x="32.853234375" y="18.9383875" size="0.4064" layer="25" rot="R90"/>
 <attribute name="VALUE" x="34.290603125" y="18.711" size="0.4064" layer="27" rot="R90"/>
 </element>
 <element name="IC1" library="RFWBBoard" package="TSSOP8" value="24LC025ST" x="13.5" y="7" smashed="yes" rot="R270">
@@ -11787,22 +11785,22 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="NAME" x="77.560365625" y="17.374178125" size="0.4064" layer="25" ratio="10"/>
 <attribute name="VALUE" x="72.611003125" y="21.784" size="1.27" layer="27" ratio="10" rot="R270"/>
 </element>
-<element name="R43" library="RFWBBoard" package="R0402" value="348" x="80.1" y="14.8" smashed="yes" rot="R90">
+<element name="R43" library="RFWBBoard" package="R0402" value="1.58k" x="80.1" y="14.8" smashed="yes" rot="R90">
 <attribute name="TOLERANCE" value="" x="80.1" y="14.8" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="79.49706875" y="14.292625" size="0.4064" layer="25" rot="R90"/>
 <attribute name="VALUE" x="81.090596875" y="13.911003125" size="0.4064" layer="27" rot="R90"/>
 </element>
-<element name="R45" library="RFWBBoard" package="R0402" value="348" x="75.7" y="15.8" smashed="yes" rot="R180">
+<element name="R45" library="RFWBBoard" package="R0402" value="1.3k" x="75.7" y="15.8" smashed="yes" rot="R180">
 <attribute name="TOLERANCE" value="" x="75.7" y="15.8" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="77.139884375" y="15.56143125" size="0.4064" layer="25"/>
 <attribute name="VALUE" x="76.589" y="16.7906" size="0.4064" layer="27" rot="R180"/>
 </element>
-<element name="R46" library="RFWBBoard" package="R0402" value="348" x="75.7" y="22.8" smashed="yes" rot="R180">
+<element name="R46" library="RFWBBoard" package="R0402" value="1.3k" x="75.7" y="22.8" smashed="yes" rot="R180">
 <attribute name="TOLERANCE" value="" x="75.7" y="22.8" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="77.16246875" y="22.5800375" size="0.4064" layer="25"/>
 <attribute name="VALUE" x="76.589" y="23.7906" size="0.4064" layer="27" rot="R180"/>
 </element>
-<element name="R44" library="RFWBBoard" package="R0402" value="348" x="78.8" y="20.3" smashed="yes" rot="R180">
+<element name="R44" library="RFWBBoard" package="R0402" value="1.58k" x="78.8" y="20.3" smashed="yes" rot="R180">
 <attribute name="TOLERANCE" value="" x="78.8" y="20.3" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="80.303025" y="20.08211875" size="0.4064" layer="25"/>
 <attribute name="VALUE" x="79.689003125" y="21.2906" size="0.4064" layer="27" rot="R180"/>
@@ -11817,12 +11815,12 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="NAME" x="71.089" y="20.5158" size="0.4064" layer="25" rot="R180"/>
 <attribute name="VALUE" x="73.489" y="21.2906" size="0.4064" layer="27" rot="R180"/>
 </element>
-<element name="R41" library="RFWBBoard" package="R0402" value="49.9" x="80.1" y="11.8" smashed="yes" rot="R90">
+<element name="R41" library="RFWBBoard" package="R0402" value="10k" x="80.1" y="11.8" smashed="yes" rot="R90">
 <attribute name="TOLERANCE" value="" x="80.1" y="11.8" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="79.47990625" y="11.39261875" size="0.4064" layer="25" rot="R90"/>
 <attribute name="VALUE" x="81.090596875" y="10.910996875" size="0.4064" layer="27" rot="R90"/>
 </element>
-<element name="R42" library="RFWBBoard" package="R0402" value="24.9" x="78.8" y="18.8" smashed="yes">
+<element name="R42" library="RFWBBoard" package="R0402" value="10k" x="78.8" y="18.8" smashed="yes">
 <attribute name="TOLERANCE" value="" x="78.8" y="18.8" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="80.28655625" y="18.588184375" size="0.4064" layer="25"/>
 <attribute name="VALUE" x="77.911003125" y="17.8094" size="0.4064" layer="27"/>
@@ -11831,22 +11829,22 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="NAME" x="68.653490625" y="12.306584375" size="0.4064" layer="25" ratio="10"/>
 <attribute name="VALUE" x="71.784" y="13.588996875" size="1.27" layer="27" ratio="10" rot="R180"/>
 </element>
-<element name="R53" library="RFWBBoard" package="R0402" value="348" x="69.85" y="6.1" smashed="yes" rot="R90">
+<element name="R53" library="RFWBBoard" package="R0402" value="1.58k" x="69.85" y="6.1" smashed="yes" rot="R90">
 <attribute name="TOLERANCE" value="" x="56.849996875" y="-20.899996875" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="70.9158" y="5.511" size="0.4064" layer="25" rot="R90"/>
 <attribute name="VALUE" x="70.8406" y="5.211" size="0.4064" layer="27" rot="R90"/>
 </element>
-<element name="R55" library="RFWBBoard" package="R0402" value="348" x="65.8" y="10.5" smashed="yes" rot="R90">
+<element name="R55" library="RFWBBoard" package="R0402" value="1.3k" x="65.8" y="10.5" smashed="yes" rot="R90">
 <attribute name="TOLERANCE" value="" x="55.800003125" y="-19.5" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="65.192171875" y="10.799053125" size="0.4064" layer="25" rot="R90"/>
+<attribute name="NAME" x="65.192171875" y="8.799053125" size="0.4064" layer="25" rot="R90"/>
 <attribute name="VALUE" x="66.7906" y="9.611" size="0.4064" layer="27" rot="R90"/>
 </element>
-<element name="R56" library="RFWBBoard" package="R0402" value="348" x="72.8" y="10.5" smashed="yes" rot="R90">
+<element name="R56" library="RFWBBoard" package="R0402" value="1.3k" x="72.8" y="10.5" smashed="yes" rot="R90">
 <attribute name="TOLERANCE" value="" x="65.800003125" y="-22.5" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="73.832553125" y="10.7829375" size="0.4064" layer="25" rot="R90"/>
 <attribute name="VALUE" x="73.7906" y="9.611" size="0.4064" layer="27" rot="R90"/>
 </element>
-<element name="R54" library="RFWBBoard" package="R0402" value="348" x="74.8" y="9.9" smashed="yes" rot="R180">
+<element name="R54" library="RFWBBoard" package="R0402" value="1.58k" x="74.8" y="9.9" smashed="yes" rot="R180">
 <attribute name="TOLERANCE" value="" x="92.800003125" y="-3.1" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="75.4410125" y="9.339528125" size="0.4064" layer="25" rot="R180"/>
 <attribute name="VALUE" x="75.689003125" y="10.8906" size="0.4064" layer="27" rot="R180"/>
@@ -11861,12 +11859,12 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="NAME" x="66.139" y="13.8658" size="0.4064" layer="25" rot="R180"/>
 <attribute name="VALUE" x="68.489" y="14.5906" size="0.4064" layer="27" rot="R180"/>
 </element>
-<element name="R51" library="RFWBBoard" package="R0402" value="49.9" x="69.85" y="3.05" smashed="yes" rot="R90">
+<element name="R51" library="RFWBBoard" package="R0402" value="10k" x="69.85" y="3.05" smashed="yes" rot="R90">
 <attribute name="TOLERANCE" value="" x="65.85" y="-23.95" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="70.9158" y="2.511" size="0.4064" layer="25" rot="R90"/>
 <attribute name="VALUE" x="70.8406" y="2.161" size="0.4064" layer="27" rot="R90"/>
 </element>
-<element name="R52" library="RFWBBoard" package="R0402" value="24.9" x="77.8" y="9.9" smashed="yes" rot="R180">
+<element name="R52" library="RFWBBoard" package="R0402" value="10k" x="77.8" y="9.9" smashed="yes" rot="R180">
 <attribute name="TOLERANCE" value="" x="107.8" y="8.899996875" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="78.369403125" y="9.278034375" size="0.4064" layer="25" rot="R180"/>
 <attribute name="VALUE" x="78.688996875" y="10.8906" size="0.4064" layer="27" rot="R180"/>
@@ -11967,37 +11965,29 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="NAME" x="70.111" y="35.4842" size="0.4064" layer="25"/>
 <attribute name="VALUE" x="72.011" y="34.7094" size="0.4064" layer="27"/>
 </element>
-<element name="RWP0" library="RFWBBoard" package="R0402" value="DNP" x="12" y="10" smashed="yes">
+<element name="RWP0" library="RFWBBoard" package="R0402" value="0" x="12" y="10">
 <attribute name="TOLERANCE" value="" x="12" y="10" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="11.111" y="9.0094" size="0.4064" layer="27"/>
 </element>
-<element name="RWP1" library="RFWBBoard" package="R0402" value="DNP" x="15" y="10" smashed="yes" rot="R180">
+<element name="RWP1" library="RFWBBoard" package="R0402" value="DNP" x="15" y="10" rot="R180">
 <attribute name="TOLERANCE" value="" x="15" y="10" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="VALUE" x="15.889" y="10.9906" size="0.4064" layer="27" rot="R180"/>
 </element>
-<element name="RA20" library="RFWBBoard" package="R0402" value="DNP" x="12" y="16.5" smashed="yes">
+<element name="RA20" library="RFWBBoard" package="R0402" value="0" x="12" y="16.5">
 <attribute name="TOLERANCE" value="" x="12" y="16.5" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="11.111" y="15.5094" size="0.4064" layer="27"/>
 </element>
-<element name="RA21" library="RFWBBoard" package="R0402" value="DNP" x="15" y="16.5" smashed="yes" rot="R180">
+<element name="RA21" library="RFWBBoard" package="R0402" value="0" x="15" y="16.5" rot="R180">
 <attribute name="TOLERANCE" value="" x="15" y="16.5" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="VALUE" x="15.889" y="17.4906" size="0.4064" layer="27" rot="R180"/>
 </element>
-<element name="RA10" library="RFWBBoard" package="R0402" value="DNP" x="12" y="14.5" smashed="yes">
+<element name="RA10" library="RFWBBoard" package="R0402" value="0" x="12" y="14.5">
 <attribute name="TOLERANCE" value="" x="12" y="14.5" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="11.111" y="13.5094" size="0.4064" layer="27"/>
 </element>
-<element name="RA11" library="RFWBBoard" package="R0402" value="DNP" x="15" y="14.5" smashed="yes" rot="R180">
+<element name="RA11" library="RFWBBoard" package="R0402" value="DNP" x="15" y="14.5" rot="R180">
 <attribute name="TOLERANCE" value="" x="15" y="14.5" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="VALUE" x="15.889" y="15.4906" size="0.4064" layer="27" rot="R180"/>
 </element>
-<element name="RA00" library="RFWBBoard" package="R0402" value="DNP" x="12" y="12.5" smashed="yes">
+<element name="RA00" library="RFWBBoard" package="R0402" value="0" x="12" y="12.5">
 <attribute name="TOLERANCE" value="" x="12" y="12.5" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="11.111" y="11.5094" size="0.4064" layer="27"/>
 </element>
-<element name="RA01" library="RFWBBoard" package="R0402" value="DNP" x="15" y="12.5" smashed="yes" rot="R180">
+<element name="RA01" library="RFWBBoard" package="R0402" value="DNP" x="15" y="12.5" rot="R180">
 <attribute name="TOLERANCE" value="" x="15" y="12.5" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="VALUE" x="15.889" y="13.4906" size="0.4064" layer="27" rot="R180"/>
 </element>
 <element name="R1" library="RFWBBoard" package="R0402" value="4.7k" x="17.8" y="8.4" smashed="yes" rot="R90">
 <attribute name="TOLERANCE" value="" x="17.8" y="8.4" size="1.778" layer="27" rot="R90" display="off"/>
@@ -12009,15 +11999,15 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="NAME" x="17.311" y="2.2842" size="0.4064" layer="25"/>
 <attribute name="VALUE" x="16.8094" y="5.189" size="0.4064" layer="27" rot="R270"/>
 </element>
-<element name="X3" library="RFWBBoard" package="FOX924" value="FOX924B" x="29.4" y="20.3" smashed="yes">
+<element name="X2" library="RFWBBoard" package="FOX924" value="FOX924B" x="29.4" y="20.3" smashed="yes">
 <attribute name="DIGI-KEY#" value="631-1073-1-ND" x="29.4" y="20.3" size="1.778" layer="27" display="off"/>
 <attribute name="FREQ" value="20 MHz" x="29.4" y="20.3" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="FOX924B-20.000" x="29.4" y="20.3" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="Fox Electronics" x="29.4" y="20.3" size="1.778" layer="27" display="off"/>
-<attribute name="NAME" x="26.9142" y="17.311" size="0.4064" layer="25" rot="R90"/>
+<attribute name="NAME" x="25.711" y="18.2858" size="0.4064" layer="25"/>
 <attribute name="VALUE" x="28.311" y="17.557" size="0.4064" layer="27"/>
 </element>
-<element name="X1" library="RFWBBoard" package="SMA-SMD" value="SMA-SMD" x="59" y="47.2" smashed="yes">
+<element name="J2" library="RFWBBoard" package="SMA-SMD" value="SMA-SMD" x="59" y="47.2" smashed="yes">
 <attribute name="OC_NEWARK" value="unknown" x="59" y="47.2" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="59" y="47.2" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="" x="59" y="47.2" size="1.778" layer="27" display="off"/>
@@ -12025,7 +12015,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="NAME" x="56.46" y="51.645" size="0.4064" layer="25"/>
 <attribute name="VALUE" x="55.825" y="41.485" size="1.27" layer="27"/>
 </element>
-<element name="X2" library="RFWBBoard" package="SMA-SMD" value="SMA-SMD" x="31" y="47.2" smashed="yes" rot="R90">
+<element name="J3" library="RFWBBoard" package="SMA-SMD" value="SMA-SMD" x="31" y="47.2" smashed="yes" rot="R90">
 <attribute name="OC_NEWARK" value="unknown" x="31" y="47.2" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="" x="31" y="47.2" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MF" value="" x="31" y="47.2" size="1.778" layer="27" rot="R90" display="off"/>
@@ -12033,7 +12023,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="NAME" x="28.66" y="51.445" size="0.4064" layer="25"/>
 <attribute name="VALUE" x="36.715" y="44.025" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="X4" library="RFWBBoard" package="SMA-SMD" value="SMA-SMD" x="85" y="12.4" smashed="yes" rot="R90">
+<element name="J4" library="RFWBBoard" package="SMA-SMD" value="SMA-SMD" x="85" y="12.4" smashed="yes" rot="R90">
 <attribute name="OC_NEWARK" value="unknown" x="85" y="12.4" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="" x="85" y="12.4" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MF" value="" x="85" y="12.4" size="1.778" layer="27" rot="R90" display="off"/>
@@ -12041,7 +12031,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="NAME" x="81.86" y="16.445" size="0.4064" layer="25"/>
 <attribute name="VALUE" x="90.715" y="9.225" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="X5" library="RFWBBoard" package="SMA-SMD" value="SMA-SMD" x="75" y="5" smashed="yes" rot="R90">
+<element name="J5" library="RFWBBoard" package="SMA-SMD" value="SMA-SMD" x="75" y="5" smashed="yes" rot="R90">
 <attribute name="OC_NEWARK" value="unknown" x="75" y="5" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="" x="75" y="5" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MF" value="" x="75" y="5" size="1.778" layer="27" rot="R90" display="off"/>
@@ -12049,7 +12039,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="NAME" x="78.96" y="1.945" size="0.4064" layer="25"/>
 <attribute name="VALUE" x="80.715" y="1.825" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="X6" library="RFWBBoard" package="SMA-SMD" value="SMA-SMD" x="85" y="37.6" smashed="yes" rot="R90">
+<element name="J6" library="RFWBBoard" package="SMA-SMD" value="SMA-SMD" x="85" y="37.6" smashed="yes" rot="R90">
 <attribute name="OC_NEWARK" value="unknown" x="85" y="37.6" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="" x="85" y="37.6" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MF" value="" x="85" y="37.6" size="1.778" layer="27" rot="R90" display="off"/>
@@ -12057,7 +12047,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="NAME" x="87.56" y="33.245" size="0.4064" layer="25"/>
 <attribute name="VALUE" x="90.715" y="34.425" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="X7" library="RFWBBoard" package="SMA-SMD" value="SMA-SMD" x="85" y="25" smashed="yes" rot="R90">
+<element name="J7" library="RFWBBoard" package="SMA-SMD" value="SMA-SMD" x="85" y="25" smashed="yes" rot="R90">
 <attribute name="OC_NEWARK" value="unknown" x="85" y="25" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="" x="85" y="25" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MF" value="" x="85" y="25" size="1.778" layer="27" rot="R90" display="off"/>
@@ -12083,7 +12073,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="REVISION" value="A" x="31.3" y="17.1" size="1.778" layer="27" display="off"/>
 <attribute name="PAGE1" value="Cover page" x="31.3" y="17.1" size="1.778" layer="27" display="off"/>
 <attribute name="PAGE2" value="Connector" x="31.3" y="17.1" size="1.778" layer="27" display="off"/>
-<attribute name="NAME" x="28.511" y="16.3842" size="0.4064" layer="25"/>
+<attribute name="NAME" x="28.511" y="17.1842" size="0.4064" layer="25"/>
 <attribute name="VALUE" x="30.411" y="16.1094" size="0.4064" layer="27"/>
 </element>
 <element name="C124" library="RFWBBoard" package="C0402" value="100nF" x="30" y="24" smashed="yes" rot="R90">
@@ -12113,7 +12103,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="REVISION" value="A" x="39.2" y="3.4" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="PAGE1" value="Cover page" x="39.2" y="3.4" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="PAGE2" value="Connector" x="39.2" y="3.4" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="39.4142" y="5.011" size="0.4064" layer="25" rot="R90"/>
+<attribute name="NAME" x="38.211" y="5.9858" size="0.4064" layer="25"/>
 <attribute name="VALUE" x="40.343" y="2.511" size="0.4064" layer="27" rot="R90"/>
 </element>
 <element name="C67" library="RFWBBoard" package="C0402" value="100nF" x="72.9" y="34.7" smashed="yes" rot="R180">
@@ -12236,30 +12226,32 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="VALUE" x="71.8208" y="22.984" size="0.4064" layer="27" rot="R90"/>
 </element>
 <element name="C72" library="RFWBBoard" package="C0402" value="100nF" x="71.8" y="15.1" smashed="yes">
-<attribute name="NAME" x="73.211" y="14.6842" size="0.4064" layer="25"/>
+<attribute name="NAME" x="73.311" y="14.7842" size="0.4064" layer="25"/>
 <attribute name="VALUE" x="70.911" y="14.1094" size="0.4064" layer="27"/>
 </element>
 <element name="C73" library="RFWBBoard" package="C0402" value="10nF" x="71.8" y="14.1" smashed="yes">
-<attribute name="NAME" x="69.311" y="13.6842" size="0.4064" layer="25"/>
+<attribute name="NAME" x="73.311" y="13.8842" size="0.4064" layer="25"/>
 <attribute name="VALUE" x="70.911" y="13.1094" size="0.4064" layer="27"/>
 </element>
 <element name="C71" library="RFWBBoard" package="CPOL2012" value="10uF" x="71.5" y="17" smashed="yes">
-<attribute name="NAME" x="68.584" y="17.9652" size="0.4064" layer="25"/>
+<attribute name="NAME" x="68.384" y="16.7652" size="0.4064" layer="25"/>
 <attribute name="VALUE" x="70.484" y="15.1792" size="0.4064" layer="27"/>
 </element>
-<element name="LOGO4" library="Logo" package="LOGO-ISIS-10MM-SILKSCREEN" value="LOGO-ISIS-600MIL-10MM-SS" x="51.5" y="1.5"/>
-<element name="LOGO5" library="Logo" package="LOGO-VANDERBILT-10MM-SILKSCREEN" value="LOGO-VANDERBILT-600MIL-10MM-SS" x="41" y="1.5"/>
+<element name="LOGO4" library="Logo" package="LOGO-ISIS-10MM-SILKSCREEN" value="LOGO-ISIS-600MIL-10MM-SS" x="44" y="1.5"/>
+<element name="LOGO5" library="Logo" package="LOGO-VANDERBILT-10MM-SILKSCREEN" value="LOGO-VANDERBILT-600MIL-10MM-SS" x="25" y="29"/>
 <element name="LOGO6" library="Logo" package="LOGO-MARMOTE-10MM-SILKSCREEN" value="LOGO-MARMOTE-600MIL-10MM-SS" x="12.5" y="42"/>
 <element name="LOGO7" library="Logo" package="LOGO-RADIO-FILLED-10MM-SILKSCREEN" value="LOGO-RADIO-3-600MIL-10MM-SS" x="40.5" y="35.5"/>
 <element name="M9" library="RFWBBoard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="2" y="48" locked="yes" rot="MR0"/>
 <element name="M10" library="RFWBBoard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="88" y="48" locked="yes" rot="MR0"/>
 <element name="M11" library="RFWBBoard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="2" y="2" locked="yes" rot="MR0"/>
 <element name="M12" library="RFWBBoard" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="88" y="2" locked="yes" rot="MR0"/>
-<element name="X8" library="RFWBBoard" package="SMA-SMD" value="SMA-SMD" x="23" y="13" rot="R90">
+<element name="J8" library="RFWBBoard" package="SMA-SMD" value="SMA-SMD" x="23" y="13" smashed="yes" rot="R90">
 <attribute name="OC_NEWARK" value="unknown" x="23" y="13" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="" x="23" y="13" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MF" value="" x="23" y="13" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="23" y="13" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="19.46" y="17.045" size="0.4064" layer="25"/>
+<attribute name="VALUE" x="28.715" y="9.825" size="1.27" layer="27" rot="R90"/>
 </element>
 <element name="R5" library="RFWBBoard" package="R0402" value="0" x="30.3" y="11.3">
 <attribute name="TOLERANCE" value="" x="30.3" y="11.3" size="1.778" layer="27" display="off"/>
@@ -12315,7 +12307,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="PAGE1" value="Cover page" x="24.6" y="21.6" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="PAGE2" value="Connector" x="24.6" y="21.6" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="C126" library="RFWBBoard" package="C0402" value="18pF" x="33.3" y="13.6" rot="R90">
+<element name="C126" library="RFWBBoard" package="C0402" value="18pF" x="33.3" y="13.6" smashed="yes" rot="R90">
 <attribute name="PAGE3" value="Baseband signals" x="33.3" y="13.6" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="PAGE4" value="RF signals" x="33.3" y="13.6" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="AUTHOREMAIL" value="benjamin.babjak@vanderbilt.edu" x="33.3" y="13.6" size="1.778" layer="27" rot="R90" display="off"/>
@@ -12331,8 +12323,10 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="REVISION" value="A" x="33.3" y="13.6" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="PAGE1" value="Cover page" x="33.3" y="13.6" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="PAGE2" value="Connector" x="33.3" y="13.6" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="32.8158" y="12.811" size="0.4064" layer="25" rot="R90"/>
+<attribute name="VALUE" x="34.2906" y="12.711" size="0.4064" layer="27" rot="R90"/>
 </element>
-<element name="C127" library="RFWBBoard" package="C0402" value="33pF" x="33.3" y="16.6" rot="R90">
+<element name="C127" library="RFWBBoard" package="C0402" value="33pF" x="33.3" y="16.6" smashed="yes" rot="R90">
 <attribute name="PAGE3" value="Baseband signals" x="33.3" y="16.6" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="PAGE4" value="RF signals" x="33.3" y="16.6" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="AUTHOREMAIL" value="benjamin.babjak@vanderbilt.edu" x="33.3" y="16.6" size="1.778" layer="27" rot="R90" display="off"/>
@@ -12348,19 +12342,25 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="REVISION" value="A" x="33.3" y="16.6" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="PAGE1" value="Cover page" x="33.3" y="16.6" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="PAGE2" value="Connector" x="33.3" y="16.6" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="32.8158" y="15.211" size="0.4064" layer="25" rot="R90"/>
+<attribute name="VALUE" x="34.2906" y="15.711" size="0.4064" layer="27" rot="R90"/>
 </element>
-<element name="X9" library="RFWBBoard" package="CX3225SB" value="CX3225SB" x="30.7" y="14.3" rot="R90"/>
-<element name="SW1" library="RFWBBoard" package="SWITCH-DIP-CJS" value="SWITCH-CJS-1200TA" x="16.5" y="27.5" rot="R90">
+<element name="X1" library="RFWBBoard" package="CX3225SB" value="CX3225SB" x="30.7" y="14.3" rot="R90"/>
+<element name="SW1" library="RFWBBoard" package="SWITCH-DIP-CJS" value="SWITCH-CJS-1200TA" x="16.5" y="27.5" smashed="yes" rot="R90">
 <attribute name="DIGI-KEY#" value="563-1021-1-ND" x="16.5" y="27.5" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="CJS-1200TA" x="16.5" y="27.5" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MF" value="CJS" x="16.5" y="27.5" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="15.2" y="24.2" size="0.4064" layer="25"/>
+<attribute name="VALUE" x="14.25" y="24.5" size="0.4064" layer="27" rot="R90"/>
 </element>
-<element name="SW2" library="RFWBBoard" package="SWITCH-DIP-CJS" value="SWITCH-CJS-1200TA" x="21" y="27.5" rot="R90">
+<element name="SW2" library="RFWBBoard" package="SWITCH-DIP-CJS" value="SWITCH-CJS-1200TA" x="21" y="27.5" smashed="yes" rot="R90">
 <attribute name="DIGI-KEY#" value="563-1021-1-ND" x="21" y="27.5" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="CJS-1200TA" x="21" y="27.5" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MF" value="CJS" x="21" y="27.5" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="19.7" y="24.2" size="0.4064" layer="25"/>
+<attribute name="VALUE" x="18.75" y="24.5" size="0.4064" layer="27" rot="R90"/>
 </element>
-<element name="R8" library="RFWBBoard" package="R1206" value="0" x="63.1" y="7.9" rot="R90">
+<element name="R8" library="RFWBBoard" package="R1206" value="0" x="63.1" y="7.9" smashed="yes" rot="R90">
 <attribute name="TOLERANCE" value="" x="63.1" y="7.9" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="PAGE3" value="Baseband signals" x="63.1" y="7.9" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="PAGE4" value="RF signals" x="63.1" y="7.9" size="1.778" layer="27" rot="R90" display="off"/>
@@ -12377,6 +12377,8 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="REVISION" value="A" x="63.1" y="7.9" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="PAGE1" value="Cover page" x="63.1" y="7.9" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="PAGE2" value="Connector" x="63.1" y="7.9" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="62.0824" y="7.5316" size="0.4064" layer="25" rot="R90"/>
+<attribute name="VALUE" x="64.5732" y="6.7316" size="0.4064" layer="27" rot="R90"/>
 </element>
 <element name="R9" library="RFWBBoard" package="R1206" value="0" x="51.8" y="16.1" rot="R45">
 <attribute name="TOLERANCE" value="" x="51.8" y="16.1" size="1.778" layer="27" rot="R45" display="off"/>
@@ -12396,15 +12398,22 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <attribute name="PAGE1" value="Cover page" x="51.8" y="16.1" size="1.778" layer="27" rot="R45" display="off"/>
 <attribute name="PAGE2" value="Connector" x="51.8" y="16.1" size="1.778" layer="27" rot="R45" display="off"/>
 </element>
-<element name="SW3" library="RFWBBoard" package="SWITCH-DIP-CJS" value="SWITCH-CJS-1200TA" x="12" y="27.5" rot="R90">
+<element name="SW3" library="RFWBBoard" package="SWITCH-DIP-CJS" value="SWITCH-CJS-1200TA" x="12" y="27.5" smashed="yes" rot="R90">
 <attribute name="DIGI-KEY#" value="563-1021-1-ND" x="5.5" y="21" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="CJS-1200TA" x="5.5" y="21" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MF" value="CJS" x="5.5" y="21" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="10.7" y="24.2" size="0.4064" layer="25"/>
+<attribute name="VALUE" x="9.75" y="24.5" size="0.4064" layer="27" rot="R90"/>
 </element>
-<element name="SW4" library="RFWBBoard" package="SWITCH-DIP-CJS" value="SWITCH-CJS-1200TA" x="7.5" y="27.5" rot="R90">
+<element name="SW4" library="RFWBBoard" package="SWITCH-DIP-CJS" value="SWITCH-CJS-1200TA" x="7.5" y="27.5" smashed="yes" rot="R90">
 <attribute name="DIGI-KEY#" value="563-1021-1-ND" x="-5.5" y="14.5" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="CJS-1200TA" x="-5.5" y="14.5" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MF" value="CJS" x="-5.5" y="14.5" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="6.2" y="24.2" size="0.4064" layer="25"/>
+<attribute name="VALUE" x="5.25" y="24.5" size="0.4064" layer="27" rot="R90"/>
+</element>
+<element name="R10" library="RFWBBoard" package="R0402" value="30k" x="31.9" y="2.3" rot="R180">
+<attribute name="TOLERANCE" value="" x="31.9" y="2.3" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 </elements>
 <signals>
@@ -12731,42 +12740,42 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <vertex x="90" y="0"/>
 <vertex x="0" y="0"/>
 </polygon>
-<contactref element="X1" pad="2@1"/>
-<contactref element="X1" pad="2@2"/>
-<contactref element="X1" pad="2@3"/>
-<contactref element="X1" pad="2@4"/>
-<contactref element="X1" pad="2@5"/>
-<contactref element="X1" pad="2@6"/>
-<contactref element="X2" pad="2@1"/>
-<contactref element="X2" pad="2@2"/>
-<contactref element="X2" pad="2@3"/>
-<contactref element="X2" pad="2@4"/>
-<contactref element="X2" pad="2@5"/>
-<contactref element="X2" pad="2@6"/>
-<contactref element="X4" pad="2@1"/>
-<contactref element="X4" pad="2@2"/>
-<contactref element="X4" pad="2@3"/>
-<contactref element="X4" pad="2@4"/>
-<contactref element="X4" pad="2@5"/>
-<contactref element="X4" pad="2@6"/>
-<contactref element="X5" pad="2@1"/>
-<contactref element="X5" pad="2@2"/>
-<contactref element="X5" pad="2@3"/>
-<contactref element="X5" pad="2@4"/>
-<contactref element="X5" pad="2@5"/>
-<contactref element="X5" pad="2@6"/>
-<contactref element="X6" pad="2@1"/>
-<contactref element="X6" pad="2@2"/>
-<contactref element="X6" pad="2@3"/>
-<contactref element="X6" pad="2@4"/>
-<contactref element="X6" pad="2@5"/>
-<contactref element="X6" pad="2@6"/>
-<contactref element="X7" pad="2@1"/>
-<contactref element="X7" pad="2@2"/>
-<contactref element="X7" pad="2@3"/>
-<contactref element="X7" pad="2@4"/>
-<contactref element="X7" pad="2@5"/>
-<contactref element="X7" pad="2@6"/>
+<contactref element="J2" pad="2@1"/>
+<contactref element="J2" pad="2@2"/>
+<contactref element="J2" pad="2@3"/>
+<contactref element="J2" pad="2@4"/>
+<contactref element="J2" pad="2@5"/>
+<contactref element="J2" pad="2@6"/>
+<contactref element="J3" pad="2@1"/>
+<contactref element="J3" pad="2@2"/>
+<contactref element="J3" pad="2@3"/>
+<contactref element="J3" pad="2@4"/>
+<contactref element="J3" pad="2@5"/>
+<contactref element="J3" pad="2@6"/>
+<contactref element="J4" pad="2@1"/>
+<contactref element="J4" pad="2@2"/>
+<contactref element="J4" pad="2@3"/>
+<contactref element="J4" pad="2@4"/>
+<contactref element="J4" pad="2@5"/>
+<contactref element="J4" pad="2@6"/>
+<contactref element="J5" pad="2@1"/>
+<contactref element="J5" pad="2@2"/>
+<contactref element="J5" pad="2@3"/>
+<contactref element="J5" pad="2@4"/>
+<contactref element="J5" pad="2@5"/>
+<contactref element="J5" pad="2@6"/>
+<contactref element="J6" pad="2@1"/>
+<contactref element="J6" pad="2@2"/>
+<contactref element="J6" pad="2@3"/>
+<contactref element="J6" pad="2@4"/>
+<contactref element="J6" pad="2@5"/>
+<contactref element="J6" pad="2@6"/>
+<contactref element="J7" pad="2@1"/>
+<contactref element="J7" pad="2@2"/>
+<contactref element="J7" pad="2@3"/>
+<contactref element="J7" pad="2@4"/>
+<contactref element="J7" pad="2@5"/>
+<contactref element="J7" pad="2@6"/>
 <via x="35.45" y="16.6" extent="1-16" drill="0.254" diameter="0.254"/>
 <via x="38" y="21.65" extent="1-16" drill="0.254"/>
 <via x="38.9" y="29.7" extent="1-16" drill="0.254"/>
@@ -13064,7 +13073,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="25.7" y="7.2" extent="1-16" drill="0.254"/>
 <wire x1="24.5" y1="3.5" x2="24.5" y2="10.4" width="0.6096" layer="16"/>
 <wire x1="28.5" y1="3.5" x2="28.5" y2="10.4" width="0.6096" layer="16"/>
-<contactref element="X3" pad="2"/>
+<contactref element="X2" pad="2"/>
 <contactref element="C124" pad="2"/>
 <contactref element="C125" pad="2"/>
 <contactref element="C123" pad="2"/>
@@ -13078,16 +13087,16 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="2.05" y="19.1" extent="1-16" drill="0.254"/>
 <via x="19.85" y="18" extent="1-16" drill="0.254"/>
 <via x="17.85" y="13.5" extent="1-16" drill="0.254"/>
-<contactref element="X8" pad="2@2"/>
-<contactref element="X8" pad="2@3"/>
-<contactref element="X8" pad="2@4"/>
-<contactref element="X8" pad="2@5"/>
-<contactref element="X8" pad="2@6"/>
-<contactref element="X8" pad="2@1"/>
+<contactref element="J8" pad="2@2"/>
+<contactref element="J8" pad="2@3"/>
+<contactref element="J8" pad="2@4"/>
+<contactref element="J8" pad="2@5"/>
+<contactref element="J8" pad="2@6"/>
+<contactref element="J8" pad="2@1"/>
 <contactref element="C126" pad="1"/>
-<contactref element="X9" pad="1"/>
-<contactref element="X9" pad="4"/>
-<contactref element="X9" pad="2"/>
+<contactref element="X1" pad="1"/>
+<contactref element="X1" pad="4"/>
+<contactref element="X1" pad="2"/>
 <contactref element="SW1" pad="3"/>
 <contactref element="SW2" pad="3"/>
 <contactref element="SW3" pad="3"/>
@@ -13128,6 +13137,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="11.95" y="6.85" extent="1-16" drill="0.254"/>
 <via x="10.45" y="4.95" extent="1-16" drill="0.254"/>
 <via x="9.25" y="6.05" extent="1-16" drill="0.254"/>
+<contactref element="R10" pad="2"/>
 <wire x1="38.4" y1="1.7" x2="39.2" y2="1.978" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="D3V3">
@@ -13146,10 +13156,9 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="26.5" y1="3.5" x2="25.9" y2="3.5" width="0.6096" layer="16"/>
 <wire x1="25.9" y1="3.5" x2="27.1" y2="3.5" width="0.6096" layer="16"/>
 <wire x1="27.1" y1="3.5" x2="26.5" y2="3.5" width="0.6096" layer="16"/>
-<wire x1="26.5" y1="3.5" x2="25.15" y2="2.15" width="0.6096" layer="15"/>
-<wire x1="25.15" y1="2.15" x2="18.35" y2="2.15" width="0.6096" layer="15"/>
-<wire x1="18.35" y1="2.15" x2="16.8" y2="3.7" width="0.6096" layer="15"/>
-<wire x1="16.8" y1="3.7" x2="16.8" y2="10" width="0.6096" layer="15"/>
+<wire x1="26.5" y1="3.5" x2="26" y2="4" width="0.6096" layer="15"/>
+<wire x1="26" y1="4" x2="16.8" y2="4" width="0.6096" layer="15"/>
+<wire x1="16.8" y1="4" x2="16.8" y2="10" width="0.6096" layer="15"/>
 <wire x1="16.8" y1="8.05" x2="16.8" y2="10" width="0.6096" layer="1"/>
 <wire x1="16.8" y1="12.5" x2="16.8" y2="14.5" width="0.6096" layer="1"/>
 <wire x1="16.8" y1="14.5" x2="16.8" y2="15.35" width="0.6096" layer="1"/>
@@ -13158,8 +13167,8 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="16.8" y1="12.5" x2="15.65" y2="12.5" width="0.6096" layer="1"/>
 <contactref element="R2" pad="2"/>
 <contactref element="R1" pad="2"/>
-<via x="16.8" y="3.7" extent="1-16" drill="0.254"/>
-<wire x1="16.8" y1="3.7" x2="17.85" y2="3.7" width="0.3048" layer="1"/>
+<via x="16.8" y="4" extent="1-16" drill="0.254"/>
+<wire x1="16.8" y1="4" x2="17.45" y2="4" width="0.3048" layer="1"/>
 <via x="26.5" y="3.5" extent="1-16" drill="0.254"/>
 <wire x1="16.9" y1="9.2" x2="17.85" y2="9.2" width="0.3048" layer="1"/>
 <wire x1="16.8" y1="10" x2="17" y2="10" width="0.2032" layer="1"/>
@@ -13169,7 +13178,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="16.8" y1="8.05" x2="16.425" y2="8.05" width="0.2032" layer="1"/>
 <wire x1="16.425" y1="8.05" x2="16.425" y2="7.975" width="0.2032" layer="1"/>
 <wire x1="17.85" y1="9.2" x2="17.8" y2="9.05" width="0.2032" layer="1"/>
-<wire x1="17.85" y1="3.7" x2="17.8" y2="3.65" width="0.2032" layer="1"/>
+<wire x1="17.45" y1="4" x2="17.8" y2="3.65" width="0.2032" layer="1"/>
 <polygon width="0.254" layer="15">
 <vertex x="23" y="25.1"/>
 <vertex x="9.5" y="25.1"/>
@@ -13227,7 +13236,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="35.4" y1="29.1" x2="32.3" y2="26" width="0.2032" layer="16"/>
 <wire x1="32.3" y1="26" x2="32.3" y2="11" width="0.2032" layer="16"/>
 <wire x1="33.5" y1="9.8" x2="32.3" y2="11" width="0.2032" layer="16"/>
-<via x="39.1" y="26.7" extent="1-16" drill="0.254"/>
+<via x="39.1" y="26.7" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <contactref element="J1" pad="20"/>
 <wire x1="40" y1="25.4" x2="40.148346875" y2="25.198096875" width="0.2032" layer="1"/>
 <wire x1="33.5" y1="9.8" x2="33.5" y2="8.85" width="0.2032" layer="16"/>
@@ -13238,28 +13247,21 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="37.3" y1="9.9" x2="36.5" y2="9.1" width="0.2032" layer="1"/>
 <wire x1="36.5" y1="9.1" x2="36.5" y2="3.3" width="0.2032" layer="1"/>
 <wire x1="36.5" y1="3.3" x2="35.7" y2="2.5" width="0.2032" layer="1"/>
-<wire x1="35.7" y1="2.5" x2="22.8" y2="2.5" width="0.2032" layer="1"/>
+<wire x1="35.7" y1="2.5" x2="22.8" y2="2.5" width="0.2032" layer="16"/>
 <wire x1="22.8" y1="2.5" x2="18.6" y2="6.7" width="0.2032" layer="1"/>
 <wire x1="16.8" y1="6.7" x2="17.7" y2="6.7" width="0.2032" layer="1"/>
 <contactref element="R1" pad="1"/>
 <wire x1="17.7" y1="7.6" x2="17.7" y2="6.7" width="0.2032" layer="1"/>
 <contactref element="J1" pad="26"/>
-<via x="37.3" y="10.9" extent="1-16" drill="0.254"/>
+<via x="37.3" y="10.9" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="37.3" y1="10.9" x2="36.5" y2="10.1" width="0.2032" layer="16"/>
 <wire x1="17.7" y1="7.6" x2="17.8" y2="7.6" width="0.2032" layer="1"/>
 <wire x1="17.8" y1="7.6" x2="17.8" y2="7.75" width="0.2032" layer="1"/>
 <wire x1="18.6" y1="6.7" x2="17.7" y2="6.7" width="0.2032" layer="1"/>
 <wire x1="16.8" y1="6.7" x2="16.425" y2="6.675" width="0.2032" layer="1"/>
 <wire x1="36.5" y1="10.1" x2="36.5" y2="8.85" width="0.2032" layer="16"/>
-</signal>
-<signal name="CLK1">
-<contactref element="J1" pad="12"/>
-<via x="26.7" y="13.1" extent="1-16" drill="0.254"/>
-<wire x1="29.5" y1="8.85" x2="29.5" y2="10.3" width="0.254" layer="16"/>
-<wire x1="29.5" y1="10.3" x2="26.7" y2="13.1" width="0.254" layer="16"/>
-<wire x1="26.7" y1="13.1" x2="23.3" y2="13.1" width="0.254" layer="1"/>
-<contactref element="X8" pad="1"/>
-<wire x1="23" y1="13" x2="23.3" y2="13.1" width="0" layer="19" extent="1-1"/>
+<via x="35.7" y="2.5" extent="1-16" drill="0.254" diameter="0.254"/>
+<via x="22.8" y="2.5" extent="1-16" drill="0.254" diameter="0.254"/>
 </signal>
 <signal name="A1V5">
 <contactref element="J1" pad="79"/>
@@ -13270,7 +13272,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="36"/>
 <wire x1="42.3" y1="18.4" x2="42.3" y2="14.7" width="0.2032" layer="1"/>
 <wire x1="42.3" y1="14.7" x2="46.5" y2="10.5" width="0.2032" layer="1"/>
-<via x="46.5" y="10.5" extent="1-16" drill="0.254"/>
+<via x="46.5" y="10.5" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <contactref element="J1" pad="46"/>
 <wire x1="46.5" y1="8.85" x2="46.5" y2="10.5" width="0.6096" layer="16"/>
 <wire x1="42.3" y1="18.4" x2="42.26966875" y2="18.48058125" width="0.2032" layer="1"/>
@@ -13279,7 +13281,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="37"/>
 <wire x1="43.3" y1="18.45" x2="43.3" y2="15.7" width="0.2032" layer="1"/>
 <wire x1="43.3" y1="15.7" x2="48.5" y2="10.5" width="0.2032" layer="1"/>
-<via x="48.5" y="10.5" extent="1-16" drill="0.254"/>
+<via x="48.5" y="10.5" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <contactref element="J1" pad="50"/>
 <wire x1="48.5" y1="8.85" x2="48.5" y2="10.5" width="0.6096" layer="16"/>
 <wire x1="43.3" y1="18.45" x2="43.330328125" y2="18.48058125" width="0.2032" layer="1"/>
@@ -13288,7 +13290,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="43"/>
 <via x="46.9" y="19.2" extent="1-16" drill="0.254"/>
 <wire x1="45.6" y1="20.5" x2="46.9" y2="19.2" width="0.2032" layer="1"/>
-<via x="40.5" y="10.5" extent="1-16" drill="0.254"/>
+<via x="40.5" y="10.5" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="40.5" y1="10.5" x2="46.9" y2="16.9" width="0.2032" layer="3"/>
 <wire x1="46.9" y1="19.2" x2="46.9" y2="16.9" width="0.2032" layer="3"/>
 <contactref element="J1" pad="34"/>
@@ -13301,7 +13303,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="41.6" y1="18.5" x2="41.6" y2="18.1" width="0.2032" layer="1"/>
 <wire x1="41.6" y1="18.1" x2="41.8" y2="17.9" width="0.2032" layer="1"/>
 <wire x1="41.8" y1="17.9" x2="41.8" y2="14.2" width="0.2032" layer="1"/>
-<via x="45.5" y="10.5" extent="1-16" drill="0.254"/>
+<via x="45.5" y="10.5" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="45.5" y1="10.5" x2="41.8" y2="14.2" width="0.2032" layer="1"/>
 <contactref element="J1" pad="44"/>
 <wire x1="45.5" y1="8.85" x2="45.5" y2="10.5" width="0.6096" layer="16"/>
@@ -13313,7 +13315,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="44" y1="18.5" x2="44" y2="18.1" width="0.2032" layer="1"/>
 <wire x1="44" y1="18.1" x2="43.8" y2="17.9" width="0.2032" layer="1"/>
 <wire x1="43.8" y1="17.9" x2="43.8" y2="16.2" width="0.2032" layer="1"/>
-<via x="49.5" y="10.5" extent="1-16" drill="0.254"/>
+<via x="49.5" y="10.5" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="49.5" y1="10.5" x2="43.8" y2="16.2" width="0.2032" layer="1"/>
 <contactref element="J1" pad="52"/>
 <wire x1="49.5" y1="8.85" x2="49.5" y2="10.5" width="0.6096" layer="16"/>
@@ -13323,7 +13325,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="42"/>
 <via x="46.2" y="19.2" extent="1-16" drill="0.254"/>
 <wire x1="45.3" y1="20.1" x2="46.2" y2="19.2" width="0.2032" layer="1"/>
-<via x="39.5" y="10.5" extent="1-16" drill="0.254"/>
+<via x="39.5" y="10.5" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="39.5" y1="10.5" x2="46.2" y2="17.2" width="0.2032" layer="3"/>
 <wire x1="46.2" y1="17.2" x2="46.2" y2="19.2" width="0.2032" layer="3"/>
 <contactref element="J1" pad="32"/>
@@ -13334,7 +13336,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="45"/>
 <via x="48.3" y="19.2" extent="1-16" drill="0.254"/>
 <wire x1="46.3" y1="21.2" x2="48.3" y2="19.2" width="0.2032" layer="1"/>
-<via x="43.5" y="10.5" extent="1-16" drill="0.254"/>
+<via x="43.5" y="10.5" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="43.5" y1="10.5" x2="48.3" y2="15.3" width="0.2032" layer="3"/>
 <wire x1="48.3" y1="19.2" x2="48.3" y2="15.3" width="0.2032" layer="3"/>
 <contactref element="J1" pad="40"/>
@@ -13409,8 +13411,8 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="C118" pad="1"/>
 <contactref element="R101" pad="2"/>
 <contactref element="U1" pad="32"/>
-<via x="37" y="23.4" extent="1-16" drill="0.254"/>
-<via x="38.9" y="18.6" extent="1-16" drill="0.254"/>
+<via x="37" y="23.4" extent="1-16" drill="0.254" alwaysstop="yes"/>
+<via x="38.9" y="18.6" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="37" y1="23.4" x2="38.5" y2="21.9" width="0.2032" layer="3"/>
 <wire x1="38.5" y1="21.9" x2="38.5" y2="19" width="0.2032" layer="3"/>
 <wire x1="38.5" y1="19" x2="38.9" y2="18.6" width="0.2032" layer="3"/>
@@ -13445,7 +13447,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="35.1" y1="10.4" x2="33.7" y2="10.4" width="0.2032" layer="16"/>
 <wire x1="33.7" y1="10.4" x2="32.8" y2="11.3" width="0.2032" layer="16"/>
 <wire x1="32.8" y1="11.3" x2="32.8" y2="25.7" width="0.2032" layer="16"/>
-<via x="41.1" y="27.3" extent="1-16" drill="0.254"/>
+<via x="41.1" y="27.3" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <contactref element="J1" pad="24"/>
 <wire x1="41.2" y1="27" x2="41.4" y2="26.8" width="0.2032" layer="1"/>
 <wire x1="41.4" y1="26.8" x2="41.5625625" y2="26.612309375" width="0.2032" layer="1"/>
@@ -13461,7 +13463,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="32.5" y1="10" x2="31.8" y2="10.7" width="0.2032" layer="16"/>
 <wire x1="31.8" y1="10.7" x2="31.8" y2="26.3" width="0.2032" layer="16"/>
 <wire x1="31.8" y1="26.3" x2="35.2" y2="29.7" width="0.2032" layer="16"/>
-<via x="39.6" y="27.2" extent="1-16" drill="0.254"/>
+<via x="39.6" y="27.2" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <contactref element="J1" pad="18"/>
 <wire x1="40.3" y1="25.8" x2="40.5019" y2="25.55165" width="0.2032" layer="1"/>
 <wire x1="32.5" y1="8.85" x2="32.5" y2="10" width="0.2032" layer="16"/>
@@ -13473,20 +13475,20 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="39.1" y1="24" x2="39.1" y2="21.2" width="0.2032" layer="16"/>
 <wire x1="39.1" y1="21.2" x2="34.3" y2="16.4" width="0.2032" layer="16"/>
 <wire x1="34.3" y1="16.4" x2="34.3" y2="11.4" width="0.2032" layer="16"/>
-<via x="38.4" y="24.7" extent="1-16" drill="0.254"/>
+<via x="38.4" y="24.7" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <contactref element="U1" pad="22"/>
 <wire x1="38.9" y1="24.3" x2="39.0876875" y2="24.137434375" width="0.2032" layer="1"/>
 <via x="34.3" y="11.4" extent="1-16" drill="0.254"/>
 <wire x1="34.3" y1="11.4" x2="34.3" y2="11.1" width="0.2032" layer="1"/>
 <wire x1="34.3" y1="11.1" x2="30.5" y2="7.3" width="0.2032" layer="1"/>
 <wire x1="30.5" y1="7.3" x2="30.5" y2="3.5" width="0.2032" layer="1"/>
-<via x="30.5" y="3.5" extent="1-16" drill="0.254"/>
+<via x="30.5" y="3.5" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <contactref element="J1" pad="13"/>
 <wire x1="30.5" y1="3.5" x2="30.5" y2="5.15" width="0.2032" layer="16"/>
 </signal>
 <signal name="N$8">
 <contactref element="U2" pad="1"/>
-<contactref element="X1" pad="1"/>
+<contactref element="J2" pad="1"/>
 <wire x1="48.9" y1="26.8" x2="59" y2="36.9" width="0.3556" layer="1"/>
 <wire x1="59" y1="36.9" x2="59" y2="47.2" width="0.3556" layer="1"/>
 <wire x1="48.8" y1="26.7192375" x2="48.9" y2="26.8" width="0.2032" layer="1"/>
@@ -13496,7 +13498,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="45.2" y1="30.4" x2="45.2" y2="36.3" width="0.3556" layer="1"/>
 <wire x1="45.2" y1="36.3" x2="34.3" y2="47.2" width="0.3556" layer="1"/>
 <wire x1="34.3" y1="47.2" x2="31" y2="47.2" width="0.3556" layer="1"/>
-<contactref element="X2" pad="1"/>
+<contactref element="J3" pad="1"/>
 <wire x1="45.2" y1="30.4" x2="45.2" y2="30.3192375" width="0.2032" layer="1"/>
 <wire x1="45.2" y1="30.3192375" x2="45.4" y2="30.1192375" width="0.2032" layer="1"/>
 </signal>
@@ -13513,8 +13515,8 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="41.5" y1="12.8" x2="41.5" y2="8.8" width="0.2032" layer="1"/>
 <wire x1="41.5" y1="8.8" x2="43.5" y2="6.8" width="0.2032" layer="1"/>
 <wire x1="43.5" y1="6.8" x2="43.5" y2="3.3" width="0.2032" layer="1"/>
-<via x="43.5" y="3.3" extent="1-16" drill="0.254"/>
-<via x="40.7" y="26.9" extent="1-16" drill="0.254"/>
+<via x="43.5" y="3.3" extent="1-16" drill="0.254" alwaysstop="yes"/>
+<via x="40.7" y="26.9" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <via x="40.7" y="13.6" extent="1-16" drill="0.254"/>
 <contactref element="J1" pad="39"/>
 <wire x1="43.5" y1="5.15" x2="43.5" y2="3.3" width="0.6096" layer="16"/>
@@ -13545,18 +13547,20 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="37.8" y1="9.7" x2="37.5" y2="9.4" width="0.2032" layer="1"/>
 <wire x1="37.5" y1="9.4" x2="37.5" y2="3.4" width="0.2032" layer="1"/>
 <wire x1="37.5" y1="3.4" x2="36" y2="1.9" width="0.2032" layer="1"/>
-<wire x1="36" y1="1.9" x2="22.5" y2="1.9" width="0.2032" layer="1"/>
+<wire x1="36" y1="1.9" x2="22.5" y2="1.9" width="0.2032" layer="16"/>
 <wire x1="16.8" y1="6" x2="17.7" y2="6" width="0.2032" layer="1"/>
 <wire x1="17.7" y1="6" x2="18.4" y2="6" width="0.2032" layer="1"/>
 <wire x1="17.7" y1="6" x2="17.7" y2="4.95" width="0.2032" layer="1"/>
 <wire x1="22.5" y1="1.9" x2="18.4" y2="6" width="0.2032" layer="1"/>
 <contactref element="R2" pad="1"/>
 <contactref element="J1" pad="28"/>
-<via x="37.8" y="10.5" extent="1-16" drill="0.254"/>
+<via x="37.8" y="10.5" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="37.8" y1="10.5" x2="37.5" y2="10.2" width="0.2032" layer="16"/>
 <wire x1="17.8" y1="4.95" x2="17.7" y2="4.95" width="0.2032" layer="1"/>
 <wire x1="16.8" y1="6" x2="16.425" y2="6.025" width="0.2032" layer="1"/>
 <wire x1="37.5" y1="10.2" x2="37.5" y2="8.85" width="0.2032" layer="16"/>
+<via x="36" y="1.9" extent="1-16" drill="0.254" diameter="0.254"/>
+<via x="22.5" y="1.9" extent="1-16" drill="0.254" diameter="0.254"/>
 </signal>
 <signal name="N$6">
 <contactref element="C121" pad="1"/>
@@ -13578,7 +13582,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 </signal>
 <signal name="DAC3-">
 <contactref element="R61" pad="1"/>
-<via x="51.5" y="10.5" extent="1-16" drill="0.254"/>
+<via x="51.5" y="10.5" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="51.5" y1="10.5" x2="62.5" y2="21.5" width="0.3048" layer="1"/>
 <wire x1="62.5" y1="21.5" x2="62.5" y2="32.8" width="0.3048" layer="1"/>
 <wire x1="62.5" y1="32.8" x2="71.1" y2="41.4" width="0.3048" layer="1"/>
@@ -13589,7 +13593,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 </signal>
 <signal name="DAC3+">
 <contactref element="R62" pad="1"/>
-<via x="52.5" y="10.5" extent="1-16" drill="0.254"/>
+<via x="52.5" y="10.5" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="52.5" y1="10.5" x2="63.3" y2="21.3" width="0.3048" layer="1"/>
 <wire x1="63.3" y1="21.3" x2="63.3" y2="32.4" width="0.3048" layer="1"/>
 <wire x1="63.3" y1="32.4" x2="71.5" y2="40.6" width="0.3048" layer="1"/>
@@ -13600,7 +13604,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 </signal>
 <signal name="DAC4-">
 <contactref element="R71" pad="1"/>
-<via x="54.5" y="10.5" extent="1-16" drill="0.254"/>
+<via x="54.5" y="10.5" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="54.5" y1="10.5" x2="65.5" y2="21.5" width="0.3048" layer="1"/>
 <wire x1="65.5" y1="21.5" x2="65.5" y2="24.7" width="0.3048" layer="1"/>
 <wire x1="65.5" y1="24.7" x2="69.6" y2="28.8" width="0.3048" layer="1"/>
@@ -13611,7 +13615,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 </signal>
 <signal name="DAC4+">
 <contactref element="R72" pad="1"/>
-<via x="55.5" y="10.5" extent="1-16" drill="0.254"/>
+<via x="55.5" y="10.5" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="55.5" y1="10.5" x2="66.2" y2="21.2" width="0.3048" layer="1"/>
 <wire x1="66.2" y1="21.2" x2="66.2" y2="24.3" width="0.3048" layer="1"/>
 <wire x1="66.2" y1="24.3" x2="69.9" y2="28" width="0.3048" layer="1"/>
@@ -13621,7 +13625,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="71.95" y1="27.9" x2="71.8" y2="28" width="0.2032" layer="1"/>
 </signal>
 <signal name="ADC3-">
-<via x="57.5" y="10.5" extent="1-16" drill="0.254"/>
+<via x="57.5" y="10.5" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="57.5" y1="10.5" x2="67.2" y2="20.2" width="0.3048" layer="1"/>
 <wire x1="67.2" y1="20.2" x2="72" y2="20.2" width="0.3048" layer="1"/>
 <contactref element="R48" pad="2"/>
@@ -13635,7 +13639,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="71.8" y1="19.4" x2="67.4" y2="19.4" width="0.3048" layer="1"/>
 <wire x1="67.4" y1="19.4" x2="58.5" y2="10.5" width="0.3048" layer="1"/>
 <wire x1="58.5" y1="8.85" x2="58.5" y2="10.5" width="0.6096" layer="16"/>
-<via x="58.5" y="10.5" extent="1-16" drill="0.254"/>
+<via x="58.5" y="10.5" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="71.8" y1="19.4" x2="71.95" y2="19.3" width="0.2032" layer="1"/>
 </signal>
 <signal name="ADC4-">
@@ -13643,7 +13647,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="J1" pad="74"/>
 <wire x1="66.7" y1="13.5" x2="63.5" y2="13.5" width="0.3048" layer="1"/>
 <wire x1="63.5" y1="13.5" x2="60.5" y2="10.5" width="0.3048" layer="1"/>
-<via x="60.5" y="10.5" extent="1-16" drill="0.254"/>
+<via x="60.5" y="10.5" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="60.5" y1="8.85" x2="60.5" y2="10.5" width="0.6096" layer="16"/>
 <wire x1="66.95" y1="13.6" x2="66.7" y2="13.5" width="0.2032" layer="1"/>
 </signal>
@@ -13652,7 +13656,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="J1" pad="76"/>
 <wire x1="65.7" y1="12.7" x2="63.7" y2="12.7" width="0.3048" layer="1"/>
 <wire x1="63.7" y1="12.7" x2="61.5" y2="10.5" width="0.3048" layer="1"/>
-<via x="61.5" y="10.5" extent="1-16" drill="0.254"/>
+<via x="61.5" y="10.5" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="61.5" y1="8.85" x2="61.5" y2="10.5" width="0.6096" layer="16"/>
 <wire x1="65.7" y1="12.7" x2="65.95" y2="12.6" width="0.2032" layer="1"/>
 </signal>
@@ -13711,7 +13715,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <signal name="N$11">
 <contactref element="R41" pad="2"/>
 <contactref element="R43" pad="1"/>
-<contactref element="X4" pad="1"/>
+<contactref element="J4" pad="1"/>
 <wire x1="85" y1="12.4" x2="80.2" y2="12.4" width="0.4064" layer="1"/>
 <wire x1="80.2" y1="12.4" x2="80.2" y2="12.5" width="0.4064" layer="1"/>
 <wire x1="80.2" y1="12.5" x2="80.2" y2="13.9" width="0.4064" layer="1"/>
@@ -13767,7 +13771,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="R51" pad="2"/>
 <contactref element="R53" pad="1"/>
 <wire x1="69.85" y1="3.7692375" x2="69.85" y2="5.45" width="0.4064" layer="1"/>
-<contactref element="X5" pad="1"/>
+<contactref element="J5" pad="1"/>
 <wire x1="75" y1="5" x2="70" y2="5" width="0.4064" layer="1"/>
 <wire x1="69.85" y1="5.45" x2="70" y2="5" width="0.2032" layer="1"/>
 <wire x1="69.85" y1="3.7692375" x2="69.85" y2="3.7" width="0.2032" layer="1"/>
@@ -13866,7 +13870,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 </signal>
 <signal name="N$29">
 <contactref element="R66" pad="2"/>
-<contactref element="X6" pad="1"/>
+<contactref element="J6" pad="1"/>
 <wire x1="85" y1="37.6" x2="79.2" y2="37.6" width="0.4064" layer="1"/>
 <wire x1="79.2" y1="37.6" x2="79.2" y2="37.55" width="0.2032" layer="1"/>
 </signal>
@@ -13916,7 +13920,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 </signal>
 <signal name="N$34">
 <contactref element="R76" pad="2"/>
-<contactref element="X7" pad="1"/>
+<contactref element="J7" pad="1"/>
 <wire x1="85" y1="25" x2="79.5" y2="25" width="0.4064" layer="1"/>
 <wire x1="79.5" y1="25" x2="79.2" y2="24.95" width="0.2032" layer="1"/>
 </signal>
@@ -13984,7 +13988,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="44.9" y1="28.1" x2="42.1" y2="30.9" width="0.2032" layer="16"/>
 <wire x1="42.1" y1="30.9" x2="15.6" y2="30.9" width="0.2032" layer="16"/>
 <wire x1="44.3909875" y1="19.541240625" x2="45.1" y2="18.832228125" width="0.2032" layer="1"/>
-<via x="45.1" y="18.1" extent="1-16" drill="0.254"/>
+<via x="45.1" y="18.1" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <contactref element="SW1" pad="2"/>
 <via x="15.6" y="30.9" extent="1-16" drill="0.254" diameter="0.254"/>
 <wire x1="15.6" y1="30.9" x2="15.6" y2="27.75" width="0.254" layer="1"/>
@@ -13998,7 +14002,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="47.7" y1="21.7" x2="47.7" y2="27.7" width="0.2032" layer="16"/>
 <wire x1="47.7" y1="27.7" x2="42.7" y2="32.7" width="0.2032" layer="16"/>
 <wire x1="42.7" y1="32.7" x2="19.8" y2="32.7" width="0.2032" layer="16"/>
-<via x="47.6" y="21.6" extent="1-16" drill="0.254"/>
+<via x="47.6" y="21.6" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="46.8658625" y1="22.016115625" x2="47.1" y2="21.8" width="0.2032" layer="1"/>
 <contactref element="SW2" pad="2"/>
 <via x="19.8" y="32.7" extent="1-16" drill="0.254" diameter="0.254"/>
@@ -14021,14 +14025,14 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="36.8" y1="11.3" x2="36.8" y2="10.1" width="0.2032" layer="1"/>
 <wire x1="36.8" y1="10.1" x2="35.5" y2="8.8" width="0.2032" layer="1"/>
 <wire x1="35.5" y1="8.8" x2="35.5" y2="3.5" width="0.2032" layer="1"/>
-<via x="48.5" y="22.7" extent="1-16" drill="0.254"/>
+<via x="48.5" y="22.7" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <via x="36.8" y="11.3" extent="1-16" drill="0.254"/>
 <wire x1="47.219415625" y1="22.36966875" x2="47.4" y2="22.2" width="0.2032" layer="1"/>
-<via x="35.5" y="3.5" extent="1-16" drill="0.254"/>
+<via x="35.5" y="3.5" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <contactref element="J1" pad="23"/>
 <wire x1="35.5" y1="3.5" x2="35.5" y2="5.15" width="0.2032" layer="16"/>
 </signal>
-<signal name="CLK2">
+<signal name="CLK_LOC">
 <contactref element="J1" pad="14"/>
 <wire x1="30.5" y1="8.85" x2="30.5" y2="10.5" width="0.254" layer="16"/>
 <contactref element="R5" pad="1"/>
@@ -14047,15 +14051,18 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="41.4" y1="18" x2="41.1" y2="18" width="0.2032" layer="16"/>
 <wire x1="41.1" y1="18" x2="35.3" y2="12.2" width="0.2032" layer="16"/>
 <wire x1="35.3" y1="12.2" x2="35.3" y2="11.3" width="0.2032" layer="16"/>
-<via x="43.1" y="27.9" extent="1-16" drill="0.254"/>
+<via x="43.1" y="27.9" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="43.330328125" y1="27.319415625" x2="43.5" y2="27.5" width="0.2032" layer="1"/>
 <via x="35.3" y="11.3" extent="1-16" drill="0.254"/>
 <wire x1="35.3" y1="11.3" x2="35.3" y2="10.7" width="0.2032" layer="1"/>
 <wire x1="35.3" y1="10.7" x2="32.5" y2="7.9" width="0.2032" layer="1"/>
 <wire x1="32.5" y1="7.9" x2="32.5" y2="3.5" width="0.2032" layer="1"/>
-<via x="32.5" y="3.5" extent="1-16" drill="0.254"/>
+<via x="32.5" y="3.5" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <contactref element="J1" pad="17"/>
 <wire x1="32.5" y1="3.5" x2="32.5" y2="5.15" width="0.2032" layer="16"/>
+<contactref element="R10" pad="1"/>
+<wire x1="32.5" y1="3.5" x2="32.5" y2="2.35" width="0.2032" layer="1"/>
+<wire x1="32.5" y1="2.35" x2="32.55" y2="2.3" width="0.2032" layer="1"/>
 </signal>
 <signal name="N$35">
 <polygon width="0.254" layer="1" pour="cutout">
@@ -14135,7 +14142,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="U1" pad="44"/>
 <via x="47.6" y="19.2" extent="1-16" drill="0.254"/>
 <wire x1="45.9" y1="20.9" x2="47.6" y2="19.2" width="0.2032" layer="1"/>
-<via x="42.5" y="10.5" extent="1-16" drill="0.254"/>
+<via x="42.5" y="10.5" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="42.5" y1="10.5" x2="47.6" y2="15.6" width="0.2032" layer="3"/>
 <wire x1="47.6" y1="15.6" x2="47.6" y2="19.2" width="0.2032" layer="3"/>
 <contactref element="J1" pad="38"/>
@@ -14143,7 +14150,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="45.9" y1="20.9" x2="45.805203125" y2="20.95545625" width="0.2032" layer="1"/>
 </signal>
 <signal name="N$36">
-<contactref element="X3" pad="3"/>
+<contactref element="X2" pad="3"/>
 <contactref element="C121" pad="2"/>
 <wire x1="31.9" y1="22" x2="33.4" y2="20.5" width="0.254" layer="1"/>
 <contactref element="R6" pad="2"/>
@@ -14158,7 +14165,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 </signal>
 <signal name="N$39">
 <contactref element="C128" pad="1"/>
-<contactref element="X9" pad="3"/>
+<contactref element="X1" pad="3"/>
 <wire x1="29.775" y1="15.45" x2="29.775" y2="16.225" width="0.2032" layer="1"/>
 <wire x1="29.775" y1="16.225" x2="30.65" y2="17.1" width="0.2032" layer="1"/>
 </signal>
@@ -14226,7 +14233,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 </signal>
 <signal name="B1">
 <contactref element="U1" pad="23"/>
-<via x="38" y="24.3" extent="1-16" drill="0.254"/>
+<via x="38" y="24.3" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="38.734134375" y1="23.78388125" x2="38.3" y2="24.218015625" width="0.2032" layer="1"/>
 <wire x1="38.3" y1="24.218015625" x2="38.081984375" y2="24.218015625" width="0.2032" layer="1"/>
 <wire x1="38.081984375" y1="24.218015625" x2="38" y2="24.3" width="0.2032" layer="1"/>
@@ -14238,13 +14245,13 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="33.7" y="11.2" extent="1-16" drill="0.254"/>
 <wire x1="33.7" y1="11.2" x2="29.5" y2="7" width="0.2032" layer="1"/>
 <wire x1="29.5" y1="7" x2="29.5" y2="3.5" width="0.2032" layer="1"/>
-<via x="29.5" y="3.5" extent="1-16" drill="0.254"/>
+<via x="29.5" y="3.5" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <contactref element="J1" pad="11"/>
 <wire x1="29.5" y1="3.5" x2="29.5" y2="5.15" width="0.2032" layer="16"/>
 </signal>
 <signal name="B2">
 <contactref element="U1" pad="11"/>
-<via x="44.2" y="27.6" extent="1-16" drill="0.254"/>
+<via x="44.2" y="27.6" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="43.68388125" y1="26.9658625" x2="44.2" y2="27.48198125" width="0.2032" layer="1"/>
 <wire x1="44.2" y1="27.48198125" x2="44.2" y2="27.6" width="0.2032" layer="1"/>
 <contactref element="J1" pad="19"/>
@@ -14257,12 +14264,12 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="35.8" y="10.5" extent="1-16" drill="0.254"/>
 <wire x1="35.8" y1="10.5" x2="33.5" y2="8.2" width="0.2032" layer="1"/>
 <wire x1="33.5" y1="8.2" x2="33.5" y2="3.5" width="0.2032" layer="1"/>
-<via x="33.5" y="3.5" extent="1-16" drill="0.254"/>
+<via x="33.5" y="3.5" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="33.5" y1="3.5" x2="33.5" y2="5.15" width="0.2032" layer="16"/>
 </signal>
 <signal name="B3">
 <contactref element="U1" pad="8"/>
-<via x="45.3" y="26.5" extent="1-16" drill="0.254"/>
+<via x="45.3" y="26.5" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="44.744540625" y1="25.905203125" x2="45.3" y2="26.4606625" width="0.2032" layer="1"/>
 <wire x1="45.3" y1="26.4606625" x2="45.3" y2="26.5" width="0.2032" layer="1"/>
 <wire x1="45.3" y1="25.9" x2="45.7" y2="25.5" width="0.2032" layer="16"/>
@@ -14278,13 +14285,13 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <wire x1="36.3" y1="10.9" x2="36.3" y2="10.3" width="0.2032" layer="1"/>
 <wire x1="36.3" y1="10.3" x2="34.5" y2="8.5" width="0.2032" layer="1"/>
 <wire x1="34.5" y1="8.5" x2="34.5" y2="3.5" width="0.2032" layer="1"/>
-<via x="34.5" y="3.5" extent="1-16" drill="0.254"/>
+<via x="34.5" y="3.5" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <contactref element="J1" pad="21"/>
 <wire x1="34.5" y1="3.5" x2="34.5" y2="5.15" width="0.2032" layer="16"/>
 </signal>
 <signal name="B4">
 <contactref element="U1" pad="34"/>
-<via x="41.1" y="18.5" extent="1-16" drill="0.254"/>
+<via x="41.1" y="18.5" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="41.5625625" y1="19.1876875" x2="41.1" y2="18.725125" width="0.2032" layer="1"/>
 <wire x1="41.1" y1="18.725125" x2="41.1" y2="18.5" width="0.2032" layer="1"/>
 <wire x1="41.1" y1="18.5" x2="40.2" y2="18.5" width="0.2032" layer="16"/>
@@ -14293,13 +14300,13 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <via x="34.8" y="10.9" extent="1-16" drill="0.254"/>
 <wire x1="34.8" y1="10.9" x2="31.5" y2="7.6" width="0.2032" layer="1"/>
 <wire x1="31.5" y1="7.6" x2="31.5" y2="3.5" width="0.2032" layer="1"/>
-<via x="31.5" y="3.5" extent="1-16" drill="0.254"/>
+<via x="31.5" y="3.5" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <contactref element="J1" pad="15"/>
 <wire x1="31.5" y1="3.5" x2="31.5" y2="5.15" width="0.2032" layer="16"/>
 </signal>
 <signal name="B5">
 <contactref element="U1" pad="14"/>
-<via x="41.5" y="27.7" extent="1-16" drill="0.254"/>
+<via x="41.5" y="27.7" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="41.916115625" y1="26.9658625" x2="41.6" y2="27.281978125" width="0.2032" layer="1"/>
 <wire x1="41.6" y1="27.281978125" x2="41.6" y2="27.6" width="0.2032" layer="1"/>
 <wire x1="41.6" y1="27.6" x2="41.5" y2="27.7" width="0.2032" layer="1"/>
@@ -14314,7 +14321,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 </signal>
 <signal name="B6">
 <contactref element="U1" pad="3"/>
-<via x="47.2" y="24.6" extent="1-16" drill="0.254"/>
+<via x="47.2" y="24.6" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="46.512309375" y1="24.137434375" x2="46.974875" y2="24.6" width="0.2032" layer="1"/>
 <wire x1="46.974875" y1="24.6" x2="47.2" y2="24.6" width="0.2032" layer="1"/>
 <wire x1="47.2" y1="27.4" x2="42.5" y2="32.1" width="0.2032" layer="16"/>
@@ -14327,7 +14334,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 </signal>
 <signal name="B7">
 <contactref element="U1" pad="6"/>
-<via x="46.1" y="25.8" extent="1-16" drill="0.254"/>
+<via x="46.1" y="25.8" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="45.45165" y1="25.198096875" x2="46.053553125" y2="25.8" width="0.2032" layer="1"/>
 <wire x1="46.053553125" y1="25.8" x2="46.1" y2="25.8" width="0.2032" layer="1"/>
 <wire x1="42.3" y1="31.5" x2="6.2" y2="31.5" width="0.2032" layer="16"/>
@@ -14342,7 +14349,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 </signal>
 <signal name="N$37">
 <contactref element="R7" pad="1"/>
-<contactref element="X3" pad="4"/>
+<contactref element="X2" pad="4"/>
 <contactref element="C125" pad="1"/>
 <contactref element="C124" pad="1"/>
 <contactref element="C123" pad="1"/>
@@ -14358,7 +14365,7 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <contactref element="R5" pad="2"/>
 <wire x1="39.441240625" y1="24.4909875" x2="39.4090125" y2="24.4909875" width="0.2032" layer="1"/>
 <wire x1="39.4090125" y1="24.4909875" x2="38.8" y2="25.1" width="0.2032" layer="1"/>
-<via x="38.8" y="25.1" extent="1-16" drill="0.254"/>
+<via x="38.8" y="25.1" extent="1-16" drill="0.254" alwaysstop="yes"/>
 <wire x1="38.7" y1="25.2" x2="38.1" y2="25.2" width="0.2032" layer="16"/>
 <wire x1="38.1" y1="25.2" x2="33.3" y2="20.4" width="0.2032" layer="16"/>
 <wire x1="33.3" y1="20.4" x2="33.3" y2="11.6" width="0.2032" layer="16"/>
@@ -15046,7 +15053,122 @@ These design rules are for manufacturing 6 layer PCBs at IES, Inc (Gray, TN).
 <signal name="N$152">
 <via x="4.5" y="26.5" extent="1-16" drill="0.254" diameter="0.254"/>
 </signal>
+<signal name="CLK_EXT">
+<contactref element="J1" pad="12"/>
+<via x="26.7" y="13.1" extent="1-16" drill="0.254"/>
+<wire x1="29.5" y1="8.85" x2="29.5" y2="10.3" width="0.254" layer="16"/>
+<wire x1="29.5" y1="10.3" x2="26.7" y2="13.1" width="0.254" layer="16"/>
+<wire x1="26.7" y1="13.1" x2="23.3" y2="13.1" width="0.254" layer="1"/>
+<contactref element="J8" pad="1"/>
+<wire x1="23" y1="13" x2="23.3" y2="13.1" width="0" layer="19" extent="1-1"/>
+</signal>
 </signals>
+<errors>
+<approved hash="7,39,603c30dde8c8243c"/>
+<approved hash="7,39,603c30dde8c8243c"/>
+<approved hash="7,39,603c30dde8c8243c"/>
+<approved hash="7,39,603c30dde8c8243c"/>
+<approved hash="18,29,db13ac32d348a469"/>
+<approved hash="18,29,da93a712d668abe9"/>
+<approved hash="18,29,23c5ca65580dd265"/>
+<approved hash="18,29,0d966692a712afde"/>
+<approved hash="18,29,23c54a7b18139265"/>
+<approved hash="18,29,8d96668ce70cefde"/>
+<approved hash="18,29,2800465b4e605035"/>
+<approved hash="18,29,5002ce57c660283b"/>
+<approved hash="18,29,6d9a8f763ef9bfd2"/>
+<approved hash="18,29,63c5738a91ede265"/>
+<approved hash="18,29,6d9a0f577ed7ffd3"/>
+<approved hash="18,29,e3c473a4d1cca265"/>
+<approved hash="18,29,5d50f2c8a3178405"/>
+<approved hash="18,29,9948eec06e14b511"/>
+<approved hash="18,29,9b54f5cf5413b901"/>
+<approved hash="18,29,58b0c3c48d109c2e"/>
+<approved hash="18,29,104bc70f020d1d06"/>
+<approved hash="18,29,124be5cf204d1f06"/>
+<approved hash="18,29,82ec6b771c5b3d8f"/>
+<approved hash="18,29,80ec49373e1b3f0f"/>
+<approved hash="18,29,50ceca9bda8620dd"/>
+<approved hash="18,29,20005a5b4a465013"/>
+<approved hash="18,29,5564392037725546"/>
+<approved hash="18,29,59ec3728390a59be"/>
+<approved hash="18,29,6d963cdce57d77fe"/>
+<approved hash="18,29,23a5800aaa03ca65"/>
+<approved hash="18,29,23a580296a218a65"/>
+<approved hash="18,29,6d963cfea55eb7fe"/>
+<approved hash="18,29,99a4c750c902994a"/>
+<approved hash="18,29,a99c39e83705a9cd"/>
+<approved hash="18,29,8b1dd529d9078b4f"/>
+<approved hash="18,29,23e54cf9b2b11e64"/>
+<approved hash="18,29,23c50e43f02b1e64"/>
+<approved hash="18,29,85875d8450244bee"/>
+<approved hash="18,29,859b9f1e92de4b92"/>
+<approved hash="18,29,859b60026da24bf2"/>
+<approved hash="18,29,23c5cbad35c51e64"/>
+<approved hash="18,29,5be40b50050259ca"/>
+<approved hash="18,29,1a9f671e16546bd5"/>
+<approved hash="18,29,1b1f6c3e13746455"/>
+<approved hash="18,29,23c54b8df5e5de65"/>
+<approved hash="18,29,059a9f3e52fe8b92"/>
+<approved hash="18,29,059a6022ad828bf2"/>
+<approved hash="18,29,23e5ccd97291de65"/>
+<approved hash="18,29,23c58e63300bde65"/>
+<approved hash="18,29,05865da490048bee"/>
+<approved hash="18,30,ebb6f099bdd55b31"/>
+<approved hash="18,30,37e21211ecd80e48"/>
+<approved hash="18,30,7de8eac7a2b4b661"/>
+<approved hash="18,30,73a0aaad402ff5ba"/>
+<approved hash="18,30,8365e599a62489f0"/>
+<approved hash="18,30,4e4c72a7ef2270e9"/>
+<approved hash="18,30,780e1220c30d6622"/>
+<approved hash="18,30,bd3c17375064389a"/>
+<approved hash="18,30,59cb968833494462"/>
+<approved hash="18,30,186abeb60ae7f4b4"/>
+<approved hash="18,30,dd51f434b9789d89"/>
+<approved hash="18,30,f5722db12407b923"/>
+<approved hash="18,30,0ba93d4f699e97d1"/>
+<approved hash="18,30,b7d301d532fedffb"/>
+<approved hash="18,30,1dcb66d89a56f45a"/>
+<approved hash="18,30,9ad457ddaf4112e6"/>
+<approved hash="18,30,422598080fc0128e"/>
+<approved hash="18,30,b308cd60ce4ca9cc"/>
+<approved hash="6,1,8e29a0bb0be4b10f"/>
+<approved hash="6,1,b6348b5c47fad33b"/>
+<approved hash="19,1,b0e5669378d7aea1"/>
+<approved hash="19,1,c4a2fad4fd6ec318"/>
+<approved hash="19,1,c254fc22fd6cc31a"/>
+<approved hash="19,1,4d62db14d87a4e0c"/>
+<approved hash="19,1,4cd8daaed8644e12"/>
+<approved hash="19,1,42a0d4d6d8644e12"/>
+<approved hash="19,1,0f3a414c5ead10db"/>
+<approved hash="19,1,1ea050d65c6b121d"/>
+<approved hash="19,1,10565e205e69101f"/>
+<approved hash="19,1,2be25d94516b271d"/>
+<approved hash="19,1,26a250d4510b277d"/>
+<approved hash="19,1,1b246d5252a924df"/>
+<approved hash="19,1,27d451a25169271f"/>
+<approved hash="19,1,51dadfacdc465230"/>
+<approved hash="19,1,5250dc26dd28535e"/>
+<approved hash="19,1,56d8d8aeda405436"/>
+<approved hash="19,1,523adc4cdd465330"/>
+<approved hash="19,1,88b6dec0d88e8ef8"/>
+<approved hash="19,1,883ade4cd92a8f5c"/>
+<approved hash="19,1,1cd322a53ca802de"/>
+<approved hash="6,1,d3d1d3507110a254"/>
+<approved hash="6,1,a2ad44ad36c8748b"/>
+<approved hash="6,1,027a1d1d98d65474"/>
+<approved hash="6,1,65fe5793857a2e84"/>
+<approved hash="6,16,8e29a0bb0be4b10f"/>
+<approved hash="6,16,b6348b5c47fad33b"/>
+<approved hash="4,16,afe76a2edb38f24a"/>
+<approved hash="4,16,bbc8fc69ff8a0f56"/>
+<approved hash="4,16,fc59fb3a9b30f48d"/>
+<approved hash="4,16,e1c701ffe5d1e952"/>
+<approved hash="4,16,fa743ef70855fec4"/>
+<approved hash="4,16,2d0d24fae7c70381"/>
+<approved hash="6,16,a2ad44ad36c8748b"/>
+<approved hash="6,16,65fe5793857a2e84"/>
+</errors>
 </board>
 </drawing>
 </eagle>
