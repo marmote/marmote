@@ -2,10 +2,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.mlab as mlab
 
-def PlotTDHist(x, fitcurve=False, x_lim_min=None, x_lim_max=None):
+def PlotTDHist(x, fitcurve=False, x_lim_min=None, x_lim_max=None, qty=None, pickbest=20):
 
     fig = plt.figure()
     ax = fig.add_subplot(111)
+
+    if pickbest is not None and qty is not None:
+	x = (np.array(x)[np.argsort(qty)])[-pickbest:]
 
     # the histogram of the data
     n, bins, patches = ax.hist(x, 25, normed=1, facecolor='green', alpha=0.75)
