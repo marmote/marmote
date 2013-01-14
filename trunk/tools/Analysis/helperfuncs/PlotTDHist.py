@@ -1,38 +1,59 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.mlab as mlab
+import GMM_estimate_EM as EM
 
-def PlotTDHist(x, fitcurve=False, x_lim_min=None, x_lim_max=None, qty=None, pickbest=20):
 
-    fig = plt.figure()
-    ax = fig.add_subplot(111)
+def PlotTDHist(x, fitcurve=False, x_lim_min=None, x_lim_max=None, qty=None, pickbest=20, Gauss_num=1):
 
-    if pickbest is not None and qty is not None:
-	x = (np.array(x)[np.argsort(qty)])[-pickbest:]
+	fig = plt.figure()
+	ax = fig.add_subplot(111)
 
-    # the histogram of the data
-    n, bins, patches = ax.hist(x, 25, normed=1, facecolor='green', alpha=0.75)
+	if pickbest is not None and qty is not None:
+		x = (np.array(x)[np.argsort(qty)])[-pickbest:]
 
-    if fitcurve:
+	# the histogram of the data
+	n, bins, patches = ax.hist(x, 25, normed=1, facecolor='green', alpha=0.75)
+
+	if fitcurve:
 	# hist uses np.histogram under the hood to create 'n' and 'bins'.
 	# np.histogram returns the bin edges, so there will be 50 probability
 	# density values in n, 51 bin edges in bins and 50 patches.  To get
 	# everything lined up, we'll compute the bin centers
-	bincenters = 0.5*(bins[1:]+bins[:-1])
-	# add a 'best fit' line for the normal PDF
-	mu = np.mean(x, dtype=np.float64)
-	sigma = np.sqrt( np.var(x, dtype=np.float64) )
-	y = mlab.normpdf( bincenters, mu, sigma)
-	l = ax.plot(bincenters, y, 'r--', linewidth=1)
+		bincenters = 0.5*(bins[1:]+bins[:-1])
 
-    ax.set_xlabel('Time differences [usec]')
-    ax.set_ylabel('Probability')
-    if fitcurve:
-	ax.set_title(r'$\mathrm{Histogram\ of\ TD:}\ \mu=%.2f,\ \sigma=%.2f$'%(mu, sigma))
-    else:
-	ax.set_title(r'$\mathrm{Histogram\ of\ TD}$')
+		ax.hold('on')
 
-    if x_lim_min is not None and x_lim_max is not None:
-	ax.set_xlim(x_lim_min, x_lim_max)
-    #ax.set_ylim(0, 0.03)
-    ax.grid(True)
+		alpha0 = np.ones(Gauss_num)
+		mu0 = np.ones(Gauss_num)
+		mu0[0] = 10
+		mu0[1] = 100
+		sigma0 = np.ones(Gauss_num)*100
+		sigma0[0] = 1.0
+		sigma0[1] = 8.0
+
+		alpha, mu, sigma = EM.GMM_estimate_EM(x, alpha0, mu0, sigma0)
+		# add a 'best fit' lines for the normal PDF
+		for k in xrange(Gauss_num):
+			y = mlab.normpdf( bincenters, mu[k], sigma[k] ) * alpha[k]
+			l = ax.plot(bincenters, y, 'r--', linewidth=1)
+
+	ax.set_xlabel('Time differences [usec]')
+	ax.set_ylabel('Probability')
+	title = r'$\mathrm{Histogram\ of\ TD}'
+	if fitcurve:
+		for k in xrange(Gauss_num):
+			title += r'\\ \mu_%d=%.2f,\ \sigma_%d=%.2f'%(k+1, mu[k], k+1, sigma[k])
+	title += r'$'
+	ax.set_title(title)
+
+	if x_lim_min is not None and x_lim_max is not None:
+		ax.set_xlim(x_lim_min, x_lim_max)
+		#ax.set_ylim(0, 0.03)
+		ax.grid(True)
+
+
+
+################################################################################
+if __name__ == "__main__":
+	PlotTDHist(np.array([1, 2, 3, 4, 50, 55, 56, 58]), fitcurve=True, x_lim_min=None, x_lim_max=None, qty=None, pickbest=20, Gauss_num=2)
