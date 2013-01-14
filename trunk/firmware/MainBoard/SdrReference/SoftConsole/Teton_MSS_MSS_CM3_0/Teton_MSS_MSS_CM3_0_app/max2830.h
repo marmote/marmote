@@ -128,7 +128,8 @@ static uint16_t max2830_regs[16] =
 		0x0140,
 		0x0E92,
 		0x0300,
-		0x0145,
+		0x0D45, // Rx I/Q output common-mode voltage 1.45V (R15[11:10])
+		//0x0145,
 };
 
 /*

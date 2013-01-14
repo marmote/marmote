@@ -52,6 +52,10 @@ entity TX_APB_IF is
 		 PRDATA  : out std_logic_vector(31 downto 0);
 		 PSLVERR : out std_logic;
 
+         TX_STROBE  : out std_logic;
+         TX_I       : out std_logic_vector(9 downto 0);
+         TX_Q       : out std_logic_vector(9 downto 0);
+    
          -- Debug interface
          LED_H   : out std_logic;
          LED_L   : out std_logic
@@ -76,16 +80,16 @@ architecture Behavioral of TX_APB_IF is
 
 
 	-- Signals
-	signal s_tx_ctr      : std_logic_vector(c_DATA_LENGTH-1 downto 0);
-	signal s_tx_ctr_next : std_logic_vector(c_DATA_LENGTH-1 downto 0);
-	signal s_data_buffer : std_logic_vector(c_DATA_LENGTH-1 downto 0);
+	signal s_bit_ctr        : std_logic_vector(c_DATA_LENGTH-1 downto 0);
+	signal s_bit_ctr_next   : std_logic_vector(c_DATA_LENGTH-1 downto 0);
+	signal s_data_buffer    : std_logic_vector(c_DATA_LENGTH-1 downto 0);
 	signal s_data_buffer_next : std_logic_vector(c_DATA_LENGTH-1 downto 0);
 
-	signal s_busy        : std_logic;
-	signal s_tx_fifo_full : std_logic;
+	signal s_busy           : std_logic;
+	signal s_tx_fifo_full   : std_logic;
 
-	signal s_baud_ctr     : unsigned(31 downto 0);
-	signal s_symbol_end  : std_logic;
+	signal s_symbol_ctr     : unsigned(31 downto 0);
+	signal s_symbol_end     : std_logic;
 
 begin
 
@@ -141,20 +145,20 @@ begin
 	s_status <= x"0000000" & "00" & s_tx_fifo_full & s_busy;
 
 	-----------------------------------------------------------------------------
-	-- Baud timer
+	-- Symbol timer
 	-----------------------------------------------------------------------------
 	p_baud_timer : process (PRESETn, PCLK)
 	begin
 		if PRESETn = '0' then
-			s_baud_ctr <= (others => '0');
+			s_symbol_ctr <= (others => '0');
 			s_symbol_end <= '0';
 		elsif rising_edge(PCLK) then
 			s_symbol_end <= '0';
 			if s_busy = '1' then
-				if s_baud_ctr < unsigned(s_baud) then
-					s_baud_ctr <= s_baud_ctr+1;
+				if s_symbol_ctr < unsigned(s_baud) then
+					s_symbol_ctr <= s_symbol_ctr + 1;
 				else
-					s_baud_ctr <= (others => '0');
+					s_symbol_ctr <= (others => '0');
 					s_symbol_end <= '1';
 				end if;
 			end if;
@@ -166,7 +170,7 @@ begin
 	-- One-hot encoded FSM coordinating FSK transmission (combinational)
 	-----------------------------------------------------------------------------
 	p_FSK_TRANSMIT_FSM_COMB : process (
-		s_tx_ctr,
+		s_bit_ctr,
 		s_busy,
 		s_symbol_end,
 		s_data,
@@ -176,27 +180,27 @@ begin
 	begin
 		-- Default values
 		s_busy <= '0';
-		s_tx_ctr_next <= s_tx_ctr;
+		s_bit_ctr_next <= s_bit_ctr;
 		s_data_buffer_next <= s_data_buffer;
 
-		if s_tx_ctr /= std_logic_vector(to_unsigned(0,s_tx_ctr'length)) then
+		if s_bit_ctr /= std_logic_vector(to_unsigned(0,s_bit_ctr'length)) then
 			s_busy <= '1';
 		end if;
 
 		if s_busy /= '1' then
 			-- Start transmission on 's_start'
 			if s_start = '1' then
-				s_tx_ctr_next(0) <= '1'; -- Load LSB with '1'
+				s_bit_ctr_next(0) <= '1'; -- Load LSB with '1'
 				s_data_buffer_next <= s_data(c_DATA_LENGTH-1 downto 0);
 			end if;
 		else
 			-- Step bits based on baud timing
 			if s_symbol_end = '1' then
-				if s_tx_ctr(c_DATA_LENGTH-1) = '1' then
-					s_tx_ctr_next <= (others => '0');
+				if s_bit_ctr(c_DATA_LENGTH-1) = '1' then
+					s_bit_ctr_next <= (others => '0');
 					s_data_buffer_next <= (others => '0');
 				else
-					s_tx_ctr_next <= s_tx_ctr(s_tx_ctr'high-1 downto 0) & '0';
+					s_bit_ctr_next <= s_bit_ctr(s_bit_ctr'high-1 downto 0) & '0';
 					s_data_buffer_next <= s_data_buffer(s_data_buffer'high-1 downto 0) & '0';
 				end if;
 			end if;
@@ -210,13 +214,15 @@ begin
 	p_FSK_TRANSMIT_FSM_SYNC : process (PRESETn, PCLK)
 	begin
 		if PRESETn = '0' then
-			s_tx_ctr <= (others => '0');
+			s_bit_ctr <= (others => '0');
 			s_data_buffer <= (others => '0');
-			s_led_en <= '0';
+            s_txd <= (others => '0');
+			s_txd_en <= '0';
 		elsif rising_edge(PCLK) then
-			s_tx_ctr <= s_tx_ctr_next;
+			s_bit_ctr <= s_bit_ctr_next;
 			s_data_buffer <= s_data_buffer_next;
-			s_led_en <= s_busy; -- Delay-adjusted to 'led_low/led_high'
+            s_txd <= s_txd_next;
+			s_txd_en <= s_busy; -- Delay-adjusted to 'led_low/led_high'
 		end if;
 	end process p_FSK_TRANSMIT_FSM_SYNC;
 
@@ -225,14 +231,19 @@ begin
 		s_data_buffer
 	)
 	begin
-		-- Default value
+		-- Default values
 		s_led_high <= '0';
 		s_led_low  <= '0';
 
 		if s_busy = '1' then
-			-- Use s_data_buffer LSB as MUX input
-            s_led_high <=     s_data_buffer(s_data_buffer'high);
-            s_led_low  <= not s_data_buffer(s_data_buffer'high);
+			-- Use s_data_buffer MSB as MUX input
+			if s_data_buffer(s_data_buffer'high) = '1' then
+				s_txd_next <= c_TXD_HIGH;
+                s_led_high <= '1';
+			else
+				s_txd_next <= c_TXD_LOW;
+                s_led_low  <= '1';
+			end if;
 		end if;
 	end process p_LED_MUX;
 
