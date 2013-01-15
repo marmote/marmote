@@ -27,6 +27,7 @@ sim:/testbench/Teton_0/TX_APB_IF_0/s_bit_ctr \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_txd \
 -unsigned \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_txd_en \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_mod_en \
 sim:/testbench/Teton_0/TX_APB_IF_0/TX_STROBE 
 
 add wave \
@@ -38,7 +39,7 @@ add wave \
 -label {Integrator out} \
 sim:/testbench/Teton_0/TX_APB_IF_0/c_gmsk_mod_lut/N_5
 add wave \
--analog-step -min -512 -max 512 -height 50 \
+-analog-step -min -512 -max 512 -height 100 \
 -label {TX I} sim:/testbench/Teton_0/TX_APB_IF_0/TX_I \
 -label {TX Q} sim:/testbench/Teton_0/TX_APB_IF_0/TX_Q
 

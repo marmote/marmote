@@ -68,6 +68,8 @@ architecture Behavioral of TX_APB_IF is
     constant c_TXD_HIGH   : std_logic_vector(15 downto 0) := "0100" & x"000"; -- +1
     constant c_TXD_LOW    : std_logic_vector(15 downto 0) := "1100" & x"000"; -- -1
 
+    constant c_TXD_EN_DELAY : integer := 10;
+
 	-- Addresses
 	constant c_ADDR_CTRL : std_logic_vector(7 downto 0) := x"00"; -- W (START)
 	constant c_ADDR_DATA : std_logic_vector(7 downto 0) := x"04"; -- W
@@ -93,7 +95,8 @@ architecture Behavioral of TX_APB_IF is
 	signal s_busy           : std_logic;
     signal s_txd            : std_logic_vector(15 downto 0);
     signal s_txd_next       : std_logic_vector(15 downto 0);
-    signal s_txd_en         : std_logic;
+    signal s_txd_en         : std_logic_vector(c_TXD_EN_DELAY-1 downto 0);
+    signal s_mod_en         : std_logic;
 
 	signal s_dout           : std_logic_vector(31 downto 0);
 
@@ -124,7 +127,7 @@ begin
     port map (
         clk	            =>	PCLK,
         GlobalReset	    =>	rst,
-        GlobalEnable1	=>	s_txd_en,
+        GlobalEnable1	=>	s_mod_en,
         TX_Q	        =>	TX_Q,
         TX_I	        =>	TX_I,
         TX_D	        =>	s_txd
@@ -257,16 +260,24 @@ begin
 			s_bit_ctr <= (others => '0');
 			s_data_buffer <= (others => '0');
             s_txd <= (others => '0');
-			s_txd_en <= '0';
+			s_txd_en <= (others => '0');
+            s_mod_en <= '0';
 		elsif rising_edge(PCLK) then
 			s_bit_ctr <= s_bit_ctr_next;
 			s_data_buffer <= s_data_buffer_next;
             s_txd <= s_txd_next;
-			s_txd_en <= s_busy; -- Delay-adjusted to 's_txd'
+			s_txd_en <= s_txd_en(s_txd_en'high-1 downto 0) & s_busy; -- Delay-adjusted to 's_txd'
+            if unsigned(s_txd_en) > 0 then
+                s_mod_en <= '1';
+            else
+                s_mod_en <= '0';
+            end if;
 		end if;
 	end process p_FSK_TRANSMIT_FSM_SYNC;
 
-	p_LED_MUX : process (
+
+
+	p_TXD_MUX : process (
 		s_busy,
 		s_data_buffer
 	)
@@ -280,7 +291,7 @@ begin
 				s_txd_next <= c_TXD_LOW;
 			end if;
 		end if;
-	end process p_LED_MUX;
+	end process p_TXD_MUX;
 
 
     -- Output assignment
@@ -289,6 +300,6 @@ begin
 	PREADY <= '1'; -- WR
 	PSLVERR <= '0';
 
-    TX_STROBE <= '1'; -- FIXME
+    TX_STROBE <= s_txd_en(s_txd_en'high);
 
 end Behavioral;
