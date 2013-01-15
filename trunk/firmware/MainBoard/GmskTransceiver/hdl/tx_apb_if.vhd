@@ -35,7 +35,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-use work.common.all;
+--use work.common.all;
 
 entity TX_APB_IF is
 	port (
@@ -54,18 +54,19 @@ entity TX_APB_IF is
 
          TX_STROBE  : out std_logic;
          TX_I       : out std_logic_vector(9 downto 0);
-         TX_Q       : out std_logic_vector(9 downto 0);
-    
-         -- Debug interface
-         LED_H   : out std_logic;
-         LED_L   : out std_logic
-		 );
+         TX_Q       : out std_logic_vector(9 downto 0)
+     );
+
 end entity;
 
 architecture Behavioral of TX_APB_IF is
 
     -- Constants
     constant c_DATA_LENGTH : integer := 8;
+
+    constant c_SYMBOL_DIV : integer := 8; -- Length of the symbol in clock ticks
+    constant c_TXD_HIGH   : std_logic_vector(1 downto 0) := "01"; -- +1
+    constant c_TXD_LOW    : std_logic_vector(1 downto 0) := "10"; -- -1
 
 	-- Addresses
 	constant c_ADDR_CTRL : std_logic_vector(7 downto 0) := x"00"; -- W (START)
@@ -80,24 +81,63 @@ architecture Behavioral of TX_APB_IF is
 
 
 	-- Signals
+
+    signal rst              : std_logic;
+
 	signal s_bit_ctr        : std_logic_vector(c_DATA_LENGTH-1 downto 0);
 	signal s_bit_ctr_next   : std_logic_vector(c_DATA_LENGTH-1 downto 0);
 	signal s_data_buffer    : std_logic_vector(c_DATA_LENGTH-1 downto 0);
 	signal s_data_buffer_next : std_logic_vector(c_DATA_LENGTH-1 downto 0);
 
+	signal s_start          : std_logic;
 	signal s_busy           : std_logic;
-	signal s_tx_fifo_full   : std_logic;
+    signal s_txd            : std_logic_vector(1 downto 0);
+    signal s_txd_next       : std_logic_vector(1 downto 0);
+    signal s_txd_en         : std_logic;
+
+	signal s_dout           : std_logic_vector(31 downto 0);
 
 	signal s_symbol_ctr     : unsigned(31 downto 0);
 	signal s_symbol_end     : std_logic;
 
+    -- Components
+
+    component gmsk_mod_lut is
+    port (
+        clk : in std_logic;
+        GlobalReset : in std_logic;
+        GlobalEnable1 : in std_logic;
+        TX_Q : out std_logic_vector(9 downto 0); -- sfix10_En8
+        TX_I : out std_logic_vector(9 downto 0); -- sfix10_En8
+        TX_D : in std_logic_vector(1 downto 0) -- sfix2_En1
+    );
+    end component;
+    
+
 begin
+
+    rst <= not PRESETn;
+
+    -- Port maps
+
+    c_gmsk_mod_lut : gmsk_mod_lut
+    port map (
+        clk	            =>	PCLK,
+        GlobalReset	    =>	rst,
+        GlobalEnable1	=>	s_txd_en,
+        TX_Q	        =>	TX_Q,
+        TX_I	        =>	TX_I,
+        TX_D	        =>	s_txd
+    );
+    
+    -- Processes
 
 	-- Register write
 	p_REG_WRITE : process (PRESETn, PCLK)
 	begin
 		if PRESETn = '0' then
 			s_start <= '0';
+            s_data <= (others => '0');
 		elsif rising_edge(PCLK) then
 
 			-- Default values
@@ -142,7 +182,7 @@ begin
 		end if;
 	end process p_REG_READ;
 
-	s_status <= x"0000000" & "00" & s_tx_fifo_full & s_busy;
+	s_status <= x"0000000" & "000" & s_busy;
 
 	-----------------------------------------------------------------------------
 	-- Symbol timer
@@ -155,7 +195,7 @@ begin
 		elsif rising_edge(PCLK) then
 			s_symbol_end <= '0';
 			if s_busy = '1' then
-				if s_symbol_ctr < unsigned(s_baud) then
+				if s_symbol_ctr < to_unsigned(s_symbol_ctr'length, c_SYMBOL_DIV) then
 					s_symbol_ctr <= s_symbol_ctr + 1;
 				else
 					s_symbol_ctr <= (others => '0');
@@ -222,7 +262,7 @@ begin
 			s_bit_ctr <= s_bit_ctr_next;
 			s_data_buffer <= s_data_buffer_next;
             s_txd <= s_txd_next;
-			s_txd_en <= s_busy; -- Delay-adjusted to 'led_low/led_high'
+			s_txd_en <= s_busy; -- Delay-adjusted to 's_txd'
 		end if;
 	end process p_FSK_TRANSMIT_FSM_SYNC;
 
@@ -231,18 +271,12 @@ begin
 		s_data_buffer
 	)
 	begin
-		-- Default values
-		s_led_high <= '0';
-		s_led_low  <= '0';
-
 		if s_busy = '1' then
 			-- Use s_data_buffer MSB as MUX input
 			if s_data_buffer(s_data_buffer'high) = '1' then
 				s_txd_next <= c_TXD_HIGH;
-                s_led_high <= '1';
 			else
 				s_txd_next <= c_TXD_LOW;
-                s_led_low  <= '1';
 			end if;
 		end if;
 	end process p_LED_MUX;
@@ -254,7 +288,6 @@ begin
 	PREADY <= '1'; -- WR
 	PSLVERR <= '0';
 
-    LED_H <= s_led_high;
-    LED_L <= s_led_low;
+    TX_STROBE <= '1'; -- FIXME
 
 end Behavioral;

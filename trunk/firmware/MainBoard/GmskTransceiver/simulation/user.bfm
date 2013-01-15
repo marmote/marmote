@@ -39,8 +39,8 @@ print "*            Testing custom APB slave block                *";
 print "************************************************************";
 print "";
 
-write w FSK_TX_APB_IF_0 TX_CTRL 0x00;
-write w FSK_TX_APB_IF_0 TX_DATA 0x0F
+write w TX_APB_IF_0 TX_CTRL 0x00;
+write w TX_APB_IF_0 TX_DATA 0x85
 
 wait 500;
 
