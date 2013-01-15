@@ -65,8 +65,8 @@ architecture Behavioral of TX_APB_IF is
     constant c_DATA_LENGTH : integer := 8;
 
     constant c_SYMBOL_DIV : integer := 8; -- Length of the symbol in clock ticks
-    constant c_TXD_HIGH   : std_logic_vector(1 downto 0) := "01"; -- +1
-    constant c_TXD_LOW    : std_logic_vector(1 downto 0) := "10"; -- -1
+    constant c_TXD_HIGH   : std_logic_vector(15 downto 0) := "0100" & x"000"; -- +1
+    constant c_TXD_LOW    : std_logic_vector(15 downto 0) := "1100" & x"000"; -- -1
 
 	-- Addresses
 	constant c_ADDR_CTRL : std_logic_vector(7 downto 0) := x"00"; -- W (START)
@@ -91,8 +91,8 @@ architecture Behavioral of TX_APB_IF is
 
 	signal s_start          : std_logic;
 	signal s_busy           : std_logic;
-    signal s_txd            : std_logic_vector(1 downto 0);
-    signal s_txd_next       : std_logic_vector(1 downto 0);
+    signal s_txd            : std_logic_vector(15 downto 0);
+    signal s_txd_next       : std_logic_vector(15 downto 0);
     signal s_txd_en         : std_logic;
 
 	signal s_dout           : std_logic_vector(31 downto 0);
@@ -109,7 +109,7 @@ architecture Behavioral of TX_APB_IF is
         GlobalEnable1 : in std_logic;
         TX_Q : out std_logic_vector(9 downto 0); -- sfix10_En8
         TX_I : out std_logic_vector(9 downto 0); -- sfix10_En8
-        TX_D : in std_logic_vector(1 downto 0) -- sfix2_En1
+        TX_D : in std_logic_vector(15 downto 0) -- sfix16_En14
     );
     end component;
     
@@ -195,7 +195,7 @@ begin
 		elsif rising_edge(PCLK) then
 			s_symbol_end <= '0';
 			if s_busy = '1' then
-				if s_symbol_ctr < to_unsigned(s_symbol_ctr'length, c_SYMBOL_DIV) then
+				if s_symbol_ctr < to_unsigned(c_SYMBOL_DIV-1, s_symbol_ctr'length) then
 					s_symbol_ctr <= s_symbol_ctr + 1;
 				else
 					s_symbol_ctr <= (others => '0');
@@ -271,6 +271,7 @@ begin
 		s_data_buffer
 	)
 	begin
+        s_txd_next <= (others => '0');
 		if s_busy = '1' then
 			-- Use s_data_buffer MSB as MUX input
 			if s_data_buffer(s_data_buffer'high) = '1' then
