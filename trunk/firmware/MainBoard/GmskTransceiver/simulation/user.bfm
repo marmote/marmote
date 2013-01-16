@@ -40,7 +40,7 @@ print "************************************************************";
 print "";
 
 write w TX_APB_IF_0 TX_CTRL 0x00;
-write w TX_APB_IF_0 TX_DATA 0x0F
+write w TX_APB_IF_0 TX_DATA 0xFF
 
 wait 500;
 
