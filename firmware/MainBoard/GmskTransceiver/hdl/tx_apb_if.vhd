@@ -62,7 +62,7 @@ end entity;
 architecture Behavioral of TX_APB_IF is
 
     -- Constants
-    constant c_DATA_LENGTH : integer := 8;
+    constant c_DATA_LENGTH : integer := 1;
 
     constant c_SYMBOL_DIV : integer := 8; -- Length of the symbol in clock ticks
     constant c_TXD_HIGH   : std_logic_vector(15 downto 0) := "0100" & x"000"; -- +1
@@ -190,7 +190,7 @@ begin
 	-----------------------------------------------------------------------------
 	-- Symbol timer
 	-----------------------------------------------------------------------------
-	p_baud_timer : process (PRESETn, PCLK)
+	p_symbol_timer : process (PRESETn, PCLK)
 	begin
 		if PRESETn = '0' then
 			s_symbol_ctr <= (others => '0');
@@ -206,7 +206,7 @@ begin
 				end if;
 			end if;
 		end if;
-	end process p_baud_timer;
+	end process p_symbol_timer;
 
 
 	-----------------------------------------------------------------------------
