@@ -61,49 +61,43 @@ end entity;
 
 architecture Behavioral of TX_APB_IF is
 
-    -- Constants
-    constant c_DATA_LENGTH : integer := 1;
-
-    constant c_SYMBOL_DIV : integer := 8; -- Length of the symbol in clock ticks
-    constant c_TXD_HIGH   : std_logic_vector(15 downto 0) := "0100" & x"000"; -- +1
-    constant c_TXD_LOW    : std_logic_vector(15 downto 0) := "1100" & x"000"; -- -1
-
-    constant c_TXD_EN_DELAY : integer := 10;
-
-	-- Addresses
-	constant c_ADDR_CTRL : std_logic_vector(7 downto 0) := x"00"; -- W (START)
-	constant c_ADDR_DATA : std_logic_vector(7 downto 0) := x"04"; -- W
-
-	-- Default values
-
-
-	-- Registers
-	signal s_status      : std_logic_vector(31 downto 0);
-	signal s_data        : std_logic_vector(31 downto 0);
-
-
-	-- Signals
-
-    signal rst              : std_logic;
-
-	signal s_bit_ctr        : std_logic_vector(c_DATA_LENGTH-1 downto 0);
-	signal s_bit_ctr_next   : std_logic_vector(c_DATA_LENGTH-1 downto 0);
-	signal s_data_buffer    : std_logic_vector(c_DATA_LENGTH-1 downto 0);
-	signal s_data_buffer_next : std_logic_vector(c_DATA_LENGTH-1 downto 0);
-
-	signal s_start          : std_logic;
-	signal s_busy           : std_logic;
-    signal s_txd            : std_logic_vector(15 downto 0);
-    signal s_txd_next       : std_logic_vector(15 downto 0);
-    signal s_txd_en         : std_logic_vector(c_TXD_EN_DELAY-1 downto 0);
-    signal s_mod_en         : std_logic;
-
-	signal s_dout           : std_logic_vector(31 downto 0);
-
-	signal s_symbol_ctr     : unsigned(31 downto 0);
-	signal s_symbol_end     : std_logic;
-
     -- Components
+
+    component FIFO_512x8 is
+    port (
+        DATA    : in  std_logic_vector(7 downto 0);
+        Q       : out std_logic_vector(7 downto 0);
+        WE      : in  std_logic;
+        RE      : in  std_logic;
+        WCLOCK  : in  std_logic;
+        RCLOCK  : in  std_logic;
+        FULL    : out std_logic;
+        EMPTY   : out std_logic;
+        RESET   : in  std_logic
+    );
+    end component;
+
+--    component FIFO_256x16 is
+--    generic (
+--        g_AFULL     : integer := 192;
+--        g_AEMPTY    : integer := 128
+--    );
+--    port (
+--        DATA   : in    std_logic_vector(15 downto 0);
+--        Q      : out   std_logic_vector(15 downto 0);
+--        WE     : in    std_logic;
+--        RE     : in    std_logic;
+--        WCLOCK : in    std_logic;
+--        RCLOCK : in    std_logic;
+--        FULL   : out   std_logic;
+--        EMPTY  : out   std_logic;
+--        RESET  : in    std_logic;
+--        AEMPTY : out   std_logic;
+--        AFULL  : out   std_logic
+--    );
+--    end component;
+    
+
 
     component gmsk_mod_lut is
     port (
@@ -115,7 +109,60 @@ architecture Behavioral of TX_APB_IF is
         TX_D : in std_logic_vector(15 downto 0) -- sfix16_En14
     );
     end component;
-    
+
+
+    -- Constants
+
+    constant c_DATA_LENGTH : integer := 8;
+
+    constant c_SYMBOL_DIV : integer := 8; -- Length of the symbol in clock ticks
+    constant c_TXD_HIGH   : std_logic_vector(15 downto 0) := "0100" & x"000"; -- +1
+    constant c_TXD_LOW    : std_logic_vector(15 downto 0) := "1100" & x"000"; -- -1
+
+    constant c_TXD_EN_DELAY : integer := 10;
+
+	-- Addresses
+	constant c_ADDR_CTRL : std_logic_vector(7 downto 0) := x"00"; -- W (START)
+	constant c_ADDR_FIFO : std_logic_vector(7 downto 0) := x"04"; -- W
+
+	-- Default values
+
+
+	-- Registers
+	signal s_status      : std_logic_vector(31 downto 0);
+
+
+	-- Signals
+
+    signal rst              : std_logic;
+    alias  clk              : std_logic is PCLK;
+
+    signal s_tx_fifo_in     : std_logic_vector(7 downto 0);
+    signal s_tx_fifo_out    : std_logic_vector(7 downto 0);
+    signal s_tx_fifo_wr     : std_logic;
+    signal s_tx_fifo_rd     : std_logic;
+    signal s_tx_fifo_full   : std_logic;
+    signal s_tx_fifo_empty  : std_logic;
+
+	signal s_bit_ctr        : std_logic_vector(c_DATA_LENGTH-1 downto 0);
+	signal s_bit_ctr_next   : std_logic_vector(c_DATA_LENGTH-1 downto 0);
+	signal s_data_buffer    : std_logic_vector(c_DATA_LENGTH-1 downto 0);
+	signal s_data_buffer_next : std_logic_vector(c_DATA_LENGTH-1 downto 0);
+
+	signal s_start          : std_logic;
+	signal s_restart        : std_logic;
+	signal s_start_prev     : std_logic;
+	signal s_busy           : std_logic;
+    signal s_txd            : std_logic_vector(15 downto 0);
+    signal s_txd_next       : std_logic_vector(15 downto 0);
+    signal s_txd_en         : std_logic_vector(c_TXD_EN_DELAY-1 downto 0);
+    signal s_mod_en         : std_logic;
+
+	signal s_dout           : std_logic_vector(31 downto 0);
+
+	signal s_symbol_ctr     : unsigned(31 downto 0);
+	signal s_symbol_end     : std_logic;
+
 
 begin
 
@@ -123,15 +170,31 @@ begin
 
     -- Port maps
 
-    c_gmsk_mod_lut : gmsk_mod_lut
+    u_TX_FIFO : FIFO_512x8
     port map (
-        clk	            =>	PCLK,
+    	RESET   => rst,
+    	DATA    => s_tx_fifo_in,
+    	Q       => s_tx_fifo_out,
+    	WCLOCK  => clk,
+    	WE      => s_tx_fifo_wr,
+    	RCLOCK  => clk,
+    	RE      => s_tx_fifo_rd,
+    	FULL    => s_tx_fifo_full,
+    	EMPTY   => s_tx_fifo_empty
+--        AFULL   => open,
+--        AEMPTY  => open
+	);
+
+    u_GMSK_MOD_LUT : gmsk_mod_lut
+    port map (
+        clk	            =>	clk,
         GlobalReset	    =>	rst,
         GlobalEnable1	=>	s_mod_en,
         TX_Q	        =>	TX_Q,
         TX_I	        =>	TX_I,
         TX_D	        =>	s_txd
     );
+
     
     -- Processes
 
@@ -140,20 +203,23 @@ begin
 	begin
 		if PRESETn = '0' then
 			s_start <= '0';
-            s_data <= (others => '0');
+            s_tx_fifo_in <= (others => '0');
+            s_tx_fifo_wr <= '0';
 		elsif rising_edge(PCLK) then
 
 			-- Default values
 			s_start <= '0';
+            s_tx_fifo_wr <= '0';
 
 			-- Register writes
 			if PWRITE = '1' and PSEL = '1' and PENABLE = '1' then
 				case PADDR(7 downto 0) is
 					when c_ADDR_CTRL =>
 						-- Initiate FSK transmission
-						s_start <= PWDATA(0);
-					when c_ADDR_DATA =>
-						s_data <= PWDATA;
+                        s_start <= PWDATA(0); -- TODO: check if s_start strobe is 1 clock cycle long
+					when c_ADDR_FIFO =>
+						s_tx_fifo_in <= PWDATA(7 downto 0);
+                        s_tx_fifo_wr <= '1';
 					when others =>
 						null;
 				end case;
@@ -176,8 +242,6 @@ begin
 				case PADDR(7 downto 0) is
 					when c_ADDR_CTRL => 
 						s_dout <= s_status;
-					when c_ADDR_DATA =>
-						s_dout <= s_data;
 					when others =>
 						null;
 				end case;
@@ -185,17 +249,21 @@ begin
 		end if;
 	end process p_REG_READ;
 
-	s_status <= x"0000000" & "000" & s_busy;
+	s_status <= x"0000000" & "00" & s_tx_fifo_empty & s_busy;
+
+
+	
+
 
 	-----------------------------------------------------------------------------
 	-- Symbol timer
 	-----------------------------------------------------------------------------
-	p_symbol_timer : process (PRESETn, PCLK)
+	p_SYMBOL_TIMER : process (rst, clk)
 	begin
-		if PRESETn = '0' then
+		if rst = '1' then
 			s_symbol_ctr <= (others => '0');
 			s_symbol_end <= '0';
-		elsif rising_edge(PCLK) then
+		elsif rising_edge(clk) then
 			s_symbol_end <= '0';
 			if s_busy = '1' then
 				if s_symbol_ctr < to_unsigned(c_SYMBOL_DIV-1, s_symbol_ctr'length) then
@@ -208,40 +276,89 @@ begin
 		end if;
 	end process p_symbol_timer;
 
+--    s_tx_fifo_rd <= '1' when (s_start = '1' and s_tx_fifo_empty = '0') or
+--                    s_symbol_end = '1' else '0';
+--    s_tx_fifo_rd <= '1' when (s_start = '1' ) or
+--                    s_symbol_end = '1' else '0';
+
+
+	-----------------------------------------------------------------------------
+	-- One-hot encoded FSM coordinating FSK transmission (synchronous)
+	-----------------------------------------------------------------------------
+	p_FSK_TRANSMIT_FSM_SYNC : process (rst, clk)
+	begin
+		if rst = '1' then
+			s_bit_ctr <= (others => '0');
+			s_data_buffer <= (others => '0');
+            s_txd <= (others => '0');
+			s_txd_en <= (others => '0');
+            s_mod_en <= '0';
+            s_start_prev <= '0';
+		elsif rising_edge(clk) then
+			s_bit_ctr <= s_bit_ctr_next;
+			s_data_buffer <= s_data_buffer_next;
+            s_txd <= s_txd_next;
+			s_txd_en <= s_txd_en(s_txd_en'high-1 downto 0) & s_busy; -- Delay-adjusted to 's_txd'
+            s_start_prev <= s_start or s_restart; -- FIXME
+            if unsigned(s_txd_en) > 0 then
+                s_mod_en <= '1';
+            else
+                s_mod_en <= '0';
+            end if;
+		end if;
+	end process p_FSK_TRANSMIT_FSM_SYNC;
+
 
 	-----------------------------------------------------------------------------
 	-- One-hot encoded FSM coordinating FSK transmission (combinational)
 	-----------------------------------------------------------------------------
+    -- NOTE: currently transmits one byte per s_start signal
 	p_FSK_TRANSMIT_FSM_COMB : process (
 		s_bit_ctr,
 		s_busy,
 		s_symbol_end,
-		s_data,
 		s_data_buffer,
+        s_tx_fifo_out,
+        s_tx_fifo_empty,
+		s_start_prev,
 		s_start
 	)
 	begin
 		-- Default values
 		s_busy <= '0';
+        s_tx_fifo_rd <= '0';
 		s_bit_ctr_next <= s_bit_ctr;
 		s_data_buffer_next <= s_data_buffer;
+        s_restart <= '0';
 
 		if s_bit_ctr /= std_logic_vector(to_unsigned(0,s_bit_ctr'length)) then
 			s_busy <= '1';
 		end if;
 
-		if s_busy /= '1' then
-			-- Start transmission on 's_start'
-			if s_start = '1' then
-				s_bit_ctr_next(0) <= '1'; -- Load LSB with '1'
-				s_data_buffer_next <= s_data(c_DATA_LENGTH-1 downto 0);
-			end if;
-		else
-			-- Step bits based on baud timing
+        -- Fetch FIFO data
+        if s_start = '1' and s_busy = '0' and s_tx_fifo_empty = '0' then
+            s_tx_fifo_rd <= '1';
+        end if;
+
+        -- Start the transmission
+        if s_start_prev = '1' then
+            s_bit_ctr_next <= (0 => '1', others => '0'); -- Load LSB with '1'
+            s_data_buffer_next <= s_tx_fifo_out(c_DATA_LENGTH-1 downto 0);
+        end if;
+
+		if s_busy = '1' then
+			-- Step bits based on symbol timing
 			if s_symbol_end = '1' then
 				if s_bit_ctr(c_DATA_LENGTH-1) = '1' then
-					s_bit_ctr_next <= (others => '0');
-					s_data_buffer_next <= (others => '0');
+                    if s_tx_fifo_empty = '1' then
+                        -- Stop TX
+                        s_bit_ctr_next <= (others => '0');
+                        s_data_buffer_next <= (others => '0');
+                    else
+                        -- Fetch next byte FIXME
+                        s_tx_fifo_rd <= '1';
+                        s_restart <= '1';
+                    end if;
 				else
 					s_bit_ctr_next <= s_bit_ctr(s_bit_ctr'high-1 downto 0) & '0';
 					s_data_buffer_next <= s_data_buffer(s_data_buffer'high-1 downto 0) & '0';
@@ -250,30 +367,6 @@ begin
 		end if;
 	end process p_FSK_TRANSMIT_FSM_COMB;
 
-
-	-----------------------------------------------------------------------------
-	-- One-hot encoded FSM coordinating FSK transmission (synchronous)
-	-----------------------------------------------------------------------------
-	p_FSK_TRANSMIT_FSM_SYNC : process (PRESETn, PCLK)
-	begin
-		if PRESETn = '0' then
-			s_bit_ctr <= (others => '0');
-			s_data_buffer <= (others => '0');
-            s_txd <= (others => '0');
-			s_txd_en <= (others => '0');
-            s_mod_en <= '0';
-		elsif rising_edge(PCLK) then
-			s_bit_ctr <= s_bit_ctr_next;
-			s_data_buffer <= s_data_buffer_next;
-            s_txd <= s_txd_next;
-			s_txd_en <= s_txd_en(s_txd_en'high-1 downto 0) & s_busy; -- Delay-adjusted to 's_txd'
-            if unsigned(s_txd_en) > 0 then
-                s_mod_en <= '1';
-            else
-                s_mod_en <= '0';
-            end if;
-		end if;
-	end process p_FSK_TRANSMIT_FSM_SYNC;
 
 
 

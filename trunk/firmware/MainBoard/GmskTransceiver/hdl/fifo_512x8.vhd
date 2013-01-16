@@ -6,18 +6,17 @@ library smartfusion;
 use smartfusion.all;
 
 entity FIFO_512x8 is
-
-    port( DATA   : in    std_logic_vector(7 downto 0);
-          Q      : out   std_logic_vector(7 downto 0);
-          WE     : in    std_logic;
-          RE     : in    std_logic;
-          WCLOCK : in    std_logic;
-          RCLOCK : in    std_logic;
-          FULL   : out   std_logic;
-          EMPTY  : out   std_logic;
-          RESET  : in    std_logic
-        );
-
+    port(
+        DATA   : in    std_logic_vector(7 downto 0);
+        Q      : out   std_logic_vector(7 downto 0);
+        WE     : in    std_logic;
+        RE     : in    std_logic;
+        WCLOCK : in    std_logic;
+        RCLOCK : in    std_logic;
+        FULL   : out   std_logic;
+        EMPTY  : out   std_logic;
+        RESET  : in    std_logic
+    );
 end FIFO_512x8;
 
 architecture DEF_ARCH of FIFO_512x8 is 
