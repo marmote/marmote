@@ -65,7 +65,7 @@ def ReadAEMeas(FileOrDir):
 
 #Extract data
     Fs	= float(DSPconf.Fs)    
-    T	= 1 / Fs * 1e6
+    T	= 1 / Fs
 
     y = []
     y2 = []

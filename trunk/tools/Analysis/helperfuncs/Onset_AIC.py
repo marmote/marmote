@@ -20,4 +20,4 @@ def Onset_AIC(y, T) :
 	for i in xrange(AIC.size):
 		AIC[i] = (i+1) * np.log( costum_var( np.array(y[:i+1]), y_mean, N ) ) + (N - i+1 - 1) * np.log( costum_var( np.array(y[i+1:]), y_mean, N ) )
 
-	return np.argmin(AIC) * T, AIC
+	return float(np.argmin(AIC)) * T, AIC

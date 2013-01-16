@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def PlotAEMeas(y, y2, AE_start, AE_start2, T,  positions = None, x_lim_min = 0, x_lim_max = 1000, y_lim_min = -1.1, y_lim_max = 1.1, threshold=None) :
+def PlotAEMeas(y, y2, AE_start, AE_start2, T,  positions = None, x_lim_min = 0, x_lim_max = 1e-3, y_lim_min = -1.1, y_lim_max = 1.1, threshold=None) :
 
 	if y is not None and y2 is not None and len(y) and len(y2):
 		y_temp = min( len(y), len(y2) )
