@@ -52,6 +52,9 @@ entity TX_APB_IF is
 		 PRDATA  : out std_logic_vector(31 downto 0);
 		 PSLVERR : out std_logic;
 
+         TXD         : out std_logic_vector(1 downto 0);
+         TXD_STROBE  : out std_logic;
+
          TX_STROBE  : out std_logic;
          TX_I       : out std_logic_vector(9 downto 0);
          TX_Q       : out std_logic_vector(9 downto 0)
@@ -76,28 +79,6 @@ architecture Behavioral of TX_APB_IF is
         RESET   : in  std_logic
     );
     end component;
-
---    component FIFO_256x16 is
---    generic (
---        g_AFULL     : integer := 192;
---        g_AEMPTY    : integer := 128
---    );
---    port (
---        DATA   : in    std_logic_vector(15 downto 0);
---        Q      : out   std_logic_vector(15 downto 0);
---        WE     : in    std_logic;
---        RE     : in    std_logic;
---        WCLOCK : in    std_logic;
---        RCLOCK : in    std_logic;
---        FULL   : out   std_logic;
---        EMPTY  : out   std_logic;
---        RESET  : in    std_logic;
---        AEMPTY : out   std_logic;
---        AFULL  : out   std_logic
---    );
---    end component;
-    
-
 
     component gmsk_mod_lut is
     port (
@@ -215,7 +196,7 @@ begin
 			if PWRITE = '1' and PSEL = '1' and PENABLE = '1' then
 				case PADDR(7 downto 0) is
 					when c_ADDR_CTRL =>
-						-- Initiate FSK transmission
+						-- Initiate transmission
                         s_start <= PWDATA(0); -- TODO: check if s_start strobe is 1 clock cycle long
 					when c_ADDR_FIFO =>
 						s_tx_fifo_in <= PWDATA(7 downto 0);
@@ -283,9 +264,9 @@ begin
 
 
 	-----------------------------------------------------------------------------
-	-- One-hot encoded FSM coordinating FSK transmission (synchronous)
+	-- FSM coordinating the transmission (synchronous)
 	-----------------------------------------------------------------------------
-	p_FSK_TRANSMIT_FSM_SYNC : process (rst, clk)
+	p_TRANSMIT_FSM_SYNC : process (rst, clk)
 	begin
 		if rst = '1' then
 			s_bit_ctr <= (others => '0');
@@ -306,14 +287,13 @@ begin
                 s_mod_en <= '0';
             end if;
 		end if;
-	end process p_FSK_TRANSMIT_FSM_SYNC;
+	end process p_TRANSMIT_FSM_SYNC;
 
 
 	-----------------------------------------------------------------------------
-	-- One-hot encoded FSM coordinating FSK transmission (combinational)
+	-- FSM coordinating the transmission (combinational)
 	-----------------------------------------------------------------------------
-    -- NOTE: currently transmits one byte per s_start signal
-	p_FSK_TRANSMIT_FSM_COMB : process (
+	p_TRANSMIT_FSM_COMB : process (
 		s_bit_ctr,
 		s_busy,
 		s_symbol_end,
@@ -365,9 +345,7 @@ begin
 				end if;
 			end if;
 		end if;
-	end process p_FSK_TRANSMIT_FSM_COMB;
-
-
+	end process p_TRANSMIT_FSM_COMB;
 
 
 	p_TXD_MUX : process (
@@ -386,6 +364,8 @@ begin
 		end if;
 	end process p_TXD_MUX;
 
+    TXD_STROBE <= s_symbol_end; -- FIXME: check if symbel end satisfies timing
+    TXD <= s_txd(s_txd'high downto s_txd'high-1);
 
     -- Output assignment
 
