@@ -171,12 +171,12 @@ SIZE="413"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.cxf,actgen_cxf"
 STATE="utd"
-TIME="1358383258"
-SIZE="11064"
+TIME="1358384417"
+SIZE="10966"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.pdc,pdc"
 STATE="utd"
-TIME="1358383212"
+TIME="1358383306"
 SIZE="5812"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 BEGIN_USE_CONSTRAINT
@@ -318,8 +318,8 @@ SIZE="6700"
 ENDFILE
 VALUE "<project>\hdl\fifo_512x8.vhd,hdl"
 STATE="utd"
-TIME="1358381844"
-SIZE="6816"
+TIME="1358383387"
+SIZE="6845"
 ENDFILE
 VALUE "<project>\hdl\gmsk_mod_lut.vhd,hdl"
 STATE="utd"
@@ -333,8 +333,8 @@ SIZE="11643"
 ENDFILE
 VALUE "<project>\hdl\rx_apb_if.vhd,hdl"
 STATE="utd"
-TIME="1358383071"
-SIZE="7086"
+TIME="1358384101"
+SIZE="7320"
 ENDFILE
 VALUE "<project>\hdl\SynLib.vhd,hdl"
 STATE="utd"
@@ -344,8 +344,8 @@ LIBRARY="shlslib"
 ENDFILE
 VALUE "<project>\hdl\tx_apb_if.vhd,hdl"
 STATE="utd"
-TIME="1358383245"
-SIZE="11460"
+TIME="1358383484"
+SIZE="11492"
 ENDFILE
 VALUE "<project>\simulation\afe_if_wave.do,do"
 STATE="utd"
@@ -375,8 +375,8 @@ SIZE="2548"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
-TIME="1358362747"
-SIZE="630"
+TIME="1358383309"
+SIZE="662"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 ENDFILE
 VALUE "<project>\simulation\test.bfm,sim"
@@ -384,6 +384,11 @@ STATE="utd"
 TIME="1358276545"
 SIZE="9830"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
+ENDFILE
+VALUE "<project>\simulation\testbench_presynth_simulation.log,log"
+STATE="utd"
+TIME="1358384106"
+SIZE="2021664"
 ENDFILE
 VALUE "<project>\simulation\tx_apb_if_wave.do,do"
 STATE="utd"
@@ -469,11 +474,12 @@ USE_LIST=TRUE
 FILELIST
 VALUE "<project>\hdl\afe_if.vhd,hdl"
 VALUE "<project>\hdl\H_cic_dec.vhd,hdl"
+VALUE "<project>\hdl\fifo_512x8.vhd,hdl"
+VALUE "<project>\hdl\rx_apb_if.vhd,hdl"
 VALUE "<project>\component\work\Teton_MSS\MSS_CCC_0\Teton_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd,hdl"
 VALUE "<project>\component\work\Teton_MSS\Teton_MSS.vhd,hdl"
 VALUE "<project>\hdl\SynLib.vhd,hdl"
 VALUE "<project>\hdl\gmsk_mod_lut.vhd,hdl"
-VALUE "<project>\hdl\fifo_512x8.vhd,hdl"
 VALUE "<project>\hdl\tx_apb_if.vhd,hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3_muxptob3.vhd,hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
@@ -487,6 +493,7 @@ VALUE "<project>\component\work\Teton_MSS\mss_tshell_syn.sdc,sdc"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
+ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -508,6 +515,7 @@ VALUE "<project>\designer\impl1\Teton.stp,stp"
 ENDUsed_File_List
 ENDLIST
 LIST Impl2
+ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -638,7 +646,7 @@ NAME="ModelSim AE"
 FUNCTION="Simulation"
 TOOL="ModelSim"
 LOCATION="C:\Microsemi\Libero_v10.1\Model\win32acoem\modelsim.exe"
-PARAM=""
+PARAM=" -l testbench_presynth_simulation.log "
 BATCH=0
 EndProfile
 NAME="WFL"
@@ -679,6 +687,7 @@ ENDLIST
 ENDLIST
 LIST "Teton::work"
 LIST Impl1
+ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -700,6 +709,7 @@ VALUE "<project>\designer\impl1\Teton.stp,stp"
 ENDUsed_File_List
 ENDLIST
 LIST Impl2
+ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -752,11 +762,12 @@ USE_LIST=TRUE
 FILELIST
 VALUE "<project>\hdl\afe_if.vhd,hdl"
 VALUE "<project>\hdl\H_cic_dec.vhd,hdl"
+VALUE "<project>\hdl\fifo_512x8.vhd,hdl"
+VALUE "<project>\hdl\rx_apb_if.vhd,hdl"
 VALUE "<project>\component\work\Teton_MSS\MSS_CCC_0\Teton_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd,hdl"
 VALUE "<project>\component\work\Teton_MSS\Teton_MSS.vhd,hdl"
 VALUE "<project>\hdl\SynLib.vhd,hdl"
 VALUE "<project>\hdl\gmsk_mod_lut.vhd,hdl"
-VALUE "<project>\hdl\fifo_512x8.vhd,hdl"
 VALUE "<project>\hdl\tx_apb_if.vhd,hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3_muxptob3.vhd,hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
@@ -880,7 +891,6 @@ ENDLIST
 LIST "Teton::work","component\work\Teton\Teton.cxf","TRUE","FALSE"
 SUBBLOCK "CoreAPB3::work","","FALSE","FALSE"
 SUBBLOCK "AFE_IF::work","hdl\afe_if.vhd","FALSE","FALSE"
-SUBBLOCK "H_cic_dec::work","hdl\H_cic_dec.vhd","FALSE","FALSE"
 SUBBLOCK "Teton_MSS::work","component\work\Teton_MSS\Teton_MSS.vhd","TRUE","FALSE"
 SUBBLOCK "RX_APB_IF::work","hdl\rx_apb_if.vhd","FALSE","FALSE"
 SUBBLOCK "TX_APB_IF::work","hdl\tx_apb_if.vhd","FALSE","FALSE"

@@ -49,7 +49,7 @@ wait 10;
 
 write w TX_APB_IF_0 TX_CTRL 0x01; # start
 
-wait 100;
+wait 300;
 
 read w RX_APB_IF_0 0x04;
 read w RX_APB_IF_0 0x04;
