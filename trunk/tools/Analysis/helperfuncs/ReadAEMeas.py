@@ -66,10 +66,12 @@ def ReadAEMeas(FileOrDir):
 #Extract data
     Fs	= float(DSPconf.Fs)    
     T	= 1 / Fs
+    frame_samples = 126
 
     y = []
     y2 = []
     fnames = []
+    start_time = []
 
 
     for ii in xrange(len(filelist)) :
@@ -93,4 +95,5 @@ def ReadAEMeas(FileOrDir):
    
         fnames.append(filelist[ii])
 
-    return y, y2, T, fnames
+        start_time.append(dg.frame_cnt[0]*T*float(frame_samples))
+    return y, y2, T, fnames, start_time

@@ -118,9 +118,14 @@ frame_source_ss_impl::work(int							noutput_items,
 				const uint64_t offset1 = this->nitems_written(1) + noutput + ret_s.frame_starts.front()/(channels*res);
 				pmt::pmt_t key		= pmt::pmt_string_to_symbol( "Frame counter" );
 /*				char temp[50];
-				sprintf( temp, "%d", (unsigned int) ret_s.frame_cnt.front() );
-				pmt::pmt_t value	= pmt::pmt_string_to_symbol( temp );
+				sprintf( temp, "%d,%d\n", (unsigned int) ret_s.frame_cnt.front(), (long) ret_s.frame_cnt.front() );
+				{
+				    FILE* tempfp = fopen("DebugDump1.bin", "ab");
+				    fwrite( (void*) temp, sizeof(char), strlen(temp)+1, tempfp ); 
+				    fclose(tempfp);
+				}
 */
+//				pmt::pmt_t value	= pmt::pmt_string_to_symbol( temp );
 //				pmt::pmt_t value	= pmt::pmt_string_to_symbol( "" );
 				pmt::pmt_t value	= pmt::pmt_from_long( (long) ret_s.frame_cnt.front() );
 

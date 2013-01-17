@@ -47,6 +47,8 @@ class DataGenerator:
                 self.dfe.ClearFromBeginning( self.processed_bytes ) # Clear any previous data, that was already processed
                 self.processed_bytes, self.int_buff, self.frame_starts, self.missing_frames = self.fpp.Process( self.dfe.byte_buff, self.dfe.byte_buff_len, self.dfe.frame_starts, self.dfe.frame_cnt, N ) 
 
+                self.frame_cnt =  self.dfe.frame_cnt[:len(self.frame_starts)]
+
                 if self.s.SourceEmpty() or self.int_buff.size > 0 :
                     break
 
