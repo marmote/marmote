@@ -47,8 +47,9 @@ sim:/testbench/Teton_0/TX_APB_IF_0/s_txd \
 -unsigned \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_txd_en
 
+#-group {RX BITS} \
+
 add wave  \
--group {RX BITS} \
 -unsigned \
 sim:/testbench/Teton_0/RX_APB_IF_0/rst \
 sim:/testbench/Teton_0/RX_APB_IF_0/clk \
@@ -59,8 +60,11 @@ sim:/testbench/Teton_0/RX_APB_IF_0/RXD_STROBE \
 sim:/testbench/Teton_0/RX_APB_IF_0/s_data_buffer \
 sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_wr \
 sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_in \
+sim:/testbench/Teton_0/RX_APB_IF_0/PREADY \
+sim:/testbench/Teton_0/RX_APB_IF_0/s_pready \
 sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_rd \
-sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_rd_prev \
+sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_fetch \
+sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_fetch_prev \
 sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_out \
 sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_empty
 
@@ -91,5 +95,5 @@ sim:/testbench/Teton_0/TX_APB_IF_0/s_dout \
 sim:/testbench/Teton_0/TX_APB_IF_0/c_DATA_LENGTH \
 sim:/testbench/Teton_0/TX_APB_IF_0/c_SYMBOL_DIV
 
-run 120 us
+run 65 us
 wave zoom range {80 us} {130 us}

@@ -112,7 +112,8 @@ architecture Behavioral of RX_APB_IF is
     signal s_rx_fifo_out    : std_logic_vector(7 downto 0);
     signal s_rx_fifo_wr     : std_logic;
     signal s_rx_fifo_rd     : std_logic;
-    signal s_rx_fifo_rd_prev : std_logic;
+    signal s_rx_fifo_fetch  : std_logic;
+    signal s_rx_fifo_fetch_prev : std_logic;
     signal s_rx_fifo_full   : std_logic;
     signal s_rx_fifo_empty  : std_logic;
 
@@ -169,12 +170,14 @@ begin
 	p_REG_READ : process (PRESETn, PCLK)
 	begin
 		if PRESETn = '0' then
-            s_rx_fifo_rd <= '0';
+            s_pready <= '0';
+            s_rx_fifo_fetch <= '0';
 			s_dout <= (others => '0');
 		elsif rising_edge(PCLK) then
 
 			-- Default output
-            s_rx_fifo_rd <= '0';
+            s_pready <= '0';
+            s_rx_fifo_fetch <= '0';
 			s_dout <= (others => '0');
 
 			-- Register reads
@@ -184,9 +187,8 @@ begin
 						s_dout <= (others => '0'); -- TODO: Define status bits
 					when c_ADDR_FIFO => 
 						s_dout(7 downto 0) <= s_rx_fifo_out;
-                        s_rx_fifo_rd <= '1';
-                        s_pready <= '0';
-                        if s_rx_fifo_rd_prev = '1' then
+                        s_rx_fifo_fetch <= '1';
+                        if s_rx_fifo_fetch = '1' and s_rx_fifo_fetch_prev = '0' then
                             s_pready <= '1';
                         end if;
 					when others =>
@@ -196,14 +198,17 @@ begin
 		end if;
 	end process p_REG_READ;
 
-    p_REG_UPDATE : process (rst, clk)
+    p_FIFO_FETCH : process (rst, clk)
     begin
         if rst = '1' then
-            s_rx_fifo_rd_prev <= '0';
+            s_rx_fifo_fetch_prev <= '0';
         elsif rising_edge(clk) then
-            s_rx_fifo_rd_prev <= s_rx_fifo_rd;
+            s_rx_fifo_fetch_prev <= s_rx_fifo_fetch;
         end if;
-    end process p_REG_UPDATE;
+    end process p_FIFO_FETCH;
+
+    s_rx_fifo_rd <= '1' when s_rx_fifo_fetch = '1' and s_rx_fifo_fetch_prev =
+                    '0' else '0';
 
     ---------------------------------------------------------------------------
     -- Process deserializing the incoming data stream
