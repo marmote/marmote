@@ -26,6 +26,7 @@
 #include "two_channel_threshold_ssss_impl.h"
 
 #include <stdlib.h>
+#include <stdio.h>
 
 
 namespace gr 
@@ -64,6 +65,7 @@ two_channel_threshold_ssss_impl::two_channel_threshold_ssss_impl(short			thresho
 		d_wash_out_counter(0)				
 {
 	set_history(d_pre_trig_samples+1);
+	set_tag_propagation_policy(TPP_DONT);
 }
 
 
@@ -127,8 +129,43 @@ two_channel_threshold_ssss_impl::general_work (int						noutput_items,
 
 		d_wash_out_counter--;
 				
-		out1[noutput] = input1[i - d_pre_trig_samples];
-		out2[noutput] = input2[i - d_pre_trig_samples];
+		int nin = i - d_pre_trig_samples;
+		out1[noutput] = input1[nin];
+		out2[noutput] = input2[nin];
+
+		//Stream tag propagation, all to all
+		for (unsigned char ch = 0; ch < 2; ch++)
+		{
+/*				{
+				    char temp[50];
+				    sprintf( temp, "Test\r" );
+
+				    FILE* tempfp = fopen("DebugDump1.bin", "ab");
+				    fwrite( (void*) temp, sizeof(char), strlen(temp), tempfp );
+				    fclose(tempfp);
+				}
+*/
+			std::vector<gr_tag_t> tags;
+			this->get_tags_in_range(tags, ch, this->nitems_read(ch)+nin, this->nitems_read(ch)+nin+1);
+
+			for (std::vector<gr_tag_t>::size_type i = 0; i < tags.size(); i++) 
+			{
+/*				{
+				    char temp[50];
+				    sprintf( temp, "%s, %d\r", pmt::pmt_symbol_to_string(tags[i].key).c_str(), pmt::pmt_to_long(tags[i].value) );
+
+				    FILE* tempfp = fopen("DebugDump1.bin", "ab");
+				    fwrite( (void*) temp, sizeof(char), strlen(temp), tempfp );
+				    fclose(tempfp);
+				}
+*/
+				const uint64_t offset1 = this->nitems_written(0) + noutput;
+				const uint64_t offset2 = this->nitems_written(1) + noutput;
+				this->add_item_tag(0, offset1, tags[i].key, tags[i].value);
+				this->add_item_tag(1, offset2, tags[i].key, tags[i].value);
+			}
+		}
+
 		noutput++;
 	} 
 
