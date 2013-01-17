@@ -1,11 +1,15 @@
--- Version: 10.0 SP1 10.0.10.4
-
 library ieee;
 use ieee.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
 library smartfusion;
 use smartfusion.all;
 
 entity FIFO_512x8 is
+    generic (
+        g_AFULL     : integer := 496;
+        g_AEMPTY    : integer := 16
+    );
     port(
         DATA   : in    std_logic_vector(7 downto 0);
         Q      : out   std_logic_vector(7 downto 0);
@@ -15,17 +19,13 @@ entity FIFO_512x8 is
         RCLOCK : in    std_logic;
         FULL   : out   std_logic;
         EMPTY  : out   std_logic;
-        RESET  : in    std_logic
+        RESET  : in    std_logic;
+        AEMPTY : out   std_logic;
+        AFULL  : out   std_logic
     );
 end FIFO_512x8;
 
-architecture DEF_ARCH of FIFO_512x8 is 
-
-  component INV
-    port( A : in    std_logic := 'U';
-          Y : out   std_logic
-        );
-  end component;
+architecture Structural of FIFO_512x8 is 
 
   component FIFO4K18
     port( AEVAL11 : in    std_logic := 'U';
@@ -111,115 +111,104 @@ architecture DEF_ARCH of FIFO_512x8 is
         );
   end component;
 
-  component GND
-    port(Y : out std_logic); 
-  end component;
+    signal WENP, RESETP : std_logic;
 
-  component VCC
-    port(Y : out std_logic); 
-  end component;
-
-    signal WEBP, RESETP, \VCC\, \GND\ : std_logic;
-    signal GND_power_net1 : std_logic;
-    signal VCC_power_net1 : std_logic;
+    constant c_AFULL    : std_logic_vector(8 downto 0) :=
+        std_logic_vector(to_unsigned(g_AFULL, 9));
+    constant c_AEMPTY   : std_logic_vector(8 downto 0) :=
+        std_logic_vector(to_unsigned(g_AEMPTY, 9));
+    
 
 begin 
 
-    \GND\ <= GND_power_net1;
-    \VCC\ <= VCC_power_net1;
+      WENP <= not WE;
+      RESETP <= not RESET;
 
-    RESETBUBBLEA : INV
-      port map(A => RESET, Y => RESETP);
+      -- Port maps
     
-    FIFOBLOCK0 : FIFO4K18
-      port map(AEVAL11 => \GND\, AEVAL10 => \GND\, AEVAL9 => 
-        \GND\, AEVAL8 => \GND\, AEVAL7 => \GND\, AEVAL6 => \GND\, 
-        AEVAL5 => \GND\, AEVAL4 => \GND\, AEVAL3 => \GND\, AEVAL2
-         => \GND\, AEVAL1 => \GND\, AEVAL0 => \GND\, AFVAL11 => 
-        \GND\, AFVAL10 => \GND\, AFVAL9 => \GND\, AFVAL8 => \GND\, 
-        AFVAL7 => \GND\, AFVAL6 => \GND\, AFVAL5 => \GND\, AFVAL4
-         => \GND\, AFVAL3 => \GND\, AFVAL2 => \GND\, AFVAL1 => 
-        \GND\, AFVAL0 => \GND\, WD17 => \GND\, WD16 => \GND\, 
-        WD15 => \GND\, WD14 => \GND\, WD13 => \GND\, WD12 => 
-        \GND\, WD11 => \GND\, WD10 => \GND\, WD9 => \GND\, WD8
-         => \GND\, WD7 => DATA(7), WD6 => DATA(6), WD5 => DATA(5), 
-        WD4 => DATA(4), WD3 => DATA(3), WD2 => DATA(2), WD1 => 
-        DATA(1), WD0 => DATA(0), WW0 => \VCC\, WW1 => \VCC\, WW2
-         => \GND\, RW0 => \VCC\, RW1 => \VCC\, RW2 => \GND\, 
-        RPIPE => \GND\, WEN => WEBP, REN => RE, WBLK => \GND\, 
-        RBLK => \GND\, WCLK => WCLOCK, RCLK => RCLOCK, RESET => 
-        RESETP, ESTOP => \VCC\, FSTOP => \VCC\, RD17 => OPEN, 
-        RD16 => OPEN, RD15 => OPEN, RD14 => OPEN, RD13 => OPEN, 
-        RD12 => OPEN, RD11 => OPEN, RD10 => OPEN, RD9 => OPEN, 
-        RD8 => OPEN, RD7 => Q(7), RD6 => Q(6), RD5 => Q(5), RD4
-         => Q(4), RD3 => Q(3), RD2 => Q(2), RD1 => Q(1), RD0 => 
-        Q(0), FULL => FULL, AFULL => OPEN, EMPTY => EMPTY, AEMPTY
-         => OPEN);
+      u_FIFO4K18 : FIFO4K18
+      port map(
+          AEVAL11 => c_AEMPTY(8),
+          AEVAL10 => c_AEMPTY(7),
+          AEVAL9 => c_AEMPTY(6),
+          AEVAL8 => c_AEMPTY(5),
+          AEVAL7 => c_AEMPTY(4),
+          AEVAL6 => c_AEMPTY(3),
+          AEVAL5 => c_AEMPTY(2),
+          AEVAL4 => c_AEMPTY(1),
+          AEVAL3 => c_AEMPTY(0),
+          AEVAL2 => '0',
+          AEVAL1 => '0',
+          AEVAL0 => '0',
+          AFVAL11 => c_AFULL(8),
+          AFVAL10 => c_AFULL(7),
+          AFVAL9 => c_AFULL(6),
+          AFVAL8 => c_AFULL(5),
+          AFVAL7 => c_AFULL(4),
+          AFVAL6 => c_AFULL(3),
+          AFVAL5 => c_AFULL(2),
+          AFVAL4 => c_AFULL(1),
+          AFVAL3 => c_AFULL(0),
+          AFVAL2 => '0',
+          AFVAL1 => '0',
+          AFVAL0 => '0',
+          WD17 => '0',
+          WD16 => '0', 
+          WD15 => '0',
+          WD14 => '0',
+          WD13 => '0',
+          WD12 => '0',
+          WD11 => '0',
+          WD10 => '0',
+          WD9 => '0',
+          WD8 => '0',
+          WD7 => DATA(7),
+          WD6 => DATA(6),
+          WD5 => DATA(5), 
+          WD4 => DATA(4),
+          WD3 => DATA(3),
+          WD2 => DATA(2),
+          WD1 => DATA(1),
+          WD0 => DATA(0),
+          WW0 => '1',
+          WW1 => '1',
+          WW2 => '0',
+          RW0 => '1',
+          RW1 => '1',
+          RW2 => '0',
+          RPIPE => '0',
+          WEN => WENP,
+          REN => RE,
+          WBLK => '0',
+          RBLK => '0',
+          WCLK => WCLOCK,
+          RCLK => RCLOCK,
+          RESET => RESETP,
+          ESTOP => '1',
+          FSTOP => '1',
+          RD17 => OPEN, 
+          RD16 => OPEN,
+          RD15 => OPEN,
+          RD14 => OPEN,
+          RD13 => OPEN, 
+          RD12 => OPEN,
+          RD11 => OPEN,
+          RD10 => OPEN,
+          RD9 => OPEN, 
+          RD8 => OPEN,
+          RD7 => Q(7),
+          RD6 => Q(6),
+          RD5 => Q(5),
+          RD4 => Q(4),
+          RD3 => Q(3),
+          RD2 => Q(2),
+          RD1 => Q(1),
+          RD0 => Q(0),
+          FULL => FULL,
+          AFULL => AFULL,
+          EMPTY => EMPTY,
+          AEMPTY => AEMPTY
+      );
     
-    WEBUBBLEA : INV
-      port map(A => WE, Y => WEBP);
-    
-    GND_power_inst1 : GND
-      port map( Y => GND_power_net1);
 
-    VCC_power_inst1 : VCC
-      port map( Y => VCC_power_net1);
-
-
-end DEF_ARCH; 
-
--- _Disclaimer: Please leave the following comments in the file, they are for internal purposes only._
-
-
--- _GEN_File_Contents_
-
--- Version:10.0.10.4
--- ACTGENU_CALL:1
--- BATCH:T
--- FAM:PA3SOC2
--- OUTFORMAT:VHDL
--- LPMTYPE:LPM_FIFO
--- LPM_HINT:NONE
--- INSERT_PAD:NO
--- INSERT_IOREG:NO
--- GEN_BHV_VHDL_VAL:F
--- GEN_BHV_VERILOG_VAL:F
--- MGNTIMER:F
--- MGNCMPL:T
--- DESDIR:N/A
--- GEN_BEHV_MODULE:F
--- SMARTGEN_DIE:IP6X5M2
--- SMARTGEN_PACKAGE:fg256
--- AGENIII_IS_SUBPROJECT_LIBERO:T
--- WWIDTH:8
--- RWIDTH:8
--- WDEPTH:512
--- RDEPTH:512
--- WE_POLARITY:1
--- RE_POLARITY:1
--- RCLK_EDGE:RISE
--- WCLK_EDGE:RISE
--- PMODE1:0
--- FLAGS:NOFLAGS
--- AFVAL:2
--- AEVAL:1
--- ESTOP:NO
--- FSTOP:NO
--- DATA_IN_PN:DATA
--- DATA_OUT_PN:Q
--- WE_PN:WE
--- RE_PN:RE
--- WCLOCK_PN:WCLOCK
--- RCLOCK_PN:RCLOCK
--- ACLR_PN:RESET
--- FF_PN:FULL
--- EF_PN:EMPTY
--- AF_PN:AFULL
--- AE_PN:AEMPTY
--- AF_PORT_PN:AFVAL
--- AE_PORT_PN:AEVAL
--- RESET_POLARITY:1
-
--- _End_Comments_
-
-
+end Structural; 

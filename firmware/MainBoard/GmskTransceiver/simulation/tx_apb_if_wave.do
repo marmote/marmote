@@ -33,22 +33,40 @@ sim:/testbench/Teton_0/TX_APB_IF_0/s_data_buffer
 
 add wave \
 -unsigned \
--group {DATA BITS} \
+-group {TX BITS} \
 sim:/testbench/Teton_0/TX_APB_IF_0/rst \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_start \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_symbol_ctr \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_symbol_end \
+-hex \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_data_buffer \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_status \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_bit_ctr \
 -signed \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_txd \
 -unsigned \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_txd_en \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_mod_en
+sim:/testbench/Teton_0/TX_APB_IF_0/s_txd_en
+
+add wave  \
+-group {RX BITS} \
+-unsigned \
+sim:/testbench/Teton_0/RX_APB_IF_0/rst \
+sim:/testbench/Teton_0/RX_APB_IF_0/clk \
+sim:/testbench/Teton_0/RX_APB_IF_0/RXD_STROBE \
+-signed sim:/testbench/Teton_0/RX_APB_IF_0/RXD \
+-unsigned sim:/testbench/Teton_0/RX_APB_IF_0/s_bit_ctr \
+-hex \
+sim:/testbench/Teton_0/RX_APB_IF_0/s_data_buffer \
+sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_wr \
+sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_in \
+sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_rd \
+sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_rd_prev \
+sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_out \
+sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_empty
+
 
 add wave \
--group {WAVEFORMS} \
+-group {TX WAVEFORMS} \
 -analog-step -min -16384 -max 16384 -height 50 \
 -label {Gaussian FIR in} sim:/testbench/Teton_0/TX_APB_IF_0/u_GMSK_MOD_LUT/Gaussian_Filter_FIR_block/myGaussian_Filter_FIR/inp \
 -analog-step -min -16384 -max 16384 -height 50 \
@@ -59,7 +77,7 @@ sim:/testbench/Teton_0/TX_APB_IF_0/u_GMSK_MOD_LUT/N_5 \
 -analog-step -min -512 -max 512 -height 100 \
 -label {TX I} sim:/testbench/Teton_0/TX_APB_IF_0/TX_I \
 -label {TX Q} sim:/testbench/Teton_0/TX_APB_IF_0/TX_Q \
-sim:/testbench/Teton_0/TX_APB_IF_0/TX_STROBE 
+-label {TX STROBE} sim:/testbench/Teton_0/TX_APB_IF_0/TX_STROBE 
 
 
 add wave \
