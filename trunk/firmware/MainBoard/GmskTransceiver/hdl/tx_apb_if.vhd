@@ -80,7 +80,7 @@ architecture Behavioral of TX_APB_IF is
     );
     end component;
 
-    component gmsk_mod_lut is
+    component gmsk_tx is
     port (
         clk : in std_logic;
         GlobalReset : in std_logic;
@@ -166,7 +166,7 @@ begin
 --        AEMPTY  => open
 	);
 
-    u_GMSK_MOD_LUT : gmsk_mod_lut
+    u_GMSK_TX : gmsk_tx
     port map (
         clk	            =>	clk,
         GlobalReset	    =>	rst,
@@ -364,7 +364,7 @@ begin
 		end if;
 	end process p_TXD_MUX;
 
-    TXD_STROBE <= s_symbol_end; -- FIXME: check if symbel end satisfies timing
+    TXD_STROBE <= s_symbol_end; -- FIXME: check if symbol end satisfies timing
     TXD <= s_txd(s_txd'high downto s_txd'high-1);
 
     -- Output assignment

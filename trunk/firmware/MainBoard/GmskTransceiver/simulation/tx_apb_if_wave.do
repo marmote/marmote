@@ -47,10 +47,10 @@ sim:/testbench/Teton_0/TX_APB_IF_0/s_txd \
 -unsigned \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_txd_en
 
-#-group {RX BITS} \
 
 add wave  \
 -unsigned \
+-group {RX BITS} \
 sim:/testbench/Teton_0/RX_APB_IF_0/rst \
 sim:/testbench/Teton_0/RX_APB_IF_0/clk \
 sim:/testbench/Teton_0/RX_APB_IF_0/RXD_STROBE \
@@ -72,28 +72,62 @@ sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_empty
 add wave \
 -group {TX WAVEFORMS} \
 -analog-step -min -16384 -max 16384 -height 50 \
--label {Gaussian FIR in} sim:/testbench/Teton_0/TX_APB_IF_0/u_GMSK_MOD_LUT/Gaussian_Filter_FIR_block/myGaussian_Filter_FIR/inp \
+-label {Gaussian FIR in} sim:/testbench/Teton_0/TX_APB_IF_0/u_GMSK_TX/Gaussian_Filter_FIR_block/myGaussian_Filter_FIR/inp \
 -analog-step -min -16384 -max 16384 -height 50 \
--label {Gaussian FIR out} sim:/testbench/Teton_0/TX_APB_IF_0/u_GMSK_MOD_LUT/Gaussian_Filter_FIR_block/myGaussian_Filter_FIR/outp \
+-label {Gaussian FIR out} sim:/testbench/Teton_0/TX_APB_IF_0/u_GMSK_TX/Gaussian_Filter_FIR_block/myGaussian_Filter_FIR/outp \
 -analog-step -min -4294967296 -max 4294967296 -height 50 \
 -label {Integrator out} \
-sim:/testbench/Teton_0/TX_APB_IF_0/u_GMSK_MOD_LUT/N_5 \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_GMSK_TX/N_5 \
 -analog-step -min -512 -max 512 -height 100 \
 -label {TX I} sim:/testbench/Teton_0/TX_APB_IF_0/TX_I \
 -label {TX Q} sim:/testbench/Teton_0/TX_APB_IF_0/TX_Q \
+-unsigned \
 -label {TX STROBE} sim:/testbench/Teton_0/TX_APB_IF_0/TX_STROBE 
 
+add wave  \
+-group {RX WAVEFORMS} \
+-analog-step -min -512 -max 512 -height 100 \
+sim:/testbench/Teton_0/RX_APB_IF_0/RX_STROBE \
+sim:/testbench/Teton_0/RX_APB_IF_0/RX_I \
+sim:/testbench/Teton_0/RX_APB_IF_0/RX_Q \
+-unsigned \
+sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_RX/Port_Out
 
 add wave \
--group {OTHER} \
+-divider {RX SYNC} \
 -unsigned \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_busy \
--signed \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_txd_next \
--unsigned \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_dout \
-sim:/testbench/Teton_0/TX_APB_IF_0/c_DATA_LENGTH \
-sim:/testbench/Teton_0/TX_APB_IF_0/c_SYMBOL_DIV
+sim:/testbench/Teton_0/TX_APB_IF_0/s_txd_en \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_txd(15) \
+sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/bit_in_reg \
+sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/Correlation_metric_e0 \
+sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/Correlation_metric_e1 \
+sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/Correlation_metric_e2 \
+sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/Correlation_metric_e3 \
+sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/Correlation_metric_e4 \
+sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/Correlation_metric_e5 \
+sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/Correlation_metric_e6 \
+sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/Correlation_metric_e7 \
+sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/bit_valid_reg \
+sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/bit_out_reg
 
-run 65 us
+
+add wave  \
+-divider {RX BUFFER} \
+-hex \
+sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_symbol_valid \
+sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_strobe_div8 \
+sim:/testbench/Teton_0/RX_APB_IF_0/s_data_buffer \
+-unsigned \
+sim:/testbench/Teton_0/RX_APB_IF_0/s_bit_ctr \
+sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_wr \
+sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_in \
+sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_full \
+sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_rd \
+sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_out \
+sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_empty \
+sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_fetch \
+sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_fetch_prev
+
+
+run 120 us
 wave zoom range {80 us} {130 us}

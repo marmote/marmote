@@ -41,15 +41,25 @@ print "";
 
 write w TX_APB_IF_0 TX_CTRL 0x00;
 
+# Random bytes
+write w TX_APB_IF_0 TX_DATA 0xAA;
+write w TX_APB_IF_0 TX_DATA 0x20;
+
+# Sync frame
+write w TX_APB_IF_0 TX_DATA 0x70;
+write w TX_APB_IF_0 TX_DATA 0xEE;
+write w TX_APB_IF_0 TX_DATA 0xD2;
+
+# Data
+write w TX_APB_IF_0 TX_DATA 0xAB;
+write w TX_APB_IF_0 TX_DATA 0xCD;
 write w TX_APB_IF_0 TX_DATA 0xEF;
-write w TX_APB_IF_0 TX_DATA 0x55;
-write w TX_APB_IF_0 TX_DATA 0x34;
 
 wait 10;
 
 write w TX_APB_IF_0 TX_CTRL 0x01; # start
 
-wait 300;
+wait 1000;
 
 read w RX_APB_IF_0 0x04;
 read w RX_APB_IF_0 0x04;
