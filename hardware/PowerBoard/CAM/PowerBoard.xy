@@ -1,6 +1,6 @@
 SMD component position file.
 
-Centroid Data for pc board: "PowerBoard.brd" as of: 3/22/2012 13:06:06
+Centroid Data for pc board: "PowerBoard.brd" as of: 1/18/2013 15:01:35
 Measurements are in inches. Comma delimited
 Only surface mount components included
 
@@ -42,6 +42,10 @@ M5,Top,0.079,0.079,0
 M6,Top,0.079,1.890,0
 M7,Top,3.465,1.890,0
 M8,Top,3.465,0.079,0
+M9,Bottom,0.079,1.890,0
+M10,Bottom,3.465,1.890,0
+M11,Bottom,0.079,0.079,0
+M12,Bottom,3.465,0.079,0
 Q1,Top,2.343,1.689,90
 Q2,Top,2.382,1.421,90
 Q3,Top,2.382,1.260,90
