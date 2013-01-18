@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.1">
+<eagle version="6.4">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -8,12 +8,12 @@
 </settings>
 <grid distance="0.5" unitdist="mm" unit="mm" style="dots" multiple="1" display="yes" altdistance="0.1" altunitdist="mm" altunit="mm"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
-<layer number="2" name="GND" color="2" fill="1" visible="yes" active="yes"/>
-<layer number="3" name="SIGNAL" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
+<layer number="2" name="GND" color="2" fill="1" visible="no" active="yes"/>
+<layer number="3" name="SIGNAL" color="4" fill="1" visible="no" active="yes"/>
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
 <layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
@@ -172,7 +172,7 @@
 <wire x1="45.05" y1="47.55" x2="45.05" y2="48.45" width="0.2032" layer="21"/>
 <wire x1="48.95" y1="47.55" x2="48.95" y2="48.45" width="0.2032" layer="21"/>
 <wire x1="54" y1="47.55" x2="54" y2="48.45" width="0.2032" layer="21"/>
-<text x="69" y="19" size="1.27" layer="22" font="vector" rot="MR0">Copyright c 2012</text>
+<text x="69" y="19" size="1.27" layer="22" font="vector" rot="MR0">Copyright c 2013</text>
 <circle x="57.8" y="19.45" radius="0.85" width="0.127" layer="22"/>
 <text x="49" y="19" size="1.27" layer="22" font="vector" rot="MR0">Vanderbilt University, ISIS</text>
 <wire x1="17.88" y1="7.7" x2="17.88" y2="8.6" width="0.2032" layer="21"/>
@@ -9872,7 +9872,7 @@ Source: &lt;p&gt;
 <class number="0" name="default" width="0" drill="0">
 </class>
 </classes>
-<designrules>
+<designrules name="default">
 <description language="de">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
 &lt;p&gt;
 Die Standard-Design-Rules sind so gewählt, dass sie für 

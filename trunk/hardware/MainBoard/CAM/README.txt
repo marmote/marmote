@@ -1,4 +1,4 @@
-MainBoard (Teton) Revision A
+MainBoard (Teton) Revision B
 
 PCB DECRIPTION: 90mm x 56mm 
                 6 LAYER PCB (.062 inches thickness) FR4
