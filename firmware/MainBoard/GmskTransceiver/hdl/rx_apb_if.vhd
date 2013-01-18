@@ -52,9 +52,9 @@ entity RX_APB_IF is
 		 PRDATA  : out std_logic_vector(31 downto 0);
 		 PSLVERR : out std_logic;
 
---         RX_STROBE  : in  std_logic;
---         RX_I       : in  std_logic_vector(9 downto 0);
---         RX_Q       : in  std_logic_vector(9 downto 0);
+         RX_STROBE  : in  std_logic;
+         RX_I       : in  std_logic_vector(9 downto 0);
+         RX_Q       : in  std_logic_vector(9 downto 0);
 
          RXD_STROBE : in  std_logic;
          RXD        : in  std_logic_vector(1 downto 0)
@@ -66,6 +66,30 @@ architecture Behavioral of RX_APB_IF is
 
     -- Components
 
+    component gmsk_rx is
+    port (
+      clk : in std_logic;
+      GlobalReset : in std_logic;
+      GlobalEnable1 : in std_logic;
+      RX_Q : in std_logic_vector(9 downto 0); -- sfix10_En9
+      RX_I : in std_logic_vector(9 downto 0); -- sfix10_En9
+      Port_Out : out std_logic -- ufix1
+    );
+    end component;
+
+    component gmsk_sync is
+    port (
+      clkDiv8 : in std_logic;
+      clk : in std_logic;
+      GlobalReset : in std_logic;
+      GlobalEnable8 : in std_logic;
+      GlobalEnable1 : in std_logic;
+      bit_valid_reg : out std_logic; -- ufix1
+      bit_out_reg : out std_logic; -- ufix1
+      bit_in_reg : in std_logic -- ufix1
+    );
+    end component;
+    
     component FIFO_512x8 is
     generic (
         g_AFULL     : integer := 496;
@@ -117,11 +141,39 @@ architecture Behavioral of RX_APB_IF is
     signal s_rx_fifo_full   : std_logic;
     signal s_rx_fifo_empty  : std_logic;
 
+    signal s_gmsk_rx_out        : std_logic;
+    signal s_rx_symbol          : std_logic;
+    signal s_rx_symbol_valid    : std_logic;
+    signal s_rx_strobe_ctr      : unsigned(3 downto 0);
+    signal s_rx_strobe_div8     : std_logic;
+
 begin
 
     rst <= not PRESETn;
 
     -- Port maps
+
+    u_GMSK_RX : gmsk_rx
+    port map (
+      clk => clk,
+      GlobalReset => rst,
+      GlobalEnable1 => RX_STROBE,
+      RX_Q =>  RX_Q,
+      RX_I =>  RX_I,
+      Port_Out => s_gmsk_rx_out
+    );
+
+    u_GMSK_SYNC : gmsk_sync
+    port map (
+      clkDiv8 => clk,
+      clk => clk,
+      GlobalReset => rst,
+      GlobalEnable8 => s_rx_strobe_div8,
+      GlobalEnable1 => RX_STROBE,
+      bit_valid_reg => s_rx_symbol_valid,
+      bit_out_reg => s_rx_symbol,
+      bit_in_reg => s_gmsk_rx_out
+    );
 
     u_RX_FIFO : FIFO_512x8
     generic map (
@@ -144,6 +196,23 @@ begin
 
     
     -- Processes
+
+    p_RX_STROBE_DIV8_GEN : process (rst, clk)
+    begin
+        if rst = '1' then
+            s_rx_strobe_div8 <= '0';
+            s_rx_strobe_ctr <= (others => '0');
+        elsif rising_edge(clk) then
+            s_rx_strobe_div8 <= '0';
+            if s_rx_strobe_ctr < 8-1 then
+                s_rx_strobe_ctr <= s_rx_strobe_ctr + 1;
+            else
+                s_rx_strobe_ctr <= (others => '0');
+                s_rx_strobe_div8 <= '1';
+            end if;
+        end if;
+    end process p_RX_STROBE_DIV8_GEN;
+
 
 	-- Register write
 	p_REG_WRITE : process (PRESETn, PCLK)
@@ -222,9 +291,19 @@ begin
             s_bit_ctr <= (others => '0');
         elsif rising_edge(clk) then
             s_rx_fifo_wr <= '0';
-            if RXD_STROBE = '1' then
+--            if RXD_STROBE = '1' then
+--                s_data_buffer <= s_data_buffer(s_data_buffer'high-1 downto 0)
+--                                 & not RXD(RXD'high);
+--                if s_bit_ctr < c_DATA_LENGTH-1 then
+--                    s_bit_ctr <= s_bit_ctr + 1;
+--                else
+--                    s_rx_fifo_wr <= '1';
+--                    s_bit_ctr <= (others => '0');
+--                end if;
+--            end if;
+            if s_rx_symbol_valid = '1' and s_rx_strobe_div8 = '1' then
                 s_data_buffer <= s_data_buffer(s_data_buffer'high-1 downto 0)
-                                 & not RXD(RXD'high);
+                                 & s_rx_symbol; -- FIXME: check if it should be negated
                 if s_bit_ctr < c_DATA_LENGTH-1 then
                     s_bit_ctr <= s_bit_ctr + 1;
                 else

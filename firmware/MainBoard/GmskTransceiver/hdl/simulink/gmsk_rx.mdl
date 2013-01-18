@@ -3,14 +3,10 @@ Model {
   Version		  7.9
   MdlSubVersion		  0
   GraphicalInterface {
-    NumRootInports	    1
-    Inport {
-      BusObject		      ""
-      Name		      "In"
-    }
+    NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1"
+    ComputedModelVersion    "1.7"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -33,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "sszilvasi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jan 16 15:18:55 2013"
-  RTWModifiedTimeStamp	  280250280
-  ModelVersionFormat	  "1.%<AutoIncrement:1>"
+  LastModifiedDate	  "Fri Jan 18 10:10:41 2013"
+  RTWModifiedTimeStamp	  280404632
+  ModelVersionFormat	  "1.%<AutoIncrement:7>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -73,8 +69,7 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "gmsk_rx"
-    signals_		    []
-    overrideMode_	    [0U]
+    overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
       Dimension		      1
@@ -667,29 +662,6 @@ Model {
       SampleTime	      "-1"
     }
     Block {
-      BlockType		      From
-      IconDisplay	      "Tag"
-      TagVisibility	      "local"
-    }
-    Block {
-      BlockType		      Inport
-      Port		      "1"
-      OutputFunctionCall      off
-      OutMin		      "[]"
-      OutMax		      "[]"
-      OutDataTypeStr	      "Inherit: auto"
-      LockScale		      off
-      BusOutputAsStruct	      off
-      PortDimensions	      "-1"
-      VarSizeSig	      "Inherit"
-      SampleTime	      "-1"
-      SignalType	      "auto"
-      SamplingMode	      "auto"
-      LatchByDelayingOutsideSignal off
-      LatchInputForFeedbackSignals off
-      Interpolate	      on
-    }
-    Block {
       BlockType		      Scope
       ModelBased	      off
       TickLabels	      "OneTimeTick"
@@ -710,7 +682,7 @@ Model {
   }
   System {
     Name		    "gmsk_rx"
-    Location		    [484, 93, 1690, 645]
+    Location		    [286, 283, 1580, 886]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -724,20 +696,13 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "18"
-    Block {
-      BlockType		      Inport
-      Name		      "In"
-      SID		      "1"
-      Position		      [15, 113, 45, 127]
-      IconDisplay	      "Port number"
-    }
+    SIDHighWatermark	    "36"
     Block {
       BlockType		      Reference
       Name		      "Add"
-      SID		      "2"
+      SID		      "20"
       Ports		      [2, 1]
-      Position		      [605, 95, 645, 135]
+      Position		      [525, 120, 565, 160]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Math Functions/Add"
       SourceType	      "Synphony Model Compiler Add"
@@ -752,266 +717,43 @@ Model {
       synLatency	      "0"
       synBlockId	      "96"
       syn_sum_of_rows	      off
-      Port {
-	PortNumber		1
-	Name			"Im{q[k]i[k-1]-i[k]q[k-1]}"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
-      }
     }
     Block {
       BlockType		      Reference
-      Name		      "Comb FIR I"
-      SID		      "3"
+      Name		      "Comparator"
+      SID		      "21"
       Ports		      [1, 1]
-      Position		      [235, 14, 285, 56]
+      Position		      [810, 120, 850, 160]
       LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Filtering/FIR"
-      SourceType	      "Synphony Model Compiler FIR"
-      syn_coef_vec	      "[1 zeros(1,N-2) 1]"
-      syn_coef_fl	      "8"
-      syn_coef_rnd	      "Nearest"
-      syn_show_q	      off
-      syn_dp_f		      "Automatic"
-      syn_dp_wl		      "16"
-      syn_dp_fl		      "8"
-      syn_dp_sat	      off
-      syn_dp_rnd	      "Floor (Truncate)"
-      syn_out_f		      "Full Precision"
-      syn_out_wl	      "16"
-      syn_out_fl	      "8"
-      syn_out_dt	      "signed"
-      syn_out_sat	      off
-      syn_out_rnd	      "Floor (Truncate)"
-      syn_rst_port	      off
-      syn_en_port	      off
+      SourceBlock	      "shlslibv1/Math Functions/Comparator"
+      SourceType	      "Synphony Model Compiler Comparator"
+      syn_comp_opr	      "a>=b"
+      syn_comp_const	      on
+      syn_comp_val	      "0"
       synBlockType	      "primitive"
       synLatency	      "0"
-      synBlockId	      "80"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Comb FIR Q"
-      SID		      "4"
-      Ports		      [1, 1]
-      Position		      [235, 186, 290, 224]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Filtering/FIR"
-      SourceType	      "Synphony Model Compiler FIR"
-      syn_coef_vec	      "[1 zeros(1,N-2) 1]"
-      syn_coef_fl	      "8"
-      syn_coef_rnd	      "Nearest"
-      syn_show_q	      off
-      syn_dp_f		      "Automatic"
-      syn_dp_wl		      "16"
-      syn_dp_fl		      "8"
-      syn_dp_sat	      off
-      syn_dp_rnd	      "Floor (Truncate)"
-      syn_out_f		      "Full Precision"
-      syn_out_wl	      "16"
-      syn_out_fl	      "8"
-      syn_out_dt	      "signed"
-      syn_out_sat	      off
-      syn_out_rnd	      "Floor (Truncate)"
-      syn_rst_port	      off
-      syn_en_port	      off
-      synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "80"
+      synBlockId	      "14"
     }
     Block {
       BlockType		      ComplexToRealImag
       Name		      "Complex to\nReal-Imag"
-      SID		      "5"
+      SID		      "22"
       Ports		      [1, 2]
-      Position		      [80, 103, 110, 132]
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Delay"
-      SID		      "6"
-      Ports		      [1, 1]
-      Position		      [445, 15, 485, 55]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Memories/Delay"
-      SourceType	      "Synphony Model Compiler Delay"
-      syn_delay_val	      "1"
-      synBlockType	      "primitive"
-      synLatency	      "1"
-      synBlockId	      "104"
-      Port {
-	PortNumber		1
-	Name			"i[k-1]"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
-      }
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Delay1"
-      SID		      "7"
-      Ports		      [1, 1]
-      Position		      [445, 185, 485, 225]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Memories/Delay"
-      SourceType	      "Synphony Model Compiler Delay"
-      syn_delay_val	      "1"
-      synBlockType	      "primitive"
-      synLatency	      "1"
-      synBlockId	      "104"
-      Port {
-	PortNumber		1
-	Name			"q[k-1]"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
-      }
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "FIR"
-      SID		      "8"
-      Ports		      [1, 1]
-      Position		      [755, 145, 815, 205]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Filtering/FIR"
-      SourceType	      "Synphony Model Compiler FIR"
-      syn_coef_vec	      "1/4*ones(1,4)"
-      syn_coef_fl	      "8"
-      syn_coef_rnd	      "Nearest"
-      syn_show_q	      off
-      syn_dp_f		      "Automatic"
-      syn_dp_wl		      "16"
-      syn_dp_fl		      "8"
-      syn_dp_sat	      off
-      syn_dp_rnd	      "Floor (Truncate)"
-      syn_out_f		      "Full Precision"
-      syn_out_wl	      "16"
-      syn_out_fl	      "8"
-      syn_out_dt	      "signed"
-      syn_out_sat	      off
-      syn_out_rnd	      "Floor (Truncate)"
-      syn_rst_port	      off
-      syn_en_port	      off
-      synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "80"
-    }
-    Block {
-      BlockType		      From
-      Name		      "From6"
-      SID		      "9"
-      Position		      [770, 84, 855, 106]
-      ZOrder		      -9
-      GotoTag		      "TxBitBipolar"
-      TagVisibility	      "global"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Integrator"
-      SID		      "10"
-      Ports		      [1, 1]
-      Position		      [320, 15, 370, 55]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Filtering/Integrator"
-      SourceType	      "Synphony Model Compiler Integrator"
-      syn_pole_val	      "1"
-      syn_feedback_fl	      "8"
-      syn_out_f		      "Automatic"
-      syn_out_wl	      "16"
-      syn_out_fl	      "8"
-      syn_out_dt	      "signed"
-      syn_out_sat	      off
-      syn_out_rnd	      off
-      syn_rst_port	      off
-      syn_en_port	      off
-      synBlockType	      "custom"
-      synLatency	      "0"
-      Port {
-	PortNumber		1
-	Name			"i[k]"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
-      }
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Integrator1"
-      SID		      "11"
-      Ports		      [1, 1]
-      Position		      [320, 185, 370, 225]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Filtering/Integrator"
-      SourceType	      "Synphony Model Compiler Integrator"
-      syn_pole_val	      "1"
-      syn_feedback_fl	      "8"
-      syn_out_f		      "Automatic"
-      syn_out_wl	      "16"
-      syn_out_fl	      "8"
-      syn_out_dt	      "signed"
-      syn_out_sat	      off
-      syn_out_rnd	      off
-      syn_rst_port	      off
-      syn_en_port	      off
-      synBlockType	      "custom"
-      synLatency	      "0"
-      Port {
-	PortNumber		1
-	Name			"q[k]"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
-      }
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Mult"
-      SID		      "12"
-      Ports		      [2, 1]
-      Position		      [535, 55, 575, 95]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Math Functions/Mult"
-      SourceType	      "Synphony Model Compiler Mult"
-      syn_out_f		      "Full Precision"
-      syn_out_wl	      "16"
-      syn_out_fl	      "8"
-      syn_out_dt	      "signed"
-      syn_out_sat	      off
-      syn_out_rnd	      "Floor (Truncate)"
-      synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "3"
-      syn_opr_mode	      "1"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Mult1"
-      SID		      "13"
-      Ports		      [2, 1]
-      Position		      [535, 135, 575, 175]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Math Functions/Mult"
-      SourceType	      "Synphony Model Compiler Mult"
-      syn_out_f		      "Full Precision"
-      syn_out_wl	      "16"
-      syn_out_fl	      "8"
-      syn_out_dt	      "signed"
-      syn_out_sat	      off
-      syn_out_rnd	      "Floor (Truncate)"
-      synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "3"
-      syn_opr_mode	      "1"
+      Position		      [120, 128, 150, 157]
+      SampleTime	      "1/8"
     }
     Block {
       BlockType		      Scope
-      Name		      "Phase differentiator"
-      SID		      "14"
+      Name		      "Decimation filter"
+      SID		      "23"
       Ports		      [3]
-      Position		      [880, 87, 915, 143]
+      Position		      [965, 232, 1000, 288]
       ZOrder		      -16
       Floating		      off
       Location		      [1921, 48, 3521, 1199]
       Open		      off
       NumInputPorts	      "3"
+      ZoomMode		      "xonly"
       List {
 	ListType		AxesTitles
 	axes1			"%<SignalLabel>"
@@ -1036,21 +778,20 @@ Model {
     }
     Block {
       BlockType		      Scope
-      Name		      "Phase differentiator1"
-      SID		      "15"
-      Ports		      [4]
-      Position		      [475, 289, 510, 346]
+      Name		      "Decimation filter1"
+      SID		      "24"
+      Ports		      [2]
+      Position		      [350, 312, 385, 368]
       ZOrder		      -16
       Floating		      off
       Location		      [1921, 48, 3521, 1199]
       Open		      off
-      NumInputPorts	      "4"
+      NumInputPorts	      "2"
+      ZoomMode		      "xonly"
       List {
 	ListType		AxesTitles
 	axes1			"%<SignalLabel>"
 	axes2			"%<SignalLabel>"
-	axes3			"%<SignalLabel>"
-	axes4			"%<SignalLabel>"
       }
       List {
 	ListType		ScopeGraphics
@@ -1063,59 +804,144 @@ Model {
 	MarkerStyles		"none|none|none|none|none|none"
       }
       ShowLegends	      off
-      YMin		      "-5~-5~-5~-5"
-      YMax		      "5~5~5~5"
+      YMin		      "-5~-5"
+      YMax		      "5~5"
       SaveName		      "ScopeData1"
       DataFormat	      "StructureWithTime"
       SampleTime	      "0"
     }
     Block {
-      BlockType		      Scope
-      Name		      "Phase differentiator2"
-      SID		      "16"
-      Ports		      [4]
-      Position		      [420, 379, 455, 436]
-      ZOrder		      -16
-      Floating		      off
-      Location		      [1921, 48, 3521, 1199]
-      Open		      off
-      NumInputPorts	      "4"
-      List {
-	ListType		AxesTitles
-	axes1			"%<SignalLabel>"
-	axes2			"%<SignalLabel>"
-	axes3			"%<SignalLabel>"
-	axes4			"%<SignalLabel>"
+      BlockType		      Reference
+      Name		      "Delay"
+      SID		      "25"
+      Ports		      [1, 1]
+      Position		      [345, 40, 385, 80]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Memories/Delay"
+      SourceType	      "Synphony Model Compiler Delay"
+      syn_delay_val	      "1"
+      synBlockType	      "primitive"
+      synLatency	      "1"
+      synBlockId	      "104"
+      Port {
+	PortNumber		1
+	Name			"i1"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
-      List {
-	ListType		ScopeGraphics
-	FigureColor		"[0.501960784313725 0.501960784313725 0.501960784313725]"
-	AxesColor		"[0 0 0]"
-	AxesTickColor		"[1 1 1]"
-	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-	LineStyles		"-|-|-|-|-|-"
-	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
-	MarkerStyles		"none|none|none|none|none|none"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Delay1"
+      SID		      "26"
+      Ports		      [1, 1]
+      Position		      [345, 210, 385, 250]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Memories/Delay"
+      SourceType	      "Synphony Model Compiler Delay"
+      syn_delay_val	      "1"
+      synBlockType	      "primitive"
+      synLatency	      "1"
+      synBlockId	      "104"
+      Port {
+	PortNumber		1
+	Name			"q1"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
-      ShowLegends	      off
-      YMin		      "-5~-5~-5~-5"
-      YMax		      "5~5~5~5"
-      SaveName		      "ScopeData2"
-      DataFormat	      "StructureWithTime"
-      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Mult"
+      SID		      "28"
+      Ports		      [2, 1]
+      Position		      [445, 80, 485, 120]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Math Functions/Mult"
+      SourceType	      "Synphony Model Compiler Mult"
+      syn_out_f		      "Full Precision"
+      syn_out_wl	      "16"
+      syn_out_fl	      "8"
+      syn_out_dt	      "signed"
+      syn_out_sat	      off
+      syn_out_rnd	      "Floor (Truncate)"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "3"
+      syn_opr_mode	      "1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Mult1"
+      SID		      "29"
+      Ports		      [2, 1]
+      Position		      [445, 160, 485, 200]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Math Functions/Mult"
+      SourceType	      "Synphony Model Compiler Mult"
+      syn_out_f		      "Full Precision"
+      syn_out_wl	      "16"
+      syn_out_fl	      "8"
+      syn_out_dt	      "signed"
+      syn_out_sat	      off
+      syn_out_rnd	      "Floor (Truncate)"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "3"
+      syn_opr_mode	      "1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "N decimation filter"
+      SID		      "30"
+      Ports		      [1, 1]
+      Position		      [685, 110, 745, 170]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Filtering/IIR"
+      SourceType	      "Synphony Model Compiler IIR"
+      syn_coefb_vec	      "[1 zeros(1,N-2) -1]/N"
+      syn_coefa_vec	      "[1 -1]"
+      syn_coef_fl	      "8"
+      syn_coef_rnd	      on
+      syn_show_q	      off
+      syn_out_f		      "Automatic"
+      syn_out_wl	      "16"
+      syn_out_fl	      "8"
+      syn_out_dt	      "signed"
+      syn_out_sat	      off
+      syn_out_rnd	      "Floor (Truncate)"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "83"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Port Out"
+      SID		      "31"
+      Ports		      [1, 1]
+      Position		      [915, 130, 935, 150]
+      BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Ports & Subsystems/Port Out"
+      SourceType	      "Synphony Model Compiler Port Out"
+      syn_capture	      off
+      syn_register	      on
+      synBlockType	      "port"
+      synLatency	      "1"
+      synBlockId	      "1"
     }
     Block {
       BlockType		      Reference
       Name		      "RX_I"
-      SID		      "17"
+      SID		      "32"
       Ports		      [1, 1]
-      Position		      [180, 25, 200, 45]
+      Position		      [225, 50, 245, 70]
       BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Ports & Subsystems/Port In"
       SourceType	      "Synphony Model Compiler Port In"
-      syn_out_wl	      "16"
-      syn_out_fl	      "14"
+      syn_out_wl	      "10"
+      syn_out_fl	      "9"
       syn_out_dt	      "signed"
       syn_out_st	      "-1"
       syn_capture	      off
@@ -1125,19 +951,25 @@ Model {
       synBlockType	      "port"
       synLatency	      "0"
       synBlockId	      "0"
+      Port {
+	PortNumber		1
+	Name			"i"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
     }
     Block {
       BlockType		      Reference
       Name		      "RX_Q"
-      SID		      "18"
+      SID		      "33"
       Ports		      [1, 1]
-      Position		      [180, 195, 200, 215]
+      Position		      [225, 220, 245, 240]
       BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Ports & Subsystems/Port In"
       SourceType	      "Synphony Model Compiler Port In"
-      syn_out_wl	      "16"
-      syn_out_fl	      "14"
+      syn_out_wl	      "10"
+      syn_out_fl	      "9"
       syn_out_dt	      "signed"
       syn_out_st	      "-1"
       syn_capture	      off
@@ -1147,203 +979,174 @@ Model {
       synBlockType	      "port"
       synLatency	      "0"
       synBlockId	      "0"
+      Port {
+	PortNumber		1
+	Name			"q"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "SHLSTool"
+      SID		      "36"
+      Ports		      []
+      Position		      [55, 40, 95, 80]
+      ForegroundColor	      "[0.501961, 0.000000, 0.000000]"
+      BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/SHLSTool"
+      SourceType	      "Synphony HLS Toolbox"
+      synBlockType	      "tool"
+      syn_dsp_mode	      "FPGA"
     }
     Line {
       SrcBlock		      "Complex to\nReal-Imag"
       SrcPort		      1
-      Points		      [25, 0; 0, -75]
+      Points		      [35, 0; 0, -75]
       DstBlock		      "RX_I"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Complex to\nReal-Imag"
       SrcPort		      2
-      Points		      [25, 0; 0, 80]
+      Points		      [35, 0; 0, 80]
       DstBlock		      "RX_Q"
       DstPort		      1
     }
     Line {
+      Name		      "q"
+      Labels		      [1, 0]
       SrcBlock		      "RX_Q"
       SrcPort		      1
-      Points		      [20, 0]
+      Points		      [45, 0]
       Branch {
-	Points			[-5, 0; 0, 105]
-	DstBlock		"Phase differentiator1"
+	Points			[0, -120]
+	DstBlock		"Mult"
 	DstPort			2
       }
       Branch {
-	DstBlock		"Comb FIR Q"
+	DstBlock		"Delay1"
 	DstPort			1
+      }
+      Branch {
+	Points			[0, 125]
+	DstBlock		"Decimation filter1"
+	DstPort			2
       }
     }
     Line {
+      Name		      "i"
       SrcBlock		      "RX_I"
       SrcPort		      1
-      Points		      [5, 0]
+      Points		      [20, 0]
       Branch {
-	Points			[0, 260]
-	DstBlock		"Phase differentiator1"
-	DstPort			1
-      }
-      Branch {
-	DstBlock		"Comb FIR I"
-	DstPort			1
-      }
-    }
-    Line {
-      Name		      "i[k]"
-      Labels		      [0, 0]
-      SrcBlock		      "Integrator"
-      SrcPort		      1
-      Points		      [5, 0]
-      Branch {
-	Points			[45, 0]
+	Labels			[1, 0]
+	Points			[55, 0]
 	Branch {
 	  DstBlock		  "Delay"
 	  DstPort		  1
 	}
 	Branch {
 	  Points		  [0, 110]
-	  Branch {
-	    DstBlock		    "Mult1"
-	    DstPort		    1
-	  }
-	  Branch {
-	    Points		    [0, 180]
-	    DstBlock		    "Phase differentiator1"
-	    DstPort		    3
-	  }
-	}
-      }
-      Branch {
-	Points			[0, 380]
-	DstBlock		"Phase differentiator2"
-	DstPort			3
-      }
-    }
-    Line {
-      Name		      "q[k]"
-      Labels		      [0, 0]
-      SrcBlock		      "Integrator1"
-      SrcPort		      1
-      Points		      [15, 0]
-      Branch {
-	Points			[20, 0]
-	Branch {
-	  DstBlock		  "Delay1"
+	  DstBlock		  "Mult1"
 	  DstPort		  1
 	}
-	Branch {
-	  Points		  [0, -120]
-	  DstBlock		  "Mult"
-	  DstPort		  2
-	}
-	Branch {
-	  Points		  [0, 135]
-	  DstBlock		  "Phase differentiator1"
-	  DstPort		  4
-	}
       }
       Branch {
-	Points			[0, 225]
-	DstBlock		"Phase differentiator2"
-	DstPort			4
+	Points			[0, 265]
+	DstBlock		"Decimation filter1"
+	DstPort			1
       }
     }
     Line {
-      Name		      "i[k-1]"
+      Name		      "i1"
       Labels		      [0, 0]
       SrcBlock		      "Delay"
       SrcPort		      1
-      Points		      [30, 0]
+      Points		      [40, 0]
       DstBlock		      "Mult"
       DstPort		      1
     }
     Line {
-      Name		      "q[k-1]"
+      Name		      "q1"
       Labels		      [0, 0]
       SrcBlock		      "Delay1"
       SrcPort		      1
-      Points		      [30, 0]
+      Points		      [40, 0]
       DstBlock		      "Mult1"
       DstPort		      2
     }
     Line {
       SrcBlock		      "Mult"
       SrcPort		      1
-      Points		      [5, 0; 0, 30]
+      Points		      [20, 0]
       DstBlock		      "Add"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Mult1"
       SrcPort		      1
-      Points		      [5, 0; 0, -30]
+      Points		      [20, 0]
       DstBlock		      "Add"
       DstPort		      2
     }
     Line {
-      Name		      "Im{q[k]i[k-1]-i[k]q[k-1]}"
-      Labels		      [0, 1]
       SrcBlock		      "Add"
       SrcPort		      1
-      Points		      [60, 0]
+      Points		      [70, 0]
       Branch {
-	DstBlock		"Phase differentiator"
-	DstPort			2
+	DstBlock		"N decimation filter"
+	DstPort			1
       }
       Branch {
-	Points			[0, 60]
-	DstBlock		"FIR"
+	Points			[0, 100]
+	DstBlock		"Decimation filter"
 	DstPort			1
       }
     }
     Line {
-      SrcBlock		      "Comb FIR I"
-      SrcPort		      1
-      Points		      [10, 0]
-      Branch {
-	DstBlock		"Integrator"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 350]
-	DstBlock		"Phase differentiator2"
-	DstPort			1
-      }
-    }
-    Line {
-      SrcBlock		      "Comb FIR Q"
-      SrcPort		      1
-      Points		      [10, 0]
-      Branch {
-	DstBlock		"Integrator1"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 195]
-	DstBlock		"Phase differentiator2"
-	DstPort			2
-      }
-    }
-    Line {
-      SrcBlock		      "From6"
-      SrcPort		      1
-      DstBlock		      "Phase differentiator"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "FIR"
-      SrcPort		      1
-      Points		      [25, 0; 0, -40]
-      DstBlock		      "Phase differentiator"
-      DstPort		      3
-    }
-    Line {
-      SrcBlock		      "In"
-      SrcPort		      1
+      Points		      [90, 145]
       DstBlock		      "Complex to\nReal-Imag"
       DstPort		      1
+    }
+    Line {
+      SrcBlock		      "N decimation filter"
+      SrcPort		      1
+      Points		      [25, 0]
+      Branch {
+	Points			[0, 120]
+	DstBlock		"Decimation filter"
+	DstPort			2
+      }
+      Branch {
+	DstBlock		"Comparator"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Comparator"
+      SrcPort		      1
+      Points		      [25, 0]
+      Branch {
+	Points			[0, 140]
+	DstBlock		"Decimation filter"
+	DstPort			3
+      }
+      Branch {
+	DstBlock		"Port Out"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Port Out"
+      SrcPort		      1
+      Points		      [20, 0]
+    }
+    Annotation {
+      SID		      "35"
+      Name		      "Im{q[k]i[k-1] - i[k]q[k-1]}"
+      Position		      [606, 108]
     }
   }
 }
