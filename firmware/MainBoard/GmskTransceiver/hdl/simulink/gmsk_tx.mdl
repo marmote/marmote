@@ -1,12 +1,12 @@
 Model {
-  Name			  "gmsk_mod_lut"
+  Name			  "gmsk_tx"
   Version		  7.9
   MdlSubVersion		  0
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.65"
+    ComputedModelVersion    "1.68"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -30,9 +30,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "sszilvasi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jan 16 14:54:29 2013"
-  RTWModifiedTimeStamp	  280248757
-  ModelVersionFormat	  "1.%<AutoIncrement:65>"
+  LastModifiedDate	  "Fri Jan 18 16:43:56 2013"
+  RTWModifiedTimeStamp	  280428009
+  ModelVersionFormat	  "1.%<AutoIncrement:68>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  on
@@ -700,7 +700,7 @@ Model {
     }
   }
   System {
-    Name		    "gmsk_mod_lut"
+    Name		    "gmsk_tx"
     Location		    [204, 196, 1832, 1074]
     Open		    on
     ModelBrowserVisibility  off
@@ -837,7 +837,7 @@ Model {
       ZOrder		      -16
       Floating		      off
       Location		      [315, 43, 1915, 1194]
-      Open		      on
+      Open		      off
       NumInputPorts	      "5"
       List {
 	ListType		AxesTitles
@@ -893,8 +893,8 @@ Model {
       Position		      [1280, 137, 1315, 193]
       ZOrder		      -16
       Floating		      off
-      Location		      [1921, 48, 3521, 1199]
-      Open		      on
+      Location		      [315, 43, 1915, 1194]
+      Open		      off
       NumInputPorts	      "1"
       List {
 	ListType		AxesTitles
@@ -984,7 +984,7 @@ Model {
       syn_out_wl	      "16"
       syn_out_fl	      "14"
       syn_out_dt	      "signed"
-      syn_out_st	      "1/8"
+      syn_out_st	      "1/30e6"
       syn_capture	      on
       syn_register	      off
       syn_out_sat	      off
