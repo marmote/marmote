@@ -20,7 +20,7 @@ Model {
       Name		      "bit_out"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.12"
+    ComputedModelVersion    "1.13"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -43,9 +43,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "sszilvasi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jan 21 15:25:12 2013"
-  RTWModifiedTimeStamp	  280674166
-  ModelVersionFormat	  "1.%<AutoIncrement:12>"
+  LastModifiedDate	  "Mon Jan 21 15:54:23 2013"
+  RTWModifiedTimeStamp	  280684462
+  ModelVersionFormat	  "1.%<AutoIncrement:13>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -83,6 +83,7 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "gmsk_tr"
+    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -1501,7 +1502,7 @@ Model {
       Name		      "sync_rst"
       SID		      "58"
       Ports		      [1, 1]
-      Position		      [1460, 385, 1480, 405]
+      Position		      [1355, 385, 1375, 405]
       BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Ports & Subsystems/Port In"
@@ -1511,11 +1512,11 @@ Model {
       syn_out_dt	      "unsigned"
       syn_out_st	      "-1"
       syn_capture	      off
-      syn_register	      on
+      syn_register	      off
       syn_out_sat	      off
       syn_out_rnd	      off
       synBlockType	      "port"
-      synLatency	      "1"
+      synLatency	      "0"
       synBlockId	      "0"
     }
     Block {
@@ -2067,7 +2068,7 @@ Model {
     Line {
       SrcBlock		      "sync_rst"
       SrcPort		      1
-      Points		      [30, 0; 0, -170]
+      Points		      [135, 0; 0, -170]
       DstBlock		      "Frame found"
       DstPort		      2
     }

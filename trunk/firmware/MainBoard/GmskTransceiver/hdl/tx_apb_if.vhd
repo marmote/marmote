@@ -138,6 +138,9 @@ architecture Behavioral of TX_APB_IF is
     signal s_tx_state       : tx_state_t := st_IDLE;
     signal s_tx_state_next  : tx_state_t;
 
+    signal s_gmsk_tx_rst    : std_logic;
+    signal s_gmsk_tx_rst_next : std_logic;
+
 	signal s_bit_ctr        : unsigned(5 downto 0);
 	signal s_bit_ctr_next   : unsigned(5 downto 0);
 	signal s_payload_ctr        : unsigned(c_PAYLOAD_LENGTH-1 downto 0);
@@ -195,7 +198,7 @@ begin
     u_GMSK_TX : gmsk_tx
     port map (
         clk	            =>	clk,
-        GlobalReset	    =>	rst,
+        GlobalReset	    =>	s_gmsk_tx_rst,
         GlobalEnable1	=>	s_mod_en,
         TX_Q	        =>	TX_Q,
         TX_I	        =>	TX_I,
@@ -296,6 +299,7 @@ begin
             s_mod_en <= '0';
             s_tx_state <= st_IDLE;
             s_payload_ctr <= (others => '0');
+            s_gmsk_tx_rst <= '1';
 		elsif rising_edge(clk) then
 			s_bit_ctr <= s_bit_ctr_next;
 			s_buffer <= s_buffer_next;
@@ -303,6 +307,7 @@ begin
 			s_txd_en <= s_txd_en(s_txd_en'high-1 downto 0) & s_busy; -- Delay-adjusted to 's_txd'
             s_tx_state <= s_tx_state_next;
             s_payload_ctr <= s_payload_ctr_next;
+            s_gmsk_tx_rst <= s_gmsk_tx_rst_next;
             if unsigned(s_txd_en) > 0 then
                 s_mod_en <= '1';
             else
@@ -310,6 +315,7 @@ begin
             end if;
 		end if;
 	end process p_TRANSMIT_FSM_SYNC;
+
 
 
 	-----------------------------------------------------------------------------
@@ -331,6 +337,7 @@ begin
         s_tx_fifo_rd <= '0';
 		s_bit_ctr_next <= s_bit_ctr;
 		s_buffer_next <= s_buffer;
+        s_gmsk_tx_rst_next <= '0';
 
 		case( s_tx_state ) is
 			
@@ -382,7 +389,9 @@ begin
 
 				when st_CRC => 
                     -- NOTE: st_CRC not implemented yet
+                    s_payload_ctr_next <= (others => '0');
                     s_tx_state_next <= st_IDLE;
+--                    s_gmsk_tx_rst_next <= '1';
 			
 				when others =>
 			

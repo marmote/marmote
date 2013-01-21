@@ -151,6 +151,5 @@ sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_fetch_prev \
 sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_out \
 sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_empty
 
-
-run 200 us
+run 220 us
 wave zoom full
