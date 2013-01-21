@@ -84,6 +84,7 @@ architecture Behavioral of RX_APB_IF is
       GlobalReset : in std_logic;
       GlobalEnable8 : in std_logic;
       GlobalEnable1 : in std_logic;
+      sync_rst : in std_logic; -- ufix1
       bit_valid_reg : out std_logic; -- ufix1
       bit_out_reg : out std_logic; -- ufix1
       bit_in_reg : in std_logic -- ufix1
@@ -113,7 +114,8 @@ architecture Behavioral of RX_APB_IF is
 
     -- Constants
 
-    constant c_DATA_LENGTH : integer := 8;
+    constant c_PAYLOAD_LENGTH   : integer := 4; -- bytes
+    constant c_DATA_LENGTH      : integer := 8;
 
 
 	-- Addresses
@@ -130,7 +132,11 @@ architecture Behavioral of RX_APB_IF is
     signal s_pready         : std_logic;
 
     signal s_data_buffer    : std_logic_vector(c_DATA_LENGTH-1 downto 0);
-    signal s_bit_ctr        : unsigned(4 downto 0);
+    signal s_bit_ctr        : unsigned(5 downto 0);
+    signal s_rx_byte_valid  : std_logic;
+
+    signal s_payload_ctr    : unsigned(5 downto 0);
+    signal s_payload_ctr_next    : unsigned(5 downto 0);
 
     signal s_rx_fifo_in     : std_logic_vector(7 downto 0);
     signal s_rx_fifo_out    : std_logic_vector(7 downto 0);
@@ -141,11 +147,25 @@ architecture Behavioral of RX_APB_IF is
     signal s_rx_fifo_full   : std_logic;
     signal s_rx_fifo_empty  : std_logic;
 
+    signal s_sync_reset         : std_logic;
+    signal s_sync_rst           : std_logic_vector(7 downto 0);
+    signal s_sync_rst_next      : std_logic;
     signal s_gmsk_rx_out        : std_logic;
     signal s_rx_symbol          : std_logic;
     signal s_rx_symbol_valid    : std_logic;
     signal s_rx_strobe_ctr      : unsigned(3 downto 0);
     signal s_rx_strobe_div8     : std_logic;
+
+    type rx_state_t is (
+        st_IDLE,
+        st_RX_PAYLOAD,
+        st_RX_CRC,
+        st_CHECK_CRC
+    );
+
+    signal s_rx_state      : rx_state_t := st_IDLE;
+    signal s_rx_state_next : rx_state_t;
+
 
 begin
 
@@ -170,6 +190,7 @@ begin
       GlobalReset => rst,
       GlobalEnable8 => s_rx_strobe_div8,
       GlobalEnable1 => RX_STROBE,
+      sync_rst => s_sync_reset,
       bit_valid_reg => s_rx_symbol_valid,
       bit_out_reg => s_rx_symbol,
       bit_in_reg => s_gmsk_rx_out
@@ -281,40 +302,98 @@ begin
 
     ---------------------------------------------------------------------------
     -- Process deserializing the incoming data stream
-    -- NOTE: Frame synchronization is already assumed
+    -- NOTE: Time and frame synchronization is performed by the preceeding
+    --       block
     ---------------------------------------------------------------------------
-    p_RECEIVE_FSM_SYNC : process (rst, clk)
+    p_DESERIALIZE : process (rst, clk)
     begin
         if rst = '1' then
             s_data_buffer <= (others => '0');
-            s_rx_fifo_wr <= '0';
+            s_rx_byte_valid <= '0';
             s_bit_ctr <= (others => '0');
         elsif rising_edge(clk) then
-            s_rx_fifo_wr <= '0';
---            if RXD_STROBE = '1' then
---                s_data_buffer <= s_data_buffer(s_data_buffer'high-1 downto 0)
---                                 & not RXD(RXD'high);
---                if s_bit_ctr < c_DATA_LENGTH-1 then
---                    s_bit_ctr <= s_bit_ctr + 1;
---                else
---                    s_rx_fifo_wr <= '1';
---                    s_bit_ctr <= (others => '0');
---                end if;
---            end if;
+            s_rx_byte_valid <= '0';
             if s_rx_symbol_valid = '1' and s_rx_strobe_div8 = '1' then
                 s_data_buffer <= s_data_buffer(s_data_buffer'high-1 downto 0)
-                                 & s_rx_symbol; -- FIXME: check if it should be negated
+                                 & s_rx_symbol;
                 if s_bit_ctr < c_DATA_LENGTH-1 then
                     s_bit_ctr <= s_bit_ctr + 1;
                 else
-                    s_rx_fifo_wr <= '1';
+                    s_rx_byte_valid <= '1';
                     s_bit_ctr <= (others => '0');
                 end if;
             end if;
         end if;
-    end process p_RECEIVE_FSM_SYNC;
+    end process p_DESERIALIZE;
 
     s_rx_fifo_in <= s_data_buffer;
+
+
+    s_sync_reset <= '1' when unsigned(s_sync_rst) > to_unsigned(0,8) else '0';
+
+    p_RECEIVE_FSM_SYNC : process (rst, clk)
+    begin
+        if rst = '1' then
+            s_rx_state <= st_IDLE;
+            s_payload_ctr <= (others => '0');
+            s_sync_rst <= (others => '1');
+        elsif rising_edge(clk) then
+            s_rx_state <= s_rx_state_next;
+            s_payload_ctr <= s_payload_ctr_next;
+            s_sync_rst <= s_sync_rst(6 downto 0) & s_sync_rst_next;
+        end if;
+    end process p_RECEIVE_FSM_SYNC;
+
+
+    p_RECEIVE_FSM_COMB : process (
+        s_rx_state,
+        s_rx_byte_valid,
+        s_sync_rst,
+        s_payload_ctr
+    )
+    begin
+        -- Default assignments
+        s_rx_state_next <= s_rx_state;
+        s_rx_fifo_wr <= '0'; -- FIXME: add register
+        s_sync_rst_next <= '0';
+
+        -- Next state and output logic
+        case s_rx_state is
+
+            when st_IDLE =>
+                s_payload_ctr_next <= (others => '0');
+                if s_rx_byte_valid = '1' then
+                    s_rx_fifo_wr <= '1';
+                    s_payload_ctr_next <= to_unsigned(1, s_payload_ctr_next'length);
+                    s_rx_state_next <= st_RX_PAYLOAD;
+                end if;
+
+            when st_RX_PAYLOAD =>
+                if s_rx_byte_valid = '1' then
+                    s_rx_fifo_wr <= '1';
+                    if s_payload_ctr < c_PAYLOAD_LENGTH-1 then
+                        s_payload_ctr_next <= s_payload_ctr + 1;
+                    else
+                        s_rx_state_next <= st_RX_CRC;
+                        s_payload_ctr_next <= (others => '0');
+                    end if;
+                end if;
+
+            when st_RX_CRC =>
+                -- NOTE: Receive CRC state is not implemented yet
+                s_rx_state_next <= st_CHECK_CRC;
+
+            when st_CHECK_CRC =>
+                -- NOTE: CHECK CRC state is not implemented yet
+                s_sync_rst_next <= '1';
+                s_rx_state_next <= st_IDLE;
+
+            when others =>
+                null;
+
+        end case;
+
+    end process P_RECEIVE_FSM_COMB;
 
 
     -- Output assignment
