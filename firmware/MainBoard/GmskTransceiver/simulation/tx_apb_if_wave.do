@@ -149,7 +149,8 @@ sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_rd \
 sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_fetch \
 sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_fetch_prev \
 sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_out \
-sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_empty
+sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_empty \
+sim:/testbench/Teton_0/RX_APB_IF_0/s_sfd_irq
 
 run 220 us
 wave zoom full

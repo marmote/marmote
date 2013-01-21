@@ -56,6 +56,8 @@ entity RX_APB_IF is
          RX_I       : in  std_logic_vector(9 downto 0);
          RX_Q       : in  std_logic_vector(9 downto 0);
 
+         SFD_IRQ    : out std_logic;
+
          RXD_STROBE : in  std_logic;
          RXD        : in  std_logic_vector(1 downto 0)
      );
@@ -165,6 +167,8 @@ architecture Behavioral of RX_APB_IF is
 
     signal s_rx_state      : rx_state_t := st_IDLE;
     signal s_rx_state_next : rx_state_t;
+
+    signal s_sfd_irq        : std_logic;
 
 
 begin
@@ -400,6 +404,9 @@ begin
 
 
     -- Output assignment
+
+    s_sfd_irq <= '1' when s_rx_state = st_IDLE and s_rx_state_next =
+                 st_RX_PAYLOAD else '0';
 
 	PRDATA <= x"000000" & s_dout;
 	PREADY <= s_pready;
