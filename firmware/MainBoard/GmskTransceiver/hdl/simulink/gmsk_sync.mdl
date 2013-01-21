@@ -1,5 +1,5 @@
 Model {
-  Name			  "gmsk_tr"
+  Name			  "gmsk_sync"
   Version		  7.9
   MdlSubVersion		  0
   GraphicalInterface {
@@ -20,7 +20,7 @@ Model {
       Name		      "bit_out"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.7"
+    ComputedModelVersion    "1.12"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -43,9 +43,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "sszilvasi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Jan 18 10:28:34 2013"
-  RTWModifiedTimeStamp	  280405605
-  ModelVersionFormat	  "1.%<AutoIncrement:7>"
+  LastModifiedDate	  "Mon Jan 21 15:25:12 2013"
+  RTWModifiedTimeStamp	  280674166
+  ModelVersionFormat	  "1.%<AutoIncrement:12>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -83,7 +83,6 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "gmsk_tr"
-    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -711,8 +710,8 @@ Model {
     }
   }
   System {
-    Name		    "gmsk_tr"
-    Location		    [2, 74, 1918, 1139]
+    Name		    "gmsk_sync"
+    Location		    [2, 82, 1918, 1147]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -726,7 +725,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "57"
+    SIDHighWatermark	    "58"
     Block {
       BlockType		      Inport
       Name		      "bit_in"
@@ -1046,17 +1045,23 @@ Model {
       BlockType		      Reference
       Name		      "Frame found"
       SID		      "21"
-      Ports		      [2, 1]
-      Position		      [1515, 210, 1555, 250]
+      Ports		      [3, 1]
+      Position		      [1535, 205, 1575, 245]
       LibraryVersion	      "1.3722"
       FontSize		      9.500000
       SourceBlock	      "shlslibv1/Memories/Register"
       SourceType	      "Synphony Model Compiler Register"
       syn_delay_val	      "1"
-      syn_rst_port	      off
+      syn_rst_port	      on
       syn_en_port	      on
       synBlockType	      "custom"
       synLatency	      "1"
+      Port {
+	PortNumber		1
+	Name			"bit_valid"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
     }
     Block {
       BlockType		      Reference
@@ -1480,7 +1485,7 @@ Model {
       Name		      "bit_valid_reg"
       SID		      "50"
       Ports		      [1, 1]
-      Position		      [1700, 220, 1720, 240]
+      Position		      [1700, 215, 1720, 235]
       BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Ports & Subsystems/Port Out"
@@ -1492,10 +1497,32 @@ Model {
       synBlockId	      "1"
     }
     Block {
+      BlockType		      Reference
+      Name		      "sync_rst"
+      SID		      "58"
+      Ports		      [1, 1]
+      Position		      [1460, 385, 1480, 405]
+      BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Ports & Subsystems/Port In"
+      SourceType	      "Synphony Model Compiler Port In"
+      syn_out_wl	      "1"
+      syn_out_fl	      "0"
+      syn_out_dt	      "unsigned"
+      syn_out_st	      "-1"
+      syn_capture	      off
+      syn_register	      on
+      syn_out_sat	      off
+      syn_out_rnd	      off
+      synBlockType	      "port"
+      synLatency	      "1"
+      synBlockId	      "0"
+    }
+    Block {
       BlockType		      Outport
       Name		      "bit_valid"
       SID		      "51"
-      Position		      [1750, 223, 1780, 237]
+      Position		      [1750, 218, 1780, 232]
       ZOrder		      -23
       IconDisplay	      "Port number"
     }
@@ -1655,16 +1682,18 @@ Model {
       DstPort		      1
     }
     Line {
+      Name		      "bit_valid"
       Labels		      [1, 0]
       SrcBlock		      "Frame found"
       SrcPort		      1
       Points		      [25, 0]
       Branch {
-	Points			[0, 65; -210, 0; 0, -45]
+	Points			[0, 70; -235, 0; 0, -45]
 	DstBlock		"Binary Logic"
 	DstPort			2
       }
       Branch {
+	Labels			[1, 0]
 	DstBlock		"bit_valid_reg"
 	DstPort			1
       }
@@ -1672,13 +1701,13 @@ Model {
     Line {
       SrcBlock		      "Binary Logic"
       SrcPort		      1
-      Points		      [15, 0]
+      Points		      [5, 0]
       Branch {
 	DstBlock		"Frame found"
-	DstPort			2
+	DstPort			3
       }
       Branch {
-	Points			[0, 95; -475, 0; 0, -45]
+	Points			[0, 95; -465, 0; 0, -45]
 	DstBlock		"Channel select\nregister"
 	DstPort			2
       }
@@ -1686,7 +1715,7 @@ Model {
     Line {
       SrcBlock		      "Constant 1"
       SrcPort		      1
-      Points		      [30, 0; 0, 75]
+      Points		      [50, 0; 0, 65]
       DstBlock		      "Frame found"
       DstPort		      1
     }
@@ -2034,6 +2063,13 @@ Model {
       SrcPort		      1
       DstBlock		      "Switch4"
       DstPort		      3
+    }
+    Line {
+      SrcBlock		      "sync_rst"
+      SrcPort		      1
+      Points		      [30, 0; 0, -170]
+      DstBlock		      "Frame found"
+      DstPort		      2
     }
     Annotation {
       SID		      "53"
