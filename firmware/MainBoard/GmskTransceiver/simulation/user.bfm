@@ -55,20 +55,39 @@ write w TX_APB_IF_0 TX_DATA 0xAB;
 write w TX_APB_IF_0 TX_DATA 0xCD;
 write w TX_APB_IF_0 TX_DATA 0xEF;
 write w TX_APB_IF_0 TX_DATA 0x01;
+write w TX_APB_IF_0 TX_DATA 0x22;
+
+#wait 10;
+
+write w TX_APB_IF_0 TX_CTRL 0x01; # start
+
+wait 500;
+wait 100;
+
+read w RX_APB_IF_0 0x04;
+read w RX_APB_IF_0 0x04;
+read w RX_APB_IF_0 0x04;
+read w RX_APB_IF_0 0x04;
+#read w RX_APB_IF_0 0x04;
+
+wait 100;
+
+write w TX_APB_IF_0 TX_DATA 0xAB;
+write w TX_APB_IF_0 TX_DATA 0xCD;
+write w TX_APB_IF_0 TX_DATA 0xEF;
 write w TX_APB_IF_0 TX_DATA 0x02;
 
 #wait 10;
 
 write w TX_APB_IF_0 TX_CTRL 0x01; # start
 
-wait 1000;
+wait 500;
 
 read w RX_APB_IF_0 0x04;
 read w RX_APB_IF_0 0x04;
 read w RX_APB_IF_0 0x04;
 read w RX_APB_IF_0 0x04;
 read w RX_APB_IF_0 0x04;
-
 
 
 return

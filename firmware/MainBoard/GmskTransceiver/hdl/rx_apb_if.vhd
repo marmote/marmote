@@ -147,8 +147,8 @@ architecture Behavioral of RX_APB_IF is
     signal s_rx_fifo_full   : std_logic;
     signal s_rx_fifo_empty  : std_logic;
 
-    signal s_sync_reset         : std_logic;
-    signal s_sync_rst           : std_logic_vector(7 downto 0);
+    signal s_sync_rst           : std_logic;
+    signal s_sync_rst_sr        : std_logic_vector(7 downto 0);
     signal s_sync_rst_next      : std_logic;
     signal s_gmsk_rx_out        : std_logic;
     signal s_rx_symbol          : std_logic;
@@ -190,7 +190,7 @@ begin
       GlobalReset => rst,
       GlobalEnable8 => s_rx_strobe_div8,
       GlobalEnable1 => RX_STROBE,
-      sync_rst => s_sync_reset,
+      sync_rst => s_sync_rst,
       bit_valid_reg => s_rx_symbol_valid,
       bit_out_reg => s_rx_symbol,
       bit_in_reg => s_gmsk_rx_out
@@ -313,15 +313,19 @@ begin
             s_bit_ctr <= (others => '0');
         elsif rising_edge(clk) then
             s_rx_byte_valid <= '0';
-            if s_rx_symbol_valid = '1' and s_rx_strobe_div8 = '1' then
-                s_data_buffer <= s_data_buffer(s_data_buffer'high-1 downto 0)
-                                 & s_rx_symbol;
-                if s_bit_ctr < c_DATA_LENGTH-1 then
-                    s_bit_ctr <= s_bit_ctr + 1;
-                else
-                    s_rx_byte_valid <= '1';
-                    s_bit_ctr <= (others => '0');
+            if s_rx_symbol_valid = '1' then
+                if s_rx_strobe_div8 = '1' then
+                    s_data_buffer <= s_data_buffer(s_data_buffer'high-1 downto 0)
+                                     & s_rx_symbol;
+                    if s_bit_ctr < c_DATA_LENGTH-1 then
+                        s_bit_ctr <= s_bit_ctr + 1;
+                    else
+                        s_rx_byte_valid <= '1';
+                        s_bit_ctr <= (others => '0');
+                    end if;
                 end if;
+            else
+                s_bit_ctr <= (others => '0');
             end if;
         end if;
     end process p_DESERIALIZE;
@@ -329,26 +333,25 @@ begin
     s_rx_fifo_in <= s_data_buffer;
 
 
-    s_sync_reset <= '1' when unsigned(s_sync_rst) > to_unsigned(0,8) else '0';
-
     p_RECEIVE_FSM_SYNC : process (rst, clk)
     begin
         if rst = '1' then
             s_rx_state <= st_IDLE;
             s_payload_ctr <= (others => '0');
-            s_sync_rst <= (others => '1');
+            s_sync_rst_sr <= (others => '1');
         elsif rising_edge(clk) then
             s_rx_state <= s_rx_state_next;
             s_payload_ctr <= s_payload_ctr_next;
-            s_sync_rst <= s_sync_rst(6 downto 0) & s_sync_rst_next;
+            s_sync_rst_sr <= s_sync_rst_sr(6 downto 0) & s_sync_rst_next;
         end if;
     end process p_RECEIVE_FSM_SYNC;
+
+    s_sync_rst <= '1' when unsigned(s_sync_rst_sr) > 0 else '0';
 
 
     p_RECEIVE_FSM_COMB : process (
         s_rx_state,
         s_rx_byte_valid,
-        s_sync_rst,
         s_payload_ctr
     )
     begin
@@ -381,11 +384,11 @@ begin
 
             when st_RX_CRC =>
                 -- NOTE: Receive CRC state is not implemented yet
+                s_sync_rst_next <= '1';
                 s_rx_state_next <= st_CHECK_CRC;
 
             when st_CHECK_CRC =>
                 -- NOTE: CHECK CRC state is not implemented yet
-                s_sync_rst_next <= '1';
                 s_rx_state_next <= st_IDLE;
 
             when others =>

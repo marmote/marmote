@@ -47,13 +47,13 @@ ENDLIST
 LIST FileManager
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf,actgen_cxf"
 STATE="utd"
-TIME="1358528894"
+TIME="1358804592"
 SIZE="2407"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
 STATE="utd"
-TIME="1358528894"
+TIME="1358804592"
 SIZE="1241"
 LIBRARY="COREAPB3_LIB"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
@@ -226,19 +226,19 @@ SIZE="413"
 ENDFILE
 VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1358528895"
+TIME="1358804594"
 SIZE="4324"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.cxf,actgen_cxf"
 STATE="utd"
-TIME="1358528897"
+TIME="1358804595"
 SIZE="11541"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.pdc,pdc"
 STATE="utd"
-TIME="1358528891"
+TIME="1358804592"
 SIZE="5812"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 BEGIN_USE_CONSTRAINT
@@ -249,7 +249,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.vhd,hdl"
 STATE="utd"
-TIME="1358528894"
+TIME="1358804593"
 SIZE="34101"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 IS_READONLY="TRUE"
@@ -392,18 +392,18 @@ SIZE="6845"
 ENDFILE
 VALUE "<project>\hdl\gmsk_rx.vhd,hdl"
 STATE="utd"
-TIME="1358525442"
-SIZE="9546"
+TIME="1358804516"
+SIZE="9493"
 ENDFILE
 VALUE "<project>\hdl\gmsk_sync.vhd,hdl"
 STATE="utd"
-TIME="1358527124"
-SIZE="261716"
+TIME="1358804489"
+SIZE="262683"
 ENDFILE
 VALUE "<project>\hdl\gmsk_tx.vhd,hdl"
 STATE="utd"
-TIME="1358549752"
-SIZE="19233"
+TIME="1358804502"
+SIZE="19138"
 ENDFILE
 VALUE "<project>\hdl\H_cic_dec.vhd,hdl"
 STATE="utd"
@@ -412,19 +412,19 @@ SIZE="11643"
 ENDFILE
 VALUE "<project>\hdl\rx_apb_if.vhd,hdl"
 STATE="utd"
-TIME="1358544714"
-SIZE="10075"
+TIME="1358804194"
+SIZE="12462"
 ENDFILE
-VALUE "<project>\hdl\SynLib.vhd,hdl"
+VALUE "<project>\hdl\SynLib_asynch.vhd,hdl"
 STATE="utd"
-TIME="1358525442"
-SIZE="126039"
+TIME="1358804381"
+SIZE="129261"
 LIBRARY="shlslib"
 ENDFILE
 VALUE "<project>\hdl\tx_apb_if.vhd,hdl"
 STATE="utd"
-TIME="1358777795"
-SIZE="14109"
+TIME="1358794507"
+SIZE="13163"
 ENDFILE
 VALUE "<project>\simulation\afe_if_wave.do,do"
 STATE="utd"
@@ -472,7 +472,7 @@ SIZE="2683"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
-TIME="1358528894"
+TIME="1358804593"
 SIZE="662"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 ENDFILE
@@ -481,11 +481,6 @@ STATE="utd"
 TIME="1358276545"
 SIZE="9830"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
-ENDFILE
-VALUE "<project>\simulation\testbench_presynth_simulation.log,log"
-STATE="utd"
-TIME="1358777803"
-SIZE="93339"
 ENDFILE
 VALUE "<project>\simulation\tx_apb_if_wave.do,do"
 STATE="utd"
@@ -758,7 +753,7 @@ LIST SimulationOptions
 UseAutomaticDoFile=true
 IncludeWaveDo=true
 Type=max
-RunTime=10 us
+RunTime=100 us
 Resolution=1ps
 VsimOpt=
 EntityName=testbench
@@ -988,10 +983,10 @@ LIST "DATAPATH_STUB_APB::work","hdl\datapath_stub_apb.vhd","FALSE","FALSE"
 ENDLIST
 LIST "Decommutator::work","hdl\gmsk_sync.vhd","FALSE","FALSE"
 SUBBLOCK "synDecommutator_ShftReg::work","hdl\gmsk_sync.vhd","FALSE","FALSE"
-SUBBLOCK "synDownsampleSimple::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+SUBBLOCK "synDownsampleSimple::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "Delay1::work","hdl\gmsk_sync.vhd","FALSE","FALSE"
-SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "DESIGN_FIRMWARE::work","component\work\DESIGN_FIRMWARE\DESIGN_FIRMWARE.cxf","TRUE","FALSE"
 SUBBLOCK "HAL::work","","FALSE","FALSE"
@@ -1022,8 +1017,8 @@ LIST "Gaussian_Filter_FIR_MultiplyBlock::work","hdl\gmsk_tx.vhd","FALSE","FALSE"
 ENDLIST
 LIST "gmsk_rx::work","hdl\gmsk_rx.vhd","FALSE","FALSE"
 SUBBLOCK "N_decimation_filter::work","hdl\gmsk_rx.vhd","FALSE","FALSE"
-SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synComparator::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synComparator::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "gmsk_sync::work","hdl\gmsk_sync.vhd","FALSE","FALSE"
 SUBBLOCK "Channel_select_register::work","hdl\gmsk_sync.vhd","FALSE","FALSE"
@@ -1032,16 +1027,16 @@ SUBBLOCK "Switch::work","hdl\gmsk_sync.vhd","FALSE","FALSE"
 SUBBLOCK "Decommutator::work","hdl\gmsk_sync.vhd","FALSE","FALSE"
 SUBBLOCK "Frame_found::work","hdl\gmsk_sync.vhd","FALSE","FALSE"
 SUBBLOCK "synShift_Register0::work","hdl\gmsk_sync.vhd","FALSE","FALSE"
-SUBBLOCK "synBusSatRnd::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synComparator::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+SUBBLOCK "synBusSatRnd::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synComparator::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "gmsk_tx::work","hdl\gmsk_tx.vhd","FALSE","FALSE"
 SUBBLOCK "Integrator::work","hdl\gmsk_tx.vhd","FALSE","FALSE"
-SUBBLOCK "synBusAdapter::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
 SUBBLOCK "cos_ROM::work","hdl\gmsk_tx.vhd","FALSE","FALSE"
 SUBBLOCK "sin_ROM::work","hdl\gmsk_tx.vhd","FALSE","FALSE"
 SUBBLOCK "Gaussian_Filter_FIR::work","hdl\gmsk_tx.vhd","FALSE","FALSE"
-SUBBLOCK "synBusSatRnd::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+SUBBLOCK "synBusSatRnd::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synBusAdapter::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "H_cic_dec::work","hdl\H_cic_dec.vhd","FALSE","FALSE"
 ENDLIST
@@ -1056,8 +1051,8 @@ ENDLIST
 LIST "INBUF_MSS::work","component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd","FALSE","FALSE"
 ENDLIST
 LIST "Integrator::work","hdl\gmsk_tx.vhd","FALSE","FALSE"
-SUBBLOCK "synBusSatRnd::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
 SUBBLOCK "synIntegrator_Delay::work","hdl\gmsk_tx.vhd","FALSE","FALSE"
+SUBBLOCK "synBusSatRnd::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "MSS_ACE_Driver::work","","FALSE","FALSE"
 ENDLIST
@@ -1094,38 +1089,38 @@ ENDLIST
 LIST "OUTBUF_MSS::work","component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd","FALSE","FALSE"
 ENDLIST
 LIST "RX_APB_IF::work","hdl\rx_apb_if.vhd","FALSE","FALSE"
-SUBBLOCK "gmsk_rx::work","hdl\gmsk_rx.vhd","FALSE","FALSE"
-SUBBLOCK "gmsk_sync::work","hdl\gmsk_sync.vhd","FALSE","FALSE"
 SUBBLOCK "FIFO_512x8::work","hdl\fifo_512x8.vhd","FALSE","FALSE"
+SUBBLOCK "gmsk_sync::work","hdl\gmsk_sync.vhd","FALSE","FALSE"
+SUBBLOCK "gmsk_rx::work","hdl\gmsk_rx.vhd","FALSE","FALSE"
 ENDLIST
 LIST "sin_ROM::work","hdl\gmsk_tx.vhd","FALSE","FALSE"
 ENDLIST
 LIST "SmartFusion_CMSIS_PAL::work","","FALSE","FALSE"
 ENDLIST
 LIST "Switch::work","hdl\gmsk_sync.vhd","FALSE","FALSE"
-SUBBLOCK "synComparator::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+SUBBLOCK "synComparator::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "synChannel_select_register_Register_e0::work","hdl\gmsk_sync.vhd","FALSE","FALSE"
-SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "synDecommutator_ShftReg::work","hdl\gmsk_sync.vhd","FALSE","FALSE"
-SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "synFrame_found_Register::work","hdl\gmsk_sync.vhd","FALSE","FALSE"
-SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "synIntegrator_Delay::work","hdl\gmsk_tx.vhd","FALSE","FALSE"
-SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "synShift_Register0::work","hdl\gmsk_sync.vhd","FALSE","FALSE"
-SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "Teton::work","component\work\Teton\Teton.vhd","TRUE","FALSE"
 SUBBLOCK "AFE_IF::work","hdl\afe_if.vhd","FALSE","FALSE"
-SUBBLOCK "Teton_MSS::work","component\work\Teton_MSS\Teton_MSS.vhd","TRUE","FALSE"
-SUBBLOCK "CoreAPB3::COREAPB3_LIB::components","component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd","FALSE","FALSE"
 SUBBLOCK "RX_APB_IF::work","hdl\rx_apb_if.vhd","FALSE","FALSE"
+SUBBLOCK "Teton_MSS::work","component\work\Teton_MSS\Teton_MSS.vhd","TRUE","FALSE"
 SUBBLOCK "TX_APB_IF::work","hdl\tx_apb_if.vhd","FALSE","FALSE"
+SUBBLOCK "CoreAPB3::COREAPB3_LIB::components","component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd","FALSE","FALSE"
 ENDLIST
 LIST "Teton_MSS::work","component\work\Teton_MSS\Teton_MSS.vhd","TRUE","FALSE"
 SUBBLOCK "MSS_APB::work","component\work\Teton_MSS\mss_tshell.vhd","FALSE","FALSE"
@@ -1174,28 +1169,28 @@ SUBBLOCK "CoreAPB3::COREAPB3_LIB::components","component\Actel\DirectCore\CoreAP
 SUBBLOCK "BFM_APB::COREAPB3_LIB","","FALSE","FALSE"
 SUBBLOCK "BFM_APBSLAVE::COREAPB3_LIB","","FALSE","FALSE"
 ENDLIST
-LIST "singleDelayWithEnableGeneric::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "singleDelayWithEnableGeneric::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synAbs::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synAbs::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synAccumulator::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synAccumulator::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synAccumulatorMC::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synAccumulatorMC::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synAccumulatorMCOvf::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synAccumulatorMCOvf::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synAccumulatorOvf::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synAccumulatorOvf::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synAddSub::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synAddSub::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synBinLogic::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synBinLogic::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synBusAdapter::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synBusSatRnd::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synBusAdapter::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synBusSatRnd::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synBusSatRnd::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synBusSatRnd::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synComparator::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synComparator::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "synCordic::shlslib","","FALSE","FALSE"
 ENDLIST
@@ -1251,92 +1246,92 @@ LIST "synCordicVecMagFolded::shlslib","","FALSE","FALSE"
 ENDLIST
 LIST "synCordicVecMagMC::shlslib","","FALSE","FALSE"
 ENDLIST
-LIST "synCounter::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synCounter::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synCounterFR::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synCounterFR::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synCounterFRMC::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synCounterFRMC::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synCounterMC::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synCounterMC::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synCounterSync::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synCounterSync::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synCSAUnit::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synCSAUnit::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synDataTypes::shlslib","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synDataTypes::shlslib","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synDelayWithEnable_signed::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synDelayWithEnableGeneric::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "singleDelayWithEnableGeneric::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synDelayWithEnable_signed::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnableGeneric::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "singleDelayWithEnableGeneric::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synDelayWithEnable_std_logic::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synDelayWithEnableGeneric::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "singleDelayWithEnableGeneric::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synDelayWithEnable_std_logic::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnableGeneric::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "singleDelayWithEnableGeneric::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synDelayWithEnableGeneric::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synDelayWithEnableGeneric_2_4::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "singleDelayWithEnableGeneric::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnableGeneric::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnableGeneric_2_4::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "singleDelayWithEnableGeneric::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synDelayWithEnable_unsigned::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synDelayWithEnableGeneric::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "singleDelayWithEnableGeneric::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synDelayWithEnable_unsigned::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnableGeneric::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "singleDelayWithEnableGeneric::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synDelayWithEnableGeneric::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synDelayWithEnableGeneric::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synDelayWithEnableGeneric_2_4::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synDelayWithEnableGeneric_2_4::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synDownsampleSimple::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synDownsampleSimple::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synFIFO::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synFIFO::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synFIFO_MC::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synFIFO::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synFIFO_MC::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synFIFO::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synGain::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synGain::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synInverter::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synInverter::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synLibFunctions::shlslib","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synAddSub::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synMult::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synBusSatRnd::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synBusAdapter::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synNegate::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synInverter::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synGain::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synDelayWithEnable_signed::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synStepFunction_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synDelayWithEnable_unsigned::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synDelayWithEnable_std_logic::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synDelayWithEnableGeneric_2_4::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synDelayWithEnableGeneric::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "singleDelayWithEnableGeneric::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synRobustLatch_signed::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synRobustLatch_unsigned::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synRobustLatch_std_logic::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synRobustLatch_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synMux::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synShifter::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synShifterR::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synAbs::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synBinLogic::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synComparator::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synCounter::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synCounterSync::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synCounterFR::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synCounterMC::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synCounterFRMC::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synAccumulator::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synAccumulatorOvf::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synAccumulatorMC::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synAccumulatorMCOvf::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synRegister::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synRegisterMC::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synFIFO::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synFIFO_MC::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synMultiRateFIFO::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synLibFunctions::shlslib","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synAddSub::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synMult::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synBusSatRnd::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synBusAdapter::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synNegate::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synInverter::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synGain::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnable_signed::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synStepFunction_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnable_unsigned::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnable_std_logic::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnableGeneric_2_4::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnableGeneric::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "singleDelayWithEnableGeneric::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synRobustLatch_signed::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synRobustLatch_unsigned::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synRobustLatch_std_logic::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synRobustLatch_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synMux::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synShifter::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synShifterR::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synAbs::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synBinLogic::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synComparator::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synCounter::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synCounterSync::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synCounterFR::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synCounterMC::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synCounterFRMC::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synAccumulator::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synAccumulatorOvf::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synAccumulatorMC::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synAccumulatorMCOvf::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synRegister::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synRegisterMC::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synFIFO::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synFIFO_MC::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synMultiRateFIFO::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 SUBBLOCK "synCordic::shlslib","","FALSE","FALSE"
 SUBBLOCK "synCordicMC::shlslib","","FALSE","FALSE"
 SUBBLOCK "synCordicFolded::shlslib","","FALSE","FALSE"
@@ -1364,41 +1359,41 @@ SUBBLOCK "synCordicLnFolded::shlslib","","FALSE","FALSE"
 SUBBLOCK "synCordicSqrt::shlslib","","FALSE","FALSE"
 SUBBLOCK "synCordicSqrtMC::shlslib","","FALSE","FALSE"
 SUBBLOCK "synCordicSqrtFolded::shlslib","","FALSE","FALSE"
-SUBBLOCK "synSRL::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synCSAUnit::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synPipelinedAdd::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synDownsampleSimple::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+SUBBLOCK "synSRL::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synCSAUnit::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipelinedAdd::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDownsampleSimple::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synMult::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synMult::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synMultiRateFIFO::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synMultiRateFIFO::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synMux::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synMux::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synNegate::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synNegate::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synPipelinedAdd::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
-SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synPipelinedAdd::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synRegister::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synRegister::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synRegisterMC::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synRegisterMC::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synRobustLatch_signed::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synRobustLatch_signed::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synRobustLatch_std_logic::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synRobustLatch_std_logic::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synRobustLatch_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synRobustLatch_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synRobustLatch_unsigned::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synRobustLatch_unsigned::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synShifter::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synShifter::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synShifterR::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synShifterR::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synSRL::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synSRL::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synStepFunction_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib.vhd","FALSE","FALSE"
+LIST "synStepFunction_std_logic_vector::shlslib::synLibFunctions","hdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 ENDLIST
 LIST ActiveTestBenchList
