@@ -44,9 +44,9 @@ MainBoard.gwk - GraphiCode GC-Prevue Project File (Gerbers and drill)
 
 MainBoard.xy  - Centroid data for SMD components
    
-MainBoard_RevA_BOM.xls	- Bill of materials
+MainBoard_RevB_BOM.xls	- Bill of materials
 
-MainBoard_RevA_Asy.pdf	- Board assembly drawing
+MainBoard_RevB_Asy.pdf	- Board assembly drawing
 
 
 QUESTIONS?
