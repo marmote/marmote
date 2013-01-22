@@ -119,6 +119,9 @@ architecture Behavioral of RX_APB_IF is
     constant c_PAYLOAD_LENGTH   : integer := 4; -- bytes
     constant c_DATA_LENGTH      : integer := 8;
 
+    constant c_BAUD_DIV : integer := 8;     -- Samples per symbol in the modulator 
+    constant c_TICK_DIV : integer := 12;   -- Length of the symbol in ticks
+
 
 	-- Addresses
 	constant c_ADDR_CTRL : std_logic_vector(7 downto 0) := x"00"; -- R
@@ -150,11 +153,13 @@ architecture Behavioral of RX_APB_IF is
     signal s_rx_fifo_empty  : std_logic;
 
     signal s_sync_rst           : std_logic;
-    signal s_sync_rst_sr        : std_logic_vector(7 downto 0);
     signal s_sync_rst_next      : std_logic;
     signal s_gmsk_rx_out        : std_logic;
     signal s_rx_symbol          : std_logic;
     signal s_rx_symbol_valid    : std_logic;
+    signal s_rx_symbol_valid_prev    : std_logic;
+    signal s_tick_ctr           : unsigned(3 downto 0);
+    signal s_rx_strobe          : std_logic;
     signal s_rx_strobe_ctr      : unsigned(3 downto 0);
     signal s_rx_strobe_div8     : std_logic;
 
@@ -222,22 +227,6 @@ begin
     
     -- Processes
 
-    p_RX_STROBE_DIV8_GEN : process (rst, clk)
-    begin
-        if rst = '1' then
-            s_rx_strobe_div8 <= '0';
-            s_rx_strobe_ctr <= (others => '0');
-        elsif rising_edge(clk) then
-            s_rx_strobe_div8 <= '0';
-            if s_rx_strobe_ctr < 8-1 then
-                s_rx_strobe_ctr <= s_rx_strobe_ctr + 1;
-            else
-                s_rx_strobe_ctr <= (others => '0');
-                s_rx_strobe_div8 <= '1';
-            end if;
-        end if;
-    end process p_RX_STROBE_DIV8_GEN;
-
 
 	-- Register write
 	p_REG_WRITE : process (PRESETn, PCLK)
@@ -304,6 +293,34 @@ begin
     s_rx_fifo_rd <= '1' when s_rx_fifo_fetch = '1' and s_rx_fifo_fetch_prev =
                     '0' else '0';
 
+
+    p_BAUD_TIMER : process (rst, clk)
+    begin
+        if rst = '1' then
+            s_rx_strobe <= '0';
+            s_rx_strobe_div8 <= '0';
+            s_tick_ctr <= (others => '0');
+            s_rx_strobe_ctr <= (others => '0');
+        elsif rising_edge(clk) then
+            s_rx_strobe <= '0';
+            s_rx_strobe_div8 <= '0';
+            if s_tick_ctr < to_unsigned(c_TICK_DIV-1, s_tick_ctr'length) then
+                s_tick_ctr <= s_tick_ctr + 1;
+            else
+                s_tick_ctr <= (others => '0');
+                s_rx_strobe <= '1';
+            end if;
+            if s_rx_strobe = '1' then
+                if s_rx_strobe_ctr < to_unsigned(c_BAUD_DIV-1, s_rx_strobe_ctr'length) then
+                    s_rx_strobe_ctr <= s_rx_strobe_ctr + 1;
+                else
+                    s_rx_strobe_ctr <= (others => '0');
+                    s_rx_strobe_div8 <= '1';
+                end if;
+            end if;
+        end if;
+    end process p_BAUD_TIMER;
+
     ---------------------------------------------------------------------------
     -- Process deserializing the incoming data stream
     -- NOTE: Time and frame synchronization is performed by the preceeding
@@ -336,21 +353,35 @@ begin
 
     s_rx_fifo_in <= s_data_buffer;
 
+    p_RECEIVE_SYNC_RST : process (rst, clk)
+    begin
+        if rst = '1' then
+            s_sync_rst <= '1';
+        elsif rising_edge(clk) then
+            if s_sync_rst_next = '1' then
+                s_sync_rst <= '1';
+            end if;
+            if s_rx_strobe_div8 = '1' then
+                s_sync_rst <= '0';
+            end if;
+        end if;
+    end process p_RECEIVE_SYNC_RST;
+
 
     p_RECEIVE_FSM_SYNC : process (rst, clk)
     begin
         if rst = '1' then
             s_rx_state <= st_IDLE;
             s_payload_ctr <= (others => '0');
-            s_sync_rst_sr <= (others => '1');
+            s_rx_symbol_valid_prev <= '0';
         elsif rising_edge(clk) then
             s_rx_state <= s_rx_state_next;
             s_payload_ctr <= s_payload_ctr_next;
-            s_sync_rst_sr <= s_sync_rst_sr(6 downto 0) & s_sync_rst_next;
+            s_rx_symbol_valid_prev <= s_rx_symbol_valid;
         end if;
     end process p_RECEIVE_FSM_SYNC;
 
-    s_sync_rst <= '1' when unsigned(s_sync_rst_sr) > 0 else '0';
+
 
 
     p_RECEIVE_FSM_COMB : process (
@@ -405,8 +436,7 @@ begin
 
     -- Output assignment
 
-    s_sfd_irq <= '1' when s_rx_state = st_IDLE and s_rx_state_next =
-                 st_RX_PAYLOAD else '0';
+    s_sfd_irq <= '1' when s_rx_symbol_valid_prev = '0' and s_rx_symbol_valid = '1' else '0';
 
 	PRDATA <= x"000000" & s_dout;
 	PREADY <= s_pready;

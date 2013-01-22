@@ -50,7 +50,7 @@ sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_fifo_aempty \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_buffer(23:16) \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_buffer \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_buffer_next \
--unsigned sim:/testbench/Teton_0/TX_APB_IF_0/s_symbol_ctr \
+-unsigned sim:/testbench/Teton_0/TX_APB_IF_0/s_baud_ctr \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_symbol_end \
 -hex \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_status \
@@ -58,7 +58,8 @@ sim:/testbench/Teton_0/TX_APB_IF_0/s_bit_ctr \
 -signed \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_txd(15) \
 -unsigned \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_txd_en
+sim:/testbench/Teton_0/TX_APB_IF_0/s_txd_en \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_done
 
 #sim:/testbench/Teton_0/TX_APB_IF_0/s_data_buffer \
 
@@ -152,5 +153,5 @@ sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_out \
 sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_empty \
 sim:/testbench/Teton_0/RX_APB_IF_0/s_sfd_irq
 
-run 220 us
+run 2 ms
 wave zoom full
