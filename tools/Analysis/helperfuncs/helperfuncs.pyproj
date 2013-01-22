@@ -36,7 +36,10 @@
     <Compile Include="Onset_Threshold.py" />
     <Compile Include="PickBases.py" />
     <Compile Include="PlotAEMeas.py" />
+    <Compile Include="PlotAIC.py" />
     <Compile Include="PlotDWT.py" />
+    <Compile Include="PlotHistory.py" />
+    <Compile Include="PlotScatter2Dhist.py" />
     <Compile Include="PlotSpecgram.py" />
     <Compile Include="PlotTDHist.py" />
     <Compile Include="PlotTDOAvsDist.py" />
