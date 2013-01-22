@@ -4,13 +4,10 @@ import matplotlib.mlab as mlab
 import GMM_estimate_EM as EM
 
 
-def PlotTDHist(x, fitcurve=False, x_lim_min=None, x_lim_max=None, qty=None, pickbest=20, Gauss_num=1):
+def PlotTDHist(x, fitcurve=False, x_lim_min=None, x_lim_max=None, alpha=None, mu=None, sigma=None):
 
 	fig = plt.figure()
 	ax = fig.add_subplot(111)
-
-	if pickbest is not None and qty is not None:
-		x = (np.array(x)[np.argsort(qty)])[-pickbest:]
 
 	# the histogram of the data
 	n, bins, patches = ax.hist(x, 25, normed=True, facecolor='green', alpha=0.75)
@@ -21,10 +18,9 @@ def PlotTDHist(x, fitcurve=False, x_lim_min=None, x_lim_max=None, qty=None, pick
 	# density values in n, 51 bin edges in bins and 50 patches.  To get
 	# everything lined up, we'll compute the bin centers
 		bincenters = 0.5*(bins[1:]+bins[:-1])
-		alpha, mu, sigma = EM.GMM_estimate_EM(x, Gnum=Gauss_num)
 		# add a 'best fit' lines for the normal PDF
 		ax.hold('on')
-		for k in xrange(Gauss_num):
+		for k in xrange(alpha.size):
 			y = mlab.normpdf( bincenters, mu[k], sigma[k] ) * alpha[k]
 			l = ax.plot(bincenters, y, 'r--', linewidth=1)
 
@@ -32,7 +28,7 @@ def PlotTDHist(x, fitcurve=False, x_lim_min=None, x_lim_max=None, qty=None, pick
 	ax.set_ylabel('Probability')
 	title = r'$\mathrm{Histogram\ of\ TD}$'
 	if fitcurve:
-		for k in xrange(Gauss_num):
+		for k in xrange(alpha.size):
 			title += '\n' + r'$\alpha_%d=%.4f$,'%(k+1, alpha[k]) + '\t' + r'$\mu_%d=%.4f$,'%(k+1, mu[k]) + '\t' + r'$\sigma_%d=%.4f$'%(k+1, sigma[k])
 #	title += r'$'
 	ax.set_title(title)
@@ -46,4 +42,4 @@ def PlotTDHist(x, fitcurve=False, x_lim_min=None, x_lim_max=None, qty=None, pick
 
 ################################################################################
 if __name__ == "__main__":
-	PlotTDHist(np.array([1, 2, 3, 4, 50, 55, 56, 58]), fitcurve=True, x_lim_min=None, x_lim_max=None, qty=None, pickbest=20, Gauss_num=2)
+	PlotTDHist(np.array([1, 2, 3, 4, 50, 55, 56, 58]), fitcurve=False, x_lim_min=None, x_lim_max=None)
