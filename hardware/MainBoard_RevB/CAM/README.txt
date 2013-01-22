@@ -22,27 +22,27 @@ PCB STACKUP:
 
 FILES:
 
-MainBoard.GTO - Top Silk Screen (component side)
-MainBoard.GTP - Top Solder paste (cream stencil, component side)
-MainBoard.GTS - Top Solder stop mask (component side)
-MainBoard.GTL - Top Copper (component side), Positive Polarity
-MainBoard.GP1 - Power plane (GND), Positive Polarity
-MainBoard.GI1 - Inner signal layer 1, Positive Polarity
-MainBoard.GI2 - Inner signal layer 2, Positive Polarity
-MainBoard.GP2 - Power plane (D3V3), Positive Polarity
-MainBoard.GBL - Bottom Copper (solder side), Positive Polarity
-MainBoard.GBS - Bottom Solder stop mask (solder side)
-MainBoard.GBP - Bottom Solder paste (cream stencil, solder side)
-MainBoard.GBO - Bottom Silk Screen (solder side)
-MainBoard.GML - Board outline
-MainBoard.gpi - Gerber Report 
+MainBoard_RevB.GTO - Top Silk Screen (component side)
+MainBoard_RevB.GTP - Top Solder paste (cream stencil, component side)
+MainBoard_RevB.GTS - Top Solder stop mask (component side)
+MainBoard_RevB.GTL - Top Copper (component side), Positive Polarity
+MainBoard_RevB.GP1 - Power plane (GND), Positive Polarity
+MainBoard_RevB.GI1 - Inner signal layer 1, Positive Polarity
+MainBoard_RevB.GI2 - Inner signal layer 2, Positive Polarity
+MainBoard_RevB.GP2 - Power plane (D3V3), Positive Polarity
+MainBoard_RevB.GBL - Bottom Copper (solder side), Positive Polarity
+MainBoard_RevB.GBS - Bottom Solder stop mask (solder side)
+MainBoard_RevB.GBP - Bottom Solder paste (cream stencil, solder side)
+MainBoard_RevB.GBO - Bottom Silk Screen (solder side)
+MainBoard_RevB.GML - Board outline
+MainBoard_RevB.gpi - Gerber Report 
 
-MainBoard.DRD - NC Drill : 1.4, Abs, inches, leading zero supress, quad
-MainBoard.dri - NC Drill Report
+MainBoard_RevB.DRD - NC Drill : 1.4, Abs, inches, leading zero supress, quad
+MainBoard_RevB.dri - NC Drill Report
 
-MainBoard.gwk - GraphiCode GC-Prevue Project File (Gerbers and drill)
+MainBoard_RevB.gwk - GraphiCode GC-Prevue Project File (Gerbers and drill)
 
-MainBoard.xy  - Centroid data for SMD components
+MainBoard_RevB.xy  - Centroid data for SMD components
    
 MainBoard_RevB_BOM.xls	- Bill of materials
 
