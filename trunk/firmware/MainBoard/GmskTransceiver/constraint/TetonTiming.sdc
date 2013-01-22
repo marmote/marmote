@@ -17,7 +17,7 @@ set sdc_version 1.7
 #define_clock   {USB_CLK} -name {USB_CLK}  -freq 60 -clockgroup usb_clkgroup
 #define_clock   {atck} -name {atck}  -freq 10 -clockgroup external_jtaggruop
 
-create_clock  -name { USB_CLK } -period 16.667 -waveform { 0.000 8.333  }  { USB_CLK  } 
+#create_clock  -name { USB_CLK } -period 16.667 -waveform { 0.000 8.333  }  { USB_CLK  } 
 
 #create_clock  -name { XTLOSC } -period 50.000 -waveform { 0.000 25.000  }  { Teton_MSS_0/MSS_CCC_0/I_XTLOSC:CLKOUT  } 
 create_clock  -name { REF_CLK } -period 50.000 -waveform { 0.000 25.000  }  { Teton_MSS_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:CLKA } 
@@ -65,8 +65,8 @@ Teton_MSS_0/MSS_ADLIB_INST/U_CORE:PCLK1  }
 
 ########  Output Delay Constraints  ########
 
-set_output_delay  -max 7.500 -clock { USB_CLK }  [get_ports { WR_n }] 
-set_output_delay  -min 0.000 -clock { USB_CLK }  [get_ports { WR_n }] 
+#set_output_delay  -max 7.500 -clock { USB_CLK }  [get_ports { WR_n }] 
+#set_output_delay  -min 0.000 -clock { USB_CLK }  [get_ports { WR_n }] 
 # USB WR_n setup time
 
 

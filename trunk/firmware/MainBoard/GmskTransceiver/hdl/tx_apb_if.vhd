@@ -52,9 +52,6 @@ entity TX_APB_IF is
 		 PRDATA  : out std_logic_vector(31 downto 0);
 		 PSLVERR : out std_logic;
 
-         TXD         : out std_logic_vector(1 downto 0);
-         TXD_STROBE  : out std_logic;
-
          TX_DONE_IRQ : out std_logic;
 
          TX_STROBE  : out std_logic;
@@ -438,9 +435,6 @@ begin
 			end if;
 		end if;
 	end process p_TXD_MUX;
-
-    TXD_STROBE <= s_symbol_end;
-    TXD <= s_txd(s_txd'high downto s_txd'high-1);
 
     -- Output assignment
 

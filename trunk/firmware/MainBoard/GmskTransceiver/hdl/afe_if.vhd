@@ -64,10 +64,10 @@ entity AFE_IF is
          TX_RX_n    : in  std_logic; -- Tx/Rxn mode select
     
          RX_STROBE  : out std_logic;
-	     RX_I       : out std_logic_vector(9 downto 0);
+	     RX_I       : out std_logic_vector(9 downto 0); -- signed
 	     RX_Q       : out std_logic_vector(9 downto 0);
          TX_STROBE  : in  std_logic;
-	     TX_I       : in  std_logic_vector(9 downto 0);
+	     TX_I       : in  std_logic_vector(9 downto 0); -- signed
 	     TX_Q       : in  std_logic_vector(9 downto 0);
 
 		 -- MAX19706 interface
@@ -184,8 +184,8 @@ begin
                 s_tx_rx_n   <= TX_RX_n;
                 s_rx_strobe <= s_enable_d(c_ENABLE_DELAY-1) and not s_tx_rx_n;
                 if TX_STROBE = '1' then
-                    s_tx_i      <= TX_I;
-                    s_tx_q      <= TX_Q;
+                    s_tx_i  <= not TX_I(9) & TX_I(8 downto 0);
+                    s_tx_q  <= not TX_Q(9) & TX_Q(8 downto 0);
                 end if;
             end if;
         end if;
@@ -215,8 +215,8 @@ begin
     SHDN_n_pin  <= not SHDN;
 
     RX_STROBE   <= s_rx_strobe;
-    RX_I        <= s_rx_i;
-    RX_Q        <= s_rx_q;
+    RX_I        <= not s_rx_i(9) & s_rx_i(8 downto 0);
+    RX_Q        <= not s_rx_q(9) & s_rx_q(8 downto 0);
 
 
 end Behavioral;
