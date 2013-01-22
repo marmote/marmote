@@ -1,0 +1,65 @@
+Power Supply
+------------
+
+  * Make V1P5 jumper selectable between 1V5A (PowerBoard LDO) and V1P5_INT
+    (SmartFusion internal LDO)
+  * VBAT -> Li-Ion coin cell
+
+
+Programming
+-----------
+
+JTAG programmability via JTAG connector and FlashPro4
+JTAG programmability via PowerBoard
+MSS self-programmability via MainBoard SD card (SPI)
+MSS self-programmability via PowerBoard MCU (SPI)
+
+NOTE: PC14 and PC15 might be needed for the (32kHz) LSE oscillator
+
+Misc
+----
+
+  * External memory
+    - for recording (CY62167EV30 or similar, or a pSRAM)
+	- self-reconfiguration (size!)
+
+  * External clock syncnronization
+    - Daisy chain or similar topology
+	- SMA connectors
+
+Interfaces
+----------
+
+Sensor board
+
+  * Wake-on radio signal
+  * Diagnostic interface (I2C)
+    - presence
+	- ID
+	- self diagnostic test
+	- sensor calibration
+	- etc.
+
+Power Supply board
+
+  * Diagnostic interface (I2C)
+	- ID
+	- battery health
+	- etc.
+
+  * Streaming interface (SPI)
+    - RAW streaming through USB
+	- Logging on Power Supply board SD card
+	- Communication bridge to USB
+
+  * Programmer interface
+    - GPIO or other signals should be dedicated as a JTAG (or SWD) interface
+
+Board
+-----
+
+  * Account for an RJ45 connector on the Power Supply Board (Do not place any
+    components on the bottom in that area)
+
+  * Use 71439-2164 type receptacles to keep at least 13mm distance between the
+    Power Supply and the Main board
