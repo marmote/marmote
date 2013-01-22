@@ -56,10 +56,7 @@ entity RX_APB_IF is
          RX_I       : in  std_logic_vector(9 downto 0);
          RX_Q       : in  std_logic_vector(9 downto 0);
 
-         SFD_IRQ    : out std_logic;
-
-         RXD_STROBE : in  std_logic;
-         RXD        : in  std_logic_vector(1 downto 0)
+         SFD_IRQ    : out std_logic
      );
 
 end entity;
@@ -240,7 +237,6 @@ begin
 			if PWRITE = '1' and PSEL = '1' and PENABLE = '1' then
 				case PADDR(7 downto 0) is
 					when c_ADDR_CTRL =>
-						-- Initiate FSK transmission
                         -- TODO: clear interrupts
 					when others =>
 						null;
