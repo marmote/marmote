@@ -24,6 +24,6 @@ def CalculateTDOA_AIC_method(y, y2, T, qty_len=40) :
 		min_idx = np.argmin(AIC2)
 		qty2 = np.amax(AIC2[min_idx+1:min_idx+1+qty_len] - AIC2[min_idx:min_idx+qty_len])
 		qtyi2 = np.mean(AIC2[min_idx+1:min_idx+1+qty_len] - AIC2[min_idx:min_idx+qty_len])
-		qty[ii] = min(qty1, qty2)
+		qty[ii] = max(qtyi1, qtyi2)
 		qtyi[ii] = min(qtyi1, qtyi2)
 	return AE_start, AE_start2, TD_meas, qty, qtyi
