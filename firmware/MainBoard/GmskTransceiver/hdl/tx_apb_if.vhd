@@ -55,6 +55,8 @@ entity TX_APB_IF is
          TXD         : out std_logic_vector(1 downto 0);
          TXD_STROBE  : out std_logic;
 
+         TX_DONE_IRQ : out std_logic;
+
          TX_STROBE  : out std_logic;
          TX_I       : out std_logic_vector(9 downto 0);
          TX_Q       : out std_logic_vector(9 downto 0)
@@ -105,9 +107,10 @@ architecture Behavioral of TX_APB_IF is
 
     constant c_DATA_LENGTH : integer := 8;
 
-    constant c_SYMBOL_DIV : integer := 8; -- Length of the symbol in clock ticks
-    constant c_TXD_HIGH   : std_logic_vector(15 downto 0) := "0100" & x"000"; -- +1
-    constant c_TXD_LOW    : std_logic_vector(15 downto 0) := "1100" & x"000"; -- -1
+    constant c_BAUD_DIV : integer := 8;     -- Samples per symbol in the modulator 
+    constant c_TICK_DIV : integer := 12;   -- Length of the symbol in ticks
+    constant c_TXD_HIGH : std_logic_vector(15 downto 0) := "0100" & x"000"; -- +1
+    constant c_TXD_LOW  : std_logic_vector(15 downto 0) := "1100" & x"000"; -- -1
 
     constant c_TXD_EN_DELAY : integer := 12;
 
@@ -163,10 +166,13 @@ architecture Behavioral of TX_APB_IF is
     signal s_txd_next       : std_logic_vector(15 downto 0);
     signal s_txd_en         : std_logic_vector(c_TXD_EN_DELAY-1 downto 0);
     signal s_mod_en         : std_logic;
+    signal s_tx_done        : std_logic;
 
 	signal s_dout           : std_logic_vector(31 downto 0);
 
-	signal s_symbol_ctr     : unsigned(31 downto 0);
+	signal s_tick_ctr       : unsigned(15 downto 0);
+	signal s_baud_ctr       : unsigned(15 downto 0);
+	signal s_tx_strobe       : std_logic;
 	signal s_symbol_end     : std_logic;
 
 
@@ -199,7 +205,7 @@ begin
     port map (
         clk	            =>	clk,
         GlobalReset	    =>	s_gmsk_tx_rst,
-        GlobalEnable1	=>	s_mod_en,
+        GlobalEnable1	=>	s_tx_strobe,
         TX_Q	        =>	TX_Q,
         TX_I	        =>	TX_I,
         TX_D	        =>	s_txd
@@ -265,23 +271,35 @@ begin
 
 
 	-----------------------------------------------------------------------------
-	-- Symbol timer
+	-- Baud timer
+    -- Symbol time = T_FPGA_CKL * c_TICK_DIV * c_BAUD_DIV
 	-----------------------------------------------------------------------------
 	p_SYMBOL_TIMER : process (rst, clk)
 	begin
 		if rst = '1' then
-			s_symbol_ctr <= (others => '0');
+			s_tick_ctr <= (others => '0');
+			s_baud_ctr <= (others => '0');
+            s_tx_strobe <= '0';
 			s_symbol_end <= '0';
 		elsif rising_edge(clk) then
+            s_tx_strobe <= '0';
 			s_symbol_end <= '0';
-            if s_tx_state /= st_IDLE then
-				if s_symbol_ctr < to_unsigned(c_SYMBOL_DIV-1, s_symbol_ctr'length) then
-					s_symbol_ctr <= s_symbol_ctr + 1;
+            if s_tx_state /= st_IDLE then -- FIXME
+				if s_tick_ctr < to_unsigned(c_TICK_DIV-1, s_tick_ctr'length) then
+					s_tick_ctr <= s_tick_ctr + 1;
 				else
-					s_symbol_ctr <= (others => '0');
-					s_symbol_end <= '1';
+					s_tick_ctr <= (others => '0');
+                    s_tx_strobe <= '1';
 				end if;
 			end if;
+            if s_tx_strobe = '1' then
+                if s_baud_ctr < to_unsigned(c_BAUD_DIV-1, s_baud_ctr'length) then
+                    s_baud_ctr <= s_baud_ctr + 1;
+                else
+                    s_baud_ctr <= (others => '0');
+                    s_symbol_end <= '1';
+                end if;
+            end if;
 		end if;
 	end process p_SYMBOL_TIMER;
 
@@ -338,6 +356,7 @@ begin
 		s_bit_ctr_next <= s_bit_ctr;
 		s_buffer_next <= s_buffer;
         s_gmsk_tx_rst_next <= '0';
+        s_tx_done <= '0';
 
 		case( s_tx_state ) is
 			
@@ -391,6 +410,7 @@ begin
                     -- NOTE: st_CRC not implemented yet
                     s_payload_ctr_next <= (others => '0');
                     s_tx_state_next <= st_IDLE;
+                    s_tx_done <= '1';
 --                    s_gmsk_tx_rst_next <= '1';
 			
 				when others =>
