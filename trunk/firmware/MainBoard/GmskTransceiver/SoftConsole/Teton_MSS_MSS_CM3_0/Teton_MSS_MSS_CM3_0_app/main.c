@@ -19,6 +19,7 @@ uint32_t argc;
 
 void process_spi_cmd_buf(const char* cmd_buf, uint8_t length);
 
+static payload;
 
 int main()
 {
@@ -36,19 +37,22 @@ int main()
 	MSS_GPIO_set_output(MSS_GPIO_AFE_MODE, AFE_MODE_RX);
 
 	// TX_DONE IRQ
-	MSS_GPIO_config (MSS_GPIO_TX_DONE_IT, MSS_GPIO_INPUT_MODE | MSS_GPIO_IRQ_LEVEL_HIGH);
+	MSS_GPIO_config (MSS_GPIO_TX_DONE_IT, MSS_GPIO_INPUT_MODE | MSS_GPIO_IRQ_EDGE_POSITIVE);
 	MSS_GPIO_enable_irq(MSS_GPIO_TX_DONE_IT);
 	NVIC_EnableIRQ(MSS_GPIO_TX_DONE_IRQn);
 
 	// Set up as a transmitter at 2405 MHz by default
-//	Max2830_set_frequency(2405000000uL);
-//	MSS_GPIO_set_output(MSS_GPIO_AFE_MODE, AFE_MODE_TX);
-//	Max2830_set_mode(MAX2830_TX_MODE);
-	Max2830_set_mode(MAX2830_SHUTDOWN_MODE);
+	Max2830_set_frequency(2405000000uL);
+	Max2830_set_tx_gain(0);
+	Max2830_set_mode(MAX2830_TX_MODE);
+	MSS_GPIO_set_output(MSS_GPIO_AFE_MODE, AFE_MODE_TX);
+	MSS_GPIO_set_output(MSS_GPIO_AFE_ENABLE, 1);
+
+	payload = 0;
 
 	// TIMER
 	MSS_TIM1_init(MSS_TIMER_PERIODIC_MODE);
-	MSS_TIM1_load_background(20e6); // 1 s
+	MSS_TIM1_load_background(20e5); // .1 s
 	MSS_TIM1_enable_irq();
 	MSS_TIM1_start();
 
@@ -111,15 +115,19 @@ void process_spi_cmd_buf(const char* cmd_buf, uint8_t length)
 	spi_cmd_length = 0;
 }
 
+
 void Timer1_IRQHandler(void)
 {
 	MSS_TIM1_clear_irq();
-	if ( MSS_GPIO_get_outputs() & MSS_GPIO_LED1_MASK )
-	{
-		MSS_GPIO_set_output(MSS_GPIO_LED1, 0);
-	}
-	else
-	{
-		MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
-	}
+
+	// Fill up TX FIFO
+	TX_CTRL->TX_FIFO = payload++;
+	TX_CTRL->TX_FIFO = payload++;
+	TX_CTRL->TX_FIFO = payload++;
+	TX_CTRL->TX_FIFO = payload++;
+
+	// Start
+	TX_CTRL->CTRL = 0x01;
+
+	MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
 }

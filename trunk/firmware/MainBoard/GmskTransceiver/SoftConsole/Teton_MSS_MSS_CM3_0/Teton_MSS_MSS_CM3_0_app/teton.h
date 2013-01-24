@@ -35,6 +35,7 @@ typedef struct
 {
   __IO uint32_t CTRL;                      /*!< Offset: 0x00  Control/status Register       */
   __O  uint32_t TX_FIFO;                   /*!< Offset: 0x04  Data Register             	*/
+  __IO uint32_t TEST;                      /*!< Offset: 0x08  Test Register             	*/
 } TX_CTRL_Type;
 
 #define TX_CTRL            ((TX_CTRL_Type *)       TX_APB_IF_0)   /*!< TX CTRL register struct */

@@ -167,11 +167,8 @@ architecture Behavioral of RX_APB_IF is
         st_CHECK_CRC
     );
 
-    signal s_rx_state      : rx_state_t := st_IDLE;
+    signal s_rx_state      : rx_state_t; --:= st_IDLE;
     signal s_rx_state_next : rx_state_t;
-
-    signal s_sfd_irq        : std_logic;
-
 
 begin
 
@@ -387,6 +384,7 @@ begin
     )
     begin
         -- Default assignments
+        s_payload_ctr_next <= s_payload_ctr;
         s_rx_state_next <= s_rx_state;
         s_rx_fifo_wr <= '0'; -- FIXME: add register
         s_sync_rst_next <= '0';
@@ -432,7 +430,7 @@ begin
 
     -- Output assignment
 
-    s_sfd_irq <= '1' when s_rx_symbol_valid_prev = '0' and s_rx_symbol_valid = '1' else '0';
+    SFD_IRQ <= '1' when s_rx_symbol_valid_prev = '0' and s_rx_symbol_valid = '1' else '0';
 
 	PRDATA <= x"000000" & s_dout;
 	PREADY <= s_pready;
