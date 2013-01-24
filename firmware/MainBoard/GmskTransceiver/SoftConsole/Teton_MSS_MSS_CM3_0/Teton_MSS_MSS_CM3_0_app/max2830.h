@@ -124,7 +124,7 @@ static uint16_t max2830_regs[16] =
 		0x3021,
 		0x07B5,
 		0x1DA4,
-		0x005F,
+		0x0040, // LNA medium gain, VGA min gain
 		0x0140,
 		0x0E92,
 		0x0300,

@@ -35,8 +35,6 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
---use work.common.all;
-
 entity TX_APB_IF is
 	port (
 		 -- APB3 interface
@@ -53,6 +51,8 @@ entity TX_APB_IF is
 		 PSLVERR : out std_logic;
 
          TX_DONE_IRQ : out std_logic;
+
+         TEST       : out std_logic_vector(1 downto 0);
 
          TX_STROBE  : out std_logic;
          TX_I       : out std_logic_vector(9 downto 0);
@@ -114,6 +114,7 @@ architecture Behavioral of TX_APB_IF is
 	-- Addresses
 	constant c_ADDR_CTRL : std_logic_vector(7 downto 0) := x"00"; -- W (START)
 	constant c_ADDR_FIFO : std_logic_vector(7 downto 0) := x"04"; -- W
+	constant c_ADDR_TEST : std_logic_vector(7 downto 0) := x"08"; -- R/W
 
 	-- Default values
 
@@ -135,8 +136,11 @@ architecture Behavioral of TX_APB_IF is
     signal rst              : std_logic;
     alias  clk              : std_logic is PCLK;
 
-    signal s_tx_state       : tx_state_t := st_IDLE;
+    signal s_tx_state       : tx_state_t; --:= st_IDLE;
     signal s_tx_state_next  : tx_state_t;
+
+    signal s_test           : std_logic_vector(7 downto 0);
+    signal s_test_ctr       : unsigned(24 downto 0);
 
     signal s_gmsk_tx_rst    : std_logic;
     signal s_gmsk_tx_rst_next : std_logic;
@@ -218,6 +222,7 @@ begin
 			s_start <= '0';
             s_tx_fifo_in <= (others => '0');
             s_tx_fifo_wr <= '0';
+            s_test <= (others => '0');
 		elsif rising_edge(PCLK) then
 
 			-- Default values
@@ -233,6 +238,8 @@ begin
 					when c_ADDR_FIFO =>
 						s_tx_fifo_in <= PWDATA(7 downto 0);
                         s_tx_fifo_wr <= '1';
+					when c_ADDR_TEST =>
+                        s_test <= PWDATA(7 downto 0);
 					when others =>
 						null;
 				end case;
@@ -256,6 +263,8 @@ begin
                     -- Status
 					when c_ADDR_CTRL => 
 						s_dout <= s_status;
+					when c_ADDR_TEST => 
+						s_dout(7 downto 0) <= s_test;
 					when others =>
 						null;
 				end case;
@@ -263,7 +272,7 @@ begin
 		end if;
 	end process p_REG_READ;
 
-	s_status <= x"0000000" & "00" & s_tx_fifo_empty & s_busy;
+	s_status <= x"0000000" & s_tx_fifo_full & s_tx_fifo_aempty & s_tx_fifo_empty & s_busy;
 
 
 
@@ -348,6 +357,7 @@ begin
 	)
 	begin
 		-- Default values
+        s_tx_state_next <= s_tx_state;
         s_payload_ctr_next <= s_payload_ctr;
         s_tx_fifo_rd <= '0';
 		s_bit_ctr_next <= s_bit_ctr;
@@ -436,13 +446,25 @@ begin
 		end if;
 	end process p_TXD_MUX;
 
+    p_TEST_CTR : process (rst, clk)
+    begin
+        if rst = '1' then
+            s_test_ctr <= (others => '0');
+        elsif rising_edge(clk) then
+            s_test_ctr <= s_test_ctr + 1;
+        end if;
+    end process p_TEST_CTR;
+
+
     -- Output assignment
 
 	PRDATA <= s_dout;
 	PREADY <= '1'; -- WR
 	PSLVERR <= '0';
 
---    TX_STROBE <= s_txd_en(s_txd_en'high);
     TX_STROBE <= s_mod_en;
+    TX_DONE_IRQ <= s_tx_done;
+
+    TEST <= s_test_ctr(23) & s_test(0);
 
 end Behavioral;
