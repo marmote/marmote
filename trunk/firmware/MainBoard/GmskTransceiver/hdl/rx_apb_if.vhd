@@ -261,6 +261,7 @@ begin
 				case PADDR(7 downto 0) is
 					when c_ADDR_CTRL => 
 						s_dout <= (others => '0'); -- TODO: Define status bits
+                        s_pready <= '1';
 					when c_ADDR_FIFO => 
 						s_dout(7 downto 0) <= s_rx_fifo_out;
                         s_rx_fifo_fetch <= '1';

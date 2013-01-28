@@ -52,6 +52,9 @@ uint32_t CmdRssi(uint32_t argc, char** argv);
 uint32_t CmdPa(uint32_t argc, char** argv);
 //uint32_t CmdCal(uint32_t argc, char** argv);
 
+// AFE2 baseband test
+uint32_t CmdIQ(uint32_t argc, char** argv);
+uint32_t CmdMux(uint32_t argc, char** argv);
 
 
 #endif /* CMD_DEF_H_ */
