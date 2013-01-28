@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.68"
+    ComputedModelVersion    "1.81"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -30,9 +30,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "sszilvasi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Jan 18 16:43:56 2013"
-  RTWModifiedTimeStamp	  280428009
-  ModelVersionFormat	  "1.%<AutoIncrement:68>"
+  LastModifiedDate	  "Fri Jan 25 18:38:56 2013"
+  RTWModifiedTimeStamp	  281029879
+  ModelVersionFormat	  "1.%<AutoIncrement:81>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  on
@@ -70,6 +70,7 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "gmsk_syn"
+    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -135,7 +136,7 @@ Model {
 	  $ObjectID		  3
 	  Version		  "1.12.0"
 	  StartTime		  "0.0"
-	  StopTime		  "1e2"
+	  StopTime		  "2e3"
 	  AbsTol		  "auto"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
@@ -698,6 +699,15 @@ Model {
       SampleInput	      off
       SampleTime	      "-1"
     }
+    Block {
+      BlockType		      Step
+      Time		      "1"
+      Before		      "0"
+      After		      "1"
+      SampleTime	      "-1"
+      VectorParams1D	      on
+      ZeroCross		      on
+    }
   }
   System {
     Name		    "gmsk_tx"
@@ -715,13 +725,34 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "61"
+    SIDHighWatermark	    "71"
+    Block {
+      BlockType		      Reference
+      Name		      "Accumulator"
+      SID		      "68"
+      Ports		      [2, 1]
+      Position		      [540, 135, 580, 175]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Math Functions/Accumulator"
+      SourceType	      "Synphony Model Compiler Accumulator"
+      syn_acc_opr	      "+="
+      syn_out_f		      "Automatic"
+      syn_out_wl	      "16"
+      syn_out_fl	      "8"
+      syn_out_dt	      "signed"
+      syn_rst_port	      on
+      syn_en_port	      off
+      syn_ovf_port	      off
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "105"
+    }
     Block {
       BlockType		      Reference
       Name		      "Add"
       SID		      "21"
       Ports		      [2, 1]
-      Position		      [690, 145, 730, 185]
+      Position		      [780, 145, 820, 185]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Math Functions/Add"
       SourceType	      "Synphony Model Compiler Add"
@@ -738,11 +769,25 @@ Model {
       syn_sum_of_rows	      off
     }
     Block {
+      BlockType		      Reference
+      Name		      "Binary Logic"
+      SID		      "65"
+      Ports		      [1, 1]
+      Position		      [285, 216, 340, 254]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Math Functions/Binary Logic"
+      SourceType	      "Synphony Model Compiler Binary Logic"
+      syn_binlog_exp	      "~a"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "13"
+    }
+    Block {
       BlockType		      ComplexToMagnitudeAngle
       Name		      "Complex to\nMagnitude-Angle1"
       SID		      "59"
       Ports		      [1, 1]
-      Position		      [1195, 150, 1225, 180]
+      Position		      [1310, 155, 1340, 185]
       ZOrder		      -6
       Output		      "Angle"
     }
@@ -751,7 +796,7 @@ Model {
       Name		      "Constant"
       SID		      "22"
       Ports		      [0, 1]
-      Position		      [590, 195, 630, 235]
+      Position		      [680, 195, 720, 235]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Sources/Constant"
       SourceType	      "Synphony Model Compiler Constant"
@@ -769,10 +814,10 @@ Model {
       Name		      "Gauss filter"
       SID		      "34"
       Ports		      [3]
-      Position		      [475, 327, 510, 383]
+      Position		      [600, 327, 635, 383]
       ZOrder		      -16
       Floating		      off
-      Location		      [519, 119, 1915, 571]
+      Location		      [1921, 48, 3521, 1199]
       Open		      on
       NumInputPorts	      "3"
       List {
@@ -799,11 +844,45 @@ Model {
       SampleTime	      "0"
     }
     Block {
+      BlockType		      Scope
+      Name		      "Gauss filter1"
+      SID		      "66"
+      Ports		      [3]
+      Position		      [745, 437, 780, 493]
+      ZOrder		      -16
+      Floating		      off
+      Location		      [1921, 48, 3521, 1199]
+      Open		      off
+      NumInputPorts	      "3"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+	axes2			"%<SignalLabel>"
+	axes3			"%<SignalLabel>"
+      }
+      List {
+	ListType		ScopeGraphics
+	FigureColor		"[0.501960784313725 0.501960784313725 0.501960784313725]"
+	AxesColor		"[0 0 0]"
+	AxesTickColor		"[1 1 1]"
+	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+	LineStyles		"-|-|-|-|-|-"
+	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
+	MarkerStyles		"none|none|none|none|none|none"
+      }
+      ShowLegends	      off
+      YMin		      "-5~-5~-5"
+      YMax		      "5~5~5"
+      SaveName		      "ScopeData2"
+      DataFormat	      "StructureWithTime"
+      SampleTime	      "0"
+    }
+    Block {
       BlockType		      Reference
       Name		      "Gaussian Filter\nFIR"
       SID		      "3"
       Ports		      [1, 1]
-      Position		      [315, 125, 375, 185]
+      Position		      [315, 115, 375, 175]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Filtering/FIR"
       SourceType	      "Synphony Model Compiler FIR"
@@ -833,10 +912,10 @@ Model {
       Name		      "HDL"
       SID		      "5"
       Ports		      [5]
-      Position		      [1050, 252, 1085, 308]
+      Position		      [1140, 252, 1175, 308]
       ZOrder		      -16
       Floating		      off
-      Location		      [315, 43, 1915, 1194]
+      Location		      [1921, 48, 3521, 1199]
       Open		      off
       NumInputPorts	      "5"
       List {
@@ -864,36 +943,14 @@ Model {
       SampleTime	      "0"
     }
     Block {
-      BlockType		      Reference
-      Name		      "Integrator"
-      SID		      "6"
-      Ports		      [1, 1]
-      Position		      [500, 125, 560, 185]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Filtering/Integrator"
-      SourceType	      "Synphony Model Compiler Integrator"
-      syn_pole_val	      "1"
-      syn_feedback_fl	      "8"
-      syn_out_f		      "Automatic"
-      syn_out_wl	      "16"
-      syn_out_fl	      "8"
-      syn_out_dt	      "signed"
-      syn_out_sat	      off
-      syn_out_rnd	      off
-      syn_rst_port	      off
-      syn_en_port	      off
-      synBlockType	      "custom"
-      synLatency	      "0"
-    }
-    Block {
       BlockType		      Scope
       Name		      "Phase"
       SID		      "60"
       Ports		      [1]
-      Position		      [1280, 137, 1315, 193]
+      Position		      [1395, 142, 1430, 198]
       ZOrder		      -16
       Floating		      off
-      Location		      [315, 43, 1915, 1194]
+      Location		      [1921, 48, 3521, 1199]
       Open		      off
       NumInputPorts	      "1"
       List {
@@ -920,7 +977,7 @@ Model {
       Name		      "Pulse\nGenerator"
       SID		      "35"
       Ports		      [0, 1]
-      Position		      [105, 139, 135, 171]
+      Position		      [105, 129, 135, 161]
       ZOrder		      -13
       Amplitude		      "-1"
       Period		      "100"
@@ -931,7 +988,7 @@ Model {
       Name		      "Real-Imag to\nComplex"
       SID		      "7"
       Ports		      [2, 1]
-      Position		      [1095, 148, 1125, 177]
+      Position		      [1210, 153, 1240, 182]
     }
     Block {
       BlockType		      Reference
@@ -952,7 +1009,7 @@ Model {
       Name		      "Scale [0 to 1) to\nROM address"
       SID		      "25"
       Ports		      [1, 1]
-      Position		      [760, 145, 800, 185]
+      Position		      [850, 145, 890, 185]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Math Functions/Gain"
       SourceType	      "Synphony Model Compiler Gain"
@@ -972,11 +1029,20 @@ Model {
       syn_opr_mode	      "0"
     }
     Block {
+      BlockType		      Step
+      Name		      "Step"
+      SID		      "69"
+      Position		      [105, 220, 135, 250]
+      ZOrder		      -22
+      Time		      "200"
+      SampleTime	      "1"
+    }
+    Block {
       BlockType		      Reference
       Name		      "TX_D"
       SID		      "8"
       Ports		      [1, 1]
-      Position		      [205, 145, 225, 165]
+      Position		      [205, 135, 225, 155]
       BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Ports & Subsystems/Port In"
@@ -984,7 +1050,29 @@ Model {
       syn_out_wl	      "16"
       syn_out_fl	      "14"
       syn_out_dt	      "signed"
-      syn_out_st	      "1/30e6"
+      syn_out_st	      "1"
+      syn_capture	      on
+      syn_register	      off
+      syn_out_sat	      off
+      syn_out_rnd	      on
+      synBlockType	      "port"
+      synLatency	      "0"
+      synBlockId	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "TX_EN"
+      SID		      "62"
+      Ports		      [1, 1]
+      Position		      [205, 225, 225, 245]
+      BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Ports & Subsystems/Port In"
+      SourceType	      "Synphony Model Compiler Port In"
+      syn_out_wl	      "1"
+      syn_out_fl	      "0"
+      syn_out_dt	      "unsigned"
+      syn_out_st	      "1"
       syn_capture	      on
       syn_register	      off
       syn_out_sat	      off
@@ -998,7 +1086,7 @@ Model {
       Name		      "TX_I"
       SID		      "9"
       Ports		      [1, 1]
-      Position		      [1030, 135, 1050, 155]
+      Position		      [1120, 135, 1140, 155]
       BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Ports & Subsystems/Port Out"
@@ -1014,7 +1102,7 @@ Model {
       Name		      "TX_Q"
       SID		      "10"
       Ports		      [1, 1]
-      Position		      [1030, 175, 1050, 195]
+      Position		      [1120, 180, 1140, 200]
       BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Ports & Subsystems/Port Out"
@@ -1030,13 +1118,13 @@ Model {
       Name		      "cos ROM"
       SID		      "20"
       Ports		      [1, 1]
-      Position		      [860, 180, 920, 220]
+      Position		      [950, 180, 1010, 220]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Memories/ROM"
       SourceType	      "Synphony Model Compiler ROM"
       syn_rom_vec	      "cos(pi*2*[0:sin_lut_length-1]/sin_lut_length)"
       syn_out_wl	      "10"
-      syn_out_fl	      "8"
+      syn_out_fl	      "9"
       syn_out_dt	      "signed"
       syn_out_sat	      on
       syn_out_rnd	      on
@@ -1049,7 +1137,7 @@ Model {
       Name		      "h"
       SID		      "13"
       Ports		      [1, 1]
-      Position		      [410, 135, 450, 175]
+      Position		      [410, 125, 450, 165]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Math Functions/Gain"
       SourceType	      "Synphony Model Compiler Gain"
@@ -1073,7 +1161,7 @@ Model {
       Name		      "pi"
       SID		      "14"
       Ports		      [1, 1]
-      Position		      [600, 135, 640, 175]
+      Position		      [690, 135, 730, 175]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Math Functions/Gain"
       SourceType	      "Synphony Model Compiler Gain"
@@ -1097,13 +1185,13 @@ Model {
       Name		      "sin ROM"
       SID		      "19"
       Ports		      [1, 1]
-      Position		      [860, 115, 920, 155]
+      Position		      [950, 115, 1010, 155]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Memories/ROM"
       SourceType	      "Synphony Model Compiler ROM"
       syn_rom_vec	      "sin(pi*2*[0:gmsk_syn_params.sin_lut_length-1]/gmsk_syn_params.sin_lut_length)"
       syn_out_wl	      "10"
-      syn_out_fl	      "8"
+      syn_out_fl	      "9"
       syn_out_dt	      "signed"
       syn_out_sat	      on
       syn_out_rnd	      on
@@ -1120,7 +1208,7 @@ Model {
 	DstPort			1
       }
       Branch {
-	Points			[0, 115]
+	Points			[0, 125]
 	Branch {
 	  DstBlock		  "HDL"
 	  DstPort		  2
@@ -1135,35 +1223,42 @@ Model {
     Line {
       SrcBlock		      "TX_I"
       SrcPort		      1
-      Points		      [5, 0; 0, 10]
+      Points		      [25, 0; 0, 15]
       DstBlock		      "Real-Imag to\nComplex"
       DstPort		      1
     }
     Line {
       SrcBlock		      "TX_Q"
       SrcPort		      1
-      Points		      [5, 0; 0, -15]
+      Points		      [25, 0; 0, -15]
       DstBlock		      "Real-Imag to\nComplex"
       DstPort		      2
     }
     Line {
       SrcBlock		      "h"
       SrcPort		      1
-      DstBlock		      "Integrator"
+      DstBlock		      "Accumulator"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Integrator"
+      SrcBlock		      "Accumulator"
       SrcPort		      1
-      Points		      [10, 0]
+      Points		      [80, 0]
       Branch {
 	DstBlock		"pi"
 	DstPort			1
       }
       Branch {
 	Points			[0, 125]
-	DstBlock		"HDL"
-	DstPort			3
+	Branch {
+	  DstBlock		  "HDL"
+	  DstPort		  3
+	}
+	Branch {
+	  Points		  [0, 205]
+	  DstBlock		  "Gauss filter1"
+	  DstPort		  3
+	}
       }
     }
     Line {
@@ -1190,9 +1285,9 @@ Model {
     Line {
       SrcBlock		      "sin ROM"
       SrcPort		      1
-      Points		      [80, 0; 0, 50]
+      Points		      [80, 0; 0, 55]
       Branch {
-	Points			[0, 115]
+	Points			[0, 110]
 	DstBlock		"HDL"
 	DstPort			5
       }
@@ -1238,7 +1333,7 @@ Model {
       SrcPort		      1
       Points		      [15, 0]
       Branch {
-	Points			[0, 105]
+	Points			[0, 115]
 	Branch {
 	  DstBlock		  "HDL"
 	  DstPort		  1
@@ -1263,7 +1358,7 @@ Model {
 	DstPort			1
       }
       Branch {
-	Points			[0, 220]
+	Points			[0, 230]
 	DstBlock		"Gauss filter"
 	DstPort			3
       }
@@ -1274,10 +1369,40 @@ Model {
       DstBlock		      "Phase"
       DstPort		      1
     }
-    Annotation {
-      SID		      "26"
-      Name		      "Note: ROMs address logic is incomplete"
-      Position		      [883, 322]
+    Line {
+      SrcBlock		      "Step"
+      SrcPort		      1
+      DstBlock		      "TX_EN"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "TX_EN"
+      SrcPort		      1
+      Points		      [30, 0]
+      Branch {
+	DstBlock		"Binary Logic"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 210]
+	DstBlock		"Gauss filter1"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Binary Logic"
+      SrcPort		      1
+      Points		      [110, 0]
+      Branch {
+	Points			[0, 230]
+	DstBlock		"Gauss filter1"
+	DstPort			2
+      }
+      Branch {
+	Points			[30, 0; 0, -70]
+	DstBlock		"Accumulator"
+	DstPort			2
+      }
     }
   }
 }

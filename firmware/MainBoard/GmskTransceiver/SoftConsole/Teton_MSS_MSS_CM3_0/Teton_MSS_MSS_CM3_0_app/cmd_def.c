@@ -30,6 +30,9 @@ CMD_Type CMD_List[] =
 	{"rssi",   	CmdRssi},
 	{"pa",     	CmdPa},
 	//{"cal",  CmdCal},
+
+	{"iq",   CmdIQ},
+	{"mux",  CmdMux},
 	{NULL,   NULL}
 };
 
@@ -758,5 +761,116 @@ uint32_t CmdPa(uint32_t argc, char** argv)
 
 	// Send help message
 	Yellowstone_print("\r\nUsage: pa [<delay in us>]");
+	return 1;
+}
+
+
+uint32_t CmdIQ(uint32_t argc, char** argv)
+{
+	char buf[128];
+	uint32_t i, q;
+
+	if (argc == 1)
+	{
+//		sprintf( buf, "\r\nActive path: %s", BB_CTRL->MUX ? "CONST" : "FSK");
+//		Yellowstone_print(buf);
+		sprintf(buf, "\r\nI : %d\t0x%03x\r\nQ : %d\t0x%03x",
+				(int)BB_CTRL->TX_I, (unsigned int)BB_CTRL->TX_I,
+				(int)BB_CTRL->TX_Q, (unsigned int)BB_CTRL->TX_Q);
+		Yellowstone_print(buf);
+		return 0;
+	}
+
+	if (argc == 3)
+	{
+		i = atoi(*(argv+1));
+		q = atoi(*(argv+2));
+		if ((i || !strcmp(*(argv+1), "0")) && (q || !strcmp(*(argv+2), "0")))
+		{
+//			BB_CTRL->MUX = (uint32_t)1;
+
+			BB_CTRL->TX_I = i;
+			BB_CTRL->TX_Q = q;
+
+			// Readback
+			sprintf(buf, "\r\nI : %d\t0x%03x\r\nQ : %d\t0x%03x",
+					(int16_t)BB_CTRL->TX_I, (unsigned int)BB_CTRL->TX_I,
+					(int16_t)BB_CTRL->TX_Q, (unsigned int)BB_CTRL->TX_Q);
+			Yellowstone_print(buf);
+			return 0;
+		}
+	}
+
+	// Send help message
+	Yellowstone_print("\r\nUsage: iq [I Q]");
+	return 1;
+}
+
+uint32_t CmdMux(uint32_t argc, char** argv)
+{
+	char buf[128];
+	uint32_t mux;
+
+	if (argc == 1)
+	{
+		mux = BB_CTRL->MUX & 0x3;
+		sprintf( buf, "\r\nActive path: ");
+		Yellowstone_print(buf);
+		switch (mux)
+		{
+			case 0x0 :
+				sprintf( buf, "OFF");
+				break;
+			case 0x1 :
+				sprintf( buf, "RX" );
+				break;
+			case 0x2 :
+				sprintf( buf, "TX" );
+				break;
+			case 0x3 :
+				sprintf( buf, "I/Q REG" );
+				break;
+		}
+		Yellowstone_print(buf);
+		sprintf(buf, "\r\nMUX : %d", (uint32_t)BB_CTRL->MUX);
+		Yellowstone_print(buf);
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		mux = atoi(*(argv+1)) & 0x3;
+		if ((mux || !strcmp(*(argv+1), "0")))
+		{
+			BB_CTRL->MUX = mux;
+
+			// Readback
+			mux = BB_CTRL->MUX;
+			sprintf(buf, "\r\nMUX : %d", (uint32_t)BB_CTRL->MUX);
+					Yellowstone_print(buf);
+			sprintf( buf, "\r\nActive path: ");
+			Yellowstone_print(buf);
+			switch (mux)
+			{
+				case MUX_MODE_OFF :
+					sprintf( buf, "OFF");
+					break;
+				case MUX_MODE_RX :
+					sprintf( buf, "RX" );
+					break;
+				case MUX_MODE_TX :
+					sprintf( buf, "TX" );
+					break;
+				case MUX_MODE_REG :
+					sprintf( buf, "I/Q REG" );
+					break;
+			}
+			Yellowstone_print(buf);
+			return 0;
+		}
+	}
+
+	// Send help message
+	Yellowstone_print("\r\nUsage: mux [int]");
 	return 1;
 }

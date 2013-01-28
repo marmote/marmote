@@ -92,6 +92,7 @@ architecture Behavioral of TX_APB_IF is
         GlobalEnable1 : in std_logic;
         TX_Q : out std_logic_vector(9 downto 0); -- sfix10_En8
         TX_I : out std_logic_vector(9 downto 0); -- sfix10_En8
+        TX_EN : in std_logic; -- ufix1
         TX_D : in std_logic_vector(15 downto 0) -- sfix16_En14
     );
     end component;
@@ -109,7 +110,7 @@ architecture Behavioral of TX_APB_IF is
     constant c_TXD_HIGH : std_logic_vector(15 downto 0) := "0100" & x"000"; -- +1
     constant c_TXD_LOW  : std_logic_vector(15 downto 0) := "1100" & x"000"; -- -1
 
-    constant c_TXD_EN_DELAY : integer := 12;
+    constant c_TX_ZERO    : std_logic_vector(9 downto 0) := "00" & x"00";
 
 	-- Addresses
 	constant c_ADDR_CTRL : std_logic_vector(7 downto 0) := x"00"; -- W (START)
@@ -142,8 +143,7 @@ architecture Behavioral of TX_APB_IF is
     signal s_test           : std_logic_vector(7 downto 0);
     signal s_test_ctr       : unsigned(24 downto 0);
 
-    signal s_gmsk_tx_rst    : std_logic;
-    signal s_gmsk_tx_rst_next : std_logic;
+    signal s_mod_rst    : std_logic;
 
 	signal s_bit_ctr        : unsigned(5 downto 0);
 	signal s_bit_ctr_next   : unsigned(5 downto 0);
@@ -165,15 +165,20 @@ architecture Behavioral of TX_APB_IF is
 	signal s_busy           : std_logic;
     signal s_txd            : std_logic_vector(15 downto 0);
     signal s_txd_next       : std_logic_vector(15 downto 0);
-    signal s_txd_en         : std_logic_vector(c_TXD_EN_DELAY-1 downto 0);
     signal s_mod_en         : std_logic;
+    signal s_mod_en_prev    : std_logic; -- For an additional tx_strobe
+    signal s_mod_en_next    : std_logic;
+    signal s_tmp            : std_logic;
     signal s_tx_done        : std_logic;
+
+    signal s_tx_i           : std_logic_vector(9 downto 0);
+    signal s_tx_q           : std_logic_vector(9 downto 0);
 
 	signal s_dout           : std_logic_vector(31 downto 0);
 
 	signal s_tick_ctr       : unsigned(15 downto 0);
 	signal s_baud_ctr       : unsigned(15 downto 0);
-	signal s_tx_strobe       : std_logic;
+	signal s_mod_strobe       : std_logic;
 	signal s_symbol_end     : std_logic;
 
 
@@ -192,7 +197,7 @@ begin
     	RESET   => rst,
     	DATA    => s_tx_fifo_in,
     	Q       => s_tx_fifo_out,
-    	WCLOCK  => clk,
+	    WCLOCK  => clk,
     	WE      => s_tx_fifo_wr,
     	RCLOCK  => clk,
     	RE      => s_tx_fifo_rd,
@@ -205,12 +210,16 @@ begin
     u_GMSK_TX : gmsk_tx
     port map (
         clk	            =>	clk,
-        GlobalReset	    =>	s_gmsk_tx_rst,
-        GlobalEnable1	=>	s_tx_strobe,
-        TX_Q	        =>	TX_Q,
-        TX_I	        =>	TX_I,
+--        GlobalReset	    =>	s_mod_rst,
+        GlobalReset	    =>	rst,
+        GlobalEnable1	=>	s_mod_strobe,
+        TX_Q	        =>	s_tx_q,
+        TX_I	        =>	s_tx_i,
+        TX_EN           =>  s_mod_en,
         TX_D	        =>	s_txd
     );
+
+    s_mod_rst <= rst or (not s_mod_en);
 
     
     -- Processes
@@ -274,6 +283,7 @@ begin
 
 	s_status <= x"0000000" & s_tx_fifo_full & s_tx_fifo_aempty & s_tx_fifo_empty & s_busy;
 
+    s_busy <= '0' when s_tx_state = st_IDLE else '1';
 
 
 	-----------------------------------------------------------------------------
@@ -285,20 +295,18 @@ begin
 		if rst = '1' then
 			s_tick_ctr <= (others => '0');
 			s_baud_ctr <= (others => '0');
-            s_tx_strobe <= '0';
+            s_mod_strobe <= '0';
 			s_symbol_end <= '0';
 		elsif rising_edge(clk) then
-            s_tx_strobe <= '0';
+            s_mod_strobe <= '0';
 			s_symbol_end <= '0';
-            if s_tx_state /= st_IDLE then -- FIXME
-				if s_tick_ctr < to_unsigned(c_TICK_DIV-1, s_tick_ctr'length) then
-					s_tick_ctr <= s_tick_ctr + 1;
-				else
-					s_tick_ctr <= (others => '0');
-                    s_tx_strobe <= '1';
-				end if;
-			end if;
-            if s_tx_strobe = '1' then
+            if s_mod_en = '1' and s_tick_ctr < to_unsigned(c_TICK_DIV-1, s_tick_ctr'length) then
+                s_tick_ctr <= s_tick_ctr + 1;
+            else
+                s_tick_ctr <= (others => '0');
+                s_mod_strobe <= '1';
+            end if;
+            if s_mod_en = '1' and s_mod_strobe = '1' then
                 if s_baud_ctr < to_unsigned(c_BAUD_DIV-1, s_baud_ctr'length) then
                     s_baud_ctr <= s_baud_ctr + 1;
                 else
@@ -319,24 +327,27 @@ begin
 			s_bit_ctr <= (others => '0');
 			s_buffer <= (others => '0');
             s_txd <= (others => '0');
-			s_txd_en <= (others => '0');
             s_mod_en <= '0';
             s_tx_state <= st_IDLE;
             s_payload_ctr <= (others => '0');
-            s_gmsk_tx_rst <= '1';
+            s_mod_rst <= '0';
 		elsif rising_edge(clk) then
 			s_bit_ctr <= s_bit_ctr_next;
 			s_buffer <= s_buffer_next;
-            s_txd <= s_txd_next;
-			s_txd_en <= s_txd_en(s_txd_en'high-1 downto 0) & s_busy; -- Delay-adjusted to 's_txd'
+--            s_txd <= s_txd_next;
+            if s_mod_en = '1' then
+                if s_buffer(s_buffer'high) = '1' then
+                    s_txd <= c_TXD_HIGH;
+                else
+                    s_txd <= c_TXD_LOW;
+                end if;
+            else
+                s_txd <= (others => '0');
+            end if;
             s_tx_state <= s_tx_state_next;
             s_payload_ctr <= s_payload_ctr_next;
-            s_gmsk_tx_rst <= s_gmsk_tx_rst_next;
-            if unsigned(s_txd_en) > 0 then
-                s_mod_en <= '1';
-            else
-                s_mod_en <= '0';
-            end if;
+            s_mod_en <= s_mod_en_next;
+            s_mod_en_prev <= s_mod_en;
 		end if;
 	end process p_TRANSMIT_FSM_SYNC;
 
@@ -353,6 +364,7 @@ begin
 		s_buffer,
         s_tx_fifo_out,
         s_tx_fifo_aempty,
+        s_mod_en,
 		s_start
 	)
 	begin
@@ -362,14 +374,16 @@ begin
         s_tx_fifo_rd <= '0';
 		s_bit_ctr_next <= s_bit_ctr;
 		s_buffer_next <= s_buffer;
-        s_gmsk_tx_rst_next <= '0';
         s_tx_done <= '0';
+        s_mod_en_next <= s_mod_en;
 
 		case( s_tx_state ) is
 			
 				when st_IDLE =>
 					if s_start = '1' and s_tx_fifo_aempty = '0' then
 						s_tx_state_next <= st_PREAMBLE;
+                        s_mod_en_next <= '1';
+                        s_buffer_next <= c_SFD; --
                         s_tx_fifo_rd <= '1'; -- Fetch FIFO data
 					end if;
 
@@ -416,9 +430,11 @@ begin
 				when st_CRC => 
                     -- NOTE: st_CRC not implemented yet
                     s_payload_ctr_next <= (others => '0');
-                    s_tx_state_next <= st_IDLE;
-                    s_tx_done <= '1';
---                    s_gmsk_tx_rst_next <= '1';
+                    if s_symbol_end = '1' then -- Wait for an additional symbol
+                        s_tx_state_next <= st_IDLE;
+                        s_tx_done <= '1';
+                        s_mod_en_next <= '0';
+                    end if;
 			
 				when others =>
 			
@@ -427,24 +443,8 @@ begin
 	end process p_TRANSMIT_FSM_COMB;
 
 
-    s_busy <= '0' when s_tx_state = st_IDLE else '1';
-
-
-	p_TXD_MUX : process (
-		s_busy,
-		s_buffer
-	)
-	begin
-        s_txd_next <= (others => '0');
-		if s_busy = '1' then
-			-- Use s_buffer MSB as MUX input
-			if s_buffer(s_buffer'high) = '1' then
-				s_txd_next <= c_TXD_HIGH;
-			else
-				s_txd_next <= c_TXD_LOW;
-			end if;
-		end if;
-	end process p_TXD_MUX;
+    TX_I <= s_tx_i when s_mod_en = '1' else c_TX_ZERO;
+    TX_Q <= s_tx_q when s_mod_en = '1' else c_TX_ZERO;
 
     p_TEST_CTR : process (rst, clk)
     begin
@@ -462,7 +462,7 @@ begin
 	PREADY <= '1'; -- WR
 	PSLVERR <= '0';
 
-    TX_STROBE <= s_mod_en;
+    TX_STROBE <= s_mod_en or s_mod_en_prev;
     TX_DONE_IRQ <= s_tx_done;
 
     TEST <= s_test_ctr(23) & s_test(0);

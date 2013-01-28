@@ -37,14 +37,13 @@ use IEEE.numeric_std.all;
 
 entity DATAPATH_STUB_APB is
     port (
-        CLK         : in  std_logic;
-        RST         : in  std_logic;
-
         AFE_EN      : out std_logic;
 
         TX_STROBE   : out std_logic;
         TXD_I       : out std_logic_vector(9 downto 0);
         TXD_Q       : out std_logic_vector(9 downto 0);
+
+        MUX_SEL	: out std_logic_vector(1 downto 0) ;
 
          -- APB3 inteface
         PCLK    : in  std_logic;
@@ -68,17 +67,21 @@ architecture Behavioral of DATAPATH_STUB_APB is
 	constant c_ADDR_CTRL : std_logic_vector(7 downto 0) := x"00"; -- R/W (AFE ENABLE)
 	constant c_ADDR_I    : std_logic_vector(7 downto 0) := x"04"; -- R/W
 	constant c_ADDR_Q    : std_logic_vector(7 downto 0) := x"08"; -- R/W
+	constant c_ADDR_MUX  : std_logic_vector(7 downto 0) := x"0C"; -- R/W
 
 	-- Default values
 	constant c_DEFAULT_CTRL : unsigned(15 downto 0) := x"0000"; -- AFE off
 	constant c_DEFAULT_I    : unsigned(15 downto 0) := x"0200"; -- Mid-scale
 	constant c_DEFAULT_Q    : unsigned(15 downto 0) := x"0200"; -- Mid-scale
+	constant c_DEFAULT_MUX  : unsigned(1 downto 0) := "10";
 
 	-- Registers
 
 	signal s_afe_en             : std_logic;
 	signal s_afe_i              : std_logic_vector(15 downto 0);
 	signal s_afe_q              : std_logic_vector(15 downto 0);
+
+	signal s_mux_sel			: std_logic_vector(1 downto 0) ;
 
     -- Signals
 
@@ -97,11 +100,12 @@ begin
 			s_afe_en <= '0';
 			s_afe_i  <= std_logic_vector(c_DEFAULT_I);
 			s_afe_q  <= std_logic_vector(c_DEFAULT_Q);
+			s_mux_sel <= std_logic_vector(c_DEFAULT_MUX);
 
 		elsif rising_edge(PCLK) then
 
 			-- Default values
-			s_afe_en <= '0';
+			-- s_afe_en <= '0';
 
 			-- Register writes
 			if PWRITE = '1' and PSEL = '1' and PENABLE = '1' then
@@ -113,6 +117,8 @@ begin
 						s_afe_i <= PWDATA;
 					when c_ADDR_Q =>
 						s_afe_q <= PWDATA;
+					when c_ADDR_MUX =>
+						s_mux_sel <= PWDATA(1 downto 0);
 					when others =>
 						null;
 				end case;
@@ -139,6 +145,8 @@ begin
 						s_dout <= s_afe_i;
 					when c_ADDR_Q =>
 						s_dout <= s_afe_q;
+					when c_ADDR_MUX =>
+						s_dout(1 downto 0) <= s_mux_sel;
 					when others =>
 						null;
 				end case;
@@ -159,6 +167,12 @@ begin
     -- Output assignments
 
     AFE_EN  <= s_afe_en;
+
+    MUX_SEL <= s_mux_sel;
+
+    PRDATA <= s_dout;
+	PREADY <= '1'; -- WR
+	PSLVERR <= '0';
 
     TXD_I <= s_afe_i(9 downto 0);
     TXD_Q <= s_afe_q(9 downto 0);

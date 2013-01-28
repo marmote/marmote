@@ -58,10 +58,33 @@ sim:/testbench/Teton_0/TX_APB_IF_0/s_bit_ctr \
 -signed \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_txd(15) \
 -unsigned \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_txd_en \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_done
 
+#sim:/testbench/Teton_0/TX_APB_IF_0/s_txd_en \
+
+add wave \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_GMSK_TX/N_17
+add wave  \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_GMSK_TX/GlobalEnable1
+add wave  \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_GMSK_TX/Accumulator_block/myAccumulator/accS \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_mod_en
+
+
 #sim:/testbench/Teton_0/TX_APB_IF_0/s_data_buffer \
+
+add wave  \
+-group {AFE2} \
+-decimal \
+-analog-step -min -512 -max 512 -height 50 \
+sim:/testbench/Teton_0/AFE2_IF/TX_STROBE \
+sim:/testbench/Teton_0/AFE2_IF/TX_I \
+sim:/testbench/Teton_0/AFE2_IF/TX_Q \
+-unsigned \
+-analog-step -min 0 -max 1023 -height 50 \
+sim:/testbench/Teton_0/AFE2_IF/s_obuf \
+sim:/testbench/Teton_0/AFE2_IF/s_tx_i \
+sim:/testbench/Teton_0/AFE2_IF/s_tx_q
 
 
 add wave \
@@ -91,7 +114,6 @@ sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_RX/Port_Out
 add wave \
 -group {RX SYNC} \
 -unsigned \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_txd_en \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_txd(15) \
 sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/bit_in_reg \
 sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/Correlation_metric_e0 \
@@ -114,6 +136,7 @@ sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_strobe_div8 \
 sim:/testbench/Teton_0/RX_APB_IF_0/s_data_buffer \
 -unsigned \
 sim:/testbench/Teton_0/RX_APB_IF_0/s_bit_ctr \
+-hex \
 sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_wr \
 sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_in \
 sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_full \
@@ -128,8 +151,10 @@ add wave  \
 -divider {RX FSM} \
 sim:/testbench/Teton_0/RX_APB_IF_0/rst \
 sim:/testbench/Teton_0/RX_APB_IF_0/clk \
-sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/bit_valid \
-sim:/testbench/Teton_0/RX_APB_IF_0/RXD_STROBE \
+sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/bit_valid
+
+#sim:/testbench/Teton_0/RX_APB_IF_0/RXD_STROBE \
+add wave \
 -signed sim:/testbench/Teton_0/RX_APB_IF_0/RXD \
 sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_symbol \
 sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_symbol_valid \
@@ -150,8 +175,23 @@ sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_rd \
 sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_fetch \
 sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_fetch_prev \
 sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_out \
-sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_empty \
-sim:/testbench/Teton_0/RX_APB_IF_0/s_sfd_irq
+sim:/testbench/Teton_0/RX_APB_IF_0/s_rx_fifo_empty
+
+add wave  \
+-group {RX APB} \
+-hex \
+sim:/testbench/Teton_0/RX_APB_IF_0/PCLK \
+sim:/testbench/Teton_0/RX_APB_IF_0/PRESETn \
+sim:/testbench/Teton_0/RX_APB_IF_0/PADDR \
+sim:/testbench/Teton_0/RX_APB_IF_0/PSEL \
+sim:/testbench/Teton_0/RX_APB_IF_0/PENABLE \
+sim:/testbench/Teton_0/RX_APB_IF_0/PWRITE \
+sim:/testbench/Teton_0/RX_APB_IF_0/PWDATA \
+sim:/testbench/Teton_0/RX_APB_IF_0/PREADY \
+sim:/testbench/Teton_0/RX_APB_IF_0/PRDATA \
+sim:/testbench/Teton_0/RX_APB_IF_0/PSLVERR \
+sim:/testbench/Teton_0/RX_APB_IF_0/SFD_IRQ
+
 
 run 2 ms
 wave zoom full

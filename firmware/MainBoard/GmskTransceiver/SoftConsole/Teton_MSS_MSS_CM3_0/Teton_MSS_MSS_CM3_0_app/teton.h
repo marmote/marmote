@@ -40,6 +40,15 @@ typedef struct
 
 #define TX_CTRL            ((TX_CTRL_Type *)       TX_APB_IF_0)   /*!< TX CTRL register struct */
 
+typedef struct
+{
+  __IO uint32_t CTRL;                      /*!< Offset: 0x00  Control/status register   */
+  __O  uint32_t TX_I;                      /*!< Offset: 0x04  I register             	*/
+  __O  uint32_t TX_Q;                      /*!< Offset: 0x08  Q register             	*/
+  __IO uint32_t MUX;                       /*!< Offset: 0x0C  MUX SEL register         	*/
+} BB_CTRL_Type;
+
+#define BB_CTRL            ((BB_CTRL_Type *)       DATAPATH_STUB_APB_0)   /*!< BB CTRL register struct */
 
 
 typedef enum _afe_mode
@@ -47,6 +56,15 @@ typedef enum _afe_mode
 	AFE_MODE_RX = 0,
 	AFE_MODE_TX = 1,
 } afe_mode_t;
+
+typedef enum _mux_mode
+{
+	MUX_MODE_OFF = 0,
+	MUX_MODE_RX  = 1,
+	MUX_MODE_TX =  2,
+	MUX_MODE_REG = 3
+} mux_mode_t;
+
 
 
 #endif /* TETON_H_ */

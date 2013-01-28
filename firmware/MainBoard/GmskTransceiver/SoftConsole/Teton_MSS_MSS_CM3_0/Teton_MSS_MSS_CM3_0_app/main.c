@@ -19,7 +19,7 @@ uint32_t argc;
 
 void process_spi_cmd_buf(const char* cmd_buf, uint8_t length);
 
-static payload;
+static uint8_t payload;
 
 int main()
 {
@@ -43,18 +43,20 @@ int main()
 
 	// Set up as a transmitter at 2405 MHz by default
 	Max2830_set_frequency(2405000000uL);
-	Max2830_set_tx_gain(0);
-	Max2830_set_mode(MAX2830_TX_MODE);
-	MSS_GPIO_set_output(MSS_GPIO_AFE_MODE, AFE_MODE_TX);
-	MSS_GPIO_set_output(MSS_GPIO_AFE_ENABLE, 1);
+	MSS_GPIO_set_output(MSS_GPIO_AFE_MODE, AFE_MODE_RX);
+	Max2830_set_mode(MAX2830_SHUTDOWN_MODE);
+	MSS_GPIO_set_output(MSS_GPIO_AFE_ENABLE, 0);
 
 	payload = 0;
 
 	// TIMER
 	MSS_TIM1_init(MSS_TIMER_PERIODIC_MODE);
-	MSS_TIM1_load_background(20e5); // .1 s
+	MSS_TIM1_load_background(20e6); // 1 ms
 	MSS_TIM1_enable_irq();
 	MSS_TIM1_start();
+
+	BB_CTRL->CTRL = 0x01; // Enable AFE2
+	BB_CTRL->MUX = MUX_MODE_TX;
 
 	while( 1 )
 	{
@@ -115,10 +117,14 @@ void process_spi_cmd_buf(const char* cmd_buf, uint8_t length)
 	spi_cmd_length = 0;
 }
 
+uint16_t baseband_ctr;
 
 void Timer1_IRQHandler(void)
 {
 	MSS_TIM1_clear_irq();
+
+//	BB_CTRL->TX_Q = baseband_ctr - 256;
+//	BB_CTRL->TX_I = baseband_ctr++;
 
 	// Fill up TX FIFO
 	TX_CTRL->TX_FIFO = payload++;
