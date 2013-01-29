@@ -56,6 +56,7 @@ entity RX_APB_IF is
          RX_I       : in  std_logic_vector(9 downto 0);
          RX_Q       : in  std_logic_vector(9 downto 0);
 
+         RX_DONE_IRQ    : out std_logic;
          SFD_IRQ    : out std_logic
      );
 
@@ -148,6 +149,9 @@ architecture Behavioral of RX_APB_IF is
     signal s_rx_fifo_fetch_prev : std_logic;
     signal s_rx_fifo_full   : std_logic;
     signal s_rx_fifo_empty  : std_logic;
+
+    signal s_rx_done        : std_logic;
+    signal s_rx_done_next   : std_logic;
 
     signal s_sync_rst           : std_logic;
     signal s_sync_rst_next      : std_logic;
@@ -368,10 +372,12 @@ begin
             s_rx_state <= st_IDLE;
             s_payload_ctr <= (others => '0');
             s_rx_symbol_valid_prev <= '0';
+            s_rx_done <= '0';
         elsif rising_edge(clk) then
             s_rx_state <= s_rx_state_next;
             s_payload_ctr <= s_payload_ctr_next;
             s_rx_symbol_valid_prev <= s_rx_symbol_valid;
+            s_rx_done <= s_rx_done_next;
         end if;
     end process p_RECEIVE_FSM_SYNC;
 
@@ -389,6 +395,7 @@ begin
         s_rx_state_next <= s_rx_state;
         s_rx_fifo_wr <= '0'; -- FIXME: add register
         s_sync_rst_next <= '0';
+        s_rx_done_next <= '0';
 
         -- Next state and output logic
         case s_rx_state is
@@ -419,6 +426,7 @@ begin
 
             when st_CHECK_CRC =>
                 -- NOTE: CHECK CRC state is not implemented yet
+                s_rx_done_next <= '1';
                 s_rx_state_next <= st_IDLE;
 
             when others =>
@@ -432,6 +440,7 @@ begin
     -- Output assignment
 
     SFD_IRQ <= '1' when s_rx_symbol_valid_prev = '0' and s_rx_symbol_valid = '1' else '0';
+    RX_DONE_IRQ <= s_rx_done;
 
 	PRDATA <= x"000000" & s_dout;
 	PREADY <= s_pready;
