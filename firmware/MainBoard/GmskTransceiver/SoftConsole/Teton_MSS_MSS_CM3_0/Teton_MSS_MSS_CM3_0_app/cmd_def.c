@@ -242,7 +242,7 @@ uint32_t CmdAfe(uint32_t argc, char** argv)
 	if (argc == 1)
 	{
 		Yellowstone_print("\nAFE is ");
-		if ( MSS_GPIO_get_outputs() & MSS_GPIO_AFE_ENABLE_MASK )
+		if ( MSS_GPIO_get_outputs() & MSS_GPIO_AFE1_ENABLE_MASK )
 		{
 			Yellowstone_print("ON");
 		}
@@ -257,13 +257,13 @@ uint32_t CmdAfe(uint32_t argc, char** argv)
 	{
 		if (!strcmp(*(argv+1), "on"))
 		{
-			MSS_GPIO_set_output( MSS_GPIO_AFE_ENABLE, 1 );
+			MSS_GPIO_set_output( MSS_GPIO_AFE1_ENABLE, 1 );
 			return 0;
 		}
 
 		if (!strcmp(*(argv+1), "off"))
 		{
-			MSS_GPIO_set_output( MSS_GPIO_AFE_ENABLE, 0 );
+			MSS_GPIO_set_output( MSS_GPIO_AFE1_ENABLE, 0 );
 			return 0;
 		}
 	}
@@ -642,7 +642,7 @@ uint32_t CmdMode(uint32_t argc, char** argv)
 
 		if (!strcmp(*(argv+1), "rx"))
 		{
-			MSS_GPIO_set_output( MSS_GPIO_AFE_MODE, AFE_MODE_RX );
+			MSS_GPIO_set_output( MSS_GPIO_AFE1_MODE, AFE_MODE_RX );
 			Max2830_set_mode( MAX2830_RX_MODE );
 			return 0;
 		}
@@ -651,7 +651,7 @@ uint32_t CmdMode(uint32_t argc, char** argv)
 		{
 			// !
 			Max2830_set_mode( MAX2830_TX_MODE );
-			MSS_GPIO_set_output( MSS_GPIO_AFE_MODE, AFE_MODE_TX );
+			MSS_GPIO_set_output( MSS_GPIO_AFE1_MODE, AFE_MODE_TX );
 			return 0;
 		}
 

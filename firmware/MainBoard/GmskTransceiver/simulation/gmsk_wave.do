@@ -153,6 +153,11 @@ sim:/testbench/Teton_0/RX_APB_IF_0/rst \
 sim:/testbench/Teton_0/RX_APB_IF_0/clk \
 sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/bit_valid
 
+add wave  \
+sim:/testbench/Teton_0/TX_APB_IF_0/TX_DONE_IRQ \
+sim:/testbench/Teton_0/RX_APB_IF_0/SFD_IRQ \
+sim:/testbench/Teton_0/RX_APB_IF_0/RX_DONE_IRQ
+
 #sim:/testbench/Teton_0/RX_APB_IF_0/RXD_STROBE \
 add wave \
 -signed sim:/testbench/Teton_0/RX_APB_IF_0/RXD \
