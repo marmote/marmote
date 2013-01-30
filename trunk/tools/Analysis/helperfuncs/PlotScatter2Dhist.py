@@ -21,7 +21,7 @@ def PlotScatter2Dhist(x, y, xlabel, ylabel, xbins=25, ybins=25, xlim_min=-1, xli
 	#axScatter.set_aspect(1.)
 
 	if fitcurve:
-		gridstep = 30
+		gridstep = 100
 		xi = np.linspace(xlim_min, xlim_max, gridstep)
 		yi = np.linspace(ylim_min, ylim_max, gridstep)
 		zi = np.zeros((xi.size, yi.size))

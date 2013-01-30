@@ -1,11 +1,11 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-def PlotHistory(qty, TD, qty_th, TD_min, TD_max, start_time, qtyb, xlim_min, xlim_max, ylim_min, ylim_max):
+def PlotHistory(qtya, qty_th, qtyb, TD, TD_min, TD_max, start_time, xlim_min, xlim_max, ylim_min, ylim_max, title):
 	fig, ax = plt.subplots(1, 1, sharex=True, sharey=True ) 
 
 	idx = np.intersect1d(np.array(np.where(TD>=TD_min)), np.array(np.where(TD<=TD_max)))
-	temp = qty[idx]
+	temp = qtya[idx]
 	temp2 = qtyb[idx]
 	idx2 = np.where(temp>=qty_th)
 
@@ -24,4 +24,6 @@ def PlotHistory(qty, TD, qty_th, TD_min, TD_max, start_time, qtyb, xlim_min, xli
 	ax.set_ylim(ylim_min, ylim_max) 
 
 	ax.set_xlabel('time [sec]')
-	ax.set_ylabel('quality idx []') 
+	ax.set_ylabel('quality idx []')
+	
+	ax.set_title(title)
