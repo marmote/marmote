@@ -23,6 +23,7 @@ def PlotTDHist(x, fitcurve=False, x_lim_min=None, x_lim_max=None, alpha=None, mu
 		for k in xrange(alpha.size):
 			y = mlab.normpdf( bincenters, mu[k], sigma[k] ) * alpha[k]
 			l = ax.plot(bincenters, y, 'r--', linewidth=1)
+		ax.hold('off')
 
 	ax.set_xlabel('Time differences [msec]')
 	ax.set_ylabel('Probability')
