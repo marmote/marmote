@@ -43,7 +43,8 @@ entity DATAPATH_STUB_APB is
         TXD_I       : out std_logic_vector(9 downto 0);
         TXD_Q       : out std_logic_vector(9 downto 0);
 
-        MUX_SEL	: out std_logic_vector(1 downto 0) ;
+        MUX_SEL1	: out std_logic_vector(1 downto 0);
+        MUX_SEL2	: out std_logic_vector(1 downto 0);
 
          -- APB3 inteface
         PCLK    : in  std_logic;
@@ -67,13 +68,15 @@ architecture Behavioral of DATAPATH_STUB_APB is
 	constant c_ADDR_CTRL : std_logic_vector(7 downto 0) := x"00"; -- R/W (AFE ENABLE)
 	constant c_ADDR_I    : std_logic_vector(7 downto 0) := x"04"; -- R/W
 	constant c_ADDR_Q    : std_logic_vector(7 downto 0) := x"08"; -- R/W
-	constant c_ADDR_MUX  : std_logic_vector(7 downto 0) := x"0C"; -- R/W
+	constant c_ADDR_MUX1 : std_logic_vector(7 downto 0) := x"0C"; -- R/W
+	constant c_ADDR_MUX2 : std_logic_vector(7 downto 0) := x"10"; -- R/W
 
 	-- Default values
 	constant c_DEFAULT_CTRL : unsigned(15 downto 0) := x"0000"; -- AFE off
 	constant c_DEFAULT_I    : unsigned(15 downto 0) := x"0200"; -- Mid-scale
 	constant c_DEFAULT_Q    : unsigned(15 downto 0) := x"0200"; -- Mid-scale
-	constant c_DEFAULT_MUX  : unsigned(1 downto 0) := "10";
+	constant c_DEFAULT_MUX1 : unsigned(1 downto 0) := "10";
+	constant c_DEFAULT_MUX2 : unsigned(1 downto 0) := "10";
 
 	-- Registers
 
@@ -81,7 +84,8 @@ architecture Behavioral of DATAPATH_STUB_APB is
 	signal s_afe_i              : std_logic_vector(15 downto 0);
 	signal s_afe_q              : std_logic_vector(15 downto 0);
 
-	signal s_mux_sel			: std_logic_vector(1 downto 0) ;
+	signal s_mux_sel1			: std_logic_vector(1 downto 0) ;
+	signal s_mux_sel2			: std_logic_vector(1 downto 0) ;
 
     -- Signals
 
@@ -100,7 +104,8 @@ begin
 			s_afe_en <= '0';
 			s_afe_i  <= std_logic_vector(c_DEFAULT_I);
 			s_afe_q  <= std_logic_vector(c_DEFAULT_Q);
-			s_mux_sel <= std_logic_vector(c_DEFAULT_MUX);
+			s_mux_sel1 <= std_logic_vector(c_DEFAULT_MUX1);
+			s_mux_sel2 <= std_logic_vector(c_DEFAULT_MUX2);
 
 		elsif rising_edge(PCLK) then
 
@@ -117,8 +122,10 @@ begin
 						s_afe_i <= PWDATA;
 					when c_ADDR_Q =>
 						s_afe_q <= PWDATA;
-					when c_ADDR_MUX =>
-						s_mux_sel <= PWDATA(1 downto 0);
+					when c_ADDR_MUX1 =>
+						s_mux_sel1 <= PWDATA(1 downto 0);
+					when c_ADDR_MUX2 =>
+						s_mux_sel2 <= PWDATA(1 downto 0);
 					when others =>
 						null;
 				end case;
@@ -145,8 +152,10 @@ begin
 						s_dout <= s_afe_i;
 					when c_ADDR_Q =>
 						s_dout <= s_afe_q;
-					when c_ADDR_MUX =>
-						s_dout(1 downto 0) <= s_mux_sel;
+					when c_ADDR_MUX1 =>
+						s_dout(1 downto 0) <= s_mux_sel1;
+					when c_ADDR_MUX2 =>
+						s_dout(1 downto 0) <= s_mux_sel2;
 					when others =>
 						null;
 				end case;
@@ -168,7 +177,8 @@ begin
 
     AFE_EN  <= s_afe_en;
 
-    MUX_SEL <= s_mux_sel;
+    MUX_SEL1 <= s_mux_sel1;
+    MUX_SEL2 <= s_mux_sel2;
 
     PRDATA <= s_dout;
 	PREADY <= '1'; -- WR

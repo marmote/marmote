@@ -32,7 +32,8 @@ CMD_Type CMD_List[] =
 	//{"cal",  CmdCal},
 
 	{"iq",   CmdIQ},
-	{"mux",  CmdMux},
+	{"mux1",  CmdMux1},
+	{"mux2",  CmdMux2},
 	{NULL,   NULL}
 };
 
@@ -642,7 +643,7 @@ uint32_t CmdMode(uint32_t argc, char** argv)
 
 		if (!strcmp(*(argv+1), "rx"))
 		{
-			MSS_GPIO_set_output( MSS_GPIO_AFE1_MODE, AFE_MODE_RX );
+			MSS_GPIO_set_output( MSS_GPIO_AFE1_MODE, AFE_RX_MODE );
 			Max2830_set_mode( MAX2830_RX_MODE );
 			return 0;
 		}
@@ -651,7 +652,7 @@ uint32_t CmdMode(uint32_t argc, char** argv)
 		{
 			// !
 			Max2830_set_mode( MAX2830_TX_MODE );
-			MSS_GPIO_set_output( MSS_GPIO_AFE1_MODE, AFE_MODE_TX );
+			MSS_GPIO_set_output( MSS_GPIO_AFE1_MODE, AFE_TX_MODE );
 			return 0;
 		}
 
@@ -806,14 +807,14 @@ uint32_t CmdIQ(uint32_t argc, char** argv)
 	return 1;
 }
 
-uint32_t CmdMux(uint32_t argc, char** argv)
+uint32_t CmdMux1(uint32_t argc, char** argv)
 {
 	char buf[128];
 	uint32_t mux;
 
 	if (argc == 1)
 	{
-		mux = BB_CTRL->MUX & 0x3;
+		mux = BB_CTRL->MUX1 & 0x3;
 		sprintf( buf, "\r\nActive path: ");
 		Yellowstone_print(buf);
 		switch (mux)
@@ -832,7 +833,7 @@ uint32_t CmdMux(uint32_t argc, char** argv)
 				break;
 		}
 		Yellowstone_print(buf);
-		sprintf(buf, "\r\nMUX : %d", (uint32_t)BB_CTRL->MUX);
+		sprintf(buf, "\r\nMUX1: %d", (uint32_t)BB_CTRL->MUX1);
 		Yellowstone_print(buf);
 		return 0;
 	}
@@ -842,26 +843,26 @@ uint32_t CmdMux(uint32_t argc, char** argv)
 		mux = atoi(*(argv+1)) & 0x3;
 		if ((mux || !strcmp(*(argv+1), "0")))
 		{
-			BB_CTRL->MUX = mux;
+			BB_CTRL->MUX1 = mux;
 
 			// Readback
-			mux = BB_CTRL->MUX;
-			sprintf(buf, "\r\nMUX : %d", (uint32_t)BB_CTRL->MUX);
+			mux = BB_CTRL->MUX1;
+			sprintf(buf, "\r\nMUX : %d", (uint32_t)BB_CTRL->MUX1);
 					Yellowstone_print(buf);
 			sprintf( buf, "\r\nActive path: ");
 			Yellowstone_print(buf);
 			switch (mux)
 			{
-				case MUX_MODE_OFF :
+				case MUX_PATH_OFF :
 					sprintf( buf, "OFF");
 					break;
-				case MUX_MODE_RX :
+				case MUX_PATH_RX :
 					sprintf( buf, "RX" );
 					break;
-				case MUX_MODE_TX :
+				case MUX_PATH_TX :
 					sprintf( buf, "TX" );
 					break;
-				case MUX_MODE_REG :
+				case MUX_PATH_IQ_REG :
 					sprintf( buf, "I/Q REG" );
 					break;
 			}
@@ -871,6 +872,75 @@ uint32_t CmdMux(uint32_t argc, char** argv)
 	}
 
 	// Send help message
-	Yellowstone_print("\r\nUsage: mux [int]");
+	Yellowstone_print("\r\nUsage: mux1 [<index>]");
+	return 1;
+}
+
+uint32_t CmdMux2(uint32_t argc, char** argv)
+{
+	char buf[128];
+	uint32_t mux;
+
+	if (argc == 1)
+	{
+		mux = BB_CTRL->MUX2 & 0x3;
+		sprintf( buf, "\r\nActive path: ");
+		Yellowstone_print(buf);
+		switch (mux)
+		{
+			case 0x0 :
+				sprintf( buf, "OFF");
+				break;
+			case 0x1 :
+				sprintf( buf, "RX" );
+				break;
+			case 0x2 :
+				sprintf( buf, "TX" );
+				break;
+			case 0x3 :
+				sprintf( buf, "I/Q REG" );
+				break;
+		}
+		Yellowstone_print(buf);
+		sprintf(buf, "\r\nMUX2: %d", (uint32_t)BB_CTRL->MUX2);
+		Yellowstone_print(buf);
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		mux = atoi(*(argv+1)) & 0x3;
+		if ((mux || !strcmp(*(argv+1), "0")))
+		{
+			BB_CTRL->MUX2 = mux;
+
+			// Readback
+			mux = BB_CTRL->MUX2;
+			sprintf(buf, "\r\nMUX : %d", (uint32_t)BB_CTRL->MUX2);
+					Yellowstone_print(buf);
+			sprintf( buf, "\r\nActive path: ");
+			Yellowstone_print(buf);
+			switch (mux)
+			{
+				case MUX_PATH_OFF :
+					sprintf( buf, "OFF");
+					break;
+				case MUX_PATH_RX :
+					sprintf( buf, "RX" );
+					break;
+				case MUX_PATH_TX :
+					sprintf( buf, "TX" );
+					break;
+				case MUX_PATH_IQ_REG :
+					sprintf( buf, "I/Q REG" );
+					break;
+			}
+			Yellowstone_print(buf);
+			return 0;
+		}
+	}
+
+	// Send help message
+	Yellowstone_print("\r\nUsage: mux2 [<index>]");
 	return 1;
 }

@@ -100,7 +100,9 @@ architecture Behavioral of TX_APB_IF is
 
     -- Constants
 
-    constant c_SFD  : std_logic_vector(23 downto 0) := x"70EED2";
+--    constant c_SFD  : std_logic_vector(23 downto 0) := x"70EED2";
+    constant c_SFD  : std_logic_vector(23 downto 0) := x"000000"; -- FIXME
+    
     constant c_PAYLOAD_LENGTH   : integer := 4; -- bytes
 
     constant c_DATA_LENGTH : integer := 8;
@@ -300,12 +302,13 @@ begin
 		elsif rising_edge(clk) then
             s_mod_strobe <= '0';
 			s_symbol_end <= '0';
-            if s_mod_en = '1' and s_tick_ctr < to_unsigned(c_TICK_DIV-1, s_tick_ctr'length) then
-                s_tick_ctr <= s_tick_ctr + 1;
-            else
-                s_tick_ctr <= (others => '0');
-                s_mod_strobe <= '1';
-            end if;
+--            if s_mod_en = '1' and s_tick_ctr < to_unsigned(c_TICK_DIV-1, s_tick_ctr'length) then
+--                s_tick_ctr <= s_tick_ctr + 1;
+--            else
+--                s_tick_ctr <= (others => '0');
+--                s_mod_strobe <= '1';
+--            end if;
+            s_mod_strobe <= '1';
             if s_mod_en = '1' and s_mod_strobe = '1' then
                 if s_baud_ctr < to_unsigned(c_BAUD_DIV-1, s_baud_ctr'length) then
                     s_baud_ctr <= s_baud_ctr + 1;

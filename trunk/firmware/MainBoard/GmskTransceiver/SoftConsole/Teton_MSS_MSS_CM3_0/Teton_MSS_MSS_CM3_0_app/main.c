@@ -36,37 +36,39 @@ int main()
 
 	MSS_GPIO_set_output(MSS_GPIO_LED1, 0);
 	MSS_GPIO_set_output(MSS_GPIO_AFE1_ENABLE, 0);
-	MSS_GPIO_set_output(MSS_GPIO_AFE1_MODE, AFE_MODE_RX);
+	MSS_GPIO_set_output(MSS_GPIO_AFE1_MODE, AFE_RX_MODE);
 
 	// TX_DONE IRQ
 	MSS_GPIO_config (MSS_GPIO_TX_DONE_IT, MSS_GPIO_INPUT_MODE | MSS_GPIO_IRQ_EDGE_POSITIVE);
 	MSS_GPIO_enable_irq(MSS_GPIO_TX_DONE_IT);
 	NVIC_EnableIRQ(MSS_GPIO_TX_DONE_IRQn);
 
+	// RX done IRQ
 	MSS_GPIO_config (MSS_GPIO_RX_DONE_IT, MSS_GPIO_INPUT_MODE | MSS_GPIO_IRQ_EDGE_POSITIVE);
 	MSS_GPIO_enable_irq(MSS_GPIO_RX_DONE_IT);
 	NVIC_EnableIRQ(MSS_GPIO_RX_DONE_IRQn);
 
+	// SFD IRQ
 	MSS_GPIO_config (MSS_GPIO_SFD_IT, MSS_GPIO_INPUT_MODE | MSS_GPIO_IRQ_EDGE_POSITIVE);
 	MSS_GPIO_enable_irq(MSS_GPIO_SFD_IT);
 	NVIC_EnableIRQ(MSS_GPIO_SFD_IRQn);
 
 	// Set up as a transmitter at 2405 MHz by default
 	Max2830_set_frequency(2405000000uL);
-	MSS_GPIO_set_output(MSS_GPIO_AFE1_MODE, AFE_MODE_RX);
-	Max2830_set_mode(MAX2830_SHUTDOWN_MODE);
-	MSS_GPIO_set_output(MSS_GPIO_AFE1_ENABLE, 0);
+	Max2830_set_mode(MAX2830_TX_MODE);
+	MSS_GPIO_set_output(MSS_GPIO_AFE1_MODE, AFE_TX_MODE);
+	MSS_GPIO_set_output(MSS_GPIO_AFE1_ENABLE, 1);
 
-	payload = 0;
+	//payload = 0x55;
 
 	// TIMER
 	MSS_TIM1_init(MSS_TIMER_PERIODIC_MODE);
-	MSS_TIM1_load_background(20e6); // 1 ms
+	MSS_TIM1_load_background(20e5); // 1 s
 	MSS_TIM1_enable_irq();
 	MSS_TIM1_start();
 
-	BB_CTRL->CTRL = 0x01; // Enable AFE2
-	BB_CTRL->MUX = MUX_MODE_TX;
+	BB_CTRL->MUX1 = MUX_PATH_TX;
+	BB_CTRL->MUX2 = MUX_PATH_TX;
 
 	while( 1 )
 	{
@@ -137,10 +139,15 @@ void Timer1_IRQHandler(void)
 //	BB_CTRL->TX_I = baseband_ctr++;
 
 	// Fill up TX FIFO
-	TX_CTRL->TX_FIFO = payload++;
-	TX_CTRL->TX_FIFO = payload++;
-	TX_CTRL->TX_FIFO = payload++;
-	TX_CTRL->TX_FIFO = payload++;
+//	TX_CTRL->TX_FIFO = payload++;
+//	TX_CTRL->TX_FIFO = payload++;
+//	TX_CTRL->TX_FIFO = payload++;
+//	TX_CTRL->TX_FIFO = payload++;
+
+	TX_CTRL->TX_FIFO = 0xAB;
+	TX_CTRL->TX_FIFO = 0xCD;
+	TX_CTRL->TX_FIFO = 0xFF;
+	TX_CTRL->TX_FIFO = 0x00;
 
 	// Start
 	TX_CTRL->CTRL = 0x01;
