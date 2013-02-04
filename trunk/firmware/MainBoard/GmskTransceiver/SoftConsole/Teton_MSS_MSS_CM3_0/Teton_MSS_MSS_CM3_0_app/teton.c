@@ -11,7 +11,8 @@ void GPIO8_IRQHandler(void)
 void GPIO9_IRQHandler(void)
 {
 	MSS_GPIO_clear_irq( MSS_GPIO_SFD_IT );
-//	MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
+	MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
+	while(1);
 }
 
 // RX DONE

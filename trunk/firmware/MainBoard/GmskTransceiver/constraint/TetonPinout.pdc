@@ -92,7 +92,7 @@ set_io LED2 -iostd LVCMOS33 -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL Up -
 set_io MSS_RESET_N -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -REGISTER No -pinname K4 -fixed yes
 set_io OE_n -iostd LVTTL -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL Up -SKEW Off -OUT_LOAD 35 -pinname E16 -fixed yes
 set_io RD_n -iostd LVTTL -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL Up -SKEW Off -OUT_LOAD 35 -pinname D14 -fixed yes
-set_io REF_CLK -iostd LVTTL -REGISTER No -RES_PULL Up -SCHMITT_TRIGGER Off -pinname C15 -fixed yes
+#set_io REF_CLK -iostd LVTTL -REGISTER No -RES_PULL Up -SCHMITT_TRIGGER Off -pinname C15 -fixed yes
 #set_io RXF_n -iostd LVTTL -REGISTER No -RES_PULL Up -SCHMITT_TRIGGER Off -pinname D13 -fixed yes
 set_io SIWU_n -iostd LVTTL -REGISTER No -OUT_DRIVE 12 -SLEW High -RES_PULL Up -SKEW Off -OUT_LOAD 35 -pinname E14 -fixed yes
 set_io SPI_0_IT -iostd LVTTL -REGISTER No -RES_PULL None -SCHMITT_TRIGGER Off -pinname G2 -fixed yes

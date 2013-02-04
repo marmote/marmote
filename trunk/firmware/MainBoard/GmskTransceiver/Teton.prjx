@@ -46,7 +46,7 @@ ENDLIST
 LIST FileManager
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf,actgen_cxf"
 STATE="utd"
-TIME="1359921971"
+TIME="1359994063"
 SIZE="944"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
@@ -64,97 +64,97 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_ACE\2.2.100\MSS_ACE.cxf,actgen_cxf"
 STATE="utd"
-TIME="1359921966"
+TIME="1359994056"
 SIZE="252"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_CCC\2.0.106\MSS_CCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1359921966"
+TIME="1359994057"
 SIZE="252"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_CM3\1.0.200\MSS_CM3.cxf,actgen_cxf"
 STATE="utd"
-TIME="1359921966"
+TIME="1359994057"
 SIZE="252"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_COM\1.0.200\MSS_COM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1359921966"
+TIME="1359994057"
 SIZE="252"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_DMA\1.0.101\MSS_DMA.cxf,actgen_cxf"
 STATE="utd"
-TIME="1359921966"
+TIME="1359994057"
 SIZE="252"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_ENVM\2.3.102\MSS_ENVM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1359921967"
+TIME="1359994057"
 SIZE="253"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_FIC\1.0.101\MSS_FIC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1359921967"
+TIME="1359994057"
 SIZE="252"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_FIO\1.0.203\MSS_FIO.cxf,actgen_cxf"
 STATE="utd"
-TIME="1359921967"
+TIME="1359994057"
 SIZE="252"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_GPIO\1.0.101\MSS_GPIO.cxf,actgen_cxf"
 STATE="utd"
-TIME="1359921967"
+TIME="1359994057"
 SIZE="253"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_I2C\1.0.101\MSS_I2C.cxf,actgen_cxf"
 STATE="utd"
-TIME="1359921967"
+TIME="1359994057"
 SIZE="252"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_INTR\1.0.101\MSS_INTR.cxf,actgen_cxf"
 STATE="utd"
-TIME="1359921967"
+TIME="1359994057"
 SIZE="253"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_RESET\1.0.101\MSS_RESET.cxf,actgen_cxf"
 STATE="utd"
-TIME="1359921967"
+TIME="1359994057"
 SIZE="254"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_RTC\1.0.100\MSS_RTC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1359921967"
+TIME="1359994057"
 SIZE="252"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_SPI\1.0.102\MSS_SPI.cxf,actgen_cxf"
 STATE="utd"
-TIME="1359921967"
+TIME="1359994057"
 SIZE="252"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_TIMER\1.0.100\MSS_TIMER.cxf,actgen_cxf"
 STATE="utd"
-TIME="1359921967"
+TIME="1359994057"
 SIZE="254"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_UFROM\1.0.100\MSS_UFROM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1359921967"
+TIME="1359994057"
 SIZE="254"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
@@ -170,13 +170,13 @@ SIZE="413"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.cxf,actgen_cxf"
 STATE="utd"
-TIME="1359922005"
-SIZE="9891"
+TIME="1359994084"
+SIZE="10049"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.pdc,pdc"
 STATE="utd"
-TIME="1359485413"
-SIZE="5812"
+TIME="1359932614"
+SIZE="4937"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 BEGIN_USE_CONSTRAINT
 TOOL_CONSTRAINT_TYPE="ideDESIGNER"
@@ -186,34 +186,34 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\MSS_ACE_0\MSS_ACE_0.log,???"
 STATE="utd"
-TIME="1359921966"
+TIME="1359994056"
 SIZE="31587"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\MSS_CCC_0\Teton_MSS_tmp_MSS_CCC_0_MSS_CCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1359921966"
+TIME="1359994057"
 SIZE="484"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\MSS_CCC_0\Teton_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd,hdl"
 STATE="utd"
-TIME="1359921966"
-SIZE="6962"
+TIME="1359994057"
+SIZE="6979"
 PARENT="<project>\component\work\Teton_MSS\MSS_CCC_0\Teton_MSS_tmp_MSS_CCC_0_MSS_CCC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\MSS_ENVM_0\MSS_ENVM_0.efc,efc"
 STATE="utd"
-TIME="1359921967"
+TIME="1359994057"
 SIZE="17430"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\mss_tshell.vhd,hdl"
 STATE="utd"
-TIME="1359921967"
+TIME="1359994057"
 SIZE="22849"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 BEGIN_USE_CONSTRAINT
@@ -225,7 +225,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\mss_tshell_syn.sdc,sdc"
 STATE="utd"
-TIME="1359921967"
+TIME="1359994057"
 SIZE="188"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 BEGIN_USE_CONSTRAINT
@@ -237,19 +237,19 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1359921971"
-SIZE="4311"
+TIME="1359994063"
+SIZE="4314"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\Teton_MSS.cxf,actgen_cxf"
 STATE="utd"
-TIME="1359921971"
-SIZE="18418"
+TIME="1359994063"
+SIZE="18444"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\Teton_MSS.pdc,pdc"
 STATE="utd"
-TIME="1359921964"
+TIME="1359994053"
 SIZE="3998"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 BEGIN_USE_CONSTRAINT
@@ -260,8 +260,8 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\Teton_MSS.vhd,hdl"
 STATE="utd"
-TIME="1359921971"
-SIZE="43780"
+TIME="1359994063"
+SIZE="43783"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 IS_READONLY="TRUE"
 ENDFILE
@@ -272,13 +272,28 @@ SIZE="239"
 ENDFILE
 VALUE "<project>\constraint\TetonPinout.pdc,pdc"
 STATE="utd"
-TIME="1359471066"
-SIZE="10109"
+TIME="1359994080"
+SIZE="10110"
 ENDFILE
 VALUE "<project>\constraint\TetonTiming.sdc,sdc"
 STATE="utd"
 TIME="1358887290"
 SIZE="3340"
+ENDFILE
+VALUE "<project>\designer\impl1\LED_PWM.adb,adb"
+STATE="ood"
+TIME="1359932590"
+SIZE="37376"
+ENDFILE
+VALUE "<project>\designer\impl1\LED_PWM.ide_des,ide_des"
+STATE="utd"
+TIME="1359931225"
+SIZE="196"
+ENDFILE
+VALUE "<project>\designer\impl1\LED_PWM_compile_log.rpt,log"
+STATE="utd"
+TIME="1359932591"
+SIZE="9771"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton.adb,adb"
 STATE="ood"
@@ -287,8 +302,8 @@ SIZE="4549632"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton.fdb,fdb"
 STATE="ood"
-TIME="1359829667"
-SIZE="177426"
+TIME="1359922210"
+SIZE="177938"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton.ide_des,ide_des"
 STATE="utd"
@@ -297,13 +312,13 @@ SIZE="1282"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_compile_log.rpt,log"
 STATE="utd"
-TIME="1359829549"
-SIZE="33443"
+TIME="1359932739"
+SIZE="33402"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\projectData\Teton.pdb,pdb"
 STATE="utd"
-TIME="1359829746"
-SIZE="186368"
+TIME="1359990550"
+SIZE="187904"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\Teton.pdb,pdb"
 STATE="ood"
@@ -322,8 +337,8 @@ SIZE="2397"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_prgdata_log.rpt,log"
 STATE="utd"
-TIME="1359829669"
-SIZE="765"
+TIME="1359922211"
+SIZE="650"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_timingconstraints_log.rpt,log"
 STATE="utd"
@@ -339,6 +354,11 @@ VALUE "<project>\designer\impl1\TX_APB_IF.ide_des,ide_des"
 STATE="utd"
 TIME="1358978059"
 SIZE="198"
+ENDFILE
+VALUE "<project>\hdl\afe_if - Copy.vhd,hdl"
+STATE="utd"
+TIME="1358881704"
+SIZE="7833"
 ENDFILE
 VALUE "<project>\hdl\afe_if.vhd,hdl"
 STATE="utd"
@@ -395,10 +415,15 @@ STATE="utd"
 TIME="1358268904"
 SIZE="11643"
 ENDFILE
+VALUE "<project>\hdl\led_pwm.vhd,hdl"
+STATE="utd"
+TIME="1359933943"
+SIZE="3738"
+ENDFILE
 VALUE "<project>\hdl\rx_apb_if.vhd,hdl"
 STATE="utd"
-TIME="1359412823"
-SIZE="14025"
+TIME="1359990219"
+SIZE="14070"
 ENDFILE
 VALUE "<project>\hdl\SynLib_asynch.vhd,hdl"
 STATE="utd"
@@ -408,8 +433,8 @@ LIBRARY="shlslib"
 ENDFILE
 VALUE "<project>\hdl\tx_apb_if.vhd,hdl"
 STATE="utd"
-TIME="1359829408"
-SIZE="15430"
+TIME="1359928590"
+SIZE="15476"
 ENDFILE
 VALUE "<project>\simulation\afe_if_wave.do,do"
 STATE="utd"
@@ -432,6 +457,16 @@ STATE="utd"
 TIME="1359414743"
 SIZE="7722"
 ENDFILE
+VALUE "<project>\simulation\led_pwm.do,do"
+STATE="utd"
+TIME="1359414743"
+SIZE="7722"
+ENDFILE
+VALUE "<project>\simulation\led_pwm_wave.do,do"
+STATE="utd"
+TIME="1359931494"
+SIZE="363"
+ENDFILE
 VALUE "<project>\simulation\run.do,do"
 STATE="utd"
 TIME="1359842679"
@@ -439,13 +474,13 @@ SIZE="2598"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
-TIME="1359485416"
+TIME="1359932617"
 SIZE="702"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 ENDFILE
 VALUE "<project>\simulation\test.bfm,sim"
 STATE="utd"
-TIME="1359921967"
+TIME="1359994057"
 SIZE="9830"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
@@ -469,6 +504,26 @@ VALUE "<project>\stimulus\agc_tb.vhd,tb_hdl"
 STATE="utd"
 TIME="1359386142"
 SIZE="2710"
+ENDFILE
+VALUE "<project>\stimulus\led_pwm_tb.vhd,tb_hdl"
+STATE="utd"
+TIME="1359932695"
+SIZE="1361"
+ENDFILE
+VALUE "<project>\synthesis\LED_PWM.so,so"
+STATE="utd"
+TIME="1359932579"
+SIZE="221"
+ENDFILE
+VALUE "<project>\synthesis\LED_PWM_sdc.sdc,sdc"
+STATE="utd"
+TIME="1359932579"
+SIZE="396"
+ENDFILE
+VALUE "<project>\synthesis\LED_PWM_syn.prj,prj"
+STATE="utd"
+TIME="1359932580"
+SIZE="1501"
 ENDFILE
 VALUE "<project>\synthesis\synwork\Teton_compiler.so,so"
 STATE="utd"
@@ -502,12 +557,41 @@ SIZE="3218"
 ENDFILE
 ENDLIST
 LIST UsedFile
+VALUE "<project>\hdl\afe_if.vhd,AFE_IF"
 ENDLIST
 LIST NewModulesInfo
 LIST "AFE_IF::work"
 FILE "<project>\hdl\afe_if.vhd,hdl"
 LIST AssociatedStimulus
 VALUE "<project>\stimulus\afe_if_tb.vhd,tb_hdl"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
+LIST "LED_PWM::work"
+FILE "<project>\hdl\led_pwm.vhd,hdl"
+LIST UserCustomizedFileList
+LIST "ideSIMULATION"
+USE_LIST=TRUE
+FILELIST
+VALUE "<project>\hdl\led_pwm.vhd,hdl"
+ENDFILELIST
+ENDLIST
+ENDLIST 
+LIST AssociatedStimulus
+VALUE "<project>\stimulus\led_pwm_tb.vhd,tb_hdl"
+ENDLIST
+LIST SynthesisConstraints
+VALUE "<project>\constraint\TetonTiming.sdc,sdc"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
@@ -602,6 +686,9 @@ LIST AssociatedStimulus
 LIST AFE_IF
 VALUE "<project>\stimulus\afe_if_tb.vhd,tb_hdl"
 ENDLIST
+LIST LED_PWM
+VALUE "<project>\stimulus\led_pwm_tb.vhd,tb_hdl"
+ENDLIST
 LIST Teton_MSS
 VALUE "<project>\component\work\Teton_MSS\testbench.vhd,tb_hdl"
 ENDLIST
@@ -624,10 +711,10 @@ Type=max
 RunTime=0 ns
 Resolution=1ps
 VsimOpt=
-EntityName=testbench
-TopInstanceName=Teton_0/TX_APB_IF_0
+EntityName=led_pwm_tb
+TopInstanceName=uut
 DoFileName=D:/firmware/MainBoard/GmskTransceiver/simulation/user.do
-DoFileName2=D:/firmware/MainBoard/GmskTransceiver/simulation/gmsk_wave.do
+DoFileName2=D:/firmware/MainBoard/GmskTransceiver/simulation/led_pwm_wave.do
 DoFileParams=
 DisplayDUTWave=true
 LogAllSignals=false
@@ -675,7 +762,7 @@ NAME="ModelSim AE"
 FUNCTION="Simulation"
 TOOL="ModelSim"
 LOCATION="C:\Microsemi\Libero_v10.1\Model\win32acoem\modelsim.exe"
-PARAM=" -l testbench_presynth_simulation.log "
+PARAM=" -l led_pwm_tb_presynth_simulation.log "
 BATCH=0
 EndProfile
 NAME="WFL"
@@ -695,6 +782,17 @@ EndProfile
 ENDLIST
 LIST ProjectState5.1
 LIST "AFE_IF::work"
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+LIST "LED_PWM::work"
 LIST Impl1
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
@@ -767,6 +865,14 @@ VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfus
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
 VALUE "<project>\component\work\Teton\Teton.vhd,hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\components.vhd,hdl"
+ENDFILELIST
+ENDLIST
+ENDLIST
+LIST "LED_PWM"
+LIST "ideSIMULATION"
+USE_LIST=TRUE
+FILELIST
+VALUE "<project>\hdl\led_pwm.vhd,hdl"
 ENDFILELIST
 ENDLIST
 ENDLIST
@@ -868,6 +974,8 @@ LIST "INBUF_MCCC::work","component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vh
 ENDLIST
 LIST "INBUF_MSS::work","component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd","FALSE","FALSE"
 ENDLIST
+LIST "LED_PWM::work","hdl\led_pwm.vhd","FALSE","FALSE"
+ENDLIST
 LIST "MSS_ACE_Driver::work","","FALSE","FALSE"
 ENDLIST
 LIST "MSS_ALL::work","component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd","FALSE","FALSE"
@@ -929,6 +1037,7 @@ ENDLIST
 LIST "Teton::work","component\work\Teton\Teton.cxf","TRUE","FALSE"
 SUBBLOCK "CoreAPB3::work","","FALSE","FALSE"
 SUBBLOCK "AFE_IF::work","hdl\afe_if.vhd","FALSE","FALSE"
+SUBBLOCK "LED_PWM::work","hdl\led_pwm.vhd","FALSE","FALSE"
 SUBBLOCK "Teton_MSS::work","component\work\Teton_MSS\Teton_MSS.vhd","TRUE","FALSE"
 SUBBLOCK "DATAPATH_STUB_APB::work","hdl\datapath_stub_apb.vhd","FALSE","FALSE"
 SUBBLOCK "DATA_PATH_MUX::work","hdl\data_path_mux.vhd","FALSE","FALSE"
@@ -947,6 +1056,7 @@ SUBBLOCK "MSSINT::work","component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vh
 ENDLIST
 LIST "Teton_MSS_tmp_MSS_CCC_0_MSS_CCC::work","component\work\Teton_MSS\MSS_CCC_0\Teton_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd","FALSE","FALSE"
 SUBBLOCK "MSS_CCC::work","component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd","FALSE","FALSE"
+SUBBLOCK "MSS_XTLOSC::work","component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd","FALSE","FALSE"
 ENDLIST
 LIST "TRIBUFF_MSS::work","component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd","FALSE","FALSE"
 ENDLIST
@@ -959,6 +1069,9 @@ SUBBLOCK "AFE_IF::work","hdl\afe_if.vhd","FALSE","FALSE"
 ENDLIST
 LIST "AGC_tb::work","stimulus\agc_tb.vhd","FALSE","TRUE"
 SUBBLOCK "AGC::work","hdl\agc.vhd","FALSE","FALSE"
+ENDLIST
+LIST "LED_PWM_tb::work","stimulus\led_pwm_tb.vhd","FALSE","TRUE"
+SUBBLOCK "LED_PWM::work","hdl\led_pwm.vhd","FALSE","FALSE"
 ENDLIST
 LIST "testbench::work","component\work\Teton_MSS\testbench.vhd","FALSE","TRUE"
 SUBBLOCK "Teton_MSS::work","component\work\Teton_MSS\Teton_MSS.vhd","TRUE","FALSE"

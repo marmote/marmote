@@ -100,8 +100,8 @@ architecture Behavioral of TX_APB_IF is
 
     -- Constants
 
---    constant c_SFD  : std_logic_vector(23 downto 0) := x"70EED2";
-    constant c_SFD  : std_logic_vector(23 downto 0) := x"000000"; -- FIXME
+    constant c_SFD  : std_logic_vector(23 downto 0) := x"70EED2";
+--    constant c_SFD  : std_logic_vector(23 downto 0) := x"000000"; -- FIXME
     
     constant c_PAYLOAD_LENGTH   : integer := 4; -- bytes
 
