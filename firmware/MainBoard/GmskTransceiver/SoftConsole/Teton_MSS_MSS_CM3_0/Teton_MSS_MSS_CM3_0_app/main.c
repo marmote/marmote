@@ -53,22 +53,33 @@ int main()
 	MSS_GPIO_enable_irq(MSS_GPIO_SFD_IT);
 	NVIC_EnableIRQ(MSS_GPIO_SFD_IRQn);
 
-	// Set up as a transmitter at 2405 MHz by default
+	// ----------------- Rx ----------------
+
+	// Set up as a receiver at 2405 MHz by default
 	Max2830_set_frequency(2405000000uL);
-	Max2830_set_mode(MAX2830_TX_MODE);
-	MSS_GPIO_set_output(MSS_GPIO_AFE1_MODE, AFE_TX_MODE);
+	Max2830_set_mode(MAX2830_RX_MODE);
+	MSS_GPIO_set_output(MSS_GPIO_AFE1_MODE, AFE_RX_MODE);
 	MSS_GPIO_set_output(MSS_GPIO_AFE1_ENABLE, 1);
 
-	//payload = 0x55;
+	//BB_CTRL->MUX1 = MUX_PATH_RX;
+	BB_CTRL->MUX2 = MUX_PATH_RX;
 
-	// TIMER
-	MSS_TIM1_init(MSS_TIMER_PERIODIC_MODE);
-	MSS_TIM1_load_background(20e5); // 1 s
-	MSS_TIM1_enable_irq();
-	MSS_TIM1_start();
-
-	BB_CTRL->MUX1 = MUX_PATH_TX;
-	BB_CTRL->MUX2 = MUX_PATH_TX;
+//	// Set up as a transmitter at 2405 MHz by default
+//	Max2830_set_frequency(2405000000uL);
+//	Max2830_set_mode(MAX2830_TX_MODE);
+//	MSS_GPIO_set_output(MSS_GPIO_AFE1_MODE, AFE_TX_MODE);
+//	MSS_GPIO_set_output(MSS_GPIO_AFE1_ENABLE, 1);
+//
+//	//payload = 0x55;
+//
+//	// TIMER
+//	MSS_TIM1_init(MSS_TIMER_PERIODIC_MODE);
+//	MSS_TIM1_load_background(20e5); // 1 s
+//	MSS_TIM1_enable_irq();
+//	MSS_TIM1_start();
+//
+//	BB_CTRL->MUX1 = MUX_PATH_TX;
+//	BB_CTRL->MUX2 = MUX_PATH_TX;
 
 	while( 1 )
 	{

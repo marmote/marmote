@@ -302,12 +302,13 @@ begin
         elsif rising_edge(clk) then
             s_rx_strobe <= '0';
             s_rx_strobe_div8 <= '0';
-            if s_tick_ctr < to_unsigned(c_TICK_DIV-1, s_tick_ctr'length) then
-                s_tick_ctr <= s_tick_ctr + 1;
-            else
-                s_tick_ctr <= (others => '0');
-                s_rx_strobe <= '1';
-            end if;
+--            if s_tick_ctr < to_unsigned(c_TICK_DIV-1, s_tick_ctr'length) then
+--                s_tick_ctr <= s_tick_ctr + 1;
+--            else
+--                s_tick_ctr <= (others => '0');
+--                s_rx_strobe <= '1';
+--            end if;
+            s_rx_strobe <= '1';
             if s_rx_strobe = '1' then
                 if s_rx_strobe_ctr < to_unsigned(c_BAUD_DIV-1, s_rx_strobe_ctr'length) then
                     s_rx_strobe_ctr <= s_rx_strobe_ctr + 1;
