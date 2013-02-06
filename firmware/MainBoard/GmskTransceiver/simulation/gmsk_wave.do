@@ -58,16 +58,18 @@ sim:/testbench/Teton_0/TX_APB_IF_0/s_bit_ctr \
 -signed \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_txd(15) \
 -unsigned \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_done
+sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_done \
+sim:/testbench/Teton_0/TX_APB_IF_0/TX_D \
+sim:/testbench/Teton_0/TX_APB_IF_0/TX_DONE_IRQ \
+sim:/testbench/Teton_0/TX_APB_IF_0/TX_EN \
+sim:/testbench/Teton_0/TX_APB_IF_0/TX_STROBE \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_mod_en \
+-signed \
+-analog-step -min -512 -max 512 -height 100 \
+sim:/testbench/Teton_0/gmsk_tx_0/TX_I \
+sim:/testbench/Teton_0/gmsk_tx_0/TX_Q
 
-#sim:/testbench/Teton_0/TX_APB_IF_0/s_txd_en \
 
-add wave \
-sim:/testbench/Teton_0/TX_APB_IF_0/u_GMSK_TX/N_17
-add wave  \
-sim:/testbench/Teton_0/TX_APB_IF_0/u_GMSK_TX/GlobalEnable1
-add wave  \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_mod_en
 
 
 #sim:/testbench/Teton_0/TX_APB_IF_0/s_data_buffer \
@@ -93,13 +95,13 @@ sim:/testbench/Teton_0/AFE2_IF/s_tx_q
 #-label {Integrator out} \
 #sim:/testbench/Teton_0/TX_APB_IF_0/u_GMSK_TX/N_5 \
 
-add wave \
--group {TX WAVEFORMS} \
--analog-step -min -512 -max 512 -height 100 \
--label {TX I} sim:/testbench/Teton_0/TX_APB_IF_0/TX_I \
--label {TX Q} sim:/testbench/Teton_0/TX_APB_IF_0/TX_Q \
--unsigned \
--label {TX STROBE} sim:/testbench/Teton_0/TX_APB_IF_0/TX_STROBE 
+#add wave \
+#-group {TX WAVEFORMS} \
+#-analog-step -min -512 -max 512 -height 100 \
+#-label {TX I} sim:/testbench/Teton_0/TX_APB_IF_0/TX_I \
+#-label {TX Q} sim:/testbench/Teton_0/TX_APB_IF_0/TX_Q \
+#-unsigned \
+#-label {TX STROBE} sim:/testbench/Teton_0/TX_APB_IF_0/TX_STROBE 
 
 add wave  \
 -group {RX WAVEFORMS} \
