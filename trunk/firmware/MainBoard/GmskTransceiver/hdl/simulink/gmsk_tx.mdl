@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.81"
+    ComputedModelVersion    "1.149"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -30,9 +30,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "sszilvasi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Jan 25 18:38:56 2013"
-  RTWModifiedTimeStamp	  281029879
-  ModelVersionFormat	  "1.%<AutoIncrement:81>"
+  LastModifiedDate	  "Wed Feb 06 09:17:54 2013"
+  RTWModifiedTimeStamp	  281984648
+  ModelVersionFormat	  "1.%<AutoIncrement:149>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  on
@@ -69,13 +69,13 @@ Model {
     $PropName		    "DataLoggingOverride"
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
-    model_		    "gmsk_syn"
+    model_		    "gmsk_tx"
     signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
       Dimension		      1
-      Cell		      "gmsk_syn"
+      Cell		      "gmsk_tx"
       PropName		      "logAsSpecifiedByModels_"
     }
     Array {
@@ -136,7 +136,7 @@ Model {
 	  $ObjectID		  3
 	  Version		  "1.12.0"
 	  StartTime		  "0.0"
-	  StopTime		  "2e3"
+	  StopTime		  "1e-2"
 	  AbsTol		  "auto"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
@@ -665,6 +665,19 @@ Model {
       SampleTime	      "-1"
     }
     Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      SamplingMode	      "Sample based"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit from 'Constant value'"
+      LockScale		      off
+      SampleTime	      "inf"
+      FramePeriod	      "inf"
+      PreserveConstantTs      off
+    }
+    Block {
       BlockType		      DiscretePulseGenerator
       PulseType		      "Sample based"
       TimeSource	      "Use simulation time"
@@ -674,6 +687,15 @@ Model {
       PhaseDelay	      "0"
       SampleTime	      "1"
       VectorParams1D	      on
+    }
+    Block {
+      BlockType		      RateTransition
+      Integrity		      on
+      Deterministic	      on
+      X0		      "0"
+      OutPortSampleTimeOpt    "Specify"
+      OutPortSampleTimeMultiple	"1"
+      OutPortSampleTime	      "-1"
     }
     Block {
       BlockType		      RealImagToComplex
@@ -708,10 +730,20 @@ Model {
       VectorParams1D	      on
       ZeroCross		      on
     }
+    Block {
+      BlockType		      ToWorkspace
+      VariableName	      "simulink_output"
+      MaxDataPoints	      "1000"
+      Decimation	      "1"
+      SampleTime	      "0"
+      SaveFormat	      "Array"
+      FixptAsFi		      off
+      NumInputs		      "1"
+    }
   }
   System {
     Name		    "gmsk_tx"
-    Location		    [204, 196, 1832, 1074]
+    Location		    [2, 74, 1918, 1139]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -725,20 +757,20 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "71"
+    SIDHighWatermark	    "123"
     Block {
       BlockType		      Reference
-      Name		      "Accumulator"
-      SID		      "68"
+      Name		      "Accumulator1"
+      SID		      "93"
       Ports		      [2, 1]
-      Position		      [540, 135, 580, 175]
+      Position		      [710, 135, 750, 175]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Math Functions/Accumulator"
       SourceType	      "Synphony Model Compiler Accumulator"
       syn_acc_opr	      "+="
       syn_out_f		      "Automatic"
       syn_out_wl	      "16"
-      syn_out_fl	      "8"
+      syn_out_fl	      "5"
       syn_out_dt	      "signed"
       syn_rst_port	      on
       syn_en_port	      off
@@ -749,10 +781,10 @@ Model {
     }
     Block {
       BlockType		      Reference
-      Name		      "Add"
-      SID		      "21"
+      Name		      "Add1"
+      SID		      "94"
       Ports		      [2, 1]
-      Position		      [780, 145, 820, 185]
+      Position		      [895, 165, 935, 205]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Math Functions/Add"
       SourceType	      "Synphony Model Compiler Add"
@@ -770,10 +802,28 @@ Model {
     }
     Block {
       BlockType		      Reference
+      Name		      "Bernoulli Binary\nGenerator"
+      SID		      "73"
+      Ports		      [0, 1]
+      Position		      [420, 638, 500, 682]
+      LibraryVersion	      "1.111"
+      FontName		      "Arial"
+      SourceBlock	      "commrandsrc2/Bernoulli Binary\nGenerator"
+      SourceType	      "Bernoulli Binary Generator"
+      P			      "0.5"
+      seed		      "61"
+      Ts		      "gmsk_syn_params.Ts*gmsk_syn_params.symbol_time"
+      frameBased	      off
+      sampPerFrame	      "1"
+      orient		      off
+      outDataType	      "double"
+    }
+    Block {
+      BlockType		      Reference
       Name		      "Binary Logic"
-      SID		      "65"
+      SID		      "107"
       Ports		      [1, 1]
-      Position		      [285, 216, 340, 254]
+      Position		      [520, 216, 575, 254]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Math Functions/Binary Logic"
       SourceType	      "Synphony Model Compiler Binary Logic"
@@ -783,20 +833,96 @@ Model {
       synBlockId	      "13"
     }
     Block {
-      BlockType		      ComplexToMagnitudeAngle
-      Name		      "Complex to\nMagnitude-Angle1"
-      SID		      "59"
+      BlockType		      Reference
+      Name		      "CIC2"
+      SID		      "95"
       Ports		      [1, 1]
-      Position		      [1310, 155, 1340, 185]
+      Position		      [1160, 125, 1220, 185]
+      AttributesFormatString  "0.7812500000"
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Filtering/CIC"
+      SourceType	      "Synphony Model Compiler CIC"
+      syn_cic_type	      "Interpolator"
+      syn_m_val		      "1"
+      syn_r_val		      "gmsk_syn_params.interpolation_factor"
+      syn_n_val		      "3"
+      syn_out_f		      "Specify"
+      syn_out_wl	      "10"
+      syn_out_fl	      "9"
+      syn_out_dt	      "signed"
+      syn_out_sat	      off
+      syn_out_rnd	      off
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "custom"
+      synLatency	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "CIC3"
+      SID		      "96"
+      Ports		      [1, 1]
+      Position		      [1160, 190, 1220, 250]
+      AttributesFormatString  "0.7812500000"
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Filtering/CIC"
+      SourceType	      "Synphony Model Compiler CIC"
+      syn_cic_type	      "Interpolator"
+      syn_m_val		      "1"
+      syn_r_val		      "gmsk_syn_params.interpolation_factor"
+      syn_n_val		      "3"
+      syn_out_f		      "Specify"
+      syn_out_wl	      "10"
+      syn_out_fl	      "9"
+      syn_out_dt	      "signed"
+      syn_out_sat	      off
+      syn_out_rnd	      off
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "custom"
+      synLatency	      "0"
+    }
+    Block {
+      BlockType		      ComplexToMagnitudeAngle
+      Name		      "Complex to\nMagnitude-Angle"
+      SID		      "80"
+      Ports		      [1, 1]
+      Position		      [1565, 275, 1595, 305]
       ZOrder		      -6
       Output		      "Angle"
     }
     Block {
-      BlockType		      Reference
+      BlockType		      ComplexToMagnitudeAngle
+      Name		      "Complex to\nMagnitude-Angle1"
+      SID		      "111"
+      Ports		      [1, 1]
+      Position		      [1565, 355, 1595, 385]
+      ZOrder		      -6
+      Output		      "Angle"
+    }
+    Block {
+      BlockType		      ComplexToMagnitudeAngle
+      Name		      "Complex to\nMagnitude-Angle2"
+      SID		      "82"
+      Ports		      [1, 1]
+      Position		      [1565, 430, 1595, 460]
+      ZOrder		      -6
+      Output		      "Angle"
+    }
+    Block {
+      BlockType		      Constant
       Name		      "Constant"
-      SID		      "22"
+      SID		      "122"
+      Position		      [85, 130, 115, 160]
+      ZOrder		      -5
+      SampleTime	      "gmsk_syn_params.Ts*gmsk_syn_params.symbol_time"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Constant1"
+      SID		      "97"
       Ports		      [0, 1]
-      Position		      [680, 195, 720, 235]
+      Position		      [790, 213, 835, 257]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Sources/Constant"
       SourceType	      "Synphony Model Compiler Constant"
@@ -810,83 +936,67 @@ Model {
       synBlockId	      "15"
     }
     Block {
-      BlockType		      Scope
-      Name		      "Gauss filter"
-      SID		      "34"
-      Ports		      [3]
-      Position		      [600, 327, 635, 383]
-      ZOrder		      -16
-      Floating		      off
-      Location		      [1921, 48, 3521, 1199]
-      Open		      on
-      NumInputPorts	      "3"
-      List {
-	ListType		AxesTitles
-	axes1			"%<SignalLabel>"
-	axes2			"%<SignalLabel>"
-	axes3			"%<SignalLabel>"
-      }
-      List {
-	ListType		ScopeGraphics
-	FigureColor		"[0.501960784313725 0.501960784313725 0.501960784313725]"
-	AxesColor		"[0 0 0]"
-	AxesTickColor		"[1 1 1]"
-	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-	LineStyles		"-|-|-|-|-|-"
-	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
-	MarkerStyles		"none|none|none|none|none|none"
-      }
-      ShowLegends	      off
-      YMin		      "-5~-5~-5"
-      YMax		      "5~5~5"
-      SaveName		      "ScopeData1"
-      DataFormat	      "StructureWithTime"
-      SampleTime	      "0"
-    }
-    Block {
-      BlockType		      Scope
-      Name		      "Gauss filter1"
-      SID		      "66"
-      Ports		      [3]
-      Position		      [745, 437, 780, 493]
-      ZOrder		      -16
-      Floating		      off
-      Location		      [1921, 48, 3521, 1199]
-      Open		      off
-      NumInputPorts	      "3"
-      List {
-	ListType		AxesTitles
-	axes1			"%<SignalLabel>"
-	axes2			"%<SignalLabel>"
-	axes3			"%<SignalLabel>"
-      }
-      List {
-	ListType		ScopeGraphics
-	FigureColor		"[0.501960784313725 0.501960784313725 0.501960784313725]"
-	AxesColor		"[0 0 0]"
-	AxesTickColor		"[1 1 1]"
-	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-	LineStyles		"-|-|-|-|-|-"
-	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
-	MarkerStyles		"none|none|none|none|none|none"
-      }
-      ShowLegends	      off
-      YMin		      "-5~-5~-5"
-      YMax		      "5~5~5"
-      SaveName		      "ScopeData2"
-      DataFormat	      "StructureWithTime"
-      SampleTime	      "0"
+      BlockType		      Reference
+      Name		      "Downsample1"
+      SID		      "108"
+      Ports		      [1, 1]
+      Position		      [425, 215, 465, 255]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Signal Operations/Downsample"
+      SourceType	      "Synphony Model Compiler Downsample"
+      syn_r_val		      "gmsk_syn_params.interpolation_factor"
+      syn_sample_offset	      "0"
+      syn_sync_mode	      "No Sync"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "7"
     }
     Block {
       BlockType		      Reference
-      Name		      "Gaussian Filter\nFIR"
-      SID		      "3"
+      Name		      "Downsample2"
+      SID		      "98"
       Ports		      [1, 1]
-      Position		      [315, 115, 375, 175]
+      Position		      [425, 125, 465, 165]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Signal Operations/Downsample"
+      SourceType	      "Synphony Model Compiler Downsample"
+      syn_r_val		      "gmsk_syn_params.interpolation_factor"
+      syn_sample_offset	      "0"
+      syn_sync_mode	      "No Sync"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "7"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "GMSK\nModulator\nBaseband"
+      SID		      "76"
+      Ports		      [1, 1]
+      Position		      [460, 414, 535, 466]
+      LibraryVersion	      "1.335"
+      UserDataPersistent      on
+      UserData		      "DataTag1"
+      SourceBlock	      "commdigbbndcpm2/GMSK\nModulator\nBaseband"
+      SourceType	      "GMSK Modulator Baseband"
+      inputType		      "Bit"
+      BT		      ".5"
+      pulseLength	      "2"
+      preHistory	      "1"
+      phaseOffset	      "0"
+      samplesPerSymbol	      "gmsk_syn_params.gauss_oversampling"
+      RateOptions	      "Allow multirate processing"
+      outDataType	      "double"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Gaussian Filter\nFIR1"
+      SID		      "100"
+      Ports		      [1, 1]
+      Position		      [515, 115, 575, 175]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Filtering/FIR"
       SourceType	      "Synphony Model Compiler FIR"
-      syn_coef_vec	      "gaussfir(0.5,1,8)"
+      syn_coef_vec	      "gaussfir(0.5,1,gmsk_syn_params.gauss_oversampling)"
       syn_coef_fl	      "15"
       syn_coef_rnd	      "Nearest"
       syn_show_q	      off
@@ -909,22 +1019,19 @@ Model {
     }
     Block {
       BlockType		      Scope
-      Name		      "HDL"
-      SID		      "5"
-      Ports		      [5]
-      Position		      [1140, 252, 1175, 308]
+      Name		      "HDL1"
+      SID		      "113"
+      Ports		      [2]
+      Position		      [1285, 17, 1320, 73]
       ZOrder		      -16
       Floating		      off
-      Location		      [1921, 48, 3521, 1199]
+      Location		      [315, 43, 1915, 1194]
       Open		      off
-      NumInputPorts	      "5"
+      NumInputPorts	      "2"
       List {
 	ListType		AxesTitles
 	axes1			"%<SignalLabel>"
 	axes2			"%<SignalLabel>"
-	axes3			"%<SignalLabel>"
-	axes4			"%<SignalLabel>"
-	axes5			"%<SignalLabel>"
       }
       List {
 	ListType		ScopeGraphics
@@ -937,25 +1044,27 @@ Model {
 	MarkerStyles		"none|none|none|none|none|none"
       }
       ShowLegends	      off
-      YMin		      "-5~-5~-5~-5~-5"
-      YMax		      "5~5~5~5~5"
+      YMin		      "-5~-5"
+      YMax		      "5~5"
       DataFormat	      "StructureWithTime"
       SampleTime	      "0"
     }
     Block {
       BlockType		      Scope
-      Name		      "Phase"
-      SID		      "60"
-      Ports		      [1]
-      Position		      [1395, 142, 1430, 198]
+      Name		      "HDL2"
+      SID		      "84"
+      Ports		      [3]
+      Position		      [1750, 377, 1785, 433]
       ZOrder		      -16
       Floating		      off
       Location		      [1921, 48, 3521, 1199]
       Open		      off
-      NumInputPorts	      "1"
+      NumInputPorts	      "3"
       List {
 	ListType		AxesTitles
 	axes1			"%<SignalLabel>"
+	axes2			"%<SignalLabel>"
+	axes3			"%<SignalLabel>"
       }
       List {
 	ListType		ScopeGraphics
@@ -968,7 +1077,10 @@ Model {
 	MarkerStyles		"none|none|none|none|none|none"
       }
       ShowLegends	      off
-      SaveName		      "ScopeData5"
+      TimeRange		      "0.0002999999999999999"
+      YMin		      "775~750~-52.5"
+      YMax		      "1125~1450~-5"
+      SaveName		      "ScopeData4"
       DataFormat	      "StructureWithTime"
       SampleTime	      "0"
     }
@@ -977,25 +1089,42 @@ Model {
       Name		      "Pulse\nGenerator"
       SID		      "35"
       Ports		      [0, 1]
-      Position		      [105, 129, 135, 161]
+      Position		      [85, 49, 115, 81]
       ZOrder		      -13
-      Amplitude		      "-1"
-      Period		      "100"
-      PhaseDelay	      "10"
+      Period		      "gmsk_syn_params.symbol_time*8"
+      PulseWidth	      "gmsk_syn_params.symbol_time"
+      PhaseDelay	      "gmsk_syn_params.symbol_time*1"
+      SampleTime	      "gmsk_syn_params.Ts"
+    }
+    Block {
+      BlockType		      RateTransition
+      Name		      "Rate Transition"
+      SID		      "110"
+      Position		      [1360, 349, 1400, 391]
+      ZOrder		      -10
+      OutPortSampleTime	      "gmsk_syn_params.Ts*gmsk_syn_params.symbol_time/gmsk_syn_params.gauss_oversampling"
+    }
+    Block {
+      BlockType		      RateTransition
+      Name		      "Rate Transition1"
+      SID		      "121"
+      Position		      [1480, 149, 1520, 191]
+      ZOrder		      -10
+      OutPortSampleTime	      "gmsk_syn_params.Ts"
     }
     Block {
       BlockType		      RealImagToComplex
       Name		      "Real-Imag to\nComplex"
       SID		      "7"
       Ports		      [2, 1]
-      Position		      [1210, 153, 1240, 182]
+      Position		      [1390, 153, 1420, 182]
     }
     Block {
       BlockType		      Reference
       Name		      "SHLSTool"
       SID		      "17"
       Ports		      []
-      Position		      [1240, 40, 1280, 80]
+      Position		      [1635, 50, 1675, 90]
       ForegroundColor	      "[0.501961, 0.000000, 0.000000]"
       BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
       LibraryVersion	      "1.3722"
@@ -1006,10 +1135,10 @@ Model {
     }
     Block {
       BlockType		      Reference
-      Name		      "Scale [0 to 1) to\nROM address"
-      SID		      "25"
+      Name		      "Scale to address ROM"
+      SID		      "101"
       Ports		      [1, 1]
-      Position		      [850, 145, 890, 185]
+      Position		      [965, 165, 1005, 205]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Math Functions/Gain"
       SourceType	      "Synphony Model Compiler Gain"
@@ -1032,17 +1161,17 @@ Model {
       BlockType		      Step
       Name		      "Step"
       SID		      "69"
-      Position		      [105, 220, 135, 250]
+      Position		      [240, 220, 270, 250]
       ZOrder		      -22
-      Time		      "200"
-      SampleTime	      "1"
+      Time		      "gmsk_syn_params.Ts*10"
+      SampleTime	      "gmsk_syn_params.Ts"
     }
     Block {
       BlockType		      Reference
       Name		      "TX_D"
       SID		      "8"
       Ports		      [1, 1]
-      Position		      [205, 135, 225, 155]
+      Position		      [335, 135, 355, 155]
       BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Ports & Subsystems/Port In"
@@ -1050,10 +1179,10 @@ Model {
       syn_out_wl	      "16"
       syn_out_fl	      "14"
       syn_out_dt	      "signed"
-      syn_out_st	      "1"
+      syn_out_st	      "gmsk_syn_params.Ts"
       syn_capture	      on
       syn_register	      off
-      syn_out_sat	      off
+      syn_out_sat	      on
       syn_out_rnd	      on
       synBlockType	      "port"
       synLatency	      "0"
@@ -1064,7 +1193,7 @@ Model {
       Name		      "TX_EN"
       SID		      "62"
       Ports		      [1, 1]
-      Position		      [205, 225, 225, 245]
+      Position		      [335, 225, 355, 245]
       BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Ports & Subsystems/Port In"
@@ -1072,7 +1201,7 @@ Model {
       syn_out_wl	      "1"
       syn_out_fl	      "0"
       syn_out_dt	      "unsigned"
-      syn_out_st	      "1"
+      syn_out_st	      "gmsk_syn_params.Ts"
       syn_capture	      on
       syn_register	      off
       syn_out_sat	      off
@@ -1086,7 +1215,7 @@ Model {
       Name		      "TX_I"
       SID		      "9"
       Ports		      [1, 1]
-      Position		      [1120, 135, 1140, 155]
+      Position		      [1325, 140, 1345, 160]
       BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Ports & Subsystems/Port Out"
@@ -1102,7 +1231,7 @@ Model {
       Name		      "TX_Q"
       SID		      "10"
       Ports		      [1, 1]
-      Position		      [1120, 180, 1140, 200]
+      Position		      [1325, 185, 1345, 205]
       BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Ports & Subsystems/Port Out"
@@ -1114,15 +1243,88 @@ Model {
       synBlockId	      "1"
     }
     Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace"
+      SID		      "120"
+      Ports		      [1]
+      Position		      [1565, 155, 1625, 185]
+      ZOrder		      -7
+      VariableName	      "tx_iq_dec"
+      MaxDataPoints	      "inf"
+      SampleTime	      "-1"
+      SaveFormat	      "Timeseries"
+    }
+    Block {
       BlockType		      Reference
-      Name		      "cos ROM"
-      SID		      "20"
+      Name		      "Unipolar to\nBipolar\nConverter"
+      SID		      "74"
       Ports		      [1, 1]
-      Position		      [950, 180, 1010, 220]
+      Position		      [200, 123, 280, 167]
+      LibraryVersion	      "1.270"
+      SourceBlock	      "commutil2/Unipolar to\nBipolar\nConverter"
+      SourceType	      "Unipolar to Bipolar Converter"
+      M			      "2"
+      polarity		      "Positive"
+      dataType		      "Inherit via internal rule"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Unwrap"
+      SID		      "81"
+      Ports		      [1, 1]
+      Position		      [1640, 272, 1685, 308]
+      ZOrder		      -13
+      LibraryVersion	      "1.726"
+      UserDataPersistent      on
+      UserData		      "DataTag2"
+      SourceBlock	      "dspsigops/Unwrap"
+      SourceType	      "Unwrap"
+      tol		      "pi"
+      InputProcessing	      "Columns as channels (frame based)"
+      running		      off
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Unwrap1"
+      SID		      "83"
+      Ports		      [1, 1]
+      Position		      [1640, 427, 1685, 463]
+      ZOrder		      -13
+      LibraryVersion	      "1.726"
+      UserDataPersistent      on
+      UserData		      "DataTag3"
+      SourceBlock	      "dspsigops/Unwrap"
+      SourceType	      "Unwrap"
+      tol		      "pi"
+      InputProcessing	      "Columns as channels (frame based)"
+      running		      off
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Unwrap2"
+      SID		      "112"
+      Ports		      [1, 1]
+      Position		      [1640, 352, 1685, 388]
+      ZOrder		      -13
+      LibraryVersion	      "1.726"
+      UserDataPersistent      on
+      UserData		      "DataTag4"
+      SourceBlock	      "dspsigops/Unwrap"
+      SourceType	      "Unwrap"
+      tol		      "pi"
+      InputProcessing	      "Columns as channels (frame based)"
+      running		      off
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "cos ROM1"
+      SID		      "102"
+      Ports		      [1, 1]
+      Position		      [1065, 135, 1125, 175]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Memories/ROM"
       SourceType	      "Synphony Model Compiler ROM"
-      syn_rom_vec	      "cos(pi*2*[0:sin_lut_length-1]/sin_lut_length)"
+      syn_rom_vec	      "0.5*cos(pi*2*[0:sin_lut_length-1]/sin_lut_length)"
       syn_out_wl	      "10"
       syn_out_fl	      "9"
       syn_out_dt	      "signed"
@@ -1134,10 +1336,34 @@ Model {
     }
     Block {
       BlockType		      Reference
-      Name		      "h"
-      SID		      "13"
+      Name		      "h1"
+      SID		      "103"
       Ports		      [1, 1]
-      Position		      [410, 125, 450, 165]
+      Position		      [620, 125, 660, 165]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Math Functions/Gain"
+      SourceType	      "Synphony Model Compiler Gain"
+      syn_gain_val	      "1/gmsk_syn_params.gauss_oversampling"
+      syn_gain_fl	      "15"
+      syn_gain_dt	      "signed"
+      syn_gain_rnd	      on
+      syn_out_f		      "Full Precision"
+      syn_out_wl	      "16"
+      syn_out_fl	      "8"
+      syn_out_dt	      "signed"
+      syn_out_sat	      off
+      syn_out_rnd	      "Floor (Truncate)"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "3"
+      syn_opr_mode	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "pi1"
+      SID		      "104"
+      Ports		      [1, 1]
+      Position		      [795, 155, 835, 195]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Math Functions/Gain"
       SourceType	      "Synphony Model Compiler Gain"
@@ -1158,38 +1384,14 @@ Model {
     }
     Block {
       BlockType		      Reference
-      Name		      "pi"
-      SID		      "14"
+      Name		      "sin ROM1"
+      SID		      "105"
       Ports		      [1, 1]
-      Position		      [690, 135, 730, 175]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Math Functions/Gain"
-      SourceType	      "Synphony Model Compiler Gain"
-      syn_gain_val	      "1/gmsk_syn_params.N"
-      syn_gain_fl	      "15"
-      syn_gain_dt	      "signed"
-      syn_gain_rnd	      on
-      syn_out_f		      "Full Precision"
-      syn_out_wl	      "16"
-      syn_out_fl	      "8"
-      syn_out_dt	      "signed"
-      syn_out_sat	      off
-      syn_out_rnd	      "Floor (Truncate)"
-      synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "3"
-      syn_opr_mode	      "0"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "sin ROM"
-      SID		      "19"
-      Ports		      [1, 1]
-      Position		      [950, 115, 1010, 155]
+      Position		      [1065, 200, 1125, 240]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Memories/ROM"
       SourceType	      "Synphony Model Compiler ROM"
-      syn_rom_vec	      "sin(pi*2*[0:gmsk_syn_params.sin_lut_length-1]/gmsk_syn_params.sin_lut_length)"
+      syn_rom_vec	      "0.5*sin(pi*2*[0:gmsk_syn_params.sin_lut_length-1]/gmsk_syn_params.sin_lut_length)"
       syn_out_wl	      "10"
       syn_out_fl	      "9"
       syn_out_dt	      "signed"
@@ -1200,173 +1402,45 @@ Model {
       synBlockId	      "62"
     }
     Line {
-      SrcBlock		      "Gaussian Filter\nFIR"
-      SrcPort		      1
-      Points		      [10, 0]
-      Branch {
-	DstBlock		"h"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 125]
-	Branch {
-	  DstBlock		  "HDL"
-	  DstPort		  2
-	}
-	Branch {
-	  Points		  [0, 85]
-	  DstBlock		  "Gauss filter"
-	  DstPort		  2
-	}
-      }
-    }
-    Line {
       SrcBlock		      "TX_I"
       SrcPort		      1
-      Points		      [25, 0; 0, 15]
+      Points		      [25, 0]
       DstBlock		      "Real-Imag to\nComplex"
       DstPort		      1
     }
     Line {
       SrcBlock		      "TX_Q"
       SrcPort		      1
-      Points		      [25, 0; 0, -15]
+      Points		      [25, 0]
       DstBlock		      "Real-Imag to\nComplex"
       DstPort		      2
     }
     Line {
-      SrcBlock		      "h"
-      SrcPort		      1
-      DstBlock		      "Accumulator"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Accumulator"
-      SrcPort		      1
-      Points		      [80, 0]
-      Branch {
-	DstBlock		"pi"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 125]
-	Branch {
-	  DstBlock		  "HDL"
-	  DstPort		  3
-	}
-	Branch {
-	  Points		  [0, 205]
-	  DstBlock		  "Gauss filter1"
-	  DstPort		  3
-	}
-      }
-    }
-    Line {
-      SrcBlock		      "Add"
-      SrcPort		      1
-      DstBlock		      "Scale [0 to 1) to\nROM address"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "cos ROM"
-      SrcPort		      1
-      Points		      [60, 0]
-      Branch {
-	Points			[0, -55]
-	DstBlock		"TX_I"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 90]
-	DstBlock		"HDL"
-	DstPort			4
-      }
-    }
-    Line {
-      SrcBlock		      "sin ROM"
-      SrcPort		      1
-      Points		      [80, 0; 0, 55]
-      Branch {
-	Points			[0, 110]
-	DstBlock		"HDL"
-	DstPort			5
-      }
-      Branch {
-	DstBlock		"TX_Q"
-	DstPort			1
-      }
-    }
-    Line {
       SrcBlock		      "Real-Imag to\nComplex"
       SrcPort		      1
-      DstBlock		      "Complex to\nMagnitude-Angle1"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "pi"
-      SrcPort		      1
-      DstBlock		      "Add"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Constant"
-      SrcPort		      1
-      Points		      [20, 0; 0, -40]
-      DstBlock		      "Add"
-      DstPort		      2
-    }
-    Line {
-      SrcBlock		      "Scale [0 to 1) to\nROM address"
-      SrcPort		      1
-      Points		      [40, 0]
+      Points		      [20, 0]
       Branch {
-	DstBlock		"sin ROM"
-	DstPort			1
+	Points			[0, 75]
+	Branch {
+	  Points		  [0, 45]
+	  DstBlock		  "Complex to\nMagnitude-Angle"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [-100, 0]
+	  DstBlock		  "Rate Transition"
+	  DstPort		  1
+	}
       }
       Branch {
-	DstBlock		"cos ROM"
+	DstBlock		"Rate Transition1"
 	DstPort			1
       }
     }
     Line {
       SrcBlock		      "TX_D"
       SrcPort		      1
-      Points		      [15, 0]
-      Branch {
-	Points			[0, 115]
-	Branch {
-	  DstBlock		  "HDL"
-	  DstPort		  1
-	}
-	Branch {
-	  Points		  [0, 75]
-	  DstBlock		  "Gauss filter"
-	  DstPort		  1
-	}
-      }
-      Branch {
-	DstBlock		"Gaussian Filter\nFIR"
-	DstPort			1
-      }
-    }
-    Line {
-      SrcBlock		      "Pulse\nGenerator"
-      SrcPort		      1
-      Points		      [45, 0]
-      Branch {
-	DstBlock		"TX_D"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 230]
-	DstBlock		"Gauss filter"
-	DstPort			3
-      }
-    }
-    Line {
-      SrcBlock		      "Complex to\nMagnitude-Angle1"
-      SrcPort		      1
-      DstBlock		      "Phase"
+      DstBlock		      "Downsample2"
       DstPort		      1
     }
     Line {
@@ -1376,38 +1450,225 @@ Model {
       DstPort		      1
     }
     Line {
-      SrcBlock		      "TX_EN"
+      SrcBlock		      "Unipolar to\nBipolar\nConverter"
       SrcPort		      1
-      Points		      [30, 0]
+      DstBlock		      "TX_D"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "GMSK\nModulator\nBaseband"
+      SrcPort		      1
+      Points		      [1010, 0]
+      DstBlock		      "Complex to\nMagnitude-Angle2"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Complex to\nMagnitude-Angle"
+      SrcPort		      1
+      DstBlock		      "Unwrap"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Complex to\nMagnitude-Angle2"
+      SrcPort		      1
+      DstBlock		      "Unwrap1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Unwrap"
+      SrcPort		      1
+      Points		      [20, 0; 0, 95]
+      DstBlock		      "HDL2"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Constant"
+      SrcPort		      1
+      Points		      [40, 0]
       Branch {
-	DstBlock		"Binary Logic"
+	DstBlock		"Unipolar to\nBipolar\nConverter"
 	DstPort			1
       }
       Branch {
-	Points			[0, 210]
-	DstBlock		"Gauss filter1"
+	Points			[0, 295]
+	DstBlock		"GMSK\nModulator\nBaseband"
 	DstPort			1
       }
     }
     Line {
-      SrcBlock		      "Binary Logic"
+      SrcBlock		      "Add1"
       SrcPort		      1
-      Points		      [110, 0]
+      DstBlock		      "Scale to address ROM"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "pi1"
+      SrcPort		      1
+      DstBlock		      "Add1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Constant1"
+      SrcPort		      1
+      Points		      [20, 0; 0, -40]
+      DstBlock		      "Add1"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Scale to address ROM"
+      SrcPort		      1
+      Points		      [40, 0]
       Branch {
-	Points			[0, 230]
-	DstBlock		"Gauss filter1"
-	DstPort			2
+	DstBlock		"sin ROM1"
+	DstPort			1
       }
       Branch {
-	Points			[30, 0; 0, -70]
-	DstBlock		"Accumulator"
+	DstBlock		"cos ROM1"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "cos ROM1"
+      SrcPort		      1
+      DstBlock		      "CIC2"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "sin ROM1"
+      SrcPort		      1
+      DstBlock		      "CIC3"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Accumulator1"
+      SrcPort		      1
+      Points		      [15, 0; 0, 20]
+      DstBlock		      "pi1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "h1"
+      SrcPort		      1
+      DstBlock		      "Accumulator1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Gaussian Filter\nFIR1"
+      SrcPort		      1
+      DstBlock		      "h1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Downsample2"
+      SrcPort		      1
+      DstBlock		      "Gaussian Filter\nFIR1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Downsample1"
+      SrcPort		      1
+      DstBlock		      "Binary Logic"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Binary Logic"
+      SrcPort		      1
+      Points		      [110, 0; 0, -70]
+      DstBlock		      "Accumulator1"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "TX_EN"
+      SrcPort		      1
+      DstBlock		      "Downsample1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Unwrap1"
+      SrcPort		      1
+      Points		      [20, 0; 0, -20]
+      DstBlock		      "HDL2"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Complex to\nMagnitude-Angle1"
+      SrcPort		      1
+      DstBlock		      "Unwrap2"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Rate Transition"
+      SrcPort		      1
+      DstBlock		      "Complex to\nMagnitude-Angle1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Unwrap2"
+      SrcPort		      1
+      Points		      [10, 0; 0, 35]
+      DstBlock		      "HDL2"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Rate Transition1"
+      SrcPort		      1
+      DstBlock		      "To Workspace"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "CIC2"
+      SrcPort		      1
+      Points		      [10, 0]
+      Branch {
+	Points			[30, 0; 0, -5]
+	DstBlock		"TX_I"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -125]
+	DstBlock		"HDL1"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "CIC3"
+      SrcPort		      1
+      Points		      [25, 0]
+      Branch {
+	Points			[15, 0; 0, -25]
+	DstBlock		"TX_Q"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -160]
+	DstBlock		"HDL1"
 	DstPort			2
       }
     }
   }
 }
 MatData {
-  NumRecords		  1
+  NumRecords		  5
+  DataRecord {
+    Tag			    DataTag4
+    Data		    "  %)30     .    B     8    (     @         %    \"     $    !     0         %  0 $P    $    3    :&%S26"
+    "YH97)I=&5D3W!T:6]N        #@   #     &    \"     D\"        !0    @    !     0    $          @ !  $    "
+  }
+  DataRecord {
+    Tag			    DataTag3
+    Data		    "  %)30     .    B     8    (     @         %    \"     $    !     0         %  0 $P    $    3    :&%S26"
+    "YH97)I=&5D3W!T:6]N        #@   #     &    \"     D\"        !0    @    !     0    $          @ !  $    "
+  }
+  DataRecord {
+    Tag			    DataTag2
+    Data		    "  %)30     .    B     8    (     @         %    \"     $    !     0         %  0 $P    $    3    :&%S26"
+    "YH97)I=&5D3W!T:6]N        #@   #     &    \"     D\"        !0    @    !     0    $          @ !  $    "
+  }
+  DataRecord {
+    Tag			    DataTag1
+    Data		    "  %)30     .    B     8    (     @         %    \"     $    !     0         %  0 $P    $    3    :&%S26"
+    "YH97)I=&5D3W!T:6]N        #@   #     &    \"     D\"        !0    @    !     0    $          @ !  $    "
+  }
   DataRecord {
     Tag			    DataTag0
     Data		    "  %)30     .    N (   8    (     @         %    \"     $    #     0         %  0 !@    $    ,    3F%M90"

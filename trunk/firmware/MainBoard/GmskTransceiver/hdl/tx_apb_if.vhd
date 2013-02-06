@@ -88,8 +88,10 @@ architecture Behavioral of TX_APB_IF is
     component gmsk_tx is
     port (
         clk : in std_logic;
+--        clkDiv20 : in std_logic;
         GlobalReset : in std_logic;
         GlobalEnable1 : in std_logic;
+--        GlobalEnable20 : in std_logic;
         TX_Q : out std_logic_vector(9 downto 0); -- sfix10_En8
         TX_I : out std_logic_vector(9 downto 0); -- sfix10_En8
         TX_EN : in std_logic; -- ufix1
@@ -100,15 +102,17 @@ architecture Behavioral of TX_APB_IF is
 
     -- Constants
 
-    constant c_SFD  : std_logic_vector(23 downto 0) := x"70EED2";
+--    constant c_SFD  : std_logic_vector(23 downto 0) := x"70EED2";
+    constant c_SFD  : std_logic_vector(23 downto 0) := x"AAAAAA"; -- Preamble
 --    constant c_SFD  : std_logic_vector(23 downto 0) := x"000000"; -- FIXME
     
     constant c_PAYLOAD_LENGTH   : integer := 4; -- bytes
 
     constant c_DATA_LENGTH : integer := 8;
 
+    constant c_DEC_DIV : integer := 20;    
+--    constant c_BAUD_DIV : integer := 8*c_DEC_DIV;     -- Samples per symbol in the modulator 
     constant c_BAUD_DIV : integer := 8;     -- Samples per symbol in the modulator 
-    constant c_TICK_DIV : integer := 12;   -- Length of the symbol in ticks
     constant c_TXD_HIGH : std_logic_vector(15 downto 0) := "0100" & x"000"; -- +1
     constant c_TXD_LOW  : std_logic_vector(15 downto 0) := "1100" & x"000"; -- -1
 
@@ -118,6 +122,7 @@ architecture Behavioral of TX_APB_IF is
 	constant c_ADDR_CTRL : std_logic_vector(7 downto 0) := x"00"; -- W (START)
 	constant c_ADDR_FIFO : std_logic_vector(7 downto 0) := x"04"; -- W
 	constant c_ADDR_TEST : std_logic_vector(7 downto 0) := x"08"; -- R/W
+	constant c_ADDR_MOD_MUX : std_logic_vector(7 downto 0) := x"0C"; -- R/W
 
 	-- Default values
 
@@ -145,7 +150,7 @@ architecture Behavioral of TX_APB_IF is
     signal s_test           : std_logic_vector(7 downto 0);
     signal s_test_ctr       : unsigned(24 downto 0);
 
-    signal s_mod_rst    : std_logic;
+--    signal s_mod_rst    : std_logic;
 
 	signal s_bit_ctr        : unsigned(5 downto 0);
 	signal s_bit_ctr_next   : unsigned(5 downto 0);
@@ -165,10 +170,12 @@ architecture Behavioral of TX_APB_IF is
 
 	signal s_start          : std_logic;
 	signal s_busy           : std_logic;
+    signal s_mod_in         : std_logic_vector(15 downto 0);
     signal s_txd            : std_logic_vector(15 downto 0);
     signal s_txd_next       : std_logic_vector(15 downto 0);
     signal s_mod_en         : std_logic;
-    signal s_mod_en_prev    : std_logic; -- For an additional tx_strobe
+    signal s_tx_en          : std_logic;
+    signal s_tx_en_prev    : std_logic; -- For an additional tx_strobe
     signal s_mod_en_next    : std_logic;
     signal s_tmp            : std_logic;
     signal s_tx_done        : std_logic;
@@ -178,10 +185,16 @@ architecture Behavioral of TX_APB_IF is
 
 	signal s_dout           : std_logic_vector(31 downto 0);
 
-	signal s_tick_ctr       : unsigned(15 downto 0);
 	signal s_baud_ctr       : unsigned(15 downto 0);
+	signal s_dec_ctr        : unsigned(15 downto 0);
 	signal s_mod_strobe       : std_logic;
 	signal s_symbol_end     : std_logic;
+
+    signal s_mod_strobe_div20 : std_logic;
+
+    signal s_mod_in_mux     : std_logic_vector(1 downto 0);
+    signal s_lfsr           : std_logic_vector(9 downto 0);
+    signal s_rnd            : std_logic_vector(15 downto 0);
 
 
 begin
@@ -212,16 +225,19 @@ begin
     u_GMSK_TX : gmsk_tx
     port map (
         clk	            =>	clk,
+--        clkDiv20	    =>	clk,
 --        GlobalReset	    =>	s_mod_rst,
         GlobalReset	    =>	rst,
         GlobalEnable1	=>	s_mod_strobe,
+--        GlobalEnable20	=>	s_mod_strobe_div20,
         TX_Q	        =>	s_tx_q,
         TX_I	        =>	s_tx_i,
-        TX_EN           =>  s_mod_en,
-        TX_D	        =>	s_txd
+        TX_EN           =>  s_tx_en,
+--        TX_D	        =>	s_txd
+        TX_D	        =>	s_mod_in
     );
 
-    s_mod_rst <= rst or (not s_mod_en);
+--    s_mod_rst <= rst or (not s_mod_en);
 
     
     -- Processes
@@ -234,6 +250,7 @@ begin
             s_tx_fifo_in <= (others => '0');
             s_tx_fifo_wr <= '0';
             s_test <= (others => '0');
+            s_mod_in_mux <= (others => '0');
 		elsif rising_edge(PCLK) then
 
 			-- Default values
@@ -251,6 +268,8 @@ begin
                         s_tx_fifo_wr <= '1';
 					when c_ADDR_TEST =>
                         s_test <= PWDATA(7 downto 0);
+					when c_ADDR_MOD_MUX =>
+                        s_mod_in_mux <= PWDATA(1 downto 0);
 					when others =>
 						null;
 				end case;
@@ -276,6 +295,8 @@ begin
 						s_dout <= s_status;
 					when c_ADDR_TEST => 
 						s_dout(7 downto 0) <= s_test;
+					when c_ADDR_MOD_MUX =>
+						s_dout(1 downto 0) <= s_mod_in_mux;
 					when others =>
 						null;
 				end case;
@@ -290,26 +311,29 @@ begin
 
 	-----------------------------------------------------------------------------
 	-- Baud timer
-    -- Symbol time = T_FPGA_CKL * c_TICK_DIV * c_BAUD_DIV
+    -- Symbol time = T_FPGA_CKL * c_BAUD_DIV
 	-----------------------------------------------------------------------------
-	p_SYMBOL_TIMER : process (rst, clk)
+	p_BAUD_TIMER : process (rst, clk)
 	begin
 		if rst = '1' then
-			s_tick_ctr <= (others => '0');
 			s_baud_ctr <= (others => '0');
             s_mod_strobe <= '0';
 			s_symbol_end <= '0';
 		elsif rising_edge(clk) then
-            s_mod_strobe <= '0';
+            s_mod_strobe_div20 <= '0';
 			s_symbol_end <= '0';
---            if s_mod_en = '1' and s_tick_ctr < to_unsigned(c_TICK_DIV-1, s_tick_ctr'length) then
---                s_tick_ctr <= s_tick_ctr + 1;
---            else
---                s_tick_ctr <= (others => '0');
---                s_mod_strobe <= '1';
---            end if;
+
             s_mod_strobe <= '1';
-            if s_mod_en = '1' and s_mod_strobe = '1' then
+--            if s_mod_en = '1' and s_mod_strobe = '1' then
+            if (s_mod_en = '1' and s_mod_strobe = '1') or s_mod_in_mux = "11" then -- FIXME
+                -- Enable signal for the decimator
+                if s_dec_ctr < to_unsigned(c_DEC_DIV-1, s_dec_ctr'length) then
+                    s_dec_ctr <= s_dec_ctr + 1;
+                else
+                    s_dec_ctr <= (others => '0');
+                    s_mod_strobe_div20 <= '1';
+                end if;
+
                 if s_baud_ctr < to_unsigned(c_BAUD_DIV-1, s_baud_ctr'length) then
                     s_baud_ctr <= s_baud_ctr + 1;
                 else
@@ -318,7 +342,7 @@ begin
                 end if;
             end if;
 		end if;
-	end process p_SYMBOL_TIMER;
+	end process p_BAUD_TIMER;
 
 
 	-----------------------------------------------------------------------------
@@ -333,7 +357,7 @@ begin
             s_mod_en <= '0';
             s_tx_state <= st_IDLE;
             s_payload_ctr <= (others => '0');
-            s_mod_rst <= '0';
+--            s_mod_rst <= '0';
 		elsif rising_edge(clk) then
 			s_bit_ctr <= s_bit_ctr_next;
 			s_buffer <= s_buffer_next;
@@ -350,7 +374,7 @@ begin
             s_tx_state <= s_tx_state_next;
             s_payload_ctr <= s_payload_ctr_next;
             s_mod_en <= s_mod_en_next;
-            s_mod_en_prev <= s_mod_en;
+            s_tx_en_prev <= s_tx_en;
 		end if;
 	end process p_TRANSMIT_FSM_SYNC;
 
@@ -445,9 +469,43 @@ begin
 
 	end process p_TRANSMIT_FSM_COMB;
 
+    with s_mod_in_mux select
+        s_mod_in <= s_txd       when "00",
+                    c_TXD_LOW   when "01",
+                    c_TXD_HIGH  when "10",
+                    s_rnd       when others;
 
-    TX_I <= s_tx_i when s_mod_en = '1' else c_TX_ZERO;
-    TX_Q <= s_tx_q when s_mod_en = '1' else c_TX_ZERO;
+    with s_mod_in_mux select
+        s_tx_en <= s_mod_en when "00",
+                    '1'     when "01",
+                    '1'     when "10",
+                    '1'     when others;
+
+
+
+    TX_I <= s_tx_i when s_tx_en = '1' else c_TX_ZERO;
+    TX_Q <= s_tx_q when s_tx_en = '1' else c_TX_ZERO;
+
+    p_PSEUDO_RANDOM_GENERATOR : process (rst, clk)
+    begin
+        if rst = '1' then
+            s_rnd <= (others => '0');
+            s_lfsr <= (1 => '1', others => '0');
+        elsif rising_edge(clk) then
+            if s_symbol_end = '1' then
+                s_lfsr <= s_lfsr(s_lfsr'high-1 downto 0) & s_lfsr(s_lfsr'high);
+    --            s_lfsr(0) <= s_lfsr(s_lfsr'high) xor '0'; -- 1
+                s_lfsr(5) <= s_lfsr(s_lfsr'high) xor s_lfsr(4); -- x^5
+                s_lfsr(9) <= s_lfsr(s_lfsr'high) xor s_lfsr(8); -- x^9
+            end if;
+            if s_lfsr(9) = '1' then
+                s_rnd <= c_TXD_HIGH;
+            else
+                s_rnd <= c_TXD_LOW;
+            end if;
+        end if;
+    end process p_PSEUDO_RANDOM_GENERATOR;
+
 
     p_TEST_CTR : process (rst, clk)
     begin
@@ -465,7 +523,7 @@ begin
 	PREADY <= '1'; -- WR
 	PSLVERR <= '0';
 
-    TX_STROBE <= s_mod_en or s_mod_en_prev;
+    TX_STROBE <= s_tx_en or s_tx_en_prev;
     TX_DONE_IRQ <= s_tx_done;
 
     TEST <= s_test_ctr(23) & s_test(0);

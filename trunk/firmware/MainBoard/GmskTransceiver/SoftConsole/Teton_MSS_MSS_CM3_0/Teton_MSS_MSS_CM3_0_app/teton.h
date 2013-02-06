@@ -42,9 +42,20 @@ typedef struct
   __IO uint32_t CTRL;                      /*!< Offset: 0x00  Control/status Register       */
   __O  uint32_t TX_FIFO;                   /*!< Offset: 0x04  Data Register             	*/
   __IO uint32_t TEST;                      /*!< Offset: 0x08  Test Register             	*/
+  __IO uint32_t MOD_MUX;                   /*!< Offset: 0x0C  Modulator input multiplexer Register */
 } TX_CTRL_Type;
 
 #define TX_CTRL            ((TX_CTRL_Type *)       TX_APB_IF_0)   /*!< TX CTRL register struct */
+
+
+typedef enum _mod_mux_path
+{
+	MOD_PATH_PACKET = 0,
+	MOD_PATH_CONST_0  	= 1,
+	MOD_PATH_CONST_1  	= 2,
+	MOD_PATH_RANDOM 	= 3
+} mod_mux_path_t;
+
 
 typedef struct
 {
@@ -64,13 +75,13 @@ typedef enum _afe_mode
 	AFE_TX_MODE = 1,
 } afe_mode_t;
 
-typedef enum _mux_mode
+typedef enum _afe_mux_path
 {
 	MUX_PATH_OFF = 0,
 	MUX_PATH_RX  = 1,
 	MUX_PATH_TX  = 2,
 	MUX_PATH_IQ_REG = 3
-} mux_mode_t;
+} afe_mux_path_t;
 
 
 

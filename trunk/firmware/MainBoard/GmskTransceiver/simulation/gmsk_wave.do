@@ -67,7 +67,6 @@ sim:/testbench/Teton_0/TX_APB_IF_0/u_GMSK_TX/N_17
 add wave  \
 sim:/testbench/Teton_0/TX_APB_IF_0/u_GMSK_TX/GlobalEnable1
 add wave  \
-sim:/testbench/Teton_0/TX_APB_IF_0/u_GMSK_TX/Accumulator_block/myAccumulator/accS \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_mod_en
 
 
@@ -86,16 +85,16 @@ sim:/testbench/Teton_0/AFE2_IF/s_obuf \
 sim:/testbench/Teton_0/AFE2_IF/s_tx_i \
 sim:/testbench/Teton_0/AFE2_IF/s_tx_q
 
+#-analog-step -min -16384 -max 16384 -height 50 \
+#-label {Gaussian FIR in} sim:/testbench/Teton_0/TX_APB_IF_0/u_GMSK_TX/Gaussian_Filter_FIR_block/myGaussian_Filter_FIR/inp \
+#-analog-step -min -16384 -max 16384 -height 50 \
+#-label {Gaussian FIR out} sim:/testbench/Teton_0/TX_APB_IF_0/u_GMSK_TX/Gaussian_Filter_FIR_block/myGaussian_Filter_FIR/outp \
+#-analog-step -min -4294967296 -max 4294967296 -height 50 \
+#-label {Integrator out} \
+#sim:/testbench/Teton_0/TX_APB_IF_0/u_GMSK_TX/N_5 \
 
 add wave \
 -group {TX WAVEFORMS} \
--analog-step -min -16384 -max 16384 -height 50 \
--label {Gaussian FIR in} sim:/testbench/Teton_0/TX_APB_IF_0/u_GMSK_TX/Gaussian_Filter_FIR_block/myGaussian_Filter_FIR/inp \
--analog-step -min -16384 -max 16384 -height 50 \
--label {Gaussian FIR out} sim:/testbench/Teton_0/TX_APB_IF_0/u_GMSK_TX/Gaussian_Filter_FIR_block/myGaussian_Filter_FIR/outp \
--analog-step -min -4294967296 -max 4294967296 -height 50 \
--label {Integrator out} \
-sim:/testbench/Teton_0/TX_APB_IF_0/u_GMSK_TX/N_5 \
 -analog-step -min -512 -max 512 -height 100 \
 -label {TX I} sim:/testbench/Teton_0/TX_APB_IF_0/TX_I \
 -label {TX Q} sim:/testbench/Teton_0/TX_APB_IF_0/TX_Q \
@@ -197,6 +196,15 @@ sim:/testbench/Teton_0/RX_APB_IF_0/PRDATA \
 sim:/testbench/Teton_0/RX_APB_IF_0/PSLVERR \
 sim:/testbench/Teton_0/RX_APB_IF_0/SFD_IRQ
 
+add wave  \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_lfsr \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_mod_en \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_mod_in \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_mod_in_mux \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_mod_strobe \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_rnd \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_symbol_end
 
-run 2 ms
+
+run 3 ms
 wave zoom full

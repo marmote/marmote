@@ -34,6 +34,8 @@ CMD_Type CMD_List[] =
 	{"iq",   CmdIQ},
 	{"mux1",  CmdMux1},
 	{"mux2",  CmdMux2},
+
+	{"modmux",  CmdModMux},
 	{NULL,   NULL}
 };
 
@@ -942,5 +944,75 @@ uint32_t CmdMux2(uint32_t argc, char** argv)
 
 	// Send help message
 	Yellowstone_print("\r\nUsage: mux2 [<index>]");
+	return 1;
+}
+
+
+uint32_t CmdModMux(uint32_t argc, char** argv)
+{
+	char buf[128];
+	uint32_t mux;
+
+	if (argc == 1)
+	{
+		mux = TX_CTRL->MOD_MUX & 0x3;
+		sprintf( buf, "\r\nActive path: ");
+		Yellowstone_print(buf);
+		switch (mux)
+		{
+			case 0x0 :
+				sprintf( buf, "PACKET");
+				break;
+			case 0x1 :
+				sprintf( buf, "CONST 0" );
+				break;
+			case 0x2 :
+				sprintf( buf, "CONST 1" );
+				break;
+			case 0x3 :
+				sprintf( buf, "RANDOM" );
+				break;
+		}
+		Yellowstone_print(buf);
+		sprintf(buf, "\r\nMOD MUX: %u", (unsigned)TX_CTRL->MOD_MUX);
+		Yellowstone_print(buf);
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		mux = atoi(*(argv+1)) & 0x3;
+		if ((mux || !strcmp(*(argv+1), "0")))
+		{
+			TX_CTRL->MOD_MUX = mux;
+
+			// Readback
+			mux = TX_CTRL->MOD_MUX & 0x3;
+			sprintf( buf, "\r\nActive path: ");
+			Yellowstone_print(buf);
+			switch (mux)
+			{
+				case 0x0 :
+					sprintf( buf, "PACKET");
+					break;
+				case 0x1 :
+					sprintf( buf, "CONST 0" );
+					break;
+				case 0x2 :
+					sprintf( buf, "CONST 1" );
+					break;
+				case 0x3 :
+					sprintf( buf, "RANDOM" );
+					break;
+			}
+			Yellowstone_print(buf);
+			sprintf(buf, "\r\nMOD MUX: %u", (unsigned)TX_CTRL->MOD_MUX);
+			Yellowstone_print(buf);
+			return 0;
+		}
+	}
+
+	// Send help message
+	Yellowstone_print("\r\nUsage: modmux [<index>]");
 	return 1;
 }
