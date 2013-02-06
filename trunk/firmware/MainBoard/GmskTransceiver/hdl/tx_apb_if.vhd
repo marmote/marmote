@@ -52,11 +52,9 @@ entity TX_APB_IF is
 
          TX_DONE_IRQ : out std_logic;
 
-         TEST       : out std_logic_vector(1 downto 0);
-
          TX_STROBE  : out std_logic;
-         TX_I       : out std_logic_vector(9 downto 0);
-         TX_Q       : out std_logic_vector(9 downto 0)
+         TX_D       : out std_logic_vector(15 downto 0); -- FIXME: make (1 downto 0)
+         TX_EN      : out std_logic
      );
 
 end entity;
@@ -148,7 +146,6 @@ architecture Behavioral of TX_APB_IF is
     signal s_tx_state_next  : tx_state_t;
 
     signal s_test           : std_logic_vector(7 downto 0);
-    signal s_test_ctr       : unsigned(24 downto 0);
 
 --    signal s_mod_rst    : std_logic;
 
@@ -222,20 +219,20 @@ begin
         AEMPTY  => s_tx_fifo_aempty
 	);
 
-    u_GMSK_TX : gmsk_tx
-    port map (
-        clk	            =>	clk,
---        clkDiv20	    =>	clk,
---        GlobalReset	    =>	s_mod_rst,
-        GlobalReset	    =>	rst,
-        GlobalEnable1	=>	s_mod_strobe,
---        GlobalEnable20	=>	s_mod_strobe_div20,
-        TX_Q	        =>	s_tx_q,
-        TX_I	        =>	s_tx_i,
-        TX_EN           =>  s_tx_en,
---        TX_D	        =>	s_txd
-        TX_D	        =>	s_mod_in
-    );
+--    u_GMSK_TX : gmsk_tx
+--    port map (
+--        clk	            =>	clk,
+----        clkDiv20	    =>	clk,
+----        GlobalReset	    =>	s_mod_rst,
+--        GlobalReset	    =>	rst,
+--        GlobalEnable1	=>	s_mod_strobe,
+----        GlobalEnable20	=>	s_mod_strobe_div20,
+--        TX_Q	        =>	s_tx_q,
+--        TX_I	        =>	s_tx_i,
+--        TX_EN           =>  s_tx_en,
+----        TX_D	        =>	s_txd
+--        TX_D	        =>	s_mod_in
+--    );
 
 --    s_mod_rst <= rst or (not s_mod_en);
 
@@ -469,22 +466,6 @@ begin
 
 	end process p_TRANSMIT_FSM_COMB;
 
-    with s_mod_in_mux select
-        s_mod_in <= s_txd       when "00",
-                    c_TXD_LOW   when "01",
-                    c_TXD_HIGH  when "10",
-                    s_rnd       when others;
-
-    with s_mod_in_mux select
-        s_tx_en <= s_mod_en when "00",
-                    '1'     when "01",
-                    '1'     when "10",
-                    '1'     when others;
-
-
-
-    TX_I <= s_tx_i when s_tx_en = '1' else c_TX_ZERO;
-    TX_Q <= s_tx_q when s_tx_en = '1' else c_TX_ZERO;
 
     p_PSEUDO_RANDOM_GENERATOR : process (rst, clk)
     begin
@@ -506,15 +487,18 @@ begin
         end if;
     end process p_PSEUDO_RANDOM_GENERATOR;
 
+    -- Modulator input multiplexers
+    with s_mod_in_mux select
+        s_mod_in <= s_txd       when "00",
+                    c_TXD_LOW   when "01",
+                    c_TXD_HIGH  when "10",
+                    s_rnd       when others;
 
-    p_TEST_CTR : process (rst, clk)
-    begin
-        if rst = '1' then
-            s_test_ctr <= (others => '0');
-        elsif rising_edge(clk) then
-            s_test_ctr <= s_test_ctr + 1;
-        end if;
-    end process p_TEST_CTR;
+    with s_mod_in_mux select
+        s_tx_en <= s_mod_en when "00",
+                    '1'     when "01",
+                    '1'     when "10",
+                    '1'     when others;
 
 
     -- Output assignment
@@ -524,8 +508,10 @@ begin
 	PSLVERR <= '0';
 
     TX_STROBE <= s_tx_en or s_tx_en_prev;
-    TX_DONE_IRQ <= s_tx_done;
 
-    TEST <= s_test_ctr(23) & s_test(0);
+    TX_EN <= s_tx_en;
+    TX_D <= s_mod_in;
+
+    TX_DONE_IRQ <= s_tx_done;
 
 end Behavioral;
