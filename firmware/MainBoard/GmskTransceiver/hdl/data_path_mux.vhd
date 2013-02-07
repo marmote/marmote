@@ -69,18 +69,18 @@ begin
         OUT_STROBE <= IN_0_STROBE when "00",
                       IN_1_STROBE when "01",
                       IN_2_STROBE when "10",
-                      IN_3_STROBE when "11";
+                      IN_3_STROBE when others;
 
     with MUX_SEL select
         OUT_I <= IN_0_I when "00",
                  IN_1_I when "01",
                  IN_2_I when "10",
-                 IN_3_I when "11";
+                 IN_3_I when others;
 
     with MUX_SEL select
         OUT_Q <= IN_0_Q when "00",
                  IN_1_Q when "01",
                  IN_2_Q when "10",
-                 IN_3_Q when "11";
+                 IN_3_Q when others;
 
 end Behavioral;
