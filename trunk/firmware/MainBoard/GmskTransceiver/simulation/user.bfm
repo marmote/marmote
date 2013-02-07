@@ -65,11 +65,11 @@ write w TX_APB_IF_0 TX_CTRL 0x01; # start
 wait 500;
 wait 500;
 
-write w TX_APB_IF_0 TX_MOD_MUX 0x01;
-wait 500;
-write w TX_APB_IF_0 TX_MOD_MUX 0x02;
-wait 500;
-write w TX_APB_IF_0 TX_MOD_MUX 0x03;
+#write w TX_APB_IF_0 TX_MOD_MUX 0x01;
+#wait 500;
+#write w TX_APB_IF_0 TX_MOD_MUX 0x02;
+#wait 500;
+#write w TX_APB_IF_0 TX_MOD_MUX 0x03;
 #wait 10;
 
 wait 500;
@@ -89,11 +89,11 @@ wait 500;
 wait 500;
 wait 100;
 
-readcheck w RX_APB_IF_0 0x04 0x00;
-readcheck w RX_APB_IF_0 0x04 0xAB;
-readcheck w RX_APB_IF_0 0x04 0xCD;
-readcheck w RX_APB_IF_0 0x04 0xEF;
-readcheck w RX_APB_IF_0 0x04 0x01;
+#readcheck w RX_APB_IF_0 0x04 0x00;
+#readcheck w RX_APB_IF_0 0x04 0xAB;
+#readcheck w RX_APB_IF_0 0x04 0xCD;
+#readcheck w RX_APB_IF_0 0x04 0xEF;
+#readcheck w RX_APB_IF_0 0x04 0x01;
 
 #read w RX_APB_IF_0 0x04;
 #read w RX_APB_IF_0 0x04;

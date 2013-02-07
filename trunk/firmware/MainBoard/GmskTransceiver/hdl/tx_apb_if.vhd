@@ -52,6 +52,8 @@ entity TX_APB_IF is
 
          TX_DONE_IRQ : out std_logic;
 
+         CLK_DIV    : out std_logic;
+         EN_DIV    : out std_logic;
          TX_STROBE  : out std_logic;
          TX_D       : out std_logic_vector(15 downto 0); -- FIXME: make (1 downto 0)
          TX_EN      : out std_logic
@@ -109,8 +111,8 @@ architecture Behavioral of TX_APB_IF is
     constant c_DATA_LENGTH : integer := 8;
 
     constant c_DEC_DIV : integer := 20;    
---    constant c_BAUD_DIV : integer := 8*c_DEC_DIV;     -- Samples per symbol in the modulator 
-    constant c_BAUD_DIV : integer := 8;     -- Samples per symbol in the modulator 
+    constant c_BAUD_DIV : integer := 8*c_DEC_DIV;     -- Samples per symbol in the modulator 
+--    constant c_BAUD_DIV : integer := 8;     -- Samples per symbol in the modulator 
     constant c_TXD_HIGH : std_logic_vector(15 downto 0) := "0100" & x"000"; -- +1
     constant c_TXD_LOW  : std_logic_vector(15 downto 0) := "1100" & x"000"; -- -1
 
@@ -184,10 +186,9 @@ architecture Behavioral of TX_APB_IF is
 
 	signal s_baud_ctr       : unsigned(15 downto 0);
 	signal s_dec_ctr        : unsigned(15 downto 0);
-	signal s_mod_strobe       : std_logic;
 	signal s_symbol_end     : std_logic;
-
-    signal s_mod_strobe_div20 : std_logic;
+	signal s_clk_div        : std_logic;
+	signal s_en_div        : std_logic;
 
     signal s_mod_in_mux     : std_logic_vector(1 downto 0);
     signal s_lfsr           : std_logic_vector(9 downto 0);
@@ -218,23 +219,6 @@ begin
         AFULL   => open,
         AEMPTY  => s_tx_fifo_aempty
 	);
-
---    u_GMSK_TX : gmsk_tx
---    port map (
---        clk	            =>	clk,
-----        clkDiv20	    =>	clk,
-----        GlobalReset	    =>	s_mod_rst,
---        GlobalReset	    =>	rst,
---        GlobalEnable1	=>	s_mod_strobe,
-----        GlobalEnable20	=>	s_mod_strobe_div20,
---        TX_Q	        =>	s_tx_q,
---        TX_I	        =>	s_tx_i,
---        TX_EN           =>  s_tx_en,
-----        TX_D	        =>	s_txd
---        TX_D	        =>	s_mod_in
---    );
-
---    s_mod_rst <= rst or (not s_mod_en);
 
     
     -- Processes
@@ -314,21 +298,28 @@ begin
 	begin
 		if rst = '1' then
 			s_baud_ctr <= (others => '0');
-            s_mod_strobe <= '0';
 			s_symbol_end <= '0';
+            s_clk_div <= '0';
+            s_en_div <= '0';
 		elsif rising_edge(clk) then
-            s_mod_strobe_div20 <= '0';
 			s_symbol_end <= '0';
+            s_en_div <= '0';
 
-            s_mod_strobe <= '1';
---            if s_mod_en = '1' and s_mod_strobe = '1' then
-            if (s_mod_en = '1' and s_mod_strobe = '1') or s_mod_in_mux = "11" then -- FIXME
+--            if s_mod_en = '1' then
+            if s_mod_en = '1' or s_mod_in_mux = "11" then -- FIXME
                 -- Enable signal for the decimator
                 if s_dec_ctr < to_unsigned(c_DEC_DIV-1, s_dec_ctr'length) then
                     s_dec_ctr <= s_dec_ctr + 1;
                 else
                     s_dec_ctr <= (others => '0');
-                    s_mod_strobe_div20 <= '1';
+                end if;
+                if s_dec_ctr < to_unsigned(c_DEC_DIV/2, s_dec_ctr'length) then
+                    s_clk_div <= '0';
+                else
+                    s_clk_div <= '1';
+                end if;
+                if s_dec_ctr = to_unsigned(1, s_dec_ctr'length) then
+                    s_en_div <= '1';
                 end if;
 
                 if s_baud_ctr < to_unsigned(c_BAUD_DIV-1, s_baud_ctr'length) then
@@ -337,6 +328,9 @@ begin
                     s_baud_ctr <= (others => '0');
                     s_symbol_end <= '1';
                 end if;
+            else
+                s_dec_ctr <= (others => '0');
+                s_baud_ctr <= (others => '0');
             end if;
 		end if;
 	end process p_BAUD_TIMER;
@@ -354,6 +348,7 @@ begin
             s_mod_en <= '0';
             s_tx_state <= st_IDLE;
             s_payload_ctr <= (others => '0');
+            s_tx_en_prev <= '0';
 --            s_mod_rst <= '0';
 		elsif rising_edge(clk) then
 			s_bit_ctr <= s_bit_ctr_next;
@@ -507,6 +502,9 @@ begin
 	PREADY <= '1'; -- WR
 	PSLVERR <= '0';
 
+--    CLK_DIV <= s_clk_div;
+    CLK_DIV <= clk;
+    EN_DIV  <= s_en_div;
     TX_STROBE <= s_tx_en or s_tx_en_prev;
 
     TX_EN <= s_tx_en;

@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.149"
+    ComputedModelVersion    "1.181"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -30,16 +30,16 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "sszilvasi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Feb 06 09:17:54 2013"
-  RTWModifiedTimeStamp	  281984648
-  ModelVersionFormat	  "1.%<AutoIncrement:149>"
+  LastModifiedDate	  "Thu Feb 07 12:04:12 2013"
+  RTWModifiedTimeStamp	  282139451
+  ModelVersionFormat	  "1.%<AutoIncrement:181>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  on
   LibraryLinkDisplay	  "disabled"
   WideLines		  off
   ShowLineDimensions	  off
-  ShowPortDataTypes	  off
+  ShowPortDataTypes	  on
   ShowDesignRanges	  off
   ShowLoopsOnError	  on
   IgnoreBidirectionalLines off
@@ -136,7 +136,7 @@ Model {
 	  $ObjectID		  3
 	  Version		  "1.12.0"
 	  StartTime		  "0.0"
-	  StopTime		  "1e-2"
+	  StopTime		  "1e-4"
 	  AbsTol		  "auto"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
@@ -743,7 +743,7 @@ Model {
   }
   System {
     Name		    "gmsk_tx"
-    Location		    [2, 74, 1918, 1139]
+    Location		    [2, 82, 1918, 1147]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -757,13 +757,31 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "123"
+    SIDHighWatermark	    "174"
+    Block {
+      BlockType		      Reference
+      Name		      "AFE zero"
+      SID		      "130"
+      Ports		      [0, 1]
+      Position		      [1030, 45, 1070, 85]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Sources/Constant"
+      SourceType	      "Synphony Model Compiler Constant"
+      syn_cst_val	      "0"
+      syn_cst_fl	      "9"
+      syn_cst_dt	      "signed"
+      syn_cst_rnd	      on
+      syn_cst_st	      "-1"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "15"
+    }
     Block {
       BlockType		      Reference
       Name		      "Accumulator1"
       SID		      "93"
       Ports		      [2, 1]
-      Position		      [710, 135, 750, 175]
+      Position		      [695, 175, 735, 215]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Math Functions/Accumulator"
       SourceType	      "Synphony Model Compiler Accumulator"
@@ -784,7 +802,7 @@ Model {
       Name		      "Add1"
       SID		      "94"
       Ports		      [2, 1]
-      Position		      [895, 165, 935, 205]
+      Position		      [870, 185, 910, 225]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Math Functions/Add"
       SourceType	      "Synphony Model Compiler Add"
@@ -805,7 +823,7 @@ Model {
       Name		      "Bernoulli Binary\nGenerator"
       SID		      "73"
       Ports		      [0, 1]
-      Position		      [420, 638, 500, 682]
+      Position		      [30, 163, 110, 207]
       LibraryVersion	      "1.111"
       FontName		      "Arial"
       SourceBlock	      "commrandsrc2/Bernoulli Binary\nGenerator"
@@ -819,75 +837,11 @@ Model {
       outDataType	      "double"
     }
     Block {
-      BlockType		      Reference
-      Name		      "Binary Logic"
-      SID		      "107"
-      Ports		      [1, 1]
-      Position		      [520, 216, 575, 254]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Math Functions/Binary Logic"
-      SourceType	      "Synphony Model Compiler Binary Logic"
-      syn_binlog_exp	      "~a"
-      synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "13"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "CIC2"
-      SID		      "95"
-      Ports		      [1, 1]
-      Position		      [1160, 125, 1220, 185]
-      AttributesFormatString  "0.7812500000"
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Filtering/CIC"
-      SourceType	      "Synphony Model Compiler CIC"
-      syn_cic_type	      "Interpolator"
-      syn_m_val		      "1"
-      syn_r_val		      "gmsk_syn_params.interpolation_factor"
-      syn_n_val		      "3"
-      syn_out_f		      "Specify"
-      syn_out_wl	      "10"
-      syn_out_fl	      "9"
-      syn_out_dt	      "signed"
-      syn_out_sat	      off
-      syn_out_rnd	      off
-      syn_rst_port	      off
-      syn_en_port	      off
-      synBlockType	      "custom"
-      synLatency	      "0"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "CIC3"
-      SID		      "96"
-      Ports		      [1, 1]
-      Position		      [1160, 190, 1220, 250]
-      AttributesFormatString  "0.7812500000"
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Filtering/CIC"
-      SourceType	      "Synphony Model Compiler CIC"
-      syn_cic_type	      "Interpolator"
-      syn_m_val		      "1"
-      syn_r_val		      "gmsk_syn_params.interpolation_factor"
-      syn_n_val		      "3"
-      syn_out_f		      "Specify"
-      syn_out_wl	      "10"
-      syn_out_fl	      "9"
-      syn_out_dt	      "signed"
-      syn_out_sat	      off
-      syn_out_rnd	      off
-      syn_rst_port	      off
-      syn_en_port	      off
-      synBlockType	      "custom"
-      synLatency	      "0"
-    }
-    Block {
       BlockType		      ComplexToMagnitudeAngle
       Name		      "Complex to\nMagnitude-Angle"
       SID		      "80"
       Ports		      [1, 1]
-      Position		      [1565, 275, 1595, 305]
+      Position		      [1500, 310, 1530, 340]
       ZOrder		      -6
       Output		      "Angle"
     }
@@ -896,7 +850,7 @@ Model {
       Name		      "Complex to\nMagnitude-Angle1"
       SID		      "111"
       Ports		      [1, 1]
-      Position		      [1565, 355, 1595, 385]
+      Position		      [1500, 390, 1530, 420]
       ZOrder		      -6
       Output		      "Angle"
     }
@@ -905,7 +859,7 @@ Model {
       Name		      "Complex to\nMagnitude-Angle2"
       SID		      "82"
       Ports		      [1, 1]
-      Position		      [1565, 430, 1595, 460]
+      Position		      [1500, 465, 1530, 495]
       ZOrder		      -6
       Output		      "Angle"
     }
@@ -913,7 +867,7 @@ Model {
       BlockType		      Constant
       Name		      "Constant"
       SID		      "122"
-      Position		      [85, 130, 115, 160]
+      Position		      [195, 525, 225, 555]
       ZOrder		      -5
       SampleTime	      "gmsk_syn_params.Ts*gmsk_syn_params.symbol_time"
     }
@@ -922,7 +876,7 @@ Model {
       Name		      "Constant1"
       SID		      "97"
       Ports		      [0, 1]
-      Position		      [790, 213, 835, 257]
+      Position		      [765, 233, 810, 277]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Sources/Constant"
       SourceType	      "Synphony Model Compiler Constant"
@@ -937,42 +891,35 @@ Model {
     }
     Block {
       BlockType		      Reference
-      Name		      "Downsample1"
-      SID		      "108"
+      Name		      "Convert"
+      SID		      "174"
       Ports		      [1, 1]
-      Position		      [425, 215, 465, 255]
+      Position		      [940, 185, 1000, 225]
       LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Signal Operations/Downsample"
-      SourceType	      "Synphony Model Compiler Downsample"
-      syn_r_val		      "gmsk_syn_params.interpolation_factor"
-      syn_sample_offset	      "0"
-      syn_sync_mode	      "No Sync"
+      SourceBlock	      "shlslibv1/Signal Operations/Convert"
+      SourceType	      "Synphony Model Compiler Convert"
+      syn_preshift_opr	      "none"
+      syn_preshift_bits	      "0"
+      syn_preshift_val	      "0"
+      syn_out_f		      "Specify"
+      syn_out_wl	      "11"
+      syn_out_fl	      "8"
+      syn_out_dt_sync	      "signed"
+      syn_out_sat	      off
+      syn_out_rnd	      "Floor (Truncate)"
+      syn_inh_port	      off
+      syn_inh_st	      off
+      syn_inh_stf	      "1"
       synBlockType	      "primitive"
       synLatency	      "0"
-      synBlockId	      "7"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Downsample2"
-      SID		      "98"
-      Ports		      [1, 1]
-      Position		      [425, 125, 465, 165]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Signal Operations/Downsample"
-      SourceType	      "Synphony Model Compiler Downsample"
-      syn_r_val		      "gmsk_syn_params.interpolation_factor"
-      syn_sample_offset	      "0"
-      syn_sync_mode	      "No Sync"
-      synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "7"
+      synBlockId	      "4"
     }
     Block {
       BlockType		      Reference
       Name		      "GMSK\nModulator\nBaseband"
       SID		      "76"
       Ports		      [1, 1]
-      Position		      [460, 414, 535, 466]
+      Position		      [460, 454, 535, 506]
       LibraryVersion	      "1.335"
       UserDataPersistent      on
       UserData		      "DataTag1"
@@ -992,7 +939,7 @@ Model {
       Name		      "Gaussian Filter\nFIR1"
       SID		      "100"
       Ports		      [1, 1]
-      Position		      [515, 115, 575, 175]
+      Position		      [525, 155, 585, 215]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Filtering/FIR"
       SourceType	      "Synphony Model Compiler FIR"
@@ -1022,7 +969,7 @@ Model {
       Name		      "HDL1"
       SID		      "113"
       Ports		      [2]
-      Position		      [1285, 17, 1320, 73]
+      Position		      [1310, 22, 1345, 78]
       ZOrder		      -16
       Floating		      off
       Location		      [315, 43, 1915, 1194]
@@ -1054,10 +1001,10 @@ Model {
       Name		      "HDL2"
       SID		      "84"
       Ports		      [3]
-      Position		      [1750, 377, 1785, 433]
+      Position		      [1685, 412, 1720, 468]
       ZOrder		      -16
       Floating		      off
-      Location		      [1921, 48, 3521, 1199]
+      Location		      [315, 43, 1915, 1194]
       Open		      off
       NumInputPorts	      "3"
       List {
@@ -1085,11 +1032,64 @@ Model {
       SampleTime	      "0"
     }
     Block {
+      BlockType		      Reference
+      Name		      "Inverter"
+      SID		      "141"
+      Ports		      [1, 1]
+      Position		      [535, 255, 575, 295]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Math Functions/Inverter"
+      SourceType	      "Synphony Model Compiler Inverter"
+      syn_out_f		      "Automatic"
+      syn_out_wl	      "16"
+      syn_out_fl	      "8"
+      syn_out_dt	      "signed"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "10"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Mux"
+      SID		      "131"
+      Ports		      [3, 1]
+      Position		      [1175, 100, 1215, 160]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Signal Operations/Mux"
+      SourceType	      "Synphony Model Compiler Mux"
+      syn_in_nb		      "2"
+      syn_out_f		      "Full Precision"
+      syn_out_wl	      "16"
+      syn_out_fl	      "8"
+      syn_out_dt	      "signed"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "16"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Mux1"
+      SID		      "132"
+      Ports		      [3, 1]
+      Position		      [1175, 205, 1215, 265]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Signal Operations/Mux"
+      SourceType	      "Synphony Model Compiler Mux"
+      syn_in_nb		      "2"
+      syn_out_f		      "Full Precision"
+      syn_out_wl	      "16"
+      syn_out_fl	      "8"
+      syn_out_dt	      "signed"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "16"
+    }
+    Block {
       BlockType		      DiscretePulseGenerator
       Name		      "Pulse\nGenerator"
       SID		      "35"
       Ports		      [0, 1]
-      Position		      [85, 49, 115, 81]
+      Position		      [85, 89, 115, 121]
       ZOrder		      -13
       Period		      "gmsk_syn_params.symbol_time*8"
       PulseWidth	      "gmsk_syn_params.symbol_time"
@@ -1100,7 +1100,7 @@ Model {
       BlockType		      RateTransition
       Name		      "Rate Transition"
       SID		      "110"
-      Position		      [1360, 349, 1400, 391]
+      Position		      [1375, 384, 1415, 426]
       ZOrder		      -10
       OutPortSampleTime	      "gmsk_syn_params.Ts*gmsk_syn_params.symbol_time/gmsk_syn_params.gauss_oversampling"
     }
@@ -1108,7 +1108,7 @@ Model {
       BlockType		      RateTransition
       Name		      "Rate Transition1"
       SID		      "121"
-      Position		      [1480, 149, 1520, 191]
+      Position		      [1415, 159, 1455, 201]
       ZOrder		      -10
       OutPortSampleTime	      "gmsk_syn_params.Ts"
     }
@@ -1117,14 +1117,14 @@ Model {
       Name		      "Real-Imag to\nComplex"
       SID		      "7"
       Ports		      [2, 1]
-      Position		      [1390, 153, 1420, 182]
+      Position		      [1325, 163, 1355, 192]
     }
     Block {
       BlockType		      Reference
       Name		      "SHLSTool"
       SID		      "17"
       Ports		      []
-      Position		      [1635, 50, 1675, 90]
+      Position		      [1570, 85, 1610, 125]
       ForegroundColor	      "[0.501961, 0.000000, 0.000000]"
       BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
       LibraryVersion	      "1.3722"
@@ -1135,35 +1135,29 @@ Model {
     }
     Block {
       BlockType		      Reference
-      Name		      "Scale to address ROM"
-      SID		      "101"
-      Ports		      [1, 1]
-      Position		      [965, 165, 1005, 205]
+      Name		      "SinCos"
+      SID		      "142"
+      Ports		      [1, 2]
+      Position		      [1030, 185, 1090, 225]
       LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Math Functions/Gain"
-      SourceType	      "Synphony Model Compiler Gain"
-      syn_gain_val	      "sin_lut_length"
-      syn_gain_fl	      "15"
-      syn_gain_dt	      "signed"
-      syn_gain_rnd	      on
+      SourceBlock	      "shlslibv1/Math Functions/SinCos"
+      SourceType	      "Synphony Model Compiler SinCos"
+      syn_sincos_opr	      "sin&cos"
+      syn_sincos_amp	      "1"
       syn_out_f		      "Specify"
-      syn_out_wl	      "6"
-      syn_out_fl	      "0"
-      syn_out_dt	      "unsigned"
-      syn_out_sat	      off
-      syn_out_rnd	      "Floor (Truncate)"
+      syn_out_wl	      "10"
+      syn_out_fl	      "8"
       synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "3"
-      syn_opr_mode	      "0"
+      synLatency	      "1"
+      synBlockId	      "65"
     }
     Block {
       BlockType		      Step
       Name		      "Step"
       SID		      "69"
-      Position		      [240, 220, 270, 250]
+      Position		      [240, 260, 270, 290]
       ZOrder		      -22
-      Time		      "gmsk_syn_params.Ts*10"
+      Time		      "gmsk_syn_params.Ts*100"
       SampleTime	      "gmsk_syn_params.Ts"
     }
     Block {
@@ -1171,7 +1165,7 @@ Model {
       Name		      "TX_D"
       SID		      "8"
       Ports		      [1, 1]
-      Position		      [335, 135, 355, 155]
+      Position		      [335, 160, 355, 180]
       BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Ports & Subsystems/Port In"
@@ -1193,7 +1187,7 @@ Model {
       Name		      "TX_EN"
       SID		      "62"
       Ports		      [1, 1]
-      Position		      [335, 225, 355, 245]
+      Position		      [335, 265, 355, 285]
       BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Ports & Subsystems/Port In"
@@ -1215,7 +1209,7 @@ Model {
       Name		      "TX_I"
       SID		      "9"
       Ports		      [1, 1]
-      Position		      [1325, 140, 1345, 160]
+      Position		      [1260, 120, 1280, 140]
       BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Ports & Subsystems/Port Out"
@@ -1231,7 +1225,7 @@ Model {
       Name		      "TX_Q"
       SID		      "10"
       Ports		      [1, 1]
-      Position		      [1325, 185, 1345, 205]
+      Position		      [1260, 225, 1280, 245]
       BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Ports & Subsystems/Port Out"
@@ -1247,7 +1241,7 @@ Model {
       Name		      "To Workspace"
       SID		      "120"
       Ports		      [1]
-      Position		      [1565, 155, 1625, 185]
+      Position		      [1500, 165, 1560, 195]
       ZOrder		      -7
       VariableName	      "tx_iq_dec"
       MaxDataPoints	      "inf"
@@ -1259,7 +1253,7 @@ Model {
       Name		      "Unipolar to\nBipolar\nConverter"
       SID		      "74"
       Ports		      [1, 1]
-      Position		      [200, 123, 280, 167]
+      Position		      [200, 163, 280, 207]
       LibraryVersion	      "1.270"
       SourceBlock	      "commutil2/Unipolar to\nBipolar\nConverter"
       SourceType	      "Unipolar to Bipolar Converter"
@@ -1272,7 +1266,7 @@ Model {
       Name		      "Unwrap"
       SID		      "81"
       Ports		      [1, 1]
-      Position		      [1640, 272, 1685, 308]
+      Position		      [1575, 307, 1620, 343]
       ZOrder		      -13
       LibraryVersion	      "1.726"
       UserDataPersistent      on
@@ -1288,7 +1282,7 @@ Model {
       Name		      "Unwrap1"
       SID		      "83"
       Ports		      [1, 1]
-      Position		      [1640, 427, 1685, 463]
+      Position		      [1575, 462, 1620, 498]
       ZOrder		      -13
       LibraryVersion	      "1.726"
       UserDataPersistent      on
@@ -1304,7 +1298,7 @@ Model {
       Name		      "Unwrap2"
       SID		      "112"
       Ports		      [1, 1]
-      Position		      [1640, 352, 1685, 388]
+      Position		      [1575, 387, 1620, 423]
       ZOrder		      -13
       LibraryVersion	      "1.726"
       UserDataPersistent      on
@@ -1317,29 +1311,10 @@ Model {
     }
     Block {
       BlockType		      Reference
-      Name		      "cos ROM1"
-      SID		      "102"
-      Ports		      [1, 1]
-      Position		      [1065, 135, 1125, 175]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Memories/ROM"
-      SourceType	      "Synphony Model Compiler ROM"
-      syn_rom_vec	      "0.5*cos(pi*2*[0:sin_lut_length-1]/sin_lut_length)"
-      syn_out_wl	      "10"
-      syn_out_fl	      "9"
-      syn_out_dt	      "signed"
-      syn_out_sat	      on
-      syn_out_rnd	      on
-      synBlockType	      "primitive"
-      synLatency	      "1"
-      synBlockId	      "62"
-    }
-    Block {
-      BlockType		      Reference
       Name		      "h1"
       SID		      "103"
       Ports		      [1, 1]
-      Position		      [620, 125, 660, 165]
+      Position		      [615, 165, 655, 205]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Math Functions/Gain"
       SourceType	      "Synphony Model Compiler Gain"
@@ -1363,7 +1338,7 @@ Model {
       Name		      "pi1"
       SID		      "104"
       Ports		      [1, 1]
-      Position		      [795, 155, 835, 195]
+      Position		      [770, 175, 810, 215]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Math Functions/Gain"
       SourceType	      "Synphony Model Compiler Gain"
@@ -1381,25 +1356,6 @@ Model {
       synLatency	      "0"
       synBlockId	      "3"
       syn_opr_mode	      "0"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "sin ROM1"
-      SID		      "105"
-      Ports		      [1, 1]
-      Position		      [1065, 200, 1125, 240]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Memories/ROM"
-      SourceType	      "Synphony Model Compiler ROM"
-      syn_rom_vec	      "0.5*sin(pi*2*[0:gmsk_syn_params.sin_lut_length-1]/gmsk_syn_params.sin_lut_length)"
-      syn_out_wl	      "10"
-      syn_out_fl	      "9"
-      syn_out_dt	      "signed"
-      syn_out_sat	      on
-      syn_out_rnd	      on
-      synBlockType	      "primitive"
-      synLatency	      "1"
-      synBlockId	      "62"
     }
     Line {
       SrcBlock		      "TX_I"
@@ -1422,12 +1378,12 @@ Model {
       Branch {
 	Points			[0, 75]
 	Branch {
-	  Points		  [0, 45]
+	  Points		  [0, 70]
 	  DstBlock		  "Complex to\nMagnitude-Angle"
 	  DstPort		  1
 	}
 	Branch {
-	  Points		  [-100, 0]
+	  Points		  [-20, 0]
 	  DstBlock		  "Rate Transition"
 	  DstPort		  1
 	}
@@ -1440,7 +1396,8 @@ Model {
     Line {
       SrcBlock		      "TX_D"
       SrcPort		      1
-      DstBlock		      "Downsample2"
+      Points		      [150, 0]
+      DstBlock		      "Gaussian Filter\nFIR1"
       DstPort		      1
     }
     Line {
@@ -1452,13 +1409,13 @@ Model {
     Line {
       SrcBlock		      "Unipolar to\nBipolar\nConverter"
       SrcPort		      1
+      Points		      [35, 0]
       DstBlock		      "TX_D"
       DstPort		      1
     }
     Line {
       SrcBlock		      "GMSK\nModulator\nBaseband"
       SrcPort		      1
-      Points		      [1010, 0]
       DstBlock		      "Complex to\nMagnitude-Angle2"
       DstPort		      1
     }
@@ -1477,14 +1434,14 @@ Model {
     Line {
       SrcBlock		      "Unwrap"
       SrcPort		      1
-      Points		      [20, 0; 0, 95]
+      Points		      [0, 95]
       DstBlock		      "HDL2"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Constant"
+      SrcBlock		      "Bernoulli Binary\nGenerator"
       SrcPort		      1
-      Points		      [40, 0]
+      Points		      [45, 0]
       Branch {
 	DstBlock		"Unipolar to\nBipolar\nConverter"
 	DstPort			1
@@ -1498,7 +1455,7 @@ Model {
     Line {
       SrcBlock		      "Add1"
       SrcPort		      1
-      DstBlock		      "Scale to address ROM"
+      DstBlock		      "Convert"
       DstPort		      1
     }
     Line {
@@ -1515,34 +1472,8 @@ Model {
       DstPort		      2
     }
     Line {
-      SrcBlock		      "Scale to address ROM"
-      SrcPort		      1
-      Points		      [40, 0]
-      Branch {
-	DstBlock		"sin ROM1"
-	DstPort			1
-      }
-      Branch {
-	DstBlock		"cos ROM1"
-	DstPort			1
-      }
-    }
-    Line {
-      SrcBlock		      "cos ROM1"
-      SrcPort		      1
-      DstBlock		      "CIC2"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "sin ROM1"
-      SrcPort		      1
-      DstBlock		      "CIC3"
-      DstPort		      1
-    }
-    Line {
       SrcBlock		      "Accumulator1"
       SrcPort		      1
-      Points		      [15, 0; 0, 20]
       DstBlock		      "pi1"
       DstPort		      1
     }
@@ -1559,34 +1490,30 @@ Model {
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Downsample2"
-      SrcPort		      1
-      DstBlock		      "Gaussian Filter\nFIR1"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Downsample1"
-      SrcPort		      1
-      DstBlock		      "Binary Logic"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Binary Logic"
-      SrcPort		      1
-      Points		      [110, 0; 0, -70]
-      DstBlock		      "Accumulator1"
-      DstPort		      2
-    }
-    Line {
       SrcBlock		      "TX_EN"
       SrcPort		      1
-      DstBlock		      "Downsample1"
-      DstPort		      1
+      Points		      [25, 0]
+      Branch {
+	Points			[0, -165; 745, 0]
+	Branch {
+	  DstBlock		  "Mux"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [0, 105]
+	  DstBlock		  "Mux1"
+	  DstPort		  1
+	}
+      }
+      Branch {
+	DstBlock		"Inverter"
+	DstPort			1
+      }
     }
     Line {
       SrcBlock		      "Unwrap1"
       SrcPort		      1
-      Points		      [20, 0; 0, -20]
+      Points		      [0, -20]
       DstBlock		      "HDL2"
       DstPort		      3
     }
@@ -1616,34 +1543,74 @@ Model {
       DstPort		      1
     }
     Line {
-      SrcBlock		      "CIC2"
+      Labels		      [2, 0]
+      SrcBlock		      "AFE zero"
       SrcPort		      1
-      Points		      [10, 0]
+      Points		      [80, 0; 0, 65]
       Branch {
-	Points			[30, 0; 0, -5]
+	DstBlock		"Mux"
+	DstPort			2
+      }
+      Branch {
+	Points			[0, 105]
+	DstBlock		"Mux1"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "Mux"
+      SrcPort		      1
+      Points		      [5, 0]
+      Branch {
 	DstBlock		"TX_I"
 	DstPort			1
       }
       Branch {
-	Points			[0, -125]
+	Points			[0, -95]
 	DstBlock		"HDL1"
 	DstPort			1
       }
     }
     Line {
-      SrcBlock		      "CIC3"
+      SrcBlock		      "Mux1"
       SrcPort		      1
-      Points		      [25, 0]
+      Points		      [15, 0]
       Branch {
-	Points			[15, 0; 0, -25]
 	DstBlock		"TX_Q"
 	DstPort			1
       }
       Branch {
-	Points			[0, -160]
+	Points			[10, 0; 0, -170]
 	DstBlock		"HDL1"
 	DstPort			2
       }
+    }
+    Line {
+      SrcBlock		      "SinCos"
+      SrcPort		      2
+      Points		      [20, 0; 0, -65]
+      DstBlock		      "Mux"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "SinCos"
+      SrcPort		      1
+      Points		      [65, 0]
+      DstBlock		      "Mux1"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Inverter"
+      SrcPort		      1
+      Points		      [95, 0; 0, -70]
+      DstBlock		      "Accumulator1"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Convert"
+      SrcPort		      1
+      DstBlock		      "SinCos"
+      DstPort		      1
     }
   }
 }
