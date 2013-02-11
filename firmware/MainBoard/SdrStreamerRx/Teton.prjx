@@ -1,5 +1,5 @@
 KEY LIBERO "10.1"
-KEY CAPTURE "10.1.2.1"
+KEY CAPTURE "10.1.3.1"
 KEY DEFAULT_IMPORT_LOC "D:\work\software\MainBoard\BoardTest\hdl"
 KEY DEFAULT_OPEN_LOC ""
 KEY ProjectID "72c31f41-0f58-4017-8f58-90170f589017"
@@ -346,23 +346,23 @@ SIZE="3337"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton.adb,adb"
 STATE="utd"
-TIME="1360005565"
-SIZE="392192"
+TIME="1360009336"
+SIZE="1548288"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton.fdb,fdb"
 STATE="utd"
-TIME="1360005644"
-SIZE="130340"
+TIME="1360009336"
+SIZE="129845"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton.ide_des,ide_des"
 STATE="utd"
-TIME="1360005415"
-SIZE="422"
+TIME="1360009337"
+SIZE="1270"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_compile_log.rpt,log"
 STATE="utd"
-TIME="1360005578"
-SIZE="36178"
+TIME="1360009269"
+SIZE="36442"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\projectData\Teton.pdb,pdb"
 STATE="utd"
@@ -371,27 +371,27 @@ SIZE="139776"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\Teton.pdb,pdb"
 STATE="utd"
-TIME="1360005691"
+TIME="1360009363"
 SIZE="139776"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\Teton.pro,pro"
 STATE="utd"
-TIME="1360005692"
-SIZE="1747"
+TIME="1360009413"
+SIZE="1957"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_placeroute_log.rpt,log"
 STATE="utd"
-TIME="1360005625"
+TIME="1360009317"
 SIZE="2378"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_prgdata_log.rpt,log"
 STATE="utd"
-TIME="1360005644"
-SIZE="642"
+TIME="1360009337"
+SIZE="755"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_verifytiming_log.rpt,log"
 STATE="utd"
-TIME="1360005630"
+TIME="1360009322"
 SIZE="1122"
 ENDFILE
 VALUE "<project>\hdl\afe_if.vhd,hdl"
@@ -528,22 +528,22 @@ SIZE="7278"
 ENDFILE
 VALUE "<project>\synthesis\Teton.edn,syn_edn"
 STATE="utd"
-TIME="1360005439"
-SIZE="1050996"
+TIME="1360009256"
+SIZE="1051409"
 ENDFILE
 VALUE "<project>\synthesis\Teton.so,so"
 STATE="utd"
-TIME="1360005286"
+TIME="1360009256"
 SIZE="215"
 ENDFILE
 VALUE "<project>\synthesis\Teton_sdc.sdc,sdc"
 STATE="utd"
-TIME="1360005286"
+TIME="1360009256"
 SIZE="630"
 ENDFILE
 VALUE "<project>\synthesis\Teton_syn.prj,prj"
 STATE="utd"
-TIME="1360005288"
+TIME="1360009258"
 SIZE="2956"
 ENDFILE
 ENDLIST
@@ -775,8 +775,8 @@ NAME="Synplify Pro AE"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro AE"
 LOCATION="C:\Microsemi\Libero_v10.1\Synopsys\synplify_F201203MSP1\bin\synplify_pro.exe"
-PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
-BATCH=1
+PARAM=""
+BATCH=0
 EndProfile
 NAME="ModelSim AE"
 FUNCTION="Simulation"
@@ -884,10 +884,8 @@ ENDLIST
 LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
-SmartDesign;Teton
-Reports;Reports
-SmartDesign;Teton_MSS
-ACTIVEVIEW;Teton
+StartPage;StartPage
+ACTIVEVIEW;StartPage
 ENDLIST
 LIST ModuleSubBlockList
 LIST "AFE_IF::work","hdl\afe_if.vhd","FALSE","FALSE"
