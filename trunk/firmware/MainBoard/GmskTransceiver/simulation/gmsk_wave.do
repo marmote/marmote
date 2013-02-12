@@ -66,7 +66,13 @@ sim:/testbench/Teton_0/TX_APB_IF_0/TX_STROBE \
 sim:/testbench/Teton_0/AFE1_IF/TX_STROBE \
 sim:/testbench/Teton_0/AFE2_IF/TX_STROBE \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_mod_en \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_clk_div
+sim:/testbench/Teton_0/TX_APB_IF_0/s_clk_div \
+sim:/testbench/Teton_0/TX_APB_IF_0/TX_EN \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_baud_ctr \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_mod_en \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_rnd \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_txd
+
 
 add wave \
 -signed \
@@ -76,6 +82,15 @@ sim:/testbench/Teton_0/gmsk_tx_0/TX_EN \
 -analog-step -min -512 -max 512 -height 200 \
 sim:/testbench/Teton_0/gmsk_tx_0/TX_I \
 sim:/testbench/Teton_0/gmsk_tx_0/TX_Q
+
+add wave  \
+-signed \
+sim:/testbench/Teton_0/gmsk_tx_0/s_acc_rst \
+sim:/testbench/Teton_0/gmsk_tx_0/s_tx_en \
+sim:/testbench/Teton_0/gmsk_tx_0/Accumulator1_block/accIn \
+sim:/testbench/Teton_0/gmsk_tx_0/Accumulator1_block/en \
+sim:/testbench/Teton_0/gmsk_tx_0/Accumulator1_block/rst \
+sim:/testbench/Teton_0/gmsk_tx_0/Accumulator1_block/tmpOut
 
 add wave \
 -signed \

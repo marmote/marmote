@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.7"
+    ComputedModelVersion    "1.9"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -29,16 +29,16 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "sszilvasi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Jan 18 10:10:41 2013"
-  RTWModifiedTimeStamp	  280404632
-  ModelVersionFormat	  "1.%<AutoIncrement:7>"
+  LastModifiedDate	  "Tue Feb 12 14:01:23 2013"
+  RTWModifiedTimeStamp	  282578396
+  ModelVersionFormat	  "1.%<AutoIncrement:9>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
   WideLines		  off
   ShowLineDimensions	  off
-  ShowPortDataTypes	  off
+  ShowPortDataTypes	  on
   ShowDesignRanges	  off
   ShowLoopsOnError	  on
   IgnoreBidirectionalLines off
@@ -69,6 +69,7 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "gmsk_rx"
+    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -657,9 +658,17 @@ Model {
   }
   BlockParameterDefaults {
     Block {
-      BlockType		      ComplexToRealImag
-      Output		      "Real and imag"
-      SampleTime	      "-1"
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      SamplingMode	      "Sample based"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit from 'Constant value'"
+      LockScale		      off
+      SampleTime	      "inf"
+      FramePeriod	      "inf"
+      PreserveConstantTs      off
     }
     Block {
       BlockType		      Scope
@@ -682,7 +691,7 @@ Model {
   }
   System {
     Name		    "gmsk_rx"
-    Location		    [286, 283, 1580, 886]
+    Location		    [2098, 312, 3392, 915]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -696,13 +705,13 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "36"
+    SIDHighWatermark	    "39"
     Block {
       BlockType		      Reference
       Name		      "Add"
       SID		      "20"
       Ports		      [2, 1]
-      Position		      [525, 120, 565, 160]
+      Position		      [600, 120, 640, 160]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Math Functions/Add"
       SourceType	      "Synphony Model Compiler Add"
@@ -723,7 +732,7 @@ Model {
       Name		      "Comparator"
       SID		      "21"
       Ports		      [1, 1]
-      Position		      [810, 120, 850, 160]
+      Position		      [885, 120, 925, 160]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Math Functions/Comparator"
       SourceType	      "Synphony Model Compiler Comparator"
@@ -735,19 +744,20 @@ Model {
       synBlockId	      "14"
     }
     Block {
-      BlockType		      ComplexToRealImag
-      Name		      "Complex to\nReal-Imag"
-      SID		      "22"
-      Ports		      [1, 2]
-      Position		      [120, 128, 150, 157]
-      SampleTime	      "1/8"
+      BlockType		      Constant
+      Name		      "Constant"
+      SID		      "39"
+      Position		      [130, 45, 160, 75]
+      ZOrder		      -5
+      Value		      "0"
+      SampleTime	      "1"
     }
     Block {
       BlockType		      Scope
       Name		      "Decimation filter"
       SID		      "23"
       Ports		      [3]
-      Position		      [965, 232, 1000, 288]
+      Position		      [1040, 232, 1075, 288]
       ZOrder		      -16
       Floating		      off
       Location		      [1921, 48, 3521, 1199]
@@ -781,7 +791,7 @@ Model {
       Name		      "Decimation filter1"
       SID		      "24"
       Ports		      [2]
-      Position		      [350, 312, 385, 368]
+      Position		      [425, 312, 460, 368]
       ZOrder		      -16
       Floating		      off
       Location		      [1921, 48, 3521, 1199]
@@ -815,7 +825,7 @@ Model {
       Name		      "Delay"
       SID		      "25"
       Ports		      [1, 1]
-      Position		      [345, 40, 385, 80]
+      Position		      [420, 40, 460, 80]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Memories/Delay"
       SourceType	      "Synphony Model Compiler Delay"
@@ -835,7 +845,7 @@ Model {
       Name		      "Delay1"
       SID		      "26"
       Ports		      [1, 1]
-      Position		      [345, 210, 385, 250]
+      Position		      [420, 210, 460, 250]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Memories/Delay"
       SourceType	      "Synphony Model Compiler Delay"
@@ -852,10 +862,70 @@ Model {
     }
     Block {
       BlockType		      Reference
+      Name		      "FIR"
+      SID		      "37"
+      Ports		      [1, 1]
+      Position		      [270, 30, 330, 90]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Filtering/FIR"
+      SourceType	      "Synphony Model Compiler FIR"
+      syn_coef_vec	      "ones(1,4)/4"
+      syn_coef_fl	      "8"
+      syn_coef_rnd	      "Nearest"
+      syn_show_q	      off
+      syn_dp_f		      "Automatic"
+      syn_dp_wl		      "16"
+      syn_dp_fl		      "8"
+      syn_dp_sat	      off
+      syn_dp_rnd	      "Floor (Truncate)"
+      syn_out_f		      "Full Precision"
+      syn_out_wl	      "16"
+      syn_out_fl	      "8"
+      syn_out_dt	      "signed"
+      syn_out_sat	      off
+      syn_out_rnd	      "Floor (Truncate)"
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "80"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "FIR1"
+      SID		      "38"
+      Ports		      [1, 1]
+      Position		      [275, 200, 335, 260]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Filtering/FIR"
+      SourceType	      "Synphony Model Compiler FIR"
+      syn_coef_vec	      "ones(1,4)/4"
+      syn_coef_fl	      "8"
+      syn_coef_rnd	      "Nearest"
+      syn_show_q	      off
+      syn_dp_f		      "Automatic"
+      syn_dp_wl		      "16"
+      syn_dp_fl		      "8"
+      syn_dp_sat	      off
+      syn_dp_rnd	      "Floor (Truncate)"
+      syn_out_f		      "Full Precision"
+      syn_out_wl	      "16"
+      syn_out_fl	      "8"
+      syn_out_dt	      "signed"
+      syn_out_sat	      off
+      syn_out_rnd	      "Floor (Truncate)"
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "80"
+    }
+    Block {
+      BlockType		      Reference
       Name		      "Mult"
       SID		      "28"
       Ports		      [2, 1]
-      Position		      [445, 80, 485, 120]
+      Position		      [520, 80, 560, 120]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Math Functions/Mult"
       SourceType	      "Synphony Model Compiler Mult"
@@ -875,7 +945,7 @@ Model {
       Name		      "Mult1"
       SID		      "29"
       Ports		      [2, 1]
-      Position		      [445, 160, 485, 200]
+      Position		      [520, 160, 560, 200]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Math Functions/Mult"
       SourceType	      "Synphony Model Compiler Mult"
@@ -895,13 +965,13 @@ Model {
       Name		      "N decimation filter"
       SID		      "30"
       Ports		      [1, 1]
-      Position		      [685, 110, 745, 170]
+      Position		      [760, 110, 820, 170]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Filtering/IIR"
       SourceType	      "Synphony Model Compiler IIR"
-      syn_coefb_vec	      "[1 zeros(1,N-2) -1]/N"
+      syn_coefb_vec	      "[1 zeros(1,N-2) -1]"
       syn_coefa_vec	      "[1 -1]"
-      syn_coef_fl	      "8"
+      syn_coef_fl	      "9"
       syn_coef_rnd	      on
       syn_show_q	      off
       syn_out_f		      "Automatic"
@@ -919,7 +989,7 @@ Model {
       Name		      "Port Out"
       SID		      "31"
       Ports		      [1, 1]
-      Position		      [915, 130, 935, 150]
+      Position		      [990, 130, 1010, 150]
       BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Ports & Subsystems/Port Out"
@@ -935,7 +1005,7 @@ Model {
       Name		      "RX_I"
       SID		      "32"
       Ports		      [1, 1]
-      Position		      [225, 50, 245, 70]
+      Position		      [205, 50, 225, 70]
       BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Ports & Subsystems/Port In"
@@ -963,7 +1033,7 @@ Model {
       Name		      "RX_Q"
       SID		      "33"
       Ports		      [1, 1]
-      Position		      [225, 220, 245, 240]
+      Position		      [205, 220, 225, 240]
       BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Ports & Subsystems/Port In"
@@ -1001,63 +1071,20 @@ Model {
       syn_dsp_mode	      "FPGA"
     }
     Line {
-      SrcBlock		      "Complex to\nReal-Imag"
-      SrcPort		      1
-      Points		      [35, 0; 0, -75]
-      DstBlock		      "RX_I"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Complex to\nReal-Imag"
-      SrcPort		      2
-      Points		      [35, 0; 0, 80]
-      DstBlock		      "RX_Q"
-      DstPort		      1
-    }
-    Line {
       Name		      "q"
-      Labels		      [1, 0]
+      Labels		      [0, 0]
       SrcBlock		      "RX_Q"
       SrcPort		      1
-      Points		      [45, 0]
-      Branch {
-	Points			[0, -120]
-	DstBlock		"Mult"
-	DstPort			2
-      }
-      Branch {
-	DstBlock		"Delay1"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 125]
-	DstBlock		"Decimation filter1"
-	DstPort			2
-      }
+      DstBlock		      "FIR1"
+      DstPort		      1
     }
     Line {
       Name		      "i"
+      Labels		      [0, 0]
       SrcBlock		      "RX_I"
       SrcPort		      1
-      Points		      [20, 0]
-      Branch {
-	Labels			[1, 0]
-	Points			[55, 0]
-	Branch {
-	  DstBlock		  "Delay"
-	  DstPort		  1
-	}
-	Branch {
-	  Points		  [0, 110]
-	  DstBlock		  "Mult1"
-	  DstPort		  1
-	}
-      }
-      Branch {
-	Points			[0, 265]
-	DstBlock		"Decimation filter1"
-	DstPort			1
-      }
+      DstBlock		      "FIR"
+      DstPort		      1
     }
     Line {
       Name		      "i1"
@@ -1106,11 +1133,6 @@ Model {
       }
     }
     Line {
-      Points		      [90, 145]
-      DstBlock		      "Complex to\nReal-Imag"
-      DstPort		      1
-    }
-    Line {
       SrcBlock		      "N decimation filter"
       SrcPort		      1
       Points		      [25, 0]
@@ -1139,14 +1161,66 @@ Model {
       }
     }
     Line {
-      SrcBlock		      "Port Out"
+      SrcBlock		      "FIR"
       SrcPort		      1
-      Points		      [20, 0]
+      Points		      [10, 0]
+      Branch {
+	Labels			[1, 0]
+	Points			[55, 0]
+	Branch {
+	  DstBlock		  "Delay"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [0, 110]
+	  DstBlock		  "Mult1"
+	  DstPort		  1
+	}
+      }
+      Branch {
+	Points			[0, 265]
+	DstBlock		"Decimation filter1"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "FIR1"
+      SrcPort		      1
+      Points		      [30, 0]
+      Branch {
+	Points			[0, -120]
+	DstBlock		"Mult"
+	DstPort			2
+      }
+      Branch {
+	Labels			[1, 0]
+	DstBlock		"Delay1"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 125]
+	DstBlock		"Decimation filter1"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "Constant"
+      SrcPort		      1
+      Points		      [15, 0]
+      Branch {
+	DstBlock		"RX_I"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 170]
+	DstBlock		"RX_Q"
+	DstPort			1
+      }
     }
     Annotation {
       SID		      "35"
       Name		      "Im{q[k]i[k-1] - i[k]q[k-1]}"
-      Position		      [606, 108]
+      Position		      [681, 108]
     }
   }
 }

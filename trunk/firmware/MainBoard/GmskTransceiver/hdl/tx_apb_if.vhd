@@ -85,34 +85,18 @@ architecture Behavioral of TX_APB_IF is
     );
     end component;
 
-    component gmsk_tx is
-    port (
-        clk : in std_logic;
---        clkDiv20 : in std_logic;
-        GlobalReset : in std_logic;
-        GlobalEnable1 : in std_logic;
---        GlobalEnable20 : in std_logic;
-        TX_Q : out std_logic_vector(9 downto 0); -- sfix10_En8
-        TX_I : out std_logic_vector(9 downto 0); -- sfix10_En8
-        TX_EN : in std_logic; -- ufix1
-        TX_D : in std_logic_vector(15 downto 0) -- sfix16_En14
-    );
-    end component;
-
-
     -- Constants
 
---    constant c_SFD  : std_logic_vector(23 downto 0) := x"70EED2";
-    constant c_SFD  : std_logic_vector(23 downto 0) := x"AAAAAA"; -- Preamble
+    constant c_SFD  : std_logic_vector(23 downto 0) := x"70EED2";
+--    constant c_SFD  : std_logic_vector(23 downto 0) := x"AAAAAA"; -- Preamble
 --    constant c_SFD  : std_logic_vector(23 downto 0) := x"000000"; -- FIXME
     
     constant c_PAYLOAD_LENGTH   : integer := 4; -- bytes
 
     constant c_DATA_LENGTH : integer := 8;
 
-    constant c_DEC_DIV : integer := 20;    
+    constant c_DEC_DIV : integer := 10;    
     constant c_BAUD_DIV : integer := 8*c_DEC_DIV;     -- Samples per symbol in the modulator 
---    constant c_BAUD_DIV : integer := 8;     -- Samples per symbol in the modulator 
     constant c_TXD_HIGH : std_logic_vector(15 downto 0) := "0100" & x"000"; -- +1
     constant c_TXD_LOW  : std_logic_vector(15 downto 0) := "1100" & x"000"; -- -1
 
@@ -306,7 +290,7 @@ begin
             s_en_div <= '0';
 
 --            if s_mod_en = '1' then
-            if s_mod_en = '1' or s_mod_in_mux = "11" then -- FIXME
+            if s_mod_en = '1' or s_mod_in_mux /= "00" then -- FIXME
                 -- Enable signal for the decimator
                 if s_dec_ctr < to_unsigned(c_DEC_DIV-1, s_dec_ctr'length) then
                     s_dec_ctr <= s_dec_ctr + 1;

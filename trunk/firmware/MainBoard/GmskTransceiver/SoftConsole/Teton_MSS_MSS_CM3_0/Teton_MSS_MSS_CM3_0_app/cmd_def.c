@@ -791,9 +791,11 @@ uint32_t CmdIQ(uint32_t argc, char** argv)
 		if ((i || !strcmp(*(argv+1), "0")) && (q || !strcmp(*(argv+2), "0")))
 		{
 //			BB_CTRL->MUX = (uint32_t)1;
+			BB_CTRL->MUX1 = 3;
+			BB_CTRL->MUX2 = 3;
 
-			BB_CTRL->TX_I = i;
-			BB_CTRL->TX_Q = q;
+			BB_CTRL->TX_I = i & 0x3FF;
+			BB_CTRL->TX_Q = q * 0x3FF;
 
 			// Readback
 			sprintf(buf, "\r\nI : %d\t0x%03x\r\nQ : %d\t0x%03x",
@@ -874,7 +876,7 @@ uint32_t CmdMux1(uint32_t argc, char** argv)
 	}
 
 	// Send help message
-	Yellowstone_print("\r\nUsage: mux1 [<index>]");
+	Yellowstone_print("\r\nUsage: mux1 [<index>] (0: OFF, 1: RX, 2: TX, 3: I/Q REG)");
 	return 1;
 }
 
@@ -943,7 +945,7 @@ uint32_t CmdMux2(uint32_t argc, char** argv)
 	}
 
 	// Send help message
-	Yellowstone_print("\r\nUsage: mux2 [<index>]");
+	Yellowstone_print("\r\nUsage: mux2 [<index>] (0: OFF, 1: RX, 2: TX, 3: I/Q REG)");
 	return 1;
 }
 
