@@ -20,7 +20,7 @@ Model {
       Name		      "bit_out"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.13"
+    ComputedModelVersion    "1.14"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -43,9 +43,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "sszilvasi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jan 21 15:54:23 2013"
-  RTWModifiedTimeStamp	  280684462
-  ModelVersionFormat	  "1.%<AutoIncrement:13>"
+  LastModifiedDate	  "Fri Feb 08 09:55:43 2013"
+  RTWModifiedTimeStamp	  282218120
+  ModelVersionFormat	  "1.%<AutoIncrement:14>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -83,7 +83,6 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "gmsk_tr"
-    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -1090,7 +1089,7 @@ Model {
       Name		      "SHLSTool"
       SID		      "23"
       Ports		      []
-      Position		      [65, 70, 105, 110]
+      Position		      [85, 70, 125, 110]
       ForegroundColor	      "[0.501961, 0.000000, 0.000000]"
       BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
       LibraryVersion	      "1.3722"

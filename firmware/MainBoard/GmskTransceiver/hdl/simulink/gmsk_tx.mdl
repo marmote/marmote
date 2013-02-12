@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.181"
+    ComputedModelVersion    "1.188"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -30,9 +30,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "sszilvasi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Feb 07 12:04:12 2013"
-  RTWModifiedTimeStamp	  282139451
-  ModelVersionFormat	  "1.%<AutoIncrement:181>"
+  LastModifiedDate	  "Mon Feb 11 18:03:58 2013"
+  RTWModifiedTimeStamp	  282505040
+  ModelVersionFormat	  "1.%<AutoIncrement:188>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  on
@@ -743,7 +743,7 @@ Model {
   }
   System {
     Name		    "gmsk_tx"
-    Location		    [2, 82, 1918, 1147]
+    Location		    [2, 74, 1918, 1139]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -757,7 +757,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "174"
+    SIDHighWatermark	    "176"
     Block {
       BlockType		      Reference
       Name		      "AFE zero"
@@ -1047,6 +1047,12 @@ Model {
       synBlockType	      "primitive"
       synLatency	      "0"
       synBlockId	      "10"
+      Port {
+	PortNumber		1
+	Name			"s_acc_rst"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
     }
     Block {
       BlockType		      Reference
@@ -1165,7 +1171,7 @@ Model {
       Name		      "TX_D"
       SID		      "8"
       Ports		      [1, 1]
-      Position		      [335, 160, 355, 180]
+      Position		      [335, 175, 355, 195]
       BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Ports & Subsystems/Port In"
@@ -1203,6 +1209,12 @@ Model {
       synBlockType	      "port"
       synLatency	      "0"
       synBlockId	      "0"
+      Port {
+	PortNumber		1
+	Name			"s_tx_en"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
     }
     Block {
       BlockType		      Reference
@@ -1396,7 +1408,6 @@ Model {
     Line {
       SrcBlock		      "TX_D"
       SrcPort		      1
-      Points		      [150, 0]
       DstBlock		      "Gaussian Filter\nFIR1"
       DstPort		      1
     }
@@ -1409,7 +1420,6 @@ Model {
     Line {
       SrcBlock		      "Unipolar to\nBipolar\nConverter"
       SrcPort		      1
-      Points		      [35, 0]
       DstBlock		      "TX_D"
       DstPort		      1
     }
@@ -1490,6 +1500,7 @@ Model {
       DstPort		      1
     }
     Line {
+      Name		      "s_tx_en"
       SrcBlock		      "TX_EN"
       SrcPort		      1
       Points		      [25, 0]
@@ -1506,6 +1517,7 @@ Model {
 	}
       }
       Branch {
+	Labels			[1, 0]
 	DstBlock		"Inverter"
 	DstPort			1
       }
@@ -1600,6 +1612,8 @@ Model {
       DstPort		      3
     }
     Line {
+      Name		      "s_acc_rst"
+      Labels		      [1, 0]
       SrcBlock		      "Inverter"
       SrcPort		      1
       Points		      [95, 0; 0, -70]
