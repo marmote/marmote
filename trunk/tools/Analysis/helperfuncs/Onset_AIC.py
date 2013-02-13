@@ -4,13 +4,17 @@ def costum_var(R, R_mean, N):
 	if N == 1:
 	    print 'Error: N==1'
 
-	Acc = 0.0
+#	Acc = 0.0
+#Implementation 1
 #	for i in xrange(R.size):
 #		Acc += (R[i] - R_mean)**2
-	for Ri in R:
-		Acc += (Ri - R_mean)**2
+#Implementation 2
+#	for Ri in R:
+#		Acc += (Ri - R_mean)**2
+#	Acc = np.sum((R-R_mean)**2)
 
-	return Acc / (N - 1)
+#	return Acc / (N - 1)
+	return np.sum((R-R_mean)**2) / (N - 1)
 
 
 def Onset_AIC(y, T) :
