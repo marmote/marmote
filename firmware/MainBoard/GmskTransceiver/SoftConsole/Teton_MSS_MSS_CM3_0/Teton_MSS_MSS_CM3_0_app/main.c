@@ -45,13 +45,13 @@ int main()
 
 	// RX done IRQ
 	MSS_GPIO_config (MSS_GPIO_RX_DONE_IT, MSS_GPIO_INPUT_MODE | MSS_GPIO_IRQ_EDGE_POSITIVE);
-	MSS_GPIO_enable_irq(MSS_GPIO_RX_DONE_IT);
-	NVIC_EnableIRQ(MSS_GPIO_RX_DONE_IRQn);
+//	MSS_GPIO_enable_irq(MSS_GPIO_RX_DONE_IT);
+//	NVIC_EnableIRQ(MSS_GPIO_RX_DONE_IRQn);
 
 	// SFD IRQ
 	MSS_GPIO_config (MSS_GPIO_SFD_IT, MSS_GPIO_INPUT_MODE | MSS_GPIO_IRQ_EDGE_POSITIVE);
-	MSS_GPIO_enable_irq(MSS_GPIO_SFD_IT);
-	NVIC_EnableIRQ(MSS_GPIO_SFD_IRQn);
+//	MSS_GPIO_enable_irq(MSS_GPIO_SFD_IT);
+//	NVIC_EnableIRQ(MSS_GPIO_SFD_IRQn);
 
 	// ----------------- Rx ----------------
 

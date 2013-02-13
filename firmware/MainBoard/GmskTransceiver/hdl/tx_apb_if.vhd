@@ -97,6 +97,7 @@ architecture Behavioral of TX_APB_IF is
 
     constant c_DEC_DIV : integer := 10;    
     constant c_BAUD_DIV : integer := 8*c_DEC_DIV;     -- Samples per symbol in the modulator 
+
     constant c_TXD_HIGH : std_logic_vector(15 downto 0) := "0100" & x"000"; -- +1
     constant c_TXD_LOW  : std_logic_vector(15 downto 0) := "1100" & x"000"; -- -1
 
