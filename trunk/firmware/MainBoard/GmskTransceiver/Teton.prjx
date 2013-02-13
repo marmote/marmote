@@ -46,13 +46,13 @@ ENDLIST
 LIST FileManager
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf,actgen_cxf"
 STATE="utd"
-TIME="1360627469"
+TIME="1360700999"
 SIZE="2407"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
 STATE="utd"
-TIME="1360627469"
+TIME="1360700999"
 SIZE="1241"
 LIBRARY="COREAPB3_LIB"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
@@ -225,19 +225,19 @@ SIZE="413"
 ENDFILE
 VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1360627470"
+TIME="1360701001"
 SIZE="3916"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.cxf,actgen_cxf"
 STATE="utd"
-TIME="1360627471"
-SIZE="10813"
+TIME="1360701002"
+SIZE="10925"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.pdc,pdc"
 STATE="utd"
-TIME="1360627468"
+TIME="1360700999"
 SIZE="5812"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 BEGIN_USE_CONSTRAINT
@@ -248,8 +248,8 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.vhd,hdl"
 STATE="utd"
-TIME="1360627469"
-SIZE="43326"
+TIME="1360700999"
+SIZE="44785"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 IS_READONLY="TRUE"
 ENDFILE
@@ -404,10 +404,20 @@ STATE="utd"
 TIME="1360261538"
 SIZE="7833"
 ENDFILE
+VALUE "<project>\hdl\cic_decimator_10.vhd,hdl"
+STATE="utd"
+TIME="1360700704"
+SIZE="11820"
+ENDFILE
 VALUE "<project>\hdl\cic_interpolator_10.vhd,hdl"
 STATE="utd"
 TIME="1360610390"
 SIZE="11492"
+ENDFILE
+VALUE "<project>\hdl\counter_stub.vhd,hdl"
+STATE="utd"
+TIME="1360261538"
+SIZE="3473"
 ENDFILE
 VALUE "<project>\hdl\datapath_stub_apb.vhd,hdl"
 STATE="utd"
@@ -451,8 +461,8 @@ SIZE="3738"
 ENDFILE
 VALUE "<project>\hdl\rx_apb_if.vhd,hdl"
 STATE="utd"
-TIME="1360261538"
-SIZE="14070"
+TIME="1360708117"
+SIZE="14142"
 ENDFILE
 VALUE "<project>\hdl\SynLib_asynch.vhd,hdl"
 STATE="utd"
@@ -462,8 +472,8 @@ LIBRARY="shlslib"
 ENDFILE
 VALUE "<project>\hdl\tx_apb_if.vhd,hdl"
 STATE="utd"
-TIME="1360627620"
-SIZE="16746"
+TIME="1360706299"
+SIZE="16748"
 ENDFILE
 VALUE "<project>\simulation\afe_if_wave.do,do"
 STATE="utd"
@@ -511,7 +521,7 @@ SIZE="2990"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
-TIME="1360627469"
+TIME="1360701000"
 SIZE="702"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 ENDFILE
@@ -520,6 +530,11 @@ STATE="utd"
 TIME="1360279090"
 SIZE="9830"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
+ENDFILE
+VALUE "<project>\simulation\testbench_presynth_simulation.log,log"
+STATE="utd"
+TIME="1360708130"
+SIZE="723646"
 ENDFILE
 VALUE "<project>\simulation\user.bfm,sim"
 STATE="utd"
@@ -633,6 +648,7 @@ VALUE "<project>\component\work\Teton_MSS\Teton_MSS.vhd,hdl"
 VALUE "<project>\hdl\tx_apb_if.vhd,hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3_muxptob3.vhd,hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
+VALUE "<project>\hdl\cic_decimator_10.vhd,hdl"
 VALUE "<project>\component\work\Teton\Teton.vhd,hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\components.vhd,hdl"
 ENDFILELIST
@@ -708,17 +724,6 @@ ENDLIST
 LIST AssociatedStimulus
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
-ENDLIST
-LIST ProjectState5.1
-LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
 ENDLIST
 ENDLIST
 ENDLIST
@@ -815,14 +820,14 @@ NAME="Synplify Pro AE"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro AE"
 LOCATION="C:\Microsemi\Libero_v10.1\Synopsys\synplify_F201203MSP1\bin\synplify_pro.exe"
-PARAM=""
-BATCH=0
+PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
+BATCH=1
 EndProfile
 NAME="ModelSim AE"
 FUNCTION="Simulation"
 TOOL="ModelSim"
 LOCATION="C:\Microsemi\Libero_v10.1\Model\win32acoem\modelsim.exe"
-PARAM=""
+PARAM=" -l testbench_presynth_simulation.log "
 BATCH=0
 EndProfile
 NAME="WFL"
@@ -898,17 +903,6 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 ENDLIST
-LIST "CoreAPB3::COREAPB3_LIB::components"
-LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
 ENDLIST
 LIST ExcludePackageForSimulation
 ENDLIST
@@ -939,6 +933,7 @@ VALUE "<project>\component\work\Teton_MSS\Teton_MSS.vhd,hdl"
 VALUE "<project>\hdl\tx_apb_if.vhd,hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3_muxptob3.vhd,hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
+VALUE "<project>\hdl\cic_decimator_10.vhd,hdl"
 VALUE "<project>\component\work\Teton\Teton.vhd,hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\components.vhd,hdl"
 ENDFILELIST
@@ -954,8 +949,9 @@ ENDLIST
 ENDLIST
 ENDLIST
 LIST OpenedFileList
-StartPage;StartPage
-ACTIVEVIEW;StartPage
+SmartDesign;Teton
+SmartDesign;Teton_MSS
+ACTIVEVIEW;Teton
 ENDLIST
 LIST ModuleSubBlockList
 LIST "AFE_IF::work","hdl\afe_if.vhd","FALSE","FALSE"
@@ -967,7 +963,11 @@ ENDLIST
 LIST "Channel_select_register::work","hdl\gmsk_sync.vhd","FALSE","FALSE"
 SUBBLOCK "synChannel_select_register_Register_e0::work","hdl\gmsk_sync.vhd","FALSE","FALSE"
 ENDLIST
+LIST "cic_decimator_10::work","hdl\cic_decimator_10.vhd","FALSE","FALSE"
+ENDLIST
 LIST "cic_interpolator_10::work","hdl\cic_interpolator_10.vhd","FALSE","FALSE"
+ENDLIST
+LIST "COUNTER_STUB::work","hdl\counter_stub.vhd","FALSE","FALSE"
 ENDLIST
 LIST "DATA_PATH_MUX::work","hdl\data_path_mux.vhd","FALSE","FALSE"
 ENDLIST
@@ -1109,14 +1109,15 @@ ENDLIST
 LIST "Teton::work","component\work\Teton\Teton.vhd","TRUE","FALSE"
 SUBBLOCK "AFE_IF::work","hdl\afe_if.vhd","FALSE","FALSE"
 SUBBLOCK "DATA_PATH_MUX::work","hdl\data_path_mux.vhd","FALSE","FALSE"
+SUBBLOCK "cic_decimator_10::work","hdl\cic_decimator_10.vhd","FALSE","FALSE"
 SUBBLOCK "cic_interpolator_10::work","hdl\cic_interpolator_10.vhd","FALSE","FALSE"
 SUBBLOCK "DATAPATH_STUB_APB::work","hdl\datapath_stub_apb.vhd","FALSE","FALSE"
 SUBBLOCK "gmsk_tx::work","hdl\gmsk_tx.vhd","FALSE","FALSE"
 SUBBLOCK "LED_PWM::work","hdl\led_pwm.vhd","FALSE","FALSE"
-SUBBLOCK "RX_APB_IF::work","hdl\rx_apb_if.vhd","FALSE","FALSE"
 SUBBLOCK "Teton_MSS::work","component\work\Teton_MSS\Teton_MSS.vhd","TRUE","FALSE"
-SUBBLOCK "TX_APB_IF::work","hdl\tx_apb_if.vhd","FALSE","FALSE"
 SUBBLOCK "CoreAPB3::COREAPB3_LIB::components","component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd","FALSE","FALSE"
+SUBBLOCK "TX_APB_IF::work","hdl\tx_apb_if.vhd","FALSE","FALSE"
+SUBBLOCK "RX_APB_IF::work","hdl\rx_apb_if.vhd","FALSE","FALSE"
 ENDLIST
 LIST "Teton_MSS::work","component\work\Teton_MSS\Teton_MSS.vhd","TRUE","FALSE"
 SUBBLOCK "MSS_APB::work","component\work\Teton_MSS\mss_tshell.vhd","FALSE","FALSE"

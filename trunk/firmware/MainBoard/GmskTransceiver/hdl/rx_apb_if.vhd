@@ -117,8 +117,9 @@ architecture Behavioral of RX_APB_IF is
     constant c_PAYLOAD_LENGTH   : integer := 4; -- bytes
     constant c_DATA_LENGTH      : integer := 8;
 
-    constant c_BAUD_DIV : integer := 8;     -- Samples per symbol in the modulator 
-    constant c_TICK_DIV : integer := 12;   -- Length of the symbol in ticks
+    constant c_DEC_DIV          : integer := 10;
+    constant c_BAUD_DIV         : integer := 8;     -- Samples per symbol in the modulator 
+--    constant c_BAUD_DIV         : integer := 8*c_DEC_DIV;     -- Samples per symbol in the modulator 
 
 
 	-- Addresses
@@ -159,7 +160,7 @@ architecture Behavioral of RX_APB_IF is
     signal s_rx_symbol          : std_logic;
     signal s_rx_symbol_valid    : std_logic;
     signal s_rx_symbol_valid_prev    : std_logic;
-    signal s_tick_ctr           : unsigned(3 downto 0);
+    signal s_dec_ctr           : unsigned(3 downto 0);
     signal s_rx_strobe          : std_logic;
     signal s_rx_strobe_ctr      : unsigned(3 downto 0);
     signal s_rx_strobe_div8     : std_logic;
@@ -184,7 +185,7 @@ begin
     port map (
       clk => clk,
       GlobalReset => rst,
-      GlobalEnable1 => RX_STROBE,
+      GlobalEnable1 => s_RX_STROBE,
       RX_Q =>  RX_Q,
       RX_I =>  RX_I,
       Port_Out => s_gmsk_rx_out
@@ -196,7 +197,7 @@ begin
       clk => clk,
       GlobalReset => rst,
       GlobalEnable8 => s_rx_strobe_div8,
-      GlobalEnable1 => RX_STROBE,
+      GlobalEnable1 => s_RX_STROBE,
       sync_rst => s_sync_rst,
       bit_valid_reg => s_rx_symbol_valid,
       bit_out_reg => s_rx_symbol,
@@ -297,18 +298,18 @@ begin
         if rst = '1' then
             s_rx_strobe <= '0';
             s_rx_strobe_div8 <= '0';
-            s_tick_ctr <= (others => '0');
+            s_dec_ctr <= (others => '0');
             s_rx_strobe_ctr <= (others => '0');
         elsif rising_edge(clk) then
             s_rx_strobe <= '0';
             s_rx_strobe_div8 <= '0';
---            if s_tick_ctr < to_unsigned(c_TICK_DIV-1, s_tick_ctr'length) then
---                s_tick_ctr <= s_tick_ctr + 1;
---            else
---                s_tick_ctr <= (others => '0');
---                s_rx_strobe <= '1';
---            end if;
-            s_rx_strobe <= '1';
+            if s_dec_ctr < to_unsigned(c_DEC_DIV-1, s_dec_ctr'length) then
+                s_dec_ctr <= s_dec_ctr + 1;
+            else
+                s_dec_ctr <= (others => '0');
+                s_rx_strobe <= '1';
+            end if;
+--            s_rx_strobe <= '1';
             if s_rx_strobe = '1' then
                 if s_rx_strobe_ctr < to_unsigned(c_BAUD_DIV-1, s_rx_strobe_ctr'length) then
                     s_rx_strobe_ctr <= s_rx_strobe_ctr + 1;
