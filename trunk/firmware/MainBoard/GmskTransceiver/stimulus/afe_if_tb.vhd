@@ -13,6 +13,7 @@ architecture bench of AFE_IF_tb is
     component AFE_IF
     port (
          CLK        : in  std_logic;
+         CLK_SH90   : in  std_logic;
          RST        : in  std_logic;
          SHDN       : in  std_logic;
          TX_RX_n    : in  std_logic;
@@ -30,6 +31,7 @@ architecture bench of AFE_IF_tb is
     end component;
 
     signal CLK: std_logic;
+    signal CLK_SH90: std_logic;
     signal RST: std_logic;
     signal SHDN: std_logic;
     signal TX_RX_n: std_logic;
@@ -69,6 +71,7 @@ begin
     uut: AFE_IF
     port map (
          CLK       => CLK,
+         CLK_SH90  => CLK_SH90,
          RST       => RST,
          SHDN      => SHDN,
          TX_RX_n    => TX_RX_n,
@@ -207,11 +210,13 @@ begin
     clocking: process
     begin
         while not stop_the_clock loop
-            clk <= '0', '1' after clock_period / 2;
+            CLK <= '0', '1' after clock_period / 2;
             wait for clock_period;
         end loop;
         wait;
     end process;
+
+    CLK_SH90 <= CLK after clock_period / 4;
 
 end;
 

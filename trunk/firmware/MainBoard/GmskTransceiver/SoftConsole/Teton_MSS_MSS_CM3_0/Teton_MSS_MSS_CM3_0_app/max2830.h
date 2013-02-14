@@ -120,11 +120,11 @@ static uint16_t max2830_regs[16] =
 		0x3666,
 		0x00A0,
 		0x0060,
-		0x0022,
+		0x1022, // R7: RXHP 4 kHz
 		0x3021,
 		0x07B5,
 		0x1DA4,
-		0x0040, // LNA medium gain, VGA min gain
+		0x004A, // LNA medium gain, VGA 20 dB
 		0x0140,
 		0x0E92,
 		0x0300,
@@ -429,7 +429,7 @@ uint32_t Max2830_get_rx_bandwidth( void );
  *
  *       The receive path incorporates a high-pass filter with cut-off frequency
  *       programmable to 100 Hz, 4 kHz, 30 kHz and 600 kHz. This value is fixed
- *       at 100 Hz by default.
+ *       at 4 kHz by default.
  *
  * @param
  *   The requested receive baseband low-pass filter cut-off frequency in Hz.

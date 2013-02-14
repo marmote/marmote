@@ -33,9 +33,6 @@
 --
 -- Design considerations:
 --    -Block uses software radio-specific signal names (e.g. I/Q suffices)
---    -No APB inteface included
---    -Parallel data interface complying with datasheet timing requirements
---     (TBD: constarints on input clock)
 --    -Single clock domain operation
 --       -CLK_pin is simply connected to CLK
 --       -Data is transmitted/received on every clock cycle
@@ -58,6 +55,7 @@ entity AFE_IF is
 	port (
          -- Internal interface
          CLK        : in  std_logic;
+         CLK_SH90   : in  std_logic;
          RST        : in  std_logic;
 
          SHDN       : in  std_logic;
@@ -148,8 +146,8 @@ begin
         port map (
             CLK => CLK,
             CLR => RST,
-            DR  => s_tx_i(i), -- Swap DR and DF if the clock can be delayed by at least 11 ns
-            DF  => s_tx_q(i),
+            DR  => s_tx_q(i),
+            DF  => s_tx_i(i),
             Q   => s_obuf(i)
         );
 
@@ -210,7 +208,7 @@ begin
         end if;
     end process p_ready_gen;
 
-    CLK_pin     <= CLK;
+    CLK_pin     <= CLK_SH90;
     T_R_n_pin   <= s_tx_rx_n;
     SHDN_n_pin  <= not SHDN;
 

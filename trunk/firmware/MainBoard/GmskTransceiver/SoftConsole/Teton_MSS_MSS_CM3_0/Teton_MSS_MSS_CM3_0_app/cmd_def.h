@@ -47,6 +47,7 @@ uint32_t CmdRxGain(uint32_t argc, char** argv);
 uint32_t CmdRxLna(uint32_t argc, char** argv);
 uint32_t CmdRxVga(uint32_t argc, char** argv);
 uint32_t CmdRxBw(uint32_t argc, char** argv);
+uint32_t CmdRxHp(uint32_t argc, char** argv);
 uint32_t CmdMode(uint32_t argc, char** argv);
 uint32_t CmdRssi(uint32_t argc, char** argv);
 uint32_t CmdPa(uint32_t argc, char** argv);
