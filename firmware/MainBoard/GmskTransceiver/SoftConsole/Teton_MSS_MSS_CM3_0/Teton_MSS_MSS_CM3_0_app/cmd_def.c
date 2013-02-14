@@ -26,6 +26,7 @@ CMD_Type CMD_List[] =
 	//{"rxlna", 	CmdRxLna},
 	//{"rxvga", 	CmdRxVga},
 	{"rxbw",   	CmdRxBw},
+	{"rxhp",   	CmdRxHp},
 	{"mode",   	CmdMode},
 	{"rssi",   	CmdRssi},
 	{"pa",     	CmdPa},
@@ -595,6 +596,85 @@ uint32_t CmdRxBw(uint32_t argc, char** argv)
 	return 1;
 }
 
+
+uint32_t CmdRxHp(uint32_t argc, char** argv)
+{
+	uint32_t rxhp;
+	uint32_t reg;
+	char buf[128];
+
+	if (argc == 1)
+	{
+		reg = Max2830_read_register(0x7);
+		reg = (reg >> 12) & 0x3; // R7[13:12]
+		// Note: RXHP is assumed to be 0
+		switch (reg)
+		{
+			case 0:
+				rxhp = 100;
+				break;
+			case 2:
+				rxhp = 30000;
+				break;
+			default:
+				rxhp = 4000;
+		}
+		sprintf(buf, "\r\nRx LPF cut-off: %5u Hz", (unsigned int)rxhp);
+		Yellowstone_print(buf);
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		rxhp = atoi(*(argv+1));
+		if (rxhp || !strcmp(*(argv+1), "0"))
+		{
+			reg = Max2830_read_register(0x7);
+			reg &= ~(0x3 << 12); // Zero R[13:12]
+			switch (rxhp)
+			{
+				case 100:
+					break;
+				case 4000:
+					reg |= 0x1 << 12;
+					break;
+				case 30000:
+					reg |= 0x2 << 12;
+					break;
+			}
+
+			if (reg != 0)
+			{
+				Max2830_write_register(7, reg);
+			}
+
+			// Readcheck
+			reg = Max2830_read_register(0x7);
+			reg = (reg >> 12) & 0x3; // R7[13:12]
+			// Note: RXHP is assumed to be 0
+			switch (reg)
+			{
+				case 0:
+					rxhp = 100;
+					break;
+				case 2:
+					rxhp = 30000;
+					break;
+				default:
+					rxhp = 4000;
+			}
+			sprintf(buf, "\r\nRx LPF cut-off: %5u Hz", (unsigned int)rxhp);
+			Yellowstone_print(buf);
+			return 0;
+		}
+	}
+
+	// Send help message
+	Yellowstone_print("\r\nUsage: rxbw [<bandwidth in kHz>]");
+	return 1;
+}
+
+
 uint32_t CmdMode(uint32_t argc, char** argv)
 {
 	char buf[32];
@@ -837,7 +917,7 @@ uint32_t CmdMux1(uint32_t argc, char** argv)
 				break;
 		}
 		Yellowstone_print(buf);
-		sprintf(buf, "\r\nMUX1: %d", (uint32_t)BB_CTRL->MUX1);
+		sprintf(buf, "\r\nMUX1: %d", (unsigned)BB_CTRL->MUX1);
 		Yellowstone_print(buf);
 		return 0;
 	}
@@ -851,7 +931,7 @@ uint32_t CmdMux1(uint32_t argc, char** argv)
 
 			// Readback
 			mux = BB_CTRL->MUX1;
-			sprintf(buf, "\r\nMUX : %d", (uint32_t)BB_CTRL->MUX1);
+			sprintf(buf, "\r\nMUX : %d", (unsigned)BB_CTRL->MUX1);
 					Yellowstone_print(buf);
 			sprintf( buf, "\r\nActive path: ");
 			Yellowstone_print(buf);
@@ -906,7 +986,7 @@ uint32_t CmdMux2(uint32_t argc, char** argv)
 				break;
 		}
 		Yellowstone_print(buf);
-		sprintf(buf, "\r\nMUX2: %d", (uint32_t)BB_CTRL->MUX2);
+		sprintf(buf, "\r\nMUX2: %d", (unsigned)BB_CTRL->MUX2);
 		Yellowstone_print(buf);
 		return 0;
 	}
@@ -920,7 +1000,7 @@ uint32_t CmdMux2(uint32_t argc, char** argv)
 
 			// Readback
 			mux = BB_CTRL->MUX2;
-			sprintf(buf, "\r\nMUX : %d", (uint32_t)BB_CTRL->MUX2);
+			sprintf(buf, "\r\nMUX : %d", (unsigned)BB_CTRL->MUX2);
 					Yellowstone_print(buf);
 			sprintf( buf, "\r\nActive path: ");
 			Yellowstone_print(buf);

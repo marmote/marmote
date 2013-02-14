@@ -4,6 +4,7 @@
 add wave  \
 -unsigned \
 sim:/afe_if_tb/CLK \
+sim:/afe_if_tb/CLK_SH90 \
 sim:/afe_if_tb/RST \
 sim:/afe_if_tb/SHDN \
 sim:/afe_if_tb/TX_RX_n \

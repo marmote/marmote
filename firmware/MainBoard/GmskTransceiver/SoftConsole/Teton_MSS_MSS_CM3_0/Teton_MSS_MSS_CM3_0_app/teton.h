@@ -37,6 +37,9 @@
 #define MSS_GPIO_SFD_IRQn	  		GPIO9_IRQn
 #define MSS_GPIO_RX_DONE_IRQn  		GPIO10_IRQn
 
+uint8_t sfd_it_flag;
+uint8_t rx_done_it_flag;
+
 typedef struct
 {
   __IO uint32_t CTRL;                      /*!< Offset: 0x00  Control/status Register       */
@@ -48,9 +51,20 @@ typedef struct
 #define TX_CTRL            ((TX_CTRL_Type *)       TX_APB_IF_0)   /*!< TX CTRL register struct */
 
 
+
+typedef struct
+{
+  __IO uint32_t CTRL;                      /*!< Offset: 0x00  Control/status Register       */
+  __I  uint32_t RX_FIFO;                   /*!< Offset: 0x04  Data Register             	*/
+} RX_CTRL_Type;
+
+#define RX_CTRL            ((RX_CTRL_Type *)       RX_APB_IF_0)   /*!< RX CTRL register struct */
+
+#define RX_FIFO_EMPTY_BIT_MASK 0x2
+
 typedef enum _mod_mux_path
 {
-	MOD_PATH_PACKET = 0,
+	MOD_PATH_PACKET 	= 0,
 	MOD_PATH_CONST_0  	= 1,
 	MOD_PATH_CONST_1  	= 2,
 	MOD_PATH_RANDOM 	= 3
