@@ -42,60 +42,42 @@ print "";
 
 write w TX_APB_IF_0 TX_CTRL 0x00;
 
-## Random bytes
-#write w TX_APB_IF_0 TX_DATA 0xAA;
-#write w TX_APB_IF_0 TX_DATA 0x20;
-#
-## Sync frame
-#write w TX_APB_IF_0 TX_DATA 0x70;
-#write w TX_APB_IF_0 TX_DATA 0xEE;
-#write w TX_APB_IF_0 TX_DATA 0xD2;
 
+# Length
+write w TX_APB_IF_0 TX_DATA 0x03;
 # Data
 write w TX_APB_IF_0 TX_DATA 0xAB;
 write w TX_APB_IF_0 TX_DATA 0xCD;
 write w TX_APB_IF_0 TX_DATA 0xEF;
-write w TX_APB_IF_0 TX_DATA 0x01;
-#write w TX_APB_IF_0 TX_DATA 0x22;
-
-#wait 10;
-
-wait 500;
-write w TX_APB_IF_0 TX_CTRL 0x01; # start
-
-wait 500;
-wait 500;
-
-#write w TX_APB_IF_0 TX_MOD_MUX 0x01;
-wait 500;
-wait 500;
-#write w TX_APB_IF_0 TX_MOD_MUX 0x02;
-wait 500;
-wait 500;
-#write w TX_APB_IF_0 TX_MOD_MUX 0x00;
-#write w TX_APB_IF_0 TX_MOD_MUX 0x03;
-#wait 10;
-
-wait 500;
-wait 500;
-wait 500;
-wait 500;
-wait 500;
-wait 500;
-wait 500;
-wait 500;
-wait 500;
-wait 500;
-wait 500;
-wait 500;
 wait 100;
+# Start TX
+write w TX_APB_IF_0 TX_CTRL 0x01;
+
+wait 500;
+wait 500;
+wait 500;
+wait 500;
+wait 500;
+wait 500;
+wait 500;
+wait 500;
+wait 500;
+wait 500;
+wait 500;
+wait 500;
+wait 500;
+wait 500;
+wait 500;
+wait 500;
+wait 500;
+wait 500;
 
 readcheck w RX_APB_IF_0 0x00 0x00; # FIFO should NOT be empty
 
+readcheck w RX_APB_IF_0 0x04 0x03;
 readcheck w RX_APB_IF_0 0x04 0xAB;
 readcheck w RX_APB_IF_0 0x04 0xCD;
 readcheck w RX_APB_IF_0 0x04 0xEF;
-readcheck w RX_APB_IF_0 0x04 0x01;
 
 readcheck w RX_APB_IF_0 0x00 0x02; # FIFO should be empty
 
@@ -106,6 +88,7 @@ readcheck w RX_APB_IF_0 0x00 0x02; # FIFO should be empty
 
 wait 100;
 
+write w TX_APB_IF_0 TX_DATA 0x04;
 write w TX_APB_IF_0 TX_DATA 0x1A;
 write w TX_APB_IF_0 TX_DATA 0x1B;
 write w TX_APB_IF_0 TX_DATA 0x1C;
@@ -127,13 +110,16 @@ wait 500;
 wait 500;
 wait 500;
 wait 500;
-wait 100;
+wait 500;
+wait 500;
+wait 500;
+wait 500;
 
-read w RX_APB_IF_0 0x04;
-read w RX_APB_IF_0 0x04;
-read w RX_APB_IF_0 0x04;
-read w RX_APB_IF_0 0x04;
-read w RX_APB_IF_0 0x04;
+readcheck w RX_APB_IF_0 0x04 0x04;
+readcheck w RX_APB_IF_0 0x04 0x1A;
+readcheck w RX_APB_IF_0 0x04 0x1B;
+readcheck w RX_APB_IF_0 0x04 0x1C;
+readcheck w RX_APB_IF_0 0x04 0x1D;
 
 
 return

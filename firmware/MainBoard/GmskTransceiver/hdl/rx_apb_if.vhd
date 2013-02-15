@@ -115,7 +115,6 @@ architecture Behavioral of RX_APB_IF is
     -- Constants
 
     constant c_PAYLOAD_LENGTH   : integer := 4; -- bytes
-    constant c_DATA_LENGTH      : integer := 8;
 
     constant c_DEC_DIV          : integer := 10;
     constant c_BAUD_DIV         : integer := 8;     -- Samples per symbol in the modulator 
@@ -135,12 +134,14 @@ architecture Behavioral of RX_APB_IF is
     signal s_dout           : std_logic_vector(7 downto 0);
     signal s_pready         : std_logic;
 
-    signal s_data_buffer    : std_logic_vector(c_DATA_LENGTH-1 downto 0);
+    signal s_data_buffer    : std_logic_vector(7 downto 0);
     signal s_bit_ctr        : unsigned(5 downto 0);
     signal s_rx_byte_valid  : std_logic;
 
-    signal s_payload_ctr    : unsigned(5 downto 0);
-    signal s_payload_ctr_next    : unsigned(5 downto 0);
+    signal s_payload_ctr        : unsigned(7 downto 0);
+    signal s_payload_ctr_next   : unsigned(7 downto 0);
+    signal s_payload_length     : unsigned(7 downto 0);
+    signal s_payload_length_next    : unsigned(7 downto 0);
 
     signal s_rx_fifo_in     : std_logic_vector(7 downto 0);
     signal s_rx_fifo_out    : std_logic_vector(7 downto 0);
@@ -341,7 +342,7 @@ begin
                 if s_rx_strobe_div8 = '1' then
                     s_data_buffer <= s_data_buffer(s_data_buffer'high-1 downto 0)
                                      & s_rx_symbol;
-                    if s_bit_ctr < c_DATA_LENGTH-1 then
+                    if s_bit_ctr < 7 then
                         s_bit_ctr <= s_bit_ctr + 1;
                     else
                         s_rx_byte_valid <= '1';
@@ -378,11 +379,13 @@ begin
             s_payload_ctr <= (others => '0');
             s_rx_symbol_valid_prev <= '0';
             s_rx_done <= '0';
+            s_payload_length <= (others => '0');
         elsif rising_edge(clk) then
             s_rx_state <= s_rx_state_next;
             s_payload_ctr <= s_payload_ctr_next;
             s_rx_symbol_valid_prev <= s_rx_symbol_valid;
             s_rx_done <= s_rx_done_next;
+            s_payload_length <= s_payload_length_next;
         end if;
     end process p_RECEIVE_FSM_SYNC;
 
@@ -390,12 +393,14 @@ begin
 
 
     p_RECEIVE_FSM_COMB : process (
+        s_payload_length,
         s_rx_state,
         s_rx_byte_valid,
         s_payload_ctr
     )
     begin
         -- Default assignments
+        s_payload_length_next <= s_payload_length;
         s_payload_ctr_next <= s_payload_ctr;
         s_rx_state_next <= s_rx_state;
         s_rx_fifo_wr <= '0'; -- FIXME: add register
@@ -409,6 +414,7 @@ begin
                 s_payload_ctr_next <= (others => '0');
                 if s_rx_byte_valid = '1' then
                     s_rx_fifo_wr <= '1';
+                    s_payload_length_next <= unsigned(s_data_buffer); 
                     s_payload_ctr_next <= to_unsigned(1, s_payload_ctr_next'length);
                     s_rx_state_next <= st_RX_PAYLOAD;
                 end if;
@@ -416,7 +422,7 @@ begin
             when st_RX_PAYLOAD =>
                 if s_rx_byte_valid = '1' then
                     s_rx_fifo_wr <= '1';
-                    if s_payload_ctr < c_PAYLOAD_LENGTH-1 then
+                    if s_payload_ctr < s_payload_length then
                         s_payload_ctr_next <= s_payload_ctr + 1;
                     else
                         s_rx_state_next <= st_RX_CRC;
@@ -431,6 +437,7 @@ begin
 
             when st_CHECK_CRC =>
                 -- NOTE: CHECK CRC state is not implemented yet
+                s_payload_length_next <= (others => '0');
                 s_rx_done_next <= '1';
                 s_rx_state_next <= st_IDLE;
 

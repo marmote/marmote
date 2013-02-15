@@ -44,7 +44,7 @@ typedef struct
 {
   __IO uint32_t CTRL;                      /*!< Offset: 0x00  Control/status Register       */
   __O  uint32_t TX_FIFO;                   /*!< Offset: 0x04  Data Register             	*/
-  __IO uint32_t TEST;                      /*!< Offset: 0x08  Test Register             	*/
+  __IO uint32_t PREAMBLE;                  /*!< Offset: 0x08  Preamble Register             	*/
   __IO uint32_t MOD_MUX;                   /*!< Offset: 0x0C  Modulator input multiplexer Register */
 } TX_CTRL_Type;
 
