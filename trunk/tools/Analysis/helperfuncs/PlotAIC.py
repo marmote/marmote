@@ -3,12 +3,10 @@ import numpy as np
 
 def PlotAIC(y, AIC, T, onset):
 	t_y = np.arange(y.size)*T
-	t_AIC = np.arange(AIC.size)*T
-	t_dAIC = np.arange(AIC.size-1)*T
+	t_AIC = (np.arange(AIC.size)+2-0.5)*T
+	t_dAIC = (np.arange(AIC.size-1)+2)*T
 
-	dAIC = []
-	for ii in xrange(AIC.size-1):
-		dAIC.append(AIC[ii+1] - AIC[ii])
+	dAIC = AIC[1:] - AIC[:-1]
 
 	fig, axarr = plt.subplots(3, 1, sharex=True)
 	axarr = axarr.flat

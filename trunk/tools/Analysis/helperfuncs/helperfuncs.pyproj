@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{54027d41-2ea8-4814-b479-4bc17a7cd2d0}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>PlotScatter2Dhist.py</StartupFile>
+    <StartupFile>PlotTDHist.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -32,15 +32,11 @@
     <Compile Include="FullWPD.py" />
     <Compile Include="FunctionDisplayRecording_total.py" />
     <Compile Include="GMM_estimate_EM.py" />
-    <Compile Include="MultivariateNormalPDF.py" />
     <Compile Include="Onset_AIC.py" />
     <Compile Include="Onset_Threshold.py" />
     <Compile Include="PickBases.py" />
     <Compile Include="PlotAEMeas.py" />
-    <Compile Include="PlotAIC.py" />
     <Compile Include="PlotDWT.py" />
-    <Compile Include="PlotHistory.py" />
-    <Compile Include="PlotScatter2Dhist.py" />
     <Compile Include="PlotSpecgram.py" />
     <Compile Include="PlotTDHist.py" />
     <Compile Include="PlotTDOAvsDist.py" />
