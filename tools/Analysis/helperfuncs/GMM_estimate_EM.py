@@ -29,12 +29,15 @@ def print_params(alpha, mu, sigma, Gnum):
 def likelihood(x, alpha, mu, sigma):
 	N = x.shape[0]
 	G = alpha.size
+	small_float = 1e-300
 
 	l = 0.0
 	for n in xrange(N):
 		temp = 0.0
 		for g in xrange(G):
 			temp += alpha[g] * MNPDF.MultivariateNormalPDF(x[n,:], mu[g,:], sigma[:,:,g])
+			if temp == 0.0:
+				temp = small_float
 		l += np.log(temp)
 	return l
 
