@@ -106,7 +106,7 @@ architecture Behavioral of TX_APB_IF is
 	-- Addresses
 	constant c_ADDR_CTRL : std_logic_vector(7 downto 0) := x"00"; -- W (START)
 	constant c_ADDR_FIFO : std_logic_vector(7 downto 0) := x"04"; -- W
-	constant c_ADDR_TEST : std_logic_vector(7 downto 0) := x"08"; -- R/W
+	constant c_ADDR_PREAMBLE : std_logic_vector(7 downto 0) := x"08"; -- R/W
 	constant c_ADDR_MOD_MUX : std_logic_vector(7 downto 0) := x"0C"; -- R/W
 
 	-- Default values
@@ -136,12 +136,10 @@ architecture Behavioral of TX_APB_IF is
 
 --    signal s_mod_rst    : std_logic;
 
-	signal s_oct_ctr        : unsigned(5 downto 0);
-	signal s_oct_ctr_next   : unsigned(5 downto 0);
-	signal s_bit_ctr        : unsigned(5 downto 0);
-	signal s_bit_ctr_next   : unsigned(5 downto 0);
-	signal s_payload_ctr        : unsigned(c_PAYLOAD_LENGTH-1 downto 0);
-	signal s_payload_ctr_next   : unsigned(c_PAYLOAD_LENGTH-1 downto 0);
+	signal s_oct_ctr        : unsigned(7 downto 0);
+	signal s_oct_ctr_next   : unsigned(7 downto 0);
+	signal s_bit_ctr        : unsigned(3 downto 0);
+	signal s_bit_ctr_next   : unsigned(3 downto 0);
 
     signal s_tx_fifo_in     : std_logic_vector(7 downto 0);
     signal s_tx_fifo_out    : std_logic_vector(7 downto 0);
@@ -153,6 +151,9 @@ architecture Behavioral of TX_APB_IF is
 
 	signal s_buffer        : std_logic_vector(7 downto 0);
 	signal s_buffer_next   : std_logic_vector(7 downto 0);
+
+	signal s_payload_length        : unsigned(7 downto 0);
+	signal s_payload_length_next   : unsigned(7 downto 0);
 
 	signal s_start          : std_logic;
 	signal s_busy           : std_logic;
@@ -191,7 +192,7 @@ begin
     u_TX_FIFO : FIFO_512x8
     generic map (
         g_AFULL  => 496,
-        g_AEMPTY => c_PAYLOAD_LENGTH-1
+        g_AEMPTY => 2
     )
     port map (
     	RESET   => rst,
@@ -230,11 +231,11 @@ begin
 				case PADDR(7 downto 0) is
 					when c_ADDR_CTRL =>
 						-- Initiate transmission
-                        s_start <= PWDATA(0); -- TODO: check if s_start strobe is 1 clock cycle long
+                        s_start <= PWDATA(0);
 					when c_ADDR_FIFO =>
 						s_tx_fifo_in <= PWDATA(7 downto 0);
                         s_tx_fifo_wr <= '1';
-					when c_ADDR_TEST =>
+					when c_ADDR_PREAMBLE =>
                         s_test <= PWDATA(7 downto 0);
 					when c_ADDR_MOD_MUX =>
                         s_mod_in_mux <= PWDATA(1 downto 0);
@@ -261,7 +262,7 @@ begin
                     -- Status
 					when c_ADDR_CTRL => 
 						s_dout <= s_status;
-					when c_ADDR_TEST => 
+					when c_ADDR_PREAMBLE => 
 						s_dout(7 downto 0) <= s_test;
 					when c_ADDR_MOD_MUX =>
 						s_dout(1 downto 0) <= s_mod_in_mux;
@@ -329,20 +330,22 @@ begin
 	p_TRANSMIT_FSM_SYNC : process (rst, clk)
 	begin
 		if rst = '1' then
+            s_tx_state <= st_IDLE;
 			s_oct_ctr <= (others => '0');
 			s_bit_ctr <= (others => '0');
 			s_buffer <= (others => '0');
+			s_payload_length <= (others => '0');
+
             s_txd <= (others => '0');
             s_mod_en <= '0';
-            s_tx_state <= st_IDLE;
-            s_payload_ctr <= (others => '0');
             s_tx_en_prev <= '0';
---            s_mod_rst <= '0';
 		elsif rising_edge(clk) then
+            s_tx_state <= s_tx_state_next;
 			s_oct_ctr <= s_oct_ctr_next;
 			s_bit_ctr <= s_bit_ctr_next;
 			s_buffer <= s_buffer_next;
---            s_txd <= s_txd_next;
+            s_payload_length <= s_payload_length_next;
+
             if s_mod_en = '1' then
                 if s_buffer(s_buffer'high) = '1' then
                     s_txd <= c_TXD_HIGH;
@@ -352,8 +355,6 @@ begin
             else
                 s_txd <= (others => '0');
             end if;
-            s_tx_state <= s_tx_state_next;
-            s_payload_ctr <= s_payload_ctr_next;
             s_mod_en <= s_mod_en_next;
             s_tx_en_prev <= s_tx_en;
 		end if;
@@ -368,22 +369,24 @@ begin
 		s_tx_state,
 		s_oct_ctr,
 		s_bit_ctr,
-        s_payload_ctr,
-		s_symbol_end,
 		s_buffer,
+        s_payload_length,
+
+		s_symbol_end,
         s_tx_fifo_out,
-        s_tx_fifo_aempty,
+        s_tx_fifo_empty,
         s_mod_en,
 		s_start
 	)
 	begin
 		-- Default values
         s_tx_state_next <= s_tx_state;
-        s_payload_ctr_next <= s_payload_ctr;
         s_tx_fifo_rd <= '0';
 		s_bit_ctr_next <= s_bit_ctr;
 		s_oct_ctr_next <= s_oct_ctr;
 		s_buffer_next <= s_buffer;
+        s_payload_length_next <= s_payload_length;
+
         s_tx_done <= '0';
         s_mod_en_next <= s_mod_en;
 
@@ -430,6 +433,8 @@ begin
                                 s_buffer_next <= c_SFD(to_integer(s_oct_ctr+1));
                             else
                                 s_buffer_next <= s_tx_fifo_out;
+                                s_payload_length_next <= unsigned(s_tx_fifo_out);
+                                s_oct_ctr_next <= (others => '0');
                                 s_tx_fifo_rd <= '1';
                                 s_bit_ctr_next <= (others => '0');
                                 s_tx_state_next <= st_PAYLOAD;
@@ -444,12 +449,12 @@ begin
                             s_bit_ctr_next <= s_bit_ctr + 1;
                         else
                             s_bit_ctr_next <= (others => '0');
-                            if s_payload_ctr < c_PAYLOAD_LENGTH-2 then
+                            if s_oct_ctr < s_payload_length-1 then
                                 s_tx_fifo_rd <= '1';
                             end if;
-                            if s_payload_ctr < c_PAYLOAD_LENGTH-1 then
+                            if s_oct_ctr < s_payload_length then
                                 s_buffer_next <= s_tx_fifo_out;
-                                s_payload_ctr_next <= s_payload_ctr + 1;
+                                s_oct_ctr_next <= s_oct_ctr + 1;
                             else
                                 s_tx_state_next <= st_CRC;
                             end if;
@@ -458,7 +463,7 @@ begin
 
 				when st_CRC => 
                     -- NOTE: st_CRC not implemented yet
-                    s_payload_ctr_next <= (others => '0');
+                    s_oct_ctr_next <= (others => '0');
                     if s_symbol_end = '1' then -- Wait for an additional symbol
                         s_tx_state_next <= st_IDLE;
                         s_tx_done <= '1';

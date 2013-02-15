@@ -58,31 +58,31 @@ int main()
 	// ----------------- Rx ----------------
 
 	// Set up as a receiver at 2405 MHz by default
-	Max2830_set_frequency(2405000000uL);
-	Max2830_set_mode(MAX2830_RX_MODE);
-	MSS_GPIO_set_output(MSS_GPIO_AFE1_MODE, AFE_RX_MODE);
-	MSS_GPIO_set_output(MSS_GPIO_AFE1_ENABLE, 1);
-
-	BB_CTRL->MUX2 = MUX_PATH_RX;
+//	Max2830_set_frequency(2405000000uL);
+//	Max2830_set_mode(MAX2830_RX_MODE);
+//	MSS_GPIO_set_output(MSS_GPIO_AFE1_MODE, AFE_RX_MODE);
+//	MSS_GPIO_set_output(MSS_GPIO_AFE1_ENABLE, 1);
+//
+//	BB_CTRL->MUX2 = MUX_PATH_RX;
 
 	// ----------------- Tx ----------------
 
 	// Set up as a transmitter at 2405 MHz by default
-//	Max2830_set_frequency(2405000000uL);
-//	Max2830_set_mode(MAX2830_TX_MODE);
-//	MSS_GPIO_set_output(MSS_GPIO_AFE1_MODE, AFE_TX_MODE);
-//	MSS_GPIO_set_output(MSS_GPIO_AFE1_ENABLE, 1);
-//
-//	//payload = 0x55;
-//
-//	// TIMER
-//	MSS_TIM1_init(MSS_TIMER_PERIODIC_MODE);
-//	MSS_TIM1_load_background(20e6); // 1 s
-//	MSS_TIM1_enable_irq();
-//	MSS_TIM1_start();
-//
-//	BB_CTRL->MUX1 = MUX_PATH_TX;
-//	BB_CTRL->MUX2 = MUX_PATH_TX;
+	Max2830_set_frequency(2405000000uL);
+	Max2830_set_mode(MAX2830_TX_MODE);
+	MSS_GPIO_set_output(MSS_GPIO_AFE1_MODE, AFE_TX_MODE);
+	MSS_GPIO_set_output(MSS_GPIO_AFE1_ENABLE, 1);
+
+	//payload = 0x55;
+
+	// TIMER
+	MSS_TIM1_init(MSS_TIMER_PERIODIC_MODE);
+	MSS_TIM1_load_background(20e6); // 1 s
+	MSS_TIM1_enable_irq();
+	MSS_TIM1_start();
+
+	BB_CTRL->MUX1 = MUX_PATH_TX;
+	BB_CTRL->MUX2 = MUX_PATH_TX;
 
 	while( 1 )
 	{
@@ -103,7 +103,7 @@ int main()
 			Yellowstone_print("\r\n");
 			while ((RX_CTRL->CTRL & RX_FIFO_EMPTY_BIT_MASK) == 0)
 			{
-				sprintf(buf, "%02X ", RX_CTRL->RX_FIFO);
+				sprintf(buf, "%02X ", (unsigned)RX_CTRL->RX_FIFO);
 				Yellowstone_print(buf);
 			}
 			rx_done_it_flag = 0;
@@ -167,15 +167,12 @@ void Timer1_IRQHandler(void)
 	MSS_TIM1_clear_irq();
 
 	// Fill up TX FIFO
+	TX_CTRL->TX_FIFO = 5; // payload length
 	TX_CTRL->TX_FIFO = payload++;
 	TX_CTRL->TX_FIFO = payload++;
 	TX_CTRL->TX_FIFO = payload++;
 	TX_CTRL->TX_FIFO = payload++;
-
-//	TX_CTRL->TX_FIFO = 0xAB;
-//	TX_CTRL->TX_FIFO = 0xCD;
-//	TX_CTRL->TX_FIFO = 0xFF;
-//	TX_CTRL->TX_FIFO = 0x00;
+	TX_CTRL->TX_FIFO = payload++;
 
 	// Start
 	TX_CTRL->CTRL = 0x01;
