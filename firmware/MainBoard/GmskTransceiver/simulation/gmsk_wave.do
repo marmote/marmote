@@ -38,6 +38,8 @@ sim:/testbench/Teton_0/TX_APB_IF_0/rst \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_start \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_state \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_state_next \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_oct_ctr \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_oct_ctr_next \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_bit_ctr \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_bit_ctr_next \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_payload_ctr \
@@ -47,7 +49,6 @@ sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_fifo_rd \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_fifo_full \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_fifo_empty \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_fifo_aempty \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_buffer(23:16) \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_buffer \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_buffer_next \
 -unsigned sim:/testbench/Teton_0/TX_APB_IF_0/s_baud_ctr \
@@ -73,6 +74,14 @@ sim:/testbench/Teton_0/TX_APB_IF_0/s_mod_en \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_rnd \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_txd
 
+add wave \
+-unsigned \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_state \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_oct_ctr \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_bit_ctr \
+-hex \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_buffer \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_txd
 
 add wave \
 -signed \
@@ -164,12 +173,11 @@ sim:/testbench/Teton_0/AFE2_IF/s_tx_q
 
 add wave  \
 -group {RX WAVEFORMS} \
--analog-step -min -512 -max 512 -height 100 \
 sim:/testbench/Teton_0/RX_APB_IF_0/RX_STROBE \
+sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_RX/Port_Out \
+-analog-step -min -512 -max 512 -height 100 \
 sim:/testbench/Teton_0/RX_APB_IF_0/RX_I \
-sim:/testbench/Teton_0/RX_APB_IF_0/RX_Q \
--unsigned \
-sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_RX/Port_Out
+sim:/testbench/Teton_0/RX_APB_IF_0/RX_Q
 
 add wave \
 -group {RX SYNC} \

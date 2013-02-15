@@ -84,6 +84,10 @@ wait 500;
 wait 500;
 wait 500;
 wait 500;
+wait 500;
+wait 500;
+wait 500;
+wait 500;
 wait 100;
 
 readcheck w RX_APB_IF_0 0x00 0x00; # FIFO should NOT be empty
