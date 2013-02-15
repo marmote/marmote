@@ -52,6 +52,7 @@ entity TX_APB_IF is
 
          TX_DONE_IRQ : out std_logic;
 
+         -- FIXME: clean up this interface
          CLK_DIV    : out std_logic;
          EN_DIV    : out std_logic;
          TX_STROBE  : out std_logic;
@@ -87,21 +88,20 @@ architecture Behavioral of TX_APB_IF is
 
     -- Constants
 
-    constant c_SFD  : std_logic_vector(23 downto 0) := x"70EED2";
---    constant c_SFD  : std_logic_vector(23 downto 0) := x"AAAAAA"; -- Preamble
---    constant c_SFD  : std_logic_vector(23 downto 0) := x"000000"; -- FIXME
-    
-    constant c_PAYLOAD_LENGTH   : integer := 4; -- bytes
+    type SFD_t is array (0 to 2) of std_logic_vector(7 downto 0);
+    constant c_SFD  : SFD_t := (x"70", x"EE", x"D2");
 
-    constant c_DATA_LENGTH : integer := 8;
+    constant c_PREAMBLE  : std_logic_vector(7 downto 0) := x"FF"; -- Preamble
+    constant c_PREAMBLE_LENGTH  : integer := 4; -- in bytes
 
-    constant c_DEC_DIV : integer := 10;    
+    constant c_PAYLOAD_LENGTH   : integer := 4; -- bytes -- FIXME
+
+    constant c_DEC_DIV  : integer := 10;    
     constant c_BAUD_DIV : integer := 8*c_DEC_DIV;     -- Samples per symbol in the modulator 
 
+    constant c_TX_ZERO  : std_logic_vector(9 downto 0)  := "00" & x"00";    --  0
     constant c_TXD_HIGH : std_logic_vector(15 downto 0) := "0100" & x"000"; -- +1
     constant c_TXD_LOW  : std_logic_vector(15 downto 0) := "1100" & x"000"; -- -1
-
-    constant c_TX_ZERO    : std_logic_vector(9 downto 0) := "00" & x"00";
 
 	-- Addresses
 	constant c_ADDR_CTRL : std_logic_vector(7 downto 0) := x"00"; -- W (START)
@@ -136,6 +136,8 @@ architecture Behavioral of TX_APB_IF is
 
 --    signal s_mod_rst    : std_logic;
 
+	signal s_oct_ctr        : unsigned(5 downto 0);
+	signal s_oct_ctr_next   : unsigned(5 downto 0);
 	signal s_bit_ctr        : unsigned(5 downto 0);
 	signal s_bit_ctr_next   : unsigned(5 downto 0);
 	signal s_payload_ctr        : unsigned(c_PAYLOAD_LENGTH-1 downto 0);
@@ -149,8 +151,8 @@ architecture Behavioral of TX_APB_IF is
     signal s_tx_fifo_empty  : std_logic;
     signal s_tx_fifo_aempty : std_logic;
 
-	signal s_buffer        : std_logic_vector(23 downto 0);
-	signal s_buffer_next   : std_logic_vector(23 downto 0);
+	signal s_buffer        : std_logic_vector(7 downto 0);
+	signal s_buffer_next   : std_logic_vector(7 downto 0);
 
 	signal s_start          : std_logic;
 	signal s_busy           : std_logic;
@@ -327,6 +329,7 @@ begin
 	p_TRANSMIT_FSM_SYNC : process (rst, clk)
 	begin
 		if rst = '1' then
+			s_oct_ctr <= (others => '0');
 			s_bit_ctr <= (others => '0');
 			s_buffer <= (others => '0');
             s_txd <= (others => '0');
@@ -336,6 +339,7 @@ begin
             s_tx_en_prev <= '0';
 --            s_mod_rst <= '0';
 		elsif rising_edge(clk) then
+			s_oct_ctr <= s_oct_ctr_next;
 			s_bit_ctr <= s_bit_ctr_next;
 			s_buffer <= s_buffer_next;
 --            s_txd <= s_txd_next;
@@ -362,6 +366,7 @@ begin
 	-----------------------------------------------------------------------------
 	p_TRANSMIT_FSM_COMB : process (
 		s_tx_state,
+		s_oct_ctr,
 		s_bit_ctr,
         s_payload_ctr,
 		s_symbol_end,
@@ -377,6 +382,7 @@ begin
         s_payload_ctr_next <= s_payload_ctr;
         s_tx_fifo_rd <= '0';
 		s_bit_ctr_next <= s_bit_ctr;
+		s_oct_ctr_next <= s_oct_ctr;
 		s_buffer_next <= s_buffer;
         s_tx_done <= '0';
         s_mod_en_next <= s_mod_en;
@@ -385,30 +391,49 @@ begin
 			
 				when st_IDLE =>
 					if s_start = '1' and s_tx_fifo_aempty = '0' then
-						s_tx_state_next <= st_PREAMBLE;
+                        s_bit_ctr_next <= (others => '0');
+                        s_oct_ctr_next <= (others => '0');
                         s_mod_en_next <= '1';
-                        s_buffer_next <= c_SFD; --
-                        s_tx_fifo_rd <= '1'; -- Fetch FIFO data
+                        s_buffer_next <= c_PREAMBLE;
+						s_tx_state_next <= st_PREAMBLE;
 					end if;
 
 				when st_PREAMBLE =>
-                    -- NOTE: st_PREAMPLE not implemented yet
-                    s_tx_state_next <= st_SFD;
-                    s_buffer_next <= c_SFD;
-                    s_bit_ctr_next <= (others => '0');
+                    if s_symbol_end = '1' then
+                        if s_bit_ctr < 7 then
+                            s_bit_ctr_next <= s_bit_ctr + 1;
+                            s_buffer_next <= s_buffer(s_buffer'high-1 downto 0) & '0';
+                        else
+                            s_bit_ctr_next <= (others => '0');
+                            if s_oct_ctr < c_PREAMBLE_LENGTH-1 then
+                                s_oct_ctr_next <= s_oct_ctr + 1;
+                                s_buffer_next <= c_PREAMBLE;
+                            else
+                                s_tx_fifo_rd <= '1'; -- Fetch FIFO data
+                                s_oct_ctr_next <= (others => '0');
+                                s_bit_ctr_next <= (others => '0');
+                                s_buffer_next <= c_SFD(0);
+                                s_tx_state_next <= st_SFD;
+                            end if;
+                        end if;
+                    end if;
 
 				when st_SFD =>
                     if s_symbol_end = '1' then
-                        if s_bit_ctr < to_unsigned(c_SFD'length-1, s_bit_ctr'length) then
+                        if s_bit_ctr < 7 then
                             s_buffer_next <= s_buffer(s_buffer'high-1 downto 0) & '0';
                             s_bit_ctr_next <= s_bit_ctr + 1;
                         else
-                            s_buffer_next <= (others => '0');
-                            s_buffer_next(23 downto 16) <= s_tx_fifo_out;
-                            s_tx_fifo_rd <= '1';
                             s_bit_ctr_next <= (others => '0');
-                            s_tx_state_next <= st_PAYLOAD;
---                            s_tx_state_next <= st_CRC;
+                            if s_oct_ctr < c_SFD'length-1 then
+                                s_oct_ctr_next <= s_oct_ctr + 1;
+                                s_buffer_next <= c_SFD(to_integer(s_oct_ctr+1));
+                            else
+                                s_buffer_next <= s_tx_fifo_out;
+                                s_tx_fifo_rd <= '1';
+                                s_bit_ctr_next <= (others => '0');
+                                s_tx_state_next <= st_PAYLOAD;
+                            end if;
                         end if;
                     end if;
 
@@ -423,7 +448,7 @@ begin
                                 s_tx_fifo_rd <= '1';
                             end if;
                             if s_payload_ctr < c_PAYLOAD_LENGTH-1 then
-                                s_buffer_next(23 downto 16) <= s_tx_fifo_out;
+                                s_buffer_next <= s_tx_fifo_out;
                                 s_payload_ctr_next <= s_payload_ctr + 1;
                             else
                                 s_tx_state_next <= st_CRC;

@@ -43,6 +43,40 @@
 
 #include "max2830.h"
 
+//uint16_t dummy;
+
+//void agc_handler(ace_flag_handle_t flag_handle)
+//{
+//	uint16_t dummy;
+//	dummy = Max2830_get_rssi_value();
+//	switch (flag_handle)
+//	{
+//		case J_RSSI_RSSI_HIGH:
+//			if (Max2830_get_rx_lna_gain() == 33)
+//			{
+//				Max2830_set_rx_lna_gain(17);
+//			}
+//			else
+//			{
+//				Max2830_set_rx_lna_gain(0);
+//			}
+//			break;
+//		case J_RSSI_RSSI_LOW:
+//			if (Max2830_get_rx_lna_gain() == 0)
+//			{
+//				Max2830_set_rx_lna_gain(17);
+//			}
+//			else
+//			{
+//				Max2830_set_rx_lna_gain(33);
+//			}
+//			break;
+//		default:
+//			break;
+//	}
+//	ACE_clear_flag_irq(flag_handle);
+//}
+
 void Max2830_init ( )
 {
 	uint8_t i;
@@ -88,6 +122,12 @@ void Max2830_init ( )
 	{
 		for (;;);
 	}
+
+//	// AGC (LNA)
+//	ACE_register_flag_isr(J_RSSI_RSSI_HIGH, agc_handler);
+//	ACE_register_flag_isr(J_RSSI_RSSI_LOW, agc_handler);
+//	ACE_enable_flag_irq(J_RSSI_RSSI_HIGH);
+//	ACE_enable_flag_irq(J_RSSI_RSSI_LOW);
 }
 
 

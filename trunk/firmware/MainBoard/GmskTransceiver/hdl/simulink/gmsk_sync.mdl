@@ -20,7 +20,7 @@ Model {
       Name		      "bit_out"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.17"
+    ComputedModelVersion    "1.18"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -43,9 +43,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "sszilvasi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Feb 13 17:16:14 2013"
-  RTWModifiedTimeStamp	  282669962
-  ModelVersionFormat	  "1.%<AutoIncrement:17>"
+  LastModifiedDate	  "Wed Feb 13 18:32:57 2013"
+  RTWModifiedTimeStamp	  282681176
+  ModelVersionFormat	  "1.%<AutoIncrement:18>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -83,6 +83,7 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "gmsk_tr"
+    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -1407,9 +1408,9 @@ Model {
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Math Functions/Comparator"
       SourceType	      "Synphony Model Compiler Comparator"
-      syn_comp_opr	      "a<=b"
+      syn_comp_opr	      "a==b"
       syn_comp_const	      on
-      syn_comp_val	      "1"
+      syn_comp_val	      "0"
       synBlockType	      "primitive"
       synLatency	      "0"
       synBlockId	      "14"
