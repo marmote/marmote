@@ -47,12 +47,9 @@
 #include <mss_gpio.h>
 #include <mss_spi.h>
 
-//#define MSS_GPIO_SPI1_SS_AFE1  	MSS_GPIO_x		// AFE1 slave select
-//#define MSS_GPIO_SPI1_SS_AFE2  	MSS_GPIO_x		// AFE2 slave select
-//
-//#define MSS_GPIO_SPI1_SS_AFE1_MASK	MSS_GPIO_x_MASK
-#define MSS_GPIO_SPI1_SS_AFE2_MASK	MSS_GPIO_x_MASK
 
+#define MAX19706_AFE1_MEASURED_I_OFFSET -1
+#define MAX19706_AFE1_MEASURED_Q_OFFSET -5
 
 /**
  * The possible common mode values in the MAX19706.
@@ -137,6 +134,59 @@ uint16_t Max19706_read_register( Max19706_instance_t AFEx, uint8_t addr );
  */
 void Max19706_write_register( Max19706_instance_t AFEx, uint8_t addr, uint16_t data );
 
+
+/**
+ * The Max19706_get_dac_i_offset() function reads the I channel offset value
+ * and returns it in LSB.
+ *
+ * @param AFEx
+ *   The AFE instance to get the DAC I channel offset from.
+ *
+ * @return
+ *   The I channel offset value in LSB.
+ */
+int8_t Max19706_get_dac_i_offset( Max19706_instance_t AFEx );
+
+/**
+ * The Max19706_set_set_dac_i_offset() function sets the I channel offset value
+ * specified in the parameter.
+ *
+ * @param AFEx
+ *   The AFE instance to get the DAC I channel offset from.
+ * @param offset
+ *   The requested offset in LSB.
+ *
+ * @return
+ *   This function does not return a value.
+ */
+void Max19706_set_dac_i_offset( Max19706_instance_t AFEx, int8_t offset );
+
+
+/**
+ * The Max19706_get_dac_q_offset() function reads the Q channel offset value
+ * and returns it in LSB.
+ *
+ * @param AFEx
+ *   The AFE instance to get the DAC Q channel offset from.
+ *
+ * @return
+ *   The Q channel offset value in LSB.
+ */
+int8_t Max19706_get_dac_q_offset( Max19706_instance_t AFEx );
+
+/**
+ * The Max19706_set_set_dac_q_offset() function sets the Q channel offset value
+ * specified in the parameter.
+ *
+ * @param AFEx
+ *   The AFE instance to get the DAC Q channel offset from.
+ * @param offset
+ *   The requested offset in LSB.
+ *
+ * @return
+ *   This function does not return a value.
+ */
+void Max19706_set_dac_q_offset( Max19706_instance_t AFEx, int8_t offset );
 
 
 /**

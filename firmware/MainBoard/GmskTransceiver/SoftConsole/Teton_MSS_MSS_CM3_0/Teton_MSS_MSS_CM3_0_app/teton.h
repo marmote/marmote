@@ -14,6 +14,7 @@
 
 #include <string.h>
 #include "joshua.h"
+#include "max19706.h"
 
 
 #define MSS_GPIO_LED1 				MSS_GPIO_0

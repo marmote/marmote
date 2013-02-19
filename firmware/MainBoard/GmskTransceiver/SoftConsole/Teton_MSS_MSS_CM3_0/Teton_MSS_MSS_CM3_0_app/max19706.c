@@ -68,6 +68,10 @@ void Max19706_init ( Max19706_instance_t AFEx )
 
 	// Set common mode
 	Max19706_set_dac_cm( AFEx, MAX19706_DAC_CM_1_20V );
+
+	// Compensate IQ offset
+	Max19706_set_dac_i_offset(MAX19706_AFE1, MAX19706_AFE1_MEASURED_I_OFFSET);
+	Max19706_set_dac_q_offset(MAX19706_AFE1, MAX19706_AFE1_MEASURED_Q_OFFSET);
 }
 
 uint16_t Max19706_read_register( Max19706_instance_t AFEx, uint8_t addr )
@@ -123,6 +127,39 @@ void Max19706_write_register( Max19706_instance_t AFEx, uint8_t addr, uint16_t d
 			spi_slave
 	);
 }
+
+
+int8_t Max19706_get_dac_i_offset( Max19706_instance_t AFEx )
+{
+	return 0;
+}
+
+void Max19706_set_dac_i_offset( Max19706_instance_t AFEx, int8_t offset )
+{
+	if ( offset < 0 )
+	{
+		offset = (-offset) ^ 0x20;
+	}
+
+	Max19706_write_register( AFEx, 0x04u, offset & 0x3F );
+}
+
+
+int8_t Max19706_get_dac_q_offset( Max19706_instance_t AFEx )
+{
+	return 0;
+}
+void Max19706_set_dac_q_offset( Max19706_instance_t AFEx, int8_t offset )
+{
+	if ( offset < 0 )
+	{
+		offset = (-offset) ^ 0x20;
+	}
+
+	Max19706_write_register( AFEx, 0x05u, offset & 0x3F );
+}
+
+
 
 Max19706_DAC_COMSEL_t Max19706_get_dac_cm( Max19706_instance_t AFEx )
 {
