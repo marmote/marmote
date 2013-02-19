@@ -100,6 +100,8 @@ set_io SPI_1_CLK -iostd LVTTL -OUT_DRIVE 8 -SLEW High -RES_PULL None -SCHMITT_TR
 set_io SPI_1_DI -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -REGISTER No -pinname L15 -fixed yes
 set_io SPI_1_DO -iostd LVTTL -OUT_DRIVE 8 -SLEW High -RES_PULL None -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname L12 -fixed yes
 set_io SPI_1_SS -iostd LVTTL -OUT_DRIVE 8 -SLEW High -RES_PULL None -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname L13 -fixed yes
+set_io SPI1_SS_AFE1 -iostd LVTTL -REGISTER No -OUT_DRIVE 4 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname C14 -fixed yes
+set_io SPI1_SS_AFE2 -iostd LVTTL -REGISTER No -OUT_DRIVE 4 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname C5 -fixed yes
 #set_io TXE_n -iostd LVTTL -REGISTER No -RES_PULL None -SCHMITT_TRIGGER Off -pinname D15 -fixed yes
 #set_io USB_CLK -iostd LVTTL -REGISTER No -RES_PULL None -SCHMITT_TRIGGER Off -pinname F14 -fixed yes
 #set_io USB_DB\[0\] -iostd LVCMOS33 -OUT_DRIVE 12 -SLEW High -RES_PULL Up -SCHMITT_TRIGGER Off -SKEW Off -REGISTER No -OUT_LOAD 35 -pinname C8 -fixed yes

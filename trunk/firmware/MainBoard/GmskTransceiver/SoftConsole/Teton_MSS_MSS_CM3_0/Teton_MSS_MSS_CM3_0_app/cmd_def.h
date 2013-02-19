@@ -32,6 +32,7 @@ extern CMD_Type CMD_List[];
 uint32_t CmdHelp(uint32_t argc, char** argv);
 uint32_t CmdLed(uint32_t argc, char** argv);
 uint32_t CmdAfe(uint32_t argc, char** argv);
+uint32_t CmdIQOffset(uint32_t argc, char** argv);
 
 // Power management
 uint32_t CmdSleep(uint32_t argc, char** argv);

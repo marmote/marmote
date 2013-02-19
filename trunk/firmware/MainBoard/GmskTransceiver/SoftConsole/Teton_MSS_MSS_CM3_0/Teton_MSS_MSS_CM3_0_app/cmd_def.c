@@ -15,6 +15,7 @@ CMD_Type CMD_List[] =
 //	{"sleep", CmdSleep},
 	{"clk",  CmdClock},
 	{"afe",  CmdAfe},
+	{"iqo",  CmdIQOffset},
 
 //	{"fpga", CmdFpga},
 
@@ -277,6 +278,42 @@ uint32_t CmdAfe(uint32_t argc, char** argv)
 	return 1;
 }
 
+uint32_t CmdIQOffset(uint32_t argc, char** argv)
+{
+	char buf[128];
+	int32_t i, q;
+
+	if (argc == 1)
+	{
+		sprintf(buf, "\r\nI : %d\r\nQ : %d",
+				Max19706_get_dac_i_offset(MAX19706_AFE1),
+				Max19706_get_dac_q_offset(MAX19706_AFE1) );
+		Yellowstone_print(buf);
+		return 0;
+	}
+
+	if (argc == 3)
+	{
+		i = atoi(*(argv+1));
+		q = atoi(*(argv+2));
+		if ((i || !strcmp(*(argv+1), "0")) && (q || !strcmp(*(argv+2), "0")))
+		{
+			Max19706_set_dac_i_offset(MAX19706_AFE1, i);
+			Max19706_set_dac_q_offset(MAX19706_AFE1, q);
+
+			// Readback
+			sprintf(buf, "\r\nI : %d\r\nQ : %d",
+							Max19706_get_dac_i_offset(MAX19706_AFE1),
+							Max19706_get_dac_q_offset(MAX19706_AFE1) );
+					Yellowstone_print(buf);
+			return 0;
+		}
+	}
+
+	// Send help message
+	Yellowstone_print("\r\nUsage: iqo [<i offset in LSB> <q offset in LSB>]");
+	return 1;
+}
 
 
 /*
@@ -855,8 +892,6 @@ uint32_t CmdIQ(uint32_t argc, char** argv)
 
 	if (argc == 1)
 	{
-//		sprintf( buf, "\r\nActive path: %s", BB_CTRL->MUX ? "CONST" : "FSK");
-//		Yellowstone_print(buf);
 		sprintf(buf, "\r\nI : %d\t0x%03x\r\nQ : %d\t0x%03x",
 				(int)BB_CTRL->TX_I, (unsigned int)BB_CTRL->TX_I,
 				(int)BB_CTRL->TX_Q, (unsigned int)BB_CTRL->TX_Q);
@@ -870,17 +905,16 @@ uint32_t CmdIQ(uint32_t argc, char** argv)
 		q = atoi(*(argv+2));
 		if ((i || !strcmp(*(argv+1), "0")) && (q || !strcmp(*(argv+2), "0")))
 		{
-//			BB_CTRL->MUX = (uint32_t)1;
 			BB_CTRL->MUX1 = 3;
 			BB_CTRL->MUX2 = 3;
 
 			BB_CTRL->TX_I = i & 0x3FF;
-			BB_CTRL->TX_Q = q * 0x3FF;
+			BB_CTRL->TX_Q = q & 0x3FF;
 
 			// Readback
 			sprintf(buf, "\r\nI : %d\t0x%03x\r\nQ : %d\t0x%03x",
-					(int16_t)BB_CTRL->TX_I, (unsigned int)BB_CTRL->TX_I,
-					(int16_t)BB_CTRL->TX_Q, (unsigned int)BB_CTRL->TX_Q);
+					(int16_t)BB_CTRL->TX_I, (unsigned int)(BB_CTRL->TX_I & 0x3FF),
+					(int16_t)BB_CTRL->TX_Q, (unsigned int)(BB_CTRL->TX_Q & 0x3FF));
 			Yellowstone_print(buf);
 			return 0;
 		}
@@ -899,7 +933,7 @@ uint32_t CmdMux1(uint32_t argc, char** argv)
 	if (argc == 1)
 	{
 		mux = BB_CTRL->MUX1 & 0x3;
-		sprintf( buf, "\r\nActive path: ");
+		sprintf( buf, "\r\nMUX1 path: ");
 		Yellowstone_print(buf);
 		switch (mux)
 		{
@@ -917,7 +951,7 @@ uint32_t CmdMux1(uint32_t argc, char** argv)
 				break;
 		}
 		Yellowstone_print(buf);
-		sprintf(buf, "\r\nMUX1: %d", (unsigned)BB_CTRL->MUX1);
+		sprintf(buf, "(%d)", (unsigned)BB_CTRL->MUX1);
 		Yellowstone_print(buf);
 		return 0;
 	}
@@ -931,9 +965,7 @@ uint32_t CmdMux1(uint32_t argc, char** argv)
 
 			// Readback
 			mux = BB_CTRL->MUX1;
-			sprintf(buf, "\r\nMUX : %d", (unsigned)BB_CTRL->MUX1);
-					Yellowstone_print(buf);
-			sprintf( buf, "\r\nActive path: ");
+			sprintf( buf, "\r\nMUX1 path: ");
 			Yellowstone_print(buf);
 			switch (mux)
 			{
@@ -950,6 +982,8 @@ uint32_t CmdMux1(uint32_t argc, char** argv)
 					sprintf( buf, "I/Q REG" );
 					break;
 			}
+			Yellowstone_print(buf);
+			sprintf(buf, "(%d)", (unsigned)BB_CTRL->MUX1);
 			Yellowstone_print(buf);
 			return 0;
 		}
@@ -968,7 +1002,7 @@ uint32_t CmdMux2(uint32_t argc, char** argv)
 	if (argc == 1)
 	{
 		mux = BB_CTRL->MUX2 & 0x3;
-		sprintf( buf, "\r\nActive path: ");
+		sprintf( buf, "\r\nMUX2 path: ");
 		Yellowstone_print(buf);
 		switch (mux)
 		{
@@ -986,7 +1020,7 @@ uint32_t CmdMux2(uint32_t argc, char** argv)
 				break;
 		}
 		Yellowstone_print(buf);
-		sprintf(buf, "\r\nMUX2: %d", (unsigned)BB_CTRL->MUX2);
+		sprintf(buf, "(%d)", (unsigned)BB_CTRL->MUX2);
 		Yellowstone_print(buf);
 		return 0;
 	}
@@ -1000,9 +1034,7 @@ uint32_t CmdMux2(uint32_t argc, char** argv)
 
 			// Readback
 			mux = BB_CTRL->MUX2;
-			sprintf(buf, "\r\nMUX : %d", (unsigned)BB_CTRL->MUX2);
-					Yellowstone_print(buf);
-			sprintf( buf, "\r\nActive path: ");
+			sprintf( buf, "\r\nMUX2 path: ");
 			Yellowstone_print(buf);
 			switch (mux)
 			{
@@ -1019,6 +1051,8 @@ uint32_t CmdMux2(uint32_t argc, char** argv)
 					sprintf( buf, "I/Q REG" );
 					break;
 			}
+			Yellowstone_print(buf);
+			sprintf(buf, "(%d)", (unsigned)BB_CTRL->MUX2);
 			Yellowstone_print(buf);
 			return 0;
 		}

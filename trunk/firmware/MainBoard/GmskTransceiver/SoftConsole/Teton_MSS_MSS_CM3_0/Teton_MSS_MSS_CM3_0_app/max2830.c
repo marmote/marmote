@@ -151,6 +151,15 @@ void Max2830_write_register(uint8_t addr, uint16_t data)
 		return;
 	}
 
+	// Take control back in case the AFEs used the SPI
+	MSS_SPI_configure_master_mode(
+			&g_mss_spi1,
+			MSS_SPI_SLAVE_0,
+			MSS_SPI_MODE0,
+			MSS_SPI_PCLK_DIV_2, // 20 MHz PCLK1 > 10 MHz SPI clock
+			SPI_FRAME_SIZE_MAX2830
+	);
+
 	tx_frame = addr & 0xF; // bytes [3:0] 4 LSB
 	tx_frame |= (data & 0x3FFF) << 4; // bytes [18:4] 18 - 5 MSB
 
