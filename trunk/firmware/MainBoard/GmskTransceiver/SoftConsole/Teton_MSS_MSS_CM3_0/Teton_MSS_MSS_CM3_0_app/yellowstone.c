@@ -12,7 +12,7 @@ uint8_t rx_data;
 uint8_t spi_cmd_buf[spi_rx_buffer_size];
 
 
-void Yellowstone_Init(void)
+void Yellowstone_init(void)
 {
 	// MSS_GPIO_init( );
 	MSS_GPIO_config( MSS_GPIO_0, MSS_GPIO_OUTPUT_MODE );

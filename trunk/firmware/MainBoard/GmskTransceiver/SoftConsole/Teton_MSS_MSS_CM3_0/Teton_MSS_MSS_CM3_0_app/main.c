@@ -8,81 +8,43 @@
 
 #include "cmd_def.h"
 
+static packet_t pkt;
+//static packet_t ack_pkt;
 
 extern uint8_t spi_cmd_buf[];
 extern uint8_t spi_cmd_length;
 
-char* cmd_token;
-CMD_Type* cmd_list_ptr;
-char* arg_list[10];
-uint32_t argc;
+char* 		cmd_token;
+CMD_Type* 	cmd_list_ptr;
+char* 		arg_list[10];
+uint32_t 	argc;
 
 void process_spi_cmd_buf(const char* cmd_buf, uint8_t length);
-
-static uint8_t payload;
 
 int main()
 {
 	char buf[128];
+	char rx_buf[128];
+	uint8_t rx_ctr;
 
 	MSS_GPIO_init();
-	Yellowstone_Init();
+	Yellowstone_init();
 	Joshua_init();
+	Teton_init();
 
-	MSS_GPIO_config(MSS_GPIO_LED1, MSS_GPIO_OUTPUT_MODE);
-	MSS_GPIO_config(MSS_GPIO_AFE1_ENABLE, MSS_GPIO_OUTPUT_MODE);
-	MSS_GPIO_config(MSS_GPIO_AFE1_MODE, MSS_GPIO_OUTPUT_MODE);
-	MSS_GPIO_config(MSS_GPIO_TX_DONE_IT, MSS_GPIO_INPUT_MODE);
-	MSS_GPIO_config(MSS_GPIO_SFD_IT, MSS_GPIO_INPUT_MODE);
-	MSS_GPIO_config(MSS_GPIO_RX_DONE_IT, MSS_GPIO_INPUT_MODE);
-
-	MSS_GPIO_set_output(MSS_GPIO_LED1, 0);
-	MSS_GPIO_set_output(MSS_GPIO_AFE1_ENABLE, 0);
-	MSS_GPIO_set_output(MSS_GPIO_AFE1_MODE, AFE_RX_MODE);
-
-	// TX_DONE IRQ
-	MSS_GPIO_config (MSS_GPIO_TX_DONE_IT, MSS_GPIO_INPUT_MODE | MSS_GPIO_IRQ_EDGE_POSITIVE);
-	MSS_GPIO_enable_irq(MSS_GPIO_TX_DONE_IT);
-	NVIC_EnableIRQ(MSS_GPIO_TX_DONE_IRQn);
-
-	// RX done IRQ
-	MSS_GPIO_config (MSS_GPIO_RX_DONE_IT, MSS_GPIO_INPUT_MODE | MSS_GPIO_IRQ_EDGE_POSITIVE);
-	MSS_GPIO_enable_irq(MSS_GPIO_RX_DONE_IT);
-	NVIC_EnableIRQ(MSS_GPIO_RX_DONE_IRQn);
-
-	// SFD IRQ
-	MSS_GPIO_config (MSS_GPIO_SFD_IT, MSS_GPIO_INPUT_MODE | MSS_GPIO_IRQ_EDGE_POSITIVE);
-	MSS_GPIO_enable_irq(MSS_GPIO_SFD_IT);
-	NVIC_EnableIRQ(MSS_GPIO_SFD_IRQn);
-
-	// ----------------- Rx ----------------
-
-	// Set up as a receiver at 2405 MHz by default
-//	Max2830_set_frequency(2405000000uL);
-//	Max2830_set_mode(MAX2830_RX_MODE);
-//	MSS_GPIO_set_output(MSS_GPIO_AFE1_MODE, AFE_RX_MODE);
-//	MSS_GPIO_set_output(MSS_GPIO_AFE1_ENABLE, 1);
-//
-//	BB_CTRL->MUX2 = MUX_PATH_RX;
-
-	// ----------------- Tx ----------------
-
-	// Set up as a transmitter at 2405 MHz by default
 	Max2830_set_frequency(2405000000uL);
-	Max2830_set_mode(MAX2830_TX_MODE);
-	MSS_GPIO_set_output(MSS_GPIO_AFE1_MODE, AFE_TX_MODE);
-	MSS_GPIO_set_output(MSS_GPIO_AFE1_ENABLE, 1);
 
-	//payload = 0x55;
+	set_mode(RADIO_RX_MODE);
 
-	// TIMER
-	MSS_TIM1_init(MSS_TIMER_PERIODIC_MODE);
-	MSS_TIM1_load_background(20e6); // 1 s
-	MSS_TIM1_enable_irq();
-	MSS_TIM1_start();
-
-	BB_CTRL->MUX1 = MUX_PATH_TX;
-	BB_CTRL->MUX2 = MUX_PATH_TX;
+//	set_mode(RADIO_TX_MODE);
+//
+//	MSS_TIM1_init(MSS_TIMER_PERIODIC_MODE);
+//	MSS_TIM1_load_background(20e6); // 1 s
+//	MSS_TIM1_enable_irq();
+//	MSS_TIM1_start();
+//
+//	BB_CTRL->MUX1 = MUX_PATH_TX;
+//	BB_CTRL->MUX2 = MUX_PATH_TX;
 
 	while( 1 )
 	{
@@ -92,21 +54,41 @@ int main()
 			spi_cmd_length = 0;
 		}
 
+//		if (tx_done_it_flag)
+//		{
+//			set_mode(RADIO_RX_MODE);
+//		}
+
 		if (sfd_it_flag)
 		{
-			//Yellowstone_print("\r\n# ");
 			sfd_it_flag = 0;
 		}
 
 		if (rx_done_it_flag)
 		{
+			rx_done_it_flag = 0;
+			rx_ctr = 0;
+
+			// Read FIFO
 			Yellowstone_print("\r\n");
 			while ((RX_CTRL->CTRL & RX_FIFO_EMPTY_BIT_MASK) == 0)
 			{
-				sprintf(buf, "%02X ", (unsigned)RX_CTRL->RX_FIFO);
+				rx_buf[rx_ctr] = RX_CTRL->RX_FIFO;
+				rx_ctr++;
+			}
+
+			// Print message content
+			for (rx_ctr = 1; rx_ctr <= rx_buf[0]-sizeof(pkt.crc); rx_ctr++)
+			{
+				sprintf(buf, "%02X ", (unsigned)rx_buf[rx_ctr]);
 				Yellowstone_print(buf);
 			}
-			rx_done_it_flag = 0;
+			// Check CRC
+			if (!check_crc((packet_t*)rx_buf))
+			{
+				sprintf(buf, "#");
+				Yellowstone_print(buf);
+			}
 		}
 	}
 }
@@ -160,22 +142,18 @@ void process_spi_cmd_buf(const char* cmd_buf, uint8_t length)
 	spi_cmd_length = 0;
 }
 
-uint16_t baseband_ctr;
+static uint8_t ctr;
+static uint8_t i;
 
 void Timer1_IRQHandler(void)
 {
+	pkt.length = 6;
+	for (i = 0; i < 4; i++)
+	{
+		pkt.payload[i] = ctr++;
+	}
+	set_packet_crc(&pkt);
+
+	send_packet(&pkt);
 	MSS_TIM1_clear_irq();
-
-	// Fill up TX FIFO
-	TX_CTRL->TX_FIFO = 5; // payload length
-	TX_CTRL->TX_FIFO = payload++;
-	TX_CTRL->TX_FIFO = payload++;
-	TX_CTRL->TX_FIFO = payload++;
-	TX_CTRL->TX_FIFO = payload++;
-	TX_CTRL->TX_FIFO = payload++;
-
-	// Start
-	TX_CTRL->CTRL = 0x01;
-
-	MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
 }

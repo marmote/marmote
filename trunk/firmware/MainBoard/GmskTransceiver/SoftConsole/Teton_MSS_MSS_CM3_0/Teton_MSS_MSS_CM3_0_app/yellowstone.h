@@ -19,7 +19,7 @@
 
 uint8_t spi_cmd_length;
 
-void Yellowstone_Init(void);
+void Yellowstone_init(void);
 
 void Yellowstone_write( const char* data, uint8_t len );
 void Yellowstone_print( const char* data );

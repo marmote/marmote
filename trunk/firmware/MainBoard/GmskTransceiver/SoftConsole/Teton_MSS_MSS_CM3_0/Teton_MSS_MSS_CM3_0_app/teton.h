@@ -13,6 +13,7 @@
 #include <mss_timer.h>
 
 #include <string.h>
+#include "joshua.h"
 
 
 #define MSS_GPIO_LED1 				MSS_GPIO_0
@@ -37,6 +38,7 @@
 #define MSS_GPIO_SFD_IRQn	  		GPIO9_IRQn
 #define MSS_GPIO_RX_DONE_IRQn  		GPIO10_IRQn
 
+uint8_t tx_done_it_flag;
 uint8_t sfd_it_flag;
 uint8_t rx_done_it_flag;
 
@@ -98,5 +100,33 @@ typedef enum _afe_mux_path
 } afe_mux_path_t;
 
 
+typedef struct __packet_t
+{
+	uint8_t length;
+//	uint8_t ctrl;
+//	uint8_t seq;
+	uint8_t payload[4];
+	uint8_t crc[2];
+} packet_t;
+
+typedef enum __radio_mode_t
+{
+	RADIO_SHUTDOWN_MODE	= 0,
+	RADIO_STANDBY_MODE	= 1,
+	RADIO_RX_MODE		= 2,
+	RADIO_TX_MODE 		= 3,
+	RADIO_TX_PERIODIC_MODE 		= 4
+} radio_operating_mode_t;
+
+static radio_operating_mode_t radio_mode;
+
+void Teton_init(void);
+void send_packet(const packet_t* pkt);
+void set_mode(radio_operating_mode_t mode);
+radio_operating_mode_t get_mode();
+
+uint16_t crc_16(const uint8_t data[], uint8_t length);
+uint16_t check_crc(const packet_t* pkt);
+void set_packet_crc(packet_t* pkt);
 
 #endif /* TETON_H_ */
