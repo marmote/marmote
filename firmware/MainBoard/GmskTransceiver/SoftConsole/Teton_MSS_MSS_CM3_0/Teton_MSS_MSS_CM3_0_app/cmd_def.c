@@ -783,7 +783,7 @@ uint32_t CmdRssi(uint32_t argc, char** argv)
 		uint8_t i;
 		for ( i = 0; i < 20; i++ )
 		{
-			sprintf(buf, "\r\n0x%02u", Max2830_get_rssi_value() >> 4);
+			sprintf(buf, "\r\n0x%03u", Max2830_get_rssi_value()); // FIXME: print voltage level too
 			Yellowstone_print(buf);
 		}
 
