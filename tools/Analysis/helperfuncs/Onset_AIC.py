@@ -17,16 +17,24 @@ def costum_var(R, R_mean, Nminus1):
 	return np.sum((R-R_mean)**2) / Nminus1
 
 
-def Onset_AIC(y, T) :
+def Onset_AIC(y, T, skip_samples=20) :
+	if skip_samples < 2:
+		skip_samples = 2
+
+	skip_samples = int(np.rint(skip_samples))
+
 	N = y.size
+	if 2*skip_samples > N:
+		return
+
 #	Nminus1 = N - 1
 
-	AIC = np.zeros(N-3)
+	AIC = np.zeros(N - 2*skip_samples + 1)
 #	y_mean = np.mean(y)
 
-	for i in xrange(2,N-1):
+	for i in xrange( skip_samples, N-skip_samples+1 ):
 #		AIC[i] = (i+1) * np.log( costum_var( np.array(y[:i+1]), y_mean, N ) ) + (N - i+1 - 1) * np.log( costum_var( np.array(y[i+1:]), y_mean, N ) )
 #		AIC[i] = (i+1) * np.log( costum_var( y[:i+1], y_mean, Nminus1 ) ) + (N - i+1 - 1) * np.log( costum_var( y[i+1:], y_mean, Nminus1 ) )
-		AIC[i-2] = i * np.log( np.cov( y[:i] ) + 1e-300 ) + (N - i) * np.log( np.cov( y[i:] ) + 1e-300 )
+		AIC[i-skip_samples] = i * np.log( np.cov( y[:i] ) + 1e-300 ) + (N - i) * np.log( np.cov( y[i:] ) + 1e-300 )
 
-	return float(np.argmin(AIC)+2-0.5) * T, AIC
+	return float(np.argmin(AIC)+skip_samples-0.5) * T, AIC

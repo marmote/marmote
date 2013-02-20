@@ -3,8 +3,9 @@ import numpy as np
 
 def PlotAIC(y, AIC, T, onset):
 	t_y = np.arange(y.size)*T
-	t_AIC = (np.arange(AIC.size)+2-0.5)*T
-	t_dAIC = (np.arange(AIC.size-1)+2)*T
+	skip_samples = int( (y.size - AIC.size + 1)/2 )
+	t_AIC = (np.arange(AIC.size) + skip_samples -0.5)*T
+	t_dAIC = (np.arange(AIC.size-1) + skip_samples)*T
 
 	dAIC = AIC[1:] - AIC[:-1]
 
@@ -13,5 +14,5 @@ def PlotAIC(y, AIC, T, onset):
 	axarr[0].plot(t_y, y, 'b', [onset, onset], [np.amin(y), np.amax(y)] , 'r')
 	axarr[1].plot(t_AIC, AIC, 'b', [onset, onset], [np.amin(AIC), np.amax(AIC)], 'r')
 	axarr[2].plot(t_dAIC, dAIC, 'b', [onset, onset], [np.amin(dAIC), np.amax(dAIC)], 'r')
-	axarr[2].set_ylim(-10, 10)
+#	axarr[2].set_ylim(-10, 10)
 	#axarr[2].set_xlim(onset-20, onset+20)
