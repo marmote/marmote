@@ -18,12 +18,12 @@ def Onset_lnTaylor(y, T, skip_samples=20, order=64) :
 	if 2*skip_samples > N:
 		return
 
-	output = np.zeros(N - 2*skip_samples + 1)
+	fitnes = np.zeros(N - 2*skip_samples + 1)
 
 	for i in xrange( skip_samples, N-skip_samples+1 ):
 		var1 = np.var( y[:i] )
 		var2 = np.var( y[i:] )
 
-		output[i-skip_samples] = i * log_Taylor(1.0 - var1, order)  + (N - i) * log_Taylor(1.0 - var2, order)
+		fitnes[i-skip_samples] = i * log_Taylor(1.0 - var1, order)  + (N - i) * log_Taylor(1.0 - var2, order)
 
-	return float(np.argmin(output)+skip_samples-0.5) * T, output
+	return float(np.argmin(fitnes)+skip_samples-0.5) * T, fitnes

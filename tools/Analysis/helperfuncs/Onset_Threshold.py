@@ -7,4 +7,4 @@ def Onset_Threshold(y, T, th_cross_level = 0.15) :
 		if np.absolute(y[jj]) >= max_val*th_cross_level : 
 			val = jj
 			break
-	return float(val) * T
+	return float(val) * T, np.array([])
