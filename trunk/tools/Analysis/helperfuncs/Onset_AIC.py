@@ -29,12 +29,12 @@ def Onset_AIC(y, T, skip_samples=20) :
 
 #	Nminus1 = N - 1
 
-	AIC = np.zeros(N - 2*skip_samples + 1)
+	fitnes = np.zeros(N - 2*skip_samples + 1)
 #	y_mean = np.mean(y)
 
 	for i in xrange( skip_samples, N-skip_samples+1 ):
-#		AIC[i] = (i+1) * np.log( costum_var( np.array(y[:i+1]), y_mean, N ) ) + (N - i+1 - 1) * np.log( costum_var( np.array(y[i+1:]), y_mean, N ) )
-#		AIC[i] = (i+1) * np.log( costum_var( y[:i+1], y_mean, Nminus1 ) ) + (N - i+1 - 1) * np.log( costum_var( y[i+1:], y_mean, Nminus1 ) )
-		AIC[i-skip_samples] = i * np.log( np.cov( y[:i] ) + 1e-300 ) + (N - i) * np.log( np.cov( y[i:] ) + 1e-300 )
+#		fitnes[i] = (i+1) * np.log( costum_var( np.array(y[:i+1]), y_mean, N ) ) + (N - i+1 - 1) * np.log( costum_var( np.array(y[i+1:]), y_mean, N ) )
+#		fitnes[i] = (i+1) * np.log( costum_var( y[:i+1], y_mean, Nminus1 ) ) + (N - i+1 - 1) * np.log( costum_var( y[i+1:], y_mean, Nminus1 ) )
+		fitnes[i-skip_samples] = i * np.log( np.cov( y[:i] ) + 1e-300 ) + (N - i) * np.log( np.cov( y[i:] ) + 1e-300 )
 
-	return float(np.argmin(AIC)+skip_samples-0.5) * T, AIC
+	return float(np.argmin(fitnes)+skip_samples-0.5) * T, fitnes
