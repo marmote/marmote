@@ -5,7 +5,7 @@ def power(x,n):
 	return -(x**n)
 
 
-def Onset_Power(y, T, skip_samples=20, exponent=64) :
+def Fitnes_Power(y, skip_samples=20, exponent=64) :
 	if skip_samples < 2:
 		skip_samples = 2
 
@@ -23,4 +23,5 @@ def Onset_Power(y, T, skip_samples=20, exponent=64) :
 
 		fitnes[i-skip_samples] = i * power(1.0 - var1, exponent) + (N - i) * power(1.0 - var2, exponent)
 
-	return float(np.argmin(fitnes)+skip_samples-0.5) * T, fitnes
+	fitnes /= np.amax(np.abs(fitnes))
+	return fitnes, skip_samples-0.5

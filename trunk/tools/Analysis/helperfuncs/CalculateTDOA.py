@@ -21,14 +21,9 @@ def CalculateTDOA(y, y2, T, OnsetTimeCalculator, qty_len=40) :
 	for ii in xrange(len(y)) :
 		print '%.2f%%'%(float(ii)/len(y)*100)
 
-		AE_start[ii], fitnes1, = OnsetTimeCalculator( y[ii], T )
-		AE_start2[ii], fitnes2, = OnsetTimeCalculator( y2[ii], T )
+		AE_start[ii], qty1[ii], dummy  = OnsetTimeCalculator( y[ii], T )
+		AE_start2[ii], qty2[ii], dummy = OnsetTimeCalculator( y2[ii], T )
 		
 		TD_meas[ii] = AE_start2[ii] - AE_start[ii]
-		
-		if fitnes1.size:
-			qty1[ii] = CalculateQuality(fitnes1, qty_len)
-		if fitnes2.size:
-			qty2[ii] = CalculateQuality(fitnes2, qty_len)
 
 	return AE_start, AE_start2, TD_meas, qty1, qty2
