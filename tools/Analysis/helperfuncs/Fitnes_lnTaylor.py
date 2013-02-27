@@ -8,7 +8,7 @@ def log_Taylor(x, n):
 	return result
 
 
-def Onset_lnTaylor(y, T, skip_samples=20, order=64) :
+def Fitnes_lnTaylor(y, skip_samples=20, order=64) :
 	if skip_samples < 2:
 		skip_samples = 2
 
@@ -26,4 +26,5 @@ def Onset_lnTaylor(y, T, skip_samples=20, order=64) :
 
 		fitnes[i-skip_samples] = i * log_Taylor(1.0 - var1, order)  + (N - i) * log_Taylor(1.0 - var2, order)
 
-	return float(np.argmin(fitnes)+skip_samples-0.5) * T, fitnes
+	fitnes /= np.amax(np.abs(fitnes))
+	return fitnes, skip_samples-0.5
