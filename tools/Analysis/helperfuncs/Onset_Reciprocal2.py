@@ -5,7 +5,6 @@ from Diff import Diff
 
 def Onset_Reciprocal(y, T, skip_samples=20) :
 	fitnes, sample_shift = Fitnes_Reciprocal(y, skip_samples=skip_samples)
-	fitnes_min_idx = np.argmin(fitnes)
 
 
 #Calculate onset time and quality
@@ -64,27 +63,11 @@ def Onset_Reciprocal(y, T, skip_samples=20) :
 	quality = np.amax(fitnes4)
 
 
-	fitnes5 = -1/fitnes
-	fitnes6 = (fitnes[fitnes_min_idx:-1] + 2)*fitnes3[fitnes_min_idx:]
-	fitnes7 = (fitnes[fitnes_min_idx:-1] + 1)*fitnes3[fitnes_min_idx:]
-
-	if fitnes7.size :
-		onset_idx = np.argmax(fitnes7)
-		quality = np.amax(fitnes7)
-	else :
-		onset_idx = 0
-		quality = np.exp(-300)
-
 	curves = []
 	curves.append(('Fitnes based on Reciprocal approach', fitnes, sample_shift))
 	curves.append(('Quality values', fitnes2, sample_shift+sample_shift2))
 	curves.append(('Derivative of Fitnes', fitnes3, sample_shift+sample_shift3))
 	curves.append(('Derivative times Fitnes', fitnes4, sample_shift+sample_shift3))
-	curves.append(('Reciprocal of Fitnes', fitnes5, sample_shift, (0, 5)))
-	curves.append(('Shifted (2) fitnes times derivative', fitnes6, sample_shift+fitnes_min_idx))
-	curves.append(('Shifted (1) fitnes times derivative', fitnes7, sample_shift+fitnes_min_idx))
 
-
-
-	return (sample_shift + fitnes_min_idx + onset_idx)*T, quality, curves
+	return (sample_shift + sample_shift2 + onset_idx)*T, quality, curves
 #	return (sample_shift + onset_idx)*T, quality, curves
