@@ -75,6 +75,9 @@ def Onset_Reciprocal(y, T, skip_samples=20) :
 		onset_idx = 0
 		quality = np.exp(-300)
 
+	if quality == 0:
+		quality = np.exp(-300)
+
 	curves = []
 	curves.append(('Fitnes based on Reciprocal approach', fitnes, sample_shift))
 	curves.append(('Quality values', fitnes2, sample_shift+sample_shift2))
