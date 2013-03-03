@@ -4,7 +4,7 @@ import matplotlib.mlab as mlab
 import GMM_estimate_EM as EM
 
 
-def PlotTDHist(x, fitcurve=False, x_lim_min=None, x_lim_max=None, alpha=None, mu=None, sigma=None):
+def PlotTDHist(x, fitcurve=False, xlim_min=None, xlim_max=None, alpha=None, mu=None, sigma=None):
 
 	fig = plt.figure()
 	ax = fig.add_subplot(111)
@@ -12,12 +12,15 @@ def PlotTDHist(x, fitcurve=False, x_lim_min=None, x_lim_max=None, alpha=None, mu
 	# the histogram of the data
 	n, bins, patches = ax.hist(x, 25, normed=True, facecolor='green', alpha=0.75)
 
+	if xlim_min is None:
+		xlim_min = ax.get_xlim()[0]
+	if xlim_max is None:
+		xlim_max = ax.get_xlim()[1]
+
+	ax.grid(True)
+
 	if fitcurve:
-	# hist uses np.histogram under the hood to create 'n' and 'bins'.
-	# np.histogram returns the bin edges, so there will be 50 probability
-	# density values in n, 51 bin edges in bins and 50 patches.  To get
-	# everything lined up, we'll compute the bin centers
-		bincenters = 0.5*(bins[1:]+bins[:-1])
+		bincenters = np.linspace( ax.get_xlim()[0], ax.get_xlim()[1], 100 )
 		# add a 'best fit' lines for the normal PDF
 		ax.hold('on')
 		for k in xrange(alpha.size):
@@ -34,11 +37,7 @@ def PlotTDHist(x, fitcurve=False, x_lim_min=None, x_lim_max=None, alpha=None, mu
 #	title += r'$'
 	ax.set_title(title)
 
-	if x_lim_min is not None and x_lim_max is not None:
-		ax.set_xlim(x_lim_min, x_lim_max)
-		#ax.set_ylim(0, 0.03)
-		ax.grid(True)
-
+	ax.set_xlim([xlim_min, xlim_max])
 
 
 ################################################################################

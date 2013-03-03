@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-def PlotHistory(qtya, qty_th, qtyb, TD, TD_min, TD_max, start_time, xlim_min, xlim_max, ylim_min, ylim_max, title):
+def PlotHistory(qtya, qty_th, qtyb, TD, TD_min, TD_max, start_time, xlim_min=None, xlim_max=None, ylim_min=0, ylim_max=None, title=None):
 	fig, ax = plt.subplots(1, 1, sharex=True, sharey=True ) 
 
 	idx = np.intersect1d(np.array(np.where(TD>=TD_min)), np.array(np.where(TD<=TD_max)))
@@ -20,10 +20,20 @@ def PlotHistory(qtya, qty_th, qtyb, TD, TD_min, TD_max, start_time, xlim_min, xl
 
 #    ax.set_xlabel(xlabel)
 #    ax.set_ylabel(ylabel)
-	ax.set_xlim(xlim_min, xlim_max)
-	ax.set_ylim(ylim_min, ylim_max) 
+	if xlim_min is None:
+		xlim_min = ax.get_xlim()[0]
+	if xlim_max is None:
+		xlim_max = ax.get_xlim()[1]
+	if ylim_min is None:
+		ylim_min = ax.get_ylim()[0]
+	if ylim_max is None:
+		ylim_max = ax.get_ylim()[1]
+
+	ax.set_xlim([xlim_min, xlim_max])
+	ax.set_ylim([ylim_min, ylim_max])
 
 	ax.set_xlabel('time [sec]')
 	ax.set_ylabel('quality idx []')
 	
-	ax.set_title(title)
+	if title is not None:
+		ax.set_title(title)
