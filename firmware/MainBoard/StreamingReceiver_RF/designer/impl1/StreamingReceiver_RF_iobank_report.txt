@@ -3,9 +3,9 @@
 ********************************************************************
   
 Product: Designer
-Release: v10.0 SP2
-Version: 10.0.20.2
-Date: Wed Sep 26 13:00:35 2012
+Release: v10.1 SP3
+Version: 10.1.3.1
+Date: Tue Mar 05 08:22:31 2013
 Design Name: StreamingReceiver_RF  Family: SmartFusion  Die: A2F500M3G  Package: 256 FBGA
 
 
@@ -14,7 +14,7 @@ I/O Function:
     Type                          | w/o register  | w/ register  | w/ DDR register
     ------------------------------|---------------|--------------|----------------
     Input I/O                     | 4             | 0            | 0
-    Output I/O                    | 12            | 2            | 0
+    Output I/O                    | 14            | 0            | 0
     Bidirectional I/O             | 8             | 0            | 20
     Differential Input I/O Pairs  | 0             | 0            | 0
     Differential Output I/O Pairs | 0             | 0            | 0

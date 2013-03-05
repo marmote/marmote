@@ -1,9 +1,9 @@
 Actel Designer Software
-Version: 10.0.20.2
-Release: v10.0 SP2
+Version: 10.1.3.1
+Release: v10.1 SP3
 
 Info: The design StreamingReceiver_RF_synthesis_1.adb was last modified by software version
-      10.0.20.2.
+      10.1.3.1.
 Opened an existing Libero design StreamingReceiver_RF_synthesis_1.adb.
 'BA_NAME' set to 'StreamingReceiver_RF_ba'
 'IDE_DESIGNERVIEW_NAME' set to 'Impl1'
@@ -35,31 +35,31 @@ Global net placement completed successfully.
 
                         o - o - o - o - o - o
 
-Timing-driven Placer Started: Wed Sep 26 12:59:55 2012
+Timing-driven Placer Started: Tue Mar 05 08:21:58 2013
 
-Placer Finished: Wed Sep 26 13:00:05 2012
-Total Placer CPU Time:     00:00:10
+Placer Finished: Tue Mar 05 08:22:04 2013
+Total Placer CPU Time:     00:00:06
 
                         o - o - o - o - o - o
 
 
 Timing-driven Router 
-Design: StreamingReceiver_RF_synthesis_1Started: Wed Sep 26 13:00:07 2012
+Design: StreamingReceiver_RF_synthesis_1Started: Tue Mar 05 08:22:07 2013
 
- 
+ 
 Iterative improvement...
 
 Timing-driven Router completed successfully.
 
 Design: StreamingReceiver_RF_synthesis_1
-Finished: Wed Sep 26 13:00:31 2012
-Total CPU Time:     00:00:24            Total Elapsed Time: 00:00:24
+Finished: Tue Mar 05 08:22:28 2013
+Total CPU Time:     00:00:21            Total Elapsed Time: 00:00:21
                         o - o - o - o - o - o
 
 Loading the Timing data for the design.
 Finished loading the Timing data.
 
-The Layout command succeeded ( 00:00:43 )
+The Layout command succeeded ( 00:00:34 )
 Wrote status report to file: StreamingReceiver_RF_place_and_route_report.txt
 
 The Report command succeeded ( 00:00:00 )
@@ -68,7 +68,7 @@ Wrote globalnet report to file: StreamingReceiver_RF_globalnet_report.txt
 The Report command succeeded ( 00:00:00 )
 Wrote globalusage report to file: StreamingReceiver_RF_globalusage_report.txt
 
-The Report command succeeded ( 00:00:00 )
+The Report command succeeded ( 00:00:01 )
 Wrote iobank report to file: StreamingReceiver_RF_iobank_report.txt
 
 The Report command succeeded ( 00:00:00 )
@@ -76,6 +76,6 @@ Design saved to file
 D:\Work\marmote\firmware\MainBoard\StreamingReceiver_RF\designer\impl1\StreamingReceiver_RF_syn\
 thesis_1.adb.
 
-The Execute Script command succeeded ( 00:00:45 )
+The Execute Script command succeeded ( 00:00:37 )
 Design closed.
 
