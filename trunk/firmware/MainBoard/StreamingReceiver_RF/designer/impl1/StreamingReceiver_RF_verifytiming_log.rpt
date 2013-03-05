@@ -1,9 +1,9 @@
 Actel Designer Software
-Version: 10.0.20.2
-Release: v10.0 SP2
+Version: 10.1.3.1
+Release: v10.1 SP3
 
 Info: The design StreamingReceiver_RF_synthesis_1.adb was last modified by software version
-      10.0.20.2.
+      10.1.3.1.
 Opened an existing Libero design StreamingReceiver_RF_synthesis_1.adb.
 'BA_NAME' set to 'StreamingReceiver_RF_ba'
 'IDE_DESIGNERVIEW_NAME' set to 'Impl1'
@@ -18,7 +18,7 @@ Wrote timing report to file: StreamingReceiver_RF_maxdelay_timing_report.txt
 The Report command succeeded ( 00:00:03 )
 Wrote timing report to file: StreamingReceiver_RF_mindelay_timing_report.txt
 
-The Report command succeeded ( 00:00:01 )
+The Report command succeeded ( 00:00:00 )
 Wrote timing_violations report to file:
 StreamingReceiver_RF_maxdelay_timingviolations_report.txt
 
@@ -26,7 +26,7 @@ The Report command succeeded ( 00:00:00 )
 Wrote timing_violations report to file:
 StreamingReceiver_RF_mindelay_timingviolations_report.txt
 
-The Report command succeeded ( 00:00:00 )
+The Report command succeeded ( 00:00:01 )
 Design saved to file
 D:\Work\marmote\firmware\MainBoard\StreamingReceiver_RF\designer\impl1\StreamingReceiver_RF_syn\
 thesis_1.adb.

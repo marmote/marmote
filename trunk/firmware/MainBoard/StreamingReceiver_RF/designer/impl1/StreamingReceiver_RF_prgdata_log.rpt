@@ -1,10 +1,10 @@
 Actel Designer Software
-Version: 10.0.20.2
-Release: v10.0 SP2
+Version: 10.1.3.1
+Release: v10.1 SP3
 
 Info: The design
       D:/Work/marmote/firmware/MainBoard/StreamingReceiver_RF/designer/impl1/StreamingReceiver_\
-      RF_synthesis_1.adb was last modified by software version 10.0.20.2.
+      RF_synthesis_1.adb was last modified by software version 10.1.3.1.
 Opened an existing Libero design
 D:/Work/marmote/firmware/MainBoard/StreamingReceiver_RF/designer/impl1/StreamingReceiver_RF_syn\
 thesis_1.adb.
@@ -12,8 +12,8 @@ Warning: Overwriting the existing file:
          D:/Work/marmote/firmware/MainBoard/StreamingReceiver_RF/designer/impl1/StreamingReceiv\
          er_RF_synthesis_1.fdb.
 
-The Export-map command succeeded ( 00:00:15 )
-CHECKSUM: 1883
+The Export-map command succeeded ( 00:00:16 )
+CHECKSUM: E08C
 Wrote to the file:
 D:\Work\marmote\firmware\MainBoard\StreamingReceiver_RF\designer\impl1\StreamingReceiver_RF_syn\
 thesis_1.fdb

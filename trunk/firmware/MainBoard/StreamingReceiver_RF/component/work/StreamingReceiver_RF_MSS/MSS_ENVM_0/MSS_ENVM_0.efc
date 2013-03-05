@@ -14,7 +14,7 @@
             256 FBGA
         </package>
         <version>
-            10.0.20.2
+            10.1.3.1
         </version>
     </header>
     <nvm>
@@ -212,15 +212,15 @@
             </crc>
         </region>
         <region name="ACTEL_AB_MSS_CONFIG" address="0x103e00" retrieveAddressFromFile="false" size="208" format="HEX" type="Data Storage" wordSize="32" numberWords="52" memFile="" memType="" memFileTimeStamp="" clientType="private" program="true">
-            000000000000000000000000000000000000000000000000021f00002625
-            45e08442018000000a000008200100127a0001000052000000000000001e
+            000000000000000000000000000000000000000000000000021f1f002625
+            2de08442018000000a000008200100127a0001000052000000000000001e
             1a0707000500100005001000000000002bacb0c20a2bacb0c20a00280000
             001cacb0c20a2bacb0c20a2bacb0c20a2bacb0c20a2bacb0c20a2bacb0c2
             0a2bacb0c20a2bacb0c20a2bacb0c20a2bacb0c20a2bacb0c20a2bacb0c2
             0a2bacb0c20a2bacb0c20a2bacb0c20a2bacb0c20a2bacb0c20a2bacb002
-            00000000f89b080090d0030000ff070088ff27000000471b00002e83
+            00000000f89b080090d0030000ff070088ff27000000471b00006e33
             <crc>
-                e781
+                81d4
             </crc>
         </region>
         <region name="ACTEL_INIT_CONFIG" address="0x0ffe00" retrieveAddressFromFile="false" size="152" format="HEX" type="Data Storage" wordSize="32" numberWords="38" memFile="" memType="" memFileTimeStamp="" clientType="private" program="true">

@@ -775,7 +775,7 @@
                     <xsl:choose>
                         <xsl:when test="field">
                             <td align="center">
-                                <a class="toplinks" href="#{../../../../name}_{name}">
+                                <a class="toplinks" href="#{../../../name}_{name}">
                                     <xsl:value-of select="name"/>
                                 </a>
                             </td>
@@ -809,7 +809,7 @@
             <xsl:for-each select="register">
                 <div class="content">
                     <h4>
-                        <a class="register-details" name="#{../../../../name}_{name}">
+                        <a class="register-details" name="{../../../name}_{name}">
                             <xsl:value-of select="name"/> register details [ <xsl:value-of select="absoluteAddress"/> ] :
                         </a>
                     </h4>

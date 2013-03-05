@@ -12,7 +12,7 @@
     <project-description>
     </project-description>
     <location>D:/Work/marmote/firmware/MainBoard/StreamingReceiver_RF/component/work/StreamingReceiver_RF</location>
-    <state>GENERATED ( Wed Sep 26 12:09:08 2012 )</state>
+    <state>GENERATED ( Tue Mar 05 08:19:26 2013 )</state>
     <swide-toolchain>SoftConsole workspace generated to D:\Work\marmote\firmware\MainBoard\StreamingReceiver_RF\SoftConsole</swide-toolchain>
   </project-settings>
   <site-map>
@@ -40,19 +40,19 @@
     <file>D:\Work\marmote\firmware\MainBoard\StreamingReceiver_RF\component\work\./MSS_ENVM_0/MSS_ENVM_0.efc</file>
   </fileset>
   <io>
-    <port-name>AFE2_DATA_pin[2]</port-name>
+    <port-name>AFE2_DATA_pin[5]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
   </io>
   <io>
-    <port-name>USB_DATA_pin[5]</port-name>
+    <port-name>AFE2_DATA_pin[0]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
   </io>
   <io>
-    <port-name>USB_DATA_pin[4]</port-name>
+    <port-name>USB_DATA_pin[7]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
@@ -76,7 +76,7 @@
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>AFE1_DATA_pin[7]</port-name>
+    <port-name>USB_DATA_pin[0]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
@@ -88,7 +88,7 @@
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>USB_DATA_pin[6]</port-name>
+    <port-name>AFE2_DATA_pin[1]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
@@ -112,7 +112,7 @@
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>AFE1_DATA_pin[8]</port-name>
+    <port-name>USB_DATA_pin[1]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
@@ -124,13 +124,13 @@
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>AFE1_DATA_pin[0]</port-name>
+    <port-name>AFE1_DATA_pin[3]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
   </io>
   <io>
-    <port-name>AFE1_DATA_pin[2]</port-name>
+    <port-name>AFE1_DATA_pin[5]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
@@ -148,19 +148,19 @@
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>AFE2_DATA_pin[5]</port-name>
+    <port-name>AFE2_DATA_pin[8]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
   </io>
   <io>
-    <port-name>AFE1_DATA_pin[9]</port-name>
+    <port-name>USB_DATA_pin[2]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
   </io>
   <io>
-    <port-name>USB_DATA_pin[1]</port-name>
+    <port-name>USB_DATA_pin[4]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
@@ -172,7 +172,7 @@
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>USB_DATA_pin[7]</port-name>
+    <port-name>AFE2_DATA_pin[2]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
@@ -196,13 +196,13 @@
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>AFE2_DATA_pin[7]</port-name>
-    <direction>INOUT</direction>
+    <port-name>AFE1_T_R_n_pin</port-name>
+    <direction>OUT</direction>
     <pin-number>-</pin-number>
-    <io-standard>LVCMOS33</io-standard>
+    <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>AFE2_DATA_pin[6]</port-name>
+    <port-name>AFE2_DATA_pin[9]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
@@ -214,37 +214,37 @@
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>AFE2_DATA_pin[0]</port-name>
+    <port-name>AFE2_DATA_pin[3]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
   </io>
   <io>
-    <port-name>AFE1_DATA_pin[3]</port-name>
+    <port-name>AFE1_DATA_pin[6]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
   </io>
   <io>
-    <port-name>AFE2_DATA_pin[8]</port-name>
-    <direction>INOUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVCMOS33</io-standard>
-  </io>
-  <io>
-    <port-name>USB_DATA_pin[2]</port-name>
-    <direction>INOUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVCMOS33</io-standard>
-  </io>
-  <io>
-    <port-name>AFE1_T_R_n_pin</port-name>
+    <port-name>AFE1_SHDN_n_pin</port-name>
     <direction>OUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>AFE2_DATA_pin[1]</port-name>
+    <port-name>USB_DATA_pin[5]</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
+    <port-name>AFE1_DATA_pin[0]</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
+    <port-name>AFE2_DATA_pin[4]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
@@ -268,25 +268,25 @@
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>AFE1_SHDN_n_pin</port-name>
-    <direction>OUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>USB_DATA_pin[0]</port-name>
+    <port-name>AFE1_DATA_pin[1]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
   </io>
   <io>
-    <port-name>AFE1_DATA_pin[5]</port-name>
+    <port-name>USB_DATA_pin[3]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
   </io>
   <io>
-    <port-name>AFE1_DATA_pin[4]</port-name>
+    <port-name>AFE1_DATA_pin[8]</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
+    <port-name>AFE1_DATA_pin[7]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
@@ -298,13 +298,25 @@
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>AFE2_DATA_pin[3]</port-name>
+    <port-name>AFE2_DATA_pin[6]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
   </io>
   <io>
-    <port-name>AFE1_DATA_pin[6]</port-name>
+    <port-name>AFE1_DATA_pin[9]</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
+    <port-name>AFE1_DATA_pin[2]</port-name>
+    <direction>INOUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
+    <port-name>USB_DATA_pin[6]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
@@ -314,18 +326,6 @@
     <direction>OUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVTTL</io-standard>
-  </io>
-  <io>
-    <port-name>USB_DATA_pin[3]</port-name>
-    <direction>INOUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVCMOS33</io-standard>
-  </io>
-  <io>
-    <port-name>AFE2_DATA_pin[9]</port-name>
-    <direction>INOUT</direction>
-    <pin-number>-</pin-number>
-    <io-standard>LVCMOS33</io-standard>
   </io>
   <io>
     <port-name>LED1</port-name>
@@ -346,13 +346,13 @@
     <io-standard>LVTTL</io-standard>
   </io>
   <io>
-    <port-name>AFE2_DATA_pin[4]</port-name>
+    <port-name>AFE2_DATA_pin[7]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
   </io>
   <io>
-    <port-name>AFE1_DATA_pin[1]</port-name>
+    <port-name>AFE1_DATA_pin[4]</port-name>
     <direction>INOUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
