@@ -15,8 +15,11 @@ CMD_Type CMD_List[] =
 	{"sleep", CmdSleep},
 	{"clk",  CmdClock},
 	{"afe",  CmdAfe},
+	{"iqo",  CmdIQOffset},
 
 	{"iq",   CmdIQ},
+	{"bfreq", CmdBbFreq},
+	{"bampl", CmdBbAmpl},
 
 	{"fpga", CmdFpga},
 
@@ -145,7 +148,7 @@ uint32_t CmdClock(uint32_t argc, char** argv)
 	{
 		clock = GetMssClock();
 
-		Yellowstone_print("\nCLK:\t");
+		Yellowstone_print("\nCLKSRC\t");
 		switch ( clock )
 		{
 			case RC_OSC_CLK_SRC:
@@ -171,19 +174,19 @@ uint32_t CmdClock(uint32_t argc, char** argv)
 
 		SystemCoreClockUpdate();
 
-		sprintf(buf, "\nSYS:\t%d", (int)SystemCoreClock);
+		sprintf(buf, "\nSYSCLK\t%d Hz", (int)SystemCoreClock);
 		Yellowstone_print(buf);
 
-		sprintf(buf, "\nPCLK0:\t%d", (int)g_FrequencyPCLK0);
+		sprintf(buf, "\nPCLK0\t%d Hz", (int)g_FrequencyPCLK0);
 		Yellowstone_print(buf);
 
-		sprintf(buf, "\nPCLK1:\t%d", (int)g_FrequencyPCLK1);
+		sprintf(buf, "\nPCLK1\t%d Hz", (int)g_FrequencyPCLK1);
 		Yellowstone_print(buf);
 
-		sprintf(buf, "\nACE:\t%d", (int)g_FrequencyACE);
+		sprintf(buf, "\nACE\t%d Hz", (int)g_FrequencyACE);
 		Yellowstone_print(buf);
 
-		sprintf(buf, "\nFPGA:\t%d", (int)g_FrequencyFPGA);
+		sprintf(buf, "\nFPGA\t%d Hz", (int)g_FrequencyFPGA);
 		Yellowstone_print(buf);
 
 		return 0;
@@ -269,6 +272,109 @@ uint32_t CmdAfe(uint32_t argc, char** argv)
 	return 1;
 }
 
+uint32_t CmdIQOffset(uint32_t argc, char** argv)
+{
+	char buf[128];
+	int32_t i, q;
+
+	if (argc == 1)
+	{
+		sprintf(buf, "\r\nI : %d\r\nQ : %d",
+				Max19706_get_dac_i_offset(MAX19706_AFE1),
+				Max19706_get_dac_q_offset(MAX19706_AFE1) );
+		Yellowstone_print(buf);
+		return 0;
+	}
+
+	if (argc == 3)
+	{
+		i = atoi(*(argv+1));
+		q = atoi(*(argv+2));
+		if ((i || !strcmp(*(argv+1), "0")) && (q || !strcmp(*(argv+2), "0")))
+		{
+			Max19706_set_dac_i_offset(MAX19706_AFE1, i);
+			Max19706_set_dac_q_offset(MAX19706_AFE1, q);
+
+			// Readback
+			sprintf(buf, "\r\nI : %d\r\nQ : %d",
+							Max19706_get_dac_i_offset(MAX19706_AFE1),
+							Max19706_get_dac_q_offset(MAX19706_AFE1) );
+					Yellowstone_print(buf);
+			return 0;
+		}
+	}
+
+	// Send help message
+	Yellowstone_print("\r\nUsage: iqo [<i offset in LSB> <q offset in LSB>]");
+	return 1;
+}
+
+
+
+uint32_t CmdBbAmpl(uint32_t argc, char** argv)
+{
+	uint32_t ampl;
+	char buf[128];
+
+	FSK_TX->MUX = 0;
+
+	if (argc == 1)
+	{
+		sprintf(buf, "\r\nBaseband ampl: %d\n", FSK_TX_get_amplitude());
+		Yellowstone_print(buf);
+		return 0;
+	}
+
+
+	if (argc == 2)
+	{
+		ampl = atoi(*(argv+1));
+		if (ampl || !strcmp(*(argv+1), "0"))
+		{
+			FSK_TX_set_amplitude(ampl);
+			sprintf(buf, "\r\nBaseband ampl: %d\n", FSK_TX_get_amplitude());
+			Yellowstone_print(buf);
+			return 0;
+		}
+	}
+
+	// Send help message
+	Yellowstone_print("\nUsage: bampl [<0..460>]");
+	return 1;
+}
+
+uint32_t CmdBbFreq(uint32_t argc, char** argv)
+{
+	uint32_t freq;
+	char buf[128];
+
+	FSK_TX->MUX = 0;
+
+	if (argc == 1)
+	{
+		sprintf(buf, "\r\nBaseband freq: %d kHz\n", FSK_TX_get_frequency()/1000);
+		Yellowstone_print(buf);
+		return 0;
+	}
+
+
+	if (argc == 2)
+	{
+		freq = atoi(*(argv+1));
+		if (freq || !strcmp(*(argv+1), "0"))
+		{
+			FSK_TX_set_frequency(freq*1000);
+			sprintf(buf, "\r\nBaseband freq: %d kHz\n", FSK_TX_get_frequency()/1000);
+			Yellowstone_print(buf);
+			return 0;
+		}
+	}
+
+	// Send help message
+	Yellowstone_print("\nUsage: bfreq [<kHz>]");
+	return 1;
+}
+
 
 uint32_t CmdIQ(uint32_t argc, char** argv)
 {
@@ -299,7 +405,8 @@ uint32_t CmdIQ(uint32_t argc, char** argv)
 			FSK_TX->Q = q;
 
 			// Readback
-			sprintf(buf, "\r\nI : %d\t0x%03x\r\nQ : %d\t0x%03x",					(int)FSK_TX->I, (unsigned int)FSK_TX->I,
+			sprintf(buf, "\r\nI : %d\t0x%03x\r\nQ : %d\t0x%03x",
+					(int)FSK_TX->I, (unsigned int)FSK_TX->I,
 					(int)FSK_TX->Q, (unsigned int)FSK_TX->Q);
 			Yellowstone_print(buf);
 			return 0;
@@ -310,6 +417,7 @@ uint32_t CmdIQ(uint32_t argc, char** argv)
 	Yellowstone_print("\r\nUsage: path [0 | 1]\t where 0 : FSK, 1 : CONST");
 	return 1;
 }
+
 
 
 /*

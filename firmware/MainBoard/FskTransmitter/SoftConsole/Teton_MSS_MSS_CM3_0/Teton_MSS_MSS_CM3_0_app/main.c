@@ -23,25 +23,45 @@ void process_cmd_buff(const char* cmd_buff, uint8_t length);
 
 int main()
 {
-    MSS_RTC_init();
+    //MSS_RTC_init();
 
 	MSS_GPIO_init();
+	Max19706_init( MAX19706_AFE1 );
+	Max19706_init( MAX19706_AFE2 );
+
 	Yellowstone_Init();
 	Joshua_init();
 
-    MSS_RTC_configure( MSS_RTC_NO_COUNTER_RESET | MSS_RTC_ENABLE_VOLTAGE_REGULATOR_ON_MATCH );
-    MSS_RTC_start();
+    //MSS_RTC_configure( MSS_RTC_NO_COUNTER_RESET | MSS_RTC_ENABLE_VOLTAGE_REGULATOR_ON_MATCH );
+    //MSS_RTC_start();
 
 	MSS_GPIO_config(MSS_GPIO_LED1, MSS_GPIO_OUTPUT_MODE);
 	MSS_GPIO_config(MSS_GPIO_LED2, MSS_GPIO_OUTPUT_MODE);
 	MSS_GPIO_config(MSS_GPIO_AFE_ENABLE, MSS_GPIO_OUTPUT_MODE);
 	MSS_GPIO_config(MSS_GPIO_FPGA_ENABLE, MSS_GPIO_OUTPUT_MODE);
 
+	// Set up the common mode on AFEs
+//   	Max19706_set_dac_cm( MAX19706_AFE1, MAX19706_DAC_CM_1_20V );
+//   	Max19706_set_dac_cm( MAX19706_AFE2, MAX19706_DAC_CM_1_20V );
+
+	// Set up as a transmitter at 2405 MHz by default
+	Max2830_set_frequency(2405000000uL);
+	Max2830_set_mode(MAX2830_TX_MODE);
+
 	MSS_GPIO_set_output(MSS_GPIO_LED1, 0);
 	MSS_GPIO_set_output(MSS_GPIO_LED2, 0);
 	MSS_GPIO_set_output(MSS_GPIO_AFE_ENABLE, 1);
 	MSS_GPIO_set_output(MSS_GPIO_FPGA_ENABLE, 1);
 
+	SystemCoreClockUpdate();
+
+	//FSK_TX_set_amplitude(100);
+	FSK_TX_set_frequency(500000); // Hz
+	FSK_TX->MUX = 0;
+
+//	FSK_TX->MUX = 1;
+//	FSK_TX->I = 0x200u;
+//	FSK_TX->Q = 0x200u;
 
 	while( 1 )
 	{

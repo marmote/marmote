@@ -29,7 +29,8 @@ constant TX_DPHA 0x04;
 # f_FAB_CLK is assumed to be 20 MHz
 
 # TX register values for BFM
-constant DPHA 0x000370ce; # 1.05 kHz
+#constant DPHA 0x000370ce; # 1.05 kHz
+constant DPHA 0x00001001; # 1.05 kHz
 
 
 #wait 500;

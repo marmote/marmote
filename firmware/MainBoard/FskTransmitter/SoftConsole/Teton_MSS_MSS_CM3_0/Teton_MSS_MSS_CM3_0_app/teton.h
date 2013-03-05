@@ -8,6 +8,8 @@
 #ifndef TETON_H_
 #define TETON_H_
 
+#include "max19706.h"
+
 #define MSS_GPIO_LED1 				MSS_GPIO_0
 #define MSS_GPIO_AFE_ENABLE			MSS_GPIO_1
 #define MSS_GPIO_LED2 				MSS_GPIO_7
