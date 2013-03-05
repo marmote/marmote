@@ -14,7 +14,9 @@ set sdc_version 1.7
 
 ########  Clock Constraints  ########
 
-create_clock  -name { Teton_MSS_0/MSS_CCC_0/I_XTLOSC:CLKOUT } -period 50.000 -waveform { 0.000 25.000  }  { Teton_MSS_0/MSS_CCC_0/I_XTLOSC:CLKOUT  } 
+#create_clock  -name { Teton_MSS_0/MSS_CCC_0/I_XTLOSC:CLKOUT } -period 50.000 -waveform { 0.000 25.000  }  { Teton_MSS_0/MSS_CCC_0/I_XTLOSC:CLKOUT  } 
+create_clock  -name { REF_CLK } -period 50.000 -waveform { 0.000 25.000  }  { Teton_MSS_0/MSS_CCC_0/I_MSSCCC/U_MSSCCC:CLKA } 
+
 
 
 
@@ -45,9 +47,6 @@ Teton_MSS_0/MSS_ADLIB_INST/U_CORE:ACLK  }
 create_generated_clock  -name { mss_pclk1 } -divide_by 1  -source { Teton_MSS_0/MSS_ADLIB_INST/U_CORE:FCLK } { \
 Teton_MSS_0/MSS_ADLIB_INST/U_CORE:PCLK1  } 
 #  read only
-
-create_generated_clock  -name { mss_fclk } -divide_by 1  -source { Teton_MSS_0/MSS_CCC_0/I_XTLOSC:CLKOUT } { \
-Teton_MSS_0/MSS_ADLIB_INST/U_CORE:FCLK  } 
 
 
 
@@ -88,18 +87,4 @@ Teton_MSS_0/MSS_ADLIB_INST/U_CORE:FCLK  }
 
 
 ########  Clock Uncertainty Constraints #########
-
-set_clock_uncertainty 0.4 -from { Teton_MSS_0/MSS_CCC_0/I_XTLOSC:CLKOUT } -to { mss_ccc_gla1 }
-#  read only
-
-set_clock_uncertainty 0.4 -from { Teton_MSS_0/MSS_CCC_0/I_XTLOSC:CLKOUT } -to { mss_ccc_gla0 }
-#  read only
-
-set_clock_uncertainty 0.4 -from { mss_ccc_gla1 } -to { Teton_MSS_0/MSS_CCC_0/I_XTLOSC:CLKOUT }
-#  read only
-
-set_clock_uncertainty 0.4 -from { mss_ccc_gla0 } -to { Teton_MSS_0/MSS_CCC_0/I_XTLOSC:CLKOUT }
-#  read only
-
-
 

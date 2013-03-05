@@ -6,17 +6,6 @@
 #include <mss_timer.h>
 #include <mss_gpio.h>
 
-/***************************************************************************//**
-  Baud rates.
-  The following definitions are used to specify baud rates as a
-  parameter to the BBFSK_init() function.
- */
-#define FSK_1200_BAUD      1200
-#define FSK_2400_BAUD      2400
-#define FSK_4800_BAUD      4800
-#define FSK_9600_BAUD      9600
-#define FSK_19200_BAUD    19200
-#define FSK_38400_BAUD    38400
 
 /**
   Memory mapped structure for FSK TX
@@ -24,19 +13,13 @@
 typedef struct
 {
   __O  uint32_t CTRL;                         /*!< Offset: 0x00  Control Register           */
-  __I  uint32_t STAT;                         /*!< Offset: 0x04  Status Register            */
-  __IO uint32_t BAUD;                         /*!< Offset: 0x08  Baud Register           	*/
-  __IO uint32_t DPLO;                         /*!< Offset: 0x0C  Delta-phase low Register   */
-  __IO uint32_t DPHI;                         /*!< Offset: 0x10  Delta-phase high Register  */
-  __IO uint32_t AMPL;                         /*!< Offset: 0x14  Amplitude Register         */
-  __I  uint32_t DUMMY1[2];				      /*!< Offset: 0x1C  Placeholder up to 0x20		*/
+  __IO uint32_t DPHA;                         /*!< Offset: 0x04  Delta-phase high Register  */
+  __IO uint32_t AMPL;                         /*!< Offset: 0x08  Amplitude Register         */
+  __I  uint32_t DUMMY;				      	  /*!< Offset: 0x0C  Placeholder up to 0x20		*/
 
-  __IO uint32_t I;                            /*!< Offset: 0x20  I Register             	*/
-  __IO uint32_t Q;                            /*!< Offset: 0x24  Q Register             	*/
-  __IO uint32_t MUX;                          /*!< Offset: 0x28  Multiplexer Register       */
-  __I  uint32_t DUMMY2[1];				      /*!< Offset: 0x2C  Placeholder up to 0x30		*/
-
-  __IO uint32_t DATA;                         /*!< Offset: 0x30  Data Register             	*/
+  __IO uint32_t I;                            /*!< Offset: 0x10  I Register             	*/
+  __IO uint32_t Q;                            /*!< Offset: 0x14  Q Register             	*/
+  __IO uint32_t MUX;                          /*!< Offset: 0x18  Multiplexer Register       */
 } FSK_TX_Type;
 
 /**
@@ -45,17 +28,7 @@ typedef struct
 #define FSK_TX            ((FSK_TX_Type *)       FSK_TX_APB_IF_0)   /*!< FSK TX register struct */
 
 //#define FSK_TX_AMPL_MAX 0x007FUL
-#define FSK_TX_AMPL_MAX 800UL // mV
-
-
-static uint8_t fsk_tx_busy;
-static uint8_t tx_bit_ctr;
-static uint32_t payload;
-
-static uint32_t f_low;
-static uint32_t f_high;
-static uint32_t delta_phase_high;
-static uint32_t delta_phase_low;
+#define FSK_TX_AMPL_MAX 460UL
 
 
 /**

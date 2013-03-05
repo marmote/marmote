@@ -1,4 +1,4 @@
--- Version: 10.0 SP1 10.0.10.4
+-- Version: 10.1 SP3 10.1.3.1
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -141,7 +141,7 @@ end DEF_ARCH;
 
 -- _GEN_File_Contents_
 
--- Version:10.0.10.4
+-- Version:10.1.3.1
 -- ACTGENU_CALL:1
 -- BATCH:T
 -- FAM:PA3SOC2
