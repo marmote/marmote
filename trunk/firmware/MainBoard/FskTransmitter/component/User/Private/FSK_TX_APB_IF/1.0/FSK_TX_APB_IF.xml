@@ -97,30 +97,6 @@
         <spirit:right>0</spirit:right>
       </spirit:signal>
       <spirit:signal>
-        <spirit:name>AMPL_I</spirit:name>
-        <spirit:direction>out</spirit:direction>
-        <spirit:left>9</spirit:left>
-        <spirit:right>0</spirit:right>
-      </spirit:signal>
-      <spirit:signal>
-        <spirit:name>AMPL_Q</spirit:name>
-        <spirit:direction>out</spirit:direction>
-        <spirit:left>9</spirit:left>
-        <spirit:right>0</spirit:right>
-      </spirit:signal>
-      <spirit:signal>
-        <spirit:name>DELAY_I</spirit:name>
-        <spirit:direction>out</spirit:direction>
-        <spirit:left>8</spirit:left>
-        <spirit:right>0</spirit:right>
-      </spirit:signal>
-      <spirit:signal>
-        <spirit:name>DELAY_Q</spirit:name>
-        <spirit:direction>out</spirit:direction>
-        <spirit:left>8</spirit:left>
-        <spirit:right>0</spirit:right>
-      </spirit:signal>
-      <spirit:signal>
         <spirit:name>MUX_SEL</spirit:name>
         <spirit:direction>out</spirit:direction>
         <spirit:left>1</spirit:left>
