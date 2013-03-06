@@ -26,11 +26,17 @@ include "subsystem.bfm"
 constant TX_CTRL 0x00; # ENABLE BIT
 constant TX_DPHA 0x04;
 
+
+constant AMPL_I  0x00;
+constant AMPL_Q  0x04;
+constant DELAY_I 0x08;
+constant DELAY_Q 0x0C;
+
 # f_FAB_CLK is assumed to be 20 MHz
 
 # TX register values for BFM
 #constant DPHA 0x000370ce; # 1.05 kHz
-constant DPHA 0x00001001; # 1.05 kHz
+constant DPHA 0x00003001; # 1.05 kHz
 
 
 #wait 500;
@@ -41,12 +47,25 @@ print "*            Testing custom APB slave block                *";
 print "************************************************************";
 print "";
 
-write w FSK_TX_APB_IF_0 TX_CTRL 0x00;
-write w FSK_TX_APB_IF_0 TX_DPHA DPHA
+#write w FSK_TX_APB_IF_0 TX_CTRL 0x00;
+#write w FSK_TX_APB_IF_0 TX_DPHA DPHA
+#wait 500;
+#write w FSK_TX_APB_IF_0 TX_CTRL 0x01;
 
-wait 500;
+wait 70;
+write w IQ_COMPENSATION_0 AMPL_I 0x40000000
+#write w IQ_COMPENSATION_0 AMPL_Q 0x40000000
+write w IQ_COMPENSATION_0 AMPL_Q 0xC0000000
+write w IQ_COMPENSATION_0 DELAY_I 0x00
+write w IQ_COMPENSATION_0 DELAY_Q 0x0
 
-write w FSK_TX_APB_IF_0 TX_CTRL 0x01;
+wait 5;
+#readcheck w IQ_COMPENSATION_0 AMPL_I 0x01
+#readcheck w IQ_COMPENSATION_0 AMPL_Q 0x02
+#readcheck w IQ_COMPENSATION_0 DELAY_I 0x03
+#readcheck w IQ_COMPENSATION_0 DELAY_Q 0x04
+
+wait 100;
 
 
 return

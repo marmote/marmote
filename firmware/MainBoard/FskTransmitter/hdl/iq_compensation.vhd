@@ -93,13 +93,14 @@ architecture Behavioral of IQ_COMPENSATION is
 	constant c_ADDR_DELAY_Q : std_logic_vector(7 downto 0) := x"0C"; -- R/W
 
     -- Default values
-	constant c_DEFAULT_AMPL_I   : signed(31 downto 0)    := x"00000800"; -- sfix(11,9)
-	constant c_DEFAULT_AMPL_Q   : signed(31 downto 0)    := x"00000800"; -- sfix(11,9)
-	constant c_DEFAULT_DELAY_I  : unsigned(31 downto 0) := x"0000000F";
-	constant c_DEFAULT_DELAY_Q  : unsigned(31 downto 0) := x"00000000";
-    
 
+	constant c_DEFAULT_AMPL_I   : signed(10 downto 0)    := "010" & x"00"; -- +1 as sfix(11,9)
+	constant c_DEFAULT_AMPL_Q   : signed(10 downto 0)    := "010" & x"00"; -- +1 as sfix(11,9)
+	constant c_DEFAULT_DELAY_I  : unsigned(8 downto 0) := to_unsigned(0, 9);
+	constant c_DEFAULT_DELAY_Q  : unsigned(8 downto 0) := to_unsigned(0, 9);
+    
 	-- Signals
+
     signal RST           : std_logic;
     alias  CLK is PCLK;
 
@@ -159,19 +160,19 @@ begin
 	p_REG_WRITE : process (PRESETn, PCLK)
 	begin
 		if PRESETn = '0' then
-            s_ampl_i <= (others => '0');
-            s_ampl_q <= (others => '0');
-            s_delay_i <= (others => '0');
-            s_delay_q <= (others => '0');
+            s_ampl_i <= std_logic_vector(c_DEFAULT_AMPL_I);
+            s_ampl_q <= std_logic_vector(c_DEFAULT_AMPL_Q);
+            s_delay_i <= std_logic_vector(c_DEFAULT_DELAY_I);
+            s_delay_q <= std_logic_vector(c_DEFAULT_DELAY_Q);
 		elsif rising_edge(PCLK) then
 			-- Default values
 			-- Register writes
 			if PWRITE = '1' and PSEL = '1' and PENABLE = '1' then
 				case PADDR(7 downto 0) is
 					when c_ADDR_AMPL_I =>
-						s_ampl_i <= PWDATA(10 downto 0);
+						s_ampl_i <= PWDATA(31 downto 21);
 					when c_ADDR_AMPL_Q =>
-						s_ampl_q <= PWDATA(10 downto 0);
+						s_ampl_q <= PWDATA(31 downto 21);
 					when c_ADDR_DELAY_I =>
 						s_delay_i <= PWDATA(8 downto 0);
 					when c_ADDR_DELAY_Q =>
@@ -197,11 +198,11 @@ begin
 			if PWRITE = '0' and PSEL = '1' then
 				case PADDR(7 downto 0) is
 					when c_ADDR_AMPL_I =>
---                        s_dout <= (others => '1');
-                        s_dout(10 downto 0) <= s_ampl_i;
+                        s_dout <= (others => '0');
+                        s_dout(31 downto 21) <= s_ampl_i;
 					when c_ADDR_AMPL_Q =>
---                        s_dout <= (others => '1');
-                        s_dout(10 downto 0) <= s_ampl_q;
+                        s_dout <= (others => '0');
+                        s_dout(31 downto 21) <= s_ampl_q;
 					when c_ADDR_DELAY_I =>
                         s_dout(8 downto 0) <= s_delay_i;
 					when c_ADDR_DELAY_Q =>
@@ -259,8 +260,8 @@ begin
 	PSLVERR <= '0';
 
     OUT_STROBE   <= s_strobe;
-    OUT_I        <= s_i_scaled(s_i_scaled'high-1 downto s_i_scaled'high-OUT_I'length);
-    OUT_Q        <= s_q_scaled(s_q_scaled'high-1 downto s_q_scaled'high-OUT_I'length);
+    OUT_I        <= s_i_scaled(s_i_scaled'high-3 downto s_i_scaled'high-OUT_I'length-2);
+    OUT_Q        <= s_q_scaled(s_q_scaled'high-3 downto s_q_scaled'high-OUT_I'length-2);
 
 
 end Behavioral;
