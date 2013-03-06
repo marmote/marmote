@@ -30,9 +30,6 @@
 --              compensate for the reduced (-pi/2;pi/2) operating range for
 --              the CORDICCORE.
 --
--- Note:        The sign of the input signals X0 and Y0 is changed when INVERT
---              is asserted (active high) simply by inverting all the bits.
---              That is, it is not a standard 2's complement inversion.
 
 library IEEE;
 use IEEE.Std_logic_1164.all;
@@ -57,8 +54,6 @@ entity SIGN_INV is
 end entity;
 
 architecture Behavioral of SIGN_INV is
-
-	-- Constants
 
 	-- Signals
 
@@ -90,19 +85,15 @@ begin
         if rst = '1' then
             s_x <= (others => '0');
             s_y <= (others => '0');
+            s_en <= '0';
         elsif rising_edge(clk) then
             if EN0 = '1' then
                 if s_invert(s_invert'high) = '1' then
---                    s_x <= not X0;
---                    s_y <= not Y0;
-                    -- Invert signal and convert to offset binary
-                    s_x <= X0(X0'high) & not X0(X0'high-1 downto 0);
-                    s_y <= Y0(Y0'high) & not Y0(Y0'high-1 downto 0);
+                    s_x <= not X0;
+                    s_y <= not Y0;
                 else
---                    s_x <= X0;
---                    s_y <= Y0;
-                    s_x <= not X0(X0'high) & X0(X0'high-1 downto 0);
-                    s_y <= not Y0(Y0'high) & Y0(Y0'high-1 downto 0);
+                    s_x <= X0;
+                    s_y <= Y0;
                 end if;
                 s_xo <= X0;
                 s_yo <= Y0;
@@ -111,29 +102,7 @@ begin
         end if;
     end process p_signal_negate;
 
---    s_en <= EN0;
---
---    p_invert : process (
---        INVERT,
---        X0,
---        Y0
---    )
---    begin
---        if INVERT = '0' then
-----            s_x <= X0;
-----            s_y <= Y0;
---            s_x <= X0(X0'high) & not X0(X0'high-1 downto 0);
---            s_y <= Y0(Y0'high) & not Y0(Y0'high-1 downto 0);
---        else
-----            s_x <= X0;
-----            s_y <= Y0;
---            s_x <= not X0(X0'high) & X0(X0'high-1 downto 0);
---            s_y <= not Y0(Y0'high) & Y0(Y0'high-1 downto 0);
---        end if;
---    end process p_invert;
-
-
-	-- Assign the output signals
+	-- Output assignment
 
     XN  <= s_x;
     YN  <= s_y;
