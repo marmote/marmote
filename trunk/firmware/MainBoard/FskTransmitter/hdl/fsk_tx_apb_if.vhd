@@ -58,11 +58,6 @@ entity FSK_TX_APB_IF is
 		 DPHASE    : out  std_logic_vector(31 downto 0);
          AMPLITUDE : out  std_logic_vector(9 downto 0);
 
-         AMPL_I  : out std_logic_vector(9 downto 0);
-         AMPL_Q  : out std_logic_vector(9 downto 0);
-         DELAY_I : out std_logic_vector(8 downto 0);
-         DELAY_Q : out std_logic_vector(8 downto 0);
-
          -- Debug interface
          MUX_SEL   : out std_logic_vector(1 downto 0);
          I         : out std_logic_vector(9 downto 0);
@@ -81,19 +76,10 @@ architecture Behavioral of FSK_TX_APB_IF is
 	constant c_ADDR_Q    : std_logic_vector(7 downto 0) := x"14"; -- R/W !
 	constant c_ADDR_MUX  : std_logic_vector(7 downto 0) := x"18"; -- R/W !
 
-	constant c_ADDR_AMPL_I : std_logic_vector(9 downto 0)  := x"20"; -- R/W
-	constant c_ADDR_AMPL_Q : std_logic_vector(9 downto 0)  := x"24"; -- R/W
-	constant c_ADDR_DELAY_I : std_logic_vector(8 downto 0) := x"28"; -- R/W
-	constant c_ADDR_DELAY_Q : std_logic_vector(8 downto 0) := x"2C"; -- R/W
-
 	-- Default values
-	constant c_DEFAULT_AMPL     : signed(9 downto 0)    := x"3FF";
+	constant c_DEFAULT_AMPL     : signed(31 downto 0)    := x"00000130";
 
 	constant c_DEFAULT_DPHA     : unsigned(31 downto 0) := x"01604189";
-	constant c_DEFAULT_AMPL_I   : signed(9 downto 0)    := x"3FF";
-	constant c_DEFAULT_AMPL_Q   : signed(9 downto 0)    := x"3FF";
-	constant c_DEFAULT_DELAY_I  : unsigned(31 downto 0) := x"00000000F";
-	constant c_DEFAULT_DELAY_Q  : unsigned(31 downto 0) := x"00000000";
 
      -- Debug registers
     constant c_DEFAULT_MUX  : unsigned(31 downto 0) := x"00000000"; -- 
@@ -106,12 +92,7 @@ architecture Behavioral of FSK_TX_APB_IF is
 
 	-- Signals
 
-    -- Adjustable parameters
 	signal s_dphase      : std_logic_vector(c_DCO_PHASE_WIDTH-1 downto 0);
-	signal s_ampl_i      : std_logic_vector(31 downto 0); -- sfix(10,8)
-	signal s_ampl_q      : std_logic_vector(31 downto 0);
-	signal s_delay_i     : std_logic_vector(31 downto 0);
-	signal s_delay_q     : std_logic_vector(31 downto 0);
 
 
 	signal s_ampl        : std_logic_vector(31 downto 0);
@@ -149,14 +130,6 @@ begin
 						s_i <= PWDATA(9 downto 0);
 					when c_ADDR_Q =>
 						s_q <= PWDATA(9 downto 0);
-					when c_ADDR_AMPL_I =>
-						s_ampl_i <= PWDATA(9 downto 0);
-					when c_ADDR_AMPL_Q =>
-						s_ampl_q <= PWDATA(9 downto 0);
-					when c_ADDR_DELAY_I =>
-						s_delay_i <= PWDATA(9 downto 0);
-					when c_ADDR_DELAY_Q =>
-						s_delay_q <= PWDATA(9 downto 0);
 					when others =>
 						null;
 				end case;
@@ -187,14 +160,6 @@ begin
 						s_dout(9 downto 0) <= s_q;
 					when c_ADDR_MUX =>
 						s_dout <= s_mux;
-					when c_ADDR_AMPL_I =>
-                        s_dout <= s_ampl_i;
-					when c_ADDR_AMPL_Q =>
-                        s_dout <= s_ampl_q;
-					when c_ADDR_DELAY_I =>
-                        s_dout <= s_delay_i;
-					when c_ADDR_DELAY_Q =>
-                        s_dout <= s_delay_q;
 					when others =>
 						null;
 				end case;
@@ -215,10 +180,5 @@ begin
     I <= s_i;
     Q <= s_q;
     MUX_SEL <= s_mux(1 downto 0);
-
-    AMPL_I <=  s_ampl_i;
-    AMPL_Q <=  s_ampl_q;
-    DELAY_I <= s_delay_i;
-    DELAY_Q <= s_delay_q;
 
 end Behavioral;

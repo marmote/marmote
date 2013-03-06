@@ -42,6 +42,35 @@ architecture DEF_ARCH of RAM_512x10 is
         );
   end component;
 
+  component OR2
+    port( A : in    std_logic := 'U';
+          B : in    std_logic := 'U';
+          Y : out   std_logic
+        );
+  end component;
+
+  component OR2A
+    port( A : in    std_logic := 'U';
+          B : in    std_logic := 'U';
+          Y : out   std_logic
+        );
+  end component;
+
+  component BUFF
+    port( A : in    std_logic := 'U';
+          Y : out   std_logic
+        );
+  end component;
+
+  component DFN1E1C0
+    port( D   : in    std_logic := 'U';
+          CLK : in    std_logic := 'U';
+          CLR : in    std_logic := 'U';
+          E   : in    std_logic := 'U';
+          Q   : out   std_logic
+        );
+  end component;
+
   component RAM512X18
     generic (MEMORYFILE:string := "");
 
@@ -112,35 +141,6 @@ architecture DEF_ARCH of RAM_512x10 is
         );
   end component;
 
-  component OR2
-    port( A : in    std_logic := 'U';
-          B : in    std_logic := 'U';
-          Y : out   std_logic
-        );
-  end component;
-
-  component OR2A
-    port( A : in    std_logic := 'U';
-          B : in    std_logic := 'U';
-          Y : out   std_logic
-        );
-  end component;
-
-  component BUFF
-    port( A : in    std_logic := 'U';
-          Y : out   std_logic
-        );
-  end component;
-
-  component DFN1E1C0
-    port( D   : in    std_logic := 'U';
-          CLK : in    std_logic := 'U';
-          CLR : in    std_logic := 'U';
-          E   : in    std_logic := 'U';
-          Q   : out   std_logic
-        );
-  end component;
-
   component GND
     port(Y : out std_logic); 
   end component;
@@ -149,19 +149,19 @@ architecture DEF_ARCH of RAM_512x10 is
     port(Y : out std_logic); 
   end component;
 
-    signal \ADDRA_FF2[0]\, \ADDRB_FF1[0]\, \ADDRB_FF2[0]\, 
-        \READB_EN_2[0]\, \ENABLE_ADDRA[0]\, \ENABLE_ADDRA[1]\, 
-        \ENABLE_ADDRB[0]\, \ENABLE_ADDRB[1]\, \BLKA_EN[0]\, 
-        \BLKB_EN[0]\, \BLKA_EN[1]\, \BLKB_EN[1]\, \READA_EN[0]\, 
-        \READB_EN[0]\, \READA_EN[1]\, \READB_EN[1]\, 
-        \READB_EN_2[1]\, \QX_TEMPR0[0]\, \QX_TEMPR0[1]\, 
-        \QX_TEMPR0[2]\, \QX_TEMPR0[3]\, \QX_TEMPR0[4]\, 
-        \QX_TEMPR0[5]\, \QX_TEMPR0[6]\, \QX_TEMPR0[7]\, 
-        \QX_TEMPR0[8]\, \QX_TEMPR0[9]\, \QX_TEMPR1[0]\, 
-        \QX_TEMPR1[1]\, \QX_TEMPR1[2]\, \QX_TEMPR1[3]\, 
-        \QX_TEMPR1[4]\, \QX_TEMPR1[5]\, \QX_TEMPR1[6]\, 
-        \QX_TEMPR1[7]\, \QX_TEMPR1[8]\, \QX_TEMPR1[9]\, \VCC\, 
-        \GND\ : std_logic;
+    signal WEAP, WEBP, RESETP, \ADDRA_FF2[0]\, \ADDRB_FF1[0]\, 
+        \ADDRB_FF2[0]\, \READB_EN_2[0]\, \ENABLE_ADDRA[0]\, 
+        \ENABLE_ADDRA[1]\, \ENABLE_ADDRB[0]\, \ENABLE_ADDRB[1]\, 
+        \BLKA_EN[0]\, \BLKB_EN[0]\, \BLKA_EN[1]\, \BLKB_EN[1]\, 
+        \READA_EN[0]\, \READB_EN[0]\, \READA_EN[1]\, 
+        \READB_EN[1]\, \READB_EN_2[1]\, \QX_TEMPR0[0]\, 
+        \QX_TEMPR0[1]\, \QX_TEMPR0[2]\, \QX_TEMPR0[3]\, 
+        \QX_TEMPR0[4]\, \QX_TEMPR0[5]\, \QX_TEMPR0[6]\, 
+        \QX_TEMPR0[7]\, \QX_TEMPR0[8]\, \QX_TEMPR0[9]\, 
+        \QX_TEMPR1[0]\, \QX_TEMPR1[1]\, \QX_TEMPR1[2]\, 
+        \QX_TEMPR1[3]\, \QX_TEMPR1[4]\, \QX_TEMPR1[5]\, 
+        \QX_TEMPR1[6]\, \QX_TEMPR1[7]\, \QX_TEMPR1[8]\, 
+        \QX_TEMPR1[9]\, \VCC\, \GND\ : std_logic;
     signal GND_power_net1 : std_logic;
     signal VCC_power_net1 : std_logic;
 
@@ -189,30 +189,6 @@ begin
       port map(D => \READB_EN[0]\, CLK => CLK, Q => 
         \READB_EN_2[0]\);
     
-    RAM_512x10_R0C0 : RAM512X18
-      port map(RADDR8 => \GND\, RADDR7 => RADDR(7), RADDR6 => 
-        RADDR(6), RADDR5 => RADDR(5), RADDR4 => RADDR(4), RADDR3
-         => RADDR(3), RADDR2 => RADDR(2), RADDR1 => RADDR(1), 
-        RADDR0 => RADDR(0), WADDR8 => \GND\, WADDR7 => WADDR(7), 
-        WADDR6 => WADDR(6), WADDR5 => WADDR(5), WADDR4 => 
-        WADDR(4), WADDR3 => WADDR(3), WADDR2 => WADDR(2), WADDR1
-         => WADDR(1), WADDR0 => WADDR(0), WD17 => \GND\, WD16 => 
-        \GND\, WD15 => \GND\, WD14 => \GND\, WD13 => \GND\, WD12
-         => \GND\, WD11 => \GND\, WD10 => \GND\, WD9 => WDATA(9), 
-        WD8 => WDATA(8), WD7 => WDATA(7), WD6 => WDATA(6), WD5
-         => WDATA(5), WD4 => WDATA(4), WD3 => WDATA(3), WD2 => 
-        WDATA(2), WD1 => WDATA(1), WD0 => WDATA(0), RW0 => \GND\, 
-        RW1 => \VCC\, WW0 => \GND\, WW1 => \VCC\, PIPE => \VCC\, 
-        REN => \BLKB_EN[0]\, WEN => \BLKA_EN[0]\, RCLK => CLK, 
-        WCLK => CLK, RESET => RST, RD17 => OPEN, RD16 => OPEN, 
-        RD15 => OPEN, RD14 => OPEN, RD13 => OPEN, RD12 => OPEN, 
-        RD11 => OPEN, RD10 => OPEN, RD9 => \QX_TEMPR0[9]\, RD8
-         => \QX_TEMPR0[8]\, RD7 => \QX_TEMPR0[7]\, RD6 => 
-        \QX_TEMPR0[6]\, RD5 => \QX_TEMPR0[5]\, RD4 => 
-        \QX_TEMPR0[4]\, RD3 => \QX_TEMPR0[3]\, RD2 => 
-        \QX_TEMPR0[2]\, RD1 => \QX_TEMPR0[1]\, RD0 => 
-        \QX_TEMPR0[0]\);
-    
     \MX2_RDATA[2]\ : MX2
       port map(A => \QX_TEMPR0[2]\, B => \QX_TEMPR1[2]\, S => 
         \ADDRB_FF2[0]\, Y => RDATA(2));
@@ -222,7 +198,7 @@ begin
         \ADDRB_FF2[0]\, Y => RDATA(8));
     
     \ORB_GATE[1]\ : OR2
-      port map(A => \ENABLE_ADDRB[1]\, B => REN, Y => 
+      port map(A => \ENABLE_ADDRB[1]\, B => WEBP, Y => 
         \BLKB_EN[1]\);
     
     \MX2_RDATA[7]\ : MX2
@@ -234,50 +210,29 @@ begin
         \ADDRB_FF2[0]\, Y => RDATA(6));
     
     \ORA_GATE[1]\ : OR2
-      port map(A => \ENABLE_ADDRA[1]\, B => WEN, Y => 
+      port map(A => \ENABLE_ADDRA[1]\, B => WEAP, Y => 
         \BLKA_EN[1]\);
     
-    RAM_512x10_R1C0 : RAM512X18
-      port map(RADDR8 => \GND\, RADDR7 => RADDR(7), RADDR6 => 
-        RADDR(6), RADDR5 => RADDR(5), RADDR4 => RADDR(4), RADDR3
-         => RADDR(3), RADDR2 => RADDR(2), RADDR1 => RADDR(1), 
-        RADDR0 => RADDR(0), WADDR8 => \GND\, WADDR7 => WADDR(7), 
-        WADDR6 => WADDR(6), WADDR5 => WADDR(5), WADDR4 => 
-        WADDR(4), WADDR3 => WADDR(3), WADDR2 => WADDR(2), WADDR1
-         => WADDR(1), WADDR0 => WADDR(0), WD17 => \GND\, WD16 => 
-        \GND\, WD15 => \GND\, WD14 => \GND\, WD13 => \GND\, WD12
-         => \GND\, WD11 => \GND\, WD10 => \GND\, WD9 => WDATA(9), 
-        WD8 => WDATA(8), WD7 => WDATA(7), WD6 => WDATA(6), WD5
-         => WDATA(5), WD4 => WDATA(4), WD3 => WDATA(3), WD2 => 
-        WDATA(2), WD1 => WDATA(1), WD0 => WDATA(0), RW0 => \GND\, 
-        RW1 => \VCC\, WW0 => \GND\, WW1 => \VCC\, PIPE => \VCC\, 
-        REN => \BLKB_EN[1]\, WEN => \BLKA_EN[1]\, RCLK => CLK, 
-        WCLK => CLK, RESET => RST, RD17 => OPEN, RD16 => OPEN, 
-        RD15 => OPEN, RD14 => OPEN, RD13 => OPEN, RD12 => OPEN, 
-        RD11 => OPEN, RD10 => OPEN, RD9 => \QX_TEMPR1[9]\, RD8
-         => \QX_TEMPR1[8]\, RD7 => \QX_TEMPR1[7]\, RD6 => 
-        \QX_TEMPR1[6]\, RD5 => \QX_TEMPR1[5]\, RD4 => 
-        \QX_TEMPR1[4]\, RD3 => \QX_TEMPR1[3]\, RD2 => 
-        \QX_TEMPR1[2]\, RD1 => \QX_TEMPR1[1]\, RD0 => 
-        \QX_TEMPR1[0]\);
-    
     \ORA_READ_EN_GATE[1]\ : OR2A
-      port map(A => WEN, B => \ENABLE_ADDRA[1]\, Y => 
+      port map(A => WEAP, B => \ENABLE_ADDRA[1]\, Y => 
         \READA_EN[1]\);
     
     \ORB_READ_EN_GATE[1]\ : OR2A
-      port map(A => REN, B => \ENABLE_ADDRB[1]\, Y => 
+      port map(A => WEBP, B => \ENABLE_ADDRB[1]\, Y => 
         \READB_EN[1]\);
+    
+    RESETBUBBLE : INV
+      port map(A => RST, Y => RESETP);
     
     \BUFF_ENABLE_ADDRB[0]\ : BUFF
       port map(A => RADDR(8), Y => \ENABLE_ADDRB[0]\);
     
     \ORA_READ_EN_GATE[0]\ : OR2A
-      port map(A => WEN, B => \ENABLE_ADDRA[0]\, Y => 
+      port map(A => WEAP, B => \ENABLE_ADDRA[0]\, Y => 
         \READA_EN[0]\);
     
     \ORB_READ_EN_GATE[0]\ : OR2A
-      port map(A => REN, B => \ENABLE_ADDRB[0]\, Y => 
+      port map(A => WEBP, B => \ENABLE_ADDRB[0]\, Y => 
         \READB_EN[0]\);
     
     \INV_ENABLE_ADDRA[1]\ : INV
@@ -292,12 +247,15 @@ begin
         \ADDRB_FF2[0]\, Y => RDATA(9));
     
     \BFF2[0]\ : DFN1E1C0
-      port map(D => \ADDRB_FF1[0]\, CLK => CLK, CLR => RST, E => 
-        \READB_EN_2[0]\, Q => \ADDRB_FF2[0]\);
+      port map(D => \ADDRB_FF1[0]\, CLK => CLK, CLR => RESETP, E
+         => \READB_EN_2[0]\, Q => \ADDRB_FF2[0]\);
     
     \AFF1[0]\ : DFN1E1C0
-      port map(D => WADDR(8), CLK => CLK, CLR => RST, E => 
+      port map(D => WADDR(8), CLK => CLK, CLR => RESETP, E => 
         \READA_EN[0]\, Q => \ADDRA_FF2[0]\);
+    
+    WEBUBBLEB : INV
+      port map(A => REN, Y => WEBP);
     
     \BFF1[0]\ : DFN1
       port map(D => RADDR(8), CLK => CLK, Q => \ADDRB_FF1[0]\);
@@ -306,12 +264,36 @@ begin
       port map(A => WADDR(8), Y => \ENABLE_ADDRA[0]\);
     
     \ORB_GATE[0]\ : OR2
-      port map(A => \ENABLE_ADDRB[0]\, B => REN, Y => 
+      port map(A => \ENABLE_ADDRB[0]\, B => WEBP, Y => 
         \BLKB_EN[0]\);
     
     \ORA_GATE[0]\ : OR2
-      port map(A => \ENABLE_ADDRA[0]\, B => WEN, Y => 
+      port map(A => \ENABLE_ADDRA[0]\, B => WEAP, Y => 
         \BLKA_EN[0]\);
+    
+    RAM_512x8_R1C0 : RAM512X18
+      port map(RADDR8 => \GND\, RADDR7 => RADDR(7), RADDR6 => 
+        RADDR(6), RADDR5 => RADDR(5), RADDR4 => RADDR(4), RADDR3
+         => RADDR(3), RADDR2 => RADDR(2), RADDR1 => RADDR(1), 
+        RADDR0 => RADDR(0), WADDR8 => \GND\, WADDR7 => WADDR(7), 
+        WADDR6 => WADDR(6), WADDR5 => WADDR(5), WADDR4 => 
+        WADDR(4), WADDR3 => WADDR(3), WADDR2 => WADDR(2), WADDR1
+         => WADDR(1), WADDR0 => WADDR(0), WD17 => \GND\, WD16 => 
+        \GND\, WD15 => \GND\, WD14 => \GND\, WD13 => \GND\, WD12
+         => \GND\, WD11 => \GND\, WD10 => \GND\, WD9 => WDATA(9), 
+        WD8 => WDATA(8), WD7 => WDATA(7), WD6 => WDATA(6), WD5
+         => WDATA(5), WD4 => WDATA(4), WD3 => WDATA(3), WD2 => 
+        WDATA(2), WD1 => WDATA(1), WD0 => WDATA(0), RW0 => \GND\, 
+        RW1 => \VCC\, WW0 => \GND\, WW1 => \VCC\, PIPE => \VCC\, 
+        REN => \BLKB_EN[1]\, WEN => \BLKA_EN[1]\, RCLK => CLK, 
+        WCLK => CLK, RESET => RESETP, RD17 => OPEN, RD16 => OPEN, 
+        RD15 => OPEN, RD14 => OPEN, RD13 => OPEN, RD12 => OPEN, 
+        RD11 => OPEN, RD10 => OPEN, RD9 => \QX_TEMPR1[9]\, RD8
+         => \QX_TEMPR1[8]\, RD7 => \QX_TEMPR1[7]\, RD6 => 
+        \QX_TEMPR1[6]\, RD5 => \QX_TEMPR1[5]\, RD4 => 
+        \QX_TEMPR1[4]\, RD3 => \QX_TEMPR1[3]\, RD2 => 
+        \QX_TEMPR1[2]\, RD1 => \QX_TEMPR1[1]\, RD0 => 
+        \QX_TEMPR1[0]\);
     
     \READEN_BFF1[1]\ : DFN1
       port map(D => \READB_EN[1]\, CLK => CLK, Q => 
@@ -320,6 +302,33 @@ begin
     \MX2_RDATA[3]\ : MX2
       port map(A => \QX_TEMPR0[3]\, B => \QX_TEMPR1[3]\, S => 
         \ADDRB_FF2[0]\, Y => RDATA(3));
+    
+    WEBUBBLEA : INV
+      port map(A => WEN, Y => WEAP);
+    
+    RAM_512x8_R0C0 : RAM512X18
+      port map(RADDR8 => \GND\, RADDR7 => RADDR(7), RADDR6 => 
+        RADDR(6), RADDR5 => RADDR(5), RADDR4 => RADDR(4), RADDR3
+         => RADDR(3), RADDR2 => RADDR(2), RADDR1 => RADDR(1), 
+        RADDR0 => RADDR(0), WADDR8 => \GND\, WADDR7 => WADDR(7), 
+        WADDR6 => WADDR(6), WADDR5 => WADDR(5), WADDR4 => 
+        WADDR(4), WADDR3 => WADDR(3), WADDR2 => WADDR(2), WADDR1
+         => WADDR(1), WADDR0 => WADDR(0), WD17 => \GND\, WD16 => 
+        \GND\, WD15 => \GND\, WD14 => \GND\, WD13 => \GND\, WD12
+         => \GND\, WD11 => \GND\, WD10 => \GND\, WD9 => WDATA(9), 
+        WD8 => WDATA(8), WD7 => WDATA(7), WD6 => WDATA(6), WD5
+         => WDATA(5), WD4 => WDATA(4), WD3 => WDATA(3), WD2 => 
+        WDATA(2), WD1 => WDATA(1), WD0 => WDATA(0), RW0 => \GND\, 
+        RW1 => \VCC\, WW0 => \GND\, WW1 => \VCC\, PIPE => \VCC\, 
+        REN => \BLKB_EN[0]\, WEN => \BLKA_EN[0]\, RCLK => CLK, 
+        WCLK => CLK, RESET => RESETP, RD17 => OPEN, RD16 => OPEN, 
+        RD15 => OPEN, RD14 => OPEN, RD13 => OPEN, RD12 => OPEN, 
+        RD11 => OPEN, RD10 => OPEN, RD9 => \QX_TEMPR0[9]\, RD8
+         => \QX_TEMPR0[8]\, RD7 => \QX_TEMPR0[7]\, RD6 => 
+        \QX_TEMPR0[6]\, RD5 => \QX_TEMPR0[5]\, RD4 => 
+        \QX_TEMPR0[4]\, RD3 => \QX_TEMPR0[3]\, RD2 => 
+        \QX_TEMPR0[2]\, RD1 => \QX_TEMPR0[1]\, RD0 => 
+        \QX_TEMPR0[0]\);
     
     GND_power_inst1 : GND
       port map( Y => GND_power_net1);
@@ -347,7 +356,7 @@ end DEF_ARCH;
 -- GEN_BHV_VHDL_VAL:F
 -- GEN_BHV_VERILOG_VAL:F
 -- MGNTIMER:F
--- MGNCMPL:F
+-- MGNCMPL:T
 -- DESDIR:D:/firmware/MainBoard/FskTransmitter/smartgen\RAM_512x10
 -- GEN_BEHV_MODULE:F
 -- SMARTGEN_DIE:IP6X5M2
@@ -360,7 +369,7 @@ end DEF_ARCH;
 -- CLKS:1
 -- CLOCK_PN:CLK
 -- RESET_PN:RST
--- RESET_POLARITY:0
+-- RESET_POLARITY:1
 -- INIT_RAM:F
 -- DEFAULT_WORD:0x000
 -- CASCADE:1
@@ -372,8 +381,8 @@ end DEF_ARCH;
 -- DATA_OUT_PN:RDATA
 -- RADDRESS_PN:RADDR
 -- RE_PN:REN
--- WE_POLARITY:0
--- RE_POLARITY:0
+-- WE_POLARITY:1
+-- RE_POLARITY:1
 -- PTYPE:1
 
 -- _End_Comments_
