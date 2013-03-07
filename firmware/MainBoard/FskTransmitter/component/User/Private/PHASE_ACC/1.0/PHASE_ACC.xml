@@ -20,34 +20,20 @@
         <spirit:direction>in</spirit:direction>
       </spirit:signal>
       <spirit:signal>
-        <spirit:name>DPHASE_EN</spirit:name>
+        <spirit:name>EN</spirit:name>
         <spirit:direction>in</spirit:direction>
       </spirit:signal>
       <spirit:signal>
         <spirit:name>DPHASE</spirit:name>
         <spirit:direction>in</spirit:direction>
-        <spirit:left>31</spirit:left>
-        <spirit:right>0</spirit:right>
-      </spirit:signal>
-      <spirit:signal>
-        <spirit:name>PHASE_EN</spirit:name>
-        <spirit:direction>out</spirit:direction>
-      </spirit:signal>
-      <spirit:signal>
-        <spirit:name>MAGNITUDE</spirit:name>
-        <spirit:direction>out</spirit:direction>
-        <spirit:left>9</spirit:left>
+        <spirit:left>63</spirit:left>
         <spirit:right>0</spirit:right>
       </spirit:signal>
       <spirit:signal>
         <spirit:name>PHASE</spirit:name>
         <spirit:direction>out</spirit:direction>
-        <spirit:left>9</spirit:left>
+        <spirit:left>11</spirit:left>
         <spirit:right>0</spirit:right>
-      </spirit:signal>
-      <spirit:signal>
-        <spirit:name>INVERT</spirit:name>
-        <spirit:direction>out</spirit:direction>
       </spirit:signal>
     </spirit:signals>
     <spirit:hwParameters>
