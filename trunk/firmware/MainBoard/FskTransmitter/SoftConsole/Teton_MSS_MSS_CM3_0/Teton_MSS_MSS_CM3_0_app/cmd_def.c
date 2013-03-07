@@ -20,7 +20,6 @@ CMD_Type CMD_List[] =
 
 	{"iq",   CmdIQ},
 	{"bfreq", CmdBbFreq},
-	{"bampl", CmdBbAmpl},
 
 	{"fpga", CmdFpga},
 
@@ -389,48 +388,16 @@ uint32_t CmdIQAmpl(uint32_t argc, char** argv)
 }
 
 
-uint32_t CmdBbAmpl(uint32_t argc, char** argv)
-{
-	uint32_t ampl;
-	char buf[128];
-
-	FSK_TX->MUX = 0;
-
-	if (argc == 1)
-	{
-		sprintf(buf, "\r\nBaseband ampl: %d\n", (int)FSK_TX_get_amplitude());
-		Yellowstone_print(buf);
-		return 0;
-	}
-
-
-	if (argc == 2)
-	{
-		ampl = atoi(*(argv+1));
-		if (ampl || !strcmp(*(argv+1), "0"))
-		{
-			FSK_TX_set_amplitude(ampl);
-			sprintf(buf, "\r\nBaseband ampl: %d\n", (int)FSK_TX_get_amplitude());
-			Yellowstone_print(buf);
-			return 0;
-		}
-	}
-
-	// Send help message
-	Yellowstone_print("\nUsage: bampl [<0..460>]");
-	return 1;
-}
-
 uint32_t CmdBbFreq(uint32_t argc, char** argv)
 {
-	uint32_t freq;
+	float freq;
 	char buf[128];
 
 	FSK_TX->MUX = 0;
 
 	if (argc == 1)
 	{
-		sprintf(buf, "\r\nBaseband freq: %d kHz\n", (int)FSK_TX_get_frequency()/1000);
+		sprintf(buf, "\r\nBaseband freq: %6.4f kHz\n", (float)FSK_TX_get_frequency()/1000);
 		Yellowstone_print(buf);
 		return 0;
 	}
@@ -438,11 +405,11 @@ uint32_t CmdBbFreq(uint32_t argc, char** argv)
 
 	if (argc == 2)
 	{
-		freq = atoi(*(argv+1));
+		freq = atof(*(argv+1));
 		if (freq || !strcmp(*(argv+1), "0"))
 		{
-			FSK_TX_set_frequency(freq*1000);
-			sprintf(buf, "\r\nBaseband freq: %d kHz\n", (int)FSK_TX_get_frequency()/1000);
+			FSK_TX_set_frequency((int)(freq*1000));
+			sprintf(buf, "\r\nBaseband freq: %6.4 kHz\n", (float)FSK_TX_get_frequency()/1000);
 			Yellowstone_print(buf);
 			return 0;
 		}

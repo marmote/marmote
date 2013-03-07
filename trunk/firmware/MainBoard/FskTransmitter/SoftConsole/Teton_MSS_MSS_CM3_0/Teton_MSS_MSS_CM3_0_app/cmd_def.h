@@ -41,7 +41,6 @@ uint32_t CmdIQAmpl(uint32_t argc, char** argv);
 // FSK transmitter (FPGA fabric)
 uint32_t CmdIQ(uint32_t argc, char** argv);
 uint32_t CmdBbFreq(uint32_t argc, char** argv);
-uint32_t CmdBbAmpl(uint32_t argc, char** argv);
 
 // Power management
 uint32_t CmdSleep(uint32_t argc, char** argv);
