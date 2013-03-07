@@ -15,6 +15,7 @@
 #include <mss_rtc.h>
 #include "clock_mgt.h"
 #include "fsk_tx.h"
+#include "iq_compensation.h"
 
 #include "yellowstone.h"
 #include "teton.h"
@@ -34,6 +35,8 @@ uint32_t CmdHelp(uint32_t argc, char** argv);
 uint32_t CmdLed(uint32_t argc, char** argv);
 uint32_t CmdAfe(uint32_t argc, char** argv);
 uint32_t CmdIQOffset(uint32_t argc, char** argv);
+uint32_t CmdIQDelay(uint32_t argc, char** argv);
+uint32_t CmdIQAmpl(uint32_t argc, char** argv);
 
 // FSK transmitter (FPGA fabric)
 uint32_t CmdIQ(uint32_t argc, char** argv);

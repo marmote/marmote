@@ -7,7 +7,6 @@
 
 #include "cmd_def.h"
 
-
 CMD_Type CMD_List[] =
 {
 	{"help", CmdHelp},
@@ -16,6 +15,8 @@ CMD_Type CMD_List[] =
 	{"clk",  CmdClock},
 	{"afe",  CmdAfe},
 	{"iqo",  CmdIQOffset},
+	{"iqd",  CmdIQDelay},
+	{"iqa",  CmdIQAmpl},
 
 	{"iq",   CmdIQ},
 	{"bfreq", CmdBbFreq},
@@ -305,10 +306,87 @@ uint32_t CmdIQOffset(uint32_t argc, char** argv)
 	}
 
 	// Send help message
-	Yellowstone_print("\r\nUsage: iqo [<i offset in LSB> <q offset in LSB>]");
+	Yellowstone_print("\r\nUsage: iqo [<i DC offset in LSB> <q DC offset in LSB>]");
 	return 1;
 }
 
+uint32_t CmdIQDelay(uint32_t argc, char** argv)
+{
+	char buf[128];
+	int32_t i, q;
+
+	if (argc == 1)
+	{
+		sprintf(buf, "\r\nI : %d\r\nQ : %d",
+				(int)IQ_COMP->DELAY_I,
+				(int)IQ_COMP->DELAY_Q);
+		Yellowstone_print(buf);
+		return 0;
+	}
+
+	if (argc == 3)
+	{
+		i = atoi(*(argv+1));
+		q = atoi(*(argv+2));
+		if ((i || !strcmp(*(argv+1), "0")) && (q || !strcmp(*(argv+2), "0")))
+		{
+			IQ_COMP->DELAY_I = i;
+			IQ_COMP->DELAY_Q = q;
+
+			// Readback
+			sprintf(buf, "\r\nI : %d\r\nQ : %d",
+					(int)IQ_COMP->DELAY_I,
+					(int)IQ_COMP->DELAY_Q);
+			Yellowstone_print(buf);
+			return 0;
+		}
+	}
+
+	// Send help message
+	Yellowstone_print("\r\nUsage: iqd [<i delay in FPGA clock cycles> <q delay in FPGA clock cycles>]");
+	return 1;
+}
+
+uint32_t CmdIQAmpl(uint32_t argc, char** argv)
+{
+	char buf[128];
+	float i, q;
+
+	if (argc == 1)
+	{
+		sprintf(buf, "\r\nI : %6.4f\r\nQ : %6.4f",
+				(float)IQ_COMP->AMPL_I / IQ_AMPL_UNIT,
+				(float)IQ_COMP->AMPL_Q / IQ_AMPL_UNIT);
+		Yellowstone_print(buf);
+		return 0;
+	}
+
+	if (argc == 3)
+	{
+		i = atof(*(argv+1));
+		q = atof(*(argv+2));
+		if ((i || !strcmp(*(argv+1), "0")) && (q || !strcmp(*(argv+2), "0")))
+		{
+			IQ_COMP->AMPL_I = (int32_t)(i * IQ_AMPL_UNIT);
+			IQ_COMP->AMPL_Q = (int32_t)(q * IQ_AMPL_UNIT);
+
+			// Readback
+			sprintf(buf, "\r\nI : %6.4f\r\nQ : %6.4f",
+					(float)IQ_COMP->AMPL_I / IQ_AMPL_UNIT,
+					(float)IQ_COMP->AMPL_Q / IQ_AMPL_UNIT);
+			Yellowstone_print(buf);
+			sprintf(buf, "\r\nI : %8X\r\nQ : %8X",
+					(int)IQ_COMP->AMPL_I,
+					(int)IQ_COMP->AMPL_Q);
+			Yellowstone_print(buf);
+			return 0;
+		}
+	}
+
+	// Send help message
+	Yellowstone_print("\r\nUsage: iqa [<i amplitude as float> <q amplitude as float>]");
+	return 1;
+}
 
 
 uint32_t CmdBbAmpl(uint32_t argc, char** argv)
@@ -320,7 +398,7 @@ uint32_t CmdBbAmpl(uint32_t argc, char** argv)
 
 	if (argc == 1)
 	{
-		sprintf(buf, "\r\nBaseband ampl: %d\n", FSK_TX_get_amplitude());
+		sprintf(buf, "\r\nBaseband ampl: %d\n", (int)FSK_TX_get_amplitude());
 		Yellowstone_print(buf);
 		return 0;
 	}
@@ -332,7 +410,7 @@ uint32_t CmdBbAmpl(uint32_t argc, char** argv)
 		if (ampl || !strcmp(*(argv+1), "0"))
 		{
 			FSK_TX_set_amplitude(ampl);
-			sprintf(buf, "\r\nBaseband ampl: %d\n", FSK_TX_get_amplitude());
+			sprintf(buf, "\r\nBaseband ampl: %d\n", (int)FSK_TX_get_amplitude());
 			Yellowstone_print(buf);
 			return 0;
 		}
@@ -352,7 +430,7 @@ uint32_t CmdBbFreq(uint32_t argc, char** argv)
 
 	if (argc == 1)
 	{
-		sprintf(buf, "\r\nBaseband freq: %d kHz\n", FSK_TX_get_frequency()/1000);
+		sprintf(buf, "\r\nBaseband freq: %d kHz\n", (int)FSK_TX_get_frequency()/1000);
 		Yellowstone_print(buf);
 		return 0;
 	}
@@ -364,7 +442,7 @@ uint32_t CmdBbFreq(uint32_t argc, char** argv)
 		if (freq || !strcmp(*(argv+1), "0"))
 		{
 			FSK_TX_set_frequency(freq*1000);
-			sprintf(buf, "\r\nBaseband freq: %d kHz\n", FSK_TX_get_frequency()/1000);
+			sprintf(buf, "\r\nBaseband freq: %d kHz\n", (int)FSK_TX_get_frequency()/1000);
 			Yellowstone_print(buf);
 			return 0;
 		}
