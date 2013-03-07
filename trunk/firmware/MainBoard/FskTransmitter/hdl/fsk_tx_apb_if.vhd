@@ -55,8 +55,7 @@ entity FSK_TX_APB_IF is
 
 		 -- FSK interface
 		 DPHASE_EN : out  std_logic;
-		 DPHASE    : out  std_logic_vector(31 downto 0);
-         AMPLITUDE : out  std_logic_vector(9 downto 0);
+		 DPHASE    : out  std_logic_vector(63 downto 0);
 
          -- Debug interface
          MUX_SEL   : out std_logic_vector(1 downto 0);
@@ -69,20 +68,18 @@ architecture Behavioral of FSK_TX_APB_IF is
 
 	-- Addresses
 	constant c_ADDR_CTRL : std_logic_vector(7 downto 0) := x"00"; -- W (START)
-	constant c_ADDR_DPHA : std_logic_vector(7 downto 0) := x"04"; -- R/W
-	constant c_ADDR_AMPL : std_logic_vector(7 downto 0) := x"08"; -- R/W !
+	constant c_ADDR_DPHA_H : std_logic_vector(7 downto 0) := x"04"; -- R/W
+	constant c_ADDR_DPHA_L : std_logic_vector(7 downto 0) := x"08"; -- R/W
 
 	constant c_ADDR_I    : std_logic_vector(7 downto 0) := x"10"; -- R/W !
 	constant c_ADDR_Q    : std_logic_vector(7 downto 0) := x"14"; -- R/W !
 	constant c_ADDR_MUX  : std_logic_vector(7 downto 0) := x"18"; -- R/W !
 
 	-- Default values
-	constant c_DEFAULT_AMPL     : signed(31 downto 0)    := x"00000130";
-
-	constant c_DEFAULT_DPHA     : unsigned(31 downto 0) := x"01604189";
+	constant c_DEFAULT_DPHA     : unsigned(63 downto 0) := x"0160418900000000";
 
      -- Debug registers
-    constant c_DEFAULT_MUX  : unsigned(31 downto 0) := x"00000000"; -- 
+    constant c_DEFAULT_MUX  : unsigned(31 downto 0) := x"00000000";
 	constant c_DEFAULT_I    : unsigned(31 downto 0) := x"00000000";
 	constant c_DEFAULT_Q    : unsigned(31 downto 0) := x"00000000";
     
@@ -92,10 +89,9 @@ architecture Behavioral of FSK_TX_APB_IF is
 
 	-- Signals
 
-	signal s_dphase      : std_logic_vector(c_DCO_PHASE_WIDTH-1 downto 0);
+	signal s_dphase      : std_logic_vector(63 downto 0);
 
 
-	signal s_ampl        : std_logic_vector(31 downto 0);
 	signal s_i           : std_logic_vector(9 downto 0);
 	signal s_q           : std_logic_vector(9 downto 0);
 	signal s_mux         : std_logic_vector(31 downto 0);
@@ -107,7 +103,6 @@ begin
 	begin
 		if PRESETn = '0' then
 			s_dphase <= std_logic_vector(c_DEFAULT_DPHA);
-            s_ampl <= std_logic_vector(c_DEFAULT_AMPL);
             s_i <= std_logic_vector(c_DEFAULT_I(9 downto 0));
             s_q <= std_logic_vector(c_DEFAULT_Q(9 downto 0));
             s_mux <= std_logic_vector(c_DEFAULT_MUX);
@@ -120,10 +115,10 @@ begin
 				case PADDR(7 downto 0) is
 					when c_ADDR_CTRL =>
 						-- Initiate FSK transmission
-					when c_ADDR_DPHA =>
-						s_dphase <= PWDATA;
-					when c_ADDR_AMPL =>
-						s_ampl <= PWDATA;
+					when c_ADDR_DPHA_H =>
+						s_dphase(63 downto 32) <= PWDATA;
+					when c_ADDR_DPHA_L =>
+						s_dphase(31 downto 0) <= PWDATA;
 					when c_ADDR_MUX =>
 						s_mux <= PWDATA;
 					when c_ADDR_I =>
@@ -150,10 +145,10 @@ begin
 			-- Register reads
 			if PWRITE = '0' and PSEL = '1' then
 				case PADDR(7 downto 0) is
-					when c_ADDR_DPHA =>
-						s_dout <= s_dphase;
-					when c_ADDR_AMPL =>
-						s_dout <= s_ampl;
+					when c_ADDR_DPHA_H =>
+						s_dout <= s_dphase(63 downto 32);
+					when c_ADDR_DPHA_L =>
+						s_dout <= s_dphase(31 downto 0);
 					when c_ADDR_I =>
 						s_dout(9 downto 0) <= s_i;
 					when c_ADDR_Q =>
@@ -171,7 +166,6 @@ begin
     
 	DPHASE_EN <= '1';
 	DPHASE <= s_dphase;
-    AMPLITUDE <= s_ampl(9 downto 0);
 
 	PRDATA <= s_dout;
 	PREADY <= '1';

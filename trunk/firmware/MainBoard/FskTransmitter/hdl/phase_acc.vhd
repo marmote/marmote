@@ -30,123 +30,44 @@ library IEEE;
 use IEEE.Std_logic_1164.all;
 use IEEE.Numeric_Std.all;
 
-use work.common.all;
-
 entity PHASE_ACC is
 	port (
 		CLK       : in  std_logic;
 		RST       : in  std_logic;
 
-		DPHASE_EN : in  std_logic;
---		DPHASE    : in  std_logic_vector(c_DCO_PHASE_WIDTH-1 downto 0);
-		DPHASE    : in  std_logic_vector(32-1 downto 0);
+		EN        : in  std_logic;
+		DPHASE    : in  std_logic_vector(63 downto 0);
 
-		PHASE_EN  : out std_logic;
---		MAGNITUDE : out std_logic_vector(c_CORDIC_WIDTH-1 downto 0);
---		PHASE     : out std_logic_vector(c_CORDIC_WIDTH-1 downto 0)
-		MAGNITUDE : out std_logic_vector(10-1 downto 0);
-		PHASE     : out std_logic_vector(10-1 downto 0);
-    
-        INVERT    : out std_logic
+		PHASE     : out std_logic_vector(11 downto 0)
 	);
 end entity;
 
 architecture Behavioral of PHASE_ACC is
 
-	-- Constants
-
-	constant c_MAGNITUDE : unsigned(c_DCO_PHASE_WIDTH-1 downto 0) :=
-		to_unsigned(2**(c_DCO_PHASE_WIDTH-3)-1, c_DCO_PHASE_WIDTH);
-	constant c_MIN : signed(c_CORDIC_WIDTH-1 downto 0) :=
-		to_signed(2**(c_CORDIC_WIDTH-1), c_CORDIC_WIDTH);
-
 	-- Signals
 
-	signal s_phase_acc    : signed(c_DCO_PHASE_WIDTH-1 downto 0);
-	signal s_phase_rolled : std_logic_vector(c_CORDIC_WIDTH-1 downto 0);
-	signal s_phase_en_ctr : unsigned(4 downto 0); -- FIXME: make '4' generic
-	signal s_phase_en     : std_logic;
-
-    signal s_invert       : std_logic;
+	signal s_phase_acc  : signed(63 downto 0);
+	signal s_phase_out  : std_logic_vector(11 downto 0);
 
 begin
-
-	assert c_DCO_PHASE_WIDTH > c_CORDIC_WIDTH
-	report "Phase accumulator width is smaller than CORDIC input width"
-	severity failure;
 
 	p_phase_acc : process (rst, clk)
 	begin
 		if rst = '1' then
 			s_phase_acc <= (others => '0');
 		elsif rising_edge(clk) then
-			if dphase_en = '1' then
-				s_phase_acc <= s_phase_acc + signed(dphase);
+			if EN = '1' then
+				s_phase_acc <= s_phase_acc + signed(DPHASE);
 			else
-				s_phase_acc <= (others => '0'); -- FIXME: check if it introduces
-				                                --        glitches
+				s_phase_acc <= (others => '0');
 			end if;
 		end if;
 	end process p_phase_acc;
 
---    s_phase_rolled <= std_logic(s_phase_acc(s_phase_acc'high)) &
---                      std_logic_vector(s_phase_acc(s_phase_acc'high downto
---                      s_phase_acc'high-c_CORDIC_WIDTH+2));
-    s_phase_rolled <= std_logic(s_phase_acc(s_phase_acc'high-1)) &
-                      std_logic_vector(s_phase_acc(s_phase_acc'high-1 downto
-                      s_phase_acc'high-c_CORDIC_WIDTH+1));
-
-	-- Adjust the output phase to the [-pi/2;pi/2] CORDIC input range
-	p_phase_mix : process (s_phase_acc)
-	begin
---        s_phase_rolled <= s_phase_acc(s_phase_acc'high) & s_phase_acc(s_phase_acc'high downto
---                          s_phase_acc'high-c_CORDIC_WIDTH+1);
-
---		if s_phase_acc(s_phase_acc'high) = s_phase_acc(s_phase_acc'high-1) then
-----			s_phase_rolled <= std_logic_vector(s_phase_acc(c_DCO_PHASE_WIDTH-1 downto
-----					 c_DCO_PHASE_WIDTH-c_CORDIC_WIDTH));
---			s_phase_rolled <= std_logic_vector(s_phase_acc(c_DCO_PHASE_WIDTH-1 downto
---					 c_DCO_PHASE_WIDTH-c_CORDIC_WIDTH));
---		else
-----			s_phase_rolled <=
-----		   std_logic_vector(signed(c_MIN)-s_phase_acc(c_DCO_PHASE_WIDTH-1 downto
-----		   c_DCO_PHASE_WIDTH-c_CORDIC_WIDTH));
---			s_phase_rolled <=
---		   std_logic_vector(signed(c_MIN)-s_phase_acc(c_DCO_PHASE_WIDTH-1 downto
---		   c_DCO_PHASE_WIDTH-c_CORDIC_WIDTH));
-
-        if s_phase_acc(s_phase_acc'high) = s_phase_acc(s_phase_acc'high-1) then
---        if s_phase_acc(s_phase_acc'high) = '0' then
-            s_invert <= '0';
-        else
-            s_invert <= '1';
-        end if;
-	end process p_phase_mix;
-
-	-- Generate phase_en periodically
-	p_phase_en : process (rst, clk)
-	begin
-		if rst = '1' then
-			s_phase_en_ctr <= (others => '0');
-		elsif rising_edge(clk) then
-			s_phase_en <= '0';
-			if s_phase_en_ctr < c_CORDIC_WIDTH + 1 then
-				s_phase_en_ctr <= s_phase_en_ctr + 1;
-			else
-				s_phase_en <= '1';
-				s_phase_en_ctr <= (others => '0');
-			end if;
-		end if;
-	end process p_phase_en;
-
+    s_phase_out <= std_logic_vector(s_phase_acc(s_phase_acc'high downto s_phase_acc'high-11));
 
 	-- Assign the output signals
-	PHASE <= s_phase_rolled;
-	PHASE_EN <= s_phase_en;
-	MAGNITUDE <= std_logic_vector(c_MAGNITUDE(c_DCO_PHASE_WIDTH-1 downto
-				 c_DCO_PHASE_WIDTH-c_CORDIC_WIDTH));
-
-    INVERT <= s_invert;
+	PHASE <= s_phase_out;
 
 end Behavioral;
 

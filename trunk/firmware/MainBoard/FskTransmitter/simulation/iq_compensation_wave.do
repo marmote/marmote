@@ -15,6 +15,17 @@ sim:/testbench/Teton_0/IQ_COMPENSATION_0/PRDATA \
 sim:/testbench/Teton_0/IQ_COMPENSATION_0/PSLVERR
 
 add wave \
+-group {PHASE ACC} \
+sim:/testbench/Teton_0/PHASE_ACC_0/CLK \
+sim:/testbench/Teton_0/PHASE_ACC_0/RST \
+sim:/testbench/Teton_0/PHASE_ACC_0/EN \
+-unsigned \
+sim:/testbench/Teton_0/PHASE_ACC_0/DPHASE \
+-signed \
+sim:/testbench/Teton_0/PHASE_ACC_0/s_phase_acc \
+sim:/testbench/Teton_0/PHASE_ACC_0/PHASE
+
+add wave \
 -group {I/Q signals} \
 sim:/testbench/Teton_0/IQ_COMPENSATION_0/IN_STROBE \
 -signed \
