@@ -88,7 +88,7 @@ set_io J_SHDN -iostd LVTTL -REGISTER No -OUT_DRIVE 8 -SLEW High -RES_PULL None -
 set_io LED1 -iostd LVCMOS33 -REGISTER No -OUT_DRIVE 8 -SLEW Low -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname H5 -fixed yes
 set_io LED2 -iostd LVCMOS33 -REGISTER No -OUT_DRIVE 8 -SLEW Low -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname H4 -fixed yes
 #set_io MAINXIN -pinname R12
-#set_io REF_CLK -iostd LVTTL -REGISTER No -RES_PULL Up -SCHMITT_TRIGGER Off -pinname C15 -fixed yes
+set_io REF_CLK -iostd LVTTL -REGISTER No -RES_PULL Up -SCHMITT_TRIGGER Off -pinname C15 -fixed yes
 set_io MSS_RESET_N -iostd LVTTL -RES_PULL None -SCHMITT_TRIGGER Off -REGISTER No -pinname K4 -fixed yes
 set_io SPI1_SS_AFE1 -iostd LVTTL -REGISTER No -OUT_DRIVE 4 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname C14 -fixed yes
 set_io SPI1_SS_AFE2 -iostd LVTTL -REGISTER No -OUT_DRIVE 4 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname C5 -fixed yes
