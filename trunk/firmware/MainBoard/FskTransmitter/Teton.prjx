@@ -23,8 +23,6 @@ KEY SimulationType "VHDL"
 KEY Vendor "Actel"
 KEY ActiveRoot "Teton::work"
 LIST REVISIONS
-VALUE="Impl1",NUM=1
-CURREV=1
 ENDLIST
 LIST LIBRARIES
 MSS_BFM_LIB
@@ -883,8 +881,10 @@ ENDLIST
 ENDLIST
 ENDLIST
 LIST OpenedFileList
-StartPage;StartPage
-ACTIVEVIEW;StartPage
+SmartDesign;Teton
+SmartDesign;Teton_MSS
+Reports;Reports
+ACTIVEVIEW;Reports
 ENDLIST
 LIST ModuleSubBlockList
 LIST "AFE_IF::work","hdl\afe_if.vhd","FALSE","FALSE"
