@@ -85,11 +85,11 @@
         <spirit:direction>out</spirit:direction>
       </spirit:signal>
       <spirit:signal>
-        <spirit:name>CLK_DIV</spirit:name>
+        <spirit:name>EN_DIV10</spirit:name>
         <spirit:direction>out</spirit:direction>
       </spirit:signal>
       <spirit:signal>
-        <spirit:name>EN_DIV</spirit:name>
+        <spirit:name>EN_DIV20</spirit:name>
         <spirit:direction>out</spirit:direction>
       </spirit:signal>
       <spirit:signal>
@@ -99,8 +99,6 @@
       <spirit:signal>
         <spirit:name>TX_D</spirit:name>
         <spirit:direction>out</spirit:direction>
-        <spirit:left>15</spirit:left>
-        <spirit:right>0</spirit:right>
       </spirit:signal>
       <spirit:signal>
         <spirit:name>TX_EN</spirit:name>
