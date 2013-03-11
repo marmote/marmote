@@ -20,7 +20,7 @@ Model {
       Name		      "bit_out"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.21"
+    ComputedModelVersion    "1.22"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -44,9 +44,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "sszilvasi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Mar 11 15:51:55 2013"
-  RTWModifiedTimeStamp	  284917758
-  ModelVersionFormat	  "1.%<AutoIncrement:21>"
+  LastModifiedDate	  "Mon Mar 11 17:22:24 2013"
+  RTWModifiedTimeStamp	  284923329
+  ModelVersionFormat	  "1.%<AutoIncrement:22>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -84,6 +84,7 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "gmsk_tr"
+    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -712,7 +713,7 @@ Model {
   }
   System {
     Name		    "gmsk_sync"
-    Location		    [2, 74, 1918, 1139]
+    Location		    [2, 82, 1918, 1147]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -726,7 +727,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "58"
+    SIDHighWatermark	    "59"
     Block {
       BlockType		      Inport
       Name		      "bit_in"

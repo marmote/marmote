@@ -53,10 +53,14 @@ entity TX_APB_IF is
          TX_DONE_IRQ : out std_logic;
 
          -- FIXME: clean up this interface
-         CLK_DIV    : out std_logic;
-         EN_DIV    : out std_logic;
+         EN_DIV10    : out std_logic;
+         EN_DIV20    : out std_logic;
          TX_STROBE  : out std_logic;
-         TX_D       : out std_logic_vector(15 downto 0); -- FIXME: make (1 downto 0)
+
+--         TX_D       : out std_logic_vector(1 downto 0);
+
+         TX_D       : out std_logic;
+
          TX_EN      : out std_logic
      );
 
@@ -96,12 +100,15 @@ architecture Behavioral of TX_APB_IF is
 
     constant c_PAYLOAD_LENGTH   : integer := 4; -- bytes -- FIXME
 
-    constant c_DEC_DIV  : integer := 10;    
-    constant c_BAUD_DIV : integer := 8*c_DEC_DIV;     -- Samples per symbol in the modulator 
+--    constant c_DEC_DIV  : integer := 10;    
+    constant c_DEC_DIV  : integer := 20;    
+    constant c_BAUD_DIV : integer := 1*c_DEC_DIV/2;     -- Samples per symbol in the modulator 
 
     constant c_TX_ZERO  : std_logic_vector(9 downto 0)  := "00" & x"00";    --  0
-    constant c_TXD_HIGH : std_logic_vector(15 downto 0) := "0100" & x"000"; -- +1
-    constant c_TXD_LOW  : std_logic_vector(15 downto 0) := "1100" & x"000"; -- -1
+--    constant c_TXD_HIGH : std_logic_vector(1 downto 0) := "01"; -- +1
+--    constant c_TXD_LOW  : std_logic_vector(1 downto 0) := "11"; -- -1
+    constant c_TXD_HIGH : std_logic := '1';
+    constant c_TXD_LOW  : std_logic := '0';
 
 	-- Addresses
 	constant c_ADDR_CTRL : std_logic_vector(7 downto 0) := x"00"; -- W (START)
@@ -157,9 +164,10 @@ architecture Behavioral of TX_APB_IF is
 
 	signal s_start          : std_logic;
 	signal s_busy           : std_logic;
-    signal s_mod_in         : std_logic_vector(15 downto 0);
-    signal s_txd            : std_logic_vector(15 downto 0);
-    signal s_txd_next       : std_logic_vector(15 downto 0);
+--    signal s_mod_in         : std_logic_vector(1 downto 0);
+    signal s_mod_in         : std_logic;
+--    signal s_txd            : std_logic_vector(1 downto 0);
+    signal s_txd            : std_logic;
     signal s_mod_en         : std_logic;
     signal s_tx_en          : std_logic;
     signal s_tx_en_prev    : std_logic; -- For an additional tx_strobe
@@ -175,12 +183,13 @@ architecture Behavioral of TX_APB_IF is
 	signal s_baud_ctr       : unsigned(15 downto 0);
 	signal s_dec_ctr        : unsigned(15 downto 0);
 	signal s_symbol_end     : std_logic;
-	signal s_clk_div        : std_logic;
-	signal s_en_div        : std_logic;
+	signal s_en_div_10      : std_logic;
+	signal s_en_div_20      : std_logic;
 
     signal s_mod_in_mux     : std_logic_vector(1 downto 0);
     signal s_lfsr           : std_logic_vector(9 downto 0);
-    signal s_rnd            : std_logic_vector(15 downto 0);
+--    signal s_rnd            : std_logic_vector(15 downto 0);
+    signal s_rnd            : std_logic;
 
 
 begin
@@ -287,11 +296,12 @@ begin
 		if rst = '1' then
 			s_baud_ctr <= (others => '0');
 			s_symbol_end <= '0';
-            s_clk_div <= '0';
-            s_en_div <= '0';
+            s_en_div_10 <= '0';
+            s_en_div_20 <= '0';
 		elsif rising_edge(clk) then
 			s_symbol_end <= '0';
-            s_en_div <= '0';
+            s_en_div_10 <= '0';
+            s_en_div_20 <= '0';
 
 --            if s_mod_en = '1' then
             if s_mod_en = '1' or s_mod_in_mux /= "00" then -- FIXME
@@ -301,13 +311,13 @@ begin
                 else
                     s_dec_ctr <= (others => '0');
                 end if;
-                if s_dec_ctr < to_unsigned(c_DEC_DIV/2, s_dec_ctr'length) then
-                    s_clk_div <= '0';
-                else
-                    s_clk_div <= '1';
+--                if s_dec_ctr = to_unsigned(1, s_dec_ctr'length) then
+                if s_dec_ctr mod 10 = 1 then
+                    s_en_div_10 <= '1';
                 end if;
-                if s_dec_ctr = to_unsigned(1, s_dec_ctr'length) then
-                    s_en_div <= '1';
+
+                if s_dec_ctr mod 20 = 1 then
+                    s_en_div_20 <= '1';
                 end if;
 
                 if s_baud_ctr < to_unsigned(c_BAUD_DIV-1, s_baud_ctr'length) then
@@ -336,7 +346,8 @@ begin
 			s_buffer <= (others => '0');
 			s_payload_length <= (others => '0');
 
-            s_txd <= (others => '0');
+--            s_txd <= (others => '0');
+            s_txd <= '0';
             s_mod_en <= '0';
             s_tx_en_prev <= '0';
 		elsif rising_edge(clk) then
@@ -353,7 +364,8 @@ begin
                     s_txd <= c_TXD_LOW;
                 end if;
             else
-                s_txd <= (others => '0');
+--                s_txd <= (others => '0');
+                s_txd <= '0';
             end if;
             s_mod_en <= s_mod_en_next;
             s_tx_en_prev <= s_tx_en;
@@ -480,7 +492,8 @@ begin
     p_PSEUDO_RANDOM_GENERATOR : process (rst, clk)
     begin
         if rst = '1' then
-            s_rnd <= (others => '0');
+--            s_rnd <= (others => '0');
+            s_rnd <= '0';
             s_lfsr <= (1 => '1', others => '0');
         elsif rising_edge(clk) then
             if s_symbol_end = '1' then
@@ -517,9 +530,8 @@ begin
 	PREADY <= '1'; -- WR
 	PSLVERR <= '0';
 
---    CLK_DIV <= s_clk_div;
-    CLK_DIV <= clk;
-    EN_DIV  <= s_en_div;
+    EN_DIV10  <= s_en_div_10;
+    EN_DIV20  <= s_en_div_20;
     TX_STROBE <= s_tx_en or s_tx_en_prev;
 
     TX_EN <= s_tx_en;
