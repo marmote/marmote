@@ -53,9 +53,10 @@ entity RX_APB_IF is
 		 PSLVERR : out std_logic;
 
          RX_STROBE  : in  std_logic;
---         RX_I       : in  std_logic_vector(9 downto 0);
---         RX_Q       : in  std_logic_vector(9 downto 0);
-         RX_D    : in std_logic;
+         RX_D       : in std_logic;
+         RX_D_VALID    : in std_logic;
+         GlobalEnable8 : out std_logic;
+         SYNC_RST   : out std_logic;
 
          RX_DONE_IRQ    : out std_logic;
          SFD_IRQ    : out std_logic
@@ -67,31 +68,6 @@ architecture Behavioral of RX_APB_IF is
 
     -- Components
 
-    component gmsk_rx is
-    port (
-      clk : in std_logic;
-      GlobalReset : in std_logic;
-      GlobalEnable1 : in std_logic;
-      RX_Q : in std_logic_vector(9 downto 0); -- sfix10_En9
-      RX_I : in std_logic_vector(9 downto 0); -- sfix10_En9
-      Port_Out : out std_logic -- ufix1
-    );
-    end component;
-
-    component gmsk_sync is
-    port (
-      clkDiv8 : in std_logic;
-      clk : in std_logic;
-      GlobalReset : in std_logic;
-      GlobalEnable8 : in std_logic;
-      GlobalEnable1 : in std_logic;
-      sync_rst : in std_logic; -- ufix1
-      bit_valid_reg : out std_logic; -- ufix1
-      bit_out_reg : out std_logic; -- ufix1
-      bit_in_reg : in std_logic -- ufix1
-    );
-    end component;
-    
     component FIFO_512x8 is
     generic (
         g_AFULL     : integer := 496;
@@ -158,7 +134,6 @@ architecture Behavioral of RX_APB_IF is
 
     signal s_sync_rst           : std_logic;
     signal s_sync_rst_next      : std_logic;
-    signal s_gmsk_rx_out        : std_logic;
     signal s_rx_symbol          : std_logic;
     signal s_rx_symbol_valid    : std_logic;
     signal s_rx_symbol_valid_prev    : std_logic;
@@ -183,30 +158,10 @@ begin
 
     -- Port maps
 
---    u_GMSK_RX : gmsk_rx
---    port map (
---      clk => clk,
---      GlobalReset => rst,
---      GlobalEnable1 => s_rx_strobe,
---      RX_Q =>  RX_Q,
---      RX_I =>  RX_I,
---      Port_Out => s_gmsk_rx_out
---    );
-
-    s_gmsk_rx_out <= RX_D;
-
-    u_GMSK_SYNC : gmsk_sync
-    port map (
-      clkDiv8 => clk,
-      clk => clk,
-      GlobalReset => rst,
-      GlobalEnable8 => s_rx_strobe_div8,
-      GlobalEnable1 => s_rx_strobe,
-      sync_rst => s_sync_rst,
-      bit_valid_reg => s_rx_symbol_valid,
-      bit_out_reg => s_rx_symbol,
-      bit_in_reg => s_gmsk_rx_out
-    );
+    s_rx_symbol_valid <= RX_D_VALID;
+    s_rx_symbol <= RX_D;
+    GlobalEnable8 <= s_rx_strobe_div8;
+    SYNC_RST <= s_sync_rst;
 
     u_RX_FIFO : FIFO_512x8
     generic map (

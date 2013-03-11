@@ -20,7 +20,7 @@ Model {
       Name		      "bit_out"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.20"
+    ComputedModelVersion    "1.21"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -44,9 +44,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "sszilvasi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Mar 11 14:13:31 2013"
-  RTWModifiedTimeStamp	  284912008
-  ModelVersionFormat	  "1.%<AutoIncrement:20>"
+  LastModifiedDate	  "Mon Mar 11 15:51:55 2013"
+  RTWModifiedTimeStamp	  284917758
+  ModelVersionFormat	  "1.%<AutoIncrement:21>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -84,7 +84,6 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "gmsk_tr"
-    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -713,7 +712,7 @@ Model {
   }
   System {
     Name		    "gmsk_sync"
-    Location		    [1922, 74, 3518, 1162]
+    Location		    [2, 74, 1918, 1139]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1088,6 +1087,82 @@ Model {
     }
     Block {
       BlockType		      Reference
+      Name		      "RST"
+      SID		      "58"
+      Ports		      [1, 1]
+      Position		      [1355, 385, 1375, 405]
+      BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Ports & Subsystems/Port In"
+      SourceType	      "Synphony Model Compiler Port In"
+      syn_out_wl	      "1"
+      syn_out_fl	      "0"
+      syn_out_dt	      "unsigned"
+      syn_out_st	      "-1"
+      syn_capture	      off
+      syn_register	      off
+      syn_out_sat	      off
+      syn_out_rnd	      off
+      synBlockType	      "port"
+      synLatency	      "0"
+      synBlockId	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "RX_D_IN"
+      SID		      "48"
+      Ports		      [1, 1]
+      Position		      [95, 280, 115, 300]
+      BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Ports & Subsystems/Port In"
+      SourceType	      "Synphony Model Compiler Port In"
+      syn_out_wl	      "1"
+      syn_out_fl	      "0"
+      syn_out_dt	      "unsigned"
+      syn_out_st	      "1"
+      syn_capture	      off
+      syn_register	      on
+      syn_out_sat	      off
+      syn_out_rnd	      on
+      synBlockType	      "port"
+      synLatency	      "1"
+      synBlockId	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "RX_D_OUT"
+      SID		      "49"
+      Ports		      [1, 1]
+      Position		      [1700, 755, 1720, 775]
+      BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Ports & Subsystems/Port Out"
+      SourceType	      "Synphony Model Compiler Port Out"
+      syn_capture	      off
+      syn_register	      on
+      synBlockType	      "port"
+      synLatency	      "1"
+      synBlockId	      "1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "RX_D_VALID"
+      SID		      "50"
+      Ports		      [1, 1]
+      Position		      [1700, 215, 1720, 235]
+      BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Ports & Subsystems/Port Out"
+      SourceType	      "Synphony Model Compiler Port Out"
+      syn_capture	      off
+      syn_register	      on
+      synBlockType	      "port"
+      synLatency	      "1"
+      synBlockId	      "1"
+    }
+    Block {
+      BlockType		      Reference
       Name		      "SHLSTool"
       SID		      "23"
       Ports		      []
@@ -1445,82 +1520,6 @@ Model {
       synBlockId	      "20"
     }
     Block {
-      BlockType		      Reference
-      Name		      "bit_in_reg"
-      SID		      "48"
-      Ports		      [1, 1]
-      Position		      [95, 280, 115, 300]
-      BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Ports & Subsystems/Port In"
-      SourceType	      "Synphony Model Compiler Port In"
-      syn_out_wl	      "1"
-      syn_out_fl	      "0"
-      syn_out_dt	      "unsigned"
-      syn_out_st	      "1"
-      syn_capture	      off
-      syn_register	      on
-      syn_out_sat	      off
-      syn_out_rnd	      on
-      synBlockType	      "port"
-      synLatency	      "1"
-      synBlockId	      "0"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "bit_out_reg"
-      SID		      "49"
-      Ports		      [1, 1]
-      Position		      [1700, 755, 1720, 775]
-      BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Ports & Subsystems/Port Out"
-      SourceType	      "Synphony Model Compiler Port Out"
-      syn_capture	      off
-      syn_register	      on
-      synBlockType	      "port"
-      synLatency	      "1"
-      synBlockId	      "1"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "bit_valid_reg"
-      SID		      "50"
-      Ports		      [1, 1]
-      Position		      [1700, 215, 1720, 235]
-      BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Ports & Subsystems/Port Out"
-      SourceType	      "Synphony Model Compiler Port Out"
-      syn_capture	      off
-      syn_register	      on
-      synBlockType	      "port"
-      synLatency	      "1"
-      synBlockId	      "1"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "sync_rst"
-      SID		      "58"
-      Ports		      [1, 1]
-      Position		      [1355, 385, 1375, 405]
-      BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Ports & Subsystems/Port In"
-      SourceType	      "Synphony Model Compiler Port In"
-      syn_out_wl	      "1"
-      syn_out_fl	      "0"
-      syn_out_dt	      "unsigned"
-      syn_out_st	      "-1"
-      syn_capture	      off
-      syn_register	      off
-      syn_out_sat	      off
-      syn_out_rnd	      off
-      synBlockType	      "port"
-      synLatency	      "0"
-      synBlockId	      "0"
-    }
-    Block {
       BlockType		      Outport
       Name		      "bit_valid"
       SID		      "51"
@@ -1696,7 +1695,7 @@ Model {
       }
       Branch {
 	Labels			[1, 0]
-	DstBlock		"bit_valid_reg"
+	DstBlock		"RX_D_VALID"
 	DstPort			1
       }
     }
@@ -1925,7 +1924,7 @@ Model {
     Line {
       SrcBlock		      "Switch6"
       SrcPort		      1
-      DstBlock		      "bit_out_reg"
+      DstBlock		      "RX_D_OUT"
       DstPort		      1
     }
     Line {
@@ -1982,7 +1981,7 @@ Model {
       DstPort		      2
     }
     Line {
-      SrcBlock		      "bit_in_reg"
+      SrcBlock		      "RX_D_IN"
       SrcPort		      1
       DstBlock		      "Decommutator"
       DstPort		      1
@@ -1990,17 +1989,17 @@ Model {
     Line {
       SrcBlock		      "bit_in"
       SrcPort		      1
-      DstBlock		      "bit_in_reg"
+      DstBlock		      "RX_D_IN"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "bit_valid_reg"
+      SrcBlock		      "RX_D_VALID"
       SrcPort		      1
       DstBlock		      "bit_valid"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "bit_out_reg"
+      SrcBlock		      "RX_D_OUT"
       SrcPort		      1
       DstBlock		      "bit_out"
       DstPort		      1
@@ -2067,7 +2066,7 @@ Model {
       DstPort		      3
     }
     Line {
-      SrcBlock		      "sync_rst"
+      SrcBlock		      "RST"
       SrcPort		      1
       Points		      [135, 0; 0, -170]
       DstBlock		      "Frame found"
