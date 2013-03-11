@@ -1,0 +1,2093 @@
+Model {
+  Name			  "gmsk_sync"
+  Version		  7.9
+  MdlSubVersion		  0
+  GraphicalInterface {
+    NumRootInports	    1
+    Inport {
+      BusObject		      ""
+      Name		      "bit_in"
+    }
+    NumRootOutports	    2
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "bit_valid"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "bit_out"
+    }
+    ParameterArgumentNames  ""
+    ComputedModelVersion    "1.21"
+    NumModelReferences	    0
+    NumTestPointedSignals   0
+  }
+  SavedCharacterEncoding  "windows-1252"
+  PreLoadFcn		  "gmsk_syn_init;"
+  SaveDefaultBlockParams  on
+  ScopeRefreshTime	  0.035000
+  OverrideScopeRefreshTime on
+  DisableAllScopes	  off
+  DataTypeOverride	  "UseLocalSettings"
+  DataTypeOverrideAppliesTo "AllNumericTypes"
+  MinMaxOverflowLogging	  "UseLocalSettings"
+  MinMaxOverflowArchiveMode "Overwrite"
+  FPTRunName		  "Run 1"
+  MaxMDLFileLineLength	  120
+  UserBdParams		  "synDspstartup"
+  synDspstartup		  "OK"
+  Created		  "Fri Jan 18 09:57:00 2013"
+  Creator		  "sszilvasi"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "sszilvasi"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Mon Mar 11 15:51:55 2013"
+  RTWModifiedTimeStamp	  284917758
+  ModelVersionFormat	  "1.%<AutoIncrement:21>"
+  ConfigurationManager	  "None"
+  SampleTimeColors	  off
+  SampleTimeAnnotations	  off
+  LibraryLinkDisplay	  "disabled"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowDesignRanges	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ShowTestPointIcons	  on
+  ShowSignalResolutionIcons on
+  ShowViewerIcons	  on
+  SortedOrder		  off
+  ExecutionContextIcon	  off
+  ShowLinearizationAnnotations on
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  SimulationMode	  "normal"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  AccelSystemTargetFile	  "accel.tlc"
+  AccelTemplateMakefile	  "accel_default_tmf"
+  AccelMakeCommand	  "make_rtw"
+  TryForcingSFcnDF	  off
+  Object {
+    $PropName		    "DataLoggingOverride"
+    $ObjectID		    1
+    $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
+    model_		    "gmsk_tr"
+    overrideMode_	    [0.0]
+    Array {
+      Type		      "Cell"
+      Dimension		      1
+      Cell		      "gmsk_tr"
+      PropName		      "logAsSpecifiedByModels_"
+    }
+    Array {
+      Type		      "Cell"
+      Dimension		      1
+      Cell		      []
+      PropName		      "logAsSpecifiedByModelsSSIDs_"
+    }
+  }
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  CovForceBlockReductionOff on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  CovReportOnPause	  on
+  CovModelRefEnable	  "Off"
+  CovExternalEMLEnable	  off
+  ExtModeBatchMode	  off
+  ExtModeEnableFloating	  on
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigDurationFloating "auto"
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  BufferReuse		  on
+  ShowModelReferenceBlockVersion off
+  ShowModelReferenceBlockIO off
+  Array {
+    Type		    "Handle"
+    Dimension		    1
+    Simulink.ConfigSet {
+      $ObjectID		      2
+      Version		      "1.12.0"
+      Array {
+	Type			"Handle"
+	Dimension		8
+	Simulink.SolverCC {
+	  $ObjectID		  3
+	  Version		  "1.12.0"
+	  StartTime		  "0.0"
+	  StopTime		  "10.0"
+	  AbsTol		  "auto"
+	  FixedStep		  "auto"
+	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
+	  MaxOrder		  5
+	  ZcThreshold		  "auto"
+	  ConsecutiveZCsStepRelTol "10*128*eps"
+	  MaxConsecutiveZCs	  "1000"
+	  ExtrapolationOrder	  4
+	  NumberNewtonIterations  1
+	  MaxStep		  "auto"
+	  MinStep		  "auto"
+	  MaxConsecutiveMinStep	  "1"
+	  RelTol		  "1e-3"
+	  SolverMode		  "SingleTasking"
+	  EnableConcurrentExecution off
+	  ConcurrentTasks	  off
+	  Solver		  "FixedStepDiscrete"
+	  SolverName		  "FixedStepDiscrete"
+	  SolverJacobianMethodControl "auto"
+	  ShapePreserveControl	  "DisableAll"
+	  ZeroCrossControl	  "UseLocalSettings"
+	  ZeroCrossAlgorithm	  "Nonadaptive"
+	  AlgebraicLoopSolver	  "TrustRegion"
+	  SolverResetMethod	  "Fast"
+	  PositivePriorityOrder	  off
+	  AutoInsertRateTranBlk	  off
+	  SampleTimeConstraint	  "Unconstrained"
+	  InsertRTBMode		  "Whenever possible"
+	}
+	Simulink.DataIOCC {
+	  $ObjectID		  4
+	  Version		  "1.12.0"
+	  Decimation		  "1"
+	  ExternalInput		  "[t, u]"
+	  FinalStateName	  "xFinal"
+	  InitialState		  "xInitial"
+	  LimitDataPoints	  on
+	  MaxDataPoints		  "1000"
+	  LoadExternalInput	  off
+	  LoadInitialState	  off
+	  SaveFinalState	  off
+	  SaveCompleteFinalSimState off
+	  SaveFormat		  "Array"
+	  SignalLoggingSaveFormat "ModelDataLogs"
+	  SaveOutput		  off
+	  SaveState		  off
+	  SignalLogging		  off
+	  DSMLogging		  on
+	  InspectSignalLogs	  off
+	  SaveTime		  off
+	  ReturnWorkspaceOutputs  off
+	  StateSaveName		  "xout"
+	  TimeSaveName		  "tout"
+	  OutputSaveName	  "yout"
+	  SignalLoggingName	  "logsout"
+	  DSMLoggingName	  "dsmout"
+	  OutputOption		  "RefineOutputTimes"
+	  OutputTimes		  "[]"
+	  ReturnWorkspaceOutputsName "out"
+	  Refine		  "1"
+	}
+	Simulink.OptimizationCC {
+	  $ObjectID		  5
+	  Version		  "1.12.0"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    8
+	    Cell		    "BooleansAsBitfields"
+	    Cell		    "PassReuseOutputArgsAs"
+	    Cell		    "PassReuseOutputArgsThreshold"
+	    Cell		    "ZeroExternalMemoryAtStartup"
+	    Cell		    "ZeroInternalMemoryAtStartup"
+	    Cell		    "OptimizeModelRefInitCode"
+	    Cell		    "NoFixptDivByZeroProtection"
+	    Cell		    "UseSpecifiedMinMax"
+	    PropName		    "DisabledProps"
+	  }
+	  BlockReduction	  on
+	  BooleanDataType	  on
+	  ConditionallyExecuteInputs on
+	  InlineParams		  on
+	  UseIntDivNetSlope	  off
+	  UseFloatMulNetSlope	  off
+	  UseSpecifiedMinMax	  off
+	  InlineInvariantSignals  off
+	  OptimizeBlockIOStorage  on
+	  BufferReuse		  on
+	  EnhancedBackFolding	  off
+	  StrengthReduction	  off
+	  ExpressionFolding	  on
+	  BooleansAsBitfields	  off
+	  BitfieldContainerType	  "uint_T"
+	  EnableMemcpy		  on
+	  MemcpyThreshold	  64
+	  PassReuseOutputArgsAs	  "Structure reference"
+	  ExpressionDepthLimit	  2147483647
+	  FoldNonRolledExpr	  on
+	  LocalBlockOutputs	  on
+	  RollThreshold		  5
+	  SystemCodeInlineAuto	  off
+	  StateBitsets		  off
+	  DataBitsets		  off
+	  UseTempVars		  off
+	  ZeroExternalMemoryAtStartup on
+	  ZeroInternalMemoryAtStartup on
+	  InitFltsAndDblsToZero	  off
+	  NoFixptDivByZeroProtection off
+	  EfficientFloat2IntCast  off
+	  EfficientMapNaN2IntZero on
+	  OptimizeModelRefInitCode off
+	  LifeSpan		  "inf"
+	  MaxStackSize		  "Inherit from target"
+	  BufferReusableBoundary  on
+	  SimCompilerOptimization "Off"
+	  AccelVerboseBuild	  off
+	  ParallelExecutionInRapidAccelerator on
+	}
+	Simulink.DebuggingCC {
+	  $ObjectID		  6
+	  Version		  "1.12.0"
+	  RTPrefix		  "error"
+	  ConsistencyChecking	  "none"
+	  ArrayBoundsChecking	  "none"
+	  SignalInfNanChecking	  "none"
+	  SignalRangeChecking	  "none"
+	  ReadBeforeWriteMsg	  "UseLocalSettings"
+	  WriteAfterWriteMsg	  "UseLocalSettings"
+	  WriteAfterReadMsg	  "UseLocalSettings"
+	  AlgebraicLoopMsg	  "error"
+	  ArtificialAlgebraicLoopMsg "warning"
+	  SaveWithDisabledLinksMsg "warning"
+	  SaveWithParameterizedLinksMsg	"warning"
+	  CheckSSInitialOutputMsg on
+	  UnderspecifiedInitializationDetection	"Classic"
+	  MergeDetectMultiDrivingBlocksExec "none"
+	  CheckExecutionContextPreStartOutputMsg off
+	  CheckExecutionContextRuntimeOutputMsg	off
+	  SignalResolutionControl "UseLocalSettings"
+	  BlockPriorityViolationMsg "warning"
+	  MinStepSizeMsg	  "warning"
+	  TimeAdjustmentMsg	  "none"
+	  MaxConsecutiveZCsMsg	  "error"
+	  MaskedZcDiagnostic	  "warning"
+	  IgnoredZcDiagnostic	  "warning"
+	  SolverPrmCheckMsg	  "warning"
+	  InheritedTsInSrcMsg	  "none"
+	  DiscreteInheritContinuousMsg "warning"
+	  MultiTaskDSMMsg	  "error"
+	  MultiTaskCondExecSysMsg "error"
+	  MultiTaskRateTransMsg	  "error"
+	  SingleTaskRateTransMsg  "none"
+	  TasksWithSamePriorityMsg "warning"
+	  SigSpecEnsureSampleTimeMsg "warning"
+	  CheckMatrixSingularityMsg "none"
+	  IntegerOverflowMsg	  "warning"
+	  Int32ToFloatConvMsg	  "warning"
+	  ParameterDowncastMsg	  "error"
+	  ParameterOverflowMsg	  "error"
+	  ParameterUnderflowMsg	  "none"
+	  ParameterPrecisionLossMsg "warning"
+	  ParameterTunabilityLossMsg "warning"
+	  FixptConstUnderflowMsg  "none"
+	  FixptConstOverflowMsg	  "none"
+	  FixptConstPrecisionLossMsg "none"
+	  UnderSpecifiedDataTypeMsg "none"
+	  UnnecessaryDatatypeConvMsg "none"
+	  VectorMatrixConversionMsg "none"
+	  InvalidFcnCallConnMsg	  "error"
+	  FcnCallInpInsideContextMsg "Enable All"
+	  SignalLabelMismatchMsg  "none"
+	  UnconnectedInputMsg	  "warning"
+	  UnconnectedOutputMsg	  "warning"
+	  UnconnectedLineMsg	  "warning"
+	  SFcnCompatibilityMsg	  "none"
+	  FrameProcessingCompatibilityMsg "warning"
+	  UniqueDataStoreMsg	  "none"
+	  BusObjectLabelMismatch  "warning"
+	  RootOutportRequireBusObject "warning"
+	  AssertControl		  "UseLocalSettings"
+	  EnableOverflowDetection off
+	  ModelReferenceIOMsg	  "none"
+	  ModelReferenceMultiInstanceNormalModeStructChecksumCheck "error"
+	  ModelReferenceVersionMismatchMessage "none"
+	  ModelReferenceIOMismatchMessage "none"
+	  ModelReferenceCSMismatchMessage "none"
+	  UnknownTsInhSupMsg	  "warning"
+	  ModelReferenceDataLoggingMessage "warning"
+	  ModelReferenceSymbolNameMessage "warning"
+	  ModelReferenceExtraNoncontSigs "error"
+	  StateNameClashWarn	  "warning"
+	  SimStateInterfaceChecksumMismatchMsg "warning"
+	  SimStateOlderReleaseMsg "error"
+	  InitInArrayFormatMsg	  "warning"
+	  StrictBusMsg		  "ErrorLevel1"
+	  BusNameAdapt		  "WarnAndRepair"
+	  NonBusSignalsTreatedAsBus "none"
+	  LoggingUnavailableSignals "error"
+	  BlockIODiagnostic	  "none"
+	  SFUnusedDataAndEventsDiag "warning"
+	  SFUnexpectedBacktrackingDiag "warning"
+	  SFInvalidInputDataAccessInChartInitDiag "warning"
+	  SFNoUnconditionalDefaultTransitionDiag "warning"
+	  SFTransitionOutsideNaturalParentDiag "warning"
+	  SFUnconditionalTransitionShadowingDiag "warning"
+	}
+	Simulink.HardwareCC {
+	  $ObjectID		  7
+	  Version		  "1.12.0"
+	  ProdBitPerChar	  8
+	  ProdBitPerShort	  16
+	  ProdBitPerInt		  32
+	  ProdBitPerLong	  32
+	  ProdBitPerFloat	  32
+	  ProdBitPerDouble	  64
+	  ProdBitPerPointer	  32
+	  ProdLargestAtomicInteger "Char"
+	  ProdLargestAtomicFloat  "None"
+	  ProdIntDivRoundTo	  "Undefined"
+	  ProdEndianess		  "Unspecified"
+	  ProdWordSize		  32
+	  ProdShiftRightIntArith  on
+	  ProdHWDeviceType	  "32-bit Generic"
+	  TargetBitPerChar	  8
+	  TargetBitPerShort	  16
+	  TargetBitPerInt	  32
+	  TargetBitPerLong	  32
+	  TargetBitPerFloat	  32
+	  TargetBitPerDouble	  64
+	  TargetBitPerPointer	  32
+	  TargetLargestAtomicInteger "Char"
+	  TargetLargestAtomicFloat "None"
+	  TargetShiftRightIntArith on
+	  TargetIntDivRoundTo	  "Undefined"
+	  TargetEndianess	  "Unspecified"
+	  TargetWordSize	  32
+	  TargetTypeEmulationWarnSuppressLevel 0
+	  TargetPreprocMaxBitsSint 32
+	  TargetPreprocMaxBitsUint 32
+	  TargetHWDeviceType	  "Specified"
+	  TargetUnknown		  off
+	  ProdEqTarget		  on
+	}
+	Simulink.ModelReferenceCC {
+	  $ObjectID		  8
+	  Version		  "1.12.0"
+	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
+	  CheckModelReferenceTargetMessage "error"
+	  EnableParallelModelReferenceBuilds off
+	  ParallelModelReferenceErrorOnInvalidPool on
+	  ParallelModelReferenceMATLABWorkerInit "None"
+	  ModelReferenceNumInstancesAllowed "Multi"
+	  PropagateVarSize	  "Infer from blocks in model"
+	  ModelReferencePassRootInputsByReference on
+	  ModelReferenceMinAlgLoopOccurrences off
+	  PropagateSignalLabelsOutOfModel off
+	  SupportModelReferenceSimTargetCustomCode off
+	}
+	Simulink.SFSimCC {
+	  $ObjectID		  9
+	  Version		  "1.12.0"
+	  SFSimEnableDebug	  on
+	  SFSimOverflowDetection  on
+	  SFSimEcho		  on
+	  SimBlas		  on
+	  SimCtrlC		  on
+	  SimExtrinsic		  on
+	  SimIntegrity		  on
+	  SimUseLocalCustomCode	  off
+	  SimParseCustomCode	  on
+	  SimBuildMode		  "sf_incremental_build"
+	}
+	Simulink.RTWCC {
+	  $BackupClass		  "Simulink.RTWCC"
+	  $ObjectID		  10
+	  Version		  "1.12.0"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    9
+	    Cell		    "IncludeHyperlinkInReport"
+	    Cell		    "GenerateTraceInfo"
+	    Cell		    "GenerateTraceReport"
+	    Cell		    "GenerateTraceReportSl"
+	    Cell		    "GenerateTraceReportSf"
+	    Cell		    "GenerateTraceReportEml"
+	    Cell		    "GenerateWebview"
+	    Cell		    "GenerateCodeMetricsReport"
+	    Cell		    "GenerateCodeReplacementReport"
+	    PropName		    "DisabledProps"
+	  }
+	  SystemTargetFile	  "grt.tlc"
+	  GenCodeOnly		  off
+	  MakeCommand		  "make_rtw"
+	  GenerateMakefile	  on
+	  TemplateMakefile	  "grt_default_tmf"
+	  GenerateReport	  off
+	  SaveLog		  off
+	  RTWVerbose		  on
+	  RetainRTWFile		  off
+	  ProfileTLC		  off
+	  TLCDebug		  off
+	  TLCCoverage		  off
+	  TLCAssert		  off
+	  ProcessScriptMode	  "Default"
+	  ConfigurationMode	  "Optimized"
+	  ConfigAtBuild		  off
+	  RTWUseLocalCustomCode	  off
+	  RTWUseSimCustomCode	  off
+	  IncludeHyperlinkInReport off
+	  LaunchReport		  off
+	  TargetLang		  "C"
+	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
+	  IncludeERTFirstTime	  off
+	  GenerateTraceInfo	  off
+	  GenerateTraceReport	  off
+	  GenerateTraceReportSl	  off
+	  GenerateTraceReportSf	  off
+	  GenerateTraceReportEml  off
+	  GenerateCodeInfo	  off
+	  GenerateWebview	  off
+	  GenerateCodeMetricsReport off
+	  GenerateCodeReplacementReport	off
+	  RTWCompilerOptimization "Off"
+	  CheckMdlBeforeBuild	  "Off"
+	  CustomRebuildMode	  "OnUpdate"
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    2
+	    Simulink.CodeAppCC {
+	      $ObjectID		      11
+	      Version		      "1.12.0"
+	      Array {
+		Type			"Cell"
+		Dimension		21
+		Cell			"IgnoreCustomStorageClasses"
+		Cell			"IgnoreTestpoints"
+		Cell			"InsertBlockDesc"
+		Cell			"InsertPolySpaceComments"
+		Cell			"SFDataObjDesc"
+		Cell			"MATLABFcnDesc"
+		Cell			"SimulinkDataObjDesc"
+		Cell			"DefineNamingRule"
+		Cell			"SignalNamingRule"
+		Cell			"ParamNamingRule"
+		Cell			"InlinedPrmAccess"
+		Cell			"CustomSymbolStr"
+		Cell			"CustomSymbolStrGlobalVar"
+		Cell			"CustomSymbolStrType"
+		Cell			"CustomSymbolStrField"
+		Cell			"CustomSymbolStrFcn"
+		Cell			"CustomSymbolStrFcnArg"
+		Cell			"CustomSymbolStrBlkIO"
+		Cell			"CustomSymbolStrTmpVar"
+		Cell			"CustomSymbolStrMacro"
+		Cell			"ReqsInCode"
+		PropName		"DisabledProps"
+	      }
+	      ForceParamTrailComments off
+	      GenerateComments	      on
+	      IgnoreCustomStorageClasses on
+	      IgnoreTestpoints	      off
+	      IncHierarchyInIds	      off
+	      MaxIdLength	      31
+	      PreserveName	      off
+	      PreserveNameWithParent  off
+	      ShowEliminatedStatement off
+	      IncAutoGenComments      off
+	      SimulinkDataObjDesc     off
+	      SFDataObjDesc	      off
+	      MATLABFcnDesc	      off
+	      IncDataTypeInIds	      off
+	      MangleLength	      1
+	      CustomSymbolStrGlobalVar "$R$N$M"
+	      CustomSymbolStrType     "$N$R$M"
+	      CustomSymbolStrField    "$N$M"
+	      CustomSymbolStrFcn      "$R$N$M$F"
+	      CustomSymbolStrFcnArg   "rt$I$N$M"
+	      CustomSymbolStrBlkIO    "rtb_$N$M"
+	      CustomSymbolStrTmpVar   "$N$M"
+	      CustomSymbolStrMacro    "$R$N$M"
+	      DefineNamingRule	      "None"
+	      ParamNamingRule	      "None"
+	      SignalNamingRule	      "None"
+	      InsertBlockDesc	      off
+	      InsertPolySpaceComments off
+	      SimulinkBlockComments   on
+	      MATLABSourceComments    off
+	      EnableCustomComments    off
+	      InlinedPrmAccess	      "Literals"
+	      ReqsInCode	      off
+	      UseSimReservedNames     off
+	    }
+	    Simulink.GRTTargetCC {
+	      $BackupClass	      "Simulink.TargetCC"
+	      $ObjectID		      12
+	      Version		      "1.12.0"
+	      Array {
+		Type			"Cell"
+		Dimension		16
+		Cell			"GeneratePreprocessorConditionals"
+		Cell			"IncludeMdlTerminateFcn"
+		Cell			"CombineOutputUpdateFcns"
+		Cell			"SuppressErrorStatus"
+		Cell			"ERTCustomFileBanners"
+		Cell			"GenerateSampleERTMain"
+		Cell			"GenerateTestInterfaces"
+		Cell			"ModelStepFunctionPrototypeControlCompliant"
+		Cell			"CPPClassGenCompliant"
+		Cell			"MultiInstanceERTCode"
+		Cell			"PurelyIntegerCode"
+		Cell			"SupportComplex"
+		Cell			"SupportAbsoluteTime"
+		Cell			"SupportContinuousTime"
+		Cell			"SupportNonInlinedSFcns"
+		Cell			"PortableWordSizes"
+		PropName		"DisabledProps"
+	      }
+	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
+	      TargetLibSuffix	      ""
+	      TargetPreCompLibLocation ""
+	      CodeReplacementLibrary  "ANSI_C"
+	      UtilityFuncGeneration   "Auto"
+	      ERTMultiwordTypeDef     "System defined"
+	      CodeExecutionProfiling  off
+	      ERTMultiwordLength      256
+	      MultiwordLength	      2048
+	      GenerateFullHeader      on
+	      GenerateSampleERTMain   off
+	      GenerateTestInterfaces  off
+	      IsPILTarget	      off
+	      ModelReferenceCompliant on
+	      ParMdlRefBuildCompliant on
+	      CompOptLevelCompliant   on
+	      ConcurrentExecutionCompliant on
+	      IncludeMdlTerminateFcn  on
+	      GeneratePreprocessorConditionals "Disable all"
+	      CombineOutputUpdateFcns on
+	      CombineSignalStateStructs	off
+	      SuppressErrorStatus     off
+	      ERTFirstTimeCompliant   off
+	      IncludeFileDelimiter    "Auto"
+	      ERTCustomFileBanners    off
+	      SupportAbsoluteTime     on
+	      LogVarNameModifier      "rt_"
+	      MatFileLogging	      on
+	      MultiInstanceERTCode    off
+	      SupportNonFinite	      on
+	      SupportComplex	      on
+	      PurelyIntegerCode	      off
+	      SupportContinuousTime   on
+	      SupportNonInlinedSFcns  on
+	      SupportVariableSizeSignals off
+	      EnableShiftOperators    on
+	      ParenthesesLevel	      "Nominal"
+	      PortableWordSizes	      off
+	      ModelStepFunctionPrototypeControlCompliant off
+	      CPPClassGenCompliant    off
+	      AutosarCompliant	      off
+	      GRTInterface	      off
+	      UseMalloc		      off
+	      ExtMode		      off
+	      ExtModeStaticAlloc      off
+	      ExtModeTesting	      off
+	      ExtModeStaticAllocSize  1000000
+	      ExtModeTransport	      0
+	      ExtModeMexFile	      "ext_comm"
+	      ExtModeIntrfLevel	      "Level1"
+	      RTWCAPISignals	      off
+	      RTWCAPIParams	      off
+	      RTWCAPIStates	      off
+	      RTWCAPIRootIO	      off
+	      GenerateASAP2	      off
+	    }
+	    PropName		    "Components"
+	  }
+	}
+	PropName		"Components"
+      }
+      Name		      "Configuration"
+      CurrentDlgPage	      "Solver"
+      ConfigPrmDlgPosition     [ 520, 285, 1400, 915 ] 
+    }
+    PropName		    "ConfigurationSets"
+  }
+  Simulink.ConfigSet {
+    $PropName		    "ActiveConfigurationSet"
+    $ObjectID		    2
+  }
+  ExplicitPartitioning	  off
+  BlockDefaults {
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+    BlockRotation	    0
+    BlockMirror		    off
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    UseDisplayTextAsClickCallback off
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      OutputFunctionCall      off
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchInputForFeedbackSignals off
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      SourceOfInitialOutputValue "Dialog"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      Terminator
+    }
+  }
+  System {
+    Name		    "gmsk_sync"
+    Location		    [2, 74, 1918, 1139]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    SIDHighWatermark	    "58"
+    Block {
+      BlockType		      Inport
+      Name		      "bit_in"
+      SID		      "1"
+      Position		      [15, 283, 45, 297]
+      ZOrder		      -1
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Binary Logic"
+      SID		      "2"
+      Ports		      [2, 1]
+      Position		      [1400, 214, 1470, 261]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Math Functions/Binary Logic"
+      SourceType	      "Synphony Model Compiler Binary Logic"
+      syn_binlog_exp	      "a&~b"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "13"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Binary Logic2"
+      SID		      "3"
+      Ports		      [2, 1]
+      Position		      [940, 399, 1005, 441]
+      NamePlacement	      "alternate"
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Math Functions/Binary Logic"
+      SourceType	      "Synphony Model Compiler Binary Logic"
+      syn_binlog_exp	      "a|b"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "13"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Binary Logic3"
+      SID		      "4"
+      Ports		      [3, 1]
+      Position		      [1175, 420, 1245, 480]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Math Functions/Binary Logic"
+      SourceType	      "Synphony Model Compiler Binary Logic"
+      syn_binlog_exp	      "a|b|c"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "13"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Binary Logic4"
+      SID		      "5"
+      Ports		      [2, 1]
+      Position		      [940, 479, 1005, 521]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Math Functions/Binary Logic"
+      SourceType	      "Synphony Model Compiler Binary Logic"
+      syn_binlog_exp	      "a|b"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "13"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Binary OR"
+      SID		      "6"
+      Ports		      [8, 1]
+      Position		      [1290, 140, 1340, 310]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Math Functions/Binary Logic"
+      SourceType	      "Synphony Model Compiler Binary Logic"
+      syn_binlog_exp	      "a|b|c|d|e|f|g|h"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "13"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Channel select\nregister"
+      SID		      "7"
+      Ports		      [2, 1]
+      Position		      [1075, 260, 1115, 300]
+      LibraryVersion	      "1.3722"
+      FontSize		      9.500000
+      SourceBlock	      "shlslibv1/Memories/Register"
+      SourceType	      "Synphony Model Compiler Register"
+      syn_delay_val	      "1"
+      syn_rst_port	      off
+      syn_en_port	      on
+      synBlockType	      "custom"
+      synLatency	      "1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Concatenate for matrix reshaping"
+      SID		      "8"
+      Ports		      [8, 1]
+      Position		      [500, 20, 585, 555]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Signal Operations/Vector Concat"
+      SourceType	      "Synphony Model Compiler Vector Concat"
+      syn_in_nb		      "8"
+      syn_out_f		      "Full Precision"
+      syn_out_wl	      "16"
+      syn_out_fl	      "8"
+      syn_out_dt	      "signed"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "19"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Constant 1"
+      SID		      "9"
+      Ports		      [0, 1]
+      Position		      [1415, 125, 1455, 165]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Sources/Constant"
+      SourceType	      "Synphony Model Compiler Constant"
+      syn_cst_val	      "1"
+      syn_cst_fl	      "0"
+      syn_cst_dt	      "unsigned"
+      syn_cst_rnd	      on
+      syn_cst_st	      "-1"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "15"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Convert to matrix1"
+      SID		      "10"
+      Ports		      [1, 1]
+      Position		      [635, 272, 675, 308]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Signal Operations/Reshape"
+      SourceType	      "Synphony Model Compiler Reshape"
+      syn_op_dim_type	      "Specify"
+      syn_op_dim	      "[length(sync_pattern) 8]"
+      syn_ip_order	      "Row First"
+      syn_op_order	      "Column First"
+      syn_inh_port	      off
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "158"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Correlation constant\n(Sync pattern)"
+      SID		      "11"
+      Ports		      [0, 1]
+      Position		      [595, 187, 700, 233]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Sources/Constant"
+      SourceType	      "Synphony Model Compiler Constant"
+      syn_cst_val	      "fliplr(sync_pattern)'*ones(1,8)"
+      syn_cst_fl	      "0"
+      syn_cst_dt	      "unsigned"
+      syn_cst_rnd	      on
+      syn_cst_st	      "-1"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "15"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Decommutator"
+      SID		      "12"
+      Ports		      [1, 8]
+      Position		      [180, 25, 260, 550]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Signal Operations/Decommutator"
+      SourceType	      "Synphony Model Compiler Decommutator"
+      syn_outport_nb	      "8"
+      syn_outport_vec	      off
+      synBlockType	      "custom"
+      synLatency	      "1"
+      Port {
+	PortNumber		1
+	Name			"Ch1"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Delay1"
+      SID		      "13"
+      Ports		      [1, 1]
+      Position		      [430, 615, 470, 655]
+      LibraryVersion	      "1.3722"
+      FontSize		      9.500000
+      SourceBlock	      "shlslibv1/Memories/Register"
+      SourceType	      "Synphony Model Compiler Register"
+      syn_delay_val	      "1"
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "custom"
+      synLatency	      "1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Delay2"
+      SID		      "14"
+      Ports		      [1, 1]
+      Position		      [500, 645, 540, 685]
+      LibraryVersion	      "1.3722"
+      FontSize		      9.500000
+      SourceBlock	      "shlslibv1/Memories/Register"
+      SourceType	      "Synphony Model Compiler Register"
+      syn_delay_val	      "1"
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "custom"
+      synLatency	      "1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Delay3"
+      SID		      "15"
+      Ports		      [1, 1]
+      Position		      [430, 690, 470, 730]
+      LibraryVersion	      "1.3722"
+      FontSize		      9.500000
+      SourceBlock	      "shlslibv1/Memories/Register"
+      SourceType	      "Synphony Model Compiler Register"
+      syn_delay_val	      "1"
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "custom"
+      synLatency	      "1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Delay4"
+      SID		      "16"
+      Ports		      [1, 1]
+      Position		      [500, 720, 540, 760]
+      LibraryVersion	      "1.3722"
+      FontSize		      9.500000
+      SourceBlock	      "shlslibv1/Memories/Register"
+      SourceType	      "Synphony Model Compiler Register"
+      syn_delay_val	      "1"
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "custom"
+      synLatency	      "1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Delay5"
+      SID		      "17"
+      Ports		      [1, 1]
+      Position		      [430, 760, 470, 800]
+      LibraryVersion	      "1.3722"
+      FontSize		      9.500000
+      SourceBlock	      "shlslibv1/Memories/Register"
+      SourceType	      "Synphony Model Compiler Register"
+      syn_delay_val	      "1"
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "custom"
+      synLatency	      "1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Delay6"
+      SID		      "18"
+      Ports		      [1, 1]
+      Position		      [500, 790, 540, 830]
+      LibraryVersion	      "1.3722"
+      FontSize		      9.500000
+      SourceBlock	      "shlslibv1/Memories/Register"
+      SourceType	      "Synphony Model Compiler Register"
+      syn_delay_val	      "1"
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "custom"
+      synLatency	      "1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Delay7"
+      SID		      "19"
+      Ports		      [1, 1]
+      Position		      [430, 835, 470, 875]
+      LibraryVersion	      "1.3722"
+      FontSize		      9.500000
+      SourceBlock	      "shlslibv1/Memories/Register"
+      SourceType	      "Synphony Model Compiler Register"
+      syn_delay_val	      "1"
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "custom"
+      synLatency	      "1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Delay8"
+      SID		      "20"
+      Ports		      [1, 1]
+      Position		      [500, 865, 540, 905]
+      LibraryVersion	      "1.3722"
+      FontSize		      9.500000
+      SourceBlock	      "shlslibv1/Memories/Register"
+      SourceType	      "Synphony Model Compiler Register"
+      syn_delay_val	      "1"
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "custom"
+      synLatency	      "1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Frame found"
+      SID		      "21"
+      Ports		      [3, 1]
+      Position		      [1535, 205, 1575, 245]
+      LibraryVersion	      "1.3722"
+      FontSize		      9.500000
+      SourceBlock	      "shlslibv1/Memories/Register"
+      SourceType	      "Synphony Model Compiler Register"
+      syn_delay_val	      "1"
+      syn_rst_port	      on
+      syn_en_port	      on
+      synBlockType	      "custom"
+      synLatency	      "1"
+      Port {
+	PortNumber		1
+	Name			"bit_valid"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "One bit XOR"
+      SID		      "22"
+      Ports		      [2, 1]
+      Position		      [730, 260, 770, 300]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Math Functions/Add"
+      SourceType	      "Synphony Model Compiler Add"
+      syn_add_opr	      "++"
+      syn_out_f		      "Specify"
+      syn_out_wl	      "1"
+      syn_out_fl	      "0"
+      syn_out_dt	      "unsigned"
+      syn_out_sat	      off
+      syn_out_rnd	      "Floor (Truncate)"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "96"
+      syn_sum_of_rows	      off
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "RST"
+      SID		      "58"
+      Ports		      [1, 1]
+      Position		      [1355, 385, 1375, 405]
+      BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Ports & Subsystems/Port In"
+      SourceType	      "Synphony Model Compiler Port In"
+      syn_out_wl	      "1"
+      syn_out_fl	      "0"
+      syn_out_dt	      "unsigned"
+      syn_out_st	      "-1"
+      syn_capture	      off
+      syn_register	      off
+      syn_out_sat	      off
+      syn_out_rnd	      off
+      synBlockType	      "port"
+      synLatency	      "0"
+      synBlockId	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "RX_D_IN"
+      SID		      "48"
+      Ports		      [1, 1]
+      Position		      [95, 280, 115, 300]
+      BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Ports & Subsystems/Port In"
+      SourceType	      "Synphony Model Compiler Port In"
+      syn_out_wl	      "1"
+      syn_out_fl	      "0"
+      syn_out_dt	      "unsigned"
+      syn_out_st	      "1"
+      syn_capture	      off
+      syn_register	      on
+      syn_out_sat	      off
+      syn_out_rnd	      on
+      synBlockType	      "port"
+      synLatency	      "1"
+      synBlockId	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "RX_D_OUT"
+      SID		      "49"
+      Ports		      [1, 1]
+      Position		      [1700, 755, 1720, 775]
+      BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Ports & Subsystems/Port Out"
+      SourceType	      "Synphony Model Compiler Port Out"
+      syn_capture	      off
+      syn_register	      on
+      synBlockType	      "port"
+      synLatency	      "1"
+      synBlockId	      "1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "RX_D_VALID"
+      SID		      "50"
+      Ports		      [1, 1]
+      Position		      [1700, 215, 1720, 235]
+      BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Ports & Subsystems/Port Out"
+      SourceType	      "Synphony Model Compiler Port Out"
+      syn_capture	      off
+      syn_register	      on
+      synBlockType	      "port"
+      synLatency	      "1"
+      synBlockId	      "1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "SHLSTool"
+      SID		      "23"
+      Ports		      []
+      Position		      [85, 70, 125, 110]
+      ForegroundColor	      "[0.501961, 0.000000, 0.000000]"
+      BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/SHLSTool"
+      SourceType	      "Synphony HLS Toolbox"
+      synBlockType	      "tool"
+      syn_dsp_mode	      "FPGA"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Shift Register0"
+      SID		      "24"
+      Ports		      [1, 1]
+      Position		      [385, 40, 460, 80]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Memories/Shift Register"
+      SourceType	      "Synphony Model Compiler Shift Register"
+      syn_shift_dynamic	      off
+      syn_shift_vec	      "[0:length(sync_pattern)-1]"
+      syn_shift_val	      "16"
+      syn_vect_out	      "Merge to vector"
+      syn_rst_val	      "All zeros"
+      syn_rst_vec	      "0"
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "primitive"
+      synLatency	      "(addr+1)"
+      synBlockId	      "93"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Shift Register1"
+      SID		      "25"
+      Ports		      [1, 1]
+      Position		      [385, 104, 460, 146]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Memories/Shift Register"
+      SourceType	      "Synphony Model Compiler Shift Register"
+      syn_shift_dynamic	      off
+      syn_shift_vec	      "[0:length(sync_pattern)-1]"
+      syn_shift_val	      "16"
+      syn_vect_out	      "Merge to vector"
+      syn_rst_val	      "All zeros"
+      syn_rst_vec	      "0"
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "primitive"
+      synLatency	      "(addr+1)"
+      synBlockId	      "93"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Shift Register2"
+      SID		      "26"
+      Ports		      [1, 1]
+      Position		      [385, 169, 460, 211]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Memories/Shift Register"
+      SourceType	      "Synphony Model Compiler Shift Register"
+      syn_shift_dynamic	      off
+      syn_shift_vec	      "[0:length(sync_pattern)-1]"
+      syn_shift_val	      "16"
+      syn_vect_out	      "Merge to vector"
+      syn_rst_val	      "All zeros"
+      syn_rst_vec	      "0"
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "primitive"
+      synLatency	      "(addr+1)"
+      synBlockId	      "93"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Shift Register3"
+      SID		      "27"
+      Ports		      [1, 1]
+      Position		      [385, 234, 460, 276]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Memories/Shift Register"
+      SourceType	      "Synphony Model Compiler Shift Register"
+      syn_shift_dynamic	      off
+      syn_shift_vec	      "[0:length(sync_pattern)-1]"
+      syn_shift_val	      "16"
+      syn_vect_out	      "Merge to vector"
+      syn_rst_val	      "All zeros"
+      syn_rst_vec	      "0"
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "primitive"
+      synLatency	      "(addr+1)"
+      synBlockId	      "93"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Shift Register4"
+      SID		      "28"
+      Ports		      [1, 1]
+      Position		      [385, 299, 460, 341]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Memories/Shift Register"
+      SourceType	      "Synphony Model Compiler Shift Register"
+      syn_shift_dynamic	      off
+      syn_shift_vec	      "[0:length(sync_pattern)-1]"
+      syn_shift_val	      "16"
+      syn_vect_out	      "Merge to vector"
+      syn_rst_val	      "All zeros"
+      syn_rst_vec	      "0"
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "primitive"
+      synLatency	      "(addr+1)"
+      synBlockId	      "93"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Shift Register5"
+      SID		      "29"
+      Ports		      [1, 1]
+      Position		      [385, 364, 460, 406]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Memories/Shift Register"
+      SourceType	      "Synphony Model Compiler Shift Register"
+      syn_shift_dynamic	      off
+      syn_shift_vec	      "[0:length(sync_pattern)-1]"
+      syn_shift_val	      "16"
+      syn_vect_out	      "Merge to vector"
+      syn_rst_val	      "All zeros"
+      syn_rst_vec	      "0"
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "primitive"
+      synLatency	      "(addr+1)"
+      synBlockId	      "93"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Shift Register6"
+      SID		      "30"
+      Ports		      [1, 1]
+      Position		      [385, 429, 460, 471]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Memories/Shift Register"
+      SourceType	      "Synphony Model Compiler Shift Register"
+      syn_shift_dynamic	      off
+      syn_shift_vec	      "[0:length(sync_pattern)-1]"
+      syn_shift_val	      "16"
+      syn_vect_out	      "Merge to vector"
+      syn_rst_val	      "All zeros"
+      syn_rst_vec	      "0"
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "primitive"
+      synLatency	      "(addr+1)"
+      synBlockId	      "93"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Shift Register7"
+      SID		      "31"
+      Ports		      [1, 1]
+      Position		      [385, 494, 460, 536]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Memories/Shift Register"
+      SourceType	      "Synphony Model Compiler Shift Register"
+      syn_shift_dynamic	      off
+      syn_shift_vec	      "[0:length(sync_pattern)-1]"
+      syn_shift_val	      "16"
+      syn_vect_out	      "Merge to vector"
+      syn_rst_val	      "All zeros"
+      syn_rst_vec	      "0"
+      syn_rst_port	      off
+      syn_en_port	      off
+      synBlockType	      "primitive"
+      synLatency	      "(addr+1)"
+      synBlockId	      "93"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Sum of rows"
+      SID		      "34"
+      Ports		      [1, 1]
+      Position		      [805, 260, 845, 300]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Math Functions/Add"
+      SourceType	      "Synphony Model Compiler Add"
+      syn_add_opr	      "+"
+      syn_out_f		      "Specify"
+      syn_out_wl	      "5"
+      syn_out_fl	      "0"
+      syn_out_dt	      "unsigned"
+      syn_out_sat	      off
+      syn_out_rnd	      "Floor (Truncate)"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "96"
+      syn_sum_of_rows	      on
+      Port {
+	PortNumber		1
+	Name			"Correlation metric"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Switch"
+      SID		      "35"
+      Ports		      [3, 1]
+      Position		      [1075, 630, 1115, 670]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Signal Operations/Switch"
+      SourceType	      "Synphony Model Compiler Switch"
+      switchCriteria	      "u2 > Threshold"
+      switchThresh	      "0"
+      synBlockType	      "custom"
+      synLatency	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Switch1"
+      SID		      "36"
+      Ports		      [3, 1]
+      Position		      [1075, 705, 1115, 745]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Signal Operations/Switch"
+      SourceType	      "Synphony Model Compiler Switch"
+      switchCriteria	      "u2 > Threshold"
+      switchThresh	      "0"
+      synBlockType	      "custom"
+      synLatency	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Switch2"
+      SID		      "37"
+      Ports		      [3, 1]
+      Position		      [1190, 665, 1230, 705]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Signal Operations/Switch"
+      SourceType	      "Synphony Model Compiler Switch"
+      switchCriteria	      "u2 > Threshold"
+      switchThresh	      "0"
+      synBlockType	      "custom"
+      synLatency	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Switch3"
+      SID		      "38"
+      Ports		      [3, 1]
+      Position		      [1075, 775, 1115, 815]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Signal Operations/Switch"
+      SourceType	      "Synphony Model Compiler Switch"
+      switchCriteria	      "u2 > Threshold"
+      switchThresh	      "0"
+      synBlockType	      "custom"
+      synLatency	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Switch4"
+      SID		      "39"
+      Ports		      [3, 1]
+      Position		      [1075, 850, 1115, 890]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Signal Operations/Switch"
+      SourceType	      "Synphony Model Compiler Switch"
+      switchCriteria	      "u2 > Threshold"
+      switchThresh	      "0"
+      synBlockType	      "custom"
+      synLatency	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Switch5"
+      SID		      "40"
+      Ports		      [3, 1]
+      Position		      [1190, 810, 1230, 850]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Signal Operations/Switch"
+      SourceType	      "Synphony Model Compiler Switch"
+      switchCriteria	      "u2 > Threshold"
+      switchThresh	      "0"
+      synBlockType	      "custom"
+      synLatency	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Switch6"
+      SID		      "41"
+      Ports		      [3, 1]
+      Position		      [1305, 745, 1345, 785]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Signal Operations/Switch"
+      SourceType	      "Synphony Model Compiler Switch"
+      switchCriteria	      "u2 > Threshold"
+      switchThresh	      "0"
+      synBlockType	      "custom"
+      synLatency	      "0"
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      "Terminator"
+      SID		      "43"
+      Position		      [805, 540, 825, 560]
+      ZOrder		      -20
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Threshold logic"
+      SID		      "44"
+      Ports		      [1, 1]
+      Position		      [930, 205, 970, 245]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Math Functions/Comparator"
+      SourceType	      "Synphony Model Compiler Comparator"
+      syn_comp_opr	      "a==b"
+      syn_comp_const	      on
+      syn_comp_val	      "0"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "14"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Vector Split"
+      SID		      "45"
+      Ports		      [1, 8]
+      Position		      [1165, 136, 1210, 314]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Signal Operations/Vector Split"
+      SourceType	      "Synphony Model Compiler Vector Split"
+      syn_out_nb	      "8"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "20"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Vector Split1"
+      SID		      "46"
+      Ports		      [1, 8]
+      Position		      [705, 391, 750, 569]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Signal Operations/Vector Split"
+      SourceType	      "Synphony Model Compiler Vector Split"
+      syn_out_nb	      "8"
+      synBlockType	      "primitive"
+      synLatency	      "0"
+      synBlockId	      "20"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "bit_valid"
+      SID		      "51"
+      Position		      [1750, 218, 1780, 232]
+      ZOrder		      -23
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "bit_out"
+      SID		      "52"
+      Position		      [1750, 758, 1780, 772]
+      ZOrder		      -23
+      Port		      "2"
+      IconDisplay	      "Port number"
+    }
+    Line {
+      Name		      "Ch1"
+      SrcBlock		      "Decommutator"
+      SrcPort		      1
+      Points		      [25, 0]
+      Branch {
+	DstBlock		"Shift Register0"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 575]
+	DstBlock		"Delay1"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Decommutator"
+      SrcPort		      2
+      Points		      [35, 0]
+      Branch {
+	DstBlock		"Shift Register1"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 540]
+	DstBlock		"Delay2"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Decommutator"
+      SrcPort		      3
+      Points		      [45, 0]
+      Branch {
+	DstBlock		"Shift Register2"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 520]
+	DstBlock		"Delay3"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Decommutator"
+      SrcPort		      4
+      Points		      [55, 0]
+      Branch {
+	DstBlock		"Shift Register3"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 485]
+	DstBlock		"Delay4"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Shift Register0"
+      SrcPort		      1
+      DstBlock		      "Concatenate for matrix reshaping"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Shift Register1"
+      SrcPort		      1
+      DstBlock		      "Concatenate for matrix reshaping"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Shift Register2"
+      SrcPort		      1
+      DstBlock		      "Concatenate for matrix reshaping"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Shift Register3"
+      SrcPort		      1
+      DstBlock		      "Concatenate for matrix reshaping"
+      DstPort		      4
+    }
+    Line {
+      Name		      "Correlation metric"
+      Labels		      [0, 0]
+      SrcBlock		      "Sum of rows"
+      SrcPort		      1
+      Points		      [40, 0; 0, -55]
+      DstBlock		      "Threshold logic"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "One bit XOR"
+      SrcPort		      1
+      DstBlock		      "Sum of rows"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Concatenate for matrix reshaping"
+      SrcPort		      1
+      DstBlock		      "Convert to matrix1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Vector Split"
+      SrcPort		      1
+      DstBlock		      "Binary OR"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Vector Split"
+      SrcPort		      2
+      DstBlock		      "Binary OR"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Vector Split"
+      SrcPort		      3
+      DstBlock		      "Binary OR"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Vector Split"
+      SrcPort		      4
+      DstBlock		      "Binary OR"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "Switch"
+      SrcPort		      1
+      Points		      [0, 20]
+      DstBlock		      "Switch2"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Switch1"
+      SrcPort		      1
+      Points		      [0, -25]
+      DstBlock		      "Switch2"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Binary OR"
+      SrcPort		      1
+      DstBlock		      "Binary Logic"
+      DstPort		      1
+    }
+    Line {
+      Name		      "bit_valid"
+      Labels		      [1, 0]
+      SrcBlock		      "Frame found"
+      SrcPort		      1
+      Points		      [25, 0]
+      Branch {
+	Points			[0, 70; -235, 0; 0, -45]
+	DstBlock		"Binary Logic"
+	DstPort			2
+      }
+      Branch {
+	Labels			[1, 0]
+	DstBlock		"RX_D_VALID"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Binary Logic"
+      SrcPort		      1
+      Points		      [5, 0]
+      Branch {
+	DstBlock		"Frame found"
+	DstPort			3
+      }
+      Branch {
+	Points			[0, 95; -465, 0; 0, -45]
+	DstBlock		"Channel select\nregister"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "Constant 1"
+      SrcPort		      1
+      Points		      [50, 0; 0, 65]
+      DstBlock		      "Frame found"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Vector Split1"
+      SrcPort		      1
+      Points		      [135, 0]
+      Branch {
+	Points			[0, 240]
+	DstBlock		"Switch"
+	DstPort			2
+      }
+      Branch {
+	DstBlock		"Binary Logic2"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Vector Split1"
+      SrcPort		      3
+      Points		      [120, 0]
+      Branch {
+	Points			[0, 275]
+	DstBlock		"Switch1"
+	DstPort			2
+      }
+      Branch {
+	DstBlock		"Binary Logic3"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "Binary Logic2"
+      SrcPort		      1
+      Points		      [40, 0; 0, 10]
+      Branch {
+	Points			[0, 255]
+	DstBlock		"Switch2"
+	DstPort			2
+      }
+      Branch {
+	DstBlock		"Binary Logic3"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Vector Split1"
+      SrcPort		      2
+      DstBlock		      "Binary Logic2"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Threshold logic"
+      SrcPort		      1
+      Points		      [40, 0]
+      Branch {
+	DstBlock		"Vector Split"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 45]
+	DstBlock		"Channel select\nregister"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Correlation constant\n(Sync pattern)"
+      SrcPort		      1
+      Points		      [10, 0]
+      DstBlock		      "One bit XOR"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Decommutator"
+      SrcPort		      5
+      Points		      [65, 0]
+      Branch {
+	DstBlock		"Shift Register4"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 460]
+	DstBlock		"Delay5"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Decommutator"
+      SrcPort		      6
+      Points		      [75, 0]
+      Branch {
+	DstBlock		"Shift Register5"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 425]
+	DstBlock		"Delay6"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Decommutator"
+      SrcPort		      7
+      Points		      [85, 0]
+      Branch {
+	DstBlock		"Shift Register6"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 405]
+	DstBlock		"Delay7"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Decommutator"
+      SrcPort		      8
+      Points		      [95, 0]
+      Branch {
+	DstBlock		"Shift Register7"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 370]
+	DstBlock		"Delay8"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Shift Register4"
+      SrcPort		      1
+      DstBlock		      "Concatenate for matrix reshaping"
+      DstPort		      5
+    }
+    Line {
+      SrcBlock		      "Shift Register5"
+      SrcPort		      1
+      DstBlock		      "Concatenate for matrix reshaping"
+      DstPort		      6
+    }
+    Line {
+      SrcBlock		      "Shift Register6"
+      SrcPort		      1
+      DstBlock		      "Concatenate for matrix reshaping"
+      DstPort		      7
+    }
+    Line {
+      SrcBlock		      "Shift Register7"
+      SrcPort		      1
+      DstBlock		      "Concatenate for matrix reshaping"
+      DstPort		      8
+    }
+    Line {
+      SrcBlock		      "Vector Split"
+      SrcPort		      5
+      DstBlock		      "Binary OR"
+      DstPort		      5
+    }
+    Line {
+      SrcBlock		      "Vector Split"
+      SrcPort		      6
+      DstBlock		      "Binary OR"
+      DstPort		      6
+    }
+    Line {
+      SrcBlock		      "Vector Split"
+      SrcPort		      7
+      DstBlock		      "Binary OR"
+      DstPort		      7
+    }
+    Line {
+      SrcBlock		      "Vector Split"
+      SrcPort		      8
+      DstBlock		      "Binary OR"
+      DstPort		      8
+    }
+    Line {
+      SrcBlock		      "Switch3"
+      SrcPort		      1
+      Points		      [0, 20]
+      DstBlock		      "Switch5"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Switch4"
+      SrcPort		      1
+      Points		      [0, -25]
+      DstBlock		      "Switch5"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Switch5"
+      SrcPort		      1
+      Points		      [5, 0; 0, -50]
+      DstBlock		      "Switch6"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Switch2"
+      SrcPort		      1
+      Points		      [5, 0; 0, 65]
+      DstBlock		      "Switch6"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Switch6"
+      SrcPort		      1
+      DstBlock		      "RX_D_OUT"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Vector Split1"
+      SrcPort		      5
+      Points		      [105, 0]
+      Branch {
+	Points			[0, 305]
+	DstBlock		"Switch3"
+	DstPort			2
+      }
+      Branch {
+	DstBlock		"Binary Logic4"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Vector Split1"
+      SrcPort		      7
+      Points		      [90, 0; 0, 340]
+      DstBlock		      "Switch4"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Vector Split1"
+      SrcPort		      6
+      DstBlock		      "Binary Logic4"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Binary Logic4"
+      SrcPort		      1
+      Points		      [15, 0; 0, 330]
+      DstBlock		      "Switch5"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Vector Split1"
+      SrcPort		      4
+      DstBlock		      "Binary Logic3"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Binary Logic3"
+      SrcPort		      1
+      Points		      [35, 0; 0, 315]
+      DstBlock		      "Switch6"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Convert to matrix1"
+      SrcPort		      1
+      DstBlock		      "One bit XOR"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "RX_D_IN"
+      SrcPort		      1
+      DstBlock		      "Decommutator"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "bit_in"
+      SrcPort		      1
+      DstBlock		      "RX_D_IN"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "RX_D_VALID"
+      SrcPort		      1
+      DstBlock		      "bit_valid"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "RX_D_OUT"
+      SrcPort		      1
+      DstBlock		      "bit_out"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Vector Split1"
+      SrcPort		      8
+      DstBlock		      "Terminator"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Channel select\nregister"
+      SrcPort		      1
+      Points		      [20, 0; 0, 85; -485, 0; 0, 115]
+      DstBlock		      "Vector Split1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Delay1"
+      SrcPort		      1
+      DstBlock		      "Switch"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Delay2"
+      SrcPort		      1
+      DstBlock		      "Switch"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Delay3"
+      SrcPort		      1
+      DstBlock		      "Switch1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Delay4"
+      SrcPort		      1
+      DstBlock		      "Switch1"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Delay5"
+      SrcPort		      1
+      DstBlock		      "Switch3"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Delay6"
+      SrcPort		      1
+      DstBlock		      "Switch3"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Delay7"
+      SrcPort		      1
+      DstBlock		      "Switch4"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Delay8"
+      SrcPort		      1
+      DstBlock		      "Switch4"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "RST"
+      SrcPort		      1
+      Points		      [135, 0; 0, -170]
+      DstBlock		      "Frame found"
+      DstPort		      2
+    }
+    Annotation {
+      SID		      "53"
+      Position		      [654, 343]
+    }
+    Annotation {
+      SID		      "54"
+      Name		      "Correlator based decision directed feed-forward timing recovery block\nusing 8x oversampled 1-bit d"
+      "emodulated signal"
+      Position		      [926, 28]
+      DropShadow	      on
+      FontName		      "Arial"
+      FontSize		      12
+    }
+    Annotation {
+      SID		      "55"
+      Position		      [417, 55]
+    }
+  }
+}
