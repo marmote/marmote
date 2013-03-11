@@ -53,8 +53,9 @@ entity RX_APB_IF is
 		 PSLVERR : out std_logic;
 
          RX_STROBE  : in  std_logic;
-         RX_I       : in  std_logic_vector(9 downto 0);
-         RX_Q       : in  std_logic_vector(9 downto 0);
+--         RX_I       : in  std_logic_vector(9 downto 0);
+--         RX_Q       : in  std_logic_vector(9 downto 0);
+         RX_D    : in std_logic;
 
          RX_DONE_IRQ    : out std_logic;
          SFD_IRQ    : out std_logic
@@ -182,15 +183,17 @@ begin
 
     -- Port maps
 
-    u_GMSK_RX : gmsk_rx
-    port map (
-      clk => clk,
-      GlobalReset => rst,
-      GlobalEnable1 => s_RX_STROBE,
-      RX_Q =>  RX_Q,
-      RX_I =>  RX_I,
-      Port_Out => s_gmsk_rx_out
-    );
+--    u_GMSK_RX : gmsk_rx
+--    port map (
+--      clk => clk,
+--      GlobalReset => rst,
+--      GlobalEnable1 => s_rx_strobe,
+--      RX_Q =>  RX_Q,
+--      RX_I =>  RX_I,
+--      Port_Out => s_gmsk_rx_out
+--    );
+
+    s_gmsk_rx_out <= RX_D;
 
     u_GMSK_SYNC : gmsk_sync
     port map (
@@ -198,7 +201,7 @@ begin
       clk => clk,
       GlobalReset => rst,
       GlobalEnable8 => s_rx_strobe_div8,
-      GlobalEnable1 => s_RX_STROBE,
+      GlobalEnable1 => s_rx_strobe,
       sync_rst => s_sync_rst,
       bit_valid_reg => s_rx_symbol_valid,
       bit_out_reg => s_rx_symbol,

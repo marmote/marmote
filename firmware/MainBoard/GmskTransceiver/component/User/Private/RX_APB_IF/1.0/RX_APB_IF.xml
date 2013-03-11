@@ -85,16 +85,8 @@
         <spirit:direction>in</spirit:direction>
       </spirit:signal>
       <spirit:signal>
-        <spirit:name>RX_I</spirit:name>
+        <spirit:name>RX_D</spirit:name>
         <spirit:direction>in</spirit:direction>
-        <spirit:left>9</spirit:left>
-        <spirit:right>0</spirit:right>
-      </spirit:signal>
-      <spirit:signal>
-        <spirit:name>RX_Q</spirit:name>
-        <spirit:direction>in</spirit:direction>
-        <spirit:left>9</spirit:left>
-        <spirit:right>0</spirit:right>
       </spirit:signal>
       <spirit:signal>
         <spirit:name>RX_DONE_IRQ</spirit:name>
