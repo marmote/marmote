@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.10"
+    ComputedModelVersion    "1.11"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -30,9 +30,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "sszilvasi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Feb 21 09:00:26 2013"
-  RTWModifiedTimeStamp	  283338020
-  ModelVersionFormat	  "1.%<AutoIncrement:10>"
+  LastModifiedDate	  "Mon Mar 11 15:14:04 2013"
+  RTWModifiedTimeStamp	  284915643
+  ModelVersionFormat	  "1.%<AutoIncrement:11>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -70,6 +70,7 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "gmsk_rx"
+    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -986,7 +987,7 @@ Model {
     }
     Block {
       BlockType		      Reference
-      Name		      "Port Out"
+      Name		      "RX_D"
       SID		      "31"
       Ports		      [1, 1]
       Position		      [990, 130, 1010, 150]
@@ -1156,7 +1157,7 @@ Model {
 	DstPort			3
       }
       Branch {
-	DstBlock		"Port Out"
+	DstBlock		"RX_D"
 	DstPort			1
       }
     }

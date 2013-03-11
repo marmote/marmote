@@ -95,11 +95,11 @@ sim:/testbench/Teton_0/gmsk_tx_0/TX_Q
 
 add wave  \
 -group {RX WAVEFORMS} \
-sim:/testbench/Teton_0/RX_APB_IF_0/RX_STROBE \
-sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_RX/Port_Out \
+sim:/testbench/Teton_0/gmsk_rx_0/GlobalEnable1 \
+sim:/testbench/Teton_0/gmsk_rx_0/RX_D \
 -analog-step -min -512 -max 512 -height 100 \
-sim:/testbench/Teton_0/RX_APB_IF_0/RX_I \
-sim:/testbench/Teton_0/RX_APB_IF_0/RX_Q
+sim:/testbench/Teton_0/gmsk_rx_0/RX_I \
+sim:/testbench/Teton_0/gmsk_rx_0/RX_Q
 
 add wave \
 -group {RX SYNC} \
