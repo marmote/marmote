@@ -20,11 +20,12 @@ Model {
       Name		      "bit_out"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.18"
+    ComputedModelVersion    "1.20"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
   SavedCharacterEncoding  "windows-1252"
+  PreLoadFcn		  "gmsk_syn_init;"
   SaveDefaultBlockParams  on
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
@@ -43,9 +44,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "sszilvasi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Feb 13 18:32:57 2013"
-  RTWModifiedTimeStamp	  282681176
-  ModelVersionFormat	  "1.%<AutoIncrement:18>"
+  LastModifiedDate	  "Mon Mar 11 14:13:31 2013"
+  RTWModifiedTimeStamp	  284912008
+  ModelVersionFormat	  "1.%<AutoIncrement:20>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -712,7 +713,7 @@ Model {
   }
   System {
     Name		    "gmsk_sync"
-    Location		    [2, 82, 1918, 1147]
+    Location		    [1922, 74, 3518, 1162]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
