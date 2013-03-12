@@ -213,5 +213,5 @@ sim:/testbench/Teton_0/TX_APB_IF_0/s_rnd \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_symbol_end
 
 
-run 2000 us
+run 200 us
 wave zoom full
