@@ -98,15 +98,10 @@ architecture Behavioral of TX_APB_IF is
     constant c_PREAMBLE  : std_logic_vector(7 downto 0) := x"FF"; -- Preamble
     constant c_PREAMBLE_LENGTH  : integer := 4; -- in bytes
 
-    constant c_PAYLOAD_LENGTH   : integer := 4; -- bytes -- FIXME
+    constant c_BIT_PER_SYM      : integer := 2; -- QPSK
+    constant c_SYM_LEN          : integer := 20; -- Chip length
+    constant c_BIT_LEN          : integer := c_SYM_LEN/c_BIT_PER_SYM; -- Bit length
 
---    constant c_DEC_DIV  : integer := 10;    
-    constant c_DEC_DIV  : integer := 20;    
-    constant c_BAUD_DIV : integer := 1*c_DEC_DIV/2;     -- Samples per symbol in the modulator 
-
-    constant c_TX_ZERO  : std_logic_vector(9 downto 0)  := "00" & x"00";    --  0
---    constant c_TXD_HIGH : std_logic_vector(1 downto 0) := "01"; -- +1
---    constant c_TXD_LOW  : std_logic_vector(1 downto 0) := "11"; -- -1
     constant c_TXD_HIGH : std_logic := '1';
     constant c_TXD_LOW  : std_logic := '0';
 
@@ -140,8 +135,6 @@ architecture Behavioral of TX_APB_IF is
     signal s_tx_state_next  : tx_state_t;
 
     signal s_test           : std_logic_vector(7 downto 0);
-
---    signal s_mod_rst    : std_logic;
 
 	signal s_oct_ctr        : unsigned(7 downto 0);
 	signal s_oct_ctr_next   : unsigned(7 downto 0);
@@ -289,7 +282,7 @@ begin
 
 	-----------------------------------------------------------------------------
 	-- Baud timer
-    -- Symbol time = T_FPGA_CKL * c_BAUD_DIV
+    -- Symbol time = T_FPGA_CKL * c_BIT_LEN
 	-----------------------------------------------------------------------------
 	p_BAUD_TIMER : process (rst, clk)
 	begin
@@ -306,7 +299,7 @@ begin
 --            if s_mod_en = '1' then
             if s_mod_en = '1' or s_mod_in_mux /= "00" then -- FIXME
                 -- Enable signal for the decimator
-                if s_dec_ctr < to_unsigned(c_DEC_DIV-1, s_dec_ctr'length) then
+                if s_dec_ctr < to_unsigned(c_SYM_LEN-1, s_dec_ctr'length) then
                     s_dec_ctr <= s_dec_ctr + 1;
                 else
                     s_dec_ctr <= (others => '0');
@@ -320,7 +313,7 @@ begin
                     s_en_div_20 <= '1';
                 end if;
 
-                if s_baud_ctr < to_unsigned(c_BAUD_DIV-1, s_baud_ctr'length) then
+                if s_baud_ctr < to_unsigned(c_BIT_LEN-1, s_baud_ctr'length) then
                     s_baud_ctr <= s_baud_ctr + 1;
                 else
                     s_baud_ctr <= (others => '0');
