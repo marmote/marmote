@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def PlotAEMeas(y, y2, AE_start, AE_start2, T,  positions = None, x_lim_min = 0, x_lim_max = 1e-3, y_lim_min = -1.1, y_lim_max = 1.1, threshold=None) :
+def PlotAEMeas(y, y2, AE_start, AE_start2, T,  positions = None, x_lim_min = 0, x_lim_max = 1e-3, y_lim_min = -1.1, y_lim_max = 1.1, threshold=None, xlabel=None, ylabel=None) :
 
 	if y is not None and y2 is not None and len(y) and len(y2):
 		y_temp = min( len(y), len(y2) )
@@ -89,6 +89,12 @@ def PlotAEMeas(y, y2, AE_start, AE_start2, T,  positions = None, x_lim_min = 0, 
 			title_str += '\nTD = %.2f' % (AE_start2[ii] - AE_start[ii])
 
 		axarr[axarr_cnt].set_title(title_str)
+
+		if xlabel is not None:
+			axarr[axarr_cnt].set_xlabel(xlabel)
+
+		if ylabel is not None:
+			axarr[axarr_cnt].set_ylabel(ylabel)
 
 	fig.set_size_inches(10, 8, forward = True)
 	fig.tight_layout()
