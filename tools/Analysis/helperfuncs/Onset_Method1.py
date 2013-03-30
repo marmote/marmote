@@ -30,7 +30,7 @@ def Onset_Method1(y, T, Fitnes_Function=None, skip_samples=20) :
 
 
 	curves = []
-	curves.append(('Fitnes', fitnes, sample_shift))
-	curves.append(('Derivative of fitnes', fitnes2, sample_shift+sample_shift2))
+	curves.append(('Fitness function', fitnes, sample_shift))
+	curves.append(('Derivative of fitness function', fitnes2, sample_shift+sample_shift2))
 
 	return (sample_shift + onset_idx)*T, quality, curves

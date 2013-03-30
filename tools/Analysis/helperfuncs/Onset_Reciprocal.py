@@ -79,13 +79,13 @@ def Onset_Reciprocal(y, T, skip_samples=20) :
 		quality = np.exp(-300)
 
 	curves = []
-	curves.append(('Fitnes based on Reciprocal approach', fitnes, sample_shift))
-	curves.append(('Quality values', fitnes2, sample_shift+sample_shift2))
-	curves.append(('Derivative of Fitnes', fitnes3, sample_shift+sample_shift3))
-	curves.append(('Derivative times Fitnes', fitnes4, sample_shift+sample_shift3))
-	curves.append(('Reciprocal of Fitnes', fitnes5, sample_shift, (0, 5)))
-	curves.append(('Shifted (2) fitnes times derivative', fitnes6, sample_shift+fitnes_min_idx))
-	curves.append(('Shifted (1) fitnes times derivative', fitnes7, sample_shift+fitnes_min_idx))
+	curves.append(('Fitness function', fitnes, sample_shift))
+#	curves.append(('Quality values', fitnes2, sample_shift+sample_shift2))
+#	curves.append(('Derivative of fitnes function', fitnes3, sample_shift+sample_shift3))
+#	curves.append(('Derivative times Fitnes', fitnes4, sample_shift+sample_shift3))
+#	curves.append(('Reciprocal of Fitnes', fitnes5, sample_shift, (0, 5)))
+#	curves.append(('Shifted (2) fitnes times derivative', fitnes6, sample_shift+fitnes_min_idx))
+	curves.append(('Fitness function+1 times derivative of function', fitnes7, sample_shift+fitnes_min_idx))
 
 
 
