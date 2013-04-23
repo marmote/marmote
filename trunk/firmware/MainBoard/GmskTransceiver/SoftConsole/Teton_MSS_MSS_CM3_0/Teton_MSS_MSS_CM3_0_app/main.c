@@ -33,6 +33,9 @@ int main()
 	Joshua_init();
 	Teton_init();
 
+	MSS_GPIO_set_output(MSS_GPIO_LED1, 0);
+	MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
+
 	Max2830_set_frequency(2405000000uL);
 
 	set_mode(RADIO_RX_MODE);
