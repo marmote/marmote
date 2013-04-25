@@ -32,6 +32,7 @@ namespace gr {
       bool        d_debug;
       int         d_ctr;
       unsigned char d_msg[128];
+      int         d_msg_len;
       int         d_msg_offset;
 
      public:

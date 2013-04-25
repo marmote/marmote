@@ -42,7 +42,9 @@ namespace gr {
 		      gr_make_io_signature(0, 0, 0),
 		      gr_make_io_signature(1, 1, sizeof(uint8_t))),
           d_debug(debug),
-          d_ctr(0)
+          d_ctr(0),
+          d_msg_len(0),
+          d_msg_offset(0)
     {
         message_port_register_in(pmt::mp("in"));
 
@@ -111,6 +113,21 @@ namespace gr {
               //   }
               //   std::cout << std::endl;
 
+              // length
+              d_msg[7] = 0x07;
+
+              // Payload
+              for (int i = 0; i < 4; i++)
+              {
+                d_msg[8+i] = d_ctr++;
+              }
+
+              // CRC (dummy for now)
+              d_msg[8+4] = 0x00;
+              d_msg[8+5] = 0x00;
+
+              d_msg_len = 14;
+
               break;
           }
           else
@@ -119,25 +136,20 @@ namespace gr {
           }
         }
 
-        // length
-        d_msg[7] = 0x07;
+        int nout = std::min(d_msg_len - d_msg_offset, noutput_items);
+        memcpy(out, d_msg + d_msg_offset, nout);
 
-        // Payload
-        for (int i = 0; i < 4; i++)
-        {
-          d_msg[8+i] = d_ctr++;
+        d_msg_offset += nout;
+
+        if(d_msg_offset == d_msg_len) {
+          d_msg_offset = 0;
         }
-
-        // CRC (dummy for now)
-        d_msg[8+4] = 0x00;
-        d_msg[8+5] = 0x00;
-
-        int nout = std::min(14, noutput_items);
-        memcpy(out, d_msg, nout);
 
         if (d_debug)
         {
-          std::cout << "noutput_items: " << noutput_items << std::endl;
+          std::cout << "MAC: d_msg_offset/d_msg_len: " <<  d_msg_offset << "/" << d_msg_len <<
+            "   copied/requested: " << nout << "/" << noutput_items << std::endl;
+          // std::cout << "noutput_items: " << noutput_items << std::endl;
         }
 
         return nout;
