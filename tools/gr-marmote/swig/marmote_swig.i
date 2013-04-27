@@ -9,10 +9,11 @@
 
 %{
 #include "marmote/mac_framer_b.h"
+#include "marmote/gmsk_packet_sink_b.h"
 %}
 
-// Added manually:
-#include "mac_framer_b.i"
 
 %include "marmote/mac_framer_b.h"
 GR_SWIG_BLOCK_MAGIC2(marmote, mac_framer_b);
+%include "marmote/gmsk_packet_sink_b.h"
+GR_SWIG_BLOCK_MAGIC2(marmote, gmsk_packet_sink_b);
