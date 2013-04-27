@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<block>
+  <name>GMSK packet sink</name>
+  <key>marmote_gmsk_packet_sink_b</key>
+  <category>MarmotE</category>
+  <import>import marmote</import>
+  <!-- <make>marmote.gmsk_packet_sink_b()</make> -->
+  <make>marmote.gmsk_packet_sink_b($verbose)</make>
+
+  <param>
+    <name>Verbose</name>
+    <key>verbose</key>
+    <value>False</value>
+    <type>bool</type>
+    <option>
+        <name>Enable</name>
+        <key>True</key>
+    </option>
+    <option>
+        <name>Disable</name>
+        <key>False</key>
+    </option>
+  </param>
+
+  <sink>
+    <name>in</name>
+    <type>byte</type>
+    <nports>1</nports>
+  </sink>
+
+<!--   <source>
+    <name>dpu</name>
+    <type>message</type>
+  </source> -->
+</block>
