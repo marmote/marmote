@@ -26,6 +26,8 @@
 namespace gr {
   namespace marmote {
 
+    static const int MAX_PKT_LEN    = 127;
+
     class gmsk_packet_sink_b_impl : public gmsk_packet_sink_b
     {
      private:
@@ -34,10 +36,16 @@ namespace gr {
         uint32_t              d_sync_vector;            // 0x70eed2 b'011100001110111011010010'
         static const uint8_t  d_sync_vector_len = 24;   // bits
         uint32_t              d_shift_reg;
+        uint8_t               d_bit_cnt;
+        uint8_t               d_packet_len;
+        uint8_t               d_packet[MAX_PKT_LEN];    // without header
+        uint8_t               d_packet_byte_cnt;
         bool                  d_verbose;
 
         void enter_search(void);
         void enter_have_sync(void);
+        void enter_have_header(void);
+
 
 
      public:

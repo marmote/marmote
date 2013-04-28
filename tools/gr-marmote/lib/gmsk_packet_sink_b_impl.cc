@@ -68,6 +68,20 @@ namespace gr {
             std::cout << "@ enter_have_sync" << std::endl;
 
         d_state = STATE_HAVE_SYNC;
+        d_bit_cnt = 0;
+        d_shift_reg = 0;
+    }
+
+
+    void gmsk_packet_sink_b_impl::enter_have_header(void)
+    {
+        if (d_verbose)
+            std::cout << "@ enter_have_header" << std::endl;
+
+        d_state = STATE_HAVE_HEADER;
+        d_bit_cnt = 0;
+        d_shift_reg = 0;
+        d_packet_byte_cnt = 0;
     }
 
     int
@@ -88,12 +102,13 @@ namespace gr {
             switch(d_state) {
 
               case STATE_SYNC_SEARCH:
+
                 if (d_verbose)
-                    std::cout << ">>> SYNC SEARCH: ninput=" << ninput << " d_sync_vector=" << d_sync_vector << std::endl;
+                    std::cout << ">>> Entering SYNC SEARCH: ninput=" << ninput << " d_sync_vector=" << d_sync_vector << std::endl;
 
                 while (nprocd < ninput - d_sync_vector_len)
                 {
-                    std::cout << (unsigned int)in[nprocd] << " "; // << std::endl;
+                    // std::cout << (unsigned int)in[nprocd] << " "; // << std::endl;
 
                     d_shift_reg <<= 1;
                     d_shift_reg &= 0x00FFFFFF;
@@ -101,40 +116,113 @@ namespace gr {
                     if ( in[nprocd++] == 0 ) // FIXME: should be '!='
                         d_shift_reg |= 0x1uL;
 
-                    if (d_verbose)
-                        std::cout << nprocd << ": " << std::setfill('0') << std::setw(6) << std::hex
-                            << d_shift_reg << " ^ " << d_sync_vector << " = " << std::setw(6)
-                            << (d_shift_reg ^ d_sync_vector) << std::dec
-                            << " (" << nprocd << "/" << ninput << ")" << std::endl;
+                    // if (d_verbose)
+                    //     std::cout << nprocd << ": " << std::setfill('0') << std::setw(6) << std::hex
+                    //         << d_shift_reg << " ^ " << d_sync_vector << " = " << std::setw(6)
+                    //         << (d_shift_reg ^ d_sync_vector) << std::dec
+                    //         << " (" << nprocd << "/" << ninput << ")" << std::endl;
 
                     if ( (d_shift_reg ^ d_sync_vector) == 0 )
                     {
                         enter_have_sync();
-                        break; // while
+                        break; // while loop
                     }
                 }
                 break;
 
+
               case STATE_HAVE_SYNC:
+
                 if (d_verbose)
                 {
                     std::cout << ">>> Entering HAVE SYNC" << std::endl;
-                    std::cout << " (" << nprocd << "/" << ninput << ")" << std::endl;
-
-                    // while (nprocd < ninput - d_sync_vector_len)
-                    // {
-                    //     nprocd++;
-                    // }
-                    enter_search(); // FIXME: restart for now
                 }
 
+                while (nprocd < ninput - d_sync_vector_len)
+                {
+                    // std::cout << (unsigned int)in[nprocd] << " "; // << std::endl;
 
+                    d_shift_reg <<= 1;
+                    d_shift_reg &= 0xFF;
+
+                    if ( in[nprocd] == 0 ) // FIXME: should be '!='
+                        d_shift_reg |= 0x1uL;
+
+                    nprocd++;
+                    d_bit_cnt++;
+
+                    // std::cout << d_shift_reg << " (" << nprocd << "/" << ninput << ")" << std::endl;
+                    if (d_bit_cnt >= 8)
+                    {
+                        if ( d_shift_reg == 0x07) // Check header
+                        {
+                            if (d_verbose)
+                                std::cout << "Packet length: " << d_shift_reg << " OK" << std::endl;
+                            d_packet_len = d_shift_reg;
+                            enter_have_header();
+                        }
+                        else
+                        {
+                            if (d_verbose)
+                                std::cout << "Packet length: " << d_shift_reg << " ERROR" << std::endl;
+                            enter_search();
+                        }
+                        break;
+                    }
+                }
                 break;
+
 
               case STATE_HAVE_HEADER:
+
                 if (d_verbose)
                     std::cout << ">>> Entering HAVE HEADER" << std::endl;
+
+                while (nprocd < ninput - d_sync_vector_len)
+                {
+                    // if (d_verbose)
+                    //     std::cout << (unsigned int)in[nprocd] << " "; // << std::endl;
+
+                    d_shift_reg <<= 1;
+                    d_shift_reg &= 0xFF;
+
+                    if ( in[nprocd] == 0 ) // FIXME: should be '!='
+                        d_shift_reg |= 0x1uL;
+
+                    nprocd++;
+                    d_bit_cnt++;
+
+                    // if (d_verbose)
+                    //     std::cout << std::setfill('0') << std::setw(6) << std::hex << (unsigned int)d_shift_reg
+                    //         << " (" << nprocd << "/" << ninput << ")" << std::endl;
+
+                    if (d_bit_cnt >= 8)
+                    {
+                        // if (d_verbose)
+                        //     std::cout << "Byte " << (unsigned int)d_packet_byte_cnt << "/" << (unsigned int)(d_packet_len) << std::endl;
+
+                        d_packet[d_packet_byte_cnt++] = (uint8_t)(d_shift_reg & 0xFF);
+
+                        d_bit_cnt = 0;
+                        d_shift_reg = 0;
+
+                        if (d_packet_byte_cnt == d_packet_len-1)
+                        {
+                            if (d_verbose)
+                                std::cout << "Packet length: " << (unsigned int)d_packet_len << std::endl;
+                                std::cout << "Packet payload: ";
+                                for (int ii = 0; ii < d_packet_len-1 ; ii++)
+                                {
+                                    std::cout << std::setfill('0') << std::setw(2) << std::hex << (unsigned int)d_packet[ii] << " ";
+                                }
+                                std::cout << std::endl;
+                            enter_search();
+                            break;
+                        }
+                    }
+                }
                 break;
+
 
               default:
                 if (d_verbose)
