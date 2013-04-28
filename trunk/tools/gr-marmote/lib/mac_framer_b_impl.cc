@@ -93,7 +93,7 @@ namespace gr {
           // Handle strings only
           if (pmt::pmt_is_symbol(msg))
           {
-              std::cout << "MAC: received new message" << std::endl;
+              std::cout << "MAC: sending new message" << std::endl;
               // std::cout << "\"" << pmt::pmt_symbol_to_string(msg).data() << "\"" << std::endl;
               // std::cout << pmt::pmt_symbol_to_string(msg).length() << std::endl;
 
@@ -120,11 +120,13 @@ namespace gr {
               for (int i = 0; i < 4; i++)
               {
                 d_msg[8+i] = d_ctr++;
+                std::cout << std::setfill('0') << std::setw(2) << std::hex << (unsigned int)d_msg[8+i] << " ";
               }
+              std::cout << std::endl;
 
               // CRC (dummy for now)
-              d_msg[8+4] = 0x00;
-              d_msg[8+5] = 0x00;
+              d_msg[8+4] = 0xAB;
+              d_msg[8+5] = 0xCD;
 
               d_msg_len = 14;
 
