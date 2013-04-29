@@ -105,8 +105,9 @@ namespace gr {
 
               case STATE_SYNC_SEARCH:
 
-                if (d_verbose)
-                    std::cout << ">>> Entering SYNC SEARCH: ninput=" << ninput << " d_sync_vector=" << d_sync_vector << std::endl;
+                //if (d_verbose)
+                    // std::cout << ">>> Entering SYNC SEARCH: ninput=" << ninput << " d_sync_vector=" << d_sync_vector << std::endl;
+                    // std::cout << ">>> Entering SYNC SEARCH: ninput=" << ninput << std::endl;
 
                 while (nprocd < ninput - d_sync_vector_len)
                 {
@@ -136,9 +137,7 @@ namespace gr {
               case STATE_HAVE_SYNC:
 
                 if (d_verbose)
-                {
                     std::cout << ">>> Entering HAVE SYNC" << std::endl;
-                }
 
                 while (nprocd < ninput - d_sync_vector_len)
                 {
@@ -156,11 +155,11 @@ namespace gr {
                     // std::cout << d_shift_reg << " (" << nprocd << "/" << ninput << ")" << std::endl;
                     if (d_bit_cnt >= 8)
                     {
-                        if ( d_shift_reg == 0x07) // Check header
+                        if ( d_shift_reg == 0x06) // Check header
                         {
                             if (d_verbose)
                                 std::cout << "Packet length: " << d_shift_reg << " OK" << std::endl;
-                            d_packet_len = d_shift_reg - 1; // Exclude the 1-byte length field
+                            d_packet_len = d_shift_reg;
                             enter_have_header();
                         }
                         else
