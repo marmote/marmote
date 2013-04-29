@@ -53,15 +53,15 @@ namespace gr {
     {
         if (pmt::pmt_is_blob(pkt))
         {
-            size_t pkt_len = pmt::pmt_blob_length(pkt); // ? size_t ?
+            unsigned int pkt_len = pmt::pmt_blob_length(pkt);
             assert(pkt_len > 0 && pkt_len <= MAX_PKT_LEN);
 
             std::cout << "MAC: received packet [" << (unsigned int)pkt_len << "]" << std::endl;
             uint8_t* pkt_data = (uint8_t*)pmt::pmt_blob_data(pkt);
             for (int ii = 0; ii < pkt_len; ii++)
             {
-                // if ((ii > 0) && (ii % 8 == 0))
-                //     std::cout << std::endl;
+                if ((ii > 0) && (ii % 8 == 0))
+                    std::cout << std::endl;
                 std::cout << std::setfill('0') << std::setw(2) << std::hex << (unsigned int)pkt_data[ii] << " ";
             }
             std:: cout << std::endl;
