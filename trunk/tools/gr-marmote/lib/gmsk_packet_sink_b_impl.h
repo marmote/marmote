@@ -39,6 +39,7 @@ namespace gr {
         uint8_t               d_bit_cnt;
         uint8_t               d_packet_len;
         uint8_t               d_packet[MAX_PKT_LEN];    // without header
+        uint8_t               d_pmt_buf[MAX_PKT_LEN];
         uint8_t               d_packet_byte_cnt;
         bool                  d_verbose;
 

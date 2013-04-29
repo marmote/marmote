@@ -28,6 +28,7 @@ link_directories(${Boost_LIBRARY_DIRS})
 list(APPEND marmote_sources
     mac_framer_b_impl.cc
     gmsk_packet_sink_b_impl.cc
+    mac_deframer_impl.cc
 )
 
 add_library(gnuradio-marmote SHARED ${marmote_sources})

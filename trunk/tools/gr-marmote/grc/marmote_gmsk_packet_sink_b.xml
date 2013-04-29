@@ -28,8 +28,8 @@
     <nports>1</nports>
   </sink>
 
-<!--   <source>
-    <name>dpu</name>
+  <source>
+    <name>out</name>
     <type>message</type>
-  </source> -->
+  </source>
 </block>

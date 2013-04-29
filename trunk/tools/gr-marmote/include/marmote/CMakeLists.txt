@@ -23,5 +23,6 @@
 install(FILES
     api.h
     mac_framer_b.h
-    gmsk_packet_sink_b.h DESTINATION include/marmote
+    gmsk_packet_sink_b.h
+    mac_deframer.h DESTINATION include/marmote
 )

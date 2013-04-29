@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<block>
+  <name>Marmote MAC deframer</name>
+  <key>marmote_mac_deframer</key>
+  <category>MarmotE</category>
+  <import>import marmote</import>
+  <make>marmote.mac_deframer()</make>
+
+  <sink>
+      <name>in</name>
+      <type>message</type>
+  </sink>
+
+<!--   <source>
+    <name>out</name>
+    <type>message</type>
+  </source>
+ -->
+</block>

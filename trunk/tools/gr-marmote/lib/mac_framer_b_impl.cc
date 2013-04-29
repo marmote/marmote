@@ -90,29 +90,8 @@ namespace gr {
             return -1;
           }
 
-          // Handle strings only
           if (pmt::pmt_is_symbol(msg))
           {
-              std::cout << "MAC: sending new message" << std::endl;
-              // std::cout << "\"" << pmt::pmt_symbol_to_string(msg).data() << "\"" << std::endl;
-              // std::cout << pmt::pmt_symbol_to_string(msg).length() << std::endl;
-
-              // blob = pmt::pmt_make_blob(
-              //   pmt::pmt_symbol_to_string(msg).data(),
-              //   pmt::pmt_symbol_to_string(msg).length());
-
-              // std::cout << "blob length: " << pmt::pmt_blob_length(blob) << std::endl;
-              // std::cout << "blob data:   " << std::endl;
-
-              //   for (int i = 0; i < pmt::pmt_blob_length(blob); i++)
-              //   {
-              //     std::cout << std::setfill('0') << std::setw(2) << std::hex << (*((const char*)pmt::pmt_blob_data(blob)+i) & 0xFF) << std::dec << " ";
-              //     if(i % 16 == 15) {
-              //       std::cout << std::endl;
-              //     }
-              //   }
-              //   std::cout << std::endl;
-
               // length
               d_msg[7] = 0x07;
 
@@ -120,9 +99,7 @@ namespace gr {
               for (int i = 0; i < 4; i++)
               {
                 d_msg[8+i] = d_ctr++;
-                std::cout << std::setfill('0') << std::setw(2) << std::hex << (unsigned int)d_msg[8+i] << " ";
               }
-              std::cout << std::endl;
 
               // CRC (dummy for now)
               d_msg[8+4] = 0xAB;
@@ -130,10 +107,21 @@ namespace gr {
 
               d_msg_len = 14;
 
+              if (1)
+              {
+                std::cout << "MAC: sending packet [" << (unsigned int)d_msg[7]-1 << "]" << std::endl;
+                for (int i = 0; i < d_msg[7]-1; i++)
+                {
+                  std::cout << std::setfill('0') << std::setw(2) << std::hex << (unsigned int)d_msg[8+i] << " ";
+                }
+                std::cout << std::endl;
+              }
+
               break;
           }
           else
           {
+            std::cout << "@mac_framer_b_impl::general_work: unexpected PMT type" << std::endl;
             assert(false);
           }
         }
@@ -147,12 +135,12 @@ namespace gr {
           d_msg_offset = 0;
         }
 
-        if (d_debug)
-        {
-          std::cout << "MAC: d_msg_offset/d_msg_len: " <<  d_msg_offset << "/" << d_msg_len <<
-            "   copied/requested: " << nout << "/" << noutput_items << std::endl;
-          // std::cout << "noutput_items: " << noutput_items << std::endl;
-        }
+        // if (d_debug)
+        // {
+        //   std::cout << "MAC: d_msg_offset/d_msg_len: " <<  d_msg_offset << "/" << d_msg_len <<
+        //     "   copied/requested: " << nout << "/" << noutput_items << std::endl;
+        //   // std::cout << "noutput_items: " << noutput_items << std::endl;
+        // }
 
         return nout;
     }
