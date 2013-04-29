@@ -19,5 +19,6 @@
 
 install(FILES
     marmote_mac_framer_b.xml
-    marmote_gmsk_packet_sink_b.xml DESTINATION share/gnuradio/grc/blocks
+    marmote_gmsk_packet_sink_b.xml
+    marmote_mac_deframer.xml DESTINATION share/gnuradio/grc/blocks
 )

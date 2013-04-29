@@ -47,6 +47,8 @@ namespace gr {
         d_verbose(verbose)
     {
       set_history(d_sync_vector_len);
+      enter_search();
+      message_port_register_out(pmt::mp("out"));
     }
 
     gmsk_packet_sink_b_impl::~gmsk_packet_sink_b_impl()
@@ -158,7 +160,7 @@ namespace gr {
                         {
                             if (d_verbose)
                                 std::cout << "Packet length: " << d_shift_reg << " OK" << std::endl;
-                            d_packet_len = d_shift_reg;
+                            d_packet_len = d_shift_reg - 1; // Exclude the 1-byte length field
                             enter_have_header();
                         }
                         else
@@ -206,16 +208,23 @@ namespace gr {
                         d_bit_cnt = 0;
                         d_shift_reg = 0;
 
-                        if (d_packet_byte_cnt == d_packet_len-1)
+                        if (d_packet_byte_cnt == d_packet_len)
                         {
                             if (d_verbose)
+                            {
+                                std::cout << "Adding packet to the queue..." << std::endl;
                                 std::cout << "Packet length: " << (unsigned int)d_packet_len << std::endl;
                                 std::cout << "Packet payload: ";
-                                for (int ii = 0; ii < d_packet_len-1 ; ii++)
+                                for (int ii = 0; ii < d_packet_len ; ii++)
                                 {
                                     std::cout << std::setfill('0') << std::setw(2) << std::hex << (unsigned int)d_packet[ii] << " ";
                                 }
                                 std::cout << std::endl;
+                            }
+
+                            std::memcpy(d_pmt_buf, d_packet, d_packet_len);
+                            message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_pmt_buf, d_packet_len));
+
                             enter_search();
                             break;
                         }
@@ -226,13 +235,13 @@ namespace gr {
 
               default:
                 if (d_verbose)
-                std::cout << ">>> Invalid state" << std::endl;
+                    std::cout << ">>> Invalid state" << std::endl;
+                assert(false);
                 break;
             }
         }
 
-
-        consume_each (nprocd);
+        consume_each(nprocd);
 
         return 0;
     }
