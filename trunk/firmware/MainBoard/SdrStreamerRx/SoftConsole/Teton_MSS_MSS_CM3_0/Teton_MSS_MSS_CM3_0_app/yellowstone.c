@@ -54,7 +54,7 @@ void Yellowstone_print( const char* data )
 	Yellowstone_write( '\n', 1 );
 }
 
-void GPIO2_IRQHandler( void ) // TODO: rename to SPI_0_IRQHandler
+void GPIO28_IRQHandler( void ) // TODO: rename to SPI_0_IRQHandler
 {
 	MSS_SPI_set_slave_select( &g_mss_spi0, MSS_SPI_SLAVE_0 );
 	rx_data = MSS_SPI_transfer_frame( &g_mss_spi0, '.' );
