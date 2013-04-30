@@ -46,7 +46,7 @@ namespace gr {
        * class. marmote::gmsk_packet_sink_b::make is the public interface for
        * creating new instances.
        */
-      static sptr make(bool verbose = true);
+      static sptr make(bool debug = true);
     };
 
   } // namespace marmote

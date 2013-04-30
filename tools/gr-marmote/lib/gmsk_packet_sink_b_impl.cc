@@ -32,19 +32,19 @@ namespace gr {
   namespace marmote {
 
     gmsk_packet_sink_b::sptr
-    gmsk_packet_sink_b::make(bool verbose)
+    gmsk_packet_sink_b::make(bool debug)
     {
-      return gnuradio::get_initial_sptr (new gmsk_packet_sink_b_impl(verbose));
+      return gnuradio::get_initial_sptr (new gmsk_packet_sink_b_impl(debug));
     }
 
-    gmsk_packet_sink_b_impl::gmsk_packet_sink_b_impl(bool verbose)
+    gmsk_packet_sink_b_impl::gmsk_packet_sink_b_impl(bool debug)
       : gr_block("gmsk_packet_sink_b",
 		      gr_make_io_signature(1, 1, sizeof(uint8_t)),
 		      gr_make_io_signature(0, 0, 0)),
         d_state(STATE_SYNC_SEARCH),
         d_sync_vector(0x70EED2uL),
         d_shift_reg(0x0uL),
-        d_verbose(verbose)
+        d_debug(debug)
     {
       set_history(d_sync_vector_len);
       enter_search();
@@ -57,7 +57,7 @@ namespace gr {
 
     void gmsk_packet_sink_b_impl::enter_search(void)
     {
-        if (d_verbose)
+        if (d_debug)
             std::cout << "@ enter_search" << std::endl;
 
         d_state = STATE_SYNC_SEARCH;
@@ -66,7 +66,7 @@ namespace gr {
 
     void gmsk_packet_sink_b_impl::enter_have_sync(void)
     {
-        if (d_verbose)
+        if (d_debug)
             std::cout << "@ enter_have_sync" << std::endl;
 
         d_state = STATE_HAVE_SYNC;
@@ -77,7 +77,7 @@ namespace gr {
 
     void gmsk_packet_sink_b_impl::enter_have_header(void)
     {
-        if (d_verbose)
+        if (d_debug)
             std::cout << "@ enter_have_header" << std::endl;
 
         d_state = STATE_HAVE_HEADER;
@@ -98,14 +98,14 @@ namespace gr {
 
         while ( nprocd < ninput - d_sync_vector_len )
         {
-            // if (d_verbose)
+            // if (d_debug)
             //   std::cout << ">>> Entering state machine" << std::endl;
 
             switch(d_state) {
 
               case STATE_SYNC_SEARCH:
 
-                //if (d_verbose)
+                //if (d_debug)
                     // std::cout << ">>> Entering SYNC SEARCH: ninput=" << ninput << " d_sync_vector=" << d_sync_vector << std::endl;
                     // std::cout << ">>> Entering SYNC SEARCH: ninput=" << ninput << std::endl;
 
@@ -119,7 +119,7 @@ namespace gr {
                     if ( in[nprocd++] == 0 ) // FIXME: should be '!='
                         d_shift_reg |= 0x1uL;
 
-                    // if (d_verbose)
+                    // if (d_debug)
                     //     std::cout << nprocd << ": " << std::setfill('0') << std::setw(6) << std::hex
                     //         << d_shift_reg << " ^ " << d_sync_vector << " = " << std::setw(6)
                     //         << (d_shift_reg ^ d_sync_vector) << std::dec
@@ -136,7 +136,7 @@ namespace gr {
 
               case STATE_HAVE_SYNC:
 
-                if (d_verbose)
+                if (d_debug)
                     std::cout << ">>> Entering HAVE SYNC" << std::endl;
 
                 while (nprocd < ninput - d_sync_vector_len)
@@ -157,14 +157,14 @@ namespace gr {
                     {
                         if ( d_shift_reg == 0x06) // Check header
                         {
-                            if (d_verbose)
+                            if (d_debug)
                                 std::cout << "Packet length: " << d_shift_reg << " OK" << std::endl;
                             d_packet_len = d_shift_reg;
                             enter_have_header();
                         }
                         else
                         {
-                            if (d_verbose)
+                            if (d_debug)
                                 std::cout << "Packet length: " << d_shift_reg << " ERROR" << std::endl;
                             enter_search();
                         }
@@ -176,12 +176,12 @@ namespace gr {
 
               case STATE_HAVE_HEADER:
 
-                if (d_verbose)
+                if (d_debug)
                     std::cout << ">>> Entering HAVE HEADER" << std::endl;
 
                 while (nprocd < ninput - d_sync_vector_len)
                 {
-                    // if (d_verbose)
+                    // if (d_debug)
                     //     std::cout << (unsigned int)in[nprocd] << " "; // << std::endl;
 
                     d_shift_reg <<= 1;
@@ -193,13 +193,13 @@ namespace gr {
                     nprocd++;
                     d_bit_cnt++;
 
-                    // if (d_verbose)
+                    // if (d_debug)
                     //     std::cout << std::setfill('0') << std::setw(6) << std::hex << (unsigned int)d_shift_reg
                     //         << " (" << nprocd << "/" << ninput << ")" << std::endl;
 
                     if (d_bit_cnt >= 8)
                     {
-                        // if (d_verbose)
+                        // if (d_debug)
                         //     std::cout << "Byte " << (unsigned int)d_packet_byte_cnt << "/" << (unsigned int)(d_packet_len) << std::endl;
 
                         d_packet[d_packet_byte_cnt++] = (uint8_t)(d_shift_reg & 0xFF);
@@ -209,7 +209,7 @@ namespace gr {
 
                         if (d_packet_byte_cnt == d_packet_len)
                         {
-                            if (d_verbose)
+                            if (d_debug)
                             {
                                 std::cout << "Adding packet to the queue..." << std::endl;
                                 std::cout << "Packet length: " << (unsigned int)d_packet_len << std::endl;
@@ -233,7 +233,7 @@ namespace gr {
 
 
               default:
-                if (d_verbose)
+                if (d_debug)
                     std::cout << ">>> Invalid state" << std::endl;
                 assert(false);
                 break;

@@ -46,7 +46,7 @@ namespace gr {
        * class. marmote::mac_deframer::make is the public interface for
        * creating new instances.
        */
-      static sptr make();
+      static sptr make(bool debug);
     };
 
   } // namespace marmote
