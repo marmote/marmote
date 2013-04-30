@@ -44,7 +44,9 @@ namespace gr {
           d_debug(debug),
           d_ctr(0),
           d_msg_len(0),
-          d_msg_offset(0)
+          d_msg_offset(0),
+		  d_seq_num(0),
+		  d_dst_addr(0)
     {
         message_port_register_in(pmt::mp("in"));
 
@@ -62,12 +64,6 @@ namespace gr {
 
     mac_framer_b_impl::~mac_framer_b_impl()
     {
-    }
-
-    void
-    mac_framer_b_impl::forecast (int noutput_items, gr_vector_int &ninput_items_required)
-    {
-        /* <+forecast+> e.g. ninput_items_required[0] = noutput_items */
     }
 
     int
@@ -93,24 +89,28 @@ namespace gr {
           if (pmt::pmt_is_symbol(msg))
           {
               // length
-              d_msg[7] = 0x07;
+              d_msg[7] = 0x06;
 
-              // Payload
-              for (int i = 0; i < 4; i++)
-              {
-                d_msg[8+i] = d_ctr++;
-              }
+              // Sequence number
+			  d_seq_num++;
+			  d_msg[8] = (d_seq_num >> 8) & 0xFF;
+			  d_msg[9] = (d_seq_num >> 0) & 0xFF;
+
+			  // Address
+			  d_dst_addr = (d_dst_addr + 1) % 2;
+			  d_msg[10] = (d_dst_addr >> 8) & 0xFF;
+			  d_msg[11] = (d_dst_addr >> 0) & 0xFF;
 
               // CRC (dummy for now)
-              d_msg[8+4] = 0xAB;
-              d_msg[8+5] = 0xCD;
+              d_msg[12] = 0xAB;
+              d_msg[13] = 0xCD;
 
               d_msg_len = 14;
 
               if (1)
               {
-                std::cout << "MAC: sending packet [" << (unsigned int)d_msg[7]-1 << "]" << std::endl;
-                for (int i = 0; i < d_msg[7]-1; i++)
+                std::cout << "MAC: sending packet [" << (unsigned int)d_msg[7] << "]" << std::endl;
+                for (int i = 0; i < d_msg[7]; i++)
                 {
                   std::cout << std::setfill('0') << std::setw(2) << std::hex << (unsigned int)d_msg[8+i] << " ";
                 }

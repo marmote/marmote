@@ -31,15 +31,16 @@ namespace gr {
   namespace marmote {
 
     mac_deframer::sptr
-    mac_deframer::make()
+    mac_deframer::make(bool debug)
     {
-      return gnuradio::get_initial_sptr (new mac_deframer_impl());
+      return gnuradio::get_initial_sptr (new mac_deframer_impl(debug));
     }
 
-    mac_deframer_impl::mac_deframer_impl()
+    mac_deframer_impl::mac_deframer_impl(bool debug)
       : gr_block("mac_deframer",
 		      gr_make_io_signature(0, 0, 0),
-		      gr_make_io_signature(0, 0, 0))
+		      gr_make_io_signature(0, 0, 0)),
+			  d_debug(debug)
     {
         message_port_register_in(pmt::mp("in"));
         set_msg_handler(pmt::mp("in"), boost::bind(&mac_deframer_impl::pkt_handler, this, _1));
@@ -56,19 +57,23 @@ namespace gr {
             unsigned int pkt_len = pmt::pmt_blob_length(pkt);
             assert(pkt_len > 0 && pkt_len <= MAX_PKT_LEN);
 
-            std::cout << "MAC: received packet [" << (unsigned int)pkt_len << "]" << std::endl;
-            uint8_t* pkt_data = (uint8_t*)pmt::pmt_blob_data(pkt);
-            for (int ii = 0; ii < pkt_len; ii++)
-            {
-                if ((ii > 0) && (ii % 8 == 0))
-                    std::cout << std::endl;
-                std::cout << std::setfill('0') << std::setw(2) << std::hex << (unsigned int)pkt_data[ii] << " ";
-            }
-            std:: cout << std::endl;
+			if (d_debug)
+			{
+				std::cout << "MAC: received packet [" << (unsigned int)pkt_len << "]" << std::endl;
+				uint8_t* pkt_data = (uint8_t*)pmt::pmt_blob_data(pkt);
+				for (int ii = 0; ii < pkt_len; ii++)
+				{
+					if ((ii > 0) && (ii % 8 == 0))
+						std::cout << std::endl;
+					std::cout << std::setfill('0') << std::setw(2) << std::hex << (unsigned int)pkt_data[ii] << " ";
+				}
+				std:: cout << std::endl;
+			}
         }
         else
         {
-            std::cout << "@MAC deframer: unexpected PMT type received" << std::endl;
+			if (d_debug)
+				std::cout << "@MAC deframer: unexpected PMT type received" << std::endl;
             assert(false);
         }
     }

@@ -4,11 +4,27 @@
   <key>marmote_mac_deframer</key>
   <category>MarmotE</category>
   <import>import marmote</import>
-  <make>marmote.mac_deframer()</make>
+  <make>marmote.mac_deframer($debug)</make>
+
+  <param>
+	  <name>Debug</name>
+	  <key>debug</key>
+	  <value>False</value>
+	  <type>bool</type>
+
+	  <option>
+	  <name>Enable</name>
+	  <key>True</key>
+	  </option>
+	  <option>
+	  <name>Disable</name>
+	  <key>False</key>
+	  </option>
+  </param>
 
   <sink>
-      <name>in</name>
-      <type>message</type>
+  <name>in</name>
+  <type>message</type>
   </sink>
 
 <!--   <source>

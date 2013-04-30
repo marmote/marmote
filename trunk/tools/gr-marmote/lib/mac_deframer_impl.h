@@ -31,9 +31,10 @@ namespace gr {
     class mac_deframer_impl : public mac_deframer
     {
      private:
+	 bool d_debug;
 
      public:
-      mac_deframer_impl();
+      mac_deframer_impl(bool debug);
       ~mac_deframer_impl();
       void pkt_handler(pmt::pmt_t pkt);
     };

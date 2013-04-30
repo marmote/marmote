@@ -29,18 +29,19 @@ namespace gr {
     class mac_framer_b_impl : public mac_framer_b
     {
      private:
-      bool        d_debug;
-      int         d_ctr;
+      bool			d_debug;
+      int			d_ctr;
       unsigned char d_msg[128];
-      int         d_msg_len;
-      int         d_msg_offset;
+      int			d_msg_len;
+      int			d_msg_offset;
+
+	  // MAC header
+	  uint16_t		d_seq_num;
+	  uint16_t		d_dst_addr;
 
      public:
       mac_framer_b_impl(bool debug);
       ~mac_framer_b_impl();
-
-      // Where all the action really happens
-      void forecast (int noutput_items, gr_vector_int &ninput_items_required);
 
       int general_work(int noutput_items,
 		       gr_vector_int &ninput_items,
