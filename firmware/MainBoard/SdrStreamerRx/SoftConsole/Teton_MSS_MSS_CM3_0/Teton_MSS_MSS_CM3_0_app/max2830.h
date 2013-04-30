@@ -51,16 +51,12 @@
 #include <mss_ace.h>
 
 #define MSS_GPIO_SHDN       	MSS_GPIO_3		// Shutdown (active-low)
-#define MSS_GPIO_RXHP       	MSS_GPIO_4		// Receiver Baseband AC-Coupling High-Pass Corner Frequency
-#define MSS_GPIO_ANTSEL     	MSS_GPIO_5		// Antenna Selection
 #define MSS_GPIO_LD         	MSS_GPIO_6		// Lock-Detect
-#define MSS_GPIO_RXTX       	MSS_GPIO_28		// Rx/Tx Mode (Rx = 0, Tx = 1)
+#define MSS_GPIO_RXTX       	MSS_GPIO_2		// Rx/Tx Mode (Rx = 0, Tx = 1)
 
 #define MSS_GPIO_SHDN_MASK      MSS_GPIO_3_MASK
-#define MSS_GPIO_RXHP_MASK      MSS_GPIO_4_MASK
-#define MSS_GPIO_ANTSEL_MASK    MSS_GPIO_5_MASK
 #define MSS_GPIO_LD_MASK		MSS_GPIO_6_MASK
-#define MSS_GPIO_RXTX_MASK      MSS_GPIO_28_MASK
+#define MSS_GPIO_RXTX_MASK      MSS_GPIO_2_MASK
 
 #define LO_FREQUENCY			20000000uL		// Frequency of the TCXO on the Joshua board
 
@@ -120,11 +116,11 @@ static uint16_t max2830_regs[16] =
 		0x3666,
 		0x00A0,
 		0x0060,
-		0x0022,
+		0x1022, // R7: RXHP 4 kHz
 		0x3021,
 		0x07B5,
 		0x1DA4,
-		0x005F,
+		0x004A, // R11[6:5] LNA medium, R11[4:0] 20 dB
 		0x0140,
 		0x0E92,
 		0x0300,
@@ -428,7 +424,7 @@ uint32_t Max2830_get_rx_bandwidth( void );
  *
  *       The receive path incorporates a high-pass filter with cut-off frequency
  *       programmable to 100 Hz, 4 kHz, 30 kHz and 600 kHz. This value is fixed
- *       at 100 Hz by default.
+ *       at 4 kHz by default.
  *
  * @param
  *   The requested receive baseband low-pass filter cut-off frequency in Hz.

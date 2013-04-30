@@ -24,9 +24,8 @@ static int default_dev;
 
 #define BITS_PER_SAMPLE 16
 #define NUMBER_OF_CHANNELS 2
-//#define SAMPLE_RATE 44100
-#define SAMPLE_RATE 1000
-#define MAX_SAMPLE_LEN 1048576 // 2^20 samples (1 Msamples)
+#define SAMPLE_RATE 2000
+#define MAX_SAMPLE_LEN (4*1048576) // 2^20 samples (1 Msamples)
 //#define MAX_SAMPLE_LEN (1048576/2) // 2^20 samples (1 Msamples)
 #define MAX_RAW_BYTE_LEN (NUMBER_OF_CHANNELS * MAX_SAMPLE_LEN * (BITS_PER_SAMPLE/8))
 
@@ -95,7 +94,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		printf("Usage: %s", progname);
 		arg_print_syntax(stdout, argtable, "\n");
-		printf("Fast recorder program to download shot data from BHDetector sensors.\n");
+		printf("Fast recorder program to capture the received data by the Marmote Teton board.\n");
 		arg_print_glossary(stdout, argtable,"  %-25s %s\n");
 		printf("\nAvailable FTDI devices:\n\n");
 		list_ft_devices();

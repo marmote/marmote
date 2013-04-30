@@ -13,9 +13,9 @@
 #include <stdio.h>
 #include <string.h>
 
-#define MSS_GPIO_SPI_0_IT    	MSS_GPIO_2		// SPI0 slave interrupt from Yellowstone
-#define MSS_GPIO_SPI_0_IT_MASK	MSS_GPIO_2_MASK
-#define MSS_GPIO_SPI_0_IT_IRQn  GPIO2_IRQn
+#define MSS_GPIO_SPI_0_IT    	MSS_GPIO_28		// SPI0 slave interrupt from Yellowstone
+#define MSS_GPIO_SPI_0_IT_MASK	MSS_GPIO_28_MASK
+#define MSS_GPIO_SPI_0_IT_IRQn  GPIO28_IRQn
 
 uint8_t spi_cmd_length;
 
