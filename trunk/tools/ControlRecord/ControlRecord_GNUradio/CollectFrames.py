@@ -45,7 +45,7 @@ class Top_Block(gr.top_block):
         self.gr_float_to_short_0 = gr.float_to_short(1, 32768)
         self.gr_float_to_short_1 = gr.float_to_short(1, 32768)
 
-        self.gr_threshold = tct.two_channel_threshold_ssss(32113, 600, 500)
+        self.gr_threshold = tct.two_channel_threshold_ssss(983, 600, 500)
 
         self.gr_interleave = gr.interleave(gr.sizeof_short*1)
 
