@@ -29,6 +29,7 @@ list(APPEND marmote_sources
     mac_framer_b_impl.cc
     gmsk_packet_sink_b_impl.cc
     mac_deframer_impl.cc
+    traffic_generator_impl.cc
 )
 
 add_library(gnuradio-marmote SHARED ${marmote_sources})
@@ -54,6 +55,7 @@ include_directories(${CPPUNIT_INCLUDE_DIRS})
 list(APPEND test_marmote_sources
     ${CMAKE_CURRENT_SOURCE_DIR}/test_marmote.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/qa_marmote.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/qa_traffic_generator.cc
 )
 
 add_executable(test-marmote ${test_marmote_sources})

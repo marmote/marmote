@@ -72,8 +72,6 @@ namespace gr {
                        gr_vector_const_void_star &input_items,
                        gr_vector_void_star &output_items)
     {
-        const char *a;
-
         pmt::pmt_t blob;
         float *out = (float *) output_items[0];
 
@@ -93,21 +91,23 @@ namespace gr {
 
               // Sequence number
 			  d_seq_num++;
-			  d_msg[8] = (d_seq_num >> 8) & 0xFF;
-			  d_msg[9] = (d_seq_num >> 0) & 0xFF;
+			  d_msg[8] = d_seq_num >> 8;
+			  d_msg[9] = d_seq_num & 0xFF;
 
 			  // Address
 			  d_dst_addr = (d_dst_addr + 1) % 2;
 			  d_msg[10] = (d_dst_addr >> 8) & 0xFF;
 			  d_msg[11] = (d_dst_addr >> 0) & 0xFF;
 
-              // CRC (dummy for now)
-              d_msg[12] = 0xAB;
-              d_msg[13] = 0xCD;
+			  // CRC
+			  uint16_t crc = crc16(d_msg + 8, 4);
 
+			  d_msg[12] = crc >> 8;
+			  d_msg[13] = crc & 0xFF;
+			  
               d_msg_len = 14;
 
-              if (1)
+              if (d_debug)
               {
                 std::cout << "MAC: sending packet [" << (unsigned int)d_msg[7] << "]" << std::endl;
                 for (int i = 0; i < d_msg[7]; i++)
@@ -144,6 +144,24 @@ namespace gr {
 
         return nout;
     }
+
+	uint16_t mac_framer_b_impl::crc16(unsigned char *buf, int len) {
+		uint16_t crc = 0;
+
+		for(int i = 0; i < len; i++) {
+			for(int k = 0; k < 8; k++) {
+				int input_bit = (!!(buf[i] & (1 << k)) ^ (crc & 1));
+				crc = crc >> 1;
+				if(input_bit) {
+					crc ^= (1 << 15);
+					crc ^= (1 << 10);
+					crc ^= (1 <<  3);
+				}
+			}
+		}
+
+		return crc;
+	}
 
   } /* namespace marmote */
 } /* namespace gr */

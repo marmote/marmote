@@ -26,11 +26,13 @@
  */
 
 #include "qa_marmote.h"
+#include "qa_traffic_generator.h"
 
 CppUnit::TestSuite *
 qa_marmote::suite()
 {
   CppUnit::TestSuite *s = new CppUnit::TestSuite("marmote");
+  s->addTest(gr::marmote::qa_traffic_generator::suite());
 
   return s;
 }

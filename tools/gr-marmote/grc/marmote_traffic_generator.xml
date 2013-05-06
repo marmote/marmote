@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<block>
+  <name>Traffic Generator</name>
+  <key>marmote_traffic_generator</key>
+  <category>MarmotE</category>
+  <import>import marmote</import>
+  <make>marmote.traffic_generator()</make>
+  <sink>
+    <name>in</name>
+    <type>complex</type>
+  </sink>
+
+  <source>
+    <name>out</name>
+    <type>complex</type>
+  </source>
+</block>
