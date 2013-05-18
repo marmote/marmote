@@ -42,6 +42,7 @@ namespace gr {
         uint8_t               d_pmt_buf[MAX_PKT_LEN];
         uint8_t               d_packet_byte_cnt;
         bool                  d_debug;
+        bool                  d_polarity;
 
         void enter_search(void);
         void enter_have_sync(void);
@@ -50,7 +51,7 @@ namespace gr {
 
 
      public:
-        gmsk_packet_sink_b_impl(bool debug);
+        gmsk_packet_sink_b_impl(bool debug, bool polarity);
         ~gmsk_packet_sink_b_impl();
 
       int general_work(int noutput_items,
