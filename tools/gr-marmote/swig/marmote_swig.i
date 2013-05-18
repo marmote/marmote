@@ -12,6 +12,7 @@
 #include "marmote/gmsk_packet_sink_b.h"
 #include "marmote/mac_deframer.h"
 #include "marmote/traffic_generator.h"
+#include "marmote/ds_spreader_bb.h"
 %}
 
 
@@ -23,3 +24,6 @@ GR_SWIG_BLOCK_MAGIC2(marmote, gmsk_packet_sink_b);
 GR_SWIG_BLOCK_MAGIC2(marmote, mac_deframer);
 %include "marmote/traffic_generator.h"
 GR_SWIG_BLOCK_MAGIC2(marmote, traffic_generator);
+
+%include "marmote/ds_spreader_bb.h"
+GR_SWIG_BLOCK_MAGIC2(marmote, ds_spreader_bb);

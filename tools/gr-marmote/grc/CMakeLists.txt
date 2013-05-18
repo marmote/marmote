@@ -16,10 +16,10 @@
 # along with GNU Radio; see the file COPYING.  If not, write to
 # the Free Software Foundation, Inc., 51 Franklin Street,
 # Boston, MA 02110-1301, USA.
-
 install(FILES
     marmote_mac_framer_b.xml
     marmote_gmsk_packet_sink_b.xml
     marmote_mac_deframer.xml
-    marmote_traffic_generator.xml DESTINATION share/gnuradio/grc/blocks
+    marmote_traffic_generator.xml
+    marmote_ds_spreader_bb.xml DESTINATION share/gnuradio/grc/blocks
 )

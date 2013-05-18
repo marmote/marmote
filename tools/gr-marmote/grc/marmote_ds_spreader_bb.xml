@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<block>
+  <name>DS spreader</name>
+  <key>marmote_ds_spreader_bb</key>
+  <category>MarmotE</category>
+  <import>import marmote</import>
+  <make>marmote.ds_spreader_bb($sf)</make>
+
+  <param>
+    <name>Spreading factor</name>
+    <key>sf</key>
+    <type>int</type>
+  </param>
+
+  <sink>
+    <name>in</name>
+    <type>byte</type>
+  </sink>
+
+  <source>
+    <name>out</name>
+    <type>byte</type>
+  </source>
+
+</block>
