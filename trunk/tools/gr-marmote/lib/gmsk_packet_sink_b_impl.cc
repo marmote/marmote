@@ -32,19 +32,20 @@ namespace gr {
   namespace marmote {
 
     gmsk_packet_sink_b::sptr
-    gmsk_packet_sink_b::make(bool debug)
+    gmsk_packet_sink_b::make(bool debug, bool polarity)
     {
-      return gnuradio::get_initial_sptr (new gmsk_packet_sink_b_impl(debug));
+      return gnuradio::get_initial_sptr (new gmsk_packet_sink_b_impl(debug, polarity));
     }
 
-    gmsk_packet_sink_b_impl::gmsk_packet_sink_b_impl(bool debug)
+    gmsk_packet_sink_b_impl::gmsk_packet_sink_b_impl(bool debug, bool polarity)
       : gr_block("gmsk_packet_sink_b",
 		      gr_make_io_signature(1, 1, sizeof(uint8_t)),
 		      gr_make_io_signature(0, 0, 0)),
         d_state(STATE_SYNC_SEARCH),
         d_sync_vector(0x70EED2uL),
         d_shift_reg(0x0uL),
-        d_debug(debug)
+        d_debug(debug),
+        d_polarity(polarity)
     {
       set_history(d_sync_vector_len);
       enter_search();
@@ -96,28 +97,32 @@ namespace gr {
         int ninput = ninput_items[0];
         int nprocd = 0; // number of processed input samples
 
-        while ( nprocd < ninput - d_sync_vector_len )
+        while (nprocd < ninput)
         {
             // if (d_debug)
-            //   std::cout << ">>> Entering state machine" << std::endl;
+            //   std::cout << ">>> Entering state machine (" << nprocd << "/" << ninput << ")" << std::endl;
 
             switch(d_state) {
 
               case STATE_SYNC_SEARCH:
 
-                //if (d_debug)
-                    // std::cout << ">>> Entering SYNC SEARCH: ninput=" << ninput << " d_sync_vector=" << d_sync_vector << std::endl;
-                    // std::cout << ">>> Entering SYNC SEARCH: ninput=" << ninput << std::endl;
+                // if (d_debug)
+                //     std::cout << ">>> Entering SYNC SEARCH" << std::endl;
 
-                while (nprocd < ninput - d_sync_vector_len)
+                while (nprocd < ninput)
                 {
                     // std::cout << (unsigned int)in[nprocd] << " "; // << std::endl;
 
                     d_shift_reg <<= 1;
                     d_shift_reg &= 0x00FFFFFF;
 
-                    if ( in[nprocd++] == 0 ) // FIXME: should be '!='
-                        d_shift_reg |= 0x1uL;
+                    if ( in[nprocd++] != 0 )
+                    {
+                        // if (d_polarity)
+                            d_shift_reg |= 0x1uL;
+                        // else
+                            // d_shift_reg &= ~0x1uL;
+                    }
 
                     // if (d_debug)
                     //     std::cout << nprocd << ": " << std::setfill('0') << std::setw(6) << std::hex
@@ -136,23 +141,28 @@ namespace gr {
 
               case STATE_HAVE_SYNC:
 
-                if (d_debug)
-                    std::cout << ">>> Entering HAVE SYNC" << std::endl;
+                // if (d_debug)
+                //     std::cout << ">>> Entering HAVE SYNC" << std::endl;
 
-                while (nprocd < ninput - d_sync_vector_len)
+                while (nprocd < ninput)
                 {
                     // std::cout << (unsigned int)in[nprocd] << " "; // << std::endl;
 
                     d_shift_reg <<= 1;
                     d_shift_reg &= 0xFF;
 
-                    if ( in[nprocd] == 0 ) // FIXME: should be '!='
-                        d_shift_reg |= 0x1uL;
+                    if ( in[nprocd++] != 0 )
+                    {
+                        // if (d_polarity)
+                            d_shift_reg |= 0x1uL;
+                        // else
+                            // d_shift_reg &= ~0x1uL;
+                    }
 
-                    nprocd++;
                     d_bit_cnt++;
 
-                    // std::cout << d_shift_reg << " (" << nprocd << "/" << ninput << ")" << std::endl;
+                    // std::cout << std::setfill('0') << std::setw(6) << std::hex << d_shift_reg << " (" << (unsigned int)d_bit_cnt << " " << nprocd << "/" << ninput << ")" << std::endl;
+
                     if (d_bit_cnt >= 8)
                     {
                         if ( d_shift_reg == 0x06) // Check header
@@ -176,10 +186,10 @@ namespace gr {
 
               case STATE_HAVE_HEADER:
 
-                if (d_debug)
-                    std::cout << ">>> Entering HAVE HEADER" << std::endl;
+                // if (d_debug)
+                //     std::cout << ">>> Entering HAVE HEADER" << std::endl;
 
-                while (nprocd < ninput - d_sync_vector_len)
+                while (nprocd < ninput)
                 {
                     // if (d_debug)
                     //     std::cout << (unsigned int)in[nprocd] << " "; // << std::endl;
@@ -187,10 +197,14 @@ namespace gr {
                     d_shift_reg <<= 1;
                     d_shift_reg &= 0xFF;
 
-                    if ( in[nprocd] == 0 ) // FIXME: should be '!='
-                        d_shift_reg |= 0x1uL;
+                    if ( in[nprocd++] != 0 )
+                    {
+                        // if (d_polarity)
+                            d_shift_reg |= 0x1uL;
+                        // else
+                            // d_shift_reg &= ~0x1uL;
+                    }
 
-                    nprocd++;
                     d_bit_cnt++;
 
                     // if (d_debug)

@@ -5,11 +5,26 @@
   <category>MarmotE</category>
   <import>import marmote</import>
   <!-- <make>marmote.gmsk_packet_sink_b()</make> -->
-  <make>marmote.gmsk_packet_sink_b($debug)</make>
-
+  <make>marmote.gmsk_packet_sink_b(
+    debug=$debug,
+    polarity=$polarity)</make>
   <param>
     <name>Debug</name>
     <key>debug</key>
+    <value>False</value>
+    <type>bool</type>
+    <option>
+        <name>Enable</name>
+        <key>True</key>
+    </option>
+    <option>
+        <name>Disable</name>
+        <key>False</key>
+    </option>
+  </param>
+  <param>
+    <name>Reverse polarity</name>
+    <key>polarity</key>
     <value>False</value>
     <type>bool</type>
     <option>
