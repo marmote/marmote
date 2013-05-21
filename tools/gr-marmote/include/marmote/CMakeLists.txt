@@ -26,5 +26,7 @@ install(FILES
     gmsk_packet_sink_b.h
     mac_deframer.h
     traffic_generator.h
-    ds_spreader_bb.h DESTINATION include/marmote
+    ds_spreader_bb.h
+    cdma_packet_source.h
+    cdma_packet_sink.h DESTINATION include/marmote
 )

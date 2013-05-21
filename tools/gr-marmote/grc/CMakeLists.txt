@@ -21,5 +21,7 @@ install(FILES
     marmote_gmsk_packet_sink_b.xml
     marmote_mac_deframer.xml
     marmote_traffic_generator.xml
-    marmote_ds_spreader_bb.xml DESTINATION share/gnuradio/grc/blocks
+    marmote_ds_spreader_bb.xml
+    marmote_cdma_packet_source.xml
+    marmote_cdma_packet_sink.xml DESTINATION share/gnuradio/grc/blocks
 )
