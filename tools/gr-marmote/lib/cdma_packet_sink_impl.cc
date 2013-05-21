@@ -50,7 +50,6 @@ namespace gr {
 
     void cdma_packet_sink_impl::process_packet(pmt::pmt_t pkt)
     {
-      std::cout << "Starting to process packet... [not implemented yet]" << std::endl;
       if (pmt::pmt_is_blob(pkt))
       {
         std::cout << "Processing packet... [not implemented yet]" << std::endl;

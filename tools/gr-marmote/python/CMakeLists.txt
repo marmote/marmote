@@ -46,3 +46,4 @@ GR_ADD_TEST(qa_mac_deframer ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_
 GR_ADD_TEST(qa_ds_spreader_bb ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_ds_spreader_bb.py)
 GR_ADD_TEST(qa_cdma_packet_source ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_cdma_packet_source.py)
 GR_ADD_TEST(qa_cdma_packet_sink ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_cdma_packet_sink.py)
+GR_ADD_TEST(qa_pn_spreader_f ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_pn_spreader_f.py)

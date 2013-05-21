@@ -6,8 +6,7 @@
   <import>import marmote</import>
   <make>marmote.cdma_packet_source(
     debug=$debug,
-    preamble_length=$preamble_length,
-    payload_length=$payload_length)</make>
+    payload_len=$payload_len)</make>
 
   <param>
     <name>Debug</name>
@@ -23,15 +22,10 @@
       <key>False</key>
     </option>
   </param>
-  <param>
-    <name>Preamble length</name>
-    <key>preamble_length</key>
-    <value>4</value>
-    <type>int</type>
-  </param>
+
   <param>
     <name>Payload length</name>
-    <key>payload_length</key>
+    <key>payload_len</key>
     <value>32</value>
     <type>int</type>
   </param>
@@ -45,4 +39,8 @@
     <name>out</name>
     <type>message</type>
   </source>
+
+  <doc>
+    This is a simple packet source for the CDMA project.
+  </doc>
 </block>
