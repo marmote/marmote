@@ -18,38 +18,39 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef INCLUDED_MARMOTE_CDMA_PACKET_SOURCE_IMPL_H
-#define INCLUDED_MARMOTE_CDMA_PACKET_SOURCE_IMPL_H
 
-#include <marmote/cdma_packet_source.h>
+#ifndef INCLUDED_MARMOTE_PN_SPREADER_F_H
+#define INCLUDED_MARMOTE_PN_SPREADER_F_H
+
+#include <marmote/api.h>
+#include <gr_block.h>
 
 namespace gr {
   namespace marmote {
 
-    class cdma_packet_source_impl : public cdma_packet_source
+    /*!
+     * \brief <+description of block+>
+     * \ingroup marmote
+     *
+     */
+    class MARMOTE_API pn_spreader_f : virtual public gr_block
     {
-     private:
-      unsigned int d_payload_len;
-
-      uint8_t* d_pkt_buf;
-
-      bool d_debug;
-
      public:
-      cdma_packet_source_impl(bool debug, unsigned int payload_len);
-      ~cdma_packet_source_impl();
+      typedef boost::shared_ptr<pn_spreader_f> sptr;
 
-      void make_packet(pmt::pmt_t msg);
-
-
-      // int general_work(int noutput_items,
-		    //    gr_vector_int &ninput_items,
-		    //    gr_vector_const_void_star &input_items,
-		    //    gr_vector_void_star &output_items);
+      /*!
+       * \brief Return a shared_ptr to a new instance of marmote::pn_spreader_f.
+       *
+       * To avoid accidental use of raw pointers, marmote::pn_spreader_f's
+       * constructor is in a private implementation
+       * class. marmote::pn_spreader_f::make is the public interface for
+       * creating new instances.
+       */
+      static sptr make(bool debug, int mask, int seed, int spread_factor, int preamble_len);
     };
 
   } // namespace marmote
 } // namespace gr
 
-#endif /* INCLUDED_MARMOTE_CDMA_PACKET_SOURCE_IMPL_H */
+#endif /* INCLUDED_MARMOTE_PN_SPREADER_F_H */
 

@@ -18,38 +18,39 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef INCLUDED_MARMOTE_CDMA_PACKET_SOURCE_IMPL_H
-#define INCLUDED_MARMOTE_CDMA_PACKET_SOURCE_IMPL_H
+#ifndef INCLUDED_MARMOTE_PN_SPREADER_F_IMPL_H
+#define INCLUDED_MARMOTE_PN_SPREADER_F_IMPL_H
 
-#include <marmote/cdma_packet_source.h>
+#include <marmote/pn_spreader_f.h>
 
 namespace gr {
   namespace marmote {
 
-    class cdma_packet_source_impl : public cdma_packet_source
+    class pn_spreader_f_impl : public pn_spreader_f
     {
      private:
-      unsigned int d_payload_len;
-
-      uint8_t* d_pkt_buf;
-
+      static const int MAX_CHIP_BUF_LEN = 1024; // FIXME
       bool d_debug;
+      unsigned int d_mask;
+      unsigned int d_seed;
+      unsigned int d_spread_factor;
+      unsigned int d_preamble_len;
+
+      float d_chip_buf[MAX_CHIP_BUF_LEN];
+      int d_pkt_offset;
 
      public:
-      cdma_packet_source_impl(bool debug, unsigned int payload_len);
-      ~cdma_packet_source_impl();
+      pn_spreader_f_impl(bool debug, int mask, int seed, int spread_factor, int preamble_len);
+      ~pn_spreader_f_impl();
 
-      void make_packet(pmt::pmt_t msg);
-
-
-      // int general_work(int noutput_items,
-		    //    gr_vector_int &ninput_items,
-		    //    gr_vector_const_void_star &input_items,
-		    //    gr_vector_void_star &output_items);
+      int general_work(int noutput_items,
+		       gr_vector_int &ninput_items,
+		       gr_vector_const_void_star &input_items,
+		       gr_vector_void_star &output_items);
     };
 
   } // namespace marmote
 } // namespace gr
 
-#endif /* INCLUDED_MARMOTE_CDMA_PACKET_SOURCE_IMPL_H */
+#endif /* INCLUDED_MARMOTE_PN_SPREADER_F_IMPL_H */
 

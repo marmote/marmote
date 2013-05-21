@@ -29,25 +29,24 @@ namespace gr {
   namespace marmote {
 
     cdma_packet_source::sptr
-    cdma_packet_source::make(bool debug, unsigned int preamble_len, unsigned int payload_len)
+    cdma_packet_source::make(bool debug, unsigned int payload_len)
     {
-      return gnuradio::get_initial_sptr (new cdma_packet_source_impl(debug, preamble_len, payload_len));
+      return gnuradio::get_initial_sptr (new cdma_packet_source_impl(debug, payload_len));
     }
 
 
-    cdma_packet_source_impl::cdma_packet_source_impl(bool debug, unsigned int preamble_len, unsigned int payload_len)
+    cdma_packet_source_impl::cdma_packet_source_impl(bool debug, unsigned int payload_len)
       : gr_block("cdma_packet_source",
 		      gr_make_io_signature(0, 0, 0),
 		      gr_make_io_signature(0, 0, 0)),
           d_debug(debug),
-          d_preamble_len(preamble_len),
           d_payload_len(payload_len)
     {
       message_port_register_out(pmt::mp("out"));
       message_port_register_in(pmt::mp("in"));
       set_msg_handler(pmt::mp("in"), boost::bind(&cdma_packet_source_impl::make_packet, this, _1));
 
-      d_pkt_buf = new uint8_t[preamble_len + payload_len];
+      d_pkt_buf = new uint8_t[payload_len];
     }
 
 
@@ -70,7 +69,7 @@ namespace gr {
       {
         std::cout << "Generating packet..." << std::endl;
 
-        pmt::pmt_t pkt = pmt::pmt_make_blob(d_pkt_buf, sizeof(uint8_t) * (d_preamble_len + d_payload_len));
+        pmt::pmt_t pkt = pmt::pmt_make_blob(d_pkt_buf, sizeof(uint8_t) * d_payload_len);
         message_port_pub(pmt::mp("out"), pkt);
       }
       else

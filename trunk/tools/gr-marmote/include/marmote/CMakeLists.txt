@@ -28,5 +28,6 @@ install(FILES
     traffic_generator.h
     ds_spreader_bb.h
     cdma_packet_source.h
-    cdma_packet_sink.h DESTINATION include/marmote
+    cdma_packet_sink.h
+    pn_spreader_f.h DESTINATION include/marmote
 )
