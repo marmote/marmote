@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<block>
+  <name>CDMA packet source</name>
+  <key>marmote_cdma_packet_source</key>
+  <category>MarmotE</category>
+  <import>import marmote</import>
+  <make>marmote.cdma_packet_source(
+    debug=$debug,
+    preamble_length=$preamble_length,
+    payload_length=$payload_length)</make>
+
+  <param>
+    <name>Debug</name>
+    <key>debug</key>
+    <value>False</value>
+    <type>bool</type>
+    <option>
+      <name>Enable</name>
+      <key>True</key>
+    </option>
+    <option>
+      <name>Disable</name>
+      <key>False</key>
+    </option>
+  </param>
+  <param>
+    <name>Preamble length</name>
+    <key>preamble_length</key>
+    <value>4</value>
+    <type>int</type>
+  </param>
+  <param>
+    <name>Payload length</name>
+    <key>payload_length</key>
+    <value>32</value>
+    <type>int</type>
+  </param>
+
+  <sink>
+    <name>in</name>
+    <type>message</type>
+  </sink>
+
+  <source>
+    <name>out</name>
+    <type>message</type>
+  </source>
+</block>
