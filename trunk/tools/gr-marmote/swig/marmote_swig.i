@@ -17,6 +17,7 @@
 #include "marmote/cdma_packet_sink.h"
 #include "marmote/pn_spreader_f.h"
 #include "marmote/pn_synchronizer.h"
+#include "marmote/pn_despreader.h"
 %}
 
 
@@ -39,3 +40,5 @@ GR_SWIG_BLOCK_MAGIC2(marmote, cdma_packet_sink);
 GR_SWIG_BLOCK_MAGIC2(marmote, pn_spreader_f);
 %include "marmote/pn_synchronizer.h"
 GR_SWIG_BLOCK_MAGIC2(marmote, pn_synchronizer);
+%include "marmote/pn_despreader.h"
+GR_SWIG_BLOCK_MAGIC2(marmote, pn_despreader);

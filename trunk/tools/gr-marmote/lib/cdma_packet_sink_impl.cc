@@ -50,9 +50,16 @@ namespace gr {
 
     void cdma_packet_sink_impl::process_packet(pmt::pmt_t pkt)
     {
+      std::cout << "cdma_packet_sink_impl::process_packet: [INVOKED]" << std::endl;
+
       if (pmt::pmt_is_blob(pkt))
       {
-        std::cout << "Processing packet... [not implemented yet]" << std::endl;
+        std::cout << "Processing packet... [Blob]" << std::endl;
+      }
+      else if (pmt::pmt_is_symbol(pkt))
+      {
+        std::cout << "Processing packet... [Symbol]" << std::endl;
+        std::cout << pmt::pmt_symbol_to_string(pkt).data() << std::endl;
       }
       else
       {
@@ -60,30 +67,6 @@ namespace gr {
         assert(false);
       }
     }
-
-    // void
-    // cdma_packet_sink_impl::forecast (int noutput_items, gr_vector_int &ninput_items_required)
-    // {
-    //     /* <+forecast+> e.g. ninput_items_required[0] = noutput_items */
-    // }
-
-    // int
-    // cdma_packet_sink_impl::general_work (int noutput_items,
-    //                    gr_vector_int &ninput_items,
-    //                    gr_vector_const_void_star &input_items,
-    //                    gr_vector_void_star &output_items)
-    // {
-    //     const float *in = (const float *) input_items[0];
-    //     float *out = (float *) output_items[0];
-
-    //     // Do <+signal processing+>
-    //     // Tell runtime system how many input items we consumed on
-    //     // each input stream.
-    //     consume_each (noutput_items);
-
-    //     // Tell runtime system how many output items we produced.
-    //     return noutput_items;
-    // }
 
   } /* namespace marmote */
 } /* namespace gr */

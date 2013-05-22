@@ -18,40 +18,39 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef INCLUDED_MARMOTE_PN_SYNCHRONIZER_IMPL_H
-#define INCLUDED_MARMOTE_PN_SYNCHRONIZER_IMPL_H
 
-#include <marmote/pn_synchronizer.h>
-#include <marmote/mseq_lfsr.h>
+#ifndef INCLUDED_MARMOTE_PN_DESPREADER_H
+#define INCLUDED_MARMOTE_PN_DESPREADER_H
 
+#include <marmote/api.h>
+#include <gr_block.h>
 
 namespace gr {
   namespace marmote {
 
-    class pn_synchronizer_impl : public pn_synchronizer
+    /*!
+     * \brief <+description of block+>
+     * \ingroup marmote
+     *
+     */
+    class MARMOTE_API pn_despreader : virtual public gr_block
     {
-     private:
-      bool d_reverse;
-      int d_filter_len;
-      float* d_filter_coeffs;
-      mseq_lfsr* d_lfsr;
-
-      int d_threshold;
-      pmt::pmt_t d_srcid;
-      pmt::pmt_t d_key;
-      pmt::pmt_t d_value;
-
      public:
-      pn_synchronizer_impl(bool reverse, int mask, int seed, int preamble_len, int spread_factor);
-      ~pn_synchronizer_impl();
+      typedef boost::shared_ptr<pn_despreader> sptr;
 
-      int work(int noutput_items,
-	       gr_vector_const_void_star &input_items,
-	       gr_vector_void_star &output_items);
+      /*!
+       * \brief Return a shared_ptr to a new instance of marmote::pn_despreader.
+       *
+       * To avoid accidental use of raw pointers, marmote::pn_despreader's
+       * constructor is in a private implementation
+       * class. marmote::pn_despreader::make is the public interface for
+       * creating new instances.
+       */
+      static sptr make(int mask, int seed, int seed_offset, int payload_len, int spread_factor);
     };
 
   } // namespace marmote
 } // namespace gr
 
-#endif /* INCLUDED_MARMOTE_PN_SYNCHRONIZER_IMPL_H */
+#endif /* INCLUDED_MARMOTE_PN_DESPREADER_H */
 
