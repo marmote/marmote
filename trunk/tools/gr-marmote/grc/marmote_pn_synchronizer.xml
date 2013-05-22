@@ -1,15 +1,14 @@
 <?xml version="1.0"?>
 <block>
-  <name>PN spreader</name>
-  <key>marmote_pn_spreader_f</key>
+  <name>PN synchronizer</name>
+  <key>marmote_pn_synchronizer</key>
   <category>MarmotE</category>
   <import>import marmote</import>
-  <make>marmote.pn_spreader_f(
-    debug=$debug, mask=$mask, seed=$seed, spread_factor=$spread_factor, preamble_len=$preamble_len)</make>
-    
+  <make>marmote.pn_synchronizer(reverse=$reverse, mask=$mask, seed=$seed, preamble_len=$preamble_len, spread_factor=$spread_factor)</make>
   <param>
-    <name>Debug</name>
-    <key>debug</key>
+
+    <name>Reverse</name>
+    <key>reverse</key>
     <value>False</value>
     <type>bool</type>
     <option>
@@ -21,7 +20,6 @@
       <key>False</key>
     </option>
   </param>
-
 
   <param>
     <name>Mask</name>
@@ -44,7 +42,7 @@
     <type>int</type>
   </param>
 
-  <param>
+<param>
     <name>Spread factor</name>
     <key>spread_factor</key>
     <value>16</value>
@@ -53,7 +51,7 @@
 
   <sink>
     <name>in</name>
-    <type>message</type>
+    <type>float</type>
   </sink>
 
   <source>
