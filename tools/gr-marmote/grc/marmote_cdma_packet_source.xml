@@ -24,7 +24,7 @@
   </param>
 
   <param>
-    <name>Payload length</name>
+    <name>Payload length (bytes)</name>
     <key>payload_len</key>
     <value>32</value>
     <type>int</type>

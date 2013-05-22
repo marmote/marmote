@@ -18,43 +18,39 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef INCLUDED_MARMOTE_PN_SPREADER_F_IMPL_H
-#define INCLUDED_MARMOTE_PN_SPREADER_F_IMPL_H
 
-#include <marmote/pn_spreader_f.h>
-#include <marmote/mseq_lfsr.h>
+#ifndef INCLUDED_MARMOTE_PN_SYNCHRONIZER_H
+#define INCLUDED_MARMOTE_PN_SYNCHRONIZER_H
+
+#include <marmote/api.h>
+#include <gr_sync_block.h>
 
 namespace gr {
   namespace marmote {
 
-    class pn_spreader_f_impl : public pn_spreader_f
+    /*!
+     * \brief Matched filter based synchronizer.
+     * \ingroup marmote
+     *
+     */
+    class MARMOTE_API pn_synchronizer : virtual public gr_sync_block
     {
-     private:
-      static const int MAX_CHIP_BUF_LEN = 4096; // FIXME
-      bool d_debug;
-      unsigned int d_mask;
-      unsigned int d_seed;
-      unsigned int d_spread_factor;
-      unsigned int d_preamble_len;
-
-      float d_chip_buf[MAX_CHIP_BUF_LEN];
-      int d_chip_offset;
-      int d_chip_len;
-
-      mseq_lfsr d_lfsr;
-
      public:
-      pn_spreader_f_impl(bool debug, int mask, int seed, int spread_factor, int preamble_len);
-      ~pn_spreader_f_impl();
+      typedef boost::shared_ptr<pn_synchronizer> sptr;
 
-      int general_work(int noutput_items,
-		       gr_vector_int &ninput_items,
-		       gr_vector_const_void_star &input_items,
-		       gr_vector_void_star &output_items);
+      /*!
+       * \brief Return a shared_ptr to a new instance of marmote::pn_synchronizer.
+       *
+       * To avoid accidental use of raw pointers, marmote::pn_synchronizer's
+       * constructor is in a private implementation
+       * class. marmote::pn_synchronizer::make is the public interface for
+       * creating new instances.
+       */
+      static sptr make(bool reverse, int mask, int seed, int preamble_len, int spread_factor);
     };
 
   } // namespace marmote
 } // namespace gr
 
-#endif /* INCLUDED_MARMOTE_PN_SPREADER_F_IMPL_H */
+#endif /* INCLUDED_MARMOTE_PN_SYNCHRONIZER_H */
 

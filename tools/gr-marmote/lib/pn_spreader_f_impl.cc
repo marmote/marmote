@@ -24,6 +24,7 @@
 
 #include <gr_io_signature.h>
 #include "pn_spreader_f_impl.h"
+#include <iomanip> 
 
 namespace gr {
   namespace marmote {
@@ -43,31 +44,11 @@ namespace gr {
       d_seed(seed),
       d_spread_factor(spread_factor),
       d_preamble_len(preamble_len),
-      d_pkt_offset(0),
+      d_chip_offset(0),
+      d_chip_len(0),
       d_lfsr(mask, seed)
     {
       message_port_register_in(pmt::mp("in"));
-      
-      for (int i = 0; i < 16; i++)
-      {
-        std::cout << (int)d_lfsr.get_next_bit() << " ";
-        if (i % 8 == 7)
-        {
-          std::cout << std::endl;
-        }
-      }
-      std::cout << "------------------" << std::endl;
-
-      d_lfsr.reset();
-
-      for (int i = 0; i < 32; i++)
-      {
-        std::cout << (int)d_lfsr.get_next_bit() << " ";
-        if (i % 8 == 7)
-        {
-          std::cout << std::endl;
-        }
-      }
     }
 
     pn_spreader_f_impl::~pn_spreader_f_impl()
@@ -82,8 +63,9 @@ namespace gr {
     {
         pmt::pmt_t blob;
         float *out = (float *) output_items[0];
+        int nout;
 
-        while (d_pkt_offset == 0)
+        while (d_chip_offset == 0)
         {
           pmt::pmt_t pkt(delete_head_blocking(pmt::pmt_intern("in")));
 
@@ -111,27 +93,30 @@ namespace gr {
             int chip_ctr = 0;
             for (int i = 0; i < d_preamble_len; i++)
             {
-              d_chip_buf[chip_ctr++] = 1.0;  // elfsr.next()*2.0-1.0;
-
               for (int j = 0; j < d_spread_factor; j++)
               {
-                std::cout << (int)d_chip_buf[chip_ctr-1] << " ";
+                d_chip_buf[chip_ctr++] = d_lfsr.get_next_bit() ? 1.0 : -1.0;
+                // std::cout << std::setw(2) << (int)d_chip_buf[chip_ctr-1] << " ";
               }
             }
-            std::cout << std::endl;
+            // std::cout << std::endl;
 
             // Set up payload
             for (int i = 0; i < pkt_len; i++)
             {
-              uint8_t data_bit = (pkt_data[i/8] << (i % 8)) & 0x80 ? 1 : 0; // Extract MSB bit
+              uint8_t data_bit = (pkt_data[i/8] << (i % 8)) & 0x80 ? 0x01 : 0x00; // Extract MSB
 
               for (int j = 0; j < d_spread_factor; j++)
               {
-                d_chip_buf[chip_ctr++] = data_bit ? 1.0 : -1.0;
-                std::cout << (int)d_chip_buf[chip_ctr-1] << " ";
+                d_chip_buf[chip_ctr++] = data_bit ^ d_lfsr.get_next_bit() ? -1.0 : 1.0;
+                // std::cout << std::setw(2) << (int)d_chip_buf[chip_ctr-1] << " ";
               }
             }
-            std::cout << std::endl;
+            // std::cout << std::endl;
+            d_chip_len = chip_ctr;
+            d_chip_offset = 0;
+
+            break;
           }
           else
           {
@@ -140,17 +125,16 @@ namespace gr {
           }
         }
 
-        // int nout = std::min(d_msg_len - d_pkt_offset, noutput_items);
-        // memcpy(out, d_msg + d_pkt_offset, nout);
+        nout = std::min(d_chip_len - d_chip_offset, noutput_items);
+        memcpy(out, d_chip_buf + d_chip_offset, nout);
 
-        // d_pkt_offset,+= nout;
+        d_chip_offset += nout;
 
-        // if(d_pkt_offset,== d_msg_len) {
-        //   d_pkt_offset,= 0;
-        // }
+        if (d_chip_offset == d_chip_len) {
+          d_chip_offset = 0;
+        }
 
-        // return nout;
-        return 0;
+        return nout;
     }
 
   } /* namespace marmote */

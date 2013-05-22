@@ -24,5 +24,6 @@ install(FILES
     marmote_ds_spreader_bb.xml
     marmote_cdma_packet_source.xml
     marmote_cdma_packet_sink.xml
-    marmote_pn_spreader_f.xml DESTINATION share/gnuradio/grc/blocks
+    marmote_pn_spreader_f.xml
+    marmote_pn_synchronizer.xml DESTINATION share/gnuradio/grc/blocks
 )

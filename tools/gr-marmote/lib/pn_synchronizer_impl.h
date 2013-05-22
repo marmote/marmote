@@ -18,43 +18,40 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef INCLUDED_MARMOTE_PN_SPREADER_F_IMPL_H
-#define INCLUDED_MARMOTE_PN_SPREADER_F_IMPL_H
+#ifndef INCLUDED_MARMOTE_PN_SYNCHRONIZER_IMPL_H
+#define INCLUDED_MARMOTE_PN_SYNCHRONIZER_IMPL_H
 
-#include <marmote/pn_spreader_f.h>
+#include <marmote/pn_synchronizer.h>
 #include <marmote/mseq_lfsr.h>
+
 
 namespace gr {
   namespace marmote {
 
-    class pn_spreader_f_impl : public pn_spreader_f
+    class pn_synchronizer_impl : public pn_synchronizer
     {
      private:
-      static const int MAX_CHIP_BUF_LEN = 4096; // FIXME
-      bool d_debug;
-      unsigned int d_mask;
-      unsigned int d_seed;
-      unsigned int d_spread_factor;
-      unsigned int d_preamble_len;
+      bool d_reverse;
+      int d_filter_len;
+      float* d_filter_coeffs;
+      mseq_lfsr* d_lfsr;
 
-      float d_chip_buf[MAX_CHIP_BUF_LEN];
-      int d_chip_offset;
-      int d_chip_len;
-
-      mseq_lfsr d_lfsr;
+      int d_threshold;
+      pmt::pmt_t d_src_id;
+      pmt::pmt_t d_key;
+      pmt::pmt_t d_value;
 
      public:
-      pn_spreader_f_impl(bool debug, int mask, int seed, int spread_factor, int preamble_len);
-      ~pn_spreader_f_impl();
+      pn_synchronizer_impl(bool reverse, int mask, int seed, int preamble_len, int spread_factor);
+      ~pn_synchronizer_impl();
 
-      int general_work(int noutput_items,
-		       gr_vector_int &ninput_items,
-		       gr_vector_const_void_star &input_items,
-		       gr_vector_void_star &output_items);
+      int work(int noutput_items,
+	       gr_vector_const_void_star &input_items,
+	       gr_vector_void_star &output_items);
     };
 
   } // namespace marmote
 } // namespace gr
 
-#endif /* INCLUDED_MARMOTE_PN_SPREADER_F_IMPL_H */
+#endif /* INCLUDED_MARMOTE_PN_SYNCHRONIZER_IMPL_H */
 
