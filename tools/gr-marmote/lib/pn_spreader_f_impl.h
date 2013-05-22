@@ -22,6 +22,7 @@
 #define INCLUDED_MARMOTE_PN_SPREADER_F_IMPL_H
 
 #include <marmote/pn_spreader_f.h>
+#include <marmote/mseq_lfsr.h>
 
 namespace gr {
   namespace marmote {
@@ -29,7 +30,7 @@ namespace gr {
     class pn_spreader_f_impl : public pn_spreader_f
     {
      private:
-      static const int MAX_CHIP_BUF_LEN = 1024; // FIXME
+      static const int MAX_CHIP_BUF_LEN = 4096; // FIXME
       bool d_debug;
       unsigned int d_mask;
       unsigned int d_seed;
@@ -38,6 +39,8 @@ namespace gr {
 
       float d_chip_buf[MAX_CHIP_BUF_LEN];
       int d_pkt_offset;
+
+      mseq_lfsr d_lfsr;
 
      public:
       pn_spreader_f_impl(bool debug, int mask, int seed, int spread_factor, int preamble_len);

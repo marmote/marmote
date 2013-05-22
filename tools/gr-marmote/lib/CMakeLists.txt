@@ -32,6 +32,7 @@ list(APPEND marmote_sources
     ds_spreader_bb_impl.cc
     cdma_packet_source_impl.cc
     cdma_packet_sink_impl.cc
+    mseq_lfsr.cc
     pn_spreader_f_impl.cc )
 
 add_library(gnuradio-marmote SHARED ${marmote_sources})

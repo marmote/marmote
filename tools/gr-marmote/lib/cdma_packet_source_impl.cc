@@ -69,6 +69,14 @@ namespace gr {
       {
         std::cout << "Generating packet..." << std::endl;
 
+        for (int i = 0; i < d_payload_len; i++)
+        {
+          d_pkt_buf[i] = (uint8_t)i;
+          std::cout << std::hex << (int)d_pkt_buf[i] << std::dec << " ";
+          // std::cout << (int)d_pkt_buf[i] << " ";
+        }
+        std::cout << std::endl;
+
         pmt::pmt_t pkt = pmt::pmt_make_blob(d_pkt_buf, sizeof(uint8_t) * d_payload_len);
         message_port_pub(pmt::mp("out"), pkt);
       }

@@ -29,5 +29,6 @@ install(FILES
     ds_spreader_bb.h
     cdma_packet_source.h
     cdma_packet_sink.h
+    mseq_lfsr.h
     pn_spreader_f.h DESTINATION include/marmote
 )
