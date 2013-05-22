@@ -58,4 +58,8 @@
     <name>out</name>
     <type>float</type>
   </source>
+  <source>
+    <name>filt_out</name>
+    <type>float</type>
+  </source>
 </block>

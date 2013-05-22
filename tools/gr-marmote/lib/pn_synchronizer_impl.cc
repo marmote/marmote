@@ -39,7 +39,7 @@ namespace gr {
     pn_synchronizer_impl::pn_synchronizer_impl(bool reverse, int mask, int seed, int preamble_len, int spread_factor)
       : gr_sync_block("pn_synchronizer",
 		      gr_make_io_signature(1, 1, sizeof (float)),
-		      gr_make_io_signature(1, 1, sizeof (float))),
+		      gr_make_io_signature(1, 2, sizeof (float))),
               d_reverse(reverse),
               d_filter_len(preamble_len * spread_factor)
     {
@@ -61,14 +61,16 @@ namespace gr {
         d_value = pmt::PMT_T;
         std::stringstream str;
         str << name() << "_" << unique_id();
-        d_src_id  = pmt::pmt_string_to_symbol(str.str());
+        d_srcid  = pmt::pmt_string_to_symbol(str.str());
     }
+
 
     pn_synchronizer_impl::~pn_synchronizer_impl()
     {
       delete d_lfsr;
       delete[] d_filter_coeffs;
     }
+
 
     int
     pn_synchronizer_impl::work(int noutput_items,
@@ -77,30 +79,33 @@ namespace gr {
     {
         const float *in = (const float *) input_items[0];
         float *out = (float *) output_items[0];
+        float *filt_out = (float *) output_items[1];
 
         for (int i = 0; i < noutput_items; i++)
         {
-            out[i] = 0;
+            filt_out[i] = 0;
             if (d_reverse)
             {
                 for (int j = 0; j < d_filter_len; j++)
                 {
-                    out[i] += in[i+j] * d_filter_coeffs[j];
+                    filt_out[i] += in[i+j] * d_filter_coeffs[j];
                 }
             }
             else
             {                
                 for (int j = 0; j < d_filter_len; j++)
                 {
-                    out[i] += in[i+j] * d_filter_coeffs[d_filter_len-j];
+                    filt_out[i] += in[i+j] * d_filter_coeffs[d_filter_len-j];
                 }
             }   
 
-            if (out[i] > d_threshold)
+            if (filt_out[i] > d_threshold)
             {
-                add_item_tag(0, nitems_written(0)+i, d_key, d_value, d_src_id);
-                std::cout << "Adding tag  value " << out[i] << " > " << d_threshold << " at " << i << " (" << nitems_written(0)+i << ")" << std::endl;
+                add_item_tag(0, nitems_written(0)+i, d_key, d_value, d_srcid);
+                std::cout << "Adding tag  value " << filt_out[i] << " > " << d_threshold << " at " << i << " (" << nitems_written(0)+i << ")" << std::endl;
             }
+
+            out[i] = in[i];
         }
 
         std::cout << noutput_items << " items processed" << std::endl;

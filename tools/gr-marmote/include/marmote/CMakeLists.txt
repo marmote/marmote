@@ -31,5 +31,6 @@ install(FILES
     cdma_packet_sink.h
     mseq_lfsr.h
     pn_spreader_f.h
-    pn_synchronizer.h DESTINATION include/marmote
+    pn_synchronizer.h
+    pn_despreader.h DESTINATION include/marmote
 )
