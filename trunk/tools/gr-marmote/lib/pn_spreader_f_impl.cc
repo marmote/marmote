@@ -1,17 +1,17 @@
 /* -*- c++ -*- */
-/* 
+/*
  * Copyright 2013 <+YOU OR YOUR COMPANY+>.
- * 
+ *
  * This is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3, or (at your option)
  * any later version.
- * 
+ *
  * This software is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this software; see the file COPYING.  If not, write to
  * the Free Software Foundation, Inc., 51 Franklin Street,
@@ -36,16 +36,38 @@ namespace gr {
 
     pn_spreader_f_impl::pn_spreader_f_impl(bool debug, int mask, int seed, int spread_factor, int preamble_len)
       : gr_block("pn_spreader_f",
-		      gr_make_io_signature(0, 0, 0),
-		      gr_make_io_signature(1, 1, sizeof (float))),
+          gr_make_io_signature(0, 0, 0),
+          gr_make_io_signature(1, 1, sizeof (float))),
       d_debug(debug),
       d_mask(mask),
       d_seed(seed),
       d_spread_factor(spread_factor),
       d_preamble_len(preamble_len),
-      d_pkt_offset(0)
+      d_pkt_offset(0),
+      d_lfsr(mask, seed)
     {
       message_port_register_in(pmt::mp("in"));
+      
+      for (int i = 0; i < 16; i++)
+      {
+        std::cout << (int)d_lfsr.get_next_bit() << " ";
+        if (i % 8 == 7)
+        {
+          std::cout << std::endl;
+        }
+      }
+      std::cout << "------------------" << std::endl;
+
+      d_lfsr.reset();
+
+      for (int i = 0; i < 32; i++)
+      {
+        std::cout << (int)d_lfsr.get_next_bit() << " ";
+        if (i % 8 == 7)
+        {
+          std::cout << std::endl;
+        }
+      }
     }
 
     pn_spreader_f_impl::~pn_spreader_f_impl()
@@ -73,24 +95,43 @@ namespace gr {
 
           if (pmt::pmt_is_blob(pkt))
           {
-            std::cout << "@pn_spreader_f_impl::process_packet: Processing packet..." << std::endl;
+            // std::cout << "@pn_spreader_f_impl::process_packet: Processing packet..." << std::endl;
+            std::cout << "Processing packet..." << std::endl;
 
-            // TODO: check message length (should be smaller than MAX_CHIP_LEN)
+            unsigned int pkt_len = pmt::pmt_blob_length(pkt) * 8;
+            uint8_t* pkt_data = (uint8_t*)pmt::pmt_blob_data(pkt);
 
-            // lfsr.reset();
+            assert(pkt_len > 0 && pkt_len <= MAX_CHIP_LEN / d_spread_factor);
+            std::cout << "Preamble length: " << d_preamble_len << " (bits)" << std::endl;
+            std::cout << "Payload length: " << pkt_len << " (bits)" << std::endl;
+
+            d_lfsr.reset();
 
             // // Set up preamble
-            // int i = 0;
-            // while (i < d_preamble_len * d_spread_factor)
-            // {
-            //   d_chip_buf[i++] = lfsr.next()*2.0-1.0;
-            // }
+            int chip_ctr = 0;
+            for (int i = 0; i < d_preamble_len; i++)
+            {
+              d_chip_buf[chip_ctr++] = 1.0;  // elfsr.next()*2.0-1.0;
 
-            // // Set up payload
-            // for (int i = d_preamble_len * d_spread_factor; i < d_preamble_len * d_spread_factor; i++)
-            // {
-            //   d_chip_buf[i] = lfsr.next()*2.0-1.0;
-            // }
+              for (int j = 0; j < d_spread_factor; j++)
+              {
+                std::cout << (int)d_chip_buf[chip_ctr-1] << " ";
+              }
+            }
+            std::cout << std::endl;
+
+            // Set up payload
+            for (int i = 0; i < pkt_len; i++)
+            {
+              uint8_t data_bit = (pkt_data[i/8] << (i % 8)) & 0x80 ? 1 : 0; // Extract MSB bit
+
+              for (int j = 0; j < d_spread_factor; j++)
+              {
+                d_chip_buf[chip_ctr++] = data_bit ? 1.0 : -1.0;
+                std::cout << (int)d_chip_buf[chip_ctr-1] << " ";
+              }
+            }
+            std::cout << std::endl;
           }
           else
           {
