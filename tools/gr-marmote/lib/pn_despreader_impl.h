@@ -34,6 +34,13 @@ namespace gr {
         std::vector<gr_tag_t>::iterator d_tags_itr;
         mseq_lfsr* lfsr;
 
+        static const int MAX_CHIP_LEN = 4096;
+        float d_pmt_buf[MAX_CHIP_LEN];
+
+        int d_payload_len; // chips
+        int d_spread_factor;
+
+
      public:
       pn_despreader_impl(int mask, int seed, int seed_offset, int payload_len, int spread_factor);
       ~pn_despreader_impl();

@@ -25,6 +25,8 @@
 #include <gr_io_signature.h>
 #include "cdma_packet_source_impl.h"
 
+#include <iomanip>
+
 namespace gr {
   namespace marmote {
 
@@ -67,13 +69,18 @@ namespace gr {
 
       if (pmt::pmt_is_symbol(msg))
       {
-        std::cout << "Generating packet..." << std::endl;
+        std::cout << "Generating packet..." << " [" << d_payload_len << " bytes]" << std::endl;
 
         for (int i = 0; i < d_payload_len; i++)
         {
           d_pkt_buf[i] = (uint8_t)i;
-          std::cout << std::hex << (int)d_pkt_buf[i] << std::dec << " ";
+          // std::cout << std::hex << (int)d_pkt_buf[i] << std::dec << " ";
           // std::cout << (int)d_pkt_buf[i] << " ";
+          for (int j = 0; j < 8; j++)
+          {
+            std::cout << std::setw(2) << (int)(((d_pkt_buf[i] << j) & 0x80) ? 1 : 0) << " ";
+          }
+          std::cout << " ";
         }
         std::cout << std::endl;
 
