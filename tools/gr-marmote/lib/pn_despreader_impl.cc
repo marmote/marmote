@@ -41,7 +41,8 @@ namespace gr {
 		      gr_make_io_signature(1, 1, sizeof(float)),
 		      gr_make_io_signature(0, 0, 0)),
         d_payload_len(payload_len * 8 * spread_factor),
-        d_spread_factor(spread_factor)
+        d_spread_factor(spread_factor),
+        d_state(ST_IDLE)
     {
         lfsr = new mseq_lfsr(mask, seed);
 
@@ -57,7 +58,20 @@ namespace gr {
     {
     }
 
-    // TODO: Add state machine for incoming packtes that are too long to be processed by general_work at once
+    void pn_despreader_impl::enter_idle()
+    {
+        d_state = ST_IDLE;
+        d_payload_ctr = 0;
+
+        // std::cout << "pn_despreader_impl::enter_idle()" << std::endl;
+    }
+
+    void pn_despreader_impl::enter_locked()
+    {
+        d_state = ST_LOCKED;
+        // std::cout << "pn_despreader_impl::enter_locked()" << std::endl;
+    }
+
     int
     pn_despreader_impl::general_work (int noutput_items,
                        gr_vector_int &ninput_items,
@@ -66,49 +80,112 @@ namespace gr {
     {
         const float *in = (const float *) input_items[0];
         int ninput = ninput_items[0];
-        int payload_offset;
+        int nprocd = 0;
 
-        // std::cout << "Despreading..." << " [" << nitems_read(0) << ".." << nitems_read(0) + ninput << "]" << std::endl;
-        std::cout << "Despreading..." << " [" << ninput << " chips]" << std::endl;
+        // std::cout << "Despreading..." << " [" << ninput << " chips]" << std::endl;
 
-        // Get tags
         d_tags.clear();
         get_tags_in_range(d_tags, 0, nitems_read(0), nitems_read(0) + ninput);
+        d_tags_itr = d_tags.begin();
 
-        // std::cout << "dtags size: " << d_tags.size() << std::endl;
-        assert(d_tags.size() == 1);
-
-        for (d_tags_itr = d_tags.begin(); d_tags_itr != d_tags.end(); d_tags_itr++)
+        while (nprocd < ninput)
         {
-            payload_offset = d_tags_itr->offset - nitems_read(0);
-
-            assert(d_tags_itr->offset <= nitems_read(0));
-            assert(d_payload_len < ninput - payload_offset);
-
-            // std::cout << "Sync tag found at offset: " << payload_offset << " (" << d_tags_itr->offset << ")"
-            // << std::setw(10) << "(Source: " << (pmt::pmt_is_symbol(d_tags_itr->srcid) ?  pmt::pmt_symbol_to_string(d_tags_itr->srcid) : "n/a")
-            // << std::setw(10) << "Key: " << pmt::pmt_symbol_to_string(d_tags_itr->key)
-            // << std::setw(10) << "Value: " << d_tags_itr->value << ")" << std::endl;
-
-            // Despread signal
-            
-
-
-            // Create message
-            int chips_to_proc = ninput - payload_offset < d_payload_len ? ninput - payload_offset : d_payload_len;
-
-            std::memcpy(d_pmt_buf, input_items[0] + payload_offset * sizeof(float), chips_to_proc * sizeof(float));
-
-            for (int i = 0; i < d_payload_len; i++)
+            switch (d_state)
             {
-                std::cout << std::setw(2) << *((float*)d_pmt_buf + i) << " ";                
-            }
-            std::cout << std::endl;
+                case ST_IDLE:
 
-            message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_pmt_buf, chips_to_proc * sizeof(float)));
+                    while (d_tags_itr != d_tags.end())
+                    {
+                        // Go with the first synchronizer tag
+                        nprocd = d_tags_itr->offset - nitems_read(0);
+
+                        // FIXME: Synchronizer block inserts tags in the future
+                        assert(nprocd <= nitems_read(0));
+
+                        // Despread signal
+                        while (nprocd < ninput && d_payload_ctr < d_payload_len)
+                        {
+                            // Copy message
+                            std::memcpy(d_pmt_buf + d_payload_ctr, in + nprocd, sizeof(float));
+
+                            // std::cout << std::setw(2) << *((float*)d_pmt_buf + d_payload_ctr) << " ";                
+
+                            nprocd++;
+                            d_payload_ctr++;
+                        }
+                        // std::cout << std::endl;
+
+                        if (d_payload_ctr == d_payload_len)
+                        {
+                            message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_pmt_buf, d_payload_len * sizeof(float)));
+                            while (d_tags_itr != d_tags.end() && d_tags_itr->offset - nitems_read(0) < nprocd)
+                            {
+                                d_tags_itr++;
+                            }
+                            // if (d_tags_itr == d_tags.end())
+                            //     std::cout << "end-of-tag-list reached" << std::endl;
+                            // else
+                            //     std::cout << "new tag offset: " << d_tags_itr->offset - nitems_read(0) << " nprocd: " << nprocd << std::endl;
+                            // enter_idle();
+                        }
+                        else
+                        {
+                            enter_locked();
+                            break; // for
+                        }
+                    }
+
+                    break;
+
+
+
+                case ST_LOCKED:
+
+                    while (d_tags_itr != d_tags.end())
+                    {
+                        // Despread signal
+                        while (nprocd < ninput && d_payload_ctr < d_payload_len)
+                        {
+                            // Copy message
+                            std::memcpy(d_pmt_buf + d_payload_ctr, in + nprocd, sizeof(float));
+
+                            // std::cout << std::setw(2) << *((float*)d_pmt_buf + d_payload_ctr) << " ";                
+
+                            nprocd++;
+                            d_payload_ctr++;
+                        }
+                        // std::cout << std::endl;
+
+                        // std::cout << "L: d_payload_ctr: " << d_payload_ctr << " / " << d_payload_len << std::endl;
+
+                        if (d_payload_ctr == d_payload_len)
+                        {
+                            message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_pmt_buf, d_payload_len * sizeof(float)));
+                            while (d_tags_itr != d_tags.end() && d_tags_itr->offset - nitems_read(0) < nprocd)
+                            {
+                                d_tags_itr++;
+                                // std::cout << "tags++" << std::endl;
+                            }
+
+                            // if (d_tags_itr == d_tags.end())
+                            //     std::cout << "end-of-tag-list reached" << std::endl;
+                            // else
+                            //     std::cout << "new tag offset: " << d_tags_itr->offset - nitems_read(0) << " nprocd: " << nprocd << std::endl;
+
+                            enter_idle();
+                        }
+                        else
+                        {
+                            enter_locked();
+                            break;
+                        }
+
+                        break;
+                    }
+            }
         }
 
-        consume_each(ninput);
+        consume_each(nprocd);
 
         return 0;
     }
