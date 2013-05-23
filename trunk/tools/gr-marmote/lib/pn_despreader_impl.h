@@ -32,19 +32,23 @@ namespace gr {
      private:
         std::vector<gr_tag_t> d_tags;
         std::vector<gr_tag_t>::iterator d_tags_itr;
-        mseq_lfsr* lfsr;
+        mseq_lfsr* d_lfsr;
 
         enum state_t { ST_IDLE, ST_LOCKED };
 
         state_t d_state;
 
+        float d_chip_sum; // integrator
         static const int MAX_CHIP_LEN = 4096;
-        float d_pmt_buf[MAX_CHIP_LEN];
-        int d_payload_ctr; // chips
+        uint8_t d_pmt_buf[MAX_CHIP_LEN];
 
+        int d_chip_ctr;
+        int d_payload_ctr; // bits
 
-        int d_payload_len; // chips
+        int d_seed_offset;
+        int d_payload_len; // bits
         int d_spread_factor;
+
 
         void enter_idle();
         void enter_locked();
