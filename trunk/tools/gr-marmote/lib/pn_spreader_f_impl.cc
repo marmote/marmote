@@ -107,11 +107,11 @@ namespace gr {
 
               for (int j = 0; j < d_spread_factor; j++)
               {
-                d_chip_buf[chip_ctr++] = data_bit ^ d_lfsr.get_next_bit() ? -0.1 : 0.1;
-                if (i == pkt_len -1 &&  j == d_spread_factor-1)
-                {
-                  d_chip_buf[chip_ctr-1] = data_bit ^ d_lfsr.get_next_bit() ? -0.8 : 0.8;
-                }
+                d_chip_buf[chip_ctr++] = data_bit ^ d_lfsr.get_next_bit() ? -1.0 : 1.0;
+                // if (i == pkt_len -1 &&  j == d_spread_factor-1)
+                // {
+                //   d_chip_buf[chip_ctr-1] = data_bit ^ d_lfsr.get_next_bit() ? -0.8 : 0.8;
+                // }
                 // std::cout << std::setw(2) << (int)d_chip_buf[chip_ctr-1] << " ";
               }
             }
