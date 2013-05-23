@@ -70,25 +70,22 @@ namespace gr {
           pmt::pmt_t pkt(delete_head_blocking(pmt::pmt_intern("in")));
 
           if (pmt::pmt_is_eof_object(pkt)) {
-            std::cout  << "pn_spreader_f_impl::general_work: MAC exiting" << std::endl;
+            std::cout  << "pn_spreader_f_impl::general_work: Spreader exiting" << std::endl;
             return -1;
           }
 
-
           if (pmt::pmt_is_blob(pkt))
           {
-            // std::cout << "@pn_spreader_f_impl::process_packet: Processing packet..." << std::endl;
+            // std::cout << "Spreading packet..." << " [" << d_preamble_len << " + " << pkt_len << " bits]" << std::endl;
 
             unsigned int pkt_len = pmt::pmt_blob_length(pkt) * 8;
             uint8_t* pkt_data = (uint8_t*)pmt::pmt_blob_data(pkt);
 
             assert(pkt_len > 0 && pkt_len <= MAX_CHIP_LEN / d_spread_factor);
 
-            // std::cout << "Spreading packet..." << " [" << d_preamble_len << " + " << pkt_len << " bits]" << std::endl;
-
             d_lfsr.reset();
 
-            // // Set up preamble
+            // Set up preamble
             int chip_ctr = 0;
             for (int i = 0; i < d_preamble_len; i++)
             {
@@ -108,10 +105,6 @@ namespace gr {
               for (int j = 0; j < d_spread_factor; j++)
               {
                 d_chip_buf[chip_ctr++] = data_bit ^ d_lfsr.get_next_bit() ? -1.0 : 1.0;
-                // if (i == pkt_len -1 &&  j == d_spread_factor-1)
-                // {
-                //   d_chip_buf[chip_ctr-1] = data_bit ^ d_lfsr.get_next_bit() ? -0.8 : 0.8;
-                // }
                 // std::cout << std::setw(2) << (int)d_chip_buf[chip_ctr-1] << " ";
               }
             }

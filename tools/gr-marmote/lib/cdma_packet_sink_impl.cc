@@ -54,17 +54,26 @@ namespace gr {
     {
       if (pmt::pmt_is_blob(pkt))
       {
-        std::cout << "Processing packet..." << "[" << pmt::pmt_blob_length(pkt) / sizeof(float) << " chips]" << std::endl;
+        std::cout << "Processing packet..." << " [" << (int)(pmt::pmt_blob_length(pkt)) << " bits]" << std::endl;
         
-        float* payload;
-        payload = (float*)pmt::pmt_blob_data(pkt);
+        uint8_t octet = 0;
+        uint8_t* payload = (uint8_t*)pmt::pmt_blob_data(pkt);
 
-        for (int i = 0; i < pmt::pmt_blob_length(pkt) / sizeof(float); i++)
+        for (int i = 0; i < pmt::pmt_blob_length(pkt); i++)
         {
-          std::cout << std::setw(4) << payload[i] << " ";
+          octet = (octet << 1) | payload[i];
+          if (i % 8 == 7)
+          {
+            std::cout << std::setw(2) << std::hex << (int)octet << std::dec << " ";
+          }
         }
         std::cout << std::endl;
 
+        // for (int i = 0; i < pmt::pmt_blob_length(pkt); i++)
+        // {
+        //   std::cout << std::setw(2) << (int)payload[i] << " ";
+        // }
+        // std::cout << std::endl;
       }
       else
       {

@@ -40,15 +40,16 @@ namespace gr {
       : gr_block("pn_despreader",
 		      gr_make_io_signature(1, 1, sizeof(float)),
 		      gr_make_io_signature(0, 0, 0)),
-        d_payload_len(payload_len * 8 * spread_factor),
+        d_payload_len(payload_len * 8),
+        d_seed_offset(seed_offset),
         d_spread_factor(spread_factor),
         d_state(ST_IDLE)
     {
-        lfsr = new mseq_lfsr(mask, seed);
+        d_lfsr = new mseq_lfsr(mask, seed);
 
         for (int i = 0; i < seed_offset; i++)
         {
-          lfsr->get_next_bit();
+          d_lfsr->get_next_bit();
         }
 
         message_port_register_out(pmt::mp("out"));
@@ -62,6 +63,15 @@ namespace gr {
     {
         d_state = ST_IDLE;
         d_payload_ctr = 0;
+        d_chip_ctr = 0;
+        d_chip_sum = 0;
+
+        d_lfsr->reset();
+        // FIXME: move this into reset()
+        for (int i = 0; i < d_seed_offset; i++)
+        {
+          d_lfsr->get_next_bit();
+        }
 
         // std::cout << "pn_despreader_impl::enter_idle()" << std::endl;
     }
@@ -96,37 +106,38 @@ namespace gr {
 
                     while (d_tags_itr != d_tags.end())
                     {
-                        // Go with the first synchronizer tag
                         nprocd = d_tags_itr->offset - nitems_read(0);
 
                         // FIXME: Synchronizer block inserts tags in the future
                         assert(nprocd <= nitems_read(0));
 
-                        // Despread signal
                         while (nprocd < ninput && d_payload_ctr < d_payload_len)
                         {
-                            // Copy message
-                            std::memcpy(d_pmt_buf + d_payload_ctr, in + nprocd, sizeof(float));
+                            float pn = (d_lfsr->get_next_bit() ? 1.0 : -1.0);
 
-                            // std::cout << std::setw(2) << *((float*)d_pmt_buf + d_payload_ctr) << " ";                
+                            d_chip_sum = d_chip_sum + *(in + nprocd) * pn;
+                            d_chip_ctr++;
+
+                            if (d_chip_ctr == d_spread_factor)
+                            {
+                                d_pmt_buf[d_payload_ctr++] = (d_chip_sum > 0.0) ? 1 : 0;
+
+                                d_chip_sum = 0;
+                                d_chip_ctr = 0;
+                            }
 
                             nprocd++;
-                            d_payload_ctr++;
                         }
-                        // std::cout << std::endl;
 
                         if (d_payload_ctr == d_payload_len)
                         {
-                            message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_pmt_buf, d_payload_len * sizeof(float)));
+                            message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_pmt_buf, d_payload_len));
+
                             while (d_tags_itr != d_tags.end() && d_tags_itr->offset - nitems_read(0) < nprocd)
                             {
                                 d_tags_itr++;
                             }
-                            // if (d_tags_itr == d_tags.end())
-                            //     std::cout << "end-of-tag-list reached" << std::endl;
-                            // else
-                            //     std::cout << "new tag offset: " << d_tags_itr->offset - nitems_read(0) << " nprocd: " << nprocd << std::endl;
-                            // enter_idle();
+                            enter_idle();
                         }
                         else
                         {
@@ -138,40 +149,36 @@ namespace gr {
                     break;
 
 
-
                 case ST_LOCKED:
 
                     while (d_tags_itr != d_tags.end())
                     {
-                        // Despread signal
                         while (nprocd < ninput && d_payload_ctr < d_payload_len)
                         {
-                            // Copy message
-                            std::memcpy(d_pmt_buf + d_payload_ctr, in + nprocd, sizeof(float));
+                            float pn = (d_lfsr->get_next_bit() ? 1.0 : -1.0);
 
-                            // std::cout << std::setw(2) << *((float*)d_pmt_buf + d_payload_ctr) << " ";                
+                            d_chip_sum += *(in + nprocd) * pn;
+                            d_chip_ctr++;
+
+                            if (d_chip_ctr == d_spread_factor)
+                            {
+                                d_pmt_buf[d_payload_ctr++] = (d_chip_sum > 0.0) ? 1 : 0;
+
+                                d_chip_sum = 0;
+                                d_chip_ctr = 0;
+                            }
 
                             nprocd++;
-                            d_payload_ctr++;
                         }
-                        // std::cout << std::endl;
-
-                        // std::cout << "L: d_payload_ctr: " << d_payload_ctr << " / " << d_payload_len << std::endl;
 
                         if (d_payload_ctr == d_payload_len)
                         {
-                            message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_pmt_buf, d_payload_len * sizeof(float)));
+                            message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_pmt_buf, d_payload_len));
+
                             while (d_tags_itr != d_tags.end() && d_tags_itr->offset - nitems_read(0) < nprocd)
                             {
                                 d_tags_itr++;
-                                // std::cout << "tags++" << std::endl;
                             }
-
-                            // if (d_tags_itr == d_tags.end())
-                            //     std::cout << "end-of-tag-list reached" << std::endl;
-                            // else
-                            //     std::cout << "new tag offset: " << d_tags_itr->offset - nitems_read(0) << " nprocd: " << nprocd << std::endl;
-
                             enter_idle();
                         }
                         else

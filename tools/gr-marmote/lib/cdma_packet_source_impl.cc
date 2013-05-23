@@ -70,20 +70,21 @@ namespace gr {
 
       if (pmt::pmt_is_symbol(msg))
       {
-        std::cout << std::endl;
-        // std::cout << "Generating packet..." << " [" << d_payload_len << " bytes]" << std::endl;
+        std::cout << "Generating packet..." << " [" << d_payload_len << " bytes]" << std::endl;
 
         for (int i = 0; i < d_payload_len; i++)
         {
           d_pkt_buf[i] = (uint8_t)(d_seq_num++);
           
+          std::cout << std::setw(2) << std::hex << (int)d_pkt_buf[i] << std::dec << " ";
+
           // for (int j = 0; j < 8; j++)
           // {
           //   std::cout << std::setw(2) << (int)(((d_pkt_buf[i] << j) & 0x80) ? 1 : 0) << " ";
           // }
           // std::cout << " ";
         }
-        // std::cout << std::endl;
+        std::cout << std::endl;
 
         pmt::pmt_t pkt = pmt::pmt_make_blob(d_pkt_buf, sizeof(uint8_t) * d_payload_len);
         message_port_pub(pmt::mp("out"), pkt);
