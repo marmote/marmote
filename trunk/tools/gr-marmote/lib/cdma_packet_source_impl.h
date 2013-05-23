@@ -30,6 +30,7 @@ namespace gr {
     {
      private:
       unsigned int d_payload_len;
+      unsigned int d_seq_num;
 
       uint8_t* d_pkt_buf;
 

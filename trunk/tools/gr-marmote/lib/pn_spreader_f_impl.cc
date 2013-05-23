@@ -84,7 +84,7 @@ namespace gr {
 
             assert(pkt_len > 0 && pkt_len <= MAX_CHIP_LEN / d_spread_factor);
 
-            std::cout << "Spreading packet..." << " [" << d_preamble_len << " + " << pkt_len << " bits]" << std::endl;
+            // std::cout << "Spreading packet..." << " [" << d_preamble_len << " + " << pkt_len << " bits]" << std::endl;
 
             d_lfsr.reset();
 
@@ -95,10 +95,10 @@ namespace gr {
               for (int j = 0; j < d_spread_factor; j++)
               {
                 d_chip_buf[chip_ctr++] = d_lfsr.get_next_bit() ? 1.0 : -1.0;
-                std::cout << std::setw(2) << (int)d_chip_buf[chip_ctr-1] << " ";
+                // std::cout << std::setw(2) << (int)d_chip_buf[chip_ctr-1] << " ";
               }
             }
-            std::cout << std::endl;
+            // std::cout << std::endl;
 
             // Set up payload
             for (int i = 0; i < pkt_len; i++)
@@ -107,11 +107,15 @@ namespace gr {
 
               for (int j = 0; j < d_spread_factor; j++)
               {
-                d_chip_buf[chip_ctr++] = data_bit ^ d_lfsr.get_next_bit() ? -1.0 : 1.0;
-                std::cout << std::setw(2) << (int)d_chip_buf[chip_ctr-1] << " ";
+                d_chip_buf[chip_ctr++] = data_bit ^ d_lfsr.get_next_bit() ? -0.1 : 0.1;
+                if (i == pkt_len -1 &&  j == d_spread_factor-1)
+                {
+                  d_chip_buf[chip_ctr-1] = data_bit ^ d_lfsr.get_next_bit() ? -0.8 : 0.8;
+                }
+                // std::cout << std::setw(2) << (int)d_chip_buf[chip_ctr-1] << " ";
               }
             }
-            std::cout << std::endl;
+            // std::cout << std::endl;
             d_chip_len = chip_ctr;
             d_chip_offset = 0;
 

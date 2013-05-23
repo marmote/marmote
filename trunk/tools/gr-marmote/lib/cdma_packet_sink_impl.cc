@@ -61,7 +61,7 @@ namespace gr {
 
         for (int i = 0; i < pmt::pmt_blob_length(pkt) / sizeof(float); i++)
         {
-          std::cout << std::setw(2) << payload[i] << " ";
+          std::cout << std::setw(4) << payload[i] << " ";
         }
         std::cout << std::endl;
 
