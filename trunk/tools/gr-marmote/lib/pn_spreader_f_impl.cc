@@ -78,14 +78,13 @@ namespace gr {
           if (pmt::pmt_is_blob(pkt))
           {
             // std::cout << "@pn_spreader_f_impl::process_packet: Processing packet..." << std::endl;
-            std::cout << "Processing packet..." << std::endl;
 
             unsigned int pkt_len = pmt::pmt_blob_length(pkt) * 8;
             uint8_t* pkt_data = (uint8_t*)pmt::pmt_blob_data(pkt);
 
             assert(pkt_len > 0 && pkt_len <= MAX_CHIP_LEN / d_spread_factor);
-            std::cout << "Preamble length: " << d_preamble_len << " (bits)" << std::endl;
-            std::cout << "Payload length: " << pkt_len << " (bits)" << std::endl;
+
+            std::cout << "Spreading packet..." << " [" << d_preamble_len << " + " << pkt_len << " bits]" << std::endl;
 
             d_lfsr.reset();
 
@@ -96,10 +95,10 @@ namespace gr {
               for (int j = 0; j < d_spread_factor; j++)
               {
                 d_chip_buf[chip_ctr++] = d_lfsr.get_next_bit() ? 1.0 : -1.0;
-                // std::cout << std::setw(2) << (int)d_chip_buf[chip_ctr-1] << " ";
+                std::cout << std::setw(2) << (int)d_chip_buf[chip_ctr-1] << " ";
               }
             }
-            // std::cout << std::endl;
+            std::cout << std::endl;
 
             // Set up payload
             for (int i = 0; i < pkt_len; i++)
@@ -109,10 +108,10 @@ namespace gr {
               for (int j = 0; j < d_spread_factor; j++)
               {
                 d_chip_buf[chip_ctr++] = data_bit ^ d_lfsr.get_next_bit() ? -1.0 : 1.0;
-                // std::cout << std::setw(2) << (int)d_chip_buf[chip_ctr-1] << " ";
+                std::cout << std::setw(2) << (int)d_chip_buf[chip_ctr-1] << " ";
               }
             }
-            // std::cout << std::endl;
+            std::cout << std::endl;
             d_chip_len = chip_ctr;
             d_chip_offset = 0;
 
@@ -126,7 +125,7 @@ namespace gr {
         }
 
         nout = std::min(d_chip_len - d_chip_offset, noutput_items);
-        memcpy(out, d_chip_buf + d_chip_offset, nout);
+        memcpy(out, d_chip_buf + d_chip_offset, nout * sizeof(float));
 
         d_chip_offset += nout;
 

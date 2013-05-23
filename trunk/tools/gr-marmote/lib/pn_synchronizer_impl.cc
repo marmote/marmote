@@ -81,6 +81,8 @@ namespace gr {
         float *out = (float *) output_items[0];
         float *filt_out = (float *) output_items[1];
 
+        std::cout << "Synchronizing... [" << noutput_items << " chips]" << std::endl;
+
         for (int i = 0; i < noutput_items; i++)
         {
             filt_out[i] = 0;
@@ -101,14 +103,20 @@ namespace gr {
 
             if (filt_out[i] > d_threshold)
             {
-                add_item_tag(0, nitems_written(0)+i, d_key, d_value, d_srcid);
-                std::cout << "Adding tag  value " << filt_out[i] << " > " << d_threshold << " at " << i << " (" << nitems_written(0)+i << ")" << std::endl;
+                add_item_tag(0, nitems_written(0) + i + d_filter_len, d_key, d_value, d_srcid); // FIXME: currently adding tag to future item
+                // std::cout << "Threshold crossed at " << i << " (" << nitems_written(0)+i << ") " << filt_out[i] << " (" << d_threshold << ")" << std::endl;
             }
 
             out[i] = in[i];
         }
 
-        std::cout << noutput_items << " items processed" << std::endl;
+        for (int i = 0; i < noutput_items; i++)
+        {
+            std::cout << std::setw(2) << out[i] << " ";
+        }
+        std::cout << std::endl;
+
+
         return noutput_items;
     }
 

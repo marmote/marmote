@@ -39,7 +39,9 @@ namespace gr {
     pn_despreader_impl::pn_despreader_impl(int mask, int seed, int seed_offset, int payload_len, int spread_factor)
       : gr_block("pn_despreader",
 		      gr_make_io_signature(1, 1, sizeof(float)),
-		      gr_make_io_signature(0, 0, 0))
+		      gr_make_io_signature(0, 0, 0)),
+        d_payload_len(payload_len * 8 * spread_factor),
+        d_spread_factor(spread_factor)
     {
         lfsr = new mseq_lfsr(mask, seed);
 
@@ -55,6 +57,7 @@ namespace gr {
     {
     }
 
+    // TODO: Add state machine for incoming packtes that are too long to be processed by general_work at once
     int
     pn_despreader_impl::general_work (int noutput_items,
                        gr_vector_int &ninput_items,
@@ -63,31 +66,46 @@ namespace gr {
     {
         const float *in = (const float *) input_items[0];
         int ninput = ninput_items[0];
+        int payload_offset;
 
-        std::cout << "pn_despreader_impl::general_work: [INVOKED] " << std::endl;
-        std::cout << "start: " << nitems_read(0) << " end: " << nitems_read(0) + ninput << std::endl;
+        // std::cout << "Despreading..." << " [" << nitems_read(0) << ".." << nitems_read(0) + ninput << "]" << std::endl;
+        std::cout << "Despreading..." << " [" << ninput << " chips]" << std::endl;
 
         // Get tags
         d_tags.clear();
         get_tags_in_range(d_tags, 0, nitems_read(0), nitems_read(0) + ninput);
-        std::cout << "dtags size: " << d_tags.size() << std::endl;
+
+        // std::cout << "dtags size: " << d_tags.size() << std::endl;
+        assert(d_tags.size() == 1);
 
         for (d_tags_itr = d_tags.begin(); d_tags_itr != d_tags.end(); d_tags_itr++)
         {
-            std::cout << "Sync tag found:";
+            payload_offset = d_tags_itr->offset - nitems_read(0);
 
-            std::cout << std::setw(10) << "Offset: " << d_tags_itr->offset
-            << std::setw(10) << "Source: " << (pmt::pmt_is_symbol(d_tags_itr->srcid) ?  pmt::pmt_symbol_to_string(d_tags_itr->srcid) : "n/a")
-            << std::setw(10) << "Key: " << pmt::pmt_symbol_to_string(d_tags_itr->key)
-            << std::setw(10) << "Value: ";
-            std::cout << d_tags_itr->value << std::endl;
+            assert(d_tags_itr->offset <= nitems_read(0));
+            assert(d_payload_len < ninput - payload_offset);
 
-            // TODO: Despread signal
+            // std::cout << "Sync tag found at offset: " << payload_offset << " (" << d_tags_itr->offset << ")"
+            // << std::setw(10) << "(Source: " << (pmt::pmt_is_symbol(d_tags_itr->srcid) ?  pmt::pmt_symbol_to_string(d_tags_itr->srcid) : "n/a")
+            // << std::setw(10) << "Key: " << pmt::pmt_symbol_to_string(d_tags_itr->key)
+            // << std::setw(10) << "Value: " << d_tags_itr->value << ")" << std::endl;
 
-            // TODO: Create message
-            // std::memcpy(d_pmt_buf, d_packet, d_packet_len);
-            // message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_pmt_buf, d_packet_len));
-            message_port_pub(pmt::mp("out"), pmt::pmt_string_to_symbol("Hello-bello"));
+            // Despread signal
+            
+
+
+            // Create message
+            int chips_to_proc = ninput - payload_offset < d_payload_len ? ninput - payload_offset : d_payload_len;
+
+            std::memcpy(d_pmt_buf, input_items[0] + payload_offset * sizeof(float), chips_to_proc * sizeof(float));
+
+            for (int i = 0; i < d_payload_len; i++)
+            {
+                std::cout << std::setw(2) << *((float*)d_pmt_buf + i) << " ";                
+            }
+            std::cout << std::endl;
+
+            message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_pmt_buf, chips_to_proc * sizeof(float)));
         }
 
         consume_each(ninput);

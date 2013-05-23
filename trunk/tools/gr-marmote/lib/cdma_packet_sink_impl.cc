@@ -25,6 +25,8 @@
 #include <gr_io_signature.h>
 #include "cdma_packet_sink_impl.h"
 
+#include <iomanip>
+
 namespace gr {
   namespace marmote {
 
@@ -50,16 +52,19 @@ namespace gr {
 
     void cdma_packet_sink_impl::process_packet(pmt::pmt_t pkt)
     {
-      std::cout << "cdma_packet_sink_impl::process_packet: [INVOKED]" << std::endl;
-
       if (pmt::pmt_is_blob(pkt))
       {
-        std::cout << "Processing packet... [Blob]" << std::endl;
-      }
-      else if (pmt::pmt_is_symbol(pkt))
-      {
-        std::cout << "Processing packet... [Symbol]" << std::endl;
-        std::cout << pmt::pmt_symbol_to_string(pkt).data() << std::endl;
+        std::cout << "Processing packet..." << "[" << pmt::pmt_blob_length(pkt) / sizeof(float) << " chips]" << std::endl;
+        
+        float* payload;
+        payload = (float*)pmt::pmt_blob_data(pkt);
+
+        for (int i = 0; i < pmt::pmt_blob_length(pkt) / sizeof(float); i++)
+        {
+          std::cout << std::setw(2) << payload[i] << " ";
+        }
+        std::cout << std::endl;
+
       }
       else
       {
