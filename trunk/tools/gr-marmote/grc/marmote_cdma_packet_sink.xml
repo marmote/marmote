@@ -4,7 +4,7 @@
   <key>marmote_cdma_packet_sink</key>
   <category>MarmotE</category>
   <import>import marmote</import>
-  <make>marmote.cdma_packet_sink(debug=$debug)</make>
+  <make>marmote.cdma_packet_sink(debug=$debug, id=$node_id)</make>
 
   <param>
     <name>Debug</name>
@@ -19,6 +19,12 @@
       <name>Disable</name>
       <key>False</key>
     </option>
+  </param>
+
+  <param>
+    <name>Node ID</name>
+    <key>node_id</key>
+    <type>int</type>
   </param>
 
   <sink>

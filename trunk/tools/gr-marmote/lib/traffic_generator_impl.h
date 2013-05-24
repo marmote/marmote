@@ -29,9 +29,10 @@ namespace gr {
     class traffic_generator_impl : public traffic_generator
     {
      private:
+      size_t d_item_size;
 
      public:
-      traffic_generator_impl();
+      traffic_generator_impl(size_t item_size);
       ~traffic_generator_impl();
 
       void forecast (int noutput_items, gr_vector_int &ninput_items_required);

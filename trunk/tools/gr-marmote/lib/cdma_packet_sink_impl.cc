@@ -31,16 +31,17 @@ namespace gr {
   namespace marmote {
 
     cdma_packet_sink::sptr
-    cdma_packet_sink::make(bool debug)
+    cdma_packet_sink::make(bool debug, int id)
     {
-      return gnuradio::get_initial_sptr (new cdma_packet_sink_impl(debug));
+      return gnuradio::get_initial_sptr (new cdma_packet_sink_impl(debug, id));
     }
 
-    cdma_packet_sink_impl::cdma_packet_sink_impl(bool debug)
+    cdma_packet_sink_impl::cdma_packet_sink_impl(bool debug, int id)
       : gr_block("cdma_packet_sink",
 		      gr_make_io_signature(0, 0, 0),
 		      gr_make_io_signature(0, 0, 0)),
-        d_debug(debug)
+        d_debug(debug),
+        d_id(id)
     {
       message_port_register_in(pmt::mp("in"));
       set_msg_handler(pmt::mp("in"), boost::bind(&cdma_packet_sink_impl::process_packet, this, _1));
@@ -54,26 +55,31 @@ namespace gr {
     {
       if (pmt::pmt_is_blob(pkt))
       {
-        std::cout << "Processing packet..." << " [" << (int)(pmt::pmt_blob_length(pkt)) << " bits]" << std::endl;
-        
-        uint8_t octet = 0;
-        uint8_t* payload = (uint8_t*)pmt::pmt_blob_data(pkt);
+        // std::cout << "Processing packet..." << " [" << (int)(pmt::pmt_blob_length(pkt)) << " bits]" << std::endl;
 
-        for (int i = 0; i < pmt::pmt_blob_length(pkt); i++)
+        if (d_debug)
         {
-          octet = (octet << 1) | payload[i];
-          if (i % 8 == 7)
-          {
-            std::cout << std::setw(2) << std::hex << (int)octet << std::dec << " ";
-          }
-        }
-        std::cout << std::endl;
+          std::cout << "#" << d_id << " <- ";
+          
+          uint8_t octet = 0;
+          uint8_t* payload = (uint8_t*)pmt::pmt_blob_data(pkt);
 
-        // for (int i = 0; i < pmt::pmt_blob_length(pkt); i++)
-        // {
-        //   std::cout << std::setw(2) << (int)payload[i] << " ";
-        // }
-        // std::cout << std::endl;
+          for (int i = 0; i < pmt::pmt_blob_length(pkt); i++)
+          {
+            octet = (octet << 1) | payload[i];
+            if (i % 8 == 7)
+            {
+              std::cout << std::setw(2) << std::hex << (int)octet << std::dec << " ";
+            }
+          }
+          std::cout << std::endl;
+
+          // for (int i = 0; i < pmt::pmt_blob_length(pkt); i++)
+          // {
+          //   std::cout << std::setw(2) << (int)payload[i] << " ";
+          // }
+          // std::cout << std::endl;
+        }
       }
       else
       {
