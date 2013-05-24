@@ -4,14 +4,46 @@
   <key>marmote_traffic_generator</key>
   <category>MarmotE</category>
   <import>import marmote</import>
-  <make>marmote.traffic_generator()</make>
+  <make>marmote.traffic_generator($type.size)</make>
+
+  <param>
+    <name>Type</name>
+    <key>type</key>
+    <type>enum</type>
+    <option>
+      <name>Complex</name>
+      <key>complex</key>
+      <opt>size:gr.sizeof_gr_complex</opt>
+    </option>
+    <option>
+      <name>Float</name>
+      <key>float</key>
+      <opt>size:gr.sizeof_float</opt>
+    </option>
+    <option>
+      <name>Int</name>
+      <key>int</key>
+      <opt>size:gr.sizeof_int</opt>
+    </option>
+    <option>
+      <name>Short</name>
+      <key>short</key>
+      <opt>size:gr.sizeof_short</opt>
+    </option>
+    <option>
+      <name>Byte</name>
+      <key>byte</key>
+      <opt>size:gr.sizeof_char</opt>
+    </option>
+  </param>
+
   <sink>
     <name>in</name>
-    <type>complex</type>
+    <type>$type</type>
   </sink>
 
   <source>
     <name>out</name>
-    <type>complex</type>
+    <type>$type</type>
   </source>
 </block>

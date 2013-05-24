@@ -6,6 +6,7 @@
   <import>import marmote</import>
   <make>marmote.cdma_packet_source(
     debug=$debug,
+    id=$node_id,
     payload_len=$payload_len)</make>
 
   <param>
@@ -21,6 +22,12 @@
       <name>Disable</name>
       <key>False</key>
     </option>
+  </param>
+
+  <param>
+    <name>Node ID</name>
+    <key>node_id</key>
+    <type>int</type>
   </param>
 
   <param>

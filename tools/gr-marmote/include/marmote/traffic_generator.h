@@ -46,7 +46,7 @@ namespace gr {
        * class. marmote::traffic_generator::make is the public interface for
        * creating new instances.
        */
-      static sptr make();
+      static sptr make(size_t item_size);
     };
 
   } // namespace marmote

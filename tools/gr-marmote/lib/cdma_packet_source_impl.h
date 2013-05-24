@@ -29,6 +29,7 @@ namespace gr {
     class cdma_packet_source_impl : public cdma_packet_source
     {
      private:
+      int d_id;
       unsigned int d_payload_len;
       unsigned int d_seq_num;
 
@@ -37,7 +38,7 @@ namespace gr {
       bool d_debug;
 
      public:
-      cdma_packet_source_impl(bool debug, unsigned int payload_len);
+      cdma_packet_source_impl(bool debug, int id, unsigned int payload_len);
       ~cdma_packet_source_impl();
 
       void make_packet(pmt::pmt_t msg);

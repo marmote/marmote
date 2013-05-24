@@ -30,9 +30,10 @@ namespace gr {
     {
      private:
       bool d_debug;
+      int d_id;
 
      public:
-      cdma_packet_sink_impl(bool debug);
+      cdma_packet_sink_impl(bool debug, int id);
       ~cdma_packet_sink_impl();
 
       void process_packet(pmt::pmt_t pkt);

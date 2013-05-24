@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='ASCII'?>
 <flow_graph>
-  <timestamp>Thu May 23 16:26:03 2013</timestamp>
+  <timestamp>Fri May 24 12:44:35 2013</timestamp>
   <block>
     <key>options</key>
     <param>
@@ -61,29 +61,6 @@
     </param>
   </block>
   <block>
-    <key>variable</key>
-    <param>
-      <key>id</key>
-      <value>samp_rate</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>32000</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(194, 10)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
     <key>blocks_file_sink</key>
     <param>
       <key>id</key>
@@ -95,7 +72,7 @@
     </param>
     <param>
       <key>file</key>
-      <value>/home/nest/Projects/gr-marmote/apps/pn_filt_out.dat</value>
+      <value>/home/nest/Projects/gr-marmote/apps/pn_filt_out_0.dat</value>
     </param>
     <param>
       <key>type</key>
@@ -111,150 +88,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(385, 573)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>blocks_throttle</key>
-    <param>
-      <key>id</key>
-      <value>blocks_throttle_0</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>float</value>
-    </param>
-    <param>
-      <key>samples_per_second</key>
-      <value>samp_rate</value>
-    </param>
-    <param>
-      <key>vlen</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(398, 339)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>blocks_message_strobe</key>
-    <param>
-      <key>id</key>
-      <value>blocks_message_strobe_0</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>msg</key>
-      <value>pmt.pmt_intern("TEST")</value>
-    </param>
-    <param>
-      <key>period</key>
-      <value>1000</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(108, 152)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>marmote_cdma_packet_sink</key>
-    <param>
-      <key>id</key>
-      <value>marmote_cdma_packet_sink_0</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>debug</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(938, 448)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>marmote_pn_spreader_f</key>
-    <param>
-      <key>id</key>
-      <value>marmote_pn_spreader_f_1</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>debug</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>mask</key>
-      <value>0x12</value>
-    </param>
-    <param>
-      <key>seed</key>
-      <value>0x10</value>
-    </param>
-    <param>
-      <key>preamble_len</key>
-      <value>preamble_length</value>
-    </param>
-    <param>
-      <key>spread_factor</key>
-      <value>spread_factor</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(652, 128)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>variable</key>
-    <param>
-      <key>id</key>
-      <value>payload_length</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>4</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(553, 16)</value>
+      <value>(837, 344)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -293,7 +127,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(615, 416)</value>
+      <value>(831, 220)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -301,10 +135,87 @@
     </param>
   </block>
   <block>
-    <key>marmote_cdma_packet_source</key>
+    <key>variable</key>
     <param>
       <key>id</key>
-      <value>marmote_cdma_packet_source_1</value>
+      <value>payload_length</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>8</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(553, 16)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_message_strobe</key>
+    <param>
+      <key>id</key>
+      <value>blocks_message_strobe_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>msg</key>
+      <value>pmt.pmt_from_long(0)</value>
+    </param>
+    <param>
+      <key>period</key>
+      <value>1000</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(102, 152)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_message_strobe</key>
+    <param>
+      <key>id</key>
+      <value>blocks_message_strobe_0_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>msg</key>
+      <value>pmt.pmt_from_long(1)</value>
+    </param>
+    <param>
+      <key>period</key>
+      <value>1000</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(150, 699)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>marmote_cdma_packet_sink</key>
+    <param>
+      <key>id</key>
+      <value>marmote_cdma_packet_sink_0</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -312,89 +223,15 @@
     </param>
     <param>
       <key>debug</key>
-      <value>False</value>
+      <value>True</value>
     </param>
     <param>
-      <key>payload_len</key>
-      <value>payload_length</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(398, 152)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
+      <key>node_id</key>
       <value>0</value>
     </param>
-  </block>
-  <block>
-    <key>blocks_file_sink</key>
-    <param>
-      <key>id</key>
-      <value>blocks_file_sink_0</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>file</key>
-      <value>/home/nest/Projects/gr-marmote/apps/pn_out.dat</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>float</value>
-    </param>
-    <param>
-      <key>vlen</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>unbuffered</key>
-      <value>True</value>
-    </param>
     <param>
       <key>_coordinate</key>
-      <value>(614, 331)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>blocks_tag_debug</key>
-    <param>
-      <key>id</key>
-      <value>blocks_tag_debug_0</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>float</value>
-    </param>
-    <param>
-      <key>name</key>
-      <value>Synchronizer Tag Debugger</value>
-    </param>
-    <param>
-      <key>num_inputs</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>vlen</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>display</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(370, 673)</value>
+      <value>(1093, 244)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -433,7 +270,162 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(122, 356)</value>
+      <value>(560, 270)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>marmote_pn_spreader_f</key>
+    <param>
+      <key>id</key>
+      <value>marmote_pn_spreader_f_1</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>debug</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>mask</key>
+      <value>0x12</value>
+    </param>
+    <param>
+      <key>seed</key>
+      <value>0x10</value>
+    </param>
+    <param>
+      <key>preamble_len</key>
+      <value>preamble_length</value>
+    </param>
+    <param>
+      <key>spread_factor</key>
+      <value>spread_factor</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(604, 128)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_multiply_const_vxx</key>
+    <param>
+      <key>id</key>
+      <value>blocks_multiply_const_vxx_0_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>float</value>
+    </param>
+    <param>
+      <key>const</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(272, 566)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>180</value>
+    </param>
+  </block>
+  <block>
+    <key>variable</key>
+    <param>
+      <key>id</key>
+      <value>preamble_length</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>8</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(418, 15)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>marmote_cdma_packet_source</key>
+    <param>
+      <key>id</key>
+      <value>marmote_cdma_packet_source_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>debug</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>node_id</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>payload_len</key>
+      <value>payload_length</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(368, 144)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>marmote_cdma_packet_source</key>
+    <param>
+      <key>id</key>
+      <value>marmote_cdma_packet_source_0_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>debug</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>node_id</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>payload_len</key>
+      <value>payload_length</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(438, 691)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -464,10 +456,317 @@
     </param>
   </block>
   <block>
+    <key>marmote_pn_spreader_f</key>
+    <param>
+      <key>id</key>
+      <value>marmote_pn_spreader_f_1_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>debug</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>mask</key>
+      <value>0x14</value>
+    </param>
+    <param>
+      <key>seed</key>
+      <value>0x10</value>
+    </param>
+    <param>
+      <key>preamble_len</key>
+      <value>preamble_length</value>
+    </param>
+    <param>
+      <key>spread_factor</key>
+      <value>spread_factor</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(699, 675)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>marmote_pn_synchronizer</key>
+    <param>
+      <key>id</key>
+      <value>marmote_pn_synchronizer_0_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>reverse</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>mask</key>
+      <value>0x14</value>
+    </param>
+    <param>
+      <key>seed</key>
+      <value>0x10</value>
+    </param>
+    <param>
+      <key>preamble_len</key>
+      <value>preamble_length</value>
+    </param>
+    <param>
+      <key>spread_factor</key>
+      <value>spread_factor</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(560, 507)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>marmote_pn_despreader</key>
+    <param>
+      <key>id</key>
+      <value>marmote_pn_despreader_0_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>mask</key>
+      <value>0x14</value>
+    </param>
+    <param>
+      <key>seed</key>
+      <value>0x10</value>
+    </param>
+    <param>
+      <key>seed_offset</key>
+      <value>preamble_length*spread_factor</value>
+    </param>
+    <param>
+      <key>payload_len</key>
+      <value>payload_length</value>
+    </param>
+    <param>
+      <key>spread_factor</key>
+      <value>spread_factor</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(833, 457)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_file_sink</key>
+    <param>
+      <key>id</key>
+      <value>blocks_file_sink_0_0_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>file</key>
+      <value>/home/nest/Projects/gr-marmote/apps/pn_filt_out_1.dat</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>float</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>unbuffered</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(839, 581)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>marmote_cdma_packet_sink</key>
+    <param>
+      <key>id</key>
+      <value>marmote_cdma_packet_sink_0_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>debug</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>node_id</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1104, 481)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_file_sink</key>
+    <param>
+      <key>id</key>
+      <value>blocks_file_sink_0_0_0_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>file</key>
+      <value>/home/nest/Projects/gr-marmote/apps/pn_throttle_in.dat</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>float</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>unbuffered</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(317, 479)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_add_xx</key>
+    <param>
+      <key>id</key>
+      <value>blocks_add_xx_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>float</value>
+    </param>
+    <param>
+      <key>num_inputs</key>
+      <value>2</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(83, 401)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_multiply_const_vxx</key>
+    <param>
+      <key>id</key>
+      <value>blocks_multiply_const_vxx_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>float</value>
+    </param>
+    <param>
+      <key>const</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(265, 279)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>180</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_throttle</key>
+    <param>
+      <key>id</key>
+      <value>blocks_throttle_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>float</value>
+    </param>
+    <param>
+      <key>samples_per_second</key>
+      <value>samp_rate</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(328, 413)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
     <key>variable</key>
     <param>
       <key>id</key>
-      <value>preamble_length</value>
+      <value>samp_rate</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -475,11 +774,11 @@
     </param>
     <param>
       <key>value</key>
-      <value>4</value>
+      <value>1e5</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(418, 15)</value>
+      <value>(194, 10)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -487,26 +786,8 @@
     </param>
   </block>
   <connection>
-    <source_block_id>blocks_message_strobe_0</source_block_id>
-    <sink_block_id>marmote_cdma_packet_source_1</sink_block_id>
-    <source_key>strobe</source_key>
-    <sink_key>in</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>marmote_cdma_packet_source_1</source_block_id>
-    <sink_block_id>marmote_pn_spreader_f_1</sink_block_id>
-    <source_key>out</source_key>
-    <sink_key>in</sink_key>
-  </connection>
-  <connection>
     <source_block_id>marmote_pn_synchronizer_0</source_block_id>
-    <sink_block_id>blocks_throttle_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>marmote_pn_spreader_f_1</source_block_id>
-    <sink_block_id>marmote_pn_synchronizer_0</sink_block_id>
+    <sink_block_id>marmote_pn_despreader_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -517,27 +798,99 @@
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>blocks_throttle_0</source_block_id>
-    <sink_block_id>blocks_file_sink_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>marmote_pn_synchronizer_0</source_block_id>
-    <sink_block_id>marmote_pn_despreader_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
     <source_block_id>marmote_pn_despreader_0</source_block_id>
     <sink_block_id>marmote_cdma_packet_sink_0</sink_block_id>
     <source_key>out</source_key>
     <sink_key>in</sink_key>
   </connection>
   <connection>
-    <source_block_id>marmote_pn_synchronizer_0</source_block_id>
-    <sink_block_id>blocks_tag_debug_0</sink_block_id>
+    <source_block_id>blocks_message_strobe_0</source_block_id>
+    <sink_block_id>marmote_cdma_packet_source_0</sink_block_id>
+    <source_key>strobe</source_key>
+    <sink_key>in</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>marmote_cdma_packet_source_0</source_block_id>
+    <sink_block_id>marmote_pn_spreader_f_1</sink_block_id>
+    <source_key>out</source_key>
+    <sink_key>in</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>blocks_message_strobe_0_0</source_block_id>
+    <sink_block_id>marmote_cdma_packet_source_0_0</sink_block_id>
+    <source_key>strobe</source_key>
+    <sink_key>in</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>marmote_cdma_packet_source_0_0</source_block_id>
+    <sink_block_id>marmote_pn_spreader_f_1_0</sink_block_id>
+    <source_key>out</source_key>
+    <sink_key>in</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>blocks_throttle_0</source_block_id>
+    <sink_block_id>marmote_pn_synchronizer_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>marmote_pn_spreader_f_1</source_block_id>
+    <sink_block_id>blocks_multiply_const_vxx_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>blocks_multiply_const_vxx_0</source_block_id>
+    <sink_block_id>blocks_add_xx_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>blocks_multiply_const_vxx_0_0</source_block_id>
+    <sink_block_id>blocks_add_xx_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>1</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>blocks_throttle_0</source_block_id>
+    <sink_block_id>marmote_pn_synchronizer_0_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>marmote_pn_spreader_f_1_0</source_block_id>
+    <sink_block_id>blocks_multiply_const_vxx_0_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>marmote_pn_despreader_0_0</source_block_id>
+    <sink_block_id>marmote_cdma_packet_sink_0_0</sink_block_id>
+    <source_key>out</source_key>
+    <sink_key>in</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>marmote_pn_synchronizer_0_0</source_block_id>
+    <sink_block_id>marmote_pn_despreader_0_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>marmote_pn_synchronizer_0_0</source_block_id>
+    <sink_block_id>blocks_file_sink_0_0_0</sink_block_id>
     <source_key>1</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>blocks_add_xx_0</source_block_id>
+    <sink_block_id>blocks_file_sink_0_0_0_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>blocks_add_xx_0</source_block_id>
+    <sink_block_id>blocks_throttle_0</sink_block_id>
+    <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
 </flow_graph>

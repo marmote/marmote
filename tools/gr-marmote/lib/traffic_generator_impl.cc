@@ -29,15 +29,16 @@ namespace gr {
   namespace marmote {
 
     traffic_generator::sptr
-    traffic_generator::make()
+    traffic_generator::make(size_t item_size)
     {
-      return gnuradio::get_initial_sptr (new traffic_generator_impl());
+      return gnuradio::get_initial_sptr (new traffic_generator_impl(item_size));
     }
 
-    traffic_generator_impl::traffic_generator_impl()
+    traffic_generator_impl::traffic_generator_impl(size_t item_size)
       : gr_block("traffic_generator",
-		      gr_make_io_signature(1, 1, sizeof (gr_complex)),
-		      gr_make_io_signature(1, 1, sizeof (gr_complex)))
+		      gr_make_io_signature(1, 1, item_size),
+		      gr_make_io_signature(1, 1, item_size)),
+      d_item_size(item_size)
     {}
 
     traffic_generator_impl::~traffic_generator_impl()
@@ -56,20 +57,20 @@ namespace gr {
                        gr_vector_const_void_star &input_items,
                        gr_vector_void_star &output_items)
     {
-        const gr_complex *in = (const gr_complex *) input_items[0];
-        gr_complex *out = (gr_complex *) output_items[0];
+        const char *in = (const char *) input_items[0];
+        char *out = (char *) output_items[0];
         uint32_t nconsumed;
 
         if (ninput_items[0])
         {
           nconsumed = (ninput_items[0] < noutput_items) ? ninput_items[0] : noutput_items;
           consume_each (nconsumed);
-          memcpy(out, in, nconsumed * sizeof(gr_complex));
+          memcpy(out, in, nconsumed * d_item_size);
         }
         else
         {
           nconsumed = noutput_items;
-          memset(out, 0, nconsumed * sizeof(gr_complex));
+          memset(out, 0, nconsumed * d_item_size);
         }
         return nconsumed;
     }
