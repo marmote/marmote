@@ -81,7 +81,7 @@ namespace gr {
 
         if (d_debug)
         {
-          std::cout << "#" << (int)d_pkt_buf[0] << " -> ";
+          std::cout << "#" << d_id << " -> ";
           for (int i = 0; i < d_payload_len; i++)
           {
             std::cout << std::setw(2) << std::hex << (int)d_pkt_buf[i] << std::dec << " ";

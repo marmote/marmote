@@ -36,13 +36,13 @@ namespace gr {
       float* d_filter_coeffs;
       mseq_lfsr* d_lfsr;
 
-      int d_threshold;
+      float d_threshold;
       pmt::pmt_t d_srcid;
       pmt::pmt_t d_key;
       pmt::pmt_t d_value;
 
      public:
-      pn_synchronizer_impl(bool reverse, int mask, int seed, int preamble_len, int spread_factor);
+      pn_synchronizer_impl(bool reverse, int mask, int seed, int preamble_len, int spread_factor, float threshold);
       ~pn_synchronizer_impl();
 
       int work(int noutput_items,
