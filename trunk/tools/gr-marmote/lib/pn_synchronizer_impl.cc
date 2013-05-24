@@ -31,12 +31,12 @@ namespace gr {
   namespace marmote {
 
     pn_synchronizer::sptr
-    pn_synchronizer::make(bool reverse, int mask, int seed, int preamble_len, int spread_factor)
+    pn_synchronizer::make(bool reverse, int mask, int seed, int preamble_len, int spread_factor, float threshold)
     {
-      return gnuradio::get_initial_sptr (new pn_synchronizer_impl(reverse, mask, seed, preamble_len, spread_factor));
+      return gnuradio::get_initial_sptr (new pn_synchronizer_impl(reverse, mask, seed, preamble_len, spread_factor, threshold));
     }
 
-    pn_synchronizer_impl::pn_synchronizer_impl(bool reverse, int mask, int seed, int preamble_len, int spread_factor)
+    pn_synchronizer_impl::pn_synchronizer_impl(bool reverse, int mask, int seed, int preamble_len, int spread_factor, float threshold)
       : gr_sync_block("pn_synchronizer",
 		      gr_make_io_signature(1, 1, sizeof (float)),
 		      gr_make_io_signature(1, 2, sizeof (float))),
@@ -55,7 +55,7 @@ namespace gr {
         set_history(d_filter_len);
 
         // Set threshold for tagging
-        d_threshold = 0.75 * d_filter_len;
+        d_threshold = threshold * d_filter_len;
 
         d_key = pmt::pmt_string_to_symbol("PN sync");
         d_value = pmt::PMT_T;
@@ -105,7 +105,7 @@ namespace gr {
             {
                 // FIXME: currently adding tag to future item
                 add_item_tag(0, nitems_written(0) + i + d_filter_len, d_key, d_value, d_srcid);
-                // std::cout << "Threshold crossed at " << i << " (" << nitems_written(0)+i << ") " << filt_out[i] << " (" << d_threshold << ")" << std::endl;
+                std::cout << "Threshold crossed at " << std::setw(4) << i << " (" << nitems_written(0)+i << ") " << filt_out[i] << " (" << d_threshold << ")" << std::endl;
             }
 
             out[i] = in[i];

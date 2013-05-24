@@ -23,6 +23,16 @@
 namespace gr {
   namespace marmote {
 
+  	// 11th order polynomials
+  	static int s_polynomial_masks[] = {
+  		0x402,
+  		0x492,
+  		0x446,
+  		0x416,
+  		0x606,
+  		0x431
+  	};
+
   	mseq_lfsr::mseq_lfsr(int mask, int seed)
 	{
 		d_seed = seed;

@@ -73,13 +73,13 @@ namespace gr {
           d_lfsr->get_next_bit();
         }
 
-        // std::cout << "pn_despreader_impl::enter_idle()" << std::endl;
+        std::cout << "pn_despreader_impl::enter_idle()" << std::endl;
     }
 
     void pn_despreader_impl::enter_locked()
     {
         d_state = ST_LOCKED;
-        // std::cout << "pn_despreader_impl::enter_locked()" << std::endl;
+        std::cout << "pn_despreader_impl::enter_locked()" << std::endl;
     }
 
     int
@@ -92,7 +92,8 @@ namespace gr {
         int ninput = ninput_items[0];
         int nprocd = 0;
 
-        // std::cout << "Despreading..." << " [" << ninput << " chips]" << std::endl;
+        // std::cout << "Despreading..." << " [" << ninput << " chips] " << (d_state == ST_IDLE ? "IDLE" : "LOCKED") << std::endl;
+        std::cout << "DSPR: received: " << ninput << " bit_ctr: " << d_payload_ctr << " chip_ctr: " << d_chip_ctr << std::endl;
 
         d_tags.clear();
         get_tags_in_range(d_tags, 0, nitems_read(0), nitems_read(0) + ninput);
@@ -104,9 +105,13 @@ namespace gr {
             {
                 case ST_IDLE:
 
+                    std::cout << "IDLE... " << std::endl;
+
                     while (d_tags_itr != d_tags.end())
                     {
                         nprocd = d_tags_itr->offset - nitems_read(0);
+
+                        std::cout << "IDLE: starting at offset " << d_tags_itr->offset - nitems_read(0) << std::endl;
 
                         // FIXME: Synchronizer block inserts tags in the future
                         assert(nprocd <= nitems_read(0));
@@ -131,16 +136,24 @@ namespace gr {
 
                         if (d_payload_ctr == d_payload_len)
                         {
+                            std::cout << "IDLE: ";
+                            std::cout << "Packet received." << std::endl;
+                            std::cout << "IDLE: nprocd: " << nprocd << " bit_ctr: " << d_payload_ctr << " chip_ctr: " << d_chip_ctr << std::endl;
+
                             message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_pmt_buf, d_payload_len));
 
                             while (d_tags_itr != d_tags.end() && d_tags_itr->offset - nitems_read(0) < nprocd)
                             {
                                 d_tags_itr++;
+                                std::cout << "d_tags_itr++" << std::endl;
                             }
+                            std::cout << "IDLE: ";
                             enter_idle();
                         }
                         else
                         {
+                            std::cout << "IDLE: nprocd: " << nprocd << " bit_ctr: " << d_payload_ctr << " chip_ctr: " << d_chip_ctr << std::endl;
+                            std::cout << "IDLE: ";
                             enter_locked();
                             break; // for
                         }
@@ -151,10 +164,16 @@ namespace gr {
 
                 case ST_LOCKED:
 
+                    std::cout << "LCKD... nprocd = " << nprocd << " < ninput = " << ninput << std::endl;
+                    std::cout << "LCKD: continuing at offset " << d_tags_itr->offset - nitems_read(0) << std::endl;
+
+
                     while (d_tags_itr != d_tags.end())
                     {
+                        std::cout << "while d_tags_itr (locked)" << std::endl;
                         while (nprocd < ninput && d_payload_ctr < d_payload_len)
                         {
+                            std::cout << "while nprocd (locked)" << std::endl;
                             float pn = (d_lfsr->get_next_bit() ? 1.0 : -1.0);
 
                             d_chip_sum += *(in + nprocd) * pn;
@@ -173,16 +192,22 @@ namespace gr {
 
                         if (d_payload_ctr == d_payload_len)
                         {
+                            std::cout << "LCKD: ";
+                            std::cout << "Packet received." << std::endl;
+                            std::cout << "LCKD: nprocd: " << nprocd << " bit_ctr: " << d_payload_ctr << " chip_ctr: " << d_chip_ctr << std::endl;
                             message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_pmt_buf, d_payload_len));
 
                             while (d_tags_itr != d_tags.end() && d_tags_itr->offset - nitems_read(0) < nprocd)
                             {
                                 d_tags_itr++;
+                                std::cout << "d_tags_itr++" << std::endl;
                             }
+                            std::cout << "LCKD: ";
                             enter_idle();
                         }
                         else
                         {
+                            std::cout << "LCKD: ";
                             enter_locked();
                             break;
                         }
@@ -192,6 +217,7 @@ namespace gr {
             }
         }
 
+        std::cout << "DSPR: consumed: " << nprocd << std::endl;
         consume_each(nprocd);
 
         return 0;

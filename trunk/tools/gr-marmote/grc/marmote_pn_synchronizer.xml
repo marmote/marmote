@@ -4,7 +4,14 @@
   <key>marmote_pn_synchronizer</key>
   <category>MarmotE</category>
   <import>import marmote</import>
-  <make>marmote.pn_synchronizer(reverse=$reverse, mask=$mask, seed=$seed, preamble_len=$preamble_len, spread_factor=$spread_factor)</make>
+  <make>marmote.pn_synchronizer(
+    reverse=$reverse,
+    mask=$mask,
+    seed=$seed,
+    preamble_len=$preamble_len,
+    spread_factor=$spread_factor,
+    threshold=$threshold
+    )</make>
   <param>
 
     <name>Reverse</name>
@@ -47,6 +54,13 @@
     <key>spread_factor</key>
     <value>16</value>
     <type>int</type>
+  </param>
+
+  <param>
+    <name>Threshold</name>
+    <key>threshold</key>
+    <value>0.75</value>
+    <type>float</type>
   </param>
 
   <sink>
