@@ -114,7 +114,7 @@ static uint16_t max2830_regs[16] =
 		0x1003,
 		0x0079,
 		0x3666,
-		0x00A0,
+		0x00A0, // R5 (for 20 MHz TCXO)
 		0x0060,
 		0x1022, // R7: RXHP 4 kHz
 		0x3021,
