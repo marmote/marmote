@@ -101,22 +101,22 @@ sim:/testbench/Teton_0/gmsk_rx_0/RX_D \
 sim:/testbench/Teton_0/gmsk_rx_0/RX_I \
 sim:/testbench/Teton_0/gmsk_rx_0/RX_Q
 
-add wave \
--group {RX SYNC} \
--unsigned \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_txd(15) \
-sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/bit_in_reg \
-sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/bit_valid_reg \
-sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/bit_out_reg \
--analog-step -min 0 -max 24 -height 100 \
-sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/Correlation_metric_e0 \
-sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/Correlation_metric_e1 \
-sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/Correlation_metric_e2 \
-sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/Correlation_metric_e3 \
-sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/Correlation_metric_e4 \
-sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/Correlation_metric_e5 \
-sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/Correlation_metric_e6 \
-sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/Correlation_metric_e7
+#add wave \
+#-group {RX SYNC} \
+#-unsigned \
+#sim:/testbench/Teton_0/TX_APB_IF_0/s_txd(15) \
+#sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/bit_in_reg \
+#sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/bit_valid_reg \
+#sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/bit_out_reg \
+#-analog-step -min 0 -max 24 -height 100 \
+#sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/Correlation_metric_e0 \
+#sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/Correlation_metric_e1 \
+#sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/Correlation_metric_e2 \
+#sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/Correlation_metric_e3 \
+#sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/Correlation_metric_e4 \
+#sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/Correlation_metric_e5 \
+#sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/Correlation_metric_e6 \
+#sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/Correlation_metric_e7
 
 #add wave -label {RX FSM}
 
@@ -125,8 +125,8 @@ add wave  \
 sim:/testbench/Teton_0/RX_APB_IF_0/rst \
 sim:/testbench/Teton_0/RX_APB_IF_0/clk \
 sim:/testbench/Teton_0/RX_APB_IF_0/s_payload_length \
-sim:/testbench/Teton_0/RX_APB_IF_0/s_payload_ctr \
-sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/bit_valid
+sim:/testbench/Teton_0/RX_APB_IF_0/s_payload_ctr 
+#sim:/testbench/Teton_0/RX_APB_IF_0/u_GMSK_SYNC/bit_valid
 
 
 add wave  \
