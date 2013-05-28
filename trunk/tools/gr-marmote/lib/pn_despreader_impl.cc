@@ -168,12 +168,12 @@ namespace gr {
                     std::cout << "LCKD: continuing at offset " << d_tags_itr->offset - nitems_read(0) << std::endl;
 
 
-                    while (d_tags_itr != d_tags.end())
-                    {
+                    // while (d_tags_itr != d_tags.end())
+                    // {
                         std::cout << "while d_tags_itr (locked)" << std::endl;
                         while (nprocd < ninput && d_payload_ctr < d_payload_len)
                         {
-                            std::cout << "while nprocd (locked)" << std::endl;
+                            // std::cout << "while nprocd (locked)" << std::endl;
                             float pn = (d_lfsr->get_next_bit() ? 1.0 : -1.0);
 
                             d_chip_sum += *(in + nprocd) * pn;
@@ -213,7 +213,7 @@ namespace gr {
                         }
 
                         break;
-                    }
+                    // }
             }
         }
 
