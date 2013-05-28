@@ -59,7 +59,7 @@ namespace gr {
 
         if (d_debug)
         {
-          std::cout << "#" << d_id << " <- ";
+          std::cout << "    #" << d_id << " <- ";
           
           uint8_t octet = 0;
           uint8_t* payload = (uint8_t*)pmt::pmt_blob_data(pkt);

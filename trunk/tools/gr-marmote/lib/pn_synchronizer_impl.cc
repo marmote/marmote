@@ -105,7 +105,7 @@ namespace gr {
             {
                 // FIXME: currently adding tag to future item
                 add_item_tag(0, nitems_written(0) + i + d_filter_len, d_key, d_value, d_srcid);
-                std::cout << "Threshold crossed at " << std::setw(4) << i << " (" << nitems_written(0)+i << ") " << filt_out[i] << " (" << d_threshold << ")" << std::endl;
+                // std::cout << "Threshold crossed at " << std::setw(4) << i << " (" << nitems_written(0)+i << ") " << filt_out[i] << " (" << d_threshold << ")" << std::endl;
             }
 
             out[i] = in[i];
