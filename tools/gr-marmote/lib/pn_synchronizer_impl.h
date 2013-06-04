@@ -31,6 +31,7 @@ namespace gr {
     class pn_synchronizer_impl : public pn_synchronizer
     {
      private:
+      bool d_debug;
       bool d_reverse;
       int d_oversample_factor;
       int d_filter_len;
@@ -43,7 +44,7 @@ namespace gr {
       pmt::pmt_t d_value;
 
      public:
-      pn_synchronizer_impl(bool reverse, int mask, int seed, int preamble_len, int spread_factor, float threshold, int oversample_factor);
+      pn_synchronizer_impl(bool debug, bool reverse, int mask, int seed, int preamble_len, int spread_factor, float threshold, int oversample_factor);
       ~pn_synchronizer_impl();
 
       int work(int noutput_items,

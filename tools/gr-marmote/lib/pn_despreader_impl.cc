@@ -1,17 +1,17 @@
 /* -*- c++ -*- */
-/* 
+/*
  * Copyright 2013 <+YOU OR YOUR COMPANY+>.
- * 
+ *
  * This is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3, or (at your option)
  * any later version.
- * 
+ *
  * This software is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this software; see the file COPYING.  If not, write to
  * the Free Software Foundation, Inc., 51 Franklin Street,
@@ -31,18 +31,20 @@ namespace gr {
   namespace marmote {
 
     pn_despreader::sptr
-    pn_despreader::make(int mask, int seed, int seed_offset, int payload_len, int spread_factor)
+    pn_despreader::make(bool debug, int mask, int seed, int seed_offset, int payload_len, int spread_factor, int oversample_factor)
     {
-      return gnuradio::get_initial_sptr (new pn_despreader_impl(mask, seed, seed_offset, payload_len, spread_factor));
+      return gnuradio::get_initial_sptr (new pn_despreader_impl(debug, mask, seed, seed_offset, payload_len, spread_factor, oversample_factor));
     }
 
-    pn_despreader_impl::pn_despreader_impl(int mask, int seed, int seed_offset, int payload_len, int spread_factor)
+    pn_despreader_impl::pn_despreader_impl(bool debug, int mask, int seed, int seed_offset, int payload_len, int spread_factor, int oversample_factor)
       : gr_block("pn_despreader",
 		      gr_make_io_signature(1, 1, sizeof(float)),
 		      gr_make_io_signature(0, 0, 0)),
+        d_debug(debug),
         d_payload_len(payload_len * 8),
         d_seed_offset(seed_offset),
         d_spread_factor(spread_factor),
+        d_oversample_factor(oversample_factor),
         d_state(ST_IDLE)
     {
         d_lfsr = new mseq_lfsr(mask, seed);
@@ -65,6 +67,7 @@ namespace gr {
         d_payload_ctr = 0;
         d_chip_ctr = 0;
         d_chip_sum = 0;
+        d_sample_offset = 0;
 
         d_lfsr->reset();
         // FIXME: move this into reset()
@@ -73,13 +76,16 @@ namespace gr {
           d_lfsr->get_next_bit();
         }
 
-        // std::cout << "pn_despreader_impl::enter_idle()" << std::endl;
+        // if (d_debug)
+        //     std::cout << "pn_despreader_impl::enter_idle()" << std::endl;
     }
 
     void pn_despreader_impl::enter_locked()
     {
         d_state = ST_LOCKED;
-        // std::cout << "pn_despreader_impl::enter_locked()" << std::endl;
+
+        // if (d_debug)
+        //     std::cout << "pn_despreader_impl::enter_locked()" << std::endl;
     }
 
     int
@@ -90,12 +96,17 @@ namespace gr {
     {
         const float *in = (const float *) input_items[0];
         int ninput = ninput_items[0];
-        int nprocd = 0;
+        // int nprocd = 0;
+        int nprocd = d_sample_offset;
 
         std::vector<gr_tag_t>::iterator lti;
 
-        // std::cout << "Despreading..." << " [" << ninput << " chips] " << (d_state == ST_IDLE ? "IDLE" : "LOCKED") << std::endl;
-        // std::cout << "DSPR: received: " << ninput << " bit_ctr: " << d_payload_ctr << " chip_ctr: " << d_chip_ctr << std::endl;
+        if (d_debug)
+        {
+            std::cout << "Despreading..." << " [" << ninput << " chips] " << (d_state == ST_IDLE ? "IDLE" : "LOCKED") << std::endl;
+            std::cout << "DSPR: received: " << ninput << " bit_ctr: " << d_payload_ctr << " chip_ctr: " << d_chip_ctr;
+            std::cout << " sample_offset: " << d_sample_offset << std::endl;
+        }
 
         d_tags.clear();
         get_tags_in_range(d_tags, 0, nitems_read(0), nitems_read(0) + ninput);
@@ -107,14 +118,17 @@ namespace gr {
             {
                 case ST_IDLE:
 
-                    // std::cout << "IDLE... " << std::endl;
-                    // std::cout << "nprocd: " << nprocd << " ninput: " << ninput << std::endl;
+                    if (d_debug)
+                    {
+                        std::cout << "IDLE... " << std::endl;
+                        std::cout << "nprocd: " << nprocd << " ninput: " << ninput << std::endl;
 
-                    // for (lti = d_tags.begin(); lti != d_tags.end(); lti++)
-                    // {
-                    //     std::cout << "T@" << (int)(lti->offset - nitems_read(0)) << " ";
-                    // }
-                    // std::cout << " [" << d_tags.size() << " ]" << std::endl;
+                        for (lti = d_tags.begin(); lti != d_tags.end(); lti++)
+                        {
+                            std::cout << "Tags @ " << (int)(lti->offset - nitems_read(0)) << " ";
+                        }
+                        std::cout << " [" << d_tags.size() << "]" << std::endl;
+                    }
 
                     if (d_tags.empty() || d_tags_itr == d_tags.end())
                     {
@@ -125,23 +139,34 @@ namespace gr {
                     if (d_tags_itr->offset - nitems_read(0) < nprocd)
                     {
                         std::cout << "d_tags_itr++" << std::endl;
-                        
+
                         d_tags_itr++;
                         break;
                     }
 
                     nprocd = d_tags_itr->offset - nitems_read(0);
 
-                    // std::cout << "IDLE: starting at offset " << d_tags_itr->offset - nitems_read(0) << std::endl;
+                    if (d_debug)
+                    {
+                        std::cout << "IDLE: starting at offset " << d_tags_itr->offset - nitems_read(0) << std::endl;
+
+                        for (int k = nprocd; k < ninput; k++)
+                        {
+                            std::cout << (int)(in[k] > 0.0 ? 0 : 1) << " ";
+                        }
+                        std::cout << std::endl;
+                    }
 
                     // FIXME: Synchronizer block inserts tags in the future
                     assert(nprocd <= nitems_read(0));
 
                     while (nprocd < ninput && d_payload_ctr < d_payload_len)
                     {
+                        // std::cout << int(in[nprocd] > 0.0 ? 0 : 1) << " ";
+
                         float pn = (d_lfsr->get_next_bit() ? 1.0 : -1.0);
 
-                        d_chip_sum = d_chip_sum + *(in + nprocd) * pn;
+                        d_chip_sum = d_chip_sum + in[nprocd] * pn;
                         d_chip_ctr++;
 
                         if (d_chip_ctr == d_spread_factor)
@@ -152,24 +177,33 @@ namespace gr {
                             d_chip_ctr = 0;
                         }
 
-                        nprocd++;
+                        // nprocd++;
+                        nprocd += d_oversample_factor;
                     }
+                    // std::cout << std::endl;
 
                     if (d_payload_ctr == d_payload_len)
                     {
-                        // std::cout << "IDLE: ";
-                        // std::cout << "Packet received." << std::endl;
-                        // std::cout << "IDLE: nprocd: " << nprocd << " bit_ctr: " << d_payload_ctr << " chip_ctr: " << d_chip_ctr << std::endl;
+                        if (d_debug)
+                        {
+                            std::cout << "IDLE: ";
+                            std::cout << "Packet received." << std::endl;
+                            std::cout << "IDLE: nprocd: " << nprocd << " bit_ctr: " << d_payload_ctr << " chip_ctr: " << d_chip_ctr << std::endl;
+                        }
 
                         message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_pmt_buf, d_payload_len));
 
-                        // std::cout << "IDLE: ";
+                        if (d_debug)
+                            std::cout << "IDLE: ";
                         enter_idle();
                     }
                     else
                     {
-                        // std::cout << "IDLE: nprocd: " << nprocd << " bit_ctr: " << d_payload_ctr << " chip_ctr: " << d_chip_ctr << std::endl;
-                        // std::cout << "IDLE: ";
+                        if (d_debug)
+                        {
+                            std::cout << "IDLE: nprocd: " << nprocd << " bit_ctr: " << d_payload_ctr << " chip_ctr: " << d_chip_ctr << std::endl;
+                            std::cout << "IDLE: ";
+                        }
                         enter_locked();
                     }
 
@@ -178,61 +212,69 @@ namespace gr {
 
                 case ST_LOCKED:
 
-                    // std::cout << "LCKD... nprocd = " << nprocd << " < ninput = " << ninput << std::endl;
-                    // std::cout << "LCKD: continuing at offset " << d_tags_itr->offset - nitems_read(0) << std::endl;
+                    if (d_debug)
+                    {
+                        std::cout << "LCKD... nprocd = " << nprocd << " < ninput = " << ninput << std::endl;
+                        std::cout << "LCKD: continuing at offset " << d_tags_itr->offset - nitems_read(0) << std::endl;
+                    }
 
+                    // std::cout << "while d_tags_itr (locked)" << std::endl;
+                    while (nprocd < ninput && d_payload_ctr < d_payload_len)
+                    {
+                        // std::cout << "while nprocd (locked)" << std::endl;
+                        float pn = (d_lfsr->get_next_bit() ? 1.0 : -1.0);
 
-                    // while (d_tags_itr != d_tags.end())
-                    // {
-                        // std::cout << "while d_tags_itr (locked)" << std::endl;
-                        while (nprocd < ninput && d_payload_ctr < d_payload_len)
+                        d_chip_sum += *(in + nprocd) * pn;
+                        d_chip_ctr++;
+
+                        if (d_chip_ctr == d_spread_factor)
                         {
-                            // std::cout << "while nprocd (locked)" << std::endl;
-                            float pn = (d_lfsr->get_next_bit() ? 1.0 : -1.0);
+                            d_pmt_buf[d_payload_ctr++] = (d_chip_sum > 0.0) ? 1 : 0;
 
-                            d_chip_sum += *(in + nprocd) * pn;
-                            d_chip_ctr++;
-
-                            if (d_chip_ctr == d_spread_factor)
-                            {
-                                d_pmt_buf[d_payload_ctr++] = (d_chip_sum > 0.0) ? 1 : 0;
-
-                                d_chip_sum = 0;
-                                d_chip_ctr = 0;
-                            }
-
-                            nprocd++;
+                            d_chip_sum = 0;
+                            d_chip_ctr = 0;
                         }
 
-                        if (d_payload_ctr == d_payload_len)
-                        {
-                            // std::cout << "LCKD: ";
-                            // std::cout << "Packet received." << std::endl;
-                            // std::cout << "LCKD: nprocd: " << nprocd << " bit_ctr: " << d_payload_ctr << " chip_ctr: " << d_chip_ctr << std::endl;
-                            message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_pmt_buf, d_payload_len));
+                        // nprocd++;
+                        nprocd += d_oversample_factor;
+                    }
 
-                            while (d_tags_itr != d_tags.end() && d_tags_itr->offset - nitems_read(0) < nprocd)
-                            {
-                                d_tags_itr++;
-                                // std::cout << "d_tags_itr++" << std::endl;
-                            }
-                            // std::cout << "LCKD: ";
-                            enter_idle();
-                        }
-                        else
+                    if (d_payload_ctr == d_payload_len)
+                    {
+                        if (d_debug)
                         {
-                            // std::cout << "LCKD: ";
-                            enter_locked();
-                            break;
+                            std::cout << "LCKD: ";
+                            std::cout << "Packet received." << std::endl;
+                            std::cout << "LCKD: nprocd: " << nprocd << " bit_ctr: " << d_payload_ctr << " chip_ctr: " << d_chip_ctr << std::endl;
+                        }
+                        message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_pmt_buf, d_payload_len));
+
+                        while (d_tags_itr != d_tags.end() && d_tags_itr->offset - nitems_read(0) < nprocd)
+                        {
+                            d_tags_itr++;
+                            std::cout << "d_tags_itr++" << std::endl;
                         }
 
+                        if (d_debug)
+                            std::cout << "LCKD: ";
+                        enter_idle();
+                    }
+                    else
+                    {
+                        if (d_debug)
+                            std::cout << "LCKD: ";
+                        enter_locked();
                         break;
-                    // }
+                    }
+
+                    break;
             }
         }
 
+        d_sample_offset = nprocd % ninput;
+
         // std::cout << "DSPR: consumed: " << nprocd << std::endl;
-        consume_each(nprocd);
+        consume_each(nprocd < ninput ? nprocd : ninput);
 
         return 0;
     }
