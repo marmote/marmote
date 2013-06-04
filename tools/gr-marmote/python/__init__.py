@@ -45,6 +45,7 @@ if _RTLD_GLOBAL != 0:
 from marmote_swig import *
 
 # import any pure python here
+from message_source import message_source
 #
 
 # ----------------------------------------------------------------
