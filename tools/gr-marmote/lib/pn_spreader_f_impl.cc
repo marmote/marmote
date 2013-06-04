@@ -24,7 +24,7 @@
 
 #include <gr_io_signature.h>
 #include "pn_spreader_f_impl.h"
-#include <iomanip> 
+#include <iomanip>
 
 namespace gr {
   namespace marmote {
@@ -38,7 +38,7 @@ namespace gr {
     pn_spreader_f_impl::pn_spreader_f_impl(bool debug, int mask, int seed, int spread_factor, int preamble_len)
       : gr_block("pn_spreader_f",
           gr_make_io_signature(0, 0, 0),
-          gr_make_io_signature(1, 1, sizeof (float))),
+          gr_make_io_signature(1, 1, sizeof (uint8_t))),
       d_debug(debug),
       d_mask(mask),
       d_seed(seed),
@@ -62,7 +62,7 @@ namespace gr {
                        gr_vector_void_star &output_items)
     {
         pmt::pmt_t blob;
-        float *out = (float *) output_items[0];
+        uint8_t *out = (uint8_t *) output_items[0];
         int nout;
 
         while (d_chip_offset == 0)
@@ -91,7 +91,8 @@ namespace gr {
             {
               for (int j = 0; j < d_spread_factor; j++)
               {
-                d_chip_buf[chip_ctr++] = d_lfsr.get_next_bit() ? 1.0 : -1.0;
+                // All 1's
+                d_chip_buf[chip_ctr++] = 0x1 ^ d_lfsr.get_next_bit();
                 // std::cout << std::setw(2) << (int)d_chip_buf[chip_ctr-1] << " ";
               }
             }
@@ -104,7 +105,7 @@ namespace gr {
 
               for (int j = 0; j < d_spread_factor; j++)
               {
-                d_chip_buf[chip_ctr++] = data_bit ^ d_lfsr.get_next_bit() ? -1.0 : 1.0;
+                d_chip_buf[chip_ctr++] = data_bit ^ d_lfsr.get_next_bit();
                 // std::cout << std::setw(2) << (int)d_chip_buf[chip_ctr-1] << " ";
               }
             }
@@ -122,7 +123,7 @@ namespace gr {
         }
 
         nout = std::min(d_chip_len - d_chip_offset, noutput_items);
-        memcpy(out, d_chip_buf + d_chip_offset, nout * sizeof(float));
+        memcpy(out, d_chip_buf + d_chip_offset, nout * sizeof(uint8_t));
 
         d_chip_offset += nout;
 

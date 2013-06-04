@@ -10,13 +10,14 @@
     seed=$seed,
     preamble_len=$preamble_len,
     spread_factor=$spread_factor,
-    threshold=$threshold
+    threshold=$threshold,
+    oversample_factor=$oversample_factor
     )</make>
   <param>
 
     <name>Reverse</name>
     <key>reverse</key>
-    <value>False</value>
+    <value>True</value>
     <type>bool</type>
     <option>
       <name>Enable</name>
@@ -63,6 +64,13 @@
     <type>float</type>
   </param>
 
+  <param>
+    <name>Oversample factor</name>
+    <key>oversample_factor</key>
+    <value>1</value>
+    <type>int</type>
+  </param>
+
   <sink>
     <name>in</name>
     <type>float</type>
@@ -75,5 +83,6 @@
   <source>
     <name>filt_out</name>
     <type>float</type>
+    <optional>1</optional>
   </source>
 </block>
