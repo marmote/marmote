@@ -76,9 +76,10 @@ namespace gr {
 
           if (pmt::pmt_is_blob(pkt))
           {
-            // std::cout << "Spreading packet..." << " [" << d_preamble_len << " + " << pkt_len << " bits]" << std::endl;
-
             unsigned int pkt_len = pmt::pmt_blob_length(pkt) * 8;
+            if (d_debug)
+              std::cout << "Spreading packet..." << " [" << d_preamble_len << " + " << pkt_len << " bits]" << std::endl;
+
             uint8_t* pkt_data = (uint8_t*)pmt::pmt_blob_data(pkt);
 
             assert(pkt_len > 0 && pkt_len <= MAX_CHIP_LEN / d_spread_factor);
@@ -94,9 +95,12 @@ namespace gr {
                 // All 1's
                 d_chip_buf[chip_ctr++] = 0x1 ^ d_lfsr.get_next_bit();
                 // std::cout << std::setw(2) << (int)d_chip_buf[chip_ctr-1] << " ";
+                if (d_debug)
+                  std::cout << (int)d_chip_buf[chip_ctr-1] << " ";
               }
             }
-            // std::cout << std::endl;
+            if (d_debug)
+              std::cout << std::endl;
 
             // Set up payload
             for (int i = 0; i < pkt_len; i++)
@@ -107,9 +111,14 @@ namespace gr {
               {
                 d_chip_buf[chip_ctr++] = data_bit ^ d_lfsr.get_next_bit();
                 // std::cout << std::setw(2) << (int)d_chip_buf[chip_ctr-1] << " ";
+                if (d_debug)
+                  std::cout << (int)d_chip_buf[chip_ctr-1] << " ";
               }
             }
-            // std::cout << std::endl;
+
+            if (d_debug)
+              std::cout << std::endl;
+
             d_chip_len = chip_ctr;
             d_chip_offset = 0;
 

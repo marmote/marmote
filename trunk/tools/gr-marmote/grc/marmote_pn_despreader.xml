@@ -5,12 +5,29 @@
     <category>MarmotE</category>
     <import>import marmote</import>
     <make>marmote.pn_despreader(
+        debug=$debug,
         mask=$mask,
         seed=$seed,
         seed_offset=$seed_offset,
         payload_len=$payload_len,
-        spread_factor=$spread_factor)
+        spread_factor=$spread_factor,
+        oversample_factor=$oversample_factor)
     </make>
+
+    <param>
+      <name>Debug</name>
+      <key>debug</key>
+      <value>False</value>
+      <type>bool</type>
+      <option>
+        <name>Enable</name>
+        <key>True</key>
+      </option>
+      <option>
+        <name>Disable</name>
+        <key>False</key>
+      </option>
+    </param>
 
     <param>
         <name>Mask</name>
@@ -44,6 +61,13 @@
         <name>Spread factor</name>
         <key>spread_factor</key>
         <value>16</value>
+        <type>int</type>
+    </param>
+
+    <param>
+        <name>Oversample factor</name>
+        <key>oversample_factor</key>
+        <value>1</value>
         <type>int</type>
     </param>
 

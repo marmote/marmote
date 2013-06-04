@@ -46,7 +46,7 @@ namespace gr {
        * class. marmote::pn_synchronizer::make is the public interface for
        * creating new instances.
        */
-      static sptr make(bool reverse, int mask, int seed, int preamble_len, int spread_factor, float threshold, int oversample_factor);
+      static sptr make(bool debug, bool reverse, int mask, int seed, int preamble_len, int spread_factor, float threshold, int oversample_factor);
     };
 
   } // namespace marmote

@@ -1,17 +1,17 @@
 /* -*- c++ -*- */
-/* 
+/*
  * Copyright 2013 <+YOU OR YOUR COMPANY+>.
- * 
+ *
  * This is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3, or (at your option)
  * any later version.
- * 
+ *
  * This software is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this software; see the file COPYING.  If not, write to
  * the Free Software Foundation, Inc., 51 Franklin Street,
@@ -49,12 +49,17 @@ namespace gr {
         int d_payload_len; // bits
         int d_spread_factor;
 
+        int d_oversample_factor;
+
+        bool d_debug;
+        int d_sample_offset; // for oversampling
+
 
         void enter_idle();
         void enter_locked();
 
      public:
-      pn_despreader_impl(int mask, int seed, int seed_offset, int payload_len, int spread_factor);
+      pn_despreader_impl(bool debug, int mask, int seed, int seed_offset, int payload_len, int spread_factor, int oversample_factor);
       ~pn_despreader_impl();
 
       int general_work(int noutput_items,

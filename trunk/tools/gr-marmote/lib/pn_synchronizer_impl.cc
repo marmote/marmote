@@ -31,15 +31,16 @@ namespace gr {
   namespace marmote {
 
     pn_synchronizer::sptr
-    pn_synchronizer::make(bool reverse, int mask, int seed, int preamble_len, int spread_factor, float threshold, int oversample_factor)
+    pn_synchronizer::make(bool debug, bool reverse, int mask, int seed, int preamble_len, int spread_factor, float threshold, int oversample_factor)
     {
-      return gnuradio::get_initial_sptr (new pn_synchronizer_impl(reverse, mask, seed, preamble_len, spread_factor, threshold, oversample_factor));
+      return gnuradio::get_initial_sptr (new pn_synchronizer_impl(debug, reverse, mask, seed, preamble_len, spread_factor, threshold, oversample_factor));
     }
 
-    pn_synchronizer_impl::pn_synchronizer_impl(bool reverse, int mask, int seed, int preamble_len, int spread_factor, float threshold, int oversample_factor)
+    pn_synchronizer_impl::pn_synchronizer_impl(bool debug, bool reverse, int mask, int seed, int preamble_len, int spread_factor, float threshold, int oversample_factor)
       : gr_sync_block("pn_synchronizer",
 		      gr_make_io_signature(1, 1, sizeof (float)),
 		      gr_make_io_signature(1, 2, sizeof (float))),
+              d_debug(debug),
               d_reverse(reverse),
               d_oversample_factor(oversample_factor),
               d_filter_len(preamble_len * spread_factor)
@@ -53,7 +54,7 @@ namespace gr {
             d_filter_coeffs[i] = d_lfsr->get_next_bit() ? 1.0 : -1.0;
         }
 
-        set_history(d_filter_len);
+        set_history(d_filter_len * d_oversample_factor);
 
         // Set threshold for tagging
         d_threshold = threshold * d_filter_len;
@@ -82,7 +83,14 @@ namespace gr {
         float *out = (float *) output_items[0];
         float *filt_out = (float *) output_items[1];
 
-        // std::cout << "Synchronizing... [" << noutput_items << " chips]" << std::endl;
+        if (d_debug)
+            std::cout << "Synchronizing... [" << noutput_items << " chips]" << std::endl;
+
+        // for (int i = 0; i < noutput_items; i++)
+        // {
+        //     std::cout << std::setw(2) << (in[i] < 0.0 ? 1 : 0) << " ";
+        // }
+        // std::cout << std::endl;
 
         for (int i = 0; i < noutput_items; i++)
         {
@@ -91,22 +99,32 @@ namespace gr {
             {
                 for (int j = 0; j < d_filter_len; j++)
                 {
-                    filt_out[i] += in[i+j] * d_filter_coeffs[j];
+                    filt_out[i] += in[i+j*d_oversample_factor] * d_filter_coeffs[j];
                 }
             }
             else
             {
                 for (int j = 0; j < d_filter_len; j++)
                 {
-                    filt_out[i] += in[i+j] * d_filter_coeffs[d_filter_len-j];
+                    filt_out[i] += in[i+j*d_oversample_factor] * d_filter_coeffs[d_filter_len-j];
                 }
             }
 
             if (filt_out[i] > d_threshold)
             {
                 // FIXME: currently adding tag to future item
-                add_item_tag(0, nitems_written(0) + i + d_filter_len, d_key, d_value, d_srcid);
-                // std::cout << "Threshold crossed at " << std::setw(4) << i << " (" << nitems_written(0)+i << ") " << filt_out[i] << " (" << d_threshold << ")" << std::endl;
+                add_item_tag(0, nitems_written(0) + i + d_filter_len * d_oversample_factor, d_key, d_value, d_srcid);
+
+                if (d_debug)
+                {
+                    std::cout << "Threshold crossed at " << std::setw(4) << i << " (" << nitems_written(0)+i << ") " << filt_out[i] << " (" << d_threshold << ")" << std::endl;
+                    for (int k = i + d_filter_len * d_oversample_factor; k < noutput_items; k++)
+                    {
+                        // std::cout << std::setw(2) << int(in[k] > 0.0 ? 0 : 1) << " ";
+                        std::cout << int(in[k] > 0.0 ? 0 : 1) << " ";
+                    }
+                    std::cout << std::endl;
+                }
             }
 
             out[i] = in[i];
@@ -114,7 +132,7 @@ namespace gr {
 
         // for (int i = 0; i < noutput_items; i++)
         // {
-        //     std::cout << std::setw(2) << out[i] << " ";
+        //     std::cout << std::setw(2) << (out[i] < 0.0 ? 1 : 0) << " ";
         // }
         // std::cout << std::endl;
 
