@@ -29,7 +29,6 @@ list(APPEND marmote_sources
     gmsk_packet_sink_b_impl.cc
     mac_deframer_impl.cc
     traffic_generator_impl.cc
-    ds_spreader_bb_impl.cc
     cdma_packet_source_impl.cc
     cdma_packet_sink_impl.cc
     mseq_lfsr.cc
