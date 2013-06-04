@@ -12,7 +12,6 @@
 #include "marmote/gmsk_packet_sink_b.h"
 #include "marmote/mac_deframer.h"
 #include "marmote/traffic_generator.h"
-#include "marmote/ds_spreader_bb.h"
 #include "marmote/cdma_packet_source.h"
 #include "marmote/cdma_packet_sink.h"
 #include "marmote/pn_spreader_f.h"
@@ -30,8 +29,6 @@ GR_SWIG_BLOCK_MAGIC2(marmote, mac_deframer);
 %include "marmote/traffic_generator.h"
 GR_SWIG_BLOCK_MAGIC2(marmote, traffic_generator);
 
-%include "marmote/ds_spreader_bb.h"
-GR_SWIG_BLOCK_MAGIC2(marmote, ds_spreader_bb);
 %include "marmote/cdma_packet_source.h"
 GR_SWIG_BLOCK_MAGIC2(marmote, cdma_packet_source);
 %include "marmote/cdma_packet_sink.h"
