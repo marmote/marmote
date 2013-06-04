@@ -1,17 +1,17 @@
 /* -*- c++ -*- */
-/* 
+/*
  * Copyright 2013 <+YOU OR YOUR COMPANY+>.
- * 
+ *
  * This is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3, or (at your option)
  * any later version.
- * 
+ *
  * This software is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this software; see the file COPYING.  If not, write to
  * the Free Software Foundation, Inc., 51 Franklin Street,
@@ -31,16 +31,17 @@ namespace gr {
   namespace marmote {
 
     pn_synchronizer::sptr
-    pn_synchronizer::make(bool reverse, int mask, int seed, int preamble_len, int spread_factor, float threshold)
+    pn_synchronizer::make(bool reverse, int mask, int seed, int preamble_len, int spread_factor, float threshold, int oversample_factor)
     {
-      return gnuradio::get_initial_sptr (new pn_synchronizer_impl(reverse, mask, seed, preamble_len, spread_factor, threshold));
+      return gnuradio::get_initial_sptr (new pn_synchronizer_impl(reverse, mask, seed, preamble_len, spread_factor, threshold, oversample_factor));
     }
 
-    pn_synchronizer_impl::pn_synchronizer_impl(bool reverse, int mask, int seed, int preamble_len, int spread_factor, float threshold)
+    pn_synchronizer_impl::pn_synchronizer_impl(bool reverse, int mask, int seed, int preamble_len, int spread_factor, float threshold, int oversample_factor)
       : gr_sync_block("pn_synchronizer",
 		      gr_make_io_signature(1, 1, sizeof (float)),
 		      gr_make_io_signature(1, 2, sizeof (float))),
               d_reverse(reverse),
+              d_oversample_factor(oversample_factor),
               d_filter_len(preamble_len * spread_factor)
     {
          // Initialize filter
@@ -49,7 +50,7 @@ namespace gr {
 
         for (int i = 0; i < d_filter_len; i++)
         {
-            d_filter_coeffs[i] = d_lfsr->get_next_bit() ? 1.0 : -1.0;        
+            d_filter_coeffs[i] = d_lfsr->get_next_bit() ? 1.0 : -1.0;
         }
 
         set_history(d_filter_len);
@@ -94,12 +95,12 @@ namespace gr {
                 }
             }
             else
-            {                
+            {
                 for (int j = 0; j < d_filter_len; j++)
                 {
                     filt_out[i] += in[i+j] * d_filter_coeffs[d_filter_len-j];
                 }
-            }   
+            }
 
             if (filt_out[i] > d_threshold)
             {
