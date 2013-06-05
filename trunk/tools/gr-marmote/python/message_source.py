@@ -33,15 +33,18 @@ class message_source(gr.basic_block):
     docstring for block message_source
     """
     def __init__(self, msg_interval):
+
         gr.basic_block.__init__(self,
             name="message_source",
             in_sig = None,
             out_sig = None
         )
+
         self.msg_interval = msg_interval
         self.msg_ctr = 0;
         self.message_port_register_out(pmt.pmt_intern('out'))
 
+        self.finished = False
         try:
             thread.start_new_thread(self.run, (msg_interval,))
         except Exception as inst:
@@ -51,8 +54,17 @@ class message_source(gr.basic_block):
             print inst           # __str__ allows args to printed directly
 
 
+    def __del__(self):
+
+        self.finished = True
+
+
     def run(self, msg_interval):
-        while 1: # FIXME: implement graceful thread exit
+
+        while self.finished == False:
+            payload = ''
+            for i in xrange(0,4):
+                payload = payload + chr(self.msg_ctr & 0xFF)
+                self.msg_ctr += 1
+            self.message_port_pub(pmt.pmt_intern('out'), pmt.pmt_intern(payload))
             time.sleep(msg_interval)
-            self.message_port_pub(pmt.pmt_intern('out'), pmt.pmt_from_long(self.msg_ctr))
-            self.msg_ctr += 1
