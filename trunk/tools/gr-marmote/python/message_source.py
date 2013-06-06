@@ -41,12 +41,16 @@ class message_source(gr.basic_block):
         )
 
         self.msg_interval = msg_interval
-        self.msg_ctr = 0;
+        self.msg_ctr = 0
+        self.payload = ''
+        for i in xrange(0,4):
+            self.payload = self.payload + chr(self.msg_ctr & 0xFF)
+            self.msg_ctr += 1
         self.message_port_register_out(pmt.pmt_intern('out'))
 
         self.finished = False
         try:
-            thread.start_new_thread(self.run, (msg_interval,))
+            self.msg_src_thread = thread.start_new_thread(self.run, (msg_interval,))
         except Exception as inst:
             print "Error: message_source is unable to start thread"
             print type(inst)     # the exception instance
@@ -57,14 +61,15 @@ class message_source(gr.basic_block):
     def __del__(self):
 
         self.finished = True
+        self.msg_src_thread.join()
 
 
     def run(self, msg_interval):
 
         while self.finished == False:
-            payload = ''
+            self.message_port_pub(pmt.pmt_intern('out'), pmt.pmt_intern(self.payload))
+            self.payload = ''
             for i in xrange(0,4):
-                payload = payload + chr(self.msg_ctr & 0xFF)
+                self.payload = self.payload + chr(self.msg_ctr & 0xFF)
                 self.msg_ctr += 1
-            self.message_port_pub(pmt.pmt_intern('out'), pmt.pmt_intern(payload))
             time.sleep(msg_interval)
