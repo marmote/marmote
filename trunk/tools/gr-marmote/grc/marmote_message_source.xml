@@ -4,13 +4,20 @@
   <key>marmote_message_source</key>
   <category>MarmotE</category>
   <import>import marmote</import>
-  <make>marmote.message_source(msg_interval=$msg_interval)</make>
+  <make>marmote.message_source(msg_interval=$msg_interval, msg_len=$msg_length)</make>
 
   <param>
     <name>Message interval (sec)</name>
     <key>msg_interval</key>
     <value>1.0</value>
     <type>float</type>
+  </param>
+
+  <param>
+    <name>Message length (bytes)</name>
+    <key>msg_length</key>
+    <value>4</value>
+    <type>int</type>
   </param>
 
   <source>

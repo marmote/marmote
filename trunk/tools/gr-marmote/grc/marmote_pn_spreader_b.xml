@@ -1,11 +1,15 @@
 <?xml version="1.0"?>
 <block>
-  <name>PN spreader (old)</name>
-  <key>marmote_pn_spreader_f</key>
+  <name>PN spreader</name>
+  <key>marmote_pn_spreader_b</key>
   <category>MarmotE</category>
   <import>import marmote</import>
-  <make>marmote.pn_spreader_f(
-    debug=$debug, mask=$mask, seed=$seed, spread_factor=$spread_factor, preamble_len=$preamble_len)</make>
+  <make>marmote.pn_spreader_b(
+    debug=$debug,
+    mask=$mask,
+    seed=$seed,
+    spread_factor=$spread_factor)
+  </make>
 
   <param>
     <name>Debug</name>
@@ -22,7 +26,6 @@
     </option>
   </param>
 
-
   <param>
     <name>Mask</name>
     <key>mask</key>
@@ -38,26 +41,19 @@
   </param>
 
   <param>
-    <name>Preamble length (bits)</name>
-    <key>preamble_len</key>
-    <value>4</value>
-    <type>int</type>
-  </param>
-
-  <param>
     <name>Spread factor</name>
     <key>spread_factor</key>
     <value>16</value>
     <type>int</type>
   </param>
 
-<sink>
-  <name>in</name>
-  <type>message</type>
-</sink>
+  <sink>
+    <name>in</name>
+    <type>byte</type>
+  </sink>
 
-<source>
-  <name>out</name>
-  <type>byte</type>
-</source>
+  <source>
+    <name>out</name>
+    <type>byte</type>
+  </source>
 </block>
