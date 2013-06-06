@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<block>
+  <name>Message sink</name>
+  <key>marmote_message_sink</key>
+  <category>MarmotE</category>
+  <import>import marmote</import>
+  <make>marmote.message_sink(node_id=$node_id)</make>
+
+  <param>
+    <name>Node ID</name>
+    <key>node_id</key>
+    <type>int</type>
+  </param>
+
+  <sink>
+    <name>in</name>
+    <type>message</type>
+  </sink>
+
+</block>

@@ -31,7 +31,9 @@ endif()
 GR_PYTHON_INSTALL(
     FILES
     __init__.py
-    message_source.py DESTINATION ${GR_PYTHON_DIR}/marmote
+    message_source.py
+    message_sink.py
+    DESTINATION ${GR_PYTHON_DIR}/marmote
 )
 
 ########################################################################
@@ -49,3 +51,6 @@ GR_ADD_TEST(qa_pn_spreader_f ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa
 GR_ADD_TEST(qa_pn_synchronizer ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_pn_synchronizer.py)
 GR_ADD_TEST(qa_pn_despreader ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_pn_despreader.py)
 GR_ADD_TEST(qa_message_source ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_message_source.py)
+GR_ADD_TEST(qa_message_sink ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_message_sink.py)
+GR_ADD_TEST(qa_cdma_packet_framer ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_cdma_packet_framer.py)
+GR_ADD_TEST(qa_pn_spreader_b ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_pn_spreader_b.py)

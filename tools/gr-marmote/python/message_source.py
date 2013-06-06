@@ -26,13 +26,14 @@ import numpy
 from gnuradio import gr
 
 import struct
+import sys
 
 
 class message_source(gr.basic_block):
     """
     docstring for block message_source
     """
-    def __init__(self, msg_interval):
+    def __init__(self, msg_interval, msg_len):
 
         gr.basic_block.__init__(self,
             name="message_source",
@@ -41,9 +42,10 @@ class message_source(gr.basic_block):
         )
 
         self.msg_interval = msg_interval
+        self.msg_len = msg_len
         self.msg_ctr = 0
         self.payload = ''
-        for i in xrange(0,4):
+        for i in xrange(0,self.msg_len):
             self.payload = self.payload + chr(self.msg_ctr & 0xFF)
             self.msg_ctr += 1
         self.message_port_register_out(pmt.pmt_intern('out'))
@@ -69,7 +71,10 @@ class message_source(gr.basic_block):
         while self.finished == False:
             self.message_port_pub(pmt.pmt_intern('out'), pmt.pmt_intern(self.payload))
             self.payload = ''
-            for i in xrange(0,4):
+            for i in xrange(0,self.msg_len):
                 self.payload = self.payload + chr(self.msg_ctr & 0xFF)
                 self.msg_ctr += 1
+
+            # print '.',
+            # sys.stdout.flush()
             time.sleep(msg_interval)

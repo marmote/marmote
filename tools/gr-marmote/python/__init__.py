@@ -46,6 +46,8 @@ from marmote_swig import *
 
 # import any pure python here
 from message_source import message_source
+from message_sink import message_sink
+
 #
 
 # ----------------------------------------------------------------
