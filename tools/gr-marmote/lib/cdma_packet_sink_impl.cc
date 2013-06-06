@@ -1,17 +1,17 @@
 /* -*- c++ -*- */
-/* 
+/*
  * Copyright 2013 <+YOU OR YOUR COMPANY+>.
- * 
+ *
  * This is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3, or (at your option)
  * any later version.
- * 
+ *
  * This software is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this software; see the file COPYING.  If not, write to
  * the Free Software Foundation, Inc., 51 Franklin Street,
@@ -60,7 +60,7 @@ namespace gr {
         if (d_debug)
         {
           std::cout << "    #" << d_id << " <- ";
-          
+
           uint8_t octet = 0;
           uint8_t* payload = (uint8_t*)pmt::pmt_blob_data(pkt);
 
@@ -80,6 +80,17 @@ namespace gr {
           // }
           // std::cout << std::endl;
         }
+      }
+      else if (pmt::pmt_is_symbol(pkt))
+      {
+
+        const char* data = pmt::pmt_symbol_to_string(pkt).data();
+
+        for (int j = 0; j < pmt::pmt_symbol_to_string(pkt).length(); j++)
+        {
+          std::cout << std::setw(2) << (int)data[j] << " ";
+        }
+        std::cout << std::endl;
       }
       else
       {
