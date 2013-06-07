@@ -38,8 +38,8 @@ namespace gr {
 
     pn_synchronizer_impl::pn_synchronizer_impl(bool debug, bool reverse, int mask, int seed, int preamble_len, int spread_factor, float threshold, int oversample_factor)
       : gr_sync_block("pn_synchronizer",
-		      gr_make_io_signature(1, 1, sizeof (float)),
-		      gr_make_io_signature(1, 2, sizeof (float))),
+		      gr_make_io_signature(1, 1, sizeof (gr_complex)),
+		      gr_make_io_signature2(2, 2, sizeof (gr_complex), sizeof (float))),
               d_debug(debug),
               d_reverse(reverse),
               d_oversample_factor(oversample_factor),
@@ -79,8 +79,8 @@ namespace gr {
 			  gr_vector_const_void_star &input_items,
 			  gr_vector_void_star &output_items)
     {
-        const float *in = (const float *) input_items[0];
-        float *out = (float *) output_items[0];
+        const gr_complex *in = (const gr_complex*) input_items[0];
+        gr_complex *out = (gr_complex *) output_items[0];
         float *filt_out = (float *) output_items[1];
 
         if (d_debug)
@@ -92,22 +92,30 @@ namespace gr {
         // }
         // std::cout << std::endl;
 
+        float si, sq;
+
         for (int i = 0; i < noutput_items; i++)
         {
             filt_out[i] = 0;
+            si = 0;
+            sq = 0;
             if (d_reverse)
             {
                 for (int j = 0; j < d_filter_len; j++)
                 {
-                    filt_out[i] += in[i+j*d_oversample_factor] * d_filter_coeffs[j];
+                    si += in[i+j*d_oversample_factor].real() * d_filter_coeffs[j];
+                    sq += in[i+j*d_oversample_factor].imag() * d_filter_coeffs[j];
                 }
+                filt_out[i] = si*si + sq*sq;
             }
             else
             {
                 for (int j = 0; j < d_filter_len; j++)
                 {
-                    filt_out[i] += in[i+j*d_oversample_factor] * d_filter_coeffs[d_filter_len-j];
+                    si += in[i+j*d_oversample_factor].real() * d_filter_coeffs[d_filter_len-j];
+                    sq += in[i+j*d_oversample_factor].imag() * d_filter_coeffs[d_filter_len-j];
                 }
+                filt_out[i] = si*si + sq*sq;
             }
 
             if (filt_out[i] > d_threshold)
@@ -117,13 +125,12 @@ namespace gr {
 
                 if (d_debug)
                 {
-                    std::cout << "Threshold crossed at " << std::setw(4) << i << " (" << nitems_written(0)+i << ") " << filt_out[i] << " (" << d_threshold << ")" << std::endl;
-                    for (int k = i + d_filter_len * d_oversample_factor; k < noutput_items; k++)
-                    {
-                        // std::cout << std::setw(2) << int(in[k] > 0.0 ? 0 : 1) << " ";
-                        std::cout << int(in[k] > 0.0 ? 0 : 1) << " ";
-                    }
-                    std::cout << std::endl;
+                    std::cout << "Threshold crossed at " << std::setw(4) << i << " (" << nitems_written(0)+i << ") " << (float)filt_out[i] << " (" << d_threshold << ")" << std::endl;
+                    // for (int k = i + d_filter_len * d_oversample_factor; k < noutput_items; k++)
+                    // {
+                    //     std::cout << in[k] << " ";
+                    // }
+                    // std::cout << std::endl;
                 }
             }
 
