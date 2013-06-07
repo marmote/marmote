@@ -73,7 +73,7 @@
 
     <sink>
         <name>in</name>
-        <type>float</type>
+        <type>complex</type>
     </sink>
 
     <source>

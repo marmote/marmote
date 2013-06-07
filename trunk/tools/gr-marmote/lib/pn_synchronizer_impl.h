@@ -32,7 +32,6 @@ namespace gr {
     {
      private:
       bool d_debug;
-      bool d_reverse;
       int d_oversample_factor;
       int d_filter_len;
       float* d_filter_coeffs;
@@ -43,8 +42,18 @@ namespace gr {
       pmt::pmt_t d_key;
       pmt::pmt_t d_value;
 
+      float d_threshold_factor_rise;
+      int d_look_ahead;
+      int d_look_ahead_remaining;
+      int d_peak_ind;
+      float d_peak_val;
+      float d_alpha;
+      float d_avg;
+      bool d_found;
+
      public:
-      pn_synchronizer_impl(bool debug, bool reverse, int mask, int seed, int preamble_len, int spread_factor, float threshold, int oversample_factor);
+      pn_synchronizer_impl(bool debug, int mask, int seed, int preamble_len, int spread_factor, int oversample_factor,
+                           float threshold_factor_rise, int look_ahead, float alpha);
       ~pn_synchronizer_impl();
 
       int work(int noutput_items,
