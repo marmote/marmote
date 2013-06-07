@@ -63,21 +63,21 @@ namespace gr {
         d_tags.clear();
         get_tags_in_range(d_tags, 0, nitems_read(0), nitems_read(0) + noutput_items/d_sf);
 
-        std::cout << "Found " << d_tags.size() << " tag(s) ";
+        // std::cout << "Found " << d_tags.size() << " tag(s) ";
         std::vector<gr_tag_t>::iterator it = d_tags.begin();
         while (it != d_tags.end())
         {
-          std::cout << "@" << it->offset << " ";
+          // std::cout << "@" << it->offset << " ";
           it++;
         }
-        std::cout << std::endl;
+        // std::cout << std::endl;
 
-        std::cout << "Input stream: ";
-        for (int j = 0; j < noutput_items/d_sf; j++)
-        {
-          std::cout << (int)in[j] << " ";
-        }
-        std::cout << std::endl;
+        // std::cout << "Input stream: ";
+        // for (int j = 0; j < noutput_items/d_sf; j++)
+        // {
+        //   std::cout << (int)in[j] << " ";
+        // }
+        // std::cout << std::endl;
 
 
         d_tags_itr = d_tags.begin();

@@ -38,7 +38,7 @@ namespace gr {
 
         state_t d_state;
 
-        float d_chip_sum; // integrator
+        gr_complex d_chip_sum; // integrator
         static const int MAX_CHIP_LEN = 4096;
         uint8_t d_pmt_buf[MAX_CHIP_LEN];
 
@@ -61,6 +61,8 @@ namespace gr {
      public:
       pn_despreader_impl(bool debug, int mask, int seed, int seed_offset, int payload_len, int spread_factor, int oversample_factor);
       ~pn_despreader_impl();
+
+      void forecast (int noutput_items, gr_vector_int &ninput_items_required);
 
       int general_work(int noutput_items,
 		       gr_vector_int &ninput_items,

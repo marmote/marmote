@@ -38,7 +38,7 @@ namespace gr {
 
     pn_despreader_impl::pn_despreader_impl(bool debug, int mask, int seed, int seed_offset, int payload_len, int spread_factor, int oversample_factor)
       : gr_block("pn_despreader",
-		      gr_make_io_signature(1, 1, sizeof(float)),
+		      gr_make_io_signature(1, 1, sizeof(gr_complex)),
 		      gr_make_io_signature(0, 0, 0)),
         d_debug(debug),
         d_payload_len(payload_len * 8),
@@ -60,6 +60,13 @@ namespace gr {
     pn_despreader_impl::~pn_despreader_impl()
     {
     }
+
+    void pn_despreader_impl::forecast (int noutput_items, gr_vector_int &ninput_items_required)
+    {
+        // ninput_items_required[0] = history() + noutput_items * d_spread_factor; // FIXME: revise this calculation
+        ninput_items_required[0] = noutput_items * d_spread_factor; // FIXME: revise this calculation
+    }
+
 
     void pn_despreader_impl::enter_idle()
     {
@@ -94,7 +101,7 @@ namespace gr {
                        gr_vector_const_void_star &input_items,
                        gr_vector_void_star &output_items)
     {
-        const float *in = (const float *) input_items[0];
+        const gr_complex *in = (const gr_complex *) input_items[0];
         int ninput = ninput_items[0];
         // int nprocd = 0;
         int nprocd = d_sample_offset;
@@ -152,7 +159,8 @@ namespace gr {
 
                         for (int k = nprocd; k < ninput; k++)
                         {
-                            std::cout << (int)(in[k] > 0.0 ? 0 : 1) << " ";
+                            // std::cout << (int)(in[k] > 0.0 ? 0 : 1) << " ";
+                            std::cout << in[k] << " ";
                         }
                         std::cout << std::endl;
                     }
@@ -166,12 +174,14 @@ namespace gr {
 
                         float pn = (d_lfsr->get_next_bit() ? 1.0 : -1.0);
 
-                        d_chip_sum = d_chip_sum + in[nprocd] * pn;
+                        // d_chip_sum = d_chip_sum + in[nprocd] * pn;
+                        d_chip_sum.real(d_chip_sum.real() + in[nprocd].real() * pn);
+                        d_chip_sum.imag(d_chip_sum.imag() + in[nprocd].imag() * pn);
                         d_chip_ctr++;
 
                         if (d_chip_ctr == d_spread_factor)
                         {
-                            d_pmt_buf[d_payload_ctr++] = (d_chip_sum > 0.0) ? 1 : 0;
+                            d_pmt_buf[d_payload_ctr++] = (d_chip_sum.real() > 0.0) ? 1 : 0; // fixme
 
                             d_chip_sum = 0;
                             d_chip_ctr = 0;
@@ -229,9 +239,10 @@ namespace gr {
 
                         if (d_chip_ctr == d_spread_factor)
                         {
-                            d_pmt_buf[d_payload_ctr++] = (d_chip_sum > 0.0) ? 1 : 0;
+                            d_pmt_buf[d_payload_ctr++] = (arg(d_chip_sum) > 0.0) ? 1 : 0; // FIXME
 
-                            d_chip_sum = 0;
+                            d_chip_sum.real(0);
+                            d_chip_sum.imag(0);
                             d_chip_ctr = 0;
                         }
 
