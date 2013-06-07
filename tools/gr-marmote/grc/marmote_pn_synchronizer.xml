@@ -89,16 +89,16 @@
 
   <sink>
     <name>in</name>
-    <type>float</type>
+    <type>complex</type>
   </sink>
 
   <source>
     <name>out</name>
-    <type>float</type>
+    <type>complex</type>
   </source>
   <source>
     <name>filt_out</name>
     <type>float</type>
-    <optional>1</optional>
+    <!-- <optional>1</optional> -->
   </source>
 </block>

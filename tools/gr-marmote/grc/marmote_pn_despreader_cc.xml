@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <block>
-    <name>PN despreader (old)</name>
-    <key>marmote_pn_despreader</key>
-    <category>MarmotE</category>
-    <import>import marmote</import>
-    <make>marmote.pn_despreader(
+  <name>PN despreader</name>
+  <key>marmote_pn_despreader_cc</key>
+  <category>MarmotE</category>
+  <import>import marmote</import>
+    <make>marmote.pn_despreader_cc(
         debug=$debug,
         mask=$mask,
         seed=$seed,
-        seed_offset=$seed_offset,
-        payload_len=$payload_len,
         spread_factor=$spread_factor,
-        oversample_factor=$oversample_factor)
+        oversample_factor=$oversample_factor,
+        preamble_length=$preamble_length,
+        payload_length=$payload_length)
     </make>
 
     <param>
@@ -44,20 +44,6 @@
     </param>
 
     <param>
-        <name>Seed offset</name>
-        <key>seed_offset</key>
-        <value>0</value>
-        <type>int</type>
-    </param>
-
-    <param>
-        <name>Payload length (bytes)</name>
-        <key>payload_len</key>
-        <value>4</value>
-        <type>int</type>
-    </param>
-
-    <param>
         <name>Spread factor</name>
         <key>spread_factor</key>
         <value>16</value>
@@ -71,13 +57,27 @@
         <type>int</type>
     </param>
 
+    <param>
+        <name>Preamble length (bits)</name>
+        <key>preamble_length</key>
+        <value>4</value>
+        <type>int</type>
+    </param>
+
+    <param>
+        <name>Payload length (bytes)</name>
+        <key>payload_length</key>
+        <value>4</value>
+        <type>int</type>
+    </param>
+
     <sink>
         <name>in</name>
-        <type>float</type>
+        <type>complex</type>
     </sink>
 
     <source>
         <name>out</name>
-        <type>message</type>
+        <type>complex</type>
     </source>
 </block>
