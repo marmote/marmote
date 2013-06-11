@@ -46,8 +46,9 @@ namespace gr {
       std::vector<gr_tag_t>::iterator d_tags_itr;
 
       gr_complex d_chip_sum; // integrator
-      static const int MAX_BIT_LEN = 4096;
-      gr_complex d_pmt_buf[MAX_BIT_LEN]; // FIXME
+      static const int MAX_BIT_LEN = 4096; // FIXME
+      gr_complex d_chip_sum_buf[MAX_BIT_LEN];
+      uint8_t d_pmt_buf[MAX_BIT_LEN];
 
       int d_seed_offset;
       int d_sample_ctr; // sample
