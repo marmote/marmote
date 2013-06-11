@@ -43,7 +43,7 @@ class message_source(gr.basic_block):
 
         self.msg_interval = msg_interval
         self.msg_len = msg_len
-        self.msg_ctr = 0
+        self.msg_ctr = 0xF0
         self.payload = ''
         for i in xrange(0,self.msg_len):
             self.payload = self.payload + chr(self.msg_ctr & 0xFF)

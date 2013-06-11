@@ -46,6 +46,8 @@ namespace gr {
               d_debug(debug),
               d_oversample_factor(oversample_factor),
               d_filter_len(preamble_len * spread_factor),
+              d_preamble_len(preamble_len),
+              d_spread_factor(spread_factor),
               // peak detector
               d_threshold_factor_rise(threshold_factor_rise),
               d_look_ahead(look_ahead),
@@ -67,7 +69,7 @@ namespace gr {
         // d_threshold_factor_rise = 100.0; // (threshold_factor_rise),
         // d_look_ahead = 1*oversample_factor; // (look_ahead),
         // d_alpha = 0.01; // (alpha),
-        d_avg = 0.0f,
+        d_avg = 0.1f,
         d_found = false;
 
         // Tag
@@ -76,6 +78,10 @@ namespace gr {
         std::stringstream str;
         str << name() << "_" << unique_id();
         d_srcid  = pmt::pmt_string_to_symbol(str.str());
+
+        std::cout << "Filter length: " << d_filter_len << std::endl;
+        std::cout << "Oversample factor: " << d_oversample_factor << std::endl;
+        std::cout << "Threshold factor: " << d_threshold_factor_rise << std::endl;
     }
 
 
@@ -94,15 +100,10 @@ namespace gr {
         const gr_complex *in = (const gr_complex*) input_items[0];
         gr_complex *out = (gr_complex *) output_items[0];
         float *filt_out = (float *) output_items[1];
+        float *avg_out = (float *)output_items[2];
 
         if (d_debug)
             std::cout << "Synchronizing... [" << noutput_items << " chips]" << std::endl;
-
-        // for (int i = 0; i < noutput_items; i++)
-        // {
-        //     std::cout << std::setw(2) << (in[i] < 0.0 ? 1 : 0) << " ";
-        // }
-        // std::cout << std::endl;
 
         float si, sq;
 
@@ -122,8 +123,8 @@ namespace gr {
 
             if (!d_found)
             {
-              // Have not yet detected presence of peak
-              if (filt_out[i] > d_avg * (1.0f + d_threshold_factor_rise))
+              // if (filt_out[i] > d_avg * (1.0f + d_threshold_factor_rise))
+              if (filt_out[i] > d_threshold_factor_rise) // FIXME: fix the dynamic threshold logic
               {
                 d_found = true;
                 d_look_ahead_remaining = d_look_ahead;
@@ -136,41 +137,38 @@ namespace gr {
             }
             else
             {
-              // Detected presence of peak
               if (filt_out[i] > d_peak_val)
               {
                 d_peak_val = filt_out[i];
-                d_peak_ind = i;
+                d_peak_idx = i;
               }
               else if (d_look_ahead_remaining <= 0)
               {
                 if (d_debug)
                 {
-                    std::cout << "Threshold crossed at " << std::setw(4) << d_peak_ind << " (" << nitems_written(0)+d_peak_ind << ") " << (float)filt_out[i] << " (" << d_threshold << ")" << std::endl;
+                    std::cout << "Threshold crossed at " << d_peak_idx - 1 << std::endl;
+                    // std::cout << " (" << nitems_written(0) + d_peak_idx - 1 << ") " <<
+                    // "avg: " << d_avg << " val: " << filt_out[d_peak_idx - 1] << std::endl;
                 }
-                add_item_tag(0, nitems_written(0) + d_peak_ind + d_filter_len * d_oversample_factor, d_key, d_value, d_srcid);
+                // Adds tag to the first payload bit (chip)
+                // add_item_tag(0, nitems_written(0) + d_peak_idx-1 + ((d_preamble_len+1)*d_spread_factor)*d_oversample_factor-1, d_key, d_value, d_srcid);
+                // out[d_peak_idx + d_filter_len * d_oversample_factor - 1].imag(2.0); // DEBUG: imag part is used for temporary debugging
+
+                // Adds tag one bite before the first payload bit (chip) to aid differential encoding
+                add_item_tag(0, nitems_written(0) + d_peak_idx-1 + ((d_preamble_len)*d_spread_factor)*d_oversample_factor-1, d_key, d_value, d_srcid);
+                // out[d_peak_idx + (d_preamble_len-1 * d_spread_factor) * d_oversample_factor - 1].imag(2.0); // FIXME
+
                 d_found = false;
-                d_avg = filt_out[i];
               }
 
-              // Have not yet located peak, loop and keep searching.
               d_look_ahead_remaining--;
             }
 
-            // Every iteration of the loop, write debugging signal out if connected.
-            if(output_items.size() == 3) {
-              float *avg = (float *)output_items[2];
-              avg[i] = d_avg;
-            }
+            avg_out[i] = d_avg;
 
             out[i] = in[i];
+            // out[i].real(in[i].real()); // DEBUG: imag part is used for temporary debugging
         }
-
-        // for (int i = 0; i < noutput_items; i++)
-        // {
-        //     std::cout << std::setw(2) << (out[i] < 0.0 ? 1 : 0) << " ";
-        // }
-        // std::cout << std::endl;
 
         return noutput_items;
     }
