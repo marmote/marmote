@@ -33,7 +33,7 @@ class message_source(gr.basic_block):
     """
     docstring for block message_source
     """
-    def __init__(self, msg_interval, msg_len):
+    def __init__(self, debug, msg_interval, msg_len, node_id):
 
         gr.basic_block.__init__(self,
             name="message_source",
@@ -41,6 +41,8 @@ class message_source(gr.basic_block):
             out_sig = None
         )
 
+        self.debug = debug
+        self.node_id = node_id
         self.msg_interval = msg_interval
         self.msg_len = msg_len
         self.msg_ctr = 0xF0
@@ -75,6 +77,12 @@ class message_source(gr.basic_block):
                 self.payload = self.payload + chr(self.msg_ctr & 0xFF)
                 self.msg_ctr += 1
 
-            # print '.',
-            # sys.stdout.flush()
+            if self.debug:
+                print self.node_id,
+                print "->",
+                for i in xrange(0,self.msg_len):
+                    print hex(ord(self.payload[i])),
+                print ""
+                sys.stdout.flush()
+
             time.sleep(msg_interval)

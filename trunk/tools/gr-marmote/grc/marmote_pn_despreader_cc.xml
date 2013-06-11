@@ -77,7 +77,12 @@
     </sink>
 
     <source>
-        <name>out</name>
+        <name>dbg</name>
         <type>complex</type>
+    </source>
+
+    <source>
+        <name>out</name>
+        <type>message</type>
     </source>
 </block>
