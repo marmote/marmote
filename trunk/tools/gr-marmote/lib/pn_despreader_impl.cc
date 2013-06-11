@@ -103,7 +103,6 @@ namespace gr {
     {
         const gr_complex *in = (const gr_complex *) input_items[0];
         int ninput = ninput_items[0];
-        // int nprocd = 0;
         int nprocd = d_sample_offset;
 
         std::vector<gr_tag_t>::iterator lti;
@@ -127,12 +126,14 @@ namespace gr {
 
                     if (d_debug)
                     {
-                        std::cout << "IDLE... " << std::endl;
+                        std::cout << "IDLE... ";
                         std::cout << "nprocd: " << nprocd << " ninput: " << ninput << std::endl;
 
+                        std::cout << "Tags: ";
                         for (lti = d_tags.begin(); lti != d_tags.end(); lti++)
                         {
-                            std::cout << "Tags @ " << (int)(lti->offset - nitems_read(0)) << " ";
+                            std::cout << (int)lti->offset << " ";
+                            // std::cout << (int)(lti->offset - nitems_read(0)) << " ";
                         }
                         std::cout << " [" << d_tags.size() << "]" << std::endl;
                     }
@@ -145,7 +146,7 @@ namespace gr {
 
                     if (d_tags_itr->offset - nitems_read(0) < nprocd)
                     {
-                        std::cout << "d_tags_itr++" << std::endl;
+                        std::cout << "d_tags_itr++ (IDLE)" << std::endl;
 
                         d_tags_itr++;
                         break;
@@ -159,8 +160,8 @@ namespace gr {
 
                         for (int k = nprocd; k < ninput; k++)
                         {
-                            // std::cout << (int)(in[k] > 0.0 ? 0 : 1) << " ";
-                            std::cout << in[k] << " ";
+                            // std::cout << std::setw(2) << in[k].real() << " ";
+                            std::cout << (in[k].real() > 0 ? 0 : 1) << " ";
                         }
                         std::cout << std::endl;
                     }
@@ -181,7 +182,7 @@ namespace gr {
 
                         if (d_chip_ctr == d_spread_factor)
                         {
-                            d_pmt_buf[d_payload_ctr++] = (d_chip_sum.real() > 0.0) ? 1 : 0; // fixme
+                            d_pmt_buf[d_payload_ctr++] = (d_chip_sum.real() > 0.0) ? 1 : 0;
 
                             d_chip_sum = 0;
                             d_chip_ctr = 0;
@@ -201,6 +202,14 @@ namespace gr {
                             std::cout << "IDLE: nprocd: " << nprocd << " bit_ctr: " << d_payload_ctr << " chip_ctr: " << d_chip_ctr << std::endl;
                         }
 
+                        // if (d_debug)
+                        {
+                            for (int i = 0; i < d_payload_ctr; i++)
+                            {
+                                std::cout << (int)d_pmt_buf[i] << " ";
+                            }
+                            std::cout << std::endl;
+                        }
                         message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_pmt_buf, d_payload_len));
 
                         if (d_debug)
@@ -226,6 +235,13 @@ namespace gr {
                     {
                         std::cout << "LCKD... nprocd = " << nprocd << " < ninput = " << ninput << std::endl;
                         std::cout << "LCKD: continuing at offset " << d_tags_itr->offset - nitems_read(0) << std::endl;
+
+                        for (int k = nprocd; k < ninput; k++)
+                        {
+                            // std::cout << std::setw(2) << in[k].real() << " ";
+                            std::cout << (in[k].real() > 0 ? 0 : 1) << " ";
+                        }
+                        std::cout << std::endl;
                     }
 
                     // std::cout << "while d_tags_itr (locked)" << std::endl;
@@ -239,10 +255,10 @@ namespace gr {
 
                         if (d_chip_ctr == d_spread_factor)
                         {
-                            d_pmt_buf[d_payload_ctr++] = (arg(d_chip_sum) > 0.0) ? 1 : 0; // FIXME
+                            // d_pmt_buf[d_payload_ctr++] = (arg(d_chip_sum) > 0.0) ? 1 : 0; // FIXME
+                            d_pmt_buf[d_payload_ctr++] = (d_chip_sum.real() > 0.0) ? 1 : 0;
 
-                            d_chip_sum.real(0);
-                            d_chip_sum.imag(0);
+                            d_chip_sum = gr_complex(0, 0);
                             d_chip_ctr = 0;
                         }
 
@@ -258,12 +274,22 @@ namespace gr {
                             std::cout << "Packet received." << std::endl;
                             std::cout << "LCKD: nprocd: " << nprocd << " bit_ctr: " << d_payload_ctr << " chip_ctr: " << d_chip_ctr << std::endl;
                         }
+
+                        if (d_debug)
+                            // std::cout << "Packet received." << std::endl;
+                        {
+                            for (int i = 0; i < d_payload_ctr; i++)
+                            {
+                                std::cout << (int)d_pmt_buf[i] << " ";
+                            }
+                            std::cout << std::endl;
+                        }
                         message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_pmt_buf, d_payload_len));
 
                         while (d_tags_itr != d_tags.end() && d_tags_itr->offset - nitems_read(0) < nprocd)
                         {
+                            std::cout << "d_tags_itr++ (LCKD)" << std::endl;
                             d_tags_itr++;
-                            std::cout << "d_tags_itr++" << std::endl;
                         }
 
                         if (d_debug)

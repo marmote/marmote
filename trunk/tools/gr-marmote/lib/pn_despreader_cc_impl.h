@@ -38,27 +38,24 @@ namespace gr {
       int d_preamble_len; // bits
       int d_payload_len; // bits
 
-      enum state_t { ST_SEARCH, ST_TRACK };
+      enum state_t { ST_LOCKED, ST_IDLE };
       state_t d_state;
-
-      // Matched filter (PN)
       mseq_lfsr* d_lfsr;
-      int d_filter_len;
-      float* d_filter_coeffs;
 
-      // Peak detection
-      float d_threshold_factor_rise;
-      int d_look_ahead;
-      int d_look_ahead_remaining;
-      int d_peak_ind;
-      float d_peak_val;
-      float d_alpha;
-      float d_avg;
-      bool d_found;
+      std::vector<gr_tag_t> d_tags;
+      std::vector<gr_tag_t>::iterator d_tags_itr;
 
+      gr_complex d_chip_sum; // integrator
+      static const int MAX_BIT_LEN = 4096;
+      gr_complex d_pmt_buf[MAX_BIT_LEN]; // FIXME
 
-      void enter_search();
-      void enter_track();
+      int d_seed_offset;
+      int d_sample_ctr; // sample
+      int d_chip_ctr; // chips
+      int d_payload_ctr; // bits
+
+      void enter_idle();
+      void enter_locked();
 
 
      public:

@@ -95,36 +95,23 @@ namespace gr {
 
             unsigned int pkt_data_len = pmt::pmt_blob_length(blob) * 8;
             uint8_t* pkt_data = (uint8_t*)pmt::pmt_blob_data(blob);
+            int bit_ctr = 0;
 
             // Set up synchronization header (preamble)
-            int bit_ctr = 0;
             for (int i = 0; i < d_shr_len; i++)
             {
-                // d_pkt_buf[bit_ctr++] = 0x01;
                 d_pkt_buf[bit_ctr++] = 0x00;
-
-                if (d_debug)
-                  std::cout << (int)d_pkt_buf[bit_ctr-1] << " ";
             }
-            if (d_debug)
-                std::cout << std::endl;
 
             // Set up payload
             for (int i = 0; i < pkt_data_len; i++)
             {
                 uint8_t data_bit = (pkt_data[i/8] << (i % 8)) & 0x80 ? 0x01 : 0x00; // Extract MSB
                 d_pkt_buf[bit_ctr++] = data_bit;
-
-                if (d_debug)
-                  std::cout << (int)d_pkt_buf[bit_ctr-1] << " ";
             }
-            if (d_debug)
-                std::cout << std::endl;
 
             d_pkt_len = bit_ctr;
             d_bit_offset = 0;
-
-            // std::cout << "pkt_len: " << d_pkt_len << std::endl;
 
             break;
         }
@@ -133,8 +120,6 @@ namespace gr {
         {
             add_item_tag(0, nitems_written(0), d_key, d_value, d_srcid);
         }
-
-        // std::cout << "d_pkt_len: " << d_pkt_len << " d_bit_offset: " << d_bit_offset << " nout: " << nout << " / " << noutput_items << std::endl;
 
         nout = std::min(d_pkt_len - d_bit_offset, noutput_items);
         memcpy(out, d_pkt_buf + d_bit_offset, nout * sizeof(uint8_t));
@@ -145,7 +130,19 @@ namespace gr {
           d_bit_offset = 0;
         }
 
-        // std::cout << "nout: " << nout << " / " << noutput_items << std::endl;
+        if (d_debug)
+        {
+            std::cout << "Framer: ";
+            for (int i = 0; i < nout; i++)
+            {
+                if (i == d_shr_len)
+                {
+                    std::cout << " ";
+                }
+              std::cout << (int)d_pkt_buf[i];
+            }
+            std::cout << std::endl;
+        }
 
         return nout;
     }

@@ -34,10 +34,11 @@ namespace gr {
       bool d_debug;
       int d_oversample_factor;
       int d_filter_len;
+      int d_preamble_len;
+      int d_spread_factor;
       float* d_filter_coeffs;
       mseq_lfsr* d_lfsr;
 
-      float d_threshold;
       pmt::pmt_t d_srcid;
       pmt::pmt_t d_key;
       pmt::pmt_t d_value;
@@ -45,7 +46,7 @@ namespace gr {
       float d_threshold_factor_rise;
       int d_look_ahead;
       int d_look_ahead_remaining;
-      int d_peak_ind;
+      int d_peak_idx;
       float d_peak_val;
       float d_alpha;
       float d_avg;
