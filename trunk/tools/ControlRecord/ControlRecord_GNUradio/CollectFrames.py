@@ -37,10 +37,20 @@ class Top_Block(gr.top_block):
         self.gr_short_to_float_0 = gr.short_to_float(1, 32768)
         self.gr_short_to_float_1 = gr.short_to_float(1, 32768)
 
-        self.high_pass_filter_0 = gr.fir_filter_fff(1, firdes.high_pass(
-			1, samp_rate, cutoff, transition, firdes.WIN_RECTANGULAR, 6.76))
-        self.high_pass_filter_1 = gr.fir_filter_fff(1, firdes.high_pass(
-			1, samp_rate, cutoff, transition, firdes.WIN_RECTANGULAR, 6.76))
+        self.high_pass_filter_0 = gr.fir_filter_fff(1, 
+							firdes.high_pass(1,			# gain
+									samp_rate,		# sampling rate
+									cutoff,			# cutoff frequency
+									transition,		# transition width
+									firdes.WIN_RECTANGULAR,	# filter type
+									6.76))			# beta = 6.76 by default
+        self.high_pass_filter_1 = gr.fir_filter_fff(1, 
+							firdes.high_pass(1,			# gain
+									samp_rate,		# sampling rate
+									cutoff,			# cutoff frequency
+									transition,		# transition width
+									firdes.WIN_RECTANGULAR,	# filter type
+									6.76))			# beta = 6.76 by default
 
         self.gr_float_to_short_0 = gr.float_to_short(1, 32768)
         self.gr_float_to_short_1 = gr.float_to_short(1, 32768)
