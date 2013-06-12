@@ -34,6 +34,7 @@
 -------------------------------------------------------------------------------
 -- Revisions     :
 -- Date            Version  Author			Description
+-- 2013-06-12      1.1      Sandor Szilvasi Added MASK, SEED and SOFT_RST
 -- 2013-06-12      1.0      Sandor Szilvasi Created (fixed function x^5+x^3+1)
 -------------------------------------------------------------------------------
 
@@ -47,8 +48,8 @@ entity PN_GENERATOR is
          CLK        : in  std_logic;
          RST        : in  std_logic;
          EN         : in  std_logic;
+         SOFT_RST   : in  std_logic;
 
-         -- External MASK and SEED control is not implemented yet
          MASK       : in  std_logic_vector(31 downto 0);
          SEED       : in  std_logic_vector(31 downto 0);
 
@@ -65,20 +66,23 @@ architecture Behavioral of PN_GENERATOR is
 
 	-- Signals
 
-    signal s_lfsr       : std_logic_vector(4 downto 0);
-    signal s_seq        : std_logic_vector(1 downto 0);
+    signal s_lfsr       : std_logic_vector(31 downto 0);
 
 begin
 
     p_pn_generator : process (rst, clk)
     begin
         if rst = '1' then
-            s_seq <= (others => '0');
-            s_lfsr <= SEED(4 downto 0);
+            s_lfsr <= SEED;
         elsif rising_edge(clk) then
-            if EN = '1' then
-                s_lfsr(4 downto 0) <= s_lfsr(0) & s_lfsr(4 downto 1); -- x^5
-                s_lfsr(2) <= s_lfsr(0) xor s_lfsr(3); -- x^3
+            if SOFT_RST = '1' then
+                s_lfsr <= SEED;
+            elsif EN = '1' then
+                if s_lfsr(0) = '1' then
+                    s_lfsr <= '0' & s_lfsr(s_lfsr'high downto 1);
+                else
+                    s_lfsr <= '0' & s_lfsr(s_lfsr'high downto 1) xor MASK;
+                end if;
             end if;
         end if;
 
