@@ -46,6 +46,7 @@ architecture bench of PN_GENERATOR_tb is
                  CLK        : in  std_logic;
                  RST        : in  std_logic;
                  EN         : in  std_logic;
+                 SOFT_RST   : in  std_logic;
                  MASK       : in  std_logic_vector(31 downto 0);
                  SEED       : in  std_logic_vector(31 downto 0);
                  SEQ        : out std_logic_vector(1 downto 0)
@@ -54,6 +55,7 @@ architecture bench of PN_GENERATOR_tb is
 
     signal CLK: std_logic;
     signal RST: std_logic;
+    signal SOFT_RST: std_logic;
     signal EN: std_logic;
     signal MASK: std_logic_vector(31 downto 0);
     signal SEED: std_logic_vector(31 downto 0);
@@ -69,6 +71,7 @@ begin
          CLK  => CLK,
          RST  => RST,
          EN   => EN,
+         SOFT_RST => SOFT_RST,
          MASK => MASK,
          SEED => SEED,
          SEQ  => SEQ
@@ -77,7 +80,9 @@ begin
     stimulus: process
     begin
         mask <= (others => '0');
-        seed <= ((4) => '1', others => '0');
+        mask <= x"00000402";
+        seed <= x"00000400";
+        soft_rst <= '0';
         en <= '0';
 
         rst <= '1';
@@ -87,7 +92,7 @@ begin
 
         en <= '1';
 
-        wait for 100 * clock_period;
+        wait for 10000 * clock_period;
 
         stop_the_clock <= true;
         wait;

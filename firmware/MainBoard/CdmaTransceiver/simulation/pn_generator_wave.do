@@ -9,8 +9,8 @@ sim:/pn_generator_tb/SEQ
 
 add wave  \
 sim:/pn_generator_tb/uut/s_lfsr \
-sim:/pn_generator_tb/uut/s_lfsr(0) \
-sim:/pn_generator_tb/uut/s_lfsr(4) \
+sim:/pn_generator_tb/uut/s_lfsr(10:0) \
+sim:/pn_generator_tb/uut/s_lfsr(0)
 
 wave zoom full
 
