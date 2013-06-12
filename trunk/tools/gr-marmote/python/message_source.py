@@ -78,8 +78,7 @@ class message_source(gr.basic_block):
                 self.msg_ctr += 1
 
             if self.debug:
-                print self.node_id,
-                print "->",
+                print "#" + str(self.node_id) + " ->",
                 for i in xrange(0,self.msg_len):
                     print hex(ord(self.payload[i])),
                 print ""
