@@ -21,7 +21,7 @@ KEY ProjectLocation "D:\firmware\MainBoard\CdmaTransceiver"
 KEY ProjectDescription ""
 KEY SimulationType "VHDL"
 KEY Vendor "Actel"
-KEY ActiveRoot "Teton::work"
+KEY ActiveRoot "TX_APB_IF::work"
 LIST REVISIONS
 VALUE="Impl1",NUM=1
 CURREV=1
@@ -33,26 +33,26 @@ shlslib
 ENDLIST
 LIST LIBRARY_MSS_BFM_LIB
 ALIAS=..\component\Actel\SmartFusionMSS\MSS\2.5.106\mti\user_verilog\MSS_BFM_LIB
-COMPILE_OPTION=REFRESH_AND_COMPILE
+COMPILE_OPTION=NOCOMPILE
 ENDLIST
 LIST LIBRARY_COREAPB3_LIB
 ALIAS=..\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\user_vhdl\COREAPB3_LIB
-COMPILE_OPTION=REFRESH_AND_COMPILE
+COMPILE_OPTION=NOCOMPILE
 ENDLIST
 LIST LIBRARY_shlslib
 ALIAS=shlslib
-COMPILE_OPTION=COMPILE
+COMPILE_OPTION=NOCOMPILE
 ENDLIST
 LIST FileManager
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf,actgen_cxf"
 STATE="utd"
-TIME="1363043224"
+TIME="1371479331"
 SIZE="2407"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
 STATE="utd"
-TIME="1363043224"
+TIME="1371479331"
 SIZE="1241"
 LIBRARY="COREAPB3_LIB"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
@@ -101,7 +101,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf,actgen_cxf"
 STATE="utd"
-TIME="1363043221"
+TIME="1363101052"
 SIZE="944"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
@@ -119,97 +119,97 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_ACE\2.2.100\MSS_ACE.cxf,actgen_cxf"
 STATE="utd"
-TIME="1363043214"
+TIME="1363101045"
 SIZE="252"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_CCC\2.0.106\MSS_CCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1363043215"
+TIME="1363101045"
 SIZE="252"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_CM3\1.0.200\MSS_CM3.cxf,actgen_cxf"
 STATE="utd"
-TIME="1363043215"
+TIME="1363101045"
 SIZE="252"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_COM\1.0.200\MSS_COM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1363043215"
+TIME="1363101045"
 SIZE="252"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_DMA\1.0.101\MSS_DMA.cxf,actgen_cxf"
 STATE="utd"
-TIME="1363043215"
+TIME="1363101045"
 SIZE="252"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_ENVM\2.3.102\MSS_ENVM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1363043216"
+TIME="1363101046"
 SIZE="253"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_FIC\1.0.101\MSS_FIC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1363043216"
+TIME="1363101046"
 SIZE="252"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_FIO\1.0.203\MSS_FIO.cxf,actgen_cxf"
 STATE="utd"
-TIME="1363043216"
+TIME="1363101046"
 SIZE="252"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_GPIO\1.0.101\MSS_GPIO.cxf,actgen_cxf"
 STATE="utd"
-TIME="1363043216"
+TIME="1363101047"
 SIZE="253"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_I2C\1.0.101\MSS_I2C.cxf,actgen_cxf"
 STATE="utd"
-TIME="1363043216"
+TIME="1363101047"
 SIZE="252"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_INTR\1.0.101\MSS_INTR.cxf,actgen_cxf"
 STATE="utd"
-TIME="1363043216"
+TIME="1363101047"
 SIZE="253"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_RESET\1.0.101\MSS_RESET.cxf,actgen_cxf"
 STATE="utd"
-TIME="1363043216"
+TIME="1363101047"
 SIZE="254"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_RTC\1.0.100\MSS_RTC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1363043216"
+TIME="1363101047"
 SIZE="252"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_SPI\1.0.102\MSS_SPI.cxf,actgen_cxf"
 STATE="utd"
-TIME="1363043216"
+TIME="1363101047"
 SIZE="252"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_TIMER\1.0.100\MSS_TIMER.cxf,actgen_cxf"
 STATE="utd"
-TIME="1363043216"
+TIME="1363101047"
 SIZE="254"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS_UFROM\1.0.100\MSS_UFROM.cxf,actgen_cxf"
 STATE="utd"
-TIME="1363043216"
+TIME="1363101047"
 SIZE="254"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
@@ -225,19 +225,19 @@ SIZE="413"
 ENDFILE
 VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1363043225"
+TIME="1371479333"
 SIZE="4074"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.cxf,actgen_cxf"
 STATE="utd"
-TIME="1363043227"
-SIZE="11479"
+TIME="1371479332"
+SIZE="11371"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.pdc,pdc"
 STATE="utd"
-TIME="1363043223"
+TIME="1371479326"
 SIZE="5812"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 BEGIN_USE_CONSTRAINT
@@ -248,41 +248,41 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.vhd,hdl"
 STATE="utd"
-TIME="1363043224"
-SIZE="49031"
+TIME="1371479332"
+SIZE="47440"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\MSS_ACE_0\MSS_ACE_0.log,???"
 STATE="utd"
-TIME="1363043214"
+TIME="1363101044"
 SIZE="31587"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\MSS_CCC_0\Teton_MSS_tmp_MSS_CCC_0_MSS_CCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1363043215"
+TIME="1363101045"
 SIZE="484"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\MSS_CCC_0\Teton_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd,hdl"
 STATE="utd"
-TIME="1363043215"
+TIME="1363101045"
 SIZE="6962"
 PARENT="<project>\component\work\Teton_MSS\MSS_CCC_0\Teton_MSS_tmp_MSS_CCC_0_MSS_CCC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\MSS_ENVM_0\MSS_ENVM_0.efc,efc"
 STATE="utd"
-TIME="1363043216"
+TIME="1363101046"
 SIZE="17500"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\mss_tshell.vhd,hdl"
 STATE="utd"
-TIME="1363043216"
+TIME="1363101047"
 SIZE="22849"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 BEGIN_USE_CONSTRAINT
@@ -294,7 +294,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\mss_tshell_syn.sdc,sdc"
 STATE="utd"
-TIME="1363043216"
+TIME="1363101047"
 SIZE="188"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 BEGIN_USE_CONSTRAINT
@@ -306,19 +306,19 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1363043221"
+TIME="1363101052"
 SIZE="4408"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\Teton_MSS.cxf,actgen_cxf"
 STATE="utd"
-TIME="1363043221"
+TIME="1363101052"
 SIZE="18615"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\Teton_MSS.pdc,pdc"
 STATE="utd"
-TIME="1363043210"
+TIME="1363101039"
 SIZE="3998"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 BEGIN_USE_CONSTRAINT
@@ -329,7 +329,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\Teton_MSS.vhd,hdl"
 STATE="utd"
-TIME="1363043221"
+TIME="1363101052"
 SIZE="44183"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 IS_READONLY="TRUE"
@@ -349,10 +349,60 @@ STATE="utd"
 TIME="1363036001"
 SIZE="3340"
 ENDFILE
+VALUE "<project>\designer\impl1\PN_GENERATOR.ide_des,ide_des"
+STATE="utd"
+TIME="1371050566"
+SIZE="201"
+ENDFILE
+VALUE "<project>\designer\impl1\Teton.adb,adb"
+STATE="ood"
+TIME="1363104007"
+SIZE="3479040"
+ENDFILE
+VALUE "<project>\designer\impl1\Teton.fdb,fdb"
+STATE="ood"
+TIME="1363104006"
+SIZE="190743"
+ENDFILE
 VALUE "<project>\designer\impl1\Teton.ide_des,ide_des"
 STATE="utd"
-TIME="1363042893"
-SIZE="432"
+TIME="1371150086"
+SIZE="1192"
+ENDFILE
+VALUE "<project>\designer\impl1\Teton_compile_log.rpt,log"
+STATE="utd"
+TIME="1363103869"
+SIZE="33587"
+ENDFILE
+VALUE "<project>\designer\impl1\Teton_fp\Teton.pdb,pdb"
+STATE="ood"
+TIME="1363104027"
+SIZE="200192"
+ENDFILE
+VALUE "<project>\designer\impl1\Teton_fp\Teton.pro,pro"
+STATE="utd"
+TIME="1363104077"
+SIZE="1963"
+ENDFILE
+VALUE "<project>\designer\impl1\Teton_placeroute_log.rpt,log"
+STATE="utd"
+TIME="1363103972"
+SIZE="2397"
+ENDFILE
+VALUE "<project>\designer\impl1\Teton_prgdata_log.rpt,log"
+STATE="utd"
+TIME="1363104008"
+SIZE="765"
+ENDFILE
+VALUE "<project>\designer\impl1\Teton_verifytiming_log.rpt,log"
+STATE="utd"
+TIME="1363103986"
+SIZE="1126"
+ENDFILE
+VALUE "<project>\designer\impl1\TX_APB_IF.ide_des,ide_des"
+STATE="utd"
+TIME="1371150094"
+SIZE="198"
 ENDFILE
 VALUE "<project>\hdl\afe_if.vhd,hdl"
 STATE="utd"
@@ -364,20 +414,10 @@ STATE="utd"
 TIME="1363036002"
 SIZE="11820"
 ENDFILE
-VALUE "<project>\hdl\cic_interpolator.vhd,hdl"
-STATE="utd"
-TIME="1363036002"
-SIZE="11488"
-ENDFILE
 VALUE "<project>\hdl\cic_interpolator_10.vhd,hdl"
 STATE="utd"
 TIME="1363036002"
 SIZE="11492"
-ENDFILE
-VALUE "<project>\hdl\counter_stub.vhd,hdl"
-STATE="utd"
-TIME="1363036002"
-SIZE="3473"
 ENDFILE
 VALUE "<project>\hdl\datapath_stub_apb.vhd,hdl"
 STATE="utd"
@@ -389,25 +429,20 @@ STATE="utd"
 TIME="1363036002"
 SIZE="3166"
 ENDFILE
-VALUE "<project>\hdl\fifo_256x16.vhd,hdl"
-STATE="utd"
-TIME="1363036002"
-SIZE="6700"
-ENDFILE
 VALUE "<project>\hdl\fifo_512x8.vhd,hdl"
 STATE="utd"
 TIME="1363036002"
 SIZE="6845"
 ENDFILE
-VALUE "<project>\hdl\H_cic_dec.vhd,hdl"
-STATE="utd"
-TIME="1363036002"
-SIZE="11643"
-ENDFILE
 VALUE "<project>\hdl\led_pwm.vhd,hdl"
 STATE="utd"
 TIME="1363036002"
 SIZE="3738"
+ENDFILE
+VALUE "<project>\hdl\pn_generator.vhd,hdl"
+STATE="utd"
+TIME="1371065714"
+SIZE="3515"
 ENDFILE
 VALUE "<project>\hdl\rx_apb_if.vhd,hdl"
 STATE="utd"
@@ -416,8 +451,8 @@ SIZE="13516"
 ENDFILE
 VALUE "<project>\hdl\tx_apb_if.vhd,hdl"
 STATE="utd"
-TIME="1363041180"
-SIZE="18296"
+TIME="1371149400"
+SIZE="12884"
 ENDFILE
 VALUE "<project>\simulation\afe_if_wave.do,do"
 STATE="utd"
@@ -426,7 +461,7 @@ SIZE="997"
 ENDFILE
 VALUE "<project>\simulation\bfmtovec_compile.log,log"
 STATE="utd"
-TIME="1363042703"
+TIME="1371068321"
 SIZE="459"
 ENDFILE
 VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
@@ -434,6 +469,11 @@ STATE="utd"
 TIME="1362521534"
 SIZE="1237"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
+ENDFILE
+VALUE "<project>\simulation\bpsk_wave.do,do"
+STATE="utd"
+TIME="1363101203"
+SIZE="7999"
 ENDFILE
 VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
 STATE="utd"
@@ -458,37 +498,52 @@ STATE="utd"
 TIME="1363036001"
 SIZE="7774"
 ENDFILE
+VALUE "<project>\simulation\pn_generator_tb_presynth_simulation.log,log"
+STATE="utd"
+TIME="1371065770"
+SIZE="228381"
+ENDFILE
+VALUE "<project>\simulation\pn_generator_wave.do,do"
+STATE="utd"
+TIME="1371065741"
+SIZE="339"
+ENDFILE
 VALUE "<project>\simulation\qpsk_wave.do,do"
 STATE="utd"
-TIME="1363041857"
-SIZE="7623"
+TIME="1363099675"
+SIZE="8101"
 ENDFILE
 VALUE "<project>\simulation\run.do,do"
 STATE="utd"
-TIME="1363042699"
-SIZE="3068"
+TIME="1371150143"
+SIZE="1897"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
-TIME="1363043224"
+TIME="1371479332"
 SIZE="702"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 ENDFILE
 VALUE "<project>\simulation\test.bfm,sim"
 STATE="utd"
-TIME="1363043215"
+TIME="1363101045"
 SIZE="10107"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
+VALUE "<project>\simulation\testbench_postsynth_simulation.log,log"
+STATE="utd"
+TIME="1371150138"
+SIZE="1757"
+ENDFILE
 VALUE "<project>\simulation\testbench_presynth_simulation.log,log"
 STATE="utd"
-TIME="1363043246"
-SIZE="12246"
+TIME="1371153982"
+SIZE="9645"
 ENDFILE
 VALUE "<project>\simulation\user.bfm,sim"
 STATE="utd"
-TIME="1363036001"
-SIZE="2565"
+TIME="1371068118"
+SIZE="1564"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\stimulus\afe_if_tb.vhd,tb_hdl"
@@ -500,6 +555,76 @@ VALUE "<project>\stimulus\led_pwm_tb.vhd,tb_hdl"
 STATE="utd"
 TIME="1363036001"
 SIZE="1361"
+ENDFILE
+VALUE "<project>\stimulus\pn_generator_tb.vhd,tb_hdl"
+STATE="utd"
+TIME="1371065605"
+SIZE="3529"
+ENDFILE
+VALUE "<project>\stimulus\tx_apb_if_tb.vhd,tb_hdl"
+STATE="utd"
+TIME="1371149997"
+SIZE="5344"
+ENDFILE
+VALUE "<project>\synthesis\PN_GENERATOR.edn,syn_edn"
+STATE="utd"
+TIME="1371067598"
+SIZE="117195"
+ENDFILE
+VALUE "<project>\synthesis\PN_GENERATOR.so,so"
+STATE="utd"
+TIME="1371067598"
+SIZE="231"
+ENDFILE
+VALUE "<project>\synthesis\PN_GENERATOR_syn.prj,prj"
+STATE="utd"
+TIME="1371067598"
+SIZE="1432"
+ENDFILE
+VALUE "<project>\synthesis\Teton.edn,syn_edn"
+STATE="ood"
+TIME="1363103833"
+SIZE="2566146"
+ENDFILE
+VALUE "<project>\synthesis\Teton.so,so"
+STATE="utd"
+TIME="1363103833"
+SIZE="217"
+ENDFILE
+VALUE "<project>\synthesis\Teton_sdc.sdc,sdc"
+STATE="utd"
+TIME="1363103833"
+SIZE="538"
+ENDFILE
+VALUE "<project>\synthesis\Teton_syn.prj,prj"
+STATE="utd"
+TIME="1363103835"
+SIZE="3495"
+ENDFILE
+VALUE "<project>\synthesis\TX_APB_IF.edn,syn_edn"
+STATE="ood"
+TIME="1371150091"
+SIZE="109213"
+ENDFILE
+VALUE "<project>\synthesis\TX_APB_IF.so,so"
+STATE="utd"
+TIME="1371150091"
+SIZE="225"
+ENDFILE
+VALUE "<project>\synthesis\TX_APB_IF.vhd,syn_hdl"
+STATE="ood"
+TIME="1371150108"
+SIZE="41242"
+ENDFILE
+VALUE "<project>\synthesis\TX_APB_IF_sdc.sdc,sdc"
+STATE="utd"
+TIME="1371150091"
+SIZE="400"
+ENDFILE
+VALUE "<project>\synthesis\TX_APB_IF_syn.prj,prj"
+STATE="utd"
+TIME="1371150092"
+SIZE="1505"
 ENDFILE
 VALUE "D:\firmware\MainBoard\CdmaTransceiver\hdl\simulink\vhdl\gmsk_rx.vhd,hdl"
 STATE="utd"
@@ -513,15 +638,9 @@ TIME="1363040547"
 SIZE="261944"
 IS_READONLY="TRUE"
 ENDFILE
-VALUE "D:\firmware\MainBoard\CdmaTransceiver\hdl\simulink\vhdl\qpsk_tx.vhd,hdl"
-STATE="utd"
-TIME="1363042796"
-SIZE="92110"
-IS_READONLY="TRUE"
-ENDFILE
 VALUE "D:\firmware\MainBoard\CdmaTransceiver\hdl\simulink\vhdl\SynLib_asynch.vhd,hdl"
 STATE="utd"
-TIME="1363042796"
+TIME="1363101574"
 SIZE="129261"
 LIBRARY="shlslib"
 IS_READONLY="TRUE"
@@ -583,6 +702,33 @@ ENDUsed_File_List
 ENDLIST
 ENDLIST
 ENDLIST
+LIST "PN_GENERATOR::work"
+FILE "<project>\hdl\pn_generator.vhd,hdl"
+LIST UserCustomizedFileList
+LIST "ideSIMULATION"
+USE_LIST=TRUE
+FILELIST
+VALUE "<project>\hdl\pn_generator.vhd,hdl"
+ENDFILELIST
+ENDLIST
+ENDLIST 
+LIST AssociatedStimulus
+VALUE "<project>\stimulus\pn_generator_tb.vhd,tb_hdl"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+LiberoState=Post_Synthesis
+ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\PN_GENERATOR.edn,syn_edn)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
 LIST "Teton::work"
 FILE "<project>\component\work\Teton\Teton.vhd,hdl"
 LIST Other_Association
@@ -603,7 +749,6 @@ VALUE "D:\firmware\MainBoard\CdmaTransceiver\hdl\simulink\vhdl\SynLib_asynch.vhd
 VALUE "D:\firmware\MainBoard\CdmaTransceiver\hdl\simulink\vhdl\gmsk_rx.vhd,hdl"
 VALUE "D:\firmware\MainBoard\CdmaTransceiver\hdl\simulink\vhdl\gmsk_sync.vhd,hdl"
 VALUE "<project>\hdl\led_pwm.vhd,hdl"
-VALUE "D:\firmware\MainBoard\CdmaTransceiver\hdl\simulink\vhdl\qpsk_tx.vhd,hdl"
 VALUE "<project>\hdl\fifo_512x8.vhd,hdl"
 VALUE "<project>\hdl\rx_apb_if.vhd,hdl"
 VALUE "<project>\component\work\Teton_MSS\MSS_CCC_0\Teton_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd,hdl"
@@ -618,6 +763,9 @@ ENDLIST
 ENDLIST 
 LIST AssociatedStimulus
 VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
+ENDLIST
+LIST SynthesisConstraints
+VALUE "<project>\component\work\Teton_MSS\mss_tshell_syn.sdc,sdc"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
@@ -670,6 +818,32 @@ ENDUsed_File_List
 ENDLIST
 ENDLIST
 ENDLIST
+LIST "TX_APB_IF::work"
+FILE "<project>\hdl\tx_apb_if.vhd,hdl"
+LIST UserCustomizedFileList
+LIST "ideSIMULATION"
+USE_LIST=TRUE
+FILELIST
+VALUE "<project>\hdl\fifo_512x8.vhd,hdl"
+VALUE "<project>\hdl\tx_apb_if.vhd,hdl"
+ENDFILELIST
+ENDLIST
+ENDLIST 
+LIST AssociatedStimulus
+VALUE "<project>\stimulus\tx_apb_if_tb.vhd,tb_hdl"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
 LIST "CoreAPB3::COREAPB3_LIB::components"
 FILE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
 LIST Other_Association
@@ -683,6 +857,17 @@ ENDLIST
 LIST AssociatedStimulus
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 ENDLIST
 ENDLIST
@@ -699,9 +884,15 @@ ENDLIST
 LIST Teton_MSS
 VALUE "<project>\component\work\Teton_MSS\testbench.vhd,tb_hdl"
 ENDLIST
+LIST TX_APB_IF
+VALUE "<project>\stimulus\tx_apb_if_tb.vhd,tb_hdl"
+ENDLIST
 LIST CoreAPB3
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+ENDLIST
+LIST PN_GENERATOR
+VALUE "<project>\stimulus\pn_generator_tb.vhd,tb_hdl"
 ENDLIST
 ENDLIST
 LIST Other_Association
@@ -730,7 +921,7 @@ ENDLIST
 ENDLIST
 LIST SimulationOptions
 UseAutomaticDoFile=true
-IncludeWaveDo=true
+IncludeWaveDo=false
 Type=max
 RunTime=1000ns
 Resolution=1ps
@@ -738,7 +929,7 @@ VsimOpt=
 EntityName=testbench
 TopInstanceName=<top>_0
 DoFileName=
-DoFileName2=D:/firmware/MainBoard/CdmaTransceiver/simulation/qpsk_wave.do
+DoFileName2=
 DoFileParams=
 DisplayDUTWave=true
 LogAllSignals=false
@@ -827,6 +1018,19 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 ENDLIST
+LIST "PN_GENERATOR::work"
+LIST Impl1
+LiberoState=Post_Synthesis
+ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\PN_GENERATOR.edn,syn_edn)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
 LIST "Teton::work"
 LIST Impl1
 ideSTIMULUS=StateSuccess
@@ -862,6 +1066,28 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 ENDLIST
+LIST "TX_APB_IF::work"
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+LIST "CoreAPB3::COREAPB3_LIB::components"
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
 ENDLIST
 LIST ExcludePackageForSimulation
 ENDLIST
@@ -885,7 +1111,6 @@ VALUE "D:\firmware\MainBoard\CdmaTransceiver\hdl\simulink\vhdl\SynLib_asynch.vhd
 VALUE "D:\firmware\MainBoard\CdmaTransceiver\hdl\simulink\vhdl\gmsk_rx.vhd,hdl"
 VALUE "D:\firmware\MainBoard\CdmaTransceiver\hdl\simulink\vhdl\gmsk_sync.vhd,hdl"
 VALUE "<project>\hdl\led_pwm.vhd,hdl"
-VALUE "D:\firmware\MainBoard\CdmaTransceiver\hdl\simulink\vhdl\qpsk_tx.vhd,hdl"
 VALUE "<project>\hdl\fifo_512x8.vhd,hdl"
 VALUE "<project>\hdl\rx_apb_if.vhd,hdl"
 VALUE "<project>\component\work\Teton_MSS\MSS_CCC_0\Teton_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd,hdl"
@@ -914,10 +1139,26 @@ VALUE "<project>\hdl\led_pwm.vhd,hdl"
 ENDFILELIST
 ENDLIST
 ENDLIST
+LIST "TX_APB_IF"
+LIST "ideSIMULATION"
+USE_LIST=TRUE
+FILELIST
+VALUE "<project>\hdl\fifo_512x8.vhd,hdl"
+VALUE "<project>\hdl\tx_apb_if.vhd,hdl"
+ENDFILELIST
+ENDLIST
+ENDLIST
+LIST "PN_GENERATOR"
+LIST "ideSIMULATION"
+USE_LIST=TRUE
+FILELIST
+VALUE "<project>\hdl\pn_generator.vhd,hdl"
+ENDFILELIST
+ENDLIST
+ENDLIST
 ENDLIST
 LIST OpenedFileList
 SmartDesign;Teton
-SmartDesign;Teton_MSS
 Reports;Reports
 ACTIVEVIEW;Teton
 ENDLIST
@@ -933,19 +1174,15 @@ SUBBLOCK "synChannel_select_register_Register_e0::work","hdl\simulink\vhdl\gmsk_
 ENDLIST
 LIST "cic_decimator_10::work","hdl\cic_decimator_10.vhd","FALSE","FALSE"
 ENDLIST
-LIST "cic_interpolator::work","hdl\cic_interpolator.vhd","FALSE","FALSE"
-ENDLIST
 LIST "cic_interpolator_10::work","hdl\cic_interpolator_10.vhd","FALSE","FALSE"
-ENDLIST
-LIST "COUNTER_STUB::work","hdl\counter_stub.vhd","FALSE","FALSE"
 ENDLIST
 LIST "DATA_PATH_MUX::work","hdl\data_path_mux.vhd","FALSE","FALSE"
 ENDLIST
 LIST "DATAPATH_STUB_APB::work","hdl\datapath_stub_apb.vhd","FALSE","FALSE"
 ENDLIST
 LIST "Decommutator::work","hdl\simulink\vhdl\gmsk_sync.vhd","FALSE","FALSE"
-SUBBLOCK "synDownsampleSimple::shlslib::synLibFunctions","hdl\simulink\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 SUBBLOCK "synDecommutator_ShftReg::work","hdl\simulink\vhdl\gmsk_sync.vhd","FALSE","FALSE"
+SUBBLOCK "synDownsampleSimple::shlslib::synLibFunctions","hdl\simulink\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "Delay1::work","hdl\simulink\vhdl\gmsk_sync.vhd","FALSE","FALSE"
 SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\simulink\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
@@ -965,8 +1202,6 @@ SUBBLOCK "SmartFusion_CMSIS_PAL::work","","FALSE","FALSE"
 ENDLIST
 LIST "DESIGN_IO::work","component\work\DESIGN_IO\DESIGN_IO.cxf","TRUE","FALSE"
 ENDLIST
-LIST "FIFO_256x16::work","hdl\fifo_256x16.vhd","FALSE","FALSE"
-ENDLIST
 LIST "FIFO_512x8::work","hdl\fifo_512x8.vhd","FALSE","FALSE"
 ENDLIST
 LIST "FIR::work","hdl\simulink\vhdl\gmsk_rx.vhd","FALSE","FALSE"
@@ -978,10 +1213,10 @@ LIST "Frame_found::work","hdl\simulink\vhdl\gmsk_sync.vhd","FALSE","FALSE"
 SUBBLOCK "synFrame_found_Register::work","hdl\simulink\vhdl\gmsk_sync.vhd","FALSE","FALSE"
 ENDLIST
 LIST "gmsk_rx::work","hdl\simulink\vhdl\gmsk_rx.vhd","FALSE","FALSE"
-SUBBLOCK "synComparator::shlslib::synLibFunctions","hdl\simulink\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 SUBBLOCK "N_decimation_filter::work","hdl\simulink\vhdl\gmsk_rx.vhd","FALSE","FALSE"
 SUBBLOCK "FIR::work","hdl\simulink\vhdl\gmsk_rx.vhd","FALSE","FALSE"
 SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\simulink\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synComparator::shlslib::synLibFunctions","hdl\simulink\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "gmsk_sync::work","hdl\simulink\vhdl\gmsk_sync.vhd","FALSE","FALSE"
 SUBBLOCK "Channel_select_register::work","hdl\simulink\vhdl\gmsk_sync.vhd","FALSE","FALSE"
@@ -989,15 +1224,11 @@ SUBBLOCK "Delay1::work","hdl\simulink\vhdl\gmsk_sync.vhd","FALSE","FALSE"
 SUBBLOCK "Switch::work","hdl\simulink\vhdl\gmsk_sync.vhd","FALSE","FALSE"
 SUBBLOCK "Decommutator::work","hdl\simulink\vhdl\gmsk_sync.vhd","FALSE","FALSE"
 SUBBLOCK "Frame_found::work","hdl\simulink\vhdl\gmsk_sync.vhd","FALSE","FALSE"
-SUBBLOCK "synComparator::shlslib::synLibFunctions","hdl\simulink\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 SUBBLOCK "synShift_Register0::work","hdl\simulink\vhdl\gmsk_sync.vhd","FALSE","FALSE"
 SUBBLOCK "synBusSatRnd::shlslib::synLibFunctions","hdl\simulink\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
-ENDLIST
-LIST "H_cic_dec::work","hdl\H_cic_dec.vhd","FALSE","FALSE"
+SUBBLOCK "synComparator::shlslib::synLibFunctions","hdl\simulink\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "HAL::work","","FALSE","FALSE"
-ENDLIST
-LIST "I_LUT_Binary_consteallation::work","hdl\simulink\vhdl\qpsk_tx.vhd","FALSE","FALSE"
 ENDLIST
 LIST "INBUF_LVDS_MCCC::work","component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd","FALSE","FALSE"
 ENDLIST
@@ -1043,32 +1274,10 @@ LIST "N_decimation_filter::work","hdl\simulink\vhdl\gmsk_rx.vhd","FALSE","FALSE"
 ENDLIST
 LIST "OUTBUF_MSS::work","component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd","FALSE","FALSE"
 ENDLIST
-LIST "Q_LUT_Binary_consteallation::work","hdl\simulink\vhdl\qpsk_tx.vhd","FALSE","FALSE"
-ENDLIST
-LIST "qpsk_tx::work","hdl\simulink\vhdl\qpsk_tx.vhd","FALSE","FALSE"
-SUBBLOCK "Serial_to_Parallel::work","hdl\simulink\vhdl\qpsk_tx.vhd","FALSE","FALSE"
-SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\simulink\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
-SUBBLOCK "synCounter::shlslib::synLibFunctions","hdl\simulink\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
-SUBBLOCK "synComparator::shlslib::synLibFunctions","hdl\simulink\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
-SUBBLOCK "I_LUT_Binary_consteallation::work","hdl\simulink\vhdl\qpsk_tx.vhd","FALSE","FALSE"
-SUBBLOCK "Q_LUT_Binary_consteallation::work","hdl\simulink\vhdl\qpsk_tx.vhd","FALSE","FALSE"
-SUBBLOCK "synBusSatRnd::shlslib::synLibFunctions","hdl\simulink\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
-SUBBLOCK "RCOS_Filter_FIR_I_PolyphaseFIR_1::work","hdl\simulink\vhdl\qpsk_tx.vhd","FALSE","FALSE"
-SUBBLOCK "RCOS_Filter_FIR_I_PolyphaseFIR_0::work","hdl\simulink\vhdl\qpsk_tx.vhd","FALSE","FALSE"
-ENDLIST
-LIST "RCOS_Filter_FIR_I_PolyphaseFIR_0::work","hdl\simulink\vhdl\qpsk_tx.vhd","FALSE","FALSE"
-SUBBLOCK "RCOS_Filter_FIR_I_PolyphaseFIR_0_MultiplyBlock::work","hdl\simulink\vhdl\qpsk_tx.vhd","FALSE","FALSE"
-ENDLIST
-LIST "RCOS_Filter_FIR_I_PolyphaseFIR_0_MultiplyBlock::work","hdl\simulink\vhdl\qpsk_tx.vhd","FALSE","FALSE"
-ENDLIST
-LIST "RCOS_Filter_FIR_I_PolyphaseFIR_1::work","hdl\simulink\vhdl\qpsk_tx.vhd","FALSE","FALSE"
+LIST "PN_GENERATOR::work","hdl\pn_generator.vhd","FALSE","FALSE"
 ENDLIST
 LIST "RX_APB_IF::work","hdl\rx_apb_if.vhd","FALSE","FALSE"
 SUBBLOCK "FIFO_512x8::work","hdl\fifo_512x8.vhd","FALSE","FALSE"
-ENDLIST
-LIST "Serial_to_Parallel::work","hdl\simulink\vhdl\qpsk_tx.vhd","FALSE","FALSE"
-SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\simulink\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
-SUBBLOCK "synDownsampleSimple::shlslib::synLibFunctions","hdl\simulink\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "SmartFusion_CMSIS_PAL::work","","FALSE","FALSE"
 ENDLIST
@@ -1096,7 +1305,6 @@ SUBBLOCK "DATAPATH_STUB_APB::work","hdl\datapath_stub_apb.vhd","FALSE","FALSE"
 SUBBLOCK "gmsk_rx::work","hdl\simulink\vhdl\gmsk_rx.vhd","FALSE","FALSE"
 SUBBLOCK "gmsk_sync::work","hdl\simulink\vhdl\gmsk_sync.vhd","FALSE","FALSE"
 SUBBLOCK "LED_PWM::work","hdl\led_pwm.vhd","FALSE","FALSE"
-SUBBLOCK "qpsk_tx::work","hdl\simulink\vhdl\qpsk_tx.vhd","FALSE","FALSE"
 SUBBLOCK "RX_APB_IF::work","hdl\rx_apb_if.vhd","FALSE","FALSE"
 SUBBLOCK "Teton_MSS::work","component\work\Teton_MSS\Teton_MSS.vhd","TRUE","FALSE"
 SUBBLOCK "TX_APB_IF::work","hdl\tx_apb_if.vhd","FALSE","FALSE"
@@ -1126,11 +1334,17 @@ ENDLIST
 LIST "LED_PWM_tb::work","stimulus\led_pwm_tb.vhd","FALSE","TRUE"
 SUBBLOCK "LED_PWM::work","hdl\led_pwm.vhd","FALSE","FALSE"
 ENDLIST
+LIST "PN_GENERATOR_tb::work","stimulus\pn_generator_tb.vhd","FALSE","TRUE"
+SUBBLOCK "PN_GENERATOR::work","hdl\pn_generator.vhd","FALSE","FALSE"
+ENDLIST
 LIST "testbench::work","component\work\Teton\testbench.vhd","FALSE","TRUE"
 SUBBLOCK "Teton::work","component\work\Teton\Teton.vhd","TRUE","FALSE"
 ENDLIST
 LIST "testbench::work","component\work\Teton_MSS\testbench.vhd","FALSE","TRUE"
 SUBBLOCK "Teton_MSS::work","component\work\Teton_MSS\Teton_MSS.vhd","TRUE","FALSE"
+ENDLIST
+LIST "TX_APB_IF_tb::work","stimulus\tx_apb_if_tb.vhd","FALSE","TRUE"
+SUBBLOCK "TX_APB_IF::work","hdl\tx_apb_if.vhd","FALSE","FALSE"
 ENDLIST
 LIST "CAPB3o::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\core_obfuscated\coreapb3_muxptob3.vhd","FALSE","FALSE"
 ENDLIST
@@ -1379,7 +1593,4 @@ LIST "synStepFunction_std_logic_vector::shlslib::synLibFunctions","hdl\simulink\
 ENDLIST
 ENDLIST
 LIST ActiveTestBenchList
-LIST "Teton::work"
-ACTIVETESTBENCH "","","FALSE"
-ENDLIST
 ENDLIST

@@ -83,9 +83,11 @@ sim:/testbench/Teton_0/TX_APB_IF_0/s_payload_length \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_buffer \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_txd
 
+#add wave \
+#-label {TX WAVEFORMS}
+
 add wave \
 -signed \
--label {TX WAVEFORMS} \
 sim:/testbench/Teton_0/qpsk_tx_0/TX_D \
 sim:/testbench/Teton_0/qpsk_tx_0/TX_EN \
 -analog-step -min -512 -max 512 -height 200 \
@@ -99,10 +101,11 @@ sim:/testbench/Teton_0/qpsk_tx_0/GlobalEnable20 \
 sim:/testbench/Teton_0/qpsk_tx_0/TX_Q \
 sim:/testbench/Teton_0/qpsk_tx_0/TX_I \
 sim:/testbench/Teton_0/qpsk_tx_0/TX_EN \
-sim:/testbench/Teton_0/qpsk_tx_0/TX_D \
-sim:/testbench/Teton_0/qpsk_tx_0/q_slow \
-sim:/testbench/Teton_0/qpsk_tx_0/i_slow \
-sim:/testbench/Teton_0/qpsk_tx_0/symbol
+sim:/testbench/Teton_0/qpsk_tx_0/TX_D
+
+#sim:/testbench/Teton_0/qpsk_tx_0/q_slow \
+#sim:/testbench/Teton_0/qpsk_tx_0/i_slow \
+#sim:/testbench/Teton_0/qpsk_tx_0/symbol
 
 
 
