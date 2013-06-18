@@ -99,16 +99,11 @@ void Max2830_init ( )
 
 	// Initialize GPIOs
 
-	//MSS_GPIO_init(); // Should be called already
+	//MSS_GPIO_init(); // Should have been called already
 	MSS_GPIO_config( MSS_GPIO_LD, MSS_GPIO_INPUT_MODE );
 	MSS_GPIO_config( MSS_GPIO_SHDN, MSS_GPIO_OUTPUT_MODE );
-	MSS_GPIO_config( MSS_GPIO_RXHP, MSS_GPIO_OUTPUT_MODE );
-	MSS_GPIO_config( MSS_GPIO_ANTSEL, MSS_GPIO_OUTPUT_MODE );
 	MSS_GPIO_config( MSS_GPIO_RXTX, MSS_GPIO_OUTPUT_MODE );
 
-	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_RXHP_MASK );
-	//MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_RXHP_MASK );
-	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() | MSS_GPIO_ANTSEL_MASK );	// Single antenna (ANT2)
 	MSS_GPIO_set_outputs( MSS_GPIO_get_outputs() & ~MSS_GPIO_RXTX_MASK );	// RX
 
 	Max2830_set_mode( MAX2830_SHUTDOWN_MODE );

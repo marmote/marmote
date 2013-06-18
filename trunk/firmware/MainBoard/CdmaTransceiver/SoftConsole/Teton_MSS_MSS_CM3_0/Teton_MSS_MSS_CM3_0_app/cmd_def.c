@@ -11,7 +11,7 @@
 CMD_Type CMD_List[] =
 {
 	{"help", CmdHelp},
-//	{"led",  CmdLed},
+	{"led",  CmdLed},
 //	{"sleep", CmdSleep},
 	{"clk",  CmdClock},
 	{"afe",  CmdAfe},

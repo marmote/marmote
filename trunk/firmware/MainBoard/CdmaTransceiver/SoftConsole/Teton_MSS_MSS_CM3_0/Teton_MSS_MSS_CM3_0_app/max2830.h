@@ -50,17 +50,13 @@
 #include <mss_spi.h>
 #include <mss_ace.h>
 
+#define MSS_GPIO_RXTX       	MSS_GPIO_2		// Rx/Tx Mode (Rx = 0, Tx = 1)
 #define MSS_GPIO_SHDN       	MSS_GPIO_3		// Shutdown (active-low)
-#define MSS_GPIO_RXHP       	MSS_GPIO_4		// Receiver Baseband AC-Coupling High-Pass Corner Frequency
-#define MSS_GPIO_ANTSEL     	MSS_GPIO_5		// Antenna Selection
 #define MSS_GPIO_LD         	MSS_GPIO_6		// Lock-Detect
-#define MSS_GPIO_RXTX       	MSS_GPIO_28		// Rx/Tx Mode (Rx = 0, Tx = 1)
 
+#define MSS_GPIO_RXTX_MASK      MSS_GPIO_2_MASK
 #define MSS_GPIO_SHDN_MASK      MSS_GPIO_3_MASK
-#define MSS_GPIO_RXHP_MASK      MSS_GPIO_4_MASK
-#define MSS_GPIO_ANTSEL_MASK    MSS_GPIO_5_MASK
 #define MSS_GPIO_LD_MASK		MSS_GPIO_6_MASK
-#define MSS_GPIO_RXTX_MASK      MSS_GPIO_28_MASK
 
 #define LO_FREQUENCY			20000000uL		// Frequency of the TCXO on the Joshua board
 
@@ -118,7 +114,7 @@ static uint16_t max2830_regs[16] =
 		0x1003,
 		0x0079,
 		0x3666,
-		0x00A0,
+		0x00A0, // R5 (for 20 MHz TCXO)
 		0x0060,
 		0x1022, // R7: RXHP 4 kHz
 		0x3021,
