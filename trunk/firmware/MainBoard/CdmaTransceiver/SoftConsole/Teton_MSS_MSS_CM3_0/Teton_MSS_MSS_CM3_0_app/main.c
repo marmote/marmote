@@ -44,10 +44,10 @@ int main()
 
 	set_mode(RADIO_TX_MODE);
 //
-//	MSS_TIM1_init(MSS_TIMER_PERIODIC_MODE);
-//	MSS_TIM1_load_background(20e6); // 1 s
-//	MSS_TIM1_enable_irq();
-//	MSS_TIM1_start();
+	MSS_TIM1_init(MSS_TIMER_PERIODIC_MODE);
+	MSS_TIM1_load_background(20e6); // 1 s
+	MSS_TIM1_enable_irq();
+	MSS_TIM1_start();
 
 //	BB_CTRL->TX_I = 0;
 //	BB_CTRL->TX_Q = 0;

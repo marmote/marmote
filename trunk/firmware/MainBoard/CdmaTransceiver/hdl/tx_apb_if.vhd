@@ -63,8 +63,8 @@ entity TX_APB_IF is
          TX_DONE_IRQ : out std_logic;
 
          TX_EN      : out std_logic;
-         TX_I       : out std_logic_vector(10 downto 0);
-         TX_Q       : out std_logic_vector(10 downto 0)
+         TX_I       : out std_logic_vector(9 downto 0);
+         TX_Q       : out std_logic_vector(9 downto 0)
      );
 
 end entity;
@@ -104,8 +104,9 @@ architecture Behavioral of TX_APB_IF is
 --    constant c_SEED             : std_logic_vector(31 downto 0) := x"00000401";
 --    constant c_MASK             : std_logic_vector(31 downto 0) := x"00000492";
 
-    constant c_TX_HIGH          : std_logic_vector(10 downto 0) := "010" & x"00";
-    constant c_TX_LOW           : std_logic_vector(10 downto 0) := "110" & x"00";
+    -- FIXME: Scale TX_HIGH and TX_LOW properly
+    constant c_TX_HIGH          : std_logic_vector(9 downto 0) := "01" & x"80";
+    constant c_TX_LOW           : std_logic_vector(9 downto 0) := "10" & x"80";
 
 
 	-- Addresses
@@ -184,13 +185,13 @@ architecture Behavioral of TX_APB_IF is
     signal s_lfsr           : std_logic_vector(31 downto 0);
     signal s_pn_seq         : std_logic;
 
-    signal s_tx_i           : std_logic_vector(10 downto 0);
-    signal s_tx_q           : std_logic_vector(10 downto 0);
+    signal s_tx_i           : std_logic_vector(9 downto 0);
+    signal s_tx_q           : std_logic_vector(9 downto 0);
 
 	signal s_dout           : std_logic_vector(31 downto 0);
 
     --
-    signal s_rnd            : std_logic_vector(10 downto 0);
+    signal s_rnd            : std_logic_vector(9 downto 0);
     signal s_lfsr2           : std_logic_vector(31 downto 0);
 	signal s_chip_ctr2       : unsigned(15 downto 0);
 	signal s_chip_end2       : std_logic;

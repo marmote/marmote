@@ -67,5 +67,9 @@ write w TX_APB_IF_0 TX_MOD_MUX 0x02;
 wait 500;
 write w TX_APB_IF_0 TX_MOD_MUX 0x01;
 wait 500;
+write w TX_APB_IF_0 TX_MOD_MUX 0x03;
+wait 500;
+wait 500;
+wait 500;
 
 return
