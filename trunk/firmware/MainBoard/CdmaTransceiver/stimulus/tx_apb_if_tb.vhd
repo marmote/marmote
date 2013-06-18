@@ -160,26 +160,26 @@ begin
         PRESETn <= '1';
         wait for 100 ns;
 
-        p_write_apb(c_ADDR_FIFO, x"000000_0A", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
-        p_write_apb(c_ADDR_FIFO, x"000000_0B", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
-        p_write_apb(c_ADDR_FIFO, x"000000_0C", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
-        p_write_apb(c_ADDR_FIFO, x"000000_0D", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
+        p_write_apb(c_ADDR_FIFO, x"000000_F2", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
+        p_write_apb(c_ADDR_FIFO, x"000000_F3", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
+        p_write_apb(c_ADDR_FIFO, x"000000_F4", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
+        p_write_apb(c_ADDR_FIFO, x"000000_F5", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
 
         p_write_apb(c_ADDR_CTRL, x"000000_01", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
 
         wait until TX_DONE_IRQ = '1';
         report "TX DONE";
-        wait for 5000 ns;
-
-        p_write_apb(c_ADDR_FIFO, x"000000_1A", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
-        p_write_apb(c_ADDR_FIFO, x"000000_1B", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
-        p_write_apb(c_ADDR_FIFO, x"000000_1C", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
-        p_write_apb(c_ADDR_FIFO, x"000000_1D", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
-
-        p_write_apb(c_ADDR_CTRL, x"000000_01", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
-
-        wait until TX_DONE_IRQ = '1';
-        report "TX DONE";
+--        wait for 5000 ns;
+--
+--        p_write_apb(c_ADDR_FIFO, x"000000_1A", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
+--        p_write_apb(c_ADDR_FIFO, x"000000_1B", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
+--        p_write_apb(c_ADDR_FIFO, x"000000_1C", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
+--        p_write_apb(c_ADDR_FIFO, x"000000_1D", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
+--
+--        p_write_apb(c_ADDR_CTRL, x"000000_01", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
+--
+--        wait until TX_DONE_IRQ = '1';
+--        report "TX DONE";
         wait for 1000 ns;
 
         stop_the_clock <= true;

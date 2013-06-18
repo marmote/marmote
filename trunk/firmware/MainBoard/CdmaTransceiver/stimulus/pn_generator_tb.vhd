@@ -79,8 +79,7 @@ begin
 
     stimulus: process
     begin
-        mask <= (others => '0');
-        mask <= x"00000402";
+        mask <= x"00000492";
         seed <= x"00000400";
         soft_rst <= '0';
         en <= '0';
@@ -92,7 +91,7 @@ begin
 
         en <= '1';
 
-        wait for 10000 * clock_period;
+        wait for 100000 * clock_period;
 
         stop_the_clock <= true;
         wait;

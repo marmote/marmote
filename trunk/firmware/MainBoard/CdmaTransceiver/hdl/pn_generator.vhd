@@ -79,9 +79,9 @@ begin
                 s_lfsr <= SEED;
             elsif EN = '1' then
                 if s_lfsr(0) = '1' then
-                    s_lfsr <= '0' & s_lfsr(s_lfsr'high downto 1);
-                else
                     s_lfsr <= '0' & s_lfsr(s_lfsr'high downto 1) xor MASK;
+                else
+                    s_lfsr <= '0' & s_lfsr(s_lfsr'high downto 1);
                 end if;
             end if;
         end if;
