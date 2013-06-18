@@ -49,6 +49,7 @@ sim:/tx_apb_if_tb/uut/s_oct_ctr
 add wave \
 -divider {TX WAVEFORMS} \
 sim:/tx_apb_if_tb/uut/s_buffer(7) \
+sim:/tx_apb_if_tb/uut/s_diff_enc \
 sim:/tx_apb_if_tb/uut/s_pn_seq \
 -format analog-step \
 -height 50 -min -768 -max 768 \
@@ -59,10 +60,11 @@ add wave \
 -divider {PN GENERATOR} \
 sim:/tx_apb_if_tb/uut/clk \
 sim:/tx_apb_if_tb/uut/rst \
-sim:/tx_apb_if_tb/uut/c_MASK \
-sim:/tx_apb_if_tb/uut/c_SEED \
+-hex \
 sim:/tx_apb_if_tb/uut/s_lfsr \
-sim:/tx_apb_if_tb/uut/s_lfsr(0)
+sim:/tx_apb_if_tb/uut/s_lfsr(0) \
+sim:/tx_apb_if_tb/uut/c_MASK \
+sim:/tx_apb_if_tb/uut/c_SEED
 
 run -all
 

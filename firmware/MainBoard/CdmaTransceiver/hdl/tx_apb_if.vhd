@@ -90,8 +90,8 @@ architecture Behavioral of TX_APB_IF is
 
     constant c_CHIP_DIV         : integer := 10; -- Chip length in clock cycles
     constant c_SF               : integer := 4;  -- Spread factor
-    constant c_SEED             : std_logic_vector(31 downto 0) := x"00000400";
-    constant c_MASK             : std_logic_vector(31 downto 0) := x"00000402";
+    constant c_SEED             : std_logic_vector(31 downto 0) := x"00000401";
+    constant c_MASK             : std_logic_vector(31 downto 0) := x"00000492";
 
     constant c_TX_HIGH          : std_logic_vector(10 downto 0) := "010" & x"00";
     constant c_TX_LOW           : std_logic_vector(10 downto 0) := "110" & x"00";
@@ -141,6 +141,7 @@ architecture Behavioral of TX_APB_IF is
 
 	signal s_buffer         : std_logic_vector(7 downto 0);
 	signal s_buffer_next    : std_logic_vector(7 downto 0);
+    signal s_diff_enc       : std_logic;
 
 	signal s_start          : std_logic;
     signal s_tx_done        : std_logic;
@@ -282,7 +283,7 @@ begin
 			s_buffer <= s_buffer_next;
 
             if s_tx_en = '1' then
-                if (s_buffer(s_buffer'high) xor s_pn_seq) = '1' then
+                if (s_diff_enc xor s_pn_seq) = '1' then
                     s_tx_i <= c_TX_HIGH;
                 else
                     s_tx_i <= c_TX_LOW;
@@ -387,6 +388,25 @@ begin
 
 	end process p_TRANSMIT_FSM_COMB;
 
+
+	-----------------------------------------------------------------------------
+	-- Differential encoder
+    --
+	-----------------------------------------------------------------------------
+    p_DIFFERENTIAL_ENCODER : process (rst, clk)
+    begin
+        if rst = '1' then
+            s_diff_enc <= '0';
+        elsif rising_edge(clk) then
+            if s_tx_en = '0' then
+                s_diff_enc <= '0';
+            elsif s_sym_end = '1' then
+                s_diff_enc <= s_diff_enc xor s_buffer_next(s_buffer_next'high);
+            end if;
+        end if;
+    end process p_DIFFERENTIAL_ENCODER;
+
+
 	-----------------------------------------------------------------------------
 	-- Chip timer
     --
@@ -442,9 +462,9 @@ begin
                 s_lfsr <= c_SEED;
             elsif s_chip_end = '1' then
                 if s_lfsr(0) = '1' then
-                    s_lfsr <= '0' & s_lfsr(s_lfsr'high downto 1);
-                else
                     s_lfsr <= '0' & s_lfsr(s_lfsr'high downto 1) xor c_MASK;
+                else
+                    s_lfsr <= '0' & s_lfsr(s_lfsr'high downto 1);
                 end if;
             end if;
             s_pn_seq <= s_lfsr(0);
