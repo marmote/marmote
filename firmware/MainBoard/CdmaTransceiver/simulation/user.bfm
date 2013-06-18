@@ -32,8 +32,6 @@ constant TX_MOD_MUX 0x0C;
 # TX register values for BFM
 
 
-#wait 500;
-
 print "";
 print "************************************************************";
 print "*            Testing custom APB slave block                *";
@@ -43,12 +41,12 @@ print "";
 write w TX_APB_IF_0 TX_CTRL 0x00;
 
 
-# Length
-write w TX_APB_IF_0 TX_DATA 0x03;
-# Data
+# PAYLOAD
 write w TX_APB_IF_0 TX_DATA 0xAB;
 write w TX_APB_IF_0 TX_DATA 0xCD;
 write w TX_APB_IF_0 TX_DATA 0xEF;
+write w TX_APB_IF_0 TX_DATA 0x2A;
+#write w TX_APB_IF_0 TX_DATA 0x2A;
 wait 100;
 # Start TX
 write w TX_APB_IF_0 TX_CTRL 0x01;
@@ -56,20 +54,8 @@ write w TX_APB_IF_0 TX_CTRL 0x01;
 wait 500;
 wait 500;
 wait 500;
-wait 500;
-wait 500;
-wait 500;
-wait 500;
-wait 500;
-wait 500;
-wait 500;
-wait 500;
-wait 500;
-wait 500;
-wait 500;
-wait 500;
-wait 500;
-wait 500;
-wait 500;
+
+# Start TX
+write w TX_APB_IF_0 TX_CTRL 0x01;
 
 return

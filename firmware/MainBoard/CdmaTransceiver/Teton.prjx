@@ -21,7 +21,7 @@ KEY ProjectLocation "D:\firmware\MainBoard\CdmaTransceiver"
 KEY ProjectDescription ""
 KEY SimulationType "VHDL"
 KEY Vendor "Actel"
-KEY ActiveRoot "TX_APB_IF::work"
+KEY ActiveRoot "Teton::work"
 LIST REVISIONS
 VALUE="Impl1",NUM=1
 CURREV=1
@@ -33,26 +33,26 @@ shlslib
 ENDLIST
 LIST LIBRARY_MSS_BFM_LIB
 ALIAS=..\component\Actel\SmartFusionMSS\MSS\2.5.106\mti\user_verilog\MSS_BFM_LIB
-COMPILE_OPTION=NOCOMPILE
+COMPILE_OPTION=REFRESH_AND_COMPILE
 ENDLIST
 LIST LIBRARY_COREAPB3_LIB
 ALIAS=..\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\user_vhdl\COREAPB3_LIB
-COMPILE_OPTION=NOCOMPILE
+COMPILE_OPTION=REFRESH_AND_COMPILE
 ENDLIST
 LIST LIBRARY_shlslib
 ALIAS=shlslib
-COMPILE_OPTION=NOCOMPILE
+COMPILE_OPTION=REFRESH_AND_COMPILE
 ENDLIST
 LIST FileManager
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf,actgen_cxf"
 STATE="utd"
-TIME="1371479331"
+TIME="1371570305"
 SIZE="2407"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
 STATE="utd"
-TIME="1371479331"
+TIME="1371570305"
 SIZE="1241"
 LIBRARY="COREAPB3_LIB"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\CoreAPB3.cxf"
@@ -225,19 +225,19 @@ SIZE="413"
 ENDFILE
 VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1371479333"
+TIME="1371570306"
 SIZE="4074"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.cxf,actgen_cxf"
 STATE="utd"
-TIME="1371479332"
+TIME="1371570310"
 SIZE="11371"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.pdc,pdc"
 STATE="utd"
-TIME="1371479326"
+TIME="1371570302"
 SIZE="5812"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 BEGIN_USE_CONSTRAINT
@@ -248,8 +248,8 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.vhd,hdl"
 STATE="utd"
-TIME="1371479332"
-SIZE="47440"
+TIME="1371570305"
+SIZE="47959"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 IS_READONLY="TRUE"
 ENDFILE
@@ -441,7 +441,7 @@ SIZE="3738"
 ENDFILE
 VALUE "<project>\hdl\pn_generator.vhd,hdl"
 STATE="utd"
-TIME="1371065714"
+TIME="1371507832"
 SIZE="3515"
 ENDFILE
 VALUE "<project>\hdl\rx_apb_if.vhd,hdl"
@@ -451,8 +451,8 @@ SIZE="13516"
 ENDFILE
 VALUE "<project>\hdl\tx_apb_if.vhd,hdl"
 STATE="utd"
-TIME="1371149400"
-SIZE="12884"
+TIME="1371569850"
+SIZE="18789"
 ENDFILE
 VALUE "<project>\simulation\afe_if_wave.do,do"
 STATE="utd"
@@ -500,13 +500,23 @@ SIZE="7774"
 ENDFILE
 VALUE "<project>\simulation\pn_generator_tb_presynth_simulation.log,log"
 STATE="utd"
-TIME="1371065770"
-SIZE="228381"
+TIME="1371507836"
+SIZE="20550"
+ENDFILE
+VALUE "<project>\simulation\pn_generator_wave - Copy.do,do"
+STATE="utd"
+TIME="1371065741"
+SIZE="339"
 ENDFILE
 VALUE "<project>\simulation\pn_generator_wave.do,do"
 STATE="utd"
 TIME="1371065741"
 SIZE="339"
+ENDFILE
+VALUE "<project>\simulation\presynth_simulation.log,log"
+STATE="utd"
+TIME="1371570318"
+SIZE="62"
 ENDFILE
 VALUE "<project>\simulation\qpsk_wave.do,do"
 STATE="utd"
@@ -520,7 +530,7 @@ SIZE="1897"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
-TIME="1371479332"
+TIME="1371570305"
 SIZE="702"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 ENDFILE
@@ -530,15 +540,15 @@ TIME="1363101045"
 SIZE="10107"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
-VALUE "<project>\simulation\testbench_postsynth_simulation.log,log"
+VALUE "<project>\simulation\TX_APB_IF_tb_presynth_simulation.log,log"
 STATE="utd"
-TIME="1371150138"
-SIZE="1757"
+TIME="1371569875"
+SIZE="49311"
 ENDFILE
-VALUE "<project>\simulation\testbench_presynth_simulation.log,log"
+VALUE "<project>\simulation\tx_apb_if_wave.do,do"
 STATE="utd"
-TIME="1371153982"
-SIZE="9645"
+TIME="1371065741"
+SIZE="339"
 ENDFILE
 VALUE "<project>\simulation\user.bfm,sim"
 STATE="utd"
@@ -558,16 +568,16 @@ SIZE="1361"
 ENDFILE
 VALUE "<project>\stimulus\pn_generator_tb.vhd,tb_hdl"
 STATE="utd"
-TIME="1371065605"
-SIZE="3529"
+TIME="1371507375"
+SIZE="3496"
 ENDFILE
 VALUE "<project>\stimulus\tx_apb_if_tb.vhd,tb_hdl"
 STATE="utd"
-TIME="1371149997"
-SIZE="5344"
+TIME="1371505819"
+SIZE="6910"
 ENDFILE
 VALUE "<project>\synthesis\PN_GENERATOR.edn,syn_edn"
-STATE="utd"
+STATE="ood"
 TIME="1371067598"
 SIZE="117195"
 ENDFILE
@@ -717,9 +727,7 @@ VALUE "<project>\stimulus\pn_generator_tb.vhd,tb_hdl"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
-LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\PN_GENERATOR.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -858,17 +866,6 @@ LIST AssociatedStimulus
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\coreparameters.vhd,tb_hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
 ENDLIST
-LIST ProjectState5.1
-LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
 ENDLIST
 ENDLIST
 LIST AssociatedStimulus
@@ -920,7 +917,7 @@ VALUE "<project>\component\Actel\DirectCore\CoreAPB3\3.0.103\mti\scripts\wave_us
 ENDLIST
 ENDLIST
 LIST SimulationOptions
-UseAutomaticDoFile=true
+UseAutomaticDoFile=false
 IncludeWaveDo=false
 Type=max
 RunTime=1000ns
@@ -929,7 +926,7 @@ VsimOpt=
 EntityName=testbench
 TopInstanceName=<top>_0
 DoFileName=
-DoFileName2=
+DoFileName2=D:/firmware/MainBoard/CdmaTransceiver/simulation/tx_apb_if_wave.do
 DoFileParams=
 DisplayDUTWave=true
 LogAllSignals=false
@@ -940,7 +937,7 @@ Verilog2001=false
 SystemVerilog=false
 ENDLIST
 LIST ModelSimLibPath
-UseCustomPath=TRUE
+UseCustomPath=FALSE
 LibraryPath=C:\Microsemi\Libero_v10.1\Designer/lib/modelsim/precompiled/vhdl/smartfusion
 ENDLIST
 LIST GlobalFlowOptions
@@ -977,7 +974,7 @@ NAME="ModelSim AE"
 FUNCTION="Simulation"
 TOOL="ModelSim"
 LOCATION="C:\Microsemi\Libero_v10.1\Model\win32acoem\modelsim.exe"
-PARAM=" -l testbench_presynth_simulation.log "
+PARAM=" -l presynth_simulation.log "
 BATCH=0
 EndProfile
 NAME="WFL"
@@ -1020,9 +1017,7 @@ ENDLIST
 ENDLIST
 LIST "PN_GENERATOR::work"
 LIST Impl1
-LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\PN_GENERATOR.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1067,17 +1062,6 @@ ENDUsed_File_List
 ENDLIST
 ENDLIST
 LIST "TX_APB_IF::work"
-LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
-LIST "CoreAPB3::COREAPB3_LIB::components"
 LIST Impl1
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
@@ -1593,4 +1577,13 @@ LIST "synStepFunction_std_logic_vector::shlslib::synLibFunctions","hdl\simulink\
 ENDLIST
 ENDLIST
 LIST ActiveTestBenchList
+LIST "Teton::work"
+ACTIVETESTBENCH "testbench::work","component\work\Teton\testbench.vhd","FALSE"
+ENDLIST
+LIST "TX_APB_IF::work"
+ACTIVETESTBENCH "TX_APB_IF_tb::work","stimulus\tx_apb_if_tb.vhd","FALSE"
+ENDLIST
+LIST "PN_GENERATOR::work"
+ACTIVETESTBENCH "PN_GENERATOR_tb::work","stimulus\pn_generator_tb.vhd","FALSE"
+ENDLIST
 ENDLIST
