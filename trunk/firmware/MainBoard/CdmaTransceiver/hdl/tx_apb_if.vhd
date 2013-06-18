@@ -36,6 +36,16 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 entity TX_APB_IF is
+    generic (
+         -- Default values
+         g_PREAMBLE_LEN : integer := 2;
+         g_PAYLOAD_LEN  : integer := 2;
+
+         g_CHIP_DIV     : integer := 10;
+         g_SF           : integer := 4; -- Spread factor
+         g_SEED         : integer := 16#401#;
+         g_MASK         : integer := 16#492#
+    );
 	port (
 		 -- APB3 interface
 		 PCLK    : in  std_logic;
@@ -84,28 +94,38 @@ architecture Behavioral of TX_APB_IF is
     end component;
 
     -- Constants
-    constant c_PREAMBLE         : std_logic_vector(7 downto 0) := x"00";
-    constant c_PREAMBLE_LENGTH  : integer := 2; -- in bytes
-    constant c_PAYLOAD_LENGTH   : integer := 2; -- in bytes
 
-    constant c_CHIP_DIV         : integer := 10; -- Chip length in clock cycles
-    constant c_SF               : integer := 4;  -- Spread factor
-    constant c_SEED             : std_logic_vector(31 downto 0) := x"00000401";
-    constant c_MASK             : std_logic_vector(31 downto 0) := x"00000492";
+    constant c_PREAMBLE         : std_logic_vector(7 downto 0) := x"00";
+--    constant c_PREAMBLE_LEN     : integer := 2; -- in bytes
+--    constant c_PAYLOAD_LEN      : integer := 2; -- in bytes
+--
+--    constant c_CHIP_DIV         : integer := 10; -- Chip length in clock cycles
+--    constant c_SF               : integer := 4;  -- Spread factor
+--    constant c_SEED             : std_logic_vector(31 downto 0) := x"00000401";
+--    constant c_MASK             : std_logic_vector(31 downto 0) := x"00000492";
 
     constant c_TX_HIGH          : std_logic_vector(10 downto 0) := "010" & x"00";
     constant c_TX_LOW           : std_logic_vector(10 downto 0) := "110" & x"00";
 
+
 	-- Addresses
+
 	constant c_ADDR_CTRL        : std_logic_vector(7 downto 0) := x"00"; -- W (START)
 	constant c_ADDR_FIFO        : std_logic_vector(7 downto 0) := x"04"; -- W
-	constant c_ADDR_PREAMBLE    : std_logic_vector(7 downto 0) := x"08"; -- R/W
+	constant c_ADDR_TEST        : std_logic_vector(7 downto 0) := x"08"; -- R/W
 	constant c_ADDR_MOD_MUX     : std_logic_vector(7 downto 0) := x"0C"; -- R/W
 
-	-- Default values
+	constant c_ADDR_PRE_LEN     : std_logic_vector(7 downto 0) := x"10"; -- R/W
+	constant c_ADDR_PAY_LEN     : std_logic_vector(7 downto 0) := x"14"; -- R/W
+
+	constant c_ADDR_CHIP_DIV    : std_logic_vector(7 downto 0) := x"20"; -- R/W
+	constant c_ADDR_SF          : std_logic_vector(7 downto 0) := x"24"; -- R/W
+	constant c_ADDR_SEED        : std_logic_vector(7 downto 0) := x"28"; -- R/W
+	constant c_ADDR_MASK        : std_logic_vector(7 downto 0) := x"2C"; -- R/W
 
 
 	-- Registers
+
 	signal s_status      : std_logic_vector(31 downto 0);
 
     -- Arbiter SM
@@ -155,6 +175,12 @@ architecture Behavioral of TX_APB_IF is
     signal s_mod_in_mux     : std_logic_vector(1 downto 0);
     signal s_busy           : std_logic;
 
+    signal s_preamble_len   : std_logic_vector(31 downto 0);
+    signal s_payload_len    : std_logic_vector(31 downto 0);
+    signal s_chip_div       : std_logic_vector(31 downto 0);
+    signal s_sf             : std_logic_vector(31 downto 0);
+    signal s_seed           : std_logic_vector(31 downto 0);
+    signal s_mask           : std_logic_vector(31 downto 0);
     signal s_lfsr           : std_logic_vector(31 downto 0);
     signal s_pn_seq         : std_logic;
 
@@ -168,16 +194,16 @@ begin
 
     rst <= not PRESETn;
 
-    assert c_PAYLOAD_LENGTH >= 2
-    report "ERROR: payload length should be at least 2"
-    severity failure;
+--    assert c_PAYLOAD_LEN >= 2
+--    report "ERROR: payload length should be at least 2"
+--    severity failure;
 
     -- Port maps
 
     u_TX_FIFO : FIFO_512x8
     generic map (
         g_AFULL  => 496,
-        g_AEMPTY => 2
+        g_AEMPTY => g_PAYLOAD_LEN-1 -- FIXME: payload_len should not be modified through a register !!!
     )
     port map (
     	RESET   => rst,
@@ -205,8 +231,14 @@ begin
             s_tx_fifo_wr <= '0';
             s_test <= (others => '0');
             s_mod_in_mux <= (others => '0');
-		elsif rising_edge(PCLK) then
 
+            s_chip_div      <= std_logic_vector(to_unsigned(g_CHIP_DIV, s_chip_div'length));
+            s_sf            <= std_logic_vector(to_unsigned(g_SF, s_sf'length));
+            s_preamble_len  <= std_logic_vector(to_unsigned(g_PREAMBLE_LEN, s_preamble_len'length));
+            s_payload_len   <= std_logic_vector(to_unsigned(g_PAYLOAD_LEN, s_payload_len'length));
+            s_seed          <= std_logic_vector(to_unsigned(g_SEED, s_seed'length));
+            s_mask          <= std_logic_vector(to_unsigned(g_MASK, s_mask'length));
+		elsif rising_edge(PCLK) then
 			-- Default values
 			s_start <= '0';
             s_tx_fifo_wr <= '0';
@@ -220,10 +252,19 @@ begin
 					when c_ADDR_FIFO =>
 						s_tx_fifo_in <= PWDATA(7 downto 0);
                         s_tx_fifo_wr <= '1';
-					when c_ADDR_PREAMBLE =>
+					when c_ADDR_TEST =>
                         s_test <= PWDATA(7 downto 0);
 					when c_ADDR_MOD_MUX =>
                         s_mod_in_mux <= PWDATA(1 downto 0);
+
+					when c_ADDR_PRE_LEN =>
+                        s_preamble_len <= PWDATA;
+					when c_ADDR_PAY_LEN =>
+                        s_payload_len <= PWDATA;
+					when c_ADDR_SEED =>
+                        s_seed <= PWDATA;
+					when c_ADDR_MASK =>
+                        s_mask <= PWDATA;
 					when others =>
 						null;
 				end case;
@@ -247,10 +288,18 @@ begin
                     -- Status
 					when c_ADDR_CTRL => 
 						s_dout <= s_status;
-					when c_ADDR_PREAMBLE => 
+					when c_ADDR_TEST => 
 						s_dout(7 downto 0) <= s_test;
 					when c_ADDR_MOD_MUX =>
 						s_dout(1 downto 0) <= s_mod_in_mux;
+					when c_ADDR_PRE_LEN =>
+						s_dout <= s_preamble_len;
+					when c_ADDR_PAY_LEN =>
+						s_dout <= s_payload_len;
+					when c_ADDR_SEED =>
+						s_dout <= s_seed;
+					when c_ADDR_MASK =>
+						s_dout <= s_mask;
 					when others =>
 						null;
 				end case;
@@ -342,7 +391,8 @@ begin
                             s_buffer_next <= s_buffer(s_buffer'high-1 downto 0) & '0';
                         else
                             s_bit_ctr_next <= (others => '0');
-                            if s_oct_ctr < c_PREAMBLE_LENGTH-1 then
+--                            if s_oct_ctr < c_PREAMBLE_LEN-1 then
+                            if s_oct_ctr < unsigned(s_preamble_len)-1 then
                                 s_oct_ctr_next <= s_oct_ctr + 1;
                                 s_buffer_next <= c_PREAMBLE;
                             else
@@ -361,10 +411,12 @@ begin
                             s_bit_ctr_next <= s_bit_ctr + 1;
                         else
                             s_bit_ctr_next <= (others => '0');
-                            if s_oct_ctr < c_payload_length-2 then
+--                            if s_oct_ctr < c_PAYLOAD_LEN-2 then
+                            if s_oct_ctr < unsigned(s_payload_len)-2 then
                                 s_tx_fifo_rd <= '1'; -- Fetch FIFO data
                             end if;
-                            if s_oct_ctr < c_payload_length-1 then
+--                            if s_oct_ctr < c_PAYLOAD_LEN-1 then
+                            if s_oct_ctr < unsigned(s_payload_len)-1 then
                                 s_buffer_next <= s_tx_fifo_out;
                                 s_oct_ctr_next <= s_oct_ctr + 1;
                             else
@@ -425,7 +477,8 @@ begin
             s_chip_ctr <= (others => '0');
 			s_chip_end <= '0';
             if s_tx_en = '1' then
-                if s_chip_ctr < to_unsigned(c_CHIP_DIV-1, s_chip_ctr'length) then
+--                if s_chip_ctr < to_unsigned(c_CHIP_DIV-1, s_chip_ctr'length) then
+                if s_chip_ctr < unsigned(s_chip_div)-1 then
                     s_chip_ctr <= s_chip_ctr + 1;
                 else
                     s_chip_ctr <= (others => '0');
@@ -438,7 +491,8 @@ begin
             if s_tx_en = '0' then
                 s_sym_ctr <= (others => '0');
             elsif s_chip_end = '1' then
-                if s_sym_ctr < to_unsigned(c_SF-1, s_sym_ctr'length) then
+--                if s_sym_ctr < to_unsigned(c_SF-1, s_sym_ctr'length) then
+                if s_sym_ctr < unsigned(s_sf)-1 then
                     s_sym_ctr <= s_sym_ctr + 1;
                 else
                     s_sym_ctr <= (others => '0');
@@ -455,14 +509,17 @@ begin
     p_PN_GENERATOR : process (rst, clk)
     begin
         if rst = '1' then
-            s_lfsr <= c_SEED;
+--            s_lfsr <= c_SEED;
+            s_lfsr <= s_seed;
             s_pn_seq <= '0';
         elsif rising_edge(clk) then
             if s_tx_en = '0' then
-                s_lfsr <= c_SEED;
+--                s_lfsr <= c_SEED;
+                s_lfsr <= s_seed;
             elsif s_chip_end = '1' then
                 if s_lfsr(0) = '1' then
-                    s_lfsr <= '0' & s_lfsr(s_lfsr'high downto 1) xor c_MASK;
+--                    s_lfsr <= '0' & s_lfsr(s_lfsr'high downto 1) xor c_MASK;
+                    s_lfsr <= '0' & s_lfsr(s_lfsr'high downto 1) xor s_mask;
                 else
                     s_lfsr <= '0' & s_lfsr(s_lfsr'high downto 1);
                 end if;

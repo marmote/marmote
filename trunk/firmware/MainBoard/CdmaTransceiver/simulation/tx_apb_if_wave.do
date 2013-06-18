@@ -1,16 +1,24 @@
 add wave -group {CONSTANTS} \
--unsigned \
+-hex \
 sim:/tx_apb_if_tb/uut/c_PREAMBLE \
-sim:/tx_apb_if_tb/uut/c_PREAMBLE_LENGTH \
-sim:/tx_apb_if_tb/uut/c_PAYLOAD_LENGTH \
-sim:/tx_apb_if_tb/uut/c_CHIP_DIV \
-sim:/tx_apb_if_tb/uut/c_SF \
 sim:/tx_apb_if_tb/uut/c_TX_HIGH \
 sim:/tx_apb_if_tb/uut/c_TX_LOW \
 sim:/tx_apb_if_tb/uut/c_ADDR_CTRL \
 sim:/tx_apb_if_tb/uut/c_ADDR_FIFO \
-sim:/tx_apb_if_tb/uut/c_ADDR_PREAMBLE \
-sim:/tx_apb_if_tb/uut/c_ADDR_MOD_MUX
+sim:/tx_apb_if_tb/uut/c_ADDR_TEST \
+sim:/tx_apb_if_tb/uut/c_ADDR_MOD_MUX \
+sim:/tx_apb_if_tb/uut/c_ADDR_PRE_LEN \
+sim:/tx_apb_if_tb/uut/c_ADDR_PAY_LEN \
+sim:/tx_apb_if_tb/uut/c_ADDR_CHIP_DIV \
+sim:/tx_apb_if_tb/uut/c_ADDR_SF \
+sim:/tx_apb_if_tb/uut/c_ADDR_MASK \
+sim:/tx_apb_if_tb/uut/c_ADDR_SEED \
+-dec \
+sim:/tx_apb_if_tb/uut/s_preamble_len \
+sim:/tx_apb_if_tb/uut/s_payload_len \
+sim:/tx_apb_if_tb/uut/s_chip_div \
+sim:/tx_apb_if_tb/uut/s_sf
+
 
 add wave \
 -group {APB} \
@@ -63,8 +71,8 @@ sim:/tx_apb_if_tb/uut/rst \
 -hex \
 sim:/tx_apb_if_tb/uut/s_lfsr \
 sim:/tx_apb_if_tb/uut/s_lfsr(0) \
-sim:/tx_apb_if_tb/uut/c_MASK \
-sim:/tx_apb_if_tb/uut/c_SEED
+sim:/tx_apb_if_tb/uut/s_mask \
+sim:/tx_apb_if_tb/uut/s_seed
 
 run -all
 
