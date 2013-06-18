@@ -45,10 +45,19 @@ uint8_t rx_done_it_flag;
 
 typedef struct
 {
-  __IO uint32_t CTRL;                      /*!< Offset: 0x00  Control/status Register       */
-  __O  uint32_t TX_FIFO;                   /*!< Offset: 0x04  Data Register             	*/
-  __IO uint32_t PREAMBLE;                  /*!< Offset: 0x08  Preamble Register             	*/
-  __IO uint32_t MOD_MUX;                   /*!< Offset: 0x0C  Modulator input multiplexer Register */
+  __IO uint32_t CTRL;                      	/*!< Offset: 0x00  Control/status Register       		*/
+  __O  uint32_t TX_FIFO;                   	/*!< Offset: 0x04  Data Register             			*/
+  __IO uint32_t TEST;                      	/*!< Offset: 0x08  Preamble Register             		*/
+  __IO uint32_t MOD_MUX;                   	/*!< Offset: 0x0C  Modulator input multiplexer Register 	*/
+
+  __IO uint32_t PRE_LEN;                   	/*!< Offset: 0x10  Modulator input multiplexer Register 	*/
+  __IO uint32_t PAY_LEN;                   	/*!< Offset: 0x14  Modulator input multiplexer Register 	*/
+  __IO uint32_t DUMMY_[2];
+
+  __IO uint32_t CHIP_DIV;                   /*!< Offset: 0x20  Chip divider (decimation factor) 	*/
+  __IO uint32_t SF;                   		/*!< Offset: 0x24  Spread factor 		*/
+  __IO uint32_t SEED;                   	/*!< Offset: 0x28  PN generator seed 	*/
+  __IO uint32_t MASK;                   	/*!< Offset: 0x2C  PN generator mask 	*/
 } TX_CTRL_Type;
 
 #define TX_CTRL            ((TX_CTRL_Type *)       TX_APB_IF_0)   /*!< TX CTRL register struct */

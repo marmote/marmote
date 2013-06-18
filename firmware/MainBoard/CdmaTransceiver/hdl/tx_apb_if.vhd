@@ -172,7 +172,7 @@ architecture Behavioral of TX_APB_IF is
 	signal s_tx_en          : std_logic;
 	signal s_tx_en_next     : std_logic;
 
-    signal s_mod_in_mux     : std_logic_vector(1 downto 0);
+    signal s_mod_mux     : std_logic_vector(1 downto 0);
     signal s_busy           : std_logic;
 
     signal s_preamble_len   : std_logic_vector(31 downto 0);
@@ -189,6 +189,12 @@ architecture Behavioral of TX_APB_IF is
 
 	signal s_dout           : std_logic_vector(31 downto 0);
 
+    --
+    signal s_rnd            : std_logic_vector(10 downto 0);
+    signal s_lfsr2           : std_logic_vector(31 downto 0);
+	signal s_chip_ctr2       : unsigned(15 downto 0);
+	signal s_chip_end2       : std_logic;
+    --
 
 begin
 
@@ -230,7 +236,7 @@ begin
             s_tx_fifo_in <= (others => '0');
             s_tx_fifo_wr <= '0';
             s_test <= (others => '0');
-            s_mod_in_mux <= (others => '0');
+            s_mod_mux <= (others => '0');
 
             s_chip_div      <= std_logic_vector(to_unsigned(g_CHIP_DIV, s_chip_div'length));
             s_sf            <= std_logic_vector(to_unsigned(g_SF, s_sf'length));
@@ -255,7 +261,7 @@ begin
 					when c_ADDR_TEST =>
                         s_test <= PWDATA(7 downto 0);
 					when c_ADDR_MOD_MUX =>
-                        s_mod_in_mux <= PWDATA(1 downto 0);
+                        s_mod_mux <= PWDATA(1 downto 0);
 
 					when c_ADDR_PRE_LEN =>
                         s_preamble_len <= PWDATA;
@@ -291,7 +297,7 @@ begin
 					when c_ADDR_TEST => 
 						s_dout(7 downto 0) <= s_test;
 					when c_ADDR_MOD_MUX =>
-						s_dout(1 downto 0) <= s_mod_in_mux;
+						s_dout(1 downto 0) <= s_mod_mux;
 					when c_ADDR_PRE_LEN =>
 						s_dout <= s_preamble_len;
 					when c_ADDR_PAY_LEN =>
@@ -462,8 +468,8 @@ begin
 	-----------------------------------------------------------------------------
 	-- Chip timer
     --
-    -- - chip time = FPGA clock period * c_CHIP_DIV
-    -- - symbol time = chip time * c_SF
+    -- - chip time = FPGA clock period * s_CHIP_DIV
+    -- - symbol time = chip time * s_SF
 	-----------------------------------------------------------------------------
 	p_CHIP_TIMER : process (rst, clk)
 	begin
@@ -477,7 +483,6 @@ begin
             s_chip_ctr <= (others => '0');
 			s_chip_end <= '0';
             if s_tx_en = '1' then
---                if s_chip_ctr < to_unsigned(c_CHIP_DIV-1, s_chip_ctr'length) then
                 if s_chip_ctr < unsigned(s_chip_div)-1 then
                     s_chip_ctr <= s_chip_ctr + 1;
                 else
@@ -491,7 +496,6 @@ begin
             if s_tx_en = '0' then
                 s_sym_ctr <= (others => '0');
             elsif s_chip_end = '1' then
---                if s_sym_ctr < to_unsigned(c_SF-1, s_sym_ctr'length) then
                 if s_sym_ctr < unsigned(s_sf)-1 then
                     s_sym_ctr <= s_sym_ctr + 1;
                 else
@@ -509,16 +513,13 @@ begin
     p_PN_GENERATOR : process (rst, clk)
     begin
         if rst = '1' then
---            s_lfsr <= c_SEED;
             s_lfsr <= s_seed;
             s_pn_seq <= '0';
         elsif rising_edge(clk) then
             if s_tx_en = '0' then
---                s_lfsr <= c_SEED;
                 s_lfsr <= s_seed;
             elsif s_chip_end = '1' then
                 if s_lfsr(0) = '1' then
---                    s_lfsr <= '0' & s_lfsr(s_lfsr'high downto 1) xor c_MASK;
                     s_lfsr <= '0' & s_lfsr(s_lfsr'high downto 1) xor s_mask;
                 else
                     s_lfsr <= '0' & s_lfsr(s_lfsr'high downto 1);
@@ -535,8 +536,50 @@ begin
 	PSLVERR <= '0';
 
     TX_EN <= s_tx_en;
-    TX_I <= s_tx_i;
+--    TX_I <= s_tx_i;
     TX_Q <= s_tx_q;
+
+    -------------------------------------------------------------------------
+    -------------------------------------------------------------------------
+    -- Modulator input multiplexer
+    with s_mod_mux select
+        TX_I <= s_tx_i      when "00",
+                c_TX_LOW    when "01",
+                c_TX_HIGH   when "10",
+                s_rnd       when others;
+
+    p_RND_GEN : process (rst, clk)
+    begin
+        if rst = '1' then
+			s_lfsr2 <= s_seed;
+			s_chip_ctr2 <= (others => '0');
+			s_chip_end2 <= '0';
+        elsif rising_edge(clk) then
+            -- Chip
+            s_chip_ctr2 <= (others => '0');
+			s_chip_end2 <= '0';
+            if s_mod_mux(1 downto 0) = "11" then
+                if s_chip_ctr2 < unsigned(s_chip_div)-1 then
+                    s_chip_ctr2 <= s_chip_ctr2 + 1;
+                else
+                    s_chip_ctr2 <= (others => '0');
+                    s_chip_end2 <= '1';
+                end if;
+            end if;
+
+            if s_chip_end2 = '1' then
+                if s_lfsr2(0) = '1' then
+                    s_lfsr2 <= '0' & s_lfsr2(s_lfsr2'high downto 1) xor s_mask;
+                else
+                    s_lfsr2 <= '0' & s_lfsr2(s_lfsr2'high downto 1);
+                end if;
+            end if;
+        end if;
+    end process p_RND_GEN;
+
+    s_rnd <= c_TX_HIGH when s_lfsr2(0) = '1' else c_TX_LOW;
+    -------------------------------------------------------------------------
+    -------------------------------------------------------------------------
 
     TX_DONE_IRQ <= s_tx_done;
 

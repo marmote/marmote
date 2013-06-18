@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.95"
+    ComputedModelVersion    "1.100"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -30,9 +30,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "sszilvasi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Mar 12 09:33:35 2013"
-  RTWModifiedTimeStamp	  284980331
-  ModelVersionFormat	  "1.%<AutoIncrement:95>"
+  LastModifiedDate	  "Tue Mar 12 15:42:27 2013"
+  RTWModifiedTimeStamp	  285003724
+  ModelVersionFormat	  "1.%<AutoIncrement:100>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  on
@@ -70,7 +70,6 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "qpsk_modulator"
-    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -708,13 +707,13 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "103"
+    SIDHighWatermark	    "106"
     Block {
       BlockType		      Reference
       Name		      "AFE zero"
       SID		      "85"
       Ports		      [0, 1]
-      Position		      [890, 25, 930, 65]
+      Position		      [700, 25, 740, 65]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Sources/Constant"
       SourceType	      "Synphony Model Compiler Constant"
@@ -737,23 +736,7 @@ Model {
       SourceBlock	      "shlslibv1/Signal Operations/Downsample"
       SourceType	      "Synphony Model Compiler Downsample"
       syn_r_val		      "qpsk_syn_params.CL/qpsk_syn_params.bps"
-      syn_sample_offset	      "0"
-      syn_sync_mode	      "No Sync"
-      synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "7"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Downsample1"
-      SID		      "91"
-      Ports		      [1, 1]
-      Position		      [365, 140, 405, 180]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Signal Operations/Downsample"
-      SourceType	      "Synphony Model Compiler Downsample"
-      syn_r_val		      "2"
-      syn_sample_offset	      "1"
+      syn_sample_offset	      "2"
       syn_sync_mode	      "No Sync"
       synBlockType	      "primitive"
       synLatency	      "1"
@@ -761,42 +744,58 @@ Model {
     }
     Block {
       BlockType		      Reference
-      Name		      "Downsample2"
-      SID		      "92"
+      Name		      "Gain"
+      SID		      "105"
       Ports		      [1, 1]
-      Position		      [365, 225, 405, 265]
+      Position		      [715, 125, 755, 165]
       LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Signal Operations/Downsample"
-      SourceType	      "Synphony Model Compiler Downsample"
-      syn_r_val		      "2"
-      syn_sample_offset	      "0"
-      syn_sync_mode	      "No Sync"
+      SourceBlock	      "shlslibv1/Math Functions/Gain"
+      SourceType	      "Synphony Model Compiler Gain"
+      syn_gain_val	      ".5"
+      syn_gain_fl	      "8"
+      syn_gain_dt	      "signed"
+      syn_gain_rnd	      on
+      syn_out_f		      "Full Precision"
+      syn_out_wl	      "16"
+      syn_out_fl	      "8"
+      syn_out_dt	      "signed"
+      syn_out_sat	      off
+      syn_out_rnd	      "Floor (Truncate)"
       synBlockType	      "primitive"
       synLatency	      "0"
-      synBlockId	      "7"
+      synBlockId	      "3"
+      syn_opr_mode	      "0"
     }
     Block {
       BlockType		      Reference
-      Name		      "Downsample3"
-      SID		      "97"
+      Name		      "Gain1"
+      SID		      "106"
       Ports		      [1, 1]
-      Position		      [305, 45, 345, 85]
+      Position		      [715, 245, 755, 285]
       LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Signal Operations/Downsample"
-      SourceType	      "Synphony Model Compiler Downsample"
-      syn_r_val		      "qpsk_syn_params.CL"
-      syn_sample_offset	      "0"
-      syn_sync_mode	      "No Sync"
+      SourceBlock	      "shlslibv1/Math Functions/Gain"
+      SourceType	      "Synphony Model Compiler Gain"
+      syn_gain_val	      ".5"
+      syn_gain_fl	      "8"
+      syn_gain_dt	      "signed"
+      syn_gain_rnd	      on
+      syn_out_f		      "Full Precision"
+      syn_out_wl	      "16"
+      syn_out_fl	      "8"
+      syn_out_dt	      "signed"
+      syn_out_sat	      off
+      syn_out_rnd	      "Floor (Truncate)"
       synBlockType	      "primitive"
       synLatency	      "0"
-      synBlockId	      "7"
+      synBlockId	      "3"
+      syn_opr_mode	      "0"
     }
     Block {
       BlockType		      Reference
       Name		      "I LUT\nBinary consteallation "
       SID		      "59"
       Ports		      [1, 1]
-      Position		      [690, 125, 750, 165]
+      Position		      [500, 125, 560, 165]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Memories/ROM"
       SourceType	      "Synphony Model Compiler ROM"
@@ -818,27 +817,10 @@ Model {
     }
     Block {
       BlockType		      Reference
-      Name		      "Inverter"
-      SID		      "96"
-      Ports		      [1, 1]
-      Position		      [390, 45, 430, 85]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Math Functions/Inverter"
-      SourceType	      "Synphony Model Compiler Inverter"
-      syn_out_f		      "Automatic"
-      syn_out_wl	      "16"
-      syn_out_fl	      "8"
-      syn_out_dt	      "signed"
-      synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "10"
-    }
-    Block {
-      BlockType		      Reference
       Name		      "Mux"
       SID		      "86"
       Ports		      [3, 1]
-      Position		      [1020, 95, 1060, 155]
+      Position		      [830, 95, 870, 155]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Signal Operations/Mux"
       SourceType	      "Synphony Model Compiler Mux"
@@ -856,7 +838,7 @@ Model {
       Name		      "Mux1"
       SID		      "87"
       Ports		      [3, 1]
-      Position		      [1020, 215, 1060, 275]
+      Position		      [830, 215, 870, 275]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Signal Operations/Mux"
       SourceType	      "Synphony Model Compiler Mux"
@@ -874,7 +856,7 @@ Model {
       Name		      "Q LUT\nBinary consteallation"
       SID		      "62"
       Ports		      [1, 1]
-      Position		      [690, 245, 750, 285]
+      Position		      [500, 245, 560, 285]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Memories/ROM"
       SourceType	      "Synphony Model Compiler ROM"
@@ -893,66 +875,6 @@ Model {
 	RTWStorageClass		"Auto"
 	DataLoggingNameMode	"SignalName"
       }
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "RCOS Filter\nFIR I"
-      SID		      "63"
-      Ports		      [1, 1]
-      Position		      [890, 115, 950, 175]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Filtering/FIR"
-      SourceType	      "Synphony Model Compiler FIR"
-      syn_coef_vec	      "1"
-      syn_coef_fl	      "15"
-      syn_coef_rnd	      "Nearest"
-      syn_show_q	      off
-      syn_dp_f		      "Automatic"
-      syn_dp_wl		      "16"
-      syn_dp_fl		      "8"
-      syn_dp_sat	      off
-      syn_dp_rnd	      "Floor (Truncate)"
-      syn_out_f		      "Specify"
-      syn_out_wl	      "11"
-      syn_out_fl	      "9"
-      syn_out_dt	      "signed"
-      syn_out_sat	      off
-      syn_out_rnd	      "Floor (Truncate)"
-      syn_rst_port	      off
-      syn_en_port	      off
-      synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "80"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "RCOS Filter\nFIR Q"
-      SID		      "64"
-      Ports		      [1, 1]
-      Position		      [890, 235, 950, 295]
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Filtering/FIR"
-      SourceType	      "Synphony Model Compiler FIR"
-      syn_coef_vec	      "1"
-      syn_coef_fl	      "15"
-      syn_coef_rnd	      "Nearest"
-      syn_show_q	      off
-      syn_dp_f		      "Automatic"
-      syn_dp_wl		      "16"
-      syn_dp_fl		      "8"
-      syn_dp_sat	      off
-      syn_dp_rnd	      "Floor (Truncate)"
-      syn_out_f		      "Specify"
-      syn_out_wl	      "11"
-      syn_out_fl	      "9"
-      syn_out_dt	      "signed"
-      syn_out_sat	      off
-      syn_out_rnd	      "Floor (Truncate)"
-      syn_rst_port	      off
-      syn_en_port	      off
-      synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "80"
     }
     Block {
       BlockType		      Reference
@@ -977,37 +899,21 @@ Model {
       Name		      "Real-Imag to\nComplex"
       SID		      "73"
       Ports		      [2, 1]
-      Position		      [1175, 168, 1205, 197]
+      Position		      [985, 168, 1015, 197]
     }
     Block {
       BlockType		      RealImagToComplex
       Name		      "Real-Imag to\nComplex1"
       SID		      "79"
       Ports		      [2, 1]
-      Position		      [910, 443, 940, 472]
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Register"
-      SID		      "95"
-      Ports		      [2, 1]
-      Position		      [470, 235, 510, 275]
-      LibraryVersion	      "1.3722"
-      FontSize		      9.500000
-      SourceBlock	      "shlslibv1/Memories/Register"
-      SourceType	      "Synphony Model Compiler Register"
-      syn_delay_val	      "1"
-      syn_rst_port	      on
-      syn_en_port	      off
-      synBlockType	      "custom"
-      synLatency	      "1"
+      Position		      [720, 443, 750, 472]
     }
     Block {
       BlockType		      Reference
       Name		      "SHLSTool"
       SID		      "83"
       Ports		      []
-      Position		      [105, 305, 145, 345]
+      Position		      [130, 315, 170, 355]
       ForegroundColor	      "[0.501961, 0.000000, 0.000000]"
       BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
       LibraryVersion	      "1.3722"
@@ -1021,11 +927,11 @@ Model {
       Name		      "Scope"
       SID		      "81"
       Ports		      [5]
-      Position		      [1160, 359, 1190, 421]
+      Position		      [970, 359, 1000, 421]
       ZOrder		      -3
       Floating		      off
-      Location		      [315, 43, 1915, 1194]
-      Open		      off
+      Location		      [1921, 48, 3521, 1199]
+      Open		      on
       NumInputPorts	      "5"
       List {
 	ListType		AxesTitles
@@ -1056,7 +962,7 @@ Model {
       Name		      "Scope1"
       SID		      "89"
       Ports		      [2]
-      Position		      [1250, 76, 1280, 109]
+      Position		      [1060, 76, 1090, 109]
       ZOrder		      -3
       Floating		      off
       Location		      [315, 43, 1915, 1194]
@@ -1086,41 +992,22 @@ Model {
       SampleTime	      "0"
     }
     Block {
-      BlockType		      Scope
-      Name		      "Scope2"
-      SID		      "98"
-      Ports		      [6]
-      Position		      [675, 446, 730, 529]
-      ZOrder		      -3
-      Floating		      off
-      Location		      [1921, 48, 3521, 1199]
-      Open		      on
-      NumInputPorts	      "6"
-      List {
-	ListType		AxesTitles
-	axes1			"%<SignalLabel>"
-	axes2			"%<SignalLabel>"
-	axes3			"%<SignalLabel>"
-	axes4			"%<SignalLabel>"
-	axes5			"%<SignalLabel>"
-	axes6			"%<SignalLabel>"
-      }
-      List {
-	ListType		ScopeGraphics
-	FigureColor		"[0.5 0.5 0.5]"
-	AxesColor		"[0 0 0]"
-	AxesTickColor		"[1 1 1]"
-	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-	LineStyles		"-|-|-|-|-|-"
-	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
-	MarkerStyles		"none|none|none|none|none|none"
-      }
-      ShowLegends	      off
-      YMin		      "-5~-5~-5~-5~-5~-5"
-      YMax		      "5~5~5~5~5~5"
-      SaveName		      "ScopeData2"
-      DataFormat	      "StructureWithTime"
-      SampleTime	      "0"
+      BlockType		      Reference
+      Name		      "Serial to Parallel"
+      SID		      "104"
+      Ports		      [1, 1]
+      Position		      [355, 185, 415, 225]
+      LibraryVersion	      "1.3722"
+      SourceBlock	      "shlslibv1/Signal Operations/Serial to Parallel"
+      SourceType	      "Synphony Model Compiler Serial to Parallel"
+      syn_pack_nb	      "2"
+      syn_pack_ord	      "LSB to MSB"
+      syn_out_f		      "Automatic"
+      syn_out_wl	      "17"
+      syn_out_fl	      "9"
+      syn_out_dt	      "signed"
+      synBlockType	      "custom"
+      synLatency	      "1"
     }
     Block {
       BlockType		      Step
@@ -1133,35 +1020,10 @@ Model {
     }
     Block {
       BlockType		      Reference
-      Name		      "Stored Int"
-      SID		      "94"
-      Ports		      [2, 1]
-      Position		      [560, 170, 600, 245]
-      ZOrder		      8
-      LibraryVersion	      "1.3722"
-      SourceBlock	      "shlslibv1/Signal Operations/Concat"
-      SourceType	      "Synphony Model Compiler Concat"
-      syn_in_nb		      "2"
-      syn_out_f		      "Automatic"
-      syn_out_wl	      "16"
-      syn_out_fl	      "8"
-      syn_out_dt	      "signed"
-      synBlockType	      "primitive"
-      synLatency	      "0"
-      synBlockId	      "8"
-      Port {
-	PortNumber		1
-	Name			"symbol"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
-      }
-    }
-    Block {
-      BlockType		      Reference
       Name		      "TX filtered"
       SID		      "77"
       Ports		      [1]
-      Position		      [1350, 160, 1385, 210]
+      Position		      [1160, 160, 1195, 210]
       ZOrder		      -4
       LibraryVersion	      "1.484"
       SourceBlock	      "dspsnks4/Spectrum\nScope"
@@ -1212,7 +1074,7 @@ Model {
       Name		      "TX unfiltered"
       SID		      "78"
       Ports		      [1]
-      Position		      [1215, 435, 1250, 485]
+      Position		      [1025, 435, 1060, 485]
       ZOrder		      -4
       LibraryVersion	      "1.484"
       SourceBlock	      "dspsnks4/Spectrum\nScope"
@@ -1273,11 +1135,11 @@ Model {
       syn_out_dt	      "unsigned"
       syn_out_st	      "qpsk_syn_params.Ts"
       syn_capture	      off
-      syn_register	      off
+      syn_register	      on
       syn_out_sat	      off
       syn_out_rnd	      on
       synBlockType	      "port"
-      synLatency	      "0"
+      synLatency	      "1"
       synBlockId	      "0"
     }
     Block {
@@ -1295,11 +1157,11 @@ Model {
       syn_out_dt	      "unsigned"
       syn_out_st	      "qpsk_syn_params.Ts"
       syn_capture	      on
-      syn_register	      off
+      syn_register	      on
       syn_out_sat	      off
       syn_out_rnd	      on
       synBlockType	      "port"
-      synLatency	      "0"
+      synLatency	      "1"
       synBlockId	      "0"
     }
     Block {
@@ -1307,7 +1169,7 @@ Model {
       Name		      "TX_I"
       SID		      "68"
       Ports		      [1, 1]
-      Position		      [1105, 115, 1125, 135]
+      Position		      [915, 115, 935, 135]
       BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Ports & Subsystems/Port Out"
@@ -1323,7 +1185,7 @@ Model {
       Name		      "TX_Q"
       SID		      "69"
       Ports		      [1, 1]
-      Position		      [1105, 235, 1125, 255]
+      Position		      [915, 235, 935, 255]
       BackgroundColor	      "[0.870590, 0.752940, 0.752940]"
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Ports & Subsystems/Port Out"
@@ -1340,7 +1202,7 @@ Model {
       SID		      "74"
       Tag		      "ScatterPlot"
       Ports		      [1]
-      Position		      [1330, 264, 1405, 316]
+      Position		      [1140, 264, 1215, 316]
       LibraryVersion	      "1.316"
       SourceBlock	      "commsink2/Discrete-Time\nScatter Plot\nScope"
       SourceType	      "Discrete-Time Scatter Plot Scope"
@@ -1372,7 +1234,7 @@ Model {
       SID		      "75"
       Tag		      "EyeDiagram"
       Ports		      [1]
-      Position		      [1330, 349, 1405, 401]
+      Position		      [1140, 349, 1215, 401]
       LibraryVersion	      "1.316"
       SourceBlock	      "commsink2/Discrete-Time\nEye Diagram\nScope"
       SourceType	      "Discrete-Time Eye Diagram Scope"
@@ -1405,7 +1267,7 @@ Model {
       SID		      "80"
       Tag		      "ScatterPlot"
       Ports		      [1]
-      Position		      [1195, 504, 1270, 556]
+      Position		      [1005, 504, 1080, 556]
       LibraryVersion	      "1.316"
       SourceBlock	      "commsink2/Discrete-Time\nScatter Plot\nScope"
       SourceType	      "Discrete-Time Scatter Plot Scope"
@@ -1436,7 +1298,7 @@ Model {
       Name		      "Upsample I"
       SID		      "70"
       Ports		      [1, 1]
-      Position		      [795, 125, 835, 165]
+      Position		      [605, 125, 645, 165]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Signal Operations/Upsample"
       SourceType	      "Synphony Model Compiler Upsample"
@@ -1459,7 +1321,7 @@ Model {
       Name		      "Upsample Q"
       SID		      "71"
       Ports		      [1, 1]
-      Position		      [795, 245, 835, 285]
+      Position		      [605, 245, 645, 285]
       LibraryVersion	      "1.3722"
       SourceBlock	      "shlslibv1/Signal Operations/Upsample"
       SourceType	      "Synphony Model Compiler Upsample"
@@ -1493,53 +1355,11 @@ Model {
     }
     Line {
       Name		      "i_slow"
+      Labels		      [1, 0]
       SrcBlock		      "I LUT\nBinary consteallation "
       SrcPort		      1
-      Points		      [10, 0]
-      Branch {
-	Points			[0, 265]
-	DstBlock		"Scope"
-	DstPort			5
-      }
-      Branch {
-	Labels			[1, 0]
-	DstBlock		"Upsample I"
-	DstPort			1
-      }
-    }
-    Line {
-      Name		      "symbol"
-      Labels		      [0, 0]
-      SrcBlock		      "Stored Int"
-      SrcPort		      1
-      Points		      [15, 0]
-      Branch {
-	Points			[15, 0; 20, 0]
-	Branch {
-	  Labels		  [2, 0]
-	  Points		  [0, -65]
-	  DstBlock		  "I LUT\nBinary consteallation "
-	  DstPort		  1
-	}
-	Branch {
-	  Labels		  [1, 0]
-	  Points		  [0, 55]
-	  Branch {
-	    DstBlock		    "Q LUT\nBinary consteallation"
-	    DstPort		    1
-	  }
-	  Branch {
-	    Points		    [0, 135]
-	    DstBlock		    "Scope"
-	    DstPort		    4
-	  }
-	}
-      }
-      Branch {
-	Points			[0, 315]
-	DstBlock		"Scope2"
-	DstPort			6
-      }
+      DstBlock		      "Upsample I"
+      DstPort		      1
     }
     Line {
       SrcBlock		      "Random Integer\nGenerator"
@@ -1627,9 +1447,9 @@ Model {
     Line {
       SrcBlock		      "TX_EN"
       SrcPort		      1
-      Points		      [45, 0]
+      Points		      [95, 0]
       Branch {
-	Points			[740, 0; 0, 5]
+	Points			[500, 0; 0, 5]
 	Branch {
 	  DstBlock		  "Mux"
 	  DstPort		  1
@@ -1641,8 +1461,8 @@ Model {
 	}
       }
       Branch {
-	Points			[0, -35]
-	DstBlock		"Downsample3"
+	Points			[0, 270]
+	DstBlock		"Scope"
 	DstPort			1
       }
     }
@@ -1670,88 +1490,16 @@ Model {
       Labels		      [0, 0]
       SrcBlock		      "Downsample"
       SrcPort		      1
-      Points		      [40, 0]
+      Points		      [25, 0]
       Branch {
-	Points			[0, -45]
-	DstBlock		"Downsample1"
+	DstBlock		"Serial to Parallel"
 	DstPort			1
       }
       Branch {
-	Points			[0, 40]
-	Branch {
-	  DstBlock		  "Downsample2"
-	  DstPort		  1
-	}
-	Branch {
-	  Points		  [0, 205]
-	  DstBlock		  "Scope2"
-	  DstPort		  1
-	}
-      }
-    }
-    Line {
-      SrcBlock		      "Downsample1"
-      SrcPort		      1
-      Points		      [30, 0]
-      Branch {
-	Points			[95, 0; 0, 30]
-	DstBlock		"Stored Int"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 320]
-	DstBlock		"Scope2"
-	DstPort			3
-      }
-    }
-    Line {
-      SrcBlock		      "Downsample2"
-      SrcPort		      1
-      Points		      [20, 0]
-      Branch {
-	DstBlock		"Register"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 250]
-	DstBlock		"Scope2"
-	DstPort			4
-      }
-    }
-    Line {
-      SrcBlock		      "Register"
-      SrcPort		      1
-      Points		      [20, 0]
-      Branch {
-	Points			[0, -30]
-	DstBlock		"Stored Int"
+	Points			[0, 175]
+	DstBlock		"Scope"
 	DstPort			2
       }
-      Branch {
-	Points			[0, 255]
-	DstBlock		"Scope2"
-	DstPort			5
-      }
-    }
-    Line {
-      SrcBlock		      "Inverter"
-      SrcPort		      1
-      Points		      [15, 0; 0, 200]
-      Branch {
-	DstBlock		"Register"
-	DstPort			2
-      }
-      Branch {
-	Points			[0, 200]
-	DstBlock		"Scope2"
-	DstPort			2
-      }
-    }
-    Line {
-      SrcBlock		      "Downsample3"
-      SrcPort		      1
-      DstBlock		      "Inverter"
-      DstPort		      1
     }
     Line {
       Name		      "q"
@@ -1759,19 +1507,21 @@ Model {
       SrcPort		      1
       Points		      [20, 0]
       Branch {
+	Points			[0, 145]
+	Branch {
+	  Points		  [0, 55]
+	  DstBlock		  "Real-Imag to\nComplex1"
+	  DstPort		  2
+	}
+	Branch {
+	  DstBlock		  "Scope"
+	  DstPort		  5
+	}
+      }
+      Branch {
 	Labels			[1, 0]
-	DstBlock		"RCOS Filter\nFIR Q"
+	DstBlock		"Gain1"
 	DstPort			1
-      }
-      Branch {
-	Points			[0, 200]
-	DstBlock		"Real-Imag to\nComplex1"
-	DstPort			2
-      }
-      Branch {
-	Points			[0, 115]
-	DstBlock		"Scope"
-	DstPort			2
       }
     }
     Line {
@@ -1780,32 +1530,56 @@ Model {
       SrcPort		      1
       Points		      [10, 0]
       Branch {
+	Points			[0, 255]
+	Branch {
+	  Points		  [0, 50]
+	  DstBlock		  "Real-Imag to\nComplex1"
+	  DstPort		  1
+	}
+	Branch {
+	  DstBlock		  "Scope"
+	  DstPort		  4
+	}
+      }
+      Branch {
 	Labels			[1, 0]
-	DstBlock		"RCOS Filter\nFIR I"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 305]
-	DstBlock		"Real-Imag to\nComplex1"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 225]
-	DstBlock		"Scope"
+	DstBlock		"Gain"
 	DstPort			1
       }
     }
     Line {
-      SrcBlock		      "RCOS Filter\nFIR I"
+      SrcBlock		      "Gain"
       SrcPort		      1
       DstBlock		      "Mux"
       DstPort		      3
     }
     Line {
-      SrcBlock		      "RCOS Filter\nFIR Q"
+      SrcBlock		      "Gain1"
       SrcPort		      1
       DstBlock		      "Mux1"
       DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Serial to Parallel"
+      SrcPort		      1
+      Points		      [45, 0]
+      Branch {
+	Points			[0, -60]
+	DstBlock		"I LUT\nBinary consteallation "
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 60]
+	Branch {
+	  DstBlock		  "Q LUT\nBinary consteallation"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [0, 125]
+	  DstBlock		  "Scope"
+	  DstPort		  3
+	}
+      }
     }
   }
 }
