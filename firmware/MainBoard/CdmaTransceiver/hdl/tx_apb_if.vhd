@@ -39,7 +39,7 @@ entity TX_APB_IF is
     generic (
          -- Default values
          g_PREAMBLE_LEN : integer := 2;
-         g_PAYLOAD_LEN  : integer := 2;
+         g_PAYLOAD_LEN  : integer := 7;
 
          g_CHIP_DIV     : integer := 10;
          g_SF           : integer := 4; -- Spread factor

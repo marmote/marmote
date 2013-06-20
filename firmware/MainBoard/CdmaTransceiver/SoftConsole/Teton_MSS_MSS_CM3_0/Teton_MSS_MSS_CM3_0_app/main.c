@@ -43,9 +43,12 @@ int main()
 //	BB_CTRL->MUX2 = MUX_PATH_RX;
 
 	set_mode(RADIO_TX_MODE);
-//
+	Max2830_set_tx_gain(10);
+
 	MSS_TIM1_init(MSS_TIMER_PERIODIC_MODE);
-	MSS_TIM1_load_background(20e6); // 1 s
+//	MSS_TIM1_load_background(20e6); // 1 s
+//	MSS_TIM1_load_background(10e6); // 0.5 s
+	MSS_TIM1_load_background(2e6); // 0.1 s
 	MSS_TIM1_enable_irq();
 	MSS_TIM1_start();
 
@@ -158,8 +161,9 @@ void Timer1_IRQHandler(void)
 	pkt.length = 6;
 	for (i = 0; i < 4; i++)
 	{
-		pkt.payload[i] = ctr++;
+		pkt.payload[i] = ctr;
 	}
+	ctr++;
 	set_packet_crc(&pkt);
 
 	send_packet(&pkt);
