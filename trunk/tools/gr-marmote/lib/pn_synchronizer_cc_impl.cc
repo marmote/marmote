@@ -23,36 +23,32 @@
 #endif
 
 #include <gr_io_signature.h>
-#include "pn_synchronizer_impl.h"
-
-#include <iomanip>
+#include "pn_synchronizer_cc_impl.h"
 
 namespace gr {
   namespace marmote {
 
-    pn_synchronizer::sptr
-    pn_synchronizer::make(bool debug, int mask, int seed, int preamble_len, int spread_factor, int oversample_factor,
-                          float threshold_factor_rise, int look_ahead, float alpha)
+    pn_synchronizer_cc::sptr
+    pn_synchronizer_cc::make(bool debug, int mask, int seed, int preamble_len, int spread_factor, int oversample_factor, float threshold_factor_rise, int look_ahead, float alpha)
     {
-      return gnuradio::get_initial_sptr (new pn_synchronizer_impl(debug, mask, seed, preamble_len, spread_factor, oversample_factor,
-                                         threshold_factor_rise, look_ahead, alpha));
+      return gnuradio::get_initial_sptr (new pn_synchronizer_cc_impl(debug, mask, seed, preamble_len, spread_factor, oversample_factor, threshold_factor_rise, look_ahead, alpha));
     }
 
-    pn_synchronizer_impl::pn_synchronizer_impl(bool debug, int mask, int seed, int preamble_len, int spread_factor, int oversample_factor,
+    pn_synchronizer_cc_impl::pn_synchronizer_cc_impl(bool debug, int mask, int seed, int preamble_len, int spread_factor, int oversample_factor,
                                                float threshold_factor_rise, int look_ahead, float alpha)
       : gr_sync_block("pn_synchronizer",
-		      gr_make_io_signature(1, 1, sizeof (gr_complex)),
-		      gr_make_io_signature3(2, 3, sizeof (gr_complex), sizeof (float), sizeof (float))),
+          gr_make_io_signature(1, 1, sizeof (gr_complex)),
+          gr_make_io_signature3(2, 3, sizeof (gr_complex), sizeof (float), sizeof (float))),
               d_debug(debug),
               d_oversample_factor(oversample_factor),
               d_filter_len(preamble_len * spread_factor),
               d_preamble_len(preamble_len),
               d_spread_factor(spread_factor),
-              // peak detector
-              d_threshold(threshold_factor_rise),
+              d_threshold_factor_rise(threshold_factor_rise),
               d_look_ahead(look_ahead),
               d_alpha(alpha),
               d_avg(0.001f),
+              d_avg_min(0.001f),
               d_found(false)
     {
          // Initialize filter
@@ -74,11 +70,11 @@ namespace gr {
 
         std::cout << "Filter length: " << d_filter_len << std::endl;
         std::cout << "Oversample factor: " << d_oversample_factor << std::endl;
-        std::cout << "Threshold: " << d_threshold << std::endl;
+        std::cout << "Threshold factor: " << d_threshold_factor_rise << std::endl;
     }
 
 
-    pn_synchronizer_impl::~pn_synchronizer_impl()
+    pn_synchronizer_cc_impl::~pn_synchronizer_cc_impl()
     {
       delete d_lfsr;
       delete[] d_filter_coeffs;
@@ -86,7 +82,7 @@ namespace gr {
 
 
     int
-    pn_synchronizer_impl::work(int noutput_items,
+    pn_synchronizer_cc_impl::work(int noutput_items,
 			  gr_vector_const_void_star &input_items,
 			  gr_vector_void_star &output_items)
     {
@@ -94,10 +90,6 @@ namespace gr {
         gr_complex *out = (gr_complex *) output_items[0];
         float *filt_out = (float *) output_items[1];
         float *avg_out = (float *)output_items[2];
-
-        // if (d_debug)
-        //     std::cout << "Synchronizing... [" << noutput_items << " chips]" << std::endl;
-
         float si, sq;
 
         for (int i = 0; i < noutput_items; i++)
@@ -116,19 +108,24 @@ namespace gr {
 
             if (!d_found)
             {
-              // if (filt_out[i] > d_avg * (1.0f + d_threshold))
-              if (filt_out[i] > d_threshold)
+              if (filt_out[i] > d_avg * (1.0f + d_threshold_factor_rise))
               {
                 d_found = true;
                 d_look_ahead_remaining = d_look_ahead;
                 // d_peak_val = -(float)INFINITY;
                 d_peak_val = filt_out[i];
                 d_peak_idx = i;
-                std::cout << "Fixed threshold crossed at " << nitems_read(0) + i << " with value " << filt_out[i] << " (" << filt_out[i]/d_avg << ")"  << std::endl;
+
+                if (d_debug)
+                {
+                  std::cout << name() << "_" << unique_id() << ": threshold crossed at " << nitems_read(0) + i;
+                  std::cout << " with value " << filt_out[i] << " (" << filt_out[i]/d_avg << ")"  << std::endl;
+                }
               }
               else
               {
                 d_avg = d_alpha*filt_out[i] + (1.0f - d_alpha)*d_avg;
+                d_avg = d_avg > d_avg_min ? d_avg : d_avg_min;
               }
             }
             else
@@ -137,25 +134,16 @@ namespace gr {
               {
                 d_peak_val = filt_out[i];
                 d_peak_idx = i;
-                // std::cout << "Fixed look ahead at " << i  << " with value " << filt_out[i] << std::endl;
               }
               else if (d_look_ahead_remaining <= 0)
               {
-                std::cout << "Fixed done at " << nitems_read(0) + d_peak_idx << " with value " << d_peak_val << std::endl;
-                // if (d_debug)
-                // {
-                //     std::cout << "Threshold crossed at " << d_peak_idx - 1 << std::endl;
-                //     // std::cout << " (" << nitems_written(0) + d_peak_idx - 1 << ") " <<
-                //     // "avg: " << d_avg << " val: " << filt_out[d_peak_idx - 1] << std::endl;
-                // }
-                // Adds tag to the first payload bit (chip)
-                // add_item_tag(0, nitems_written(0) + d_peak_idx-1 + ((d_preamble_len+1)*d_spread_factor)*d_oversample_factor-1, d_key, d_value, d_srcid);
-                // out[d_peak_idx + d_filter_len * d_oversample_factor - 1].imag(2.0); // DEBUG: imag part is used for temporary debugging
+
+                if (d_debug)
+                  std::cout << name() << unique_id() << ": peak at " << nitems_read(0) + d_peak_idx << " with value " << d_peak_val << std::endl;
 
                 // Adds tag one bite before the first payload bit (chip) to aid differential encoding
-                // add_item_tag(0, nitems_written(0) + d_peak_idx-1 + ((d_preamble_len)*d_spread_factor)*d_oversample_factor-1, d_key, d_value, d_srcid);
                 add_item_tag(0, nitems_written(0) + d_peak_idx - 1 + ((d_preamble_len)*d_spread_factor)*d_oversample_factor-1, d_key, d_value, d_srcid);
-                // out[d_peak_idx + (d_preamble_len-1 * d_spread_factor) * d_oversample_factor - 1].imag(2.0); // FIXME
+                // out[d_peak_idx + (d_preamble_len-1 * d_spread_factor) * d_oversample_factor - 1].imag(2.0); // DEBUG
 
                 d_found = false;
               }
@@ -164,8 +152,8 @@ namespace gr {
             }
 
             avg_out[i] = d_avg;
-
             out[i] = in[i];
+            // out[i].real(filt_out[i] / avg_out[i]);
             // out[i].real(in[i].real()); // DEBUG: imag part is used for temporary debugging
         }
 

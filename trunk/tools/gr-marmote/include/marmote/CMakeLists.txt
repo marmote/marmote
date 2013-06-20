@@ -34,5 +34,6 @@ install(FILES
     pn_despreader.h
     cdma_packet_framer.h
     pn_spreader_b.h
-    pn_despreader_cc.h DESTINATION include/marmote
+    pn_despreader_cc.h
+    pn_synchronizer_cc.h DESTINATION include/marmote
 )

@@ -86,38 +86,28 @@ namespace gr {
 
           if (pmt::pmt_is_symbol(msg))
           {
-              // length
-              d_msg[7] = 0x06;
+            const uint8_t* msg_data = (uint8_t*)pmt::pmt_symbol_to_string(msg).data();
+            for (int i = 0; i < pmt::pmt_symbol_to_string(msg).length(); i++)
+            {
+              d_msg[7+i] = msg_data[i] & 0xFF;
+            }
 
-              // Sequence number
-			  d_seq_num++;
-			  d_msg[8] = d_seq_num >> 8;
-			  d_msg[9] = d_seq_num & 0xFF;
+            d_msg_len = 7 + pmt::pmt_symbol_to_string(msg).length();
 
-			  // Address
-			  d_dst_addr = (d_dst_addr + 1) % 2;
-			  d_msg[10] = (d_dst_addr >> 8) & 0xFF;
-			  d_msg[11] = (d_dst_addr >> 0) & 0xFF;
+            if (d_debug)
+            {
+              std::cout << "MAC: sending packet [7+" << (unsigned int)pmt::pmt_symbol_to_string(msg).length() << "]" << std::endl;
 
-			  // CRC
-			  uint16_t crc = crc16(d_msg + 8, 4);
-
-			  d_msg[12] = crc >> 8;
-			  d_msg[13] = crc & 0xFF;
-			  
-              d_msg_len = 14;
-
-              if (d_debug)
+              for (int i = 0; i < 7 + pmt::pmt_symbol_to_string(msg).length(); i++)
               {
-                std::cout << "MAC: sending packet [" << (unsigned int)d_msg[7] << "]" << std::endl;
-                for (int i = 0; i < d_msg[7]; i++)
-                {
-                  std::cout << std::setfill('0') << std::setw(2) << std::hex << (unsigned int)d_msg[8+i] << " ";
-                }
-                std::cout << std::endl;
+                if (i == 7)
+                  std::cout << " ";
+                std::cout << std::setfill('0') << std::setw(2) << std::hex << (d_msg[i] & 0xFF) << " ";
               }
+              std::cout << std::endl;
+            }
 
-              break;
+            break;
           }
           else
           {
@@ -134,13 +124,6 @@ namespace gr {
         if(d_msg_offset == d_msg_len) {
           d_msg_offset = 0;
         }
-
-        // if (d_debug)
-        // {
-        //   std::cout << "MAC: d_msg_offset/d_msg_len: " <<  d_msg_offset << "/" << d_msg_len <<
-        //     "   copied/requested: " << nout << "/" << noutput_items << std::endl;
-        //   // std::cout << "noutput_items: " << noutput_items << std::endl;
-        // }
 
         return nout;
     }
