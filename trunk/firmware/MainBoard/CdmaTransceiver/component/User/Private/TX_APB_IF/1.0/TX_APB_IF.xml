@@ -103,7 +103,7 @@
     </spirit:signals>
     <spirit:hwParameters>
       <spirit:hwParameter spirit:id="g_PREAMBLE_LEN" spirit:name="g_PREAMBLE_LEN" spirit:prompt="g_PREAMBLE_LEN:" spirit:dataType="int" spirit:resolve="user">2</spirit:hwParameter>
-      <spirit:hwParameter spirit:id="g_PAYLOAD_LEN" spirit:name="g_PAYLOAD_LEN" spirit:prompt="g_PAYLOAD_LEN:" spirit:dataType="int" spirit:resolve="user">2</spirit:hwParameter>
+      <spirit:hwParameter spirit:id="g_PAYLOAD_LEN" spirit:name="g_PAYLOAD_LEN" spirit:prompt="g_PAYLOAD_LEN:" spirit:dataType="int" spirit:resolve="user">7</spirit:hwParameter>
       <spirit:hwParameter spirit:id="g_CHIP_DIV" spirit:name="g_CHIP_DIV" spirit:prompt="g_CHIP_DIV:" spirit:dataType="int" spirit:resolve="user">10</spirit:hwParameter>
       <spirit:hwParameter spirit:id="g_SF" spirit:name="g_SF" spirit:prompt="g_SF:" spirit:dataType="int" spirit:resolve="user">4</spirit:hwParameter>
       <spirit:hwParameter spirit:id="g_SEED" spirit:name="g_SEED" spirit:prompt="g_SEED:" spirit:dataType="int" spirit:resolve="user">1025</spirit:hwParameter>
