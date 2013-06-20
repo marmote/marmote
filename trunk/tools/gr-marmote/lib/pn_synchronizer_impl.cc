@@ -69,7 +69,7 @@ namespace gr {
         // d_threshold_factor_rise = 100.0; // (threshold_factor_rise),
         // d_look_ahead = 1*oversample_factor; // (look_ahead),
         // d_alpha = 0.01; // (alpha),
-        d_avg = 0.1f,
+        d_avg = 0.001f,
         d_found = false;
 
         // Tag
@@ -102,8 +102,8 @@ namespace gr {
         float *filt_out = (float *) output_items[1];
         float *avg_out = (float *)output_items[2];
 
-        if (d_debug)
-            std::cout << "Synchronizing... [" << noutput_items << " chips]" << std::endl;
+        // if (d_debug)
+        //     std::cout << "Synchronizing... [" << noutput_items << " chips]" << std::endl;
 
         float si, sq;
 

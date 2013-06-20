@@ -80,7 +80,8 @@ class message_source(gr.basic_block):
             if self.debug:
                 print "#" + str(self.node_id) + " ->",
                 for i in xrange(0,self.msg_len):
-                    print hex(ord(self.payload[i])),
+                    # print hex(ord(self.payload[i])),
+                    print "%02x" % ord(self.payload[i]),
                 print ""
                 sys.stdout.flush()
 

@@ -45,6 +45,14 @@ namespace gr {
       d_lfsr(mask, seed)
     {
       std::cout << "Spread factor: " << d_sf << std::endl;
+        // std::cout << "PN sequence: ";
+        // d_lfsr.reset();
+        // for (int i = 0; i < spread_factor * 4; i++)
+        // {
+        //   std::cout << (int)(d_lfsr.get_next_bit());
+        // }
+        // std::cout << std::endl;
+
     }
 
     pn_spreader_b_impl::~pn_spreader_b_impl()
