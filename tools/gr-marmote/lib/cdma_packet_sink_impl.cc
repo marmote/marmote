@@ -69,7 +69,7 @@ namespace gr {
             octet = (octet << 1) | payload[i];
             if (i % 8 == 7)
             {
-              std::cout << std::setw(2) << std::hex << (int)octet << std::dec << " ";
+              std::cout << std::setw(2) << std::setfill('0') << std::hex << (int)octet << std::dec << " ";
             }
           }
           std::cout << std::endl;

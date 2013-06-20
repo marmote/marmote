@@ -188,8 +188,9 @@ namespace gr {
                                 std::cout << "IDLE: nprocd: " << nprocd << " bit_ctr: " << d_payload_ctr << " chip_ctr: " << d_chip_ctr << std::endl;
                             }
 
-                            // if (d_debug)
+                            if (d_debug)
                             {
+
                                 std::cout << "IDLE: Packet received:" << std::endl;
                                 for (int i = 0; i < d_payload_ctr; i++)
                                 {
@@ -203,8 +204,16 @@ namespace gr {
                                 }
                                 std::cout << std::endl;
 
-                                // message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_chip_sum_buf, d_payload_len));
                             }
+
+                            for (int i = 1; i < d_payload_len; i++)
+                            {
+                                d_pmt_buf[i-1] = (int)(abs(arg(d_chip_sum_buf[i]) - arg(d_chip_sum_buf[i-1])) > M_PI / 2 ? 1 : 0);
+                            }
+
+                            // FIXME: d_payload_len is +1 due to differential encoding
+                            message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_pmt_buf, d_payload_len-1));
+
                             enter_idle();
                         }
                         else
@@ -251,7 +260,6 @@ namespace gr {
                             {
                                 d_pmt_buf[i-1] = (int)(abs(arg(d_chip_sum_buf[i]) - arg(d_chip_sum_buf[i-1])) > M_PI / 2 ? 1 : 0);
                             }
-                            std::cout << std::endl;
 
                             // FIXME: d_payload_len is +1 due to differential encoding
                             message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_pmt_buf, d_payload_len-1));
