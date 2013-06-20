@@ -37,7 +37,8 @@ list(APPEND marmote_sources
     pn_despreader_impl.cc
     cdma_packet_framer_impl.cc
     pn_spreader_b_impl.cc
-    pn_despreader_cc_impl.cc )
+    pn_despreader_cc_impl.cc
+    pn_synchronizer_cc_impl.cc )
 
 add_library(gnuradio-marmote SHARED ${marmote_sources})
 target_link_libraries(gnuradio-marmote ${Boost_LIBRARIES} ${GRUEL_LIBRARIES} ${GNURADIO_CORE_LIBRARIES})

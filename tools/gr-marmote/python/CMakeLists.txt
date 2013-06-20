@@ -55,3 +55,4 @@ GR_ADD_TEST(qa_message_sink ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_
 GR_ADD_TEST(qa_cdma_packet_framer ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_cdma_packet_framer.py)
 GR_ADD_TEST(qa_pn_spreader_b ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_pn_spreader_b.py)
 GR_ADD_TEST(qa_pn_despreader_cc ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_pn_despreader_cc.py)
+GR_ADD_TEST(qa_pn_synchronizer_cc ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_pn_synchronizer_cc.py)

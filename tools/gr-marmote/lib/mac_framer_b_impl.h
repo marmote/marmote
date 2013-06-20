@@ -35,9 +35,9 @@ namespace gr {
       int			d_msg_len;
       int			d_msg_offset;
 
-	  // MAC header
-	  uint16_t		d_seq_num;
-	  uint16_t		d_dst_addr;
+  	  // MAC header
+  	  uint16_t		d_seq_num;
+  	  uint16_t		d_dst_addr;
 
      public:
       mac_framer_b_impl(bool debug);

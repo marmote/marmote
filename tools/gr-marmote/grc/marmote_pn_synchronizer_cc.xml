@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <block>
-  <name>PN synchronizer (fixed threshold)</name>
-  <key>marmote_pn_synchronizer</key>
+  <name>PN synchronizer</name>
+  <key>marmote_pn_synchronizer_cc</key>
   <category>MarmotE</category>
   <import>import marmote</import>
-  <make>marmote.pn_synchronizer(
+  <make>marmote.pn_synchronizer_cc(
     debug=$debug,
     mask=$mask,
     seed=$seed,
@@ -67,7 +67,7 @@
   </param>
 
   <param>
-    <name>Threshold</name>
+    <name>Threshold factor rise</name>
     <key>threshold_factor_rise</key>
     <value>100.0</value>
     <type>float</type>

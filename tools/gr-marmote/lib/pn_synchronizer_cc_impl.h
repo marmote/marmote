@@ -18,17 +18,16 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef INCLUDED_MARMOTE_PN_SYNCHRONIZER_IMPL_H
-#define INCLUDED_MARMOTE_PN_SYNCHRONIZER_IMPL_H
+#ifndef INCLUDED_MARMOTE_PN_SYNCHRONIZER_CC_IMPL_H
+#define INCLUDED_MARMOTE_PN_SYNCHRONIZER_CC_IMPL_H
 
-#include <marmote/pn_synchronizer.h>
+#include <marmote/pn_synchronizer_cc.h>
 #include <marmote/mseq_lfsr.h>
-
 
 namespace gr {
   namespace marmote {
 
-    class pn_synchronizer_impl : public pn_synchronizer
+    class pn_synchronizer_cc_impl : public pn_synchronizer_cc
     {
      private:
       bool d_debug;
@@ -43,7 +42,7 @@ namespace gr {
       pmt::pmt_t d_key;
       pmt::pmt_t d_value;
 
-      float d_threshold;
+      float d_threshold_factor_rise;
       int d_look_ahead;
       int d_look_ahead_remaining;
       int d_peak_idx;
@@ -52,11 +51,13 @@ namespace gr {
       float d_avg;
       bool d_found;
 
-     public:
-      pn_synchronizer_impl(bool debug, int mask, int seed, int preamble_len, int spread_factor, int oversample_factor,
-                           float threshold_factor_rise, int look_ahead, float alpha);
-      ~pn_synchronizer_impl();
+      const float d_avg_min;
 
+     public:
+      pn_synchronizer_cc_impl(bool debug, int mask, int seed, int preamble_len, int spread_factor, int oversample_factor, float threshold_factor_rise, int look_ahead, float alpha);
+      ~pn_synchronizer_cc_impl();
+
+      // Where all the action really happens
       int work(int noutput_items,
 	       gr_vector_const_void_star &input_items,
 	       gr_vector_void_star &output_items);
@@ -65,5 +66,5 @@ namespace gr {
   } // namespace marmote
 } // namespace gr
 
-#endif /* INCLUDED_MARMOTE_PN_SYNCHRONIZER_IMPL_H */
+#endif /* INCLUDED_MARMOTE_PN_SYNCHRONIZER_CC_IMPL_H */
 
