@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<block>
+  <name>GMSK packet framer</name>
+  <key>marmote_gmsk_packet_framer_b</key>
+  <category>MarmotE</category>
+  <import>import marmote</import>
+  <make>marmote.gmsk_packet_framer_b(debug=$debug, crc=$crc)</make>
+
+  <param>
+    <name>Debug</name>
+    <key>debug</key>
+    <value>False</value>
+    <type>bool</type>
+
+    <option>
+      <name>Enable</name>
+      <key>True</key>
+    </option>
+    <option>
+      <name>Disable</name>
+      <key>False</key>
+    </option>
+  </param>
+
+  <param>
+    <name>CRC16</name>
+    <key>crc</key>
+    <value>False</value>
+    <type>bool</type>
+    <option>
+      <name>Enable (not implemented yet)</name>
+      <key>True</key>
+    </option>
+    <option>
+      <name>Disable</name>
+      <key>False</key>
+    </option>
+  </param>
+
+  <sink>
+    <name>in</name>
+    <type>message</type>
+  </sink>
+
+  <source>
+    <name>out</name>
+    <type>byte</type>
+    <nports>1</nports>
+  </source>
+
+</block>
