@@ -21,6 +21,7 @@
 #include "marmote/pn_spreader_b.h"
 #include "marmote/pn_despreader_cc.h"
 #include "marmote/pn_synchronizer_cc.h"
+#include "marmote/gmsk_packet_framer_b.h"
 %}
 
 
@@ -51,3 +52,5 @@ GR_SWIG_BLOCK_MAGIC2(marmote, pn_spreader_b);
 GR_SWIG_BLOCK_MAGIC2(marmote, pn_despreader_cc);
 %include "marmote/pn_synchronizer_cc.h"
 GR_SWIG_BLOCK_MAGIC2(marmote, pn_synchronizer_cc);
+%include "marmote/gmsk_packet_framer_b.h"
+GR_SWIG_BLOCK_MAGIC2(marmote, gmsk_packet_framer_b);

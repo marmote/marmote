@@ -139,7 +139,7 @@ namespace gr {
               {
 
                 if (d_debug)
-                  std::cout << name() << unique_id() << ": peak at " << nitems_read(0) + d_peak_idx << " with value " << d_peak_val << std::endl;
+                  std::cout << name() << "_" << unique_id() << ": peak at " << nitems_read(0) + d_peak_idx << " with value " << d_peak_val << std::endl;
 
                 // Adds tag one bite before the first payload bit (chip) to aid differential encoding
                 add_item_tag(0, nitems_written(0) + d_peak_idx - 1 + ((d_preamble_len)*d_spread_factor)*d_oversample_factor-1, d_key, d_value, d_srcid);

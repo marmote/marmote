@@ -45,7 +45,7 @@ class message_source(gr.basic_block):
         self.node_id = node_id
         self.msg_interval = msg_interval
         self.msg_len = msg_len
-        self.msg_ctr = 0xF0
+        self.msg_ctr = 0x00
         self.message_port_register_out(pmt.pmt_intern('out'))
 
         self.finished = False
@@ -67,14 +67,14 @@ class message_source(gr.basic_block):
     def run(self, msg_interval):
 
         while self.finished == False:
-            self.payload = chr(self.msg_len)
+            self.payload = ''
             for i in xrange(0,self.msg_len):
                 self.payload = self.payload + chr(self.msg_ctr & 0xFF)
-                self.msg_ctr += 1
+            self.msg_ctr += 1
 
             if self.debug:
                 print "#" + str(self.node_id) + " ->",
-                for i in xrange(0,self.msg_len+1):
+                for i in xrange(0,len(self.payload)):
                     # print hex(ord(self.payload[i])),
                     print "%02x" % ord(self.payload[i]),
                 print ""
