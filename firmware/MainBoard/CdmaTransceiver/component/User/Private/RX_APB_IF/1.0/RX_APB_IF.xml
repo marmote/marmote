@@ -110,6 +110,7 @@
       </spirit:signal>
     </spirit:signals>
     <spirit:hwParameters>
+      <spirit:hwParameter spirit:id="g_PAYLOAD_LEN" spirit:name="g_PAYLOAD_LEN" spirit:prompt="g_PAYLOAD_LEN:" spirit:dataType="int" spirit:resolve="user">4</spirit:hwParameter>
     </spirit:hwParameters>
   </spirit:hwModel>
   <spirit:choices>
