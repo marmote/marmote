@@ -8,6 +8,8 @@
 
 #include "cmd_def.h"
 
+static const int payload_length = 4;
+
 static packet_t pkt;
 //static packet_t ack_pkt;
 
@@ -34,28 +36,27 @@ int main()
 	Teton_init();
 
 	MSS_GPIO_set_output(MSS_GPIO_LED1, 0);
-	MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
 
 	Max2830_set_frequency(2405000000uL);
 
-//	set_mode(RADIO_RX_MODE);
-//	BB_CTRL->MUX1 = MUX_PATH_RX;
+	set_mode(RADIO_RX_MODE);
 //	BB_CTRL->MUX2 = MUX_PATH_RX;
 
-	set_mode(RADIO_TX_MODE);
-	Max2830_set_tx_gain(10);
-
-	MSS_TIM1_init(MSS_TIMER_PERIODIC_MODE);
-//	MSS_TIM1_load_background(20e6); // 1 s
-//	MSS_TIM1_load_background(10e6); // 0.5 s
-	MSS_TIM1_load_background(2e6); // 0.1 s
-	MSS_TIM1_enable_irq();
-	MSS_TIM1_start();
-
-//	BB_CTRL->TX_I = 0;
-//	BB_CTRL->TX_Q = 0;
-//	BB_CTRL->MUX1 = MUX_PATH_IQ_REG;
+//	set_mode(RADIO_TX_MODE);
+	Max2830_set_tx_gain(15);
+	BB_CTRL->MUX1 = MUX_PATH_TX;
 	BB_CTRL->MUX2 = MUX_PATH_TX;
+//
+//	MSS_TIM1_init(MSS_TIMER_PERIODIC_MODE);
+////	MSS_TIM1_load_background(20e6); // 1 s
+////	MSS_TIM1_load_background(10e6); // 0.5 s
+//	MSS_TIM1_load_background(2e6); // 0.1 s
+//	MSS_TIM1_enable_irq();
+//	MSS_TIM1_start();
+
+	// For LED1 control
+	MSS_TIM2_init(MSS_TIMER_ONE_SHOT_MODE);
+	MSS_TIM2_enable_irq();
 
 	while( 1 )
 	{
@@ -65,13 +66,16 @@ int main()
 			spi_cmd_length = 0;
 		}
 
-//		if (tx_done_it_flag)
-//		{
-//			set_mode(RADIO_RX_MODE);
-//		}
+		if (tx_done_it_flag)
+		{
+			set_mode(RADIO_RX_MODE);
+		}
 
 		if (sfd_it_flag)
 		{
+//			MSS_TIM2_load_immediate(10e6);
+//			MSS_GPIO_set_output( MSS_GPIO_LED1, 1 );
+//			MSS_TIM2_start();
 			sfd_it_flag = 0;
 		}
 
@@ -81,25 +85,40 @@ int main()
 			rx_ctr = 0;
 
 			// Read FIFO
-			Yellowstone_print("\r\n");
+			Yellowstone_print(".");
 			while ((RX_CTRL->CTRL & RX_FIFO_EMPTY_BIT_MASK) == 0)
 			{
 				rx_buf[rx_ctr] = RX_CTRL->RX_FIFO;
 				rx_ctr++;
 			}
 
-			// Print message content
-			for (rx_ctr = 1; rx_ctr <= rx_buf[0]-sizeof(pkt.crc); rx_ctr++)
-			{
-				sprintf(buf, "%02X ", (unsigned)rx_buf[rx_ctr]);
-				Yellowstone_print(buf);
-			}
-			// Check CRC
-			if (!check_crc((packet_t*)rx_buf))
-			{
-				sprintf(buf, "#");
-				Yellowstone_print(buf);
-			}
+//			int i;
+//			pkt.length = 6;
+//			for (i = 0; i < 4; i++)
+//			{
+//				pkt.payload[i] = rx_buf[0];
+//			}
+//			set_packet_crc(&pkt);
+//			send_packet(&pkt);
+
+			MSS_TIM2_load_immediate(1e5);
+			MSS_GPIO_set_output( MSS_GPIO_LED1, 1 );
+			MSS_TIM2_start();
+
+//			if (rx_ctr != 4)
+//			{
+//				sprintf(buf, "ERROR: RX CTR = %02X\\r\n", (unsigned)rx_ctr);
+//				Yellowstone_print(buf);
+//			}
+//
+//			// Print message content
+//			for (rx_ctr = 0; rx_ctr < payload_length; rx_ctr++)
+//			{
+//				sprintf(buf, "%02X ", (unsigned)rx_buf[rx_ctr]);
+//				Yellowstone_print(buf);
+//			}
+
+
 		}
 	}
 }
@@ -165,7 +184,27 @@ void Timer1_IRQHandler(void)
 	}
 	ctr++;
 	set_packet_crc(&pkt);
-
 	send_packet(&pkt);
+
+	MSS_TIM2_load_immediate(1e6);
+	MSS_GPIO_set_output( MSS_GPIO_LED1, 1 );
+	MSS_TIM2_start();
+
 	MSS_TIM1_clear_irq();
+}
+
+void Timer2_IRQHandler(void)
+{
+
+	int i;
+	pkt.length = 6;
+	for (i = 0; i < 4; i++)
+	{
+		pkt.payload[i] = 0x3;
+	}
+	set_packet_crc(&pkt);
+	send_packet(&pkt);
+
+	MSS_GPIO_set_output( MSS_GPIO_LED1, 0 );
+	MSS_TIM2_clear_irq();
 }

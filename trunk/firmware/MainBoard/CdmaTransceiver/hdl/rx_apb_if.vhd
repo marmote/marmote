@@ -38,6 +38,9 @@ use IEEE.numeric_std.all;
 --use work.common.all;
 
 entity RX_APB_IF is
+    generic (
+         g_PAYLOAD_LEN  : integer := 4
+    );    
 	port (
 		 -- APB3 interface
 		 PCLK    : in  std_logic;
@@ -99,8 +102,9 @@ architecture Behavioral of RX_APB_IF is
 
 
 	-- Addresses
-	constant c_ADDR_CTRL : std_logic_vector(7 downto 0) := x"00"; -- R
-	constant c_ADDR_FIFO : std_logic_vector(7 downto 0) := x"04"; -- R
+	constant c_ADDR_CTRL    : std_logic_vector(7 downto 0) := x"00"; -- R
+	constant c_ADDR_FIFO    : std_logic_vector(7 downto 0) := x"04"; -- R
+	constant c_ADDR_PAY_LEN : std_logic_vector(7 downto 0) := x"08"; -- R
 
 
 	-- Signals
@@ -117,8 +121,8 @@ architecture Behavioral of RX_APB_IF is
 
     signal s_payload_ctr        : unsigned(7 downto 0);
     signal s_payload_ctr_next   : unsigned(7 downto 0);
-    signal s_payload_length     : unsigned(7 downto 0);
-    signal s_payload_length_next    : unsigned(7 downto 0);
+    signal s_payload_length     : std_logic_vector(7 downto 0);
+--    signal s_payload_length_next    : unsigned(7 downto 0);
 
     signal s_rx_fifo_in     : std_logic_vector(7 downto 0);
     signal s_rx_fifo_out    : std_logic_vector(7 downto 0);
@@ -190,6 +194,7 @@ begin
 	p_REG_WRITE : process (PRESETn, PCLK)
 	begin
 		if PRESETn = '0' then
+            s_payload_length <= std_logic_vector(to_unsigned(g_PAYLOAD_LEN, s_payload_length'length));
 		elsif rising_edge(PCLK) then
 
 			-- Default values
@@ -199,6 +204,8 @@ begin
 				case PADDR(7 downto 0) is
 					when c_ADDR_CTRL =>
                         -- TODO: clear interrupts
+					when c_ADDR_PAY_LEN =>
+                        s_payload_length <= PWDATA(s_payload_length'high downto 0);
 					when others =>
 						null;
 				end case;
@@ -234,7 +241,9 @@ begin
 --                        if s_rx_fifo_fetch = '1' and s_rx_fifo_fetch_prev = '0' then
                         if s_rx_fifo_fetch = '1' and s_rx_fifo_rd = '0' then
                             s_pready <= '1';
-                        end if;
+                        end if; 
+					when c_ADDR_PAY_LEN =>
+						s_dout <= s_payload_length;
 					when others =>
 						null;
 				end case;
@@ -337,13 +346,13 @@ begin
             s_payload_ctr <= (others => '0');
             s_rx_symbol_valid_prev <= '0';
             s_rx_done <= '0';
-            s_payload_length <= (others => '0');
+--            s_payload_length <= (others => '0');
         elsif rising_edge(clk) then
             s_rx_state <= s_rx_state_next;
             s_payload_ctr <= s_payload_ctr_next;
             s_rx_symbol_valid_prev <= s_rx_symbol_valid;
             s_rx_done <= s_rx_done_next;
-            s_payload_length <= s_payload_length_next;
+--            s_payload_length <= s_payload_length_next;
         end if;
     end process p_RECEIVE_FSM_SYNC;
 
@@ -358,7 +367,7 @@ begin
     )
     begin
         -- Default assignments
-        s_payload_length_next <= s_payload_length;
+--        s_payload_length_next <= s_payload_length;
         s_payload_ctr_next <= s_payload_ctr;
         s_rx_state_next <= s_rx_state;
         s_rx_fifo_wr <= '0'; -- FIXME: add register
@@ -372,7 +381,7 @@ begin
                 s_payload_ctr_next <= (others => '0');
                 if s_rx_byte_valid = '1' then
                     s_rx_fifo_wr <= '1';
-                    s_payload_length_next <= unsigned(s_data_buffer); 
+--                    s_payload_length_next <= unsigned(s_data_buffer); 
                     s_payload_ctr_next <= to_unsigned(1, s_payload_ctr_next'length);
                     s_rx_state_next <= st_RX_PAYLOAD;
                 end if;
@@ -380,7 +389,7 @@ begin
             when st_RX_PAYLOAD =>
                 if s_rx_byte_valid = '1' then
                     s_rx_fifo_wr <= '1';
-                    if s_payload_ctr < s_payload_length then
+                    if s_payload_ctr < unsigned(s_payload_length)-1 then
                         s_payload_ctr_next <= s_payload_ctr + 1;
                     else
                         s_rx_state_next <= st_RX_CRC;
@@ -395,7 +404,7 @@ begin
 
             when st_CHECK_CRC =>
                 -- NOTE: CHECK CRC state is not implemented yet
-                s_payload_length_next <= (others => '0');
+--                s_payload_length_next <= (others => '0');
                 s_rx_done_next <= '1';
                 s_rx_state_next <= st_IDLE;
 
@@ -417,3 +426,4 @@ begin
 	PSLVERR <= '0';
 
 end Behavioral;
+

@@ -105,8 +105,8 @@ architecture Behavioral of TX_APB_IF is
 --    constant c_MASK             : std_logic_vector(31 downto 0) := x"00000492";
 
     -- FIXME: Scale TX_HIGH and TX_LOW properly
-    constant c_TX_HIGH          : std_logic_vector(9 downto 0) := "01" & x"80";
-    constant c_TX_LOW           : std_logic_vector(9 downto 0) := "10" & x"80";
+    constant c_TX_HIGH          : std_logic_vector(9 downto 0) := "01" & x"80"; -- +0.75
+    constant c_TX_LOW           : std_logic_vector(9 downto 0) := "10" & x"80"; -- -0.75
 
 
 	-- Addresses
