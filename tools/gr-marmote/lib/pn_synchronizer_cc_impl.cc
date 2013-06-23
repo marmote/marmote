@@ -154,6 +154,7 @@ namespace gr {
             avg_out[i] = d_avg;
             out[i] = in[i];
             // out[i].real(filt_out[i] / avg_out[i]);
+            // out[i].imag(avg_out[i]);
             // out[i].real(in[i].real()); // DEBUG: imag part is used for temporary debugging
         }
 
