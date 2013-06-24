@@ -51,10 +51,11 @@ namespace gr {
       float d_avg;
       const float d_avg_min;
       bool d_found;
+      int d_offset;
 
      public:
       pn_synchronizer_cc_impl(bool debug, int mask, int seed, int preamble_len, int spread_factor,
-                              int oversample_factor, float threshold_factor_rise, int look_ahead, float alpha, float avg_min);
+                              int oversample_factor, float threshold_factor_rise, int look_ahead, float alpha, float avg_min, int offset);
       ~pn_synchronizer_cc_impl();
 
       // Where all the action really happens

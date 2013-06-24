@@ -61,6 +61,7 @@ namespace gr {
         {
           std::cout << "    #" << d_id << " <- ";
 
+          int k;
           uint8_t octet = 0;
           uint8_t* payload = (uint8_t*)pmt::pmt_blob_data(pkt);
 
@@ -69,10 +70,20 @@ namespace gr {
             octet = (octet << 1) | payload[i];
             if (i % 8 == 7)
             {
+              d_buf[k++] = octet;
               std::cout << std::setw(2) << std::setfill('0') << std::hex << (int)octet << std::dec << " ";
             }
           }
+          if (k <= 2)
+          {
+            std::cout << "CRC16 missing (packet too short)";
+          }
+          else
+          {
+            std::cout << "CRC16: " << std::setw(4) << std::setfill('0') << std::hex << crc16(d_buf+1, k-3) << std::dec << " ";
+          }
           std::cout << std::endl;
+
 
           // for (int i = 0; i < pmt::pmt_blob_length(pkt); i++)
           // {
@@ -97,6 +108,29 @@ namespace gr {
         std::cerr << "@cdma_packet_sink_impl::process_packet: unexpected PMT type" << std::endl;
         assert(false);
       }
+    }
+
+    uint16_t cdma_packet_sink_impl::crc16(unsigned char *buf, int len)
+    {
+      uint16_t crc = 0;
+
+      for (int i = 0; i < len; i++)
+      {
+        // std::cout << (int)buf[i] << std::endl;
+        for (int k = 0; k < 8; k++)
+        {
+          int input_bit = (!!(buf[i] & (1 << k)) ^ (crc & 1));
+          crc = crc >> 1;
+          if (input_bit)
+          {
+            crc ^= (1 << 15);
+            crc ^= (1 << 10);
+            crc ^= (1 <<  3);
+          }
+        }
+      }
+
+      return crc;
     }
 
   } /* namespace marmote */

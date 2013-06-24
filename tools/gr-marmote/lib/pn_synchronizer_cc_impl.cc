@@ -30,14 +30,14 @@ namespace gr {
 
     pn_synchronizer_cc::sptr
     pn_synchronizer_cc::make(bool debug, int mask, int seed, int preamble_len, int spread_factor,
-                             int oversample_factor, float threshold_factor_rise, int look_ahead, float alpha, float avg_min)
+                             int oversample_factor, float threshold_factor_rise, int look_ahead, float alpha, float avg_min, int offset)
     {
       return gnuradio::get_initial_sptr (new pn_synchronizer_cc_impl(debug, mask, seed, preamble_len, spread_factor,
-                                         oversample_factor, threshold_factor_rise, look_ahead, alpha, avg_min));
+                                         oversample_factor, threshold_factor_rise, look_ahead, alpha, avg_min, offset));
     }
 
     pn_synchronizer_cc_impl::pn_synchronizer_cc_impl(bool debug, int mask, int seed, int preamble_len, int spread_factor, int oversample_factor,
-                                               float threshold_factor_rise, int look_ahead, float alpha, float avg_min)
+                                               float threshold_factor_rise, int look_ahead, float alpha, float avg_min, int offset)
       : gr_sync_block("pn_synchronizer",
           gr_make_io_signature(1, 1, sizeof (gr_complex)),
           gr_make_io_signature3(2, 3, sizeof (gr_complex), sizeof (float), sizeof (float))),
@@ -51,7 +51,8 @@ namespace gr {
               d_alpha(alpha),
               d_avg(avg_min),
               d_avg_min(avg_min),
-              d_found(false)
+              d_found(false),
+              d_offset(offset)
     {
          // Initialize filter
         d_lfsr = new mseq_lfsr(mask, seed);
@@ -149,7 +150,8 @@ namespace gr {
                 }
 
                 // Adds tag one bite before the first payload bit (chip) to aid differential encoding
-                add_item_tag(0, nitems_written(0) + d_peak_idx - 1 + ((d_preamble_len)*d_spread_factor)*d_oversample_factor-1, d_key, d_value, d_srcid);
+                // add_item_tag(0, nitems_written(0) + d_peak_idx - 1 + ((d_preamble_len)*d_spread_factor)*d_oversample_factor-1, d_key, d_value, d_srcid);
+                add_item_tag(0, nitems_written(0) + d_peak_idx - 1 + d_offset + ((d_preamble_len)*d_spread_factor)*d_oversample_factor-1, d_key, d_value, d_srcid);
                 // out[d_peak_idx + (d_preamble_len-1 * d_spread_factor) * d_oversample_factor - 1].imag(2.0); // DEBUG
 
                 d_found = false;

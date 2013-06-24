@@ -31,6 +31,9 @@ namespace gr {
      private:
       bool d_debug;
       int d_id;
+      uint8_t d_buf[1024];
+
+      uint16_t crc16(unsigned char *buf, int len);
 
      public:
       cdma_packet_sink_impl(bool debug, int id);
