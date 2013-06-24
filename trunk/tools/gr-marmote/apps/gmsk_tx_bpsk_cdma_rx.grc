@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='ASCII'?>
 <flow_graph>
-  <timestamp>Sun Jun 23 15:42:39 2013</timestamp>
+  <timestamp>Mon Jun 24 13:49:08 2013</timestamp>
   <block>
     <key>options</key>
     <param>
@@ -203,33 +203,6 @@
     </param>
   </block>
   <block>
-    <key>marmote_cdma_packet_sink</key>
-    <param>
-      <key>id</key>
-      <value>marmote_cdma_packet_sink_0_0</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>debug</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>node_id</key>
-      <value>2</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(1103, 547)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
     <key>root_raised_cosine_filter</key>
     <param>
       <key>id</key>
@@ -281,302 +254,22 @@
     </param>
   </block>
   <block>
-    <key>blocks_file_sink</key>
+    <key>variable</key>
     <param>
       <key>id</key>
-      <value>blocks_file_sink_0_1_0_1_0_0</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>file</key>
-      <value>/home/sszilvasi/Projects/gr-marmote/apps/pn_dspr_out.dat</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>complex</value>
-    </param>
-    <param>
-      <key>vlen</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>unbuffered</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(1095, 468)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>marmote_pn_despreader_cc</key>
-    <param>
-      <key>id</key>
-      <value>marmote_pn_despreader_cc_0_0</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>debug</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>mask</key>
-      <value>0x492</value>
-    </param>
-    <param>
-      <key>seed</key>
-      <value>0x401</value>
-    </param>
-    <param>
-      <key>spread_factor</key>
       <value>spread_factor</value>
     </param>
     <param>
-      <key>oversample_factor</key>
-      <value>oversample_factor</value>
-    </param>
-    <param>
-      <key>preamble_length</key>
-      <value>preamble_length</value>
-    </param>
-    <param>
-      <key>payload_length</key>
-      <value>payload_length</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(838, 467)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>blocks_null_sink</key>
-    <param>
-      <key>id</key>
-      <value>blocks_null_sink_1</value>
-    </param>
-    <param>
       <key>_enabled</key>
       <value>True</value>
     </param>
     <param>
-      <key>type</key>
-      <value>complex</value>
-    </param>
-    <param>
-      <key>vlen</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(1131, 410)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>blocks_null_sink</key>
-    <param>
-      <key>id</key>
-      <value>blocks_null_sink_1_0</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>complex</value>
-    </param>
-    <param>
-      <key>vlen</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(1089, 729)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>blocks_file_sink</key>
-    <param>
-      <key>id</key>
-      <value>blocks_file_sink_0_1_0_0_1</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>file</key>
-      <value>/home/nest/Projects/gr-marmote/apps/bpsk_pkt_raw_in.dat</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>complex</value>
-    </param>
-    <param>
-      <key>vlen</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>unbuffered</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(313, 667)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>marmote_gmsk_packet_framer_b</key>
-    <param>
-      <key>id</key>
-      <value>marmote_gmsk_packet_framer_b_0</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>debug</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>crc</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(373, 115)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>blocks_packed_to_unpacked_xx</key>
-    <param>
-      <key>id</key>
-      <value>blocks_packed_to_unpacked_xx_0</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>byte</value>
-    </param>
-    <param>
-      <key>bits_per_chunk</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>endianness</key>
-      <value>gr.GR_MSB_FIRST</value>
-    </param>
-    <param>
-      <key>num_ports</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(616, 115)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>digital_chunks_to_symbols_xx</key>
-    <param>
-      <key>id</key>
-      <value>digital_chunks_to_symbols_xx_0</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>in_type</key>
-      <value>byte</value>
-    </param>
-    <param>
-      <key>out_type</key>
-      <value>float</value>
-    </param>
-    <param>
-      <key>symbol_table</key>
-      <value>[1, -1]</value>
-    </param>
-    <param>
-      <key>dimension</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>num_ports</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(842, 115)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>digital_gmskmod_bc</key>
-    <param>
-      <key>id</key>
-      <value>digital_gmskmod_bc_0</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>samples_per_symbol</key>
+      <key>value</key>
       <value>8</value>
     </param>
     <param>
-      <key>bt</key>
-      <value>0.3</value>
-    </param>
-    <param>
-      <key>L</key>
-      <value>2</value>
-    </param>
-    <param>
       <key>_coordinate</key>
-      <value>(307, 236)</value>
+      <value>(407, 13)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -584,26 +277,22 @@
     </param>
   </block>
   <block>
-    <key>blocks_float_to_char</key>
+    <key>marmote_traffic_generator</key>
     <param>
       <key>id</key>
-      <value>blocks_float_to_char_0</value>
+      <value>marmote_traffic_generator_0</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>False</value>
     </param>
     <param>
-      <key>vlen</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>scale</key>
-      <value>1</value>
+      <key>type</key>
+      <value>complex</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(127, 252)</value>
+      <value>(656, 256)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -618,7 +307,7 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>False</value>
     </param>
     <param>
       <key>type</key>
@@ -1274,181 +963,13 @@
     </param>
   </block>
   <block>
-    <key>marmote_message_source</key>
+    <key>blocks_float_to_char</key>
     <param>
       <key>id</key>
-      <value>marmote_message_source_0</value>
+      <value>blocks_float_to_char_0</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>debug</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>msg_interval</key>
-      <value>0.2</value>
-    </param>
-    <param>
-      <key>msg_length</key>
-      <value>4</value>
-    </param>
-    <param>
-      <key>node_id</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(115, 99)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>marmote_pn_synchronizer_cc</key>
-    <param>
-      <key>id</key>
-      <value>marmote_pn_synchronizer_cc_0</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>debug</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>mask</key>
-      <value>0x492</value>
-    </param>
-    <param>
-      <key>seed</key>
-      <value>0x401</value>
-    </param>
-    <param>
-      <key>preamble_len</key>
-      <value>preamble_length</value>
-    </param>
-    <param>
-      <key>spread_factor</key>
-      <value>spread_factor</value>
-    </param>
-    <param>
-      <key>oversample_factor</key>
-      <value>oversample_factor</value>
-    </param>
-    <param>
-      <key>threshold_factor_rise</key>
-      <value>50</value>
-    </param>
-    <param>
-      <key>look_ahead</key>
-      <value>spread_factor*oversample_factor*1</value>
-    </param>
-    <param>
-      <key>alpha</key>
-      <value>0.01</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(548, 485)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>blocks_file_sink</key>
-    <param>
-      <key>id</key>
-      <value>blocks_file_sink_0_1_0_0_0</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>file</key>
-      <value>/home/nest/Projects/gr-marmote/apps/pn_sync_factor.dat</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>complex</value>
-    </param>
-    <param>
-      <key>vlen</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>unbuffered</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(836, 740)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>blocks_throttle</key>
-    <param>
-      <key>id</key>
-      <value>blocks_throttle_0</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>complex</value>
-    </param>
-    <param>
-      <key>samples_per_second</key>
-      <value>samp_rate</value>
-    </param>
-    <param>
-      <key>vlen</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(284, 789)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>blocks_file_source</key>
-    <param>
-      <key>id</key>
-      <value>blocks_file_source_0</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>file</key>
-      <value>/home/nest/Projects/gr-marmote/apps/bpsk_pkt_raw_in.dat</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>complex</value>
-    </param>
-    <param>
-      <key>repeat</key>
       <value>False</value>
     </param>
     <param>
@@ -1456,8 +977,12 @@
       <value>1</value>
     </param>
     <param>
+      <key>scale</key>
+      <value>1</value>
+    </param>
+    <param>
       <key>_coordinate</key>
-      <value>(45, 781)</value>
+      <value>(127, 252)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1465,22 +990,30 @@
     </param>
   </block>
   <block>
-    <key>blocks_float_to_complex</key>
+    <key>digital_gmskmod_bc</key>
     <param>
       <key>id</key>
-      <value>blocks_float_to_complex_0_1_0</value>
+      <value>digital_gmskmod_bc_0</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>False</value>
     </param>
     <param>
-      <key>vlen</key>
-      <value>1</value>
+      <key>samples_per_symbol</key>
+      <value>8</value>
+    </param>
+    <param>
+      <key>bt</key>
+      <value>0.3</value>
+    </param>
+    <param>
+      <key>L</key>
+      <value>2</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(853, 649)</value>
+      <value>(307, 236)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1488,34 +1021,38 @@
     </param>
   </block>
   <block>
-    <key>blocks_file_sink</key>
+    <key>digital_chunks_to_symbols_xx</key>
     <param>
       <key>id</key>
-      <value>blocks_file_sink_0_1_0_0</value>
+      <value>digital_chunks_to_symbols_xx_0</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>False</value>
     </param>
     <param>
-      <key>file</key>
-      <value>/home/nest/Projects/gr-marmote/apps/pn_sync_out.dat</value>
+      <key>in_type</key>
+      <value>byte</value>
     </param>
     <param>
-      <key>type</key>
-      <value>complex</value>
+      <key>out_type</key>
+      <value>float</value>
     </param>
     <param>
-      <key>vlen</key>
+      <key>symbol_table</key>
+      <value>[1, -1]</value>
+    </param>
+    <param>
+      <key>dimension</key>
       <value>1</value>
     </param>
     <param>
-      <key>unbuffered</key>
-      <value>True</value>
+      <key>num_ports</key>
+      <value>1</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1049, 654)</value>
+      <value>(842, 115)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1530,7 +1067,7 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>False</value>
     </param>
     <param>
       <key>type</key>
@@ -2186,10 +1723,317 @@
     </param>
   </block>
   <block>
-    <key>marmote_traffic_generator</key>
+    <key>blocks_file_sink</key>
     <param>
       <key>id</key>
-      <value>marmote_traffic_generator_0</value>
+      <value>blocks_file_sink_0_1_0_0_1</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>file</key>
+      <value>/home/nest/Projects/gr-marmote/apps/bpsk_pkt_raw_in.dat</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>complex</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>unbuffered</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(281, 401)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_file_source</key>
+    <param>
+      <key>id</key>
+      <value>blocks_file_source_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>file</key>
+      <value>/home/sszilvasi/Projects/gr-marmote/apps/bpsk_pkt_raw_in_clean.dat</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>complex</value>
+    </param>
+    <param>
+      <key>repeat</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(39, 691)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_packed_to_unpacked_xx</key>
+    <param>
+      <key>id</key>
+      <value>blocks_packed_to_unpacked_xx_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>byte</value>
+    </param>
+    <param>
+      <key>bits_per_chunk</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>endianness</key>
+      <value>gr.GR_MSB_FIRST</value>
+    </param>
+    <param>
+      <key>num_ports</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(616, 115)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>marmote_message_source</key>
+    <param>
+      <key>id</key>
+      <value>marmote_message_source_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>debug</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>msg_interval</key>
+      <value>0.2</value>
+    </param>
+    <param>
+      <key>msg_length</key>
+      <value>4</value>
+    </param>
+    <param>
+      <key>node_id</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(110, 99)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>marmote_cdma_packet_framer</key>
+    <param>
+      <key>id</key>
+      <value>marmote_cdma_packet_framer_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>debug</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>shr_len</key>
+      <value>preamble_length</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(364, 115)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_file_sink</key>
+    <param>
+      <key>id</key>
+      <value>blocks_file_sink_0_1_0_0_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>file</key>
+      <value>/home/sszilvasi/Projects/gr-marmote/apps/pn_sync_factor.dat</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>complex</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>unbuffered</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(836, 740)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>marmote_pn_despreader_cc</key>
+    <param>
+      <key>id</key>
+      <value>marmote_pn_despreader_cc_0_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>debug</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>mask</key>
+      <value>0x446</value>
+    </param>
+    <param>
+      <key>seed</key>
+      <value>0x401</value>
+    </param>
+    <param>
+      <key>spread_factor</key>
+      <value>spread_factor</value>
+    </param>
+    <param>
+      <key>oversample_factor</key>
+      <value>oversample_factor</value>
+    </param>
+    <param>
+      <key>preamble_length</key>
+      <value>preamble_length</value>
+    </param>
+    <param>
+      <key>payload_length</key>
+      <value>payload_length</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(838, 467)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_float_to_complex</key>
+    <param>
+      <key>id</key>
+      <value>blocks_float_to_complex_0_1_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(853, 649)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_file_sink</key>
+    <param>
+      <key>id</key>
+      <value>blocks_file_sink_0_1_0_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>file</key>
+      <value>/home/sszilvasi/Projects/gr-marmote/apps/pn_sync_out.dat</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>complex</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>unbuffered</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1049, 654)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_null_sink</key>
+    <param>
+      <key>id</key>
+      <value>blocks_null_sink_1_0</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -2200,8 +2044,12 @@
       <value>complex</value>
     </param>
     <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+    <param>
       <key>_coordinate</key>
-      <value>(656, 256)</value>
+      <value>(1089, 729)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2209,22 +2057,400 @@
     </param>
   </block>
   <block>
-    <key>variable</key>
+    <key>blocks_null_sink</key>
     <param>
       <key>id</key>
-      <value>spread_factor</value>
+      <value>blocks_null_sink_1</value>
     </param>
     <param>
       <key>_enabled</key>
       <value>True</value>
     </param>
     <param>
-      <key>value</key>
-      <value>8</value>
+      <key>type</key>
+      <value>complex</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(407, 13)</value>
+      <value>(1131, 410)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_file_sink</key>
+    <param>
+      <key>id</key>
+      <value>blocks_file_sink_0_1_0_1_0_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>file</key>
+      <value>/home/sszilvasi/Projects/gr-marmote/apps/pn_dspr_out.dat</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>complex</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>unbuffered</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1095, 468)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_throttle</key>
+    <param>
+      <key>id</key>
+      <value>blocks_throttle_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>complex</value>
+    </param>
+    <param>
+      <key>samples_per_second</key>
+      <value>samp_rate</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(278, 699)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>marmote_cdma_packet_sink</key>
+    <param>
+      <key>id</key>
+      <value>marmote_cdma_packet_sink_0_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>debug</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>node_id</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1103, 547)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_file_sink</key>
+    <param>
+      <key>id</key>
+      <value>blocks_file_sink_0_1_0_1_0_0_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>file</key>
+      <value>/home/sszilvasi/Projects/gr-marmote/apps/pn_dspr_fixed.dat</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>complex</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>unbuffered</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1072, 826)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>marmote_cdma_packet_sink</key>
+    <param>
+      <key>id</key>
+      <value>marmote_cdma_packet_sink_0_0_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>debug</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>node_id</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1088, 908)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_float_to_complex</key>
+    <param>
+      <key>id</key>
+      <value>blocks_float_to_complex_0_1_0_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(573, 948)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_file_sink</key>
+    <param>
+      <key>id</key>
+      <value>blocks_file_sink_0_1_0_0_2</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>file</key>
+      <value>/home/sszilvasi/Projects/gr-marmote/apps/pn_sync_fixed.dat</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>complex</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>unbuffered</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(807, 953)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>marmote_pn_despreader_cc</key>
+    <param>
+      <key>id</key>
+      <value>marmote_pn_despreader_cc_0_0_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>debug</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>mask</key>
+      <value>0x492</value>
+    </param>
+    <param>
+      <key>seed</key>
+      <value>0x401</value>
+    </param>
+    <param>
+      <key>spread_factor</key>
+      <value>spread_factor</value>
+    </param>
+    <param>
+      <key>oversample_factor</key>
+      <value>oversample_factor</value>
+    </param>
+    <param>
+      <key>preamble_length</key>
+      <value>preamble_length</value>
+    </param>
+    <param>
+      <key>payload_length</key>
+      <value>payload_length</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(617, 797)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>marmote_pn_synchronizer_cc</key>
+    <param>
+      <key>id</key>
+      <value>marmote_pn_synchronizer_cc_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>debug</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>mask</key>
+      <value>0x446</value>
+    </param>
+    <param>
+      <key>seed</key>
+      <value>0x401</value>
+    </param>
+    <param>
+      <key>preamble_len</key>
+      <value>preamble_length</value>
+    </param>
+    <param>
+      <key>spread_factor</key>
+      <value>spread_factor</value>
+    </param>
+    <param>
+      <key>oversample_factor</key>
+      <value>oversample_factor</value>
+    </param>
+    <param>
+      <key>threshold_factor_rise</key>
+      <value>50</value>
+    </param>
+    <param>
+      <key>look_ahead</key>
+      <value>spread_factor*oversample_factor*1</value>
+    </param>
+    <param>
+      <key>alpha</key>
+      <value>0.01</value>
+    </param>
+    <param>
+      <key>avg_min</key>
+      <value>0.01</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(551, 477)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>marmote_pn_synchronizer</key>
+    <param>
+      <key>id</key>
+      <value>marmote_pn_synchronizer_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>debug</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>mask</key>
+      <value>0x446</value>
+    </param>
+    <param>
+      <key>seed</key>
+      <value>0x401</value>
+    </param>
+    <param>
+      <key>preamble_len</key>
+      <value>preamble_length</value>
+    </param>
+    <param>
+      <key>spread_factor</key>
+      <value>spread_factor</value>
+    </param>
+    <param>
+      <key>oversample_factor</key>
+      <value>oversample_factor</value>
+    </param>
+    <param>
+      <key>threshold_factor_rise</key>
+      <value>100</value>
+    </param>
+    <param>
+      <key>look_ahead</key>
+      <value>10</value>
+    </param>
+    <param>
+      <key>alpha</key>
+      <value>0.01</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(163, 815)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2238,62 +2464,8 @@
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>marmote_pn_synchronizer_cc_0</source_block_id>
-    <sink_block_id>blocks_file_sink_0_1_0_0_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>marmote_pn_synchronizer_cc_0</source_block_id>
-    <sink_block_id>blocks_float_to_complex_0_1_0</sink_block_id>
-    <source_key>2</source_key>
-    <sink_key>1</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>marmote_pn_synchronizer_cc_0</source_block_id>
-    <sink_block_id>blocks_float_to_complex_0_1_0</sink_block_id>
-    <source_key>1</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>blocks_float_to_complex_0_1_0</source_block_id>
-    <sink_block_id>blocks_file_sink_0_1_0_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>marmote_pn_synchronizer_cc_0</source_block_id>
-    <sink_block_id>marmote_pn_despreader_cc_0_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>marmote_pn_despreader_cc_0_0</source_block_id>
-    <sink_block_id>marmote_cdma_packet_sink_0_0</sink_block_id>
-    <source_key>out</source_key>
-    <sink_key>in</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>marmote_pn_despreader_cc_0_0</source_block_id>
-    <sink_block_id>blocks_file_sink_0_1_0_1_0_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
     <source_block_id>root_raised_cosine_filter_0</source_block_id>
     <sink_block_id>marmote_pn_synchronizer_cc_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>marmote_pn_despreader_cc_0_0</source_block_id>
-    <sink_block_id>blocks_null_sink_1</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>blocks_float_to_complex_0_1_0</source_block_id>
-    <sink_block_id>blocks_null_sink_1_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -2304,38 +2476,8 @@
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>marmote_gmsk_packet_framer_b_0</source_block_id>
-    <sink_block_id>blocks_packed_to_unpacked_xx_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>marmote_message_source_0</source_block_id>
-    <sink_block_id>marmote_gmsk_packet_framer_b_0</sink_block_id>
-    <source_key>out</source_key>
-    <sink_key>in</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>blocks_packed_to_unpacked_xx_0</source_block_id>
-    <sink_block_id>digital_chunks_to_symbols_xx_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
     <source_block_id>marmote_traffic_generator_0</source_block_id>
-    <sink_block_id>blocks_null_sink_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>digital_chunks_to_symbols_xx_0</source_block_id>
-    <sink_block_id>blocks_float_to_char_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>blocks_float_to_char_0</source_block_id>
-    <sink_block_id>digital_gmskmod_bc_0</sink_block_id>
+    <sink_block_id>uhd_usrp_sink_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -2346,8 +2488,26 @@
     <sink_key>0</sink_key>
   </connection>
   <connection>
+    <source_block_id>blocks_float_to_char_0</source_block_id>
+    <sink_block_id>digital_gmskmod_bc_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>digital_chunks_to_symbols_xx_0</source_block_id>
+    <sink_block_id>blocks_float_to_char_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
     <source_block_id>marmote_traffic_generator_0</source_block_id>
-    <sink_block_id>uhd_usrp_sink_0</sink_block_id>
+    <sink_block_id>blocks_null_sink_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>blocks_packed_to_unpacked_xx_0</source_block_id>
+    <sink_block_id>digital_chunks_to_symbols_xx_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -2361,6 +2521,114 @@
     <source_block_id>blocks_file_source_0</source_block_id>
     <sink_block_id>blocks_throttle_0</sink_block_id>
     <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>marmote_message_source_0</source_block_id>
+    <sink_block_id>marmote_cdma_packet_framer_0</sink_block_id>
+    <source_key>out</source_key>
+    <sink_key>in</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>marmote_cdma_packet_framer_0</source_block_id>
+    <sink_block_id>blocks_packed_to_unpacked_xx_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>blocks_float_to_complex_0_1_0</source_block_id>
+    <sink_block_id>blocks_null_sink_1_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>marmote_pn_despreader_cc_0_0</source_block_id>
+    <sink_block_id>blocks_null_sink_1</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>marmote_pn_despreader_cc_0_0</source_block_id>
+    <sink_block_id>blocks_file_sink_0_1_0_1_0_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>marmote_pn_despreader_cc_0_0</source_block_id>
+    <sink_block_id>marmote_cdma_packet_sink_0_0</sink_block_id>
+    <source_key>out</source_key>
+    <sink_key>in</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>marmote_pn_synchronizer_cc_0</source_block_id>
+    <sink_block_id>marmote_pn_despreader_cc_0_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>blocks_float_to_complex_0_1_0</source_block_id>
+    <sink_block_id>blocks_file_sink_0_1_0_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>marmote_pn_synchronizer_cc_0</source_block_id>
+    <sink_block_id>blocks_float_to_complex_0_1_0</sink_block_id>
+    <source_key>1</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>marmote_pn_synchronizer_cc_0</source_block_id>
+    <sink_block_id>blocks_float_to_complex_0_1_0</sink_block_id>
+    <source_key>2</source_key>
+    <sink_key>1</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>marmote_pn_synchronizer_cc_0</source_block_id>
+    <sink_block_id>blocks_file_sink_0_1_0_0_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>blocks_throttle_0</source_block_id>
+    <sink_block_id>marmote_pn_synchronizer_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>blocks_float_to_complex_0_1_0_0</source_block_id>
+    <sink_block_id>blocks_file_sink_0_1_0_0_2</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>marmote_pn_synchronizer_0</source_block_id>
+    <sink_block_id>marmote_pn_despreader_cc_0_0_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>marmote_pn_despreader_cc_0_0_0</source_block_id>
+    <sink_block_id>marmote_cdma_packet_sink_0_0_0</sink_block_id>
+    <source_key>out</source_key>
+    <sink_key>in</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>marmote_pn_despreader_cc_0_0_0</source_block_id>
+    <sink_block_id>blocks_file_sink_0_1_0_1_0_0_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>marmote_pn_synchronizer_0</source_block_id>
+    <sink_block_id>blocks_float_to_complex_0_1_0_0</sink_block_id>
+    <source_key>2</source_key>
+    <sink_key>1</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>marmote_pn_synchronizer_0</source_block_id>
+    <sink_block_id>blocks_float_to_complex_0_1_0_0</sink_block_id>
+    <source_key>1</source_key>
     <sink_key>0</sink_key>
   </connection>
 </flow_graph>
