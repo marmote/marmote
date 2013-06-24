@@ -47,7 +47,7 @@ namespace gr {
        * creating new instances.
        */
       static sptr make(bool debug, int mask, int seed, int preamble_len, int spread_factor,
-                       int oversample_factor, float threshold_factor_rise, int look_ahead, float alpha, float avg_min);
+                       int oversample_factor, float threshold_factor_rise, int look_ahead, float alpha, float avg_min, int offset);
     };
 
   } // namespace marmote
