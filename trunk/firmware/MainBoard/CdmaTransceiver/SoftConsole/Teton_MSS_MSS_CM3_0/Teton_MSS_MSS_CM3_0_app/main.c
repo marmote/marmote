@@ -35,6 +35,8 @@ int main()
 	Joshua_init();
 	Teton_init();
 
+	TX_CTRL->SF = 8;
+
 	MSS_GPIO_set_output(MSS_GPIO_LED1, 0);
 
 	Max2830_set_frequency(2405000000uL);
@@ -48,13 +50,14 @@ int main()
 	BB_CTRL->MUX2 = MUX_PATH_TX;
 //
 //	MSS_TIM1_init(MSS_TIMER_PERIODIC_MODE);
-////	MSS_TIM1_load_background(20e6); // 1 s
-////	MSS_TIM1_load_background(10e6); // 0.5 s
 //	MSS_TIM1_load_background(2e6); // 0.1 s
 //	MSS_TIM1_enable_irq();
 //	MSS_TIM1_start();
 
 	// For LED1 control
+	MSS_TIM1_init(MSS_TIMER_ONE_SHOT_MODE);
+	MSS_TIM1_enable_irq();
+
 	MSS_TIM2_init(MSS_TIMER_ONE_SHOT_MODE);
 	MSS_TIM2_enable_irq();
 
@@ -66,10 +69,11 @@ int main()
 			spi_cmd_length = 0;
 		}
 
-		if (tx_done_it_flag)
-		{
-			set_mode(RADIO_RX_MODE);
-		}
+//		if (tx_done_it_flag)
+//		{
+//			set_mode(RADIO_RX_MODE);
+//			MSS_GPIO_set_output( MSS_GPIO_LED1, 0 );
+//		}
 
 		if (sfd_it_flag)
 		{
@@ -92,18 +96,23 @@ int main()
 				rx_ctr++;
 			}
 
-//			int i;
-//			pkt.length = 6;
-//			for (i = 0; i < 4; i++)
-//			{
-//				pkt.payload[i] = rx_buf[0];
-//			}
-//			set_packet_crc(&pkt);
+			int i;
+			pkt.length = 6;
+			for (i = 0; i < 4; i++)
+			{
+				pkt.payload[i] = rx_buf[0];
+			}
+			set_packet_crc(&pkt);
+
 //			send_packet(&pkt);
 
-			MSS_TIM2_load_immediate(1e5);
-			MSS_GPIO_set_output( MSS_GPIO_LED1, 1 );
-			MSS_TIM2_start();
+			// Set up delayed send
+			MSS_TIM1_load_immediate(node_id * 10e3);
+			MSS_TIM1_start();
+
+//			MSS_TIM2_load_immediate(4e3);
+//			MSS_GPIO_set_output( MSS_GPIO_LED1, 1 );
+//			MSS_TIM2_start();
 
 //			if (rx_ctr != 4)
 //			{
@@ -177,16 +186,16 @@ static uint8_t i;
 
 void Timer1_IRQHandler(void)
 {
-	pkt.length = 6;
-	for (i = 0; i < 4; i++)
-	{
-		pkt.payload[i] = ctr;
-	}
-	ctr++;
-	set_packet_crc(&pkt);
+//	pkt.length = 6;
+//	for (i = 0; i < 4; i++)
+//	{
+//		pkt.payload[i] = ctr;
+//	}
+//	ctr++;
+//	set_packet_crc(&pkt);
 	send_packet(&pkt);
 
-	MSS_TIM2_load_immediate(1e6);
+	MSS_TIM2_load_immediate(20e3);
 	MSS_GPIO_set_output( MSS_GPIO_LED1, 1 );
 	MSS_TIM2_start();
 
@@ -196,14 +205,16 @@ void Timer1_IRQHandler(void)
 void Timer2_IRQHandler(void)
 {
 
-	int i;
-	pkt.length = 6;
-	for (i = 0; i < 4; i++)
-	{
-		pkt.payload[i] = 0x3;
-	}
-	set_packet_crc(&pkt);
-	send_packet(&pkt);
+//	int i;
+//	pkt.length = 6;
+//	for (i = 0; i < 4; i++)
+//	{
+//		pkt.payload[i] = 0x3;
+//	}
+//	set_packet_crc(&pkt);
+//	send_packet(&pkt);
+
+	set_mode(RADIO_RX_MODE);
 
 	MSS_GPIO_set_output( MSS_GPIO_LED1, 0 );
 	MSS_TIM2_clear_irq();

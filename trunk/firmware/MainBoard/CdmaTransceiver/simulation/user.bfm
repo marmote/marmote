@@ -26,6 +26,8 @@ include "subsystem.bfm"
 constant TX_CTRL 0x00; # ENABLE BIT
 constant TX_DATA 0x04;
 constant TX_MOD_MUX 0x0C;
+constant TX_SF 0x24;
+constant TX_MASK 0x2C;
 
 # f_FAB_CLK is assumed to be 20 MHz
 
@@ -39,13 +41,17 @@ print "************************************************************";
 print "";
 
 write w TX_APB_IF_0 TX_CTRL 0x00;
+write w TX_APB_IF_0 TX_SF 0x04;
 
 
 # PAYLOAD
-write w TX_APB_IF_0 TX_DATA 0xAB;
-write w TX_APB_IF_0 TX_DATA 0xCD;
-write w TX_APB_IF_0 TX_DATA 0xEF;
-write w TX_APB_IF_0 TX_DATA 0x2A;
+write w TX_APB_IF_0 TX_DATA 0x1A;
+write w TX_APB_IF_0 TX_DATA 0x1B;
+write w TX_APB_IF_0 TX_DATA 0x1C;
+write w TX_APB_IF_0 TX_DATA 0x1D;
+write w TX_APB_IF_0 TX_DATA 0x1E;
+write w TX_APB_IF_0 TX_DATA 0x1F;
+write w TX_APB_IF_0 TX_DATA 0x11;
 #write w TX_APB_IF_0 TX_DATA 0x2A;
 wait 100;
 # Start TX
@@ -54,7 +60,24 @@ write w TX_APB_IF_0 TX_CTRL 0x01;
 wait 500;
 wait 500;
 wait 500;
+wait 500;
+wait 500;
+wait 500;
 
+
+# PAYLOAD
+write w TX_APB_IF_0 TX_DATA 0x1A;
+write w TX_APB_IF_0 TX_DATA 0x1B;
+write w TX_APB_IF_0 TX_DATA 0x1C;
+write w TX_APB_IF_0 TX_DATA 0x1D;
+write w TX_APB_IF_0 TX_DATA 0x1E;
+write w TX_APB_IF_0 TX_DATA 0x1F;
+write w TX_APB_IF_0 TX_DATA 0x11;
+#write w TX_APB_IF_0 TX_DATA 0x2A;
+wait 100;
+# Spread factor
+write w TX_APB_IF_0 TX_SF 0x08;
+write w TX_APB_IF_0 TX_MASK 0x0446;
 # Start TX
 write w TX_APB_IF_0 TX_CTRL 0x01;
 wait 500;

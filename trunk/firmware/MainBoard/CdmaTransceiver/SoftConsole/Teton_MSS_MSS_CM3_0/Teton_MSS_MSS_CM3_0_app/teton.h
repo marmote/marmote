@@ -35,6 +35,17 @@
 #define MSS_GPIO_RX_DONE_IT_MASK	MSS_GPIO_10_MASK
 
 
+typedef struct
+{
+  __IO uint32_t REV;                       /*!< Offset: 0x00  Board revision   */
+  __O  uint32_t ID;                        /*!< Offset: 0x04  Node ID (serial) */
+} BOARD_Type;
+
+#define MM_BOARD            ((BOARD_Type *)       FROM_BASE)   /*!< BOARD_Type register struct */
+
+uint8_t node_rev;
+uint8_t node_id;
+
 #define MSS_GPIO_TX_DONE_IRQn  		GPIO8_IRQn
 #define MSS_GPIO_SFD_IRQn	  		GPIO9_IRQn
 #define MSS_GPIO_RX_DONE_IRQn  		GPIO10_IRQn
@@ -62,6 +73,21 @@ typedef struct
 
 #define TX_CTRL            ((TX_CTRL_Type *)       TX_APB_IF_0)   /*!< TX CTRL register struct */
 
+
+/* 11th order polynomials for the PN generator */
+static int s_polynomial_masks[] =
+{
+	0x000,
+	0x000,
+	0x000,
+	0x000,
+	0x492, // 4
+	0x402,
+	0x446, // 6
+	0x416,
+	0x606,
+	0x431
+};
 
 
 typedef struct
