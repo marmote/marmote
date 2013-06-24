@@ -45,6 +45,13 @@ CMD_Type CMD_List[] =
 uint32_t CmdHelp(uint32_t argc, char** argv)
 {
 	CMD_Type* cmdListItr = CMD_List;
+	char buf[64];
+
+//	sprintf(buf, "\nMarmotE Rev %c Node %d\r\n", (char)((MM_BOARD->REV & 0xFF) + 'A' - 1), (int)(MM_BOARD->ID & 0xFF));
+	sprintf(buf, "\nMarmotE Rev %c Node %d\r\n", node_rev, node_id);
+	Yellowstone_print(buf);
+	sprintf(buf, "MASK: %4x SF: %d\r\n", (int)TX_CTRL->MASK, (int)TX_CTRL->SF);
+	Yellowstone_print(buf);
 
 	Yellowstone_print("\nAvailable commands:\n");
 

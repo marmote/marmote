@@ -28,6 +28,13 @@ void Teton_init(void)
 	MSS_GPIO_config (MSS_GPIO_SFD_IT, MSS_GPIO_INPUT_MODE | MSS_GPIO_IRQ_EDGE_POSITIVE);
 	MSS_GPIO_enable_irq(MSS_GPIO_SFD_IT);
 	NVIC_EnableIRQ(MSS_GPIO_SFD_IRQn);
+
+	// Node ID
+	node_rev = 'A' + (char)(MM_BOARD->REV & 0xFF) - 1;
+	node_id = MM_BOARD->ID & 0xFF;
+
+	// CDMA
+	TX_CTRL->MASK = s_polynomial_masks[node_id];
 }
 
 // TX DONE
@@ -77,7 +84,7 @@ void set_mode(radio_operating_mode_t mode)
 			Max2830_set_mode(RADIO_RX_MODE);
 			MSS_GPIO_set_output(MSS_GPIO_AFE1_MODE, AFE_RX_MODE);
 			MSS_GPIO_set_output(MSS_GPIO_AFE1_ENABLE, 1);
-			BB_CTRL->MUX2 = MUX_PATH_RX;
+//			BB_CTRL->MUX2 = MUX_PATH_RX;
 			break;
 
 		case RADIO_TX_MODE:

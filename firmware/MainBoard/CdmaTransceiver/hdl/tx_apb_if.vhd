@@ -268,6 +268,8 @@ begin
                         s_preamble_len <= PWDATA;
 					when c_ADDR_PAY_LEN =>
                         s_payload_len <= PWDATA;
+					when c_ADDR_SF =>
+                        s_sf <= PWDATA;
 					when c_ADDR_SEED =>
                         s_seed <= PWDATA;
 					when c_ADDR_MASK =>
@@ -303,6 +305,8 @@ begin
 						s_dout <= s_preamble_len;
 					when c_ADDR_PAY_LEN =>
 						s_dout <= s_payload_len;
+					when c_ADDR_SF =>
+						s_dout <= s_sf;
 					when c_ADDR_SEED =>
 						s_dout <= s_seed;
 					when c_ADDR_MASK =>
