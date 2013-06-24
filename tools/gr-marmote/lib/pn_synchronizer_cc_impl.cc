@@ -29,13 +29,15 @@ namespace gr {
   namespace marmote {
 
     pn_synchronizer_cc::sptr
-    pn_synchronizer_cc::make(bool debug, int mask, int seed, int preamble_len, int spread_factor, int oversample_factor, float threshold_factor_rise, int look_ahead, float alpha)
+    pn_synchronizer_cc::make(bool debug, int mask, int seed, int preamble_len, int spread_factor,
+                             int oversample_factor, float threshold_factor_rise, int look_ahead, float alpha, float avg_min)
     {
-      return gnuradio::get_initial_sptr (new pn_synchronizer_cc_impl(debug, mask, seed, preamble_len, spread_factor, oversample_factor, threshold_factor_rise, look_ahead, alpha));
+      return gnuradio::get_initial_sptr (new pn_synchronizer_cc_impl(debug, mask, seed, preamble_len, spread_factor,
+                                         oversample_factor, threshold_factor_rise, look_ahead, alpha, avg_min));
     }
 
     pn_synchronizer_cc_impl::pn_synchronizer_cc_impl(bool debug, int mask, int seed, int preamble_len, int spread_factor, int oversample_factor,
-                                               float threshold_factor_rise, int look_ahead, float alpha)
+                                               float threshold_factor_rise, int look_ahead, float alpha, float avg_min)
       : gr_sync_block("pn_synchronizer",
           gr_make_io_signature(1, 1, sizeof (gr_complex)),
           gr_make_io_signature3(2, 3, sizeof (gr_complex), sizeof (float), sizeof (float))),
@@ -47,8 +49,8 @@ namespace gr {
               d_threshold_factor_rise(threshold_factor_rise),
               d_look_ahead(look_ahead),
               d_alpha(alpha),
-              d_avg(0.001f),
-              d_avg_min(0.001f),
+              d_avg(avg_min),
+              d_avg_min(avg_min),
               d_found(false)
     {
          // Initialize filter
@@ -118,6 +120,7 @@ namespace gr {
 
                 if (d_debug)
                 {
+                  std::cout << "[" << nitems_read(0) << ":" << nitems_read(0) + noutput_items << "] ";
                   std::cout << name() << "_" << unique_id() << ": threshold crossed at " << nitems_read(0) + i;
                   std::cout << " with value " << filt_out[i] << " (" << filt_out[i]/d_avg << ")"  << std::endl;
                 }
@@ -139,7 +142,11 @@ namespace gr {
               {
 
                 if (d_debug)
-                  std::cout << name() << "_" << unique_id() << ": peak at " << nitems_read(0) + d_peak_idx << " with value " << d_peak_val << std::endl;
+                {
+                  std::cout << "[" << nitems_read(0) << ":" << nitems_read(0) + noutput_items << "] ";
+                  std::cout << name() << "_" << unique_id() << ": peak at " << nitems_read(0) + d_peak_idx;
+                  std::cout << " with value " << d_peak_val << " (" << d_peak_val/d_avg << ")"  << std::endl;
+                }
 
                 // Adds tag one bite before the first payload bit (chip) to aid differential encoding
                 add_item_tag(0, nitems_written(0) + d_peak_idx - 1 + ((d_preamble_len)*d_spread_factor)*d_oversample_factor-1, d_key, d_value, d_srcid);
@@ -151,10 +158,13 @@ namespace gr {
               d_look_ahead_remaining--;
             }
 
+            // avg_out[i] = d_avg;
+            filt_out[i] = filt_out[i] / d_avg;
             avg_out[i] = d_avg;
             out[i] = in[i];
             // out[i].real(filt_out[i] / avg_out[i]);
             // out[i].imag(avg_out[i]);
+            // out[i].imag(filt_out[i]);
             // out[i].real(in[i].real()); // DEBUG: imag part is used for temporary debugging
         }
 

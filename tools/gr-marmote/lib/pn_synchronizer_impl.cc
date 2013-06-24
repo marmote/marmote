@@ -124,7 +124,11 @@ namespace gr {
                 // d_peak_val = -(float)INFINITY;
                 d_peak_val = filt_out[i];
                 d_peak_idx = i;
-                std::cout << "Fixed threshold crossed at " << nitems_read(0) + i << " with value " << filt_out[i] << " (" << filt_out[i]/d_avg << ")"  << std::endl;
+                if (d_debug)
+                {
+                  std::cout << "[" << nitems_read(0) << ":" << nitems_read(0) + noutput_items << "] ";
+                  std::cout << "Fixed threshold crossed at " << nitems_read(0) + i << " with value " << filt_out[i] << " (" << filt_out[i]/d_avg << ")"  << std::endl;
+                }
               }
               else
               {
@@ -141,7 +145,11 @@ namespace gr {
               }
               else if (d_look_ahead_remaining <= 0)
               {
-                std::cout << "Fixed done at " << nitems_read(0) + d_peak_idx << " with value " << d_peak_val << std::endl;
+                if (d_debug)
+                {
+                  std::cout << "[" << nitems_read(0) << ":" << nitems_read(0) + noutput_items << "] ";
+                  std::cout << "Fixed done at " << nitems_read(0) + d_peak_idx << " with value " << d_peak_val << std::endl;
+                }
                 // if (d_debug)
                 // {
                 //     std::cout << "Threshold crossed at " << d_peak_idx - 1 << std::endl;

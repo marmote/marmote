@@ -13,6 +13,7 @@
     oversample_factor=$oversample_factor,
     threshold_factor_rise=$threshold_factor_rise,
     look_ahead=$look_ahead,
+    avg_min=$avg_min,
     alpha=$alpha
     )</make>
 
@@ -83,6 +84,13 @@
   <param>
     <name>Alpha</name>
     <key>alpha</key>
+    <value>0.01</value>
+    <type>float</type>
+  </param>
+
+  <param>
+    <name>Average minimum</name>
+    <key>avg_min</key>
     <value>0.01</value>
     <type>float</type>
   </param>
