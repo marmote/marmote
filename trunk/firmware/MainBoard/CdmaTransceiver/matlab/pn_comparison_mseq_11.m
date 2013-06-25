@@ -52,10 +52,10 @@ for ii = 1 : length(mseq_taps)
         s{ii}(kk) = (h{ii}.generate*2)-1;
     end    
     
-    plot(xcorr(s{ii},s{ii}))
-    title(sprintf('0x%s %s max = %d', dec2hex(mseq_poly{ii}), mat2str(mseq_taps{ii}), max(xcorr(s{ii},s{ii}))))
-    pause
-    fprintf(1, 'Auto-correlation max = %d [%d]\n', max(xcorr(s{ii},s{ii})), ii);
+%     plot(xcorr(s{ii},s{ii}))
+%     title(sprintf('0x%s %s max = %d', dec2hex(mseq_poly{ii}), mat2str(mseq_taps{ii}), max(xcorr(s{ii},s{ii}))))
+%     pause
+%     fprintf(1, 'Auto-correlation max = %d [%d]\n', max(xcorr(s{ii},s{ii})), ii);
 end
 
 % Check cross-correlation

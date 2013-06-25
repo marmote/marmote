@@ -137,14 +137,14 @@ typedef enum _afe_mux_path
 	MUX_PATH_IQ_REG = 3
 } afe_mux_path_t;
 
+#define MAX_PAYLOAD_LEN 256
 
 typedef struct __packet_t
 {
-	uint8_t length;
-//	uint8_t ctrl;
-//	uint8_t seq;
-	uint8_t payload[4];
-	uint8_t crc[2];
+	uint8_t src_addr;
+	uint8_t seq_num[2];
+	uint8_t payload[MAX_PAYLOAD_LEN];
+	uint8_t crc_16[2];
 } packet_t;
 
 typedef enum __radio_mode_t
@@ -159,12 +159,12 @@ typedef enum __radio_mode_t
 static radio_operating_mode_t radio_mode;
 
 void Teton_init(void);
-void send_packet(const packet_t* pkt);
+void send_packet(const packet_t* pkt, uint8_t payload_len);
 void set_mode(radio_operating_mode_t mode);
 radio_operating_mode_t get_mode();
 
 uint16_t crc_16(const uint8_t data[], uint8_t length);
-uint16_t check_crc(const packet_t* pkt);
-void set_packet_crc(packet_t* pkt);
+uint16_t check_crc(const packet_t* pkt, uint8_t pkt_len);
+void set_packet_crc(packet_t* pkt, uint8_t pkt_len);
 
 #endif /* TETON_H_ */
