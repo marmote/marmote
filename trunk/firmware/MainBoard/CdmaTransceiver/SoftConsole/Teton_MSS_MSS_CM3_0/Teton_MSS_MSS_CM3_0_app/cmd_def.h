@@ -30,6 +30,7 @@ extern CMD_Type CMD_List[];
 
 // General commands
 uint32_t CmdHelp(uint32_t argc, char** argv);
+uint32_t CmdStatus(uint32_t argc, char** argv);
 uint32_t CmdLed(uint32_t argc, char** argv);
 uint32_t CmdAfe(uint32_t argc, char** argv);
 uint32_t CmdIQOffset(uint32_t argc, char** argv);

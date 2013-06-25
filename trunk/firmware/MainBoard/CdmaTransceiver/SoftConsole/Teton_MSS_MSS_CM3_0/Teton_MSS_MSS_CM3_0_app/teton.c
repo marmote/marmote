@@ -35,6 +35,9 @@ void Teton_init(void)
 
 	// CDMA
 	TX_CTRL->MASK = s_polynomial_masks[node_id];
+	TX_CTRL->SF = 8;
+//	TX_CTRL->PRE_LEN = 2;
+//	TX_CTRL->PAY_LEN = 7;
 }
 
 // TX DONE

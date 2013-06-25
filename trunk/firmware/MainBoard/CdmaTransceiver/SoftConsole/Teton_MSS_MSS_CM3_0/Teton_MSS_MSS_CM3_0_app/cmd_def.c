@@ -11,6 +11,7 @@
 CMD_Type CMD_List[] =
 {
 	{"help", CmdHelp},
+	{"status", CmdStatus},
 	{"led",  CmdLed},
 //	{"sleep", CmdSleep},
 	{"clk",  CmdClock},
@@ -50,7 +51,7 @@ uint32_t CmdHelp(uint32_t argc, char** argv)
 //	sprintf(buf, "\nMarmotE Rev %c Node %d\r\n", (char)((MM_BOARD->REV & 0xFF) + 'A' - 1), (int)(MM_BOARD->ID & 0xFF));
 	sprintf(buf, "\nMarmotE Rev %c Node %d\r\n", node_rev, node_id);
 	Yellowstone_print(buf);
-	sprintf(buf, "MASK: %4x SF: %d\r\n", (int)TX_CTRL->MASK, (int)TX_CTRL->SF);
+	sprintf(buf, "MASK: 0x%4x SF: %d\r\n", (int)TX_CTRL->MASK, (int)TX_CTRL->SF);
 	Yellowstone_print(buf);
 
 	Yellowstone_print("\nAvailable commands:\n");
@@ -63,6 +64,18 @@ uint32_t CmdHelp(uint32_t argc, char** argv)
 		cmdListItr++;
 	}
 	Yellowstone_write("\n", 1);
+
+	return 0;
+}
+
+uint32_t CmdStatus(uint32_t argc, char** argv)
+{
+	char buf[64];
+
+	sprintf(buf, "\nMarmotE Main Board (Teton) Rev %c Node %d\r\n", node_rev, node_id);
+	Yellowstone_print(buf);
+	sprintf(buf, "MASK: 0x%X SF: %d\r\n", (int)TX_CTRL->MASK, (int)TX_CTRL->SF);
+	Yellowstone_print(buf);
 
 	return 0;
 }
