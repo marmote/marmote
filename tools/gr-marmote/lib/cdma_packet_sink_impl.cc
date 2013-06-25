@@ -77,7 +77,7 @@ namespace gr {
             }
           }
 
-          if (k >= 3 && (crc_16(d_buf+1, k-3) != ((d_buf[k-2] << 8) + d_buf[k-1])))
+          if (k >= 3 && (crc_16(d_buf, k-2) != ((d_buf[k-2] << 8) + d_buf[k-1])))
           {
             std::cout << "#";
           }
