@@ -46,6 +46,9 @@ typedef struct
 uint8_t node_rev;
 uint8_t node_id;
 
+extern uint8_t packet_rate;
+
+
 #define MSS_GPIO_TX_DONE_IRQn  		GPIO8_IRQn
 #define MSS_GPIO_SFD_IRQn	  		GPIO9_IRQn
 #define MSS_GPIO_RX_DONE_IRQn  		GPIO10_IRQn
@@ -75,7 +78,7 @@ typedef struct
 
 
 /* 11th order polynomials for the PN generator */
-static int s_polynomial_masks[] =
+static int polynomial_masks[] =
 {
 	0x000,
 	0x402,	 // [11 2 0]

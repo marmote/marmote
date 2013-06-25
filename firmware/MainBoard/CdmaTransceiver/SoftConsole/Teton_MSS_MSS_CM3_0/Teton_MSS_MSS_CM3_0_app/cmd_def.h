@@ -61,5 +61,12 @@ uint32_t CmdMux1(uint32_t argc, char** argv);
 uint32_t CmdMux2(uint32_t argc, char** argv);
 uint32_t CmdModMux(uint32_t argc, char** argv);
 
+// CDMA measurement
+uint32_t CmdPacketLength(uint32_t argc, char** argv);
+uint32_t CmdPacketRate(uint32_t argc, char** argv);
+uint32_t CmdSpreadFactor(uint32_t argc, char** argv);
+uint32_t CmdPreambleLen(uint32_t argc, char** argv);
+
+
 
 #endif /* CMD_DEF_H_ */

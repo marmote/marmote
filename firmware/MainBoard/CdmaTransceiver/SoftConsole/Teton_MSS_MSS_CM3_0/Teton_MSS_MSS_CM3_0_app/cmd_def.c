@@ -7,7 +7,6 @@
 
 #include "cmd_def.h"
 
-
 CMD_Type CMD_List[] =
 {
 	{"help", 	CmdHelp},
@@ -39,6 +38,12 @@ CMD_Type CMD_List[] =
 	{"mux2",  	CmdMux2},
 
 	{"modmux",  CmdModMux},
+
+	// CDMA measurement
+	{"pktlen",  CmdPacketLength},
+	{"pktrate", CmdPacketRate},
+	{"sf", 		CmdSpreadFactor},
+	{"prelen", 	CmdPreambleLen},
 	{NULL,   	NULL}
 };
 
@@ -50,8 +55,6 @@ uint32_t CmdHelp(uint32_t argc, char** argv)
 
 //	sprintf(buf, "\nMarmotE Rev %c Node %d\r\n", (char)((MM_BOARD->REV & 0xFF) + 'A' - 1), (int)(MM_BOARD->ID & 0xFF));
 	sprintf(buf, "\nMarmotE Rev %c Node %d\r\n", node_rev, node_id);
-	Yellowstone_print(buf);
-	sprintf(buf, "MASK: 0x%4x SF: %d\r\n", (int)TX_CTRL->MASK, (int)TX_CTRL->SF);
 	Yellowstone_print(buf);
 
 	Yellowstone_print("\nAvailable commands:\n");
@@ -74,8 +77,13 @@ uint32_t CmdStatus(uint32_t argc, char** argv)
 
 	sprintf(buf, "\nMarmotE Main Board (Teton) Rev %c Node %d\r\n", node_rev, node_id);
 	Yellowstone_print(buf);
-	sprintf(buf, "MASK: 0x%X SF: %d\r\n", (int)TX_CTRL->MASK, (int)TX_CTRL->SF);
+
+	sprintf(buf, "MASK:   0x%X\r\nSF:     %d\r\n", (int)TX_CTRL->MASK, (int)TX_CTRL->SF);
 	Yellowstone_print(buf);
+	sprintf(buf, "PRELEN: %u\r\nPKTLEN:   %d\r\n", (int)TX_CTRL->PRE_LEN, (int)TX_CTRL->PAY_LEN);
+	Yellowstone_print(buf);
+//	sprintf(buf, "PKTRAT: 0x%4x\r\n", (int)TX_CTRL->PRELEN, (int)TX_CTRL->PKTLEN);
+//		Yellowstone_print(buf);
 
 	return 0;
 }
@@ -840,7 +848,7 @@ uint32_t CmdRssi(uint32_t argc, char** argv)
 		uint8_t i;
 		for ( i = 0; i < 20; i++ )
 		{
-			sprintf(buf, "\r\n0x%03u", Max2830_get_rssi_value()); // FIXME: print voltage level too
+			sprintf(buf, "\r\n0x%03u", Max2830_get_rssi_value()); // TODO: print voltage level too
 			Yellowstone_print(buf);
 		}
 
@@ -1150,5 +1158,127 @@ uint32_t CmdModMux(uint32_t argc, char** argv)
 
 	// Send help message
 	Yellowstone_print("\r\nUsage: modmux [<index>]");
+	return 1;
+}
+
+
+
+/********************************************************************
+ *                         CDMA measurement
+ ********************************************************************/
+
+uint32_t CmdPacketLength(uint32_t argc, char** argv)
+{
+	uint32_t pkt_len;
+	char buf[64];
+
+	if (argc == 1)
+	{
+		sprintf(buf, "\r\nPacket length: %3u", (int)(TX_CTRL->PAY_LEN & 0xFF));
+		Yellowstone_print(buf);
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		pkt_len = atoi(*(argv+1));
+		if (pkt_len || !strcmp(*(argv+1), "0"))
+		{
+			TX_CTRL->PAY_LEN = pkt_len & 0xFF;
+
+			sprintf(buf, "\r\nPacket length: %3u", (int)(TX_CTRL->PAY_LEN & 0xFF));
+			Yellowstone_print(buf);
+			return 0;
+		}
+	}
+
+	Yellowstone_print("\r\nUsage: pktlen [<new packet length>]");
+	return 1;
+}
+
+uint32_t CmdPacketRate(uint32_t argc, char** argv)
+{
+	uint32_t pkt_rate;
+	char buf[64];
+
+	if (argc == 1)
+	{
+		sprintf(buf, "\r\nPacket rate: %3u", (int)packet_rate);
+		Yellowstone_print(buf);
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		pkt_rate = atoi(*(argv+1));
+		if (pkt_rate || !strcmp(*(argv+1), "0"))
+		{
+			packet_rate = pkt_rate;
+
+			sprintf(buf, "\r\nPacket rate: %3u", (int)packet_rate);
+			Yellowstone_print(buf);
+			return 0;
+		}
+	}
+
+	Yellowstone_print("\r\nUsage: pktrate [<packets per sec>]");
+	return 1;
+}
+
+uint32_t CmdSpreadFactor(uint32_t argc, char** argv)
+{
+	uint32_t spread_factor;
+	char buf[64];
+
+	if (argc == 1)
+	{
+		sprintf(buf, "\r\nSpread factor: %3u", (int)(TX_CTRL->SF & 0xFF));
+		Yellowstone_print(buf);
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		spread_factor = atoi(*(argv+1));
+		if (spread_factor || !strcmp(*(argv+1), "0"))
+		{
+			TX_CTRL->SF = spread_factor & 0xFF;
+
+			sprintf(buf, "\r\nSpread factor: %3u", (int)(TX_CTRL->SF & 0xFF));
+			Yellowstone_print(buf);
+			return 0;
+		}
+	}
+
+	Yellowstone_print("\r\nUsage: sf [<new spread factor>]");
+	return 1;
+}
+
+uint32_t CmdPreambleLen(uint32_t argc, char** argv)
+{
+	uint32_t preamble_length;
+	char buf[64];
+
+	if (argc == 1)
+	{
+		sprintf(buf, "\r\nPreamble length: %3u", (int)(TX_CTRL->PRE_LEN & 0xFF));
+		Yellowstone_print(buf);
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		preamble_length = atoi(*(argv+1));
+		if (preamble_length || !strcmp(*(argv+1), "0"))
+		{
+			TX_CTRL->PRE_LEN = preamble_length & 0xFF;
+
+			sprintf(buf, "\r\nPreamble length: %3u", (int)(TX_CTRL->PRE_LEN & 0xFF));
+			Yellowstone_print(buf);
+			return 0;
+		}
+	}
+
+	Yellowstone_print("\r\nUsage: prelen [<new preamble_length>]");
 	return 1;
 }
