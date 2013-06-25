@@ -1,5 +1,7 @@
 #include "teton.h"
 
+uint8_t packet_rate = 40; // FIXME
+
 void Teton_init(void)
 {
 	MSS_GPIO_config(MSS_GPIO_LED1, MSS_GPIO_OUTPUT_MODE);
@@ -34,10 +36,10 @@ void Teton_init(void)
 	node_id = MM_BOARD->ID & 0xFF;
 
 	// CDMA
-	TX_CTRL->MASK = s_polynomial_masks[node_id];
+	TX_CTRL->MASK = polynomial_masks[node_id];
 	TX_CTRL->SF = 8;
-//	TX_CTRL->PRE_LEN = 2;
-//	TX_CTRL->PAY_LEN = 7;
+	TX_CTRL->PRE_LEN = 2;
+	TX_CTRL->PAY_LEN = 7;
 }
 
 // TX DONE
@@ -61,7 +63,6 @@ void GPIO10_IRQHandler(void)
 	MSS_GPIO_clear_irq( MSS_GPIO_RX_DONE_IT );
 }
 
-
 void send_packet(const packet_t* pkt, uint8_t pay_len)
 {
 	uint8_t i;
@@ -76,7 +77,6 @@ void send_packet(const packet_t* pkt, uint8_t pay_len)
 
 		for (i = 0; i < pay_len; i++)
 		{
-//			TX_CTRL->TX_FIFO = *((const char*)pkt + i);
 			TX_CTRL->TX_FIFO = pkt->payload[i];
 		}
 		TX_CTRL->TX_FIFO = pkt->crc_16[0];

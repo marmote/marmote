@@ -8,10 +8,9 @@
 
 #include "cmd_def.h"
 
-static const int payload_length = 4;
+//static const int payload_length = 4;
 
 static packet_t pkt;
-//static packet_t ack_pkt;
 
 extern uint8_t spi_cmd_buf[];
 extern uint8_t spi_cmd_length;
@@ -179,25 +178,29 @@ void process_spi_cmd_buf(const char* cmd_buf, uint8_t length)
 }
 
 static uint8_t seq_num;
-const static uint8_t pkt_len = 7;
+//static const uint8_t pkt_len = 9;
 
 void Timer1_IRQHandler(void)
 {
+	int i;
+
+	uint8_t pkt_len = TX_CTRL->PAY_LEN;
 	set_mode(RADIO_TX_MODE);
 
-	int i;
+	// Prepare packet
 	pkt.src_addr = node_id;
 	pkt.seq_num[0] = (seq_num >> 8) & 0xFF;
 	pkt.seq_num[1] = seq_num & 0xFF;
 	for (i = 0; i < pkt_len-5; i++)
 	{
-		pkt.payload[i] = 0xAA;
+		pkt.payload[i] = rand() && 0xFF;
 	}
 	set_packet_crc(&pkt, pkt_len);
 	send_packet(&pkt, pkt_len-5);
 
 	seq_num++;
 
+	// Turn on LED
 	MSS_TIM2_load_immediate(20e3);
 	MSS_GPIO_set_output( MSS_GPIO_LED1, 1 );
 	MSS_TIM2_start();
@@ -207,19 +210,7 @@ void Timer1_IRQHandler(void)
 
 void Timer2_IRQHandler(void)
 {
-
-//	int i;
-//	pkt.length = 6;
-//	for (i = 0; i < 4; i++)
-//	{
-//		pkt.payload[i] = 0x3;
-//	}
-//	set_packet_crc(&pkt);
-//	send_packet(&pkt);
-
-	// !
-//	set_mode(RADIO_RX_MODE);
-
+	// Turn off LED
 	MSS_GPIO_set_output( MSS_GPIO_LED1, 0 );
 	MSS_TIM2_clear_irq();
 }
