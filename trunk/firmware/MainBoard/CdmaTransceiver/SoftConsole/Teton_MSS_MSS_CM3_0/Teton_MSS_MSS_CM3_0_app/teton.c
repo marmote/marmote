@@ -1,6 +1,6 @@
 #include "teton.h"
 
-uint8_t packet_rate = 40; // FIXME
+float packet_rate = 40; // FIXME
 
 void Teton_init(void)
 {

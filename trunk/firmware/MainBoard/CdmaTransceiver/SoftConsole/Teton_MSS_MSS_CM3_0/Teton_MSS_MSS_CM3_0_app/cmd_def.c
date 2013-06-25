@@ -78,12 +78,12 @@ uint32_t CmdStatus(uint32_t argc, char** argv)
 	sprintf(buf, "\nMarmotE Main Board (Teton) Rev %c Node %d\r\n", node_rev, node_id);
 	Yellowstone_print(buf);
 
-	sprintf(buf, "MASK:   0x%X\r\nSF:     %d\r\n", (int)TX_CTRL->MASK, (int)TX_CTRL->SF);
+	sprintf(buf, "MASK:    0x%X\r\nSF:      %d\r\n", (int)TX_CTRL->MASK, (int)TX_CTRL->SF);
 	Yellowstone_print(buf);
-	sprintf(buf, "PRELEN: %u\r\nPKTLEN:   %d\r\n", (int)TX_CTRL->PRE_LEN, (int)TX_CTRL->PAY_LEN);
+	sprintf(buf, "PRELEN:  %u\r\nPKTLEN:  %d\r\n", (int)TX_CTRL->PRE_LEN, (int)TX_CTRL->PAY_LEN);
 	Yellowstone_print(buf);
-//	sprintf(buf, "PKTRAT: 0x%4x\r\n", (int)TX_CTRL->PRELEN, (int)TX_CTRL->PKTLEN);
-//		Yellowstone_print(buf);
+	sprintf(buf, "PKTRATE: %7.3f\r\n", packet_rate);
+	Yellowstone_print(buf);
 
 	return 0;
 }
@@ -404,51 +404,31 @@ uint32_t CmdReg(uint32_t argc, char** argv)
 
 uint32_t CmdFreq(uint32_t argc, char** argv)
 {
-	uint32_t freq;
+	float freq;
 	char buf[128];
 
 	if (argc == 1)
 	{
 		sprintf(buf, "\r\nFrequency: %12.6f MHz", (double)Max2830_get_frequency()/1e6);
 		Yellowstone_print(buf);
-
-		/*
-		sprintf(buf, "\r\nFrequency: %u Hz", Max2830_get_frequency());
-		Yellowstone_print(buf);
-		*/
-
 		return 0;
 	}
 
 	if (argc == 2)
 	{
-		freq = atoi(*(argv+1));
+		freq = atof(*(argv+1));
 		if (freq || !strcmp(*(argv+1), "0"))
 		{
+			Max2830_set_frequency((uint32_t) (freq*1e6));
 
-			/*
-			sprintf(buf, "\r\nFrequency: %u Hz (passing)", (uint32_t) (freq*1e6));
+			sprintf(buf, "\r\nFrequency: %12.6f MHz", Max2830_get_frequency()/1e6);
 			Yellowstone_print(buf);
-			sprintf(buf, "\r\nFrequency: %12.6f MHz", (float)Max2830_get_frequency()/1e6);
-			*/
-
-			Max2830_set_frequency((uint32_t) (freq*1e3));
-
-			//sprintf(buf, "\r\nFrequency: %12.6f MHz", Max2830_get_frequency()/1e6);
-			sprintf(buf, "\r\nFrequency: %u Hz", (unsigned int)Max2830_get_frequency());
-			Yellowstone_print(buf);
-
-			/*
-			sprintf(buf, "\r\nFrequency: %u Hz (R)", Max2830_get_frequency());
-			Yellowstone_print(buf);
-			*/
-
 			return 0;
 		}
 	}
 
 	// Send help message
-	Yellowstone_print("\nUsage: freq [<frequency value in kHz>]");
+	Yellowstone_print("\nUsage: freq [<frequency value in MHz>]");
 	return 1;
 }
 
@@ -1198,30 +1178,30 @@ uint32_t CmdPacketLength(uint32_t argc, char** argv)
 
 uint32_t CmdPacketRate(uint32_t argc, char** argv)
 {
-	uint32_t pkt_rate;
+	float pkt_rate;
 	char buf[64];
 
 	if (argc == 1)
 	{
-		sprintf(buf, "\r\nPacket rate: %3u", (int)packet_rate);
+		sprintf(buf, "\r\nPacket rate: %7.3f", packet_rate);
 		Yellowstone_print(buf);
 		return 0;
 	}
 
 	if (argc == 2)
 	{
-		pkt_rate = atoi(*(argv+1));
+		pkt_rate = atof(*(argv+1));
 		if (pkt_rate || !strcmp(*(argv+1), "0"))
 		{
 			packet_rate = pkt_rate;
 
-			sprintf(buf, "\r\nPacket rate: %3u", (int)packet_rate);
+			sprintf(buf, "\r\nPacket rate: %7.3f", packet_rate);
 			Yellowstone_print(buf);
 			return 0;
 		}
 	}
 
-	Yellowstone_print("\r\nUsage: pktrate [<packets per sec>]");
+	Yellowstone_print("\r\nUsage: pktrate [<packets per sec>] - NOT IMPLEMENTED YET");
 	return 1;
 }
 

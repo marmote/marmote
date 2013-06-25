@@ -46,7 +46,7 @@ typedef struct
 uint8_t node_rev;
 uint8_t node_id;
 
-extern uint8_t packet_rate;
+extern float packet_rate;
 
 
 #define MSS_GPIO_TX_DONE_IRQn  		GPIO8_IRQn
