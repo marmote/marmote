@@ -10,13 +10,13 @@
 
 CMD_Type CMD_List[] =
 {
-	{"help", CmdHelp},
-	{"status", CmdStatus},
-	{"led",  CmdLed},
-//	{"sleep", CmdSleep},
-	{"clk",  CmdClock},
-	{"afe",  CmdAfe},
-	{"iqo",  CmdIQOffset},
+	{"help", 	CmdHelp},
+	{"status", 	CmdStatus},
+	{"led",  	CmdLed},
+//	{"sleep",	 CmdSleep},
+	{"clk",  	CmdClock},
+	{"afe",  	CmdAfe},
+	{"iqo",  	CmdIQOffset},
 
 //	{"fpga", CmdFpga},
 
@@ -34,12 +34,12 @@ CMD_Type CMD_List[] =
 	{"pa",     	CmdPa},
 	//{"cal",  CmdCal},
 
-	{"iq",   CmdIQ},
-	{"mux1",  CmdMux1},
-	{"mux2",  CmdMux2},
+	{"iq",   	CmdIQ},
+	{"mux1",  	CmdMux1},
+	{"mux2",  	CmdMux2},
 
 	{"modmux",  CmdModMux},
-	{NULL,   NULL}
+	{NULL,   	NULL}
 };
 
 

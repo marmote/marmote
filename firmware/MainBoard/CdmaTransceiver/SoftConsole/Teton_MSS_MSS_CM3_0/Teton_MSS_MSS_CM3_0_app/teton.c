@@ -62,19 +62,26 @@ void GPIO10_IRQHandler(void)
 }
 
 
-void send_packet(const packet_t* pkt)
+void send_packet(const packet_t* pkt, uint8_t pay_len)
 {
 	uint8_t i;
 
 	set_mode(RADIO_TX_MODE);
 
-	if (pkt->length > 0)
+	if (pay_len > 0 && pay_len < MAX_PAYLOAD_LEN)
 	{
-		TX_CTRL->TX_FIFO = pkt->length;
-		for (i = 0 ; i < pkt->length ; i++)
+		TX_CTRL->TX_FIFO = pkt->src_addr;
+		TX_CTRL->TX_FIFO = pkt->seq_num[0];
+		TX_CTRL->TX_FIFO = pkt->seq_num[1];
+
+		for (i = 0; i < pay_len; i++)
 		{
+//			TX_CTRL->TX_FIFO = *((const char*)pkt + i);
 			TX_CTRL->TX_FIFO = pkt->payload[i];
 		}
+		TX_CTRL->TX_FIFO = pkt->crc_16[0];
+		TX_CTRL->TX_FIFO = pkt->crc_16[1];
+
 		TX_CTRL->CTRL = 0x01; // start
 	}
 }
@@ -152,15 +159,15 @@ uint16_t crc_16(const uint8_t data[], uint8_t length)
     return crc;
 }
 
-uint16_t check_crc(const packet_t* pkt)
+uint16_t check_crc(const packet_t* pkt, uint8_t pkt_len)
 {
-	return (crc_16(pkt->payload, pkt->length-2) == (pkt->crc[0] << 8) + pkt->crc[1]);
+	return (crc_16((const uint8_t*)pkt, pkt_len-2) == (pkt->crc_16[0] << 8) + pkt->crc_16[1]);
 }
 
-void set_packet_crc(packet_t* pkt)
+void set_packet_crc(packet_t* pkt, uint8_t pkt_len)
 {
 	uint16_t crc;
-	crc = crc_16(pkt->payload, pkt->length-2);
-	pkt->crc[0] = crc >> 8;
-	pkt->crc[1] = crc & 0xFF;
+	crc = crc_16((const uint8_t*)pkt, pkt_len-2);
+	pkt->crc_16[0] = crc >> 8;
+	pkt->crc_16[1] = crc & 0xFF;
 }

@@ -178,29 +178,25 @@ void process_spi_cmd_buf(const char* cmd_buf, uint8_t length)
 	spi_cmd_length = 0;
 }
 
-static uint8_t ctr;
-static uint8_t i;
+static uint8_t seq_num;
+const static uint8_t pkt_len = 7;
 
 void Timer1_IRQHandler(void)
 {
-//	set_mode(RADIO_TX_MODE);
-//
-//	TX_CTRL->TX_FIFO = node_id;
-//	for (i = 0 ; i < 6 ; i++)
-//	{
-//		TX_CTRL->TX_FIFO = 0xAA;
-//	}
-//	TX_CTRL->CTRL = 0x01; // start
-//	ctr++;
+	set_mode(RADIO_TX_MODE);
 
 	int i;
-	pkt.length = 6;
-	for (i = 0; i < 4; i++)
+	pkt.src_addr = node_id;
+	pkt.seq_num[0] = (seq_num >> 8) & 0xFF;
+	pkt.seq_num[1] = seq_num & 0xFF;
+	for (i = 0; i < pkt_len-5; i++)
 	{
 		pkt.payload[i] = 0xAA;
 	}
-	set_packet_crc(&pkt);
-	send_packet(&pkt);
+	set_packet_crc(&pkt, pkt_len);
+	send_packet(&pkt, pkt_len-5);
+
+	seq_num++;
 
 	MSS_TIM2_load_immediate(20e3);
 	MSS_GPIO_set_output( MSS_GPIO_LED1, 1 );
