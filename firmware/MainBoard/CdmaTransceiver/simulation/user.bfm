@@ -44,19 +44,20 @@ write w TX_APB_IF_0 TX_CTRL 0x00;
 write w TX_APB_IF_0 TX_SF 0x04;
 
 
-# PAYLOAD
-write w TX_APB_IF_0 TX_DATA 0x1A;
-write w TX_APB_IF_0 TX_DATA 0x1B;
-write w TX_APB_IF_0 TX_DATA 0x1C;
-write w TX_APB_IF_0 TX_DATA 0x1D;
-write w TX_APB_IF_0 TX_DATA 0x1E;
-write w TX_APB_IF_0 TX_DATA 0x1F;
-write w TX_APB_IF_0 TX_DATA 0x11;
-#write w TX_APB_IF_0 TX_DATA 0x2A;
+# Payload
+write w TX_APB_IF_0 TX_DATA 0x06;
+write w TX_APB_IF_0 TX_DATA 0x01;
+write w TX_APB_IF_0 TX_DATA 0x01;
+write w TX_APB_IF_0 TX_DATA 0x01;
+write w TX_APB_IF_0 TX_DATA 0x01;
+write w TX_APB_IF_0 TX_DATA 0xAA;
+write w TX_APB_IF_0 TX_DATA 0xBB;
 wait 100;
+
 # Start TX
 write w TX_APB_IF_0 TX_CTRL 0x01;
-
+wait 500;
+wait 500;
 wait 500;
 wait 500;
 wait 500;
@@ -66,15 +67,15 @@ wait 500;
 
 
 # PAYLOAD
-write w TX_APB_IF_0 TX_DATA 0x1A;
-write w TX_APB_IF_0 TX_DATA 0x1B;
-write w TX_APB_IF_0 TX_DATA 0x1C;
-write w TX_APB_IF_0 TX_DATA 0x1D;
-write w TX_APB_IF_0 TX_DATA 0x1E;
-write w TX_APB_IF_0 TX_DATA 0x1F;
-write w TX_APB_IF_0 TX_DATA 0x11;
-#write w TX_APB_IF_0 TX_DATA 0x2A;
+write w TX_APB_IF_0 TX_DATA 0x06;
+write w TX_APB_IF_0 TX_DATA 0x01;
+write w TX_APB_IF_0 TX_DATA 0x01;
+write w TX_APB_IF_0 TX_DATA 0x01;
+write w TX_APB_IF_0 TX_DATA 0x01;
+write w TX_APB_IF_0 TX_DATA 0xAA;
+write w TX_APB_IF_0 TX_DATA 0xBB;
 wait 100;
+
 # Spread factor
 write w TX_APB_IF_0 TX_SF 0x08;
 write w TX_APB_IF_0 TX_MASK 0x0446;
