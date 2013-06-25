@@ -32,10 +32,11 @@ namespace gr {
       bool d_debug;
       int d_id;
       uint8_t d_buf[1024];
+      const uint16_t d_polynomial;
 
-      uint16_t crc16(unsigned char *buf, int len);
+      uint16_t crc_16(const uint8_t data[], uint8_t length);
 
-     public:
+    public:
       cdma_packet_sink_impl(bool debug, int id);
       ~cdma_packet_sink_impl();
 

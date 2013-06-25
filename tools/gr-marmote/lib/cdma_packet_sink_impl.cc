@@ -41,7 +41,8 @@ namespace gr {
 		      gr_make_io_signature(0, 0, 0),
 		      gr_make_io_signature(0, 0, 0)),
         d_debug(debug),
-        d_id(id)
+        d_id(id),
+        d_polynomial(0x1021)
     {
       message_port_register_in(pmt::mp("in"));
       set_msg_handler(pmt::mp("in"), boost::bind(&cdma_packet_sink_impl::process_packet, this, _1));
@@ -61,9 +62,10 @@ namespace gr {
         {
           std::cout << "    #" << d_id << " <- ";
 
-          int k;
+          int k = 0;
           uint8_t octet = 0;
           uint8_t* payload = (uint8_t*)pmt::pmt_blob_data(pkt);
+          uint16_t crc;
 
           for (int i = 0; i < pmt::pmt_blob_length(pkt); i++)
           {
@@ -74,13 +76,10 @@ namespace gr {
               std::cout << std::setw(2) << std::setfill('0') << std::hex << (int)octet << std::dec << " ";
             }
           }
-          if (k <= 2)
+
+          if (k >= 3 && (crc_16(d_buf+1, k-3) != ((d_buf[k-2] << 8) + d_buf[k-1])))
           {
-            std::cout << "CRC16 missing (packet too short)";
-          }
-          else
-          {
-            std::cout << "CRC16: " << std::setw(4) << std::setfill('0') << std::hex << crc16(d_buf+1, k-3) << std::dec << " ";
+            std::cout << "#";
           }
           std::cout << std::endl;
 
@@ -110,22 +109,26 @@ namespace gr {
       }
     }
 
-    uint16_t cdma_packet_sink_impl::crc16(unsigned char *buf, int len)
+    uint16_t cdma_packet_sink_impl::crc_16(const uint8_t data[], uint8_t length)
     {
-      uint16_t crc = 0;
+      uint8_t bit;
+      uint8_t byte;
+      uint16_t crc;
 
-      for (int i = 0; i < len; i++)
+      crc = 0;
+      for (byte = 0; byte < length; ++byte)
       {
-        // std::cout << (int)buf[i] << std::endl;
-        for (int k = 0; k < 8; k++)
+        crc ^= (data[byte] << 8);
+
+        for (bit = 8; bit > 0; --bit)
         {
-          int input_bit = (!!(buf[i] & (1 << k)) ^ (crc & 1));
-          crc = crc >> 1;
-          if (input_bit)
+          if (crc & (1 << 15))
           {
-            crc ^= (1 << 15);
-            crc ^= (1 << 10);
-            crc ^= (1 <<  3);
+            crc = (crc << 1) ^ d_polynomial;
+          }
+          else
+          {
+            crc = (crc << 1);
           }
         }
       }
