@@ -34,6 +34,12 @@ namespace gr {
       uint8_t d_buf[1024];
       const uint16_t d_polynomial;
 
+      // Eval
+      bool d_first_pkt_found;
+      uint16_t d_start_seq;
+      int d_valid_pkt_ctr;
+      int d_total_pkt;
+
       uint16_t crc_16(const uint8_t data[], uint8_t length);
 
     public:
