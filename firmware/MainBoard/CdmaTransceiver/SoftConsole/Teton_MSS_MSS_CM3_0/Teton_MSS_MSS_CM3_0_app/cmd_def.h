@@ -67,6 +67,8 @@ uint32_t CmdPacketRate(uint32_t argc, char** argv);
 uint32_t CmdSpreadFactor(uint32_t argc, char** argv);
 uint32_t CmdPreambleLen(uint32_t argc, char** argv);
 
+uint32_t CmdStart(uint32_t argc, char** argv);
+uint32_t CmdStop(uint32_t argc, char** argv);
 
 
 #endif /* CMD_DEF_H_ */

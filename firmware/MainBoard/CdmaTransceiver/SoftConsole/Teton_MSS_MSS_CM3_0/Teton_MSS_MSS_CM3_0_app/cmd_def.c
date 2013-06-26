@@ -10,12 +10,11 @@
 CMD_Type CMD_List[] =
 {
 	{"help", 	CmdHelp},
-	{"status", 	CmdStatus},
-	{"led",  	CmdLed},
+//	{"led",  	CmdLed},
 //	{"sleep",	 CmdSleep},
-	{"clk",  	CmdClock},
-	{"afe",  	CmdAfe},
-	{"iqo",  	CmdIQOffset},
+//	{"clk",  	CmdClock},
+//	{"afe",  	CmdAfe},
+//	{"iqo",  	CmdIQOffset},
 
 //	{"fpga", CmdFpga},
 
@@ -40,10 +39,16 @@ CMD_Type CMD_List[] =
 	{"modmux",  CmdModMux},
 
 	// CDMA measurement
-	{"pktlen",  CmdPacketLength},
-	{"pktrate", CmdPacketRate},
+	{"stat", 	CmdStatus},
+
+	{"len",  	CmdPacketLength},
+	{"rate", 	CmdPacketRate},
 	{"sf", 		CmdSpreadFactor},
-	{"prelen", 	CmdPreambleLen},
+	{"len", 	CmdPreambleLen},
+
+	{"start", 	CmdStart},
+	{"stop", 	CmdStop},
+
 	{NULL,   	NULL}
 };
 
@@ -75,14 +80,19 @@ uint32_t CmdStatus(uint32_t argc, char** argv)
 {
 	char buf[64];
 
-	sprintf(buf, "\nMarmotE Main Board (Teton) Rev %c Node %d\r\n", node_rev, node_id);
+	sprintf(buf, "\r\nMarmotE Main Board (Teton) Rev %c Node %d", node_rev, node_id);
 	Yellowstone_print(buf);
-
-	sprintf(buf, "MASK:    0x%X\r\nSF:      %d\r\n", (int)TX_CTRL->MASK, (int)TX_CTRL->SF);
+	sprintf(buf, "\r\nMASK:         0x%X", (int)TX_CTRL->MASK);
 	Yellowstone_print(buf);
-	sprintf(buf, "PRELEN:  %u\r\nPKTLEN:  %d\r\n", (int)TX_CTRL->PRE_LEN, (int)TX_CTRL->PAY_LEN);
+	sprintf(buf, "\r\nSF:           %d", (int)TX_CTRL->SF);
 	Yellowstone_print(buf);
-	sprintf(buf, "PKTRATE: %7.3f\r\n", packet_rate);
+	sprintf(buf, "\r\nPREAMBLE LEN: %u", (int)TX_CTRL->PRE_LEN);
+	Yellowstone_print(buf);
+	sprintf(buf, "\r\nPACKET LEN:   %d", (int)TX_CTRL->PAY_LEN);
+	Yellowstone_print(buf);
+	sprintf(buf, "\r\nPACKET RATE:  %d", (int)packet_rate);
+	Yellowstone_print(buf);
+	sprintf(buf, "\r\nPACKET TIME:  %d us", ((int)TX_CTRL->PRE_LEN + (int)TX_CTRL->PAY_LEN) * 8 * (int)TX_CTRL->SF / 2); // T_CHIP = 500 ns <-> /2
 	Yellowstone_print(buf);
 
 	return 0;
@@ -1150,7 +1160,8 @@ uint32_t CmdModMux(uint32_t argc, char** argv)
 uint32_t CmdPacketLength(uint32_t argc, char** argv)
 {
 	uint32_t pkt_len;
-	char buf[64];
+	uint32_t pkt_time;
+	char buf[128];
 
 	if (argc == 1)
 	{
@@ -1166,6 +1177,11 @@ uint32_t CmdPacketLength(uint32_t argc, char** argv)
 		{
 			TX_CTRL->PAY_LEN = pkt_len & 0xFF;
 
+			if (packet_rate < (pkt_time = ((int)TX_CTRL->PRE_LEN + (int)TX_CTRL->PAY_LEN) * 8 * (int)TX_CTRL->SF / 2))
+			{
+				sprintf(buf, "\r\nWARNING: Packet rate (%d us) is smaller than message length (%d us)", (int)packet_rate, (int)pkt_time);
+				Yellowstone_print(buf);
+			}
 			sprintf(buf, "\r\nPacket length: %3u", (int)(TX_CTRL->PAY_LEN & 0xFF));
 			Yellowstone_print(buf);
 			return 0;
@@ -1178,24 +1194,35 @@ uint32_t CmdPacketLength(uint32_t argc, char** argv)
 
 uint32_t CmdPacketRate(uint32_t argc, char** argv)
 {
-	float pkt_rate;
-	char buf[64];
+	uint32_t pkt_rate;
+	uint32_t pkt_time;
+	char buf[128];
 
 	if (argc == 1)
 	{
-		sprintf(buf, "\r\nPacket rate: %7.3f", packet_rate);
+		sprintf(buf, "\r\nPacket rate: %d us", (int)packet_rate);
 		Yellowstone_print(buf);
 		return 0;
 	}
 
 	if (argc == 2)
 	{
-		pkt_rate = atof(*(argv+1));
+		pkt_rate = atoi(*(argv+1));
 		if (pkt_rate || !strcmp(*(argv+1), "0"))
 		{
-			packet_rate = pkt_rate;
+			if (pkt_rate < (pkt_time = ((int)TX_CTRL->PRE_LEN + (int)TX_CTRL->PAY_LEN) * 8 * (int)TX_CTRL->SF / 2))
+			{
+				sprintf(buf, "\r\nWARNING: Packet rate (%d us) is smaller than message length (%d us)", (int)pkt_rate, (int)pkt_time);
+				Yellowstone_print(buf);
+				sprintf(buf, "\r\nPacket rate: %d us", (int)packet_rate);
+				Yellowstone_print(buf);
+				return 1;
+			}
 
-			sprintf(buf, "\r\nPacket rate: %7.3f", packet_rate);
+			packet_rate = pkt_rate;
+			MSS_TIM1_load_background(packet_rate * MICRO_SEC_DIV);
+
+			sprintf(buf, "\r\nPacket rate: %d us", (int)packet_rate);
 			Yellowstone_print(buf);
 			return 0;
 		}
@@ -1208,7 +1235,8 @@ uint32_t CmdPacketRate(uint32_t argc, char** argv)
 uint32_t CmdSpreadFactor(uint32_t argc, char** argv)
 {
 	uint32_t spread_factor;
-	char buf[64];
+	uint32_t pkt_time;
+	char buf[128];
 
 	if (argc == 1)
 	{
@@ -1224,6 +1252,12 @@ uint32_t CmdSpreadFactor(uint32_t argc, char** argv)
 		{
 			TX_CTRL->SF = spread_factor & 0xFF;
 
+			if (packet_rate < (pkt_time = ((int)TX_CTRL->PRE_LEN + (int)TX_CTRL->PAY_LEN) * 8 * (int)TX_CTRL->SF / 2))
+			{
+				sprintf(buf, "\r\nWARNING: Packet rate (%d us) is smaller than message length (%d us)", (int)packet_rate, (int)pkt_time);
+				Yellowstone_print(buf);
+			}
+
 			sprintf(buf, "\r\nSpread factor: %3u", (int)(TX_CTRL->SF & 0xFF));
 			Yellowstone_print(buf);
 			return 0;
@@ -1237,7 +1271,8 @@ uint32_t CmdSpreadFactor(uint32_t argc, char** argv)
 uint32_t CmdPreambleLen(uint32_t argc, char** argv)
 {
 	uint32_t preamble_length;
-	char buf[64];
+	uint32_t pkt_time;
+	char buf[128];
 
 	if (argc == 1)
 	{
@@ -1253,6 +1288,12 @@ uint32_t CmdPreambleLen(uint32_t argc, char** argv)
 		{
 			TX_CTRL->PRE_LEN = preamble_length & 0xFF;
 
+			if (packet_rate < (pkt_time = ((int)TX_CTRL->PRE_LEN + (int)TX_CTRL->PAY_LEN) * 8 * (int)TX_CTRL->SF / 2))
+			{
+				sprintf(buf, "\r\nWARNING: Packet rate (%d us) is smaller than message length (%d us)", (int)packet_rate, (int)pkt_time);
+				Yellowstone_print(buf);
+			}
+
 			sprintf(buf, "\r\nPreamble length: %3u", (int)(TX_CTRL->PRE_LEN & 0xFF));
 			Yellowstone_print(buf);
 			return 0;
@@ -1260,5 +1301,33 @@ uint32_t CmdPreambleLen(uint32_t argc, char** argv)
 	}
 
 	Yellowstone_print("\r\nUsage: prelen [<new preamble_length>]");
+	return 1;
+}
+
+uint32_t CmdStart(uint32_t argc, char** argv)
+{
+	if (argc == 1)
+	{
+		MSS_TIM1_start();
+		set_mode(RADIO_TX_MODE);
+		Yellowstone_print("\r\nTx STARTED");
+		return 0;
+	}
+
+	Yellowstone_print("\r\nUsage: start");
+	return 1;
+}
+
+uint32_t CmdStop(uint32_t argc, char** argv)
+{
+	if (argc == 1)
+	{
+		MSS_TIM1_stop();
+		set_mode(RADIO_STANDBY_MODE);
+		Yellowstone_print("\r\nTx STOPPED");
+		return 0;
+	}
+
+	Yellowstone_print("\r\nUsage: stop");
 	return 1;
 }
