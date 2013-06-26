@@ -1,6 +1,6 @@
 #include "teton.h"
 
-float packet_rate = 40; // FIXME
+uint32_t packet_rate = 10000; // us
 
 void Teton_init(void)
 {
@@ -40,6 +40,9 @@ void Teton_init(void)
 	TX_CTRL->SF = 8;
 	TX_CTRL->PRE_LEN = 2;
 	TX_CTRL->PAY_LEN = 7;
+
+	// Payload
+	lfsr_int(polynomial_masks[node_id], 0x01);
 }
 
 // TX DONE
@@ -63,11 +66,33 @@ void GPIO10_IRQHandler(void)
 	MSS_GPIO_clear_irq( MSS_GPIO_RX_DONE_IT );
 }
 
+
+uint8_t lfsr_rand(void)
+{
+	if (s_lfsr_state & 0x0001)
+	{
+		s_lfsr_state >>= 1;
+		s_lfsr_state ^= s_lfsr_mask;
+	}
+	else
+	{
+		s_lfsr_state >>= 1;
+	}
+	return s_lfsr_state & 0xFF;
+}
+
+void lfsr_int(uint32_t mask, uint32_t seed)
+{
+	s_lfsr_state = seed;
+	s_lfsr_mask = mask;
+}
+
+
 void send_packet(const packet_t* pkt, uint8_t pay_len)
 {
 	uint8_t i;
 
-	set_mode(RADIO_TX_MODE);
+//	set_mode(RADIO_TX_MODE);
 
 	if (pay_len > 0 && pay_len < MAX_PAYLOAD_LEN)
 	{
@@ -90,6 +115,10 @@ void set_mode(radio_operating_mode_t mode)
 {
 	switch (mode)
 	{
+		case RADIO_STANDBY_MODE:
+			Max2830_set_mode(RADIO_STANDBY_MODE);
+			break;
+
 		case RADIO_RX_MODE:
 			Max2830_set_mode(RADIO_RX_MODE);
 			MSS_GPIO_set_output(MSS_GPIO_AFE1_MODE, AFE_RX_MODE);

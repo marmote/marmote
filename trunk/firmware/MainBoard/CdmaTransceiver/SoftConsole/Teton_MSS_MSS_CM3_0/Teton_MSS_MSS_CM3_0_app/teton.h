@@ -46,7 +46,10 @@ typedef struct
 uint8_t node_rev;
 uint8_t node_id;
 
-extern float packet_rate;
+extern uint32_t packet_rate;
+
+#define MICRO_SEC_DIV 20
+#define MILLI_SEC_DIV (1000 * MICRO_SEC_DIV)
 
 
 #define MSS_GPIO_TX_DONE_IRQn  		GPIO8_IRQn
@@ -94,6 +97,10 @@ static int polynomial_masks[] =
 	0x785,	 // [11 10 9 8 3 1 0]
 };
 
+static uint32_t s_lfsr_state = 1;
+static uint32_t s_lfsr_mask;
+uint8_t lfsr_rand(void);
+void lfsr_int(uint32_t mask, uint32_t seed);
 
 typedef struct
 {

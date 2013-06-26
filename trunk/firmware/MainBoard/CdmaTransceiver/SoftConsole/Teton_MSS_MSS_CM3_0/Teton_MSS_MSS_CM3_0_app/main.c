@@ -20,42 +20,33 @@ CMD_Type* 	cmd_list_ptr;
 char* 		arg_list[10];
 uint32_t 	argc;
 
+
+static uint8_t seq_num;
+
 void process_spi_cmd_buf(const char* cmd_buf, uint8_t length);
 
 int main()
 {
-	char buf[128];
-	char rx_buf[128];
-	uint8_t rx_ctr;
-
 	MSS_GPIO_init();
 	Yellowstone_init();
 	Max19706_init(MSS_SPI_SLAVE_1);
 	Joshua_init();
 	Teton_init();
 
-	MSS_GPIO_set_output(MSS_GPIO_LED1, 0);
-
 	Max2830_set_frequency(2405000000uL);
-
-	set_mode(RADIO_RX_MODE);
-//	BB_CTRL->MUX2 = MUX_PATH_RX;
+	Max2830_set_tx_gain(15);
 
 	set_mode(RADIO_TX_MODE);
-	Max2830_set_tx_gain(15);
 	BB_CTRL->MUX1 = MUX_PATH_TX;
 	BB_CTRL->MUX2 = MUX_PATH_TX;
 
 	MSS_TIM1_init(MSS_TIMER_PERIODIC_MODE);
-	MSS_TIM1_load_background(2e6); // 0.1 s
 	MSS_TIM1_enable_irq();
-	MSS_TIM1_start();
+	MSS_TIM2_init(MSS_TIMER_ONE_SHOT_MODE);
 	MSS_TIM2_enable_irq();
 
-//	MSS_TIM1_init(MSS_TIMER_ONE_SHOT_MODE);
-//	MSS_TIM1_enable_irq();
-//	MSS_TIM2_init(MSS_TIMER_ONE_SHOT_MODE);
-//	MSS_TIM2_enable_irq();
+	MSS_TIM1_load_background(packet_rate * MICRO_SEC_DIV);
+	MSS_TIM1_start();
 
 	while( 1 )
 	{
@@ -65,67 +56,60 @@ int main()
 			spi_cmd_length = 0;
 		}
 
-//		if (tx_done_it_flag)
-//		{
-//			set_mode(RADIO_RX_MODE);
-//			MSS_GPIO_set_output( MSS_GPIO_LED1, 0 );
-//		}
+		if (tx_done_it_flag)
+		{
+			tx_done_it_flag = 0;
+		}
 
 		if (sfd_it_flag)
 		{
-//			MSS_TIM2_load_immediate(10e6);
-//			MSS_GPIO_set_output( MSS_GPIO_LED1, 1 );
-//			MSS_TIM2_start();
 			sfd_it_flag = 0;
 		}
 
 		if (rx_done_it_flag)
 		{
 			rx_done_it_flag = 0;
-//			rx_ctr = 0;
-//
-//			// Read FIFO
-//			Yellowstone_print(".");
-//			while ((RX_CTRL->CTRL & RX_FIFO_EMPTY_BIT_MASK) == 0)
-//			{
-//				rx_buf[rx_ctr] = RX_CTRL->RX_FIFO;
-//				rx_ctr++;
-//			}
-//
-//			int i;
-//			pkt.length = 6;
-//			for (i = 0; i < 4; i++)
-//			{
-//				pkt.payload[i] = rx_buf[0];
-//			}
-//			set_packet_crc(&pkt);
-//
-////			send_packet(&pkt);
-//
-//			// Set up delayed send
-//			MSS_TIM1_load_immediate(node_id * 10e3);
-//			MSS_TIM1_start();
-//
-////			MSS_TIM2_load_immediate(4e3);
-////			MSS_GPIO_set_output( MSS_GPIO_LED1, 1 );
-////			MSS_TIM2_start();
-//
-////			if (rx_ctr != 4)
-////			{
-////				sprintf(buf, "ERROR: RX CTR = %02X\\r\n", (unsigned)rx_ctr);
-////				Yellowstone_print(buf);
-////			}
-////
-////			// Print message content
-////			for (rx_ctr = 0; rx_ctr < payload_length; rx_ctr++)
-////			{
-////				sprintf(buf, "%02X ", (unsigned)rx_buf[rx_ctr]);
-////				Yellowstone_print(buf);
-////			}
-
-
 		}
 	}
+}
+
+
+void Timer1_IRQHandler(void)
+{
+	// FIXME: Reduce the length of this time critical section
+	int i;
+
+	uint8_t pkt_len = TX_CTRL->PAY_LEN;
+
+	// Prepare packet
+	pkt.src_addr = node_id;
+	pkt.seq_num[0] = (seq_num >> 8) & 0xFF;
+	pkt.seq_num[1] = seq_num & 0xFF;
+	for (i = 0; i < pkt_len-5; i++)
+	{
+		pkt.payload[i] = lfsr_rand();
+	}
+	set_packet_crc(&pkt, pkt_len);
+	send_packet(&pkt, pkt_len-5);
+
+	seq_num++;
+
+//	TX_CTRL->CTRL = 0x01; // Start
+
+	// Turn on LED
+	MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
+	MSS_TIM2_load_immediate(1e3 * MICRO_SEC_DIV);
+	MSS_TIM2_start();
+
+	MSS_TIM1_clear_irq();
+}
+
+
+void Timer2_IRQHandler(void)
+{
+	// Turn off LED
+	MSS_GPIO_set_output( MSS_GPIO_LED1, 0 );
+	MSS_TIM2_clear_irq();
 }
 
 
@@ -175,42 +159,4 @@ void process_spi_cmd_buf(const char* cmd_buf, uint8_t length)
 
 	// Clean up states
 	spi_cmd_length = 0;
-}
-
-static uint8_t seq_num;
-//static const uint8_t pkt_len = 9;
-
-void Timer1_IRQHandler(void)
-{
-	int i;
-
-	uint8_t pkt_len = TX_CTRL->PAY_LEN;
-	set_mode(RADIO_TX_MODE);
-
-	// Prepare packet
-	pkt.src_addr = node_id;
-	pkt.seq_num[0] = (seq_num >> 8) & 0xFF;
-	pkt.seq_num[1] = seq_num & 0xFF;
-	for (i = 0; i < pkt_len-5; i++)
-	{
-		pkt.payload[i] = rand() && 0xFF;
-	}
-	set_packet_crc(&pkt, pkt_len);
-	send_packet(&pkt, pkt_len-5);
-
-	seq_num++;
-
-	// Turn on LED
-	MSS_TIM2_load_immediate(20e3);
-	MSS_GPIO_set_output( MSS_GPIO_LED1, 1 );
-	MSS_TIM2_start();
-
-	MSS_TIM1_clear_irq();
-}
-
-void Timer2_IRQHandler(void)
-{
-	// Turn off LED
-	MSS_GPIO_set_output( MSS_GPIO_LED1, 0 );
-	MSS_TIM2_clear_irq();
 }
