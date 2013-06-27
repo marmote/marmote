@@ -8,9 +8,8 @@
 
 #include "cmd_def.h"
 
-//static const int payload_length = 4;
-
 static packet_t pkt;
+static uint16_t seq_num;
 
 extern uint8_t spi_cmd_buf[];
 extern uint8_t spi_cmd_length;
@@ -19,9 +18,6 @@ char* 		cmd_token;
 CMD_Type* 	cmd_list_ptr;
 char* 		arg_list[10];
 uint32_t 	argc;
-
-
-static uint8_t seq_num;
 
 void process_spi_cmd_buf(const char* cmd_buf, uint8_t length);
 
@@ -59,6 +55,8 @@ int main()
 		if (tx_done_it_flag)
 		{
 			tx_done_it_flag = 0;
+			int32_t jitter = ((int8_t)lfsr_rand()) * packet_var;
+			MSS_TIM1_load_background((uint32_t)((int32_t)packet_rate + jitter) * MICRO_SEC_DIV);
 		}
 
 		if (sfd_it_flag)
@@ -77,9 +75,8 @@ int main()
 void Timer1_IRQHandler(void)
 {
 	// FIXME: Reduce the length of this time critical section
-	int i;
-
 	uint8_t pkt_len = TX_CTRL->PAY_LEN;
+	int i;
 
 	// Prepare packet
 	pkt.src_addr = node_id;
@@ -98,7 +95,7 @@ void Timer1_IRQHandler(void)
 
 	// Turn on LED
 	MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
-	MSS_TIM2_load_immediate(1e3 * MICRO_SEC_DIV);
+	MSS_TIM2_load_immediate(1e2 * MICRO_SEC_DIV);
 	MSS_TIM2_start();
 
 	MSS_TIM1_clear_irq();
