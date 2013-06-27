@@ -14,7 +14,10 @@
 
 #include <string.h>
 #include "joshua.h"
+#include "yellowstone.h"
 #include "max19706.h"
+
+#include "cmd_def.h"
 
 
 #define MSS_GPIO_LED1 				MSS_GPIO_0
@@ -177,5 +180,7 @@ radio_operating_mode_t get_mode();
 uint16_t crc_16(const uint8_t data[], uint8_t length);
 uint16_t check_crc(const packet_t* pkt, uint8_t pkt_len);
 void set_packet_crc(packet_t* pkt, uint8_t pkt_len);
+
+void process_spi_cmd_buf(const char* cmd_buf, uint8_t length);
 
 #endif /* TETON_H_ */

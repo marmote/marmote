@@ -200,3 +200,58 @@ void set_packet_crc(packet_t* pkt, uint8_t pkt_len)
 	pkt->crc_16[0] = crc >> 8;
 	pkt->crc_16[1] = crc & 0xFF;
 }
+
+
+
+char* 		cmd_token;
+CMD_Type* 	cmd_list_ptr;
+char* 		arg_list[10];
+uint32_t 	argc;
+
+void process_spi_cmd_buf(const char* cmd_buf, uint8_t length)
+{
+	uint8_t parse_result = 1;
+
+	// Tokenize RX buffer content
+	cmd_token = strtok((char *)cmd_buf, " ");
+	if (cmd_token != NULL)
+	{
+		cmd_list_ptr = CMD_List;
+		while (cmd_list_ptr->CmdString)
+	    {
+	        if (!strcmp(cmd_token, (const char*)cmd_list_ptr->CmdString))
+	        {
+				// Set the argList pointers to tokens
+	            argc = 0;
+
+	            while ( cmd_token != NULL && argc < 10 )
+	            {
+	                arg_list[argc++] = cmd_token;
+	                cmd_token = strtok(NULL, " ");
+	            }
+
+				Yellowstone_write("\nACK", 5);
+
+				// Invoke associated command function
+		        cmd_list_ptr->CmdFunction(argc, arg_list);
+
+				parse_result = 0;
+	            break;
+	        }
+
+			cmd_list_ptr++;
+	    }
+	}
+
+	// Send NAK if no valid command identified
+	if (parse_result == 1)
+	{
+		Yellowstone_write("\nNAK>", 5);
+	}
+
+	// Send '>' prompt
+	Yellowstone_write("\nT>", 3);
+
+	// Clean up states
+	spi_cmd_length = 0;
+}
