@@ -47,6 +47,7 @@ uint8_t node_rev;
 uint8_t node_id;
 
 extern uint32_t packet_rate;
+extern float packet_var;
 
 #define MICRO_SEC_DIV 20
 #define MILLI_SEC_DIV (1000 * MICRO_SEC_DIV)

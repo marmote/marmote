@@ -7,6 +7,8 @@
 
 #include "cmd_def.h"
 
+static float pkt_var = 0.0;
+
 CMD_Type CMD_List[] =
 {
 	{"help", 	CmdHelp},
@@ -43,6 +45,7 @@ CMD_Type CMD_List[] =
 
 	{"len",  	CmdPacketLength},
 	{"rate", 	CmdPacketRate},
+	{"var", 	CmdPacketVar},
 	{"sf", 		CmdSpreadFactor},
 	{"len", 	CmdPreambleLen},
 
@@ -86,13 +89,15 @@ uint32_t CmdStatus(uint32_t argc, char** argv)
 	Yellowstone_print(buf);
 	sprintf(buf, "\r\nSF:           %d", (int)TX_CTRL->SF);
 	Yellowstone_print(buf);
-	sprintf(buf, "\r\nPREAMBLE LEN: %u", (int)TX_CTRL->PRE_LEN);
+	sprintf(buf, "\r\nPreamble len: %u", (int)TX_CTRL->PRE_LEN);
 	Yellowstone_print(buf);
-	sprintf(buf, "\r\nPACKET LEN:   %d", (int)TX_CTRL->PAY_LEN);
+	sprintf(buf, "\r\nPacket len:   %d", (int)TX_CTRL->PAY_LEN);
 	Yellowstone_print(buf);
-	sprintf(buf, "\r\nPACKET RATE:  %d", (int)packet_rate);
+	sprintf(buf, "\r\nPacket rate:  %d", (int)packet_rate);
 	Yellowstone_print(buf);
-	sprintf(buf, "\r\nPACKET TIME:  %d us", ((int)TX_CTRL->PRE_LEN + (int)TX_CTRL->PAY_LEN) * 8 * (int)TX_CTRL->SF / 2); // T_CHIP = 500 ns <-> /2
+	sprintf(buf, "\r\nPacket var:   %5.2f %%", pkt_var);
+	Yellowstone_print(buf);
+	sprintf(buf, "\r\nPacket time:  %d us", ((int)TX_CTRL->PRE_LEN + (int)TX_CTRL->PAY_LEN) * 8 * (int)TX_CTRL->SF / 2); // T_CHIP = 500 ns <-> /2
 	Yellowstone_print(buf);
 
 	return 0;
@@ -1188,7 +1193,7 @@ uint32_t CmdPacketLength(uint32_t argc, char** argv)
 		}
 	}
 
-	Yellowstone_print("\r\nUsage: pktlen [<new packet length>]");
+	Yellowstone_print("\r\nUsage: len [<new packet length>]");
 	return 1;
 }
 
@@ -1220,7 +1225,9 @@ uint32_t CmdPacketRate(uint32_t argc, char** argv)
 			}
 
 			packet_rate = pkt_rate;
-			MSS_TIM1_load_background(packet_rate * MICRO_SEC_DIV);
+			packet_var = packet_rate * pkt_var / 100 / 128;
+
+//			MSS_TIM1_load_background(packet_rate * MICRO_SEC_DIV);
 
 			sprintf(buf, "\r\nPacket rate: %d us", (int)packet_rate);
 			Yellowstone_print(buf);
@@ -1228,7 +1235,47 @@ uint32_t CmdPacketRate(uint32_t argc, char** argv)
 		}
 	}
 
-	Yellowstone_print("\r\nUsage: pktrate [<packets per sec>] - NOT IMPLEMENTED YET");
+	Yellowstone_print("\r\nUsage: rate [<packets interval in us>]");
+	return 1;
+}
+
+
+uint32_t CmdPacketVar(uint32_t argc, char** argv)
+{
+	uint32_t pkt_time;
+	char buf[128];
+
+	if (argc == 1)
+	{
+		sprintf(buf, "\r\nPacket var: %5.2f %%", pkt_var);
+		Yellowstone_print(buf);
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		pkt_var = atof(*(argv+1));
+		if (pkt_var || !strcmp(*(argv+1), "0"))
+		{
+			if ( (packet_rate * (1.0 + pkt_var)) < (pkt_time = ((int)TX_CTRL->PRE_LEN + (int)TX_CTRL->PAY_LEN) * 8 * (int)TX_CTRL->SF / 2))
+			{
+				sprintf(buf, "\r\nWARNING: Packet rate (%d us) is smaller than message length (%d us)", (int)packet_rate, (int)pkt_time);
+				Yellowstone_print(buf);
+				sprintf(buf, "\r\nPacket var: %5.2f %%", pkt_var);
+				Yellowstone_print(buf);
+				return 1;
+			}
+
+			packet_var = packet_rate * pkt_var / 100 / 128;
+//			MSS_TIM1_load_background(packet_rate * MICRO_SEC_DIV);
+
+			sprintf(buf, "\r\nPacket var: %5.2f %%", pkt_var);
+			Yellowstone_print(buf);
+			return 0;
+		}
+	}
+
+	Yellowstone_print("\r\nUsage: var [<packet rate variance in %>]");
 	return 1;
 }
 

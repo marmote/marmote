@@ -1,6 +1,7 @@
 #include "teton.h"
 
 uint32_t packet_rate = 10000; // us
+float packet_var = 0;
 
 void Teton_init(void)
 {
@@ -39,7 +40,7 @@ void Teton_init(void)
 	TX_CTRL->MASK = polynomial_masks[node_id];
 	TX_CTRL->SF = 8;
 	TX_CTRL->PRE_LEN = 2;
-	TX_CTRL->PAY_LEN = 7;
+	TX_CTRL->PAY_LEN = 8;
 
 	// Payload
 	lfsr_int(polynomial_masks[node_id], 0x01);
@@ -99,7 +100,6 @@ void send_packet(const packet_t* pkt, uint8_t pay_len)
 		TX_CTRL->TX_FIFO = pkt->src_addr;
 		TX_CTRL->TX_FIFO = pkt->seq_num[0];
 		TX_CTRL->TX_FIFO = pkt->seq_num[1];
-
 		for (i = 0; i < pay_len; i++)
 		{
 			TX_CTRL->TX_FIFO = pkt->payload[i];
