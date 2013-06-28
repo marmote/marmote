@@ -54,7 +54,6 @@ namespace gr {
         bool d_debug;
         int d_sample_offset; // for oversampling
 
-
         void enter_idle();
         void enter_locked();
 

@@ -119,6 +119,13 @@ namespace gr {
             // std::cout << " [" << d_tags.size() << "]" << std::endl;
             // consume_each(nprocd);
             // return nprocd;
+
+            // for (int i = 0; i < ninput; i++)
+            // {
+            //     out[i].real(abs(in[i]));
+            //     out[i].imag(arg(in[i]));
+            // }
+
             if (d_debug)
                 std::cout << "Despreading..." << " [" << ninput << " chips] " << std::endl;
 
@@ -165,8 +172,7 @@ namespace gr {
                         {
                             float pn = (d_lfsr->get_next_bit() ? -1.0 : 1.0);
 
-                            d_chip_sum.real(d_chip_sum.real() + in[nprocd].real() * pn);
-                            d_chip_sum.imag(d_chip_sum.imag() + in[nprocd].imag() * pn);
+                            d_chip_sum += in[nprocd] * pn;
                             d_chip_ctr++;
 
                             if (d_chip_ctr == d_spread_factor)
@@ -175,6 +181,12 @@ namespace gr {
                                 d_chip_sum = 0;
                                 d_chip_ctr = 0;
                             }
+
+                            // out[nprocd].real(4.0);
+                            // if (nprocd > ninput - d_oversample_factor)
+                            // {
+                            //     out[nprocd].real(8.0);
+                            // }
 
                             nprocd += d_oversample_factor;
                         }
@@ -240,7 +252,8 @@ namespace gr {
                         {
                             float pn = (d_lfsr->get_next_bit() ? -1.0 : 1.0);
 
-                            d_chip_sum += *(in + nprocd) * pn;
+                            // d_chip_sum += *(in + nprocd) * pn;
+                            d_chip_sum += in[nprocd] * pn;
                             d_chip_ctr++;
 
                             if (d_chip_ctr == d_spread_factor)
@@ -250,6 +263,12 @@ namespace gr {
                                 d_chip_sum = gr_complex(0, 0);
                                 d_chip_ctr = 0;
                             }
+
+                            // out[nprocd].real(-4.0);
+                            // if (nprocd > ninput - d_oversample_factor)
+                            // {
+                            //     out[nprocd].real(-8.0);
+                            // }
 
                             nprocd += d_oversample_factor;
                         }

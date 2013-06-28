@@ -61,9 +61,10 @@ namespace gr {
 			{
 				// std::cout << "Processing packet..." << " [" << (int)(pmt::pmt_blob_length(pkt)) << " bits]" << std::endl;
 
-				if (d_debug)
+				// if (d_debug)
 				{
-					std::cout << "    #" << d_id << " <- ";
+                    if (d_debug)
+    					std::cout << "    #" << d_id << " <- ";
 
 					int k = 0;
 					uint8_t octet = 0;
@@ -77,14 +78,16 @@ namespace gr {
 						if (i % 8 == 7)
 						{
 							d_buf[k++] = octet;
-							std::cout << std::setw(2) << std::setfill('0') << std::hex << (int)octet << std::dec << " ";
+                            if (d_debug)
+    							std::cout << std::setw(2) << std::setfill('0') << std::hex << (int)octet << std::dec << " ";
 						}
 					}
 
                     // Check CRC
 					if (k >= 3 && (crc_16(d_buf, k-2) != ((d_buf[k-2] << 8) + d_buf[k-1])))
 					{
-						std::cout << "#" << std::endl;
+                        if (d_debug)
+    						std::cout << "#" << std::endl;
                         return;
 					}
 
@@ -101,14 +104,16 @@ namespace gr {
                         d_first_pkt_found = true;
                         d_valid_pkt_ctr = 1;
                         // std::cout << "SEQ: " << (int)seq << " <" << std::endl;
-                        std::cout << "<" << std::endl;
+                        if (d_debug)
+                            std::cout << "<" << std::endl;
                     }
                     else
                     {
                         // std::cout << "SEQ: " << (int)seq;
                         if (seq - d_start_seq > d_total_pkt - 1)
                         {
-                            std::cout << "<" << std::endl;
+                            if (d_debug)
+                                std::cout << "<" << std::endl;
                             // std::cout << "start_seq: " << d_start_seq << " current_seq: " << seq << " diff_seq: " << (seq - d_start_seq) << std::endl;
                             // std::cout << "valid_pkt: " << d_valid_pkt_ctr << " / total_pkt: " << d_total_pkt <<  " = ";
                             // std::cout << (float)d_valid_pkt_ctr/(float)d_total_pkt << std::endl;
@@ -119,8 +124,11 @@ namespace gr {
                             while(1);
                         }
 
-                        std::cout << "(" << d_valid_pkt_ctr << " / " << (seq - d_start_seq) << " / " << d_total_pkt <<  ")";
-                        std::cout << std::endl;
+                        if (d_debug)
+                        {
+                            std::cout << "(" << d_valid_pkt_ctr << " / " << (seq - d_start_seq) << " / " << d_total_pkt <<  ")";
+                            std::cout << std::endl;
+                        }
                         d_valid_pkt_ctr++;
                     }
                     // std::cout << "SEQ: " << (int)seq << std::endl;
