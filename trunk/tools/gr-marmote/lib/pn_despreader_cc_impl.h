@@ -38,6 +38,8 @@ namespace gr {
       int d_preamble_len; // bits
       int d_payload_len; // bits
 
+      uint64_t d_prev_tag; // DEBUG
+
       enum state_t { ST_LOCKED, ST_IDLE };
       state_t d_state;
       mseq_lfsr* d_lfsr;
@@ -58,6 +60,11 @@ namespace gr {
       void enter_idle();
       void enter_locked();
 
+      void debug_chip(gr_complex buf[], int len);
+      void debug_pkt(uint8_t buf[], int len);
+      uint16_t crc_16(const uint8_t data[], uint8_t length);
+      int d_debug_ctr;
+      const int d_debug_ctr_max;
 
      public:
       pn_despreader_cc_impl(bool debug, int mask, int seed, int spread_factor, int oversample_factor, int preamble_length, int payload_length);

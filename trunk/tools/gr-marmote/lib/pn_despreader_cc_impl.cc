@@ -47,11 +47,14 @@ namespace gr {
             d_oversample_factor(oversample_factor),
             d_preamble_len(preamble_length),
             d_payload_len(payload_length * 8 + 1), // FIXME: add this bit for differential decoding in a different way
-            d_seed_offset((preamble_length-1)*spread_factor)
+            d_seed_offset((preamble_length-1)*spread_factor),
+            d_debug_ctr(0),
+            d_debug_ctr_max(25)
         {
             d_lfsr = new mseq_lfsr(mask, seed);
             set_history(d_spread_factor * d_oversample_factor);
             enter_idle();
+            d_prev_tag = 0;
 
             message_port_register_out(pmt::mp("out"));
         }
@@ -102,6 +105,8 @@ namespace gr {
             int ninput = ninput_items[0];
             int nprocd = d_sample_ctr;
 
+            float diff_arg;
+
             d_tags.clear();
             get_tags_in_range(d_tags, 0, nitems_read(0), nitems_read(0) + ninput);
             d_tags_itr = d_tags.begin();
@@ -109,22 +114,39 @@ namespace gr {
             std::vector<gr_tag_t>::iterator lti;
 
             // nprocd = ninput;
-            // std::cout << "Despreader nprocd: " << nprocd << std::endl;
+            // // std::cout << "Despreader nprocd: " << nprocd << std::endl;
             // memcpy(out, in, nprocd * sizeof (gr_complex));
-            // for (lti = d_tags.begin(); lti != d_tags.end(); lti++)
+
+            // if (!d_tags.empty())
             // {
-            //     std::cout << (int)(lti->offset - nitems_read(0)) << " ";
-            //     out[(int)lti->offset - nitems_read(0)].imag(-2.0);
+            //     std::cout << "DSPR: [" << std::setw(7) << nitems_read(0) << " - " << std::setw(7)  << nitems_read(0) + ninput << "]" << std::endl;
+            //     // std::cout << "Tags [" << d_tags.size() << "]: ";
+            //     for (lti = d_tags.begin(); lti != d_tags.end(); lti++)
+            //     {
+            //         // std::cout << "[" << std::setw(7) << (int)lti->offset << "] @ " << (int)(lti->offset - nitems_read(0)) << " ";
+            //         // out[(int)lti->offset - nitems_read(0)].imag(-2.0);
+            //         // std::cout << "Tag diff: " << (int)lti->offset << " - " << d_prev_tag << " = " << (int)lti->offset - d_prev_tag << std::endl;
+            //         // std::cout << "Tag: " << (int)lti->offset << " @ " << (int)(lti->offset - nitems_read(0))  << std::endl;
+            //         std::cout << " -> Tag: " << (int)lti->offset << std::endl;
+            //         std::cout << "@ " << (int)(lti->offset - nitems_read(0)) << std::endl;
+                
+            //         d_prev_tag = lti->offset;
+            //     }
+            //     // std::cout << std::endl;
             // }
-            // std::cout << " [" << d_tags.size() << "]" << std::endl;
             // consume_each(nprocd);
             // return nprocd;
 
+            // memset(out, 0, sizeof (gr_complex) * ninput);
             // for (int i = 0; i < ninput; i++)
             // {
             //     out[i].real(abs(in[i]));
             //     out[i].imag(arg(in[i]));
             // }
+            for (int i = 0; i < ninput; i++)
+            {
+                out[i] = gr_complex(0, 0);
+            }
 
             if (d_debug)
                 std::cout << "Despreading..." << " [" << ninput << " chips] " << std::endl;
@@ -175,6 +197,12 @@ namespace gr {
                             d_chip_sum += in[nprocd] * pn;
                             d_chip_ctr++;
 
+                            for (int k = nprocd; k < nprocd + d_oversample_factor; k++)
+                            {
+                                out[k].real(abs(d_chip_sum));
+                                // out[k].imag(arg(d_chip_sum));
+                            }
+
                             if (d_chip_ctr == d_spread_factor)
                             {
                                 d_chip_sum_buf[d_payload_ctr++] = d_chip_sum;
@@ -183,10 +211,13 @@ namespace gr {
                             }
 
                             // out[nprocd].real(4.0);
-                            // if (nprocd > ninput - d_oversample_factor)
-                            // {
-                            //     out[nprocd].real(8.0);
-                            // }
+                            // out[nprocd].imag(4.0);
+                            if (nprocd > ninput - d_oversample_factor)
+                            {
+                                // std::cout << "IDLE: boundary" << std::endl;
+                                // out[nprocd].real(6.0);
+                                out[nprocd].imag(6.0);
+                            }
 
                             nprocd += d_oversample_factor;
                         }
@@ -212,7 +243,8 @@ namespace gr {
 
                                 for (int i = 1; i < d_payload_ctr; i++)
                                 {
-                                    std::cout << (int)(abs(arg(d_chip_sum_buf[i]) - arg(d_chip_sum_buf[i-1])) > M_PI / 2 ? 1 : 0) << " ";
+                                    diff_arg = abs(arg(d_chip_sum_buf[i]) - arg(d_chip_sum_buf[i-1]));
+                                    std::cout << (int)(diff_arg > M_PI / 2 ? 1 : 0) << " ";
                                 }
                                 std::cout << std::endl;
 
@@ -220,8 +252,17 @@ namespace gr {
 
                             for (int i = 1; i < d_payload_len; i++)
                             {
-                                d_pmt_buf[i-1] = (int)(abs(arg(d_chip_sum_buf[i]) - arg(d_chip_sum_buf[i-1])) > M_PI / 2 ? 1 : 0);
+                                diff_arg = abs(arg(d_chip_sum_buf[i]) - arg(d_chip_sum_buf[i-1]));
+                                d_pmt_buf[i-1] = (int)(diff_arg > M_PI / 2 && diff_arg < 3 * M_PI / 2 ? 1 : 0);
                             }
+
+                            // if (d_debug_ctr++ < d_debug_ctr_max)
+                            // {
+                            //     std::cout << "IDLE: " << std::endl;
+                            //     debug_pkt(d_pmt_buf, d_payload_len-1);
+                            //     debug_chip(d_chip_sum_buf, d_payload_len);
+                            // }
+
 
                             // FIXME: d_payload_len is +1 due to differential encoding
                             message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_pmt_buf, d_payload_len-1));
@@ -252,9 +293,15 @@ namespace gr {
                         {
                             float pn = (d_lfsr->get_next_bit() ? -1.0 : 1.0);
 
-                            // d_chip_sum += *(in + nprocd) * pn;
                             d_chip_sum += in[nprocd] * pn;
                             d_chip_ctr++;
+
+                            for (int k = nprocd; k < nprocd + d_oversample_factor; k++)
+                            {
+                                out[k].real(abs(d_chip_sum));
+                                // out[k].imag(arg(d_chip_sum));
+                            }
+
 
                             if (d_chip_ctr == d_spread_factor)
                             {
@@ -265,10 +312,13 @@ namespace gr {
                             }
 
                             // out[nprocd].real(-4.0);
-                            // if (nprocd > ninput - d_oversample_factor)
-                            // {
-                            //     out[nprocd].real(-8.0);
-                            // }
+                            // out[nprocd].imag(-4.0);
+                            if (nprocd > ninput - d_oversample_factor)
+                            {
+                                // std::cout << "LCKD: boundary" << std::endl;
+                                out[nprocd].imag(-6.0);
+                                // out[nprocd].real(-6.0);
+                            }
 
                             nprocd += d_oversample_factor;
                         }
@@ -277,11 +327,20 @@ namespace gr {
                         {
                             for (int i = 1; i < d_payload_len; i++)
                             {
-                                d_pmt_buf[i-1] = (int)(abs(arg(d_chip_sum_buf[i]) - arg(d_chip_sum_buf[i-1])) > M_PI / 2 ? 1 : 0);
+                                diff_arg = abs(arg(d_chip_sum_buf[i]) - arg(d_chip_sum_buf[i-1]));
+                                d_pmt_buf[i-1] = (int)(diff_arg > M_PI / 2 && diff_arg < 3 * M_PI / 2 ? 1 : 0);
+                                // d_pmt_buf[i-1] = (int)(abs(arg(d_chip_sum_buf[i]) - arg(d_chip_sum_buf[i-1])) > M_PI / 2 ? 1 : 0);
                             }
 
                             // FIXME: d_payload_len is +1 due to differential encoding
                             message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_pmt_buf, d_payload_len-1));
+
+                            // if (d_debug_ctr++ < d_debug_ctr_max)
+                            // {
+                            //     std::cout << "LCKD:" << std::endl;
+                            //     debug_pkt(d_pmt_buf, d_payload_len-1);
+                            //     debug_chip(d_chip_sum_buf, d_payload_len);
+                            // }
 
                             if (d_debug)
                             {
@@ -320,14 +379,101 @@ namespace gr {
             }
 
             d_sample_ctr = nprocd % ninput;
+            nprocd = nprocd < ninput ? nprocd : ninput;
 
             // std::cout << "DSPR: consumed: " << nprocd << std::endl;
-            consume_each(nprocd < ninput ? nprocd : ninput); // FIXME: does nprocd contain the correct value?
+            consume_each(nprocd);
+            return nprocd;
+        }
 
-            // memcpy(out, in, (nprocd < ninput ? nprocd : ninput) * sizeof (gr_complex));
+        void pn_despreader_cc_impl::debug_chip(gr_complex buf[], int len)
+        {
+            std::cout << "chip_sum_buf: " << std::endl;
+            float diff_arg;
 
-            // return nprocd < ninput ? nprocd : ninput;
-            return 0;
+            for (int i = 0; i < len; i++)
+            {
+                std::cout << "[" << std::fixed << std::setprecision(2) << abs(buf[i]) << "] ";
+                std::cout << std::fixed << std::setfill(' ') << std::setw(6) << std::setprecision(2) << arg(buf[i]) << " ";
+                if (i > 0)
+                {
+                    diff_arg = arg(buf[i]) - arg(buf[i-1]);
+                    std::cout << std::fixed << std::setw(6) << std::setprecision(2) << diff_arg << " ";
+                    std::cout << "  " << std::setw(1) << (abs(diff_arg) > M_PI / 2 && abs(diff_arg) < 3 * M_PI / 2 ? 1 : 0);
+                }
+
+                if ((i-1) % 8 == 7)
+                    std::cout << std::endl;
+
+                std::cout << std::endl;
+            }
+
+        }
+
+        void pn_despreader_cc_impl::debug_pkt(uint8_t buf[], int len)
+        {
+            int k = 0;
+            uint8_t octet = 0;
+            uint8_t* payload = buf;
+            uint8_t oct_buf[32];
+            uint16_t crc;
+
+
+            // Assemble packet
+            for (int i = 0; i < len; i++)
+            {
+                octet = (octet << 1) | buf[i];
+                if (i % 8 == 7)
+                {
+                    oct_buf[k++] = octet;
+                    std::cout << std::setw(2) << std::setfill('0') << std::hex << (int)octet << std::dec << " ";
+                }
+            }
+
+            // Check CRC
+            if (k >= 3 && (crc_16(oct_buf, k-2) != ((oct_buf[k-2] << 8) + oct_buf[k-1])))
+            {
+                std::cout << "#" << std::endl;
+            }
+
+            std::cout << std::endl;
+            std::cout << std::endl;
+
+            for (int i = 0; i < len; i++)
+            {
+                std::cout << (int)buf[i];
+                if (i % 8 == 7)
+                    std::cout << std::endl;
+            }
+
+            std::cout << std::endl;
+        }
+
+        uint16_t pn_despreader_cc_impl::crc_16(const uint8_t data[], uint8_t length)
+        {
+            uint8_t bit;
+            uint8_t byte;
+            uint16_t crc;
+
+            crc = 0;
+            for (byte = 0; byte < length; ++byte)
+            {
+                crc ^= (data[byte] << 8);
+
+                for (bit = 8; bit > 0; --bit)
+                {
+                    if (crc & (1 << 15))
+                    {
+                        crc = (crc << 1) ^ 0x1021uL;
+                    }
+                    else
+                    {
+                        crc = (crc << 1);
+                    }
+                }
+            }
+
+            return crc;
         }
 
     } /* namespace marmote */

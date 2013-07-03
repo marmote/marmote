@@ -126,7 +126,7 @@ namespace gr {
 
                         if (d_debug)
                         {
-                            std::cout << "(" << d_valid_pkt_ctr << " / " << (seq - d_start_seq) << " / " << d_total_pkt <<  ")";
+                            std::cout << "(" << d_valid_pkt_ctr << " / " << (unsigned int)(seq - d_start_seq) << " / " << d_total_pkt <<  ")";
                             std::cout << std::endl;
                         }
                         d_valid_pkt_ctr++;
