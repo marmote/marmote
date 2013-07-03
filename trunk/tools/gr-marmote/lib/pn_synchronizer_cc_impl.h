@@ -45,7 +45,7 @@ namespace gr {
       float d_threshold_factor_rise;
       int d_look_ahead;
       int d_look_ahead_remaining;
-      int d_peak_idx;
+      uint64_t d_peak_idx;
       float d_peak_val;
       float d_alpha;
       float d_avg;

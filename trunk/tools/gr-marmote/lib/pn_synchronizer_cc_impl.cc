@@ -71,9 +71,9 @@ namespace gr {
         str << name() << "_" << unique_id();
         d_srcid  = pmt::pmt_string_to_symbol(str.str());
 
-        std::cout << "Filter length: " << d_filter_len << std::endl;
-        std::cout << "Oversample factor: " << d_oversample_factor << std::endl;
-        std::cout << "Threshold factor: " << d_threshold_factor_rise << std::endl;
+        // std::cout << "Filter length: " << d_filter_len << std::endl;
+        // std::cout << "Oversample factor: " << d_oversample_factor << std::endl;
+        // std::cout << "Threshold factor: " << d_threshold_factor_rise << std::endl;
     }
 
 
@@ -117,7 +117,7 @@ namespace gr {
                 d_look_ahead_remaining = d_look_ahead;
                 // d_peak_val = -(float)INFINITY;
                 d_peak_val = filt_out[i];
-                d_peak_idx = i;
+                d_peak_idx = nitems_read(0) + i;
 
                 if (d_debug)
                 {
@@ -137,7 +137,7 @@ namespace gr {
               if (filt_out[i] > d_peak_val)
               {
                 d_peak_val = filt_out[i];
-                d_peak_idx = i;
+                d_peak_idx = nitems_read(0) + i;
               }
               else if (d_look_ahead_remaining <= 0)
               {
@@ -145,13 +145,22 @@ namespace gr {
                 if (d_debug)
                 {
                   std::cout << "[" << nitems_read(0) << ":" << nitems_read(0) + noutput_items << "] ";
-                  std::cout << name() << "_" << unique_id() << ": peak at " << nitems_read(0) + d_peak_idx;
+                  std::cout << name() << "_" << unique_id() << ": peak at " << + d_peak_idx;
                   std::cout << " with value " << d_peak_val << " (" << d_peak_val/d_avg << ")"  << std::endl;
                 }
 
+                if (d_peak_idx > nitems_read(0) + noutput_items)
+                {
+                  std::cout << "ERROR: d_peak_idx > n_items_read(0) + noutput_items (" << d_peak_idx << " > " << (int)(nitems_read(0) + noutput_items) << ")" << std::endl;
+                }
+
                 // Adds tag one bite before the first payload bit (chip) to aid differential encoding
-                // add_item_tag(0, nitems_written(0) + d_peak_idx - 1 + ((d_preamble_len)*d_spread_factor)*d_oversample_factor-1, d_key, d_value, d_srcid);
-                add_item_tag(0, nitems_written(0) + d_peak_idx - 1 + d_offset + ((d_preamble_len)*d_spread_factor)*d_oversample_factor-1, d_key, d_value, d_srcid);
+                // add_item_tag(0, nitems_written(0) + d_peak_idx - 1 + d_offset + ((d_preamble_len)*d_spread_factor)*d_oversample_factor-1, d_key, d_value, d_srcid);
+                add_item_tag(0, d_peak_idx - 1 + d_offset + ((d_preamble_len)*d_spread_factor)*d_oversample_factor-1, d_key, d_value, d_srcid);
+                // std::cout << "Adding tag at: " << (int)(d_peak_idx - 1 + d_offset + ((d_preamble_len)*d_spread_factor)*d_oversample_factor-1);
+                // if (nitems_read(0) + noutput_items < d_peak_idx - 1 + d_offset + ((d_preamble_len)*d_spread_factor)*d_oversample_factor-1)
+                //   std::cout << " !";
+                // std::cout << std::endl;
                 // out[d_peak_idx + (d_preamble_len-1 * d_spread_factor) * d_oversample_factor - 1].imag(2.0); // DEBUG
 
                 d_found = false;
