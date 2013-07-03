@@ -37,8 +37,8 @@ namespace gr {
       // Eval
       bool d_first_pkt_found;
       uint16_t d_start_seq;
-      int d_valid_pkt_ctr;
-      int d_total_pkt;
+      uint16_t d_valid_pkt_ctr;
+      uint16_t d_total_pkt;
 
       uint16_t crc_16(const uint8_t data[], uint8_t length);
 
