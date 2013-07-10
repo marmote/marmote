@@ -1,0 +1,4 @@
+COMPONENT=CsmaTxAppC
+
+include $(MAKERULES)
+
