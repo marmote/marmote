@@ -44,61 +44,69 @@ namespace gr {
           d_debug(debug),
           d_preamble_len(preamble_len),
           d_spread_factor(spread_factor),
-          d_oversample_factor(oversample_factor),
-          d_filter_len(preamble_len * spread_factor)
+          d_oversample_factor(oversample_factor)
     {
       d_lfsr = new mseq_lfsr(mask, seed);
 
       // Initialize filter
-      set_history(d_filter_len * oversample_factor); // FIXME
-      d_filt_byte_len = (d_filter_len + 31) / 32;
+      d_coef_len = preamble_len * spread_factor;
+      d_filt_len_bit = d_coef_len * oversample_factor;
+      d_filt_len_oct = (d_filt_len_bit + 31) / 32;
+
+      set_history(d_filt_len_bit);
 
       // Construct filter
       std::cout << "Constructing filter..." << std::endl;
 
       d_lfsr->reset();
-      d_filt_coef = new uint32_t[d_filt_byte_len];
-      memset(d_filt_coef, 0, sizeof(uint32_t)*d_filt_byte_len);
-      for (int i = 0; i < d_filter_len; i++)
-      {
-        shift_buffers(d_filt_coef, d_filt_byte_len);
-        d_filt_coef[0] |= (d_lfsr->get_next_bit() ? 1ul : 0ul);
+      d_filt_coef = new uint32_t[d_filt_len_oct];
+      memset(d_filt_coef, 0, sizeof(uint32_t)*d_filt_len_oct);
 
-        // std::cout << i << ": ";
-        // print_buffers(d_filt_coef, d_filt_byte_len);
+      uint32_t lsb;
+      for (int i = 0; i < d_coef_len; i++)
+      {
+        lsb = (d_lfsr->get_next_bit() ? 1ul : 0ul);
+        for (int j = 0; j < d_oversample_factor; j++)
+        {
+          shift_buffers(d_filt_coef, d_filt_len_oct);
+          d_filt_coef[0] |= lsb;
+        }
+
+        // std::cout << std::setw(3) << i << ": ";
+        // print_buffers(d_filt_coef, d_filt_len_oct);
       }
 
       // Construct filter and corresponding mask
       std::cout << "Constructing mask..." << std::endl;
 
-      d_filt_mask = new uint32_t[d_filt_byte_len];
-      memset(d_filt_mask, 0, sizeof(uint32_t)*d_filt_byte_len);
-      for (int i = 0; i < d_filter_len; i++)
+      d_filt_mask = new uint32_t[d_filt_len_oct];
+      memset(d_filt_mask, 0, sizeof(uint32_t)*d_filt_len_oct);
+      for (int i = 0; i < d_filt_len_bit; i++)
       {
-        shift_buffers(d_filt_mask, d_filt_byte_len);
-        d_filt_mask[0] |= 1ul;
+        shift_buffers(d_filt_mask, d_filt_len_oct);
+        d_filt_mask[0] |= (i % d_oversample_factor ? 0ul : 1ul);
 
-        // std::cout << i << ": ";
-        // print_buffers(d_filt_mask, d_filt_byte_len);
+        // std::cout << std::setw(3) << i << ": ";
+        // print_buffers(d_filt_mask, d_filt_len_oct);
       }
 
-      d_buf_samp = new uint32_t[d_filt_byte_len+1];
-      memset(d_buf_samp, 0, sizeof(uint32_t)*(d_filt_byte_len+1));
+      d_buf_samp = new uint32_t[d_filt_len_oct+1];
+      memset(d_buf_samp, 0, sizeof(uint32_t)*(d_filt_len_oct+1));
 
-      d_buf_xcor = new uint32_t[d_filt_byte_len];
+      d_buf_xcor = new uint32_t[d_filt_len_oct];
 
 
       // -------------------- DEBUG -------------------
       if (d_debug)
       {
-        std::cout << "Interpolation: " << interpolation() << std::endl;
-        std::cout << "Oversample: " << d_oversample_factor << std::endl;
+        std::cout << "COEF: " << d_coef_len << " BIN: " << d_filt_len_bit
+          << " OS: " << d_oversample_factor << " OCT: " << d_filt_len_oct<< std::endl;
 
-        std::cout << "Filter coeffs: [" << d_filter_len << "]" << std::endl;
-        print_buffers(d_filt_coef, d_filt_byte_len);
+        std::cout << "Filter coeffs: [" << d_coef_len << "]" << std::endl;
+        print_buffers(d_filt_coef, d_filt_len_oct);
 
-        std::cout << "Filter mask: [" << d_filter_len << "]" << std::endl;
-        print_buffers(d_filt_mask, d_filt_byte_len);
+        std::cout << "Filter mask: [" << d_coef_len << "]" << std::endl;
+        print_buffers(d_filt_mask, d_filt_len_oct);
       }
       // -------------------- DEBUG -------------------
     }
@@ -107,6 +115,8 @@ namespace gr {
     {
       delete d_lfsr;
       delete[] d_filt_mask;
+      delete[] d_buf_samp;
+      delete[] d_buf_xcor;
     }
 
     int
@@ -123,13 +133,11 @@ namespace gr {
       if (d_debug)
       {
         std::cout << "noutput_items: " << noutput_items << std::endl;
-          // print_input_items(noutput_it ems, input_items);
-          // print_input_items_binary(noutput_items, input_items);
       }
 
 
-      nout = 46 * 32;
-      for (int i = 46; i < noutput_items/interpolation(); i++)
+      // nout = 22 * 32;
+      for (int i = 0; i < noutput_items/interpolation(); i++)
       {
         std::cout << "Processing sample " << i << "... [" << std::setw(8)
           << std::hex << std::setfill('0') << (unsigned int)in[i] << std::dec << std::setfill(' ') << "]" << std::endl;
@@ -139,41 +147,46 @@ namespace gr {
         for (int b = 0; b < sizeof(uint32_t) * 8; b++)
         {
           // Shift bits in place
-          shift_buffers(d_buf_samp, d_filt_byte_len+1);
-          // print_buffers(d_buf_samp, d_filt_byte_len+1);
+          shift_buffers(d_buf_samp, d_filt_len_oct+1);
+          // print_buffers(d_buf_samp, d_filt_len_oct+1);
 
           // std::cout << "  ";
-          // print_buffers(d_buf_samp+1, d_filt_byte_len);
+          // print_buffers(d_buf_samp+1, d_filt_len_oct);
           // std::cout << "^ ";
-          // print_buffers(d_filt_coef, d_filt_byte_len);
+          // print_buffers(d_filt_coef, d_filt_len_oct);
 
           // Correlate
+          for (int i = 0; i < d_filt_len_oct; i++)
+          {
+            d_buf_xcor[i] = (d_buf_samp[i+1] ^ d_filt_coef[i]);
+          }
           // std::cout << "= ";
-          xcorr_buffers(d_buf_xcor, d_buf_samp+1, d_filt_coef, d_filt_byte_len);
-          // print_buffers(d_buf_xcor, d_filt_byte_len);
+          // print_buffers(d_buf_xcor, d_filt_len_oct);
+
+          // std::cout << "& ";
+          // print_buffers(d_filt_mask, d_filt_len_oct);
 
           // Mask
-          for (int i = 0; i < d_filt_byte_len; i++)
+          for (int i = 0; i < d_filt_len_oct; i++)
           {
             d_buf_xcor[i] &= d_filt_mask[i];
           }
-          // std::cout << "& ";
-          // print_buffers(d_filt_mask, d_filt_byte_len);
+
           // std::cout << "= ";
-          // print_buffers(d_buf_xcor, d_filt_byte_len);
+          // print_buffers(d_buf_xcor, d_filt_len_oct);
 
           // Count bits
           num_ones = 0;
-          for (int i = 0; i < d_filt_byte_len; i++)
+          for (int i = 0; i < d_filt_len_oct; i++)
           {
             num_ones += count_bits32(d_buf_xcor[i]);
           }
 
           // Update out[]
-          out[nout] = (num_ones * 2) - d_filter_len;
+          out[nout] = (num_ones * 2) - d_coef_len;
           nout++;
 
-          // std::cout << num_ones << " / " << d_filter_len << " -> " << out[nout-1] << std::endl;
+          // std::cout << "  " << num_ones << " / " << d_coef_len << " -> " << out[nout-1] << std::endl;
         }
       }
 
