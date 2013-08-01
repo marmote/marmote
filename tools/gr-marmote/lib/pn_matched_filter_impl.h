@@ -39,14 +39,16 @@ namespace gr {
       int d_oversample_factor;
 
       // Filter
-      int d_filter_len;
       mseq_lfsr* d_lfsr;
 
       uint32_t* d_filt_coef;
       uint32_t* d_filt_mask;
       uint32_t* d_buf_samp;
       uint32_t* d_buf_xcor;
-      int d_filt_byte_len;
+
+      int d_coef_len;
+      int d_filt_len_oct;
+      int d_filt_len_bit;
 
       void print_input_items(int noutput_items, gr_vector_const_void_star &input_items);
       void print_input_items_binary(int noutput_items, gr_vector_const_void_star &input_items);
