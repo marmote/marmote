@@ -36,5 +36,6 @@ install(FILES
     pn_spreader_b.h
     pn_despreader_cc.h
     pn_synchronizer_cc.h
-    gmsk_packet_framer_b.h DESTINATION include/marmote
+    gmsk_packet_framer_b.h
+    pn_matched_filter.h DESTINATION include/marmote
 )
