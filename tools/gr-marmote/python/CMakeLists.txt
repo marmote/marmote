@@ -57,3 +57,4 @@ GR_ADD_TEST(qa_pn_spreader_b ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa
 GR_ADD_TEST(qa_pn_despreader_cc ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_pn_despreader_cc.py)
 GR_ADD_TEST(qa_pn_synchronizer_cc ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_pn_synchronizer_cc.py)
 GR_ADD_TEST(qa_gmsk_packet_framer_b ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_gmsk_packet_framer_b.py)
+GR_ADD_TEST(qa_pn_matched_filter ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_pn_matched_filter.py)

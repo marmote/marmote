@@ -39,7 +39,8 @@ list(APPEND marmote_sources
     pn_spreader_b_impl.cc
     pn_despreader_cc_impl.cc
     pn_synchronizer_cc_impl.cc
-    gmsk_packet_framer_b_impl.cc )
+    gmsk_packet_framer_b_impl.cc
+    pn_matched_filter_impl.cc )
 
 add_library(gnuradio-marmote SHARED ${marmote_sources})
 target_link_libraries(gnuradio-marmote ${Boost_LIBRARIES} ${GRUEL_LIBRARIES} ${GNURADIO_CORE_LIBRARIES})
@@ -60,7 +61,6 @@ install(TARGETS gnuradio-marmote
 include(GrTest)
 
 include_directories(${CPPUNIT_INCLUDE_DIRS})
-
 list(APPEND test_marmote_sources
     ${CMAKE_CURRENT_SOURCE_DIR}/test_marmote.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/qa_marmote.cc
