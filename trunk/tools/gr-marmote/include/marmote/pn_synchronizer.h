@@ -23,7 +23,7 @@
 #define INCLUDED_MARMOTE_PN_SYNCHRONIZER_H
 
 #include <marmote/api.h>
-#include <gr_sync_block.h>
+#include <gnuradio/sync_block.h>
 
 namespace gr {
   namespace marmote {
@@ -33,7 +33,7 @@ namespace gr {
      * \ingroup marmote
      *
      */
-    class MARMOTE_API pn_synchronizer : virtual public gr_sync_block
+    class MARMOTE_API pn_synchronizer : virtual public gr::sync_block
     {
      public:
       typedef boost::shared_ptr<pn_synchronizer> sptr;

@@ -22,7 +22,7 @@
 #include "config.h"
 #endif
 
-#include <gr_io_signature.h>
+#include <gnuradio/io_signature.h>
 #include "cdma_packet_sink_impl.h"
 
 #include <iomanip>
@@ -36,9 +36,9 @@ namespace gr {
 		}
 
 		cdma_packet_sink_impl::cdma_packet_sink_impl(bool debug, int id)
-			: gr_block("cdma_packet_sink",
-					gr_make_io_signature(0, 0, 0),
-					gr_make_io_signature(0, 0, 0)),
+			: gr::block("cdma_packet_sink",
+					gr::io_signature::make(0, 0, 0),
+					gr::io_signature::make(0, 0, 0)),
 			d_debug(debug),
 			d_id(id),
 			d_polynomial(0x1021),
@@ -57,9 +57,9 @@ namespace gr {
 
 		void cdma_packet_sink_impl::process_packet(pmt::pmt_t pkt)
 		{
-			if (pmt::pmt_is_blob(pkt))
+			if (pmt::is_blob(pkt))
 			{
-				// std::cout << "Processing packet..." << " [" << (int)(pmt::pmt_blob_length(pkt)) << " bits]" << std::endl;
+				// std::cout << "Processing packet..." << " [" << (int)(pmt::blob_length(pkt)) << " bits]" << std::endl;
 
 				// if (d_debug)
 				{
@@ -68,11 +68,11 @@ namespace gr {
 
 					int k = 0;
 					uint8_t octet = 0;
-					uint8_t* payload = (uint8_t*)pmt::pmt_blob_data(pkt);
+					uint8_t* payload = (uint8_t*)pmt::blob_data(pkt);
 					uint16_t crc;
 
                     // Assemble packet
-					for (int i = 0; i < pmt::pmt_blob_length(pkt); i++)
+					for (int i = 0; i < pmt::blob_length(pkt); i++)
 					{
 						octet = (octet << 1) | payload[i];
 						if (i % 8 == 7)
@@ -134,12 +134,12 @@ namespace gr {
                     // std::cout << "SEQ: " << (int)seq << std::endl;
 				}
 			}
-			else if (pmt::pmt_is_symbol(pkt))
+			else if (pmt::is_symbol(pkt))
 			{
 
-				const char* data = pmt::pmt_symbol_to_string(pkt).data();
+				const char* data = pmt::symbol_to_string(pkt).data();
 
-				for (int j = 0; j < pmt::pmt_symbol_to_string(pkt).length(); j++)
+				for (int j = 0; j < pmt::symbol_to_string(pkt).length(); j++)
 				{
 					std::cout << std::setw(2) << (int)data[j] << " ";
 				}

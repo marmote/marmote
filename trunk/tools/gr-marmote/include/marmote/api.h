@@ -22,7 +22,7 @@
 #ifndef INCLUDED_MARMOTE_API_H
 #define INCLUDED_MARMOTE_API_H
 
-#include <gruel/attributes.h>
+#include <gnuradio/attributes.h>
 
 #ifdef gnuradio_marmote_EXPORTS
 #  define MARMOTE_API __GR_ATTR_EXPORT

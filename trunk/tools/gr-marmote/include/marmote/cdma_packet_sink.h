@@ -23,7 +23,7 @@
 #define INCLUDED_MARMOTE_CDMA_PACKET_SINK_H
 
 #include <marmote/api.h>
-#include <gr_block.h>
+#include <gnuradio/block.h>
 
 namespace gr {
   namespace marmote {
@@ -33,7 +33,7 @@ namespace gr {
      * \ingroup marmote
      *
      */
-    class MARMOTE_API cdma_packet_sink : virtual public gr_block
+    class MARMOTE_API cdma_packet_sink : virtual public gr::block
     {
      public:
       typedef boost::shared_ptr<cdma_packet_sink> sptr;

@@ -23,7 +23,7 @@
 #define INCLUDED_MARMOTE_GMSK_PACKET_SINK_B_H
 
 #include <marmote/api.h>
-#include <gr_block.h>
+#include <gnuradio/block.h>
 
 namespace gr {
   namespace marmote {
@@ -33,7 +33,7 @@ namespace gr {
      * \ingroup marmote
      *
      */
-    class MARMOTE_API gmsk_packet_sink_b : virtual public gr_block
+    class MARMOTE_API gmsk_packet_sink_b : virtual public gr::block
     {
      public:
       typedef boost::shared_ptr<gmsk_packet_sink_b> sptr;

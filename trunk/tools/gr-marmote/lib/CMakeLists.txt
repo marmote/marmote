@@ -43,7 +43,7 @@ list(APPEND marmote_sources
     pn_matched_filter_impl.cc )
 
 add_library(gnuradio-marmote SHARED ${marmote_sources})
-target_link_libraries(gnuradio-marmote ${Boost_LIBRARIES} ${GRUEL_LIBRARIES} ${GNURADIO_CORE_LIBRARIES})
+target_link_libraries(gnuradio-marmote ${Boost_LIBRARIES} ${GNURADIO_RUNTIME_LIBRARIES})
 set_target_properties(gnuradio-marmote PROPERTIES DEFINE_SYMBOL "gnuradio_marmote_EXPORTS")
 
 ########################################################################

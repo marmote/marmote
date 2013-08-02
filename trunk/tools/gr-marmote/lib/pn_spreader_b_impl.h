@@ -35,8 +35,8 @@ namespace gr {
       int d_seed;
       int d_sf;
       mseq_lfsr d_lfsr;
-      std::vector<gr_tag_t> d_tags;
-      std::vector<gr_tag_t>::iterator d_tags_itr;
+      std::vector<gr::tag_t> d_tags;
+      std::vector<gr::tag_t>::iterator d_tags_itr;
 
      public:
       pn_spreader_b_impl(bool debug, int mask, int seed, int spread_factor);

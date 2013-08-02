@@ -22,7 +22,7 @@
 #include "config.h"
 #endif
 
-#include <gr_io_signature.h>
+#include <gnuradio/io_signature.h>
 #include "cdma_packet_framer_impl.h"
 
 namespace gr {
@@ -35,20 +35,20 @@ namespace gr {
     }
 
     cdma_packet_framer_impl::cdma_packet_framer_impl(bool debug, int shr_len)
-      : gr_block("cdma_packet_framer",
-		      gr_make_io_signature(0, 0, 0),
-		      gr_make_io_signature(1, 1, sizeof(uint8_t))),
+      : gr::block("cdma_packet_framer",
+		      gr::io_signature::make(0, 0, 0),
+		      gr::io_signature::make(1, 1, sizeof(uint8_t))),
       d_debug(debug),
       d_shr_len(shr_len),
       d_bit_offset(0)
     {
         message_port_register_in(pmt::mp("in"));
 
-        d_key = pmt::pmt_string_to_symbol("TX_PN_RST_REQ");
+        d_key = pmt::string_to_symbol("TX_PN_RST_REQ");
         d_value = pmt::PMT_T;
         std::stringstream str;
         str << name() << "_" << unique_id();
-        d_srcid  = pmt::pmt_string_to_symbol(str.str());
+        d_srcid  = pmt::string_to_symbol(str.str());
     }
 
 
@@ -69,23 +69,23 @@ namespace gr {
 
         while (d_bit_offset == 0)
         {
-            pmt::pmt_t msg(delete_head_blocking(pmt::pmt_intern("in")));
+            pmt::pmt_t msg(delete_head_blocking(pmt::intern("in")));
 
-            if (pmt::pmt_is_eof_object(msg))
+            if (pmt::is_eof_object(msg))
             {
                 std::cout  << "pn_spreader_f_impl::general_work: Spreader exiting" << std::endl;
                 return -1;
             }
 
-            if (pmt::pmt_is_blob(msg))
+            if (pmt::is_blob(msg))
             {
                 blob = msg;
             }
-            else if (pmt::pmt_is_symbol(msg))
+            else if (pmt::is_symbol(msg))
             {
-                blob = pmt::pmt_make_blob(
-                    pmt::pmt_symbol_to_string(msg).data(),
-                    pmt::pmt_symbol_to_string(msg).length());
+                blob = pmt::make_blob(
+                    pmt::symbol_to_string(msg).data(),
+                    pmt::symbol_to_string(msg).length());
             }
             else
             {
@@ -93,8 +93,8 @@ namespace gr {
                 assert(false);
             }
 
-            unsigned int pkt_data_len = pmt::pmt_blob_length(blob) * 8;
-            uint8_t* pkt_data = (uint8_t*)pmt::pmt_blob_data(blob);
+            unsigned int pkt_data_len = pmt::blob_length(blob) * 8;
+            uint8_t* pkt_data = (uint8_t*)pmt::blob_data(blob);
             int bit_ctr = 0;
 
             // Set up synchronization header (preamble)

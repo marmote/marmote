@@ -23,7 +23,7 @@
 #define INCLUDED_MARMOTE_PN_MATCHED_FILTER_H
 
 #include <marmote/api.h>
-#include <gr_sync_interpolator.h>
+#include <gnuradio/sync_interpolator.h>
 
 namespace gr {
   namespace marmote {
@@ -33,7 +33,7 @@ namespace gr {
      * \ingroup marmote
      *
      */
-    class MARMOTE_API pn_matched_filter : virtual public gr_sync_interpolator
+    class MARMOTE_API pn_matched_filter : virtual public gr::sync_interpolator
     {
      public:
       typedef boost::shared_ptr<pn_matched_filter> sptr;

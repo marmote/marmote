@@ -22,7 +22,7 @@
 #include "config.h"
 #endif
 
-#include <gr_io_signature.h>
+#include <gnuradio/io_signature.h>
 #include "traffic_generator_impl.h"
 
 namespace gr {
@@ -35,9 +35,9 @@ namespace gr {
     }
 
     traffic_generator_impl::traffic_generator_impl(size_t item_size)
-      : gr_block("traffic_generator",
-		      gr_make_io_signature(1, 1, item_size),
-		      gr_make_io_signature(1, 1, item_size)),
+      : gr::block("traffic_generator",
+		      gr::io_signature::make(1, 1, item_size),
+		      gr::io_signature::make(1, 1, item_size)),
       d_item_size(item_size)
     {}
 

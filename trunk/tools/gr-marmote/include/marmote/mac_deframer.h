@@ -23,7 +23,7 @@
 #define INCLUDED_MARMOTE_MAC_DEFRAMER_H
 
 #include <marmote/api.h>
-#include <gr_block.h>
+#include <gnuradio/block.h>
 
 namespace gr {
   namespace marmote {
@@ -33,7 +33,7 @@ namespace gr {
      * \ingroup marmote
      *
      */
-    class MARMOTE_API mac_deframer : virtual public gr_block
+    class MARMOTE_API mac_deframer : virtual public gr::block
     {
      public:
       typedef boost::shared_ptr<mac_deframer> sptr;
