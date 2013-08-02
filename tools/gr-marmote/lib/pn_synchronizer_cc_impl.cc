@@ -22,7 +22,7 @@
 #include "config.h"
 #endif
 
-#include <gr_io_signature.h>
+#include <gnuradio/io_signature.h>
 #include "pn_synchronizer_cc_impl.h"
 
 namespace gr {
@@ -38,9 +38,9 @@ namespace gr {
 
     pn_synchronizer_cc_impl::pn_synchronizer_cc_impl(bool debug, int mask, int seed, int preamble_len, int spread_factor, int oversample_factor,
                                                float threshold_factor_rise, int look_ahead, float alpha, float avg_min, int offset)
-      : gr_sync_block("pn_synchronizer",
-          gr_make_io_signature(1, 1, sizeof (gr_complex)),
-          gr_make_io_signature3(2, 3, sizeof (gr_complex), sizeof (float), sizeof (float))),
+      : gr::sync_block("pn_synchronizer",
+          gr::io_signature::make(1, 1, sizeof (gr_complex)),
+          gr::io_signature::make3(2, 3, sizeof (gr_complex), sizeof (float), sizeof (float))),
               d_debug(debug),
               d_oversample_factor(oversample_factor),
               d_filter_len(preamble_len * spread_factor),
@@ -65,11 +65,11 @@ namespace gr {
         }
 
         // Tag
-        d_key = pmt::pmt_string_to_symbol("PN sync");
+        d_key = pmt::string_to_symbol("PN sync");
         d_value = pmt::PMT_T;
         std::stringstream str;
         str << name() << "_" << unique_id();
-        d_srcid  = pmt::pmt_string_to_symbol(str.str());
+        d_srcid  = pmt::string_to_symbol(str.str());
 
         // std::cout << "Filter length: " << d_filter_len << std::endl;
         // std::cout << "Oversample factor: " << d_oversample_factor << std::endl;

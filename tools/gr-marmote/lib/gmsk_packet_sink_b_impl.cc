@@ -22,7 +22,7 @@
 #include "config.h"
 #endif
 
-#include <gr_io_signature.h>
+#include <gnuradio/io_signature.h>
 #include "gmsk_packet_sink_b_impl.h"
 
 #include <iomanip>
@@ -38,9 +38,9 @@ namespace gr {
     }
 
     gmsk_packet_sink_b_impl::gmsk_packet_sink_b_impl(bool debug, bool polarity)
-      : gr_block("gmsk_packet_sink_b",
-		      gr_make_io_signature(1, 1, sizeof(uint8_t)),
-		      gr_make_io_signature(0, 0, 0)),
+      : gr::block("gmsk_packet_sink_b",
+		      gr::io_signature::make(1, 1, sizeof(uint8_t)),
+		      gr::io_signature::make(0, 0, 0)),
         d_state(STATE_SYNC_SEARCH),
         d_sync_vector(0x70EED2uL),
         d_shift_reg(0x0uL),
@@ -236,7 +236,7 @@ namespace gr {
                             }
 
                             std::memcpy(d_pmt_buf, d_packet, d_packet_len);
-                            message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_pmt_buf, d_packet_len));
+                            message_port_pub(pmt::mp("out"), pmt::make_blob(d_pmt_buf, d_packet_len));
 
                             enter_search();
                             break;

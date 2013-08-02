@@ -22,7 +22,7 @@
 #include "config.h"
 #endif
 
-#include <gr_io_signature.h>
+#include <gnuradio/io_signature.h>
 #include "pn_matched_filter_impl.h"
 #include <iomanip>
 // #include <gnuradio/blocks/count_bits.h>
@@ -38,9 +38,9 @@ namespace gr {
     }
 
     pn_matched_filter_impl::pn_matched_filter_impl(bool debug, int mask, int seed, int preamble_len, int spread_factor, int oversample_factor)
-      : gr_sync_interpolator("pn_matched_filter",
-		      gr_make_io_signature(1, 1, sizeof (uint32_t)),
-		      gr_make_io_signature(1, 1, sizeof (int)), sizeof(uint32_t) * 8),
+      : gr::sync_interpolator("pn_matched_filter",
+		      gr::io_signature::make(1, 1, sizeof (uint32_t)),
+		      gr::io_signature::make(1, 1, sizeof (int)), sizeof(uint32_t) * 8),
           d_debug(debug),
           d_preamble_len(preamble_len),
           d_spread_factor(spread_factor),

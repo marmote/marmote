@@ -44,8 +44,8 @@ namespace gr {
       state_t d_state;
       mseq_lfsr* d_lfsr;
 
-      std::vector<gr_tag_t> d_tags;
-      std::vector<gr_tag_t>::iterator d_tags_itr;
+      std::vector<gr::tag_t> d_tags;
+      std::vector<gr::tag_t>::iterator d_tags_itr;
 
       gr_complex d_chip_sum; // integrator
       static const int MAX_BIT_LEN = 4096; // FIXME

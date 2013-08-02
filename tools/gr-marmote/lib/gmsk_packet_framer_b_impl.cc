@@ -22,7 +22,7 @@
 #include "config.h"
 #endif
 
-#include <gr_io_signature.h>
+#include <gnuradio/io_signature.h>
 #include "gmsk_packet_framer_b_impl.h"
 
 #include <iostream>
@@ -38,9 +38,9 @@ namespace gr {
     }
 
     gmsk_packet_framer_b_impl::gmsk_packet_framer_b_impl(bool debug, bool crc)
-      : gr_block("gmsk_packet_framer_b",
-          gr_make_io_signature(0, 0, 0),
-          gr_make_io_signature(1, 1, sizeof(uint8_t))),
+      : gr::block("gmsk_packet_framer_b",
+          gr::io_signature::make(0, 0, 0),
+          gr::io_signature::make(1, 1, sizeof(uint8_t))),
           d_debug(debug),
           d_crc(crc),
           d_msg_len(0),
@@ -81,28 +81,28 @@ namespace gr {
 
         while (!d_msg_offset)
         {
-          pmt::pmt_t msg(delete_head_blocking(pmt::pmt_intern("in")));
+          pmt::pmt_t msg(delete_head_blocking(pmt::intern("in")));
 
-          if (pmt::pmt_is_eof_object(msg)) {
+          if (pmt::is_eof_object(msg)) {
             std::cout  << "MAC: exiting" << std::endl;
             return -1;
           }
 
-          if (pmt::pmt_is_symbol(msg))
+          if (pmt::is_symbol(msg))
           {
-            const uint8_t* msg_data = (uint8_t*)pmt::pmt_symbol_to_string(msg).data();
-            for (int i = 0; i < pmt::pmt_symbol_to_string(msg).length(); i++)
+            const uint8_t* msg_data = (uint8_t*)pmt::symbol_to_string(msg).data();
+            for (int i = 0; i < pmt::symbol_to_string(msg).length(); i++)
             {
               d_msg[7+i] = msg_data[i] & 0xFF;
             }
 
-            d_msg_len = 7 + pmt::pmt_symbol_to_string(msg).length();
+            d_msg_len = 7 + pmt::symbol_to_string(msg).length();
 
             if (d_debug)
             {
-              std::cout << "MAC: sending packet [7+" << (unsigned int)pmt::pmt_symbol_to_string(msg).length() << "]" << std::endl;
+              std::cout << "MAC: sending packet [7+" << (unsigned int)pmt::symbol_to_string(msg).length() << "]" << std::endl;
 
-              for (int i = 0; i < 7 + pmt::pmt_symbol_to_string(msg).length(); i++)
+              for (int i = 0; i < 7 + pmt::symbol_to_string(msg).length(); i++)
               {
                 if (i == 7)
                   std::cout << " ";

@@ -23,7 +23,7 @@
 #define INCLUDED_MARMOTE_TRAFFIC_GENERATOR_H
 
 #include <marmote/api.h>
-#include <gr_block.h>
+#include <gnuradio/block.h>
 
 namespace gr {
   namespace marmote {
@@ -33,7 +33,7 @@ namespace gr {
      * \ingroup marmote
      *
      */
-    class MARMOTE_API traffic_generator : virtual public gr_block
+    class MARMOTE_API traffic_generator : virtual public gr::block
     {
      public:
       typedef boost::shared_ptr<traffic_generator> sptr;

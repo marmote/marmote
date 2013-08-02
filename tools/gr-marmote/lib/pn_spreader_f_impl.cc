@@ -22,7 +22,7 @@
 #include "config.h"
 #endif
 
-#include <gr_io_signature.h>
+#include <gnuradio/io_signature.h>
 #include "pn_spreader_f_impl.h"
 #include <iomanip>
 
@@ -36,9 +36,9 @@ namespace gr {
     }
 
     pn_spreader_f_impl::pn_spreader_f_impl(bool debug, int mask, int seed, int spread_factor, int preamble_len)
-      : gr_block("pn_spreader_f",
-          gr_make_io_signature(0, 0, 0),
-          gr_make_io_signature(1, 1, sizeof (uint8_t))),
+      : gr::block("pn_spreader_f",
+          gr::io_signature::make(0, 0, 0),
+          gr::io_signature::make(1, 1, sizeof (uint8_t))),
       d_debug(debug),
       d_mask(mask),
       d_seed(seed),
@@ -67,20 +67,20 @@ namespace gr {
 
         while (d_chip_offset == 0)
         {
-          pmt::pmt_t pkt(delete_head_blocking(pmt::pmt_intern("in")));
+          pmt::pmt_t pkt(delete_head_blocking(pmt::intern("in")));
 
-          if (pmt::pmt_is_eof_object(pkt)) {
+          if (pmt::is_eof_object(pkt)) {
             std::cout  << "pn_spreader_f_impl::general_work: Spreader exiting" << std::endl;
             return -1;
           }
 
-          if (pmt::pmt_is_blob(pkt))
+          if (pmt::is_blob(pkt))
           {
-            unsigned int pkt_len = pmt::pmt_blob_length(pkt) * 8;
+            unsigned int pkt_len = pmt::blob_length(pkt) * 8;
             if (d_debug)
               std::cout << "Spreading packet..." << " [" << d_preamble_len << " + " << pkt_len << " bits]" << std::endl;
 
-            uint8_t* pkt_data = (uint8_t*)pmt::pmt_blob_data(pkt);
+            uint8_t* pkt_data = (uint8_t*)pmt::blob_data(pkt);
 
             assert(pkt_len > 0 && pkt_len <= MAX_CHIP_LEN / d_spread_factor);
 

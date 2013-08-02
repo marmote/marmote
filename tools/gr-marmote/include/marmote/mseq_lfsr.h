@@ -23,7 +23,7 @@
 #define INCLUDED_MARMOTE_MSEQ_LFSR_H
 
 #include <marmote/api.h>
-#include <gr_block.h>
+#include <gnuradio/block.h>
 
  // #include <string>
  // #include <iomanip>

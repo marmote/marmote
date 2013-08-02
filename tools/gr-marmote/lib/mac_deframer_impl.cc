@@ -22,7 +22,7 @@
 #include "config.h"
 #endif
 
-#include <gr_io_signature.h>
+#include <gnuradio/io_signature.h>
 #include "mac_deframer_impl.h"
 
 #include <iomanip>
@@ -37,9 +37,9 @@ namespace gr {
     }
 
     mac_deframer_impl::mac_deframer_impl(bool debug)
-      : gr_block("mac_deframer",
-		      gr_make_io_signature(0, 0, 0),
-		      gr_make_io_signature(0, 0, 0)),
+      : gr::block("mac_deframer",
+		      gr::io_signature::make(0, 0, 0),
+		      gr::io_signature::make(0, 0, 0)),
 			  d_debug(debug)
     {
         message_port_register_in(pmt::mp("in"));
@@ -52,15 +52,15 @@ namespace gr {
 
     void mac_deframer_impl::pkt_handler(pmt::pmt_t pkt)
     {
-        if (pmt::pmt_is_blob(pkt))
+        if (pmt::is_blob(pkt))
         {
-            unsigned int pkt_len = pmt::pmt_blob_length(pkt);
+            unsigned int pkt_len = pmt::blob_length(pkt);
             assert(pkt_len > 0 && pkt_len <= MAX_PKT_LEN);
 
 			if (d_debug)
 			{
 				std::cout << "MAC: received packet [" << (unsigned int)pkt_len << "]" << std::endl;
-				uint8_t* pkt_data = (uint8_t*)pmt::pmt_blob_data(pkt);
+				uint8_t* pkt_data = (uint8_t*)pmt::blob_data(pkt);
 				for (int ii = 0; ii < pkt_len; ii++)
 				{
 					if ((ii > 0) && (ii % 8 == 0))

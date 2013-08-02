@@ -22,7 +22,7 @@
 #include "config.h"
 #endif
 
-#include <gr_io_signature.h>
+#include <gnuradio/io_signature.h>
 #include "pn_spreader_b_impl.h"
 
 namespace gr {
@@ -35,9 +35,9 @@ namespace gr {
     }
 
     pn_spreader_b_impl::pn_spreader_b_impl(bool debug, int mask, int seed, int spread_factor)
-      : gr_sync_interpolator("pn_spreader_b",
-		      gr_make_io_signature(1, 1, sizeof (uint8_t)),
-		      gr_make_io_signature(1, 1, sizeof (uint8_t)), spread_factor),
+      : gr::sync_interpolator("pn_spreader_b",
+		      gr::io_signature::make(1, 1, sizeof (uint8_t)),
+		      gr::io_signature::make(1, 1, sizeof (uint8_t)), spread_factor),
       d_debug(debug),
       d_mask(mask),
       d_seed(seed),

@@ -22,7 +22,7 @@
 #include "config.h"
 #endif
 
-#include <gr_io_signature.h>
+#include <gnuradio/io_signature.h>
 #include "cdma_packet_source_impl.h"
 
 #include <iomanip>
@@ -38,9 +38,9 @@ namespace gr {
 
 
     cdma_packet_source_impl::cdma_packet_source_impl(bool debug, int id, unsigned int payload_len)
-      : gr_block("cdma_packet_source",
-		      gr_make_io_signature(0, 0, 0),
-		      gr_make_io_signature(0, 0, 0)),
+      : gr::block("cdma_packet_source",
+		      gr::io_signature::make(0, 0, 0),
+		      gr::io_signature::make(0, 0, 0)),
           d_debug(debug),
           d_payload_len(payload_len),
           d_seq_num(0),
@@ -62,16 +62,16 @@ namespace gr {
 
     void cdma_packet_source_impl::make_packet(pmt::pmt_t msg)
     {
-      if (pmt::pmt_is_eof_object(msg))
+      if (pmt::is_eof_object(msg))
       {
         message_port_pub(pmt::mp("out"), pmt::PMT_EOF);
         // detail().get()->set_done(true);
         return;
       }
 
-      if (pmt::pmt_is_integer(msg))
+      if (pmt::is_integer(msg))
       {
-        // d_pkt_buf[0] = (uint8_t)pmt::pmt_to_long(msg);
+        // d_pkt_buf[0] = (uint8_t)pmt::to_long(msg);
         // d_pkt_buf[0] = d_id;
 
         for (int i = 0; i < d_payload_len; i++)
@@ -89,14 +89,14 @@ namespace gr {
           std::cout << std::endl;
         }
 
-        pmt::pmt_t pkt = pmt::pmt_make_blob(d_pkt_buf, sizeof(uint8_t) * d_payload_len);
+        pmt::pmt_t pkt = pmt::make_blob(d_pkt_buf, sizeof(uint8_t) * d_payload_len);
         message_port_pub(pmt::mp("out"), pkt);
       }
-      else if (pmt::pmt_is_symbol(msg))
+      else if (pmt::is_symbol(msg))
       {
         std::cout << "Generating packet..." << " [" << d_payload_len << " bytes]" << std::endl;
 
-        std::cout << "From packet generator: " << pmt::pmt_symbol_to_string(msg) << std::endl;
+        std::cout << "From packet generator: " << pmt::symbol_to_string(msg) << std::endl;
 
         for (int i = 0; i < d_payload_len; i++)
         {
@@ -112,7 +112,7 @@ namespace gr {
         }
         std::cout << std::endl;
 
-        pmt::pmt_t pkt = pmt::pmt_make_blob(d_pkt_buf, sizeof(uint8_t) * d_payload_len);
+        pmt::pmt_t pkt = pmt::make_blob(d_pkt_buf, sizeof(uint8_t) * d_payload_len);
         message_port_pub(pmt::mp("out"), pkt);
       }
       else

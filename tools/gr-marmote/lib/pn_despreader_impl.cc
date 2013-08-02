@@ -22,7 +22,7 @@
 #include "config.h"
 #endif
 
-#include <gr_io_signature.h>
+#include <gnuradio/io_signature.h>
 #include "pn_despreader_impl.h"
 
 #include <iomanip>
@@ -37,9 +37,9 @@ namespace gr {
     }
 
     pn_despreader_impl::pn_despreader_impl(bool debug, int mask, int seed, int seed_offset, int payload_len, int spread_factor, int oversample_factor)
-      : gr_block("pn_despreader",
-		      gr_make_io_signature(1, 1, sizeof(gr_complex)),
-		      gr_make_io_signature(0, 0, 0)),
+      : gr::block("pn_despreader",
+		      gr::io_signature::make(1, 1, sizeof(gr_complex)),
+		      gr::io_signature::make(0, 0, 0)),
         d_debug(debug),
         d_payload_len(payload_len * 8),
         d_seed_offset(seed_offset),
@@ -105,7 +105,7 @@ namespace gr {
         int ninput = ninput_items[0];
         int nprocd = d_sample_offset;
 
-        std::vector<gr_tag_t>::iterator lti;
+        std::vector<gr::tag_t>::iterator lti;
 
         if (d_debug)
         {
@@ -210,7 +210,7 @@ namespace gr {
                             }
                             std::cout << std::endl;
                         }
-                        message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_pmt_buf, d_payload_len));
+                        message_port_pub(pmt::mp("out"), pmt::make_blob(d_pmt_buf, d_payload_len));
 
                         if (d_debug)
                             std::cout << "IDLE: ";
@@ -284,7 +284,7 @@ namespace gr {
                             }
                             std::cout << std::endl;
                         }
-                        message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_pmt_buf, d_payload_len));
+                        message_port_pub(pmt::mp("out"), pmt::make_blob(d_pmt_buf, d_payload_len));
 
                         while (d_tags_itr != d_tags.end() && d_tags_itr->offset - nitems_read(0) < nprocd)
                         {

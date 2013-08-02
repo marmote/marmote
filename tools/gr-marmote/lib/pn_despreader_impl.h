@@ -30,8 +30,8 @@ namespace gr {
     class pn_despreader_impl : public pn_despreader
     {
      private:
-        std::vector<gr_tag_t> d_tags;
-        std::vector<gr_tag_t>::iterator d_tags_itr;
+        std::vector<gr::tag_t> d_tags;
+        std::vector<gr::tag_t>::iterator d_tags_itr;
         mseq_lfsr* d_lfsr;
 
         enum state_t { ST_IDLE, ST_LOCKED };

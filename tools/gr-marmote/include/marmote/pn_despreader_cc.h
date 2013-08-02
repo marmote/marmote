@@ -23,7 +23,7 @@
 #define INCLUDED_MARMOTE_PN_DESPREADER_CC_H
 
 #include <marmote/api.h>
-#include <gr_sync_decimator.h>
+#include <gnuradio/sync_decimator.h>
 
 namespace gr {
   namespace marmote {
@@ -33,7 +33,7 @@ namespace gr {
      * \ingroup marmote
      *
      */
-    class MARMOTE_API pn_despreader_cc : virtual public gr_block
+    class MARMOTE_API pn_despreader_cc : virtual public gr::block
     {
      public:
       typedef boost::shared_ptr<pn_despreader_cc> sptr;

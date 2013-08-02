@@ -22,7 +22,7 @@
 #include "config.h"
 #endif
 
-#include <gr_io_signature.h>
+#include <gnuradio/io_signature.h>
 #include "pn_despreader_cc_impl.h"
 
 #include <iomanip>
@@ -37,9 +37,9 @@ namespace gr {
         }
 
         pn_despreader_cc_impl::pn_despreader_cc_impl(bool debug, int mask, int seed, int spread_factor, int oversample_factor, int preamble_length, int payload_length)
-            : gr_block("pn_despreader_cc",
-                    gr_make_io_signature(1, 1, sizeof (gr_complex)),
-                    gr_make_io_signature(1, 1, sizeof (gr_complex))),
+            : gr::block("pn_despreader_cc",
+                    gr::io_signature::make(1, 1, sizeof (gr_complex)),
+                    gr::io_signature::make(1, 1, sizeof (gr_complex))),
             d_debug(debug),
             d_mask(mask),
             d_seed(seed),
@@ -111,7 +111,7 @@ namespace gr {
             get_tags_in_range(d_tags, 0, nitems_read(0), nitems_read(0) + ninput);
             d_tags_itr = d_tags.begin();
 
-            std::vector<gr_tag_t>::iterator lti;
+            std::vector<gr::tag_t>::iterator lti;
 
             // nprocd = ninput;
             // // std::cout << "Despreader nprocd: " << nprocd << std::endl;
@@ -265,7 +265,7 @@ namespace gr {
 
 
                             // FIXME: d_payload_len is +1 due to differential encoding
-                            message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_pmt_buf, d_payload_len-1));
+                            message_port_pub(pmt::mp("out"), pmt::make_blob(d_pmt_buf, d_payload_len-1));
 
                             enter_idle();
                         }
@@ -333,7 +333,7 @@ namespace gr {
                             }
 
                             // FIXME: d_payload_len is +1 due to differential encoding
-                            message_port_pub(pmt::mp("out"), pmt::pmt_make_blob(d_pmt_buf, d_payload_len-1));
+                            message_port_pub(pmt::mp("out"), pmt::make_blob(d_pmt_buf, d_payload_len-1));
 
                             // if (d_debug_ctr++ < d_debug_ctr_max)
                             // {
