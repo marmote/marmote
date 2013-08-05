@@ -33,7 +33,7 @@ GR_PYTHON_INSTALL(
     __init__.py
     message_source.py
     message_sink.py
-    DESTINATION ${GR_PYTHON_DIR}/marmote
+    pn_acquisition.py DESTINATION ${GR_PYTHON_DIR}/marmote
 )
 
 ########################################################################
@@ -58,3 +58,5 @@ GR_ADD_TEST(qa_pn_despreader_cc ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}
 GR_ADD_TEST(qa_pn_synchronizer_cc ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_pn_synchronizer_cc.py)
 GR_ADD_TEST(qa_gmsk_packet_framer_b ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_gmsk_packet_framer_b.py)
 GR_ADD_TEST(qa_pn_matched_filter ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_pn_matched_filter.py)
+GR_ADD_TEST(qa_pn_acquisition ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_pn_acquisition.py)
+GR_ADD_TEST(qa_peak_tagger_cc ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_peak_tagger_cc.py)

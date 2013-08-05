@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 #
 # Copyright 2013 <+YOU OR YOUR COMPANY+>.
 #
@@ -18,26 +19,24 @@
 # Boston, MA 02110-1301, USA.
 #
 
-import numpy
-from gnuradio import gr
+from gnuradio import gr, blocks
 
-import pmt
-
-class message_sink(gr.basic_block):
+class pn_acquisition(gr.hier_block2):
     """
-    docstring for block message_sink
+    docstring for block pn_acquisition
     """
-    def __init__(self, node_id):
-        gr.basic_block.__init__(self,
-            name="message_sink",
-            in_sig = None,
-            out_sig = None
-        )
-        self.node_id = node_id
-        self.message_port_register_in(pmt.pmt_intern('in'))
-        self.set_msg_handler(pmt.pmt_intern('in'), self.handle_msg)
+    def __init__(self, preamble_len, spread_factor, oversample_factor, pn_mask, pn_seed):
+        gr.hier_block2.__init__(self,
+                "pn_acquisition",
+                gr.io_signature(1, 1, gr.sizeof_float),
+                gr.io_signature(1, 1, gr.sizeof_float))
 
+        self.preamble_len = preamble_len;
 
-    def handle_msg(self, msg):
-        for c in bytearray(pmt.pmt_symbol_to_string(msg)):
-            print str(c).rjust(3),
+        # Blocks
+        self.blocks_multiply_const_0 = blocks.multiply_const_vff((preamble_len, ))
+        self.blocks_multiply_const_1 = blocks.multiply_const_vff((preamble_len, ))
+
+        # Connections
+        self.connect(self, self.blocks_multiply_const_0, self.blocks_multiply_const_1, self)
+

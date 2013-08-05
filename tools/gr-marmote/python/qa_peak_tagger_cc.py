@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 #
 # Copyright 2013 <+YOU OR YOUR COMPANY+>.
 #
@@ -18,26 +19,23 @@
 # Boston, MA 02110-1301, USA.
 #
 
-import numpy
-from gnuradio import gr
+from gnuradio import gr, gr_unittest
+import marmote_swig as marmote
 
-import pmt
+class qa_peak_tagger_cc (gr_unittest.TestCase):
 
-class message_sink(gr.basic_block):
-    """
-    docstring for block message_sink
-    """
-    def __init__(self, node_id):
-        gr.basic_block.__init__(self,
-            name="message_sink",
-            in_sig = None,
-            out_sig = None
-        )
-        self.node_id = node_id
-        self.message_port_register_in(pmt.pmt_intern('in'))
-        self.set_msg_handler(pmt.pmt_intern('in'), self.handle_msg)
+    def setUp (self):
+        self.tb = gr.top_block ()
+
+    def tearDown (self):
+        self.tb = None
+
+    def test_001_t (self):
+        # set up
+
+        self.tb.run ()
+        # check data
 
 
-    def handle_msg(self, msg):
-        for c in bytearray(pmt.pmt_symbol_to_string(msg)):
-            print str(c).rjust(3),
+if __name__ == '__main__':
+    gr_unittest.run(qa_peak_tagger_cc, "qa_peak_tagger_cc.xml")
