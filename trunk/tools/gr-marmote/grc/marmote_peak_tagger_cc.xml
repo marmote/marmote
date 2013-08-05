@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<block>
+  <name>Peak tagger</name>
+  <key>marmote_peak_tagger_cc</key>
+  <category>MarmotE</category>
+  <import>import marmote</import>
+  <make>marmote.peak_tagger_cc(
+      threshold=$threshold
+      )</make>
+
+  <param>
+    <name>Threshold</name>
+    <key>threshold</key>
+    <type>int</type>
+  </param>
+
+  <sink>
+    <name>in</name>
+    <type>complex</type>
+  </sink>
+  <sink>
+    <name>trig</name>
+    <type>int</type>
+  </sink>
+
+  <source>
+    <name>out</name>
+    <type>complex</type>
+  </source>
+</block>
