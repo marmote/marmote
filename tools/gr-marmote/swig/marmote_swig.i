@@ -24,6 +24,7 @@
 #include "marmote/gmsk_packet_framer_b.h"
 #include "marmote/pn_matched_filter.h"
 #include "marmote/peak_tagger_cc.h"
+#include "marmote/binary_slicer_fi.h"
 %}
 
 
@@ -62,3 +63,5 @@ GR_SWIG_BLOCK_MAGIC2(marmote, gmsk_packet_framer_b);
 GR_SWIG_BLOCK_MAGIC2(marmote, pn_matched_filter);
 %include "marmote/peak_tagger_cc.h"
 GR_SWIG_BLOCK_MAGIC2(marmote, peak_tagger_cc);
+%include "marmote/binary_slicer_fi.h"
+GR_SWIG_BLOCK_MAGIC2(marmote, binary_slicer_fi);

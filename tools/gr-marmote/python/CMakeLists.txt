@@ -60,3 +60,4 @@ GR_ADD_TEST(qa_gmsk_packet_framer_b ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_
 GR_ADD_TEST(qa_pn_matched_filter ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_pn_matched_filter.py)
 GR_ADD_TEST(qa_pn_acquisition ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_pn_acquisition.py)
 GR_ADD_TEST(qa_peak_tagger_cc ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_peak_tagger_cc.py)
+GR_ADD_TEST(qa_binary_slicer_fi ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_binary_slicer_fi.py)

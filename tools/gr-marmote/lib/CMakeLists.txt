@@ -41,7 +41,8 @@ list(APPEND marmote_sources
     pn_synchronizer_cc_impl.cc
     gmsk_packet_framer_b_impl.cc
     pn_matched_filter_impl.cc
-    peak_tagger_cc_impl.cc )
+    peak_tagger_cc_impl.cc
+    binary_slicer_fi_impl.cc )
 
 add_library(gnuradio-marmote SHARED ${marmote_sources})
 target_link_libraries(gnuradio-marmote ${Boost_LIBRARIES} ${GNURADIO_RUNTIME_LIBRARIES})

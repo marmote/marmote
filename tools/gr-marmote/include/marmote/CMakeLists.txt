@@ -38,5 +38,6 @@ install(FILES
     pn_synchronizer_cc.h
     gmsk_packet_framer_b.h
     pn_matched_filter.h
-    peak_tagger_cc.h DESTINATION include/marmote
+    peak_tagger_cc.h
+    binary_slicer_fi.h DESTINATION include/marmote
 )
