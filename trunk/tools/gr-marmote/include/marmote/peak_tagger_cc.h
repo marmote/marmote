@@ -46,7 +46,7 @@ namespace gr {
        * class. marmote::peak_tagger_cc::make is the public interface for
        * creating new instances.
        */
-      static sptr make(int threshold);
+      static sptr make(int threshold, int lookahead, int delay);
     };
 
   } // namespace marmote

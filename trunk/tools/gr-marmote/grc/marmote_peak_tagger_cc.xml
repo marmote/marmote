@@ -5,12 +5,26 @@
   <category>MarmotE</category>
   <import>import marmote</import>
   <make>marmote.peak_tagger_cc(
-      threshold=$threshold
+      threshold=$threshold,
+      lookahead=$lookahead,
+      delay=$delay
       )</make>
 
   <param>
     <name>Threshold</name>
     <key>threshold</key>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>Lookahead</name>
+    <key>lookahead</key>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>Delay</name>
+    <key>delay</key>
     <type>int</type>
   </param>
 

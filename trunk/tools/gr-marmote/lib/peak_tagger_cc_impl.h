@@ -30,13 +30,23 @@ namespace gr {
         {
             private:
                 int d_threshold;
+                int d_oversample;
+
+                bool d_found;
+                int d_peak_val;
+                int d_peak_idx;
+
+                int d_delay;
+                int d_hist_idx;
+                int d_wait_ctr;
+                int d_wait_min;
 
                 pmt::pmt_t d_srcid;
                 pmt::pmt_t d_key;
                 pmt::pmt_t d_value;
 
             public:
-                peak_tagger_cc_impl(int threshold);
+                peak_tagger_cc_impl(int threshold, int lookahead, int delay);
                 ~peak_tagger_cc_impl();
 
                 int work(int noutput_items,

@@ -1,6 +1,6 @@
 /* -*- c++ -*- */
 /* 
- * Copyright 2013 <+YOU OR YOUR COMPANY+>.
+ * Copyright 2013 Sandor Szilvasi.
  * 
  * This is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,21 +29,26 @@ namespace gr {
   namespace marmote {
 
     peak_tagger_cc::sptr
-    peak_tagger_cc::make(int threshold)
+    peak_tagger_cc::make(int threshold, int lookahead, int delay)
     {
       return gnuradio::get_initial_sptr
-        (new peak_tagger_cc_impl(threshold));
+        (new peak_tagger_cc_impl(threshold, lookahead, delay));
     }
 
-    peak_tagger_cc_impl::peak_tagger_cc_impl(int threshold)
+    peak_tagger_cc_impl::peak_tagger_cc_impl(int threshold, int lookahead, int delay)
       : gr::sync_block("peak_tagger_cc",
               gr::io_signature::make2(2, 2, sizeof(gr_complex), sizeof(int)),
-              //gr::io_signature::make(1, 1, sizeof(gr_complex)),
               gr::io_signature::make(1, 1, sizeof(gr_complex))),
-        d_threshold(threshold)
+        d_threshold(threshold),
+        d_found(false),
+        d_wait_min(lookahead),
+        d_delay(delay),
+        d_wait_ctr(0)
     {
-        //set_history(0); // TODO: update based on 'OS'
-        
+        // Prepare for tag insertion in the 'past'
+        d_hist_idx = (d_delay < 0) ? -d_delay : 0;
+        set_history(1 + (d_delay < 0 ? -d_delay : d_delay));
+
         std::stringstream str;
         str << name() << "_" << unique_id();
         d_key = pmt::string_to_symbol("PN sync");
@@ -64,15 +69,37 @@ namespace gr {
         const int *trig = (const int *) input_items[1];
         gr_complex *out = (gr_complex *) output_items[0];
 
-        memcpy(out, in, noutput_items);
-
-        for (int i = 0; i < noutput_items; i++)
+        for (int i = d_hist_idx; i < d_hist_idx + noutput_items; i++)
         {
-            if (trig[i] > d_threshold)
+            if (!d_found)
             {
-                add_item_tag(0, nitems_read(0) + i, d_key, d_value, d_srcid);
+                if (trig[i] > d_threshold)
+                {
+                    d_found = true;
+                    d_wait_ctr = 0;
+
+                    d_peak_val = trig[i];
+                    d_peak_idx = nitems_read(0) + i;
+                }
+            }
+            else
+            {
+                if (trig[i] > d_peak_val)
+                {
+                    d_peak_val = trig[i];
+                    d_peak_idx = nitems_read(0) + i;
+                }
+                else if (d_wait_ctr >= d_wait_min)
+                {
+                    add_item_tag(0, d_peak_idx + d_delay, d_key, d_value, d_srcid);
+                    d_found = false;
+                }
+
+                d_wait_ctr++;
             }
         }
+
+        memcpy(out, in, sizeof(gr_complex) * noutput_items);
 
         return noutput_items;
     }
