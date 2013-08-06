@@ -32,28 +32,35 @@ class qa_pn_acquisition (gr_unittest.TestCase):
         self.tb = None
 
     def test_001_t(self):
-        # set up fg
-        mult_val = 4
-        src_data = (1, 2, 3, 4)
-        exp_res = tuple([mult_val * x for x in range(1, 5)])
 
-        src = blocks.vector_source_c(src_data)
-        op = pn_acquisition(2, 1, 1, 1, 1)
-        dst = blocks.vector_sink_c()
+        pad = (0,) * 64
 
-        self.tb.connect(src, op, dst)
+        # spread factor = 8, preamble length = 8
+        filt_coefs = (1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1,
+                      0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0,
+                      1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1,
+                      1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0)
 
-        self.tb.run()
+        src_data = pad + (1, 0, 1, 1, 1, 1, 0, 1, 1) + pad
+        exp_data = src_data
+        exp_offs = len(pad)
 
-        # check data
-        dst_data = dst.data()
+        #print "padding length: " + str(len(pad))
 
-        print 'src_data: ' + str(src_data)
-        print 'out_data: ' + str(dst_data)
-        print 'exp_res: ' + str(exp_res)
+        #src = blocks.vector_source_b(src_data)
+        #op = marmote.pn_acquisition() # TODO: parametrize
+        #dst = blocks.vector_sink_b()
 
-        self.assertEqual(exp_res, dst_data)
+        #self.tb.connect(src, op, dst)
+        #self.tb.run()
+        #dst_data = dst.data() # TODO: slice
+
+        ## Check
+        ## -data values (should be unaltered)
+        ## -tag position (should be at first (after last?) filter coefficient)
+        #self.assertEqual(exp_data, dst_data)
 
 
 if __name__ == '__main__':
     gr_unittest.run(qa_pn_acquisition, "qa_pn_acquisition.xml")
+

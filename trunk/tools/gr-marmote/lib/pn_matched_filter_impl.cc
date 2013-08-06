@@ -63,6 +63,7 @@ namespace gr {
       memset(d_filt_coef, 0, sizeof(uint32_t)*d_filt_len_oct);
 
       uint32_t lsb;
+      std::cout << "filt_coefs = ";
       for (int i = 0; i < d_coef_len; i++)
       {
         lsb = (d_lfsr->get_next_bit() ? 1ul : 0ul);
@@ -71,6 +72,8 @@ namespace gr {
           shift_buffers(d_filt_coef, d_filt_len_oct);
           d_filt_coef[0] |= lsb;
         }
+
+        std::cout << lsb << ", ";
 
         // std::cout << std::setw(3) << i << ": ";
         // print_buffers(d_filt_coef, d_filt_len_oct);
@@ -109,6 +112,13 @@ namespace gr {
         print_buffers(d_filt_mask, d_filt_len_oct);
       }
       // -------------------- DEBUG -------------------
+      
+      //std::cout << "filt_coefs = ";
+      //for (int i = 0; i < d_coef_len; i++)
+      //{
+          //std::cout << std::setw(2) << (int)d_filt_coef[i] << ", ";
+      //}
+      //std::cout << std::endl;
     }
 
     pn_matched_filter_impl::~pn_matched_filter_impl()
