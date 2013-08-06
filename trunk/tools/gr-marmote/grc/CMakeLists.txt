@@ -35,5 +35,6 @@ install(FILES
     marmote_gmsk_packet_framer_b.xml
     marmote_pn_matched_filter.xml
     marmote_pn_acquisition.xml
-    marmote_peak_tagger_cc.xml DESTINATION share/gnuradio/grc/blocks
+    marmote_peak_tagger_cc.xml
+    marmote_binary_slicer_fi.xml DESTINATION share/gnuradio/grc/blocks
 )
