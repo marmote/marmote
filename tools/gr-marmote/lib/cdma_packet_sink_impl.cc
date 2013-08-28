@@ -31,12 +31,12 @@
 namespace gr {
 	namespace marmote {
 
-		cdma_packet_sink::sptr cdma_packet_sink::make(bool debug, int id)
+		cdma_packet_sink::sptr cdma_packet_sink::make(bool debug, int id, int total_pkt)
 		{
-			return gnuradio::get_initial_sptr (new cdma_packet_sink_impl(debug, id));
+			return gnuradio::get_initial_sptr (new cdma_packet_sink_impl(debug, id, total_pkt));
 		}
 
-		cdma_packet_sink_impl::cdma_packet_sink_impl(bool debug, int id)
+		cdma_packet_sink_impl::cdma_packet_sink_impl(bool debug, int id, int total_pkt)
 			: gr::block("cdma_packet_sink",
 					gr::io_signature::make(0, 0, 0),
 					gr::io_signature::make(0, 0, 0)),
@@ -46,7 +46,7 @@ namespace gr {
             d_first_pkt_found(false),
             d_start_seq(0),
             d_valid_pkt_ctr(0),
-            d_total_pkt(51) // FIXME
+            d_total_pkt(total_pkt)
 		{
 			message_port_register_in(pmt::mp("in"));
 			set_msg_handler(pmt::mp("in"), boost::bind(&cdma_packet_sink_impl::process_packet, this, _1));
@@ -134,9 +134,9 @@ namespace gr {
             {
                 std::cout << " <" << std::endl;
 
-                std::cout << "start_seq: " << d_start_seq << " current_seq: " << seq << " diff_seq: " << (seq - d_start_seq) << std::endl;
-                std::cout << "valid_pkt: " << d_valid_pkt_ctr << " / total_pkt: " << d_total_pkt <<  " = ";
-                std::cout << (float)d_valid_pkt_ctr/(float)d_total_pkt << std::endl;
+                //std::cout << "start_seq: " << d_start_seq << " current_seq: " << seq << " diff_seq: " << (seq - d_start_seq) << std::endl;
+                //std::cout << "valid_pkt: " << d_valid_pkt_ctr << " / total_pkt: " << d_total_pkt <<  " = ";
+                //std::cout << (float)d_valid_pkt_ctr/(float)d_total_pkt << std::endl;
 
                 std::cout << "#" << d_id << " => PER: " << 1.0 - (float)d_valid_pkt_ctr/(float)d_total_pkt;
                 std::cout << " (" << d_total_pkt-d_valid_pkt_ctr << "/" << d_total_pkt << ")" << std::endl;

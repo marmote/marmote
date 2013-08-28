@@ -4,7 +4,7 @@
   <key>marmote_cdma_packet_sink</key>
   <category>MarmotE</category>
   <import>import marmote</import>
-  <make>marmote.cdma_packet_sink(debug=$debug, id=$node_id)</make>
+  <make>marmote.cdma_packet_sink(debug=$debug, id=$node_id, total_pkt=$total_pkt)</make>
 
   <param>
     <name>Debug</name>
@@ -24,6 +24,13 @@
   <param>
     <name>Node ID</name>
     <key>node_id</key>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>Total packets</name>
+    <key>total_pkt</key>
+    <value>1000</value>
     <type>int</type>
   </param>
 

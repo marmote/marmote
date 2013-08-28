@@ -44,7 +44,7 @@ namespace gr {
       uint16_t crc_16(const uint8_t data[], uint8_t length);
 
     public:
-      cdma_packet_sink_impl(bool debug, int id);
+      cdma_packet_sink_impl(bool debug, int id, int total_pkt);
       ~cdma_packet_sink_impl();
 
       void process_packet(pmt::pmt_t pkt);
