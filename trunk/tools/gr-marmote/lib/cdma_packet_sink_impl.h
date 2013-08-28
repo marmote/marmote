@@ -40,6 +40,7 @@ namespace gr {
       uint16_t d_valid_pkt_ctr;
       uint16_t d_total_pkt;
 
+      void process_packet(const uint8_t pkt[], uint8_t len);
       uint16_t crc_16(const uint8_t data[], uint8_t length);
 
     public:
