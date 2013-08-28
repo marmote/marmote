@@ -102,10 +102,14 @@ namespace gr {
             seq += buf[2] & 0xFF;
 
             std::cout << "    #" << d_id << " <- ";
-            //std::cout << "SEQ: " << (int)seq << " <" << std::endl;
-            for (int i = 0; i < len; i++)
+            
+            if (d_debug)
             {
-                std::cout << std::hex << std::setfill('0') << std::setw(2) << (int)buf[i] << std::dec << " ";
+                //std::cout << "SEQ: " << (int)seq << " <" << std::endl;
+                for (int i = 0; i < len; i++)
+                {
+                    std::cout << std::hex << std::setfill('0') << std::setw(2) << (int)buf[i] << std::dec << " ";
+                }
             }
 
             // Check CRC
