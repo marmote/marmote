@@ -46,7 +46,7 @@ namespace gr {
        * class. marmote::cdma_packet_sink::make is the public interface for
        * creating new instances.
        */
-      static sptr make(bool debug, int id);
+      static sptr make(bool debug, int id, int total_pkt);
     };
 
   } // namespace marmote
