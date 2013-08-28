@@ -23,6 +23,7 @@
 #endif
 
 #include <gnuradio/io_signature.h>
+#include <gnuradio/block_detail.h>
 #include "cdma_packet_sink_impl.h"
 
 #include <iomanip>
@@ -45,7 +46,7 @@ namespace gr {
             d_first_pkt_found(false),
             d_start_seq(0),
             d_valid_pkt_ctr(0),
-            d_total_pkt(1000) // FIXME
+            d_total_pkt(51) // FIXME
 		{
 			message_port_register_in(pmt::mp("in"));
 			set_msg_handler(pmt::mp("in"), boost::bind(&cdma_packet_sink_impl::process_packet, this, _1));
@@ -57,93 +58,35 @@ namespace gr {
 
 		void cdma_packet_sink_impl::process_packet(pmt::pmt_t pkt)
 		{
-			if (pmt::is_blob(pkt))
+            if (pmt::is_pair(pkt) && pmt::is_u8vector(pmt::cdr(pkt)))
+            {
+                size_t len;
+                const uint8_t* buf = pmt::u8vector_elements(pmt::cdr(pkt), len);
+
+                process_packet(buf, len);
+            }
+            else if (pmt::is_blob(pkt))
 			{
 				// std::cout << "Processing packet..." << " [" << (int)(pmt::blob_length(pkt)) << " bits]" << std::endl;
 
-				// if (d_debug)
-				{
-                    if (d_debug)
-    					std::cout << "    #" << d_id << " <- ";
+                int len = 0;
+                uint8_t octet = 0;
+                uint8_t* payload = (uint8_t*)pmt::blob_data(pkt);
+                uint16_t crc;
 
-					int k = 0;
-					uint8_t octet = 0;
-					uint8_t* payload = (uint8_t*)pmt::blob_data(pkt);
-					uint16_t crc;
-
-                    // Assemble packet
-					for (int i = 0; i < pmt::blob_length(pkt); i++)
-					{
-						octet = (octet << 1) | payload[i];
-						if (i % 8 == 7)
-						{
-							d_buf[k++] = octet;
-                            if (d_debug)
-    							std::cout << std::setw(2) << std::setfill('0') << std::hex << (int)octet << std::dec << " ";
-						}
-					}
-
-                    // Check CRC
-					if (k >= 3 && (crc_16(d_buf, k-2) != ((d_buf[k-2] << 8) + d_buf[k-1])))
-					{
-                        if (d_debug)
-    						std::cout << "#" << std::endl;
-                        return;
-					}
-
-					// std::cout << std::endl;
-
-                    // Process valid packet
-                    uint16_t seq;
-                    seq = (d_buf[1] & 0xFF) << 8;
-                    seq += d_buf[2] & 0xFF;
-
-                    if (d_first_pkt_found == false)
+                // Assemble packet
+                for (int i = 0; i < pmt::blob_length(pkt); i++)
+                {
+                    octet = (octet << 1) | payload[i];
+                    if (i % 8 == 7)
                     {
-                        d_start_seq = seq;
-                        d_first_pkt_found = true;
-                        d_valid_pkt_ctr = 1;
-                        // std::cout << "SEQ: " << (int)seq << " <" << std::endl;
+                        d_buf[len++] = octet;
                         if (d_debug)
-                            std::cout << "<" << std::endl;
+                            std::cout << std::setw(2) << std::setfill('0') << std::hex << (int)octet << std::dec << " ";
                     }
-                    else
-                    {
-                        // std::cout << "SEQ: " << (int)seq;
-                        if (seq - d_start_seq > d_total_pkt - 1)
-                        {
-                            if (d_debug)
-                                std::cout << "<" << std::endl;
-                            // std::cout << "start_seq: " << d_start_seq << " current_seq: " << seq << " diff_seq: " << (seq - d_start_seq) << std::endl;
-                            // std::cout << "valid_pkt: " << d_valid_pkt_ctr << " / total_pkt: " << d_total_pkt <<  " = ";
-                            // std::cout << (float)d_valid_pkt_ctr/(float)d_total_pkt << std::endl;
+                }
 
-                            std::cout << "#" << d_id << " => PER: " << 1.0 - (float)d_valid_pkt_ctr/(float)d_total_pkt;
-                            std::cout << " (" << d_total_pkt-d_valid_pkt_ctr << "/" << d_total_pkt << ")" << std::endl;
-
-                            while(1);
-                        }
-
-                        if (d_debug)
-                        {
-                            std::cout << "(" << d_valid_pkt_ctr << " / " << (unsigned int)(seq - d_start_seq) << " / " << d_total_pkt <<  ")";
-                            std::cout << std::endl;
-                        }
-                        d_valid_pkt_ctr++;
-                    }
-                    // std::cout << "SEQ: " << (int)seq << std::endl;
-				}
-			}
-			else if (pmt::is_symbol(pkt))
-			{
-
-				const char* data = pmt::symbol_to_string(pkt).data();
-
-				for (int j = 0; j < pmt::symbol_to_string(pkt).length(); j++)
-				{
-					std::cout << std::setw(2) << (int)data[j] << " ";
-				}
-				std::cout << std::endl;
+                process_packet(d_buf, len);
 			}
 			else
 			{
@@ -152,14 +95,68 @@ namespace gr {
 			}
 		}
 
-		uint16_t cdma_packet_sink_impl::crc_16(const uint8_t data[], uint8_t length)
+        void cdma_packet_sink_impl::process_packet(const uint8_t buf[], uint8_t len)
+        {
+            uint16_t seq;
+            seq = (buf[1] & 0xFF) << 8;
+            seq += buf[2] & 0xFF;
+
+            std::cout << "    #" << d_id << " <- ";
+            //std::cout << "SEQ: " << (int)seq << " <" << std::endl;
+            for (int i = 0; i < len; i++)
+            {
+                std::cout << std::hex << std::setfill('0') << std::setw(2) << (int)buf[i] << std::dec << " ";
+            }
+
+            // Check CRC
+            if (len >= 3 && (crc_16(buf, len-2) != ((buf[len-2] << 8) + buf[len-1])))
+            {
+                std::cout << "#" << std::endl;
+                return;
+            }
+            
+            // Update statistics
+            if (d_first_pkt_found == false)
+            {
+                d_start_seq = seq;
+                d_first_pkt_found = true;
+                d_valid_pkt_ctr = 0;
+            }
+
+            if (seq - d_start_seq + 1 <= d_total_pkt)
+            {
+                d_valid_pkt_ctr++;
+            }
+
+            std::cout << "(" << d_valid_pkt_ctr << " / " << (unsigned int)(seq - d_start_seq + 1) << " / " << d_total_pkt <<  ")";
+
+            if (seq - d_start_seq + 1 >= d_total_pkt)
+            {
+                std::cout << " <" << std::endl;
+
+                std::cout << "start_seq: " << d_start_seq << " current_seq: " << seq << " diff_seq: " << (seq - d_start_seq) << std::endl;
+                std::cout << "valid_pkt: " << d_valid_pkt_ctr << " / total_pkt: " << d_total_pkt <<  " = ";
+                std::cout << (float)d_valid_pkt_ctr/(float)d_total_pkt << std::endl;
+
+                std::cout << "#" << d_id << " => PER: " << 1.0 - (float)d_valid_pkt_ctr/(float)d_total_pkt;
+                std::cout << " (" << d_total_pkt-d_valid_pkt_ctr << "/" << d_total_pkt << ")" << std::endl;
+
+                detail().get()->set_done(true);
+                return;
+            }
+
+
+            std::cout << std::endl;
+        }
+
+		uint16_t cdma_packet_sink_impl::crc_16(const uint8_t data[], uint8_t len)
 		{
 			uint8_t bit;
 			uint8_t byte;
 			uint16_t crc;
 
 			crc = 0;
-			for (byte = 0; byte < length; ++byte)
+			for (byte = 0; byte < len; ++byte)
 			{
 				crc ^= (data[byte] << 8);
 
