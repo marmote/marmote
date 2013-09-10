@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<block>
+  <name>Message source</name>
+  <key>marmote_message_source</key>
+  <category>MarmotE</category>
+  <import>import marmote</import>
+  <make>marmote.message_source(debug=$debug, msg_interval=$msg_interval, msg_len=$msg_length, node_id=$node_id)</make>
+
+  <param>
+    <name>Debug</name>
+    <key>debug</key>
+    <value>False</value>
+    <type>bool</type>
+    <option>
+      <name>Enable</name>
+      <key>True</key>
+    </option>
+    <option>
+      <name>Disable</name>
+      <key>False</key>
+    </option>
+  </param>
+
+  <param>
+    <name>Message interval (sec)</name>
+    <key>msg_interval</key>
+    <value>1.0</value>
+    <type>float</type>
+  </param>
+
+  <param>
+    <name>Message length (bytes)</name>
+    <key>msg_length</key>
+    <value>4</value>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>Node ID</name>
+    <key>node_id</key>
+    <value>0</value>
+    <type>int</type>
+  </param>
+
+  <source>
+    <name>out</name>
+    <type>message</type>
+  </source>
+</block>

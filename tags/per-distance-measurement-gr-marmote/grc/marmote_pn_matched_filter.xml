@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<block>
+  <name>PN matched filter</name>
+  <key>marmote_pn_matched_filter</key>
+  <category>MarmotE</category>
+  <import>import marmote</import>
+  <make>marmote.pn_matched_filter(
+    debug=$debug,
+    mask=$mask,
+    seed=$seed,
+    preamble_len=$preamble_len,
+    spread_factor=$spread_factor,
+    oversample_factor=$oversample_factor)
+  </make>
+
+  <param>
+    <name>Debug</name>
+    <key>debug</key>
+    <value>False</value>
+    <type>bool</type>
+    <option>
+      <name>Enable</name>
+      <key>True</key>
+    </option>
+    <option>
+      <name>Disable</name>
+      <key>False</key>
+    </option>
+  </param>
+
+  <param>
+    <name>Mask</name>
+    <key>mask</key>
+    <value>0x12</value>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>Seed</name>
+    <key>seed</key>
+    <value>0x10</value>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>Preamble length (bits)</name>
+    <key>preamble_len</key>
+    <value>8</value>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>Spread factor</name>
+    <key>spread_factor</key>
+    <value>8</value>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>Oversample factor</name>
+    <key>oversample_factor</key>
+    <value>5</value>
+    <type>int</type>
+  </param>
+
+  <sink>
+    <name>in</name>
+    <type>int</type>
+  </sink>
+
+  <source>
+    <name>out</name>
+    <type>int</type>
+  </source>
+
+</block>
