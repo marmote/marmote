@@ -1,1 +1,0 @@
-python ..\ControlRecord\CollectFramesFromSubDirs.py -i ..\..\..\..\Measurements\PenTest_AluminiumBeam3

@@ -1,1 +1,0 @@
-python ..\ControlRecord\DisplayRecording.py -i D:\Work\Measurements\Break\4-1\rec_105.bin

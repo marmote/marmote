@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;StreamingReceiver_RF_MSS_MSS_CM3_0_app/DMA_stuff&apos; to &apos;DMA_stuff.c&apos;" description="Rename resource &apos;DMA_stuff&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="DMA_stuff" name="DMA_stuff.c" stamp="1341412590071" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;StreamingReceiver_RF_MSS_MSS_CM3_0_app/RC_IC_stuff.c&apos; to &apos;RF_IC_stuff.c&apos;" description="Rename resource &apos;RC_IC_stuff.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="RC_IC_stuff.c" name="RF_IC_stuff.c" stamp="1341412814758" updateReferences="true"/>
-</session>

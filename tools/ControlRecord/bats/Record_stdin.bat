@@ -1,1 +1,0 @@
-..\..\recorder\Release\MarmoteRecorder.exe -i > test.bin

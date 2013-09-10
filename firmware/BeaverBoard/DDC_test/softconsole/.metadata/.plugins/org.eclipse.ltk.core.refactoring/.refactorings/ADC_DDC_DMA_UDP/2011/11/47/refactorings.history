@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;ADC_DDC_DMA_UDP/io_ports&apos; to &apos;io_ports.c&apos;" description="Rename resource &apos;io_ports&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="io_ports" name="io_ports.c" stamp="1321223122336" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;ADC_DDC_DMA_UDP/io_ports.c&apos; to &apos;RFX400.c&apos;" description="Rename resource &apos;io_ports.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="io_ports.c" name="RFX400.c" stamp="1321293333235" updateReferences="true"/>
-</session>

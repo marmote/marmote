@@ -1,1 +1,0 @@
-python ..\ControlRecord\CollectFrames.py -i rec_000.bin

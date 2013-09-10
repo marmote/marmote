@@ -1,4 +1,0 @@
-@N: MF249 |Running in 64-bit mode.
-@N: MF258 |Gated clock conversion disabled 
-@N: MF547 |Generated clock conversion disabled 
-@N: BN225 |Writing default property annotation file D:\Work\marmote\firmware\lwIPTest\synthesis\lwIPTest.sap.
