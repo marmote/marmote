@@ -105,7 +105,7 @@ namespace gr {
             
             if (d_debug)
             {
-                //std::cout << "SEQ: " << (int)seq << " <" << std::endl;
+                //std::cout << "SEQ: " << (int)seq << " < ";
                 for (int i = 0; i < len; i++)
                 {
                     std::cout << std::hex << std::setfill('0') << std::setw(2) << (int)buf[i] << std::dec << " ";
@@ -132,9 +132,9 @@ namespace gr {
                 d_valid_pkt_ctr++;
             }
 
-            std::cout << "(" << d_valid_pkt_ctr << " / " << (unsigned int)(seq - d_start_seq + 1) << " / " << d_total_pkt <<  ")";
+            std::cout << "(" << d_valid_pkt_ctr << " / " << (unsigned int)(seq - d_start_seq + 1) % (1 << 16) << " / " << d_total_pkt <<  ")";
 
-            if (seq - d_start_seq + 1 >= d_total_pkt)
+            if ((unsigned int)(seq - d_start_seq + 1) % (1 << 16) >= d_total_pkt)
             {
                 std::cout << " <" << std::endl;
 
@@ -142,8 +142,8 @@ namespace gr {
                 //std::cout << "valid_pkt: " << d_valid_pkt_ctr << " / total_pkt: " << d_total_pkt <<  " = ";
                 //std::cout << (float)d_valid_pkt_ctr/(float)d_total_pkt << std::endl;
 
-                std::cout << "#" << d_id << " => PER: " << 1.0 - (float)d_valid_pkt_ctr/(float)d_total_pkt;
-                std::cout << " (" << d_total_pkt-d_valid_pkt_ctr << "/" << d_total_pkt << ")" << std::endl;
+                std::cout << "#" << d_id << " => PRR: " << std::setw(4) << (float)d_valid_pkt_ctr/(float)d_total_pkt;
+                std::cout << " (" << d_valid_pkt_ctr << "/" << d_total_pkt << ")" << std::endl;
 
                 detail().get()->set_done(true);
                 return;
