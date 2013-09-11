@@ -101,7 +101,7 @@ namespace gr {
             seq = (buf[1] & 0xFF) << 8;
             seq += buf[2] & 0xFF;
 
-            std::cout << "    #" << d_id << " <- ";
+            //std::cout << "    #" << d_id << " <- ";
             
             if (d_debug)
             {
@@ -115,7 +115,7 @@ namespace gr {
             // Check CRC
             if (len >= 3 && (crc_16(buf, len-2) != ((buf[len-2] << 8) + buf[len-1])))
             {
-                std::cout << "#" << std::endl;
+                //std::cout << "#" << std::endl;
                 return;
             }
             
@@ -132,25 +132,28 @@ namespace gr {
                 d_valid_pkt_ctr++;
             }
 
-            std::cout << "(" << d_valid_pkt_ctr << " / " << (unsigned int)(seq - d_start_seq + 1) % (1 << 16) << " / " << d_total_pkt <<  ")";
+            if (d_debug)
+                std::cout << "(" << d_valid_pkt_ctr << " / " << (unsigned int)(seq - d_start_seq + 1) % (1 << 16) << " / " << d_total_pkt <<  ")";
 
             if ((unsigned int)(seq - d_start_seq + 1) % (1 << 16) >= d_total_pkt)
             {
-                std::cout << " <" << std::endl;
+                //std::cout << " <" << std::endl;
 
                 //std::cout << "start_seq: " << d_start_seq << " current_seq: " << seq << " diff_seq: " << (seq - d_start_seq) << std::endl;
                 //std::cout << "valid_pkt: " << d_valid_pkt_ctr << " / total_pkt: " << d_total_pkt <<  " = ";
                 //std::cout << (float)d_valid_pkt_ctr/(float)d_total_pkt << std::endl;
 
-                std::cout << "#" << d_id << " => PRR: " << std::setw(4) << (float)d_valid_pkt_ctr/(float)d_total_pkt;
-                std::cout << " (" << d_valid_pkt_ctr << "/" << d_total_pkt << ")" << std::endl;
+                //std::cout << "#" << d_id << " => PRR: " << std::setw(4) << (float)d_valid_pkt_ctr/(float)d_total_pkt;
+                //std::cout << "#" << d_id << " => PRR: " << std::fixed << std::setprecision(3) << (float)d_valid_pkt_ctr/(float)d_total_pkt;
+                std::cout << std::fixed << std::setprecision(3) << (float)d_valid_pkt_ctr/(float)d_total_pkt << std::endl;
+                //std::cout << " (" << d_valid_pkt_ctr << "/" << d_total_pkt << ")" << std::endl;
 
                 detail().get()->set_done(true);
                 return;
             }
 
 
-            std::cout << std::endl;
+            //std::cout << std::endl;
         }
 
 		uint16_t cdma_packet_sink_impl::crc_16(const uint8_t data[], uint8_t len)
