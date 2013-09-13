@@ -27,18 +27,39 @@ sim:/tx_apb_if_tb/uut/TX_Q
 add wave \
 sim:/tx_apb_if_tb/uut/clk \
 sim:/tx_apb_if_tb/uut/rst \
-sim:/tx_apb_if_tb/uut/s_status \
-sim:/tx_apb_if_tb/uut/s_test \
 sim:/tx_apb_if_tb/uut/s_tx_en \
+-hex sim:/tx_apb_if_tb/uut/s_state \
+-dec \
 -bin sim:/tx_apb_if_tb/uut/s_ptrn \
 -bin sim:/tx_apb_if_tb/uut/s_mask \
--dec \
-sim:/tx_apb_if_tb/uut/s_tx_i \
-sim:/tx_apb_if_tb/uut/s_tx_q \
-sim:/tx_apb_if_tb/uut/s_tx_done \
-sim:/tx_apb_if_tb/uut/c_TX_HIGH \
-sim:/tx_apb_if_tb/uut/c_TX_LOW \
+-hex \
+sim:/tx_apb_if_tb/uut/c_TX_POS \
+sim:/tx_apb_if_tb/uut/c_TX_NEG \
 sim:/tx_apb_if_tb/uut/s_dout \
+
+add wave \
+-divider {IFFT} \
+sim:/tx_apb_if_tb/uut/s_ifft_en \
+-signed \
+-analog-step -min -32768 -max 32768 -height 100 \
+sim:/tx_apb_if_tb/uut/s_i_in \
+sim:/tx_apb_if_tb/uut/s_q_in \
+-hex \
+sim:/tx_apb_if_tb/uut/s_rdy \
+sim:/tx_apb_if_tb/uut/s_vld \
+-signed \
+-analog-step -min -512 -max 512 -height 100 \
+sim:/tx_apb_if_tb/uut/s_i_out \
+sim:/tx_apb_if_tb/uut/s_q_out
+
+add wave  \
+-signed \
+sim:/tx_apb_if_tb/TX_EN \
+-analog-step -min -512 -max 512 -height 100 \
+sim:/tx_apb_if_tb/TX_I \
+sim:/tx_apb_if_tb/TX_Q \
+sim:/tx_apb_if_tb/uut/LED
+
 
 run -all
 

@@ -34,14 +34,9 @@ CURREV=3
 ENDLIST
 LIST LIBRARIES
 MSS_BFM_LIB
-COREAPB3_LIB
 ENDLIST
 LIST LIBRARY_MSS_BFM_LIB
 ALIAS=..\component\Actel\SmartFusionMSS\MSS\2.5.106\mti\user_verilog\MSS_BFM_LIB
-COMPILE_OPTION=REFRESH_AND_COMPILE
-ENDLIST
-LIST LIBRARY_COREAPB3_LIB
-ALIAS=COREAPB3_LIB
 COMPILE_OPTION=REFRESH_AND_COMPILE
 ENDLIST
 LIST FileManager
@@ -171,12 +166,12 @@ SIZE="413"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.cxf,actgen_cxf"
 STATE="utd"
-TIME="1379093163"
-SIZE="10458"
+TIME="1379093785"
+SIZE="10542"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.pdc,pdc"
 STATE="utd"
-TIME="1379093033"
+TIME="1379093336"
 SIZE="4881"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 BEGIN_USE_CONSTRAINT
@@ -313,8 +308,8 @@ SIZE="3738"
 ENDFILE
 VALUE "<project>\hdl\tx_apb_if.vhd,hdl"
 STATE="utd"
-TIME="1379091261"
-SIZE="5637"
+TIME="1379105318"
+SIZE="7646"
 ENDFILE
 VALUE "<project>\simulation\afe_if_wave.do,do"
 STATE="utd"
@@ -334,8 +329,8 @@ SIZE="1108"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
-TIME="1379092578"
-SIZE="628"
+TIME="1379093336"
+SIZE="598"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 ENDFILE
 VALUE "<project>\simulation\test.bfm,sim"
@@ -346,8 +341,13 @@ PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\simulation\TX_APB_IF_tb_presynth_simulation.log,log"
 STATE="utd"
-TIME="1379092606"
-SIZE="10352"
+TIME="1379104346"
+SIZE="76631"
+ENDFILE
+VALUE "<project>\simulation\tx_apb_if_wave.do,do"
+STATE="utd"
+TIME="1379093954"
+SIZE="1092"
 ENDFILE
 VALUE "<project>\simulation\user.bfm,sim"
 STATE="utd"
@@ -367,8 +367,26 @@ SIZE="1361"
 ENDFILE
 VALUE "<project>\stimulus\tx_apb_if_tb.vhd,tb_hdl"
 STATE="utd"
-TIME="1379092111"
+TIME="1379104090"
 SIZE="6244"
+ENDFILE
+VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd,hdl"
+STATE="utd"
+TIME="1379104959"
+SIZE="220529"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ifft_16_impl_1\vhdl\ifft_16.vhd,hdl"
+STATE="utd"
+TIME="1379104959"
+SIZE="23479"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd,hdl"
+STATE="utd"
+TIME="1379104959"
+SIZE="131871"
+IS_READONLY="TRUE"
 ENDFILE
 ENDLIST
 LIST UsedFile
@@ -387,35 +405,6 @@ ENDLIST
 LIST AssociatedStimulus
 VALUE "<project>\stimulus\afe_if_tb.vhd,tb_hdl"
 ENDLIST
-LIST ProjectState5.1
-LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
 ENDLIST
 LIST "LED_PWM::work"
 FILE "<project>\hdl\led_pwm.vhd,hdl"
@@ -432,35 +421,6 @@ VALUE "<project>\stimulus\led_pwm_tb.vhd,tb_hdl"
 ENDLIST
 LIST SynthesisConstraints
 VALUE "<project>\constraint\TetonTiming.sdc,sdc"
-ENDLIST
-LIST ProjectState5.1
-LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
 ENDLIST
 ENDLIST
 LIST "Teton::work"
@@ -561,35 +521,6 @@ ENDLIST
 LIST AssociatedStimulus
 VALUE "<project>\component\work\Teton_MSS\testbench.vhd,tb_hdl"
 ENDLIST
-LIST ProjectState5.1
-LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
 ENDLIST
 LIST "TX_APB_IF::work"
 FILE "<project>\hdl\tx_apb_if.vhd,hdl"
@@ -597,8 +528,10 @@ LIST UserCustomizedFileList
 LIST "ideSIMULATION"
 USE_LIST=TRUE
 FILELIST
+VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd,hdl"
+VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ifft_16_impl_1\vhdl\ifft_16.vhd,hdl"
+VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd,hdl"
 VALUE "<project>\hdl\tx_apb_if.vhd,hdl"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\components.vhd,hdl"
 ENDFILELIST
 ENDLIST
 ENDLIST 
@@ -672,7 +605,7 @@ VsimOpt=
 EntityName=TX_APB_IF_tb
 TopInstanceName=uut
 DoFileName=
-DoFileName2=D:/firmware/MainBoard/CdmaTransceiver/simulation/top_tx_apb_if_wave.do
+DoFileName2=D:/firmware/MainBoard/Ofdm/simulation/tx_apb_if_wave.do
 DoFileParams=
 DisplayDUTWave=true
 LogAllSignals=false
@@ -720,7 +653,7 @@ NAME="ModelSim AE"
 FUNCTION="Simulation"
 TOOL="ModelSim"
 LOCATION="C:\Microsemi\Libero_v11.1\Model\win32acoem\modelsim.exe"
-PARAM=" -l testbench_presynth_simulation.log "
+PARAM=" -l TX_APB_IF_tb_presynth_simulation.log "
 BATCH=0
 EndProfile
 NAME="FlashPro"
@@ -732,64 +665,6 @@ BATCH=0
 EndProfile
 ENDLIST
 LIST ProjectState5.1
-LIST "AFE_IF::work"
-LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
-LIST "LED_PWM::work"
-LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
 LIST "Teton::work"
 LIST Impl1
 LIST FlowOptions
@@ -842,35 +717,6 @@ VALUE "<project>\phy_synthesis\Teton_palace.gcf,palace_gcf"
 VALUE "<project>\phy_synthesis\Teton_palace.pdc,palace_pdc"
 VALUE "<project>\phy_synthesis\Teton_palace.sdc,palace_sdc"
 VALUE "<project>\phy_synthesis\Teton_palace.vhd,palace_hdl"
-ENDUsed_File_List
-ENDLIST
-ENDLIST
-LIST "Teton_MSS::work"
-LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
 ENDUsed_File_List
 ENDLIST
 ENDLIST
@@ -958,8 +804,10 @@ LIST "TX_APB_IF"
 LIST "ideSIMULATION"
 USE_LIST=TRUE
 FILELIST
+VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd,hdl"
+VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ifft_16_impl_1\vhdl\ifft_16.vhd,hdl"
+VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd,hdl"
 VALUE "<project>\hdl\tx_apb_if.vhd,hdl"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\components.vhd,hdl"
 ENDFILELIST
 ENDLIST
 ENDLIST
@@ -971,13 +819,185 @@ SmartDesign;Teton_MSS
 ACTIVEVIEW;Teton
 ENDLIST
 LIST ModuleSubBlockList
+LIST "addrGenR2E::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "addrGenR2E_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "addrGenR2E_MCh::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "addrGenR4E::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "addrGenR4E_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "addrGenR4E_MCh::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
 LIST "AFE_IF::work","hdl\afe_if.vhd","FALSE","FALSE"
+ENDLIST
+LIST "bf2::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipLogic::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelay::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2I::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayFeedbackE::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "bf2_fold2::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2I_fold2::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayFeedbackE::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "bf2_fold4::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2I_fold4::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayFeedbackE::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "bf2_fold4_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2I_fold4_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2II_fold4_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayFeedbackE_MCF_R2F::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayFeedbackE_MCF_R2B::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelay::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "bf2_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipLogic_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelay_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2I::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayFeedbackE_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "bf2_real::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipLogic::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelay::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2I_real::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayFeedbackE::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "bf2_real_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipLogic_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelay_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2I_real::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayFeedbackE_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "bf4::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipLogic::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelayUnsigned::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelay::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2I::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2II::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayFeedbackE::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "bf4_fold2::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2I_fold2::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2II_fold2::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayFeedbackE::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelay::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "bf4_fold2_last::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2I_fold2::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2II_fold2_Last::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayFeedbackE::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelay::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "bf4_fold4::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2I_fold4::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2II_fold4::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayFeedbackE::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelay::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "bf4_fold4_last::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2I_fold4::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2II_fold4_Last::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayFeedbackE::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelay::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "bf4_fold4_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2I_fold4_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2II_fold4_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayFeedbackE_MCF::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelay::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "bf4_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipLogic_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelayUnsigned_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelay_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2I::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2II::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayFeedbackE_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayOneE_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "bf4_real::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipLogic::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelayUnsigned::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelay::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2I_real::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2II_real::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayFeedbackE::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "bf4_real_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipLogic_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelayUnsigned_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelay_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2I_real::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2II_real::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayFeedbackE_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayOneE_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "BIBUF_MSS::work","component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd","FALSE","FALSE"
 ENDLIST
 LIST "BIBUF_OPEND_MSS::work","component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd","FALSE","FALSE"
 ENDLIST
+LIST "bitreverse2::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "bitreverse2_fold2::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "bitreverse2_fold2real::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "bitreverse2_fold4::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "bitreverse2_fold4real::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "bitreverse2_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "bitreverse2_MCreal::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "bitreverse2real::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "butterfly2I::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "butterfly2I_fold2::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelay::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "butterfly2I_fold4::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synAddSubOpr::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelay::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "butterfly2I_fold4_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synAddSubOpr::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelay::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "butterfly2I_real::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "butterfly2II::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synAddSubOpr::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "butterfly2II_fold2::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synAddSubOpr::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelay::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "butterfly2II_fold2_Last::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synAddSubOpr::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "butterfly2II_fold4::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synAddSubOpr::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelay::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "butterfly2II_fold4_Last::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synAddSubOpr::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "butterfly2II_fold4_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synAddSubOpr::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelay::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "butterfly2II_real::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synAddSubOpr::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
 LIST "CoreAPB3::work","","FALSE","FALSE"
+ENDLIST
+LIST "crom16_FFT::work","hdl\simulink\ifft_16_impl_1\vhdl\ifft_16.vhd","FALSE","FALSE"
 ENDLIST
 LIST "DESIGN_FIRMWARE::work","component\work\DESIGN_FIRMWARE\DESIGN_FIRMWARE.cxf","TRUE","FALSE"
 SUBBLOCK "HAL::work","","FALSE","FALSE"
@@ -994,6 +1014,12 @@ SUBBLOCK "SmartFusion_CMSIS_PAL::work","","FALSE","FALSE"
 ENDLIST
 LIST "DESIGN_IO::work","component\work\DESIGN_IO\DESIGN_IO.cxf","TRUE","FALSE"
 ENDLIST
+LIST "FFT::work","hdl\simulink\ifft_16_impl_1\vhdl\ifft_16.vhd","FALSE","FALSE"
+SUBBLOCK "synBusSatRnd::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "bf4::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "multStage16_FFT::work","hdl\simulink\ifft_16_impl_1\vhdl\ifft_16.vhd","FALSE","FALSE"
+SUBBLOCK "bitreverse2::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
 LIST "FIFO_256x16::work","hdl\fifo_256x16.vhd","FALSE","FALSE"
 ENDLIST
 LIST "FIFO_512x8::work","hdl\fifo_512x8.vhd","FALSE","FALSE"
@@ -1001,6 +1027,10 @@ ENDLIST
 LIST "FILTER_RRC::work","hdl\filter_rrc.vhd","FALSE","FALSE"
 ENDLIST
 LIST "HAL::work","","FALSE","FALSE"
+ENDLIST
+LIST "ifft_16::work","hdl\simulink\ifft_16_impl_1\vhdl\ifft_16.vhd","FALSE","FALSE"
+SUBBLOCK "Recast::work","hdl\simulink\ifft_16_impl_1\vhdl\ifft_16.vhd","FALSE","FALSE"
+SUBBLOCK "FFT::work","hdl\simulink\ifft_16_impl_1\vhdl\ifft_16.vhd","FALSE","FALSE"
 ENDLIST
 LIST "INBUF_LVDS_MCCC::work","component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd","FALSE","FALSE"
 ENDLIST
@@ -1042,9 +1072,332 @@ LIST "MSS_XTLOSC::work","component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vh
 ENDLIST
 LIST "MSSINT::work","component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd","FALSE","FALSE"
 ENDLIST
+LIST "multStage16_FFT::work","hdl\simulink\ifft_16_impl_1\vhdl\ifft_16.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelay::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "addrGenR4E::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "crom16_FFT::work","hdl\simulink\ifft_16_impl_1\vhdl\ifft_16.vhd","FALSE","FALSE"
+SUBBLOCK "umult::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
 LIST "OUTBUF_MSS::work","component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd","FALSE","FALSE"
 ENDLIST
+LIST "Recast::work","hdl\simulink\ifft_16_impl_1\vhdl\ifft_16.vhd","FALSE","FALSE"
+SUBBLOCK "synBusAdapter::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "singleDelayWithEnableGeneric::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
 LIST "SmartFusion_CMSIS_PAL::work","","FALSE","FALSE"
+ENDLIST
+LIST "synAbs::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synAccumulator::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synAccumulatorMC::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synAccumulatorMCOvf::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synAccumulatorOvf::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synAddSub::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synAddSubOpr::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synBinLogic::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synBusAdapter::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synBusSatRnd::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synBusSatRnd::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synComparator::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synCordic::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCordicAtan::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCordicAtanFolded::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCordicAtanMC::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCordicExp::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCordicExpFolded::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCordicExpMC::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCordicFolded::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCordicIntDiv::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCordicIntDivFolded::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCordicIntDivMC::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCordicLn::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCordicLnFolded::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCordicLnMC::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCordicMC::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCordicPolar::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCordicPolarFolded::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCordicPolarMC::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCordicSinCos::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCordicSinCosFolded::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCordicSinCosMC::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCordicSqrt::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCordicSqrtFolded::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCordicSqrtMC::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCordicVecMag::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCordicVecMagFolded::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCordicVecMagMC::work","","FALSE","FALSE"
+ENDLIST
+LIST "synCounter::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synCounterFR::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synCounterFRMC::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synCounterMC::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synCounterSync::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synCSAUnit::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synDataTypes::work","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synDelayFeedbackE::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synDelayFeedbackE_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synDelayFeedbackE_MCF::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synDelayFeedbackE_MCF_R2B::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synDelayFeedbackE_MCF_R2F::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synDelayOneE_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synDelayWithEnable_signed::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnableGeneric::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "singleDelayWithEnableGeneric::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synDelayWithEnable_std_logic::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnableGeneric::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "singleDelayWithEnableGeneric::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synDelayWithEnable_std_logic_vector::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnableGeneric::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnableGeneric_2_4::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "singleDelayWithEnableGeneric::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synDelayWithEnable_unsigned::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnableGeneric::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "singleDelayWithEnableGeneric::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synDelayWithEnableGeneric::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synDelayWithEnableGeneric_2_4::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synDownsampleSimple::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synFftUtils::work","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelay::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelayUnsigned::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipLogic::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synAddSubOpr::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "umult::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayFeedbackE::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "addrGenR4E::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "addrGenR2E::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2I::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2II::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "bf2::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "bf4::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "bitreverse2::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "bitreverse2real::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "bitreverse2_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "bitreverse2_MCreal::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2I_real::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2II_real::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "bf2_real::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "bf4_real::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "bf2_real_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "bf4_real_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2I_fold2::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2II_fold2::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2II_fold2_Last::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "bf2_fold2::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "bf4_fold2::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "bf4_fold2_last::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "bitreverse2_fold2::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "bitreverse2_fold2real::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2I_fold4::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2II_fold4::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2II_fold4_Last::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "bf2_fold4::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "bf4_fold4::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "bf4_fold4_last::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "bf4_fold4_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "bf2_fold4_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "bitreverse2_fold4::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "bitreverse2_fold4real::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayFeedbackE_MCF::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayFeedbackE_MCF_R2F::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayFeedbackE_MCF_R2B::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "addrGenR4E_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "addrGenR2E_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2I_fold4_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "butterfly2II_fold4_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelay_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelayUnsigned_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipLogic_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "umult_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayFeedbackE_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayOneE_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "addrGenR4E_MCh::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "addrGenR2E_MCh::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "bf2_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "bf4_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synFIFO::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synFIFO_MC::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synFIFO::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synGain::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synInverter::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synLibFunctions::work","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synAddSub::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synMult::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synBusSatRnd::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synBusAdapter::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synNegate::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synInverter::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synGain::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnable_signed::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synStepFunction_std_logic_vector::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnable_unsigned::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnable_std_logic::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnableGeneric_2_4::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnable_std_logic_vector::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnableGeneric::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "singleDelayWithEnableGeneric::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synRobustLatch_signed::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synRobustLatch_unsigned::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synRobustLatch_std_logic::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synRobustLatch_std_logic_vector::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synMux::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synShifter::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synShifterR::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synAbs::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synBinLogic::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synComparator::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synCounter::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synCounterSync::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synCounterFR::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synCounterMC::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synCounterFRMC::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synAccumulator::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synAccumulatorOvf::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synAccumulatorMC::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synAccumulatorMCOvf::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synRegister::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synRegisterMC::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synFIFO::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synFIFO_MC::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synMultiRateFIFO::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synCordic::work","","FALSE","FALSE"
+SUBBLOCK "synCordicMC::work","","FALSE","FALSE"
+SUBBLOCK "synCordicFolded::work","","FALSE","FALSE"
+SUBBLOCK "synCordicAtan::work","","FALSE","FALSE"
+SUBBLOCK "synCordicAtanMC::work","","FALSE","FALSE"
+SUBBLOCK "synCordicAtanFolded::work","","FALSE","FALSE"
+SUBBLOCK "synCordicPolar::work","","FALSE","FALSE"
+SUBBLOCK "synCordicPolarFolded::work","","FALSE","FALSE"
+SUBBLOCK "synCordicPolarMC::work","","FALSE","FALSE"
+SUBBLOCK "synCordicExp::work","","FALSE","FALSE"
+SUBBLOCK "synCordicExpMC::work","","FALSE","FALSE"
+SUBBLOCK "synCordicExpFolded::work","","FALSE","FALSE"
+SUBBLOCK "synCordicIntDiv::work","","FALSE","FALSE"
+SUBBLOCK "synCordicIntDivMC::work","","FALSE","FALSE"
+SUBBLOCK "synCordicIntDivFolded::work","","FALSE","FALSE"
+SUBBLOCK "synCordicVecMag::work","","FALSE","FALSE"
+SUBBLOCK "synCordicVecMagMC::work","","FALSE","FALSE"
+SUBBLOCK "synCordicVecMagFolded::work","","FALSE","FALSE"
+SUBBLOCK "synCordicSinCos::work","","FALSE","FALSE"
+SUBBLOCK "synCordicSinCosMC::work","","FALSE","FALSE"
+SUBBLOCK "synCordicSinCosFolded::work","","FALSE","FALSE"
+SUBBLOCK "synCordicLn::work","","FALSE","FALSE"
+SUBBLOCK "synCordicLnMC::work","","FALSE","FALSE"
+SUBBLOCK "synCordicLnFolded::work","","FALSE","FALSE"
+SUBBLOCK "synCordicSqrt::work","","FALSE","FALSE"
+SUBBLOCK "synCordicSqrtMC::work","","FALSE","FALSE"
+SUBBLOCK "synCordicSqrtFolded::work","","FALSE","FALSE"
+SUBBLOCK "synSRL::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synCSAUnit::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipelinedAdd::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDownsampleSimple::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synMult::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synMultiRateFIFO::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synMux::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synNegate::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synPipDelay::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synPipDelay_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelay::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synPipDelayUnsigned::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synPipDelayUnsigned_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipDelayUnsigned::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synPipelinedAdd::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnable_std_logic_vector::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synPipLogic::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synPipLogic_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synPipLogic::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synRegister::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synRegisterMC::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synRobustLatch_signed::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synRobustLatch_std_logic::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synRobustLatch_std_logic_vector::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synRobustLatch_unsigned::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synShifter::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synShifterR::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synSRL::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synStepFunction_std_logic_vector::work::synLibFunctions","hdl\simulink\ifft_16_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "Teton::work","component\work\Teton\Teton.cxf","TRUE","FALSE"
 SUBBLOCK "CoreAPB3::work","","FALSE","FALSE"
@@ -1068,6 +1421,11 @@ ENDLIST
 LIST "TRIBUFF_MSS::work","component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd","FALSE","FALSE"
 ENDLIST
 LIST "TX_APB_IF::work","hdl\tx_apb_if.vhd","FALSE","FALSE"
+SUBBLOCK "ifft_16::work","hdl\simulink\ifft_16_impl_1\vhdl\ifft_16.vhd","FALSE","FALSE"
+ENDLIST
+LIST "umult::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "umult_MC::work::synFftUtils","hdl\simulink\ifft_16_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "AFE_IF_tb::work","stimulus\afe_if_tb.vhd","FALSE","TRUE"
 SUBBLOCK "AFE_IF::work","hdl\afe_if.vhd","FALSE","FALSE"

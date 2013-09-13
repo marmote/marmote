@@ -81,6 +81,10 @@
         <spirit:direction>out</spirit:direction>
       </spirit:signal>
       <spirit:signal>
+        <spirit:name>LED</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
         <spirit:name>TX_DONE_IRQ</spirit:name>
         <spirit:direction>out</spirit:direction>
       </spirit:signal>
@@ -102,8 +106,8 @@
       </spirit:signal>
     </spirit:signals>
     <spirit:hwParameters>
-      <spirit:hwParameter spirit:id="g_PTRN" spirit:name="g_PTRN" spirit:prompt="g_PTRN:" spirit:dataType="int" spirit:resolve="user">358</spirit:hwParameter>
-      <spirit:hwParameter spirit:id="g_MASK" spirit:name="g_MASK" spirit:prompt="g_MASK:" spirit:dataType="int" spirit:resolve="user">32766</spirit:hwParameter>
+      <spirit:hwParameter spirit:id="g_PTRN" spirit:name="g_PTRN" spirit:prompt="g_PTRN:" spirit:dataType="int" spirit:resolve="user">65535</spirit:hwParameter>
+      <spirit:hwParameter spirit:id="g_MASK" spirit:name="g_MASK" spirit:prompt="g_MASK:" spirit:dataType="int" spirit:resolve="user">20480</spirit:hwParameter>
     </spirit:hwParameters>
   </spirit:hwModel>
   <spirit:choices>
