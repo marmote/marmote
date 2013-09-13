@@ -32,6 +32,9 @@
 --
 -----------------------------------------------------------------------------
 
+-- TODO:
+-- -Ensure output is zero in RST and until VLD/RDY
+
 
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -82,6 +85,8 @@ architecture bench of TX_APB_IF_tb is
     signal TX_EN: std_logic;
     signal TX_I: std_logic_vector(9 downto 0);
     signal TX_Q: std_logic_vector(9 downto 0) ;
+    --signal TX_I: std_logic_vector(15 downto 0);
+    --signal TX_Q: std_logic_vector(15 downto 0) ;
 
     constant clock_period: time := 50 ns;
     signal stop_the_clock: boolean;
@@ -165,12 +170,19 @@ begin
         wait for 100 ns;
 
         p_write_apb(c_ADDR_TEST, x"000000_F3", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
+        p_write_apb(c_ADDR_TEST, x"000000_F0", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
+        -- START
         p_write_apb(c_ADDR_CTRL, x"000000_01", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
 
---        wait until TX_DONE_IRQ = '1';
---        report "TX DONE";
+        wait for 5000 ns;
 
-        wait for 2000 ns;
+        p_write_apb(c_ADDR_CTRL, x"000000_00", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
+        wait for 500 ns;
+        p_write_apb(c_ADDR_CTRL, x"000000_01", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
+        wait for 5000 ns;
+        
+        -- STOP
+        p_write_apb(c_ADDR_CTRL, x"000000_00", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
 
         stop_the_clock <= true;
         wait;
