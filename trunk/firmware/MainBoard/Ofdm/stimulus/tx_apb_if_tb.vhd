@@ -3,7 +3,7 @@
 -- MODULE: Marmote Main Board
 -- AUTHORS: Sandor Szilvasi
 -- AUTHOR CONTACT INFO.: Sandor Szilvasi <sandor.szilvasi@vanderbilt.edu>
--- TOOL VERSIONS: Libero 10.1 SP3
+-- TOOL VERSIONS: Libero 11.1 SP3
 -- TARGET DEVICE: A2F500M3G (256 FBGA)
 --   
 -- Copyright (c) 2006-2013, Vanderbilt University
@@ -28,7 +28,7 @@
 
 
 ------------------------------------------------------------------------------
--- Description: 
+-- Description: Unit test for the simple OFDM-based tone-generator.
 --
 -----------------------------------------------------------------------------
 
@@ -57,14 +57,16 @@ architecture bench of TX_APB_IF_tb is
 
              TX_DONE_IRQ : out std_logic;
              TX_EN      : out std_logic;
-             TX_I       : out std_logic_vector(10 downto 0);
-             TX_Q       : out std_logic_vector(10 downto 0)
+             TX_I       : out std_logic_vector(9 downto 0);
+             TX_Q       : out std_logic_vector(9 downto 0)
          );
     end component;
 
 	-- Addresses
-	constant c_ADDR_CTRL        : unsigned(7 downto 0) := x"00"; -- W (START)
-	constant c_ADDR_FIFO        : unsigned(7 downto 0) := x"04"; -- W
+	constant c_ADDR_CTRL        : unsigned(7 downto 0) := x"00"; -- R/W (TX_EN)
+	constant c_ADDR_TEST        : unsigned(7 downto 0) := x"04"; -- R/W
+	constant c_ADDR_PTRN        : unsigned(7 downto 0) := x"10"; -- R/W
+	constant c_ADDR_MASK        : unsigned(7 downto 0) := x"14"; -- R/W
 
     signal PCLK: std_logic;
     signal PRESETn: std_logic;
@@ -78,8 +80,8 @@ architecture bench of TX_APB_IF_tb is
     signal PSLVERR: std_logic;
     signal TX_DONE_IRQ: std_logic;
     signal TX_EN: std_logic;
-    signal TX_I: std_logic_vector(10 downto 0);
-    signal TX_Q: std_logic_vector(10 downto 0) ;
+    signal TX_I: std_logic_vector(9 downto 0);
+    signal TX_Q: std_logic_vector(9 downto 0) ;
 
     constant clock_period: time := 50 ns;
     signal stop_the_clock: boolean;
@@ -98,6 +100,7 @@ architecture bench of TX_APB_IF_tb is
      ) is
      begin
         wait until rising_edge(PCLK);
+
         -- Setup phase
         PADDR <= x"000000" & std_logic_vector(addr); 
         PWDATA <= std_logic_vector(data);
@@ -105,6 +108,7 @@ architecture bench of TX_APB_IF_tb is
         PSEL <= '1';
 
         wait until rising_edge(PCLK);
+
         -- Access phase
         PENABLE <= '1';
 
@@ -160,27 +164,13 @@ begin
         PRESETn <= '1';
         wait for 100 ns;
 
-        p_write_apb(c_ADDR_FIFO, x"000000_F2", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
-        p_write_apb(c_ADDR_FIFO, x"000000_F3", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
-        p_write_apb(c_ADDR_FIFO, x"000000_F4", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
-        p_write_apb(c_ADDR_FIFO, x"000000_F5", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
-
+        p_write_apb(c_ADDR_TEST, x"000000_F3", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
         p_write_apb(c_ADDR_CTRL, x"000000_01", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
 
-        wait until TX_DONE_IRQ = '1';
-        report "TX DONE";
---        wait for 5000 ns;
---
---        p_write_apb(c_ADDR_FIFO, x"000000_1A", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
---        p_write_apb(c_ADDR_FIFO, x"000000_1B", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
---        p_write_apb(c_ADDR_FIFO, x"000000_1C", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
---        p_write_apb(c_ADDR_FIFO, x"000000_1D", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
---
---        p_write_apb(c_ADDR_CTRL, x"000000_01", PCLK, PADDR, PWRITE, PSEL, PENABLE, PWDATA);
---
 --        wait until TX_DONE_IRQ = '1';
 --        report "TX DONE";
-        wait for 1000 ns;
+
+        wait for 2000 ns;
 
         stop_the_clock <= true;
         wait;
