@@ -106,19 +106,13 @@
       </spirit:signal>
     </spirit:signals>
     <spirit:hwParameters>
+      <spirit:hwParameter spirit:id="g_PTRN" spirit:name="g_PTRN" spirit:prompt="g_PTRN:" spirit:dataType="int" spirit:resolve="user">65535</spirit:hwParameter>
+      <spirit:hwParameter spirit:id="g_MASK" spirit:name="g_MASK" spirit:prompt="g_MASK:" spirit:dataType="int" spirit:resolve="user">20480</spirit:hwParameter>
     </spirit:hwParameters>
   </spirit:hwModel>
   <spirit:choices>
   </spirit:choices>
   <spirit:fileSets>
-  <spirit:fileSet spirit:fileSetId="HDL_FILESET">
-    <spirit:file>
-      <spirit:name>hdl/tx_apb_if.vhd</spirit:name>
-      <spirit:fileType>VHDLSource</spirit:fileType>
-    <spirit:vendorExtensions></spirit:vendorExtensions>
-    </spirit:file>
-  <spirit:vendorExtensions></spirit:vendorExtensions>
-  </spirit:fileSet>
   </spirit:fileSets>
   <spirit:vendorExtensions>
     <actel-cc:type typeName="IP"/>
