@@ -106,7 +106,11 @@ architecture Behavioral of TX_APB_IF is
 
 	-- Registers
 
-	signal s_status     : std_logic_vector(31 downto 0);
+	signal s_tx_en      : std_logic;
+    signal s_test       : std_logic_vector(7 downto 0);
+    signal s_ptrn       : std_logic_vector(15 downto 0);
+    signal s_mask       : std_logic_vector(15 downto 0);
+
 
 	-- Signals
 
@@ -115,11 +119,6 @@ architecture Behavioral of TX_APB_IF is
 
     signal s_dout       : std_logic_vector(31 downto 0);
     signal s_state      : std_logic_vector(15 downto 0) := x"8000";
-
-    signal s_test       : std_logic_vector(7 downto 0);
-	signal s_tx_en      : std_logic;
-    signal s_ptrn       : std_logic_vector(15 downto 0);
-    signal s_mask       : std_logic_vector(15 downto 0);
 
     signal s_ifft_rst   : std_logic;
     signal s_ifft_en     : std_logic;
@@ -202,7 +201,7 @@ begin
 				case PADDR(7 downto 0) is
                     -- Status
 					when c_ADDR_CTRL => 
-						s_dout <= s_status;
+						s_dout(0) <= s_tx_en;
 					when c_ADDR_TEST => 
 						s_dout(7 downto 0) <= s_test;
 					when c_ADDR_PTRN =>
@@ -240,7 +239,6 @@ begin
         if rst = '1' then
             s_ifft_en <= '0';
             s_i_in <= (others => '0');
-            s_q_in <= (others => '0');
         elsif rising_edge(clk) then
             if s_tx_en = '0' then
                 s_ifft_en <= '0';
@@ -257,9 +255,10 @@ begin
                     end if;
                 end if;
             end if;
-            s_q_in <= (others => '0');
         end if;
     end process p_IFFT_FEED;
+
+    s_q_in <= (others => '0');
 
 
     -- Output assignment
