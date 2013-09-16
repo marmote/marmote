@@ -43,7 +43,9 @@ sim:/tx_apb_if_tb/uut/s_ifft_en \
 -signed \
 -analog-step -min -32768 -max 32768 -height 100 \
 sim:/tx_apb_if_tb/uut/s_i_in \
-sim:/tx_apb_if_tb/uut/s_q_in \
+sim:/tx_apb_if_tb/uut/s_q_in
+
+add wave \
 -hex \
 sim:/tx_apb_if_tb/uut/s_rdy \
 sim:/tx_apb_if_tb/uut/s_vld \
