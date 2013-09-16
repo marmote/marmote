@@ -7,12 +7,10 @@
 
 #include "cmd_def.h"
 
-static float pkt_var = 0.0;
-
 CMD_Type CMD_List[] =
 {
 	{"help", 	CmdHelp},
-//	{"led",  	CmdLed},
+	{"led",  	CmdLed},
 //	{"sleep",	 CmdSleep},
 //	{"clk",  	CmdClock},
 //	{"afe",  	CmdAfe},
@@ -20,6 +18,7 @@ CMD_Type CMD_List[] =
 
 //	{"fpga", CmdFpga},
 
+	// MAX2830
 	{"reg",  	CmdReg},
 	{"freq", 	CmdFreq},
 	{"txg", 	CmdTxGain},
@@ -34,23 +33,12 @@ CMD_Type CMD_List[] =
 	{"pa",     	CmdPa},
 	//{"cal",  CmdCal},
 
-	{"iq",   	CmdIQ},
-	{"mux1",  	CmdMux1},
-	{"mux2",  	CmdMux2},
-
-	{"modmux",  CmdModMux},
-
-	// CDMA measurement
+	// OFDM
 	{"stat", 	CmdStatus},
-
-	{"len",  	CmdPacketLength},
-	{"rate", 	CmdPacketRate},
-	{"var", 	CmdPacketVar},
-	{"sf", 		CmdSpreadFactor},
-	{"len", 	CmdPreambleLen},
-
-	{"start", 	CmdStart},
-	{"stop", 	CmdStop},
+	{"ptrn",  	CmdPattern},
+	{"mask",  	CmdMask},
+	{"s", 		CmdStart},
+	{"e", 		CmdStop},
 
 	{NULL,   	NULL}
 };
@@ -85,19 +73,19 @@ uint32_t CmdStatus(uint32_t argc, char** argv)
 
 	sprintf(buf, "\r\nMarmotE Main Board (Teton) Rev %c Node %d", node_rev, node_id);
 	Yellowstone_print(buf);
+	sprintf(buf, "\r\nTx:           %s", (TX_CTRL->CTRL & 0x1) ? "RUNNING" : "STOPPED");
+	Yellowstone_print(buf);
+
+	sprintf(buf, "\r\nFrequency:    %.2f MHz", (double)Max2830_get_frequency()/1e6);
+	Yellowstone_print(buf);
+	sprintf(buf, "\r\nTx gain:      %.1f dB", Max2830_get_tx_gain());
+	Yellowstone_print(buf);
+	sprintf(buf, "\r\nTx bandwidth: %5u kHz", (int)Max2830_get_tx_bandwidth());
+	Yellowstone_print(buf);
+
+	sprintf(buf, "\r\nPTRN:         0x%X", (int)TX_CTRL->PTRN);
+	Yellowstone_print(buf);
 	sprintf(buf, "\r\nMASK:         0x%X", (int)TX_CTRL->MASK);
-	Yellowstone_print(buf);
-	sprintf(buf, "\r\nSF:           %d", (int)TX_CTRL->SF);
-	Yellowstone_print(buf);
-	sprintf(buf, "\r\nPreamble len: %u", (int)TX_CTRL->PRE_LEN);
-	Yellowstone_print(buf);
-	sprintf(buf, "\r\nPacket len:   %d", (int)TX_CTRL->PAY_LEN);
-	Yellowstone_print(buf);
-	sprintf(buf, "\r\nPacket rate:  %d", (int)packet_rate);
-	Yellowstone_print(buf);
-	sprintf(buf, "\r\nPacket var:   %5.2f %%", pkt_var);
-	Yellowstone_print(buf);
-	sprintf(buf, "\r\nPacket time:  %d us", ((int)TX_CTRL->PRE_LEN + (int)TX_CTRL->PAY_LEN) * 8 * (int)TX_CTRL->SF / 2); // T_CHIP = 500 ns <-> /2
 	Yellowstone_print(buf);
 
 	return 0;
@@ -908,454 +896,95 @@ uint32_t CmdPa(uint32_t argc, char** argv)
 }
 
 
-uint32_t CmdIQ(uint32_t argc, char** argv)
-{
-	char buf[128];
-	uint32_t i, q;
-
-	if (argc == 1)
-	{
-		sprintf(buf, "\r\nI : %d\t0x%03x\r\nQ : %d\t0x%03x",
-				(int)BB_CTRL->TX_I, (unsigned int)BB_CTRL->TX_I,
-				(int)BB_CTRL->TX_Q, (unsigned int)BB_CTRL->TX_Q);
-		Yellowstone_print(buf);
-		return 0;
-	}
-
-	if (argc == 3)
-	{
-		i = atoi(*(argv+1));
-		q = atoi(*(argv+2));
-		if ((i || !strcmp(*(argv+1), "0")) && (q || !strcmp(*(argv+2), "0")))
-		{
-			BB_CTRL->MUX1 = 3;
-			BB_CTRL->MUX2 = 3;
-
-			BB_CTRL->TX_I = i & 0x3FF;
-			BB_CTRL->TX_Q = q & 0x3FF;
-
-			// Readback
-			sprintf(buf, "\r\nI : %d\t0x%03x\r\nQ : %d\t0x%03x",
-					(int16_t)BB_CTRL->TX_I, (unsigned int)(BB_CTRL->TX_I & 0x3FF),
-					(int16_t)BB_CTRL->TX_Q, (unsigned int)(BB_CTRL->TX_Q & 0x3FF));
-			Yellowstone_print(buf);
-			return 0;
-		}
-	}
-
-	// Send help message
-	Yellowstone_print("\r\nUsage: iq [I Q]");
-	return 1;
-}
-
-uint32_t CmdMux1(uint32_t argc, char** argv)
-{
-	char buf[128];
-	uint32_t mux;
-
-	if (argc == 1)
-	{
-		mux = BB_CTRL->MUX1 & 0x3;
-		sprintf( buf, "\r\nMUX1 path: ");
-		Yellowstone_print(buf);
-		switch (mux)
-		{
-			case 0x0 :
-				sprintf( buf, "OFF");
-				break;
-			case 0x1 :
-				sprintf( buf, "RX" );
-				break;
-			case 0x2 :
-				sprintf( buf, "TX" );
-				break;
-			case 0x3 :
-				sprintf( buf, "I/Q REG" );
-				break;
-		}
-		Yellowstone_print(buf);
-		sprintf(buf, "(%d)", (unsigned)BB_CTRL->MUX1);
-		Yellowstone_print(buf);
-		return 0;
-	}
-
-	if (argc == 2)
-	{
-		mux = atoi(*(argv+1)) & 0x3;
-		if ((mux || !strcmp(*(argv+1), "0")))
-		{
-			BB_CTRL->MUX1 = mux;
-
-			// Readback
-			mux = BB_CTRL->MUX1;
-			sprintf( buf, "\r\nMUX1 path: ");
-			Yellowstone_print(buf);
-			switch (mux)
-			{
-				case MUX_PATH_OFF :
-					sprintf( buf, "OFF");
-					break;
-				case MUX_PATH_RX :
-					sprintf( buf, "RX" );
-					break;
-				case MUX_PATH_TX :
-					sprintf( buf, "TX" );
-					break;
-				case MUX_PATH_IQ_REG :
-					sprintf( buf, "I/Q REG" );
-					break;
-			}
-			Yellowstone_print(buf);
-			sprintf(buf, "(%d)", (unsigned)BB_CTRL->MUX1);
-			Yellowstone_print(buf);
-			return 0;
-		}
-	}
-
-	// Send help message
-	Yellowstone_print("\r\nUsage: mux1 [<index>] (0: OFF, 1: RX, 2: TX, 3: I/Q REG)");
-	return 1;
-}
-
-uint32_t CmdMux2(uint32_t argc, char** argv)
-{
-	char buf[128];
-	uint32_t mux;
-
-	if (argc == 1)
-	{
-		mux = BB_CTRL->MUX2 & 0x3;
-		sprintf( buf, "\r\nMUX2 path: ");
-		Yellowstone_print(buf);
-		switch (mux)
-		{
-			case 0x0 :
-				sprintf( buf, "OFF");
-				break;
-			case 0x1 :
-				sprintf( buf, "RX" );
-				break;
-			case 0x2 :
-				sprintf( buf, "TX" );
-				break;
-			case 0x3 :
-				sprintf( buf, "I/Q REG" );
-				break;
-		}
-		Yellowstone_print(buf);
-		sprintf(buf, "(%d)", (unsigned)BB_CTRL->MUX2);
-		Yellowstone_print(buf);
-		return 0;
-	}
-
-	if (argc == 2)
-	{
-		mux = atoi(*(argv+1)) & 0x3;
-		if ((mux || !strcmp(*(argv+1), "0")))
-		{
-			BB_CTRL->MUX2 = mux;
-
-			// Readback
-			mux = BB_CTRL->MUX2;
-			sprintf( buf, "\r\nMUX2 path: ");
-			Yellowstone_print(buf);
-			switch (mux)
-			{
-				case MUX_PATH_OFF :
-					sprintf( buf, "OFF");
-					break;
-				case MUX_PATH_RX :
-					sprintf( buf, "RX" );
-					break;
-				case MUX_PATH_TX :
-					sprintf( buf, "TX" );
-					break;
-				case MUX_PATH_IQ_REG :
-					sprintf( buf, "I/Q REG" );
-					break;
-			}
-			Yellowstone_print(buf);
-			sprintf(buf, "(%d)", (unsigned)BB_CTRL->MUX2);
-			Yellowstone_print(buf);
-			return 0;
-		}
-	}
-
-	// Send help message
-	Yellowstone_print("\r\nUsage: mux2 [<index>] (0: OFF, 1: RX, 2: TX, 3: I/Q REG)");
-	return 1;
-}
-
-
-uint32_t CmdModMux(uint32_t argc, char** argv)
-{
-	char buf[128];
-	uint32_t mux;
-
-	if (argc == 1)
-	{
-		mux = TX_CTRL->MOD_MUX & 0x3;
-		sprintf( buf, "\r\nActive path: ");
-		Yellowstone_print(buf);
-		switch (mux)
-		{
-			case 0x0 :
-				sprintf( buf, "PACKET");
-				break;
-			case 0x1 :
-				sprintf( buf, "CONST 0" );
-				break;
-			case 0x2 :
-				sprintf( buf, "CONST 1" );
-				break;
-			case 0x3 :
-				sprintf( buf, "RANDOM" );
-				break;
-		}
-		Yellowstone_print(buf);
-		sprintf(buf, "\r\nMOD MUX: %u", (unsigned)TX_CTRL->MOD_MUX);
-		Yellowstone_print(buf);
-		return 0;
-	}
-
-	if (argc == 2)
-	{
-		mux = atoi(*(argv+1)) & 0x3;
-		if ((mux || !strcmp(*(argv+1), "0")))
-		{
-			TX_CTRL->MOD_MUX = mux;
-
-			// Readback
-			mux = TX_CTRL->MOD_MUX & 0x3;
-			sprintf( buf, "\r\nActive path: ");
-			Yellowstone_print(buf);
-			switch (mux)
-			{
-				case 0x0 :
-					sprintf( buf, "PACKET");
-					break;
-				case 0x1 :
-					sprintf( buf, "CONST 0" );
-					break;
-				case 0x2 :
-					sprintf( buf, "CONST 1" );
-					break;
-				case 0x3 :
-					sprintf( buf, "RANDOM" );
-					break;
-			}
-			Yellowstone_print(buf);
-			sprintf(buf, "\r\nMOD MUX: %u", (unsigned)TX_CTRL->MOD_MUX);
-			Yellowstone_print(buf);
-			return 0;
-		}
-	}
-
-	// Send help message
-	Yellowstone_print("\r\nUsage: modmux [<index>]");
-	return 1;
-}
-
-
-
 /********************************************************************
- *                         CDMA measurement
+ *                         OFDM related
  ********************************************************************/
 
-uint32_t CmdPacketLength(uint32_t argc, char** argv)
+uint32_t CmdPattern(uint32_t argc, char** argv)
 {
-	uint32_t pkt_len;
-	uint32_t pkt_time;
+	uint32_t pattern;
 	char buf[128];
 
 	if (argc == 1)
 	{
-		sprintf(buf, "\r\nPacket length: %3u", (int)(TX_CTRL->PAY_LEN & 0xFF));
+		sprintf(buf, "\r\nPattern: 0x%0X", (int)TX_CTRL->PTRN);
 		Yellowstone_print(buf);
+		// TODO: print binary pattern
 		return 0;
 	}
 
 	if (argc == 2)
 	{
-		pkt_len = atoi(*(argv+1));
-		if (pkt_len || !strcmp(*(argv+1), "0"))
+		pattern = atoi(*(argv+1));
+		if (pattern || !strcmp(*(argv+1), "0"))
 		{
-			TX_CTRL->PAY_LEN = pkt_len & 0xFF;
-
-			if (packet_rate < (pkt_time = ((int)TX_CTRL->PRE_LEN + (int)TX_CTRL->PAY_LEN) * 8 * (int)TX_CTRL->SF / 2))
+			if (pattern > 0xFFFFul)
 			{
-				sprintf(buf, "\r\nWARNING: Packet rate (%d us) is smaller than message length (%d us)", (int)packet_rate, (int)pkt_time);
+				sprintf(buf, "\r\nWARNING: Pattern 0x%0X is larger than 0xFFFF, ignoring request", (int)pattern);
 				Yellowstone_print(buf);
-			}
-			sprintf(buf, "\r\nPacket length: %3u", (int)(TX_CTRL->PAY_LEN & 0xFF));
-			Yellowstone_print(buf);
-			return 0;
-		}
-	}
-
-	Yellowstone_print("\r\nUsage: len [<new packet length>]");
-	return 1;
-}
-
-uint32_t CmdPacketRate(uint32_t argc, char** argv)
-{
-	uint32_t pkt_rate;
-	uint32_t pkt_time;
-	char buf[128];
-
-	if (argc == 1)
-	{
-		sprintf(buf, "\r\nPacket rate: %d us", (int)packet_rate);
-		Yellowstone_print(buf);
-		return 0;
-	}
-
-	if (argc == 2)
-	{
-		pkt_rate = atoi(*(argv+1));
-		if (pkt_rate || !strcmp(*(argv+1), "0"))
-		{
-			if (pkt_rate < (pkt_time = ((int)TX_CTRL->PRE_LEN + (int)TX_CTRL->PAY_LEN) * 8 * (int)TX_CTRL->SF / 2))
-			{
-				sprintf(buf, "\r\nWARNING: Packet rate (%d us) is smaller than message length (%d us)", (int)pkt_rate, (int)pkt_time);
-				Yellowstone_print(buf);
-				sprintf(buf, "\r\nPacket rate: %d us", (int)packet_rate);
+				sprintf(buf, "\r\nPattern: 0x%0X", (int)TX_CTRL->PTRN);
 				Yellowstone_print(buf);
 				return 1;
 			}
 
-			packet_rate = pkt_rate;
-			packet_var = packet_rate * pkt_var / 100 / 128;
+			TX_CTRL->PTRN = pattern & 0xFFFFul;
 
-//			MSS_TIM1_load_background(packet_rate * MICRO_SEC_DIV);
-
-			sprintf(buf, "\r\nPacket rate: %d us", (int)packet_rate);
+			sprintf(buf, "\r\nPattern: 0x%0X", (int)TX_CTRL->PTRN);
 			Yellowstone_print(buf);
 			return 0;
 		}
 	}
 
-	Yellowstone_print("\r\nUsage: rate [<packets interval in us>]");
+	Yellowstone_print("\r\nUsage: ptrn [<16-bit value>]");
 	return 1;
 }
 
 
-uint32_t CmdPacketVar(uint32_t argc, char** argv)
+uint32_t CmdMask(uint32_t argc, char** argv)
 {
-	uint32_t pkt_time;
+	uint32_t mask;
 	char buf[128];
 
 	if (argc == 1)
 	{
-		sprintf(buf, "\r\nPacket var: %5.2f %%", pkt_var);
+		sprintf(buf, "\r\nMask: 0x%0X", (int)TX_CTRL->MASK);
 		Yellowstone_print(buf);
+		// TODO: print binary pattern
 		return 0;
 	}
 
 	if (argc == 2)
 	{
-		pkt_var = atof(*(argv+1));
-		if (pkt_var || !strcmp(*(argv+1), "0"))
+		mask = atoi(*(argv+1));
+		if (mask || !strcmp(*(argv+1), "0"))
 		{
-			if ( (packet_rate * (1.0 + pkt_var)) < (pkt_time = ((int)TX_CTRL->PRE_LEN + (int)TX_CTRL->PAY_LEN) * 8 * (int)TX_CTRL->SF / 2))
+			if (mask > 0xFFFFul)
 			{
-				sprintf(buf, "\r\nWARNING: Packet rate (%d us) is smaller than message length (%d us)", (int)packet_rate, (int)pkt_time);
+				sprintf(buf, "\r\nWARNING: Mask 0x%0X is larger than 0xFFFF, ignoring request", (int)mask);
 				Yellowstone_print(buf);
-				sprintf(buf, "\r\nPacket var: %5.2f %%", pkt_var);
+				sprintf(buf, "\r\nMask: 0x%0X", (int)TX_CTRL->MASK);
 				Yellowstone_print(buf);
 				return 1;
 			}
 
-			packet_var = packet_rate * pkt_var / 100 / 128;
-//			MSS_TIM1_load_background(packet_rate * MICRO_SEC_DIV);
+			TX_CTRL->MASK = mask & 0xFFFFul;
 
-			sprintf(buf, "\r\nPacket var: %5.2f %%", pkt_var);
+			sprintf(buf, "\r\nMask: 0x%0X", (int)TX_CTRL->MASK);
 			Yellowstone_print(buf);
 			return 0;
 		}
 	}
 
-	Yellowstone_print("\r\nUsage: var [<packet rate variance in %>]");
+	Yellowstone_print("\r\nUsage: mask [<16-bit value>]");
 	return 1;
 }
 
-uint32_t CmdSpreadFactor(uint32_t argc, char** argv)
-{
-	uint32_t spread_factor;
-	uint32_t pkt_time;
-	char buf[128];
-
-	if (argc == 1)
-	{
-		sprintf(buf, "\r\nSpread factor: %3u", (int)(TX_CTRL->SF & 0xFF));
-		Yellowstone_print(buf);
-		return 0;
-	}
-
-	if (argc == 2)
-	{
-		spread_factor = atoi(*(argv+1));
-		if (spread_factor || !strcmp(*(argv+1), "0"))
-		{
-			TX_CTRL->SF = spread_factor & 0xFF;
-
-			if (packet_rate < (pkt_time = ((int)TX_CTRL->PRE_LEN + (int)TX_CTRL->PAY_LEN) * 8 * (int)TX_CTRL->SF / 2))
-			{
-				sprintf(buf, "\r\nWARNING: Packet rate (%d us) is smaller than message length (%d us)", (int)packet_rate, (int)pkt_time);
-				Yellowstone_print(buf);
-			}
-
-			sprintf(buf, "\r\nSpread factor: %3u", (int)(TX_CTRL->SF & 0xFF));
-			Yellowstone_print(buf);
-			return 0;
-		}
-	}
-
-	Yellowstone_print("\r\nUsage: sf [<new spread factor>]");
-	return 1;
-}
-
-uint32_t CmdPreambleLen(uint32_t argc, char** argv)
-{
-	uint32_t preamble_length;
-	uint32_t pkt_time;
-	char buf[128];
-
-	if (argc == 1)
-	{
-		sprintf(buf, "\r\nPreamble length: %3u", (int)(TX_CTRL->PRE_LEN & 0xFF));
-		Yellowstone_print(buf);
-		return 0;
-	}
-
-	if (argc == 2)
-	{
-		preamble_length = atoi(*(argv+1));
-		if (preamble_length || !strcmp(*(argv+1), "0"))
-		{
-			TX_CTRL->PRE_LEN = preamble_length & 0xFF;
-
-			if (packet_rate < (pkt_time = ((int)TX_CTRL->PRE_LEN + (int)TX_CTRL->PAY_LEN) * 8 * (int)TX_CTRL->SF / 2))
-			{
-				sprintf(buf, "\r\nWARNING: Packet rate (%d us) is smaller than message length (%d us)", (int)packet_rate, (int)pkt_time);
-				Yellowstone_print(buf);
-			}
-
-			sprintf(buf, "\r\nPreamble length: %3u", (int)(TX_CTRL->PRE_LEN & 0xFF));
-			Yellowstone_print(buf);
-			return 0;
-		}
-	}
-
-	Yellowstone_print("\r\nUsage: prelen [<new preamble_length>]");
-	return 1;
-}
 
 uint32_t CmdStart(uint32_t argc, char** argv)
 {
 	if (argc == 1)
 	{
-		MSS_TIM1_start();
+	TX_CTRL->CTRL |= 0x01ul;
 		set_mode(RADIO_TX_MODE);
 		Yellowstone_print("\r\nTx STARTED");
 		return 0;
@@ -1369,7 +998,7 @@ uint32_t CmdStop(uint32_t argc, char** argv)
 {
 	if (argc == 1)
 	{
-		MSS_TIM1_stop();
+	TX_CTRL->CTRL &= ~0x01ul;
 		set_mode(RADIO_STANDBY_MODE);
 		Yellowstone_print("\r\nTx STOPPED");
 		return 0;
