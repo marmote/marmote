@@ -55,19 +55,9 @@ uint32_t CmdRssi(uint32_t argc, char** argv);
 uint32_t CmdPa(uint32_t argc, char** argv);
 //uint32_t CmdCal(uint32_t argc, char** argv);
 
-// AFE2 baseband test
-uint32_t CmdIQ(uint32_t argc, char** argv);
-uint32_t CmdMux1(uint32_t argc, char** argv);
-uint32_t CmdMux2(uint32_t argc, char** argv);
-uint32_t CmdModMux(uint32_t argc, char** argv);
-
-// CDMA measurement
-uint32_t CmdPacketLength(uint32_t argc, char** argv);
-uint32_t CmdPacketRate(uint32_t argc, char** argv);
-uint32_t CmdPacketVar(uint32_t argc, char** argv);
-uint32_t CmdSpreadFactor(uint32_t argc, char** argv);
-uint32_t CmdPreambleLen(uint32_t argc, char** argv);
-
+// OFDM related
+uint32_t CmdPattern(uint32_t argc, char** argv);
+uint32_t CmdMask(uint32_t argc, char** argv);
 uint32_t CmdStart(uint32_t argc, char** argv);
 uint32_t CmdStop(uint32_t argc, char** argv);
 

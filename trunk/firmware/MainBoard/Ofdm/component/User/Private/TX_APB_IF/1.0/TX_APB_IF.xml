@@ -81,10 +81,6 @@
         <spirit:direction>out</spirit:direction>
       </spirit:signal>
       <spirit:signal>
-        <spirit:name>LED</spirit:name>
-        <spirit:direction>out</spirit:direction>
-      </spirit:signal>
-      <spirit:signal>
         <spirit:name>TX_DONE_IRQ</spirit:name>
         <spirit:direction>out</spirit:direction>
       </spirit:signal>

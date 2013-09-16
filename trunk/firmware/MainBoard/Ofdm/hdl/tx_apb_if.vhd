@@ -58,8 +58,6 @@ entity TX_APB_IF is
 		 PRDATA  : out std_logic_vector(31 downto 0);
 		 PSLVERR : out std_logic;
 
-         LED : out std_logic;
-
          TX_DONE_IRQ : out std_logic;
 
          TX_EN      : out std_logic;
@@ -98,7 +96,6 @@ architecture Behavioral of TX_APB_IF is
 	-- Addresses
 
 	constant c_ADDR_CTRL    : std_logic_vector(7 downto 0) := x"00"; -- W (EN)
-	constant c_ADDR_TEST    : std_logic_vector(7 downto 0) := x"04"; -- R/W
 
 	constant c_ADDR_PTRN    : std_logic_vector(7 downto 0) := x"10"; -- R/W
 	constant c_ADDR_MASK    : std_logic_vector(7 downto 0) := x"14"; -- R/W
@@ -107,7 +104,6 @@ architecture Behavioral of TX_APB_IF is
 	-- Registers
 
 	signal s_tx_en      : std_logic;
-    signal s_test       : std_logic_vector(7 downto 0);
     signal s_ptrn       : std_logic_vector(15 downto 0);
     signal s_mask       : std_logic_vector(15 downto 0);
 
@@ -159,7 +155,6 @@ begin
 	begin
 		if PRESETn = '0' then
 			s_tx_en <= '0';
-            s_test <= (others => '0');
             s_ptrn <= std_logic_vector(to_unsigned(g_PTRN, s_ptrn'length));
             s_mask <= std_logic_vector(to_unsigned(g_MASK, s_mask'length));
 		elsif rising_edge(PCLK) then
@@ -171,8 +166,6 @@ begin
 					when c_ADDR_CTRL =>
 						-- Initiate transmission
                         s_tx_en <= PWDATA(0);
-					when c_ADDR_TEST =>
-                        s_test <= PWDATA(7 downto 0);
 					when c_ADDR_PTRN =>
                         s_ptrn <= PWDATA(15 downto 0);
 					when c_ADDR_MASK =>
@@ -202,8 +195,6 @@ begin
                     -- Status
 					when c_ADDR_CTRL => 
 						s_dout(0) <= s_tx_en;
-					when c_ADDR_TEST => 
-						s_dout(7 downto 0) <= s_test;
 					when c_ADDR_PTRN =>
 						s_dout(15 downto 0) <= s_ptrn;
 					when c_ADDR_MASK =>
@@ -272,7 +263,5 @@ begin
     TX_Q <= s_q_out when s_tx_en = '1' else (others => '0');
 
     TX_DONE_IRQ <= '0';
-    
-    LED <= s_test(0);
 
 end Behavioral;
