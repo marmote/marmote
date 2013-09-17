@@ -61,6 +61,7 @@ uint32_t CmdPattern(uint32_t argc, char** argv);
 uint32_t CmdMask(uint32_t argc, char** argv);
 uint32_t CmdStart(uint32_t argc, char** argv);
 uint32_t CmdStop(uint32_t argc, char** argv);
+uint32_t CmdRate(uint32_t argc, char** argv);
 
 
 #endif /* CMD_DEF_H_ */

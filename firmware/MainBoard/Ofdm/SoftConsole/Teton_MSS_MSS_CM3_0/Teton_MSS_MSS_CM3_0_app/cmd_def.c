@@ -7,6 +7,8 @@
 
 #include "cmd_def.h"
 
+static uint32_t g_rate; // FIXME: move the declaration from here
+
 CMD_Type CMD_List[] =
 {
 	{"help", 	CmdHelp},
@@ -40,6 +42,7 @@ CMD_Type CMD_List[] =
 	{"mask",  	CmdMask},
 	{"s", 		CmdStart},
 	{"e", 		CmdStop},
+	{"rate",  	CmdRate},
 
 	{NULL,   	NULL}
 };
@@ -84,7 +87,7 @@ uint32_t CmdStatus(uint32_t argc, char** argv)
 	Yellowstone_print(buf);
 	sprintf(buf, "\r\nTx gain:      %.1f dB", Max2830_get_tx_gain());
 	Yellowstone_print(buf);
-	sprintf(buf, "\r\nTx bandwidth: %5u kHz", (int)Max2830_get_tx_bandwidth());
+	sprintf(buf, "\r\nTx bandwidth: %.2f MHz", (int)Max2830_get_tx_bandwidth()/1000.0);
 	Yellowstone_print(buf);
 
 	sprintf(buf, "\r\nGAIN:         %d", (1 << (int)TX_CTRL->GAIN));
@@ -96,6 +99,17 @@ uint32_t CmdStatus(uint32_t argc, char** argv)
 	sprintf(buf, "\r\nMASK:         0x%04X | ", (int)TX_CTRL->MASK);
 	Yellowstone_print(buf);
 	sprint_binary(buf, TX_CTRL->MASK);
+	Yellowstone_print(buf);
+	sprintf(buf, "\r\nRATE:");
+	Yellowstone_print(buf);
+	if (g_rate)
+	{
+		sprintf(buf, "         %u ms", (unsigned)g_rate);
+	}
+	else
+	{
+		sprintf(buf, "         OFF");
+	}
 	Yellowstone_print(buf);
 
 	return 0;
@@ -1134,3 +1148,66 @@ uint32_t CmdStop(uint32_t argc, char** argv)
 	Yellowstone_print("\r\nUsage: stop");
 	return 1;
 }
+
+uint32_t CmdRate(uint32_t argc, char** argv)
+{
+	uint32_t rate;
+	char buf[128];
+
+	if (argc == 1)
+	{
+		sprintf(buf, "\r\nRATE: ");
+		Yellowstone_print(buf);
+		if (g_rate)
+		{
+			sprintf(buf, "%u ms", (unsigned)g_rate);
+		}
+		else
+		{
+			sprintf(buf, "OFF");
+		}
+		Yellowstone_print(buf);
+
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		rate = atoi(*(argv+1));
+		if (!strcmp(*(argv+1), "0"))
+		{
+			g_rate = 0;
+
+			MSS_TIM1_stop();
+			MSS_TIM1_disable_irq();
+			MSS_GPIO_set_output(MSS_GPIO_LED1, 0);
+		}
+		else if (rate)
+		{
+			g_rate = rate;
+
+			MSS_TIM1_load_background(g_rate * MILLI_SEC_DIV);
+			MSS_TIM1_load_immediate(g_rate * MILLI_SEC_DIV); // reset timer
+			MSS_TIM1_enable_irq();
+			MSS_TIM1_start();
+		}
+
+		sprintf(buf, "\r\nRATE: ");
+		Yellowstone_print(buf);
+		if (g_rate)
+		{
+			sprintf(buf, "%u ms", (unsigned)g_rate);
+		}
+		else
+		{
+			sprintf(buf, "OFF");
+		}
+		Yellowstone_print(buf);
+
+		return 0;
+	}
+
+	Yellowstone_print("\r\nUsage: rate [0 | <interval in ms>]");
+	return 1;
+}
+

@@ -24,6 +24,8 @@ void Teton_init(void)
 	node_rev = 'A' + (char)(MM_BOARD->REV & 0xFF);
 	node_id = MM_BOARD->ID & 0xFF;
 
+	MSS_TIM1_init(MSS_TIMER_PERIODIC_MODE);
+
 	// OFDM
 //	TX_CTRL->PTRN = PTRN_DEFAULT;
 //	TX_CTRL->MASK = MASK_DEFAULT;
@@ -58,14 +60,6 @@ void set_mode(radio_operating_mode_t mode)
 			MSS_GPIO_set_output(MSS_GPIO_AFE1_ENABLE, 1);
 			break;
 
-		case RADIO_TX_PERIODIC_MODE:
-			Max2830_set_mode(RADIO_TX_MODE);
-			// TIMER
-			MSS_TIM1_init(MSS_TIMER_PERIODIC_MODE);
-			MSS_TIM1_load_background(20e6); // 1 s
-			MSS_TIM1_enable_irq();
-			MSS_TIM1_start();
-			break;
 		default:
 			break;
 	}

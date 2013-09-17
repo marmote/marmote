@@ -105,6 +105,7 @@ architecture Behavioral of TX_APB_IF is
 
 	signal s_tx_en      : std_logic;
     signal s_ptrn       : std_logic_vector(15 downto 0);
+    signal s_ptrn_buf   : std_logic_vector(15 downto 0);
     signal s_mask       : std_logic_vector(15 downto 0);
     signal s_gain       : std_logic_vector(3 downto 0);
 
@@ -236,6 +237,20 @@ begin
     end process p_TX_STATE;
 
     --------------------------------------------------------------------------
+    -- Process updating s_ptrn_buf on IFFT boundaries
+    --------------------------------------------------------------------------
+    p_PTRN_UPDATE : process (rst, clk)
+    begin
+        if rst = '1' then
+            s_ptrn_buf <= (others => '0');
+        elsif rising_edge(clk) then
+            if s_tx_en = '0' or s_state = x"0100" then
+                s_ptrn_buf <= s_ptrn;
+            end if;
+        end if;
+    end process p_PTRN_UPDATE;
+
+    --------------------------------------------------------------------------
     -- Process feeding the IFFT block
     --------------------------------------------------------------------------
     p_IFFT_FEED : process (rst, clk)
@@ -252,7 +267,7 @@ begin
                 if (s_state AND s_mask) = x"0000" then
                     s_i_in <= (others => '0');
                 else
-                    if (s_state AND s_ptrn) = x"0000" then
+                    if (s_state AND s_ptrn_buf) = x"0000" then
                         s_i_in <= c_TX_NEG;
                     else
                         s_i_in <= c_TX_POS;

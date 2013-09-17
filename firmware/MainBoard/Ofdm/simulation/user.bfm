@@ -38,12 +38,18 @@ print "";
 write w TX_APB_IF_0 TX_CTRL 0x00;
 
 wait 500;
+write w TX_APB_IF_0 TX_PTRN 0xA1BC;
+wait 500;
 
 write w TX_APB_IF_0 TX_PTRN 0xFFFF;
-write w TX_APB_IF_0 TX_MASK 0x0040;
+write w TX_APB_IF_0 TX_MASK 0x0180;
 
 ## Start TX
 write w TX_APB_IF_0 TX_CTRL 0x01;
+wait 100;
+write w TX_APB_IF_0 TX_PTRN 0x0000;
+wait 100;
+write w TX_APB_IF_0 TX_PTRN 0xFFFF;
 wait 100;
 
 ## Stop TX
