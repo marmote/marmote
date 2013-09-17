@@ -225,12 +225,12 @@ begin
     p_TX_STATE : process (rst, clk)
     begin
         if rst = '1' then
-            s_state <= x"8000";
+            s_state <= x"0080";
         elsif rising_edge(clk) then
             if s_tx_en = '1' then
                 s_state <= s_state(0) & s_state(s_state'high downto 1);
             else 
-                s_state <= x"8000";
+                s_state <= x"0080";
             end if;
         end if;
     end process p_TX_STATE;
