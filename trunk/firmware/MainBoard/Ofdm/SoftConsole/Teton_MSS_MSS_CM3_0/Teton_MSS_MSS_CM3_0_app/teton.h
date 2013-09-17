@@ -75,8 +75,7 @@ typedef enum __radio_mode_t
 	RADIO_SHUTDOWN_MODE	= 0,
 	RADIO_STANDBY_MODE	= 1,
 	RADIO_RX_MODE		= 2,
-	RADIO_TX_MODE 		= 3,
-	RADIO_TX_PERIODIC_MODE 		= 4
+	RADIO_TX_MODE 		= 3
 } radio_operating_mode_t;
 
 static radio_operating_mode_t radio_mode;

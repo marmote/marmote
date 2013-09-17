@@ -30,6 +30,7 @@ sim:/testbench/Teton_0/TX_APB_IF_0/rst \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_en \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_gain \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_ptrn \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_ptrn_buf \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_mask \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_state \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_ifft_rst \
@@ -51,6 +52,6 @@ sim:/testbench/Teton_0/AFE1_IF/TX_I \
 sim:/testbench/Teton_0/AFE1_IF/TX_Q
 
 #run -all
-run 200 us
+run 300 us
 
 wave zoom full
