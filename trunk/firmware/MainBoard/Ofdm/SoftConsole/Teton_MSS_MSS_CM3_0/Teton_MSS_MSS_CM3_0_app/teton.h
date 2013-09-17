@@ -59,6 +59,7 @@ typedef struct
 
   __IO uint32_t PTRN;                   	/*!< Offset: 0x10  Subcarrier Pattern Register 	(16-bit) 	*/
   __IO uint32_t MASK;                   	/*!< Offset: 0x14  Subcarrier Mask Register (16-bit)	 	*/
+  __IO uint32_t GAIN;                   	/*!< Offset: 0x18  Gain (5-bit)	 	*/
 } TX_CTRL_Type;
 
 #define TX_CTRL            ((TX_CTRL_Type *)       TX_APB_IF_0)   /*!< TX CTRL register struct */

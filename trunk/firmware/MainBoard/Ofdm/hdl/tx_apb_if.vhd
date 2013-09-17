@@ -39,10 +39,9 @@ use IEEE.numeric_std.all;
 entity TX_APB_IF is
     generic (
          -- Default values
-         --g_PTRN : integer := 16#0166#; -- subcarrier pattern
-         --g_MASK : integer := 16#7FFE# -- subcarrier mask
-         g_PTRN : integer := 16#FFFF#; -- subcarrier pattern
-         g_MASK : integer := 16#5000# -- subcarrier mask
+         g_PTRN : integer := 16#0166#;  -- subcarrier pattern
+         g_MASK : integer := 16#7E7E#;  -- subcarrier mask
+         g_GAIN : integer := 0          -- amplitude gain = 2^g_GAIN
     );
 	port (
 		 -- APB3 interface
@@ -69,6 +68,14 @@ end entity;
 
 architecture Behavioral of TX_APB_IF is
 
+    -- Constants
+
+    constant c_FFT_OUT_WL   : integer := 14;
+    constant c_FFT_OUT_FL   : integer := 13;
+
+    constant c_TX_POS       : std_logic_vector(15 downto 0) := x"7FFF"; -- ~ +1
+    constant c_TX_NEG       : std_logic_vector(15 downto 0) := x"8001"; -- ~ -1
+
     -- Components
     
     component ifft_16 is
@@ -78,22 +85,13 @@ architecture Behavioral of TX_APB_IF is
          VLD : out std_logic; -- ufix1
          RST : in std_logic; -- ufix1
          RDY : out std_logic; -- ufix1
-         Q_OUT : out std_logic_vector(9 downto 0); -- sfix10_En9
-         Q_IN : in std_logic_vector(15 downto 0); -- sfix16_En15
-         I_OUT : out std_logic_vector(9 downto 0); -- sfix10_En9
+         I_OUT : out std_logic_vector(c_FFT_OUT_WL-1 downto 0); -- sfix[c_FFT_OUT_WL]_En[c_FFT_OUT_FL]
+         Q_OUT : out std_logic_vector(c_FFT_OUT_WL-1 downto 0); -- sfix[c_FFT_OUT_WL]_En[c_FFT_OUT_FL]
          I_IN : in std_logic_vector(15 downto 0); -- sfix16_En15
+         Q_IN : in std_logic_vector(15 downto 0); -- sfix16_En15
          EN : in std_logic -- ufix1
     );
     end component ifft_16;
-
-
-    -- Constants
-
---    constant c_TX_POS       : std_logic_vector(15 downto 0) := "0110" & x"000"; -- +0.75
---    constant c_TX_NEG       : std_logic_vector(15 downto 0) := "1010" & x"000"; -- -0.75
-    constant c_TX_POS       : std_logic_vector(15 downto 0) := x"7FFF"; -- ~ +1
-    constant c_TX_NEG       : std_logic_vector(15 downto 0) := x"8001"; -- ~ -1
-
 
 	-- Addresses
 
@@ -101,14 +99,14 @@ architecture Behavioral of TX_APB_IF is
 
 	constant c_ADDR_PTRN    : std_logic_vector(7 downto 0) := x"10"; -- R/W
 	constant c_ADDR_MASK    : std_logic_vector(7 downto 0) := x"14"; -- R/W
-
+	constant c_ADDR_GAIN    : std_logic_vector(7 downto 0) := x"18"; -- R/W
 
 	-- Registers
 
 	signal s_tx_en      : std_logic;
     signal s_ptrn       : std_logic_vector(15 downto 0);
     signal s_mask       : std_logic_vector(15 downto 0);
-
+    signal s_gain       : std_logic_vector(3 downto 0);
 
 	-- Signals
 
@@ -124,10 +122,18 @@ architecture Behavioral of TX_APB_IF is
     signal s_q_in       : std_logic_vector(15 downto 0);
     signal s_vld        : std_logic;
     signal s_rdy        : std_logic;
-    signal s_i_out      : std_logic_vector(9 downto 0);
-    signal s_q_out      : std_logic_vector(9 downto 0);
+    signal s_i_out      : std_logic_vector(c_FFT_OUT_WL-1 downto 0);
+    signal s_q_out      : std_logic_vector(c_FFT_OUT_WL-1 downto 0);
+
+	signal s_tx_en_out  : std_logic;
+    signal s_tx_i_out   : std_logic_vector(9 downto 0);
+    signal s_tx_q_out   : std_logic_vector(9 downto 0);
 
 begin
+
+    assert c_FFT_OUT_WL >= TX_I'length + 3
+    report "c_FFT_OUT_WL >= TX_I'length + 3 condition was not met"
+    severity failure;
 
     -- Port maps
 
@@ -159,6 +165,7 @@ begin
 			s_tx_en <= '0';
             s_ptrn <= std_logic_vector(to_unsigned(g_PTRN, s_ptrn'length));
             s_mask <= std_logic_vector(to_unsigned(g_MASK, s_mask'length));
+            s_gain <= std_logic_vector(to_unsigned(g_GAIN, s_gain'length));
 		elsif rising_edge(PCLK) then
 			-- Default values
 			
@@ -172,6 +179,8 @@ begin
                         s_ptrn <= PWDATA(15 downto 0);
 					when c_ADDR_MASK =>
                         s_mask <= PWDATA(15 downto 0);
+					when c_ADDR_GAIN =>
+                        s_gain <= PWDATA(3 downto 0);
 					when others =>
 						null;
 				end case;
@@ -201,6 +210,8 @@ begin
 						s_dout(15 downto 0) <= s_ptrn;
 					when c_ADDR_MASK =>
 						s_dout(15 downto 0) <= s_mask;
+					when c_ADDR_GAIN =>
+						s_dout(3 downto 0) <= s_gain;
 					when others =>
 						null;
 				end case;
@@ -253,6 +264,56 @@ begin
 
     s_q_in <= (others => '0');
 
+    --------------------------------------------------------------------------
+    -- Process multiplexing the IFFT block output based on s_gain
+    -- TODO: consider scaling the FFT input instead
+    --------------------------------------------------------------------------
+    p_IFFT_GAIN : process (rst, clk)
+    begin
+        if rst = '1' then
+            s_tx_en_out <= '0';
+            s_tx_i_out <= (others => '0');
+            s_tx_q_out <= (others => '0');
+        elsif rising_edge(clk) then
+            s_tx_en_out <= '0';
+
+            if s_vld = '1' and s_tx_en = '1' then
+                s_tx_en_out <= '1';
+            end if;
+
+            s_tx_i_out <= (others => '0');
+            s_tx_q_out <= (others => '0');
+
+            if s_tx_en = '1' then
+
+                case s_gain is
+
+                    -- x8
+                    when x"3" =>
+                        s_tx_i_out <= s_i_out(c_FFT_OUT_WL-4 downto c_FFT_OUT_WL-TX_I'length-3);
+                        s_tx_q_out <= s_q_out(c_FFT_OUT_WL-4 downto c_FFT_OUT_WL-TX_Q'length-3);
+
+                    -- x4
+                    when x"2" =>
+                        s_tx_i_out <= s_i_out(c_FFT_OUT_WL-3 downto c_FFT_OUT_WL-TX_I'length-2);
+                        s_tx_q_out <= s_q_out(c_FFT_OUT_WL-3 downto c_FFT_OUT_WL-TX_Q'length-2);
+
+                    -- x2
+                    when x"1" =>
+                        s_tx_i_out <= s_i_out(c_FFT_OUT_WL-2 downto c_FFT_OUT_WL-TX_I'length-1);
+                        s_tx_q_out <= s_q_out(c_FFT_OUT_WL-2 downto c_FFT_OUT_WL-TX_Q'length-1);
+
+                    -- x1
+                    when others =>
+                        s_tx_i_out <= s_i_out(c_FFT_OUT_WL-1 downto c_FFT_OUT_WL-TX_I'length);
+                        s_tx_q_out <= s_q_out(c_FFT_OUT_WL-1 downto c_FFT_OUT_WL-TX_Q'length);
+
+                end case;
+            end if;
+
+        end if;
+    end process p_IFFT_GAIN;
+
 
     -- Output assignment
 
@@ -260,9 +321,9 @@ begin
 	PREADY <= '1'; -- WR
 	PSLVERR <= '0';
 
-    TX_EN <= s_vld AND s_tx_en;
-    TX_I <= s_i_out when s_tx_en = '1' else (others => '0');
-    TX_Q <= s_q_out when s_tx_en = '1' else (others => '0');
+    TX_EN <= s_tx_en_out;
+    TX_I <= s_tx_i_out;
+    TX_Q <= s_tx_q_out;
 
     TX_DONE_IRQ <= '0';
 
