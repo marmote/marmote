@@ -28,7 +28,6 @@ add wave \
 sim:/testbench/Teton_0/TX_APB_IF_0/clk \
 sim:/testbench/Teton_0/TX_APB_IF_0/rst \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_en \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_test \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_ptrn \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_mask \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_state \

@@ -89,8 +89,10 @@ architecture Behavioral of TX_APB_IF is
 
     -- Constants
 
-    constant c_TX_POS       : std_logic_vector(15 downto 0) := "0110" & x"000"; -- +0.75
-    constant c_TX_NEG       : std_logic_vector(15 downto 0) := "1010" & x"000"; -- -0.75
+--    constant c_TX_POS       : std_logic_vector(15 downto 0) := "0110" & x"000"; -- +0.75
+--    constant c_TX_NEG       : std_logic_vector(15 downto 0) := "1010" & x"000"; -- -0.75
+    constant c_TX_POS       : std_logic_vector(15 downto 0) := x"7FFF"; -- ~ +1
+    constant c_TX_NEG       : std_logic_vector(15 downto 0) := x"8001"; -- ~ -1
 
 
 	-- Addresses
