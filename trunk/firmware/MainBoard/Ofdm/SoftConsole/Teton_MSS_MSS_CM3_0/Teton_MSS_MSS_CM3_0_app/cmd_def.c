@@ -44,6 +44,9 @@ CMD_Type CMD_List[] =
 };
 
 
+void sprint_binary(char* buf, uint16_t val);
+
+
 uint32_t CmdHelp(uint32_t argc, char** argv)
 {
 	CMD_Type* cmdListItr = CMD_List;
@@ -83,9 +86,13 @@ uint32_t CmdStatus(uint32_t argc, char** argv)
 	sprintf(buf, "\r\nTx bandwidth: %5u kHz", (int)Max2830_get_tx_bandwidth());
 	Yellowstone_print(buf);
 
-	sprintf(buf, "\r\nPTRN:         0x%X", (int)TX_CTRL->PTRN);
+	sprintf(buf, "\r\nPTRN:         0x%04X | ", (int)TX_CTRL->PTRN);
 	Yellowstone_print(buf);
-	sprintf(buf, "\r\nMASK:         0x%X", (int)TX_CTRL->MASK);
+	sprint_binary(buf, TX_CTRL->PTRN);
+	Yellowstone_print(buf);
+	sprintf(buf, "\r\nMASK:         0x%04X | ", (int)TX_CTRL->MASK);
+	Yellowstone_print(buf);
+	sprint_binary(buf, TX_CTRL->MASK);
 	Yellowstone_print(buf);
 
 	return 0;
@@ -900,42 +907,66 @@ uint32_t CmdPa(uint32_t argc, char** argv)
  *                         OFDM related
  ********************************************************************/
 
+void sprint_binary(char* buf, uint16_t val)
+{
+	int j = 0;
+	int i = 0;
+	for (i = 0; i < 16; i++)
+	{
+		buf[j++] = (val >> (15-i)) & 1 ? '1' : '0';
+		if ((i+1) % 4 == 0)
+		{
+			buf[j++] = ' ';
+		}
+	}
+	buf[j] = '\0';
+}
+
 uint32_t CmdPattern(uint32_t argc, char** argv)
 {
-	uint32_t pattern;
+	uint32_t ptrn;
 	char buf[128];
+	char *eptr = NULL;
 
 	if (argc == 1)
 	{
-		sprintf(buf, "\r\nPattern: 0x%0X", (int)TX_CTRL->PTRN);
+		ptrn = (uint32_t)TX_CTRL->PTRN;
+		sprintf(buf, "\r\nPTRN: 0x%04X | ", (int)ptrn);
 		Yellowstone_print(buf);
-		// TODO: print binary pattern
+
+		sprint_binary(buf, ptrn);
+		Yellowstone_print(buf);
+
 		return 0;
 	}
 
 	if (argc == 2)
 	{
-		pattern = atoi(*(argv+1));
-		if (pattern || !strcmp(*(argv+1), "0"))
+		ptrn = strtoul(*(argv+1), &eptr, 16);
+		if (eptr != *(argv+1))
 		{
-			if (pattern > 0xFFFFul)
+			if (ptrn > 0xFFFFul)
 			{
-				sprintf(buf, "\r\nWARNING: Pattern 0x%0X is larger than 0xFFFF, ignoring request", (int)pattern);
+				sprintf(buf, "\r\nWARNING: Pattern 0x%0X is larger than 0xFFFF, ignoring request", (int)ptrn);
 				Yellowstone_print(buf);
-				sprintf(buf, "\r\nPattern: 0x%0X", (int)TX_CTRL->PTRN);
+				sprintf(buf, "\r\nPTRN: 0x%04X", (int)TX_CTRL->PTRN);
 				Yellowstone_print(buf);
 				return 1;
 			}
 
-			TX_CTRL->PTRN = pattern & 0xFFFFul;
+			TX_CTRL->PTRN = ptrn & 0xFFFFul;
 
-			sprintf(buf, "\r\nPattern: 0x%0X", (int)TX_CTRL->PTRN);
+			sprintf(buf, "\r\nPTRN: 0x%04X | ", (int)TX_CTRL->PTRN);
 			Yellowstone_print(buf);
+
+			sprint_binary(buf, ptrn);
+			Yellowstone_print(buf);
+
 			return 0;
 		}
 	}
 
-	Yellowstone_print("\r\nUsage: ptrn [<16-bit value>]");
+	Yellowstone_print("\r\nUsage: ptrn [<16-bit hex value>]");
 	return 1;
 }
 
@@ -944,33 +975,42 @@ uint32_t CmdMask(uint32_t argc, char** argv)
 {
 	uint32_t mask;
 	char buf[128];
+	char *eptr = NULL;
 
 	if (argc == 1)
 	{
-		sprintf(buf, "\r\nMask: 0x%0X", (int)TX_CTRL->MASK);
+		mask = (int)TX_CTRL->MASK;
+		sprintf(buf, "\r\nMASK: 0x%04X | ", (unsigned int)mask);
 		Yellowstone_print(buf);
-		// TODO: print binary pattern
+
+		sprint_binary(buf, mask);
+		Yellowstone_print(buf);
+
 		return 0;
 	}
 
 	if (argc == 2)
 	{
-		mask = atoi(*(argv+1));
-		if (mask || !strcmp(*(argv+1), "0"))
+		mask = strtoul(*(argv+1), &eptr, 16);
+		if (eptr != *(argv+1))
 		{
 			if (mask > 0xFFFFul)
 			{
 				sprintf(buf, "\r\nWARNING: Mask 0x%0X is larger than 0xFFFF, ignoring request", (int)mask);
 				Yellowstone_print(buf);
-				sprintf(buf, "\r\nMask: 0x%0X", (int)TX_CTRL->MASK);
+				sprintf(buf, "\r\nMASK: 0x%04X", (int)TX_CTRL->MASK);
 				Yellowstone_print(buf);
 				return 1;
 			}
 
 			TX_CTRL->MASK = mask & 0xFFFFul;
 
-			sprintf(buf, "\r\nMask: 0x%0X", (int)TX_CTRL->MASK);
+			sprintf(buf, "\r\nMASK: 0x%04X | ", (int)TX_CTRL->MASK);
 			Yellowstone_print(buf);
+
+			sprint_binary(buf, mask);
+			Yellowstone_print(buf);
+
 			return 0;
 		}
 	}
