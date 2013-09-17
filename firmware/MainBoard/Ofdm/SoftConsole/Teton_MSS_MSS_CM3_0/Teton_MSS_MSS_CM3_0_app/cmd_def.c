@@ -595,31 +595,31 @@ uint32_t CmdRxGain(uint32_t argc, char** argv)
 
 uint32_t CmdTxBw(uint32_t argc, char** argv)
 {
-	uint32_t bandwidth;
+	float bandwidth;
 	char buf[128];
 
 	if (argc == 1)
 	{
-		sprintf(buf, "\r\nTx bandwidth: %5u kHz", (int)Max2830_get_tx_bandwidth());
+		sprintf(buf, "\r\nTx bandwidth: %.2f MHz", (int)Max2830_get_tx_bandwidth()/1000.0);
 		Yellowstone_print(buf);
 		return 0;
 	}
 
 	if (argc == 2)
 	{
-		bandwidth = atoi(*(argv+1));
+		bandwidth = atof(*(argv+1));
 		if (bandwidth || !strcmp(*(argv+1), "0"))
 		{
-			Max2830_set_tx_bandwidth(bandwidth);
+			Max2830_set_tx_bandwidth(1000*(uint32_t)bandwidth);
 
-			sprintf(buf, "\r\nTx bandwidth: %5u kHz", (int)Max2830_get_tx_bandwidth());
+			sprintf(buf, "\r\nTx bandwidth: %.2f MHz", (int)Max2830_get_tx_bandwidth()/1000.0);
 			Yellowstone_print(buf);
 			return 0;
 		}
 	}
 
 	// Send help message
-	Yellowstone_print("\r\nUsage: txbw [<bandwidth in kHz>]");
+	Yellowstone_print("\r\nUsage: txbw [<bandwidth in MHz>]");
 	return 1;
 }
 
