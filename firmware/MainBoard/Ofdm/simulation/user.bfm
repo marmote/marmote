@@ -26,6 +26,7 @@ include "subsystem.bfm"
 constant TX_CTRL 0x00; # ENABLE BIT
 constant TX_PTRN 0x10;
 constant TX_MASK 0x14;
+constant TX_GAIN 0x18;
 
 # f_FAB_CLK is assumed to be 20 MHz
 
@@ -43,16 +44,56 @@ write w TX_APB_IF_0 TX_CTRL 0x00;
 wait 500;
 
 write w TX_APB_IF_0 TX_PTRN 0xFFFF;
-write w TX_APB_IF_0 TX_MASK 0x6000;
+write w TX_APB_IF_0 TX_MASK 0x4000;
 
 ## Start TX
 write w TX_APB_IF_0 TX_CTRL 0x01;
-
 wait 100;
-write w TX_APB_IF_0 TX_CTRL 0x00;
-wait 10;
-write w TX_APB_IF_0 TX_CTRL 0x01;
 
+## Stop TX
+write w TX_APB_IF_0 TX_CTRL 0x00;
+write w TX_APB_IF_0 TX_GAIN 0x01;
+wait 10;
+
+## Start TX
+write w TX_APB_IF_0 TX_CTRL 0x01;
+wait 100;
+
+# Stop TX
+write w TX_APB_IF_0 TX_CTRL 0x00;
+write w TX_APB_IF_0 TX_GAIN 0x02;
+wait 10;
+
+## Start TX
+write w TX_APB_IF_0 TX_CTRL 0x01;
+wait 100;
+
+# Stop TX
+write w TX_APB_IF_0 TX_CTRL 0x00;
+write w TX_APB_IF_0 TX_GAIN 0x03;
+wait 10;
+
+## Start TX
+write w TX_APB_IF_0 TX_CTRL 0x01;
+wait 100;
+
+# Stop TX
+write w TX_APB_IF_0 TX_CTRL 0x00;
+write w TX_APB_IF_0 TX_GAIN 0x04;
+wait 10;
+
+# Start TX
+write w TX_APB_IF_0 TX_CTRL 0x01;
+wait 100;
+
+# Stop TX
+write w TX_APB_IF_0 TX_CTRL 0x00;
+write w TX_APB_IF_0 TX_GAIN 0x05;
+wait 10;
+
+
+## Start TX
+write w TX_APB_IF_0 TX_CTRL 0x01;
 wait 500;
 
 return

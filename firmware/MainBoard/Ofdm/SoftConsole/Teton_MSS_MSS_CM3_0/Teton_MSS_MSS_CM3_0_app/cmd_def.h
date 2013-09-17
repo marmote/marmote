@@ -56,6 +56,7 @@ uint32_t CmdPa(uint32_t argc, char** argv);
 //uint32_t CmdCal(uint32_t argc, char** argv);
 
 // OFDM related
+uint32_t CmdGain(uint32_t argc, char** argv);
 uint32_t CmdPattern(uint32_t argc, char** argv);
 uint32_t CmdMask(uint32_t argc, char** argv);
 uint32_t CmdStart(uint32_t argc, char** argv);

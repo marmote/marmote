@@ -35,6 +35,7 @@ CMD_Type CMD_List[] =
 
 	// OFDM
 	{"stat", 	CmdStatus},
+	{"gain",  	CmdGain},
 	{"ptrn",  	CmdPattern},
 	{"mask",  	CmdMask},
 	{"s", 		CmdStart},
@@ -86,6 +87,8 @@ uint32_t CmdStatus(uint32_t argc, char** argv)
 	sprintf(buf, "\r\nTx bandwidth: %5u kHz", (int)Max2830_get_tx_bandwidth());
 	Yellowstone_print(buf);
 
+	sprintf(buf, "\r\nGAIN:         %d", (1 << (int)TX_CTRL->GAIN));
+	Yellowstone_print(buf);
 	sprintf(buf, "\r\nPTRN:         0x%04X | ", (int)TX_CTRL->PTRN);
 	Yellowstone_print(buf);
 	sprint_binary(buf, TX_CTRL->PTRN);
@@ -922,6 +925,72 @@ void sprint_binary(char* buf, uint16_t val)
 	buf[j] = '\0';
 }
 
+uint32_t count_bits32(uint32_t val)
+{
+	uint32_t cnt;
+
+	cnt = (val & 0x55555555) + ((val >> 1) & 0x55555555);
+	cnt = (cnt & 0x33333333) + ((cnt >> 2) & 0x33333333);
+	cnt = (cnt & 0x0F0F0F0F) + ((cnt >> 4) & 0x0F0F0F0F);
+	cnt = (cnt & 0x00FF00FF) + ((cnt >> 8) & 0x00FF00FF);
+	cnt = (cnt & 0x0000FFFF) + ((cnt >> 16) & 0x0000FFFF);
+
+	return cnt;
+}
+
+uint32_t CmdGain(uint32_t argc, char** argv)
+{
+	uint32_t gain;
+	char buf[128];
+
+	if (argc == 1)
+	{
+		gain = (1 << (uint32_t)TX_CTRL->GAIN);
+		sprintf(buf, "\r\nGAIN: %d", (int)gain);
+		Yellowstone_print(buf);
+
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		gain = atoi(*(argv+1));
+		if (gain || !strcmp(*(argv+1), "0"))
+		{
+			switch (gain)
+			{
+				case 1:
+					TX_CTRL->GAIN = 0;
+					break;
+				case 2:
+					TX_CTRL->GAIN = 1;
+					break;
+				case 4:
+					TX_CTRL->GAIN = 2;
+					break;
+				case 8:
+					TX_CTRL->GAIN = 3;
+					break;
+				case 16:
+					TX_CTRL->GAIN = 4;
+					break;
+				default:
+					sprintf(buf, "\r\nWARNING: Invalid GAIN value, ignoring request");
+					Yellowstone_print(buf);
+					return 1;
+			}
+
+			sprintf(buf, "\r\nGAIN: %d", (1 << (int)TX_CTRL->GAIN));
+			Yellowstone_print(buf);
+
+			return 0;
+		}
+	}
+
+	Yellowstone_print("\r\nUsage: gain [1 | 2 | 4 | 8 | 16]");
+	return 1;
+}
+
 uint32_t CmdPattern(uint32_t argc, char** argv)
 {
 	uint32_t ptrn;
@@ -973,7 +1042,7 @@ uint32_t CmdPattern(uint32_t argc, char** argv)
 
 uint32_t CmdMask(uint32_t argc, char** argv)
 {
-	uint32_t mask;
+	uint32_t mask, cnt;
 	char buf[128];
 	char *eptr = NULL;
 
@@ -1001,6 +1070,24 @@ uint32_t CmdMask(uint32_t argc, char** argv)
 				sprintf(buf, "\r\nMASK: 0x%04X", (int)TX_CTRL->MASK);
 				Yellowstone_print(buf);
 				return 1;
+			}
+
+			cnt = count_bits32(mask & 0xFFFFul);
+			if (cnt < 3)
+			{
+				TX_CTRL->GAIN = 3;
+			}
+			else if (cnt < 5)
+			{
+				TX_CTRL->GAIN = 2;
+			}
+			else if (cnt < 9)
+			{
+				TX_CTRL->GAIN = 1;
+			}
+			else
+			{
+				TX_CTRL->GAIN = 0;
 			}
 
 			TX_CTRL->MASK = mask & 0xFFFFul;
