@@ -28,10 +28,6 @@ constant TX_PTRN 0x10;
 constant TX_MASK 0x14;
 constant TX_GAIN 0x18;
 
-# f_FAB_CLK is assumed to be 20 MHz
-
-# TX register values for BFM
-
 
 print "";
 print "************************************************************";
@@ -44,7 +40,7 @@ write w TX_APB_IF_0 TX_CTRL 0x00;
 wait 500;
 
 write w TX_APB_IF_0 TX_PTRN 0xFFFF;
-write w TX_APB_IF_0 TX_MASK 0x4000;
+write w TX_APB_IF_0 TX_MASK 0x0040;
 
 ## Start TX
 write w TX_APB_IF_0 TX_CTRL 0x01;
