@@ -9,6 +9,9 @@
 extern uint8_t spi_cmd_buf[];
 extern uint8_t spi_cmd_length;
 
+#include "cmd_def.h"
+extern uint32_t g_rate;
+
 int main()
 {
 	MSS_GPIO_init();
@@ -22,6 +25,9 @@ int main()
 	Max2830_set_tx_gain(0);
 
 	set_mode(RADIO_TX_MODE);
+
+	TX_CTRL->PTRN = PTRN_DEFAULT;
+	TX_CTRL->MASK = (node_id == 8 ? 0x5555 : 0xAAAA) & MASK_DEFAULT;
 
 	while (1)
 	{

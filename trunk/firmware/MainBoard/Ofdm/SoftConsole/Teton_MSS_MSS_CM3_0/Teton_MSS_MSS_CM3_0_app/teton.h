@@ -33,6 +33,9 @@
 #define MSS_GPIO_AFE1_MODE_MASK		MSS_GPIO_7_MASK
 #define MSS_GPIO_TX_DONE_IT_MASK	MSS_GPIO_8_MASK
 
+#define PTRN_DEFAULT 0x0166
+#define MASK_DEFAULT 0x7F7F
+
 
 typedef struct
 {
