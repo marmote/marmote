@@ -7,8 +7,6 @@
 
 #include "cmd_def.h"
 
-static uint32_t g_rate; // FIXME: move the declaration from here
-
 CMD_Type CMD_List[] =
 {
 	{"help", 	CmdHelp},
@@ -41,6 +39,7 @@ CMD_Type CMD_List[] =
 	{"ptrn",  	CmdPattern},
 	{"mask",  	CmdMask},
 	{"s", 		CmdStart},
+	{"p", 		CmdStartPeriodic},
 	{"e", 		CmdStop},
 	{"rate",  	CmdRate},
 
@@ -81,6 +80,8 @@ uint32_t CmdStatus(uint32_t argc, char** argv)
 	sprintf(buf, "\r\nMarmotE Main Board (Teton) Rev %c Node %d", node_rev, node_id);
 	Yellowstone_print(buf);
 	sprintf(buf, "\r\nTx:           %s", (TX_CTRL->CTRL & 0x1) ? "RUNNING" : "STOPPED");
+	Yellowstone_print(buf);
+	sprintf(buf, " %s", (TIMER_BITBAND->TIM1ENABLE) ? "PERIODIC" : "");
 	Yellowstone_print(buf);
 
 	sprintf(buf, "\r\nFrequency:    %.2f MHz", (double)Max2830_get_frequency()/1e6);
@@ -624,7 +625,7 @@ uint32_t CmdTxBw(uint32_t argc, char** argv)
 		bandwidth = atof(*(argv+1));
 		if (bandwidth || !strcmp(*(argv+1), "0"))
 		{
-			Max2830_set_tx_bandwidth(1000*(uint32_t)bandwidth);
+			Max2830_set_tx_bandwidth(bandwidth*1000);
 
 			sprintf(buf, "\r\nTx bandwidth: %.2f MHz", (int)Max2830_get_tx_bandwidth()/1000.0);
 			Yellowstone_print(buf);
@@ -1125,9 +1126,37 @@ uint32_t CmdStart(uint32_t argc, char** argv)
 {
 	if (argc == 1)
 	{
-	TX_CTRL->CTRL |= 0x01ul;
 		set_mode(RADIO_TX_MODE);
+		TX_CTRL->CTRL |= 0x01ul;
+
+		MSS_TIM1_stop();
+		MSS_TIM1_disable_irq();
+
+		MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
 		Yellowstone_print("\r\nTx STARTED");
+		return 0;
+	}
+
+	Yellowstone_print("\r\nUsage: start");
+	return 1;
+}
+
+uint32_t CmdStartPeriodic(uint32_t argc, char** argv)
+{
+	if (argc == 1)
+	{
+		set_mode(RADIO_TX_MODE);
+		TX_CTRL->CTRL |= 0x01ul;
+
+		g_rate = 100;
+		MSS_TIM1_load_background(g_rate * MILLI_SEC_DIV);
+		MSS_TIM1_load_immediate(g_rate * MILLI_SEC_DIV); // reset timer
+		MSS_TIM1_enable_irq();
+		MSS_TIM1_start();
+
+		MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
+
+		Yellowstone_print("\r\nTx STARTED PERIODIC");
 		return 0;
 	}
 
@@ -1139,8 +1168,13 @@ uint32_t CmdStop(uint32_t argc, char** argv)
 {
 	if (argc == 1)
 	{
-	TX_CTRL->CTRL &= ~0x01ul;
+		TX_CTRL->CTRL &= ~0x01ul;
 		set_mode(RADIO_STANDBY_MODE);
+
+		MSS_TIM1_stop();
+		MSS_TIM1_disable_irq();
+		MSS_GPIO_set_output(MSS_GPIO_LED1, 0);
+
 		Yellowstone_print("\r\nTx STOPPED");
 		return 0;
 	}

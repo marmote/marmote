@@ -28,6 +28,8 @@ typedef struct _CMD_Type
 
 extern CMD_Type CMD_List[];
 
+uint32_t g_rate;
+
 // General commands
 uint32_t CmdHelp(uint32_t argc, char** argv);
 uint32_t CmdStatus(uint32_t argc, char** argv);
@@ -60,6 +62,7 @@ uint32_t CmdGain(uint32_t argc, char** argv);
 uint32_t CmdPattern(uint32_t argc, char** argv);
 uint32_t CmdMask(uint32_t argc, char** argv);
 uint32_t CmdStart(uint32_t argc, char** argv);
+uint32_t CmdStartPeriodic(uint32_t argc, char** argv);
 uint32_t CmdStop(uint32_t argc, char** argv);
 uint32_t CmdRate(uint32_t argc, char** argv);
 
