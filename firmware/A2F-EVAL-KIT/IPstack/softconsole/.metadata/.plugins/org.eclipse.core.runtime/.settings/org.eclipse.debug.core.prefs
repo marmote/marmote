@@ -1,3 +1,0 @@
-#Mon May 09 10:29:00 CDT 2011
-prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<watchExpressions>\r\n<expression enabled\="true" text\="my_ip[0]"/>\r\n<expression enabled\="true" text\="my_ip[1]"/>\r\n<expression enabled\="true" text\="my_ip[2]"/>\r\n<expression enabled\="true" text\="my_ip[3]"/>\r\n<expression enabled\="true" text\="g_FrequencyPCLK0"/>\r\n<expression enabled\="true" text\="l_netif.ip_addr"/>\r\n</watchExpressions>\r\n
-eclipse.preferences.version=1

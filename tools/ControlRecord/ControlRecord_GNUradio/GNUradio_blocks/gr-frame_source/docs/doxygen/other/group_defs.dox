@@ -1,7 +1,0 @@
-/*!
- * \defgroup block GNU Radio FRAME_SOURCE C++ Signal Processing Blocks
- * \brief All C++ blocks that can be used from the FRAME_SOURCE GNU Radio
- *        module are listed here or in the subcategories below.
- *
- */
-

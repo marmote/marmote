@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no" ?><SmartDesign xmlns="http://actel.com/sweng/afi"><project><name>uC</name><rootDesign>uC</rootDesign><device><family>SmartFusion</family><die>A2F200M3F</die><package>484 FBGA</package></device><preferredHDL>VHDL</preferredHDL><toolVersion>9.1.3.4</toolVersion><project_id/></project></SmartDesign>
