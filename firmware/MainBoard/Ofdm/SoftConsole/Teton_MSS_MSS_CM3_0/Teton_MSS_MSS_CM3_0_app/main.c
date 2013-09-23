@@ -43,7 +43,15 @@ int main()
 
 void Timer1_IRQHandler(void)
 {
-	TX_CTRL->PTRN = ~TX_CTRL->PTRN & 0xFFFFuL;
-	MSS_GPIO_set_output(MSS_GPIO_LED1, MSS_GPIO_get_outputs() & MSS_GPIO_LED1_MASK ? 0 : 1);
+	if (TX_CTRL->CTRL & 1uL)
+	{
+		TX_CTRL->CTRL &= ~1uL;
+		MSS_GPIO_set_output(MSS_GPIO_LED1, 0);
+	}
+	else
+	{
+		TX_CTRL->CTRL |= 1uL;
+		MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
+	}
 	MSS_TIM1_clear_irq();
 }

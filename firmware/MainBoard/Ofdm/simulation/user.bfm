@@ -41,18 +41,32 @@ write w TX_APB_IF_0 TX_GAIN 0x00;
 write w TX_APB_IF_0 TX_PTRN 0xFFFFFFFF;
 #write w TX_APB_IF_0 TX_MASK 0xFFFFFFFF;
 #write w TX_APB_IF_0 TX_MASK 0x80000000;
-write w TX_APB_IF_0 TX_MASK 0x0000C000;
+write w TX_APB_IF_0 TX_MASK 0x00008000;
 
 ## Start TX
 write w TX_APB_IF_0 TX_CTRL 0x01;
-wait 500;
+wait 200;
 
 ## Stop TX
-#write w TX_APB_IF_0 TX_CTRL 0x00;
-#write w TX_APB_IF_0 TX_MASK 0x0000C000;
-#write w TX_APB_IF_0 TX_CTRL 0x01;
-#wait 500;
+write w TX_APB_IF_0 TX_CTRL 0x00;
+wait 50;
+write w TX_APB_IF_0 TX_MASK 0x00004000;
+write w TX_APB_IF_0 TX_CTRL 0x01;
+wait 200;
 
+## Stop TX
+write w TX_APB_IF_0 TX_CTRL 0x00;
+wait 50;
+write w TX_APB_IF_0 TX_MASK 0x00002000;
+write w TX_APB_IF_0 TX_CTRL 0x01;
+wait 200;
+
+## Stop TX
+write w TX_APB_IF_0 TX_CTRL 0x00;
+wait 50;
+write w TX_APB_IF_0 TX_MASK 0x00001000;
+write w TX_APB_IF_0 TX_CTRL 0x01;
+wait 200;
 #write w TX_APB_IF_0 TX_CTRL 0x00;
 #write w TX_APB_IF_0 TX_MASK 0x00004000;
 #write w TX_APB_IF_0 TX_CTRL 0x01;

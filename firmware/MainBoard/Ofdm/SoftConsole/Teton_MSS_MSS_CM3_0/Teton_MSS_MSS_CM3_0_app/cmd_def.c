@@ -1118,10 +1118,15 @@ uint32_t CmdStartPeriodic(uint32_t argc, char** argv)
 {
 	if (argc == 1)
 	{
+		if (g_rate == 0)
+		{
+			Yellowstone_print("\r\nRate unset");
+			return 1;
+		}
+
 		set_mode(RADIO_TX_MODE);
 		TX_CTRL->CTRL |= 0x01ul;
 
-		g_rate = 100;
 		MSS_TIM1_load_background(g_rate * MILLI_SEC_DIV);
 		MSS_TIM1_load_immediate(g_rate * MILLI_SEC_DIV); // reset timer
 		MSS_TIM1_enable_irq();
