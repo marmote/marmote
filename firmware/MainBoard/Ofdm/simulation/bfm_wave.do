@@ -35,16 +35,21 @@ sim:/testbench/Teton_0/TX_APB_IF_0/s_mask \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_state \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_ifft_rst \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_ifft_en \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_vld \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_rdy \
 -signed \
--analog-step -min -32768 -max 32768 -height 100 \
+-analog-step -min -8 -max 8 -height 100 \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_i_in \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_q_in
+add wave \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_vld \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_rdy \
+-analog-step -min -8192 -max 8192 -height 100 \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_i_out \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_q_out
+
 
 
 add wave  \
--divider {AFE} \
+-group {AFE} \
 sim:/testbench/Teton_0/AFE1_IF/TX_STROBE \
 -signed \
 -analog-step -min -512 -max 512 -height 100 \
