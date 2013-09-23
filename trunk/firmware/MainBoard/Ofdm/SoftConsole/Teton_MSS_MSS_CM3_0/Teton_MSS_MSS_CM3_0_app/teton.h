@@ -33,9 +33,8 @@
 #define MSS_GPIO_AFE1_MODE_MASK		MSS_GPIO_7_MASK
 #define MSS_GPIO_TX_DONE_IT_MASK	MSS_GPIO_8_MASK
 
-#define PTRN_DEFAULT 0x0166
-#define MASK_DEFAULT 0x7F7F
-
+#define PTRN_DEFAULT 0x01660166 // FIXME: Check PAPR for this value
+#define MASK_DEFAULT 0x7FFF7FFF // TODO: Revise the default value
 
 typedef struct
 {

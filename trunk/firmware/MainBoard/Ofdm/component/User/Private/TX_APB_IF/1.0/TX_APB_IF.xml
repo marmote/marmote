@@ -102,8 +102,8 @@
       </spirit:signal>
     </spirit:signals>
     <spirit:hwParameters>
-      <spirit:hwParameter spirit:id="g_PTRN" spirit:name="g_PTRN" spirit:prompt="g_PTRN:" spirit:dataType="int" spirit:resolve="user">358</spirit:hwParameter>
-      <spirit:hwParameter spirit:id="g_MASK" spirit:name="g_MASK" spirit:prompt="g_MASK:" spirit:dataType="int" spirit:resolve="user">32382</spirit:hwParameter>
+      <spirit:hwParameter spirit:id="g_PTRN" spirit:name="g_PTRN" spirit:prompt="g_PTRN:" spirit:dataType="int" spirit:resolve="user">23462246</spirit:hwParameter>
+      <spirit:hwParameter spirit:id="g_MASK" spirit:name="g_MASK" spirit:prompt="g_MASK:" spirit:dataType="int" spirit:resolve="user">2147385342</spirit:hwParameter>
       <spirit:hwParameter spirit:id="g_GAIN" spirit:name="g_GAIN" spirit:prompt="g_GAIN:" spirit:dataType="int" spirit:resolve="user">0</spirit:hwParameter>
     </spirit:hwParameters>
   </spirit:hwModel>

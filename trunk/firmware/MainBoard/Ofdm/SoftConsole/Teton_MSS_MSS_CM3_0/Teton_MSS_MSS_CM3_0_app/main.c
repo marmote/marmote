@@ -27,7 +27,8 @@ int main()
 	set_mode(RADIO_TX_MODE);
 
 	TX_CTRL->PTRN = PTRN_DEFAULT;
-	TX_CTRL->MASK = (node_id == 8 ? 0x5555 : 0xAAAA) & MASK_DEFAULT;
+	TX_CTRL->MASK = (node_id == 8 ? 0x55555555uL : 0xAAAAAAAAuL) & MASK_DEFAULT;
+	TX_CTRL->GAIN = 1;
 
 	while (1)
 	{

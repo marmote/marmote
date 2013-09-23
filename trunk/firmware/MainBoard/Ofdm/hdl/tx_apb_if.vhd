@@ -26,7 +26,7 @@
 -- PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 ------------------------------------------------------------------------------
 --
--- Description: Simple OFDM-based tone-generator using 16-point IFFT.
+-- Description: Simple OFDM-based tone-generator using 32-point IFFT.
 --
 ------------------------------------------------------------------------------
 
@@ -39,8 +39,8 @@ use IEEE.numeric_std.all;
 entity TX_APB_IF is
     generic (
          -- Default values
-         g_PTRN : integer := 16#0166#;  -- subcarrier pattern
-         g_MASK : integer := 16#7E7E#;  -- subcarrier mask
+         g_PTRN : integer := 16#01660166#;  -- subcarrier pattern FIXME: check pattern PAPR
+         g_MASK : integer := 16#7FFE7FFE#;  -- subcarrier mask
          g_GAIN : integer := 0          -- amplitude gain = 2^g_GAIN
     );
 	port (
@@ -70,28 +70,29 @@ architecture Behavioral of TX_APB_IF is
 
     -- Constants
 
-    constant c_FFT_OUT_WL   : integer := 14;
-    constant c_FFT_OUT_FL   : integer := 13;
+    constant c_FFT_OUT_WL   : integer := 13;
+    constant c_FFT_IN_WL    : integer := 4;
 
-    constant c_TX_POS       : std_logic_vector(15 downto 0) := x"7FFF"; -- ~ +1
-    constant c_TX_NEG       : std_logic_vector(15 downto 0) := x"8001"; -- ~ -1
+    constant c_TX_POS       : std_logic_vector(c_FFT_IN_WL-1 downto 0) := "0111"; -- ~ +1
+    constant c_TX_NEG       : std_logic_vector(c_FFT_IN_WL-1 downto 0) := "1001"; -- ~ -1
+
 
     -- Components
     
-    component ifft_16 is
+    component ifft_32 is
     port (
          clk : in std_logic;
          GlobalReset : in std_logic;
-         VLD : out std_logic; -- ufix1
-         RST : in std_logic; -- ufix1
-         RDY : out std_logic; -- ufix1
-         I_OUT : out std_logic_vector(c_FFT_OUT_WL-1 downto 0); -- sfix[c_FFT_OUT_WL]_En[c_FFT_OUT_FL]
-         Q_OUT : out std_logic_vector(c_FFT_OUT_WL-1 downto 0); -- sfix[c_FFT_OUT_WL]_En[c_FFT_OUT_FL]
-         I_IN : in std_logic_vector(15 downto 0); -- sfix16_En15
-         Q_IN : in std_logic_vector(15 downto 0); -- sfix16_En15
+         VLD : out std_logic;
+         RST : in std_logic;
+         RDY : out std_logic;
+         I_OUT : out std_logic_vector(c_FFT_OUT_WL-1 downto 0);
+         Q_OUT : out std_logic_vector(c_FFT_OUT_WL-1 downto 0);
+         I_IN : in std_logic_vector(c_FFT_IN_WL-1 downto 0);
+         Q_IN : in std_logic_vector(c_FFT_IN_WL-1 downto 0);
          EN : in std_logic -- ufix1
     );
-    end component ifft_16;
+    end component ifft_32;
 
 	-- Addresses
 
@@ -104,9 +105,9 @@ architecture Behavioral of TX_APB_IF is
 	-- Registers
 
 	signal s_tx_en      : std_logic;
-    signal s_ptrn       : std_logic_vector(15 downto 0);
-    signal s_ptrn_buf   : std_logic_vector(15 downto 0);
-    signal s_mask       : std_logic_vector(15 downto 0);
+    signal s_ptrn       : std_logic_vector(31 downto 0);
+    signal s_ptrn_buf   : std_logic_vector(31 downto 0);
+    signal s_mask       : std_logic_vector(31 downto 0);
     signal s_gain       : std_logic_vector(3 downto 0);
 
 	-- Signals
@@ -115,12 +116,12 @@ architecture Behavioral of TX_APB_IF is
     alias  clk          : std_logic is PCLK;
 
     signal s_dout       : std_logic_vector(31 downto 0);
-    signal s_state      : std_logic_vector(15 downto 0) := x"8000";
+    signal s_state      : std_logic_vector(31 downto 0) := x"80000000";
 
     signal s_ifft_rst   : std_logic;
     signal s_ifft_en     : std_logic;
-    signal s_i_in       : std_logic_vector(15 downto 0);
-    signal s_q_in       : std_logic_vector(15 downto 0);
+    signal s_i_in       : std_logic_vector(c_FFT_IN_WL-1 downto 0);
+    signal s_q_in       : std_logic_vector(c_FFT_IN_WL-1 downto 0);
     signal s_vld        : std_logic;
     signal s_rdy        : std_logic;
     signal s_i_out      : std_logic_vector(c_FFT_OUT_WL-1 downto 0);
@@ -138,17 +139,17 @@ begin
 
     -- Port maps
 
-    u_IFFT_16 : ifft_16
+    u_IFFT_32 : ifft_32
     port map (
          clk => clk,
-         GlobalReset => '0',
+         GlobalReset => rst,
          VLD => s_vld,
          RST => s_ifft_rst,
          RDY => s_rdy,
-         Q_OUT => s_q_out,
+         I_IN => s_i_in,
          Q_IN => s_q_in,
          I_OUT => s_i_out,
-         I_IN => s_i_in,
+         Q_OUT => s_q_out,
          EN => s_ifft_en
     );
     
@@ -177,9 +178,9 @@ begin
 						-- Initiate transmission
                         s_tx_en <= PWDATA(0);
 					when c_ADDR_PTRN =>
-                        s_ptrn <= PWDATA(15 downto 0);
+                        s_ptrn <= PWDATA(31 downto 0);
 					when c_ADDR_MASK =>
-                        s_mask <= PWDATA(15 downto 0);
+                        s_mask <= PWDATA(31 downto 0);
 					when c_ADDR_GAIN =>
                         s_gain <= PWDATA(3 downto 0);
 					when others =>
@@ -208,9 +209,9 @@ begin
 					when c_ADDR_CTRL => 
 						s_dout(0) <= s_tx_en;
 					when c_ADDR_PTRN =>
-						s_dout(15 downto 0) <= s_ptrn;
+						s_dout(31 downto 0) <= s_ptrn;
 					when c_ADDR_MASK =>
-						s_dout(15 downto 0) <= s_mask;
+						s_dout(31 downto 0) <= s_mask;
 					when c_ADDR_GAIN =>
 						s_dout(3 downto 0) <= s_gain;
 					when others =>
@@ -226,12 +227,12 @@ begin
     p_TX_STATE : process (rst, clk)
     begin
         if rst = '1' then
-            s_state <= x"0080";
+            s_state <= x"00008000";
         elsif rising_edge(clk) then
             if s_tx_en = '1' then
                 s_state <= s_state(0) & s_state(s_state'high downto 1);
             else 
-                s_state <= x"0080";
+                s_state <= x"00008000";
             end if;
         end if;
     end process p_TX_STATE;
@@ -244,7 +245,7 @@ begin
         if rst = '1' then
             s_ptrn_buf <= (others => '0');
         elsif rising_edge(clk) then
-            if s_tx_en = '0' or s_state = x"0100" then
+            if s_tx_en = '0' or s_state = x"00010000" then
                 s_ptrn_buf <= s_ptrn;
             end if;
         end if;
@@ -264,10 +265,10 @@ begin
                 s_i_in <= (others => '0');
             else 
                 s_ifft_en <= '1';
-                if (s_state AND s_mask) = x"0000" then
+                if (s_state AND s_mask) = x"00000000" then
                     s_i_in <= (others => '0');
                 else
-                    if (s_state AND s_ptrn_buf) = x"0000" then
+                    if (s_state AND s_ptrn_buf) = x"00000000" then
                         s_i_in <= c_TX_NEG;
                     else
                         s_i_in <= c_TX_POS;
