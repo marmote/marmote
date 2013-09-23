@@ -1,0 +1,101 @@
+#===========================================================
+# Enter your BFM commands in this file. 
+#
+# Syntax: 
+# ------- 
+#
+# memmap    resource_name base_address;
+#
+# write     width resource_name byte_offset data;
+# read      width resource_name byte_offset;
+# readcheck width resource_name byte_offset data;
+#
+#===========================================================
+
+procedure user_main;
+
+# uncomment the following include if you have soft peripherals in the fabric
+# that you want to simulate.  The subsystem.bfm file contains the memory map
+# of the soft peripherals.
+include "subsystem.bfm"
+
+# add your BFM commands below:
+
+# Address constants
+
+constant TX_CTRL 0x00; # ENABLE BIT
+constant TX_PTRN 0x10;
+constant TX_MASK 0x14;
+constant TX_GAIN 0x18;
+
+
+print "";
+print "************************************************************";
+print "*            Testing custom APB slave block                *";
+print "************************************************************";
+print "";
+
+write w TX_APB_IF_0 TX_CTRL 0x00;
+
+wait 500;
+write w TX_APB_IF_0 TX_PTRN 0xA1BC;
+wait 500;
+
+write w TX_APB_IF_0 TX_PTRN 0xFFFF;
+write w TX_APB_IF_0 TX_MASK 0x0180;
+
+## Start TX
+write w TX_APB_IF_0 TX_CTRL 0x01;
+wait 100;
+write w TX_APB_IF_0 TX_PTRN 0x0000;
+wait 100;
+write w TX_APB_IF_0 TX_PTRN 0xFFFF;
+wait 100;
+
+## Stop TX
+write w TX_APB_IF_0 TX_CTRL 0x00;
+write w TX_APB_IF_0 TX_GAIN 0x01;
+wait 10;
+
+## Start TX
+write w TX_APB_IF_0 TX_CTRL 0x01;
+wait 100;
+
+# Stop TX
+write w TX_APB_IF_0 TX_CTRL 0x00;
+write w TX_APB_IF_0 TX_GAIN 0x02;
+wait 10;
+
+## Start TX
+write w TX_APB_IF_0 TX_CTRL 0x01;
+wait 100;
+
+# Stop TX
+write w TX_APB_IF_0 TX_CTRL 0x00;
+write w TX_APB_IF_0 TX_GAIN 0x03;
+wait 10;
+
+## Start TX
+write w TX_APB_IF_0 TX_CTRL 0x01;
+wait 100;
+
+# Stop TX
+write w TX_APB_IF_0 TX_CTRL 0x00;
+write w TX_APB_IF_0 TX_GAIN 0x04;
+wait 10;
+
+# Start TX
+write w TX_APB_IF_0 TX_CTRL 0x01;
+wait 100;
+
+# Stop TX
+write w TX_APB_IF_0 TX_CTRL 0x00;
+write w TX_APB_IF_0 TX_GAIN 0x05;
+wait 10;
+
+
+## Start TX
+write w TX_APB_IF_0 TX_CTRL 0x01;
+wait 500;
+
+return
