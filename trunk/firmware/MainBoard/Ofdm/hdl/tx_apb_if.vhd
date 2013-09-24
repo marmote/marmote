@@ -30,7 +30,7 @@
 --
 ------------------------------------------------------------------------------
 
--- TODO: Adjustable TX GAIN (TX_NEG/TX_POS)
+-- TODO: TX_START / TX_EN nomenclature and register bit-position
 
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -76,9 +76,38 @@ architecture Behavioral of TX_APB_IF is
     constant c_TX_POS       : std_logic_vector(c_FFT_IN_WL-1 downto 0) := "0111"; -- ~ +1
     constant c_TX_NEG       : std_logic_vector(c_FFT_IN_WL-1 downto 0) := "1001"; -- ~ -1
 
+	-- Addresses
+
+	constant c_ADDR_CTRL    : std_logic_vector(7 downto 0) := x"00"; -- W (EN)
+	constant c_ADDR_FIFO    : std_logic_vector(7 downto 0) := x"04"; -- W
+
+	constant c_ADDR_PTRN    : std_logic_vector(7 downto 0) := x"10"; -- R/W
+	constant c_ADDR_MASK    : std_logic_vector(7 downto 0) := x"14"; -- R/W
+	constant c_ADDR_GAIN    : std_logic_vector(7 downto 0) := x"18"; -- R/W
+
 
     -- Components
     
+    component FIFO_256x32 is
+    generic (
+        g_AFULL     : integer := 192;
+        g_AEMPTY    : integer := 128
+    );
+    port (
+        DIN    : in    std_logic_vector(31 downto 0);
+        DOUT   : out   std_logic_vector(31 downto 0);
+        WE     : in    std_logic;
+        RE     : in    std_logic;
+        WCLOCK : in    std_logic;
+        RCLOCK : in    std_logic;
+        FULL   : out   std_logic;
+        EMPTY  : out   std_logic;
+        RESET  : in    std_logic;
+        AEMPTY : out   std_logic;
+        AFULL  : out   std_logic
+    );
+    end component;
+
     component ifft_32 is
     port (
          clk : in std_logic;
@@ -94,14 +123,6 @@ architecture Behavioral of TX_APB_IF is
     );
     end component ifft_32;
 
-	-- Addresses
-
-	constant c_ADDR_CTRL    : std_logic_vector(7 downto 0) := x"00"; -- W (EN)
-
-	constant c_ADDR_PTRN    : std_logic_vector(7 downto 0) := x"10"; -- R/W
-	constant c_ADDR_MASK    : std_logic_vector(7 downto 0) := x"14"; -- R/W
-	constant c_ADDR_GAIN    : std_logic_vector(7 downto 0) := x"18"; -- R/W
-
 	-- Registers
 
 	signal s_tx_en      : std_logic;
@@ -109,6 +130,17 @@ architecture Behavioral of TX_APB_IF is
     signal s_ptrn_buf   : std_logic_vector(31 downto 0);
     signal s_mask       : std_logic_vector(31 downto 0);
     signal s_gain       : std_logic_vector(3 downto 0);
+
+    type tx_state_t is (
+        st_IDLE,
+        st_PREA,
+        st_PYLD,
+        st_MEAS,
+        st_WAIT
+    );
+
+    signal s_tx_state       : tx_state_t; --:= st_IDLE;
+    signal s_tx_state_next  : tx_state_t;
 
 	-- Signals
 
@@ -131,6 +163,20 @@ architecture Behavioral of TX_APB_IF is
     signal s_tx_i_out   : std_logic_vector(9 downto 0);
     signal s_tx_q_out   : std_logic_vector(9 downto 0);
 
+    -- FSM
+    signal s_start          : std_logic;
+    signal s_tx_done        : std_logic;
+
+    -- FIFO
+    signal s_tx_fifo_in     : std_logic_vector(31 downto 0);
+    signal s_tx_fifo_out    : std_logic_vector(31 downto 0);
+    signal s_tx_fifo_wr     : std_logic;
+    signal s_tx_fifo_rd     : std_logic;
+    signal s_tx_fifo_full   : std_logic;
+    signal s_tx_fifo_empty  : std_logic;
+    signal s_tx_fifo_aempty : std_logic;
+
+
 begin
 
     assert c_FFT_OUT_WL >= TX_I'length + 3
@@ -138,6 +184,25 @@ begin
     severity failure;
 
     -- Port maps
+
+    u_TX_FIFO : FIFO_256x32
+    generic map (
+        g_AFULL  => 248,
+        g_AEMPTY => 4 -- FIXME
+    )
+    port map (
+    	RESET   => RST,
+    	DIN     => s_tx_fifo_in,
+    	DOUT    => s_tx_fifo_out,
+	    WCLOCK  => CLK,
+    	WE      => s_tx_fifo_wr,
+    	RCLOCK  => CLK,
+    	RE      => s_tx_fifo_rd,
+    	FULL    => s_tx_fifo_full,
+    	EMPTY   => s_tx_fifo_empty,
+        AFULL   => open,
+        AEMPTY  => s_tx_fifo_aempty
+	);
 
     u_IFFT_32 : ifft_32
     port map (
@@ -164,19 +229,27 @@ begin
 	p_REG_WRITE : process (PRESETn, PCLK)
 	begin
 		if PRESETn = '0' then
+            s_start <= '0';
 			s_tx_en <= '0';
+            s_tx_fifo_in <= (others => '0');
+            s_tx_fifo_wr <= '0';
             s_ptrn <= std_logic_vector(to_unsigned(g_PTRN, s_ptrn'length));
             s_mask <= std_logic_vector(to_unsigned(g_MASK, s_mask'length));
             s_gain <= std_logic_vector(to_unsigned(g_GAIN, s_gain'length));
 		elsif rising_edge(PCLK) then
 			-- Default values
-			
+            s_start <= '0';
+            s_tx_fifo_wr <= '0';
 			-- Register writes
 			if PWRITE = '1' and PSEL = '1' and PENABLE = '1' then
 				case PADDR(7 downto 0) is
 					when c_ADDR_CTRL =>
 						-- Initiate transmission
                         s_tx_en <= PWDATA(0);
+                        s_start <= PWDATA(1);
+					when c_ADDR_FIFO =>
+                        s_tx_fifo_in <= PWDATA(31 downto 0);
+                        s_tx_fifo_wr <= '1';
 					when c_ADDR_PTRN =>
                         s_ptrn <= PWDATA(31 downto 0);
 					when c_ADDR_MASK =>
@@ -220,6 +293,66 @@ begin
 			end if;
 		end if;
 	end process p_REG_READ;
+
+	-----------------------------------------------------------------------------
+	-- High-level FSM coordinating the transmission (synchronous)
+	-----------------------------------------------------------------------------
+	p_TRANSMIT_FSM_SYNC : process (rst, clk)
+	begin
+		if rst = '1' then
+            s_tx_state <= st_IDLE;
+		elsif rising_edge(clk) then
+            s_tx_state <= s_tx_state_next;
+		end if;
+	end process p_TRANSMIT_FSM_SYNC;
+
+	-----------------------------------------------------------------------------
+	-- High-level FSM coordinating the transmission (combinational)
+	-----------------------------------------------------------------------------
+	p_TRANSMIT_FSM_COMB : process (
+		s_tx_state,
+        s_tx_fifo_out,
+        s_tx_fifo_empty,
+		s_start
+	)
+	begin
+		-- Default values
+        s_tx_state_next <= s_tx_state;
+        s_tx_fifo_rd <= '0';
+        s_tx_done <= '0';
+
+		case (s_tx_state) is
+			
+				when st_IDLE =>
+					if s_start = '1' and s_tx_fifo_aempty = '0' then
+                        s_tx_fifo_rd <= '1'; -- Fetch FIFO data
+						s_tx_state_next <= st_PREA;
+					end if;
+
+				when st_PREA =>
+                    s_tx_state_next <= st_PYLD;
+
+				when st_PYLD =>
+                    if s_tx_fifo_empty = '0' then
+                        s_tx_fifo_rd <= '1';
+                    else
+                        s_tx_state_next <= st_MEAS;
+                    end if;
+
+				when st_MEAS => 
+                    s_tx_state_next <= st_WAIT;
+
+				when st_WAIT => 
+                    s_tx_state_next <= st_IDLE;
+                    s_tx_done <= '1';
+			
+				when others =>
+                    null;
+			
+			end case ;	
+
+	end process p_TRANSMIT_FSM_COMB;
+
 
     --------------------------------------------------------------------------
     -- Process indexing the subcarriers
@@ -341,6 +474,6 @@ begin
     TX_I <= s_tx_i_out;
     TX_Q <= s_tx_q_out;
 
-    TX_DONE_IRQ <= '0';
+    TX_DONE_IRQ <= s_tx_done;
 
 end Behavioral;

@@ -13,13 +13,26 @@ sim:/testbench/Teton_0/TX_APB_IF_0/PRDATA \
 sim:/testbench/Teton_0/TX_APB_IF_0/PSLVERR
 
 
-#add wave \
-#-bin sim:/tx_apb_if_tb/uut/g_PTRN \
-#-bin sim:/tx_apb_if_tb/uut/g_MASK
-#sim:/tx_apb_if_tb/uut/c_ADDR_CTRL \
-#sim:/tx_apb_if_tb/uut/c_ADDR_TEST \
-#sim:/tx_apb_if_tb/uut/c_ADDR_PTRN \
-#sim:/tx_apb_if_tb/uut/c_ADDR_MASK
+add wave  \
+-divider {TX FSM and FIFO} \
+-hex \
+sim:/testbench/Teton_0/TX_APB_IF_0/clk \
+sim:/testbench/Teton_0/TX_APB_IF_0/rst \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_state \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_start \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_done \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_fifo_full \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_TX_FIFO/AFULL \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_TX_FIFO/s_we_n \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_fifo_wr \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_fifo_in \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_fifo_empty \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_fifo_aempty \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_TX_FIFO/s_re_n \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_fifo_rd \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_fifo_out \
+sim:/testbench/Teton_0/TX_APB_IF_0/TX_DONE_IRQ
+
 
 
 add wave \
