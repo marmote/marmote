@@ -28,6 +28,7 @@ constant TX_FIFO 0x04;
 constant TX_PTRN 0x10;
 constant TX_MASK 0x14;
 constant TX_GAIN 0x18;
+constant TX_MLEN 0x1C;
 
 
 print "";
@@ -40,6 +41,7 @@ write w TX_APB_IF_0 TX_PTRN 0xFFFFFFFF
 #write w TX_APB_IF_0 TX_MASK 0x00008000
 write w TX_APB_IF_0 TX_MASK 0x00004000
 write w TX_APB_IF_0 TX_GAIN 0x00000003
+write w TX_APB_IF_0 TX_MLEN 0x00000003
 
 write w TX_APB_IF_0 TX_FIFO 0x0001
 write w TX_APB_IF_0 TX_FIFO 0x0002
@@ -48,7 +50,7 @@ write w TX_APB_IF_0 TX_FIFO 0x0004
 write w TX_APB_IF_0 TX_FIFO 0x0005
 
 ## Start TX
-write w TX_APB_IF_0 TX_CTRL 0x02;
+write w TX_APB_IF_0 TX_CTRL 0x01;
 wait 500;
 
 return
