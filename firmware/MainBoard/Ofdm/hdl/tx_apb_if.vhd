@@ -76,6 +76,8 @@ architecture Behavioral of TX_APB_IF is
     constant c_TX_POS       : std_logic_vector(c_FFT_IN_WL-1 downto 0) := "0111"; -- ~ +1
     constant c_TX_NEG       : std_logic_vector(c_FFT_IN_WL-1 downto 0) := "1001"; -- ~ -1
 
+    constant c_IFFT_PATH_DELAY  : integer := 71;
+
 	-- Addresses
 
 	constant c_ADDR_CTRL    : std_logic_vector(7 downto 0) := x"00"; -- W (EN)
@@ -126,12 +128,13 @@ architecture Behavioral of TX_APB_IF is
 	-- Registers
 
 	signal s_tx_en      : std_logic;
+	signal s_tx_en_next : std_logic; -- FIXME
     signal s_ptrn       : std_logic_vector(31 downto 0);
     signal s_ptrn_buf   : std_logic_vector(31 downto 0);
     signal s_mask       : std_logic_vector(31 downto 0);
     signal s_gain       : std_logic_vector(3 downto 0);
 
-    type tx_state_t is (
+    type tx_fsm_state_t is (
         st_IDLE,
         st_PREA,
         st_PYLD,
@@ -139,8 +142,8 @@ architecture Behavioral of TX_APB_IF is
         st_WAIT
     );
 
-    signal s_tx_state       : tx_state_t; --:= st_IDLE;
-    signal s_tx_state_next  : tx_state_t;
+    signal s_tx_fsm_state       : tx_fsm_state_t; --:= st_IDLE;
+    signal s_tx_fsm_state_next  : tx_fsm_state_t;
 
 	-- Signals
 
@@ -152,6 +155,8 @@ architecture Behavioral of TX_APB_IF is
 
     signal s_ifft_rst   : std_logic;
     signal s_ifft_en     : std_logic;
+    --signal s_ifft_en_d   : std_logic;
+    --signal s_ifft_en_next     : std_logic;
     signal s_i_in       : std_logic_vector(c_FFT_IN_WL-1 downto 0);
     signal s_q_in       : std_logic_vector(c_FFT_IN_WL-1 downto 0);
     signal s_vld        : std_logic;
@@ -166,6 +171,13 @@ architecture Behavioral of TX_APB_IF is
     -- FSM
     signal s_start          : std_logic;
     signal s_tx_done        : std_logic;
+
+    signal s_buffer         : std_logic_vector(31 downto 0);
+    signal s_buffer_next    : std_logic_vector(31 downto 0);
+    signal s_sym_end        : std_logic;
+
+    signal s_wait_ctr       : unsigned(6 downto 0);
+    signal s_wait_ctr_next  : unsigned(6 downto 0);
 
     -- FIFO
     signal s_tx_fifo_in     : std_logic_vector(31 downto 0);
@@ -219,7 +231,8 @@ begin
     );
     
     rst <= NOT PRESETn;
-    s_ifft_rst <= rst OR NOT s_tx_en;
+    --s_ifft_rst <= rst OR NOT s_tx_en;
+    s_ifft_rst <= rst OR NOT s_ifft_en;
 
     -- Processes
 
@@ -230,7 +243,7 @@ begin
 	begin
 		if PRESETn = '0' then
             s_start <= '0';
-			s_tx_en <= '0';
+			--s_tx_en <= '0';
             s_tx_fifo_in <= (others => '0');
             s_tx_fifo_wr <= '0';
             s_ptrn <= std_logic_vector(to_unsigned(g_PTRN, s_ptrn'length));
@@ -245,7 +258,7 @@ begin
 				case PADDR(7 downto 0) is
 					when c_ADDR_CTRL =>
 						-- Initiate transmission
-                        s_tx_en <= PWDATA(0);
+                        --s_tx_en <= PWDATA(0);
                         s_start <= PWDATA(1);
 					when c_ADDR_FIFO =>
                         s_tx_fifo_in <= PWDATA(31 downto 0);
@@ -280,7 +293,7 @@ begin
 				case PADDR(7 downto 0) is
                     -- Status
 					when c_ADDR_CTRL => 
-						s_dout(0) <= s_tx_en;
+						--s_dout(0) <= s_tx_en;
 					when c_ADDR_PTRN =>
 						s_dout(31 downto 0) <= s_ptrn;
 					when c_ADDR_MASK =>
@@ -300,9 +313,19 @@ begin
 	p_TRANSMIT_FSM_SYNC : process (rst, clk)
 	begin
 		if rst = '1' then
-            s_tx_state <= st_IDLE;
+            s_tx_fsm_state <= st_IDLE;
+            s_buffer <= (others => '0');
+            s_tx_en <= '0';
+            s_wait_ctr <= (others => '0');
+            --s_ifft_en <= '0';
+            --s_ifft_en_d <= '0';
 		elsif rising_edge(clk) then
-            s_tx_state <= s_tx_state_next;
+            s_tx_fsm_state <= s_tx_fsm_state_next;
+            s_buffer <= s_buffer_next;
+            s_tx_en <= s_tx_en_next;
+            s_wait_ctr <= s_wait_ctr_next;
+            --s_ifft_en <= s_ifft_en_next;
+            --s_ifft_en_d <= s_ifft_en;
 		end if;
 	end process p_TRANSMIT_FSM_SYNC;
 
@@ -310,41 +333,66 @@ begin
 	-- High-level FSM coordinating the transmission (combinational)
 	-----------------------------------------------------------------------------
 	p_TRANSMIT_FSM_COMB : process (
-		s_tx_state,
+		s_tx_fsm_state,
+		s_start,
+        s_tx_en,
+        s_buffer,
+        --s_ifft_en,
+        s_ptrn,
+        s_sym_end,
         s_tx_fifo_out,
-        s_tx_fifo_empty,
-		s_start
+        s_tx_fifo_aempty,
+        s_wait_ctr 
 	)
 	begin
 		-- Default values
-        s_tx_state_next <= s_tx_state;
+        s_tx_fsm_state_next <= s_tx_fsm_state;
+        s_tx_en_next <= s_tx_en; -- FIXME
         s_tx_fifo_rd <= '0';
         s_tx_done <= '0';
+        s_buffer_next <= s_buffer;
+        s_wait_ctr_next <= s_wait_ctr;
+        --s_ifft_en_next <= s_ifft_en;
 
-		case (s_tx_state) is
+		case (s_tx_fsm_state) is
 			
 				when st_IDLE =>
 					if s_start = '1' and s_tx_fifo_aempty = '0' then
-                        s_tx_fifo_rd <= '1'; -- Fetch FIFO data
-						s_tx_state_next <= st_PREA;
+                        --s_tx_fifo_rd <= '1'; -- Fetch FIFO data
+                        s_tx_en_next <= '1';
+                        --s_ifft_en_next <= '1';
+                        s_buffer_next <= s_ptrn;
+						--s_tx_fsm_state_next <= st_PREA;
+						s_tx_fsm_state_next <= st_MEAS;
 					end if;
 
 				when st_PREA =>
-                    s_tx_state_next <= st_PYLD;
+                    if s_sym_end = '1' then
+                        s_tx_fsm_state_next <= st_PYLD;
+                    end if;
 
 				when st_PYLD =>
                     if s_tx_fifo_empty = '0' then
                         s_tx_fifo_rd <= '1';
                     else
-                        s_tx_state_next <= st_MEAS;
+                        s_tx_fsm_state_next <= st_MEAS;
                     end if;
 
 				when st_MEAS => 
-                    s_tx_state_next <= st_WAIT;
+                    if s_sym_end = '1' then
+                        --s_tx_en_next <= '0';
+                        --s_ifft_en_next <= '0';
+                        s_tx_fsm_state_next <= st_WAIT;
+                        s_wait_ctr_next <= (others => '0');
+                    end if;
 
 				when st_WAIT => 
-                    s_tx_state_next <= st_IDLE;
-                    s_tx_done <= '1';
+                    s_wait_ctr_next <= s_wait_ctr + 1;
+                    if s_wait_ctr = c_IFFT_PATH_DELAY-2 then
+                        s_tx_en_next <= '0';
+                        s_tx_fsm_state_next <= st_IDLE;
+                        s_tx_done <= '1';
+                    end if;
 			
 				when others =>
                     null;
@@ -369,6 +417,8 @@ begin
             end if;
         end if;
     end process p_TX_STATE;
+
+    s_sym_end <= s_state(16);
 
     --------------------------------------------------------------------------
     -- Process updating s_ptrn_buf on IFFT boundaries
