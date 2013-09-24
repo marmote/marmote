@@ -18,12 +18,39 @@ add wave  \
 -hex \
 sim:/testbench/Teton_0/TX_APB_IF_0/clk \
 sim:/testbench/Teton_0/TX_APB_IF_0/rst \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_ptrn \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_mask \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_mlen \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_fsm_state \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_wait_ctr \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_start \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_buffer \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_sym_end \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_data_start \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_meas_start \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_ctr \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_sym_start \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_sym_done \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_done
+
+add wave  \
+-divider {IFFT CTRL} \
+-hex \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/RST \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/CLK \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/SYM \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/MASK \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/SYM_START \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/SYM_DONE \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_state \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_tx_en \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_delay_ctr \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_sym \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_sym_done \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_mask \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_ifft_en \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/IFFT_RST \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/IFFT_EN \
+-analog-step -min -8 -max 8 -height 100 \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_ifft_i \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_ifft_q
+
 
 add wave \
 -group {TX FIFO} \
@@ -41,15 +68,15 @@ sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_fifo_out
 
 
 add wave \
--divider {TX IFFT} \
+-group {TX IFFT} \
 -hex \
 sim:/testbench/Teton_0/TX_APB_IF_0/clk \
 sim:/testbench/Teton_0/TX_APB_IF_0/rst \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_en \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_gain \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_ptrn \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_ptrn_buf \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_mask \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_mask_buf \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_state \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_ifft_rst \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_ifft_en \
@@ -67,7 +94,7 @@ sim:/testbench/Teton_0/TX_APB_IF_0/s_q_out
 
 
 add wave  \
--divider {AFE} \
+-group {AFE} \
 sim:/testbench/Teton_0/AFE1_IF/TX_STROBE \
 -signed \
 sim:/testbench/Teton_0/AFE1_IF/CLK \
