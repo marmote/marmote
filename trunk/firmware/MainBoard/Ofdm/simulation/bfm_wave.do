@@ -25,6 +25,9 @@ sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_fsm_state \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_data_start \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_meas_start \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_ctr \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_dhold_ctr \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_ptrn_buf \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_mask_buf \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_sym_start \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_sym_done \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_done
@@ -37,13 +40,13 @@ sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/CLK \
 sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/SYM \
 sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/MASK \
 sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/SYM_START \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_sym \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_mask \
 sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/SYM_DONE \
 sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_state \
 sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_tx_en \
 sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_delay_ctr \
-sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_sym \
 sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_sym_done \
-sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_mask \
 sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_ifft_en \
 sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/IFFT_RST \
 sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/IFFT_EN \
@@ -74,9 +77,7 @@ sim:/testbench/Teton_0/TX_APB_IF_0/clk \
 sim:/testbench/Teton_0/TX_APB_IF_0/rst \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_gain \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_ptrn \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_ptrn_buf \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_mask \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_mask_buf \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_state \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_ifft_rst \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_ifft_en \
@@ -108,6 +109,7 @@ sim:/testbench/Teton_0/AFE1_IF/TX_Q
 
 
 #run -all
-run 100 us
+run 130 us
+run 400 us
 
 wave zoom full

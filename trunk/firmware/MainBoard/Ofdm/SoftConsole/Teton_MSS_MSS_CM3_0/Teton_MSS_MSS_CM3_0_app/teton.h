@@ -57,11 +57,13 @@ uint8_t tx_done_it_flag;
 typedef struct
 {
   __IO uint32_t CTRL;                      	/*!< Offset: 0x00  Control/status Register       			*/
-  __IO uint32_t DUMMY_[3];					/*!< Placeholder 											*/
+  __O  uint32_t FIFO;                      	/*!< Offset: 0x04  Transmit FIFO							*/
+  __IO uint32_t DUMMY_[2];					/*!< Placeholder 											*/
 
   __IO uint32_t PTRN;                   	/*!< Offset: 0x10  Subcarrier Pattern Register 	(16-bit) 	*/
   __IO uint32_t MASK;                   	/*!< Offset: 0x14  Subcarrier Mask Register (16-bit)	 	*/
   __IO uint32_t GAIN;                   	/*!< Offset: 0x18  Gain (5-bit)	 	*/
+  __IO uint32_t MLEN;                   	/*!< Offset: 0x1C  Message length / Measurement length	 	*/
 } TX_CTRL_Type;
 
 #define TX_CTRL            ((TX_CTRL_Type *)       TX_APB_IF_0)   /*!< TX CTRL register struct */

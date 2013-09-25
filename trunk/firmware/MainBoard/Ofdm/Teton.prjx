@@ -48,6 +48,133 @@ ALIAS=COREAPB3_LIB
 COMPILE_OPTION=COMPILE
 ENDLIST
 LIST FileManager
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\CoreAPB3.cxf,actgen_cxf"
+STATE="utd"
+TIME="1380036635"
+SIZE="3323"
+PARENT="<project>\component\work\Teton\Teton.cxf"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\coreparameters.vhd,tb_hdl"
+STATE="utd"
+TIME="1380036635"
+SIZE="1854"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\mti\scripts\wave_user.do,do"
+STATE="utd"
+TIME="1379091368"
+SIZE="912"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_ahbtoapb.vhd,tb_hdl"
+STATE="utd"
+TIME="1379091368"
+SIZE="4009"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_apb.vhd,tb_hdl"
+STATE="utd"
+TIME="1379091368"
+SIZE="9540"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_apbslave.vhd,tb_hdl"
+STATE="utd"
+TIME="1379091368"
+SIZE="2074"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_apbslaveext.vhd,tb_hdl"
+STATE="utd"
+TIME="1379091368"
+SIZE="12455"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_main.vhd,tb_hdl"
+STATE="utd"
+TIME="1379091368"
+SIZE="82848"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_package.vhd,tb_hdl"
+STATE="utd"
+TIME="1379091368"
+SIZE="45675"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\misc.vhd,tb_hdl"
+STATE="utd"
+TIME="1379091368"
+SIZE="12780"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\textio.vhd,tb_hdl"
+STATE="utd"
+TIME="1379091368"
+SIZE="23829"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\components.vhd,hdl"
+STATE="utd"
+TIME="1379091368"
+SIZE="6119"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
+STATE="utd"
+TIME="1379091368"
+SIZE="49112"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3_iaddr_reg.vhd,hdl"
+STATE="utd"
+TIME="1379091368"
+SIZE="3303"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3_muxptob3.vhd,hdl"
+STATE="utd"
+TIME="1379091368"
+SIZE="7008"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\CoreAPB3.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+STATE="utd"
+TIME="1379091368"
+SIZE="28862"
+LIBRARY="COREAPB3_LIB"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\CoreAPB3.cxf"
+MODULE_UNDER_TEST="testbench"
+SIMULATION_TIME="-all"
+IS_READONLY="TRUE"
+ENDFILE
 VALUE "<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf,actgen_cxf"
 STATE="utd"
 TIME="1379966989"
@@ -172,20 +299,34 @@ STATE="utd"
 TIME="1379348710"
 SIZE="413"
 ENDFILE
+VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
+STATE="utd"
+TIME="1380036636"
+SIZE="4007"
+PARENT="<project>\component\work\Teton\Teton.cxf"
+IS_READONLY="TRUE"
+ENDFILE
 VALUE "<project>\component\work\Teton\Teton.cxf,actgen_cxf"
 STATE="utd"
-TIME="1380036598"
-SIZE="10417"
+TIME="1380036638"
+SIZE="11033"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.pdc,pdc"
 STATE="utd"
-TIME="1379973760"
+TIME="1380036631"
 SIZE="4814"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 BEGIN_USE_CONSTRAINT
 TOOL_CONSTRAINT_TYPE="ideDESIGNER"
 END_USE_CONSTRAINT
 USE_FOR_ANY_TOOL="FALSE"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\component\work\Teton\Teton.vhd,hdl"
+STATE="utd"
+TIME="1380036636"
+SIZE="27077"
+PARENT="<project>\component\work\Teton\Teton.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton_MSS\MSS_ACE_0\MSS_ACE_0.log,???"
@@ -287,19 +428,19 @@ TIME="1379351405"
 SIZE="1533"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton.adb,adb"
-STATE="utd"
+STATE="ood"
 TIME="1379974112"
 SIZE="5447168"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton.fdb,fdb"
-STATE="utd"
+STATE="ood"
 TIME="1379974674"
 SIZE="181883"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton.ide_des,ide_des"
 STATE="utd"
-TIME="1379974113"
-SIZE="1279"
+TIME="1380036636"
+SIZE="1274"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_compile_log.rpt,log"
 STATE="utd"
@@ -312,7 +453,7 @@ TIME="1379974679"
 SIZE="188416"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\Teton.pdb,pdb"
-STATE="utd"
+STATE="ood"
 TIME="1379974679"
 SIZE="188416"
 ENDFILE
@@ -322,7 +463,7 @@ TIME="1379974679"
 SIZE="1720"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\Teton.stp,stp"
-STATE="utd"
+STATE="ood"
 TIME="1379974678"
 SIZE="320625"
 ENDFILE
@@ -346,6 +487,16 @@ STATE="utd"
 TIME="1379348533"
 SIZE="7660"
 ENDFILE
+VALUE "<project>\hdl\fifo_256x32.vhd,hdl"
+STATE="utd"
+TIME="1380039150"
+SIZE="11180"
+ENDFILE
+VALUE "<project>\hdl\ifft_ctrl.vhd,hdl"
+STATE="utd"
+TIME="1380057832"
+SIZE="6446"
+ENDFILE
 VALUE "<project>\hdl\led_pwm.vhd,hdl"
 STATE="utd"
 TIME="1379348533"
@@ -353,8 +504,8 @@ SIZE="3738"
 ENDFILE
 VALUE "<project>\hdl\tx_apb_if.vhd,hdl"
 STATE="utd"
-TIME="1380036531"
-SIZE="15693"
+TIME="1380058877"
+SIZE="16765"
 ENDFILE
 VALUE "<project>\simulation\afe_if_wave.do,do"
 STATE="utd"
@@ -363,13 +514,19 @@ SIZE="997"
 ENDFILE
 VALUE "<project>\simulation\bfmtovec_compile.log,log"
 STATE="utd"
-TIME="1379973775"
+TIME="1380058631"
 SIZE="407"
+ENDFILE
+VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
+STATE="utd"
+TIME="1379091368"
+SIZE="1229"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\CoreAPB3.cxf"
 ENDFILE
 VALUE "<project>\simulation\bfm_wave.do,do"
 STATE="utd"
-TIME="1379973432"
-SIZE="2109"
+TIME="1380058269"
+SIZE="4043"
 ENDFILE
 VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
 STATE="utd"
@@ -377,14 +534,20 @@ TIME="1362510732"
 SIZE="41"
 PARENT="<project>\component\Actel\SmartFusionMSS\MSS\2.5.106\MSS.cxf"
 ENDFILE
+VALUE "<project>\simulation\coreapb3_usertb_master.bfm,sim"
+STATE="utd"
+TIME="1379091368"
+SIZE="8016"
+PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\CoreAPB3.cxf"
+ENDFILE
 VALUE "<project>\simulation\run.do,do"
 STATE="utd"
-TIME="1379973636"
-SIZE="2383"
+TIME="1380051329"
+SIZE="2527"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
-TIME="1379973762"
+TIME="1380036636"
 SIZE="630"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 ENDFILE
@@ -394,11 +557,6 @@ TIME="1379966984"
 SIZE="10107"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
-VALUE "<project>\simulation\testbench_presynth_simulation.log,log"
-STATE="utd"
-TIME="1379973798"
-SIZE="266356"
-ENDFILE
 VALUE "<project>\simulation\tx_apb_if_wave.do,do"
 STATE="utd"
 TIME="1379348534"
@@ -406,12 +564,12 @@ SIZE="1662"
 ENDFILE
 VALUE "<project>\simulation\user.bfm,sim"
 STATE="utd"
-TIME="1380036495"
-SIZE="1321"
+TIME="1380058540"
+SIZE="1547"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\synthesis\Teton.edn,syn_edn"
-STATE="utd"
+STATE="ood"
 TIME="1379973836"
 SIZE="3077323"
 ENDFILE
@@ -421,7 +579,7 @@ TIME="1379973836"
 SIZE="206"
 ENDFILE
 VALUE "<project>\synthesis\Teton_sdc.sdc,syn_sdc"
-STATE="utd"
+STATE="ood"
 TIME="1379973836"
 SIZE="424"
 ENDFILE
@@ -455,7 +613,12 @@ LIST UsedFile
 ENDLIST
 LIST NewModulesInfo
 LIST "Teton::work"
-FILE "<project>\component\work\Teton\Teton.cxf,actgen_cxf"
+FILE "<project>\component\work\Teton\Teton.vhd,hdl"
+LIST Other_Association
+VALUE "<project>\simulation\subsystem.bfm,sim"
+VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
+VALUE "<project>\component\work\Teton\Teton.pdc,pdc"
+ENDLIST
 LIST UserCustomizedFileList
 LIST "ideSIMULATION"
 USE_LIST=TRUE
@@ -464,27 +627,29 @@ VALUE "<project>\hdl\afe_if.vhd,hdl"
 VALUE "<project>\hdl\led_pwm.vhd,hdl"
 VALUE "<project>\component\work\Teton_MSS\MSS_CCC_0\Teton_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd,hdl"
 VALUE "<project>\component\work\Teton_MSS\Teton_MSS.vhd,hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3_muxptob3.vhd,hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3_iaddr_reg.vhd,hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
+VALUE "<project>\hdl\fifo_256x32.vhd,hdl"
+VALUE "<project>\hdl\ifft_ctrl.vhd,hdl"
 VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ifft_32_impl_1\vhdl\SynLib_asynch.vhd,hdl"
 VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ifft_32_impl_1\vhdl\fftModules_asynch.vhd,hdl"
 VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ifft_32_impl_1\vhdl\ifft_32.vhd,hdl"
 VALUE "<project>\hdl\tx_apb_if.vhd,hdl"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3_muxptob3.vhd,hdl"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3_iaddr_reg.vhd,hdl"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\components.vhd,hdl"
 VALUE "<project>\component\work\Teton\Teton.vhd,hdl"
 ENDFILELIST
 ENDLIST
 ENDLIST 
+LIST AssociatedStimulus
+VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
+ENDLIST
 LIST SynthesisConstraints
 VALUE "<project>\constraint\Teton_timing.sdc,sdc"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
-LiberoState=Post_Layout
 ideSTIMULUS=StateSuccess
-ideDESIGNER(<project>\designer\impl1\Teton.adb,adb)=StateSuccess
-ideSYNTHESIS(<project>\synthesis\Teton.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -521,13 +686,74 @@ ENDUsed_File_List
 ENDLIST
 ENDLIST
 ENDLIST
+LIST "CoreAPB3::COREAPB3_LIB::components"
+FILE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
+LIST Other_Association
+VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
+VALUE "<project>\simulation\coreapb3_usertb_master.bfm,sim"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\coreparameters.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\misc.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\textio.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_package.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_main.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_ahbtoapb.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_apb.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_apbslaveext.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_apbslave.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\mti\scripts\wave_user.do,do"
 ENDLIST
 LIST AssociatedStimulus
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\coreparameters.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\misc.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\textio.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_package.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_main.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_ahbtoapb.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_apb.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_apbslaveext.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_apbslave.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
+ENDLIST
+LIST AssociatedStimulus
+LIST Teton
+VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
+ENDLIST
 LIST Teton_MSS
 VALUE "<project>\component\work\Teton_MSS\testbench.vhd,tb_hdl"
 ENDLIST
+LIST CoreAPB3
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\coreparameters.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\misc.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\textio.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_package.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_main.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_ahbtoapb.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_apb.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_apbslaveext.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_apbslave.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+ENDLIST
 ENDLIST
 LIST Other_Association
+LIST Teton
+VALUE "<project>\simulation\subsystem.bfm,sim"
+VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
+VALUE "<project>\component\work\Teton\Teton.pdc,pdc"
+ENDLIST
 LIST Teton_MSS
 VALUE "<project>\component\work\Teton_MSS\mss_tshell_syn.sdc,sdc"
 VALUE "<project>\simulation\user.bfm,sim"
@@ -537,6 +763,21 @@ VALUE "<project>\component\work\Teton_MSS\Teton_MSS.pdc,pdc"
 VALUE "<project>\component\work\Teton_MSS\MSS_UFROM_0\MSS_UFROM_0.ufc,ufc"
 VALUE "<project>\component\work\Teton_MSS\MSS_ENVM_0\MSS_ENVM_0.efc,efc"
 VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
+ENDLIST
+LIST CoreAPB3
+VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
+VALUE "<project>\simulation\coreapb3_usertb_master.bfm,sim"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\coreparameters.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\misc.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\textio.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_package.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_main.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_ahbtoapb.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_apb.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_apbslaveext.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_apbslave.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\mti\scripts\wave_user.do,do"
 ENDLIST
 ENDLIST
 LIST SimulationOptions
@@ -611,10 +852,7 @@ ENDLIST
 LIST ProjectState5.1
 LIST "Teton::work"
 LIST Impl1
-LiberoState=Post_Layout
 ideSTIMULUS=StateSuccess
-ideDESIGNER(<project>\designer\impl1\Teton.adb,adb)=StateSuccess
-ideSYNTHESIS(<project>\synthesis\Teton.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -624,6 +862,17 @@ ENDUsed_File_List
 ENDLIST
 ENDLIST
 LIST "Teton_MSS::work"
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+LIST "CoreAPB3::COREAPB3_LIB::components"
 LIST Impl1
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
@@ -652,13 +901,15 @@ VALUE "<project>\hdl\afe_if.vhd,hdl"
 VALUE "<project>\hdl\led_pwm.vhd,hdl"
 VALUE "<project>\component\work\Teton_MSS\MSS_CCC_0\Teton_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd,hdl"
 VALUE "<project>\component\work\Teton_MSS\Teton_MSS.vhd,hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3_muxptob3.vhd,hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3_iaddr_reg.vhd,hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
+VALUE "<project>\hdl\fifo_256x32.vhd,hdl"
+VALUE "<project>\hdl\ifft_ctrl.vhd,hdl"
 VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ifft_32_impl_1\vhdl\SynLib_asynch.vhd,hdl"
 VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ifft_32_impl_1\vhdl\fftModules_asynch.vhd,hdl"
 VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ifft_32_impl_1\vhdl\ifft_32.vhd,hdl"
 VALUE "<project>\hdl\tx_apb_if.vhd,hdl"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3_muxptob3.vhd,hdl"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3_iaddr_reg.vhd,hdl"
-VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\components.vhd,hdl"
 VALUE "<project>\component\work\Teton\Teton.vhd,hdl"
 ENDFILELIST
@@ -666,10 +917,8 @@ ENDLIST
 ENDLIST
 ENDLIST
 LIST OpenedFileList
-SmartDesign;Teton
-SmartDesign;Teton_MSS
-Reports;Reports
-ACTIVEVIEW;Teton
+StartPage;StartPage
+ACTIVEVIEW;StartPage
 ENDLIST
 LIST ModuleSubBlockList
 LIST "AFE_IF::work","hdl\afe_if.vhd","FALSE","FALSE"
@@ -677,8 +926,6 @@ ENDLIST
 LIST "BIBUF_MSS::work","component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd","FALSE","FALSE"
 ENDLIST
 LIST "BIBUF_OPEND_MSS::work","component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd","FALSE","FALSE"
-ENDLIST
-LIST "CoreAPB3::work","","FALSE","FALSE"
 ENDLIST
 LIST "crom16_FFT::work","hdl\simulink\ifft_32_impl_1\vhdl\ifft_32.vhd","FALSE","FALSE"
 ENDLIST
@@ -707,12 +954,14 @@ SUBBLOCK "multStage16_FFT::work","hdl\simulink\ifft_32_impl_1\vhdl\ifft_32.vhd",
 SUBBLOCK "bitreverse2::shlslib::synFftUtils","hdl\simulink\ifft_32_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
 SUBBLOCK "synBusSatRnd::shlslib::synLibFunctions","hdl\simulink\ifft_32_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "FIFO_256x32::work","","FALSE","FALSE"
+LIST "FIFO_256x32::work","hdl\fifo_256x32.vhd","FALSE","FALSE"
 ENDLIST
 LIST "HAL::work","","FALSE","FALSE"
 ENDLIST
-LIST "ifft_32::work","hdl\simulink\ifft_32_impl_1\vhdl\ifft_32.vhd","FALSE","FALSE"
+LIST "IFFT_32::work","hdl\simulink\ifft_32_impl_1\vhdl\ifft_32.vhd","FALSE","FALSE"
 SUBBLOCK "FFT::work","hdl\simulink\ifft_32_impl_1\vhdl\ifft_32.vhd","FALSE","FALSE"
+ENDLIST
+LIST "IFFT_CTRL::work","hdl\ifft_ctrl.vhd","FALSE","FALSE"
 ENDLIST
 LIST "INBUF_LVDS_MCCC::work","component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd","FALSE","FALSE"
 ENDLIST
@@ -770,12 +1019,12 @@ LIST "OUTBUF_MSS::work","component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vh
 ENDLIST
 LIST "SmartFusion_CMSIS_PAL::work","","FALSE","FALSE"
 ENDLIST
-LIST "Teton::work","component\work\Teton\Teton.cxf","TRUE","FALSE"
-SUBBLOCK "CoreAPB3::work","","FALSE","FALSE"
+LIST "Teton::work","component\work\Teton\Teton.vhd","TRUE","FALSE"
 SUBBLOCK "AFE_IF::work","hdl\afe_if.vhd","FALSE","FALSE"
 SUBBLOCK "LED_PWM::work","hdl\led_pwm.vhd","FALSE","FALSE"
 SUBBLOCK "Teton_MSS::work","component\work\Teton_MSS\Teton_MSS.vhd","TRUE","FALSE"
 SUBBLOCK "TX_APB_IF::work","hdl\tx_apb_if.vhd","FALSE","FALSE"
+SUBBLOCK "CoreAPB3::COREAPB3_LIB::components","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3.vhd","FALSE","FALSE"
 ENDLIST
 LIST "Teton_MSS::work","component\work\Teton_MSS\Teton_MSS.vhd","TRUE","FALSE"
 SUBBLOCK "MSS_APB::work","component\work\Teton_MSS\mss_tshell.vhd","FALSE","FALSE"
@@ -792,8 +1041,12 @@ ENDLIST
 LIST "TRIBUFF_MSS::work","component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd","FALSE","FALSE"
 ENDLIST
 LIST "TX_APB_IF::work","hdl\tx_apb_if.vhd","FALSE","FALSE"
-SUBBLOCK "FIFO_256x32::work","","FALSE","FALSE"
-SUBBLOCK "ifft_32::work","hdl\simulink\ifft_32_impl_1\vhdl\ifft_32.vhd","FALSE","FALSE"
+SUBBLOCK "FIFO_256x32::work","hdl\fifo_256x32.vhd","FALSE","FALSE"
+SUBBLOCK "IFFT_CTRL::work","hdl\ifft_ctrl.vhd","FALSE","FALSE"
+SUBBLOCK "IFFT_32::work","hdl\simulink\ifft_32_impl_1\vhdl\ifft_32.vhd","FALSE","FALSE"
+ENDLIST
+LIST "testbench::work","component\work\Teton\testbench.vhd","FALSE","TRUE"
+SUBBLOCK "Teton::work","component\work\Teton\Teton.vhd","TRUE","FALSE"
 ENDLIST
 LIST "testbench::work","component\work\Teton_MSS\testbench.vhd","FALSE","TRUE"
 SUBBLOCK "Teton_MSS::work","component\work\Teton_MSS\Teton_MSS.vhd","TRUE","FALSE"
@@ -1286,6 +1539,68 @@ LIST "umult::shlslib::synFftUtils","hdl\simulink\ifft_32_impl_1\vhdl\fftModules_
 ENDLIST
 LIST "umult_MC::shlslib::synFftUtils","hdl\simulink\ifft_32_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
 ENDLIST
+LIST "CAPB3Il::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3_muxptob3.vhd","FALSE","FALSE"
+ENDLIST
+LIST "CAPB3o::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3_iaddr_reg.vhd","FALSE","FALSE"
+ENDLIST
+LIST "components::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\components.vhd","FALSE","FALSE"
+SUBBLOCK "CoreAPB3::COREAPB3_LIB::components","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3.vhd","FALSE","FALSE"
+ENDLIST
+LIST "CoreAPB3::COREAPB3_LIB::components","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3.vhd","FALSE","FALSE"
+SUBBLOCK "CAPB3Il::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3_muxptob3.vhd","FALSE","FALSE"
+SUBBLOCK "CAPB3o::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3_iaddr_reg.vhd","FALSE","FALSE"
+ENDLIST
+LIST "bfM_Ahbl::COREAPB3_LIB","","FALSE","FALSE"
+ENDLIST
+LIST "bfM_ahblAPB::COREAPB3_LIB","","FALSE","FALSE"
+ENDLIST
+LIST "BFM_ahbSLAve::COREAPB3_LIB","","FALSE","FALSE"
+ENDLIST
+LIST "Bfm_aHBSlavEEXt::COREAPB3_LIB","","FALSE","FALSE"
+ENDLIST
+LIST "bfm_APb::COREAPB3_LIB::bfM_packAGE","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_apb.vhd","FALSE","TRUE"
+SUBBLOCK "bfm_Main::COREAPB3_LIB::bfM_packAGE","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_main.vhd","FALSE","TRUE"
+SUBBLOCK "BFMA1i1lI::COREAPB3_LIB::bfM_packAGE","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_ahbtoapb.vhd","FALSE","TRUE"
+ENDLIST
+LIST "Bfm_aPB2apb::COREAPB3_LIB","","FALSE","FALSE"
+ENDLIST
+LIST "BFM_apbSLAve::COREAPB3_LIB::bfM_packAGE","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_apbslave.vhd","FALSE","TRUE"
+SUBBLOCK "BFm_apBSLaveEXT::COREAPB3_LIB::bfM_packAGE","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_apbslaveext.vhd","FALSE","TRUE"
+ENDLIST
+LIST "BFm_apBSLaveEXT::COREAPB3_LIB::bfM_packAGE","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_apbslaveext.vhd","FALSE","TRUE"
+ENDLIST
+LIST "bfm_Main::COREAPB3_LIB::bfM_packAGE","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_main.vhd","FALSE","TRUE"
+ENDLIST
+LIST "bfm_misc::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\misc.vhd","FALSE","TRUE"
+ENDLIST
+LIST "bfM_packAGE::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_package.vhd","FALSE","TRUE"
+SUBBLOCK "bfm_Main::COREAPB3_LIB::bfM_packAGE","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_main.vhd","FALSE","TRUE"
+SUBBLOCK "Bfm_aHBSlavEEXt::COREAPB3_LIB","","FALSE","FALSE"
+SUBBLOCK "BFM_ahbSLAve::COREAPB3_LIB","","FALSE","FALSE"
+SUBBLOCK "BFm_apBSLaveEXT::COREAPB3_LIB::bfM_packAGE","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_apbslaveext.vhd","FALSE","TRUE"
+SUBBLOCK "BFM_apbSLAve::COREAPB3_LIB::bfM_packAGE","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_apbslave.vhd","FALSE","TRUE"
+SUBBLOCK "bfM_Ahbl::COREAPB3_LIB","","FALSE","FALSE"
+SUBBLOCK "BFMA1i1lI::COREAPB3_LIB::bfM_packAGE","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_ahbtoapb.vhd","FALSE","TRUE"
+SUBBLOCK "bfM_ahblAPB::COREAPB3_LIB","","FALSE","FALSE"
+SUBBLOCK "bfm_APb::COREAPB3_LIB::bfM_packAGE","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_apb.vhd","FALSE","TRUE"
+SUBBLOCK "Bfm_aPB2apb::COREAPB3_LIB","","FALSE","FALSE"
+ENDLIST
+LIST "bfm_textio::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\textio.vhd","FALSE","TRUE"
+ENDLIST
+LIST "bfm_textio_test::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\textio.vhd","FALSE","TRUE"
+ENDLIST
+LIST "BFMA1i1lI::COREAPB3_LIB::bfM_packAGE","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_ahbtoapb.vhd","FALSE","TRUE"
+ENDLIST
+LIST "coreparameters::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.0.100\coreparameters.vhd","FALSE","TRUE"
+ENDLIST
+LIST "testbench::COREAPB3_LIB","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\test\user\testbench.vhd","FALSE","TRUE"
+SUBBLOCK "CoreAPB3::COREAPB3_LIB::components","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3.vhd","FALSE","FALSE"
+SUBBLOCK "bfm_APb::COREAPB3_LIB::bfM_packAGE","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_apb.vhd","FALSE","TRUE"
+SUBBLOCK "BFM_apbSLAve::COREAPB3_LIB::bfM_packAGE","component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_apbslave.vhd","FALSE","TRUE"
+ENDLIST
 ENDLIST
 LIST ActiveTestBenchList
+LIST "Teton::work"
+ACTIVETESTBENCH "testbench::work","component\work\Teton\testbench.vhd","FALSE"
+ENDLIST
 ENDLIST

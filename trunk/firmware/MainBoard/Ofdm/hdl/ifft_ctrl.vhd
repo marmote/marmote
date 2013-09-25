@@ -59,8 +59,8 @@ architecture Behavioral of IFFT_CTRL is
 
     constant c_FFT_IN_WL    : integer := 4;
 
-    constant c_TX_POS       : std_logic_vector(c_FFT_IN_WL-1 downto 0) := "0111"; -- ~ +1
-    constant c_TX_NEG       : std_logic_vector(c_FFT_IN_WL-1 downto 0) := "1001"; -- ~ -1
+    constant c_TX_POS       : std_logic_vector(c_FFT_IN_WL-1 downto 0) := "0110"; -- ~ +1
+    constant c_TX_NEG       : std_logic_vector(c_FFT_IN_WL-1 downto 0) := "1010"; -- ~ -1
 
     constant c_IFFT_PATH_DELAY  : integer := 71;
 
