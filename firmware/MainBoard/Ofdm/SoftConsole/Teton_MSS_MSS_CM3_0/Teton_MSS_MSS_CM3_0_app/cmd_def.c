@@ -6,6 +6,7 @@
  */
 
 #include "cmd_def.h"
+#include "demo.h"
 
 CMD_Type CMD_List[] =
 {
@@ -42,6 +43,7 @@ CMD_Type CMD_List[] =
 	{"p", 		CmdStartPeriodic},
 	{"e", 		CmdStop},
 	{"rate",  	CmdRate},
+	{"demo",  	CmdDemo},
 
 	{NULL,   	NULL}
 };
@@ -1057,7 +1059,7 @@ uint32_t CmdPattern(uint32_t argc, char** argv)
 
 uint32_t CmdMask(uint32_t argc, char** argv)
 {
-	uint32_t mask, cnt;
+	uint32_t mask;
 	char buf[128];
 	char *eptr = NULL;
 
@@ -1223,3 +1225,66 @@ uint32_t CmdRate(uint32_t argc, char** argv)
 	return 1;
 }
 
+void send_demo_symbols()
+{
+	int i;
+	TX_CTRL->MLEN = (0x4000ul << 16) | (sizeof(demo_mask_v)/sizeof(uint32_t) & 0xFFFF);
+	for (i = 0; i < sizeof(demo_mask_v)/sizeof(uint32_t); i++)
+	{
+		TX_CTRL->FIFO = demo_mask_v[i];
+	}
+
+	set_mode(RADIO_TX_MODE);
+	TX_CTRL->CTRL = 0x02ul;
+}
+
+uint32_t CmdDemo(uint32_t argc, char** argv)
+{
+	if (argc == 1)
+	{
+		send_demo_symbols();
+		MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		if (!strcmp(*(argv+1), "on"))
+		{
+			if (g_rate == 0)
+			{
+				Yellowstone_print("\r\nRate unset");
+				return 1;
+			}
+
+			send_demo_symbols();
+
+			MSS_TIM1_load_background(g_rate * MILLI_SEC_DIV);
+			MSS_TIM1_load_immediate(g_rate * MILLI_SEC_DIV); // reset timer
+			MSS_TIM1_enable_irq();
+			MSS_TIM1_start();
+
+			MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
+
+			Yellowstone_print("\r\nDemo started");
+			return 0;
+		}
+
+		if (!strcmp(*(argv+1), "off"))
+		{
+			set_mode(RADIO_STANDBY_MODE);
+
+			MSS_TIM1_stop();
+			MSS_TIM1_disable_irq();
+
+			MSS_GPIO_set_output(MSS_GPIO_LED1, 0);
+
+			Yellowstone_print("\r\nDemo stopped");
+			return 0;
+		}
+	}
+
+	// Send help message
+  	Yellowstone_print("\nUsage: demo [on | off]");
+	return 1;
+}

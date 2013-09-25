@@ -143,6 +143,7 @@ architecture Behavioral of TX_APB_IF is
     signal s_mask       : std_logic_vector(31 downto 0);
     signal s_gain       : std_logic_vector(3 downto 0);
     signal s_mlen       : std_logic_vector(15 downto 0);
+    signal s_dlen       : std_logic_vector(15 downto 0);
 
     type tx_fsm_state_t is (
         st_IDLE,
@@ -191,6 +192,9 @@ architecture Behavioral of TX_APB_IF is
 
     signal s_tx_ctr         : unsigned(15 downto 0);
     signal s_tx_ctr_next    : unsigned(15 downto 0);
+
+    signal s_dhold_ctr      : unsigned(15 downto 0);
+    signal s_dhold_ctr_next : unsigned(15 downto 0);
 
     -- FIFO
     signal s_tx_fifo_in     : std_logic_vector(31 downto 0);
@@ -300,6 +304,7 @@ begin
                         s_gain <= PWDATA(3 downto 0);
 					when c_ADDR_MLEN =>
                         s_mlen <= PWDATA(15 downto 0);
+                        s_dlen <= PWDATA(31 downto 16);
 					when others =>
 						null;
 				end case;
@@ -332,6 +337,7 @@ begin
 					when c_ADDR_GAIN =>
 						s_dout(3 downto 0) <= s_gain;
 					when c_ADDR_MLEN =>
+						s_dout(31 downto 16) <= s_dlen;
 						s_dout(15 downto 0) <= s_mlen;
 					when others =>
 						null;
@@ -350,12 +356,14 @@ begin
             s_ptrn_buf <= (others => '0');
             s_mask_buf <= (others => '0');
             s_tx_ctr <= (others => '0');
+            s_dhold_ctr <= (others => '0');
             s_sym_start <= '0';
 		elsif rising_edge(clk) then
             s_tx_fsm_state <= s_tx_fsm_state_next;
             s_ptrn_buf <= s_ptrn_buf_next;
             s_mask_buf <= s_mask_buf_next;
             s_tx_ctr <= s_tx_ctr_next;
+            s_dhold_ctr <= s_dhold_ctr_next;
             s_sym_start <= s_sym_start_next;
 		end if;
 	end process p_TRANSMIT_FSM_SYNC;
@@ -376,7 +384,8 @@ begin
         s_sym_done,
         s_tx_fifo_out,
         s_tx_fifo_aempty,
-        s_tx_ctr 
+        s_tx_ctr,
+        s_dhold_ctr
 	)
 	begin
 		-- Default values
@@ -390,43 +399,58 @@ begin
         s_mask_buf_next <= s_mask_buf;
 
         s_tx_ctr_next <= s_tx_ctr;
+        s_dhold_ctr_next <= s_dhold_ctr;
 
 		case (s_tx_fsm_state) is
 			
 				when st_IDLE =>
-                    --s_ptrn_buf_next <= c_PREA_PTRN;
-                    --s_mask_buf_next <= c_PREA_MASK;
-                    s_ptrn_buf_next <= s_ptrn;
-                    s_mask_buf_next <= s_mask;
 					if s_data_start = '1' and s_tx_fifo_aempty = '0' then
                         -- DATA branch
-                        s_sym_start_next <= '1';
                         s_tx_fifo_rd <= '1'; -- Fetch FIFO data
+                        s_tx_ctr_next <= unsigned(s_mlen);
+                        s_dhold_ctr_next <= unsigned(s_dlen);
+                        s_ptrn_buf_next <= s_ptrn;
+                        s_mask_buf_next <= s_mask;
 						s_tx_fsm_state_next <= st_PREA;
                     elsif s_meas_start = '1' then
                         -- MEAS branch
                         s_sym_start_next <= '1';
-						s_tx_fsm_state_next <= st_MEAS;
                         s_tx_ctr_next <= unsigned(s_mlen);
+                        s_ptrn_buf_next <= s_ptrn;
+                        s_mask_buf_next <= s_mask;
+						s_tx_fsm_state_next <= st_MEAS;
 					end if;
 
 				when st_PREA =>
-                    if s_sym_done = '1' then
-                        s_tx_fsm_state_next <= st_PYLD;
-                        --s_tx_ctr_next <= unsigned(s_mlen(6 downto 0));
-                    end if;
+                    -- Used as DATA FETCH for now
+                    s_sym_start_next <= '1';
+                    s_tx_fifo_rd <= '1';
+                    s_ptrn_buf_next <= s_ptrn;
+                    s_mask_buf_next <= s_tx_fifo_out;
+                    s_tx_fsm_state_next <= st_PYLD;
 
 				when st_PYLD =>
-                    if s_tx_fifo_empty = '0' then
-                        s_tx_fifo_rd <= '1';
-                    else
-                        s_tx_fsm_state_next <= st_MEAS;
+                    if s_sym_done = '1' then
+                        -- NOTE: FIFO is read regardless if it being empty
+                        s_dhold_ctr_next <= s_dhold_ctr - 1;
+                        if s_dhold_ctr = 0 then
+                            s_dhold_ctr_next <= unsigned(s_dlen);
+                            s_tx_ctr_next <= s_tx_ctr - 1;
+                            if s_tx_ctr = 1 then
+                                s_tx_fsm_state_next <= st_WAIT;
+                            else
+                                s_sym_start_next <= '1';
+                                s_tx_fifo_rd <= '1';
+                                s_mask_buf_next <= s_tx_fifo_out;
+                            end if;
+                        else
+                            s_sym_start_next <= '1';
+                        end if;
                     end if;
 
 				when st_MEAS => 
                     if s_sym_done = '1' then
                         s_tx_ctr_next <= s_tx_ctr - 1;
-                        --if s_tx_ctr >= unsigned(s_mlen) then
                         if s_tx_ctr = 1 then
                             s_tx_fsm_state_next <= st_WAIT;
                         else
