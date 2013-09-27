@@ -28,31 +28,9 @@ sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_ctr \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_dhold_ctr \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_ptrn_buf \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_mask_buf \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_sym_start \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_sym_done \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_symb_start \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_symb_done \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_done
-
-add wave  \
--divider {IFFT CTRL} \
--hex \
-sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/RST \
-sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/CLK \
-sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/SYM \
-sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/MASK \
-sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/SYM_START \
-sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_sym \
-sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_mask \
-sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/SYM_DONE \
-sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_state \
-sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_tx_en \
-sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_delay_ctr \
-sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_sym_done \
-sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_ifft_en \
-sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/IFFT_RST \
-sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/IFFT_EN \
--analog-step -min -8 -max 8 -height 100 \
-sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_ifft_i \
-sim:/testbench/Teton_0/TX_APB_IF_0/u_IFFT_CTRL/s_ifft_q
 
 
 add wave \
@@ -71,26 +49,46 @@ sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_fifo_out
 
 
 add wave \
--group {TX IFFT} \
+-divider {TX OFDM} \
 -hex \
 sim:/testbench/Teton_0/TX_APB_IF_0/clk \
 sim:/testbench/Teton_0/TX_APB_IF_0/rst \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_gain \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_ptrn \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_mask \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_state \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_ifft_rst \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_ifft_en \
--signed \
--analog-step -min -8 -max 8 -height 100 \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_i_in \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_q_in
-add wave \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_vld \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_rdy \
--analog-step -min -8192 -max 8192 -height 100 \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_i_out \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_q_out
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_start(0) \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_gain \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_mask \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_symb \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_cp_len \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/RST \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/clk \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/SYMB_START \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/SYMB_DONE \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/SYMB \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/MASK \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/GAIN \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/CP_LEN \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_ifft_rst \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_ifft_en \
+-signed -analog-step -min -4 -max 4 -height 30 \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_ifft_i_in \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_ifft_q_in \
+-hex -literal -height 17 \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_symb_start_d \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_symb_done \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_ifft_rdy \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_ifft_vld \
+-signed -analog-step -min -128 -max 128 -height 100 \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_ifft_i_out \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_ifft_q_out \
+-hex -literal -height 17 \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_cp_start \
+-signed -analog-step -min -128 -max 128 -height 100 \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_cp_i_in \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_cp_q_in \
+-hex -literal -height 17 \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_tx_strobe(0) \
+-signed -analog-step -min -128 -max 128 -height 100 \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_cp_q_out \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_cp_i_out
 
 
 
@@ -110,6 +108,6 @@ sim:/testbench/Teton_0/AFE1_IF/TX_Q
 
 #run -all
 run 130 us
-run 400 us
+#run 400 us
 
 wave zoom full

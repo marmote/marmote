@@ -40,7 +40,8 @@ entity TX_APB_IF is
          g_PTRN : integer := 16#01660166#;  -- subcarrier pattern FIXME: check pattern PAPR
          g_MASK : integer := 16#7FFE7FFE#;  -- subcarrier mask
          g_GAIN : integer := 0;         -- amplitude gain = 2^g_GAIN
-         g_MLEN : integer := 4          -- measurement length in symbols
+         g_MLEN : integer := 4;         -- measurement length in symbols
+         g_CLEN : integer := 8          -- measurement length in symbols
     );
 	port (
 		 -- APB3 interface
@@ -81,6 +82,7 @@ architecture Behavioral of TX_APB_IF is
 	constant c_ADDR_MASK    : std_logic_vector(7 downto 0) := x"14"; -- R/W
 	constant c_ADDR_GAIN    : std_logic_vector(7 downto 0) := x"18"; -- R/W
 	constant c_ADDR_MLEN    : std_logic_vector(7 downto 0) := x"1C"; -- R/W
+	constant c_ADDR_CLEN    : std_logic_vector(7 downto 0) := x"20"; -- R/W
 
 
     -- Components
@@ -105,45 +107,32 @@ architecture Behavioral of TX_APB_IF is
     );
     end component;
 
-    component IFFT_CTRL is
-    port (
-        RST         : in  std_logic;
-        CLK         : in  std_logic;
-
-        IFFT_RST    : out std_logic;
-        IFFT_EN     : out std_logic;
-        IFFT_I      : out std_logic_vector(c_FFT_IN_WL-1 downto 0);
-        IFFT_Q      : out std_logic_vector(c_FFT_IN_WL-1 downto 0);
-
-        SYM         : in  std_logic_vector(31 downto 0);
-        MASK        : in  std_logic_vector(31 downto 0);
-        SYM_START   : in  std_logic;
-        SYM_DONE    : out std_logic
-    );
-    end component;
-
-    component IFFT_32 is
+    component OFDM is
     port (
          clk : in std_logic;
          GlobalReset : in std_logic;
-         VLD : out std_logic;
-         RST : in std_logic;
-         RDY : out std_logic;
-         I_OUT : out std_logic_vector(c_FFT_OUT_WL-1 downto 0);
-         Q_OUT : out std_logic_vector(c_FFT_OUT_WL-1 downto 0);
-         I_IN : in std_logic_vector(c_FFT_IN_WL-1 downto 0);
-         Q_IN : in std_logic_vector(c_FFT_IN_WL-1 downto 0);
-         EN : in std_logic -- ufix1
+         TX_STROBE : out std_logic; -- ufix1
+         TX_Q : out std_logic_vector(9 downto 0); -- sfix10_En9
+         TX_I : out std_logic_vector(9 downto 0); -- sfix10_En9
+         SYMB : in std_logic_vector(31 downto 0); -- ufix32_En0
+         SYMB_START : in std_logic; -- ufix1
+         RST : in std_logic; -- ufix1
+         MASK : in std_logic_vector(31 downto 0); -- ufix32_En0
+         GAIN : in std_logic_vector(1 downto 0); -- ufix2_En0
+         SYMB_DONE : out std_logic; -- ufix1
+         TX_DONE : out std_logic; -- ufix1
+         CP_LEN : in std_logic_vector(4 downto 0) -- ufix5_En0
     );
-    end component IFFT_32;
+    end component OFDM;
 
 	-- Registers
 
     signal s_ptrn       : std_logic_vector(31 downto 0);
     signal s_mask       : std_logic_vector(31 downto 0);
-    signal s_gain       : std_logic_vector(3 downto 0);
-    signal s_mlen       : std_logic_vector(15 downto 0);
+    signal s_gain       : std_logic_vector(1 downto 0);
+    signal s_mlen       : std_logic_vector(15 downto 0); -- message/measurement length
     signal s_dlen       : std_logic_vector(15 downto 0);
+    signal s_clen       : std_logic_vector(4 downto 0); -- cyclic-prefix length
 
     type tx_fsm_state_t is (
         st_IDLE,
@@ -173,9 +162,6 @@ architecture Behavioral of TX_APB_IF is
     signal s_i_out      : std_logic_vector(c_FFT_OUT_WL-1 downto 0);
     signal s_q_out      : std_logic_vector(c_FFT_OUT_WL-1 downto 0);
 
-    signal s_tx_i_out   : std_logic_vector(9 downto 0);
-    signal s_tx_q_out   : std_logic_vector(9 downto 0);
-
     -- FSM
     signal s_data_start   : std_logic;
     signal s_meas_start : std_logic;
@@ -186,9 +172,9 @@ architecture Behavioral of TX_APB_IF is
     signal s_mask_buf       : std_logic_vector(31 downto 0);
     signal s_mask_buf_next  : std_logic_vector(31 downto 0);
 
-    signal s_sym_start       : std_logic;
-    signal s_sym_start_next  : std_logic;
-    signal s_sym_done        : std_logic;
+    signal s_symb_start       : std_logic;
+    signal s_symb_start_next  : std_logic;
+    signal s_symb_done        : std_logic;
 
     signal s_tx_ctr         : unsigned(15 downto 0);
     signal s_tx_ctr_next    : unsigned(15 downto 0);
@@ -233,36 +219,23 @@ begin
         AEMPTY  => s_tx_fifo_aempty
 	);
 
-    u_IFFT_CTRL : IFFT_CTRL
+    u_OFDM : OFDM 
     port map (
-        RST         => RST,
-        CLK         => CLK,
-        IFFT_RST    => s_ifft_rst,
-        IFFT_EN     => s_ifft_en,
-        IFFT_I      => s_i_in,
-        IFFT_Q      => s_q_in,
-
-        SYM         => s_ptrn_buf,
-        MASK        => s_mask_buf,
-        SYM_START   => s_sym_start,
-        SYM_DONE    => s_sym_done
+         clk => CLK,
+         GlobalReset => RST,
+         RST => RST, -- FIXME
+         SYMB_START => s_symb_start,
+         CP_LEN => s_clen,
+         MASK => s_mask_buf,
+         SYMB => s_ptrn_buf,
+         GAIN => s_gain,
+         SYMB_DONE => s_symb_done,
+         TX_STROBE => TX_EN,
+         TX_DONE => s_tx_done,
+         TX_I => TX_I,
+         TX_Q => TX_Q
     );
 
-
-    u_IFFT_32 : IFFT_32
-    port map (
-         clk => clk,
-         GlobalReset => rst,
-         VLD => s_vld,
-         RST => s_ifft_rst,
-         RDY => s_rdy,
-         I_IN => s_i_in,
-         Q_IN => s_q_in,
-         I_OUT => s_i_out,
-         Q_OUT => s_q_out,
-         EN => s_ifft_en
-    );
-    
     rst <= NOT PRESETn;
 
     -- Processes
@@ -281,6 +254,7 @@ begin
             s_mask <= std_logic_vector(to_unsigned(g_MASK, s_mask'length));
             s_gain <= std_logic_vector(to_unsigned(g_GAIN, s_gain'length));
             s_mlen <= std_logic_vector(to_unsigned(g_MLEN, s_mlen'length));
+            s_clen <= std_logic_vector(to_unsigned(g_CLEN, s_clen'length));
 		elsif rising_edge(PCLK) then
 			-- Default values
             s_data_start <= '0';
@@ -301,10 +275,12 @@ begin
 					when c_ADDR_MASK =>
                         s_mask <= PWDATA(31 downto 0);
 					when c_ADDR_GAIN =>
-                        s_gain <= PWDATA(3 downto 0);
+                        s_gain <= PWDATA(1 downto 0);
 					when c_ADDR_MLEN =>
                         s_mlen <= PWDATA(15 downto 0);
                         s_dlen <= PWDATA(31 downto 16);
+					when c_ADDR_CLEN =>
+                        s_clen <= PWDATA(4 downto 0);
 					when others =>
 						null;
 				end case;
@@ -335,10 +311,12 @@ begin
 					when c_ADDR_MASK =>
 						s_dout(31 downto 0) <= s_mask;
 					when c_ADDR_GAIN =>
-						s_dout(3 downto 0) <= s_gain;
+						s_dout(1 downto 0) <= s_gain;
 					when c_ADDR_MLEN =>
 						s_dout(31 downto 16) <= s_dlen;
 						s_dout(15 downto 0) <= s_mlen;
+					when c_ADDR_CLEN =>
+						s_dout(4 downto 0) <= s_clen;
 					when others =>
 						null;
 				end case;
@@ -357,14 +335,14 @@ begin
             s_mask_buf <= (others => '0');
             s_tx_ctr <= (others => '0');
             s_dhold_ctr <= (others => '0');
-            s_sym_start <= '0';
+            s_symb_start <= '0';
 		elsif rising_edge(clk) then
             s_tx_fsm_state <= s_tx_fsm_state_next;
             s_ptrn_buf <= s_ptrn_buf_next;
             s_mask_buf <= s_mask_buf_next;
             s_tx_ctr <= s_tx_ctr_next;
             s_dhold_ctr <= s_dhold_ctr_next;
-            s_sym_start <= s_sym_start_next;
+            s_symb_start <= s_symb_start_next;
 		end if;
 	end process p_TRANSMIT_FSM_SYNC;
 
@@ -381,7 +359,7 @@ begin
         s_ptrn,
         s_mask,
         s_mlen,
-        s_sym_done,
+        s_symb_done,
         s_tx_fifo_out,
         s_tx_fifo_aempty,
         s_tx_ctr,
@@ -390,10 +368,9 @@ begin
 	begin
 		-- Default values
         s_tx_fsm_state_next <= s_tx_fsm_state;
-        s_sym_start_next <= '0';
+        s_symb_start_next <= '0';
 
         s_tx_fifo_rd <= '0';
-        s_tx_done <= '0';
 
         s_ptrn_buf_next <= s_ptrn_buf;
         s_mask_buf_next <= s_mask_buf;
@@ -414,7 +391,7 @@ begin
 						s_tx_fsm_state_next <= st_PREA;
                     elsif s_meas_start = '1' then
                         -- MEAS branch
-                        s_sym_start_next <= '1';
+                        s_symb_start_next <= '1';
                         s_tx_ctr_next <= unsigned(s_mlen);
                         s_ptrn_buf_next <= s_ptrn;
                         s_mask_buf_next <= s_mask;
@@ -423,14 +400,14 @@ begin
 
 				when st_PREA =>
                     -- Used as DATA FETCH for now
-                    s_sym_start_next <= '1';
+                    s_symb_start_next <= '1';
                     s_tx_fifo_rd <= '1';
                     s_ptrn_buf_next <= s_ptrn;
                     s_mask_buf_next <= s_tx_fifo_out;
                     s_tx_fsm_state_next <= st_PYLD;
 
 				when st_PYLD =>
-                    if s_sym_done = '1' then
+                    if s_symb_done = '1' then
                         -- NOTE: FIFO is read regardless if it being empty
                         s_dhold_ctr_next <= s_dhold_ctr - 1;
                         if s_dhold_ctr = 0 then
@@ -439,29 +416,28 @@ begin
                             if s_tx_ctr = 1 then
                                 s_tx_fsm_state_next <= st_WAIT;
                             else
-                                s_sym_start_next <= '1';
+                                s_symb_start_next <= '1';
                                 s_tx_fifo_rd <= '1';
                                 s_mask_buf_next <= s_tx_fifo_out;
                             end if;
                         else
-                            s_sym_start_next <= '1';
+                            s_symb_start_next <= '1';
                         end if;
                     end if;
 
 				when st_MEAS => 
-                    if s_sym_done = '1' then
+                    if s_symb_done = '1' then
                         s_tx_ctr_next <= s_tx_ctr - 1;
                         if s_tx_ctr = 1 then
                             s_tx_fsm_state_next <= st_WAIT;
                         else
-                            s_sym_start_next <= '1';
+                            s_symb_start_next <= '1';
                         end if;
                     end if;
 
 				when st_WAIT => 
-                    if s_ifft_en = '0' then
+                    if s_tx_done = '1' then
                         s_tx_fsm_state_next <= st_IDLE;
-                        s_tx_done <= '1';
                     end if;
 			
 				when others =>
@@ -471,49 +447,6 @@ begin
 
 	end process p_TRANSMIT_FSM_COMB;
 
-    --------------------------------------------------------------------------
-    -- Process multiplexing the IFFT block output based on s_gain
-    --------------------------------------------------------------------------
-    p_IFFT_GAIN : process (rst, clk)
-    begin
-        if rst = '1' then
-            s_tx_i_out <= (others => '0');
-            s_tx_q_out <= (others => '0');
-        elsif rising_edge(clk) then
-            s_tx_i_out <= (others => '0');
-            s_tx_q_out <= (others => '0');
-
-            if s_vld = '1' then
-
-                case s_gain is
-
-                    -- x8
-                    when x"3" =>
-                        s_tx_i_out <= s_i_out(c_FFT_OUT_WL-4 downto c_FFT_OUT_WL-TX_I'length-3);
-                        s_tx_q_out <= s_q_out(c_FFT_OUT_WL-4 downto c_FFT_OUT_WL-TX_Q'length-3);
-
-                    -- x4
-                    when x"2" =>
-                        s_tx_i_out <= s_i_out(c_FFT_OUT_WL-3 downto c_FFT_OUT_WL-TX_I'length-2);
-                        s_tx_q_out <= s_q_out(c_FFT_OUT_WL-3 downto c_FFT_OUT_WL-TX_Q'length-2);
-
-                    -- x2
-                    when x"1" =>
-                        s_tx_i_out <= s_i_out(c_FFT_OUT_WL-2 downto c_FFT_OUT_WL-TX_I'length-1);
-                        s_tx_q_out <= s_q_out(c_FFT_OUT_WL-2 downto c_FFT_OUT_WL-TX_Q'length-1);
-
-                    -- x1
-                    when others =>
-                        s_tx_i_out <= s_i_out(c_FFT_OUT_WL-1 downto c_FFT_OUT_WL-TX_I'length);
-                        s_tx_q_out <= s_q_out(c_FFT_OUT_WL-1 downto c_FFT_OUT_WL-TX_Q'length);
-
-                end case;
-            end if;
-
-        end if;
-    end process p_IFFT_GAIN;
-
-
     -- Output assignment
 
 	PRDATA <= s_dout;
@@ -521,8 +454,6 @@ begin
 	PSLVERR <= '0';
 
     TX_EN <= s_vld;
-    TX_I <= s_tx_i_out;
-    TX_Q <= s_tx_q_out;
 
     TX_DONE_IRQ <= s_tx_done;
 

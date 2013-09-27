@@ -106,6 +106,7 @@
       <spirit:hwParameter spirit:id="g_MASK" spirit:name="g_MASK" spirit:prompt="g_MASK:" spirit:dataType="int" spirit:resolve="user">2147385342</spirit:hwParameter>
       <spirit:hwParameter spirit:id="g_GAIN" spirit:name="g_GAIN" spirit:prompt="g_GAIN:" spirit:dataType="int" spirit:resolve="user">0</spirit:hwParameter>
       <spirit:hwParameter spirit:id="g_MLEN" spirit:name="g_MLEN" spirit:prompt="g_MLEN:" spirit:dataType="int" spirit:resolve="user">4</spirit:hwParameter>
+      <spirit:hwParameter spirit:id="g_CLEN" spirit:name="g_CLEN" spirit:prompt="g_CLEN:" spirit:dataType="int" spirit:resolve="user">8</spirit:hwParameter>
     </spirit:hwParameters>
   </spirit:hwModel>
   <spirit:choices>
