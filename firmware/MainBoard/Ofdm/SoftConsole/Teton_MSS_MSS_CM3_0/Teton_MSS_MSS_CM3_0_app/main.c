@@ -41,8 +41,6 @@ int main()
 		if (tx_done_it_flag)
 		{
 			tx_done_it_flag = 0;
-			set_mode(RADIO_STANDBY_MODE);
-			MSS_GPIO_set_output(MSS_GPIO_LED1, 0);
 		}
 	}
 }
@@ -50,19 +48,15 @@ int main()
 
 void Timer1_IRQHandler(void)
 {
-	send_demo_symbols();
-
-	MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
-
-//	if (TX_CTRL->CTRL & 1uL)
-//	{
-//		TX_CTRL->CTRL &= ~1uL;
-//		MSS_GPIO_set_output(MSS_GPIO_LED1, 0);
-//	}
-//	else
-//	{
-//		TX_CTRL->CTRL |= 1uL;
-//		MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
-//	}
+	if (TX_CTRL->CTRL & 0x4u)
+	{
+		TX_CTRL->CTRL &= ~0x4u;
+		MSS_GPIO_set_output(MSS_GPIO_LED1, 0);
+	}
+	else
+	{
+		TX_CTRL->CTRL |= 0x4u | 0x2u;
+		MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
+	}
 	MSS_TIM1_clear_irq();
 }
