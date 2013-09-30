@@ -24,6 +24,7 @@ sim:/testbench/Teton_0/TX_APB_IF_0/s_mlen \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_fsm_state \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_data_start \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_meas_start \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_meas_cont \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_ctr \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_ptrn_buf \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_mask_buf \
@@ -49,7 +50,7 @@ sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_fifo_out
 
 
 add wave \
--divider {TX OFDM} \
+-group {TX OFDM} \
 -hex \
 sim:/testbench/Teton_0/TX_APB_IF_0/clk \
 sim:/testbench/Teton_0/TX_APB_IF_0/rst \
@@ -101,7 +102,6 @@ sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/TX_DONE
 
 add wave  \
 -group {AFE} \
-sim:/testbench/Teton_0/AFE1_IF/TX_STROBE \
 -signed \
 sim:/testbench/Teton_0/AFE1_IF/CLK \
 sim:/testbench/Teton_0/AFE1_IF/RST \
@@ -115,6 +115,6 @@ sim:/testbench/Teton_0/AFE1_IF/TX_Q
 
 #run -all
 run 130 us
-#run 400 us
+run 100 us
 
 wave zoom full

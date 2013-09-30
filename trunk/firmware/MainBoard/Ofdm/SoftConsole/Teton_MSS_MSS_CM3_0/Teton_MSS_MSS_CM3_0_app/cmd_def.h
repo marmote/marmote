@@ -65,7 +65,6 @@ uint32_t CmdStart(uint32_t argc, char** argv);
 uint32_t CmdStartPeriodic(uint32_t argc, char** argv);
 uint32_t CmdStop(uint32_t argc, char** argv);
 uint32_t CmdRate(uint32_t argc, char** argv);
-uint32_t CmdDemo(uint32_t argc, char** argv);
 
 void send_demo_symbols();
 

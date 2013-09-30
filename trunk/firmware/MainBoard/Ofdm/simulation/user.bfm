@@ -38,7 +38,7 @@ print "";
 ################# DATA ###############
 
 #write w TX_APB_IF_0 TX_PTRN 0xFFFFFFFF
-write w TX_APB_IF_0 TX_PTRN 0x80000000
+write w TX_APB_IF_0 TX_PTRN 0x0000C000
 write w TX_APB_IF_0 TX_MASK 0x00004000
 write w TX_APB_IF_0 TX_GAIN 0x00000003
 
@@ -46,7 +46,7 @@ write w TX_APB_IF_0 TX_GAIN 0x00000003
 #include "ofdm.bfm"
 
 #write w TX_APB_IF_0 TX_MLEN 0x00030020
-write w TX_APB_IF_0 TX_MLEN 0x00000004
+write w TX_APB_IF_0 TX_MLEN 0x00000003
 
 write w TX_APB_IF_0 TX_FIFO 0x00004000
 write w TX_APB_IF_0 TX_FIFO 0x00002000
@@ -86,10 +86,19 @@ write w TX_APB_IF_0 TX_FIFO 0x00002000
 #write w TX_APB_IF_0 TX_FIFO 0x00020000
 #write w TX_APB_IF_0 TX_FIFO 0x00010000
 
-## Start TX
+## Start DATA
+write w TX_APB_IF_0 TX_CTRL 0x01;
+wait 500;
+
+## Start MEAS
 write w TX_APB_IF_0 TX_CTRL 0x02;
 wait 500;
 
+## Start MEAS
+write w TX_APB_IF_0 TX_CTRL 0x06;
+wait 500;
+write w TX_APB_IF_0 TX_CTRL 0x00;
+wait 500;
 
 ################## MEAS ###############
 
