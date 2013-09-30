@@ -111,17 +111,19 @@ architecture Behavioral of TX_APB_IF is
     port (
          clk : in std_logic;
          GlobalReset : in std_logic;
-         TX_STROBE : out std_logic; -- ufix1
-         TX_Q : out std_logic_vector(9 downto 0); -- sfix10_En9
-         TX_I : out std_logic_vector(9 downto 0); -- sfix10_En9
+         RST : in std_logic; -- ufix1
+         CP_LEN : in std_logic_vector(4 downto 0); -- ufix5_En0
+         CP_ADD : in std_logic; -- ufix1
+         GAIN : in std_logic_vector(1 downto 0); -- ufix2_En0
+         MASK : in std_logic_vector(31 downto 0); -- ufix32_En0
          SYMB : in std_logic_vector(31 downto 0); -- ufix32_En0
          SYMB_START : in std_logic; -- ufix1
-         RST : in std_logic; -- ufix1
-         MASK : in std_logic_vector(31 downto 0); -- ufix32_En0
-         GAIN : in std_logic_vector(1 downto 0); -- ufix2_En0
          SYMB_DONE : out std_logic; -- ufix1
          TX_DONE : out std_logic; -- ufix1
-         CP_LEN : in std_logic_vector(4 downto 0) -- ufix5_En0
+
+         TX_STROBE : out std_logic; -- ufix1
+         TX_Q : out std_logic_vector(9 downto 0); -- sfix10_En9
+         TX_I : out std_logic_vector(9 downto 0) -- sfix10_En9
     );
     end component OFDM;
 
@@ -131,7 +133,6 @@ architecture Behavioral of TX_APB_IF is
     signal s_mask       : std_logic_vector(31 downto 0);
     signal s_gain       : std_logic_vector(1 downto 0);
     signal s_mlen       : std_logic_vector(15 downto 0); -- message/measurement length
-    signal s_dlen       : std_logic_vector(15 downto 0);
     signal s_clen       : std_logic_vector(4 downto 0); -- cyclic-prefix length
 
     type tx_fsm_state_t is (
@@ -171,16 +172,17 @@ architecture Behavioral of TX_APB_IF is
     signal s_ptrn_buf_next  : std_logic_vector(31 downto 0);
     signal s_mask_buf       : std_logic_vector(31 downto 0);
     signal s_mask_buf_next  : std_logic_vector(31 downto 0);
+    signal s_cp_add         : std_logic;
+    signal s_cp_add_next    : std_logic;
 
-    signal s_symb_start       : std_logic;
-    signal s_symb_start_next  : std_logic;
-    signal s_symb_done        : std_logic;
+    signal s_tx_rst             : std_logic;
+    --signal s_tx_rst_next        : std_logic;
+    signal s_symb_start         : std_logic;
+    signal s_symb_start_next    : std_logic;
+    signal s_symb_done          : std_logic;
 
     signal s_tx_ctr         : unsigned(15 downto 0);
     signal s_tx_ctr_next    : unsigned(15 downto 0);
-
-    signal s_dhold_ctr      : unsigned(15 downto 0);
-    signal s_dhold_ctr_next : unsigned(15 downto 0);
 
     -- FIFO
     signal s_tx_fifo_in     : std_logic_vector(31 downto 0);
@@ -203,7 +205,7 @@ begin
     u_TX_FIFO : FIFO_256x32
     generic map (
         g_AFULL  => 248,
-        g_AEMPTY => 4 -- FIXME
+        g_AEMPTY => 2 -- FIXME
     )
     port map (
     	RESET   => RST,
@@ -223,20 +225,23 @@ begin
     port map (
          clk => CLK,
          GlobalReset => RST,
-         RST => RST, -- FIXME
-         SYMB_START => s_symb_start,
+         RST => s_tx_rst,
          CP_LEN => s_clen,
+         CP_ADD => s_cp_add,
+         GAIN => s_gain,
          MASK => s_mask_buf,
          SYMB => s_ptrn_buf,
-         GAIN => s_gain,
+         SYMB_START => s_symb_start,
          SYMB_DONE => s_symb_done,
-         TX_STROBE => TX_EN,
          TX_DONE => s_tx_done,
+
+         TX_STROBE => TX_EN,
          TX_I => TX_I,
          TX_Q => TX_Q
     );
 
     rst <= NOT PRESETn;
+    s_tx_rst <= s_data_start or s_meas_start;
 
     -- Processes
 
@@ -278,7 +283,6 @@ begin
                         s_gain <= PWDATA(1 downto 0);
 					when c_ADDR_MLEN =>
                         s_mlen <= PWDATA(15 downto 0);
-                        s_dlen <= PWDATA(31 downto 16);
 					when c_ADDR_CLEN =>
                         s_clen <= PWDATA(4 downto 0);
 					when others =>
@@ -313,7 +317,6 @@ begin
 					when c_ADDR_GAIN =>
 						s_dout(1 downto 0) <= s_gain;
 					when c_ADDR_MLEN =>
-						s_dout(31 downto 16) <= s_dlen;
 						s_dout(15 downto 0) <= s_mlen;
 					when c_ADDR_CLEN =>
 						s_dout(4 downto 0) <= s_clen;
@@ -334,15 +337,17 @@ begin
             s_ptrn_buf <= (others => '0');
             s_mask_buf <= (others => '0');
             s_tx_ctr <= (others => '0');
-            s_dhold_ctr <= (others => '0');
+            --s_tx_rst <= '0';
             s_symb_start <= '0';
+            s_cp_add <= '0';
 		elsif rising_edge(clk) then
             s_tx_fsm_state <= s_tx_fsm_state_next;
             s_ptrn_buf <= s_ptrn_buf_next;
             s_mask_buf <= s_mask_buf_next;
             s_tx_ctr <= s_tx_ctr_next;
-            s_dhold_ctr <= s_dhold_ctr_next;
+            --s_tx_rst <= s_tx_rst_next;
             s_symb_start <= s_symb_start_next;
+            s_cp_add <= s_cp_add_next;
 		end if;
 	end process p_TRANSMIT_FSM_SYNC;
 
@@ -359,39 +364,45 @@ begin
         s_ptrn,
         s_mask,
         s_mlen,
+        --s_tx_rst,
         s_symb_done,
         s_tx_fifo_out,
         s_tx_fifo_aempty,
         s_tx_ctr,
-        s_dhold_ctr
+        s_cp_add
 	)
 	begin
 		-- Default values
         s_tx_fsm_state_next <= s_tx_fsm_state;
+        --s_tx_rst_next <= '0';
         s_symb_start_next <= '0';
 
         s_tx_fifo_rd <= '0';
 
         s_ptrn_buf_next <= s_ptrn_buf;
         s_mask_buf_next <= s_mask_buf;
+        --s_cp_add_next <= s_cp_add;
+        s_cp_add_next <= '0';
 
         s_tx_ctr_next <= s_tx_ctr;
-        s_dhold_ctr_next <= s_dhold_ctr;
 
 		case (s_tx_fsm_state) is
 			
 				when st_IDLE =>
-					if s_data_start = '1' and s_tx_fifo_aempty = '0' then
+					--if s_data_start = '1' and s_tx_fifo_aempty = '0' then
+					if s_data_start = '1' then
                         -- DATA branch
                         s_tx_fifo_rd <= '1'; -- Fetch FIFO data
                         s_tx_ctr_next <= unsigned(s_mlen);
-                        s_dhold_ctr_next <= unsigned(s_dlen);
                         s_ptrn_buf_next <= s_ptrn;
-                        s_mask_buf_next <= s_mask;
+                        --s_mask_buf_next <= s_mask;
+                        s_mask_buf_next <= s_ptrn; -- FIXME
+                        s_symb_start_next <= '1';
+                        s_tx_fifo_rd <= '1';
 						s_tx_fsm_state_next <= st_PREA;
                     elsif s_meas_start = '1' then
                         -- MEAS branch
-                        s_symb_start_next <= '1';
+                        s_tx_fifo_rd <= '1';
                         s_tx_ctr_next <= unsigned(s_mlen);
                         s_ptrn_buf_next <= s_ptrn;
                         s_mask_buf_next <= s_mask;
@@ -399,29 +410,25 @@ begin
 					end if;
 
 				when st_PREA =>
-                    -- Used as DATA FETCH for now
-                    s_symb_start_next <= '1';
-                    s_tx_fifo_rd <= '1';
-                    s_ptrn_buf_next <= s_ptrn;
-                    s_mask_buf_next <= s_tx_fifo_out;
-                    s_tx_fsm_state_next <= st_PYLD;
+                    if s_symb_done = '1' then
+                        s_ptrn_buf_next <= s_ptrn;
+                        s_mask_buf_next <= s_tx_fifo_out; -- FIXME
+                        s_cp_add_next <= '1';
+                        s_symb_start_next <= '1';
+                        s_tx_fifo_rd <= '1';
+                        s_tx_fsm_state_next <= st_PYLD;
+                    end if;
 
 				when st_PYLD =>
                     if s_symb_done = '1' then
-                        -- NOTE: FIFO is read regardless if it being empty
-                        s_dhold_ctr_next <= s_dhold_ctr - 1;
-                        if s_dhold_ctr = 0 then
-                            s_dhold_ctr_next <= unsigned(s_dlen);
-                            s_tx_ctr_next <= s_tx_ctr - 1;
-                            if s_tx_ctr = 1 then
-                                s_tx_fsm_state_next <= st_WAIT;
-                            else
-                                s_symb_start_next <= '1';
-                                s_tx_fifo_rd <= '1';
-                                s_mask_buf_next <= s_tx_fifo_out;
-                            end if;
+                        s_tx_ctr_next <= s_tx_ctr - 1;
+                        if s_tx_ctr = 1 then
+                            s_tx_fsm_state_next <= st_WAIT;
                         else
+                            s_mask_buf_next <= s_tx_fifo_out; -- FIXME
+                            s_cp_add_next <= '1';
                             s_symb_start_next <= '1';
+                            s_tx_fifo_rd <= '1';
                         end if;
                     end if;
 

@@ -439,8 +439,8 @@ SIZE="200821"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton.ide_des,ide_des"
 STATE="utd"
-TIME="1380298888"
-SIZE="1203"
+TIME="1380306345"
+SIZE="1274"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_compile_log.rpt,log"
 STATE="utd"
@@ -509,8 +509,8 @@ SIZE="3738"
 ENDFILE
 VALUE "<project>\hdl\tx_apb_if.vhd,hdl"
 STATE="utd"
-TIME="1380306309"
-SIZE="17276"
+TIME="1380311260"
+SIZE="15858"
 ENDFILE
 VALUE "<project>\hdl\tx_ctrl.vhd,hdl"
 STATE="utd"
@@ -524,7 +524,7 @@ SIZE="997"
 ENDFILE
 VALUE "<project>\simulation\bfmtovec_compile.log,log"
 STATE="utd"
-TIME="1380221213"
+TIME="1380311262"
 SIZE="407"
 ENDFILE
 VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
@@ -535,8 +535,8 @@ PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\CoreAPB3.cxf"
 ENDFILE
 VALUE "<project>\simulation\bfm_wave.do,do"
 STATE="utd"
-TIME="1380126075"
-SIZE="4105"
+TIME="1380309392"
+SIZE="4262"
 ENDFILE
 VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
 STATE="utd"
@@ -557,8 +557,8 @@ SIZE="4559"
 ENDFILE
 VALUE "<project>\simulation\run.do,do"
 STATE="utd"
-TIME="1380221207"
-SIZE="2527"
+TIME="1380306889"
+SIZE="2623"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
@@ -579,29 +579,29 @@ SIZE="1662"
 ENDFILE
 VALUE "<project>\simulation\user.bfm,sim"
 STATE="utd"
-TIME="1380128681"
-SIZE="2950"
+TIME="1380311182"
+SIZE="3073"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\synthesis\Teton.edn,syn_edn"
 STATE="ood"
-TIME="1380126507"
-SIZE="3332837"
+TIME="1380308449"
+SIZE="3826715"
 ENDFILE
 VALUE "<project>\synthesis\Teton.so,so"
 STATE="utd"
-TIME="1380126507"
+TIME="1380308449"
 SIZE="206"
 ENDFILE
 VALUE "<project>\synthesis\Teton_sdc.sdc,syn_sdc"
 STATE="ood"
-TIME="1380126507"
+TIME="1380308449"
 SIZE="424"
 ENDFILE
 VALUE "<project>\synthesis\Teton_syn.prj,prj"
 STATE="utd"
-TIME="1380126509"
-SIZE="3232"
+TIME="1380308451"
+SIZE="3147"
 ENDFILE
 VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ifft_32_impl_1\vhdl\ifft_32.vhd,hdl"
 STATE="utd"
@@ -611,20 +611,20 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ofdm_impl_1\vhdl\fftModules_asynch.vhd,hdl"
 STATE="utd"
-TIME="1380305655"
+TIME="1380555261"
 SIZE="220529"
 LIBRARY="shlslib"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd,hdl"
 STATE="utd"
-TIME="1380305655"
-SIZE="79030"
+TIME="1380555261"
+SIZE="96761"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd,hdl"
 STATE="utd"
-TIME="1380305655"
+TIME="1380555261"
 SIZE="131871"
 LIBRARY="shlslib"
 IS_READONLY="TRUE"
@@ -728,6 +728,17 @@ VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\b
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_apbslaveext.vhd,tb_hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\amba_bfm\bfm_apbslave.vhd,tb_hdl"
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\test\user\testbench.vhd,tb_hdl"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 ENDLIST
 ENDLIST
@@ -841,7 +852,7 @@ NAME="ModelSim AE"
 FUNCTION="Simulation"
 TOOL="ModelSim"
 LOCATION="C:\Microsemi\Libero_v11.1\Model\win32acoem\modelsim.exe"
-PARAM=" -l testbench_presynth_simulation.log "
+PARAM=""
 BATCH=0
 EndProfile
 NAME="FlashPro"
@@ -865,6 +876,17 @@ ENDUsed_File_List
 ENDLIST
 ENDLIST
 LIST "Teton_MSS::work"
+LIST Impl1
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+LIST "CoreAPB3::COREAPB3_LIB::components"
 LIST Impl1
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
@@ -902,10 +924,8 @@ ENDLIST
 ENDLIST
 ENDLIST
 LIST OpenedFileList
-SmartDesign;Teton
-SmartDesign;Teton_MSS
-Reports;Reports
-ACTIVEVIEW;Teton
+StartPage;StartPage
+ACTIVEVIEW;StartPage
 ENDLIST
 LIST ModuleSubBlockList
 LIST "AFE_IF::work","hdl\afe_if.vhd","FALSE","FALSE"
@@ -922,20 +942,35 @@ LIST "crom32_FFT::work","hdl\simulink\ifft_32_impl_1\vhdl\ifft_32.vhd","FALSE","
 ENDLIST
 LIST "crom32_IFFT::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 ENDLIST
-LIST "Cyclic_prefix_start_delay_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
-SUBBLOCK "synCyclic_prefix_start_delay_register_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+LIST "Cyclic_prefix_add_delay_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "synCyclic_prefix_add_delay_register_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 ENDLIST
 LIST "Cyclic_prefixer::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
-SUBBLOCK "synBusAdapter::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
-SUBBLOCK "synNegate::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 SUBBLOCK "Cyclic_prefixer_RAM_I::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "Cyclic_prefixer_Cyclic_prefix_add_FIFO::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "Cyclic_prefixer_Enable_register1::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "Cyclic_prefixer_Strobe_delay_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "Cyclic_prefixer_cp_add_reg::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "synBusAdapter::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 SUBBLOCK "synCounterFR::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
-SUBBLOCK "Cyclic_prefixer_Enable_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "synComparator::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synInverter::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "Cyclic_prefixer_Enable_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
-SUBBLOCK "synCyclic_prefixer_Enable_register_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+LIST "Cyclic_prefixer_cp_add_reg::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "synCyclic_prefixer_cp_add_reg_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+ENDLIST
+LIST "Cyclic_prefixer_Cyclic_prefix_add_FIFO::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "synCyclic_prefixer_Cyclic_prefix_add_FIFO_FIFO_Shift_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "synCounterFR::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synComparator::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "Cyclic_prefixer_Enable_register1::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "synCyclic_prefixer_Enable_register1_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 ENDLIST
 LIST "Cyclic_prefixer_RAM_I::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+ENDLIST
+LIST "Cyclic_prefixer_Strobe_delay_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "DESIGN_FIRMWARE::work","component\work\DESIGN_FIRMWARE\DESIGN_FIRMWARE.cxf","TRUE","FALSE"
 SUBBLOCK "HAL::work","","FALSE","FALSE"
@@ -971,50 +1006,44 @@ ENDLIST
 LIST "HAL::work","","FALSE","FALSE"
 ENDLIST
 LIST "IFFT::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
-SUBBLOCK "synBusSatRnd::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 SUBBLOCK "bf2::shlslib::synFftUtils","hdl\simulink\ofdm_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
 SUBBLOCK "multStage32_IFFT::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 SUBBLOCK "bf4::shlslib::synFftUtils","hdl\simulink\ofdm_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
 SUBBLOCK "multStage16_IFFT::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 SUBBLOCK "bitreverse2::shlslib::synFftUtils","hdl\simulink\ofdm_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synBusSatRnd::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "IFFT_32::work","hdl\simulink\ifft_32_impl_1\vhdl\ifft_32.vhd","FALSE","FALSE"
+LIST "ifft_32::work","hdl\simulink\ifft_32_impl_1\vhdl\ifft_32.vhd","FALSE","FALSE"
 SUBBLOCK "FFT::work","hdl\simulink\ifft_32_impl_1\vhdl\ifft_32.vhd","FALSE","FALSE"
 ENDLIST
 LIST "IFFT_CTRL::work","hdl\ifft_ctrl.vhd","FALSE","FALSE"
 ENDLIST
 LIST "IFFT_timing_controller::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
-SUBBLOCK "synComparator::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
-SUBBLOCK "synCounterFR::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 SUBBLOCK "IFFT_timing_controller_Holdoff_timing_logic::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 SUBBLOCK "IFFT_timing_controller_Mask_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 SUBBLOCK "IFFT_timing_controller_Symbol_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
-SUBBLOCK "Cyclic_prefixer_Enable_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
-SUBBLOCK "IFFT_timing_controller_Holdoff_timing_logic_Symbol_done_delay_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
-SUBBLOCK "IFFT_timing_controller_Cyclic_prefix_length_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
-ENDLIST
-LIST "IFFT_timing_controller_Cyclic_prefix_length_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
-SUBBLOCK "synIFFT_timing_controller_Cyclic_prefix_length_register_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "Cyclic_prefixer_Enable_register1::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "Cyclic_prefixer_Strobe_delay_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "Cyclic_prefixer_cp_add_reg::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "synCounterFR::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synComparator::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "IFFT_timing_controller_Holdoff_timing_logic::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
-SUBBLOCK "synComparator::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 SUBBLOCK "synCounterFR::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
-SUBBLOCK "Cyclic_prefixer_Enable_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
-SUBBLOCK "IFFT_timing_controller_Holdoff_timing_logic_Symbol_done_delay_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
-ENDLIST
-LIST "IFFT_timing_controller_Holdoff_timing_logic_Symbol_done_delay_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
-SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "synComparator::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+SUBBLOCK "Cyclic_prefixer_Enable_register1::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "Cyclic_prefixer_Strobe_delay_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 ENDLIST
 LIST "IFFT_timing_controller_Mask_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
-SUBBLOCK "synBusAdapter::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 SUBBLOCK "IFFT_timing_controller_Mask_register_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "synBusAdapter::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "IFFT_timing_controller_Mask_register_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 SUBBLOCK "synIFFT_timing_controller_Mask_register_Register_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 ENDLIST
 LIST "IFFT_timing_controller_Symbol_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
-SUBBLOCK "synBusAdapter::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 SUBBLOCK "IFFT_timing_controller_Mask_register_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "synBusAdapter::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "INBUF_LVDS_MCCC::work","component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vhd","FALSE","FALSE"
 ENDLIST
@@ -1080,10 +1109,10 @@ SUBBLOCK "addrGenR2E::shlslib::synFftUtils","hdl\simulink\ofdm_impl_1\vhdl\fftMo
 SUBBLOCK "crom32_IFFT::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 SUBBLOCK "umult::shlslib::synFftUtils","hdl\simulink\ofdm_impl_1\vhdl\fftModules_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "ofdm::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
-SUBBLOCK "Cyclic_prefix_start_delay_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
-SUBBLOCK "Cyclic_prefixer::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+LIST "OFDM::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "Cyclic_prefix_add_delay_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 SUBBLOCK "IFFT_timing_controller::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "Cyclic_prefixer::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 SUBBLOCK "IFFT::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 SUBBLOCK "synShifter::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
@@ -1091,13 +1120,15 @@ LIST "OUTBUF_MSS::work","component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.vh
 ENDLIST
 LIST "SmartFusion_CMSIS_PAL::work","","FALSE","FALSE"
 ENDLIST
-LIST "synCyclic_prefix_start_delay_register_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+LIST "synCyclic_prefix_add_delay_register_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synCyclic_prefixer_Enable_register_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+LIST "synCyclic_prefixer_cp_add_reg_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
-LIST "synIFFT_timing_controller_Cyclic_prefix_length_register_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+LIST "synCyclic_prefixer_Cyclic_prefix_add_FIFO_FIFO_Shift_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synCyclic_prefixer_Enable_register1_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "synIFFT_timing_controller_Mask_register_Register_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
@@ -1126,6 +1157,7 @@ LIST "TRIBUFF_MSS::work","component\Actel\SmartFusionMSS\MSS\2.5.106\mss_comps.v
 ENDLIST
 LIST "TX_APB_IF::work","hdl\tx_apb_if.vhd","FALSE","FALSE"
 SUBBLOCK "FIFO_256x32::work","hdl\fifo_256x32.vhd","FALSE","FALSE"
+SUBBLOCK "OFDM::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 ENDLIST
 LIST "TX_CTRL::work","hdl\tx_ctrl.vhd","FALSE","FALSE"
 ENDLIST
