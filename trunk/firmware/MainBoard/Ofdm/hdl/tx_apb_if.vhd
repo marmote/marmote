@@ -158,7 +158,6 @@ architecture Behavioral of TX_APB_IF is
     signal s_ifft_en     : std_logic;
     signal s_i_in       : std_logic_vector(c_FFT_IN_WL-1 downto 0);
     signal s_q_in       : std_logic_vector(c_FFT_IN_WL-1 downto 0);
-    signal s_vld        : std_logic;
     signal s_rdy        : std_logic;
     signal s_i_out      : std_logic_vector(c_FFT_OUT_WL-1 downto 0);
     signal s_q_out      : std_logic_vector(c_FFT_OUT_WL-1 downto 0);
@@ -176,7 +175,6 @@ architecture Behavioral of TX_APB_IF is
     signal s_cp_add_next    : std_logic;
 
     signal s_tx_rst             : std_logic;
-    --signal s_tx_rst_next        : std_logic;
     signal s_symb_start         : std_logic;
     signal s_symb_start_next    : std_logic;
     signal s_symb_done          : std_logic;
@@ -337,7 +335,6 @@ begin
             s_ptrn_buf <= (others => '0');
             s_mask_buf <= (others => '0');
             s_tx_ctr <= (others => '0');
-            --s_tx_rst <= '0';
             s_symb_start <= '0';
             s_cp_add <= '0';
 		elsif rising_edge(clk) then
@@ -345,7 +342,6 @@ begin
             s_ptrn_buf <= s_ptrn_buf_next;
             s_mask_buf <= s_mask_buf_next;
             s_tx_ctr <= s_tx_ctr_next;
-            --s_tx_rst <= s_tx_rst_next;
             s_symb_start <= s_symb_start_next;
             s_cp_add <= s_cp_add_next;
 		end if;
@@ -364,9 +360,9 @@ begin
         s_ptrn,
         s_mask,
         s_mlen,
-        --s_tx_rst,
         s_symb_done,
         s_tx_fifo_out,
+        s_tx_done,
         s_tx_fifo_aempty,
         s_tx_ctr,
         s_cp_add
@@ -374,14 +370,12 @@ begin
 	begin
 		-- Default values
         s_tx_fsm_state_next <= s_tx_fsm_state;
-        --s_tx_rst_next <= '0';
         s_symb_start_next <= '0';
 
         s_tx_fifo_rd <= '0';
 
         s_ptrn_buf_next <= s_ptrn_buf;
         s_mask_buf_next <= s_mask_buf;
-        --s_cp_add_next <= s_cp_add;
         s_cp_add_next <= '0';
 
         s_tx_ctr_next <= s_tx_ctr;
@@ -390,7 +384,7 @@ begin
 			
 				when st_IDLE =>
 					--if s_data_start = '1' and s_tx_fifo_aempty = '0' then
-					if s_data_start = '1' then
+					if s_data_start = '1' and s_tx_fifo_empty = '0' then
                         -- DATA branch
                         s_tx_fifo_rd <= '1'; -- Fetch FIFO data
                         s_tx_ctr_next <= unsigned(s_mlen);
@@ -398,14 +392,13 @@ begin
                         --s_mask_buf_next <= s_mask;
                         s_mask_buf_next <= s_ptrn; -- FIXME
                         s_symb_start_next <= '1';
-                        s_tx_fifo_rd <= '1';
 						s_tx_fsm_state_next <= st_PREA;
                     elsif s_meas_start = '1' then
                         -- MEAS branch
-                        s_tx_fifo_rd <= '1';
                         s_tx_ctr_next <= unsigned(s_mlen);
                         s_ptrn_buf_next <= s_ptrn;
                         s_mask_buf_next <= s_mask;
+                        s_symb_start_next <= '1';
 						s_tx_fsm_state_next <= st_MEAS;
 					end if;
 
@@ -459,8 +452,6 @@ begin
 	PRDATA <= s_dout;
 	PREADY <= '1'; -- WR
 	PSLVERR <= '0';
-
-    TX_EN <= s_vld;
 
     TX_DONE_IRQ <= s_tx_done;
 
