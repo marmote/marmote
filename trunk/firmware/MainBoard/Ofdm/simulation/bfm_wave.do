@@ -25,9 +25,9 @@ sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_fsm_state \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_data_start \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_meas_start \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_ctr \
-sim:/testbench/Teton_0/TX_APB_IF_0/s_dhold_ctr \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_ptrn_buf \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_mask_buf \
+sim:/testbench/Teton_0/TX_APB_IF_0/s_cp_add \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_symb_start \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_symb_done \
 sim:/testbench/Teton_0/TX_APB_IF_0/s_tx_done
@@ -65,10 +65,14 @@ sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/SYMB_DONE \
 sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/SYMB \
 sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/MASK \
 sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/GAIN \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/CP_ADD \
 sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/CP_LEN \
 sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_ifft_rst \
 sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_ifft_en \
--signed -analog-step -min -4 -max 4 -height 30 \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/IFFT_timing_controller_block/myIFFT_timing_controller/s_hold_off_ifft_en \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/IFFT_timing_controller_block/myIFFT_timing_controller/s_ifft_en \
+-signed -analog-step -min -8 -max 8 -height 30 \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/IFFT_timing_controller_block/myIFFT_timing_controller/s_cp_len_reg \
 sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_ifft_i_in \
 sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_ifft_q_in \
 -hex -literal -height 17 \
@@ -87,8 +91,11 @@ sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_cp_q_in \
 -hex -literal -height 17 \
 sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_tx_strobe(0) \
 -signed -analog-step -min -128 -max 128 -height 100 \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_cp_i_out \
 sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_cp_q_out \
-sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/s_cp_i_out
+-hex -literal -height 17 \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/TX_STROBE \
+sim:/testbench/Teton_0/TX_APB_IF_0/u_OFDM/TX_DONE
 
 
 
