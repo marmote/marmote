@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $# != 1 ]; then
-    echo "Usage: $0 <output file name>"
+    echo "Usage: $0 <output filename>"
     exit 1
 fi
 
