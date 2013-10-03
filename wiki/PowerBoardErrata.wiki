@@ -1,6 +1,10 @@
 #summary Errata and Design Notes for Power Supply Board Rev A and Rev B
 #labels Phase-Implementation,Phase-QA
 
+= Rev C =
+
+ * No PWM-enabled timers are connected to the LEDs
+
 = Rev B =
 
 == Errata ==
