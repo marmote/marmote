@@ -41,34 +41,52 @@
 #include "power_board.h"
 #include "power_monitor.h"
 
-volatile uint32_t msTicks;
+volatile uint32_t ms_ticks;
+static uint32_t tick_ctr;
 
 void SysTick_Handler(void)
 {
-    msTicks++;
-    
-    if (msTicks % 500 == 0)
+    ms_ticks++;
+
+    if (ms_ticks == 124)
     {
+        ms_ticks = 0;        
+        tick_ctr = (tick_ctr < 7) ? tick_ctr + 1 : 0;
+
         if (BAT_IsCharging())
         {
-            LED_Toggle(LED1);
-        }
-        else
-        {
-            LED_On(LED1);
+            if (tick_ctr == 0)
+            {
+                LED_On(LED2);
+            }
+            if (tick_ctr == 4)
+            {
+                LED_Off(LED2);
+            }
+            return;
         }
         
         if (BAT_AlarmAsserted())
         {
-            LED_On(LED2);
+            if (tick_ctr == 0)
+            {
+                LED_On(LED2);
+            }
+            if (tick_ctr == 1)
+            {
+                LED_Off(LED2);
+            }
+            return;
         }
+        
+        LED_Off(LED2);
     }
 }
 
-void Delay (uint32_t dlyTicks)
+void Delay (uint32_t dly_ticks)
 {
-    uint32_t curTicks = msTicks;
+    uint32_t cur_ticks = ms_ticks;
 
-    while ((msTicks - curTicks) < dlyTicks);
+    while ((ms_ticks - cur_ticks) < dly_ticks);
 }
 
