@@ -3,6 +3,8 @@
 
 = Rev C =
 
+== Notes ==
+
  * No PWM-enabled timers are connected to the LEDs
 
 = Rev B =
