@@ -77,8 +77,6 @@ void USB_DisableSuspendMode(void);
 void USB_EnableHighPowerMode(void);
 void USB_DisableHighPowerMode(void);
 
-uint8_t WALL_IsPowerGood(void);
-
 void POW_EnableMasterSwitch(void);
 void POW_DisableMasterSwitch(void);
 

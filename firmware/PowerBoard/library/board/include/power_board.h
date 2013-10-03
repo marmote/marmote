@@ -45,10 +45,7 @@
 #include "power_control.h"
 #include "power_monitor.h"
 
-// Board - Initialize board peripherals and GPIOs with default values
-void Board_Init(void); // 
-
-// Timer
+void Board_Init(void);
 
 void Init_Timer(void);
 void Delay(uint32_t dlyTicks);

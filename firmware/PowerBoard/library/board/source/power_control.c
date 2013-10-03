@@ -35,21 +35,19 @@
 // PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 //-----------------------------------------------------------------------------
 // Revisions     :
-// Date            Version  Author			Description
-// 2011-11-04      1.0      Sandor Szilvasi	Created
-// 2011-11-17      1.1      Sandor Szilvasi	Cleanup
+// Date            Version  Author              Description
+// 2011-11-04      1.0      Sandor Szilvasi     Created
+// 2011-11-17      1.1      Sandor Szilvasi     Cleanup
 //-----------------------------------------------------------------------------
-
-// TODO: Consider merging the enable and disable functions
 
 #include "power_control.h"
 
 void PowerControl_Init(void)
 {
-	GPIO_InitTypeDef GPIO_InitStructure; 
+    GPIO_InitTypeDef GPIO_InitStructure; 
 
-	// Enable GPIO register clocks
-	RCC_APB2PeriphClockCmd( USB_SUSP_GPIO_CLK |
+    // Enable GPIO register clocks
+    RCC_APB2PeriphClockCmd( USB_SUSP_GPIO_CLK |
                             USB_HPWR_GPIO_CLK |
                             MASTER_SWITCH_GPIO_CLK,
                             ENABLE);
@@ -57,49 +55,49 @@ void PowerControl_Init(void)
     // USB_SUSP (PC13)
     USB_SUSP_GPIO_PORT->BRR = USB_SUSP_PIN;
 
-	GPIO_InitStructure.GPIO_Pin = USB_SUSP_PIN; 
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
-	GPIO_Init(USB_SUSP_GPIO_PORT, &GPIO_InitStructure); 
+    GPIO_InitStructure.GPIO_Pin = USB_SUSP_PIN; 
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
+    GPIO_Init(USB_SUSP_GPIO_PORT, &GPIO_InitStructure); 
     
     // USB_HPWR (PB8)
     USB_HPWR_GPIO_PORT->BRR = USB_HPWR_PIN;
 
-	GPIO_InitStructure.GPIO_Pin = USB_HPWR_PIN; 
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
-	GPIO_Init(USB_HPWR_GPIO_PORT, &GPIO_InitStructure); 
+    GPIO_InitStructure.GPIO_Pin = USB_HPWR_PIN; 
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
+    GPIO_Init(USB_HPWR_GPIO_PORT, &GPIO_InitStructure); 
 
 #ifndef MASTER_SWITCH_ZERO_RESISTOR_NOT_POPULATED
     // MASTER_SWITCH
-	GPIO_InitStructure.GPIO_Pin = MASTER_SWITCH_PIN; 
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
-	GPIO_Init(MASTER_SWITCH_GPIO_PORT, &GPIO_InitStructure); 
+    GPIO_InitStructure.GPIO_Pin = MASTER_SWITCH_PIN; 
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; 
+    GPIO_Init(MASTER_SWITCH_GPIO_PORT, &GPIO_InitStructure); 
 #endif
 }
 
 #ifdef MASTER_SWITCH_ZERO_RESISTOR_NOT_POPULATED
 void RCC_MCO_Init(void)
 {
-	GPIO_InitTypeDef GPIO_InitStructure; 
+    GPIO_InitTypeDef GPIO_InitStructure; 
 
-	// Enable GPIO clock
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE); 
+    // Enable GPIO clock
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE); 
 
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8; 
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP; 
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz; 
-	GPIO_Init(GPIOA, &GPIO_InitStructure); 
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8; 
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP; 
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz; 
+    GPIO_Init(GPIOA, &GPIO_InitStructure); 
 
     // Enable AFIO clock
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE)
     
-	// Note: Set breakpoints here to check MCO output
-	RCC_MCOConfig(RCC_MCO_HSI);
+    // Note: Set breakpoints here to check MCO output
+    RCC_MCOConfig(RCC_MCO_HSI);
 //  RCC_MCOConfig(RCC_MCO_HSE);
-//	RCC_MCOConfig(RCC_MCO_PLLCLK_Div2);				   
-//	RCC_MCOConfig(RCC_MCO_SYSCLK); 
+//    RCC_MCOConfig(RCC_MCO_PLLCLK_Div2);
+//    RCC_MCOConfig(RCC_MCO_SYSCLK); 
 }
 #endif
 
