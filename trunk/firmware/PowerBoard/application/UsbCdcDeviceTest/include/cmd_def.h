@@ -17,26 +17,26 @@
 
 typedef enum _ENV_Enum_Type
 {
-	ENV_NONE	 	= 0,
-	ENV_ALL	 		= 1,
-	ENV_Yellowstone	= 2,
-	ENV_Teton		= 4
+    ENV_NONE        = 0,
+    ENV_ALL         = 1,
+    ENV_Yellowstone = 2,
+    ENV_Teton       = 4
 } ENV_Enum_Type;
 
 typedef struct _CMD_Type
 {
-	const char* CmdString;
-	uint32_t (*CmdFunction)(uint32_t argc, char** argv);
-	uint32_t CmdEnv; // Environments the command available in
+    const char* CmdString;
+    uint32_t (*CmdFunction)(uint32_t argc, char** argv);
+    uint32_t CmdEnv; // Environments the command available in
 } CMD_Type;
 
 typedef struct _ENV_Type
 {
-	const char* envString;
-	ENV_Enum_Type envEnum;
+    const char* envString;
+    ENV_Enum_Type envEnum;
 } ENV_Type;
 
-				   
+
 extern CMD_Type CMD_List[];
 extern ENV_Type ENV_List[];
 
@@ -52,5 +52,6 @@ uint32_t CmdAdc(uint32_t argc, char** argv);
 uint32_t CmdReg(uint32_t argc, char** argv);
 uint32_t CmdTeton(uint32_t argc, char** argv);
 
+uint32_t CmdStatus(uint32_t argc, char** argv);
 
 #endif // __CMD_DEF_H

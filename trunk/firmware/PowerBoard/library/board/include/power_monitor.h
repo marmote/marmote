@@ -96,10 +96,13 @@ typedef enum
 
 // Battery charge pin
 
-#define BAT_CHRG_PIN             	GPIO_Pin_9  // PB.9
-#define BAT_CHRG_GPIO_PORT       	GPIOB       // GPIOB
-#define BAT_CHRG_GPIO_CLK        	RCC_APB2Periph_GPIOB
+#define BAT_CHRG_PIN                GPIO_Pin_9  // PB.9
+#define BAT_CHRG_GPIO_PORT          GPIOB       // GPIOB
+#define BAT_CHRG_GPIO_CLK           RCC_APB2Periph_GPIOB
 
+#define BAT_AL_PIN                  GPIO_Pin_4  // PB.4
+#define BAT_AL_GPIO_PORT            GPIOB       // GPIOB
+#define BAT_AL_GPIO_CLK             RCC_APB2Periph_GPIOB
 
 // Battery Gauge I2C (I2C2)
 
@@ -114,28 +117,29 @@ typedef enum
 #define BAT_I2C                     I2C2
 #define BAT_I2C_CLK                 RCC_APB1Periph_I2C2
 
-#define BAT_I2C_ADDRESS				(0x64U << 1) // 1100100X
-//#define BAT_I2C_ADDRESS				(0x65U << 1) // 1100101X (for testing NACK only)
+#define BAT_I2C_ADDRESS	            (0x64u << 1) // 1100100X
 
 typedef enum _BAT_RegisterAddress_Type
 {
-	BAT_STATUS 						= 0x00, // R
-	BAT_CONTROL 					= 0x01, // R/W
-	BAT_ACCUMULATED_CHARGE_MSB 		= 0x02, // R/W
-	BAT_ACCUMULATED_CHARGE_LSB 		= 0x03, // R/W
-	BAT_CHARGE_THRESHOLD_HIGH_MSB 	= 0x04, // R/W
-	BAT_CHARGE_THRESHOLD_HIGH_LSB 	= 0x05, // R/W
-	BAT_CHARGE_THRESHOLD_LOW_MSB 	= 0x06, // R/W
-	BAT_CHARGE_THRESHOLD_LOW_LSB 	= 0x07, // R/W
-	BAT_VOLTAGE_MSB 				= 0x08, // R
-	BAT_VOLTAGE_LSB 				= 0x09, // R
-	BAT_VOLTAGE_THRESHOLD_HIGH 		= 0x0A, // R/W
-	BAT_VOLTAGE_THRESHOLD_LOW 		= 0x0B, // R/W
-	BAT_TEMPERATURE_MSB 			= 0x0C, // R
-	BAT_TEMPERATURE_LSB 			= 0x0D, // R
-	BAT_TEMPERATURE_THRESHOLD_HIGH 	= 0x0E, // R/W
-	BAT_TEMPERATURE_THRESHOLD_LOW 	= 0x0F  // R/W
+    BAT_STATUS                      = 0x00, // R
+    BAT_CONTROL                     = 0x01, // R/W
+    BAT_ACCUMULATED_CHARGE_MSB      = 0x02, // R/W
+    BAT_ACCUMULATED_CHARGE_LSB      = 0x03, // R/W
+    BAT_CHARGE_THRESHOLD_HIGH_MSB   = 0x04, // R/W
+    BAT_CHARGE_THRESHOLD_HIGH_LSB   = 0x05, // R/W
+    BAT_CHARGE_THRESHOLD_LOW_MSB    = 0x06, // R/W
+    BAT_CHARGE_THRESHOLD_LOW_LSB    = 0x07, // R/W
+    BAT_VOLTAGE_MSB                 = 0x08, // R
+    BAT_VOLTAGE_LSB                 = 0x09, // R
+    BAT_VOLTAGE_THRESHOLD_HIGH      = 0x0A, // R/W
+    BAT_VOLTAGE_THRESHOLD_LOW       = 0x0B, // R/W
+    BAT_TEMPERATURE_MSB             = 0x0C, // R
+    BAT_TEMPERATURE_LSB             = 0x0D, // R
+    BAT_TEMPERATURE_THRESHOLD_HIGH  = 0x0E, // R/W
+    BAT_TEMPERATURE_THRESHOLD_LOW   = 0x0F  // R/W
 } BAT_RegisterAddress_Type;
+
+#define LOW_BATTERY_THRESHOLD   3400 // mV
 
 
 // SD card SPI (SPI2)
@@ -183,10 +187,11 @@ uint16_t MON_ReadAdc(ADC_Channel_TypeDef adc_ch);
 
 
 static void BAT_I2C_Init(void);
-/*
-static void BAT_WriteRegister(BAT_RegisterAddress_Type address, uint16_t data);
-static uint16_t BAT_ReadRegister(BAT_RegisterAddress_Type address);
-*/
+
+void BAT_WriteRegister(BAT_RegisterAddress_Type addr, uint16_t data);
+uint16_t BAT_ReadRegister(BAT_RegisterAddress_Type addr);
+uint8_t BAT_AlarmAsserted(void);
+
 
 /*
 uint16_t BAT_ReadVoltage();
