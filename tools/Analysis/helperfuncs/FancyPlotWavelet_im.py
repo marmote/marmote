@@ -3,6 +3,7 @@ import numpy as np
 #matplotlib.use('GTKAgg')
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
+from Proper_Packet_Table_Level_Size import Proper_Packet_Table_Level_Size 
 
 
 def func(Packets, Levels, N) :
@@ -15,11 +16,13 @@ def func(Packets, Levels, N) :
         p = Packets[ii]
 #        print "Packets[ii].size: %d"%p.size
 
-        temp = 1. / 2**Levels[ii]
-        level_N = int(N * temp)
+        div_fact, level_N, start_idx, stop_idx = Proper_Packet_Table_Level_Size(Levels[ii], N, p.size)
 
-        start_idx = int((p.size - level_N)/2)
-        stop_idx = start_idx + level_N
+#        temp = 1. / 2**Levels[ii]
+#        level_N = int(N * temp)
+#
+#        start_idx = int((p.size - level_N)/2)
+#        stop_idx = start_idx + level_N
             
         p = p[start_idx:stop_idx]
 
@@ -30,7 +33,7 @@ def func(Packets, Levels, N) :
 #            print "column * temp: %d"%(column * temp)
 #            print "p.size: %d"%p.size
 #            print "---"
-            res[row, column] = np.abs(p[column * temp])
+            res[row, column] = np.abs(p[column * div_fact])
 
         row += 1
 
