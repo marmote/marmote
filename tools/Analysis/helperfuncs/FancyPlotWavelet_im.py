@@ -48,9 +48,14 @@ def func(Packets, Levels, N) :
     return res
     
 
-def FancyPlotWavelet(Packets, Levels, N, Fs, title=None) :			
+def FancyPlotWavelet(Packets, Levels, N, Fs, title=None, perform_log = False) :			
     Fs = float(Fs)
     Z = func(Packets, Levels, N)
+
+    if perform_log:
+        min_val = np.min(np.abs(Z))
+        Z[Z == 0] = min_val/2
+        Z = np.log(np.abs(Z))
 
     fig, ax = plt.subplots(1, 1)
     im = ax.imshow(Z, origin='lower', cmap=cm.gist_heat, interpolation='nearest', extent=[0., (N+1)/Fs, 0., Fs/2], aspect='auto')

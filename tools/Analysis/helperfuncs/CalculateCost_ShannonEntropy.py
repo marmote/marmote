@@ -5,19 +5,25 @@ def CalculateCost_ShannonEntropy(cll) :
 
 	for ii in xrange(len(cll)) :
 		cost_l = []
+
+		#This should be a constant value on all levels
+		E = np.sum(np.power( cll[ii], 2 )) #Total energy on one level
+
 		for jj in xrange(len(cll[ii])) :
-			a = np.abs(cll[ii][jj])**2
+#			Ep = np.sum(np.power( cll[ii][jj], 2 )) #Energy of packet
+#
+#			Epr = Ep / E
+#
+#			cost_l.append( -Epr * np.log2(Epr) )
 
-			b = np.array([], dtype='float64')
+			cost_l.append(0)
+
+			a = np.power( cll[ii][jj], 2 )/E
+
 			for kk in xrange(a.size) :
-				if a[kk] == 0 :
-					b = np.append(b, [0])
-				else :
-					b = np.append(b, a[kk] * np.log2(a[kk]))
+				if a[kk] != 0 :
+					cost_l[-1] += -a[kk] * np.log2(a[kk])
 
-			cost_l.append(-np.sum(b))
-
-#        	cost_l.append(-np.sum(a * np.log2(a)))
 		cost.append(cost_l)
 
 	return cost

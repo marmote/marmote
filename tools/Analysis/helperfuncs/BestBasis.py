@@ -14,7 +14,7 @@ def BestBasis_rec(cost, level = 0, stop_level = None, item = 0) :
     left_val, left_levels, left_items = BestBasis_rec(cost, level+1, stop_level, 2*item)
     right_val, right_levels, right_items = BestBasis_rec(cost, level+1, stop_level, 2*item+1)
     
-    if left_val + right_val > val :
+    if left_val + right_val < val :
         val = left_val + right_val
         ret_levels = left_levels + right_levels
         ret_items = left_items + right_items
@@ -23,6 +23,7 @@ def BestBasis_rec(cost, level = 0, stop_level = None, item = 0) :
 
 
 def BestBasis(cost, start_level=None, stop_level=None) :
+#Tries to minimize overall "val" of the WPD table
     if start_level is None :
         start_level = 0
 
@@ -37,3 +38,6 @@ def BestBasis(cost, start_level=None, stop_level=None) :
         ret_items = ret_items + items
 
     return ret_vals, ret_levels, ret_items
+
+
+def Best_Basis_For_Multiple_Cost_Trees(costs, start_level=None, stop_level=None) :
