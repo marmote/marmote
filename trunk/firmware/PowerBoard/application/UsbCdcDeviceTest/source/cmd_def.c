@@ -10,11 +10,12 @@ extern CMD_Type CMD_List[] =
     "pwr",  CmdPwr,     ENV_Yellowstone,
     "usb",  CmdUsb,     ENV_Yellowstone,
     "clk",  CmdClock,   ENV_Yellowstone,
-    "adc",  CmdAdc,     ENV_Yellowstone,
+//     "adc",  CmdAdc,     ENV_Yellowstone,
     "t",    CmdTeton,   ENV_Yellowstone,
     
 //     "chrg", CmdCharge,  ENV_Yellowstone,
     "stat", CmdStatus,  ENV_Yellowstone,
+    "ara",  CmdAra,  ENV_Yellowstone,
 //     "bv",   CmdBatVolt, ENV_Yellowstone,
 //     "ba",   CmdBatAl,   ENV_Yellowstone,
 //    "mon on", CMD_MonitorOn,
@@ -305,13 +306,23 @@ uint32_t CmdStatus(uint32_t argc, char** argv)
 
     if (argc == 1)
     {
+        USB_SendString("\nStatus register: ");
+        reg = BAT_ReadRegister(BAT_STATUS);
+        sprintf(buf, " 0x%02X", reg);
+        USB_SendString(buf);
+
+        USB_SendString("\nControl register:");
+        reg = BAT_ReadRegister(BAT_CONTROL);
+        sprintf(buf, " 0x%02X", reg);
+        USB_SendString(buf);
+
         USB_SendString("\nBattery voltage: ");
         reg = BAT_ReadRegister(BAT_VOLTAGE_MSB);
         sprintf(buf, " %.2f mV ", 6.0*reg/65535);
         USB_SendString(buf);
         sprintf(buf, " (0x%04X)", reg);
         USB_SendString(buf);
-        
+
         USB_SendString("\nBattery alarm:   ");
         reg = BAT_ReadRegister(BAT_VOLTAGE_THRESHOLD_LOW) << 8;
         sprintf(buf, " %.2f mV ", 6.0*reg/65535);
@@ -328,7 +339,7 @@ uint32_t CmdStatus(uint32_t argc, char** argv)
         {
             USB_SendString("OFF");
         }
-        
+
         USB_SendString("\nUSB power:        ");
         if (USB_SUSP_GPIO_PORT->IDR & USB_SUSP_PIN)
         {
@@ -380,5 +391,25 @@ uint32_t CmdUsb(uint32_t argc, char** argv)
 
     // Send help message
     USB_SendString("\nUsage: usb [on | off]");
+    return 1;
+}
+
+
+uint32_t CmdAra(uint32_t argc, char** argv)
+{
+    uint8_t reg;
+    char buf[32];
+    
+    if (argc == 1)
+    {
+        USB_SendString("\nAlarm response:");
+        reg = BAT_ClearAlarm();
+        sprintf(buf, " 0x%02X", reg);
+        USB_SendString(buf);
+        return 0;
+    }
+
+    // Send help message
+    USB_SendString("\nUsage: ara");
     return 1;
 }
