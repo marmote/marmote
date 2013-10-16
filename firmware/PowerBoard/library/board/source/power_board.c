@@ -75,7 +75,7 @@ void SysTick_Handler(void)
             if (tick_ctr == 1)
             {
                 LED_Off(LED2);
-            }
+            }            
             return;
         }
         

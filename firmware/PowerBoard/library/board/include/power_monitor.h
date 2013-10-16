@@ -117,7 +117,8 @@ typedef enum
 #define BAT_I2C                     I2C2
 #define BAT_I2C_CLK                 RCC_APB1Periph_I2C2
 
-#define BAT_I2C_ADDRESS	            (0x64u << 1) // 1100100X
+#define BAT_I2C_ADDRESS             (0x64u << 1) // 1100100X
+#define BAT_AR_ADDRESS              (0x0Cu << 1) // 0001100X
 
 typedef enum _BAT_RegisterAddress_Type
 {
@@ -191,6 +192,7 @@ static void BAT_I2C_Init(void);
 void BAT_WriteRegister(BAT_RegisterAddress_Type addr, uint16_t data);
 uint16_t BAT_ReadRegister(BAT_RegisterAddress_Type addr);
 uint8_t BAT_AlarmAsserted(void);
+uint8_t BAT_ClearAlarm(void);
 
 
 /*

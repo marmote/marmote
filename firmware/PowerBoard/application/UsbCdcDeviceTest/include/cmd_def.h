@@ -53,5 +53,6 @@ uint32_t CmdReg(uint32_t argc, char** argv);
 uint32_t CmdTeton(uint32_t argc, char** argv);
 
 uint32_t CmdStatus(uint32_t argc, char** argv);
+uint32_t CmdAra(uint32_t argc, char** argv);
 
 #endif // __CMD_DEF_H

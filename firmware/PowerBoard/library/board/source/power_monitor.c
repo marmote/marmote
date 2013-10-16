@@ -75,6 +75,11 @@ void PowerMonitor_Init(void)
     reg = BAT_ReadRegister(BAT_CONTROL);
     reg = (reg & ~(0x3u << 6)) | (0x3u << 6);
     BAT_WriteRegister(BAT_CONTROL, reg);
+    
+    if (BAT_AlarmAsserted())
+    {
+        BAT_ClearAlarm();
+    }
 
     Logger_Init();
 }
@@ -229,7 +234,6 @@ uint16_t MON_ReadAdc(ADC_Channel_TypeDef adc_ch)     // FIXME: Come up with a re
     ADC_RegularChannelConfig(ADC1, adc_ch, 1, ADC_SampleTime_28Cycles5); 
     
     ADC_Cmd(ADC1, ENABLE);
-    ADC_Cmd(ADC1, ENABLE);
 
     for (i = 0; i < 100; i++);
     
@@ -239,10 +243,8 @@ uint16_t MON_ReadAdc(ADC_Channel_TypeDef adc_ch)     // FIXME: Come up with a re
 
     switch (adc_ch)
     {
-        case ADC_CH_V_SUP :
-            
-            adc_val = adc_val * vref * 2 / (1 << 12);            
-            // voltage = adc_val * (float)3.3 / (1 << 12) * 2;
+        case ADC_CH_V_SUP :            
+            adc_val = adc_val * vref * 2 / (1 << 12);
             break;
 
         case ADC_CH_I_SUP :
@@ -250,7 +252,6 @@ uint16_t MON_ReadAdc(ADC_Channel_TypeDef adc_ch)     // FIXME: Come up with a re
         case ADC_CH_I_A3V3 :
         case ADC_CH_I_D1V5 :
         case ADC_CH_I_A1V5 :
-
             adc_val = adc_val * vref * 1000 / rsense / gain / (1 << 12);
             break;
 
@@ -668,6 +669,37 @@ uint16_t BAT_ReadRegister(BAT_RegisterAddress_Type addr)
 uint8_t BAT_AlarmAsserted(void)
 {
     return (BAT_AL_GPIO_PORT->IDR & BAT_AL_PIN) == 0;
+}
+
+uint8_t BAT_ClearAlarm(void)
+{
+    uint8_t data;
+
+    // Send repeated START condition
+    I2C_GenerateSTART(BAT_I2C, ENABLE);
+
+    // EV5
+    while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_MODE_SELECT));  
+
+    // Send Alarm Response I2C address for read
+    I2C_Send7bitAddress(BAT_I2C, BAT_AR_ADDRESS, I2C_Direction_Receiver);
+
+    // EV6
+    while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_RECEIVER_MODE_SELECTED));
+    
+    // Disable I2C acknowledgement
+    I2C_AcknowledgeConfig(BAT_I2C, DISABLE);
+
+    // Set STOP Condition
+    I2C_GenerateSTOP(BAT_I2C, ENABLE);
+                                    
+    // EV7
+    while(!I2C_CheckEvent(BAT_I2C, I2C_EVENT_MASTER_BYTE_RECEIVED));  
+
+    // Receive data
+    data = I2C_ReceiveData(BAT_I2C);
+
+    return data;
 }
 
 /*-------------------------------------------------------------------------*/
