@@ -50,13 +50,13 @@ ENDLIST
 LIST FileManager
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\CoreAPB3.cxf,actgen_cxf"
 STATE="utd"
-TIME="1380306344"
+TIME="1380556723"
 SIZE="3323"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 ENDFILE
 VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\coreparameters.vhd,tb_hdl"
 STATE="utd"
-TIME="1380306344"
+TIME="1380556723"
 SIZE="1854"
 LIBRARY="COREAPB3_LIB"
 PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\CoreAPB3.cxf"
@@ -301,19 +301,19 @@ SIZE="413"
 ENDFILE
 VALUE "<project>\component\work\Teton\testbench.vhd,tb_hdl"
 STATE="utd"
-TIME="1380306345"
+TIME="1380556724"
 SIZE="4007"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.cxf,actgen_cxf"
 STATE="utd"
-TIME="1380306347"
+TIME="1380556725"
 SIZE="11033"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.pdc,pdc"
 STATE="utd"
-TIME="1380306344"
+TIME="1380556722"
 SIZE="4814"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 BEGIN_USE_CONSTRAINT
@@ -324,8 +324,8 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\component\work\Teton\Teton.vhd,hdl"
 STATE="utd"
-TIME="1380306344"
-SIZE="27103"
+TIME="1380556723"
+SIZE="27129"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 IS_READONLY="TRUE"
 ENDFILE
@@ -428,48 +428,48 @@ TIME="1379351405"
 SIZE="1533"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton.adb,adb"
-STATE="ood"
-TIME="1380126805"
-SIZE="5860864"
+STATE="utd"
+TIME="1380576427"
+SIZE="9091072"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton.fdb,fdb"
-STATE="ood"
-TIME="1380296788"
-SIZE="200821"
+STATE="utd"
+TIME="1380651556"
+SIZE="215160"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton.ide_des,ide_des"
 STATE="utd"
-TIME="1380306345"
-SIZE="1274"
+TIME="1380576428"
+SIZE="1279"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_compile_log.rpt,log"
 STATE="utd"
-TIME="1380126556"
-SIZE="33086"
+TIME="1380576197"
+SIZE="37934"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\Teton.pdb,pdb"
-STATE="ood"
-TIME="1380296794"
-SIZE="207359"
+STATE="utd"
+TIME="1380653060"
+SIZE="221700"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\Teton.pro,pro"
 STATE="utd"
-TIME="1380296358"
+TIME="1380576721"
 SIZE="1930"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_placeroute_log.rpt,log"
 STATE="utd"
-TIME="1380126755"
+TIME="1380576389"
 SIZE="2923"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_prgdata_log.rpt,log"
 STATE="utd"
-TIME="1380126807"
+TIME="1380576428"
 SIZE="612"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_verifytiming_log.rpt,log"
 STATE="utd"
-TIME="1380126778"
+TIME="1380576406"
 SIZE="1110"
 ENDFILE
 VALUE "<project>\hdl\afe_if.vhd,hdl"
@@ -509,8 +509,8 @@ SIZE="3738"
 ENDFILE
 VALUE "<project>\hdl\tx_apb_if.vhd,hdl"
 STATE="utd"
-TIME="1380311260"
-SIZE="15858"
+TIME="1380576113"
+SIZE="15574"
 ENDFILE
 VALUE "<project>\hdl\tx_ctrl.vhd,hdl"
 STATE="utd"
@@ -524,7 +524,7 @@ SIZE="997"
 ENDFILE
 VALUE "<project>\simulation\bfmtovec_compile.log,log"
 STATE="utd"
-TIME="1380311262"
+TIME="1380576908"
 SIZE="407"
 ENDFILE
 VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
@@ -535,8 +535,8 @@ PARENT="<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\CoreAPB3.cxf"
 ENDFILE
 VALUE "<project>\simulation\bfm_wave.do,do"
 STATE="utd"
-TIME="1380309392"
-SIZE="4262"
+TIME="1380571406"
+SIZE="4789"
 ENDFILE
 VALUE "<project>\simulation\CompileDssBfm.tcl,sim"
 STATE="utd"
@@ -557,12 +557,12 @@ SIZE="4559"
 ENDFILE
 VALUE "<project>\simulation\run.do,do"
 STATE="utd"
-TIME="1380306889"
-SIZE="2623"
+TIME="1380576905"
+SIZE="2450"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
-TIME="1380306344"
+TIME="1380556723"
 SIZE="630"
 PARENT="<project>\component\work\Teton\Teton.cxf"
 ENDFILE
@@ -572,6 +572,11 @@ TIME="1379966984"
 SIZE="10107"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
+VALUE "<project>\simulation\testbench_presynth_simulation.log,log"
+STATE="utd"
+TIME="1380576932"
+SIZE="146677"
+ENDFILE
 VALUE "<project>\simulation\tx_apb_if_wave.do,do"
 STATE="utd"
 TIME="1379348534"
@@ -579,29 +584,34 @@ SIZE="1662"
 ENDFILE
 VALUE "<project>\simulation\user.bfm,sim"
 STATE="utd"
-TIME="1380311182"
-SIZE="3073"
+TIME="1380571556"
+SIZE="3397"
 PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
+VALUE "<project>\synthesis\synwork\Teton_compiler.so,so"
+STATE="utd"
+TIME="1380571957"
+SIZE="159"
+ENDFILE
 VALUE "<project>\synthesis\Teton.edn,syn_edn"
-STATE="ood"
-TIME="1380308449"
-SIZE="3826715"
+STATE="utd"
+TIME="1380576137"
+SIZE="4409364"
 ENDFILE
 VALUE "<project>\synthesis\Teton.so,so"
 STATE="utd"
-TIME="1380308449"
+TIME="1380576137"
 SIZE="206"
 ENDFILE
 VALUE "<project>\synthesis\Teton_sdc.sdc,syn_sdc"
-STATE="ood"
-TIME="1380308449"
+STATE="utd"
+TIME="1380576137"
 SIZE="424"
 ENDFILE
 VALUE "<project>\synthesis\Teton_syn.prj,prj"
 STATE="utd"
-TIME="1380308451"
-SIZE="3147"
+TIME="1380576149"
+SIZE="2909"
 ENDFILE
 VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ifft_32_impl_1\vhdl\ifft_32.vhd,hdl"
 STATE="utd"
@@ -611,20 +621,20 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ofdm_impl_1\vhdl\fftModules_asynch.vhd,hdl"
 STATE="utd"
-TIME="1380555261"
+TIME="1380570007"
 SIZE="220529"
 LIBRARY="shlslib"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd,hdl"
 STATE="utd"
-TIME="1380555261"
-SIZE="96761"
+TIME="1380570008"
+SIZE="107040"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd,hdl"
 STATE="utd"
-TIME="1380555261"
+TIME="1380570007"
 SIZE="131871"
 LIBRARY="shlslib"
 IS_READONLY="TRUE"
@@ -648,10 +658,16 @@ VALUE "<project>\hdl\afe_if.vhd,hdl"
 VALUE "<project>\hdl\led_pwm.vhd,hdl"
 VALUE "<project>\component\work\Teton_MSS\MSS_CCC_0\Teton_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd,hdl"
 VALUE "<project>\component\work\Teton_MSS\Teton_MSS.vhd,hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3_muxptob3.vhd,hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3_iaddr_reg.vhd,hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
 VALUE "<project>\hdl\fifo_256x32.vhd,hdl"
-VALUE "<project>\hdl\tx_apb_if.vhd,hdl"
-VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ofdm_impl_1\vhdl\fftModules_asynch.vhd,hdl"
 VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd,hdl"
+VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ofdm_impl_1\vhdl\fftModules_asynch.vhd,hdl"
+VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd,hdl"
+VALUE "<project>\hdl\tx_apb_if.vhd,hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\components.vhd,hdl"
+VALUE "<project>\component\work\Teton\Teton.vhd,hdl"
 ENDFILELIST
 ENDLIST
 ENDLIST 
@@ -663,7 +679,10 @@ VALUE "<project>\constraint\Teton_timing.sdc,sdc"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
+LiberoState=Post_Layout
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\Teton.edn,syn_edn)=StateSuccess
+ideDESIGNER(<project>\designer\impl1\Teton.adb,adb)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -866,7 +885,10 @@ ENDLIST
 LIST ProjectState5.1
 LIST "Teton::work"
 LIST Impl1
+LiberoState=Post_Layout
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\Teton.edn,syn_edn)=StateSuccess
+ideDESIGNER(<project>\designer\impl1\Teton.adb,adb)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -915,10 +937,16 @@ VALUE "<project>\hdl\afe_if.vhd,hdl"
 VALUE "<project>\hdl\led_pwm.vhd,hdl"
 VALUE "<project>\component\work\Teton_MSS\MSS_CCC_0\Teton_MSS_tmp_MSS_CCC_0_MSS_CCC.vhd,hdl"
 VALUE "<project>\component\work\Teton_MSS\Teton_MSS.vhd,hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3_muxptob3.vhd,hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3_iaddr_reg.vhd,hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\coreapb3.vhd,hdl"
 VALUE "<project>\hdl\fifo_256x32.vhd,hdl"
-VALUE "<project>\hdl\tx_apb_if.vhd,hdl"
-VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ofdm_impl_1\vhdl\fftModules_asynch.vhd,hdl"
 VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd,hdl"
+VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ofdm_impl_1\vhdl\fftModules_asynch.vhd,hdl"
+VALUE "D:\firmware\MainBoard\Ofdm\hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd,hdl"
+VALUE "<project>\hdl\tx_apb_if.vhd,hdl"
+VALUE "<project>\component\Actel\DirectCore\CoreAPB3\4.0.100\rtl\vhdl\core_obfuscated\components.vhd,hdl"
+VALUE "<project>\component\work\Teton\Teton.vhd,hdl"
 ENDFILELIST
 ENDLIST
 ENDLIST
@@ -949,6 +977,7 @@ LIST "Cyclic_prefixer::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","F
 SUBBLOCK "Cyclic_prefixer_RAM_I::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 SUBBLOCK "Cyclic_prefixer_Cyclic_prefix_add_FIFO::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 SUBBLOCK "Cyclic_prefixer_Enable_register1::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "Cyclic_prefixer_wr_end_reg3::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 SUBBLOCK "Cyclic_prefixer_Strobe_delay_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 SUBBLOCK "Cyclic_prefixer_cp_add_reg::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 SUBBLOCK "synBusAdapter::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
@@ -971,6 +1000,9 @@ LIST "Cyclic_prefixer_RAM_I::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FAL
 ENDLIST
 LIST "Cyclic_prefixer_Strobe_delay_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "Cyclic_prefixer_wr_end_reg3::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "synCyclic_prefixer_wr_end_reg3_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 ENDLIST
 LIST "DESIGN_FIRMWARE::work","component\work\DESIGN_FIRMWARE\DESIGN_FIRMWARE.cxf","TRUE","FALSE"
 SUBBLOCK "HAL::work","","FALSE","FALSE"
@@ -1029,10 +1061,16 @@ SUBBLOCK "synCounterFR::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl
 SUBBLOCK "synComparator::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "IFFT_timing_controller_Holdoff_timing_logic::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "IFFT_timing_controller_Holdoff_timing_logic_Symbol_done_delay_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "IFFT_timing_controller_Holdoff_timing_logic_Hold_off_enable_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 SUBBLOCK "synCounterFR::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 SUBBLOCK "synComparator::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
-SUBBLOCK "Cyclic_prefixer_Enable_register1::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
-SUBBLOCK "Cyclic_prefixer_Strobe_delay_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+ENDLIST
+LIST "IFFT_timing_controller_Holdoff_timing_logic_Hold_off_enable_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "synIFFT_timing_controller_Holdoff_timing_logic_Hold_off_enable_register_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+ENDLIST
+LIST "IFFT_timing_controller_Holdoff_timing_logic_Symbol_done_delay_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "IFFT_timing_controller_Mask_register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 SUBBLOCK "IFFT_timing_controller_Mask_register_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
@@ -1129,6 +1167,12 @@ ENDLIST
 LIST "synCyclic_prefixer_Cyclic_prefix_add_FIFO_FIFO_Shift_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 ENDLIST
 LIST "synCyclic_prefixer_Enable_register1_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synCyclic_prefixer_wr_end_reg3_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
+SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
+ENDLIST
+LIST "synIFFT_timing_controller_Holdoff_timing_logic_Hold_off_enable_register_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
 SUBBLOCK "synDelayWithEnable_std_logic_vector::shlslib::synLibFunctions","hdl\simulink\ofdm_impl_1\vhdl\SynLib_asynch.vhd","FALSE","FALSE"
 ENDLIST
 LIST "synIFFT_timing_controller_Mask_register_Register_Register::work","hdl\simulink\ofdm_impl_1\vhdl\ofdm.vhd","FALSE","FALSE"
@@ -1717,6 +1761,6 @@ ENDLIST
 ENDLIST
 LIST ActiveTestBenchList
 LIST "Teton::work"
-ACTIVETESTBENCH "","","FALSE"
+ACTIVETESTBENCH "testbench::work","component\work\Teton\testbench.vhd","FALSE"
 ENDLIST
 ENDLIST

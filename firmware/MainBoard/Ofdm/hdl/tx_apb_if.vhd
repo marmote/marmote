@@ -73,6 +73,8 @@ architecture Behavioral of TX_APB_IF is
     constant c_FFT_OUT_WL   : integer := 13;
     constant c_FFT_IN_WL    : integer := 4;
 
+    constant c_PREA_MASK    : std_logic_vector(31 downto 0) := x"2AAA2AAA";
+
 	-- Addresses
 
 	constant c_ADDR_CTRL    : std_logic_vector(7 downto 0) := x"00"; -- W (EN)
@@ -132,7 +134,7 @@ architecture Behavioral of TX_APB_IF is
     signal s_ptrn       : std_logic_vector(31 downto 0);
     signal s_mask       : std_logic_vector(31 downto 0);
     signal s_gain       : std_logic_vector(1 downto 0);
-    signal s_mlen       : std_logic_vector(15 downto 0); -- message/measurement length
+    signal s_mlen       : std_logic_vector(31 downto 0); -- message/measurement length
     signal s_clen       : std_logic_vector(4 downto 0); -- cyclic-prefix length
 
     type tx_fsm_state_t is (
@@ -171,8 +173,8 @@ architecture Behavioral of TX_APB_IF is
     signal s_symb_start_next    : std_logic;
     signal s_symb_done          : std_logic;
 
-    signal s_tx_ctr         : unsigned(15 downto 0);
-    signal s_tx_ctr_next    : unsigned(15 downto 0);
+    signal s_tx_ctr         : unsigned(31 downto 0);
+    signal s_tx_ctr_next    : unsigned(31 downto 0);
 
     -- FIFO
     signal s_tx_fifo_in     : std_logic_vector(31 downto 0);
@@ -274,7 +276,7 @@ begin
 					when c_ADDR_GAIN =>
                         s_gain <= PWDATA(1 downto 0);
 					when c_ADDR_MLEN =>
-                        s_mlen <= PWDATA(15 downto 0);
+                        s_mlen <= PWDATA(31 downto 0);
 					when c_ADDR_CLEN =>
                         s_clen <= PWDATA(4 downto 0);
 					when others =>
@@ -309,7 +311,7 @@ begin
 					when c_ADDR_GAIN =>
 						s_dout(1 downto 0) <= s_gain;
 					when c_ADDR_MLEN =>
-						s_dout(15 downto 0) <= s_mlen;
+						s_dout(31 downto 0) <= s_mlen;
 					when c_ADDR_CLEN =>
 						s_dout(4 downto 0) <= s_clen;
 					when others =>
