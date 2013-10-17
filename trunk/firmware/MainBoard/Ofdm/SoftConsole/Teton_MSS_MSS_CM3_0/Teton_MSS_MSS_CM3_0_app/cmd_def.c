@@ -80,7 +80,7 @@ uint32_t CmdStatus(uint32_t argc, char** argv)
 
 	sprintf(buf, "\r\nMarmotE Main Board (Teton) Rev %c Node %d", node_rev, node_id);
 	Yellowstone_print(buf);
-	sprintf(buf, "\r\nTx:           %s", (TX_CTRL->CTRL & 0x1) ? "RUNNING" : "STOPPED");
+	sprintf(buf, "\r\nTx:           %s", (TX_CTRL->CTRL & 0x4) ? "RUNNING" : "STOPPED");
 	Yellowstone_print(buf);
 	sprintf(buf, " %s", (TIMER_BITBAND->TIM1ENABLE) ? "PERIODIC" : "");
 	Yellowstone_print(buf);
@@ -102,16 +102,18 @@ uint32_t CmdStatus(uint32_t argc, char** argv)
 	Yellowstone_print(buf);
 	sprint_binary(buf, TX_CTRL->MASK);
 	Yellowstone_print(buf);
-	sprintf(buf, "\r\nRATE:");
+	sprintf(buf, "\r\nRATE:         ");
 	Yellowstone_print(buf);
 	if (g_rate)
 	{
-		sprintf(buf, "         %u ms", (unsigned)g_rate);
+		sprintf(buf, "%u ms", (unsigned)g_rate);
 	}
 	else
 	{
-		sprintf(buf, "         OFF");
+		sprintf(buf, "OFF");
 	}
+	Yellowstone_print(buf);
+	sprintf(buf, "\r\nMLEN:         %u (%u)", (unsigned)TX_CTRL->MLEN, (unsigned)TX_CTRL->MLEN+1);
 	Yellowstone_print(buf);
 
 	return 0;
@@ -987,9 +989,6 @@ uint32_t CmdGain(uint32_t argc, char** argv)
 				case 8:
 					TX_CTRL->GAIN = 3;
 					break;
-				case 16:
-					TX_CTRL->GAIN = 4;
-					break;
 				default:
 					sprintf(buf, "\r\nWARNING: Invalid GAIN value, ignoring request");
 					Yellowstone_print(buf);
@@ -1003,7 +1002,7 @@ uint32_t CmdGain(uint32_t argc, char** argv)
 		}
 	}
 
-	Yellowstone_print("\r\nUsage: gain [1 | 2 | 4 | 8 | 16]");
+	Yellowstone_print("\r\nUsage: gain [1 | 2 | 4 | 8]");
 	return 1;
 }
 
@@ -1076,6 +1075,28 @@ uint32_t CmdMask(uint32_t argc, char** argv)
 
 	if (argc == 2)
 	{
+		if (strcmp(*(argv+1),"even") == 0)
+		{
+			TX_CTRL->MASK = MASK_EVEN & MASK_DEFAULT;
+			mask = TX_CTRL->MASK;
+			sprintf(buf, "\r\nMASK: 0x%08X | ", (int)mask);
+			Yellowstone_print(buf);
+			sprint_binary(buf, mask);
+			Yellowstone_print(buf);
+			return 0;
+		}
+
+		if (strcmp(*(argv+1),"odd") == 0)
+		{
+			TX_CTRL->MASK = MASK_ODD & MASK_DEFAULT;
+			mask = TX_CTRL->MASK;
+			sprintf(buf, "\r\nMASK: 0x%08X | ", (int)mask);
+			Yellowstone_print(buf);
+			sprint_binary(buf, mask);
+			Yellowstone_print(buf);
+			return 0;
+		}
+
 		mask = strtoul(*(argv+1), &eptr, 16);
 		if (eptr != *(argv+1))
 		{
@@ -1091,13 +1112,16 @@ uint32_t CmdMask(uint32_t argc, char** argv)
 		}
 	}
 
-	Yellowstone_print("\r\nUsage: mask [<16-bit value>]");
+	Yellowstone_print("\r\nUsage: mask [<16-bit value> | 'even' | 'odd']");
 	return 1;
 }
 
 
 uint32_t CmdStart(uint32_t argc, char** argv)
 {
+	uint32_t meas_len;
+	char buf[128];
+
 	if (argc == 1)
 	{
 		set_mode(RADIO_TX_MODE);
@@ -1108,6 +1132,23 @@ uint32_t CmdStart(uint32_t argc, char** argv)
 
 		MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
 		Yellowstone_print("\r\nTx STARTED");
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		meas_len = atoi(*(argv+1));
+		if (meas_len)
+		{
+			TX_CTRL->MLEN = meas_len;
+		}
+
+		set_mode(RADIO_TX_MODE);
+		TX_CTRL->CTRL |= 0x2u;
+
+		sprintf(buf, "\r\nMLEN: %u (%u)", (unsigned)TX_CTRL->MLEN, (unsigned)TX_CTRL->MLEN+1);
+		Yellowstone_print(buf);
+
 		return 0;
 	}
 

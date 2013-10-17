@@ -20,15 +20,15 @@ int main()
 	Joshua_init();
 	Teton_init();
 
-	Max2830_set_tx_bandwidth(15000uL);
+	Max2830_set_tx_bandwidth(12000uL);
 	Max2830_set_frequency(2405000000uL);
 	Max2830_set_tx_gain(0);
 
-	set_mode(RADIO_TX_MODE);
+	set_mode(RADIO_STANDBY_MODE);
 
 	TX_CTRL->PTRN = PTRN_DEFAULT;
-	TX_CTRL->MASK = (node_id == 8 ? 0x55555555uL : 0xAAAAAAAAuL) & MASK_DEFAULT;
-	TX_CTRL->GAIN = 1;
+	TX_CTRL->MASK = (node_id == 8 ? MASK_ODD : MASK_EVEN) & MASK_DEFAULT;
+	TX_CTRL->GAIN = 3;
 
 	while (1)
 	{
