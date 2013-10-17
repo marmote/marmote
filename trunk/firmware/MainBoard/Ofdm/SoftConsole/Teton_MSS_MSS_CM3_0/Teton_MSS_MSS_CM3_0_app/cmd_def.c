@@ -6,7 +6,8 @@
  */
 
 #include "cmd_def.h"
-#include "demo.h"
+
+uint32_t g_rate = 500; // ms
 
 CMD_Type CMD_List[] =
 {
@@ -42,6 +43,7 @@ CMD_Type CMD_List[] =
 	{"s", 		CmdStart},
 	{"p", 		CmdStartPeriodic},
 	{"e", 		CmdStop},
+	{"tx", 		CmdTx}, // set tx role for the measurement
 	{"rate",  	CmdRate},
 
 	{NULL,   	NULL}
@@ -56,8 +58,7 @@ uint32_t CmdHelp(uint32_t argc, char** argv)
 	CMD_Type* cmdListItr = CMD_List;
 	char buf[64];
 
-//	sprintf(buf, "\nMarmotE Rev %c Node %d\r\n", (char)((MM_BOARD->REV & 0xFF) + 'A' - 1), (int)(MM_BOARD->ID & 0xFF));
-	sprintf(buf, "\nMarmotE Rev %c Node %d\r\n", node_rev, node_id);
+	sprintf(buf, "\nMarmotE Teton Rev %c Node %d - %s\r\n", node_rev, node_id, fw_name);
 	Yellowstone_print(buf);
 
 	Yellowstone_print("\nAvailable commands:\n");
@@ -78,7 +79,7 @@ uint32_t CmdStatus(uint32_t argc, char** argv)
 {
 	char buf[64];
 
-	sprintf(buf, "\r\nMarmotE Main Board (Teton) Rev %c Node %d", node_rev, node_id);
+	sprintf(buf, "\r\nMarmotE Teton Rev %c Node %d", node_rev, node_id);
 	Yellowstone_print(buf);
 	sprintf(buf, "\r\nTx:           %s", (TX_CTRL->CTRL & 0x4) ? "RUNNING" : "STOPPED");
 	Yellowstone_print(buf);
@@ -113,7 +114,7 @@ uint32_t CmdStatus(uint32_t argc, char** argv)
 		sprintf(buf, "OFF");
 	}
 	Yellowstone_print(buf);
-	sprintf(buf, "\r\nMLEN:         %u (%u)", (unsigned)TX_CTRL->MLEN, (unsigned)TX_CTRL->MLEN+1);
+	sprintf(buf, "\r\nMLEN:         %u", (unsigned)TX_CTRL->MLEN+1);
 	Yellowstone_print(buf);
 
 	return 0;
@@ -859,7 +860,7 @@ uint32_t CmdRssi(uint32_t argc, char** argv)
 		uint8_t i;
 		for ( i = 0; i < 20; i++ )
 		{
-			sprintf(buf, "\r\n0x%03u", Max2830_get_rssi_value()); // TODO: print voltage level too
+			sprintf(buf, "\r\n0x%03u", Max2830_get_rssi_value());
 			Yellowstone_print(buf);
 		}
 
@@ -1097,6 +1098,7 @@ uint32_t CmdMask(uint32_t argc, char** argv)
 			return 0;
 		}
 
+
 		mask = strtoul(*(argv+1), &eptr, 16);
 		if (eptr != *(argv+1))
 		{
@@ -1116,6 +1118,62 @@ uint32_t CmdMask(uint32_t argc, char** argv)
 	return 1;
 }
 
+
+uint32_t CmdTx(uint32_t argc, char** argv)
+{
+	uint32_t role;
+
+	if (argc == 2)
+	{
+		role = atoi(*(argv+1));
+		switch (role)
+		{
+			case 1:
+				// tx1 - even frequencies (continuous)
+				TX_CTRL->CTRL &= ~0x4u;
+				MSS_TIM1_stop();
+				MSS_TIM1_disable_irq();
+
+				TX_CTRL->MASK = MASK_EVEN & MASK_DEFAULT;
+
+				set_mode(RADIO_TX_MODE);
+				TX_CTRL->CTRL |= 0x4u | 0x2u;
+
+				MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
+				Yellowstone_print("\r\nTx1 STARTED (even & continuous)");
+				return 0;
+
+			case 2:
+				// tx2 - odd frequencies (periodic)
+				if (g_rate == 0)
+				{
+					Yellowstone_print("\r\nRate is not set");
+					return 1;
+				}
+				TX_CTRL->CTRL &= ~0x4u;
+				MSS_TIM1_stop();
+				MSS_TIM1_disable_irq();
+
+				TX_CTRL->MASK = MASK_ODD & MASK_DEFAULT;
+
+				set_mode(RADIO_TX_MODE);
+				TX_CTRL->CTRL |= 0x4u | 0x2u;
+
+				MSS_TIM1_load_background(g_rate * MILLI_SEC_DIV);
+				MSS_TIM1_load_immediate(g_rate * MILLI_SEC_DIV); // reset timer
+				MSS_TIM1_enable_irq();
+				MSS_TIM1_start();
+
+				MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
+
+				Yellowstone_print("\r\nTx2 STARTED (odd & periodic)");
+				return 0;
+		}
+	}
+
+	Yellowstone_print("\r\nUsage: tx [1 | 2]");
+	return 1;
+}
 
 uint32_t CmdStart(uint32_t argc, char** argv)
 {
@@ -1232,6 +1290,7 @@ uint32_t CmdRate(uint32_t argc, char** argv)
 		{
 			g_rate = 0;
 
+			TX_CTRL->CTRL &= ~0x4u;
 			MSS_TIM1_stop();
 			MSS_TIM1_disable_irq();
 			MSS_GPIO_set_output(MSS_GPIO_LED1, 0);
@@ -1239,11 +1298,7 @@ uint32_t CmdRate(uint32_t argc, char** argv)
 		else if (rate)
 		{
 			g_rate = rate;
-
 			MSS_TIM1_load_background(g_rate * MILLI_SEC_DIV);
-			MSS_TIM1_load_immediate(g_rate * MILLI_SEC_DIV); // reset timer
-			MSS_TIM1_enable_irq();
-			MSS_TIM1_start();
 		}
 
 		sprintf(buf, "\r\nRATE: ");

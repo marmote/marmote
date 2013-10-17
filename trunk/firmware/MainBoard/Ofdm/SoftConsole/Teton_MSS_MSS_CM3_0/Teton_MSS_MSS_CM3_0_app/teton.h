@@ -33,8 +33,6 @@
 #define MSS_GPIO_AFE1_MODE_MASK		MSS_GPIO_7_MASK
 #define MSS_GPIO_TX_DONE_IT_MASK	MSS_GPIO_8_MASK
 
-//#define PTRN_DEFAULT 0x01660166 // FIXME: Check PAPR for this value
-//#define MASK_DEFAULT 0x3FFF7FFE
 #define PTRN_DEFAULT 0x007E32C8ul
 #define MASK_DEFAULT 0x1FFF7FF8ul
 #define MASK_EVEN    0xAAAAAAAAul
@@ -50,6 +48,7 @@ typedef struct
 
 uint8_t node_rev;
 uint8_t node_id;
+extern const char* fw_name;
 
 #define MICRO_SEC_DIV 20
 #define MILLI_SEC_DIV (1000 * MICRO_SEC_DIV)
