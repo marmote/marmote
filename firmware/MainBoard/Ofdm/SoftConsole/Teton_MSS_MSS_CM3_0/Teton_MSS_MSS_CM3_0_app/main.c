@@ -10,7 +10,6 @@ extern uint8_t spi_cmd_buf[];
 extern uint8_t spi_cmd_length;
 
 #include "cmd_def.h"
-extern uint32_t g_rate;
 
 int main()
 {
@@ -27,7 +26,6 @@ int main()
 	set_mode(RADIO_STANDBY_MODE);
 
 	TX_CTRL->PTRN = PTRN_DEFAULT;
-	TX_CTRL->MASK = (node_id == 8 ? MASK_ODD : MASK_EVEN) & MASK_DEFAULT;
 	TX_CTRL->GAIN = 3;
 
 	while (1)

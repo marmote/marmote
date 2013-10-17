@@ -1,7 +1,6 @@
 #include "teton.h"
 
-uint32_t packet_rate = 10000; // us
-float packet_var = 0;
+const char* fw_name = "OFDM transmitter";
 
 void Teton_init(void)
 {
