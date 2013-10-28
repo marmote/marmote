@@ -434,7 +434,7 @@ SIZE="9091072"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton.fdb,fdb"
 STATE="utd"
-TIME="1380651556"
+TIME="1381959429"
 SIZE="215160"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton.ide_des,ide_des"
@@ -449,8 +449,8 @@ SIZE="37934"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\Teton.pdb,pdb"
 STATE="utd"
-TIME="1380653060"
-SIZE="221700"
+TIME="1382026665"
+SIZE="221701"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\Teton.pro,pro"
 STATE="utd"
@@ -952,8 +952,10 @@ ENDLIST
 ENDLIST
 ENDLIST
 LIST OpenedFileList
-StartPage;StartPage
-ACTIVEVIEW;StartPage
+SmartDesign;Teton
+SmartDesign;Teton_MSS
+Reports;Reports
+ACTIVEVIEW;Reports
 ENDLIST
 LIST ModuleSubBlockList
 LIST "AFE_IF::work","hdl\afe_if.vhd","FALSE","FALSE"

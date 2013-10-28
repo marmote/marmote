@@ -42,6 +42,7 @@ CMD_Type CMD_List[] =
 	{"mask",  	CmdMask},
 	{"s", 		CmdStart},
 	{"p", 		CmdStartPeriodic},
+	{"sw",	 	CmdSweep},
 	{"e", 		CmdStop},
 	{"tx", 		CmdTx}, // set tx role for the measurement
 	{"rate",  	CmdRate},
@@ -1239,6 +1240,85 @@ uint32_t CmdStartPeriodic(uint32_t argc, char** argv)
 	}
 
 	Yellowstone_print("\r\nUsage: start");
+	return 1;
+}
+
+uint32_t CmdSweep(uint32_t argc, char** argv)
+{
+	char buf[64];
+	uint32_t nfreq = 11; // FIXME: use an array for fcs
+	uint32_t nfft = 32;
+	uint32_t nsym = (1 << 12);
+	uint32_t role;
+	uint32_t mask;
+
+	if (argc == 1)
+	{
+		mask = (int)TX_CTRL->MASK;
+		sprintf(buf, "\r\nMASK: 0x%08X | ", (unsigned int)mask);
+		Yellowstone_print(buf);
+
+		sprint_binary(buf, mask);
+		Yellowstone_print(buf);
+
+		sprintf(buf, "\r\nRATE: ");
+		Yellowstone_print(buf);
+		if (g_rate)
+		{
+			sprintf(buf, "%u ms", (unsigned)g_rate);
+		}
+		else
+		{
+			sprintf(buf, "OFF");
+		}
+		Yellowstone_print(buf);
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		role = atoi(*(argv+1));
+		switch (role)
+		{
+			case 1:
+				// Short periods
+				g_rate = nfft*nsym/20000ul;
+				TX_CTRL->CTRL &= ~0x4u;
+				MSS_TIM1_stop();
+				MSS_TIM1_disable_irq();
+				TX_CTRL->MASK = MASK_EVEN & MASK_DEFAULT; // FIXME
+				break;
+
+			case 2:
+				// Long periods
+				TX_CTRL->CTRL &= ~0x4u;
+				MSS_TIM1_stop();
+				MSS_TIM1_disable_irq();
+
+				g_rate = (nfreq+2)*nfft*nsym/20000ul;
+				TX_CTRL->MASK = MASK_ODD & MASK_DEFAULT; // FIXME
+				break;
+
+			default:
+				Yellowstone_print("\r\nInvalid argument");
+				return 1;
+		}
+
+		set_mode(RADIO_TX_MODE);
+		TX_CTRL->CTRL |= 0x4u | 0x2u;
+
+		MSS_TIM1_load_background(g_rate * MILLI_SEC_DIV);
+		MSS_TIM1_load_immediate(g_rate * MILLI_SEC_DIV); // reset timer
+		MSS_TIM1_enable_irq();
+		MSS_TIM1_start();
+
+		MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
+
+		Yellowstone_print("\r\nSweep STARTED");
+		return 0;
+	}
+
+	Yellowstone_print("\r\nUsage: sweep [1 | 2]");
 	return 1;
 }
 
