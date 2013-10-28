@@ -38,9 +38,27 @@
 #define MASK_EVEN    0xAAAAAAAAul
 #define MASK_ODD     0x55555555ul
 
-uint32_t fc_vec[11];
+extern uint32_t fc_vec[11];
 uint32_t fc_ptr;
 uint32_t meas_len;
+
+typedef struct
+{
+	const char* name;
+	uint32_t mask1;
+	uint32_t mask2;
+} mask_set_t;
+
+extern mask_set_t mask_vec[];
+mask_set_t* mask_ptr;
+
+typedef enum _role
+{
+	TX1,
+	TX2,
+} role_t;
+
+role_t role;
 
 typedef struct
 {

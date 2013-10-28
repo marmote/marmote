@@ -119,6 +119,11 @@ uint32_t CmdStatus(uint32_t argc, char** argv)
 	sprintf(buf, "\r\nMLEN:         %u symbols", (unsigned)meas_len);
 	Yellowstone_print(buf);
 
+	sprintf(buf, "\r\nMASK SET:     %s", mask_ptr->name);
+	Yellowstone_print(buf);
+	sprintf(buf, "\r\nROLE:         %s", (role == TX1 ? "tx1" : "tx2"));
+	Yellowstone_print(buf);
+
 	return 0;
 }
 
@@ -1066,40 +1071,64 @@ uint32_t CmdMask(uint32_t argc, char** argv)
 
 	if (argc == 1)
 	{
+		mask_set_t* m_ptr;
+		m_ptr = mask_vec;
+
 		mask = (int)TX_CTRL->MASK;
 		sprintf(buf, "\r\nMASK: 0x%08X | ", (unsigned int)mask);
 		Yellowstone_print(buf);
-
 		sprint_binary(buf, mask);
 		Yellowstone_print(buf);
-
+		sprintf(buf, "\r\nSET:");
+		Yellowstone_print(buf);
+		while (m_ptr->name)
+		{
+			sprintf(buf, "\r\n 0x%08X | 0x%08X | %s",
+					(unsigned int)m_ptr->mask1,
+					(unsigned int)m_ptr->mask2,
+					m_ptr->name);
+			Yellowstone_print(buf);
+			if (m_ptr == mask_ptr)
+			{
+				Yellowstone_print(" *");
+			}
+			m_ptr++;
+		}
 		return 0;
 	}
 
 	if (argc == 2)
 	{
-		if (strcmp(*(argv+1),"even") == 0)
-		{
-			TX_CTRL->MASK = MASK_EVEN & MASK_DEFAULT;
-			mask = TX_CTRL->MASK;
-			sprintf(buf, "\r\nMASK: 0x%08X | ", (int)mask);
-			Yellowstone_print(buf);
-			sprint_binary(buf, mask);
-			Yellowstone_print(buf);
-			return 0;
-		}
+		mask_set_t* m_ptr;
+		m_ptr = mask_vec;
 
-		if (strcmp(*(argv+1),"odd") == 0)
+		while (m_ptr->name)
 		{
-			TX_CTRL->MASK = MASK_ODD & MASK_DEFAULT;
-			mask = TX_CTRL->MASK;
-			sprintf(buf, "\r\nMASK: 0x%08X | ", (int)mask);
-			Yellowstone_print(buf);
-			sprint_binary(buf, mask);
-			Yellowstone_print(buf);
-			return 0;
+			if (strcmp(*(argv+1),m_ptr->name) == 0)
+			{
+				mask_ptr = m_ptr;
+				sprintf(buf, "\r\nROLE: %s", (role == TX1 ? "tx1" : "tx2"));
+				Yellowstone_print(buf);
+				sprintf(buf, "\r\nSET:  %s", mask_ptr->name);
+				Yellowstone_print(buf);
+				switch (role)
+				{
+					case TX1:
+						TX_CTRL->MASK = mask_ptr->mask1 & MASK_DEFAULT;
+						break;
+					case TX2:
+						TX_CTRL->MASK = mask_ptr->mask2 & MASK_DEFAULT;
+						break;
+				}
+				mask = TX_CTRL->MASK;
+				sprintf(buf, "\r\nMASK: 0x%08X | ", (int)mask);
+				Yellowstone_print(buf);
+				sprint_binary(buf, mask);
+				Yellowstone_print(buf);
+				return 0;
+			}
+			m_ptr++;
 		}
-
 
 		mask = strtoul(*(argv+1), &eptr, 16);
 		if (eptr != *(argv+1))
@@ -1116,59 +1145,61 @@ uint32_t CmdMask(uint32_t argc, char** argv)
 		}
 	}
 
-	Yellowstone_print("\r\nUsage: mask [<16-bit value> | 'even' | 'odd']");
+	Yellowstone_print("\r\nUsage: mask [<16-bit value> | 'original' | 'sideburn' | 'asymhalf' | 'dualstag']");
 	return 1;
 }
 
 
 uint32_t CmdTx(uint32_t argc, char** argv)
 {
-	uint32_t role;
+	uint32_t role_;
 
 	if (argc == 2)
 	{
-		role = atoi(*(argv+1));
-		switch (role)
+		role_ = atoi(*(argv+1));
+		switch (role_)
 		{
 			case 1:
-				// tx1 - even frequencies (continuous)
+				// tx1 - continuous
+				role = TX1;
 				TX_CTRL->CTRL &= ~0x4u;
 				MSS_TIM1_stop();
 				MSS_TIM1_disable_irq();
 
-				TX_CTRL->MASK = MASK_EVEN & MASK_DEFAULT;
+				TX_CTRL->MASK = mask_ptr->mask1 & MASK_DEFAULT;
 
 				set_mode(RADIO_TX_MODE);
 				TX_CTRL->CTRL |= 0x4u | 0x2u;
 
 				MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
-				Yellowstone_print("\r\nTx1 STARTED (even & continuous)");
+				Yellowstone_print("\r\nTx1 STARTED");
 				return 0;
 
 			case 2:
-				// tx2 - odd frequencies (periodic)
+				// tx2 - periodic
 				if (g_rate == 0)
 				{
 					Yellowstone_print("\r\nRate is not set");
 					return 1;
 				}
+				role = TX2;
 				TX_CTRL->CTRL &= ~0x4u;
 				MSS_TIM1_stop();
 				MSS_TIM1_disable_irq();
 
-				TX_CTRL->MASK = MASK_ODD & MASK_DEFAULT;
+				TX_CTRL->MASK = mask_ptr->mask2 & MASK_DEFAULT;
 
 				set_mode(RADIO_TX_MODE);
 				TX_CTRL->CTRL |= 0x4u | 0x2u;
 
-				MSS_TIM1_load_background(g_rate * MILLI_SEC_DIV);
-				MSS_TIM1_load_immediate(g_rate * MILLI_SEC_DIV); // reset timer
-				MSS_TIM1_enable_irq();
-				MSS_TIM1_start();
+//				MSS_TIM1_load_background(g_rate * MILLI_SEC_DIV);
+//				MSS_TIM1_load_immediate(g_rate * MILLI_SEC_DIV); // reset timer
+//				MSS_TIM1_enable_irq();
+//				MSS_TIM1_start();
 
 				MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
 
-				Yellowstone_print("\r\nTx2 STARTED (odd & periodic)");
+				Yellowstone_print("\r\nTx2 STARTED");
 				return 0;
 		}
 	}
