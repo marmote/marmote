@@ -28,6 +28,9 @@ int main()
 	TX_CTRL->PTRN = PTRN_DEFAULT;
 	TX_CTRL->GAIN = 3;
 	meas_len = 2048;
+	mask_ptr = mask_vec;
+
+	role = TX1;
 
 	while (1)
 	{

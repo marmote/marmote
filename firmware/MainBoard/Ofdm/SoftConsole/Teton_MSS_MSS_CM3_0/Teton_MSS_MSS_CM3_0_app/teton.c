@@ -1,7 +1,9 @@
 #include "teton.h"
 
 const char* fw_name = "OFDM transmitter";
-uint32_t fc_vec[] = {
+
+uint32_t fc_vec[] =
+{
 		2400000000uL,
 		2420000000uL,
 		2440000000uL,
@@ -13,6 +15,15 @@ uint32_t fc_vec[] = {
 		2450000000uL,
 		2470000000uL,
 		2490000000uL
+};
+
+mask_set_t mask_vec[] =
+{
+		{"original",	0xAAAAAAAAul,	0x55555555ul},
+		{"sideburn",	0x00AAAAFFul,	0xFF555500ul},
+		{"asymhalf",	0xAAAA5555ul,	0x5555AAAAul},
+		{"dualstag",	0xCCCCCCCCul,	0x33333333ul},
+		{NULL,			0,				0},
 };
 
 void Teton_init(void)
