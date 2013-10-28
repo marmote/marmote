@@ -19,15 +19,15 @@ int main()
 	Joshua_init();
 	Teton_init();
 
-	fc = 2400000000uL;
 	Max2830_set_tx_bandwidth(12000uL);
 	Max2830_set_tx_gain(0);
-	Max2830_set_frequency(fc);
+	Max2830_set_frequency(2400000000uL);
 
 	set_mode(RADIO_STANDBY_MODE);
 
 	TX_CTRL->PTRN = PTRN_DEFAULT;
 	TX_CTRL->GAIN = 3;
+	meas_len = 2048;
 
 	while (1)
 	{
@@ -47,14 +47,7 @@ int main()
 
 void Timer1_IRQHandler(void)
 {
-	Max2830_set_frequency(fc);
-	if (fc >= 2500000000uL)
-	{
-		fc = 2400000000uL;
-	}
-	else
-	{
-		fc +=  10000000uL; // +10 MHz
-	}
+	Max2830_set_frequency(fc_vec[fc_ptr++]);
+	fc_ptr %= sizeof(fc_vec)/sizeof(uint32_t);
 	MSS_TIM1_clear_irq();
 }
