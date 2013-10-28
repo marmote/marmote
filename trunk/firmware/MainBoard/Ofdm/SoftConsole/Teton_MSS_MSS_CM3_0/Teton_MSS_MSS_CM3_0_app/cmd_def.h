@@ -64,6 +64,7 @@ uint32_t CmdMask(uint32_t argc, char** argv);
 uint32_t CmdTx(uint32_t argc, char** argv);
 uint32_t CmdStart(uint32_t argc, char** argv);
 uint32_t CmdStartPeriodic(uint32_t argc, char** argv);
+uint32_t CmdSweep(uint32_t argc, char** argv);
 uint32_t CmdStop(uint32_t argc, char** argv);
 uint32_t CmdRate(uint32_t argc, char** argv);
 

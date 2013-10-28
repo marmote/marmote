@@ -38,6 +38,8 @@
 #define MASK_EVEN    0xAAAAAAAAul
 #define MASK_ODD     0x55555555ul
 
+uint32_t fc;
+
 typedef struct
 {
   __I uint32_t REV;                       /*!< Offset: 0x00  Board revision   */
