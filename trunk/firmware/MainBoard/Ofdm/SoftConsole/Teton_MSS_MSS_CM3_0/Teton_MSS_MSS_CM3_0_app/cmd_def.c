@@ -43,6 +43,7 @@ CMD_Type CMD_List[] =
 	{"s", 		CmdStart},
 	{"p", 		CmdStartPeriodic},
 	{"sw",	 	CmdSweep},
+	{"mlen", 	CmdMeasLength},
 	{"e", 		CmdStop},
 	{"tx", 		CmdTx}, // set tx role for the measurement
 	{"rate",  	CmdRate},
@@ -115,7 +116,7 @@ uint32_t CmdStatus(uint32_t argc, char** argv)
 		sprintf(buf, "OFF");
 	}
 	Yellowstone_print(buf);
-	sprintf(buf, "\r\nMLEN:         %u", (unsigned)TX_CTRL->MLEN+1);
+	sprintf(buf, "\r\nMLEN:         %u symbols", (unsigned)meas_len);
 	Yellowstone_print(buf);
 
 	return 0;
@@ -1246,9 +1247,7 @@ uint32_t CmdStartPeriodic(uint32_t argc, char** argv)
 uint32_t CmdSweep(uint32_t argc, char** argv)
 {
 	char buf[64];
-	uint32_t nfreq = 11; // FIXME: use an array for fcs
 	uint32_t nfft = 32;
-	uint32_t nsym = (1 << 12);
 	uint32_t role;
 	uint32_t mask;
 
@@ -1282,7 +1281,7 @@ uint32_t CmdSweep(uint32_t argc, char** argv)
 		{
 			case 1:
 				// Short periods
-				g_rate = nfft*nsym/20000ul;
+				g_rate = nfft*meas_len/20000ul;
 				TX_CTRL->CTRL &= ~0x4u;
 				MSS_TIM1_stop();
 				MSS_TIM1_disable_irq();
@@ -1295,7 +1294,8 @@ uint32_t CmdSweep(uint32_t argc, char** argv)
 				MSS_TIM1_stop();
 				MSS_TIM1_disable_irq();
 
-				g_rate = (nfreq+2)*nfft*nsym/20000ul;
+				g_rate = (sizeof(fc_vec)/sizeof(uint32_t)+2)
+						*nfft*meas_len/20000ul;
 				TX_CTRL->MASK = MASK_ODD & MASK_DEFAULT; // FIXME
 				break;
 
@@ -1319,6 +1319,37 @@ uint32_t CmdSweep(uint32_t argc, char** argv)
 	}
 
 	Yellowstone_print("\r\nUsage: sweep [1 | 2]");
+	return 1;
+}
+
+uint32_t CmdMeasLength(uint32_t argc, char** argv)
+{
+	char buf[128];
+	uint32_t mlen;
+
+	if (argc == 1)
+	{
+		sprintf(buf, "\r\nMLEN: %d", (int)meas_len);
+		Yellowstone_print(buf);
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		mlen = atoi(*(argv+1));
+		if (mlen || !strcmp(*(argv+1), "0"))
+		{
+			if (mlen >= 1024 && mlen <= 32768)
+			{
+				meas_len = mlen;
+			}
+			sprintf(buf, "\r\nMLEN: %d", (int)meas_len);
+			Yellowstone_print(buf);
+			return 0;
+		}
+	}
+
+	Yellowstone_print("\r\nUsage: mlen [1024..32768]");
 	return 1;
 }
 

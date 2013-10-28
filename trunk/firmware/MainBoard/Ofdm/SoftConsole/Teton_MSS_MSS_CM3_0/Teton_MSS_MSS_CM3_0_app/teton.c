@@ -1,6 +1,19 @@
 #include "teton.h"
 
 const char* fw_name = "OFDM transmitter";
+uint32_t fc_vec[] = {
+		2400000000uL,
+		2420000000uL,
+		2440000000uL,
+		2460000000uL,
+		2480000000uL,
+		2500000000uL,
+		2410000000uL,
+		2430000000uL,
+		2450000000uL,
+		2470000000uL,
+		2490000000uL
+};
 
 void Teton_init(void)
 {
