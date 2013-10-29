@@ -19,11 +19,11 @@ uint32_t fc_vec[] =
 
 mask_set_t mask_vec[] =
 {
-		{"original",	0xAAAAAAAAul,	0x55555555ul},
-		{"sideburn",	0x00AAAAFFul,	0xFF555500ul},
-		{"asymhalf",	0xAAAA5555ul,	0x5555AAAAul},
-		{"dualstag",	0xCCCCCCCCul,	0x33333333ul},
-		{NULL,			0,				0},
+		{"original",	0x007E32C8ul,   0xAAAAAAAAul,	0x55555555ul},
+		{"sideburn",	0x015B6E30ul,   0x00AAAAFFul,	0xFF555500ul},
+		{"asymhalf",	0x049805B8ul,   0xAAAA5555ul,	0x5555AAAAul},
+		{"dualstag",	0x007D7080ul,   0xCCCCCCCCul,	0x33333333ul},
+		{NULL,			0,              0,				0},
 };
 
 void Teton_init(void)
