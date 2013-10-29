@@ -15,6 +15,14 @@
 #define GLMUXCFG_SHIFT 	26
 #define MAINOSCEN_SHIFT 29
 
+//#define STATASEL_MASK   (1 << 0)
+//#define RXASEL_MASK 	(1 << 1)
+//#define DYNASEL_MASK 	(1 << 2)
+//#define BYPASSA_MASK	(1 << 6)
+//#define STATCSEL_MASK	(1 << 16)
+//#define RXCSEL_MASK 	(1 << 17)
+//#define DYNCSEL_MASK	(1 << 18)
+//#define BYPASSC_MASK	(1 << 22)
 
 static CLK_SRC_Type currentMssClock = MAIN_OSC_CLK_SRC;
 

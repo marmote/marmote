@@ -7,7 +7,7 @@
 
 #include "cmd_def.h"
 
-uint32_t g_rate = 500; // ms
+extern uint32_t g_rate; // ms
 
 CMD_Type CMD_List[] =
 {
@@ -17,8 +17,6 @@ CMD_Type CMD_List[] =
 //	{"clk",  	CmdClock},
 //	{"afe",  	CmdAfe},
 //	{"iqo",  	CmdIQOffset},
-
-//	{"fpga", CmdFpga},
 
 	// MAX2830
 	{"reg",  	CmdReg},
@@ -40,12 +38,13 @@ CMD_Type CMD_List[] =
 	{"gain",  	CmdGain},
 	{"ptrn",  	CmdPattern},
 	{"mask",  	CmdMask},
-	{"s", 		CmdStart},
+	{"sel",		CmdPreset},
+	{"role", 	CmdRole}, // set tx role for the measurement
+	{"s", 		CmdStartContinuous},
 	{"p", 		CmdStartPeriodic},
-	{"sw",	 	CmdSweep},
-	{"mlen", 	CmdMeasLength},
+	{"w",	 	CmdStartSweep},
+	{"slen", 	CmdSweepLength},
 	{"e", 		CmdStop},
-	{"tx", 		CmdTx}, // set tx role for the measurement
 	{"rate",  	CmdRate},
 
 	{NULL,   	NULL}
@@ -83,7 +82,7 @@ uint32_t CmdStatus(uint32_t argc, char** argv)
 
 	sprintf(buf, "\r\nMarmotE Teton Rev %c Node %d", node_rev, node_id);
 	Yellowstone_print(buf);
-	sprintf(buf, "\r\nTx:           %s", (TX_CTRL->CTRL & 0x4) ? "RUNNING" : "STOPPED");
+	sprintf(buf, "\r\nStatus:       %s", (TX_CTRL->CTRL & 0x4) ? "TRANSMITTING" : "STOPPED");
 	Yellowstone_print(buf);
 	sprintf(buf, " %s", (TIMER_BITBAND->TIM1ENABLE) ? "PERIODIC" : "");
 	Yellowstone_print(buf);
@@ -96,6 +95,8 @@ uint32_t CmdStatus(uint32_t argc, char** argv)
 	Yellowstone_print(buf);
 
 	sprintf(buf, "\r\nGAIN:         %d", (1 << (int)TX_CTRL->GAIN));
+	Yellowstone_print(buf);
+	sprintf(buf, "\r\nMASK SET:     %s", mask_ptr->name);
 	Yellowstone_print(buf);
 	sprintf(buf, "\r\nPTRN:         0x%08X | ", (int)TX_CTRL->PTRN);
 	Yellowstone_print(buf);
@@ -116,12 +117,9 @@ uint32_t CmdStatus(uint32_t argc, char** argv)
 		sprintf(buf, "OFF");
 	}
 	Yellowstone_print(buf);
-	sprintf(buf, "\r\nMLEN:         %u symbols", (unsigned)meas_len);
-	Yellowstone_print(buf);
-
-	sprintf(buf, "\r\nMASK SET:     %s", mask_ptr->name);
-	Yellowstone_print(buf);
-	sprintf(buf, "\r\nROLE:         %s", (role == TX1 ? "tx1" : "tx2"));
+//	sprintf(buf, "\r\nMLEN:         %u symbols", (unsigned)meas_len);
+//	Yellowstone_print(buf);
+	sprintf(buf, "\r\nROLE:         %s", (g_role == TX1 ? "TX1" : "TX2"));
 	Yellowstone_print(buf);
 
 	return 0;
@@ -200,16 +198,6 @@ uint32_t CmdSleep(uint32_t argc, char** argv)
 }
 */
 
-#define STATASEL_MASK   (1 << 0)
-#define RXASEL_MASK 	(1 << 1)
-#define DYNASEL_MASK 	(1 << 2)
-#define BYPASSA_MASK	(1 << 6)
-#define STATCSEL_MASK	(1 << 16)
-#define RXCSEL_MASK 	(1 << 17)
-#define DYNCSEL_MASK	(1 << 18)
-#define BYPASSC_MASK	(1 << 22)
-
-
 uint32_t CmdClock(uint32_t argc, char** argv)
 {
 	CLK_SRC_Type clock;
@@ -268,46 +256,6 @@ uint32_t CmdClock(uint32_t argc, char** argv)
   	Yellowstone_print("\nUsage: clk");
 	return 1;
 }
-
-/*
-uint32_t CmdFpga(uint32_t argc, char** argv)
-{
-	if (argc == 1)
-	{
-		Yellowstone_print("\nFPGA fabric is ");
-		if ( MSS_GPIO_get_outputs() & MSS_GPIO_FPGA_ENABLE_MASK )
-		{
-			Yellowstone_print("ON");
-		}
-		else
-		{
-			Yellowstone_print("OFF");
-		}
-		return 0;
-	}
-
-	if (argc == 2)
-	{
-		if (!strcmp(*(argv+1), "on"))
-		{
-			MSS_GPIO_set_output( MSS_GPIO_FPGA_ENABLE, 1 );
-			return 0;
-		}
-
-		if (!strcmp(*(argv+1), "off"))
-		{
-			MSS_GPIO_set_output( MSS_GPIO_FPGA_ENABLE, 0 );
-			return 0;
-		}
-	}
-
-	// Send help message
-  	Yellowstone_print("\nUsage: fpga [on | off]");
-	return 1;
-}
-*/
-
-
 
 uint32_t CmdAfe(uint32_t argc, char** argv)
 {
@@ -1037,20 +985,10 @@ uint32_t CmdPattern(uint32_t argc, char** argv)
 		ptrn = strtoul(*(argv+1), &eptr, 16);
 		if (eptr != *(argv+1))
 		{
-//			if (ptrn > 0xFFFFul)
-//			{
-//				sprintf(buf, "\r\nWARNING: Pattern 0x%0X is larger than 0xFFFF, ignoring request", (int)ptrn);
-//				Yellowstone_print(buf);
-//				sprintf(buf, "\r\nPTRN: 0x%04X", (int)TX_CTRL->PTRN);
-//				Yellowstone_print(buf);
-//				return 1;
-//			}
-
 			TX_CTRL->PTRN = ptrn;
 
 			sprintf(buf, "\r\nPTRN: 0x%08X | ", (int)TX_CTRL->PTRN);
 			Yellowstone_print(buf);
-
 			sprint_binary(buf, ptrn);
 			Yellowstone_print(buf);
 
@@ -1061,7 +999,6 @@ uint32_t CmdPattern(uint32_t argc, char** argv)
 	Yellowstone_print("\r\nUsage: ptrn [<16-bit hex value>]");
 	return 1;
 }
-
 
 uint32_t CmdMask(uint32_t argc, char** argv)
 {
@@ -1079,57 +1016,11 @@ uint32_t CmdMask(uint32_t argc, char** argv)
 		Yellowstone_print(buf);
 		sprint_binary(buf, mask);
 		Yellowstone_print(buf);
-		sprintf(buf, "\r\nSET:");
-		Yellowstone_print(buf);
-		while (m_ptr->name)
-		{
-			sprintf(buf, "\r\n 0x%08X | 0x%08X | %s",
-					(unsigned int)m_ptr->mask1,
-					(unsigned int)m_ptr->mask2,
-					m_ptr->name);
-			Yellowstone_print(buf);
-			if (m_ptr == mask_ptr)
-			{
-				Yellowstone_print(" *");
-			}
-			m_ptr++;
-		}
 		return 0;
 	}
 
 	if (argc == 2)
 	{
-		mask_set_t* m_ptr;
-		m_ptr = mask_vec;
-
-		while (m_ptr->name)
-		{
-			if (strcmp(*(argv+1),m_ptr->name) == 0)
-			{
-				mask_ptr = m_ptr;
-				sprintf(buf, "\r\nROLE: %s", (role == TX1 ? "tx1" : "tx2"));
-				Yellowstone_print(buf);
-				sprintf(buf, "\r\nSET:  %s", mask_ptr->name);
-				Yellowstone_print(buf);
-				switch (role)
-				{
-					case TX1:
-						TX_CTRL->MASK = mask_ptr->mask1 & MASK_DEFAULT;
-						break;
-					case TX2:
-						TX_CTRL->MASK = mask_ptr->mask2 & MASK_DEFAULT;
-						break;
-				}
-				mask = TX_CTRL->MASK;
-				sprintf(buf, "\r\nMASK: 0x%08X | ", (int)mask);
-				Yellowstone_print(buf);
-				sprint_binary(buf, mask);
-				Yellowstone_print(buf);
-				return 0;
-			}
-			m_ptr++;
-		}
-
 		mask = strtoul(*(argv+1), &eptr, 16);
 		if (eptr != *(argv+1))
 		{
@@ -1149,10 +1040,124 @@ uint32_t CmdMask(uint32_t argc, char** argv)
 	return 1;
 }
 
+uint32_t CmdPreset(uint32_t argc, char** argv)
+{
+	uint32_t ptrn;
+	uint32_t mask;
+	uint32_t idx;
+	char buf[128];
 
-uint32_t CmdTx(uint32_t argc, char** argv)
+	if (argc == 1)
+	{
+		mask_set_t* m_ptr;
+		m_ptr = mask_vec;
+
+		sprintf(buf, "\r\n   NAME      PTRN         MASK1        MASK2");
+		Yellowstone_print(buf);
+		while (m_ptr->name)
+		{
+			if (m_ptr == mask_ptr)
+			{
+				Yellowstone_print("\r\n *");
+			}
+			else
+			{
+				Yellowstone_print("\r\n  ");
+			}
+			sprintf(buf, " %s  0x%08X | 0x%08X | 0x%08X",
+					m_ptr->name,
+					(unsigned int)m_ptr->ptrn,
+					(unsigned int)m_ptr->mask1,
+					(unsigned int)m_ptr->mask2);
+			Yellowstone_print(buf);
+
+			m_ptr++;
+		}
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		mask_set_t* m_ptr;
+		m_ptr = mask_vec;
+
+		idx = atoi(*(argv+1));
+		if (idx || !strcmp(*(argv+1), "0"))
+		{
+			uint8_t i;
+			for (i = 0; i < idx; i++)
+			{
+				if (!m_ptr->name)
+				{
+					break;
+				}
+				m_ptr++;
+			}
+			if (m_ptr->name)
+			{
+				mask_ptr = m_ptr;
+				update_ptrn_and_mask();
+				return 0;
+			}
+			else
+			{
+				Yellowstone_print("\r\nIndex out of range");
+				return 1;
+			}
+		}
+
+		while (m_ptr->name)
+		{
+			if (strncmp(*(argv+1),m_ptr->name,1) == 0)
+			{
+				mask_ptr = m_ptr;
+				sprintf(buf, "\r\nROLE: %s", (g_role == TX1 ? "tx1" : "tx2"));
+				Yellowstone_print(buf);
+				sprintf(buf, "\r\nSET:  %s", mask_ptr->name);
+				Yellowstone_print(buf);
+				update_ptrn_and_mask();
+				ptrn = TX_CTRL->PTRN;
+				sprintf(buf, "\r\nPTRN: 0x%08X | ", (int)ptrn);
+				Yellowstone_print(buf);
+				sprint_binary(buf, ptrn);
+				Yellowstone_print(buf);
+				mask = TX_CTRL->MASK;
+				sprintf(buf, "\r\nMASK: 0x%08X | ", (int)mask);
+				Yellowstone_print(buf);
+				sprint_binary(buf, mask);
+				Yellowstone_print(buf);
+				return 0;
+			}
+			m_ptr++;
+		}
+	}
+
+	Yellowstone_print("\r\nUsage: sel [<index> | 'original' | 'sideburn' | 'asymhalf' | 'dualstag']");
+	return 1;
+}
+
+
+
+uint32_t CmdRole(uint32_t argc, char** argv)
 {
 	uint32_t role_;
+
+	if (argc == 1)
+	{
+		switch (g_role)
+		{
+			case TX1:
+				Yellowstone_print("\r\nTX1");
+				break;
+			case TX2:
+				Yellowstone_print("\r\nTX2");
+				break;
+			default:
+				Yellowstone_print("\r\n???");
+				break;
+		}
+		return 0;
+	}
 
 	if (argc == 2)
 	{
@@ -1160,82 +1165,56 @@ uint32_t CmdTx(uint32_t argc, char** argv)
 		switch (role_)
 		{
 			case 1:
-				// tx1 - continuous
-				role = TX1;
-				TX_CTRL->CTRL &= ~0x4u;
-				MSS_TIM1_stop();
-				MSS_TIM1_disable_irq();
-
-				TX_CTRL->MASK = mask_ptr->mask1 & MASK_DEFAULT;
-
-				set_mode(RADIO_TX_MODE);
-				TX_CTRL->CTRL |= 0x4u | 0x2u;
-
-				MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
-				Yellowstone_print("\r\nTx1 STARTED");
+				g_role = TX1;
+				update_ptrn_and_mask();
+				Yellowstone_print("\r\nRole set to TX1");
 				return 0;
 
 			case 2:
-				// tx2 - periodic
-				if (g_rate == 0)
-				{
-					Yellowstone_print("\r\nRate is not set");
-					return 1;
-				}
-				role = TX2;
-				TX_CTRL->CTRL &= ~0x4u;
-				MSS_TIM1_stop();
-				MSS_TIM1_disable_irq();
-
-				TX_CTRL->MASK = mask_ptr->mask2 & MASK_DEFAULT;
-
-				set_mode(RADIO_TX_MODE);
-				TX_CTRL->CTRL |= 0x4u | 0x2u;
-
-//				MSS_TIM1_load_background(g_rate * MILLI_SEC_DIV);
-//				MSS_TIM1_load_immediate(g_rate * MILLI_SEC_DIV); // reset timer
-//				MSS_TIM1_enable_irq();
-//				MSS_TIM1_start();
-
-				MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
-
-				Yellowstone_print("\r\nTx2 STARTED");
+				g_role = TX2;
+				update_ptrn_and_mask();
+				Yellowstone_print("\r\nRole set to TX2");
 				return 0;
+
+			default:
+				Yellowstone_print("\r\nInvalid role");
 		}
 	}
 
-	Yellowstone_print("\r\nUsage: tx [1 | 2]");
+	Yellowstone_print("\r\nUsage: role [1 | 2]");
 	return 1;
 }
 
-uint32_t CmdStart(uint32_t argc, char** argv)
+uint32_t CmdStartContinuous(uint32_t argc, char** argv)
 {
-	uint32_t meas_len;
+	uint32_t mlen_;
 	char buf[128];
 
 	if (argc == 1)
 	{
-		set_mode(RADIO_TX_MODE);
-		TX_CTRL->CTRL |= 0x4u | 0x2u;
+		TX_CTRL->CTRL &= ~TX_CONT_BIT;
 
 		MSS_TIM1_stop();
 		MSS_TIM1_disable_irq();
 
+		set_mode(RADIO_TX_MODE);
+		TX_CTRL->CTRL |= TX_CONT_BIT | TX_START_BIT;
+
 		MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
-		Yellowstone_print("\r\nTx STARTED");
+		Yellowstone_print("\r\nTx CONTINUOUS started");
 		return 0;
 	}
 
 	if (argc == 2)
 	{
-		meas_len = atoi(*(argv+1));
-		if (meas_len)
+		mlen_ = atoi(*(argv+1));
+		if (mlen_)
 		{
-			TX_CTRL->MLEN = meas_len;
+			TX_CTRL->MLEN = mlen_;
 		}
 
 		set_mode(RADIO_TX_MODE);
-		TX_CTRL->CTRL |= 0x2u;
+		TX_CTRL->CTRL |= TX_START_BIT;
 
 		sprintf(buf, "\r\nMLEN: %u (%u)", (unsigned)TX_CTRL->MLEN, (unsigned)TX_CTRL->MLEN+1);
 		Yellowstone_print(buf);
@@ -1243,7 +1222,7 @@ uint32_t CmdStart(uint32_t argc, char** argv)
 		return 0;
 	}
 
-	Yellowstone_print("\r\nUsage: start");
+	Yellowstone_print("\r\nUsage: s");
 	return 1;
 }
 
@@ -1253,12 +1232,19 @@ uint32_t CmdStartPeriodic(uint32_t argc, char** argv)
 	{
 		if (g_rate == 0)
 		{
-			Yellowstone_print("\r\nRate unset");
-			return 1;
+			Yellowstone_print("\r\nRate unset, using default 500 ms");
+			g_rate = 500;
 		}
 
+		TX_CTRL->CTRL &= ~TX_CONT_BIT; // FIXME: a soft reset should be useful
+
+		MSS_TIM1_stop();
+		MSS_TIM1_disable_irq();
+
 		set_mode(RADIO_TX_MODE);
-		TX_CTRL->CTRL |= 0x4u | 0x2u;
+		TX_CTRL->CTRL |= TX_CONT_BIT | TX_START_BIT;
+
+		g_sweep = 0;
 
 		MSS_TIM1_load_background(g_rate * MILLI_SEC_DIV);
 		MSS_TIM1_load_immediate(g_rate * MILLI_SEC_DIV); // reset timer
@@ -1267,76 +1253,52 @@ uint32_t CmdStartPeriodic(uint32_t argc, char** argv)
 
 		MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
 
-		Yellowstone_print("\r\nTx STARTED PERIODIC");
+		Yellowstone_print("\r\nTx PERIODIC started");
 		return 0;
 	}
 
-	Yellowstone_print("\r\nUsage: start");
+	Yellowstone_print("\r\nUsage: p");
 	return 1;
 }
 
-uint32_t CmdSweep(uint32_t argc, char** argv)
+uint32_t CmdStartSweep(uint32_t argc, char** argv)
 {
 	char buf[64];
 	uint32_t nfft = 32;
-	uint32_t role;
-	uint32_t mask;
 
 	if (argc == 1)
 	{
-		mask = (int)TX_CTRL->MASK;
-		sprintf(buf, "\r\nMASK: 0x%08X | ", (unsigned int)mask);
-		Yellowstone_print(buf);
-
-		sprint_binary(buf, mask);
-		Yellowstone_print(buf);
-
-		sprintf(buf, "\r\nRATE: ");
-		Yellowstone_print(buf);
-		if (g_rate)
+		switch (g_role)
 		{
-			sprintf(buf, "%u ms", (unsigned)g_rate);
-		}
-		else
-		{
-			sprintf(buf, "OFF");
-		}
-		Yellowstone_print(buf);
-		return 0;
-	}
-
-	if (argc == 2)
-	{
-		role = atoi(*(argv+1));
-		switch (role)
-		{
-			case 1:
+			case TX1:
 				// Short periods
-				g_rate = nfft*meas_len/20000ul;
-				TX_CTRL->CTRL &= ~0x4u;
+				TX_CTRL->CTRL &= ~TX_CONT_BIT;
 				MSS_TIM1_stop();
 				MSS_TIM1_disable_irq();
-				TX_CTRL->MASK = MASK_EVEN & MASK_DEFAULT; // FIXME
+				g_rate = nfft*g_sweep_len/20000ul;
+				Yellowstone_print("\r\nSet SHORT periods");
+				update_ptrn_and_mask();
 				break;
 
-			case 2:
+			case TX2:
 				// Long periods
-				TX_CTRL->CTRL &= ~0x4u;
+				TX_CTRL->CTRL &= ~TX_CONT_BIT;
 				MSS_TIM1_stop();
 				MSS_TIM1_disable_irq();
-
 				g_rate = (sizeof(fc_vec)/sizeof(uint32_t)+2)
-						*nfft*meas_len/20000ul;
-				TX_CTRL->MASK = MASK_ODD & MASK_DEFAULT; // FIXME
+						*nfft*g_sweep_len/20000ul;
+				update_ptrn_and_mask();
+				Yellowstone_print("\r\nSet LONG periods");
 				break;
 
 			default:
-				Yellowstone_print("\r\nInvalid argument");
+				Yellowstone_print("\r\nArgument out of range");
 				return 1;
 		}
 
+		g_sweep = 1;
 		set_mode(RADIO_TX_MODE);
-		TX_CTRL->CTRL |= 0x4u | 0x2u;
+		TX_CTRL->CTRL |= TX_CONT_BIT | TX_START_BIT;
 
 		MSS_TIM1_load_background(g_rate * MILLI_SEC_DIV);
 		MSS_TIM1_load_immediate(g_rate * MILLI_SEC_DIV); // reset timer
@@ -1345,42 +1307,44 @@ uint32_t CmdSweep(uint32_t argc, char** argv)
 
 		MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
 
-		Yellowstone_print("\r\nSweep STARTED");
+		sprintf(buf, "\r\n%s: ", (g_role == TX1 ? "TX1" : "TX2"));
+		Yellowstone_print(buf);
+		Yellowstone_print("SWEEP started");
 		return 0;
 	}
 
-	Yellowstone_print("\r\nUsage: sweep [1 | 2]");
+	Yellowstone_print("\r\nUsage: w");
 	return 1;
 }
 
-uint32_t CmdMeasLength(uint32_t argc, char** argv)
+uint32_t CmdSweepLength(uint32_t argc, char** argv)
 {
 	char buf[128];
-	uint32_t mlen;
+	uint32_t slen;
 
 	if (argc == 1)
 	{
-		sprintf(buf, "\r\nMLEN: %d", (int)meas_len);
+		sprintf(buf, "\r\nSLEN: %d", (int)g_sweep_len);
 		Yellowstone_print(buf);
 		return 0;
 	}
 
 	if (argc == 2)
 	{
-		mlen = atoi(*(argv+1));
-		if (mlen || !strcmp(*(argv+1), "0"))
+		slen = atoi(*(argv+1));
+		if (slen || !strcmp(*(argv+1), "0"))
 		{
-			if (mlen >= 1024 && mlen <= 32768)
+			if (slen >= 1024 && slen <= 32768)
 			{
-				meas_len = mlen;
+				g_sweep_len = slen;
 			}
-			sprintf(buf, "\r\nMLEN: %d", (int)meas_len);
+			sprintf(buf, "\r\nSLEN: %d", (int)g_sweep_len);
 			Yellowstone_print(buf);
 			return 0;
 		}
 	}
 
-	Yellowstone_print("\r\nUsage: mlen [1024..32768]");
+	Yellowstone_print("\r\nUsage: slen [1024..32768]");
 	return 1;
 }
 
@@ -1388,7 +1352,7 @@ uint32_t CmdStop(uint32_t argc, char** argv)
 {
 	if (argc == 1)
 	{
-		TX_CTRL->CTRL &= ~0x4u;
+		TX_CTRL->CTRL &= ~TX_CONT_BIT;
 		set_mode(RADIO_STANDBY_MODE);
 
 		MSS_TIM1_stop();
@@ -1432,7 +1396,7 @@ uint32_t CmdRate(uint32_t argc, char** argv)
 		{
 			g_rate = 0;
 
-			TX_CTRL->CTRL &= ~0x4u;
+			TX_CTRL->CTRL &= ~TX_CONT_BIT;
 			MSS_TIM1_stop();
 			MSS_TIM1_disable_irq();
 			MSS_GPIO_set_output(MSS_GPIO_LED1, 0);

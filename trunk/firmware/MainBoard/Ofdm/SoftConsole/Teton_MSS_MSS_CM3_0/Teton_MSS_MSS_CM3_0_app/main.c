@@ -20,17 +20,10 @@ int main()
 	Teton_init();
 
 	Max2830_set_tx_bandwidth(12000uL);
-	Max2830_set_tx_gain(0);
+	Max2830_set_tx_gain(10);
 	Max2830_set_frequency(2400000000uL);
 
 	set_mode(RADIO_STANDBY_MODE);
-
-	TX_CTRL->PTRN = PTRN_DEFAULT;
-	TX_CTRL->GAIN = 3;
-	meas_len = 2048;
-	mask_ptr = mask_vec;
-
-	role = TX1;
 
 	while (1)
 	{
@@ -50,7 +43,23 @@ int main()
 
 void Timer1_IRQHandler(void)
 {
-	Max2830_set_frequency(fc_vec[fc_ptr++]);
-	fc_ptr %= sizeof(fc_vec)/sizeof(uint32_t);
+	if (g_sweep)
+	{
+		Max2830_set_frequency(fc_vec[fc_ptr++]);
+		fc_ptr %= sizeof(fc_vec)/sizeof(uint32_t);
+	}
+	else
+	{
+		if (TX_CTRL->CTRL & TX_CONT_BIT)
+		{
+			TX_CTRL->CTRL &= ~TX_CONT_BIT;
+			MSS_GPIO_set_output(MSS_GPIO_LED1, 0);
+		}
+		else
+		{
+			TX_CTRL->CTRL |= TX_CONT_BIT | TX_START_BIT;
+			MSS_GPIO_set_output(MSS_GPIO_LED1, 1);
+		}
+	}
 	MSS_TIM1_clear_irq();
 }
