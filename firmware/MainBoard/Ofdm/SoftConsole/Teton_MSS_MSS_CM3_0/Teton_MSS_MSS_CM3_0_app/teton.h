@@ -45,6 +45,7 @@ uint32_t meas_len;
 typedef struct
 {
 	const char* name;
+    uint32_t ptrn;
 	uint32_t mask1;
 	uint32_t mask2;
 } mask_set_t;
