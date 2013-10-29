@@ -40,7 +40,6 @@ uint32_t CmdIQOffset(uint32_t argc, char** argv);
 // Power management
 uint32_t CmdSleep(uint32_t argc, char** argv);
 uint32_t CmdClock(uint32_t argc, char** argv);
-//uint32_t CmdFpga(uint32_t argc, char** argv);
 
 // MAX 2830 commands
 uint32_t CmdReg(uint32_t argc, char** argv);
@@ -61,14 +60,13 @@ uint32_t CmdPa(uint32_t argc, char** argv);
 uint32_t CmdGain(uint32_t argc, char** argv);
 uint32_t CmdPattern(uint32_t argc, char** argv);
 uint32_t CmdMask(uint32_t argc, char** argv);
-uint32_t CmdTx(uint32_t argc, char** argv);
-uint32_t CmdStart(uint32_t argc, char** argv);
+uint32_t CmdPreset(uint32_t argc, char** argv);
+uint32_t CmdRole(uint32_t argc, char** argv);
+uint32_t CmdStartContinuous(uint32_t argc, char** argv);
 uint32_t CmdStartPeriodic(uint32_t argc, char** argv);
-uint32_t CmdSweep(uint32_t argc, char** argv);
-uint32_t CmdMeasLength(uint32_t argc, char** argv);
+uint32_t CmdStartSweep(uint32_t argc, char** argv);
+uint32_t CmdSweepLength(uint32_t argc, char** argv);
 uint32_t CmdStop(uint32_t argc, char** argv);
 uint32_t CmdRate(uint32_t argc, char** argv);
-
-void send_demo_symbols();
 
 #endif /* CMD_DEF_H_ */

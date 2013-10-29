@@ -35,14 +35,16 @@
 
 #define PTRN_DEFAULT 0x007E32C8ul
 #define MASK_DEFAULT 0x1FFF7FF8ul
-#define MASK_EVEN    0xAAAAAAAAul
-#define MASK_ODD     0x55555555ul
+//#define MASK_EVEN    0xAAAAAAAAul
+//#define MASK_ODD     0x55555555ul
 
+extern uint32_t g_rate;
+extern uint32_t g_sweep;
+uint32_t g_sweep_len;
 extern uint32_t fc_vec[11];
 uint32_t fc_ptr;
-uint32_t meas_len;
 
-typedef struct
+typedef struct _mask_set_t
 {
 	const char* name;
     uint32_t ptrn;
@@ -53,13 +55,13 @@ typedef struct
 extern mask_set_t mask_vec[];
 mask_set_t* mask_ptr;
 
-typedef enum _role
+typedef enum _role_t
 {
 	TX1,
 	TX2,
 } role_t;
 
-role_t role;
+role_t g_role;
 
 typedef struct
 {
@@ -94,6 +96,12 @@ typedef struct
 
 #define TX_CTRL            ((TX_CTRL_Type *)       TX_APB_IF_0)   /*!< TX CTRL register struct */
 
+enum _CTRL_REG_BITS
+{
+	TX_START_BIT = 0x2ul,
+	TX_CONT_BIT	= 0x4ul,
+};
+
 typedef enum _afe_mode
 {
 	AFE_RX_MODE = 0,
@@ -113,6 +121,8 @@ static radio_operating_mode_t radio_mode;
 void Teton_init(void);
 void set_mode(radio_operating_mode_t mode);
 radio_operating_mode_t get_mode();
+
+void update_ptrn_and_mask(void);
 
 void process_spi_cmd_buf(const char* cmd_buf, uint8_t length);
 

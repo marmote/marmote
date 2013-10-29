@@ -1,6 +1,8 @@
 #include "teton.h"
 
 const char* fw_name = "OFDM transmitter";
+uint32_t g_rate = 500; // ms
+uint32_t g_sweep = 0;
 
 uint32_t fc_vec[] =
 {
@@ -25,6 +27,21 @@ mask_set_t mask_vec[] =
 		{"dualstag",	0x007D7080ul,   0xCCCCCCCCul,	0x33333333ul},
 		{NULL,			0,              0,				0},
 };
+
+
+void update_ptrn_and_mask(void)
+{
+	TX_CTRL->PTRN= mask_ptr->ptrn;
+	switch (g_role)
+	{
+		case TX1:
+			TX_CTRL->MASK = mask_ptr->mask1 & MASK_DEFAULT;
+			break;
+		case TX2:
+			TX_CTRL->MASK = mask_ptr->mask2 & MASK_DEFAULT;
+			break;
+	}
+}
 
 void Teton_init(void)
 {
@@ -52,6 +69,13 @@ void Teton_init(void)
 	// OFDM
 	TX_CTRL->PTRN = PTRN_DEFAULT;
 	TX_CTRL->MASK = MASK_DEFAULT;
+	TX_CTRL->GAIN = 3;
+	g_role = TX1;
+	g_sweep = 0;
+	g_sweep_len = 2048;
+	mask_ptr = mask_vec+3;
+	update_ptrn_and_mask();
+
 }
 
 // TX DONE
