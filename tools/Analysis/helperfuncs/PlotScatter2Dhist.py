@@ -13,11 +13,23 @@ def PlotScatter(x, y, xlabel, ylabel, xlim_min=-1, xlim_max=1):
     ax.set_xlim(xlim_min, xlim_max)
 
 
-def PlotScatter2Dhist(x, y, xlabel, ylabel, xbins=25, ybins=25, xlim_min=None, xlim_max=None, ylim_min=None, ylim_max=None, fitcurve=False, alpha=None, mu=None, sigma=None):
+def PlotScatter2Dhist(x, y, 
+		    xlabel, ylabel, 
+		    xbins=25, ybins=25, 
+		    xlim_min=None, xlim_max=None, ylim_min=None, ylim_max=None, 
+		    fitcurve=False, alpha=None, mu=None, sigma=None,
+		    clusters_list=None):
 	fig, axScatter = plt.subplots(1, 1, sharex=True, sharey=True )
 
 	# the scatter plot:
 	axScatter.scatter(x, y)
+	if clusters_list is not None:
+		colors = "grcmykw"
+		for ii in xrange(len(clusters_list)):
+			cluster_start = clusters_list[ii][0]
+			cluster_stop = clusters_list[ii][1]
+			c = colors[ii % len(colors)]
+			axScatter.scatter(x[cluster_start:cluster_stop], y[cluster_start:cluster_stop], c=c)
 	#axScatter.set_aspect(1.)
 
 	if xlim_min is None:
