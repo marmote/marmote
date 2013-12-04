@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{54027d41-2ea8-4814-b479-4bc17a7cd2d0}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>PlotTDHist.py</StartupFile>
+    <StartupFile>Optics_Clustering.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -24,25 +24,49 @@
   <ItemGroup>
     <Compile Include="BestBasis.py" />
     <Compile Include="CalculateCost_ShannonEntropy.py" />
-    <Compile Include="CalculateTDOA_AIC_method.py" />
-    <Compile Include="CalculateTDOA_threshold_method.py" />
+    <Compile Include="CalculateCost_Threshold.py" />
+    <Compile Include="CalculateLinearRegression.py" />
+    <Compile Include="CalculateTDOA.py" />
     <Compile Include="CalculateTheoreticalTDOA.py" />
+    <Compile Include="CalculateTheoreticalTDOASteelSetup.py" />
     <Compile Include="CalculateTotalCostofEachLevel.py" />
+    <Compile Include="Calculate_Fr_Bands.py" />
+    <Compile Include="Diff.py" />
+    <Compile Include="Diff2.py" />
     <Compile Include="FancyPlotWavelet_im.py" />
+    <Compile Include="Fitnes_AIC.py" />
+    <Compile Include="Fitnes_lnTaylor.py" />
+    <Compile Include="Fitnes_Power.py" />
+    <Compile Include="Fitnes_Reciprocal.py" />
+    <Compile Include="Fitnes_var.py" />
     <Compile Include="FullWPD.py" />
     <Compile Include="FunctionDisplayRecording_total.py" />
     <Compile Include="GMM_estimate_EM.py" />
+    <Compile Include="MultivariateNormalPDF.py" />
     <Compile Include="Onset_AIC.py" />
+    <Compile Include="Onset_Method1.py" />
+    <Compile Include="Onset_Reciprocal.py" />
+    <Compile Include="Onset_Reciprocal2.py" />
+    <Compile Include="Onset_Reciprocal_min.py" />
     <Compile Include="Onset_Threshold.py" />
+    <Compile Include="Onset_Times.py" />
+    <Compile Include="Onset_Variance.py" />
+    <Compile Include="Optics_Clustering.py" />
     <Compile Include="PickBases.py" />
     <Compile Include="PlotAEMeas.py" />
     <Compile Include="PlotDWT.py" />
+    <Compile Include="PlotHistory.py" />
+    <Compile Include="PlotOnsetTime.py" />
+    <Compile Include="PlotScatter2Dhist.py" />
     <Compile Include="PlotSpecgram.py" />
     <Compile Include="PlotTDHist.py" />
     <Compile Include="PlotTDOAvsDist.py" />
     <Compile Include="PlotTDOAvsPos.py" />
+    <Compile Include="Plot_Reach_Dist.py" />
+    <Compile Include="Proper_Packet_Table_Level_Size.py" />
     <Compile Include="ReadAEMeas.py" />
     <Compile Include="SignalGenerator.py" />
+    <Compile Include="Threshold.py" />
     <Compile Include="TrimToPowerof2.py" />
     <Compile Include="UsablePacketTableLevels.py" />
   </ItemGroup>
