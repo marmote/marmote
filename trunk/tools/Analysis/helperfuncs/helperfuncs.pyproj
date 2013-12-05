@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{54027d41-2ea8-4814-b479-4bc17a7cd2d0}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Optics_Clustering.py</StartupFile>
+    <StartupFile>PlotScatter2Dhist.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -41,6 +41,7 @@
     <Compile Include="Fitnes_var.py" />
     <Compile Include="FullWPD.py" />
     <Compile Include="FunctionDisplayRecording_total.py" />
+    <Compile Include="Get_Clusters_From_Reach_Dist.py" />
     <Compile Include="GMM_estimate_EM.py" />
     <Compile Include="MultivariateNormalPDF.py" />
     <Compile Include="Onset_AIC.py" />
