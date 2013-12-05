@@ -1,4 +1,5 @@
 import numpy as np
+import math
 
 class Optics_Clustering:
 
@@ -11,7 +12,8 @@ class Optics_Clustering:
 
         self.neighbors_list = [None] * self.N #Stored neighbors' idx and distance from center
 
-        self.processed = [None] * self.N #Stores the idxs of the reach_dist
+        self.processed = [False] * self.N 
+        self.data_idxs = [] 
         self.reach_dists = []
 
         # For ordered seeds and neighbors
@@ -36,9 +38,9 @@ class Optics_Clustering:
 
             self.neighbors_list[idx] = np.sort( neighbors, order='dist' )[1:] #To remove self distance
 
-            print "Calculating neighbors for ", idx, ", it has ", len( self.neighbors_list[idx] ), "neighbors"
+ #           print "Calculating neighbors for ", idx, ", it has ", len( self.neighbors_list[idx] ), "neighbors"
 
-        print "Retrieving neighbors for ", idx
+ #       print "Retrieving neighbors for ", idx
         return self.neighbors_list[idx]
 
 
@@ -60,12 +62,14 @@ class Optics_Clustering:
         neighbors = self.Get_Neighbors( idx_in ) # All neighbors within epsilon
         core_distance = self.Get_Core_Distance( idx_in )
 
+        assert ( core_distance is not None ) and ( not math.isnan(core_distance) )
+
         for neighbor in neighbors:
             idx = neighbor['idx']
             dist = neighbor['dist']
 
             # If point has already been processed don't bother 
-            if self.processed[idx] is not None:
+            if self.processed[idx]:
                 continue
 
             new_reach_dist = max( core_distance, dist )
@@ -81,32 +85,32 @@ class Optics_Clustering:
 
 
     #########################################################################
-    def Expand_Cluster_Order( self, idx_in ):
+    def Generate_Reach_Dist( self ):
 
-        ordered_seeds = np.array( [ (idx_in, None) ], self.dtype )
+        for ii in xrange( self.N ):
 
-        while len(ordered_seeds):
-            idx = ordered_seeds[0]['idx']
-            reach_dist = ordered_seeds[0]['dist']
-
-            ordered_seeds = ordered_seeds[1:]
-
-            self.processed[idx] = len(self.reach_dists)
-            self.reach_dists.append(reach_dist)
-
-            if not self.Is_Core_Object(idx):
+            if self.processed[ii]:
                 continue
 
-            ordered_seeds = self.Update_Ordered_Seeds( idx, ordered_seeds )
+            ordered_seeds = np.array( [ (ii, None) ], self.dtype )
 
+            while len(ordered_seeds):
+                idx = ordered_seeds[0]['idx']
+                reach_dist = None if math.isnan(ordered_seeds[0]['dist']) else ordered_seeds[0]['dist']
 
-    #########################################################################
-    def Generate_Reach_Dist( self ):
-        for ii in xrange( self.N ):
-            if self.processed[ii] is None:
-                self.Expand_Cluster_Order( ii )
+                ordered_seeds = ordered_seeds[1:]
 
-        return self.reach_dists
+#                self.processed[idx] = len(self.reach_dists)
+                self.processed[idx] = True
+                self.reach_dists.append(reach_dist)
+                self.data_idxs.append(idx)
+
+                if not self.Is_Core_Object(idx):
+                    continue
+
+                ordered_seeds = self.Update_Ordered_Seeds( idx, ordered_seeds )
+
+        return self.reach_dists, self.data_idxs
 
 
 #############################################################################
@@ -116,6 +120,6 @@ if __name__ == "__main__":
 
     OC = Optics_Clustering(data = np.array([x, y]), 
                         epsilon = 1.5, 
-                        min_pts = 3)
-    reach_dist = OC.Generate_Reach_Dist()
+                        min_pts = 4)
+    reach_dists, idxs = OC.Generate_Reach_Dist()
 
