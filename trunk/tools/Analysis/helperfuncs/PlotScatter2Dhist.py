@@ -69,7 +69,7 @@ def PlotScatter2Dhist(x, y,
         for g in xrange(alpha.size):
             for ix in xrange(xi.size):
                 for iy in xrange(yi.size):
-                    zi[iy, ix] = MNPDF.MultivariateNormalPDF(np.array([xi[ix], yi[iy]]), mu[g,:], sigma[:,:,g]) * alpha[g]
+                    zi[iy, ix] = MNPDF.MultivariateNormalPDF(np.array([xi[ix], yi[iy]]), mu[g,:], sigma[g,:,:]) * alpha[g]
 
             axScatter.contour(xi,yi,zi,linewidths=0.5)
         axScatter.hold('off')
@@ -118,20 +118,39 @@ def PlotScatter2Dhist(x, y,
 
 ################################################################################
 if __name__ == "__main__":
+    x = np.concatenate( (np.random.normal(-0.5, 0.1, 100), np.random.normal(0.5, 0.1, 100)) )
+    y = np.concatenate( (np.random.normal(-0.5, 0.1, 100), np.random.normal(0.0, 0.1, 100)) )
+
+    alpha = np.array([0.8, 0.1, 0.1])
+    mu = np.array([[0.1, -0.75], [0.2, 0.5], [0.8, 0.7]])
+    sigma = np.array( [[[0.2, 0.0],[0.0, 0.4]], [[0.005, 0.0],[0.0, 0.3]], [[0.005, 0.0],[0.0, 0.3]]] )
+
+    PlotScatter2Dhist(x, y, "sdgh", "dfgh", ylim_min=-1.5, ylim_max=1.5, fitcurve=True, alpha=alpha, mu=mu, sigma=sigma)
+
+
+######################
 #    x = np.concatenate( (np.random.normal(-0.5, 0.1, 100), np.random.normal(0.5, 0.1, 100)) )
 #    y = np.concatenate( (np.random.normal(-0.5, 0.1, 100), np.random.normal(0.0, 0.1, 100)) )
 #
-#    alpha = np.array([0.8, 0.1, 0.1])
-#    mu = np.array([[0.1, -0.75], [0.2, 0.5], [0.8, 0.7]])
-#    sigma = np.array( [[[0.2, 0.005, 0.005],[0.0, 0.0, 0.0]], [[0.0, 0.0, 0.0],[0.4, 0.3, 0.3]]] )
+#    from Estimate_Multivariate_Normal_Parameters import Estimate_Multivariate_Normal_Parameters
+#
+#    data = np.array([x, y])
+#    cluster_idxs = [range(0,100), range(100,200)]
+#    mu0, sigma0 = Estimate_Multivariate_Normal_Parameters( data[:,cluster_idxs[0]] )
+#    mu1, sigma1 = Estimate_Multivariate_Normal_Parameters( data[:,cluster_idxs[1]] )
+#
+#    alpha = np.array([1.0, 1.0])
+#    mu = np.array([mu0, mu1])
+#    sigma = np.array([sigma0, sigma1])
 #
 #    PlotScatter2Dhist(x, y, "sdgh", "dfgh", ylim_min=-1.5, ylim_max=1.5, fitcurve=True, alpha=alpha, mu=mu, sigma=sigma)
 
-######################
-    x = np.array([1,2,3,1,2,3,1,2,3])
-    y = np.array([1,1,1,2,2,2,3,3,3])
 
-    PlotScatter2Dhist( x, y, "sdgh", "dfgh", cluster_idxs=[[1, 2, 3, 4, 5, 6, 7, 8]] )
+######################
+#    x = np.array([1,2,3,1,2,3,1,2,3])
+#    y = np.array([1,1,1,2,2,2,3,3,3])
+#
+#    PlotScatter2Dhist( x, y, "sdgh", "dfgh", cluster_idxs=[[1, 2, 3, 4, 5, 6, 7, 8]] )
 ######################
 
     plt.show()

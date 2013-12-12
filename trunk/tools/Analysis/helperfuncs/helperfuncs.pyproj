@@ -33,6 +33,7 @@
     <Compile Include="Calculate_Fr_Bands.py" />
     <Compile Include="Diff.py" />
     <Compile Include="Diff2.py" />
+    <Compile Include="Estimate_Multivariate_Normal_Parameters.py" />
     <Compile Include="FancyPlotWavelet_im.py" />
     <Compile Include="Fitnes_AIC.py" />
     <Compile Include="Fitnes_lnTaylor.py" />
