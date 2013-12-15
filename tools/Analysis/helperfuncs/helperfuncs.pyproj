@@ -5,7 +5,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{54027d41-2ea8-4814-b479-4bc17a7cd2d0}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>PlotScatter2Dhist.py</StartupFile>
+    <StartupFile>
+    </StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,55 +23,66 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="BestBasis.py" />
-    <Compile Include="CalculateCost_ShannonEntropy.py" />
-    <Compile Include="CalculateCost_Threshold.py" />
-    <Compile Include="CalculateLinearRegression.py" />
-    <Compile Include="CalculateTDOA.py" />
-    <Compile Include="CalculateTheoreticalTDOA.py" />
-    <Compile Include="CalculateTheoreticalTDOASteelSetup.py" />
-    <Compile Include="CalculateTotalCostofEachLevel.py" />
-    <Compile Include="Calculate_Fr_Bands.py" />
-    <Compile Include="Diff.py" />
-    <Compile Include="Diff2.py" />
-    <Compile Include="Estimate_Multivariate_Normal_Parameters.py" />
-    <Compile Include="FancyPlotWavelet_im.py" />
-    <Compile Include="Fitnes_AIC.py" />
-    <Compile Include="Fitnes_lnTaylor.py" />
-    <Compile Include="Fitnes_Power.py" />
-    <Compile Include="Fitnes_Reciprocal.py" />
-    <Compile Include="Fitnes_var.py" />
-    <Compile Include="FullWPD.py" />
-    <Compile Include="FunctionDisplayRecording_total.py" />
-    <Compile Include="Get_Clusters_From_Reach_Dist.py" />
-    <Compile Include="GMM_estimate_EM.py" />
-    <Compile Include="MultivariateNormalPDF.py" />
-    <Compile Include="Onset_AIC.py" />
-    <Compile Include="Onset_Method1.py" />
-    <Compile Include="Onset_Reciprocal.py" />
-    <Compile Include="Onset_Reciprocal2.py" />
-    <Compile Include="Onset_Reciprocal_min.py" />
-    <Compile Include="Onset_Threshold.py" />
-    <Compile Include="Onset_Times.py" />
-    <Compile Include="Onset_Variance.py" />
-    <Compile Include="Optics_Clustering.py" />
-    <Compile Include="PickBases.py" />
-    <Compile Include="PlotAEMeas.py" />
-    <Compile Include="PlotDWT.py" />
-    <Compile Include="PlotHistory.py" />
-    <Compile Include="PlotOnsetTime.py" />
-    <Compile Include="PlotScatter2Dhist.py" />
-    <Compile Include="PlotSpecgram.py" />
-    <Compile Include="PlotTDHist.py" />
-    <Compile Include="PlotTDOAvsDist.py" />
-    <Compile Include="PlotTDOAvsPos.py" />
-    <Compile Include="Plot_Reach_Dist.py" />
-    <Compile Include="Proper_Packet_Table_Level_Size.py" />
-    <Compile Include="ReadAEMeas.py" />
-    <Compile Include="SignalGenerator.py" />
-    <Compile Include="Threshold.py" />
-    <Compile Include="TrimToPowerof2.py" />
-    <Compile Include="UsablePacketTableLevels.py" />
+    <Folder Include="Clustering\" />
+    <Folder Include="Wavelet\" />
+    <Folder Include="Statistics\" />
+    <Folder Include="Raw_Data\" />
+    <Folder Include="Onset_Time\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clustering\Get_Clusters_From_Reach_Dist.py" />
+    <Compile Include="Clustering\Optics_Clustering.py" />
+    <Compile Include="Clustering\Plot_Reach_Dist.py" />
+    <Compile Include="Clustering\__init__.py" />
+    <Compile Include="Onset_Time\CalculateTDOA.py" />
+    <Compile Include="Onset_Time\CalculateTheoreticalTDOA.py" />
+    <Compile Include="Onset_Time\CalculateTheoreticalTDOASteelSetup.py" />
+    <Compile Include="Onset_Time\Diff.py" />
+    <Compile Include="Onset_Time\Diff2.py" />
+    <Compile Include="Onset_Time\Fitnes_AIC.py" />
+    <Compile Include="Onset_Time\Fitnes_lnTaylor.py" />
+    <Compile Include="Onset_Time\Fitnes_Power.py" />
+    <Compile Include="Onset_Time\Fitnes_Reciprocal.py" />
+    <Compile Include="Onset_Time\Fitnes_var.py" />
+    <Compile Include="Onset_Time\Onset_AIC.py" />
+    <Compile Include="Onset_Time\Onset_Method1.py" />
+    <Compile Include="Onset_Time\Onset_Reciprocal.py" />
+    <Compile Include="Onset_Time\Onset_Reciprocal2.py" />
+    <Compile Include="Onset_Time\Onset_Reciprocal_min.py" />
+    <Compile Include="Onset_Time\Onset_Threshold.py" />
+    <Compile Include="Onset_Time\Onset_Times.py" />
+    <Compile Include="Onset_Time\Onset_Variance.py" />
+    <Compile Include="Onset_Time\PlotAEMeas.py" />
+    <Compile Include="Onset_Time\PlotHistory.py" />
+    <Compile Include="Onset_Time\PlotOnsetTime.py" />
+    <Compile Include="Onset_Time\PlotTDOAvsDist.py" />
+    <Compile Include="Onset_Time\PlotTDOAvsPos.py" />
+    <Compile Include="Onset_Time\Threshold.py" />
+    <Compile Include="Onset_Time\__init__.py" />
+    <Compile Include="Raw_Data\FunctionDisplayRecording_total.py" />
+    <Compile Include="Raw_Data\ReadAEMeas.py" />
+    <Compile Include="Raw_Data\__init__.py" />
+    <Compile Include="Statistics\CalculateLinearRegression.py" />
+    <Compile Include="Statistics\Estimate_Multivariate_Normal_Parameters.py" />
+    <Compile Include="Statistics\GMM_estimate_EM.py" />
+    <Compile Include="Statistics\MultivariateNormalPDF.py" />
+    <Compile Include="Statistics\Plot_Hist.py" />
+    <Compile Include="Statistics\Plot_Scatter_Hists.py" />
+    <Compile Include="Statistics\__init__.py" />
+    <Compile Include="Wavelet\BestBasis.py" />
+    <Compile Include="Wavelet\CalculateCost_ShannonEntropy.py" />
+    <Compile Include="Wavelet\CalculateCost_Threshold.py" />
+    <Compile Include="Wavelet\CalculateTotalCostofEachLevel.py" />
+    <Compile Include="Wavelet\Calculate_Fr_Bands.py" />
+    <Compile Include="Wavelet\FancyPlotWavelet_im.py" />
+    <Compile Include="Wavelet\FullWPD.py" />
+    <Compile Include="Wavelet\PickBases.py" />
+    <Compile Include="Wavelet\PlotDWT.py" />
+    <Compile Include="Wavelet\PlotSpecgram.py" />
+    <Compile Include="Wavelet\Proper_Packet_Table_Level_Size.py" />
+    <Compile Include="Wavelet\TrimToPowerof2.py" />
+    <Compile Include="Wavelet\UsablePacketTableLevels.py" />
+    <Compile Include="Wavelet\__init__.py" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
 </Project>

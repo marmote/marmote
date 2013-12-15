@@ -4,7 +4,8 @@ import MultivariateNormalPDF as MNPDF
 
 
 ##############################
-def PlotScatter(x, y, xlabel, ylabel, xlim_min=-1, xlim_max=1):
+def Plot_Scatter(x, y, title, xlabel, ylabel, xlim_min=-1, xlim_max=1):
+
     fig, ax = plt.subplots(1, 1, sharex=True, sharey=True ) 
 
     ax.scatter(x, y)
@@ -15,15 +16,14 @@ def PlotScatter(x, y, xlabel, ylabel, xlim_min=-1, xlim_max=1):
 
 
 ##############################
-def PlotScatter2Dhist(x, y, 
-            xlabel, ylabel, 
-            xbins=25, ybins=25, 
-            xlim_min=None, xlim_max=None, ylim_min=None, ylim_max=None, 
-            fitcurve=False, alpha=None, mu=None, sigma=None,
-            cluster_idxs=None, correct_aspect=None):
+def Plot_Scatter_Hists(x, y, 
+                    title, xlabel, ylabel, 
+                    xbins=25, ybins=25, 
+                    xlim_min=None, xlim_max=None, ylim_min=None, ylim_max=None, 
+                    fitcurve=False, alpha=None, mu=None, sigma=None,
+                    cluster_idxs=None, correct_aspect=None):
+
     fig, axScatter = plt.subplots(1, 1, sharex=True, sharey=True )
-
-
 
     # the scatter plot:
     if cluster_idxs is None:
@@ -110,8 +110,12 @@ def PlotScatter2Dhist(x, y,
     axScatter.set_ylim(ylim_min, ylim_max)
 
     axHistx.set_xlim( axScatter.get_xlim() )
-    axHisty.set_ylim( axScatter.get_ylim() )    
+    axHisty.set_ylim( axScatter.get_ylim() )
+    
+    axHistx.set_ylabel('Frequency')    
+    axHisty.set_xlabel('Frequency')    
 
+    axScatter.set_title(title)
     axScatter.set_xlabel(xlabel)
     axScatter.set_ylabel(ylabel)
 
@@ -125,7 +129,10 @@ if __name__ == "__main__":
     mu = np.array([[0.1, -0.75], [0.2, 0.5], [0.8, 0.7]])
     sigma = np.array( [[[0.2, 0.0],[0.0, 0.4]], [[0.005, 0.0],[0.0, 0.3]], [[0.005, 0.0],[0.0, 0.3]]] )
 
-    PlotScatter2Dhist(x, y, "sdgh", "dfgh", ylim_min=-1.5, ylim_max=1.5, fitcurve=True, alpha=alpha, mu=mu, sigma=sigma)
+    Plot_Scatter_Hists(x, y, 
+                       "", "sdgh", "dfgh", 
+                       ylim_min=-1.5, ylim_max=1.5, 
+                       fitcurve=True, alpha=alpha, mu=mu, sigma=sigma)
 
 
 ######################

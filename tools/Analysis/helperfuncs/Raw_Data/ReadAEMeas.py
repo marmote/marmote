@@ -3,7 +3,7 @@ import os
 import sys
 
 mpath = os.path.split(__file__)[0]
-addpath = os.path.abspath(os.path.join(mpath, '../../ControlRecord/ControlRecord'))
+addpath = os.path.abspath(os.path.join(mpath, '../../../ControlRecord/ControlRecord'))
 
 if addpath not in sys.path :
 	sys.path.append(addpath)
@@ -96,4 +96,4 @@ def ReadAEMeas(FileOrDir):
         fnames.append(filelist[ii])
 
         start_time.append(dg.frame_cnt[0]*T*float(frame_samples))
-    return y, y2, T, fnames, start_time
+    return y, y2, T, fnames, start_tim
