@@ -1,10 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.mlab as mlab
-import GMM_estimate_EM as EM
 
 
-def PlotTDHist(x, fitcurve=False, xlim_min=None, xlim_max=None, alpha=None, mu=None, sigma=None):
+def Plot_Hist(x, 
+              title, xlabel, ylabel, 
+              fitcurve=False, xlim_min=None, xlim_max=None, alpha=None, mu=None, sigma=None):
 
 	fig = plt.figure()
 	ax = fig.add_subplot(111)
@@ -28,18 +29,17 @@ def PlotTDHist(x, fitcurve=False, xlim_min=None, xlim_max=None, alpha=None, mu=N
 			l = ax.plot(bincenters, y, 'r--', linewidth=1)
 		ax.hold('off')
 
-	ax.set_xlabel('Time differences [msec]')
-	ax.set_ylabel('Probability')
-	title = r'$\mathrm{Histogram\ of\ TD}$'
 	if fitcurve:
 		for k in xrange(alpha.size):
 			title += '\n' + r'$\alpha_%d=%.4f$,'%(k+1, alpha[k]) + '\t' + r'$\mu_%d=%.4f$,'%(k+1, mu[k]) + '\t' + r'$\sigma_%d=%.4f$'%(k+1, sigma[k])
 #	title += r'$'
 	ax.set_title(title)
+	ax.set_xlabel(xlabel)
+	ax.set_ylabel(ylabel)
 
 	ax.set_xlim([xlim_min, xlim_max])
 
 
 ################################################################################
 if __name__ == "__main__":
-	PlotTDHist(np.array([1, 2, 3, 4, 50, 55, 56, 58]), fitcurve=False, x_lim_min=None, x_lim_max=None)
+	Plot_Hist(np.array([1, 2, 3, 4, 50, 55, 56, 58]), fitcurve=False, x_lim_min=None, x_lim_max=None)
