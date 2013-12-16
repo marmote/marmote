@@ -34,6 +34,7 @@
     <Compile Include="Clustering\Optics_Clustering.py" />
     <Compile Include="Clustering\Plot_Reach_Dist.py" />
     <Compile Include="Clustering\__init__.py" />
+    <Compile Include="Onset_Times.py" />
     <Compile Include="Onset_Time\CalculateTDOA.py" />
     <Compile Include="Onset_Time\CalculateTheoreticalTDOA.py" />
     <Compile Include="Onset_Time\CalculateTheoreticalTDOASteelSetup.py" />
@@ -50,7 +51,6 @@
     <Compile Include="Onset_Time\Onset_Reciprocal2.py" />
     <Compile Include="Onset_Time\Onset_Reciprocal_min.py" />
     <Compile Include="Onset_Time\Onset_Threshold.py" />
-    <Compile Include="Onset_Time\Onset_Times.py" />
     <Compile Include="Onset_Time\Onset_Variance.py" />
     <Compile Include="Onset_Time\PlotAEMeas.py" />
     <Compile Include="Onset_Time\PlotHistory.py" />
@@ -61,7 +61,10 @@
     <Compile Include="Onset_Time\__init__.py" />
     <Compile Include="Raw_Data\FunctionDisplayRecording_total.py" />
     <Compile Include="Raw_Data\ReadAEMeas.py" />
+    <Compile Include="Raw_Data\removeDC.py" />
+    <Compile Include="Raw_Data\trimlength.py" />
     <Compile Include="Raw_Data\__init__.py" />
+    <Compile Include="SignalGenerator.py" />
     <Compile Include="Statistics\CalculateLinearRegression.py" />
     <Compile Include="Statistics\Estimate_Multivariate_Normal_Parameters.py" />
     <Compile Include="Statistics\GMM_estimate_EM.py" />
