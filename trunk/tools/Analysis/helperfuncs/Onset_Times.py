@@ -1,5 +1,5 @@
-from Onset_Reciprocal_min			import Onset_Reciprocal
-from Proper_Packet_Table_Level_Size	import Proper_Packet_Table_Level_Size 
+from Onset_Time.Onset_Reciprocal_min        import Onset_Reciprocal
+from Wavelet.Proper_Packet_Table_Level_Size import Proper_Packet_Table_Level_Size 
 
 
 def Onset_Times(packet_table_best_basis, levels, N, T) :

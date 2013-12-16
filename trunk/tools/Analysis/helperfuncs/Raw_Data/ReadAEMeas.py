@@ -96,4 +96,4 @@ def ReadAEMeas(FileOrDir):
         fnames.append(filelist[ii])
 
         start_time.append(dg.frame_cnt[0]*T*float(frame_samples))
-    return y, y2, T, fnames, start_tim
+    return y, y2, T, fnames, start_time
