@@ -115,7 +115,8 @@ def Plot_Scatter_Hists(x, y,
     axHistx.set_ylabel('Frequency')    
     axHisty.set_xlabel('Frequency')    
 
-    axScatter.set_title(title)
+#    axScatter.set_title(title)
+    axHistx.set_title(title)
     axScatter.set_xlabel(xlabel)
     axScatter.set_ylabel(ylabel)
 
