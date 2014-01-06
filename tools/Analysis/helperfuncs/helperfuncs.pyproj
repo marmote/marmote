@@ -31,7 +31,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clustering\Get_Clusters_From_Reach_Dist.py" />
+    <Compile Include="Clustering\Get_Growing_Clusters_From_Reach_Dist.py" />
     <Compile Include="Clustering\Optics_Clustering.py" />
+    <Compile Include="Clustering\Plot_Clusters_Param.py" />
     <Compile Include="Clustering\Plot_Reach_Dist.py" />
     <Compile Include="Clustering\__init__.py" />
     <Compile Include="Onset_Times.py" />
@@ -67,8 +69,11 @@
     <Compile Include="SignalGenerator.py" />
     <Compile Include="Statistics\CalculateLinearRegression.py" />
     <Compile Include="Statistics\Estimate_Multivariate_Normal_Parameters.py" />
+    <Compile Include="Statistics\Gen_MMCMC.py" />
     <Compile Include="Statistics\GMM_estimate_EM.py" />
     <Compile Include="Statistics\MultivariateNormalPDF.py" />
+    <Compile Include="Statistics\Plot_2D_Hist_In_3D.py" />
+    <Compile Include="Statistics\Plot_2D_PDF_In_3D.py" />
     <Compile Include="Statistics\Plot_Hist.py" />
     <Compile Include="Statistics\Plot_Scatter_Hists.py" />
     <Compile Include="Statistics\__init__.py" />
@@ -86,6 +91,7 @@
     <Compile Include="Wavelet\TrimToPowerof2.py" />
     <Compile Include="Wavelet\UsablePacketTableLevels.py" />
     <Compile Include="Wavelet\__init__.py" />
+    <Compile Include="__init__.py" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
 </Project>
