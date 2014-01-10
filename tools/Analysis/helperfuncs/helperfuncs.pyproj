@@ -5,8 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{54027d41-2ea8-4814-b479-4bc17a7cd2d0}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>
-    </StartupFile>
+    <StartupFile>test.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -73,10 +72,11 @@
     <Compile Include="Statistics\GMM_estimate_EM.py" />
     <Compile Include="Statistics\MultivariateNormalPDF.py" />
     <Compile Include="Statistics\Plot_2D_Hist_In_3D.py" />
-    <Compile Include="Statistics\Plot_2D_PDF_In_3D.py" />
+    <Compile Include="Statistics\Plot_Surface_With_Colorbar.py" />
     <Compile Include="Statistics\Plot_Hist.py" />
     <Compile Include="Statistics\Plot_Scatter_Hists.py" />
     <Compile Include="Statistics\__init__.py" />
+    <Compile Include="test.py" />
     <Compile Include="Wavelet\BestBasis.py" />
     <Compile Include="Wavelet\CalculateCost_ShannonEntropy.py" />
     <Compile Include="Wavelet\CalculateCost_Threshold.py" />
