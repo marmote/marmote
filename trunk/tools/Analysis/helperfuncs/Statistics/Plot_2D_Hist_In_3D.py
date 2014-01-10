@@ -1,4 +1,4 @@
-from Plot_2D_PDF_In_3D import Plot_2D_PDF_In_3D
+from Plot_Surface_With_Colorbar import Plot_Surface_With_Colorbar
 import numpy as np
 
 def Plot_2D_Hist_In_3D(x, y, xedges_in, yedges_in, title=None, xlabel=None, ylabel=None, zlabel=None):
@@ -9,6 +9,6 @@ def Plot_2D_Hist_In_3D(x, y, xedges_in, yedges_in, title=None, xlabel=None, ylab
 
 #    print X
 #    print Y
-	
-    Plot_2D_PDF_In_3D(X, Y, H,
+
+    Plot_Surface_With_Colorbar(X, Y, H,
 			title=title, xlabel=xlabel, ylabel=ylabel, zlabel=zlabel)
