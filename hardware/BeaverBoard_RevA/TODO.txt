@@ -1,0 +1,12 @@
+TODO for BeaverBoard rev B
+==========================
+
+	* AGND, GND, 6V, VUSB to measurement pins for easier probing
+	* Connect LDAC to FPGA
+	* Label RX/TX connectors
+	* Adjust screw positions
+	* Component labels not next to their components should be more obviously placed (in a box?) on silk screen
+	* USRP daughter board EEPROM I2C address on silk screen 
+	* On schematic group or mark signals at connector, e.g. the 4 ADC and 3 DAC lines
+	* On schematic label USRP DB RX/TX connector
+	* Labels misaligned when printing to PDF
