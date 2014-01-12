@@ -3,25 +3,27 @@ from Raw_Data.ReadAEMeas import ReadAEMeas
 from Raw_Data.removeDC import removeDC
 from Onset_Time.CalculateTDOA import CalculateTDOA
 from Onset_Time.Onset_Reciprocal import Onset_Reciprocal
+from Onset_Time.Onset_AIC import Onset_AIC
 from Clustering.Optics_Clustering import Optics_Clustering
+from Clustering.Select_Best_Clusters import Select_Best_Clusters
 
 
 #############################################################################
 if __name__ == "__main__":
 
-    dir = '../../../../Measurements/BreakTest_AluminiumBeam/results.enhanced/1-0.5'
-    y_1, y2_1, T_1, fnames_1, start_time = ReadAEMeas(dir)
+    dir = '../../../../Measurements/BreakTest_AluminiumBeam/results.enhanced/2-0.75'
+    y_2, y2_2, T_2, fnames_2, start_time = ReadAEMeas(dir)
 
-    Fs = 1/T_1
+    Fs = 1/T_2
     #print Fs
 
 
-    y_1 = removeDC(y_1)
-    y2_1 = removeDC(y2_1)
+    y_2 = removeDC(y_2)
+    y2_2 = removeDC(y2_2)
 
 
     
-    AE_start_1, AE_start2_1, TD_meas, qty1, qty2 = CalculateTDOA(y_1, y2_1, T_1, Onset_Reciprocal)
+    AE_start_2, AE_start2_2, TD_meas, qty1, qty2 = CalculateTDOA(y_2, y2_2, T_2, Onset_AIC)
     qty_min = np.minimum(qty1, qty2)
     qty_max = np.maximum(qty1, qty2)
 
@@ -37,10 +39,16 @@ if __name__ == "__main__":
                             epsilon = 1, 
                             min_pts = 3)
 
-    ranges, idxses = OC.Get_Hierarchical_Clusters_Steepness( xi = 0.01, 
-                                                             steep_tolerance_pts=3, 
-                                                             min_cluster_pts=4 )
+    rangeses, idxseses = OC.Get_Hierarchical_Clusters_Steepness( xi = 0.05, 
+                                                             steep_tolerance_pts=0, 
+                                                             min_cluster_pts=3 )
 
-    print ranges
-    print idxses
+    var_ms = 0.005974252984
 
+    Check_Func = lambda x, th1, th2 : np.mean(x[1]) > th1 and np.var(x[0]) < th2
+    Check_Func2 = lambda x : Check_Func(x, -10.5, var_ms)
+
+    out_ranges, out_idxses = Select_Best_Clusters(rangeses, idxseses, data, Check_Func2)
+
+    print out_ranges
+    print out_idxses

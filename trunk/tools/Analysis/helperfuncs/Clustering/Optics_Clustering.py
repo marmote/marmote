@@ -283,44 +283,41 @@ class Optics_Clustering:
                 #print "Down region start idx: %d"%(D[0])
                 #print "Down region stop idx:  %d"%(D[1])
 
-#                potential_cluster = [ v if v is not None else float("inf") for v in reach_dists[ReachStart+1:ReachEnd] ]
-                potential_cluster = [ v if v is not None else float("inf") for v in reach_dists[ D[1] : U[0]+1 ] ]
-
-                #3b
-                if np.max( potential_cluster ) >  min( ReachStart_val, ReachEnd_val ) * (1 - xi):
-                    continue
-
                 #4
-                if (ReachStart_val == ReachEnd_val) or ((ReachStart_val * (1 - xi) < ReachEnd_val) and (ReachStart_val > ReachEnd_val * (1 - xi))):
-                    SoC = D[0]
-                    EoC = U[1]
-#                    print "1"
-#                    print SoC
-#                    print EoC
+#                if (ReachStart_val == ReachEnd_val) or ((ReachStart_val * (1 - xi) < ReachEnd_val) and (ReachStart_val > ReachEnd_val * (1 - xi))):
+#                    SoC = D[0]
+#                    EoC = U[1]
+#
+#                elif ReachStart_val * (1 - xi) >= ReachEnd_val:
+#                    SoC = D[0] + np.where( np.array( Down_region ) > ReachEnd_val )[0][-1]
+#                    EoC = U[1]
+#
+#                elif ReachStart_val <= ReachEnd_val * (1 - xi):
+#                    SoC = D[0]
+#                    EoC = U[0] + np.where( np.array( Up_region_plus ) > ReachStart_val )[0][0]
 
-                elif ReachStart_val * (1 - xi) >= ReachEnd_val:
-                    SoC = D[0] + np.where( np.array( Down_region ) > ReachEnd_val )[0][-1]
-                    EoC = U[1]
- #                   print "2"
- #                   print D[0]
- #                   print D[1]
- #                   print Down_region
- #                   print np.array( Down_region )
- #                   print np.where( np.array( Down_region ) > ReachEnd_val )
- #                   print np.where( np.array( Down_region ) > ReachEnd_val )[-1]
- #                   print SoC
- #                   print EoC
 
-                elif ReachStart_val <= ReachEnd_val * (1 - xi):
+                if ReachStart_val * (1 - xi) <= ReachEnd_val:
                     SoC = D[0]
-                    EoC = U[0] + np.where( np.array( Up_region_plus ) > ReachStart_val )[0][0]
-  #                  print "3"
-  #                  print SoC
-  #                  print EoC
-    
+                    EoC = U[0] + np.where( np.array( Up_region_plus ) >= ReachStart_val * (1 - xi) )[0][0]
+
+                else:
+                    SoC = D[0] + np.where( np.array( Down_region ) * (1 - xi) > reach_dists[ U[1]-1 ] )[0][-1]
+                    EoC = U[1]
+
                 #3a
                 if EoC - SoC < min_cluster_pts:
                     continue
+
+
+                potential_cluster_reach_dists = [ v if v is not None else float("inf") for v in reach_dists[ SoC : EoC ] ]
+
+                #3b
+                SoC_val = potential_cluster_reach_dists[0]
+                after_EoC_val = reach_dists[EoC] if EoC < self.N else float("inf")
+                if np.max( potential_cluster_reach_dists[1:] ) >=  min( SoC_val * (1 - xi), after_EoC_val ):
+                    continue
+
 
                 #Yaaaaay, found a cluster
                 range = (SoC, EoC)
