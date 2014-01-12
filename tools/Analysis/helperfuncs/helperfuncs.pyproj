@@ -34,6 +34,7 @@
     <Compile Include="Clustering\Optics_Clustering.py" />
     <Compile Include="Clustering\Plot_Clusters_Param.py" />
     <Compile Include="Clustering\Plot_Reach_Dist.py" />
+    <Compile Include="Clustering\Select_Best_Clusters.py" />
     <Compile Include="Clustering\__init__.py" />
     <Compile Include="Onset_Times.py" />
     <Compile Include="Onset_Time\CalculateTDOA.py" />

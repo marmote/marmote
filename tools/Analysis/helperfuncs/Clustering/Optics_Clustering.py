@@ -245,6 +245,9 @@ class Optics_Clustering:
             a = r0 if r0 is not None else float("inf")
             b = r1 if r1 is not None else float("inf")
 
+            if a == b:
+                return 0
+
             if a <= b * (1 - xi):
                 return 2
 
@@ -257,7 +260,6 @@ class Optics_Clustering:
             if a > b:
                 return -1
 
-            return 0
 
 
         #############################
@@ -273,7 +275,7 @@ class Optics_Clustering:
             #print "Up region start idx:   %d"%(U[0])
             #print "Up region stop idx:    %d"%(U[1])
 
-            for D in steep_downs:
+            for D in reversed(steep_downs):
                 ReachStart  = D[0]
                 Down_region = [ v if v is not None else float("inf") for v in reach_dists[ D[0]:D[1] ] ]
                 ReachStart_val = reach_dists[ ReachStart ] if reach_dists[ ReachStart ] is not None else float("inf")
@@ -281,7 +283,8 @@ class Optics_Clustering:
                 #print "Down region start idx: %d"%(D[0])
                 #print "Down region stop idx:  %d"%(D[1])
 
-                potential_cluster = [ v if v is not None else float("inf") for v in reach_dists[ReachStart+1:ReachEnd] ]
+#                potential_cluster = [ v if v is not None else float("inf") for v in reach_dists[ReachStart+1:ReachEnd] ]
+                potential_cluster = [ v if v is not None else float("inf") for v in reach_dists[ D[1] : U[0]+1 ] ]
 
                 #3b
                 if np.max( potential_cluster ) >  min( ReachStart_val, ReachEnd_val ) * (1 - xi):
@@ -310,7 +313,7 @@ class Optics_Clustering:
 
                 elif ReachStart_val <= ReachEnd_val * (1 - xi):
                     SoC = D[0]
-                    EoC = U[0] + np.where( np.array( Up_region_plus ) > ReachStart_val )[0][0] + 1
+                    EoC = U[0] + np.where( np.array( Up_region_plus ) > ReachStart_val )[0][0]
   #                  print "3"
   #                  print SoC
   #                  print EoC
@@ -334,7 +337,12 @@ class Optics_Clustering:
 
         steep_downs     = []
 
-        for ii in xrange(0, self.N):
+#        for ii in xrange(self.N):
+        ii = 0
+        while (ii < self.N) or (not normal_state):
+
+#            if ii == 22:
+#                print "Yaay"
 
             trend = Get_Trend(self.reach_dists[ii] if ii < self.N else None, 
                               self.reach_dists[ii+1] if ii+1 < self.N else None,
@@ -381,24 +389,25 @@ class Optics_Clustering:
                     tolerance_point_cnt = 0
                     direction           = np.sign(trend)
 
-                elif tolerance_point_cnt + 1 > steep_tolerance_pts:
-                    normal_state        = True
-
-                    stop                = ii - tolerance_point_cnt + 1
-                    if direction < 0:
-                        steep_downs.append( (start, stop) )
-                    else:
-                        U = (start, stop)
-                        ranges, idxses = Look_For_Clusters(U, self.reach_dists, self.data_idxs, steep_downs, min_cluster_pts, ranges, idxses)
-
                 else:
                     tolerance_point_cnt += 1
 
-            if ii == self.N - 1:
-                stop = ii + 1
+                    if tolerance_point_cnt >= steep_tolerance_pts:
+                        normal_state        = True
 
-                U = (start, stop)
-                ranges, idxses = Look_For_Clusters(U, self.reach_dists, self.data_idxs, steep_downs, min_cluster_pts, ranges, idxses)
+                        stop                = ii - tolerance_point_cnt + 1
+                        if direction < 0:
+                            steep_downs.append( (start, stop) )
+                        else:
+                            U = (start, stop)
+                            ranges, idxses = Look_For_Clusters(U, self.reach_dists, self.data_idxs, steep_downs, min_cluster_pts, ranges, idxses)
+
+            ii += 1
+#            if ii == self.N - 1:
+#                stop = ii + 1
+#
+#                U = (start, stop)
+#                ranges, idxses = Look_For_Clusters(U, self.reach_dists, self.data_idxs, steep_downs, min_cluster_pts, ranges, idxses)
 
         return ranges, idxses
 
