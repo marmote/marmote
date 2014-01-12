@@ -41,4 +41,6 @@ if __name__ == "__main__":
                                                              steep_tolerance_pts=3, 
                                                              min_cluster_pts=4 )
 
+    print ranges
+    print idxses
 
