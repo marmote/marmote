@@ -1,4 +1,3 @@
-
 def Select_Best_Clusters(rangeses, idxseses, data, Is_Cluster_Good):
     out_ranges = []
     out_idxses = []

@@ -29,6 +29,7 @@
     <Folder Include="Onset_Time\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AE_Clustering.py" />
     <Compile Include="Clustering\Get_Clusters_From_Reach_Dist.py" />
     <Compile Include="Clustering\Get_Growing_Clusters_From_Reach_Dist.py" />
     <Compile Include="Clustering\Optics_Clustering.py" />
