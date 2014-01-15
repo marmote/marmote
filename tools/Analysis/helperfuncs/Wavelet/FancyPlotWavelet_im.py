@@ -50,7 +50,7 @@ def func(Packets, Levels, N) :
 	return res
 
 
-def FancyPlotWavelet(Packets, Levels, N, Fs, title=None, perform_log = False, bands = None, times = None) :	
+def FancyPlotWavelet(Packets, Levels, N, Fs, title=None, perform_log = False, bands = None, times = None, cmap=cm.jet) :	
 	assert (bands is None) == (times is None), "either specify both bands and times or neither"	
 	if bands is not None:
 		assert len(bands) == len(times), "band and times variable sizes have to be equal"
@@ -65,18 +65,21 @@ def FancyPlotWavelet(Packets, Levels, N, Fs, title=None, perform_log = False, ba
 
 	fig, ax = plt.subplots(1, 1)
 
+
 	if bands is not None:
 		for idx in xrange( len(bands) ):
-			ax.plot( [times[idx], times[idx]], [bands[idx][0], bands[idx][1]], 'w', linewidth=4 )
+			ax.plot( [times[idx]*1e3, times[idx]*1e3], [bands[idx][0]/1e3, bands[idx][1]/1e3], 'w', linewidth=4 )
+
 
 #    im = ax.imshow(Z, origin='lower', cmap=cm.gist_heat, interpolation='nearest', extent=[0., (N+1)/Fs, 0., Fs/2], aspect='auto')
 #    im = ax.imshow(Z, origin='lower', cmap=cm.jet, interpolation='nearest', extent=[0., (N+1)/Fs, 0., Fs/2], aspect='auto')
-	im = ax.imshow(Z, origin='lower', cmap=cm.jet, interpolation='none', extent=[0., (N+1)/Fs, 0., Fs/2], aspect='auto')
+	im = ax.imshow(Z, origin='lower', cmap=cmap, interpolation='none', extent=[0., (N+1)/(Fs/1e3), 0., (Fs/1e3)/2], aspect='auto')
 	fig.colorbar(im)
+
 	if title is not None :
 		ax.set_title(title)
-	ax.set_xlabel('time [sec]')
-	ax.set_ylabel('frequency [Hz]')
+	ax.set_xlabel('time [ms]')
+	ax.set_ylabel('frequency [kHz]')
 
 
 

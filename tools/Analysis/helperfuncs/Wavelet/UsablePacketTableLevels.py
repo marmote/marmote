@@ -3,6 +3,7 @@ import numpy as np
 
 def UsablePacketTableLevels(min_div, PacketTable, N) :
     start_level = 0
+
     while start_level < xrange(len(PacketTable)) :
         if len(PacketTable[start_level]) >= min_div :
             break; 

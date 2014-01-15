@@ -17,6 +17,7 @@ def BestBasis_rec(cost, level, stop_level, item) :
 	return val, ret_levels, ret_items
 
 
+########################################################################################
 def BestBasis(cost, start_level=None, stop_level=None) :
 #Tries to minimize overall "val" of the WPD table
 	if start_level is None :
@@ -40,6 +41,7 @@ def BestBasis(cost, start_level=None, stop_level=None) :
 	return ret_vals, ret_levels, ret_items
 
 
+########################################################################################
 def Best_Basis_For_Multiple_Cost_Trees_Rec(costs, level, stop_level, item) :
 	vals = []
 	for cost in costs:
@@ -63,6 +65,7 @@ def Best_Basis_For_Multiple_Cost_Trees_Rec(costs, level, stop_level, item) :
 	return vals, ret_levels, ret_items
 
 
+########################################################################################
 def Best_Basis_For_Multiple_Cost_Trees(costs, start_level=None, stop_level=None) :
 #TODO: Check that every item in list has the same length
 
