@@ -76,6 +76,8 @@ void Timer1_IRQHandler(void)
 	for (i = 0; i < pkt_len-5; i++)
 	{
 		pkt.payload[i] = lfsr_rand();
+//		pkt.payload[i] = 0x00;
+//		pkt.payload[i] = i & 0xFF;
 	}
 	set_packet_crc(&pkt, pkt_len);
 	send_packet(&pkt, pkt_len-5);

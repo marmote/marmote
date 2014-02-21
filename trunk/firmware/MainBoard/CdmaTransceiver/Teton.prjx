@@ -1,5 +1,5 @@
-KEY LIBERO "10.1"
-KEY CAPTURE "10.1.3.1"
+KEY LIBERO "11.1"
+KEY CAPTURE "11.1.1.101"
 KEY DEFAULT_IMPORT_LOC "D:\work\software\MainBoard\BoardTest\hdl"
 KEY DEFAULT_OPEN_LOC ""
 KEY ProjectID "72c31f41-0f58-4017-8f58-90170f589017"
@@ -9,8 +9,12 @@ KEY VendorTechnology_Die "IP6X5M2"
 KEY VendorTechnology_Package "fg256"
 KEY VendorTechnology_Speed "-1"
 KEY VendorTechnology_DieVoltage "1.5"
+KEY VendorTechnology_DSW_VCCA_VOLTAGE_RAMP_RATE ""
 KEY VendorTechnology_IO_DEFT_STD "LVTTL"
 KEY VendorTechnology_OPCONR "COM"
+KEY VendorTechnology_PLL_SUPPLY ""
+KEY VendorTechnology_RESTRICTPROBEPINS "1"
+KEY VendorTechnology_SYSTEM_CONTROLLER_SUSPEND_MODE ""
 KEY VendorTechnology_TEMPR "COM"
 KEY VendorTechnology_VCCI_1.5_VOLTR "COM"
 KEY VendorTechnology_VCCI_1.8_VOLTR "COM"
@@ -362,12 +366,12 @@ TIME="1371050566"
 SIZE="201"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton.adb,adb"
-STATE="utd"
+STATE="ood"
 TIME="1372111701"
 SIZE="7278592"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton.fdb,fdb"
-STATE="utd"
+STATE="ood"
 TIME="1372111700"
 SIZE="249633"
 ENDFILE
@@ -387,7 +391,7 @@ TIME="1372279298"
 SIZE="260608"
 ENDFILE
 VALUE "<project>\designer\impl1\Teton_fp\Teton.pdb,pdb"
-STATE="utd"
+STATE="ood"
 TIME="1372280676"
 SIZE="260608"
 ENDFILE
@@ -498,7 +502,7 @@ SIZE="997"
 ENDFILE
 VALUE "<project>\simulation\bfmtovec_compile.log,log"
 STATE="utd"
-TIME="1372111333"
+TIME="1379356423"
 SIZE="459"
 ENDFILE
 VALUE "<project>\simulation\bfmtovec_compile.tcl,sim"
@@ -552,8 +556,8 @@ SIZE="8101"
 ENDFILE
 VALUE "<project>\simulation\run.do,do"
 STATE="utd"
-TIME="1372111328"
-SIZE="2944"
+TIME="1379356418"
+SIZE="2858"
 ENDFILE
 VALUE "<project>\simulation\subsystem.bfm,sim"
 STATE="utd"
@@ -569,8 +573,8 @@ PARENT="<project>\component\work\Teton_MSS\Teton_MSS.cxf"
 ENDFILE
 VALUE "<project>\simulation\testbench_presynth_simulation.log,log"
 STATE="utd"
-TIME="1372111363"
-SIZE="120181"
+TIME="1379356450"
+SIZE="120249"
 ENDFILE
 VALUE "<project>\simulation\top_tx_apb_if_wave.do,do"
 STATE="utd"
@@ -614,28 +618,33 @@ TIME="1371505819"
 SIZE="6910"
 ENDFILE
 VALUE "<project>\synthesis\PN_GENERATOR.edn,syn_edn"
-STATE="ood"
-TIME="1371067598"
-SIZE="117195"
+STATE="utd"
+TIME="1373043225"
+SIZE="118350"
 ENDFILE
 VALUE "<project>\synthesis\PN_GENERATOR.so,so"
 STATE="utd"
-TIME="1371067598"
+TIME="1373043225"
 SIZE="231"
+ENDFILE
+VALUE "<project>\synthesis\PN_GENERATOR_sdc.sdc,sdc"
+STATE="utd"
+TIME="1373043225"
+SIZE="401"
 ENDFILE
 VALUE "<project>\synthesis\PN_GENERATOR_syn.prj,prj"
 STATE="utd"
-TIME="1371067598"
+TIME="1373043226"
 SIZE="1432"
 ENDFILE
 VALUE "<project>\synthesis\Teton.edn,syn_edn"
 STATE="utd"
-TIME="1372111411"
-SIZE="4470600"
+TIME="1373062057"
+SIZE="4470599"
 ENDFILE
 VALUE "<project>\synthesis\Teton.so,so"
 STATE="utd"
-TIME="1372111411"
+TIME="1373062057"
 SIZE="217"
 ENDFILE
 VALUE "<project>\synthesis\Teton.vhd,syn_hdl"
@@ -645,13 +654,13 @@ SIZE="1913227"
 ENDFILE
 VALUE "<project>\synthesis\Teton_sdc.sdc,sdc"
 STATE="utd"
-TIME="1372111411"
+TIME="1373062057"
 SIZE="538"
 ENDFILE
 VALUE "<project>\synthesis\Teton_syn.prj,prj"
 STATE="utd"
-TIME="1372111413"
-SIZE="3390"
+TIME="1376670672"
+SIZE="3114"
 ENDFILE
 VALUE "<project>\synthesis\TX_APB_IF.edn,syn_edn"
 STATE="ood"
@@ -764,7 +773,9 @@ VALUE "<project>\stimulus\pn_generator_tb.vhd,tb_hdl"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\PN_GENERATOR.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -814,9 +825,8 @@ VALUE "<project>\component\work\Teton_MSS\mss_tshell_syn.sdc,sdc"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
-LiberoState=Post_Layout
+LiberoState=Post_Synthesis
 ideSYNTHESIS(<project>\synthesis\Teton.edn,syn_edn)=StateSuccess
-ideDESIGNER(<project>\designer\impl1\Teton.adb,adb)=StateSuccess
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -1012,35 +1022,28 @@ LIST Profiles
 NAME="SoftConsole"
 FUNCTION="SoftwareIDE"
 TOOL="SoftConsole"
-LOCATION="C:\Microsemi\Libero_v10.1\SoftConsole\Eclipse\eclipse.exe"
+LOCATION="C:\Microsemi\Libero_v11.1\SoftConsole\Eclipse\eclipse.exe"
 PARAM=""
 BATCH=0
 EndProfile
 NAME="Synplify Pro AE"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro AE"
-LOCATION="C:\Microsemi\Libero_v10.1\Synopsys\synplify_F201203MSP1\bin\synplify_pro.exe"
+LOCATION="C:\Microsemi\Libero_v11.1\Synopsys\synplify_H201303M1\bin\synplify_pro.exe"
 PARAM=""
 BATCH=0
 EndProfile
 NAME="ModelSim AE"
 FUNCTION="Simulation"
 TOOL="ModelSim"
-LOCATION="C:\Microsemi\Libero_v10.1\Model\win32acoem\modelsim.exe"
+LOCATION="C:\Microsemi\Libero_v11.1\Model\win32acoem\modelsim.exe"
 PARAM=""
-BATCH=0
-EndProfile
-NAME="WFL"
-FUNCTION="Stimulus"
-TOOL="WFL"
-LOCATION="syncad.exe"
-PARAM="-p waveform"
 BATCH=0
 EndProfile
 NAME="FlashPro"
 FUNCTION="Program"
 TOOL="FlashPro"
-LOCATION="C:\Microsemi\Libero_v10.1\Designer\bin\FlashPro.exe"
+LOCATION="C:\Microsemi\Libero_v11.1\Designer\bin\FlashPro.exe"
 PARAM=""
 BATCH=0
 EndProfile
@@ -1070,7 +1073,9 @@ ENDLIST
 ENDLIST
 LIST "PN_GENERATOR::work"
 LIST Impl1
+LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\PN_GENERATOR.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -1081,9 +1086,8 @@ ENDLIST
 ENDLIST
 LIST "Teton::work"
 LIST Impl1
-LiberoState=Post_Layout
+LiberoState=Post_Synthesis
 ideSYNTHESIS(<project>\synthesis\Teton.edn,syn_edn)=StateSuccess
-ideDESIGNER(<project>\designer\impl1\Teton.adb,adb)=StateSuccess
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -1212,7 +1216,7 @@ LIST OpenedFileList
 SmartDesign;Teton
 SmartDesign;Teton_MSS
 Reports;Reports
-ACTIVEVIEW;Reports
+ACTIVEVIEW;Teton_MSS
 ENDLIST
 LIST ModuleSubBlockList
 LIST "AFE_IF::work","hdl\afe_if.vhd","FALSE","FALSE"

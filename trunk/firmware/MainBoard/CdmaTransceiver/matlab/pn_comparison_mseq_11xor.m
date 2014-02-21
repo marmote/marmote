@@ -23,7 +23,7 @@ mseq_taps = { ...
 mseq_poly = cell(length(mseq_taps));
 
 seed = de2bi(hex2dec('401')); % 0x401
-mask = [zeros(1,mseq_order-1) 1]
+mask = [zeros(1,length(mseq_taps)-1) 1];
 
 % Export polynomials
 for ii = 1 : length(mseq_taps)
@@ -51,12 +51,35 @@ for ii = 1 : length(mseq_taps)
     for kk = 1 : length(s{ii})
         s{ii}(kk) = (h{ii}.generate*2)-1;
     end    
+
+    x = s{ii} > 0;    
+    N = length(x)
+    r = zeros(1,2*N-1);
+    for mm = 0 : N-1
+        for nn = 0 : N-mm-1
+            if xor(x(nn+mm+1), x(nn+1)) == 0
+                r(mm+N) = r(mm+N) + 1;
+            else
+                r(mm+N) = r(mm+N) - 1;
+            end
+        end
+        r(N-mm) = r(N+mm);
+    end
+    subplot(2,1,1)
+    plot(r)
+    title(sprintf('x: 0x%s %s max = %d', dec2hex(mseq_poly{ii}), mat2str(mseq_taps{ii}), max(xcorr(s{ii},s{ii}))))
+    fprintf(1, 'Auto-correlation max = %d [%d]\n', max(r), ii);
     
-%     plot(xcorr(s{ii},s{ii}))
-%     title(sprintf('0x%s %s max = %d', dec2hex(mseq_poly{ii}), mat2str(mseq_taps{ii}), max(xcorr(s{ii},s{ii}))))
-%     pause
-%     fprintf(1, 'Auto-correlation max = %d [%d]\n', max(xcorr(s{ii},s{ii})), ii);
+    pause
+    subplot(2,1,2)
+    plot(xcorr(s{ii},s{ii}))
+    title(sprintf('s: 0x%s %s max = %d', dec2hex(mseq_poly{ii}), mat2str(mseq_taps{ii}), max(xcorr(s{ii},s{ii}))))
+    fprintf(1, 'Auto-correlation max = %d [%d]\n', max(xcorr(s{ii},s{ii})), ii);
+    
+    return
 end
+
+return
 
 % Check cross-correlation
 max_val = 0;
