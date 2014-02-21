@@ -40,7 +40,7 @@ void Teton_init(void)
 	TX_CTRL->MASK = polynomial_masks[node_id];
 	TX_CTRL->SF = 8;
 	TX_CTRL->PRE_LEN = 2;
-	TX_CTRL->PAY_LEN = 8;
+	TX_CTRL->PAY_LEN = 20;
 
 	// Payload
 	lfsr_int(polynomial_masks[node_id], 0x01);

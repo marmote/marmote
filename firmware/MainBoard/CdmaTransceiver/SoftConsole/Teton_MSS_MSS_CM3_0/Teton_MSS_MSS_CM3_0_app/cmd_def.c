@@ -22,6 +22,8 @@ CMD_Type CMD_List[] =
 
 	{"reg",  	CmdReg},
 	{"freq", 	CmdFreq},
+	{"fi", 		CmdFreqInteger},
+	{"fa", 		CmdFreqAdjust},
 	{"txg", 	CmdTxGain},
 	{"txbw",  	CmdTxBw},
 	{"rxg", 	CmdRxGain},
@@ -444,6 +446,66 @@ uint32_t CmdFreq(uint32_t argc, char** argv)
 
 	// Send help message
 	Yellowstone_print("\nUsage: freq [<frequency value in MHz>]");
+	return 1;
+}
+
+uint32_t CmdFreqInteger(uint32_t argc, char** argv)
+{
+	long long freq;
+	char buf[128];
+
+	if (argc == 1)
+	{
+		sprintf(buf, "\r\nFrequency: %12u Hz", (unsigned int)Max2830_get_frequency());
+		Yellowstone_print(buf);
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		freq = atoll(*(argv+1));
+		if (freq || !strcmp(*(argv+1), "0"))
+		{
+			Max2830_set_frequency((uint32_t)freq);
+
+			sprintf(buf, "\r\nFrequency: %12u Hz", (unsigned int)Max2830_get_frequency());
+			Yellowstone_print(buf);
+			return 0;
+		}
+	}
+
+	// Send help message
+	Yellowstone_print("\nUsage: fi [<frequency value in Hz>]");
+	return 1;
+}
+
+uint32_t CmdFreqAdjust(uint32_t argc, char** argv)
+{
+	long freq;
+	char buf[128];
+
+	if (argc == 1)
+	{
+		sprintf(buf, "\r\nFrequency: %12u Hz", (unsigned int)Max2830_get_frequency());
+		Yellowstone_print(buf);
+		return 0;
+	}
+
+	if (argc == 2)
+	{
+		freq = atol(*(argv+1));
+		if (freq || !strcmp(*(argv+1), "0"))
+		{
+			Max2830_set_frequency(Max2830_get_frequency() + freq);
+
+			sprintf(buf, "\r\nFrequency: %12u Hz", (unsigned int)Max2830_get_frequency());
+			Yellowstone_print(buf);
+			return 0;
+		}
+	}
+
+	// Send help message
+	Yellowstone_print("\nUsage: fa [<frequency change in Hz>]");
 	return 1;
 }
 

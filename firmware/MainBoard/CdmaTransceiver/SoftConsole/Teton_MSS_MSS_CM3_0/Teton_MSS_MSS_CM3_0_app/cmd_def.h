@@ -43,6 +43,8 @@ uint32_t CmdClock(uint32_t argc, char** argv);
 // MAX 2830 commands
 uint32_t CmdReg(uint32_t argc, char** argv);
 uint32_t CmdFreq(uint32_t argc, char** argv);
+uint32_t CmdFreqInteger(uint32_t argc, char** argv);
+uint32_t CmdFreqAdjust(uint32_t argc, char** argv);
 uint32_t CmdTxGain(uint32_t argc, char** argv);
 uint32_t CmdTxBw(uint32_t argc, char** argv);
 uint32_t CmdRxGain(uint32_t argc, char** argv);
