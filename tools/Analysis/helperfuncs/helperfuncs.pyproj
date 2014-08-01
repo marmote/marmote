@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{54027d41-2ea8-4814-b479-4bc17a7cd2d0}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>test_wavelet.py</StartupFile>
+    <StartupFile>Statistics\MAP_2_model_fitting.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -30,8 +30,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AE_Clustering.py" />
-    <Compile Include="Clustering\Get_Clusters_From_Reach_Dist.py" />
-    <Compile Include="Clustering\Get_Growing_Clusters_From_Reach_Dist.py" />
     <Compile Include="Clustering\Optics_Clustering.py" />
     <Compile Include="Clustering\Plot_Clusters_Param.py" />
     <Compile Include="Clustering\Plot_Reach_Dist.py" />
@@ -71,7 +69,9 @@
     <Compile Include="Statistics\CalculateLinearRegression.py" />
     <Compile Include="Statistics\Estimate_Multivariate_Normal_Parameters.py" />
     <Compile Include="Statistics\Gen_MMCMC.py" />
+    <Compile Include="Statistics\Get_Empirical_CDF.py" />
     <Compile Include="Statistics\GMM_estimate_EM.py" />
+    <Compile Include="Statistics\MAP_2_model_fitting.py" />
     <Compile Include="Statistics\MultivariateNormalPDF.py" />
     <Compile Include="Statistics\Plot_2D_Hist_In_3D.py" />
     <Compile Include="Statistics\Plot_Surface_With_Colorbar.py" />
