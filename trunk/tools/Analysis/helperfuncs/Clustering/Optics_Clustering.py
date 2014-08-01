@@ -22,6 +22,14 @@ class Optics_Clustering:
 
     #########################################################################
     def Get_Distance( self, idx1, idx2 ):
+#        print "idx1"
+#        print idx1
+#        print "idx2"
+#        print idx2
+
+#        print "sqrt(result)"
+#        print np.linalg.norm( self.data[:,idx1] - self.data[:,idx2] )
+
         return np.linalg.norm( self.data[:,idx1] - self.data[:,idx2] )
 
 
@@ -36,7 +44,7 @@ class Optics_Clustering:
                 if dist <= self.epsilon:
                     neighbors = np.append( neighbors, np.array( (ii, dist), self.dtype ) )
 
-            self.neighbors_list[idx] = np.sort( neighbors, order='dist' )[1:] #To remove self distance
+            self.neighbors_list[idx] = np.sort( neighbors, order=['dist', 'idx'] )[1:] #To remove self distance
 
  #           print "Calculating neighbors for ", idx, ", it has ", len( self.neighbors_list[idx] ), "neighbors"
 
@@ -64,15 +72,38 @@ class Optics_Clustering:
 
         assert ( core_distance is not None ) and ( not math.isnan(core_distance) )
 
+#        print "U idx_in"
+#        print idx_in
+
+#        print "U neighbors.len"
+#        print len( neighbors )
+
+#        print "U core distance"
+#        print core_distance
+
+        i = 0
+
         for neighbor in neighbors:
             idx = neighbor['idx']
             dist = neighbor['dist']
 
+#            print "U i"
+#            print i
+
+#            print "U idx"
+#            print idx
+
+#            print "U dist"
+#            print dist
+
             # If point has already been processed don't bother 
             if self.processed[idx]:
+                i = i+1
                 continue
 
             new_reach_dist = max( core_distance, dist )
+#            print "new_reach_dist"
+#            print new_reach_dist
 
             seed_idx = np.where( ordered_seeds['idx'] == idx )[0]
 
@@ -81,7 +112,9 @@ class Optics_Clustering:
             else:
                 ordered_seeds[seed_idx] = np.array( (idx, min( ordered_seeds[seed_idx]['dist'], new_reach_dist )), self.dtype )
 
-        return np.sort( ordered_seeds, order='dist' )
+            i = i+1
+
+        return np.sort( ordered_seeds, kind='quicksort',  order=['dist', 'idx'] )
 
 
     #########################################################################
@@ -95,8 +128,17 @@ class Optics_Clustering:
             ordered_seeds = np.array( [ (ii, None) ], self.dtype )
 
             while len(ordered_seeds):
+#                for seedy in ordered_seeds:
+#                    print "ordered_seeds.list[ j ].idx"
+#                    print seedy['idx']
+#                    print "ordered_seeds.list[ j ].dist"
+#                    print seedy['dist']
+
                 idx = ordered_seeds[0]['idx']
                 reach_dist = None if math.isnan(ordered_seeds[0]['dist']) else ordered_seeds[0]['dist']
+
+#                print "Reach dist idx"
+#                print idx
 
                 ordered_seeds = ordered_seeds[1:]
 
@@ -108,7 +150,27 @@ class Optics_Clustering:
                 if not self.Is_Core_Object(idx):
                     continue
 
+#                print "ordered_seeds before"
+
+#                for seed in ordered_seeds:
+#                    print "idx"
+#                    print seed['idx']
+
+#                for seed in ordered_seeds:
+#                    print "dist"
+#                    print seed['dist']
+
                 ordered_seeds = self.Update_Ordered_Seeds( idx, ordered_seeds )
+
+#                print "ordered_seeds after"
+
+#                for seed in ordered_seeds:
+#                    print "idx"
+#                    print seed['idx']
+
+#                for seed in ordered_seeds:
+#                    print "dist"
+#                    print seed['dist']
 
         return self.reach_dists, self.data_idxs
 
@@ -418,4 +480,4 @@ if __name__ == "__main__":
                         epsilon = 1.5, 
                         min_pts = 4)
     reach_dists, idxs = OC.Generate_Reach_Dist()
-
+    OC.Get_Hierarchical_Clusters_Steepness()
