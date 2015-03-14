@@ -1,0 +1,76 @@
+# Functional #
+
+  * Should be able to identify itself to the host (USB) and the other boards (I<sup>2</sup>C)
+  * Should be able to program the FPGA on the MainBoard
+    * Bitstream may come from either USB or SD card
+  * Should be able to control the RadioBoard if connected directly (w/o the MainBoard)
+
+# Hardware #
+
+## Rev B ##
+
+  * Should have a 84-pin mezzanine connector on the top
+    * Simplifies connector placements on the MainBoard
+  * Mezzanine connector pinout should be "compatible" with that of the above layer (e.g. MainBoard to SensorBoard)
+    * GPIO pinout
+    * I<sup>2</sup>C bus pin locations
+    * SPI bus pin locations
+  * The reset jumper/button should be accessible from the side, when the board is stacked
+  * Consider solving the issue of USB re-enumeration (add pull-up resistor and remove after enumeration)
+  * All the requirements from Rev A (see below)
+
+## Rev A ##
+
+### Power Rails ###
+
+  * Should provide 1.5 V power rail for the FPGA
+  * Should provide 3.3 V power rail for the FPGA
+  * May provide 1.8 V power rail for the SRAM, radio chip and/or other peripherals
+
+
+### Programmer Logic ###
+
+  * Must be able to program the FPGA on the MainBoard
+  * Must be able to receive bitstream file through USB
+    * May provide a mass-storage-like interface
+  * Should be able to retrieve bitstream file from the SD card
+  * Must support an open bitstream file format
+
+
+### Data acquisition ###
+
+  * Must be able to read data samples from the FPGA
+  * Should be able to read from and write to the SD card
+  * Must be able to transfer data samples back through USB
+    * Should provide an audio class interface for slower, continuous streaming
+    * Should provide bulk transfer mode to retrieve buffered (from external memory on the MainBoard)
+
+
+---
+
+
+# Software #
+
+## Rev B ##
+
+  * Should be able to control the [RadioBoard](http://code.google.com/p/marmote/wiki/RadioBoardRequirement) directly through the GPIO pins and the SPI and I<sup>2</sup>C buses
+
+## Rev A ##
+
+  * May be able to program the SmartFusion through the GPIO -> JTAG pins with a STAPL player
+
+_Note: The "Software" section below should go somewhere else._
+
+  * The software should utilize a simple OS
+    * [FreeRTOS](http://www.freertos.org/index.html?http://interactive.freertos.org/entries/126315-stm32-with-gcc-and-eclipse)
+    * [ChibiOS](http://www.chibios.org/dokuwiki/doku.php?id=start),
+    * [eCos](http://ecos.sourceware.org/)
+    * [CooCox](http://www.coocox.org/)
+    * [Other](https://sites.google.com/site/stm32discovery/stm32-resources-and-links/open-source-real-time-operating-systems-for-the-stm32-and-cortex-m3-mpus)
+  * The OS should
+    * support both ST32 and SmartFusion ARM Cortex M3
+    * support CMSIS HAL
+    * have no licensing issues
+    * come with decent IDE and debug tools (Eclipse preferred)
+    * be easy to use with SPI/FAT for the SD card (nice to have)
+    * be easy to use with USB

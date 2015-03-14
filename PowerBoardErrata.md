@@ -1,0 +1,43 @@
+# Rev C #
+
+## Notes ##
+
+  * No PWM-enabled timers are connected to the LEDs
+
+# Rev B #
+
+## Errata ##
+
+  * DONE - Only 4 DGND pins left out of 6 on mezzanine (2 became IO pins)
+  * DONE - Silkscreen labels D1V5 and D3V3 are swapped
+  * DONE - VBUS measurement point not assembled
+  * DONE - SW2 name missing, needs caption (silk screen)
+  * DONE - Power input needs description (silk screen)
+
+## Notes ##
+
+  * Reset push button is easier to handle a looks better than the jumper
+  * BOOT select switch is easier to handle a looks better than the jumper
+
+
+---
+
+
+# Rev A #
+
+## Errata ##
+
+  * USB D+ line pull-up resistor R<sub>PU</sub> seems to be missing
+  * Battery gauge I<sup>2</sup>C lines may get stuck if not powered up properly
+
+## Notes ##
+
+  * Via test points on important lines are useful
+  * Reset jumper seems to be valuable (reset test)
+  * Temporary MCO connection seems to be useful (R=0)
+  * A push button might have been more useful than a jumper for NRST
+  * TRACESWO would have been useful to be connected to the board-to-board connector as a GPIO (it's fault tolerant and has no special limitations)
+  * Test points (especially GNDs) would be more useful on the side of the board
+  * USB D+ line pull-up resistor R<sub>PU</sub> seems to be missing
+  * PWRGD seems to be useless at first sight, consider connecting the GPIO pin to CHRG in Rev B
+  * The 64-pin mezzanine connector through-hole drills make the use of a larger pin count connector for the upper layers complicated (e.g. consider replacing it with the same connector used on the top level)

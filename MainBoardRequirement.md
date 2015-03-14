@@ -1,0 +1,156 @@
+# Rev B #
+
+## Debug ##
+
+  * **Consider using the SmartFusion internal 1.5V regulator to support _Sleep_ and _Power Down_ modes** (dropped this requirement)
+  * **Consider connecting the _PU\_N_ button to the microcontroller on the Yellowstone power supply board (South Bridge connector)** (connected through a 0Ohm resisitor)
+  * Rename 'SHDN\_n' signals to 'EN' (dropped this requirement)
+  * ~~Consider having a USB data stream and control interface at the same time~~
+    * ~~Connect FT232H ACBUS[9:8] to a MSS UART pins and implement a UART transmitter in SW.~~
+    * ~~Double check if the above approach makes sense.~~
+
+  * Consider replacing the programmer connector with a right-angle one (N/A at Digi-Key or Mouser)
+  * Correct [R14](https://code.google.com/p/marmote/source/detail?r=14) to DNP in BOM file **(fixed)**
+
+
+
+---
+
+
+# Rev A #
+
+# Power Supply #
+
+  * The FPGA should use the power rails from the Power Board
+  * The FPGA may have a button-battery for RTC
+  * May assume 1.8 V or 2.5 V on the reserved power rail and bypass it to the sensor board
+  * ~~Components that might benefit of the presence of a 2.5 V rail:~~
+    * ~~SRAM~~
+    * ~~ADC~~
+    * ~~Ethernet~~
+  * The FPGA should optionally use its internal 1.5 V regulator (0 Ohm resistor or jumper)
+
+# Clock Subsystem #
+
+  * External clock synchronization (Multiple nodes should be able to synchronize their FPGA clock(s) to each other)
+
+  * Candidate clock buffers:
+| **Vendor** | **Model** | **Input** | **Output** | **Supply** | **Frequency** |
+|:-----------|:----------|:----------|:-----------|:-----------|:--------------|
+| IDT | [83021I](http://www.idt.com/sites/default/files/documents/IDT_83021I_DST_20100103.pdf) | D LVCMOS/LVTTL | SE | 3.3 V |
+| TI | [CDCS503PW](http://www.ti.com/lit/ds/symlink/cdcs503.pdf) | SE LVCMOS | SE | 3.3 V |
+| TI | **[LMV112](http://www.ti.com/lit/ds/symlink/lmv112.pdf)** | SE LVCMOS | SE | 3.3 V | 40 MHz |
+| TI | **[LMH2180](http://www.ti.com/lit/ds/symlink/lmh2180.pdf)** | SE LVCMOS | SE | 3.3 V | 75 MHz |
+| STM | [STCD1020](http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/DATASHEET/CD00168561.pdf) | SE LVCMOS | SE | 3.3 V |
+
+  * A TCVCXO should be available to provide clock for the FPGA and LO
+  * RTC
+
+| **Vendor** | **Model** | **Frequency** | **Supply voltage** | **Supply current (max)** | **Frequency stability** | **Comment** |
+|:-----------|:----------|:--------------|:-------------------|:-------------------------|:------------------------|:------------|
+| Fox | FOX924B-20.000 | 20 MHz | 3.3 V | 6 mA | 2.5 ppm | Reasonable |
+| Connor-Winfield | D53G-020.0M | 20 MHz | 3.3 V | 2 mA | 0.5 ppm | Low-power and expensive |
+| Connor-Winfield | D75A-020.0M | 20 MHz | 3.3 V | 6 mA | 0.28 ppm | Precise and expensive |
+| Abracon | ASVTX11-20.000MHZ-T | 20 MHz | 3.3 V | 1.75 mA | 2.5 ppm | N/A, TCVCXO, [Mouser](http://mouser.com/search/ProductDetail.aspx?qs=76dmnhCH%2fMO%2fVaiaelIPwQ%3d%3d&amp;cm_mmc=findchips-_-na-_-na-_-na), [Datasheet](http://www.abracon.com/Oscillators/ASTX11_ASVTX11.pdf) |
+
+_Note: as the selection in 20 MHz 3.3 V oscillators is very limited, consider using an LDO with a 3.0 V oscillator variant._
+
+# Programmer logic #
+
+  * The FPGA and the uC should be programmable by the PowerBoard
+  * The FPGA and the uC should be programmable directly via JTAG
+  * The above two should not conflict (e.g. multiplexer should be used)
+  * Consider relying on IAP through SPI (preferred) or Ethernet
+
+
+# Reset Logic #
+
+  * The PowerBoard should be able to reset the FPGA
+  * The FPGA should have an external reset (e.g. push-button or jumper)
+    * Consider adding an external reset circuit (DS1818, TCM809)
+
+# Wake-up Logic #
+
+  * The FPGA/uC should be able to weak up on an external signal from the sensor board (e.g. consider connecting it to a pin with analog comparator or Flash\*Freeze-like functionality)
+    * Consider adding a wake-up functionality from the Power Board
+
+# Interfaces #
+
+## Debug ##
+  * Killer application: Battery life display
+  * UART/SPI/I<sup>2</sup>C interface
+    * Serial debugging
+    * External display (e.g. battery life)
+  * LEDs (at least 2)
+  * Push button (reset, 1 or 2 user)
+
+## Analog Front-End / Sensor Board ##
+
+  * Should support 4 ADCs with at least 1 MSPS for sensor hookup
+  * Should have a ADC with at least 4 MSPS (?) for RF RX
+  * Should have a DAC with at least 4 MSPS for RF TX
+  * The RF RX and sensor ADCs may be shared
+  * The ADCs and DAC(s) should use differential analog signals
+  * ADCs and DACs should have power down mode
+  * ADCs and DACs should have adjustable clock rate (power consumption)
+  * We might need to consider the UMich (Prabal) approach (high speed ADC/DAC to be used with integrated WiFi RF frontend)
+  * Consider adding external DDC(s) and DUC(s)
+    * Note: Adding a DDC might increase the response time of SmartFusion to the RF signals
+    * Note: If a DDC is used, it has to be added to all four channels (AE)
+    * Check on ADCs/DACs with integrated DDC and DUC
+  * Use ADCs with some testing capabilities (e.g. test pattern mode)
+
+Note: The maximum SmartFusion processable sampling rate should be determined prior to selecting the ADCs and DAC(s).
+
+Candidate ICs:
+
+**ADC**
+
+  * [Analog Devices - AD9288](http://www.analog.com/static/imported-files/data_sheets/AD9288.pdf) (Dual, 8-bit 40/80/100 MHz ADC, 3.3V)
+  * [Analog Devices - AD7352](http://www.analog.com/static/imported-files/data_sheets/AD7352.pdf) (Differential, Dual, 12-bit, 3 MSPS, SAR ADC, **2.5V (!)** )
+  * [Maxim - MAX19706](http://www.maxim-ic.com/datasheet/index.mvp/id/5032) (Differential, Dual + 3, 10-bit, 22 MSPS, **3.0V**)
+
+**DAC**
+
+  * [Maxim - MAX5186](http://datasheets.maxim-ic.com/en/ds/MAX5186-MAX5189.pdf) (Dual, 8-bit, 40 MHz DAC, 3.3V)
+  * [Maxim - MAX19706](http://www.maxim-ic.com/datasheet/index.mvp/id/5032) (Differential, Dual + 2, 10-bit/12-bit, 22 MSPS, **3.0V**)
+
+## Local components ##
+
+  * Consider adding a temperature sensor ([STLM20](http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/DATASHEET/CD00119601.pdf))
+
+# External memory #
+
+**~~Volatile~~**
+  * ~~An external SRAM or DRAM (preferred) memory should be connected to the FPGA's high speed external memory interface~~
+  * ~~The memory should operate on the SmartFusion 1.5V (preferred) or 3.0V rail~~
+  * ~~The memory should provide a stand-by and quick wake-up mode~~
+**~~Non-volatile (optional)~~**
+  * ~~An external FLASH memory may be connected to the SmartFusion~~
+  * ~~The memory should be >2 MB (8 MB preferred)~~
+  * ~~Simply adding footprint or leaving board-space may be sufficient for Rev A~~
+
+_The external memory has been replaced with a simple high-speed external interface._
+
+# Instrumentation #
+
+  * A high-speed external interface should be included for direct access of the ADC and DAC signals
+
+# Connectors #
+
+  * External clock sync connector
+  * JTAG connector (consider using the compact ISP programming header recommended by Actel: Samtec FTSH-105-01-L-D-K)
+  * Mezzanine connectors
+    * Consider adding a Mezzanine connector with pin count greater than 64
+  * Low-profile RJ-45 connector (optionally a footprint might suffice)
+  * Simple connector or vias for an UART debug port
+
+
+# Optional (Rev B) #
+
+  * MainBoard power supply (3.3V, 1.5V, VSUP)
+  * Current monitor on all rails and voltage monitor on VSUP (SmartFusion, see [Rev 653](http://marmote.googlecode.com/svn-history/r653/trunk/hardware/MainBoard/MainBoard.sch))
+  * Battery operation
+  * Charging through USB
+  * External 5V power input as connector
+  * JTAG programming through FTDI chip (add analog multiplexer)

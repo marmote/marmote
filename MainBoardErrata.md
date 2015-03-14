@@ -1,0 +1,29 @@
+# Rev B #
+
+## Minor issues ##
+
+  * Only 4 DGND pins remained on mezzanine connector (2 of the former 6 DGNDs became I/O pins)
+
+# Rev A #
+
+## Major issues ##
+
+  * PWRSAV is incorrectly connected (connected to nothing instead of VBUS) **(fixed)**
+    * _Library issue: VBUS pin is called VBAT_
+  * RJ-45 connector magnetic topology seems to be incorrect **(fixed)**
+  * Ethernet PHY R<sub>bias</sub> resistor value is 4.87 Ohm instead of 4.87 kOhm (BOM typo) **(fixed)**
+  * ~~Consider swapping the SPI0 MISO and MOSI lines if the SmartFusion is to be used as a slave peripheral~~
+  * Component [R14](https://code.google.com/p/marmote/source/detail?r=14) is not supposed to be populated (BOM file error) **(fixed)**
+  * [R7](https://code.google.com/p/marmote/source/detail?r=7) and C5 components are labeled incorrectly (swapped) in the assembly drawing **(fixed)**
+
+
+## Minor issues ##
+
+  * 'USB' silkscreen label next to a D3V3 test point is misleading **(fixed)**
+  * RJ45 silkscreen-footprint is larger than the actual device **(fixed)**
+  * The right-angle push buttons could be slightly (1 mm) closer to the board edge
+  * The right-angle LEDs could be slightly (1 mm) closer to the board edge
+  * The 50 MHz ETH OSC pins are inaccessible **(fixed)**
+  * The programmer is hard to connect when the board is stacked
+
+  * Further scope accessible FPGA I/O pins (test points) would be useful (_Note: The low pin count of the current FBGA256 package did not make this possible_)

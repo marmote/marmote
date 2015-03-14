@@ -1,0 +1,14 @@
+# DAC operating range #
+
+| **Digital input** | **Single-ended output** |
+|:------------------|:------------------------|
+|  0x000  |  1.40 V  |
+|   ...   |   ...    |
+|  0x200  |  1.62 V  |
+|   ...   |   ...    |
+|  0x3FF  |  1.85 V  |
+
+
+# ADC operating range #
+
+TBD
